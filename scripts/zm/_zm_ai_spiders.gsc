@@ -354,7 +354,7 @@ function function_7c1ef59b()
 	self.custom_player_shellshock = &function_c685a92b;
 	self.team = level.zombie_team;
 	self.missinglegs = 0;
-	self.thundergun_knockdown_func = &function_96d38ff4;
+	self.thundergun_knockdown_func = &spider_thundergun_knockdown;
 	self.lightning_chain_immune = 1;
 	self.heroweapon_kill_power = 1;
 	self thread zombie_utility::round_spawn_failsafe();
@@ -388,7 +388,7 @@ function function_747a2fea()
 }
 
 /*
-	Name: function_96d38ff4
+	Name: spider_thundergun_knockdown
 	Namespace: zm_ai_spiders
 	Checksum: 0x8C223BFE
 	Offset: 0x1B20
@@ -396,7 +396,7 @@ function function_747a2fea()
 	Parameters: 2
 	Flags: Linked
 */
-function function_96d38ff4(e_player, gib)
+function spider_thundergun_knockdown(e_player, gib)
 {
 	self endon(#"death");
 	n_damage = int(self.maxhealth * 0.5);
