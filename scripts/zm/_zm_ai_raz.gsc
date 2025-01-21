@@ -109,7 +109,7 @@ function init()
 	level thread aat::register_immunity("zm_aat_fire_works", "raz", 1, 1, 1);
 	level thread aat::register_immunity("zm_aat_thunder_wall", "raz", 1, 1, 1);
 	level thread aat::register_immunity("zm_aat_turned", "raz", 1, 1, 1);
-	function_e099c556();
+	raz_spawner_init();
 	level thread function_ff9b21c4();
 }
 
@@ -160,7 +160,7 @@ function enable_raz_rounds()
 }
 
 /*
-	Name: function_e099c556
+	Name: raz_spawner_init
 	Namespace: zm_ai_raz
 	Checksum: 0x7F78B32B
 	Offset: 0x990
@@ -168,7 +168,7 @@ function enable_raz_rounds()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e099c556()
+function raz_spawner_init()
 {
 	level.var_6bca5baa = getentarray("zombie_raz_spawner", "script_noteworthy");
 	if(level.var_6bca5baa.size == 0)
