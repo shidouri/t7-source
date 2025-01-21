@@ -538,9 +538,9 @@ function function_a1d75eeb()
 {
 	var_89de5b91 = getentarray("zombie_raz", "targetname");
 	var_c55cf881 = var_89de5b91.size;
-	foreach(var_1c963231 in var_89de5b91)
+	foreach(ai_raz in var_89de5b91)
 	{
-		if(!isalive(var_1c963231))
+		if(!isalive(ai_raz))
 		{
 			var_c55cf881--;
 		}

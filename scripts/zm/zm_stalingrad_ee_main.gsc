@@ -5659,10 +5659,10 @@ function function_9b3c25cd(n_value)
 {
 	/#
 		s_capture_point = struct::get("", "");
-		var_1c963231 = zombie_utility::spawn_zombie(level.var_6bca5baa[0], "", s_capture_point);
-		var_1c963231 ai::set_ignoreall(1);
+		ai_raz = zombie_utility::spawn_zombie(level.var_6bca5baa[0], "", s_capture_point);
+		ai_raz ai::set_ignoreall(1);
 		wait(1);
-		function_694a61ea(var_1c963231);
+		function_694a61ea(ai_raz);
 	#/
 }
 
