@@ -682,13 +682,13 @@ function function_3c03253d(var_aad66aa4, var_7364b0dd)
 */
 function function_c5e710f7()
 {
-	var_f1d8a1fc = self.target_enemy;
+	e_mechz = self.target_enemy;
 	self endon(#"death");
 	self endon(#"hash_368634cd");
-	var_f1d8a1fc endon(#"death");
+	e_mechz endon(#"death");
 	while(true)
 	{
-		var_e388672 = isdefined(var_f1d8a1fc.has_faceplate) && (var_f1d8a1fc.has_faceplate ? 6 : 1);
+		var_e388672 = isdefined(e_mechz.has_faceplate) && (e_mechz.has_faceplate ? 6 : 1);
 		var_85b50675 = anglestoforward(self.target_enemy.angles) * var_e388672;
 		self.origin = self.target_enemy gettagorigin("j_faceplate") + var_85b50675;
 		self.angles = vectortoangles(var_85b50675 * -1);
