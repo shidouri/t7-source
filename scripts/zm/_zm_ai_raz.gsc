@@ -126,16 +126,16 @@ function function_6fdcefe3(str_event, str_mod, str_hit_location, var_48d0b2fe, v
 {
 	if(str_event === "death_raz")
 	{
-		var_1fdfc3ef = zm_score::get_zombie_death_player_points();
+		n_player_points = zm_score::get_zombie_death_player_points();
 		var_2d175949 = self zm_score::player_add_points_kill_bonus(str_mod, str_hit_location, var_2f7fd5db);
-		var_1fdfc3ef = (var_1fdfc3ef + var_2d175949) * 2;
+		n_player_points = (n_player_points + var_2d175949) * 2;
 		if(str_mod == "MOD_GRENADE" || str_mod == "MOD_GRENADE_SPLASH")
 		{
 			self zm_stats::increment_client_stat("grenade_kills");
 			self zm_stats::increment_player_stat("grenade_kills");
 		}
 		scoreevents::processscoreevent("kill_raz", self, undefined, var_2f7fd5db);
-		return var_1fdfc3ef;
+		return n_player_points;
 	}
 	return 0;
 }
