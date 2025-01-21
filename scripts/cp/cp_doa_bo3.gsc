@@ -1062,19 +1062,19 @@ function function_2fb9e83f()
 	level endon(#"hash_2fb9e83f");
 	level endon(#"hash_ec7ca67b");
 	wait(60);
-	var_2c8bf5cd = math::clamp(level.doa.var_da96f13c + 1, 0, 3);
-	level.doa.var_2c8bf5cd = [];
-	while(var_2c8bf5cd > 0)
+	margwas = math::clamp(level.doa.var_da96f13c + 1, 0, 3);
+	level.doa.margwas = [];
+	while(margwas > 0)
 	{
 		loc = doa_utility::function_ada6d90();
-		level.doa.var_2c8bf5cd[level.doa.var_2c8bf5cd.size] = namespace_51bd792::margwaspawn(loc);
-		var_2c8bf5cd--;
+		level.doa.margwas[level.doa.margwas.size] = namespace_51bd792::margwaspawn(loc);
+		margwas--;
 		wait(30);
 	}
-	while(level.doa.var_2c8bf5cd.size > 0)
+	while(level.doa.margwas.size > 0)
 	{
-		level.doa.var_2c8bf5cd = array::remove_undefined(level.doa.var_2c8bf5cd);
-		if(level.doa.var_2c8bf5cd.size == 0)
+		level.doa.margwas = array::remove_undefined(level.doa.margwas);
+		if(level.doa.margwas.size == 0)
 		{
 			level flag::clear("doa_round_active");
 			break;

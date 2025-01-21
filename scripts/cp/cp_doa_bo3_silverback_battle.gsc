@@ -225,9 +225,9 @@ function function_fc48f9f3()
 	level.doa.boss = undefined;
 	level flag::set("doa_round_abort");
 	level flag::clear("doa_round_active");
-	if(isdefined(level.doa.var_2c8bf5cd))
+	if(isdefined(level.doa.margwas))
 	{
-		foreach(margwa in level.doa.var_2c8bf5cd)
+		foreach(margwa in level.doa.margwas)
 		{
 			margwa kill(margwa.origin);
 		}

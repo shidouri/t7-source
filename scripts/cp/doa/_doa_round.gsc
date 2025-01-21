@@ -666,10 +666,10 @@ function function_87703158(var_372a8daa = 0)
 			break;
 		}
 		var_9805ff33 = (isdefined(level.doa.boss) ? 1 : 0);
-		if(!var_9805ff33 && isdefined(level.doa.var_2c8bf5cd))
+		if(!var_9805ff33 && isdefined(level.doa.margwas))
 		{
-			level.doa.var_2c8bf5cd = array::remove_undefined(level.doa.var_2c8bf5cd);
-			var_9805ff33 = level.doa.var_2c8bf5cd.size > 0;
+			level.doa.margwas = array::remove_undefined(level.doa.margwas);
+			var_9805ff33 = level.doa.margwas.size > 0;
 		}
 		if(isdefined(level.doa.var_155f5b81))
 		{

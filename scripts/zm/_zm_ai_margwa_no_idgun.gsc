@@ -1318,8 +1318,8 @@ function private function_a2da506b(cmd)
 {
 	/#
 		players = getplayers();
-		var_2c8bf5cd = getentarray("", "");
-		margwa = arraygetclosest(getplayers()[0].origin, var_2c8bf5cd);
+		margwas = getentarray("", "");
+		margwa = arraygetclosest(getplayers()[0].origin, margwas);
 		switch(cmd)
 		{
 			case "":
