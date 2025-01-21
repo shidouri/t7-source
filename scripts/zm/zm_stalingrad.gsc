@@ -1319,7 +1319,7 @@ function function_33aa4940()
 		n_roll = randomint(100);
 		if(level.round_number < 11 || n_roll < 50)
 		{
-			if(zm_ai_raz::function_ea911683() && level.var_88fe7b16 < level.var_d60a655e && zm_ai_raz::special_raz_spawn(1) == 1)
+			if(zm_ai_raz::can_spawn_raz() && level.var_88fe7b16 < level.var_d60a655e && zm_ai_raz::special_raz_spawn(1) == 1)
 			{
 				level.var_88fe7b16++;
 				level.zombie_total--;

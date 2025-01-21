@@ -419,7 +419,7 @@ function function_b8671cc0(s_spot)
 */
 function spawn_raz()
 {
-	while(!function_ea911683())
+	while(!can_spawn_raz())
 	{
 		wait(0.1);
 	}
@@ -585,7 +585,7 @@ function function_bcbbda54()
 }
 
 /*
-	Name: function_ea911683
+	Name: can_spawn_raz
 	Namespace: zm_ai_raz
 	Checksum: 0x2E506707
 	Offset: 0x1688
@@ -593,7 +593,7 @@ function function_bcbbda54()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ea911683()
+function can_spawn_raz()
 {
 	var_c55cf881 = get_current_raz_count();
 	var_f0ab435a = function_bcbbda54();
@@ -928,7 +928,7 @@ function special_raz_spawn(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0, var_
 	n_spawned = 0;
 	while(n_spawned < n_to_spawn)
 	{
-		if(!b_force_spawn && !function_ea911683())
+		if(!b_force_spawn && !can_spawn_raz())
 		{
 			return n_spawned;
 		}
