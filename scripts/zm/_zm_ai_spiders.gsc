@@ -830,7 +830,7 @@ function function_123b370a()
 		level.var_8276ee15 = 0;
 	}
 	level.var_8276ee15 = 0;
-	level notify(#"hash_daeb2e4f");
+	level notify(#"spider_round_ending");
 	setdvar("ai_meleeRange", level.melee_range_sav);
 	setdvar("ai_meleeWidth", level.melee_width_sav);
 	setdvar("ai_meleeHeight", level.melee_height_sav);
