@@ -191,8 +191,8 @@ function function_aea74ccd()
 		{
 			wait(1);
 		}
-		var_225347e1 = function_8bcb72e9(1);
-		if(isdefined(var_225347e1))
+		ai_margwa = function_8bcb72e9(1);
+		if(isdefined(ai_margwa))
 		{
 			var_e0191376--;
 		}
@@ -294,22 +294,22 @@ function function_8bcb72e9(var_8f401985, s_loc)
 		}
 		s_loc = array::random(level.zm_loc_types["margwa_location"]);
 	}
-	var_225347e1 = zm_ai_margwa::spawn_margwa(s_loc);
-	var_225347e1.var_26f9f957 = &function_26f9f957;
-	level.var_95981590 = var_225347e1;
+	ai_margwa = zm_ai_margwa::spawn_margwa(s_loc);
+	ai_margwa.var_26f9f957 = &function_26f9f957;
+	level.var_95981590 = ai_margwa;
 	level notify(#"hash_c484afcb");
-	if(isdefined(var_225347e1))
+	if(isdefined(ai_margwa))
 	{
-		var_225347e1.b_ignore_cleanup = 1;
-		var_225347e1 thread function_8d578a58();
+		ai_margwa.b_ignore_cleanup = 1;
+		ai_margwa thread function_8d578a58();
 		n_health = (level.round_number * 100) + 100;
-		var_225347e1 margwaserverutils::margwasetheadhealth(n_health);
+		ai_margwa margwaserverutils::margwasetheadhealth(n_health);
 	}
 	if(!(isdefined(var_8f401985) && var_8f401985))
 	{
 		level.var_bf361dc0 = level.round_number + randomintrange(5, 7);
 	}
-	return var_225347e1;
+	return ai_margwa;
 }
 
 /*

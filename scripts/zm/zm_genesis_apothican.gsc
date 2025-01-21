@@ -1055,27 +1055,27 @@ function function_cc6165b0(str_type = "random", var_6ac86802 = 0)
 	{
 		case "fire":
 		{
-			var_225347e1 = level thread zm_ai_margwa_elemental::function_75b161ab(undefined, self);
+			ai_margwa = level thread zm_ai_margwa_elemental::function_75b161ab(undefined, self);
 			break;
 		}
 		case "shadow":
 		{
-			var_225347e1 = level thread zm_ai_margwa_elemental::function_26efbc37(undefined, self);
+			ai_margwa = level thread zm_ai_margwa_elemental::function_26efbc37(undefined, self);
 			break;
 		}
 		default:
 		{
-			var_225347e1 = level thread zm_ai_margwa::spawn_margwa(self);
+			ai_margwa = level thread zm_ai_margwa::spawn_margwa(self);
 		}
 	}
-	if(isdefined(var_225347e1))
+	if(isdefined(ai_margwa))
 	{
-		var_225347e1.var_9f6fbb95 = 1;
+		ai_margwa.var_9f6fbb95 = 1;
 		level.var_2306bf38++;
 		level.var_71630d50++;
 		if(var_6ac86802)
 		{
-			var_225347e1.var_6ac86802 = var_6ac86802;
+			ai_margwa.var_6ac86802 = var_6ac86802;
 			level.var_c15eb311++;
 		}
 	}

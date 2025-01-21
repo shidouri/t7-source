@@ -1961,9 +1961,9 @@ function function_1af15c36()
 	self endon(#"disconnect");
 	while(true)
 	{
-		self waittill(#"margwa_headshot", var_225347e1);
+		self waittill(#"margwa_headshot", ai_margwa);
 		var_3c161673 = 0;
-		foreach(s_head in var_225347e1.head)
+		foreach(s_head in ai_margwa.head)
 		{
 			if(s_head.health > 0)
 			{

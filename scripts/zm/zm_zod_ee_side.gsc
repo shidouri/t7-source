@@ -1227,12 +1227,12 @@ function function_51b665f0()
 	Parameters: 1
 	Flags: Linked
 */
-function function_e8628610(var_225347e1)
+function function_e8628610(ai_margwa)
 {
 	if(isdefined(self.var_d89174ae) && self.var_d89174ae)
 	{
 		n_damage = 166 * 0.75;
-		self dodamage(n_damage, var_225347e1.origin);
+		self dodamage(n_damage, ai_margwa.origin);
 		return true;
 	}
 	return false;

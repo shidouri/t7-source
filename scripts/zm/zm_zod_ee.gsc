@@ -731,12 +731,12 @@ function function_9b59ab6()
 		{
 			wait(1);
 		}
-		var_225347e1 = zm_zod_margwa::function_8bcb72e9(0);
-		if(isdefined(var_225347e1))
+		ai_margwa = zm_zod_margwa::function_8bcb72e9(0);
+		if(isdefined(ai_margwa))
 		{
-			var_225347e1.no_powerups = 1;
-			var_225347e1 clientfield::set("supermargwa", 1);
-			level thread function_91b5dbe8(var_225347e1);
+			ai_margwa.no_powerups = 1;
+			ai_margwa clientfield::set("supermargwa", 1);
+			level thread function_91b5dbe8(ai_margwa);
 		}
 		wait(9);
 	}
@@ -824,11 +824,11 @@ function function_91c4dc69()
 	Parameters: 1
 	Flags: Linked
 */
-function function_91b5dbe8(var_225347e1)
+function function_91b5dbe8(ai_margwa)
 {
 	level endon(#"ee_final_boss_defeated");
-	var_225347e1 waittill(#"death");
-	v_origin = var_225347e1.origin;
+	ai_margwa waittill(#"death");
+	v_origin = ai_margwa.origin;
 	zm_altbody_beast::function_f6014f2c(v_origin, 3);
 	function_224a2f3e();
 }
