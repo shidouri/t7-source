@@ -1450,9 +1450,9 @@ function special_sentinel_spawn(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0,
 		}
 		else
 		{
-			if(isdefined(level.var_809d579e))
+			if(isdefined(level.sentinel_spawn_func))
 			{
-				s_spawn_loc = [[level.var_809d579e]](level.var_fda4b3f3);
+				s_spawn_loc = [[level.sentinel_spawn_func]](level.var_fda4b3f3);
 			}
 			else
 			{

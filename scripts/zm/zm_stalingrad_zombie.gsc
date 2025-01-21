@@ -722,12 +722,12 @@ function function_9b4d9341()
 		}
 		if(var_a62c1873 > 0)
 		{
-			level.var_809d579e = &function_8b981aa0;
+			level.sentinel_spawn_func = &function_8b981aa0;
 			level thread function_a442e988(var_110db1be);
 		}
 		else
 		{
-			level.var_809d579e = undefined;
+			level.sentinel_spawn_func = undefined;
 			wait(15);
 			continue;
 		}
