@@ -812,7 +812,7 @@ function function_4749ab89()
 	{
 		self.health = self.maxhealth;
 	}
-	self thread function_f8080b7();
+	self thread raz_death();
 	level thread zm_spawner::zombie_death_event(self);
 	self thread zm_spawner::enemy_death_detection();
 	self zm_spawner::zombie_history(("zombie_raz_spawn_init -> Spawned = ") + self.origin);
@@ -823,7 +823,7 @@ function function_4749ab89()
 }
 
 /*
-	Name: function_f8080b7
+	Name: raz_death
 	Namespace: zm_ai_raz
 	Checksum: 0x39F6A300
 	Offset: 0x1ED0
@@ -831,7 +831,7 @@ function function_4749ab89()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f8080b7()
+function raz_death()
 {
 	self waittill(#"death", attacker);
 	self thread zombie_utility::zombie_eye_glow_stop();
