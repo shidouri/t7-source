@@ -95,7 +95,7 @@ function register_clientfields()
 function init()
 {
 	zm::register_player_damage_callback(&function_94372a17);
-	level.var_2e815d61 = 1;
+	level.b_raz_enabled = 1;
 	level.var_629d0743 = 0;
 	level.n_raz_round_count = 1;
 	level.var_b9ce6312 = 0;
@@ -1188,7 +1188,7 @@ function function_9a80ee5f()
 function function_e115a394(n_raz)
 {
 	/#
-		if(!isdefined(level.var_2e815d61) || !level.var_2e815d61)
+		if(!isdefined(level.b_raz_enabled) || !level.b_raz_enabled)
 		{
 			return;
 		}
