@@ -359,7 +359,7 @@ function function_a33bc00f()
 				util::wait_network_frame();
 				continue;
 			}
-			function_45bace88();
+			spawn_raz();
 			util::wait_network_frame();
 		}
 		util::wait_network_frame();
@@ -409,7 +409,7 @@ function function_b8671cc0(s_spot)
 }
 
 /*
-	Name: function_45bace88
+	Name: spawn_raz
 	Namespace: zm_ai_raz
 	Checksum: 0x937CFA31
 	Offset: 0x1208
@@ -417,7 +417,7 @@ function function_b8671cc0(s_spot)
 	Parameters: 0
 	Flags: Linked
 */
-function function_45bace88()
+function spawn_raz()
 {
 	while(!function_ea911683())
 	{
