@@ -333,7 +333,7 @@ function raz_round_spawning()
 	{
 		return;
 	}
-	array::thread_all(level.players, &function_bdf13070);
+	array::thread_all(level.players, &play_raz_round);
 	n_wave_count = function_852019c2();
 	function_a67ada8();
 	level.zombie_total = int(n_wave_count);
@@ -743,7 +743,7 @@ function function_a67ada8()
 }
 
 /*
-	Name: function_bdf13070
+	Name: play_raz_round
 	Namespace: zm_ai_raz
 	Checksum: 0x164C9D33
 	Offset: 0x1B58
@@ -751,7 +751,7 @@ function function_a67ada8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_bdf13070()
+function play_raz_round()
 {
 	self playlocalsound("zmb_raz_round_start");
 	variation_count = 5;
