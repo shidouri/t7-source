@@ -346,7 +346,7 @@ function raz_round_spawning()
 	#/
 	wait(1);
 	wait(6);
-	var_c55cf881 = 0;
+	n_raz_alive = 0;
 	level flag::set("raz_round_in_progress");
 	level endon(#"last_ai_down");
 	level thread raz_round_aftermath();
@@ -537,15 +537,15 @@ function raz_round_wait_func()
 function get_current_raz_count()
 {
 	a_ai_raz = getentarray("zombie_raz", "targetname");
-	var_c55cf881 = a_ai_raz.size;
+	n_raz_alive = a_ai_raz.size;
 	foreach(ai_raz in a_ai_raz)
 	{
 		if(!isalive(ai_raz))
 		{
-			var_c55cf881--;
+			n_raz_alive--;
 		}
 	}
-	return var_c55cf881;
+	return n_raz_alive;
 }
 
 /*
@@ -595,9 +595,9 @@ function function_bcbbda54()
 */
 function can_spawn_raz()
 {
-	var_c55cf881 = get_current_raz_count();
+	n_raz_alive = get_current_raz_count();
 	var_f0ab435a = function_bcbbda54();
-	if(var_c55cf881 >= var_f0ab435a || !level flag::get("spawn_zombies"))
+	if(n_raz_alive >= var_f0ab435a || !level flag::get("spawn_zombies"))
 	{
 		return false;
 	}
