@@ -1431,10 +1431,10 @@ function function_5943b45()
 	while(!(isdefined(var_90d45ead) && var_90d45ead))
 	{
 		wait(0.5);
-		var_388bdc38 = getentarray("zombie_spider", "targetname");
+		a_ai_spiders = getentarray("zombie_spider", "targetname");
 		if(zm_utility::is_player_valid(self))
 		{
-			foreach(spider in var_388bdc38)
+			foreach(spider in a_ai_spiders)
 			{
 				if(distancesquared(self.origin, spider.origin) <= var_e8356f9e && self islookingat(spider))
 				{

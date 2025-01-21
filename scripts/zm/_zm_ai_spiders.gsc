@@ -745,9 +745,9 @@ function function_c1730af7()
 */
 function function_c9adb887()
 {
-	var_388bdc38 = getentarray("zombie_spider", "targetname");
-	var_aa45da74 = var_388bdc38.size;
-	foreach(var_c79d3f71 in var_388bdc38)
+	a_ai_spiders = getentarray("zombie_spider", "targetname");
+	var_aa45da74 = a_ai_spiders.size;
+	foreach(var_c79d3f71 in a_ai_spiders)
 	{
 		if(!isalive(var_c79d3f71))
 		{
