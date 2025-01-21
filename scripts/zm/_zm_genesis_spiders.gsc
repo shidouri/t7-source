@@ -647,9 +647,9 @@ function function_45237f11()
 		wait(randomfloatrange(0.3333333, 0.6666667));
 		return;
 	}
-	if(isdefined(level.var_21f08627))
+	if(isdefined(level.spider_spawn_func))
 	{
-		s_spawn_loc = [[level.var_21f08627]](e_favorite_enemy);
+		s_spawn_loc = [[level.spider_spawn_func]](e_favorite_enemy);
 	}
 	else
 	{
@@ -1106,11 +1106,11 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 	while(var_c46ed637 < n_to_spawn)
 	{
 		e_favorite_enemy = get_favorite_enemy();
-		if(isdefined(level.var_21f08627))
+		if(isdefined(level.spider_spawn_func))
 		{
 			if(!isdefined(s_spawn_point))
 			{
-				s_spawn_point = [[level.var_21f08627]](level.var_c38a4fee, e_favorite_enemy);
+				s_spawn_point = [[level.spider_spawn_func]](level.var_c38a4fee, e_favorite_enemy);
 			}
 			ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
 			if(isdefined(ai))
