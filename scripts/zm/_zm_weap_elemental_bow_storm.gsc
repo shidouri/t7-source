@@ -405,8 +405,8 @@ function function_b6e08804(e_player, var_94d13bd0)
 		e_player.zapped_zombies++;
 		e_player notify(#"zombie_zapped");
 	}
-	var_2f7fd5db = (var_94d13bd0 ? level.var_5d4538da : level.var_16e90d5f);
-	self dodamage(n_damage, self.origin, e_player, e_player, undefined, str_damage_mod, 0, var_2f7fd5db);
+	w_damage_weapon = (var_94d13bd0 ? level.var_5d4538da : level.var_16e90d5f);
+	self dodamage(n_damage, self.origin, e_player, e_player, undefined, str_damage_mod, 0, w_damage_weapon);
 	self.var_789ebfb2 = 0;
 	self setplayercollision(1);
 }

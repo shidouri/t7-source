@@ -119,11 +119,11 @@ function register_clientfields()
 	Parameters: 5
 	Flags: Linked
 */
-function function_c35ddec4(str_event, str_mod, str_hit_location, var_48d0b2fe, var_2f7fd5db)
+function function_c35ddec4(str_event, str_mod, str_hit_location, var_48d0b2fe, w_damage_weapon)
 {
 	if(str_event === "death_sentinel")
 	{
-		scoreevents::processscoreevent("kill_sentinel", self, undefined, var_2f7fd5db);
+		scoreevents::processscoreevent("kill_sentinel", self, undefined, w_damage_weapon);
 		return 100;
 	}
 	return 0;

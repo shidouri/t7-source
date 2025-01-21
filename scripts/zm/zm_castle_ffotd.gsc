@@ -374,13 +374,13 @@ function private can_zombie_see_any_player()
 	Parameters: 2
 	Flags: Linked
 */
-function function_d6da0785(var_2f7fd5db, n_points)
+function function_d6da0785(w_damage_weapon, n_points)
 {
 	if(!isdefined(n_points))
 	{
 		return 0;
 	}
-	if(var_2f7fd5db === getweapon("hero_gravityspikes_melee") && n_points > 20)
+	if(w_damage_weapon === getweapon("hero_gravityspikes_melee") && n_points > 20)
 	{
 		n_points = 20;
 	}

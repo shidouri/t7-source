@@ -1143,13 +1143,13 @@ function function_6190ec3f()
 	Parameters: 2
 	Flags: Linked
 */
-function function_77b8a0f7(var_2f7fd5db, n_points)
+function function_77b8a0f7(w_damage_weapon, n_points)
 {
 	if(!isdefined(n_points))
 	{
 		return 0;
 	}
-	if(var_2f7fd5db === getweapon("hero_gravityspikes_melee") && n_points > 20)
+	if(w_damage_weapon === getweapon("hero_gravityspikes_melee") && n_points > 20)
 	{
 		n_points = 20;
 	}
@@ -1165,9 +1165,9 @@ function function_77b8a0f7(var_2f7fd5db, n_points)
 	Parameters: 2
 	Flags: Linked
 */
-function function_5a64329b(var_2f7fd5db, n_points)
+function function_5a64329b(w_damage_weapon, n_points)
 {
-	if(var_2f7fd5db === getweapon("hero_gravityspikes_melee"))
+	if(w_damage_weapon === getweapon("hero_gravityspikes_melee"))
 	{
 		n_points = 0;
 	}

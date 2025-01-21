@@ -122,19 +122,19 @@ function init()
 	Parameters: 5
 	Flags: Linked
 */
-function function_6fdcefe3(str_event, str_mod, str_hit_location, var_48d0b2fe, var_2f7fd5db)
+function function_6fdcefe3(str_event, str_mod, str_hit_location, var_48d0b2fe, w_damage_weapon)
 {
 	if(str_event === "death_raz")
 	{
 		n_player_points = zm_score::get_zombie_death_player_points();
-		n_bonus_points = self zm_score::player_add_points_kill_bonus(str_mod, str_hit_location, var_2f7fd5db);
+		n_bonus_points = self zm_score::player_add_points_kill_bonus(str_mod, str_hit_location, w_damage_weapon);
 		n_player_points = (n_player_points + n_bonus_points) * 2;
 		if(str_mod == "MOD_GRENADE" || str_mod == "MOD_GRENADE_SPLASH")
 		{
 			self zm_stats::increment_client_stat("grenade_kills");
 			self zm_stats::increment_player_stat("grenade_kills");
 		}
-		scoreevents::processscoreevent("kill_raz", self, undefined, var_2f7fd5db);
+		scoreevents::processscoreevent("kill_raz", self, undefined, w_damage_weapon);
 		return n_player_points;
 	}
 	return 0;
