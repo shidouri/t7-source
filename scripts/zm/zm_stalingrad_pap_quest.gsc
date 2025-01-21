@@ -639,7 +639,7 @@ function function_6236d848(var_e57afa84, var_7741a4b8, var_ed686791, var_2a448c9
 	}
 	while(isdefined(var_54939bf3) && var_54939bf3);
 	level.var_1dfcc9b2.var_61126827 = undefined;
-	level.var_a3559c05 = undefined;
+	level.raz_spawn_func = undefined;
 	level flag::clear("lockdown_active");
 	foreach(player in level.activeplayers)
 	{
@@ -1171,7 +1171,7 @@ function function_2c6fd7(var_2b71b5b4, var_15eb9a52, var_f92c3865, var_13d1e831)
 	}
 	level notify(#"hash_d2eac5fe");
 	level.var_1dfcc9b2.var_61126827 = undefined;
-	level.var_a3559c05 = undefined;
+	level.raz_spawn_func = undefined;
 	level flag::clear("lockdown_active");
 	foreach(player in level.activeplayers)
 	{

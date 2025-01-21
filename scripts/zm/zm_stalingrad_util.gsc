@@ -849,9 +849,9 @@ function function_432cdad9(a_spawnpoints, var_e41e673a)
 {
 	players = getplayers();
 	var_19764360 = zm_ai_raz::get_favorite_enemy();
-	if(isdefined(level.var_a3559c05))
+	if(isdefined(level.raz_spawn_func))
 	{
-		s_spawn_loc = [[level.var_a3559c05]](level.var_6bca5baa, var_19764360);
+		s_spawn_loc = [[level.raz_spawn_func]](level.var_6bca5baa, var_19764360);
 	}
 	else
 	{

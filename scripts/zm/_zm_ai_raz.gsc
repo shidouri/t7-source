@@ -940,9 +940,9 @@ function special_raz_spawn(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0, var_
 		}
 		else
 		{
-			if(isdefined(level.var_a3559c05))
+			if(isdefined(level.raz_spawn_func))
 			{
-				s_spawn_loc = [[level.var_a3559c05]](level.var_6bca5baa, var_19764360);
+				s_spawn_loc = [[level.raz_spawn_func]](level.var_6bca5baa, var_19764360);
 			}
 			else if(level.zm_loc_types["raz_location"].size > 0)
 			{
