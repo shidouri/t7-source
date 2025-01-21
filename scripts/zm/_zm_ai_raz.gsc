@@ -154,7 +154,7 @@ function function_7dfa7ca6()
 	level.var_629d0743 = 1;
 	if(!isdefined(level.var_c810e243))
 	{
-		level.var_c810e243 = &function_684ce0;
+		level.var_c810e243 = &raz_round_tracker;
 	}
 	level thread [[level.var_c810e243]]();
 }
@@ -209,7 +209,7 @@ function function_ff9b21c4()
 }
 
 /*
-	Name: function_684ce0
+	Name: raz_round_tracker
 	Namespace: zm_ai_raz
 	Checksum: 0x7D2B7D3A
 	Offset: 0xB10
@@ -217,7 +217,7 @@ function function_ff9b21c4()
 	Parameters: 0
 	Flags: Linked
 */
-function function_684ce0()
+function raz_round_tracker()
 {
 	level.var_d4fa016a = 1;
 	level.var_51a5abd0 = randomintrange(5, 8);
