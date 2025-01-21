@@ -864,12 +864,12 @@ function raz_death()
 	if(isdefined(self))
 	{
 		self stoploopsound();
-		self thread function_b1f85217(self.origin);
+		self thread raz_explode_fx(self.origin);
 	}
 }
 
 /*
-	Name: function_b1f85217
+	Name: raz_explode_fx
 	Namespace: zm_ai_raz
 	Checksum: 0x7B764799
 	Offset: 0x20D0
@@ -877,7 +877,7 @@ function raz_death()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b1f85217(origin)
+function raz_explode_fx(origin)
 {
 }
 
