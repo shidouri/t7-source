@@ -574,7 +574,7 @@ function function_a2a299a1()
 		return;
 	}
 	level flag::set("spider_round_in_progress");
-	level thread function_f602171e();
+	level thread spider_round_aftermath();
 	array::thread_all(level.players, &function_cb42e438);
 	wait(1);
 	spider_round_fx();
@@ -994,7 +994,7 @@ function function_cb42e438()
 }
 
 /*
-	Name: function_f602171e
+	Name: spider_round_aftermath
 	Namespace: zm_ai_spiders
 	Checksum: 0x56F34428
 	Offset: 0x27E8
@@ -1002,7 +1002,7 @@ function function_cb42e438()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f602171e()
+function spider_round_aftermath()
 {
 	level waittill(#"last_ai_down", e_enemy_ai);
 	level thread zm_audio::sndmusicsystem_playstate("spider_roundend");
