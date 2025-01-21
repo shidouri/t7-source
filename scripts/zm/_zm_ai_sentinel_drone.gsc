@@ -218,7 +218,7 @@ function function_e38b964d()
 			level.sndmusicspecialround = 1;
 			old_spawn_func = level.round_spawn_func;
 			old_wait_func = level.round_wait_func;
-			function_71f8e359();
+			sentinel_round_start();
 			level.round_spawn_func = &function_7766fb04;
 			level.round_wait_func = &function_989acb59;
 			if(isdefined(level.var_a1ca5313))
@@ -243,7 +243,7 @@ function function_e38b964d()
 }
 
 /*
-	Name: function_71f8e359
+	Name: sentinel_round_start
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0xE457A466
 	Offset: 0x1090
@@ -251,7 +251,7 @@ function function_e38b964d()
 	Parameters: 0
 	Flags: Linked
 */
-function function_71f8e359()
+function sentinel_round_start()
 {
 	level flag::set("sentinel_round");
 	level flag::set("special_round");
