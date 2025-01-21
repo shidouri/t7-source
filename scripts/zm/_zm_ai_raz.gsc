@@ -430,9 +430,9 @@ function spawn_raz()
 		wait(randomfloatrange(0.3333333, 0.6666667));
 		return;
 	}
-	if(isdefined(level.var_e80c1065))
+	if(isdefined(level.func_raz_spawn))
 	{
-		s_spawn_loc = [[level.var_e80c1065]](e_favorite_enemy);
+		s_spawn_loc = [[level.func_raz_spawn]](e_favorite_enemy);
 	}
 	else
 	{
