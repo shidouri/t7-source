@@ -300,7 +300,7 @@ function raz_round_stop()
 	level flag::clear("raz_round");
 	level flag::clear("special_round");
 	level.var_b9ce6312 = 0;
-	level notify(#"hash_22aa6eed");
+	level notify(#"raz_round_ending");
 }
 
 /*
