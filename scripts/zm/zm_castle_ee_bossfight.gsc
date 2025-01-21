@@ -1605,11 +1605,11 @@ function function_28bb5727(var_4a14cd40)
 			level notify(#"hash_cd6f3cf8");
 			if(isdefined(var_cfe6cb9))
 			{
-				foreach(var_24c17812 in var_cfe6cb9)
+				foreach(e_mech in var_cfe6cb9)
 				{
-					if(isdefined(var_24c17812) && isalive(var_24c17812))
+					if(isdefined(e_mech) && isalive(e_mech))
 					{
-						var_24c17812 kill();
+						e_mech kill();
 					}
 				}
 			}
