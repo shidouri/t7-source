@@ -60,17 +60,17 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	newval = newval - oldval;
 	if(newval == 2)
 	{
-		var_98194156 = "zombie/fx_idgun_vortex_ug_zod_zmb";
+		fx_vortex = "zombie/fx_idgun_vortex_ug_zod_zmb";
 		var_89a4c04a = "zombie/fx_idgun_vortex_explo_ug_zod_zmb";
 		n_vortex_time = 10;
 	}
 	else
 	{
-		var_98194156 = "zombie/fx_idgun_vortex_zod_zmb";
+		fx_vortex = "zombie/fx_idgun_vortex_zod_zmb";
 		var_89a4c04a = "zombie/fx_idgun_vortex_explo_zod_zmb";
 		n_vortex_time = 5;
 	}
-	vortex_fx_handle = playfx(localclientnum, var_98194156, vPosition);
+	vortex_fx_handle = playfx(localclientnum, fx_vortex, vPosition);
 	setfxignorepause(localclientnum, vortex_fx_handle, 1);
 	playsound(0, "wpn_idgun_portal_start", vPosition);
 	audio::playloopat("wpn_idgun_portal_loop", vPosition);
