@@ -97,7 +97,7 @@ function init()
 	zm::register_player_damage_callback(&function_94372a17);
 	level.var_2e815d61 = 1;
 	level.var_629d0743 = 0;
-	level.var_d4fa016a = 1;
+	level.n_raz_round_count = 1;
 	level.var_b9ce6312 = 0;
 	level.var_6bca5baa = [];
 	level.var_f95eaac8 = 5500;
@@ -219,7 +219,7 @@ function function_ff9b21c4()
 */
 function raz_round_tracker()
 {
-	level.var_d4fa016a = 1;
+	level.n_raz_round_count = 1;
 	level.n_next_raz_round = randomintrange(5, 8);
 	/#
 		if(getdvarint("") > 0)
@@ -263,7 +263,7 @@ function raz_round_tracker()
 			function_783ab6ac();
 			level.round_spawn_func = old_spawn_func;
 			level.round_wait_func = old_wait_func;
-			level.var_d4fa016a++;
+			level.n_raz_round_count++;
 		}
 	}
 }
