@@ -660,12 +660,12 @@ function raz_round_aftermath()
 	}
 	else
 	{
-		var_4a50cb2a = level.var_6a6f912a;
-		trace = groundtrace(var_4a50cb2a + vectorscale((0, 0, 1), 100), var_4a50cb2a + (vectorscale((0, 0, -1), 1000)), 0, undefined);
-		var_4a50cb2a = trace["position"];
-		if(isdefined(var_4a50cb2a))
+		v_powerup_origin = level.var_6a6f912a;
+		trace = groundtrace(v_powerup_origin + vectorscale((0, 0, 1), 100), v_powerup_origin + (vectorscale((0, 0, -1), 1000)), 0, undefined);
+		v_powerup_origin = trace["position"];
+		if(isdefined(v_powerup_origin))
 		{
-			level thread zm_powerups::specific_powerup_drop("full_ammo", var_4a50cb2a);
+			level thread zm_powerups::specific_powerup_drop("full_ammo", v_powerup_origin);
 		}
 	}
 	wait(2);
@@ -839,7 +839,7 @@ function raz_death()
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
-			level.var_6a6f912a = self.origin;
+			level.58a468e4 = self.origin;
 			level notify(#"last_ai_down", self);
 		}
 	}

@@ -215,17 +215,17 @@ function function_66a5ce12(ai_last, e_attacker)
 	}
 	else
 	{
-		var_4a50cb2a = level.var_6a6f912a;
-		if(isdefined(var_4a50cb2a))
+		v_powerup_origin = level.var_6a6f912a;
+		if(isdefined(v_powerup_origin))
 		{
-			var_bae0d10b = level zm_powerups::specific_powerup_drop("full_ammo", var_4a50cb2a);
+			var_bae0d10b = level zm_powerups::specific_powerup_drop("full_ammo", v_powerup_origin);
 			if(isplayer(e_attacker))
 			{
 				v_destination = e_attacker.origin;
 			}
 			else
 			{
-				e_player = zm_utility::get_closest_player(var_4a50cb2a);
+				e_player = zm_utility::get_closest_player(v_powerup_origin);
 				v_destination = e_player.origin;
 			}
 			var_bae0d10b thread function_630f7ed5(v_destination);

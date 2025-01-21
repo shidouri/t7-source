@@ -1048,21 +1048,21 @@ function spider_round_aftermath()
 	}
 	else
 	{
-		var_4a50cb2a = level.last_ai_origin;
-		if(!ispointonnavmesh(var_4a50cb2a, e_enemy_ai))
+		v_powerup_origin = level.last_ai_origin;
+		if(!ispointonnavmesh(v_powerup_origin, e_enemy_ai))
 		{
-			var_4a50cb2a = getclosestpointonnavmesh(var_4a50cb2a, 100);
-			if(!isdefined(var_4a50cb2a))
+			v_powerup_origin = getclosestpointonnavmesh(v_powerup_origin, 100);
+			if(!isdefined(v_powerup_origin))
 			{
 				e_player = zm_utility::get_closest_player(level.last_ai_origin);
-				var_4a50cb2a = e_player.origin;
+				v_powerup_origin = e_player.origin;
 			}
 		}
-		trace = groundtrace(var_4a50cb2a + vectorscale((0, 0, 1), 15), var_4a50cb2a + (vectorscale((0, 0, -1), 1000)), 0, undefined);
-		var_4a50cb2a = trace["position"];
-		if(isdefined(var_4a50cb2a))
+		trace = groundtrace(v_powerup_origin + vectorscale((0, 0, 1), 15), v_powerup_origin + (vectorscale((0, 0, -1), 1000)), 0, undefined);
+		v_powerup_origin = trace["position"];
+		if(isdefined(v_powerup_origin))
 		{
-			level thread zm_powerups::specific_powerup_drop("full_ammo", var_4a50cb2a);
+			level thread zm_powerups::specific_powerup_drop("full_ammo", v_powerup_origin);
 		}
 	}
 	wait(2);
