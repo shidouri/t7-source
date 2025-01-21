@@ -2876,8 +2876,8 @@ function function_5db6ba34(var_1a60ad71 = 1)
 		}
 	}
 	var_6cbdc65 = [];
-	var_c94c86a8 = getentarray("mechz", "targetname");
-	foreach(ai_mechz in var_c94c86a8)
+	a_mechz = getentarray("mechz", "targetname");
+	foreach(ai_mechz in a_mechz)
 	{
 		var_63b71acf = 0;
 		if(isdefined(ai_mechz.no_damage_points) && ai_mechz.no_damage_points)
