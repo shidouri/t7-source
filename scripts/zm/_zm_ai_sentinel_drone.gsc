@@ -358,12 +358,12 @@ function function_7766fb04()
 */
 function function_fded8158(spawner, s_spot)
 {
-	var_663b2442 = zombie_utility::spawn_zombie(level.var_fda4b3f3[0], "sentinel", s_spot);
-	if(isdefined(var_663b2442))
+	ai_sentinel = zombie_utility::spawn_zombie(level.var_fda4b3f3[0], "sentinel", s_spot);
+	if(isdefined(ai_sentinel))
 	{
-		var_663b2442.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
+		ai_sentinel.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
 	}
-	return var_663b2442;
+	return ai_sentinel;
 }
 
 /*
@@ -1011,9 +1011,9 @@ function function_41375d48()
 {
 	var_8b442d22 = getentarray("zombie_sentinel", "targetname");
 	var_5eecf676 = var_8b442d22.size;
-	foreach(var_663b2442 in var_8b442d22)
+	foreach(ai_sentinel in var_8b442d22)
 	{
-		if(!isalive(var_663b2442))
+		if(!isalive(ai_sentinel))
 		{
 			var_5eecf676--;
 		}
@@ -1146,11 +1146,11 @@ function function_20c64325()
 */
 function function_53547f4d()
 {
-	level waittill(#"last_ai_down", var_663b2442, e_attacker);
+	level waittill(#"last_ai_down", ai_sentinel, e_attacker);
 	level thread zm_audio::sndmusicsystem_playstate("sentinel_roundend");
 	if(isdefined(level.zm_override_ai_aftermath_powerup_drop))
 	{
-		[[level.zm_override_ai_aftermath_powerup_drop]](var_663b2442, level.var_6a6f912a);
+		[[level.zm_override_ai_aftermath_powerup_drop]](ai_sentinel, level.var_6a6f912a);
 	}
 	else
 	{

@@ -5637,12 +5637,12 @@ function function_4f92d875(n_value)
 {
 	/#
 		s_capture_point = struct::get("", "");
-		var_663b2442 = zombie_utility::spawn_zombie(level.var_fda4b3f3[0], "", s_capture_point);
-		var_663b2442 vehicle_ai::set_state("");
-		var_663b2442 sentinel_drone::sentinel_destroyallarms(1);
-		var_663b2442.origin = s_capture_point.origin + vectorscale((0, 0, 1), 30);
+		ai_sentinel = zombie_utility::spawn_zombie(level.var_fda4b3f3[0], "", s_capture_point);
+		ai_sentinel vehicle_ai::set_state("");
+		ai_sentinel sentinel_drone::sentinel_destroyallarms(1);
+		ai_sentinel.origin = s_capture_point.origin + vectorscale((0, 0, 1), 30);
 		wait(1);
-		function_694a61ea(var_663b2442);
+		function_694a61ea(ai_sentinel);
 	#/
 }
 
