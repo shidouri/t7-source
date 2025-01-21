@@ -219,7 +219,7 @@ function function_e38b964d()
 			old_spawn_func = level.round_spawn_func;
 			old_wait_func = level.round_wait_func;
 			sentinel_round_start();
-			level.round_spawn_func = &function_7766fb04;
+			level.round_spawn_func = &sentinel_round_spawning;
 			level.round_wait_func = &function_989acb59;
 			if(isdefined(level.var_a1ca5313))
 			{
@@ -282,7 +282,7 @@ function function_5cf4e163()
 }
 
 /*
-	Name: function_7766fb04
+	Name: sentinel_round_spawning
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0xF325E9E3
 	Offset: 0x11E8
@@ -290,7 +290,7 @@ function function_5cf4e163()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7766fb04()
+function sentinel_round_spawning()
 {
 	level endon(#"intermission");
 	level endon(#"sentinel_round");
