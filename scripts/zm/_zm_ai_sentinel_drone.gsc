@@ -329,7 +329,7 @@ function sentinel_round_spawning()
 	wait(3);
 	level flag::set("sentinel_round_in_progress");
 	level endon(#"last_ai_down");
-	level thread function_53547f4d();
+	level thread sentinel_round_aftermath();
 	while(true)
 	{
 		while(level.zombie_total > 0)
@@ -1136,7 +1136,7 @@ function function_20c64325()
 }
 
 /*
-	Name: function_53547f4d
+	Name: sentinel_round_aftermath
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0x4D7C7907
 	Offset: 0x31A0
@@ -1144,7 +1144,7 @@ function function_20c64325()
 	Parameters: 0
 	Flags: Linked
 */
-function function_53547f4d()
+function sentinel_round_aftermath()
 {
 	level waittill(#"last_ai_down", ai_sentinel, e_attacker);
 	level thread zm_audio::sndmusicsystem_playstate("sentinel_roundend");
