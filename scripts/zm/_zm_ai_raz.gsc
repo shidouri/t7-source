@@ -152,11 +152,11 @@ function function_6fdcefe3(str_event, str_mod, str_hit_location, var_48d0b2fe, v
 function enable_raz_rounds()
 {
 	level.b_raz_rounds_enabled = 1;
-	if(!isdefined(level.var_c810e243))
+	if(!isdefined(level.func_raz_round_track_override))
 	{
-		level.var_c810e243 = &raz_round_tracker;
+		level.func_raz_round_track_override = &raz_round_tracker;
 	}
-	level thread [[level.var_c810e243]]();
+	level thread [[level.func_raz_round_track_override]]();
 }
 
 /*
