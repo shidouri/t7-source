@@ -228,9 +228,9 @@ function private function_3d5df242()
 	self.team = level.zombie_team;
 	self.zombie_lift_override = &function_817c85eb;
 	self.thundergun_fling_func = &function_9bac2f00;
-	self.thundergun_knockdown_func = &function_19b9b682;
+	self.thundergun_knockdown_func = &mechz_thundergun_knockdown;
 	self.var_23340a5d = &function_9bac2f00;
-	self.var_e1dbd63 = &function_19b9b682;
+	self.var_e1dbd63 = &mechz_thundergun_knockdown;
 	self.var_48cabef5 = &function_48cabef5;
 	level thread zm_spawner::zombie_death_event(self);
 }
@@ -291,7 +291,7 @@ function function_9bac2f00(e_player, gib)
 }
 
 /*
-	Name: function_19b9b682
+	Name: mechz_thundergun_knockdown
 	Namespace: zm_ai_mechz
 	Checksum: 0xF8494751
 	Offset: 0xFB0
@@ -299,7 +299,7 @@ function function_9bac2f00(e_player, gib)
 	Parameters: 2
 	Flags: Linked
 */
-function function_19b9b682(e_player, gib)
+function mechz_thundergun_knockdown(e_player, gib)
 {
 	self endon(#"death");
 	self function_b8e0ce15(e_player);
