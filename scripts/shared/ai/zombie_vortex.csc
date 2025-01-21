@@ -61,13 +61,13 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	if(newval == 2)
 	{
 		fx_vortex = "zombie/fx_idgun_vortex_ug_zod_zmb";
-		var_89a4c04a = "zombie/fx_idgun_vortex_explo_ug_zod_zmb";
+		fx_vortex_explosion = "zombie/fx_idgun_vortex_explo_ug_zod_zmb";
 		n_vortex_time = 10;
 	}
 	else
 	{
 		fx_vortex = "zombie/fx_idgun_vortex_zod_zmb";
-		var_89a4c04a = "zombie/fx_idgun_vortex_explo_zod_zmb";
+		fx_vortex_explosion = "zombie/fx_idgun_vortex_explo_zod_zmb";
 		n_vortex_time = 5;
 	}
 	vortex_fx_handle = playfx(localclientnum, fx_vortex, vPosition);
@@ -75,7 +75,7 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	playsound(0, "wpn_idgun_portal_start", vPosition);
 	audio::playloopat("wpn_idgun_portal_loop", vPosition);
 	self thread vortex_shake_and_rumble(localclientnum, vPosition);
-	self thread function_69096485(localclientnum, vortex_fx_handle, vPosition, var_89a4c04a, n_vortex_time);
+	self thread function_69096485(localclientnum, vortex_fx_handle, vPosition, fx_vortex_explosion, n_vortex_time);
 }
 
 /*
@@ -127,7 +127,7 @@ function vision_blur(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 	Parameters: 5
 	Flags: Linked
 */
-function function_69096485(localclientnum, vortex_fx_handle, vPosition, var_89a4c04a, n_vortex_time)
+function function_69096485(localclientnum, vortex_fx_handle, vPosition, fx_vortex_explosion, n_vortex_time)
 {
 	e_player = getlocalplayer(localclientnum);
 	n_starttime = e_player getclienttime();
@@ -146,7 +146,7 @@ function function_69096485(localclientnum, vortex_fx_handle, vPosition, var_89a4
 	playsound(0, "wpn_idgun_portal_stop", vPosition);
 	wait(0.15);
 	self notify(#"vortex_stop");
-	var_7d342267 = playfx(localclientnum, var_89a4c04a, vPosition);
+	var_7d342267 = playfx(localclientnum, fx_vortex_explosion, vPosition);
 	setfxignorepause(localclientnum, var_7d342267, 1);
 	playsound(0, "wpn_idgun_portal_explode", vPosition);
 	wait(0.05);
