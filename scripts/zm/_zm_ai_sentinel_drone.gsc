@@ -340,7 +340,7 @@ function function_7766fb04()
 				continue;
 			}
 			var_c94972aa = level.var_35078afd > 1 && (level.zombie_total % 2) == 0;
-			function_23a30f49(var_c94972aa);
+			spawn_sentinel(var_c94972aa);
 			util::wait_network_frame();
 		}
 		util::wait_network_frame();
@@ -414,7 +414,7 @@ function function_f9c9e7e0()
 }
 
 /*
-	Name: function_23a30f49
+	Name: spawn_sentinel
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0xB32843F5
 	Offset: 0x1888
@@ -422,7 +422,7 @@ function function_f9c9e7e0()
 	Parameters: 1
 	Flags: Linked
 */
-function function_23a30f49(var_c94972aa = 0)
+function spawn_sentinel(var_c94972aa = 0)
 {
 	while(!function_74ab7484())
 	{
