@@ -2524,7 +2524,7 @@ function function_62f0a233()
 		}
 	}
 	s_spawn = array::random(var_23424f41);
-	if(zm_ai_raz::function_7ed6c714(1, &function_4d790672, 1, s_spawn))
+	if(zm_ai_raz::special_raz_spawn(1, &function_4d790672, 1, s_spawn))
 	{
 		level thread function_33803fac();
 		var_71fb112c = level util::waittill_any_return("ee_kite_complete", "ee_kite_failed");

@@ -915,7 +915,7 @@ function stop_raz_sound_on_death()
 }
 
 /*
-	Name: function_7ed6c714
+	Name: special_raz_spawn
 	Namespace: zm_ai_raz
 	Checksum: 0x35FFAC78
 	Offset: 0x2178
@@ -923,7 +923,7 @@ function stop_raz_sound_on_death()
 	Parameters: 4
 	Flags: Linked
 */
-function function_7ed6c714(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0, var_b7959229 = undefined)
+function special_raz_spawn(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0, var_b7959229 = undefined)
 {
 	n_spawned = 0;
 	while(n_spawned < n_to_spawn)
@@ -1148,7 +1148,7 @@ function function_39a724b1()
 			s_spot.origin = player.origin;
 		}
 		s_spot.angles = (0, player.angles[1] - 180, 0);
-		function_7ed6c714(1, undefined, 1, s_spot);
+		special_raz_spawn(1, undefined, 1, s_spot);
 		return true;
 	#/
 }

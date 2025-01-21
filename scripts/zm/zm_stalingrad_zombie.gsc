@@ -572,7 +572,7 @@ function function_cec23cbf()
 				if((zombie_utility::get_current_zombie_count() + level.zombie_total) > 5)
 				{
 					s_spawn_loc = array::random(var_c9b19c0c);
-					if(zm_ai_raz::function_7ed6c714(1, undefined, 1, s_spawn_loc))
+					if(zm_ai_raz::special_raz_spawn(1, undefined, 1, s_spawn_loc))
 					{
 						level.zombie_total--;
 						var_36eeba73 = function_8caf1f25(var_a62c1873);
