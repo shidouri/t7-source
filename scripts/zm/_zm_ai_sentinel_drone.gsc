@@ -1435,7 +1435,7 @@ function stop_sentinel_sound_on_death()
 	Parameters: 4
 	Flags: Linked
 */
-function special_sentinel_spawn(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0, var_b7959229 = undefined)
+function special_sentinel_spawn(n_to_spawn = 1, func_on_spawned, b_force_spawn = 0, var_b7959229 = undefined)
 {
 	n_spawned = 0;
 	while(n_spawned < n_to_spawn)
@@ -1468,9 +1468,9 @@ function special_sentinel_spawn(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0,
 		{
 			ai thread function_b27530eb(s_spawn_loc.origin);
 			n_spawned++;
-			if(isdefined(var_e41e673a))
+			if(isdefined(func_on_spawned))
 			{
-				ai thread [[var_e41e673a]]();
+				ai thread [[func_on_spawned]]();
 			}
 		}
 		function_20c64325();

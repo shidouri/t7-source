@@ -845,7 +845,7 @@ function function_4334972f(str_endon, str_notify_end, var_1d9f5031)
 	Parameters: 2
 	Flags: Linked
 */
-function function_432cdad9(a_spawnpoints, var_e41e673a)
+function function_432cdad9(a_spawnpoints, func_on_spawned)
 {
 	players = getplayers();
 	e_favorite_enemy = zm_ai_raz::get_favorite_enemy();
@@ -881,9 +881,9 @@ function function_432cdad9(a_spawnpoints, var_e41e673a)
 			ai.favoriteenemy = e_favorite_enemy;
 			ai.favoriteenemy.hunted_by++;
 		}
-		if(isdefined(var_e41e673a))
+		if(isdefined(func_on_spawned))
 		{
-			ai thread [[var_e41e673a]]();
+			ai thread [[func_on_spawned]]();
 		}
 		playsoundatposition("zmb_raz_spawn", s_spawn_loc.origin);
 		return ai;
@@ -1072,7 +1072,7 @@ function function_923f7f72(var_af22dd13, var_ed448d3b, var_e25e1ccc, var_b4fcee8
 	Parameters: 2
 	Flags: Linked
 */
-function function_70e59bda(var_e41e673a, var_1d8ab289)
+function function_70e59bda(func_on_spawned, var_1d8ab289)
 {
 	if(isdefined(var_1d8ab289))
 	{
@@ -1097,9 +1097,9 @@ function function_70e59bda(var_e41e673a, var_1d8ab289)
 	if(isdefined(ai))
 	{
 		ai thread zm_ai_sentinel_drone::function_b27530eb(s_spawn_loc.origin);
-		if(isdefined(var_e41e673a))
+		if(isdefined(func_on_spawned))
 		{
-			ai thread [[var_e41e673a]]();
+			ai thread [[func_on_spawned]]();
 		}
 		ai.sword_kill_power = 4;
 		ai.heroweapon_kill_power = 4;
