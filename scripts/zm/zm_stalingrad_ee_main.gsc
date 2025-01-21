@@ -2500,9 +2500,9 @@ function function_62f0a233()
 	#/
 	var_23424f41 = [];
 	var_8338c325 = struct::get_array("raz_location", "script_noteworthy");
-	foreach(var_1fc5be4a in var_8338c325)
+	foreach(s_raz_spawn in var_8338c325)
 	{
-		switch(var_1fc5be4a.targetname)
+		switch(s_raz_spawn.targetname)
 		{
 			case "factory_A_spawn":
 			case "factory_C_spawn":
@@ -2518,7 +2518,7 @@ function function_62f0a233()
 				{
 					var_23424f41 = array(var_23424f41);
 				}
-				var_23424f41[var_23424f41.size] = var_1fc5be4a;
+				var_23424f41[var_23424f41.size] = s_raz_spawn;
 				break;
 			}
 		}
