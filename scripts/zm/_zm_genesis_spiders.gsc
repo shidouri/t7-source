@@ -255,11 +255,11 @@ function function_fd32a77c()
 function function_d2716ad8()
 {
 	level.var_347e707c = 1;
-	if(!isdefined(level.var_33655cba))
+	if(!isdefined(level.spider_round_track_override))
 	{
-		level.var_33655cba = &spider_round_tracker;
+		level.spider_round_track_override = &spider_round_tracker;
 	}
-	level thread [[level.var_33655cba]]();
+	level thread [[level.spider_round_track_override]]();
 }
 
 /*
