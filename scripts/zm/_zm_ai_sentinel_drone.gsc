@@ -1394,7 +1394,7 @@ function function_6cb24476()
 }
 
 /*
-	Name: function_60f92893
+	Name: zombie_setup_attack_properties_sentinel
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0xF5FCC519
 	Offset: 0x3B00
@@ -1402,7 +1402,7 @@ function function_6cb24476()
 	Parameters: 0
 	Flags: None
 */
-function function_60f92893()
+function zombie_setup_attack_properties_sentinel()
 {
 	self zm_spawner::zombie_history("zombie_setup_attack_properties()");
 	self ai::set_ignoreall(0);
