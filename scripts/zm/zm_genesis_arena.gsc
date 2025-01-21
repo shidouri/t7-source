@@ -3630,7 +3630,7 @@ function function_5a4ec2e2(var_87c8152d = 0)
 		}
 		else
 		{
-			e_ai = zm_ai_margwa::function_8a0708c2(s_loc);
+			e_ai = zm_ai_margwa::spawn_margwa(s_loc);
 			e_ai clientfield::set("arena_margwa_init", 1);
 		}
 	}

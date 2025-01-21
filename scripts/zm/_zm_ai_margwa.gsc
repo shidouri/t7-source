@@ -67,7 +67,7 @@ function function_4092fa4d()
 	for(i = 0; i < 1; i++)
 	{
 		margwa_location = arraygetclosest(level.players[0].origin, level.margwa_locations);
-		margwa = function_8a0708c2(margwa_location);
+		margwa = spawn_margwa(margwa_location);
 		wait(0.5);
 	}
 }
@@ -785,7 +785,7 @@ function private margwa_head_explosion()
 }
 
 /*
-	Name: function_8a0708c2
+	Name: spawn_margwa
 	Namespace: zm_ai_margwa
 	Checksum: 0x6E188FB3
 	Offset: 0x2380
@@ -793,7 +793,7 @@ function private margwa_head_explosion()
 	Parameters: 1
 	Flags: Linked
 */
-function function_8a0708c2(s_location)
+function spawn_margwa(s_location)
 {
 	if(isdefined(level.margwa_spawners[0]))
 	{
@@ -1196,7 +1196,7 @@ function private function_a2da506b(cmd)
 			case "":
 			{
 				margwa_location = arraygetclosest(players[0].origin, level.margwa_locations);
-				margwa = function_8a0708c2(margwa_location);
+				margwa = spawn_margwa(margwa_location);
 				break;
 			}
 			case "":

@@ -1065,7 +1065,7 @@ function function_cc6165b0(str_type = "random", var_6ac86802 = 0)
 		}
 		default:
 		{
-			var_225347e1 = level thread zm_ai_margwa::function_8a0708c2(self);
+			var_225347e1 = level thread zm_ai_margwa::spawn_margwa(self);
 		}
 	}
 	if(isdefined(var_225347e1))

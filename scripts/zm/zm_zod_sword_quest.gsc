@@ -758,7 +758,7 @@ function function_7922af5f(player, trig_stub, index, str_endon)
 	{
 		var_cf8830de = array::random(trig_stub.var_2330d68c);
 		arrayremovevalue(trig_stub.var_2330d68c, var_cf8830de);
-		trig_stub.ai_defender[index] = zm_ai_margwa::function_8a0708c2(var_cf8830de);
+		trig_stub.ai_defender[index] = zm_ai_margwa::spawn_margwa(var_cf8830de);
 		trig_stub.ai_defender[index].no_powerups = 1;
 		trig_stub.ai_defender[index].var_89905c65 = 1;
 		trig_stub.ai_defender[index].deathpoints_already_given = 1;
