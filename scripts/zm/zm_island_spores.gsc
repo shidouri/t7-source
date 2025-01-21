@@ -496,9 +496,9 @@ function function_ba7a3b74(is_enemy, b_hero_weapon, e_attacker)
 	else
 	{
 		self endon(#"disconnect");
-		if(isdefined(self.var_59bd3c5a))
+		if(isdefined(self.e_spider))
 		{
-			self.var_59bd3c5a kill();
+			self.e_spider kill();
 		}
 		else if(!self.var_d07c64b6)
 		{

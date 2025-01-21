@@ -1577,15 +1577,15 @@ function function_a96551fe()
 		self trigger::wait_till();
 		if(isdefined(self.who.b_is_spider) && self.who.b_is_spider || (isdefined(level.var_f618f3e1) && level.var_f618f3e1))
 		{
-			var_59bd3c5a = self.who;
+			e_spider = self.who;
 			var_94aebe65 = randomint(100);
 			if(var_94aebe65 < level.var_42034f6a)
 			{
 				self.var_cb6fa5c5 = 0;
 				self thread function_e96bd0d2();
-				if(isalive(var_59bd3c5a) && (isdefined(var_59bd3c5a.b_is_spider) && var_59bd3c5a.b_is_spider))
+				if(isalive(e_spider) && (isdefined(e_spider.b_is_spider) && e_spider.b_is_spider))
 				{
-					var_59bd3c5a function_d8cfc139(self);
+					e_spider function_d8cfc139(self);
 				}
 				self function_c83dc712();
 				level util::waittill_any_ents(level, "end_of_round", level, "between_round_over", level, "start_of_round", self, "death", level, "enable_all_webs");

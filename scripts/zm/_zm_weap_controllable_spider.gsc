@@ -183,7 +183,7 @@ function function_40296c9b(w_previous)
 	ai usevehicle(self, 0);
 	self freezecontrols(1);
 	self lui::screen_fade_out(0.25);
-	self.var_59bd3c5a = ai;
+	self.e_spider = ai;
 	self.old_origin = self.origin;
 	self.old_angles = self.angles;
 	self lui::screen_fade_in(0.25);
@@ -223,7 +223,7 @@ function function_5ce6002e(e_player, w_previous)
 	e_player lui::screen_fade_in(0.25);
 	e_player thread function_5a1c08d0();
 	var_f1c825f6 = getclosestpointonnavmesh(e_player.old_origin, 1000, 15);
-	e_player.var_59bd3c5a = undefined;
+	e_player.e_spider = undefined;
 	e_player freezecontrols(0);
 	e_player unlink();
 	e_player show();
@@ -313,16 +313,16 @@ function function_cb196021()
 */
 function function_a21f0b74()
 {
-	self.var_59bd3c5a endon(#"death");
+	self.e_spider endon(#"death");
 	self endon(#"disconnect");
 	while(true)
 	{
 		if(self util::use_button_held())
 		{
-			self.var_59bd3c5a setteam("axis");
-			self.var_59bd3c5a.takedamage = 1;
-			self.var_59bd3c5a.owner = undefined;
-			self.var_59bd3c5a dodamage(self.var_59bd3c5a.health + 1000, self.var_59bd3c5a.origin);
+			self.e_spider setteam("axis");
+			self.e_spider.takedamage = 1;
+			self.e_spider.owner = undefined;
+			self.e_spider dodamage(self.e_spider.health + 1000, self.e_spider.origin);
 			return;
 		}
 		wait(0.05);
@@ -371,9 +371,9 @@ function function_84313596(zone_name)
 		players = getplayers();
 		for(j = 0; j < players.size; j++)
 		{
-			if(isdefined(players[j].var_59bd3c5a))
+			if(isdefined(players[j].e_spider))
 			{
-				if(players[j].var_59bd3c5a istouching(zone.volumes[i]) && !players[j].var_59bd3c5a.sessionstate === "spectator")
+				if(players[j].e_spider istouching(zone.volumes[i]) && !players[j].e_spider.sessionstate === "spectator")
 				{
 					return true;
 				}
@@ -402,9 +402,9 @@ function closest_player_targets_override()
 	a_targets = getplayers();
 	for(i = 0; i < a_targets.size; i++)
 	{
-		if(isdefined(a_targets[i].var_59bd3c5a))
+		if(isdefined(a_targets[i].e_spider))
 		{
-			a_targets[i] = a_targets[i].var_59bd3c5a;
+			a_targets[i] = a_targets[i].e_spider;
 		}
 	}
 	return a_targets;
