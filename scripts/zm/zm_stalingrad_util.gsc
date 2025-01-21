@@ -409,10 +409,10 @@ function function_3804dbf1(b_stop = 1, str_endon = undefined)
 	Parameters: 8
 	Flags: Linked
 */
-function function_f70dde0b(var_f328e82, a_s_spawnpoints, var_9c84987b, var_2494b61e = 24, var_dc7b7a0f = 0.05, n_max_zombies, str_notify, var_d965b1c7 = 0)
+function function_f70dde0b(a_e_spawners, a_s_spawnpoints, var_9c84987b, var_2494b61e = 24, var_dc7b7a0f = 0.05, n_max_zombies, str_notify, var_d965b1c7 = 0)
 {
 	/#
-		assert(isdefined(var_f328e82), "");
+		assert(isdefined(a_e_spawners), "");
 	#/
 	/#
 		assert(isdefined(a_s_spawnpoints), "");
@@ -449,13 +449,13 @@ function function_f70dde0b(var_f328e82, a_s_spawnpoints, var_9c84987b, var_2494b
 		level.var_b1d4e9a1 = 0;
 	}
 	level.var_258441ba = 0;
-	if(isarray(var_f328e82))
+	if(isarray(a_e_spawners))
 	{
-		e_spawner = array::random(var_f328e82);
+		e_spawner = array::random(a_e_spawners);
 	}
 	else
 	{
-		e_spawner = var_f328e82;
+		e_spawner = a_e_spawners;
 	}
 	while(isdefined(var_54939bf3) && var_54939bf3 || var_613bb82b < n_max_zombies)
 	{

@@ -2956,15 +2956,15 @@ function move_away_from_edges()
 	Parameters: 2
 	Flags: Linked
 */
-function function_20559b9e(s_spawn_point, var_f328e82)
+function function_20559b9e(s_spawn_point, a_e_spawners)
 {
 	if(level.round_number < 25)
 	{
-		ai_zombie = zombie_utility::spawn_zombie(var_f328e82[0], "spell_stage_zombie", s_spawn_point, 25);
+		ai_zombie = zombie_utility::spawn_zombie(a_e_spawners[0], "spell_stage_zombie", s_spawn_point, 25);
 	}
 	else
 	{
-		ai_zombie = zombie_utility::spawn_zombie(var_f328e82[0], "spell_stage_zombie", s_spawn_point, level.round_number);
+		ai_zombie = zombie_utility::spawn_zombie(a_e_spawners[0], "spell_stage_zombie", s_spawn_point, level.round_number);
 	}
 	if(isdefined(ai_zombie))
 	{
