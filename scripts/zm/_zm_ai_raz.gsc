@@ -316,10 +316,10 @@ function raz_round_spawning()
 {
 	level endon(#"intermission");
 	level endon(#"raz_round");
-	level.var_bc3f44bf = getplayers();
-	for(i = 0; i < level.var_bc3f44bf.size; i++)
+	level.a_e_raz_targets = getplayers();
+	for(i = 0; i < level.a_e_raz_targets.size; i++)
 	{
-		level.var_bc3f44bf[i].hunted_by = 0;
+		level.a_e_raz_targets[i].hunted_by = 0;
 	}
 	level endon(#"restart_round");
 	/#
@@ -685,9 +685,9 @@ function raz_round_aftermath()
 */
 function get_favorite_enemy()
 {
-	var_bc3f44bf = getplayers();
+	a_e_raz_targets = getplayers();
 	e_least_hunted = undefined;
-	foreach(e_target in var_bc3f44bf)
+	foreach(e_target in a_e_raz_targets)
 	{
 		if(!isdefined(e_target.hunted_by))
 		{
