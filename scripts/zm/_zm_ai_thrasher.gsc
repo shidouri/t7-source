@@ -106,7 +106,7 @@ function init()
 	level.can_revive = &thrasherserverutils::thrashercanberevived;
 	level.var_11b06c2f = &function_6f6d7a0b;
 	level.var_82212ebb = 1;
-	level.var_f51fb588 = 0;
+	level.thrasher_rounds_enabled = 0;
 	level.var_175273f2 = 1;
 	level.var_35a5aa88 = [];
 	level.var_b5799c7c = 1;
@@ -195,7 +195,7 @@ function precache()
 */
 function function_5e5433d8()
 {
-	level.var_f51fb588 = 1;
+	level.thrasher_rounds_enabled = 1;
 	if(!isdefined(level.var_fc6fe2e6))
 	{
 		level.var_fc6fe2e6 = &function_8aac3fe;
