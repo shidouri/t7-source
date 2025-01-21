@@ -182,7 +182,7 @@ function function_e099c556()
 	{
 		var_ad58b9ca.is_enabled = 1;
 		var_ad58b9ca.script_forcespawn = 1;
-		var_ad58b9ca spawner::add_spawn_function(&function_4749ab89);
+		var_ad58b9ca spawner::add_spawn_function(&raz_init);
 	}
 }
 
@@ -762,7 +762,7 @@ function function_bdf13070()
 }
 
 /*
-	Name: function_4749ab89
+	Name: raz_init
 	Namespace: zm_ai_raz
 	Checksum: 0x4B0DD4EC
 	Offset: 0x1C18
@@ -770,7 +770,7 @@ function function_bdf13070()
 	Parameters: 0
 	Flags: Linked
 */
-function function_4749ab89()
+function raz_init()
 {
 	self.targetname = "zombie_raz";
 	self.script_noteworthy = undefined;
