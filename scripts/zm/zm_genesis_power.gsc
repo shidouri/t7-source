@@ -1396,7 +1396,7 @@ function spawn_zombie(s_spawn_pos, var_d24a63df, var_eb452fee)
 }
 
 /*
-	Name: function_ee99f6ee
+	Name: spawn_spider
 	Namespace: zm_genesis_power
 	Checksum: 0x61B47FB
 	Offset: 0x4038
@@ -1404,7 +1404,7 @@ function spawn_zombie(s_spawn_pos, var_d24a63df, var_eb452fee)
 	Parameters: 2
 	Flags: None
 */
-function function_ee99f6ee(s_spawn_pos, var_d24a63df)
+function spawn_spider(s_spawn_pos, var_d24a63df)
 {
 	level.var_718361fb = zm_genesis_spiders::function_3f180afe();
 	ai_zombie = zm_ai_spiders::function_f4bd92a2(1, s_spawn_pos);
