@@ -1291,7 +1291,7 @@ function function_3b40bf32()
 	{
 		self.health = self.maxhealth;
 	}
-	self thread function_d0769312();
+	self thread sentinel_death();
 	self thread function_6cb24476();
 	self flag::init("completed_spawning");
 	level thread zm_spawner::zombie_death_event(self);
@@ -1308,7 +1308,7 @@ function function_3b40bf32()
 }
 
 /*
-	Name: function_d0769312
+	Name: sentinel_death
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0x95852347
 	Offset: 0x3848
@@ -1316,7 +1316,7 @@ function function_3b40bf32()
 	Parameters: 0
 	Flags: Linked
 */
-function function_d0769312()
+function sentinel_death()
 {
 	self waittill(#"death", attacker);
 	if(function_41375d48() == 0 && level.zombie_total <= 0)
