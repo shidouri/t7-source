@@ -243,7 +243,7 @@ function raz_round_tracker()
 			level.sndmusicspecialround = 1;
 			old_spawn_func = level.round_spawn_func;
 			old_wait_func = level.round_wait_func;
-			function_77ff30a0();
+			raz_round_start();
 			level.round_spawn_func = &function_a33bc00f;
 			level.round_wait_func = &function_692370a0;
 			if(isdefined(level.var_95444cb4))
@@ -269,7 +269,7 @@ function raz_round_tracker()
 }
 
 /*
-	Name: function_77ff30a0
+	Name: raz_round_start
 	Namespace: zm_ai_raz
 	Checksum: 0xED463214
 	Offset: 0xD58
@@ -277,7 +277,7 @@ function raz_round_tracker()
 	Parameters: 0
 	Flags: Linked
 */
-function function_77ff30a0()
+function raz_round_start()
 {
 	level flag::set("raz_round");
 	level flag::set("special_round");
