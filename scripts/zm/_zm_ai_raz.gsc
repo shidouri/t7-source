@@ -882,7 +882,7 @@ function raz_explode_fx(origin)
 }
 
 /*
-	Name: function_b4cd74ca
+	Name: zombie_setup_attack_properties_raz
 	Namespace: zm_ai_raz
 	Checksum: 0xF9B73238
 	Offset: 0x20E8
@@ -890,7 +890,7 @@ function raz_explode_fx(origin)
 	Parameters: 0
 	Flags: None
 */
-function function_b4cd74ca()
+function zombie_setup_attack_properties_raz()
 {
 	self zm_spawner::zombie_history("zombie_setup_attack_properties()");
 	self.ignoreall = 0;
