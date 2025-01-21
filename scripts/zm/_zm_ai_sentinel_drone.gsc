@@ -1427,7 +1427,7 @@ function stop_sentinel_sound_on_death()
 }
 
 /*
-	Name: function_19d0b055
+	Name: special_sentinel_spawn
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0xCE4FBC20
 	Offset: 0x3B98
@@ -1435,7 +1435,7 @@ function stop_sentinel_sound_on_death()
 	Parameters: 4
 	Flags: Linked
 */
-function function_19d0b055(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0, var_b7959229 = undefined)
+function special_sentinel_spawn(n_to_spawn = 1, var_e41e673a, b_force_spawn = 0, var_b7959229 = undefined)
 {
 	n_spawned = 0;
 	while(n_spawned < n_to_spawn)
@@ -1678,7 +1678,7 @@ function function_c630bba3(cmd)
 					s_spot.origin = player.origin;
 				}
 				s_spot.angles = (0, player.angles[1] - 180, 0);
-				function_19d0b055(1, undefined, 1, s_spot);
+				special_sentinel_spawn(1, undefined, 1, s_spot);
 				return true;
 			}
 			case "":

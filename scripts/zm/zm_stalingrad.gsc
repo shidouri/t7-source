@@ -1271,7 +1271,7 @@ function function_33aa4940()
 	}
 	else if(isdefined(level.a_zombie_respawn_health["sentinel_drone"]) && level.a_zombie_respawn_health["sentinel_drone"].size > 0)
 	{
-		if(zm_ai_sentinel_drone::function_19d0b055(1) == 1)
+		if(zm_ai_sentinel_drone::special_sentinel_spawn(1) == 1)
 		{
 			level.zombie_total--;
 			return true;
@@ -1327,7 +1327,7 @@ function function_33aa4940()
 			}
 			return false;
 		}
-		if(zm_ai_sentinel_drone::function_74ab7484() && level.var_bd1e3d02 < level.var_b23e9e3a && zm_ai_sentinel_drone::function_19d0b055(1) == 1)
+		if(zm_ai_sentinel_drone::function_74ab7484() && level.var_bd1e3d02 < level.var_b23e9e3a && zm_ai_sentinel_drone::special_sentinel_spawn(1) == 1)
 		{
 			level.var_bd1e3d02++;
 			level.zombie_total--;

@@ -584,7 +584,7 @@ function function_cec23cbf()
 				if(zm_ai_sentinel_drone::function_74ab7484() && (zombie_utility::get_current_zombie_count() + level.zombie_total) > 5)
 				{
 					s_spawn_loc = array::random(var_bb6abcd9);
-					if(zm_ai_sentinel_drone::function_19d0b055(1, undefined, 1, s_spawn_loc))
+					if(zm_ai_sentinel_drone::special_sentinel_spawn(1, undefined, 1, s_spawn_loc))
 					{
 						level.zombie_total--;
 						level.var_bd1e3d02++;

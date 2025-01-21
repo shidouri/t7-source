@@ -2267,7 +2267,7 @@ function function_f5139aae()
 		}
 	#/
 	s_spawn_location = struct::get("ee_escort_spawn", "targetname");
-	if(level zm_ai_sentinel_drone::function_19d0b055(1, &function_de888a13, 1, s_spawn_location))
+	if(level zm_ai_sentinel_drone::special_sentinel_spawn(1, &function_de888a13, 1, s_spawn_location))
 	{
 		level thread function_591777cf();
 		level thread function_15d9679d("square", 3);

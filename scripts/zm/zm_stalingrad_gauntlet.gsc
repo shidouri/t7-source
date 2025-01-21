@@ -833,7 +833,7 @@ function function_fd19472b()
 		{
 			wait(var_5c17f194);
 			var_4bf80f4b = array::random(level.var_c2c83bb6.var_73844a4a);
-			level zm_ai_sentinel_drone::function_19d0b055(undefined, undefined, 1, var_4bf80f4b);
+			level zm_ai_sentinel_drone::special_sentinel_spawn(undefined, undefined, 1, var_4bf80f4b);
 			level thread function_f621bb41();
 		}
 		wait(var_5c17f194);
