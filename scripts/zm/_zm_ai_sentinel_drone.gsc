@@ -1348,12 +1348,12 @@ function sentinel_death()
 	if(isdefined(self))
 	{
 		self stoploopsound();
-		self thread function_acaa3ee4(self.origin);
+		self thread sentintel_explode_fx(self.origin);
 	}
 }
 
 /*
-	Name: function_acaa3ee4
+	Name: sentintel_explode_fx
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0x45213080
 	Offset: 0x3A20
@@ -1361,7 +1361,7 @@ function sentinel_death()
 	Parameters: 1
 	Flags: Linked
 */
-function function_acaa3ee4(origin)
+function sentintel_explode_fx(origin)
 {
 }
 
