@@ -7823,7 +7823,7 @@ function function_55c48922(v_origin, v_target, var_25c1c42e, var_7364b0dd)
 	Parameters: 4
 	Flags: Linked
 */
-function function_3313abd5(var_81e39ef9 = undefined, str_hint = undefined, v_origin = undefined, var_9eb6cf96 = undefined)
+function function_3313abd5(var_81e39ef9 = undefined, str_hint = undefined, v_origin = undefined, v_radius = undefined)
 {
 	s_unitrigger = spawnstruct();
 	if(isdefined(v_origin))
@@ -7836,9 +7836,9 @@ function function_3313abd5(var_81e39ef9 = undefined, str_hint = undefined, v_ori
 	}
 	s_unitrigger.angles = self.angles;
 	s_unitrigger.script_unitrigger_type = "unitrigger_radius_use";
-	if(isdefined(var_9eb6cf96))
+	if(isdefined(v_radius))
 	{
-		s_unitrigger.radius = var_9eb6cf96;
+		s_unitrigger.radius = v_radius;
 	}
 	else
 	{
