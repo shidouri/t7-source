@@ -526,7 +526,7 @@ function raz_round_wait_func()
 }
 
 /*
-	Name: function_a1d75eeb
+	Name: get_current_raz_count
 	Namespace: zm_ai_raz
 	Checksum: 0xF4B64643
 	Offset: 0x1538
@@ -534,7 +534,7 @@ function raz_round_wait_func()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a1d75eeb()
+function get_current_raz_count()
 {
 	var_89de5b91 = getentarray("zombie_raz", "targetname");
 	var_c55cf881 = var_89de5b91.size;
@@ -595,7 +595,7 @@ function function_bcbbda54()
 */
 function function_ea911683()
 {
-	var_c55cf881 = function_a1d75eeb();
+	var_c55cf881 = get_current_raz_count();
 	var_f0ab435a = function_bcbbda54();
 	if(var_c55cf881 >= var_f0ab435a || !level flag::get("spawn_zombies"))
 	{
@@ -835,7 +835,7 @@ function raz_death()
 {
 	self waittill(#"death", attacker);
 	self thread zombie_utility::zombie_eye_glow_stop();
-	if(function_a1d75eeb() == 0 && level.zombie_total == 0)
+	if(get_current_raz_count() == 0 && level.zombie_total == 0)
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
