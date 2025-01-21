@@ -100,7 +100,7 @@ function init()
 	level.n_raz_round_count = 1;
 	level.var_b9ce6312 = 0;
 	level.var_6bca5baa = [];
-	level.var_f95eaac8 = 5500;
+	level.n_raz_health = 5500;
 	zm_score::register_score_event("death_raz", &function_6fdcefe3);
 	level flag::init("raz_round");
 	level flag::init("raz_round_in_progress");
@@ -725,21 +725,21 @@ function get_favorite_enemy()
 */
 function function_a67ada8()
 {
-	level.var_f95eaac8 = 5500 + (level.round_number * 100);
-	if(level.var_f95eaac8 < 5500)
+	level.n_raz_health = 5500 + (level.round_number * 100);
+	if(level.n_raz_health < 5500)
 	{
-		level.var_f95eaac8 = 5500;
+		level.n_raz_health = 5500;
 	}
-	else if(level.var_f95eaac8 > 15000)
+	else if(level.n_raz_health > 15000)
 	{
-		level.var_f95eaac8 = 15000;
+		level.n_raz_health = 15000;
 	}
-	level.var_f95eaac8 = int(level.var_f95eaac8 * (1 + (0.15 * (level.players.size - 1))));
-	level.razgunhealth = level.var_f95eaac8 * 0.15;
-	level.razhelmethealth = level.var_f95eaac8 * 0.3;
-	level.razleftshoulderarmorhealth = level.var_f95eaac8 * 0.25;
-	level.razchestarmorhealth = level.var_f95eaac8 * 0.4;
-	level.razthigharmorhealth = level.var_f95eaac8 * 0.25;
+	level.n_raz_health = int(level.n_raz_health * (1 + (0.15 * (level.players.size - 1))));
+	level.razgunhealth = level.n_raz_health * 0.15;
+	level.razhelmethealth = level.n_raz_health * 0.3;
+	level.razleftshoulderarmorhealth = level.n_raz_health * 0.25;
+	level.razchestarmorhealth = level.n_raz_health * 0.4;
+	level.razthigharmorhealth = level.n_raz_health * 0.25;
 }
 
 /*
@@ -802,7 +802,7 @@ function raz_init()
 	{
 		self.func_custom_cleanup_check = level.var_c7da0559;
 	}
-	self.maxhealth = level.var_f95eaac8;
+	self.maxhealth = level.n_raz_health;
 	if(isdefined(level.a_zombie_respawn_health[self.archetype]) && level.a_zombie_respawn_health[self.archetype].size > 0)
 	{
 		self.health = level.a_zombie_respawn_health[self.archetype][0];
