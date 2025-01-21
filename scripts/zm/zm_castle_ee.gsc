@@ -3012,14 +3012,14 @@ function function_fb090902(var_f3afc16d)
 			}
 			if(var_fe586166 <= var_c33cc7f2 && (var_fe586166 + var_565450eb) < level.zombie_vars["zombie_max_ai"])
 			{
-				var_19764360 = zm_ai_dogs::get_favorite_enemy();
-				s_spawn_pos = zm_castle_dogs::function_92e4eaff(level.dog_spawners[0], var_19764360);
+				e_favorite_enemy = zm_ai_dogs::get_favorite_enemy();
+				s_spawn_pos = zm_castle_dogs::function_92e4eaff(level.dog_spawners[0], e_favorite_enemy);
 				if(isdefined(s_spawn_pos))
 				{
 					ai_dog = zombie_utility::spawn_zombie(level.dog_spawners[0]);
 					if(isdefined(ai_dog))
 					{
-						ai_dog.favoriteenemy = var_19764360;
+						ai_dog.favoriteenemy = e_favorite_enemy;
 						ai_dog.ignore_enemy_count = 1;
 						ai_dog.no_damage_points = 1;
 						ai_dog.deathpoints_already_given = 1;

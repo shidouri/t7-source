@@ -615,8 +615,8 @@ function function_acbe4aed(cmd)
 				}
 				if(!isdefined(var_c79d3f71))
 				{
-					var_19764360 = zm_ai_spiders::get_favorite_enemy();
-					s_spawn_point = zm_ai_spiders::function_570247b9(var_19764360);
+					e_favorite_enemy = zm_ai_spiders::get_favorite_enemy();
+					s_spawn_point = zm_ai_spiders::function_570247b9(e_favorite_enemy);
 					var_c79d3f71 = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
 					if(isdefined(var_c79d3f71))
 					{
@@ -636,8 +636,8 @@ function function_acbe4aed(cmd)
 			{
 				if(!isdefined(var_c79d3f71))
 				{
-					var_19764360 = zm_ai_spiders::get_favorite_enemy();
-					s_spawn_point = zm_ai_spiders::function_570247b9(var_19764360);
+					e_favorite_enemy = zm_ai_spiders::get_favorite_enemy();
+					s_spawn_point = zm_ai_spiders::function_570247b9(e_favorite_enemy);
 					var_c79d3f71 = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
 					if(isdefined(var_c79d3f71))
 					{

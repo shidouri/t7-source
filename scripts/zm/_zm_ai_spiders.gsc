@@ -673,19 +673,19 @@ function function_45237f11()
 		wait(0.1);
 	}
 	s_spawn_loc = undefined;
-	var_19764360 = get_favorite_enemy();
-	if(!isdefined(var_19764360))
+	e_favorite_enemy = get_favorite_enemy();
+	if(!isdefined(e_favorite_enemy))
 	{
 		wait(randomfloatrange(0.3333333, 0.6666667));
 		return;
 	}
 	if(isdefined(level.var_21f08627))
 	{
-		s_spawn_loc = [[level.var_21f08627]](var_19764360);
+		s_spawn_loc = [[level.var_21f08627]](e_favorite_enemy);
 	}
 	else
 	{
-		s_spawn_loc = function_570247b9(var_19764360);
+		s_spawn_loc = function_570247b9(e_favorite_enemy);
 	}
 	if(!isdefined(s_spawn_loc))
 	{
@@ -930,7 +930,7 @@ function function_6e19aa86()
 	Parameters: 1
 	Flags: Linked
 */
-function function_570247b9(var_19764360)
+function function_570247b9(e_favorite_enemy)
 {
 	switch(level.players.size)
 	{
@@ -982,8 +982,8 @@ function function_570247b9(var_19764360)
 		{
 			continue;
 		}
-		n_dist_squared = distancesquared(var_aa136cb0[i].origin, var_19764360.origin);
-		n_height_diff = abs(var_aa136cb0[i].origin[2] - var_19764360.origin[2]);
+		n_dist_squared = distancesquared(var_aa136cb0[i].origin, e_favorite_enemy.origin);
+		n_height_diff = abs(var_aa136cb0[i].origin[2] - e_favorite_enemy.origin[2]);
 		if(n_dist_squared > var_3a613778 && n_dist_squared < var_e27d607a && n_height_diff < 128)
 		{
 			s_spawn_loc = function_4df33b5a(var_aa136cb0[i]);
@@ -991,7 +991,7 @@ function function_570247b9(var_19764360)
 			return s_spawn_loc;
 		}
 	}
-	s_spawn_loc = function_4df33b5a(arraygetclosest(var_19764360.origin, var_aa136cb0));
+	s_spawn_loc = function_4df33b5a(arraygetclosest(e_favorite_enemy.origin, var_aa136cb0));
 	level.var_fcbb5ce0 = s_spawn_loc;
 	return s_spawn_loc;
 }
@@ -1141,12 +1141,12 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 	var_c46ed637 = 0;
 	while(var_c46ed637 < n_to_spawn)
 	{
-		var_19764360 = get_favorite_enemy();
+		e_favorite_enemy = get_favorite_enemy();
 		if(isdefined(level.var_21f08627))
 		{
 			if(!isdefined(s_spawn_point))
 			{
-				s_spawn_point = [[level.var_21f08627]](level.var_c38a4fee, var_19764360);
+				s_spawn_point = [[level.var_21f08627]](level.var_c38a4fee, e_favorite_enemy);
 			}
 			ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
 			if(isdefined(ai))
@@ -1161,7 +1161,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 		{
 			if(!isdefined(s_spawn_point))
 			{
-				s_spawn_point = function_570247b9(var_19764360);
+				s_spawn_point = function_570247b9(e_favorite_enemy);
 			}
 			ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
 			if(isdefined(ai))
@@ -2779,8 +2779,8 @@ function function_8457e10f(cmd)
 		{
 			case "":
 			{
-				var_19764360 = get_favorite_enemy();
-				s_spawn_point = function_570247b9(var_19764360);
+				e_favorite_enemy = get_favorite_enemy();
+				s_spawn_point = function_570247b9(e_favorite_enemy);
 				ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
@@ -2790,8 +2790,8 @@ function function_8457e10f(cmd)
 			}
 			case "":
 			{
-				var_19764360 = get_favorite_enemy();
-				s_spawn_point = function_570247b9(var_19764360);
+				e_favorite_enemy = get_favorite_enemy();
+				s_spawn_point = function_570247b9(e_favorite_enemy);
 				ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
