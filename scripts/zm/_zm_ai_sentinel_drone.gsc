@@ -429,9 +429,9 @@ function spawn_sentinel(var_c94972aa = 0)
 		wait(0.1);
 	}
 	s_spawn_loc = undefined;
-	if(isdefined(level.var_2babfade))
+	if(isdefined(level.func_sentinel_spawn))
 	{
-		s_spawn_loc = [[level.var_2babfade]]();
+		s_spawn_loc = [[level.func_sentinel_spawn]]();
 	}
 	else
 	{
