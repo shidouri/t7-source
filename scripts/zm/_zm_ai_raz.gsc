@@ -536,9 +536,9 @@ function raz_round_wait_func()
 */
 function get_current_raz_count()
 {
-	var_89de5b91 = getentarray("zombie_raz", "targetname");
-	var_c55cf881 = var_89de5b91.size;
-	foreach(ai_raz in var_89de5b91)
+	a_ai_raz = getentarray("zombie_raz", "targetname");
+	var_c55cf881 = a_ai_raz.size;
+	foreach(ai_raz in a_ai_raz)
 	{
 		if(!isalive(ai_raz))
 		{

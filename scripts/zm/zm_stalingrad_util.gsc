@@ -334,8 +334,8 @@ function function_adf4d1d0(a_ai_zombies)
 	}
 	if(var_63baafec)
 	{
-		var_89de5b91 = getaiarchetypearray("raz");
-		foreach(ai_raz in var_89de5b91)
+		a_ai_raz = getaiarchetypearray("raz");
+		foreach(ai_raz in a_ai_raz)
 		{
 			if(isdefined(ai_raz.var_81e263d5) && ai_raz.var_81e263d5)
 			{
