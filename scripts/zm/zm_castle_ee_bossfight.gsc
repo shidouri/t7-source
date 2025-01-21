@@ -1520,7 +1520,7 @@ function function_28bb5727(var_4a14cd40)
 				var_cfe6cb9 = array::remove_undefined(var_cfe6cb9, 0);
 				if(var_cfe6cb9.size < 1)
 				{
-					ai_zombie = self function_8a46476();
+					ai_zombie = self spawn_mech();
 					if(!isdefined(var_cfe6cb9))
 					{
 						var_cfe6cb9 = [];
@@ -1830,7 +1830,7 @@ function function_1dddcbf0()
 		{
 			while(var_c0fca9d < var_39253c05 && var_bc61c0c2.size < var_740f7270)
 			{
-				ai_zombie = self function_8a46476();
+				ai_zombie = self spawn_mech();
 				array::add(var_bc61c0c2, ai_zombie, 0);
 				var_c0fca9d++;
 				wait(randomfloatrange(0.25, 0.5));
@@ -3034,7 +3034,7 @@ function function_369525ff()
 }
 
 /*
-	Name: function_8a46476
+	Name: spawn_mech
 	Namespace: zm_castle_ee_bossfight
 	Checksum: 0x41D72D8
 	Offset: 0xAFF0
@@ -3042,7 +3042,7 @@ function function_369525ff()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8a46476()
+function spawn_mech()
 {
 	s_location = self get_unused_spawn_point(0, 0, 1);
 	if(isdefined(level.mechz_spawners[0]))
