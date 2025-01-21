@@ -257,7 +257,7 @@ function function_d2716ad8()
 	level.var_347e707c = 1;
 	if(!isdefined(level.var_33655cba))
 	{
-		level.var_33655cba = &function_2a424152;
+		level.var_33655cba = &spider_round_tracker;
 	}
 	level thread [[level.var_33655cba]]();
 }
@@ -465,7 +465,7 @@ function function_c3147dc1(v_pos)
 }
 
 /*
-	Name: function_2a424152
+	Name: spider_round_tracker
 	Namespace: zm_ai_spiders
 	Checksum: 0x79DFFECC
 	Offset: 0x16E0
@@ -473,7 +473,7 @@ function function_c3147dc1(v_pos)
 	Parameters: 0
 	Flags: Linked
 */
-function function_2a424152()
+function spider_round_tracker()
 {
 	level.var_3013498 = level.round_number + randomintrange(4, 7);
 	level.var_5ccd3661 = level.var_3013498;
