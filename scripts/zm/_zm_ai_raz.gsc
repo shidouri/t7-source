@@ -260,7 +260,7 @@ function raz_round_tracker()
 		}
 		else if(level flag::get("raz_round"))
 		{
-			function_783ab6ac();
+			raz_round_stop();
 			level.round_spawn_func = old_spawn_func;
 			level.round_wait_func = old_wait_func;
 			level.n_raz_round_count++;
@@ -287,7 +287,7 @@ function raz_round_start()
 }
 
 /*
-	Name: function_783ab6ac
+	Name: raz_round_stop
 	Namespace: zm_ai_raz
 	Checksum: 0x8C6D8007
 	Offset: 0xDE0
@@ -295,7 +295,7 @@ function raz_round_start()
 	Parameters: 0
 	Flags: Linked
 */
-function function_783ab6ac()
+function raz_round_stop()
 {
 	level flag::clear("raz_round");
 	level flag::clear("special_round");
