@@ -996,7 +996,7 @@ function function_175052a7()
 }
 
 /*
-	Name: function_d1fed7c2
+	Name: raz_thundergun_knockdown
 	Namespace: zm_ai_raz
 	Checksum: 0x652F53AC
 	Offset: 0x2488
@@ -1004,7 +1004,7 @@ function function_175052a7()
 	Parameters: 2
 	Flags: None
 */
-function function_d1fed7c2(player, gib)
+function raz_thundergun_knockdown(player, gib)
 {
 	self endon(#"death");
 	damage = int(self.maxhealth * 0.5);
