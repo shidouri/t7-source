@@ -284,7 +284,7 @@ function main()
 	level.fn_custom_round_ai_spawn = &function_33aa4940;
 	level.var_c7da0559 = &function_58a468e4;
 	level.func_custom_sentinel_drone_cleanup_check = &function_b9d3803a;
-	level thread zm_ai_sentinel_drone::function_2f7416e5();
+	level thread zm_ai_sentinel_drone::enable_sentinel_rounds();
 	level.player_intersection_tracker_override = &dragon::player_intersection_tracker_override;
 	level.powerup_grab_get_players_override = &powerup_grab_get_players_override;
 	level.zones = [];

@@ -130,7 +130,7 @@ function function_c35ddec4(str_event, str_mod, str_hit_location, var_48d0b2fe, v
 }
 
 /*
-	Name: function_2f7416e5
+	Name: enable_sentinel_rounds
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0xBE5500D1
 	Offset: 0xC10
@@ -138,7 +138,7 @@ function function_c35ddec4(str_event, str_mod, str_hit_location, var_48d0b2fe, v
 	Parameters: 0
 	Flags: Linked
 */
-function function_2f7416e5()
+function enable_sentinel_rounds()
 {
 	level.var_fef7211a = 1;
 	level.var_35078afd = 0;
