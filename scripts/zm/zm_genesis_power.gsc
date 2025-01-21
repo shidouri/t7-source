@@ -1407,7 +1407,7 @@ function spawn_zombie(s_spawn_pos, var_d24a63df, var_eb452fee)
 function spawn_spider(s_spawn_pos, var_d24a63df)
 {
 	level.var_718361fb = zm_genesis_spiders::function_3f180afe();
-	ai_zombie = zm_ai_spiders::function_f4bd92a2(1, s_spawn_pos);
+	ai_zombie = zm_ai_spiders::special_spider_spawn(1, s_spawn_pos);
 	ai_zombie function_da370997(var_d24a63df);
 }
 

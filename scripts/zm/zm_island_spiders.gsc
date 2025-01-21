@@ -154,12 +154,12 @@ function function_33aa4940()
 					var_901f5ace[var_901f5ace.size] = s_spawner;
 				}
 			}
-			zm_ai_spiders::function_f4bd92a2(1, array::random(var_901f5ace));
+			zm_ai_spiders::special_spider_spawn(1, array::random(var_901f5ace));
 			level.var_ab7eb3d4++;
 		}
 		else
 		{
-			zm_ai_spiders::function_f4bd92a2(1);
+			zm_ai_spiders::special_spider_spawn(1);
 		}
 		level.zombie_total--;
 	}

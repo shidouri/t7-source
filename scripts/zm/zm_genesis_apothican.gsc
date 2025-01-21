@@ -456,7 +456,7 @@ function function_bb3f566()
 	var_ed731554 = [];
 	for(i = 0; i < 3; i++)
 	{
-		var_c79d3f71 = zm_ai_spiders::function_f4bd92a2(1);
+		var_c79d3f71 = zm_ai_spiders::special_spider_spawn(1);
 		if(isai(var_c79d3f71))
 		{
 			if(!isdefined(var_ed731554))

@@ -599,7 +599,7 @@ class class_d90687be
 			{
 				s_spawn_point = array::random(var_d12aa484);
 				level.var_718361fb = zm_genesis_spiders::function_3f180afe();
-				ai = zm_ai_spiders::function_f4bd92a2(1, s_spawn_point);
+				ai = zm_ai_spiders::special_spider_spawn(1, s_spawn_point);
 				array::add(var_8c5f9971, ai, 0);
 			}
 			wait(1);

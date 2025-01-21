@@ -78,7 +78,7 @@ function function_33aa4940()
 			assert(isdefined(s_spawn_point), "");
 		#/
 		level.var_718361fb = function_3f180afe();
-		zm_ai_spiders::function_f4bd92a2(1, s_spawn_point);
+		zm_ai_spiders::special_spider_spawn(1, s_spawn_point);
 	}
 	if(!var_c0692329)
 	{

@@ -1083,7 +1083,7 @@ function get_favorite_enemy()
 }
 
 /*
-	Name: function_f4bd92a2
+	Name: special_spider_spawn
 	Namespace: zm_ai_spiders
 	Checksum: 0x5782B6B4
 	Offset: 0x2B98
@@ -1091,7 +1091,7 @@ function get_favorite_enemy()
 	Parameters: 2
 	Flags: Linked
 */
-function function_f4bd92a2(n_to_spawn, s_spawn_point)
+function special_spider_spawn(n_to_spawn, s_spawn_point)
 {
 	var_4b55c671 = getvehiclearray("zombie_spider", "targetname");
 	if(isdefined(var_4b55c671) && var_4b55c671.size >= 9)
