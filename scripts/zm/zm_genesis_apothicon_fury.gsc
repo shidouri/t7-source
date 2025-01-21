@@ -113,34 +113,34 @@ function apothicon_fury_death()
 */
 function function_21bbe70d(v_origin, v_angles, var_8d71b2b8)
 {
-	var_33504256 = spawnactor("spawner_zm_genesis_apothicon_fury", v_origin, v_angles, undefined, 1, 1);
-	if(isdefined(var_33504256))
+	e_boss = spawnactor("spawner_zm_genesis_apothicon_fury", v_origin, v_angles, undefined, 1, 1);
+	if(isdefined(e_boss))
 	{
-		var_33504256 endon(#"death");
-		var_33504256.spawn_time = gettime();
-		var_33504256.var_1cba9ac3 = 1;
-		var_33504256.heroweapon_kill_power = 2;
-		var_33504256.completed_emerging_into_playable_area = 1;
-		var_33504256 thread apothicon_fury_death();
-		var_33504256 thread zm::update_zone_name();
-		level thread zm_spawner::zombie_death_event(var_33504256);
-		var_33504256 thread zm_spawner::enemy_death_detection();
-		var_33504256 thread function_7ba80ea7();
-		var_33504256 thread function_1be68e3f();
-		var_33504256.voiceprefix = "fury";
-		var_33504256.animname = "fury";
-		var_33504256 thread zm_spawner::play_ambient_zombie_vocals();
-		var_33504256 thread zm_audio::zmbaivox_notifyconvert();
-		var_33504256 playsound("zmb_vocals_fury_spawn");
+		e_boss endon(#"death");
+		e_boss.spawn_time = gettime();
+		e_boss.var_1cba9ac3 = 1;
+		e_boss.heroweapon_kill_power = 2;
+		e_boss.completed_emerging_into_playable_area = 1;
+		e_boss thread apothicon_fury_death();
+		e_boss thread zm::update_zone_name();
+		level thread zm_spawner::zombie_death_event(e_boss);
+		e_boss thread zm_spawner::enemy_death_detection();
+		e_boss thread function_7ba80ea7();
+		e_boss thread function_1be68e3f();
+		e_boss.voiceprefix = "fury";
+		e_boss.animname = "fury";
+		e_boss thread zm_spawner::play_ambient_zombie_vocals();
+		e_boss thread zm_audio::zmbaivox_notifyconvert();
+		e_boss playsound("zmb_vocals_fury_spawn");
 		/#
-			var_33504256 thread function_ab27e73a();
+			e_boss thread function_ab27e73a();
 		#/
 		if(isdefined(var_8d71b2b8) && var_8d71b2b8)
 		{
 			wait(1);
-			var_33504256.zombie_think_done = 1;
+			e_boss.zombie_think_done = 1;
 		}
-		return var_33504256;
+		return e_boss;
 	}
 	return undefined;
 }

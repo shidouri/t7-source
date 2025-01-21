@@ -248,43 +248,43 @@ function spawn_boss(str_enemy, v_pos)
 	{
 		if(math::cointoss())
 		{
-			var_33504256 = zm_ai_margwa_elemental::function_75b161ab(undefined, s_loc);
+			e_boss = zm_ai_margwa_elemental::function_75b161ab(undefined, s_loc);
 		}
 		else
 		{
-			var_33504256 = zm_ai_margwa_elemental::function_26efbc37(undefined, s_loc);
+			e_boss = zm_ai_margwa_elemental::function_26efbc37(undefined, s_loc);
 		}
-		var_33504256.var_26f9f957 = &function_26f9f957;
-		level.var_95981590 = var_33504256;
+		e_boss.var_26f9f957 = &function_26f9f957;
+		level.var_95981590 = e_boss;
 		level notify(#"hash_c484afcb");
-		if(isdefined(var_33504256))
+		if(isdefined(e_boss))
 		{
-			var_33504256.b_ignore_cleanup = 1;
+			e_boss.b_ignore_cleanup = 1;
 			n_health = (level.round_number * 100) + 100;
-			var_33504256 margwaserverutils::margwasetheadhealth(n_health);
+			e_boss margwaserverutils::margwasetheadhealth(n_health);
 		}
 	}
 	else if(str_enemy == "mechz")
 	{
 		if(isdefined(s_loc.script_string) && s_loc.script_string == "exterior")
 		{
-			var_33504256 = zm_ai_mechz::spawn_mechz(s_loc, 1);
+			e_boss = zm_ai_mechz::spawn_mechz(s_loc, 1);
 		}
 		else
 		{
-			var_33504256 = zm_ai_mechz::spawn_mechz(s_loc, 0);
+			e_boss = zm_ai_mechz::spawn_mechz(s_loc, 0);
 		}
 	}
-	if(!isdefined(var_33504256.maxhealth))
+	if(!isdefined(e_boss.maxhealth))
 	{
-		var_33504256.maxhealth = var_33504256.health;
+		e_boss.maxhealth = e_boss.health;
 	}
 	if(isdefined(v_pos))
 	{
-		var_33504256 forceteleport(v_pos, var_33504256.angles);
+		e_boss forceteleport(v_pos, e_boss.angles);
 	}
-	var_33504256.var_953b581c = 1;
-	return var_33504256;
+	e_boss.var_953b581c = 1;
+	return e_boss;
 }
 
 /*
