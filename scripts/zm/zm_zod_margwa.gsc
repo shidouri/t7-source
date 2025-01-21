@@ -111,11 +111,11 @@ function function_5e93cd08()
 	#/
 	level.var_67b254fb = 1;
 	level.var_b383deb1 = 0;
-	level thread function_4575bd06();
+	level thread margwa_round_tracker();
 }
 
 /*
-	Name: function_4575bd06
+	Name: margwa_round_tracker
 	Namespace: zm_zod_margwa
 	Checksum: 0x57FA69FC
 	Offset: 0x4E8
@@ -123,7 +123,7 @@ function function_5e93cd08()
 	Parameters: 0
 	Flags: Linked
 */
-function function_4575bd06()
+function margwa_round_tracker()
 {
 	level.var_bf361dc0 = randomintrange(8, 9);
 	level.var_6e63e659 = 0;
