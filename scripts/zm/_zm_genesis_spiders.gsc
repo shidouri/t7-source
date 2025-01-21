@@ -715,9 +715,9 @@ function function_c9adb887()
 {
 	a_ai_spiders = getentarray("zombie_spider", "targetname");
 	var_aa45da74 = a_ai_spiders.size;
-	foreach(var_c79d3f71 in a_ai_spiders)
+	foreach(ai_spider in a_ai_spiders)
 	{
-		if(!isalive(var_c79d3f71))
+		if(!isalive(ai_spider))
 		{
 			var_aa45da74--;
 		}
@@ -1225,87 +1225,87 @@ function function_5b625d74(einflictor, eattacker, idamage, idflags, smeansofdeat
 	Parameters: 3
 	Flags: Linked
 */
-function function_49e57a3b(var_c79d3f71, ent = self, var_a79b986e = 0)
+function function_49e57a3b(ai_spider, ent = self, var_a79b986e = 0)
 {
-	var_c79d3f71 endon(#"death");
+	ai_spider endon(#"death");
 	if(!isdefined(ent.target) || var_a79b986e)
 	{
-		var_c79d3f71 ghost();
-		var_c79d3f71 util::delay(0.2, "death", &show);
-		var_c79d3f71 util::delay_notify(0.2, "visible", "death");
-		var_c79d3f71.origin = ent.origin;
-		var_c79d3f71.angles = ent.angles;
-		var_c79d3f71 vehicle_ai::set_state("scripted");
-		if(isalive(var_c79d3f71))
+		ai_spider ghost();
+		ai_spider util::delay(0.2, "death", &show);
+		ai_spider util::delay_notify(0.2, "visible", "death");
+		ai_spider.origin = ent.origin;
+		ai_spider.angles = ent.angles;
+		ai_spider vehicle_ai::set_state("scripted");
+		if(isalive(ai_spider))
 		{
-			a_ground_trace = groundtrace(var_c79d3f71.origin + vectorscale((0, 0, 1), 100), var_c79d3f71.origin - vectorscale((0, 0, 1), 1000), 0, var_c79d3f71, 1);
+			a_ground_trace = groundtrace(ai_spider.origin + vectorscale((0, 0, 1), 100), ai_spider.origin - vectorscale((0, 0, 1), 1000), 0, ai_spider, 1);
 			if(isdefined(a_ground_trace["position"]))
 			{
-				var_197f1988 = util::spawn_model("tag_origin", a_ground_trace["position"], var_c79d3f71.angles);
+				var_197f1988 = util::spawn_model("tag_origin", a_ground_trace["position"], ai_spider.angles);
 			}
 			else
 			{
-				var_197f1988 = util::spawn_model("tag_origin", var_c79d3f71.origin, var_c79d3f71.angles);
+				var_197f1988 = util::spawn_model("tag_origin", ai_spider.origin, ai_spider.angles);
 			}
-			var_197f1988 scene::play("scene_zm_dlc2_spider_burrow_out_of_ground", var_c79d3f71);
+			var_197f1988 scene::play("scene_zm_dlc2_spider_burrow_out_of_ground", ai_spider);
 			state = "combat";
 			if(randomfloat(1) > 0.6)
 			{
 				state = "meleeCombat";
 			}
-			var_c79d3f71 vehicle_ai::set_state(state);
-			var_c79d3f71 setvisibletoall();
-			var_c79d3f71 ai::set_ignoreme(0);
+			ai_spider vehicle_ai::set_state(state);
+			ai_spider setvisibletoall();
+			ai_spider ai::set_ignoreme(0);
 		}
 	}
 	else
 	{
-		var_c79d3f71 ai::set_ignoreall(0);
-		var_c79d3f71.meleeattackdist = 64;
-		var_c79d3f71.disablearrivals = 1;
-		var_c79d3f71.disableexits = 1;
-		var_c79d3f71 vehicle_ai::set_state("scripted");
-		var_c79d3f71 notify(#"visible");
+		ai_spider ai::set_ignoreall(0);
+		ai_spider.meleeattackdist = 64;
+		ai_spider.disablearrivals = 1;
+		ai_spider.disableexits = 1;
+		ai_spider vehicle_ai::set_state("scripted");
+		ai_spider notify(#"visible");
 		var_ce7c81e4 = struct::get_array(ent.target, "targetname");
 		var_ed41ff6b = array::random(var_ce7c81e4);
-		if(isdefined(var_ed41ff6b) && isalive(var_c79d3f71))
+		if(isdefined(var_ed41ff6b) && isalive(ai_spider))
 		{
 			var_ed41ff6b.script_play_multiple = 1;
-			level scene::play(ent.target, var_c79d3f71);
+			level scene::play(ent.target, ai_spider);
 		}
 		else
 		{
 			var_36eb5144 = getvehiclenodearray(ent.target, "targetname");
 			var_a8deb964 = array::random(var_36eb5144);
-			var_c79d3f71 ghost();
-			var_c79d3f71.var_75bf86b = spawner::simple_spawn_single("spider_mover_spawner");
-			var_c79d3f71.origin = var_c79d3f71.var_75bf86b.origin;
-			var_c79d3f71.angles = var_c79d3f71.var_75bf86b.angles;
-			var_c79d3f71 linkto(var_c79d3f71.var_75bf86b);
+			ai_spider ghost();
+			ai_spider.var_75bf86b = spawner::simple_spawn_single("spider_mover_spawner");
+			ai_spider.origin = ai_spider.var_75bf86b.origin;
+			ai_spider.angles = ai_spider.var_75bf86b.angles;
+			ai_spider linkto(ai_spider.var_75bf86b);
 			s_end = struct::get(var_a8deb964.target, "targetname");
-			var_c79d3f71.var_75bf86b vehicle::get_on_path(var_a8deb964);
-			var_c79d3f71 show();
+			ai_spider.var_75bf86b vehicle::get_on_path(var_a8deb964);
+			ai_spider show();
 			if(isdefined(var_a8deb964.script_int))
 			{
-				var_c79d3f71.var_75bf86b setspeed(var_a8deb964.script_int);
+				ai_spider.var_75bf86b setspeed(var_a8deb964.script_int);
 			}
 			else
 			{
-				var_c79d3f71.var_75bf86b setspeed(20);
+				ai_spider.var_75bf86b setspeed(20);
 			}
-			var_c79d3f71.var_75bf86b vehicle::go_path();
-			var_c79d3f71 notify(#"hash_a81735f9");
-			var_c79d3f71 unlink();
-			var_c79d3f71.var_75bf86b delete();
+			ai_spider.var_75bf86b vehicle::go_path();
+			ai_spider notify(#"hash_a81735f9");
+			ai_spider unlink();
+			ai_spider.var_75bf86b delete();
 		}
-		earthquake(0.1, 0.5, var_c79d3f71.origin, 256);
+		earthquake(0.1, 0.5, ai_spider.origin, 256);
 		state = "combat";
 		if(randomfloat(1) > 0.6)
 		{
 			state = "meleeCombat";
 		}
-		var_c79d3f71 vehicle_ai::set_state(state);
-		var_c79d3f71.completed_emerging_into_playable_area = 1;
+		ai_spider vehicle_ai::set_state(state);
+		ai_spider.completed_emerging_into_playable_area = 1;
 	}
 }
 

@@ -456,8 +456,8 @@ function function_bb3f566()
 	var_ed731554 = [];
 	for(i = 0; i < 3; i++)
 	{
-		var_c79d3f71 = zm_ai_spiders::special_spider_spawn(1);
-		if(isai(var_c79d3f71))
+		ai_spider = zm_ai_spiders::special_spider_spawn(1);
+		if(isai(ai_spider))
 		{
 			if(!isdefined(var_ed731554))
 			{
@@ -467,7 +467,7 @@ function function_bb3f566()
 			{
 				var_ed731554 = array(var_ed731554);
 			}
-			var_ed731554[var_ed731554.size] = var_c79d3f71;
+			var_ed731554[var_ed731554.size] = ai_spider;
 		}
 	}
 	while(var_ed731554.size)

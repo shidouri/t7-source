@@ -1051,9 +1051,9 @@ function function_ebbb27ae()
 	Parameters: 2
 	Flags: Linked
 */
-function function_cc8fe309(var_c79d3f71, var_18130313)
+function function_cc8fe309(ai_spider, var_18130313)
 {
-	if(isdefined(var_c79d3f71.var_41ff1b25) && var_c79d3f71.var_41ff1b25)
+	if(isdefined(ai_spider.var_41ff1b25) && ai_spider.var_41ff1b25)
 	{
 		level._powerup_timeout_custom_time = &namespace_1aa6bd0c::function_3321a018;
 		e_linkto = util::spawn_model("tag_origin", level.var_1a139831.origin, level.var_1a139831.angles);
