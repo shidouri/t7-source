@@ -96,7 +96,7 @@ function init()
 {
 	zm::register_player_damage_callback(&function_94372a17);
 	level.b_raz_enabled = 1;
-	level.var_629d0743 = 0;
+	level.b_raz_rounds_enabled = 0;
 	level.n_raz_round_count = 1;
 	level.var_b9ce6312 = 0;
 	level.var_6bca5baa = [];
@@ -151,7 +151,7 @@ function function_6fdcefe3(str_event, str_mod, str_hit_location, var_48d0b2fe, v
 */
 function enable_raz_rounds()
 {
-	level.var_629d0743 = 1;
+	level.b_raz_rounds_enabled = 1;
 	if(!isdefined(level.var_c810e243))
 	{
 		level.var_c810e243 = &raz_round_tracker;
@@ -1192,7 +1192,7 @@ function function_e115a394(n_raz)
 		{
 			return;
 		}
-		if(!isdefined(level.var_629d0743) || !level.var_629d0743)
+		if(!isdefined(level.b_raz_rounds_enabled) || !level.b_raz_rounds_enabled)
 		{
 			return;
 		}
