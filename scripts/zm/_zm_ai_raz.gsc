@@ -141,7 +141,7 @@ function function_6fdcefe3(str_event, str_mod, str_hit_location, var_48d0b2fe, v
 }
 
 /*
-	Name: function_7dfa7ca6
+	Name: enable_raz_rounds
 	Namespace: zm_ai_raz
 	Checksum: 0x128A22B3
 	Offset: 0x940
@@ -149,7 +149,7 @@ function function_6fdcefe3(str_event, str_mod, str_hit_location, var_48d0b2fe, v
 	Parameters: 0
 	Flags: None
 */
-function function_7dfa7ca6()
+function enable_raz_rounds()
 {
 	level.var_629d0743 = 1;
 	if(!isdefined(level.var_c810e243))
