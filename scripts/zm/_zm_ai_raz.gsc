@@ -900,7 +900,7 @@ function zombie_setup_attack_properties_raz()
 }
 
 /*
-	Name: function_7b5bfac6
+	Name: stop_raz_sound_on_death
 	Namespace: zm_ai_raz
 	Checksum: 0xB82979D6
 	Offset: 0x2148
@@ -908,7 +908,7 @@ function zombie_setup_attack_properties_raz()
 	Parameters: 0
 	Flags: None
 */
-function function_7b5bfac6()
+function stop_raz_sound_on_death()
 {
 	self waittill(#"death");
 	self stopsounds();
