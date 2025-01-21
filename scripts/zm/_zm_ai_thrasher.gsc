@@ -105,7 +105,7 @@ function init()
 	precache();
 	level.can_revive = &thrasherserverutils::thrashercanberevived;
 	level.var_11b06c2f = &function_6f6d7a0b;
-	level.var_82212ebb = 1;
+	level.thrashers_enabled = 1;
 	level.thrasher_rounds_enabled = 0;
 	level.var_175273f2 = 1;
 	level.var_35a5aa88 = [];
