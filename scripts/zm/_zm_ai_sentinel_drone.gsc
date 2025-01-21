@@ -1412,7 +1412,7 @@ function zombie_setup_attack_properties_sentinel()
 }
 
 /*
-	Name: function_586ac2c3
+	Name: stop_sentinel_sound_on_death
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0x912AF253
 	Offset: 0x3B68
@@ -1420,7 +1420,7 @@ function zombie_setup_attack_properties_sentinel()
 	Parameters: 0
 	Flags: None
 */
-function function_586ac2c3()
+function stop_sentinel_sound_on_death()
 {
 	self waittill(#"death");
 	self stopsounds();
