@@ -244,7 +244,7 @@ function raz_round_tracker()
 			old_spawn_func = level.round_spawn_func;
 			old_wait_func = level.round_wait_func;
 			raz_round_start();
-			level.round_spawn_func = &function_a33bc00f;
+			level.round_spawn_func = &raz_round_spawning;
 			level.round_wait_func = &function_692370a0;
 			if(isdefined(level.var_95444cb4))
 			{
@@ -304,7 +304,7 @@ function function_783ab6ac()
 }
 
 /*
-	Name: function_a33bc00f
+	Name: raz_round_spawning
 	Namespace: zm_ai_raz
 	Checksum: 0xED2E6C48
 	Offset: 0xE48
@@ -312,7 +312,7 @@ function function_783ab6ac()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a33bc00f()
+function raz_round_spawning()
 {
 	level endon(#"intermission");
 	level endon(#"raz_round");
