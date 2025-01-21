@@ -1966,9 +1966,9 @@ function function_43b03c7f(var_f30428a8)
 		var_9f338373 = [];
 		a_e_players = getplayers();
 		i = 0;
-		foreach(var_4ef2ab6 in var_60852196)
+		foreach(e_margwa in var_60852196)
 		{
-			var_9f338373[i] = arraysortclosest(a_e_players, var_4ef2ab6.origin, a_e_players.size, 0, var_f30428a8);
+			var_9f338373[i] = arraysortclosest(a_e_players, e_margwa.origin, a_e_players.size, 0, var_f30428a8);
 			i++;
 		}
 		if(var_9f338373.size == 1)
@@ -1986,9 +1986,9 @@ function function_43b03c7f(var_f30428a8)
 		}
 		if(var_9f338373.size > 0)
 		{
-			foreach(var_4ef2ab6 in var_60852196)
+			foreach(e_margwa in var_60852196)
 			{
-				if(isdefined(var_e1b29e02) && var_e1b29e02 function_2d942575(var_4ef2ab6, var_f30428a8) && !var_e1b29e02 flag::get("in_beastmode"))
+				if(isdefined(var_e1b29e02) && var_e1b29e02 function_2d942575(e_margwa, var_f30428a8) && !var_e1b29e02 flag::get("in_beastmode"))
 				{
 					var_d8dc8b3c = 1;
 					break;

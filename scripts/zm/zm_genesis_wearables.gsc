@@ -958,17 +958,17 @@ function function_4fddc919()
 	Parameters: 2
 	Flags: Linked
 */
-function function_a5131f0d(var_4ef2ab6, weapon)
+function function_a5131f0d(e_margwa, weapon)
 {
 	var_b6eb007c = util::getweaponclass(weapon);
 	if(isdefined(var_b6eb007c) && var_b6eb007c == "weapon_sniper")
 	{
-		if(!isdefined(var_4ef2ab6.var_9e4e3d01))
+		if(!isdefined(e_margwa.var_9e4e3d01))
 		{
-			var_4ef2ab6.var_9e4e3d01 = 0;
+			e_margwa.var_9e4e3d01 = 0;
 		}
-		var_4ef2ab6.var_9e4e3d01++;
-		if(var_4ef2ab6.var_9e4e3d01 == 3)
+		e_margwa.var_9e4e3d01++;
+		if(e_margwa.var_9e4e3d01 == 3)
 		{
 			level notify(#"hash_b2146d93");
 		}
