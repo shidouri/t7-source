@@ -349,7 +349,7 @@ function raz_round_spawning()
 	var_c55cf881 = 0;
 	level flag::set("raz_round_in_progress");
 	level endon(#"last_ai_down");
-	level thread function_25561504();
+	level thread raz_round_aftermath();
 	while(true)
 	{
 		while(level.zombie_total > 0)
@@ -642,7 +642,7 @@ function function_a74c2884()
 }
 
 /*
-	Name: function_25561504
+	Name: raz_round_aftermath
 	Namespace: zm_ai_raz
 	Checksum: 0x1B0A7EB7
 	Offset: 0x1798
@@ -650,7 +650,7 @@ function function_a74c2884()
 	Parameters: 0
 	Flags: Linked
 */
-function function_25561504()
+function raz_round_aftermath()
 {
 	level waittill(#"last_ai_down", e_enemy_ai);
 	level thread zm_audio::sndmusicsystem_playstate("raz_over");
