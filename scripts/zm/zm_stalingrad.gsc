@@ -282,7 +282,7 @@ function main()
 	_zm_weap_cymbal_monkey::init();
 	level._round_start_func = &zm::round_start;
 	level.fn_custom_round_ai_spawn = &function_33aa4940;
-	level.var_c7da0559 = &function_58a468e4;
+	level.var_c7da0559 = &raz_cleanup_check;
 	level.func_custom_sentinel_drone_cleanup_check = &function_b9d3803a;
 	level thread zm_ai_sentinel_drone::enable_sentinel_rounds();
 	level.player_intersection_tracker_override = &dragon::player_intersection_tracker_override;
@@ -1339,7 +1339,7 @@ function function_33aa4940()
 }
 
 /*
-	Name: function_58a468e4
+	Name: raz_cleanup_check
 	Namespace: zm_stalingrad
 	Checksum: 0xF4237C87
 	Offset: 0x6AA0
@@ -1347,7 +1347,7 @@ function function_33aa4940()
 	Parameters: 0
 	Flags: Linked
 */
-function function_58a468e4()
+function raz_cleanup_check()
 {
 	if(self.b_ignore_cleanup === 1)
 	{
