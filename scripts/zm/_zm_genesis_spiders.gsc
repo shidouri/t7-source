@@ -446,12 +446,12 @@ function spider_death()
 	if(isdefined(self))
 	{
 		self stoploopsound();
-		self thread function_c3147dc1(self.origin);
+		self thread spider_explode_fx(self.origin);
 	}
 }
 
 /*
-	Name: function_c3147dc1
+	Name: spider_explode_fx
 	Namespace: zm_ai_spiders
 	Checksum: 0xCCA3AB52
 	Offset: 0x16A8
@@ -459,7 +459,7 @@ function spider_death()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c3147dc1(v_pos)
+function spider_explode_fx(v_pos)
 {
 	self thread fx::play("spider_gib", v_pos);
 }
