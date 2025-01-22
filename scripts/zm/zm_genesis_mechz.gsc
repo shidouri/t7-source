@@ -525,12 +525,12 @@ function mechz_health_increases()
 		level.mechz_faceplate_health = int(n_player_modifier * (level.var_fa14536d + (level.var_1a5bb9d8 * var_485a2c2c)));
 		level.mechz_powercap_cover_health = int(n_player_modifier * (level.mechz_powercap_cover_health + (level.var_a1943286 * var_485a2c2c)));
 		level.mechz_powercap_health = int(n_player_modifier * (level.mechz_powercap_health + (level.var_9684c99e * var_485a2c2c)));
-		level.var_2cbc5b59 = int(n_player_modifier * (level.var_3f1bf221 + (level.var_158234c * var_485a2c2c)));
+		level.mechz_armor_health = int(n_player_modifier * (level.var_3f1bf221 + (level.var_158234c * var_485a2c2c)));
 		level.mechz_health = function_26beb37e(level.mechz_health, 17500, n_player_modifier);
 		level.mechz_faceplate_health = function_26beb37e(level.mechz_faceplate_health, 16000, n_player_modifier);
 		level.mechz_powercap_cover_health = function_26beb37e(level.mechz_powercap_cover_health, 7500, n_player_modifier);
 		level.mechz_powercap_health = function_26beb37e(level.mechz_powercap_health, 5000, n_player_modifier);
-		level.var_2cbc5b59 = function_26beb37e(level.var_2cbc5b59, 3500, n_player_modifier);
+		level.mechz_armor_health = function_26beb37e(level.mechz_armor_health, 3500, n_player_modifier);
 		level.mechz_last_spawn_round = level.round_number;
 	}
 }

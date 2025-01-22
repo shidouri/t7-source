@@ -877,12 +877,12 @@ function function_a86bf815()
 	self.mechz_faceplate_health = int(n_player_modifier * (level.var_fa14536d + (level.var_1a5bb9d8 * var_485a2c2c)));
 	self.mechz_powercap_cover_health = int(n_player_modifier * (level.mechz_powercap_cover_health + (level.var_a1943286 * var_485a2c2c)));
 	self.mechz_powercap_health = int(n_player_modifier * (level.mechz_powercap_health + (level.var_9684c99e * var_485a2c2c)));
-	self.var_2cbc5b59 = int(n_player_modifier * (level.var_3f1bf221 + (level.var_158234c * var_485a2c2c)));
+	self.mechz_armor_health = int(n_player_modifier * (level.var_3f1bf221 + (level.var_158234c * var_485a2c2c)));
 	self.mechz_health = zm_castle_mechz::function_26beb37e(self.mechz_health, 17500, n_player_modifier);
 	self.mechz_faceplate_health = zm_castle_mechz::function_26beb37e(self.mechz_faceplate_health, 16000, n_player_modifier);
 	self.mechz_powercap_cover_health = zm_castle_mechz::function_26beb37e(self.mechz_powercap_cover_health, 7500, n_player_modifier);
 	self.mechz_powercap_health = zm_castle_mechz::function_26beb37e(self.mechz_powercap_health, 5000, n_player_modifier);
-	self.var_2cbc5b59 = zm_castle_mechz::function_26beb37e(self.var_2cbc5b59, 3500, n_player_modifier);
+	self.mechz_armor_health = zm_castle_mechz::function_26beb37e(self.mechz_armor_health, 3500, n_player_modifier);
 }
 
 /*
@@ -3061,10 +3061,10 @@ function spawn_mech()
 		ai.faceplate_health = self.mechz_faceplate_health;
 		ai.powercap_cover_health = self.mechz_powercap_cover_health;
 		ai.powercap_health = self.mechz_powercap_health;
-		ai.left_knee_armor_health = self.var_2cbc5b59;
-		ai.right_knee_armor_health = self.var_2cbc5b59;
-		ai.left_shoulder_armor_health = self.var_2cbc5b59;
-		ai.right_shoulder_armor_health = self.var_2cbc5b59;
+		ai.left_knee_armor_health = self.mechz_armor_health;
+		ai.right_knee_armor_health = self.mechz_armor_health;
+		ai.left_shoulder_armor_health = self.mechz_armor_health;
+		ai.right_shoulder_armor_health = self.mechz_armor_health;
 		ai.heroweapon_kill_power = 20;
 		ai.deathpoints_already_given = 1;
 		ai.no_damage_points = 1;
