@@ -769,11 +769,11 @@ function function_386309ce(player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6903d776(var_44c1c544)
+function function_6903d776(eai)
 {
-	if(isdefined(var_44c1c544.killcount))
+	if(isdefined(eai.killcount))
 	{
-		var_44c1c544.killcount = undefined;
+		eai.killcount = undefined;
 	}
 }
 
