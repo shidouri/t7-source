@@ -311,8 +311,8 @@ function enable_spider_rounds()
 function spider_spawner_init()
 {
 	level.spider_spawners = getentarray("zombie_spider_spawner", "script_noteworthy");
-	var_c84b3c65 = getentarray("later_round_spider_spawners", "script_noteworthy");
-	level.var_c7f0b45b = arraycombine(level.spider_spawners, var_c84b3c65, 1, 0);
+	a_later_spider_spawners = getentarray("later_round_spider_spawners", "script_noteworthy");
+	level.var_c7f0b45b = arraycombine(level.spider_spawners, a_later_spider_spawners, 1, 0);
 	if(level.spider_spawners.size == 0)
 	{
 		return;
