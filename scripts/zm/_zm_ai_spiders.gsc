@@ -74,7 +74,7 @@ function __init__()
 		adddebugcommand("");
 		level thread function_3fd0c070();
 	#/
-	function_5c48d276();
+	init_spider_fx();
 	init();
 	callback::on_spawned(&function_d3c8090f);
 	callback::on_spawned(&function_eb951410);
@@ -212,7 +212,7 @@ function function_1c624caf(a_ents)
 }
 
 /*
-	Name: function_5c48d276
+	Name: init_spider_fx
 	Namespace: zm_ai_spiders
 	Checksum: 0x54B75EA8
 	Offset: 0x1418
@@ -220,7 +220,7 @@ function function_1c624caf(a_ents)
 	Parameters: 0
 	Flags: Linked
 */
-function function_5c48d276()
+function init_spider_fx()
 {
 	level._effect["spider_gib"] = "dlc2/island/fx_spider_death_explo_sm";
 	level._effect["spider_web_bgb_reweb"] = "dlc2/island/fx_web_bgb_reweb";

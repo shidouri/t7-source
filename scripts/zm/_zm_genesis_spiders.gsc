@@ -73,7 +73,7 @@ function __init__()
 		adddebugcommand("");
 		level thread function_3fd0c070();
 	#/
-	function_5c48d276();
+	init_spider_fx();
 	init();
 	callback::on_spawned(&function_83a70ec3);
 	spawner::add_archetype_spawn_function("spider", &function_82b6256d);
@@ -182,7 +182,7 @@ function function_1c624caf(a_ents)
 }
 
 /*
-	Name: function_5c48d276
+	Name: init_spider_fx
 	Namespace: zm_ai_spiders
 	Checksum: 0x1C086475
 	Offset: 0xD68
@@ -190,7 +190,7 @@ function function_1c624caf(a_ents)
 	Parameters: 0
 	Flags: Linked
 */
-function function_5c48d276()
+function init_spider_fx()
 {
 	level._effect["spider_gib"] = "dlc2/island/fx_spider_death_explo_sm";
 }
