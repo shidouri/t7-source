@@ -296,7 +296,7 @@ function do_emissive_material_direct(localclientnum, oldval, newval, bnewent, bi
 	Parameters: 8
 	Flags: Linked
 */
-function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_alpha = 1, var_abf03d83 = 0, var_c0ce8db2 = 0, var_30e780ae = 1)
+function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_alpha = 1, b_instant = 0, var_c0ce8db2 = 0, var_30e780ae = 1)
 {
 	self endon(#"entityshutdown");
 	if(self.b_on === b_on)
@@ -304,7 +304,7 @@ function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_a
 		return;
 	}
 	self.b_on = b_on;
-	if(var_abf03d83)
+	if(b_instant)
 	{
 		if(b_on)
 		{

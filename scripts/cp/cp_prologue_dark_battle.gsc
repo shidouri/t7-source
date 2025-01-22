@@ -352,7 +352,7 @@ function function_b3666179()
 	Parameters: 2
 	Flags: Linked
 */
-function function_62e89023(b_open = 1, var_abf03d83 = 1)
+function function_62e89023(b_open = 1, b_instant = 1)
 {
 	var_280d5f68 = getent("dark_battle_door_l", "targetname");
 	var_3c301126 = getent("dark_battle_door_r", "targetname");
@@ -361,7 +361,7 @@ function function_62e89023(b_open = 1, var_abf03d83 = 1)
 	{
 		n_open_time = 0.4;
 	}
-	if(var_abf03d83)
+	if(b_instant)
 	{
 		n_open_time = 0.05;
 	}

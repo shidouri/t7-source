@@ -244,29 +244,29 @@ function function_9118f74a(localclientnum, n_current_ritual, var_85dc52da)
 	Parameters: 4
 	Flags: Linked
 */
-function function_60f1115e(localclientnum, n_current_ritual, n_state, var_abf03d83 = 0)
+function function_60f1115e(localclientnum, n_current_ritual, n_state, b_instant = 0)
 {
 	switch(n_state)
 	{
 		case 0:
 		{
 			var_b05b3457 = 0.01;
-			level.main_quest[localclientnum][n_current_ritual].var_77504307 function_ae5b7493(localclientnum, 2, var_b05b3457, 0, var_abf03d83, 1);
-			level.main_quest[localclientnum][n_current_ritual].var_b1ece640 function_ae5b7493(localclientnum, 0, var_b05b3457, 0, var_abf03d83, 1);
+			level.main_quest[localclientnum][n_current_ritual].var_77504307 function_ae5b7493(localclientnum, 2, var_b05b3457, 0, b_instant, 1);
+			level.main_quest[localclientnum][n_current_ritual].var_b1ece640 function_ae5b7493(localclientnum, 0, var_b05b3457, 0, b_instant, 1);
 			break;
 		}
 		case 1:
 		{
 			var_b05b3457 = 0.1;
-			level.main_quest[localclientnum][n_current_ritual].var_77504307 function_ae5b7493(localclientnum, 2, var_b05b3457, 0, var_abf03d83, 1);
-			level.main_quest[localclientnum][n_current_ritual].var_b1ece640 function_ae5b7493(localclientnum, 0, var_b05b3457, 1, var_abf03d83, 1);
+			level.main_quest[localclientnum][n_current_ritual].var_77504307 function_ae5b7493(localclientnum, 2, var_b05b3457, 0, b_instant, 1);
+			level.main_quest[localclientnum][n_current_ritual].var_b1ece640 function_ae5b7493(localclientnum, 0, var_b05b3457, 1, b_instant, 1);
 			break;
 		}
 		case 2:
 		{
 			var_b05b3457 = 0.1;
-			level.main_quest[localclientnum][n_current_ritual].var_77504307 function_ae5b7493(localclientnum, 2, var_b05b3457, 1, var_abf03d83, 1);
-			level.main_quest[localclientnum][n_current_ritual].var_b1ece640 function_ae5b7493(localclientnum, 0, var_b05b3457, 0, var_abf03d83, 1);
+			level.main_quest[localclientnum][n_current_ritual].var_77504307 function_ae5b7493(localclientnum, 2, var_b05b3457, 1, b_instant, 1);
+			level.main_quest[localclientnum][n_current_ritual].var_b1ece640 function_ae5b7493(localclientnum, 0, var_b05b3457, 0, b_instant, 1);
 			break;
 		}
 	}
@@ -281,7 +281,7 @@ function function_60f1115e(localclientnum, n_current_ritual, n_state, var_abf03d
 	Parameters: 6
 	Flags: Linked
 */
-function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, var_abf03d83 = 0, var_c0ce8db2 = 0)
+function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, b_instant = 0, var_c0ce8db2 = 0)
 {
 	self notify(#"hash_ae5b7493");
 	self endon(#"hash_ae5b7493");
@@ -290,7 +290,7 @@ function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, var
 		return;
 	}
 	self.b_on = b_on;
-	if(var_abf03d83)
+	if(b_instant)
 	{
 		if(b_on)
 		{

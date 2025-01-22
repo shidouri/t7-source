@@ -1631,18 +1631,18 @@ function function_790e40ec()
 	Parameters: 2
 	Flags: Linked
 */
-function function_173d3769(str_state, var_abf03d83 = 0)
+function function_173d3769(str_state, b_instant = 0)
 {
 	var_3c301126 = getent("tunnel_vault_door_r", "targetname");
 	var_280d5f68 = getent("tunnel_vault_door_l", "targetname");
-	if(!var_abf03d83)
+	if(!b_instant)
 	{
 		var_3c301126 playsound("evt_tunnel_door_start");
 		var_3c301126 playloopsound("evt_tunnel_door_loop", 1);
 	}
 	if(str_state == "open")
 	{
-		if(var_abf03d83)
+		if(b_instant)
 		{
 			var_3c301126 rotateyaw(90, 0.05);
 			var_280d5f68 rotateyaw(90 * -1, 0.05);
@@ -1655,7 +1655,7 @@ function function_173d3769(str_state, var_abf03d83 = 0)
 	}
 	else
 	{
-		if(var_abf03d83)
+		if(b_instant)
 		{
 			var_3c301126 rotateyaw(90 * -1, 0.05);
 			var_280d5f68 rotateyaw(90, 0.05);
