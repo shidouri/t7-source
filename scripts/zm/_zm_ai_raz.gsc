@@ -246,9 +246,9 @@ function raz_round_tracker()
 			raz_round_start();
 			level.round_spawn_func = &raz_round_spawning;
 			level.round_wait_func = &raz_round_wait_func;
-			if(isdefined(level.var_95444cb4))
+			if(isdefined(level.zm_custom_get_next_raz_round))
 			{
-				level.n_next_raz_round = [[level.var_95444cb4]]();
+				level.n_next_raz_round = [[level.zm_custom_get_next_raz_round]]();
 			}
 			else
 			{
