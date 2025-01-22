@@ -579,7 +579,7 @@ function spider_round_spawning()
 	wait(1);
 	spider_round_fx();
 	wait(4);
-	n_max_spiders = function_67c1c842();
+	n_max_spiders = get_spider_spawn_total();
 	/#
 		if(getdvarstring("") != "")
 		{
@@ -604,7 +604,7 @@ function spider_round_spawning()
 }
 
 /*
-	Name: function_67c1c842
+	Name: get_spider_spawn_total
 	Namespace: zm_ai_spiders
 	Checksum: 0xF975DBCD
 	Offset: 0x1C50
@@ -612,7 +612,7 @@ function spider_round_spawning()
 	Parameters: 0
 	Flags: Linked
 */
-function function_67c1c842()
+function get_spider_spawn_total()
 {
 	if(level.n_spider_round_count < 3)
 	{
