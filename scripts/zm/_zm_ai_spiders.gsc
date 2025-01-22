@@ -611,14 +611,14 @@ function spider_round_spawning()
 	level notify(#"hash_9c49b4a8");
 	spider_round_fx();
 	wait(4);
-	var_c15d44e9 = function_67c1c842();
+	n_max_spiders = function_67c1c842();
 	/#
 		if(getdvarstring("") != "")
 		{
-			var_c15d44e9 = getdvarint("");
+			n_max_spiders = getdvarint("");
 		}
 	#/
-	level.zombie_total = var_c15d44e9;
+	level.zombie_total = n_max_spiders;
 	while(true)
 	{
 		while(level.zombie_total > 0)
