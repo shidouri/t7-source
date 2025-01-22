@@ -412,7 +412,7 @@ function function_26beb37e(value, limit, var_69de4866)
 function mechz_round_tracker()
 {
 	level.n_next_mechz_round = randomintrange(12, 13);
-	level.var_2f0a5661 = 0;
+	level.n_mechz_alive = 0;
 	while(true)
 	{
 		while(level.round_number < level.n_next_mechz_round)
@@ -533,7 +533,7 @@ function function_c7730c11()
 */
 function function_d8d01032()
 {
-	level.var_2f0a5661++;
+	level.n_mechz_alive++;
 	level.zombie_ai_limit--;
 	level thread achievement_watcher(self);
 	self thread function_b2a1b297();
@@ -543,7 +543,7 @@ function function_d8d01032()
 	{
 		level thread zm_castle_ee_side::function_c7bb86e5(self.attacker);
 	}
-	level.var_2f0a5661--;
+	level.n_mechz_alive--;
 	level.zombie_ai_limit++;
 	level notify(#"hash_8f65ad3d");
 }
