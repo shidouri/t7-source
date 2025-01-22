@@ -85,7 +85,7 @@ function __main__()
 			level thread function_1d13619e();
 		}
 	#/
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	if(getdvarint("splitscreen_playerCount") > 2)
 	{
 		return;
@@ -141,7 +141,7 @@ function function_92b4b156()
 		{
 			case 0:
 			{
-				var_81f963f4 waittill(#"trigger", trigplayer);
+				var_81f963f4 waittill("trigger", trigplayer);
 				if(isplayer(trigplayer) && !trigplayer laststand::player_is_in_laststand() && !(trigplayer.is_drinking > 0))
 				{
 					var_3bb6997f = trigplayer getcurrentweapon();
@@ -198,7 +198,7 @@ function function_92b4b156()
 			}
 			case 2:
 			{
-				var_81f963f4 waittill(#"trigger", trigplayer);
+				var_81f963f4 waittill("trigger", trigplayer);
 				if(isplayer(trigplayer) && !trigplayer laststand::player_is_in_laststand() && !(trigplayer.is_drinking > 0))
 				{
 					b_valid_weapon = trigplayer function_a5a542a(var_3bb6997f, var_c59a59e1);
@@ -337,7 +337,7 @@ function chalk_pickup()
 	level endon(#"hash_94556ac9");
 	var_6fdae6db = struct::get("chalk_pickup", "targetname");
 	var_6fdae6db zm_unitrigger::create_unitrigger(undefined, 128);
-	var_6fdae6db waittill(#"trigger_activated", e_who);
+	var_6fdae6db waittill("trigger_activated", e_who);
 	e_who playsound("zmb_minor_writing_chalk_pickup");
 	var_5dfe3e = getent("chalk_model", "targetname");
 	var_5dfe3e ghost();
@@ -364,8 +364,8 @@ function chalk_pickup()
 */
 function function_7367d2c6()
 {
-	level endon(#"writing_on_the_wall_complete");
-	self waittill(#"disconnect");
+	level endon("writing_on_the_wall_complete");
+	self waittill("disconnect");
 	var_5dfe3e = getent("chalk_model", "targetname");
 	var_5dfe3e show();
 	level thread chalk_pickup();
@@ -403,12 +403,12 @@ function function_ff9395ca()
 */
 function function_a8fc7a77()
 {
-	level endon(#"writing_on_the_wall_complete");
+	level endon("writing_on_the_wall_complete");
 	self zm_unitrigger::create_unitrigger(undefined, 128);
 	var_3cbdaba3 = getent(self.target, "targetname");
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		if(isdefined(e_player.var_fb4f9b70) && e_player.var_fb4f9b70)
 		{
 			var_5d3ba118 = level.var_6d7c54f9;
@@ -669,7 +669,7 @@ function function_be8c2f38()
 */
 function function_6e14903b()
 {
-	level endon(#"old_school_activated");
+	level endon("old_school_activated");
 	level.var_c592ecc1 = 0;
 	s_unitrigger = self zm_unitrigger::create_unitrigger(&"", 64, &function_b2869a31);
 	s_unitrigger.require_look_at = 1;
@@ -677,7 +677,7 @@ function function_6e14903b()
 	array::add(level.var_aa421b74, s_unitrigger);
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		if(s_unitrigger.b_enabled == 1)
 		{
 			playsoundatposition("zmb_minor_skool_button", s_unitrigger.origin);
@@ -730,7 +730,7 @@ function function_b2869a31(e_player)
 function function_2d1b88ec()
 {
 	level endon(#"hash_b442f53");
-	level endon(#"old_school_activated");
+	level endon("old_school_activated");
 	wait(level.var_557b53fd[level.players.size]);
 	level.var_c592ecc1 = 0;
 	level.var_8091d507 = 0;
@@ -805,11 +805,11 @@ function function_c1ccaae0()
 	var_11f2bc16 delete();
 	var_2b641c49 = struct::get("egg_destination", "targetname");
 	var_62ceb838 moveto(var_2b641c49.origin, 3);
-	var_62ceb838 waittill(#"movedone");
+	var_62ceb838 waittill("movedone");
 	var_6d268157 = var_2b641c49 zm_unitrigger::create_unitrigger(undefined, 64);
 	while(true)
 	{
-		var_2b641c49 waittill(#"trigger_activated", e_who);
+		var_2b641c49 waittill("trigger_activated", e_who);
 		if(!e_who flag::get("holding_egg"))
 		{
 			break;
@@ -836,7 +836,7 @@ function function_ee1274a2()
 	var_a0069a05 = var_9c1e0e1a zm_unitrigger::create_unitrigger(undefined, 64);
 	while(true)
 	{
-		var_9c1e0e1a waittill(#"trigger_activated", e_who);
+		var_9c1e0e1a waittill("trigger_activated", e_who);
 		if(isdefined(e_who.var_7f70ccd5) && e_who.var_7f70ccd5)
 		{
 			break;
@@ -844,12 +844,12 @@ function function_ee1274a2()
 	}
 	var_ed0817e0 = struct::get("egg_pot_location", "targetname");
 	var_62ceb838 = util::spawn_model("gateworm", var_ed0817e0.origin);
-	level waittill(#"start_of_round");
-	level waittill(#"start_of_round");
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
+	level waittill("start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
-		var_9c1e0e1a waittill(#"trigger_activated", e_who);
+		var_9c1e0e1a waittill("trigger_activated", e_who);
 		if(isdefined(e_who.var_7f70ccd5) && e_who.var_7f70ccd5)
 		{
 			break;
@@ -883,9 +883,9 @@ function function_16401ba8()
 */
 function function_82df6cd4(watcher)
 {
-	self endon(#"death");
-	self endon(#"hacked");
-	self endon(#"kill_target_detection");
+	self endon("death");
+	self endon("hacked");
+	self endon("kill_target_detection");
 	e_trigger = getent("gateworm_meteor_trigger", "targetname");
 	while(true)
 	{

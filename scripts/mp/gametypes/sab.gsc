@@ -236,14 +236,14 @@ function ontimelimit()
 */
 function onovertime()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level.timelimitoverride = 1;
 	level.inovertime = 1;
 	globallogic_audio::leader_dialog("sudden_death");
 	globallogic_audio::leader_dialog("sudden_death_boost");
 	for(index = 0; index < level.players.size; index++)
 	{
-		level.players[index] notify(#"force_spawn");
+		level.players[index] notify("force_spawn");
 		level.players[index] thread hud_message::oldnotifymessage(&"MP_SUDDEN_DEATH", &"MP_NO_RESPAWN", undefined, (1, 0, 0), "mp_last_stand");
 		level.players[index] setclientuivisibilityflag("g_compassShowEnemies", 1);
 	}

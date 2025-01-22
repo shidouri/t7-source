@@ -52,8 +52,8 @@ function init()
 */
 function function_254eefd6(player, time)
 {
-	self endon(#"death");
-	player endon(#"disconnect");
+	self endon("death");
+	player endon("disconnect");
 	player endon(#"hash_d28ba89d");
 	level doa_utility::function_124b9a08();
 	wait(time);
@@ -94,7 +94,7 @@ function function_f27a22c8(player, origin)
 	{
 		return;
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
 	player namespace_831a4a7c::function_4519b17(1);
 	player function_d460de4b();
@@ -150,7 +150,7 @@ function function_f27a22c8(player, origin)
 */
 function function_db948b3()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		pos = self getgunnertargetvec(0);
@@ -170,7 +170,7 @@ function function_db948b3()
 */
 function function_569d8fe3()
 {
-	self endon(#"death");
+	self endon("death");
 	var_d22e1ab8 = self seatgetweapon(2);
 	while(true)
 	{
@@ -197,7 +197,7 @@ function function_569d8fe3()
 */
 function function_ee6962d9(player, chicken)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(#"hash_e15b53df");
@@ -226,7 +226,7 @@ function function_2ef99744(player, origin)
 	{
 		return;
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
 	player namespace_831a4a7c::function_4519b17(1);
 	player function_d460de4b();
@@ -306,7 +306,7 @@ function function_21af9396(player, origin)
 	{
 		return;
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
 	player namespace_831a4a7c::function_4519b17(1);
 	player function_d460de4b();
@@ -372,7 +372,7 @@ function function_1e663abe(player, origin)
 	{
 		return;
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
 	player namespace_831a4a7c::function_4519b17(1);
 	player function_d460de4b();
@@ -431,7 +431,7 @@ function function_e9f445ce(player, origin)
 	{
 		return;
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
 	player namespace_831a4a7c::function_4519b17(1);
 	player function_d460de4b();
@@ -496,7 +496,7 @@ function function_d460de4b()
 	self thread namespace_eaa992c::turnofffx("slow_feet");
 	self.doa.var_c2b9d7d0 = gettime();
 	self notify(#"hash_8820b45b");
-	self notify(#"kill_chickens");
+	self notify("kill_chickens");
 	util::wait_network_frame();
 }
 
@@ -515,7 +515,7 @@ function function_d41a4517()
 	{
 		return;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	self thread namespace_831a4a7c::turnplayershieldon();
 	self thread namespace_831a4a7c::function_f2507519(level.doa.arena_round_number == 3);
@@ -541,8 +541,8 @@ function function_d41a4517()
 */
 function function_33f0cca4(player)
 {
-	self endon(#"death");
-	player waittill(#"disconnect");
+	self endon("death");
+	player waittill("disconnect");
 	self delete();
 }
 
@@ -558,7 +558,7 @@ function function_33f0cca4(player)
 function function_3b1b644d(var_85f85940, vehicle)
 {
 	self.doa.var_ccf4ef81 = 1;
-	self endon(#"disconnect");
+	self endon("disconnect");
 	vehicle thread function_33f0cca4(self);
 	self namespace_831a4a7c::function_4519b17(1);
 	wait(0.05);
@@ -606,7 +606,7 @@ function function_cdfa9ce8(bird)
 {
 	bird notify(#"hash_cf62504");
 	bird endon(#"hash_cf62504");
-	bird endon(#"death");
+	bird endon("death");
 	bird useanimtree($chicken_mech);
 	bird.animation = (randomint(2) ? %chicken_mech::a_chicken_mech_idle : %chicken_mech::a_chicken_mech_lay_egg);
 	while(isdefined(bird))

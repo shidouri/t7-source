@@ -223,7 +223,7 @@ function onplaceturret(turret)
 function hackedprefunction(hacker)
 {
 	turretvehicle = self;
-	turretvehicle.turret notify(#"hacker_delete_placeable_trigger");
+	turretvehicle.turret notify("hacker_delete_placeable_trigger");
 	turretvehicle.turret stopmicrowave();
 	turretvehicle.turret killstreaks::configure_team("microwave_turret", turretvehicle.turret.killstreakid, hacker, undefined, undefined, undefined, 1);
 }
@@ -254,7 +254,7 @@ function hackedpostfunction(hacker)
 */
 function oncancelplacement(turret)
 {
-	turret notify(#"microwave_turret_shutdown");
+	turret notify("microwave_turret_shutdown");
 }
 
 /*
@@ -287,7 +287,7 @@ function onpickupturret(turret)
 */
 function ghostafterwait(wait_time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(wait_time);
 	self ghost();
 }
@@ -359,7 +359,7 @@ function onturretdeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vd
 	}
 	if(isdefined(turretvehicle.parentstruct))
 	{
-		turretvehicle.parentstruct notify(#"microwave_turret_shutdown");
+		turretvehicle.parentstruct notify("microwave_turret_shutdown");
 	}
 	turretvehicle vehicle_death::death_fx();
 	wait(0.1);
@@ -384,7 +384,7 @@ function onturretdeathpostgame(einflictor, eattacker, idamage, smeansofdeath, we
 	}
 	if(isdefined(turretvehicle.parentstruct))
 	{
-		turretvehicle.parentstruct notify(#"microwave_turret_shutdown");
+		turretvehicle.parentstruct notify("microwave_turret_shutdown");
 	}
 	turretvehicle vehicle_death::death_fx();
 	wait(0.1);
@@ -408,7 +408,7 @@ function onshutdown(turret)
 		turret.vehicle playsound("mpl_m_turret_exp");
 		turret.vehicle kill();
 	}
-	turret notify(#"microwave_turret_shutdown");
+	turret notify("microwave_turret_shutdown");
 }
 
 /*
@@ -423,7 +423,7 @@ function onshutdown(turret)
 function watchkillstreakend(killstreak_id, team)
 {
 	turret = self;
-	turret waittill(#"microwave_turret_shutdown");
+	turret waittill("microwave_turret_shutdown");
 	killstreakrules::killstreakstop("microwave_turret", team, killstreak_id);
 }
 
@@ -486,11 +486,11 @@ function stopmicrowave()
 		}
 		if(isdefined(turret.trigger))
 		{
-			turret.trigger notify(#"microwave_end_fx");
+			turret.trigger notify("microwave_end_fx");
 			turret.trigger delete();
 		}
 		/#
-			turret notify(#"stop_turret_debug");
+			turret notify("stop_turret_debug");
 		#/
 	}
 }
@@ -507,7 +507,7 @@ function stopmicrowave()
 function turretdebugwatch()
 {
 	turret = self;
-	turret endon(#"stop_turret_debug");
+	turret endon("stop_turret_debug");
 	for(;;)
 	{
 		if(getdvarint("scr_microwave_turret_debug") != 0)
@@ -553,13 +553,13 @@ function turretdebug()
 function turretthink()
 {
 	turret = self;
-	turret endon(#"microwave_turret_shutdown");
-	turret.trigger endon(#"death");
-	turret.trigger endon(#"delete");
+	turret endon("microwave_turret_shutdown");
+	turret.trigger endon("death");
+	turret.trigger endon("delete");
 	turret.turret_vehicle_entnum = turret.vehicle getentitynumber();
 	while(true)
 	{
-		turret.trigger waittill(#"trigger", ent);
+		turret.trigger waittill("trigger", ent);
 		if(ent == turret)
 		{
 			continue;
@@ -586,11 +586,11 @@ function turretthink()
 */
 function microwaveentitypostshutdowncleanup(entity)
 {
-	entity endon(#"disconnect");
+	entity endon("disconnect");
 	entity endon(#"end_microwaveentitypostshutdowncleanup");
 	turret = self;
 	turret_vehicle_entnum = turret.turret_vehicle_entnum;
-	turret waittill(#"microwave_turret_shutdown");
+	turret waittill("microwave_turret_shutdown");
 	if(isdefined(entity))
 	{
 		if(isdefined(entity.beingmicrowavedby) && isdefined(entity.beingmicrowavedby[turret_vehicle_entnum]))
@@ -612,13 +612,13 @@ function microwaveentitypostshutdowncleanup(entity)
 function microwaveentity(entity)
 {
 	turret = self;
-	turret endon(#"microwave_turret_shutdown");
-	entity endon(#"disconnect");
-	entity endon(#"death");
+	turret endon("microwave_turret_shutdown");
+	entity endon("disconnect");
+	entity endon("death");
 	if(isplayer(entity))
 	{
-		entity endon(#"joined_team");
-		entity endon(#"joined_spectators");
+		entity endon("joined_team");
+		entity endon("joined_spectators");
 	}
 	turret thread microwaveentitypostshutdowncleanup(entity);
 	entity.beingmicrowavedby[turret.turret_vehicle_entnum] = turret.owner;

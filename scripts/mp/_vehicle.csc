@@ -180,7 +180,7 @@ function vehicle_variants(localclientnum)
 */
 function timeout_beep(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"timeout_beep");
+	self notify("timeout_beep");
 	if(!newval)
 	{
 		return;
@@ -190,7 +190,7 @@ function timeout_beep(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 		beepalias = self.killstreakbundle.kstimeoutbeepalias;
 	}
 	self endon(#"entityshutdown");
-	self endon(#"timeout_beep");
+	self endon("timeout_beep");
 	interval = 1;
 	if(newval == 2)
 	{

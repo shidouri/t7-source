@@ -263,7 +263,7 @@ function state_off_exit(params)
 */
 function bootup()
 {
-	self endon(#"death");
+	self endon("death");
 	self playsound("veh_quadtank_power_up");
 	self vehicle_ai::blink_lights_for_time(1.5);
 	angles = self gettagangles("tag_flash");
@@ -289,8 +289,8 @@ function bootup()
 */
 function pain_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	istrophydownpain = params.notify_param[0];
 	if(istrophydownpain === 1)
 	{
@@ -331,8 +331,8 @@ function pain_update(params)
 */
 function state_scripted_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self set_side_turrets_enabled(0);
 	self laseroff();
 	self cleartargetentity();
@@ -352,8 +352,8 @@ function state_scripted_update(params)
 */
 function state_driving_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self set_side_turrets_enabled(0);
 	self laseroff();
 	self cleartargetentity();
@@ -401,8 +401,8 @@ function quadtank_exit_vehicle()
 */
 function state_combat_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	if(isalive(self) && !trophy_disabled())
 	{
 		self thread quadtank_enabletrophy();
@@ -459,8 +459,8 @@ function state_combat_exit(params)
 */
 function quadtank_death(params)
 {
-	self endon(#"death");
-	self endon(#"nodeath_thread");
+	self endon("death");
+	self endon("nodeath_thread");
 	self set_trophy_state(0);
 	self quadtank_weakpoint_display(0);
 	objectives::hide_for_target("cp_quadtank_rocket_icon", self);
@@ -507,8 +507,8 @@ function quadtank_death(params)
 */
 function quadtank_emped(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self endon(#"emped");
 	if(isdefined(self.emped))
 	{
@@ -604,10 +604,10 @@ function set_trophy_state(ison)
 */
 function quadtank_disabletrophy()
 {
-	self endon(#"death");
-	self notify(#"stop_disabletrophy");
-	self endon(#"stop_disabletrophy");
-	self notify(#"stop_enabletrophy");
+	self endon("death");
+	self notify("stop_disabletrophy");
+	self endon("stop_disabletrophy");
+	self notify("stop_enabletrophy");
 	set_trophy_state(0);
 	if(trophy_disabled())
 	{
@@ -617,7 +617,7 @@ function quadtank_disabletrophy()
 	driver = self getseatoccupant(0);
 	if(!isdefined(driver) && self vehicle_ai::get_current_state() != "off" && self vehicle_ai::get_next_state() !== "off")
 	{
-		self notify(#"pain", 1);
+		self notify("pain", 1);
 	}
 	target_set(self, vectorscale((0, 0, 1), 60));
 	self hidepart("tag_defense_active");
@@ -643,15 +643,15 @@ function quadtank_disabletrophy()
 	}
 	if(trophy_destroyed())
 	{
-		self notify(#"trophy_system_destroyed");
-		level notify(#"trophy_system_destroyed", self);
+		self notify("trophy_system_destroyed");
+		level notify("trophy_system_destroyed", self);
 		self playsound("wpn_trophy_disable");
 		playfxontag(self.settings.trophydetonationfx, self, "tag_target_lower");
 		self hidepart("tag_lidar_null", "", 1);
 		return;
 	}
-	self notify(#"trophy_system_disabled");
-	level notify(#"trophy_system_disabled", self);
+	self notify("trophy_system_disabled");
+	level notify("trophy_system_disabled", self);
 	self playsound("wpn_trophy_disable");
 	self vehicle_ai::cooldown("trophy_down", self.settings.trophysystemdowntime);
 	while(!self vehicle_ai::iscooldownready("trophy_down") || self vehicle_ai::get_current_state() === "off")
@@ -684,9 +684,9 @@ function quadtank_disabletrophy()
 */
 function quadtank_enabletrophy()
 {
-	self endon(#"death");
-	self notify(#"stop_enabletrophy");
-	self endon(#"stop_enabletrophy");
+	self endon("death");
+	self notify("stop_enabletrophy");
+	self endon("stop_enabletrophy");
 	set_trophy_state(1);
 	time = (isdefined(self.settings.trophywarmup) ? self.settings.trophywarmup : 0.1);
 	wait(time);
@@ -735,8 +735,8 @@ function quadtank_enabletrophy()
 	{
 		[[level.vehicle_defense_cb]](self, 1);
 	}
-	self notify(#"trophy_system_enabled");
-	level notify(#"trophy_system_enabled", self);
+	self notify("trophy_system_enabled");
+	level notify("trophy_system_enabled", self);
 }
 
 /*
@@ -766,8 +766,8 @@ function quadtank_side_turrets_forward()
 */
 function quadtank_turret_scan(scan_forever)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self.turretrotscale = 0.3;
 	while(scan_forever || (!isdefined(self.enemy) || !self vehcansee(self.enemy)))
 	{
@@ -875,9 +875,9 @@ function show_weak_spots(show)
 */
 function set_detonation_time(target)
 {
-	self endon(#"change_state");
+	self endon("change_state");
 	self playsound("veh_quadtank_cannon_charge");
-	self waittill(#"weapon_fired", proj);
+	self waittill("weapon_fired", proj);
 	self thread railgun_sound(proj);
 	if(isdefined(target) && isdefined(proj))
 	{
@@ -900,8 +900,8 @@ function set_detonation_time(target)
 */
 function quadtank_weapon_think_cannon()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	cant_see_enemy_count = 0;
 	self set_side_turrets_enabled(1);
 	self setontargetangle(10);
@@ -928,7 +928,7 @@ function quadtank_weapon_think_cannon()
 				wait(0.1);
 				self cancelaimove();
 				self clearvehgoalpos();
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			cant_see_enemy_count = 0;
 			fired = 0;
@@ -954,10 +954,10 @@ function quadtank_weapon_think_cannon()
 						fired = 1;
 						self cancelaimove();
 						self clearvehgoalpos();
-						self notify(#"near_goal");
+						self notify("near_goal");
 						self.turretrotscale = 0.7;
 						wait(1);
-						level notify(#"sndstopcountdown");
+						level notify("sndstopcountdown");
 						self vehicle_ai::waittill_asm_complete("fire@stationary", 6);
 						self set_side_turrets_enabled(1);
 						self.turretrotscale = 1;
@@ -1024,7 +1024,7 @@ function quadtank_weapon_think_cannon()
 */
 function attack_thread_rocket()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"end_attack_thread");
 	self vehicle::toggle_ambient_anim_group(2, 0);
 	while(true)
@@ -1049,7 +1049,7 @@ function attack_thread_rocket()
 				self set_side_turrets_enabled(0);
 			}
 			self clearvehgoalpos();
-			self notify(#"near_goal");
+			self notify("near_goal");
 			self show_weak_spots(1);
 			self vehicle::toggle_ambient_anim_group(2, 1);
 			if(!usejavelin)
@@ -1135,10 +1135,10 @@ function trigger_player_shock_fx()
 */
 function path_update_interrupt()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
 	wait(1);
 	cantseeenemycount = 0;
 	while(true)
@@ -1150,7 +1150,7 @@ function path_update_interrupt()
 				if(distance2dsquared(self.enemy.origin, self.current_pathto_pos) < 62500)
 				{
 					self.move_now = 1;
-					self notify(#"near_goal");
+					self notify("near_goal");
 				}
 				if(!self vehcansee(self.enemy))
 				{
@@ -1160,7 +1160,7 @@ function path_update_interrupt()
 						if(cantseeenemycount > 5)
 						{
 							self.move_now = 1;
-							self notify(#"near_goal");
+							self notify("near_goal");
 						}
 					}
 				}
@@ -1169,7 +1169,7 @@ function path_update_interrupt()
 			{
 				wait(1);
 				self.move_now = 1;
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.3);
@@ -1187,8 +1187,8 @@ function path_update_interrupt()
 */
 function movement_thread_wander()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self notify(#"end_movement_thread");
 	self endon(#"end_movement_thread");
 	if(self.goalforced)
@@ -1279,8 +1279,8 @@ function movement_thread_wander()
 */
 function quadtank_movementupdate()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self asmrequestsubstate("locomotion@movement");
 	wait(0.5);
 	self setbrake(0);
@@ -1300,7 +1300,7 @@ function quadtank_movementupdate()
 			}
 			else
 			{
-				self notify(#"goal");
+				self notify("goal");
 			}
 			self cancelaimove();
 			self clearvehgoalpos();
@@ -1335,7 +1335,7 @@ function quadtank_movementupdate()
 */
 function quadtank_player_fireupdate()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	weapon = self seatgetweapon(1);
 	firetime = weapon.firetime;
@@ -1373,7 +1373,7 @@ function do_melee(shoulddodamage, enemy)
 	{
 		return false;
 	}
-	self notify(#"play_meleefx");
+	self notify("play_meleefx");
 	if(shoulddodamage)
 	{
 		players = getplayers();
@@ -1417,7 +1417,7 @@ function do_melee(shoulddodamage, enemy)
 */
 function quadtank_automelee_update()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(isdefined(self.team));
 	#/
@@ -1618,8 +1618,8 @@ function repulsor_fx()
 {
 	self notify(#"end_repulsor_fx");
 	self endon(#"end_repulsor_fx");
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	while(true)
 	{
 		self util::waittill_any("projectile_applyattractor", "play_meleefx");
@@ -1663,9 +1663,9 @@ function quadtank_projectile_watcher()
 */
 function turn_off_laser_after(time)
 {
-	self notify(#"turn_off_laser_thread");
-	self endon(#"turn_off_laser_thread");
-	self endon(#"death");
+	self notify("turn_off_laser_thread");
+	self endon("turn_off_laser_thread");
+	self endon("death");
 	wait(time);
 	self laseroff();
 }
@@ -1850,7 +1850,7 @@ function quadtank_weakpoint_display(state)
 */
 function footstep_handler()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	while(true)
 	{
@@ -1895,8 +1895,8 @@ function footstep_handler()
 function javeline_incoming(projectile)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self waittill(#"weapon_fired", projectile);
+	self endon("death");
+	self waittill("weapon_fired", projectile);
 	distance = 1400;
 	alias = "prj_quadtank_javelin_incoming";
 	wait(5);
@@ -1931,8 +1931,8 @@ function javeline_incoming(projectile)
 function railgun_sound(projectile)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self waittill(#"weapon_fired", projectile);
+	self endon("death");
+	self waittill("weapon_fired", projectile);
 	distance = 900;
 	alais = "wpn_quadtank_railgun_fire_rocket_flux";
 	players = level.players;

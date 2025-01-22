@@ -245,8 +245,8 @@ function update_hint_string(player)
 */
 function private pap_weapon_move_in(player, trigger, origin_offset, angles_offset)
 {
-	level endon(#"pack_a_punch_off");
-	trigger endon(#"pap_player_disconnected");
+	level endon("pack_a_punch_off");
+	trigger endon("pap_player_disconnected");
 }
 
 /*
@@ -260,7 +260,7 @@ function private pap_weapon_move_in(player, trigger, origin_offset, angles_offse
 */
 function private pap_weapon_move_out(player, trigger, origin_offset, interact_offset)
 {
-	level endon(#"pack_a_punch_off");
-	trigger endon(#"pap_player_disconnected");
+	level endon("pack_a_punch_off");
+	trigger endon("pap_player_disconnected");
 }
 

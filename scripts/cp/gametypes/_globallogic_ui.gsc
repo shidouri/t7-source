@@ -140,8 +140,8 @@ function isplayerhurt(playerent)
 */
 function watch_player_in_combat()
 {
-	self endon(#"kill_watch_player_in_combat");
-	self endon(#"disconnect");
+	self endon("kill_watch_player_in_combat");
+	self endon("disconnect");
 	while(true)
 	{
 		if(isplayerhurt(self) || isanyaiattackingtheplayer(self))
@@ -354,8 +354,8 @@ function menuautoassign(comingfrommenu)
 	{
 		self.statusicon = "hud_status_dead";
 	}
-	self notify(#"joined_team");
-	level notify(#"joined_team");
+	self notify("joined_team");
+	level notify("joined_team");
 	callback::callback(#"hash_95a6c4c0");
 	self notify(#"end_respawn");
 	self beginclasschoice();
@@ -563,7 +563,7 @@ function beginclasschoice()
 */
 function fullscreen_black()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::show_hud(0);
 	self closemenu("InitialBlack");
 	self openmenu("InitialBlack");
@@ -632,10 +632,10 @@ function fullscreen_black()
 */
 function fullscreen_black_checkpoint_restore()
 {
-	self endon(#"disconnect");
-	self endon(#"kill_fullscreen_black");
+	self endon("disconnect");
+	self endon("kill_fullscreen_black");
 	b_fullscreen_black = self.fullscreen_black_active;
-	level waittill(#"save_restore");
+	level waittill("save_restore");
 	if(isdefined(b_fullscreen_black) && b_fullscreen_black)
 	{
 		self closemenu("InitialBlack");
@@ -675,7 +675,7 @@ function init_start_flags()
 */
 function fullscreen_black_freeze_controls()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.b_game_start_invulnerability = 1;
 	self flagsys::wait_till("loadout_given");
 	self disableweapons();
@@ -751,8 +751,8 @@ function menuteam(team)
 		}
 		self.sessionteam = team;
 		self setclientscriptmainmenu(game["menu_start_menu"]);
-		self notify(#"joined_team");
-		level notify(#"joined_team");
+		self notify("joined_team");
+		level notify("joined_team");
 		callback::callback(#"hash_95a6c4c0");
 		self notify(#"end_respawn");
 	}
@@ -792,7 +792,7 @@ function menuspectator()
 		[[level.spawnspectator]]();
 		self thread globallogic_player::spectate_player_watcher();
 		self setclientscriptmainmenu(game["menu_start_menu"]);
-		self notify(#"joined_spectators");
+		self notify("joined_spectators");
 		callback::callback(#"hash_4c5ae192");
 	}
 }
@@ -866,7 +866,7 @@ function menuclass(response)
 		return;
 	}
 	self.pers["changed_class"] = 1;
-	self notify(#"changed_class");
+	self notify("changed_class");
 	waittillframeend();
 	if(isdefined(self.curclass) && self.curclass == playerclass)
 	{
@@ -934,7 +934,7 @@ function menuclass(response)
 	}
 	globallogic::updateteamstatus();
 	self thread spectating::set_permissions_for_machine();
-	self notify(#"class_changed");
+	self notify("class_changed");
 }
 
 /*
@@ -948,7 +948,7 @@ function menuclass(response)
 */
 function removespawnmessageshortly(delay)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	self endon(#"end_respawn");
 	wait(delay);
@@ -966,11 +966,11 @@ function removespawnmessageshortly(delay)
 */
 function weakpoint_anim_watch(precachedbonename)
 {
-	self endon(#"death");
-	self endon(#"weakpoint_destroyed");
+	self endon("death");
+	self endon("weakpoint_destroyed");
 	while(true)
 	{
-		self waittill(#"weakpoint_update", bonename, event);
+		self waittill("weakpoint_update", bonename, event);
 		if(bonename == precachedbonename)
 		{
 			if(event == "damage")
@@ -998,7 +998,7 @@ function weakpoint_anim_watch(precachedbonename)
 function destroyweakpointwidget(precachedbonename)
 {
 	luinotifyevent(&"weakpoint_update", 3, 0, self getentitynumber(), precachedbonename);
-	self notify(#"weakpoint_destroyed");
+	self notify("weakpoint_destroyed");
 }
 
 /*
@@ -1027,7 +1027,7 @@ function createweakpointwidget(precachedbonename, closestatemaxdistance = getdva
 */
 function triggerweakpointdamage(precachedbonename)
 {
-	self notify(#"weakpoint_update", precachedbonename, "damage");
+	self notify("weakpoint_update", precachedbonename, "damage");
 }
 
 /*
@@ -1041,6 +1041,6 @@ function triggerweakpointdamage(precachedbonename)
 */
 function triggerweakpointrepulsed(precachedbonename)
 {
-	self notify(#"weakpoint_update", precachedbonename, "repulse");
+	self notify("weakpoint_update", precachedbonename, "repulse");
 }
 

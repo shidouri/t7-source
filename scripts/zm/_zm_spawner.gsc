@@ -206,10 +206,10 @@ function player_attacker(attacker)
 */
 function enemy_death_detection()
 {
-	self endon(#"death");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon, dflags, inflictor, chargelevel);
+		self waittill("damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon, dflags, inflictor, chargelevel);
 		if(!isdefined(amount))
 		{
 			continue;
@@ -418,7 +418,7 @@ function zombie_spawn_init(animname_set = 0)
 		self [[level.zombie_init_done]]();
 	}
 	self.zombie_init_done = 1;
-	self notify(#"zombie_init_done");
+	self notify("zombie_init_done");
 }
 
 /*
@@ -432,7 +432,7 @@ function zombie_spawn_init(animname_set = 0)
 */
 function zombie_damage_failsafe()
 {
-	self endon(#"death");
+	self endon("death");
 	continue_failsafe_damage = 0;
 	while(true)
 	{
@@ -534,7 +534,7 @@ function zombie_findnodes()
 				if(isdefined(end_at_node))
 				{
 					self setgoalnode(end_at_node);
-					self waittill(#"goal");
+					self waittill("goal");
 				}
 			}
 			if(isdefined(self.start_inert) && self.start_inert)
@@ -585,7 +585,7 @@ function zombie_findnodes()
 */
 function zombie_think()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(!self.isdog);
 	#/
@@ -596,7 +596,7 @@ function zombie_think()
 		shouldwait = self [[level.zombie_custom_think_logic]]();
 		if(shouldwait)
 		{
-			self waittill(#"zombie_custom_think_done", find_flesh_struct_string);
+			self waittill("zombie_custom_think_done", find_flesh_struct_string);
 		}
 	}
 	else
@@ -615,7 +615,7 @@ function zombie_think()
 			{
 				self thread do_zombie_spawn();
 			}
-			self waittill(#"risen", find_flesh_struct_string);
+			self waittill("risen", find_flesh_struct_string);
 		}
 	}
 	self.find_flesh_struct_string = find_flesh_struct_string;
@@ -639,7 +639,7 @@ function zombie_think()
 */
 function zombie_entered_playable()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(level.playable_areas))
 	{
 		level.playable_areas = getentarray("player_volume", "script_noteworthy");
@@ -672,9 +672,9 @@ function zombie_goto_entrance(node, endon_bad_path)
 	/#
 		assert(!self.isdog);
 	#/
-	self endon(#"death");
+	self endon("death");
 	self endon(#"stop_zombie_goto_entrance");
-	level endon(#"intermission");
+	level endon("intermission");
 	self.ai_state = "zombie_goto_entrance";
 	if(isdefined(endon_bad_path) && endon_bad_path)
 	{
@@ -684,7 +684,7 @@ function zombie_goto_entrance(node, endon_bad_path)
 	self.got_to_entrance = 0;
 	self.goalradius = 128;
 	self setgoal(node.origin);
-	self waittill(#"goal");
+	self waittill("goal");
 	self.got_to_entrance = 1;
 	self zombie_history(("zombie_goto_entrance -> reached goto entrance ") + node.origin);
 	self tear_into_building();
@@ -716,9 +716,9 @@ function zombie_goto_entrance(node, endon_bad_path)
 */
 function zombie_assure_node()
 {
-	self endon(#"death");
-	self endon(#"goal");
-	level endon(#"intermission");
+	self endon("death");
+	self endon("goal");
+	level endon("intermission");
 	start_pos = self.origin;
 	if(isdefined(self.entrance_nodes))
 	{
@@ -781,8 +781,8 @@ function zombie_assure_node()
 */
 function zombie_bad_path()
 {
-	self endon(#"death");
-	self endon(#"goal");
+	self endon("death");
+	self endon("goal");
 	self thread zombie_bad_path_notify();
 	self thread zombie_bad_path_timeout();
 	self.zombie_bad_path = undefined;
@@ -805,7 +805,7 @@ function zombie_bad_path()
 */
 function zombie_bad_path_notify()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"stop_zombie_bad_path");
 	self waittill(#"bad_path");
 	self.zombie_bad_path = 1;
@@ -822,7 +822,7 @@ function zombie_bad_path_notify()
 */
 function zombie_bad_path_timeout()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"stop_zombie_bad_path");
 	wait(2);
 	self.zombie_bad_path = 0;
@@ -839,8 +839,8 @@ function zombie_bad_path_timeout()
 */
 function tear_into_building()
 {
-	self endon(#"death");
-	self endon(#"teleporting");
+	self endon("death");
+	self endon("teleporting");
 	self zombie_history("tear_into_building -> start");
 	while(true)
 	{
@@ -877,7 +877,7 @@ function tear_into_building()
 			angles = self.first_node.zbarrier.angles;
 			self setgoal(self.attacking_spot);
 		}
-		self waittill(#"goal");
+		self waittill("goal");
 		self.at_entrance_tear_spot = 1;
 		if(isdefined(level.tear_into_wait))
 		{
@@ -952,7 +952,7 @@ function tear_into_building()
 				{
 					self.first_node.attack_spots_taken[i] = 0;
 				}
-				level notify(#"last_board_torn", self.first_node.zbarrier.origin);
+				level notify("last_board_torn", self.first_node.zbarrier.origin);
 				return;
 			}
 		}
@@ -971,7 +971,7 @@ function tear_into_building()
 */
 function do_a_taunt()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.missinglegs)
 	{
 		return false;
@@ -1010,7 +1010,7 @@ function do_a_taunt()
 */
 function taunt_notetracks(msg)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(msg, notetrack);
@@ -1087,7 +1087,7 @@ function should_attack_player_thru_boards()
 */
 function window_notetracks(msg)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(msg, notetrack);
@@ -1205,7 +1205,7 @@ function get_attack_spot_index(node)
 */
 function zombie_tear_notetracks(msg, chunk, node)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(msg, notetrack);
@@ -1552,7 +1552,7 @@ function zombie_bartear_offset_fx_horizontle(chunk)
 */
 function check_zbarrier_piece_for_zombie_inert(chunk_index, zbarrier, zombie)
 {
-	zombie endon(#"completed_emerging_into_playable_area");
+	zombie endon("completed_emerging_into_playable_area");
 	zombie waittill(#"stop_zombie_goto_entrance");
 	if(zbarrier getzbarrierpiecestate(chunk_index) == "targetted_by_zombie")
 	{
@@ -1597,7 +1597,7 @@ function check_zbarrier_piece_for_zombie_death(chunk_index, zbarrier, zombie)
 */
 function check_for_zombie_death(zombie)
 {
-	self endon(#"destroyed");
+	self endon("destroyed");
 	wait(2.5);
 	self zm_blockers::update_states("repaired");
 }
@@ -1824,7 +1824,7 @@ function zombie_ragdoll_then_explode(launchvector, attacker)
 	self clientfield::set("zombie_ragdoll_explode", 1);
 	self notify(#"exploding");
 	self notify(#"end_melee");
-	self notify(#"death", attacker);
+	self notify("death", attacker);
 	self.dont_die_on_me = 1;
 	self.exploding = 1;
 	self.a.nodeath = 1;
@@ -1895,7 +1895,7 @@ function zombie_death_animscript(einflictor, attacker, idamage, smeansofdeath, w
 	}
 	if(isdefined(self.attacker) && isai(self.attacker))
 	{
-		self.attacker notify(#"killed", self);
+		self.attacker notify("killed", self);
 	}
 	if("rottweil72_upgraded" == self.damageweapon.name && "MOD_RIFLE_BULLET" == self.damagemod)
 	{
@@ -1912,7 +1912,7 @@ function zombie_death_animscript(einflictor, attacker, idamage, smeansofdeath, w
 	}
 	if(self.damagemod == "MOD_GRENADE" || self.damagemod == "MOD_GRENADE_SPLASH")
 	{
-		level notify(#"zombie_grenade_death", self.origin);
+		level notify("zombie_grenade_death", self.origin);
 	}
 	return false;
 }
@@ -1971,7 +1971,7 @@ function register_zombie_death_animscript_callback(func)
 */
 function damage_on_fire(player)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"stop_flame_damage");
 	wait(2);
 	while(isdefined(self.is_on_fire) && self.is_on_fire)
@@ -2404,7 +2404,7 @@ function zombie_death_event(zombie)
 	zombie.marked_for_recycle = 0;
 	force_explode = 0;
 	force_head_gib = 0;
-	zombie waittill(#"death", attacker);
+	zombie waittill("death", attacker);
 	time_of_death = gettime();
 	if(isdefined(zombie))
 	{
@@ -2422,11 +2422,11 @@ function zombie_death_event(zombie)
 	{
 		if(isdefined(zombie.script_parameters))
 		{
-			attacker notify(#"zombie_death_params", zombie.script_parameters, isdefined(zombie.completed_emerging_into_playable_area) && zombie.completed_emerging_into_playable_area);
+			attacker notify("zombie_death_params", zombie.script_parameters, isdefined(zombie.completed_emerging_into_playable_area) && zombie.completed_emerging_into_playable_area);
 		}
 		if(isdefined(zombie.b_widows_wine_cocoon) && isdefined(zombie.e_widows_wine_player))
 		{
-			attacker notify(#"widows_wine_kill", zombie.e_widows_wine_player);
+			attacker notify("widows_wine_kill", zombie.e_widows_wine_player);
 		}
 		if(isdefined(level.pers_upgrade_carpenter) && level.pers_upgrade_carpenter)
 		{
@@ -2452,14 +2452,14 @@ function zombie_death_event(zombie)
 			}
 			else
 			{
-				attacker notify(#"zombie_death_no_headshot");
+				attacker notify("zombie_death_no_headshot");
 			}
 		}
 		if(isdefined(zombie) && isdefined(zombie.damagemod) && zombie.damagemod == "MOD_MELEE")
 		{
 			attacker zm_stats::increment_client_stat("melee_kills");
 			attacker zm_stats::increment_player_stat("melee_kills");
-			attacker notify(#"melee_kill");
+			attacker notify("melee_kill");
 			attacker zm_stats::increment_challenge_stat("ZOMBIE_HUNTER_KILL_MELEE");
 			if(attacker zm_pers_upgrades::is_insta_kill_upgraded_and_active())
 			{
@@ -2492,7 +2492,7 @@ function zombie_death_event(zombie)
 		}
 		if(isdefined(level.pers_upgrade_nube) && level.pers_upgrade_nube)
 		{
-			attacker notify(#"pers_player_zombie_kill");
+			attacker notify("pers_player_zombie_kill");
 		}
 	}
 	zm_utility::recalc_zombie_array();
@@ -2568,14 +2568,14 @@ function zombie_death_event(zombie)
 			{
 				zombie.attacker zm_audio::create_and_play_dialog("kill", "damage");
 			}
-			zombie.attacker notify(#"zom_kill", zombie);
+			zombie.attacker notify("zom_kill", zombie);
 		}
 		else if(zombie.ignoreall && (!(isdefined(zombie.marked_for_death) && zombie.marked_for_death)))
 		{
 			level.zombies_timeout_spawn++;
 		}
 	}
-	level notify(#"zom_kill");
+	level notify("zom_kill");
 	level.total_zombies_killed++;
 }
 
@@ -2665,11 +2665,11 @@ function zombie_setup_attack_properties()
 */
 function attractors_generated_listener()
 {
-	self endon(#"death");
-	level endon(#"intermission");
+	self endon("death");
+	level endon("intermission");
 	self endon(#"stop_find_flesh");
-	self endon(#"path_timer_done");
-	level waittill(#"attractor_positions_generated");
+	self endon("path_timer_done");
+	level waittill("attractor_positions_generated");
 	self.zombie_path_timer = 0;
 }
 
@@ -2684,9 +2684,9 @@ function attractors_generated_listener()
 */
 function zombie_pathing()
 {
-	self endon(#"death");
-	self endon(#"zombie_acquire_enemy");
-	level endon(#"intermission");
+	self endon("death");
+	self endon("zombie_acquire_enemy");
+	level endon("intermission");
 	/#
 		assert(isdefined(self.favoriteenemy) || isdefined(self.enemyoverride));
 	#/
@@ -2720,7 +2720,7 @@ function zombie_pathing()
 		self.zombie_path_timer = 0;
 		return;
 	}
-	self.favoriteenemy endon(#"disconnect");
+	self.favoriteenemy endon("disconnect");
 	players = getplayers();
 	valid_player_num = 0;
 	for(i = 0; i < players.size; i++)
@@ -2922,10 +2922,10 @@ function zombie_repath_notifier()
 */
 function zombie_follow_enemy()
 {
-	self endon(#"death");
-	self endon(#"zombie_acquire_enemy");
+	self endon("death");
+	self endon("zombie_acquire_enemy");
 	self endon(#"bad_path");
-	level endon(#"intermission");
+	level endon("intermission");
 	if(!isdefined(level.repathnotifierstarted))
 	{
 		level.repathnotifierstarted = 1;
@@ -3057,7 +3057,7 @@ function zombie_history(msg)
 */
 function do_zombie_spawn()
 {
-	self endon(#"death");
+	self endon("death");
 	spots = [];
 	if(isdefined(self._rise_spot))
 	{
@@ -3172,7 +3172,7 @@ function do_zombie_spawn()
 function draw_zone_spawned_from()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			print3d(self.origin + vectorscale((0, 0, 1), 64), self.zone_spawned_from, (1, 1, 1));
@@ -3192,7 +3192,7 @@ function draw_zone_spawned_from()
 */
 function do_zombie_rise(spot)
 {
-	self endon(#"death");
+	self endon("death");
 	self.in_the_ground = 1;
 	if(isdefined(self.anchor))
 	{
@@ -3210,13 +3210,13 @@ function do_zombie_rise(spot)
 	anim_org = anim_org + (0, 0, 0);
 	self ghost();
 	self.anchor moveto(anim_org, 0.05);
-	self.anchor waittill(#"movedone");
+	self.anchor waittill("movedone");
 	target_org = zombie_utility::get_desired_origin();
 	if(isdefined(target_org))
 	{
 		anim_ang = vectortoangles(target_org - self.origin);
 		self.anchor rotateto((0, anim_ang[1], 0), 0.05);
-		self.anchor waittill(#"rotatedone");
+		self.anchor waittill("rotatedone");
 	}
 	self unlink();
 	if(isdefined(self.anchor))
@@ -3259,10 +3259,10 @@ function do_zombie_rise(spot)
 		}
 	}
 	self zombie_shared::donotetracks("rise_anim", &zombie_utility::handle_rise_notetracks, spot);
-	self notify(#"rise_anim_finished");
+	self notify("rise_anim_finished");
 	spot notify(#"stop_zombie_rise_fx");
 	self.in_the_ground = 0;
-	self notify(#"risen", spot.script_string);
+	self notify("risen", spot.script_string);
 }
 
 /*
@@ -3285,7 +3285,7 @@ function zombie_rise_fx(zombie)
 	{
 		self thread zombie_rise_burst_fx(zombie);
 	}
-	zombie endon(#"death");
+	zombie endon("death");
 	self endon(#"stop_zombie_rise_fx");
 	wait(1);
 	if(zombie.zombie_move_speed != "sprint")
@@ -3306,7 +3306,7 @@ function zombie_rise_fx(zombie)
 function zombie_rise_burst_fx(zombie)
 {
 	self endon(#"stop_zombie_rise_fx");
-	self endon(#"rise_anim_finished");
+	self endon("rise_anim_finished");
 	if(isdefined(self.script_parameters) && self.script_parameters == "in_water" && (!(isdefined(level._no_water_risers) && level._no_water_risers)))
 	{
 		zombie clientfield::set("zombie_riser_fx_water", 1);
@@ -3422,7 +3422,7 @@ function zombie_rise_dust_fx(zombie)
 */
 function stop_zombie_rise_dust_fx(zombie)
 {
-	zombie waittill(#"death");
+	zombie waittill("death");
 	self notify(#"stop_zombie_rise_dust_fx");
 }
 
@@ -3437,7 +3437,7 @@ function stop_zombie_rise_dust_fx(zombie)
 */
 function zombie_tesla_head_gib()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.animname == "quad_zombie")
 	{
 		return;
@@ -3464,7 +3464,7 @@ function zombie_tesla_head_gib()
 */
 function play_ambient_zombie_vocals()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		type = "ambient";
@@ -3532,7 +3532,7 @@ function zombie_complete_emerging_into_playable_area()
 	self.should_turn = 0;
 	self.completed_emerging_into_playable_area = 1;
 	self.no_powerups = 0;
-	self notify(#"completed_emerging_into_playable_area");
+	self notify("completed_emerging_into_playable_area");
 	if(isdefined(self.backedupgoal))
 	{
 		self setgoal(self.backedupgoal);
@@ -3554,7 +3554,7 @@ function zombie_complete_emerging_into_playable_area()
 */
 function zombie_free_cam_allowed()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(1.5);
 	if(!isdefined(self))
 	{
@@ -3574,7 +3574,7 @@ function zombie_free_cam_allowed()
 */
 function zombie_push()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(5);
 	if(!isdefined(self))
 	{

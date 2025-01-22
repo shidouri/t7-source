@@ -264,7 +264,7 @@ function function_378db90d(v_pos)
 */
 function function_62837b3a()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_d3c478a0 = 1;
 	wait(16);
 	self.var_d3c478a0 = 0;
@@ -323,7 +323,7 @@ function function_e381ab3a(ai_enemy)
 */
 function function_5c74632()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	if(self.archetype === "zombie")
 	{
@@ -397,7 +397,7 @@ function function_6a1a0b32(ai_enemy, var_3c817f0d)
 */
 function function_e7abbbb8(var_3c817f0d, e_player)
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_ca25d40c = 1;
 	n_timer = 0;
 	if(self.archetype === "mechz")

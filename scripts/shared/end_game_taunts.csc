@@ -247,14 +247,14 @@ function playtaunt(localclientnum, charactermodel, topplayerindex, idleanimname,
 	}
 	canceltaunt(localclientnum, charactermodel);
 	charactermodel stopsounds();
-	charactermodel endon(#"canceltaunt");
+	charactermodel endon("canceltaunt");
 	charactermodel util::waittill_dobj(localclientnum);
 	if(!charactermodel hasanimtree())
 	{
 		charactermodel useanimtree($all_player);
 	}
 	charactermodel.playingtaunt = tauntanimname;
-	charactermodel notify(#"tauntstarted");
+	charactermodel notify("tauntstarted");
 	charactermodel clearanim(idleanimname, totauntblendtime);
 	idleinanimname = getidleinanimname(charactermodel, topplayerindex);
 	hideweapon(charactermodel);
@@ -268,7 +268,7 @@ function playtaunt(localclientnum, charactermodel, topplayerindex, idleanimname,
 	showweapon(charactermodel);
 	charactermodel thread animation::play(idleanimname, undefined, undefined, 1, 0.4, 0);
 	charactermodel.playingtaunt = undefined;
-	charactermodel notify(#"tauntfinished");
+	charactermodel notify("tauntfinished");
 	charactermodel shutdownepictauntmodels();
 }
 
@@ -290,7 +290,7 @@ function canceltaunt(localclientnum, charactermodel)
 		charactermodel stopepictauntscene(localclientnum, charactermodel.playingtaunt);
 		charactermodel stopsounds();
 	}
-	charactermodel notify(#"canceltaunt");
+	charactermodel notify("canceltaunt");
 	charactermodel.playingtaunt = undefined;
 	charactermodel.epictauntmodels = undefined;
 }
@@ -343,14 +343,14 @@ function playgesture(localclientnum, charactermodel, topplayerindex, idleanimnam
 		return;
 	}
 	cancelgesture(charactermodel);
-	charactermodel endon(#"cancelgesture");
+	charactermodel endon("cancelgesture");
 	charactermodel util::waittill_dobj(localclientnum);
 	if(!charactermodel hasanimtree())
 	{
 		charactermodel useanimtree($all_player);
 	}
 	charactermodel.playinggesture = 1;
-	charactermodel notify(#"gesturestarted");
+	charactermodel notify("gesturestarted");
 	charactermodel clearanim(idleanimname, 0.4);
 	idleoutanimname = getidleoutanimname(charactermodel, topplayerindex);
 	idleinanimname = getidleinanimname(charactermodel, topplayerindex);
@@ -369,7 +369,7 @@ function playgesture(localclientnum, charactermodel, topplayerindex, idleanimnam
 	showweapon(charactermodel);
 	charactermodel thread animation::play(idleanimname, undefined, undefined, 1, 0.4, 0);
 	charactermodel.playinggesture = 0;
-	charactermodel notify(#"gesturefinished");
+	charactermodel notify("gesturefinished");
 }
 
 /*
@@ -383,7 +383,7 @@ function playgesture(localclientnum, charactermodel, topplayerindex, idleanimnam
 */
 function cancelgesture(charactermodel)
 {
-	charactermodel notify(#"cancelgesture");
+	charactermodel notify("cancelgesture");
 	charactermodel.playinggesture = 0;
 }
 
@@ -398,7 +398,7 @@ function cancelgesture(charactermodel)
 */
 function playtransitionanim(charactermodel, transitionanimname, blendintime = 0, blendouttime = 0)
 {
-	charactermodel endon(#"canceltaunt");
+	charactermodel endon("canceltaunt");
 	if(!isdefined(transitionanimname) || transitionanimname == "")
 	{
 		return;
@@ -417,7 +417,7 @@ function playtransitionanim(charactermodel, transitionanimname, blendintime = 0,
 */
 function waitremoveweapon(charactermodel)
 {
-	charactermodel endon(#"weaponhidden");
+	charactermodel endon("weaponhidden");
 	while(true)
 	{
 		charactermodel waittill(#"_anim_notify_", param1);
@@ -440,7 +440,7 @@ function waitremoveweapon(charactermodel)
 */
 function waitappearweapon(charactermodel)
 {
-	charactermodel endon(#"weaponshown");
+	charactermodel endon("weaponshown");
 	while(true)
 	{
 		charactermodel waittill(#"_anim_notify_", param1);
@@ -470,7 +470,7 @@ function hideweapon(charactermodel)
 	markasdirty(charactermodel);
 	charactermodel attachweapon(level.weaponnone);
 	charactermodel useweaponhidetags(level.weaponnone);
-	charactermodel notify(#"weaponhidden");
+	charactermodel notify("weaponhidden");
 }
 
 /*
@@ -498,7 +498,7 @@ function showweapon(charactermodel)
 	{
 		charactermodel attachweapon(charactermodel.showcaseweapon);
 	}
-	charactermodel notify(#"weaponshown");
+	charactermodel notify("weaponshown");
 }
 
 /*
@@ -1463,7 +1463,7 @@ function fireweapon(weaponname)
 	{
 		return;
 	}
-	self endon(#"stopfireweapon");
+	self endon("stopfireweapon");
 	weapon = getweapon(weaponname);
 	waittillframeend();
 	while(1 && isdefined(self))
@@ -1484,7 +1484,7 @@ function fireweapon(weaponname)
 */
 function stopfireweapon(param)
 {
-	self notify(#"stopfireweapon");
+	self notify("stopfireweapon");
 }
 
 /*

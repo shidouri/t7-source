@@ -106,7 +106,7 @@ function debug_friendlyfire()
 {
 	self endon(#"hash_cca1b1b9");
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		if(getdvarstring("") == "")
 		{
 			setdvar("", "");
@@ -354,7 +354,7 @@ function friendly_fire_callback(entity, damage, attacker, method)
 	{
 		if(entity.team == "neutral")
 		{
-			level notify(#"player_killed_civ");
+			level notify("player_killed_civ");
 			attacker.participation = attacker.participation + level.friendlyfirepoints["civ_kill_points"];
 			debug_log(("Civilian killed: -") + (0 - level.friendlyfirepoints["civ_kill_points"]));
 		}
@@ -397,7 +397,7 @@ function friendly_fire_callback(entity, damage, attacker, method)
 function friendly_fire_think(entity)
 {
 	level endon(#"hash_77e184");
-	entity endon(#"no_friendly_fire");
+	entity endon("no_friendly_fire");
 	if(!isdefined(entity))
 	{
 		return;
@@ -412,7 +412,7 @@ function friendly_fire_think(entity)
 		{
 			return;
 		}
-		entity waittill(#"damage", damage, attacker, $_, $_, method);
+		entity waittill("damage", damage, attacker, $_, $_, method);
 		if(level.friendlyfiredisabled)
 		{
 			continue;
@@ -484,7 +484,7 @@ function friendly_fire_think(entity)
 		{
 			if(entity.team == "neutral")
 			{
-				level notify(#"player_killed_civ");
+				level notify("player_killed_civ");
 				if(attacker.participation <= 0)
 				{
 					attacker.participation = attacker.participation + level.friendlyfirepoints["min_participation"];
@@ -633,8 +633,8 @@ function participation_point_cap()
 */
 function participation_point_flattenovertime()
 {
-	level endon(#"friendly_fire_terminate");
-	self endon(#"disconnect");
+	level endon("friendly_fire_terminate");
+	self endon("disconnect");
 	for(;;)
 	{
 		if(self.participation > 0)
@@ -688,7 +688,7 @@ function turnoff()
 */
 function missionfail()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_1078e68a");
 	self.participation = 0;
 	self.lives = 0;
@@ -714,11 +714,11 @@ function missionfail()
 function notifydamage(entity)
 {
 	level endon(#"hash_77e184");
-	entity endon(#"death");
+	entity endon("death");
 	for(;;)
 	{
-		entity waittill(#"damage", damage, attacker, $_, $_, method);
-		entity notify(#"friendlyfire_notify", damage, attacker, undefined, undefined, method);
+		entity waittill("damage", damage, attacker, $_, $_, method);
+		entity notify("friendlyfire_notify", damage, attacker, undefined, undefined, method);
 	}
 }
 
@@ -734,8 +734,8 @@ function notifydamage(entity)
 function notifydamagenotdone(entity)
 {
 	level endon(#"hash_77e184");
-	entity waittill(#"damage_notdone", damage, attacker, $_, $_, method);
-	entity notify(#"friendlyfire_notify", -1, attacker, undefined, undefined, method);
+	entity waittill("damage_notdone", damage, attacker, $_, $_, method);
+	entity notify("friendlyfire_notify", -1, attacker, undefined, undefined, method);
 }
 
 /*
@@ -750,7 +750,7 @@ function notifydamagenotdone(entity)
 function notifydeath(entity)
 {
 	level endon(#"hash_77e184");
-	entity waittill(#"death", attacker, method);
-	entity notify(#"friendlyfire_notify", -1, attacker, undefined, undefined, method);
+	entity waittill("death", attacker, method);
+	entity notify("friendlyfire_notify", -1, attacker, undefined, undefined, method);
 }
 

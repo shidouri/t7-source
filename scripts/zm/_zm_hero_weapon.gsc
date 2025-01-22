@@ -334,12 +334,12 @@ function on_player_spawned()
 */
 function watch_hero_weapon_give()
 {
-	self notify(#"watch_hero_weapon_give");
-	self endon(#"watch_hero_weapon_give");
-	self endon(#"disconnect");
+	self notify("watch_hero_weapon_give");
+	self endon("watch_hero_weapon_give");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_give", w_weapon);
+		self waittill("weapon_give", w_weapon);
 		if(isdefined(w_weapon) && zm_utility::is_hero_weapon(w_weapon))
 		{
 			self thread watch_hero_power(w_weapon);
@@ -359,12 +359,12 @@ function watch_hero_weapon_give()
 */
 function watch_hero_weapon_take()
 {
-	self notify(#"watch_hero_weapon_take");
-	self endon(#"watch_hero_weapon_take");
-	self endon(#"disconnect");
+	self notify("watch_hero_weapon_take");
+	self endon("watch_hero_weapon_take");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_take", w_weapon);
+		self waittill("weapon_take", w_weapon);
 		if(isdefined(w_weapon) && zm_utility::is_hero_weapon(w_weapon))
 		{
 			self [[level._hero_weapons[w_weapon].take_fn]](w_weapon);
@@ -384,12 +384,12 @@ function watch_hero_weapon_take()
 */
 function watch_hero_weapon_change()
 {
-	self notify(#"watch_hero_weapon_change");
-	self endon(#"watch_hero_weapon_change");
-	self endon(#"disconnect");
+	self notify("watch_hero_weapon_change");
+	self endon("watch_hero_weapon_change");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_change", w_current, w_previous);
+		self waittill("weapon_change", w_current, w_previous);
 		if(self.sessionstate != "spectator")
 		{
 			if(isdefined(w_previous) && zm_utility::is_hero_weapon(w_previous))
@@ -423,10 +423,10 @@ function watch_hero_weapon_change()
 */
 function watch_hero_power(w_weapon)
 {
-	self notify(#"watch_hero_power");
-	self endon(#"watch_hero_power");
+	self notify("watch_hero_power");
+	self endon("watch_hero_power");
 	self endon(#"stop_watch_hero_power");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.hero_power_prev))
 	{
 		self.hero_power_prev = -1;
@@ -587,7 +587,7 @@ function take_hero_weapon()
 {
 	if(isdefined(self.current_hero_weapon))
 	{
-		self notify(#"weapon_take", self.current_hero_weapon);
+		self notify("weapon_take", self.current_hero_weapon);
 		self gadgetpowerset(0, 0);
 	}
 }

@@ -348,7 +348,7 @@ function ondisconnect_common(player)
 {
 	level endon("crafted_" + self.piecename);
 	level endon("dropped_" + self.piecename);
-	player waittill(#"disconnect");
+	player waittill("disconnect");
 	if(self.is_shared)
 	{
 		return;
@@ -571,7 +571,7 @@ function onpickup_ritual_piece(player)
 function onpickup_idgun_piece(player)
 {
 	level flag::set(self.piecename + "_found");
-	level notify(#"idgun_part_found");
+	level notify("idgun_part_found");
 	player thread function_9708cb71(self.piecename);
 	switch(self.piecename)
 	{
@@ -878,7 +878,7 @@ function function_bae02fd4()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;

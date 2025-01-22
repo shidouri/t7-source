@@ -673,11 +673,11 @@ function function_79aac6ce()
 */
 function function_962154a7()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_1e73602d");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker);
+		self waittill("damage", damage, attacker);
 		if(isdefined(attacker.scoretype))
 		{
 			if(attacker.scoretype == "_depth_charge")

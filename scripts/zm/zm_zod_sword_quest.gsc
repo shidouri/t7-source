@@ -313,7 +313,7 @@ function function_2f36dd89(var_6b55cb3b)
 */
 function function_ed28cc7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level clientfield::set("keeper_quest_state_" + self.characterindex, 0);
 	self waittill(#"hash_1867e603");
 	level flag::wait_till("ritual_pap_complete");
@@ -455,7 +455,7 @@ function function_4a3c552c()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -617,7 +617,7 @@ function magic_circle_trigger_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -657,7 +657,7 @@ function magic_circle_trigger_activate(trig_stub, player)
 	level flag::set("magic_circle_in_progress");
 	trig_stub notify(#"hash_15d0dfe4");
 	trig_stub endon(#"hash_15d0dfe4");
-	level endon(#"magic_circle_failed");
+	level endon("magic_circle_failed");
 	trig_stub.activated = 1;
 	var_181b74a5 = trig_stub.n_char_index;
 	trig_stub.player = player;
@@ -752,7 +752,7 @@ function magic_circle_trigger_activate(trig_stub, player)
 function function_7922af5f(player, trig_stub, index, str_endon)
 {
 	level endon(str_endon);
-	level endon(#"magic_circle_failed");
+	level endon("magic_circle_failed");
 	var_181b74a5 = trig_stub.n_char_index;
 	while(true)
 	{
@@ -764,7 +764,7 @@ function function_7922af5f(player, trig_stub, index, str_endon)
 		trig_stub.ai_defender[index].deathpoints_already_given = 1;
 		trig_stub.ai_defender[index].var_2d5d7413 = 1;
 		trig_stub.ai_defender[index].var_de609f65 = player;
-		trig_stub.ai_defender[index] waittill(#"death", attacker, mod, var_13b27531);
+		trig_stub.ai_defender[index] waittill("death", attacker, mod, var_13b27531);
 		if(isdefined(var_13b27531 === level.sword_quest.weapons[player.characterindex][1]))
 		{
 			player.sword_quest_2.kills[var_181b74a5]++;
@@ -804,7 +804,7 @@ function function_47563199(trig_stub, player, str_endon)
 	n_char_index = player.characterindex;
 	player util::waittill_any("entering_last_stand", "disconnect");
 	level notify(#"hash_278154b");
-	level notify(#"magic_circle_failed");
+	level notify("magic_circle_failed");
 	for(i = 0; i < trig_stub.ai_defender.size; i++)
 	{
 		if(isalive(trig_stub.ai_defender[i]))
@@ -832,7 +832,7 @@ function function_47563199(trig_stub, player, str_endon)
 */
 function function_413de655(trig_stub, player, str_endon)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	level endon(str_endon);
 	player waittill(#"bled_out");
 	n_charges = player function_b7af29e0();
@@ -913,7 +913,7 @@ function function_278154b(var_a246d2ec, var_181b74a5, n_radius, n_rate, str_endo
 */
 function function_9867bf60(var_a246d2ec, n_dist_max, str_endon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_278154b");
 	level endon(str_endon);
 	self playsoundtoplayer("zmb_zod_sword2_charge", self);
@@ -1113,7 +1113,7 @@ function function_2bca570()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -1323,7 +1323,7 @@ function on_player_connect()
 			self.sword_quest.kills[e_statue.statue_id] = 12;
 		}
 	}
-	self waittill(#"spawned_player");
+	self waittill("spawned_player");
 	function_541cb3c4();
 	var_5306b772 = struct::get_array("sword_quest_magic_circle_place", "targetname");
 	foreach(var_768e52e3 in var_5306b772)
@@ -1569,7 +1569,7 @@ function private zombie_blood_soul_streak_fx(e_statue, e_killer)
 	e_fx playsound("zmb_zod_soul_release");
 	v_endpos = e_statue gettagorigin(e_statue.egg_tags[e_killer.characterindex]);
 	e_fx moveto(v_endpos, 1);
-	e_fx waittill(#"movedone");
+	e_fx waittill("movedone");
 	e_fx playsound("zmb_zod_soul_impact");
 	wait(0.25);
 	e_fx clientfield::set("zod_egg_soul", 0);
@@ -1750,7 +1750,7 @@ function defend_player_message(e_player)
 */
 function give_sword(n_sword_level, var_74719138 = 0)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self set_sword_upgrade_level(n_sword_level);
 	self notify(#"hash_b29853d8");
 	wait(0.1);
@@ -1768,7 +1768,7 @@ function give_sword(n_sword_level, var_74719138 = 0)
 	self.sword_power = 1;
 	self gadgetpowerset(0, 100);
 	self switchtoweapon(wpn_sword);
-	self waittill(#"weapon_change_complete");
+	self waittill("weapon_change_complete");
 	self thread sword_use_hint(n_sword_level, var_74719138);
 	if(var_74719138)
 	{
@@ -1795,11 +1795,11 @@ function give_sword(n_sword_level, var_74719138 = 0)
 */
 function function_40f1b35b(wpn_sword, n_sword_level)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_6f140d05 = 0;
 	while(!var_6f140d05)
 	{
-		self waittill(#"weapon_change_complete");
+		self waittill("weapon_change_complete");
 		weapon = self getcurrentweapon();
 		if(weapon === wpn_sword)
 		{
@@ -1888,12 +1888,12 @@ function sword_use_hint(n_sword_level, var_74719138)
 	{
 		while(self sword_equipped())
 		{
-			self waittill(#"weapon_change_complete", weapon);
+			self waittill("weapon_change_complete", weapon);
 		}
 	}
 	while(!self sword_equipped())
 	{
-		self waittill(#"weapon_change_complete", weapon);
+		self waittill("weapon_change_complete", weapon);
 	}
 	if(n_sword_level == 1)
 	{
@@ -1926,7 +1926,7 @@ function function_2c009d2e(e_statue)
 	while(true)
 	{
 		e_statue.trigger zm_zod_util::unitrigger_refresh_message();
-		e_statue.trigger waittill(#"trigger", e_who);
+		e_statue.trigger waittill("trigger", e_who);
 		if(!isdefined(e_who.var_b170d6d6) && !level flag::get("keeper_sword_locker"))
 		{
 			continue;
@@ -2088,7 +2088,7 @@ function sword_devgui()
 					e_player notify(#"hash_b29853d8");
 					if(isdefined(e_player.var_c0d25105))
 					{
-						e_player.var_c0d25105 notify(#"returned_to_owner");
+						e_player.var_c0d25105 notify("returned_to_owner");
 					}
 					e_player give_sword(n_level, 1);
 					e_player.sword_allowed = 1;
@@ -2105,7 +2105,7 @@ function sword_devgui()
 					e_player notify(#"hash_b29853d8");
 					if(isdefined(e_player.var_c0d25105))
 					{
-						e_player.var_c0d25105 notify(#"returned_to_owner");
+						e_player.var_c0d25105 notify("returned_to_owner");
 					}
 					e_player give_sword(n_level, 1);
 					e_player.sword_allowed = 1;

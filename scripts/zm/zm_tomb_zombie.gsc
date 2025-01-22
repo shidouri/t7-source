@@ -316,7 +316,7 @@ function function_57039dd1()
 function function_66e3edec(var_25c21be0)
 {
 	var_25c21be0 endon(#"hash_57039dd1");
-	self waittill(#"actor_corpse", e_corpse);
+	self waittill("actor_corpse", e_corpse);
 	e_corpse hide();
 }
 
@@ -433,7 +433,7 @@ function private function_3394e22d(origin, players)
 */
 function private update_closest_player()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		reset_closest_player = 1;

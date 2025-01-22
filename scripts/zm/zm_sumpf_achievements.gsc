@@ -56,7 +56,7 @@ function __init__()
 */
 function achievement_sound_func(achievement_name_lower)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!sessionmodeisonlinegame())
 	{
 		return;
@@ -100,8 +100,8 @@ function onplayerconnect()
 function function_2eb61ef5()
 {
 	level endon(#"end_game");
-	self endon(#"i_am_down");
-	self endon(#"disconnect");
+	self endon("i_am_down");
+	self endon("disconnect");
 	while(isdefined(self))
 	{
 		if(isdefined(level.round_number) && level.round_number == 5)
@@ -127,10 +127,10 @@ function function_2eb61ef5()
 function function_94fa04f0()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"nuke_triggered");
+		self waittill("nuke_triggered");
 		wait(2);
 		if(isdefined(self.zombie_nuked) && self.zombie_nuked.size == 1)
 		{
@@ -154,7 +154,7 @@ function function_94fa04f0()
 function function_a634891()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_88c6ab10 = 0;
 	while(self.var_88c6ab10 < 10)
 	{
@@ -179,7 +179,7 @@ function function_a2ee1b6c()
 {
 	level endon(#"end_game");
 	level endon(#"end_of_round");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(self.var_88c6ab10 < 10)
 	{
 		self waittill(#"hash_7a5eece4");
@@ -199,7 +199,7 @@ function function_a2ee1b6c()
 function function_47ae7759()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_949655c9");
 	level waittill(#"end_of_round");
 	self.var_88c6ab10 = 0;
@@ -217,7 +217,7 @@ function function_47ae7759()
 function function_2a1b645a()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self.score_total >= 75000)
@@ -243,7 +243,7 @@ function function_2a1b645a()
 function function_b44fefa1()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		if(isdefined(self.perk_hud) && self.perk_hud.size == 4)
@@ -269,7 +269,7 @@ function function_b44fefa1()
 function function_f67810a2()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(self.var_dcd9b1e7 = 0; self.var_dcd9b1e7 >= 200; self.var_dcd9b1e7++)
 	{
 		self waittill(#"hash_1d8b6c31");
@@ -292,7 +292,7 @@ function function_f67810a2()
 function function_25062f55()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_498c9df8 = 0;
 	if(self.var_498c9df8 >= 150)
 	{
@@ -316,7 +316,7 @@ function function_25062f55()
 function function_32909149()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	do
 	{
 		self function_f8c272e8();
@@ -342,7 +342,7 @@ function function_f8c272e8()
 {
 	level endon(#"end_game");
 	level endon(#"end_of_round");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_ea373971");
 	self.var_59179d2c = [];
 	do

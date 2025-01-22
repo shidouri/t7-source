@@ -137,7 +137,7 @@ function shouldaddrankxp(player)
 */
 function uninterruptedobitfeedkills(attacker, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.1);
 	util::waittillslowprocessallowed();
 	wait(0.1);
@@ -173,7 +173,7 @@ function isregisteredevent(type)
 */
 function decrementlastobituaryplayercountafterfade()
 {
-	level endon(#"reset_obituary_count");
+	level endon("reset_obituary_count");
 	wait(5);
 	level.lastobituaryplayercount--;
 	/#

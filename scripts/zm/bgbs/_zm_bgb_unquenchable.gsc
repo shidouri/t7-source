@@ -51,11 +51,11 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bgb_update");
 	do
 	{
-		self waittill(#"perk_purchased");
+		self waittill("perk_purchased");
 	}
 	while(self.num_perks < self zm_utility::get_player_perk_purchase_limit());
 	self bgb::do_one_shot_use(1);

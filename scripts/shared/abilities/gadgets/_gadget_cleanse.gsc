@@ -173,7 +173,7 @@ function gadget_cleanse_start(slot, weapon)
 	self setnormalhealth(self.maxhealth);
 	self setdoublejumpenergy(1);
 	self stopshellshock();
-	self notify(#"gadget_cleanse_on");
+	self notify("gadget_cleanse_on");
 }
 
 /*
@@ -200,7 +200,7 @@ function wait_until_is_done(slot, timepulse)
 */
 function gadget_cleanse_flicker(slot, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 }
 
 /*

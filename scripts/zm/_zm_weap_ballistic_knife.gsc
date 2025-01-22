@@ -33,10 +33,10 @@ function init()
 */
 function on_spawn(watcher, player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	player endon(#"zmb_lost_knife");
-	level endon(#"game_ended");
+	player endon("death");
+	player endon("disconnect");
+	player endon("zmb_lost_knife");
+	level endon("game_ended");
 	self waittill(#"stationary", endpos, normal, angles, attacker, prey, bone);
 	isfriendly = 0;
 	if(isdefined(endpos))
@@ -97,8 +97,8 @@ function on_spawn(watcher, player)
 */
 function wait_to_show_glowing_model(prey)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("death");
 	wait(2);
 	self setmodel("t6_wpn_ballistic_knife_projectile");
 }
@@ -114,10 +114,10 @@ function wait_to_show_glowing_model(prey)
 */
 function on_spawn_retrieve_trigger(watcher, player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	player endon(#"zmb_lost_knife");
-	level endon(#"game_ended");
+	player endon("death");
+	player endon("disconnect");
+	player endon("zmb_lost_knife");
+	level endon("game_ended");
 	player waittill(#"ballistic_knife_stationary", retrievable_model, normal, prey);
 	if(!isdefined(retrievable_model))
 	{
@@ -188,7 +188,7 @@ function on_spawn_retrieve_trigger(watcher, player)
 function debug_print(endpos)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			print3d(endpos, "");
@@ -208,14 +208,14 @@ function debug_print(endpos)
 */
 function watch_use_trigger(trigger, model, callback, weapon, playersoundonuse, npcsoundonuse)
 {
-	self endon(#"death");
-	self endon(#"delete");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("delete");
+	level endon("game_ended");
 	max_ammo = weapon.maxammo + 1;
 	autorecover = isdefined(level.ballistic_knife_autorecover) && level.ballistic_knife_autorecover;
 	while(true)
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		if(!isalive(player))
 		{
 			continue;
@@ -348,11 +348,11 @@ function watch_shutdown(trigger, model)
 */
 function drop_knives_to_ground(player)
 {
-	player endon(#"death");
-	player endon(#"zmb_lost_knife");
+	player endon("death");
+	player endon("zmb_lost_knife");
 	for(;;)
 	{
-		level waittill(#"drop_objects_to_ground", origin, radius);
+		level waittill("drop_objects_to_ground", origin, radius);
 		if(distancesquared(origin, self.origin) < (radius * radius))
 		{
 			self physicslaunch((0, 0, 1), vectorscale((1, 1, 1), 5));
@@ -372,9 +372,9 @@ function drop_knives_to_ground(player)
 */
 function force_drop_knives_to_ground_on_death(player, prey)
 {
-	self endon(#"death");
-	player endon(#"zmb_lost_knife");
-	prey waittill(#"death");
+	self endon("death");
+	player endon("zmb_lost_knife");
+	prey waittill("death");
 	self unlink();
 	self physicslaunch((0, 0, 1), vectorscale((1, 1, 1), 5));
 	self thread update_retrieve_trigger(player);
@@ -391,8 +391,8 @@ function force_drop_knives_to_ground_on_death(player, prey)
 */
 function update_retrieve_trigger(player)
 {
-	self endon(#"death");
-	player endon(#"zmb_lost_knife");
+	self endon("death");
+	player endon("zmb_lost_knife");
 	if(isdefined(level.custom_update_retrieve_trigger))
 	{
 		self [[level.custom_update_retrieve_trigger]](player);

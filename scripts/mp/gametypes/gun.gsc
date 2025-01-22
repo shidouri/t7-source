@@ -258,8 +258,8 @@ function onstartgametype()
 */
 function inactivitykick()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(sessionmodeisprivate())
 	{
 		return;
@@ -449,8 +449,8 @@ function setupteam(team)
 */
 function takeoldweapon(oldweapon)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(1);
 	self takeweapon(oldweapon);
 }
@@ -507,9 +507,9 @@ function givecustomloadout(takeoldweapon = 0)
 */
 function promoteplayer(weaponused)
 {
-	self endon(#"disconnect");
-	self endon(#"cancel_promotion");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("cancel_promotion");
+	level endon("game_ended");
 	wait(0.05);
 	if(weaponused.rootweapon == level.gunprogression[self.gunprogress].rootweapon || (isdefined(level.gunprogression[self.gunprogress].dualwieldweapon) && level.gunprogression[self.gunprogress].dualwieldweapon.rootweapon == weaponused.rootweapon))
 	{
@@ -542,8 +542,8 @@ function promoteplayer(weaponused)
 */
 function demoteplayer(attacker)
 {
-	self endon(#"disconnect");
-	self notify(#"cancel_promotion");
+	self endon("disconnect");
+	self notify("cancel_promotion");
 	currentgunprogress = self.gunprogress;
 	for(i = 0; i < level.setbacksperdemotion; i++)
 	{
@@ -582,8 +582,8 @@ function demoteplayer(attacker)
 */
 function infiniteammo()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		wait(0.1);

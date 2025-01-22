@@ -149,10 +149,10 @@ function reset(var_b18f74fe)
 */
 function function_b6af57a8()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		level waittill(#"save_restore");
+		level waittill("save_restore");
 		if(isdefined(self.var_8dcb3948) && self.var_8dcb3948)
 		{
 			continue;
@@ -177,10 +177,10 @@ function function_b6af57a8()
 */
 function function_a421f870()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"player_revived");
+		self waittill("player_revived");
 		foreach(str_name, _ in level.hazards)
 		{
 			if(function_b78a859e(str_name) >= 1)
@@ -322,7 +322,7 @@ function private _fill_hazard_protection(str_name, e_ent, disable_ui)
 {
 	self notify("_hazard_protection_" + str_name);
 	self endon("_hazard_protection_" + str_name);
-	self endon(#"death");
+	self endon("death");
 	s_hazard = level.hazards[str_name];
 	str_ui_model = "";
 	foreach(model, type in self.hazard_ui_models)
@@ -441,7 +441,7 @@ function function_476442fb(n_damage_frac, e_ent)
 */
 function function_503a50a8()
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set_to_player("player_cam_bubbles", 1);
 	wait(4);
 	self clientfield::set_to_player("player_cam_bubbles", 0);
@@ -512,9 +512,9 @@ function function_fda01c41(alias)
 {
 	self notify(#"hash_fda01c41");
 	self endon(#"hash_fda01c41");
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"save_restore");
+	self endon("death");
+	self endon("disconnect");
+	level endon("save_restore");
 	while(self isplayerunderwater())
 	{
 		wait(0.1);
@@ -552,7 +552,7 @@ function function_ccddb105(var_be6a04c9, var_6d20ee14, n_time, var_827d6de0)
 	#/
 	self notify("stop_hazard_dot_" + var_be6a04c9);
 	self endon("stop_hazard_dot_" + var_be6a04c9);
-	self endon(#"death");
+	self endon("death");
 	self function_459e5eff(var_be6a04c9, 0);
 	var_dd075cd2 = 1;
 	s_hazard = level.hazards[var_be6a04c9];

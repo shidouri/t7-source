@@ -60,7 +60,7 @@ function createsensorgrenadewatcher()
 */
 function onspawnsensorgrenade(watcher, player)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, player);
 	self setowner(player);
 	self setteam(player.team);
@@ -84,12 +84,12 @@ function onspawnsensorgrenade(watcher, player)
 */
 function watchforstationary(owner)
 {
-	self endon(#"death");
-	self endon(#"hacked");
+	self endon("death");
+	self endon("hacked");
 	self endon(#"explode");
-	owner endon(#"death");
-	owner endon(#"disconnect");
-	self waittill(#"stationary");
+	owner endon("death");
+	owner endon("disconnect");
+	self waittill("stationary");
 	checkfortracking(self.origin);
 }
 
@@ -104,10 +104,10 @@ function watchforstationary(owner)
 */
 function watchforexplode(owner)
 {
-	self endon(#"hacked");
-	self endon(#"delete");
-	owner endon(#"death");
-	owner endon(#"disconnect");
+	self endon("hacked");
+	self endon("delete");
+	owner endon("death");
+	owner endon("disconnect");
 	self waittill(#"explode", origin);
 	checkfortracking(origin + (0, 0, 1));
 }
@@ -228,8 +228,8 @@ function sensorgrenadedestroyed(attacker, weapon, target)
 */
 function watchsensorgrenadedamage(watcher)
 {
-	self endon(#"death");
-	self endon(#"hacked");
+	self endon("death");
+	self endon("hacked");
 	self setcandamage(1);
 	damagemax = 1;
 	if(!self util::ishacked())
@@ -240,7 +240,7 @@ function watchsensorgrenadedamage(watcher)
 	{
 		self.maxhealth = 100000;
 		self.health = self.maxhealth;
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;
@@ -300,7 +300,7 @@ function watchsensorgrenadedamage(watcher)
 */
 function watch_for_decoys(owner)
 {
-	self waittill(#"stationary");
+	self waittill("stationary");
 	players = level.players;
 	foreach(player in level.players)
 	{
@@ -349,8 +349,8 @@ function watch_decoy(sensor_grenade)
 	decoy_grenade.initial_velocity = -1 * self getvelocity();
 	decoy_grenade thread decoy::simulate_weapon_fire(self);
 	wait(15);
-	decoy_grenade notify(#"done");
-	decoy_grenade notify(#"death_before_explode");
+	decoy_grenade notify("done");
+	decoy_grenade notify("death_before_explode");
 	decoy_grenade delete();
 }
 

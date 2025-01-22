@@ -556,11 +556,11 @@ function trigger_visible_to_player(player)
 */
 function bgb_machine_unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", player);
-		self.stub.trigger_target notify(#"trigger", player);
+		self waittill("trigger", player);
+		self.stub.trigger_target notify("trigger", player);
 	}
 }
 
@@ -576,7 +576,7 @@ function bgb_machine_unitrigger_think()
 function show_bgb_machine()
 {
 	self set_bgb_machine_state("arriving");
-	self waittill(#"arrived");
+	self waittill("arrived");
 	self.hidden = 0;
 }
 
@@ -661,7 +661,7 @@ function bgb_machine_think()
 	while(true)
 	{
 		var_5e7af4df = undefined;
-		self waittill(#"trigger", user);
+		self waittill("trigger", user);
 		var_9bbdff4d = -1;
 		if(isdefined(user.bgb) && isdefined(level.bgb[user.bgb]))
 		{
@@ -733,7 +733,7 @@ function bgb_machine_think()
 	self.b_bgb_is_available = self thread bgb_machine_select_bgb(user);
 	self thread zm_unitrigger::unregister_unitrigger(self.unitrigger_stub);
 	self set_bgb_machine_state("open");
-	self waittill(#"gumball_available");
+	self waittill("gumball_available");
 	self.grab_bgb_hint = 1;
 	self thread zm_unitrigger::register_static_unitrigger(self.unitrigger_stub, &bgb_machine_unitrigger_think);
 	gumballtaken = 0;
@@ -748,7 +748,7 @@ function bgb_machine_think()
 		}
 		while(true)
 		{
-			self waittill(#"trigger", grabber);
+			self waittill("trigger", grabber);
 			if(isdefined(grabber.is_drinking) && grabber.is_drinking > 0)
 			{
 				wait(0.1);
@@ -768,8 +768,8 @@ function bgb_machine_think()
 				}
 				if(grabber == user && zm_utility::is_player_valid(user) && !(user.is_drinking > 0) && !zm_utility::is_placeable_mine(current_weapon) && !zm_equipment::is_equipment(current_weapon) && !user zm_utility::is_player_revive_tool(current_weapon) && !current_weapon.isheroweapon && !current_weapon.isgadget)
 				{
-					self notify(#"user_grabbed_bgb");
-					user notify(#"user_grabbed_bgb");
+					self notify("user_grabbed_bgb");
+					user notify("user_grabbed_bgb");
 					bb::logpurchaseevent(user, self, self.current_cost, self.selected_bgb, 0, "_bgb", "_grabbed");
 					user recordmapevent(3, gettime(), user.origin, level.round_number, var_9bbdff4d, gumballoffered);
 					user __protected__notelootconsume(self.selected_bgb, 1);
@@ -800,12 +800,12 @@ function bgb_machine_think()
 		if(grabber == user)
 		{
 			self set_bgb_machine_state("close");
-			self waittill(#"closed");
+			self waittill("closed");
 		}
 	}
 	else
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		bb::logpurchaseevent(user, self, self.current_cost, self.selected_bgb, 0, "_bgb", "_ghostball");
 		if(!var_625e97d1)
 		{
@@ -1045,7 +1045,7 @@ function fire_sale_fix()
 	self thread show_bgb_machine();
 	self.base_cost = 10;
 	util::wait_network_frame();
-	level waittill(#"fire_sale_off");
+	level waittill("fire_sale_off");
 	while(isdefined(self.bgb_machine_open) && self.bgb_machine_open)
 	{
 		wait(0.1);
@@ -1065,7 +1065,7 @@ function fire_sale_fix()
 */
 function bgb_machine_lion_twitches()
 {
-	self endon(#"zbarrier_state_change");
+	self endon("zbarrier_state_change");
 	clientfield::set("zm_bgb_machine_fx_state", 1);
 	self setzbarrierpiecestate(0, "closed");
 	self setzbarrierpiecestate(5, "closed");
@@ -1106,7 +1106,7 @@ function bgb_machine_initial()
 */
 function bgb_machine_arrives()
 {
-	self endon(#"zbarrier_state_change");
+	self endon("zbarrier_state_change");
 	self setzbarrierpiecestate(3, "closed");
 	clientfield::set("zm_bgb_machine_fx_state", 2);
 	self setzbarrierpiecestate(1, "opening");
@@ -1120,7 +1120,7 @@ function bgb_machine_arrives()
 	{
 		wait(0.05);
 	}
-	self notify(#"arrived");
+	self notify("arrived");
 	self thread set_bgb_machine_state("initial");
 }
 
@@ -1135,7 +1135,7 @@ function bgb_machine_arrives()
 */
 function bgb_machine_leaves()
 {
-	self endon(#"zbarrier_state_change");
+	self endon("zbarrier_state_change");
 	self setzbarrierpiecestate(3, "open");
 	clientfield::set("zm_bgb_machine_fx_state", 2);
 	self setzbarrierpiecestate(1, "opening");
@@ -1149,7 +1149,7 @@ function bgb_machine_leaves()
 	{
 		wait(0.05);
 	}
-	self notify(#"left");
+	self notify("left");
 	self thread set_bgb_machine_state("away");
 }
 
@@ -1164,7 +1164,7 @@ function bgb_machine_leaves()
 */
 function bgb_machine_opens()
 {
-	self endon(#"zbarrier_state_change");
+	self endon("zbarrier_state_change");
 	self setzbarrierpiecestate(3, "open");
 	self setzbarrierpiecestate(5, "closed");
 	clientfield::set("zm_bgb_machine_ghost_ball", !self.b_bgb_is_available);
@@ -1181,7 +1181,7 @@ function bgb_machine_opens()
 	self setzbarrierpiecestate(2, "opening");
 	wait(1);
 	clientfield::set("zm_bgb_machine_fx_state", 3);
-	self notify(#"gumball_available");
+	self notify("gumball_available");
 	wait(5.5);
 	clientfield::set("zm_bgb_machine_fx_state", 4);
 	self thread zm_unitrigger::unregister_unitrigger(self.unitrigger_stub);
@@ -1189,7 +1189,7 @@ function bgb_machine_opens()
 	{
 		wait(0.05);
 	}
-	self notify(#"trigger", level);
+	self notify("trigger", level);
 }
 
 /*
@@ -1203,7 +1203,7 @@ function bgb_machine_opens()
 */
 function bgb_machine_closes()
 {
-	self endon(#"zbarrier_state_change");
+	self endon("zbarrier_state_change");
 	self setzbarrierpiecestate(3, "open");
 	self setzbarrierpiecestate(5, "closed");
 	clientfield::set("zm_bgb_machine_fx_state", 4);
@@ -1212,7 +1212,7 @@ function bgb_machine_closes()
 	{
 		wait(0.05);
 	}
-	self notify(#"closed");
+	self notify("closed");
 }
 
 /*
@@ -1263,7 +1263,7 @@ function set_bgb_machine_state(state)
 	{
 		self hidezbarrierpiece(i);
 	}
-	self notify(#"zbarrier_state_change");
+	self notify("zbarrier_state_change");
 	self [[level.bgb_machine_state_func]](state);
 }
 
@@ -1360,7 +1360,7 @@ function bgb_machine_host_migration()
 	level endon(#"bgb_machine_host_migration");
 	while(true)
 	{
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_end");
 		if(!isdefined(level.bgb_machines))
 		{
 			continue;

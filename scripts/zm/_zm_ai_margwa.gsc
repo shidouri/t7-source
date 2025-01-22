@@ -659,7 +659,7 @@ function private function_743b10d2(entity)
 */
 function private function_271a21d6()
 {
-	self endon(#"death");
+	self endon("death");
 	entity.waiting = 1;
 	util::wait_network_frame();
 	entity.waiting = 0;
@@ -836,7 +836,7 @@ function spawn_margwa(s_location)
 */
 function function_618bf323()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		while(true)
 		{
@@ -923,7 +923,7 @@ function private function_26c35525()
 */
 function private function_8d578a58()
 {
-	self waittill(#"death", attacker, mod, weapon);
+	self waittill("death", attacker, mod, weapon);
 	foreach(player in level.players)
 	{
 		if(player.am_i_valid && (!(isdefined(level.var_1f6ca9c8) && level.var_1f6ca9c8)) && (!(isdefined(self.var_2d5d7413) && self.var_2d5d7413)))

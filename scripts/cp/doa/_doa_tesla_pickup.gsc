@@ -52,13 +52,13 @@ function init()
 */
 function tesla_discharge_mechanic()
 {
-	self endon(#"tesla_discharge_mechanic");
-	self notify(#"tesla_discharge_mechanic");
-	self endon(#"disconnect");
+	self endon("tesla_discharge_mechanic");
+	self notify("tesla_discharge_mechanic");
+	self endon("disconnect");
 	while(true)
 	{
 		self.tesla_discharge = 1;
-		self waittill(#"tesla_discharged");
+		self waittill("tesla_discharged");
 		self.tesla_discharge = 0;
 		wait(2);
 	}
@@ -97,8 +97,8 @@ function tesla_ok_to_discharge(player)
 */
 function tesla_damage_init(player)
 {
-	player endon(#"disconnect");
-	player endon(#"death");
+	player endon("disconnect");
+	player endon("death");
 	waittillframeend();
 	if(!tesla_ok_to_discharge(player))
 	{
@@ -111,7 +111,7 @@ function tesla_damage_init(player)
 	player.tesla_enemies = undefined;
 	player.tesla_enemies_hit = 1;
 	player.tesla_powerup_dropped = 0;
-	player notify(#"tesla_discharged");
+	player notify("tesla_discharged");
 	self thread namespace_eaa992c::function_285a2999("tesla_shock");
 	if(!(isdefined(self.boss) && self.boss))
 	{
@@ -131,8 +131,8 @@ function tesla_damage_init(player)
 */
 function tesla_arc_damage(source_enemy, player, arc_num)
 {
-	player endon(#"disconnect");
-	player endon(#"death");
+	player endon("disconnect");
+	player endon("death");
 	tesla_flag_hit(self, 1);
 	radius_decay = level.doa.rules.tesla_radius_decay * arc_num;
 	enemies = tesla_get_enemies_in_area(self gettagorigin("j_head"), level.doa.rules.tesla_radius_start - radius_decay, player);
@@ -270,7 +270,7 @@ function tesla_flag_hit(enemy, hit)
 */
 function tesla_do_damage(source_enemy, arc_num, player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	timetowait = 0.2 * arc_num;
 	if(timetowait > 0)
 	{
@@ -461,10 +461,10 @@ function function_395fdfb8(guy, attacker)
 function tesla_blockers_damage_trigger(player, note)
 {
 	player endon(note);
-	player endon(#"disconnect");
+	player endon("disconnect");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(level thread function_395fdfb8(guy, player))
 		{
 			self.triggered = 1;
@@ -485,7 +485,7 @@ function tesla_blockers_damage_trigger(player, note)
 function tesla_blockers_timeout(org, note)
 {
 	self endon(note);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	org playloopsound("zmb_pwup_coco_loop");
 	level doa_utility::function_124b9a08();
 	wait(self doa_utility::function_1ded48e6(level.doa.rules.var_37d05402));
@@ -524,8 +524,8 @@ function function_ccf71744(org, vel)
 */
 function function_89843a06(player)
 {
-	self endon(#"death");
-	player waittill(#"disconnect");
+	self endon("death");
+	player waittill("disconnect");
 	for(i = 0; i < self.triggers.size; i++)
 	{
 		if(isdefined(self.triggers[i]))
@@ -613,7 +613,7 @@ function tesla_blockers_cleanup(org, note)
 function tesla_blockers_deletion_monitors(org, note)
 {
 	self endon(note);
-	org endon(#"death");
+	org endon("death");
 	count = 0;
 	while(true)
 	{
@@ -646,7 +646,7 @@ function tesla_blockers_deletion_monitors(org, note)
 function tesla_blockers_move(org, note)
 {
 	self endon(note);
-	org endon(#"death");
+	org endon("death");
 	while(true)
 	{
 		org rotateto(org.angles + vectorscale((0, 1, 0), 180), 1);
@@ -665,8 +665,8 @@ function tesla_blockers_move(org, note)
 */
 function tesla_blockers_fx(org)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	for(i = 0; i < org.objects.size; i++)
 	{
 		if(isdefined(org.objects[i]))

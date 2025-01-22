@@ -180,11 +180,11 @@ function function_677ed44f(weapon)
 	self notify(#"hash_677ed44f");
 	self endon(#"hash_677ed44f");
 	self endon(#"hash_343d4580");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		level waittill(#"ravage_core", target, attacker, damage, weapon, hitorigin);
-		self notify(#"ravage_core", target, damage, weapon);
+		level waittill("ravage_core", target, attacker, damage, weapon, hitorigin);
+		self notify("ravage_core", target, damage, weapon);
 		destructserverutils::destructhitlocpieces(target, "torso_upper");
 		self notify(weapon.name + "_fired");
 		level notify(weapon.name + "_fired");
@@ -201,7 +201,7 @@ function function_677ed44f(weapon)
 				self adddstat("ItemStats", itemindex, "stats", "used", "statValue", 1);
 			}
 		}
-		self waittill(#"grenade_fire");
+		self waittill("grenade_fire");
 		self notify(#"hash_65afc94f");
 	}
 }
@@ -217,7 +217,7 @@ function function_677ed44f(weapon)
 */
 function private _corpsewatcher()
 {
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	if(isdefined(corpse))
 	{
 		corpse hidepart("j_chest_door");

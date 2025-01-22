@@ -92,7 +92,7 @@ function _delay_set(n_delay, str_flag, str_cancel)
 	{
 		self endon(str_cancel);
 	}
-	self endon(#"death");
+	self endon("death");
 	wait(n_delay);
 	set(str_flag);
 }
@@ -185,7 +185,7 @@ function get(str_flag)
 */
 function wait_till(str_flag)
 {
-	self endon(#"death");
+	self endon("death");
 	while(!get(str_flag))
 	{
 		self waittill(str_flag);
@@ -206,7 +206,7 @@ function wait_till_timeout(n_timeout, str_flag)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	wait_till(str_flag);
@@ -223,7 +223,7 @@ function wait_till_timeout(n_timeout, str_flag)
 */
 function wait_till_all(a_flags)
 {
-	self endon(#"death");
+	self endon("death");
 	for(i = 0; i < a_flags.size; i++)
 	{
 		str_flag = a_flags[i];
@@ -249,7 +249,7 @@ function wait_till_all_timeout(n_timeout, a_flags)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	wait_till_all(a_flags);
@@ -266,7 +266,7 @@ function wait_till_all_timeout(n_timeout, a_flags)
 */
 function wait_till_any(a_flags)
 {
-	self endon(#"death");
+	self endon("death");
 	foreach(flag in a_flags)
 	{
 		if(get(flag))
@@ -291,7 +291,7 @@ function wait_till_any_timeout(n_timeout, a_flags)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	wait_till_any(a_flags);
@@ -308,7 +308,7 @@ function wait_till_any_timeout(n_timeout, a_flags)
 */
 function wait_till_clear(str_flag)
 {
-	self endon(#"death");
+	self endon("death");
 	while(get(str_flag))
 	{
 		self waittill(str_flag);
@@ -329,7 +329,7 @@ function wait_till_clear_timeout(n_timeout, str_flag)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	wait_till_clear(str_flag);
@@ -346,7 +346,7 @@ function wait_till_clear_timeout(n_timeout, str_flag)
 */
 function wait_till_clear_all(a_flags)
 {
-	self endon(#"death");
+	self endon("death");
 	for(i = 0; i < a_flags.size; i++)
 	{
 		str_flag = a_flags[i];
@@ -372,7 +372,7 @@ function wait_till_clear_all_timeout(n_timeout, a_flags)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	wait_till_clear_all(a_flags);
@@ -389,7 +389,7 @@ function wait_till_clear_all_timeout(n_timeout, a_flags)
 */
 function wait_till_clear_any(a_flags)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		foreach(flag in a_flags)
@@ -417,7 +417,7 @@ function wait_till_clear_any_timeout(n_timeout, a_flags)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	wait_till_clear_any(a_flags);

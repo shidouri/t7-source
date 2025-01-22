@@ -214,7 +214,7 @@ function ai_activateconcussivewave(damage, var_9bc2efcb = 1)
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	self create_concussion_wave(damage);
 }
@@ -373,7 +373,7 @@ function create_damage_wave(damage, attacker)
 */
 function function_74fb2002(n_time, attacker, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(n_time);
 	self dodamage(self.health + 1, self.origin, attacker, attacker, "none", "MOD_UNKNOWN", 0, weapon);
 }
@@ -405,7 +405,7 @@ function function_f98dd1a9(enemy, attacker)
 */
 function function_78e146a3()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_c76d622a");
 	wait(1.75);
 	self notify(#"bhtn_action_notify", "concussiveReact");
@@ -427,7 +427,7 @@ function create_concussion_wave(damage, slot, weapon)
 		level thread create_damage_wave(damage, self);
 		return;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.cybercom.var_dd2f3b84 = 1;
 	self clientfield::set_to_player("cybercom_disabled", 1);
 	self.var_bdd60914 = self allowsprint(0);

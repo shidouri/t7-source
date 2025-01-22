@@ -205,10 +205,10 @@ function private aat_debug_text_display_init()
 function private aat_debug_text_display_monitor()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		while(true)
 		{
-			self waittill(#"weapon_change", weapon);
+			self waittill("weapon_change", weapon);
 			name = "";
 			if(isdefined(self.aat[weapon]))
 			{
@@ -231,9 +231,9 @@ function private aat_debug_text_display_monitor()
 function private aat_set_debug_text(name, success, success_reroll, fail)
 {
 	/#
-		self notify(#"aat_set_debug_text_thread");
-		self endon(#"aat_set_debug_text_thread");
-		self endon(#"disconnect");
+		self notify("aat_set_debug_text_thread");
+		self endon("aat_set_debug_text_thread");
+		self endon("disconnect");
 		if(!isdefined(self.aat_debug_text))
 		{
 			return;
@@ -784,11 +784,11 @@ function remove(weapon)
 */
 function watch_weapon_changes()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		weapon = get_nonalternate_weapon(weapon);
 		name = "none";
 		if(isdefined(self.aat[weapon]))

@@ -79,9 +79,9 @@ function register_clientfields()
 */
 function sndchyronwatcher()
 {
-	level waittill(#"chyron_menu_open");
+	level waittill("chyron_menu_open");
 	level clientfield::set("sndChyronLoop", 1);
-	level waittill(#"chyron_menu_closed");
+	level waittill("chyron_menu_closed");
 	level clientfield::set("sndChyronLoop", 0);
 }
 
@@ -98,7 +98,7 @@ function sndigcskipwatcher()
 {
 	while(true)
 	{
-		level waittill(#"scene_skip_sequence_started");
+		level waittill("scene_skip_sequence_started");
 		music::setmusicstate("death");
 	}
 }
@@ -190,10 +190,10 @@ function sndupdatevehiclecontext(added)
 */
 function playtargetmissilesound(alias, looping)
 {
-	self notify(#"stop_target_missile_sound");
-	self endon(#"stop_target_missile_sound");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("stop_target_missile_sound");
+	self endon("stop_target_missile_sound");
+	self endon("disconnect");
+	self endon("death");
 	if(isdefined(alias))
 	{
 		time = soundgetplaybacktime(alias) * 0.001;
@@ -220,8 +220,8 @@ function playtargetmissilesound(alias, looping)
 */
 function missilelockwatcher()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!self flag::exists("playing_stinger_fired_at_me"))
 	{
 		self flag::init("playing_stinger_fired_at_me", 0);
@@ -232,12 +232,12 @@ function missilelockwatcher()
 	}
 	while(true)
 	{
-		self waittill(#"missile_lock", attacker, weapon);
+		self waittill("missile_lock", attacker, weapon);
 		if(!flag::get("playing_stinger_fired_at_me"))
 		{
 			self thread playtargetmissilesound(weapon.lockontargetlockedsound, weapon.lockontargetlockedsoundloops);
 			self util::waittill_any("stinger_fired_at_me", "missile_unlocked", "death");
-			self notify(#"stop_target_missile_sound");
+			self notify("stop_target_missile_sound");
 		}
 	}
 }
@@ -253,16 +253,16 @@ function missilelockwatcher()
 */
 function missilefirewatcher()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"stinger_fired_at_me", missile, weapon, attacker);
+		self waittill("stinger_fired_at_me", missile, weapon, attacker);
 		waittillframeend();
 		self flag::set("playing_stinger_fired_at_me");
 		self thread playtargetmissilesound(weapon.lockontargetfiredonsound, weapon.lockontargetfiredonsoundloops);
 		missile util::waittill_any("projectile_impact_explode", "death");
-		self notify(#"stop_target_missile_sound");
+		self notify("stop_target_missile_sound");
 		self flag::clear("playing_stinger_fired_at_me");
 	}
 }

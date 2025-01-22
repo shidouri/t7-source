@@ -52,7 +52,7 @@ function startmonitoringtearusage()
 */
 function stopmonitoringtearusage(disconnected)
 {
-	self notify(#"stop_monitoring_tear_usage");
+	self notify("stop_monitoring_tear_usage");
 }
 
 /*
@@ -66,7 +66,7 @@ function stopmonitoringtearusage(disconnected)
 */
 function monitortearusage()
 {
-	self endon(#"stop_monitoring_tear_usage");
+	self endon("stop_monitoring_tear_usage");
 	wait(0.05);
 	weapon = getweapon("tear_grenade");
 	if(!self hasweapon(weapon))
@@ -141,10 +141,10 @@ function tear(pos)
 	trig = spawn("trigger_radius", pos, 0, level.tearradius, level.tearheight);
 	starttime = gettime();
 	self thread teartimer();
-	self endon(#"tear_timeout");
+	self endon("tear_timeout");
 	while(true)
 	{
-		trig waittill(#"trigger", player);
+		trig waittill("trigger", player);
 		if(player.sessionstate != "playing")
 		{
 			continue;
@@ -187,7 +187,7 @@ function tear(pos)
 function teartimer()
 {
 	wait(level.teargasduration);
-	self notify(#"tear_timeout");
+	self notify("tear_timeout");
 }
 
 /*
@@ -201,8 +201,8 @@ function teartimer()
 */
 function teargassuffering()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.teargassuffering = 1;
 	if(self util::mayapplyscreeneffect())
 	{

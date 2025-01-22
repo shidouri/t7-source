@@ -434,7 +434,7 @@ function minigun_no_drop()
 */
 function watch_for_drop()
 {
-	level endon(#"unloaded");
+	level endon("unloaded");
 	level flag::wait_till("start_zombie_round_logic");
 	level flag::wait_till("begin_spawning");
 	wait(0.05);
@@ -768,7 +768,7 @@ function powerup_drop(drop_point)
 	powerup thread powerup_move();
 	powerup thread powerup_emp();
 	level.zombie_vars["zombie_drop_item"] = 0;
-	level notify(#"powerup_dropped", powerup);
+	level notify("powerup_dropped", powerup);
 }
 
 /*
@@ -783,7 +783,7 @@ function powerup_drop(drop_point)
 function specific_powerup_drop(powerup_name, drop_spot, powerup_team, powerup_location, pickup_delay, powerup_player, b_stay_forever)
 {
 	powerup = zm_net::network_safe_spawn("powerup", 1, "script_model", drop_spot + vectorscale((0, 0, 1), 40));
-	level notify(#"powerup_dropped", powerup);
+	level notify("powerup_dropped", powerup);
 	if(isdefined(powerup))
 	{
 		powerup powerup_setup(powerup_name, powerup_team, powerup_location, powerup_player);
@@ -977,9 +977,9 @@ function powerup_zombie_grab_trigger_cleanup(trigger)
 */
 function powerup_zombie_grab(powerup_team)
 {
-	self endon(#"powerup_timedout");
-	self endon(#"powerup_grabbed");
-	self endon(#"hacked");
+	self endon("powerup_timedout");
+	self endon("powerup_grabbed");
+	self endon("hacked");
 	zombie_grab_trigger = spawn("trigger_radius", self.origin - vectorscale((0, 0, 1), 40), 9, 32, 72);
 	zombie_grab_trigger enablelinkto();
 	zombie_grab_trigger linkto(self);
@@ -993,7 +993,7 @@ function powerup_zombie_grab(powerup_team)
 	zombie_grab_trigger zm_utility::create_zombie_point_of_interest(poi_dist, 2, 0, 1, undefined, undefined, powerup_team);
 	while(isdefined(self))
 	{
-		zombie_grab_trigger waittill(#"trigger", who);
+		zombie_grab_trigger waittill("trigger", who);
 		if(isdefined(level._powerup_grab_check))
 		{
 			if(!self [[level._powerup_grab_check]](who))
@@ -1036,7 +1036,7 @@ function powerup_zombie_grab(powerup_team)
 		playsoundatposition("zmb_powerup_grabbed", self.origin);
 		self stoploopsound();
 		self thread powerup_delete_delayed();
-		self notify(#"powerup_grabbed");
+		self notify("powerup_grabbed");
 	}
 }
 
@@ -1056,8 +1056,8 @@ function powerup_grab(powerup_team)
 		self thread powerup_zombie_grab(powerup_team);
 		return;
 	}
-	self endon(#"powerup_timedout");
-	self endon(#"powerup_grabbed");
+	self endon("powerup_timedout");
+	self endon("powerup_grabbed");
 	range_squared = 4096;
 	while(isdefined(self))
 	{
@@ -1183,7 +1183,7 @@ function powerup_grab(powerup_team)
 				}
 				if(isdefined(self.stolen) && self.stolen)
 				{
-					level notify(#"monkey_see_monkey_dont_achieved");
+					level notify("monkey_see_monkey_dont_achieved");
 				}
 				if(isdefined(self.grabbed_level_notify))
 				{
@@ -1210,7 +1210,7 @@ function powerup_grab(powerup_team)
 							if(!can_say_vo)
 							{
 								self thread powerup_delete_delayed();
-								self notify(#"powerup_grabbed");
+								self notify("powerup_grabbed");
 								return;
 							}
 						}
@@ -1225,7 +1225,7 @@ function powerup_grab(powerup_team)
 					level thread zm_audio::sndannouncerplayvox(self.powerup_name);
 				}
 				self thread powerup_delete_delayed();
-				self notify(#"powerup_grabbed");
+				self notify("powerup_grabbed");
 			}
 		}
 		wait(0.1);
@@ -1277,8 +1277,8 @@ function get_closest_window_repair(windows, origin)
 */
 function powerup_vo(type)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isplayer(self))
 	{
 		return;
@@ -1316,7 +1316,7 @@ function powerup_vo(type)
 */
 function powerup_wobble_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -1361,8 +1361,8 @@ function powerup_wobble_fx()
 */
 function powerup_wobble()
 {
-	self endon(#"powerup_grabbed");
-	self endon(#"powerup_timedout");
+	self endon("powerup_grabbed");
+	self endon("powerup_timedout");
 	self thread powerup_wobble_fx();
 	while(isdefined(self))
 	{
@@ -1442,9 +1442,9 @@ function powerup_timeout()
 		self thread [[level._powerup_timeout_override]]();
 		return;
 	}
-	self endon(#"powerup_grabbed");
-	self endon(#"death");
-	self endon(#"powerup_reset");
+	self endon("powerup_grabbed");
+	self endon("death");
+	self endon("powerup_reset");
 	self powerup_show(1);
 	wait_time = 15;
 	if(isdefined(level._powerup_timeout_custom_time))
@@ -1483,7 +1483,7 @@ function powerup_timeout()
 		}
 		wait(0.1);
 	}
-	self notify(#"powerup_timedout");
+	self notify("powerup_timedout");
 	bb::logpowerupevent(self, undefined, "_timedout");
 	self powerup_delete();
 }
@@ -1575,7 +1575,7 @@ function check_for_instakill(player, mod, hit_location)
 		}
 		self.health = 1;
 		self dodamage(self.health + 666, self.origin, player, self, hit_location, modname);
-		player notify(#"zombie_killed");
+		player notify("zombie_killed");
 	}
 	if(isdefined(player) && isalive(player) && (level.zombie_vars[player.team]["zombie_insta_kill"] || (isdefined(player.personal_instakill) && player.personal_instakill)))
 	{
@@ -1606,7 +1606,7 @@ function check_for_instakill(player, mod, hit_location)
 		}
 		self.health = 1;
 		self dodamage(self.health + 666, self.origin, player, self, hit_location, modname);
-		player notify(#"zombie_killed");
+		player notify("zombie_killed");
 	}
 }
 
@@ -1621,7 +1621,7 @@ function check_for_instakill(player, mod, hit_location)
 */
 function point_doubler_on_hud(drop_item, player_team)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(level.zombie_vars[player_team]["zombie_powerup_double_points_on"])
 	{
 		level.zombie_vars[player_team]["zombie_powerup_double_points_time"] = 30;
@@ -1829,12 +1829,12 @@ function func_should_always_drop()
 */
 function powerup_move()
 {
-	self endon(#"powerup_timedout");
-	self endon(#"powerup_grabbed");
+	self endon("powerup_timedout");
+	self endon("powerup_grabbed");
 	drag_speed = 75;
 	while(true)
 	{
-		self waittill(#"move_powerup", moveto, distance);
+		self waittill("move_powerup", moveto, distance);
 		drag_vector = moveto - self.origin;
 		range_squared = lengthsquared(drag_vector);
 		if(range_squared > (distance * distance))
@@ -1858,8 +1858,8 @@ function powerup_move()
 */
 function powerup_emp()
 {
-	self endon(#"powerup_timedout");
-	self endon(#"powerup_grabbed");
+	self endon("powerup_timedout");
+	self endon("powerup_grabbed");
 	if(!zm_utility::should_watch_for_emp())
 	{
 		return;
@@ -1871,7 +1871,7 @@ function powerup_emp()
 		{
 			playfx(level._effect["powerup_off"], self.origin);
 			self thread powerup_delete_delayed();
-			self notify(#"powerup_timedout");
+			self notify("powerup_timedout");
 		}
 	}
 }
@@ -1949,7 +1949,7 @@ function teller_withdrawl(powerup, player)
 */
 function show_on_hud(player_team, str_powerup)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	str_index_on = ("zombie_powerup_" + str_powerup) + "_on";
 	str_index_time = ("zombie_powerup_" + str_powerup) + "_time";
 	if(level.zombie_vars[player_team][str_index_on])
@@ -2011,7 +2011,7 @@ function weapon_powerup(ent_player, time, str_weapon, allow_cycling = 0)
 {
 	str_weapon_on = ("zombie_powerup_" + str_weapon) + "_on";
 	str_weapon_time_over = str_weapon + "_time_over";
-	ent_player notify(#"replace_weapon_powerup");
+	ent_player notify("replace_weapon_powerup");
 	ent_player._show_solo_hud = 1;
 	ent_player.has_specific_powerup_weapon[str_weapon] = 1;
 	ent_player.has_powerup_weapon = 1;
@@ -2040,14 +2040,14 @@ function weapon_powerup(ent_player, time, str_weapon, allow_cycling = 0)
 */
 function weapon_powerup_change(ent_player, str_gun_return_notify, str_weapon)
 {
-	ent_player endon(#"death");
-	ent_player endon(#"disconnect");
-	ent_player endon(#"player_downed");
+	ent_player endon("death");
+	ent_player endon("disconnect");
+	ent_player endon("player_downed");
 	ent_player endon(str_gun_return_notify);
-	ent_player endon(#"replace_weapon_powerup");
+	ent_player endon("replace_weapon_powerup");
 	while(true)
 	{
-		ent_player waittill(#"weapon_change", newweapon, oldweapon);
+		ent_player waittill("weapon_change", newweapon, oldweapon);
 		if(newweapon != level.weaponnone && newweapon != level.zombie_powerup_weapon[str_weapon])
 		{
 			break;
@@ -2067,11 +2067,11 @@ function weapon_powerup_change(ent_player, str_gun_return_notify, str_weapon)
 */
 function weapon_powerup_countdown(ent_player, str_gun_return_notify, time, str_weapon)
 {
-	ent_player endon(#"death");
-	ent_player endon(#"disconnect");
-	ent_player endon(#"player_downed");
+	ent_player endon("death");
+	ent_player endon("disconnect");
+	ent_player endon("player_downed");
 	ent_player endon(str_gun_return_notify);
-	ent_player endon(#"replace_weapon_powerup");
+	ent_player endon("replace_weapon_powerup");
 	str_weapon_time = ("zombie_powerup_" + str_weapon) + "_time";
 	ent_player.zombie_vars[str_weapon_time] = time;
 	if(bgb::is_team_enabled("zm_bgb_temporal_gift"))
@@ -2093,12 +2093,12 @@ function weapon_powerup_countdown(ent_player, str_gun_return_notify, time, str_w
 */
 function weapon_powerup_replace(ent_player, str_gun_return_notify, str_weapon)
 {
-	ent_player endon(#"death");
-	ent_player endon(#"disconnect");
-	ent_player endon(#"player_downed");
+	ent_player endon("death");
+	ent_player endon("disconnect");
+	ent_player endon("player_downed");
 	ent_player endon(str_gun_return_notify);
 	str_weapon_on = ("zombie_powerup_" + str_weapon) + "_on";
-	ent_player waittill(#"replace_weapon_powerup");
+	ent_player waittill("replace_weapon_powerup");
 	ent_player takeweapon(level.zombie_powerup_weapon[str_weapon]);
 	ent_player.zombie_vars[str_weapon_on] = 0;
 	ent_player.has_specific_powerup_weapon[str_weapon] = 0;
@@ -2117,8 +2117,8 @@ function weapon_powerup_replace(ent_player, str_gun_return_notify, str_weapon)
 */
 function weapon_powerup_remove(ent_player, str_gun_return_notify, str_weapon, b_switch_back_weapon = 1)
 {
-	ent_player endon(#"death");
-	ent_player endon(#"player_downed");
+	ent_player endon("death");
+	ent_player endon("player_downed");
 	str_weapon_on = ("zombie_powerup_" + str_weapon) + "_on";
 	ent_player takeweapon(level.zombie_powerup_weapon[str_weapon]);
 	ent_player.zombie_vars[str_weapon_on] = 0;

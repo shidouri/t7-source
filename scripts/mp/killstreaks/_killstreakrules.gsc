@@ -256,7 +256,7 @@ function killstreakstart(hardpointtype, team, hacked, displayteammessage)
 			level.killstreakrules[key].curteam[team]++;
 		}
 	}
-	level notify(#"killstreak_started", hardpointtype, team, self);
+	level notify("killstreak_started", hardpointtype, team, self);
 	killstreak_id = level.globalkillstreakscalled;
 	level.globalkillstreakscalled++;
 	killstreak_data = [];

@@ -222,7 +222,7 @@ function function_938d448f()
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(who isplayer())
 		{
 			if(!(isdefined(who.var_b115a3e6) && who.var_b115a3e6))
@@ -246,8 +246,8 @@ function function_938d448f()
 */
 function function_387efde5(trigger)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(self istouching(trigger))
 	{
 		if(self getspeed() > 5)

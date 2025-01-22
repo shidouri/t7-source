@@ -262,7 +262,7 @@ function private _cloudcreate(origin, weapon, createionfield)
 		cloud thread _debug_cloud(getdvarint("scr_smokescreen_duration", 7));
 		level thread cybercom_dev::function_a0e51d80(cloud.origin, getdvarint("scr_smokescreen_duration", 7), 16, (1, 0, 0));
 	}
-	cloud endon(#"death");
+	cloud endon("death");
 	while(true)
 	{
 		fxblocksight(cloud, cloud.currentradius);
@@ -286,7 +286,7 @@ function private _cloudcreate(origin, weapon, createionfield)
 */
 function private _ionizedhazard(player, timestep)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(self.trigger))
@@ -310,10 +310,10 @@ function private _ionizedhazard(player, timestep)
 */
 function private _ionizedhazardthink(player, cloud)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(!isdefined(cloud))
 		{
 			return;
@@ -400,7 +400,7 @@ function private _ionizedhazardthink(player, cloud)
 */
 function private _moveindirection(dir, unitstomove, seconds)
 {
-	self endon(#"death");
+	self endon("death");
 	ticks = seconds * 20;
 	dxstep = (unitstomove / ticks) * vectornormalize(dir);
 	while(ticks)
@@ -438,7 +438,7 @@ function private _createnosightcloud(origin, duration, weapon)
 */
 function private _deleteaftertime(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	if(isdefined(self.trigger))
 	{
@@ -458,7 +458,7 @@ function private _deleteaftertime(time)
 */
 function private _scaleovertime(time, startscale, maxscale)
 {
-	self endon(#"death");
+	self endon("death");
 	if(maxscale < 1)
 	{
 		maxscale = 1;
@@ -504,7 +504,7 @@ function private _scaleovertime(time, startscale, maxscale)
 */
 function private _debug_cloud(time)
 {
-	self endon(#"death");
+	self endon("death");
 	serverticks = time * 20;
 	while(serverticks)
 	{
@@ -530,7 +530,7 @@ function ai_activatesmokescreen(var_9bc2efcb = 1, upgraded = 0)
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	level thread spawn_smokescreen(self, upgraded);
 }
@@ -546,7 +546,7 @@ function ai_activatesmokescreen(var_9bc2efcb = 1, upgraded = 0)
 */
 function private function_e52895b(origin)
 {
-	self endon(#"death");
+	self endon("death");
 	var_9f9fc36f = 1;
 	timeleft = getdvarint("scr_smokescreen_duration", 7);
 	while(timeleft > 0)

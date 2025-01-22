@@ -179,7 +179,7 @@ function perk_random_machine_rock_emissive(localclientnum, oldval, newval, bnewe
 */
 function rock_emissive_think(localclientnum)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	while(isdefined(self.blinking) && self.blinking)
 	{
 		self rock_emissive_fade(localclientnum, 8, 0);
@@ -373,7 +373,7 @@ function start_bottle_cycling(localclientnum, oldval, newval, bnewent, binitials
 */
 function start_vortex_fx(localclientnum)
 {
-	self endon(#"activation_electricity_finished");
+	self endon("activation_electricity_finished");
 	self endon(#"entityshutdown");
 	if(!isdefined(self.glow_location))
 	{
@@ -405,7 +405,7 @@ function stop_vortex_fx(localclientnum)
 	{
 		return;
 	}
-	self notify(#"activation_electricity_finished");
+	self notify("activation_electricity_finished");
 	if(isdefined(self.glow_location))
 	{
 		self.glow_location delete();
@@ -426,7 +426,7 @@ function stop_vortex_fx(localclientnum)
 */
 function fx_artifact_pulse_thread(localclientnum)
 {
-	self endon(#"activation_electricity_finished");
+	self endon("activation_electricity_finished");
 	self endon(#"entityshutdown");
 	while(isdefined(self))
 	{
@@ -454,7 +454,7 @@ function fx_artifact_pulse_thread(localclientnum)
 */
 function fx_activation_electric_loop(localclientnum)
 {
-	self endon(#"activation_electricity_finished");
+	self endon("activation_electricity_finished");
 	self endon(#"entityshutdown");
 	while(true)
 	{

@@ -158,7 +158,7 @@ function function_64b44f6b(localclientnum, oldval, newval, bnewent, binitialsnap
 			stopfx(localclientnum, self.var_8020f50b);
 			stopfx(localclientnum, self.var_9c121695);
 		}
-		self notify(#"snddeleteent");
+		self notify("snddeleteent");
 	}
 }
 
@@ -195,7 +195,7 @@ function function_a8fdf631(localclientnum, oldval, newval, bnewent, binitialsnap
 	e_fx playloopsound("zmb_squest_charge_soul_lp");
 	playfxontag(localclientnum, level._effect["staff_soul"], e_fx, "tag_origin");
 	e_fx moveto(v_dest + vectorscale((0, 0, 1), 5), 1);
-	e_fx waittill(#"movedone");
+	e_fx waittill("movedone");
 	playsound(localclientnum, "zmb_squest_charge_soul_impact", v_dest);
 	playfxontag(localclientnum, level._effect["staff_charge"], e_fx, "tag_origin");
 	wait(0.3);
@@ -283,7 +283,7 @@ function function_74610c8a(localclientnum, oldval, newval, bnewent, binitialsnap
 	e_fx playloopsound("zmb_squest_charge_soul_lp");
 	playfxontag(localclientnum, level._effect["staff_soul"], e_fx, "tag_origin");
 	e_fx moveto(s_box.origin, 1);
-	e_fx waittill(#"movedone");
+	e_fx waittill("movedone");
 	playsound(localclientnum, "zmb_squest_charge_soul_impact", e_fx.origin);
 	playfxontag(localclientnum, level._effect["staff_charge"], e_fx, "tag_origin");
 	wait(0.3);
@@ -331,17 +331,17 @@ function function_b628a101(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_17bc361f(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	self util::waittill_dobj(localclientnum);
 	playfxontag(localclientnum, level._effect["staff_soul"], self, "tag_origin");
 	self playsound(localclientnum, "zmb_spawn_powerup");
 	self playloopsound("zmb_spawn_powerup_loop", 0.5);
 	self movey(-50, 2, 0, 1);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	while(true)
 	{
 		self rotateyaw(360, 4);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -356,7 +356,7 @@ function function_17bc361f(localclientnum)
 */
 function function_4e9276ed(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_7066982d");
 	while(true)
 	{

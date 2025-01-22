@@ -171,7 +171,7 @@ function play_evil_generator_audio()
 	wait(2);
 	playsoundatposition("evt_crazy_power_left", (-304, 1120, 344));
 	wait(13);
-	level notify(#"generator_done");
+	level notify("generator_done");
 }
 
 /*
@@ -185,7 +185,7 @@ function play_evil_generator_audio()
 */
 function play_projecter_soundtrack()
 {
-	level waittill(#"generator_done");
+	level waittill("generator_done");
 	wait(20);
 	speaker = spawn("script_origin", (32, 1216, 592));
 	speaker playloopsound("amb_projecter_soundtrack");
@@ -202,7 +202,7 @@ function play_projecter_soundtrack()
 */
 function play_projecter_loop()
 {
-	level waittill(#"generator_done");
+	level waittill("generator_done");
 	projecter = spawn("script_origin", (-72, -144, 384));
 	projecter playloopsound("amb_projecter");
 }
@@ -291,7 +291,7 @@ function portrait_egg_vox()
 	self setcursorhint("HINT_NOICON");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!(isdefined(player.isspeaking) && player.isspeaking))
 		{
 			break;
@@ -312,7 +312,7 @@ function portrait_egg_vox()
 */
 function location_egg_vox()
 {
-	self waittill(#"trigger", player);
+	self waittill("trigger", player);
 	if(randomintrange(0, 101) >= 90)
 	{
 		type = "room_" + self.script_noteworthy;
@@ -378,7 +378,7 @@ function radio_egg_trigger()
 	{
 		return;
 	}
-	self waittill(#"trigger", who);
+	self waittill("trigger", who);
 	self thread play_radio_egg(undefined);
 }
 
@@ -395,7 +395,7 @@ function function_8d1c7be1()
 {
 	var_1e717ab1 = getent("alley_door2", "target");
 	exploder::stop_exploder("lgt_exploder_crematorium_door");
-	var_1e717ab1 waittill(#"door_opened");
+	var_1e717ab1 waittill("door_opened");
 	exploder::exploder("lgt_exploder_crematorium_door");
 }
 
@@ -414,7 +414,7 @@ function function_57a1070b()
 	str_exploder_name = self.target + "_flashes";
 	while(true)
 	{
-		self waittill(#"trap_done");
+		self waittill("trap_done");
 		exploder::exploder(str_exploder_name);
 	}
 }
@@ -554,14 +554,14 @@ function function_7f30e34a(var_6140b6dd, var_8e7ce497)
 */
 function function_47cc6622(var_6140b6dd, var_8e7ce497)
 {
-	level endon(#"zhd_knocker_timeout");
+	level endon("zhd_knocker_timeout");
 	for(var_918879b9 = 0; var_918879b9 < 3; var_918879b9++)
 	{
 		level thread function_e497b291(3000);
 		n_count = 0;
 		while(n_count < var_6140b6dd[var_918879b9])
 		{
-			var_8e7ce497 waittill(#"damage", damage, attacker, dir, loc, str_type, model, tag, part, weapon, flags);
+			var_8e7ce497 waittill("damage", damage, attacker, dir, loc, str_type, model, tag, part, weapon, flags);
 			if(!isdefined(attacker) || !isplayer(attacker))
 			{
 				continue;
@@ -578,7 +578,7 @@ function function_47cc6622(var_6140b6dd, var_8e7ce497)
 		level thread function_4f9527ef(1000);
 	}
 	wait(0.05);
-	level notify(#"zhd_knocker_success");
+	level notify("zhd_knocker_success");
 }
 
 /*
@@ -595,15 +595,15 @@ function function_e497b291(n_max)
 	level notify(#"hash_165b5152");
 	level endon(#"hash_165b5152");
 	level endon(#"hash_a5e68e5c");
-	level endon(#"zhd_knocker_timeout");
-	level endon(#"zhd_knocker_success");
+	level endon("zhd_knocker_timeout");
+	level endon("zhd_knocker_success");
 	var_c9cd8e88 = gettime();
 	n_max = n_max + var_c9cd8e88;
 	while(gettime() < n_max)
 	{
 		wait(0.05);
 	}
-	level notify(#"zhd_knocker_timeout");
+	level notify("zhd_knocker_timeout");
 }
 
 /*
@@ -619,14 +619,14 @@ function function_4f9527ef(n_min)
 {
 	level notify(#"hash_b0b21488");
 	level endon(#"hash_b0b21488");
-	level endon(#"zhd_knocker_timeout");
-	level endon(#"zhd_knocker_success");
+	level endon("zhd_knocker_timeout");
+	level endon("zhd_knocker_success");
 	var_c9cd8e88 = gettime();
 	n_min = n_min + var_c9cd8e88;
 	level waittill(#"hash_a5e68e5c");
 	if(gettime() < n_min)
 	{
-		level notify(#"zhd_knocker_timeout");
+		level notify("zhd_knocker_timeout");
 	}
 }
 

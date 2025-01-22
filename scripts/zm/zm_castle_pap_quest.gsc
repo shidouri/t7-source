@@ -106,7 +106,7 @@ function function_c4641d12(is_powered)
 	pap_machine = getent("pap_prefab", "prefabname");
 	self.zbarrier _zm_pack_a_punch::set_state_initial();
 	self.zbarrier _zm_pack_a_punch::set_state_power_on();
-	level waittill(#"pack_machine_in_use");
+	level waittill("pack_machine_in_use");
 	level.var_9b1767c1 = level.round_number + randomintrange(2, 4);
 	var_94e7d6ca = undefined;
 	var_3c7c9ebd = undefined;
@@ -149,7 +149,7 @@ function function_c4641d12(is_powered)
 			var_94e7d6ca = spawn("script_model", var_528227ee);
 			var_94e7d6ca setmodel("tag_origin");
 			var_94e7d6ca.angles = var_39796348;
-			self.zbarrier waittill(#"leave_anim_done");
+			self.zbarrier waittill("leave_anim_done");
 			var_4a6273cc = getent("pap_debris_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy, "targetname");
 			var_4a6273cc hide();
 			e_clip = getent(("pap_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy) + "_clip", "targetname");
@@ -271,7 +271,7 @@ function function_53bc4f86(pap_machine)
 	s_unitrigger_stub.parent_struct = self;
 	s_unitrigger_stub.parent_struct.activated = 0;
 	zm_unitrigger::register_static_unitrigger(s_unitrigger_stub, &zm_castle_flingers::function_4029cf56);
-	s_unitrigger_stub waittill(#"trigger", e_who);
+	s_unitrigger_stub waittill("trigger", e_who);
 	while(level.var_e1ee8457 > 0)
 	{
 		wait(0.05);
@@ -380,9 +380,9 @@ function function_23193d81(str_location)
 */
 function function_b9cca08f()
 {
-	level endon(#"pap_reformed");
-	self endon(#"death");
-	self endon(#"disconnect");
+	level endon("pap_reformed");
+	self endon("death");
+	self endon("disconnect");
 	level flag::wait_till("pap_reform_available");
 	s_pap_location = level.var_54cd8d06;
 	while(true)

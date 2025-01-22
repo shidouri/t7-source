@@ -71,8 +71,8 @@ function validation()
 */
 function activation()
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
+	self endon("disconnect");
+	self endon("bled_out");
 	level thread bgb::function_dea74fb0("minigun", self function_ed573cc2(1));
 	self thread zm_bgb_extra_credit::function_b18c3b2d(self function_ed573cc2(2));
 	level thread bgb::function_dea74fb0("nuke", self function_ed573cc2(3));

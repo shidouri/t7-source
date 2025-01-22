@@ -54,13 +54,13 @@ function __init__()
 */
 function enable()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	self endon(#"bgb_update");
 	self.n_bleedout_time_multiplier = 3;
 	while(true)
 	{
-		self waittill(#"player_downed");
+		self waittill("player_downed");
 		self bgb::do_one_shot_use(1);
 	}
 }

@@ -98,8 +98,8 @@ function create_lightning_chain_params(max_arcs = 5, max_enemies_killed = 10, ra
 */
 function private on_player_connect()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self waittill(#"spawned_player");
 	self.tesla_network_death_choke = 0;
 	for(;;)
@@ -120,7 +120,7 @@ function private on_player_connect()
 */
 function arc_damage(source_enemy, player, arc_num, params = level.default_lightning_chain_params)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(!isdefined(player.tesla_network_death_choke))
 	{
 		player.tesla_network_death_choke = 0;
@@ -308,7 +308,7 @@ function private lc_flag_hit(enemy, hit)
 */
 function private lc_do_damage(source_enemy, arc_num, player, params)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(arc_num > 1)
 	{
 		wait(randomfloatrange(0.2, 0.6) * arc_num);
@@ -502,7 +502,7 @@ function lc_play_arc_fx(target, params)
 		playsoundatposition(params.arc_fx_sound, fxorg.origin);
 	}
 	fxorg moveto(target_origin, params.arc_travel_time);
-	fxorg waittill(#"movedone");
+	fxorg waittill("movedone");
 	fxorg delete();
 }
 

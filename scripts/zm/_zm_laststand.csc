@@ -59,7 +59,7 @@ function wait_and_set_revive_shader_constant()
 {
 	while(true)
 	{
-		level waittill(#"notetrack", localclientnum, note);
+		level waittill("notetrack", localclientnum, note);
 		if(note == "revive_shader_constant")
 		{
 			player = getlocalplayer(localclientnum);
@@ -79,7 +79,7 @@ function wait_and_set_revive_shader_constant()
 */
 function animation_update(model, oldvalue, newvalue)
 {
-	self endon(#"new_val");
+	self endon("new_val");
 	starttime = getrealtime();
 	timesincelastupdate = 0;
 	if(oldvalue == newvalue)
@@ -127,12 +127,12 @@ function update_bleedout_timer(localclientnum, oldval, newval, bnewent, binitial
 		{
 			if(newval == 29)
 			{
-				level.laststands[playernum] notify(#"new_val");
+				level.laststands[playernum] notify("new_val");
 				level.laststands[playernum] thread animation_update(model, 30, 28);
 			}
 			else
 			{
-				level.laststands[playernum] notify(#"new_val");
+				level.laststands[playernum] notify("new_val");
 				level.laststands[playernum] thread animation_update(model, level.laststands[playernum].lastbleedouttime, level.laststands[playernum].bleedouttime);
 			}
 		}

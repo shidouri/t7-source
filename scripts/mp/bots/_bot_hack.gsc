@@ -185,7 +185,7 @@ function hack_think()
 			}
 			if(self throwgrenade(getweapon("emp_grenade"), tank.origin))
 			{
-				self waittill(#"grenade_fire");
+				self waittill("grenade_fire");
 				goal = self hack_tank_get_goal_origin(tank);
 				if(isdefined(goal))
 				{

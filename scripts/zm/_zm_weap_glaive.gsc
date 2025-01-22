@@ -127,7 +127,7 @@ function function_3f820ba7(var_9fd9c680)
 	self endon(#"hash_b29853d8");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", wpn_cur, wpn_prev);
+		self waittill("weapon_change", wpn_cur, wpn_prev);
 		if(wpn_cur != level.weaponnone && wpn_cur != var_9fd9c680)
 		{
 			self.usingsword = 0;
@@ -202,7 +202,7 @@ function function_5c998ffc(wpn_excalibur, wpn_autokill, wpn_cur, wpn_prev)
 			self.current_sword = wpn_autokill;
 			self.var_2ef815cf = 0;
 			self disableoffhandweapons();
-			self notify(#"altbody_end");
+			self notify("altbody_end");
 			self thread function_3f820ba7(wpn_cur);
 			if(!(isdefined(self.usingsword) && self.usingsword))
 			{
@@ -230,7 +230,7 @@ function function_5c998ffc(wpn_excalibur, wpn_autokill, wpn_cur, wpn_prev)
 			self.current_sword = wpn_excalibur;
 			self.var_2ef815cf = 1;
 			self disableoffhandweapons();
-			self notify(#"altbody_end");
+			self notify("altbody_end");
 			self thread function_3f820ba7(wpn_cur);
 			if(!(isdefined(self.usingsword) && self.usingsword))
 			{
@@ -267,14 +267,14 @@ function function_5c998ffc(wpn_excalibur, wpn_autokill, wpn_cur, wpn_prev)
 */
 function private watch_sword_equipped()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wpn_excalibur = self get_correct_sword_for_player_character_at_level(1);
 	wpn_autokill = self get_correct_sword_for_player_character_at_level(2);
 	self.sword_allowed = 1;
 	self.usingsword = 0;
 	while(true)
 	{
-		self waittill(#"weapon_change", wpn_cur, wpn_prev);
+		self waittill("weapon_change", wpn_cur, wpn_prev);
 		self function_5c998ffc(wpn_excalibur, wpn_autokill, wpn_cur, wpn_prev);
 	}
 }
@@ -345,11 +345,11 @@ function private gib_head_check(damage_location)
 function private excalibur_think(wpn_excalibur)
 {
 	self endon(#"hash_b29853d8");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	while(true)
 	{
-		self waittill(#"weapon_melee_power_left", weapon);
+		self waittill("weapon_melee_power_left", weapon);
 		if(weapon == wpn_excalibur)
 		{
 			self clientfield::increment("slam_fx");
@@ -426,7 +426,7 @@ function private do_excalibur(wpn_excalibur)
 */
 function electrocute_actor(ai, wpn_excalibur)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(ai) || !isalive(ai))
 	{
 		return;
@@ -470,7 +470,7 @@ function function_72ca5a88()
 */
 function tesla_death(player)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread function_862aadab(1);
 	wait(2);
 	player thread zm_audio::create_and_play_dialog("kill", "sword_slam");
@@ -488,7 +488,7 @@ function tesla_death(player)
 */
 function arc_damage_init(hit_location, hit_origin, player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(isdefined(self.zombie_tesla_hit) && self.zombie_tesla_hit)
 	{
 		return;
@@ -507,7 +507,7 @@ function arc_damage_init(hit_location, hit_origin, player)
 */
 function chop_actor(ai, upgraded, leftswing, weapon = level.weaponnone)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(ai) || !isalive(ai))
 	{
 		return;
@@ -701,7 +701,7 @@ function swordarc_swipe(player, var_10ee11e)
 function private arc_attack_think(weapon, var_10ee11e)
 {
 	self endon(#"hash_b29853d8");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	while(true)
 	{
@@ -722,11 +722,11 @@ function private arc_attack_think(weapon, var_10ee11e)
 function private autokill_think(wpn_autokill)
 {
 	self endon(#"hash_b29853d8");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	while(true)
 	{
-		self waittill(#"weapon_melee_power_left", weapon);
+		self waittill("weapon_melee_power_left", weapon);
 		if(weapon == wpn_autokill && self.autokill_glaive_active == 0)
 		{
 			self thread send_autokill_sword(wpn_autokill);
@@ -750,7 +750,7 @@ function function_86ee93a8()
 		return;
 	}
 	self.var_8f6c69b8 = 1;
-	self notify(#"hide_equipment_hint_text");
+	self notify("hide_equipment_hint_text");
 	util::wait_network_frame();
 	zm_equipment::show_hint_text(&"ZM_ZOD_SWORD_RECOVERY_HINT", 3.2);
 }
@@ -766,11 +766,11 @@ function function_86ee93a8()
 */
 function private function_729af361(vh_glaive)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_b29853d8");
-	self endon(#"weapon_change");
-	vh_glaive endon(#"returned_to_owner");
-	vh_glaive endon(#"disconnect");
+	self endon("weapon_change");
+	vh_glaive endon("returned_to_owner");
+	vh_glaive endon("disconnect");
 	self thread function_86ee93a8();
 	self.var_c0d25105._glaive_must_return_to_owner = 0;
 	while(isdefined(self) && self throwbuttonpressed())
@@ -936,7 +936,7 @@ function disabled_sword()
 */
 function sword_power_hud(slot)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_b29853d8");
 	while(isdefined(self) && (isdefined(self.usingsword) && self.usingsword || (isdefined(self.autokill_glaive_active) && self.autokill_glaive_active)) && self.sword_power > 0)
 	{

@@ -522,7 +522,7 @@ function setup_fields()
 function no_mans_land_power()
 {
 	level thread turn_area51_perks_on();
-	level notify(#"pack_a_punch_on");
+	level notify("pack_a_punch_on");
 }
 
 /*
@@ -542,14 +542,14 @@ function turn_area51_perks_on()
 	{
 		machine[i] setmodel("p7_zm_vending_sleight");
 	}
-	level notify(#"specialty_fastreload_power_on");
+	level notify("specialty_fastreload_power_on");
 	machine2 = getentarray("vending_jugg", "targetname");
 	for(i = 0; i < machine2.size; i++)
 	{
 		machine2[i] setmodel("p7_zm_vending_jugg");
 		machine2[i] playsound("zmb_perks_power_on");
 	}
-	level notify(#"specialty_armorvest_power_on");
+	level notify("specialty_armorvest_power_on");
 }
 
 /*
@@ -676,7 +676,7 @@ function packapunch_hack_think()
 	}
 	while(true)
 	{
-		level waittill(#"packapunch_hacked");
+		level waittill("packapunch_hacked");
 		level flag::clear("packapunch_hacked");
 		array::thread_all(pack_gates, &pack_gate_activate);
 		level thread pack_gate_poi_activate(time);
@@ -754,7 +754,7 @@ function pack_gate_poi_activate(time)
 		wait(1);
 	}
 	level flag::wait_till("packapunch_hacked");
-	level notify(#"stop_pack_poi");
+	level notify("stop_pack_poi");
 	zombies = getaiarray();
 	for(i = 0; i < zombies.size; i++)
 	{
@@ -777,9 +777,9 @@ function pack_gate_poi_activate(time)
 */
 function switch_between_zland_poi()
 {
-	self endon(#"death");
-	level endon(#"packapunch_hacked");
-	self endon(#"nml_bhb");
+	self endon("death");
+	level endon("packapunch_hacked");
+	self endon("nml_bhb");
 	poi_array = getentarray("zombieland_poi", "targetname");
 	for(x = 0; x < poi_array.size; x++)
 	{
@@ -814,8 +814,8 @@ function switch_between_zland_poi()
 */
 function remove_ignore_on_poi(poi_array)
 {
-	self endon(#"death");
-	level waittill(#"stop_pack_poi");
+	self endon("death");
+	level waittill("stop_pack_poi");
 	for(i = 0; i < poi_array.size; i++)
 	{
 		self zm_utility::remove_poi_from_ignore_list(poi_array[i]);
@@ -834,7 +834,7 @@ function remove_ignore_on_poi(poi_array)
 */
 function activate_zombieland_poi_positions(time)
 {
-	level endon(#"stop_pack_poi");
+	level endon("stop_pack_poi");
 	pack_zombieland_poi = getentarray("zombieland_poi", "targetname");
 	for(i = 0; i < pack_zombieland_poi.size; i++)
 	{
@@ -860,7 +860,7 @@ function function_47f0ea80()
 	}
 	for(i = 0; i < self.attractor_array.size; i++)
 	{
-		self.attractor_array[i] notify(#"kill_poi");
+		self.attractor_array[i] notify("kill_poi");
 	}
 	self.attractor_array = [];
 	self.claimed_attractor_positions = [];
@@ -882,7 +882,7 @@ function watch_for_exit(poi_array)
 	{
 		wait(0.1);
 	}
-	level notify(#"stop_pack_poi");
+	level notify("stop_pack_poi");
 	for(i = 0; i < poi_array.size; i++)
 	{
 		poi_array[i] function_47f0ea80();
@@ -976,7 +976,7 @@ function pack_gate_activate()
 */
 function pack_gate_closed()
 {
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self.door_moving = undefined;
 	while(true)
 	{
@@ -1011,7 +1011,7 @@ function pack_gate_closed()
 */
 function moon_nml_bhb_present()
 {
-	self endon(#"death");
+	self endon("death");
 	nml_bhb = undefined;
 	pack_zombieland_poi = getentarray("zombieland_poi", "targetname");
 	pack_enclosure = getent("pack_enclosure", "targetname");
@@ -1033,7 +1033,7 @@ function moon_nml_bhb_present()
 		}
 		if(isdefined(nml_bhb))
 		{
-			self notify(#"nml_bhb");
+			self notify("nml_bhb");
 			for(j = 0; j < pack_zombieland_poi.size; j++)
 			{
 				self zm_utility::add_poi_to_ignore_list(pack_zombieland_poi[j]);
@@ -1065,7 +1065,7 @@ function moon_nml_bhb_present()
 */
 function moon_zmb_and_bhb_touching_trig(ent_bhb)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(ent_bhb))
 	{
 		return false;
@@ -1093,7 +1093,7 @@ function moon_zmb_and_bhb_touching_trig(ent_bhb)
 */
 function moon_zombieland_ignore_poi()
 {
-	self endon(#"death");
+	self endon("death");
 	nml_poi_array = getentarray("zombieland_poi", "targetname");
 	if(isdefined(self._zmbl_ignore) && self._zmbl_ignore)
 	{
@@ -1306,7 +1306,7 @@ function moon_round_think_func(restart = 0)
 			}
 		#/
 		level thread [[level.round_spawn_func]]();
-		level notify(#"start_of_round");
+		level notify("start_of_round");
 		recordzombieroundstart();
 		bb::logroundevent("start_of_round");
 		players = getplayers();
@@ -1589,7 +1589,7 @@ function givecustomcharacters()
 */
 function set_exert_id()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self zm_audio::setexertvoice(self.characterindex + 1);
@@ -1824,7 +1824,7 @@ function moon_offhand_weapon_overrride()
 */
 function offhand_weapon_give_override(str_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_tactical_grenade(str_weapon) && isdefined(self zm_utility::get_player_tactical_grenade()) && !self zm_utility::is_player_tactical_grenade(str_weapon))
 	{
 		self setweaponammoclip(self zm_utility::get_player_tactical_grenade(), 0);
@@ -1876,7 +1876,7 @@ function electric_switch()
 	var_aa84840c sethintstring(&"ZOMBIE_ELECTRIC_SWITCH");
 	var_aa84840c setcursorhint("HINT_NOICON");
 	level thread wait_for_power();
-	var_aa84840c waittill(#"trigger", user);
+	var_aa84840c waittill("trigger", user);
 	user thread delayed_poweron_vox();
 }
 
@@ -1891,8 +1891,8 @@ function electric_switch()
 */
 function delayed_poweron_vox()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(4);
 	if(isdefined(self))
 	{
@@ -1961,7 +1961,7 @@ function moon_devgui(cmd)
 					{
 						player takeweapon(level.w_quantum_bomb);
 						player zm_utility::set_player_tactical_grenade("");
-						player notify(#"starting_quantum_bomb");
+						player notify("starting_quantum_bomb");
 					}
 				}
 				array::thread_all(getplayers(), &zm_weap_black_hole_bomb::player_give_black_hole_bomb);
@@ -1976,7 +1976,7 @@ function moon_devgui(cmd)
 					{
 						player takeweapon(level.w_black_hole_bomb);
 						player zm_utility::set_player_tactical_grenade("");
-						player notify(#"starting_black_hole_bomb");
+						player notify("starting_black_hole_bomb");
 					}
 				}
 				array::thread_all(getplayers(), &zm_weap_quantum_bomb::player_give_quantum_bomb);
@@ -1990,7 +1990,7 @@ function moon_devgui(cmd)
 					return;
 				}
 				iprintln("");
-				trigger notify(#"trigger", getplayers()[0]);
+				trigger notify("trigger", getplayers()[0]);
 				break;
 			}
 			case "":
@@ -2159,7 +2159,7 @@ function cliff_fall_death()
 	{
 		while(true)
 		{
-			trig waittill(#"trigger", who);
+			trig waittill("trigger", who);
 			if(!(isdefined(who.insta_killed) && who.insta_killed))
 			{
 				who thread insta_kill_player();
@@ -2179,7 +2179,7 @@ function cliff_fall_death()
 */
 function insta_kill_player()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(self.insta_killed) && self.insta_killed)
 	{
 		return;
@@ -2265,7 +2265,7 @@ function moon_respawn_override(player)
 		point = moon_digger_respawn(player);
 		if(isdefined(point))
 		{
-			self notify(#"one_giant_leap");
+			self notify("one_giant_leap");
 			return point;
 		}
 	}
@@ -2611,7 +2611,7 @@ function moon_black_hole_bomb_poi()
 */
 function moon_bhb_poi_control()
 {
-	self endon(#"death");
+	self endon("death");
 	moon_pois = getentarray("zombie_poi", "script_noteworthy");
 	pack_enclosure = getent("pack_enclosure", "targetname");
 	if(!isdefined(moon_pois) || moon_pois.size == 0)
@@ -2841,10 +2841,10 @@ function function_35a61719()
 */
 function function_cc87f235(player)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(e_who == player)
 		{
 			player clientfield::set_to_player("biodome_exploder", 1);
@@ -2864,10 +2864,10 @@ function function_cc87f235(player)
 */
 function function_ff7d5f3b(player)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(e_who == player)
 		{
 			player clientfield::set_to_player("biodome_exploder", 0);

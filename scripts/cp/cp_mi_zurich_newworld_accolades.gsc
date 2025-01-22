@@ -178,7 +178,7 @@ function function_595dc718(params)
 */
 function function_840d3bcc()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_6daef24a");
 	self endon(#"hash_38998bd8");
 	wait(0.5);
@@ -406,11 +406,11 @@ function function_1b6f43c5(params)
 */
 function function_7e35ccbc()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_c6c262e8 = 0;
 	while(true)
 	{
-		self waittill(#"grenade_throwback", tosser, grenade);
+		self waittill("grenade_throwback", tosser, grenade);
 		if(tosser.team == "axis")
 		{
 			self.var_fc30fc22 = grenade;
@@ -430,7 +430,7 @@ function function_7e35ccbc()
 */
 function function_23ad043b()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_fc30fc22 waittill(#"explode");
 	self.var_fc30fc22 = undefined;
 	wait(0.5);
@@ -535,7 +535,7 @@ function function_6972c343()
 */
 function function_deb99e6()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self.b_disabled = 0;
@@ -600,9 +600,9 @@ function function_cd261d0b()
 */
 function function_af529683()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_3d00ae0c");
-	self waittill(#"reload");
+	self waittill("reload");
 	self savegame::set_player_data("b_nw_accolade_11_failed", 1);
 }
 
@@ -675,10 +675,10 @@ function function_bc7f04af(params)
 */
 function function_829b12c4(params)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.archetype) && (self.archetype == "civilian" || self.archetype == "allies"))
 	{
-		self waittill(#"touch", e_toucher);
+		self waittill("touch", e_toucher);
 		if(isplayer(e_toucher))
 		{
 			e_toucher savegame::set_player_data("b_nw_accolade_12_failed", 1);
@@ -793,9 +793,9 @@ function function_85ed003e(params)
 */
 function function_ee166ee8()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_89be6da0 = 0;
-	self waittill(#"reload");
+	self waittill("reload");
 	wait(0.05);
 	self thread function_ee166ee8();
 }
@@ -829,7 +829,7 @@ function function_14316bd1()
 	level endon(#"hash_f7bb45b");
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(isplayer(ent) && ent iswallrunning())
 		{
 			a_trace = bullettrace(ent.origin, ent.origin - vectorscale((0, 0, 1), 1000), 0, ent);

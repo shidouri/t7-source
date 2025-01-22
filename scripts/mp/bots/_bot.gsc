@@ -89,7 +89,7 @@ function __init__()
 */
 function init()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level.botsoak = is_bot_soak();
 	if(level.rankedmatch && !level.botsoak || !init_bot_gametype())
 	{
@@ -126,7 +126,7 @@ function is_bot_soak()
 */
 function wait_for_host()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(level.botsoak)
 	{
 		return;
@@ -183,8 +183,8 @@ function is_bot_comp_stomp()
 */
 function on_bot_connect()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	if(isdefined(level.disableclassselection) && level.disableclassselection)
 	{
 		self set_rank();
@@ -250,10 +250,10 @@ function on_bot_spawned()
 */
 function on_bot_killed()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self endon(#"spawned");
-	self waittill(#"death_delay_finished");
+	self endon("disconnect");
+	level endon("game_ended");
+	self endon("spawned");
+	self waittill("death_delay_finished");
 	wait(0.1);
 	if(self choose_class() && level.playerforcerespawn)
 	{
@@ -273,9 +273,9 @@ function on_bot_killed()
 */
 function respawn()
 {
-	self endon(#"spawned");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("spawned");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
 		self tap_use_button();
@@ -374,9 +374,9 @@ function do_supplydrop(maxrange = 1400)
 */
 function watch_crate(crate)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bot_goal_reached");
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(isdefined(crate) && !self bot_combat::has_threat())
 	{
 		wait(level.botsettings.thinkinterval);
@@ -395,7 +395,7 @@ function watch_crate(crate)
 */
 function populate_bots()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(level.teambased)
 	{
 		maxallies = getdvarint("bot_maxAllies", 0);
@@ -420,7 +420,7 @@ function populate_bots()
 */
 function monitor_bot_team_population(maxallies, maxaxis)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(!maxallies && !maxaxis)
 	{
 		return;
@@ -501,7 +501,7 @@ function add_balanced_bot(allies, maxallies, axis, maxaxis)
 */
 function monitor_bot_population(maxfree)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(!maxfree)
 	{
 		return;
@@ -592,7 +592,7 @@ function choose_class()
 	{
 		return false;
 	}
-	self notify(#"menuresponse", "ChooseClass_InGame", classname);
+	self notify("menuresponse", "ChooseClass_InGame", classname);
 	return true;
 }
 
@@ -1162,12 +1162,12 @@ function bot_turn_on_gadget(gadget)
 function fixed_spawn_override()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		spawnorigin = self.origin;
 		spawnangles = self.angles;
 		while(true)
 		{
-			self waittill(#"spawned_player");
+			self waittill("spawned_player");
 			self setorigin(spawnorigin);
 			self setplayerangles(spawnangles);
 		}

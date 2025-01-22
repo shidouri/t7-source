@@ -27,7 +27,7 @@
 */
 function main()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level flag::init("finger_trap_on");
 	level flag::init("finger_trap_cooldown");
 	level function_7715178d();
@@ -142,7 +142,7 @@ function function_891da2d8()
 		{
 			level flag::wait_till_clear("finger_trap_cooldown");
 		}
-		self waittill(#"trigger_activated", e_who);
+		self waittill("trigger_activated", e_who);
 		if(!level flag::get("finger_trap_on") && !level flag::get("finger_trap_cooldown"))
 		{
 			if(!e_who zm_score::can_player_purchase(1500))
@@ -220,10 +220,10 @@ function function_88a65f39()
 */
 function function_f5af37c6(var_3778532a)
 {
-	level endon(#"finger_trap_cooldown");
+	level endon("finger_trap_cooldown");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(!(isdefined(e_who.var_bd3a4420) && e_who.var_bd3a4420))
 		{
 			if(e_who.health <= 20000)
@@ -263,7 +263,7 @@ function function_f5af37c6(var_3778532a)
 */
 function function_fe885d6b()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.25);
 	self.var_bd3a4420 = undefined;
 }

@@ -232,7 +232,7 @@ function toggle_rain_overlay(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function player_rain_thread(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	if(!self islocalplayer() || !isdefined(self getlocalclientnumber()) || localclientnum != self getlocalclientnumber())
 	{

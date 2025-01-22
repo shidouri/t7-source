@@ -147,7 +147,7 @@ function play_boost_vox(localclientnum, oldval, newval, bnewent, binitialsnap, f
 function play_boost_start_vox(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	wait(2);
 	playbackid = self play_dialog("boostStart" + level.boostnumber, localclientnum);
 	if(isdefined(playbackid) && playbackid >= 0)
@@ -181,7 +181,7 @@ function play_boost_start_vox(localclientnum)
 function play_boost_start_response_vox(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(level.booststartresponse) || self.team != getlocalplayerteam(localclientnum))
 	{
 		return;

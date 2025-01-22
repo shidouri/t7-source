@@ -260,7 +260,7 @@ function loop_sound(clientnum)
 	{
 		return;
 	}
-	self notify(#"stop_loop");
+	self notify("stop_loop");
 	if(isdefined(self.v["soundalias"]) && self.v["soundalias"] != "nil")
 	{
 		if(isdefined(self.v["stopable"]) && self.v["stopable"])
@@ -346,7 +346,7 @@ function loop_thread(clientnum)
 */
 function loop_stop(clientnum, timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timeout);
 	if(isdefined(self.looper))
 	{
@@ -430,7 +430,7 @@ function create_trigger(clientnum)
 function blinky_light(localclientnum, tagname, friendlyfx, enemyfx)
 {
 	self endon(#"entityshutdown");
-	self endon(#"stop_blinky_light");
+	self endon("stop_blinky_light");
 	self.lighttagname = tagname;
 	self util::waittill_dobj(localclientnum);
 	self thread blinky_emp_wait(localclientnum);
@@ -467,7 +467,7 @@ function blinky_light(localclientnum, tagname, friendlyfx, enemyfx)
 */
 function stop_blinky_light(localclientnum)
 {
-	self notify(#"stop_blinky_light");
+	self notify("stop_blinky_light");
 	if(!isdefined(self.blinkylightfx))
 	{
 		return;
@@ -488,7 +488,7 @@ function stop_blinky_light(localclientnum)
 function blinky_emp_wait(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"stop_blinky_light");
+	self endon("stop_blinky_light");
 	self waittill(#"emp");
 	self stop_blinky_light(localclientnum);
 }

@@ -79,7 +79,7 @@ function stage_logic()
 function exit_stage(success)
 {
 	level.check_valid_poi = undefined;
-	level notify(#"fire_link_cooldown");
+	level notify("fire_link_cooldown");
 	level flag::set("fire_link_enabled");
 	a_buttons = getentarray("fire_link_button", "targetname");
 	array::delete_all(a_buttons);
@@ -130,12 +130,12 @@ function create_buttons_and_triggers()
 */
 function ready_to_activate(unitrigger_stub)
 {
-	self endon(#"death");
+	self endon("death");
 	self playsoundwithnotify("vox_maxi_robot_sync_0", "sync_done");
-	self waittill(#"sync_done");
+	self waittill("sync_done");
 	wait(0.5);
 	self playsoundwithnotify("vox_maxi_robot_await_0", "ready_to_use");
-	self waittill(#"ready_to_use");
+	self waittill("ready_to_use");
 	zm_unitrigger::register_static_unitrigger(unitrigger_stub, &activate_fire_link);
 }
 
@@ -153,7 +153,7 @@ function watch_for_triple_attack()
 	t_hole = getent("fire_link_damage", "targetname");
 	while(!level flag::get("ee_mech_zombie_hole_opened"))
 	{
-		t_hole waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
+		t_hole waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
 		if(isdefined(weapon) && weapon.name == "beacon" && level flag::get("fire_link_enabled"))
 		{
 			playsoundatposition("zmb_squest_robot_floor_collapse", t_hole.origin);
@@ -197,10 +197,10 @@ function mech_zombie_hole_valid(valid)
 */
 function activate_fire_link()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		self playsound("zmb_squest_robot_button");
 		if(level flag::get("three_robot_round"))
 		{
@@ -231,8 +231,8 @@ function activate_fire_link()
 */
 function fire_link_cooldown(t_button)
 {
-	level notify(#"fire_link_cooldown");
-	level endon(#"fire_link_cooldown");
+	level notify("fire_link_cooldown");
+	level endon("fire_link_cooldown");
 	level flag::set("fire_link_enabled");
 	if(isdefined(t_button))
 	{

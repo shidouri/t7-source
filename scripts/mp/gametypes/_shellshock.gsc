@@ -119,7 +119,7 @@ function on_damage(cause, damage, weapon)
 */
 function end_on_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	waittillframeend();
 	self notify(#"end_explode");
 }
@@ -135,7 +135,7 @@ function end_on_death()
 */
 function end_on_timer(timer)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(timer);
 	self notify(#"end_on_timer");
 }
@@ -166,9 +166,9 @@ function rcbomb_earthquake(position)
 */
 function reset_meleesnd()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(6);
 	self clientfield::set_to_player("sndMelee", 0);
-	self notify(#"snd_melee_end");
+	self notify("snd_melee_end");
 }
 

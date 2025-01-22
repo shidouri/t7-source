@@ -73,7 +73,7 @@ function register_clientfields()
 */
 function function_5ecbd7cb()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	var_845e036a = getent(self.target, "targetname");
 	vol_fling = getent(var_845e036a.target, "targetname");
 	var_cec95fd7 = struct::get(self.target, "targetname");
@@ -89,7 +89,7 @@ function function_5ecbd7cb()
 	nd_start = getvehiclenode(var_3432399a, "targetname");
 	while(true)
 	{
-		s_unitrigger_stub waittill(#"trigger", e_who);
+		s_unitrigger_stub waittill("trigger", e_who);
 		if(isdefined(e_who.var_8dbb72b1) && e_who.var_8dbb72b1[vol_fling.script_string] === 1)
 		{
 			e_who zm_audio::create_and_play_dialog("general", "transport_deny");
@@ -134,12 +134,12 @@ function function_5ecbd7cb()
 */
 function unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread unitrigger_refresh_message();
 	while(true)
 	{
-		self waittill(#"trigger", var_4161ad80);
-		self.stub notify(#"trigger", var_4161ad80);
+		self waittill("trigger", var_4161ad80);
+		self.stub notify("trigger", var_4161ad80);
 	}
 }
 
@@ -237,7 +237,7 @@ function function_149a5187()
 */
 function function_e9d3c391(var_a89f74ed, v_fling, nd_start, var_173065cc)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.is_flung) && self.is_flung || (isdefined(self.var_8dbb72b1) && self.var_8dbb72b1[var_a89f74ed.script_string] === 1))
 	{
 		return;
@@ -320,7 +320,7 @@ function function_e9d3c391(var_a89f74ed, v_fling, nd_start, var_173065cc)
 		var_413ea50f setignorepauseworld(1);
 		var_413ea50f attachpath(nd_start);
 		var_413ea50f startpath();
-		var_413ea50f waittill(#"reached_end_node");
+		var_413ea50f waittill("reached_end_node");
 		self thread function_3298b25f(var_a89f74ed);
 		self thread function_29c06608();
 		self playrumbleonentity("zm_castle_flinger_land");
@@ -369,7 +369,7 @@ function function_e9d3c391(var_a89f74ed, v_fling, nd_start, var_173065cc)
 			n_distance = distance(nd_start.origin, nd_next.origin);
 			n_time = n_distance / 600;
 			self.mdl_anchor moveto(nd_next.origin, n_time);
-			self.mdl_anchor waittill(#"movedone");
+			self.mdl_anchor waittill("movedone");
 			self unlink();
 			self pathmode("dont move");
 			self startragdoll();
@@ -441,9 +441,9 @@ function ai_delay_cleanup()
 {
 	if(!(isdefined(self.b_ignore_cleanup) && self.b_ignore_cleanup))
 	{
-		self notify(#"delay_cleanup");
-		self endon(#"death");
-		self endon(#"delay_cleanup");
+		self notify("delay_cleanup");
+		self endon("death");
+		self endon("delay_cleanup");
 		self.b_ignore_cleanup = 1;
 		self.var_b6b1080c = 1;
 		wait(10);
@@ -463,7 +463,7 @@ function ai_delay_cleanup()
 */
 function function_e905a9df(var_a89f74ed, var_173065cc)
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_8dbb72b1[var_a89f74ed.script_string] = 1;
 	self clientfield::set_to_player("flinger_cooldown_start", level.var_6ad55648[var_173065cc.targetname]["ready"]);
 	wait(15);
@@ -530,7 +530,7 @@ function function_c1f1756a()
 */
 function function_3298b25f(var_a89f74ed)
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_3298b25f = 0;
 	var_a7d28374 = 0;
 	var_a05a47c7 = var_a89f74ed function_fbd80603();
@@ -652,7 +652,7 @@ function function_44659337(nd_target, var_a89f74ed, v_fling)
 */
 function function_1a4837ab(nd_target, e_target, var_a89f74ed, v_fling)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!(isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
 	{
 		return;
@@ -832,12 +832,12 @@ function function_485001bf(e_player)
 */
 function function_4029cf56()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread zm_unitrigger::run_visibility_function_for_all_triggers();
 	while(true)
 	{
-		self waittill(#"trigger", var_4161ad80);
-		self.stub notify(#"trigger", var_4161ad80);
+		self waittill("trigger", var_4161ad80);
+		self.stub notify("trigger", var_4161ad80);
 	}
 }
 

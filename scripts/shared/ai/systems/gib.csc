@@ -62,7 +62,7 @@ function private _annihilatecorpse()
 {
 	while(true)
 	{
-		level waittill(#"corpse_explode", localclientnum, body, origin);
+		level waittill("corpse_explode", localclientnum, body, origin);
 		if(!util::is_mature() || util::is_gib_restricted_build())
 		{
 			continue;

@@ -194,7 +194,7 @@ function respin_box_thread(hacker)
 {
 	if(isdefined(self.chest.zbarrier.weapon_model))
 	{
-		self.chest.zbarrier.weapon_model notify(#"kill_respin_think_thread");
+		self.chest.zbarrier.weapon_model notify("kill_respin_think_thread");
 	}
 	self.chest.no_fly_away = 1;
 	self.chest.zbarrier notify(#"box_hacked_respin");
@@ -202,7 +202,7 @@ function respin_box_thread(hacker)
 	zm_utility::play_sound_at_pos("open_chest", self.chest.zbarrier.origin);
 	zm_utility::play_sound_at_pos("music_chest", self.chest.zbarrier.origin);
 	self.chest.zbarrier thread zm_magicbox::treasure_chest_weapon_spawn(self.chest, hacker, 1);
-	self.chest.zbarrier waittill(#"randomization_done");
+	self.chest.zbarrier waittill("randomization_done");
 	self.chest.no_fly_away = undefined;
 	if(!level flag::get("moving_chest_now"))
 	{
@@ -298,13 +298,13 @@ function respin_respin_box(hacker)
 	org = self.chest.zbarrier.origin;
 	if(isdefined(self.chest.zbarrier.weapon_model))
 	{
-		self.chest.zbarrier.weapon_model notify(#"kill_respin_respin_think_thread");
-		self.chest.zbarrier.weapon_model notify(#"kill_weapon_movement");
+		self.chest.zbarrier.weapon_model notify("kill_respin_respin_think_thread");
+		self.chest.zbarrier.weapon_model notify("kill_weapon_movement");
 		self.chest.zbarrier.weapon_model moveto(org + vectorscale((0, 0, 1), 40), 0.5);
 	}
 	if(isdefined(self.chest.zbarrier.weapon_model_dw))
 	{
-		self.chest.zbarrier.weapon_model_dw notify(#"kill_weapon_movement");
+		self.chest.zbarrier.weapon_model_dw notify("kill_weapon_movement");
 		self.chest.zbarrier.weapon_model_dw moveto((org + vectorscale((0, 0, 1), 40)) - vectorscale((1, 1, 1), 3), 0.5);
 	}
 	self.chest.zbarrier notify(#"box_hacked_rerespin");
@@ -323,7 +323,7 @@ function respin_respin_box(hacker)
 */
 function fake_weapon_powerup_thread(weapon1, weapon2)
 {
-	weapon1 endon(#"death");
+	weapon1 endon("death");
 	playfxontag(level._effect["powerup_on_solo"], weapon1, "tag_origin");
 	playsoundatposition("zmb_spawn_powerup", weapon1.origin);
 	weapon1 playloopsound("zmb_spawn_powerup_loop");
@@ -361,7 +361,7 @@ function fake_weapon_powerup_thread(weapon1, weapon2)
 */
 function fake_weapon_powerup_timeout(weapon1, weapon2)
 {
-	weapon1 endon(#"death");
+	weapon1 endon("death");
 	wait(15);
 	for(i = 0; i < 40; i++)
 	{
@@ -393,7 +393,7 @@ function fake_weapon_powerup_timeout(weapon1, weapon2)
 		}
 		wait(0.1);
 	}
-	self.chest notify(#"trigger", level);
+	self.chest notify("trigger", level);
 	if(isdefined(weapon1))
 	{
 		weapon1 delete();
@@ -473,13 +473,13 @@ function summon_box_thread(hacker)
 	self.chest.last_hacked_round = level.round_number + randomintrange(2, 5);
 	zm_equip_hacker::deregister_hackable_struct(self);
 	self.chest thread zm_magicbox::show_chest();
-	self.chest notify(#"kill_chest_think");
+	self.chest notify("kill_chest_think");
 	self.chest.auto_open = 1;
 	self.chest.no_charge = 1;
 	self.chest.no_fly_away = 1;
 	self.chest.forced_user = hacker;
 	self.chest thread zm_magicbox::treasure_chest_think();
-	self.chest.zbarrier waittill(#"closed");
+	self.chest.zbarrier waittill("closed");
 	self.chest.forced_user = undefined;
 	self.chest.auto_open = undefined;
 	self.chest.no_charge = undefined;

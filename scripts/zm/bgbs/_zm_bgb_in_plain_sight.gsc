@@ -78,7 +78,7 @@ function validation()
 */
 function activation()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self zm_utility::increment_ignoreme();
 	self.bgb_in_plain_sight_active = 1;
 	self playsound("zmb_bgb_plainsight_start");

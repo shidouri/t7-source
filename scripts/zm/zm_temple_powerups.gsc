@@ -228,7 +228,7 @@ function monkey_powerup_timeout()
 	}
 	playfx(level._effect["monkey_death"], self.origin);
 	playsoundatposition("zmb_bolt", self.origin);
-	self notify(#"timeout");
+	self notify("timeout");
 	self delete();
 }
 
@@ -243,13 +243,13 @@ function monkey_powerup_timeout()
 */
 function monkey_protect_player(player)
 {
-	self endon(#"timeout");
+	self endon("timeout");
 	wait(0.5);
 	while(true)
 	{
 		if(isdefined(self.timeout) && self.timeout)
 		{
-			self waittill(#"forever");
+			self waittill("forever");
 		}
 		zombie = player _ent_getbestzombie();
 		if(isdefined(zombie))
@@ -270,7 +270,7 @@ function monkey_protect_player(player)
 			{
 				self.goalradius = goaldist;
 				self setgoalentity(player);
-				self waittill(#"goal");
+				self waittill("goal");
 				self setgoalpos(self.origin);
 			}
 		}
@@ -290,7 +290,7 @@ function monkey_protect_player(player)
 function monkey_attack_zombie(zombie)
 {
 	self endon(#"bad_path");
-	self endon(#"timeout");
+	self endon("timeout");
 	self.zombie = zombie;
 	zombie.monkey_claimed = 1;
 	self.goalradius = 32;
@@ -300,7 +300,7 @@ function monkey_attack_zombie(zombie)
 	{
 		if(!isdefined(zombie) || !isalive(zombie))
 		{
-			self notify(#"zombie_killed");
+			self notify("zombie_killed");
 			return;
 		}
 		dist2 = distancesquared(zombie.origin, self.origin);
@@ -312,7 +312,7 @@ function monkey_attack_zombie(zombie)
 		util::wait_network_frame();
 	}
 	self.attacking_zombie = 1;
-	zombie notify(#"stop_find_flesh");
+	zombie notify("stop_find_flesh");
 	forward = anglestoforward(zombie.angles);
 	self.attacking_zombie = 0;
 	if(isdefined(zombie))
@@ -327,7 +327,7 @@ function monkey_attack_zombie(zombie)
 		}
 	}
 	self.zombie = undefined;
-	self notify(#"zombie_killed");
+	self notify("zombie_killed");
 }
 
 /*

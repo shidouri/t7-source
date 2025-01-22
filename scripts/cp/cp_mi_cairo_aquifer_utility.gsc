@@ -153,7 +153,7 @@ function function_68714b99()
 {
 	pin = spawn("script_origin", self.origin);
 	self linkto(pin);
-	self waittill(#"free_vehicle");
+	self waittill("free_vehicle");
 	pin delete();
 }
 
@@ -318,7 +318,7 @@ function function_b86ff37e(n_hacking_time, objective, var_d66abd8d)
 */
 function function_ee5d34cb(gameobj)
 {
-	self notify(#"hacking_complete");
+	self notify("hacking_complete");
 	level notify(#"hash_26700a52");
 }
 
@@ -351,7 +351,7 @@ function function_35e9f08(team, player, result)
 		if(isdefined(result) && result)
 		{
 			self.trigger notify(#"hash_ece70538", player);
-			level notify(#"hacking_complete", result, player);
+			level notify("hacking_complete", result, player);
 		}
 	}
 }
@@ -406,10 +406,10 @@ function setup_reusable_destructible()
 */
 function handle_reusable_destructible()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		self function_cc4d91b(ent);
 	}
 }
@@ -453,8 +453,8 @@ function function_cc4d91b(ent)
 */
 function function_eee6cbf2()
 {
-	self endon(#"death");
-	self waittill(#"trigger", ent);
+	self endon("death");
+	self waittill("trigger", ent);
 	self function_9c6e51f(ent);
 }
 
@@ -506,8 +506,8 @@ function intro_screen()
 */
 function player_underwater()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(!level flag::get("flag_khalil_water_exit"))
 	{
 		if(self isplayerunderwater() && (!(isdefined(self.is_underwater) && self.is_underwater)))
@@ -534,8 +534,8 @@ function player_underwater()
 */
 function function_a05f9e55()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.var_a66e492f = 0;
 	while(!level flag::get("inside_aquifer"))
 	{
@@ -569,8 +569,8 @@ function function_a05f9e55()
 */
 function function_3de8b7b4()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level flag::wait_till("flag_snow_room");
 	self clientfield::set_to_player("player_snow_fx", 1);
 	self playsound("evt_dni_glitch");
@@ -593,13 +593,13 @@ function function_3de8b7b4()
 */
 function function_dd7031ad()
 {
-	self endon(#"death");
+	self endon("death");
 	st = struct::get(self.target, "targetname");
 	fwd = anglestoforward(st.angles);
 	up = anglestoup(st.angles);
 	while(true)
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		playfx(level._effect[self.script_noteworthy], st.origin, fwd, up);
 		if(isdefined(self.script_parameters) && strisint(self.script_parameters))
 		{
@@ -701,14 +701,14 @@ function function_11a9191()
 */
 function function_c7676d36()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bug_out");
 	self ghost();
 	self notsolid();
 	self setcontents(0);
 	self clientfield::set("vtol_dogfighting", 0);
 	self.dying = 1;
-	self notify(#"dying");
+	self notify("dying");
 	self.dogfighter weaponlockfree();
 	wait(0.5);
 	self notify(#"hash_8aa591e9");
@@ -746,9 +746,9 @@ function function_c7676d36()
 */
 function function_cb795cc3()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bug_out");
-	self endon(#"dying");
+	self endon("dying");
 	wait(12);
 	if(isdefined(self.dogfighter))
 	{
@@ -778,7 +778,7 @@ function function_cb795cc3()
 */
 function function_78e66c54()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bug_out");
 	self.health = 100000;
 	self.maxhealth = self.health;
@@ -827,7 +827,7 @@ function function_78e66c54()
 	self clientfield::set("vtol_show_damage_stages", 1);
 	while(isdefined(self) && isalive(self))
 	{
-		self waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(isdefined(self.dogfighter) && attacker == self.dogfighter)
 		{
 			var_94bdacf3 = 0;
@@ -1038,8 +1038,8 @@ function function_14f37b59(section, start_time, dogfighter, var_eb969a93, spawne
 */
 function function_3ed8bf0e()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self waittill(#"hash_b4a5f622");
 	self.var_b55ae1ed = 0;
 	if(isdefined(self.var_1d195e2c))
@@ -1091,8 +1091,8 @@ function function_3ed8bf0e()
 */
 function function_c5a27940(var_84fe82cd)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_b4a5f622");
 	var_852345b1 = 2;
 	self thread function_3ed8bf0e();
@@ -1211,8 +1211,8 @@ function function_dbe3d86f()
 */
 function function_e9a25955()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	var_522698b3 = getent("dogfighting_scene", "targetname");
 	radius = 10000;
 	var_dda84f1a = getentarray("landing_zone_1", "script_noteworthy");
@@ -1305,8 +1305,8 @@ function function_e9a25955()
 */
 function function_cc401f5c()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(!(isdefined(self.var_9749d396) && self.var_9749d396))
 	{
 		self.var_9749d396 = 1;
@@ -1337,12 +1337,12 @@ function function_cc401f5c()
 */
 function function_c375b495()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"hash_6a1f4649");
 	while(self function_5c971cb7())
 	{
-		self waittill(#"oob_enter");
+		self waittill("oob_enter");
 		self function_cc401f5c();
 	}
 }
@@ -1358,8 +1358,8 @@ function function_c375b495()
 */
 function function_73d90572()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.missile_target = undefined;
 	var_3e14ed79 = 5;
 	while(self function_5c971cb7())
@@ -1430,7 +1430,7 @@ function function_73d90572()
 */
 function vtol_hud()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("highlight_ai", 1);
 	self util::waittill_any("vtol_starting_landing", "vtol_exit", "death");
 	self clientfield::set_to_player("highlight_ai", 0);
@@ -1447,8 +1447,8 @@ function vtol_hud()
 */
 function function_d2db9d30()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"hash_6a1f4649");
 	var_5f6c4b = 2500;
 	var_f29ae186 = 4;
@@ -1480,7 +1480,7 @@ function function_d2db9d30()
 		gunner_index = -1;
 		while(gunner_index != var_6b1c0c6)
 		{
-			self.pvtol waittill(#"gunner_weapon_fired", gunner_index, missile);
+			self.pvtol waittill("gunner_weapon_fired", gunner_index, missile);
 			self thread function_6174aaa2(missile);
 		}
 		self.var_cf011976[var_b5ef1165] = gettime() + var_5f6c4b;
@@ -1796,8 +1796,8 @@ function function_a7d6fd77(var_27114ecf)
 */
 function function_a1c2d8ac()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"hash_b4a5f622");
 	level endon(#"hash_982117a3");
 	self function_f3ec4eac();
@@ -1807,7 +1807,7 @@ function function_a1c2d8ac()
 	var_33533e17 = 5;
 	while(self function_5c971cb7())
 	{
-		self waittill(#"dogfighting");
+		self waittill("dogfighting");
 		level flagsys::wait_till_clear("dogfight_intro_dialog");
 		last_time = gettime();
 		wait_time = randomfloatrange(var_f5789fb5, var_33533e17);
@@ -1859,8 +1859,8 @@ function function_a9d982da()
 */
 function function_3e5c7ab3()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	last_target = undefined;
 	lock_time = 0;
 	while(self function_5c971cb7())
@@ -1930,8 +1930,8 @@ function function_3e5c7ab3()
 */
 function vtol_monitor_missile_lock()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	last_target = undefined;
 	lock_time = 0;
 	var_a9e2f7e7 = 0;
@@ -2326,7 +2326,7 @@ function function_fc653485()
 */
 function function_5739554b(var_e8e62a06, time)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_5739554b");
 	self endon(#"hash_5739554b");
 	start_time = time;
@@ -2355,7 +2355,7 @@ function function_5739554b(var_e8e62a06, time)
 */
 function function_e34692a9(zone, teleport, var_acaabf08 = 1)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.pvtol endon(#"hash_c38e4003");
 	var_74df67ae = -1;
 	goal_height = 120;
@@ -2444,8 +2444,8 @@ function function_e34692a9(zone, teleport, var_acaabf08 = 1)
 */
 function function_e1fcf95(play_anim, var_74df67ae)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.pvtol endon(#"hash_c38e4003");
 	if(self function_5c971cb7())
 	{
@@ -2454,7 +2454,7 @@ function function_e1fcf95(play_anim, var_74df67ae)
 	self.pvtol.state = "enter";
 	self.pvtol clientfield::set("vtol_set_active_landing_zone_num", 0);
 	self enableinvulnerability();
-	self.pvtol endon(#"death");
+	self.pvtol endon("death");
 	if(isdefined(play_anim) && play_anim)
 	{
 		self.pvtol vehicle::god_on();
@@ -2534,7 +2534,7 @@ function function_e1fcf95(play_anim, var_74df67ae)
 */
 function function_e267ae99()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_8923fa32");
 	while(true)
 	{
@@ -2571,8 +2571,8 @@ function function_e267ae99()
 */
 function function_f924d730(time)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.ignoreme = 1;
 	wait(time);
 	self.ignoreme = 0;
@@ -2589,8 +2589,8 @@ function function_f924d730(time)
 */
 function function_8bb76a9(var_74df67ae, scripted)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.pvtol endon(#"hash_c38e4003");
 	self function_a65d16ff();
 	self enableinvulnerability();
@@ -2618,9 +2618,9 @@ function function_8bb76a9(var_74df67ae, scripted)
 		self thread fixup_heightmap_on_use(1);
 		if(isdefined(var_74df67ae))
 		{
-			level notify(#"vtol_takeoff", self, var_74df67ae);
+			level notify("vtol_takeoff", self, var_74df67ae);
 		}
-		self notify(#"vtol_takeoff");
+		self notify("vtol_takeoff");
 		self thread function_e351b3d6();
 		self thread function_f924d730(3);
 	}
@@ -2649,7 +2649,7 @@ function function_8bb76a9(var_74df67ae, scripted)
 */
 function function_e351b3d6()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(3);
 	self notify(#"hash_8923fa32");
 }
@@ -2677,7 +2677,7 @@ function function_a65d16ff()
 		self.pvtol makevehicleunusable();
 		self.pvtol thread audio::sndupdatevehiclecontext(1);
 		self.var_32218fc7 = 1;
-		level notify(#"disable_cybercom", self, 1);
+		level notify("disable_cybercom", self, 1);
 		self.b_tactical_mode_enabled = 0;
 		self.b_enhanced_vision_enabled = 0;
 		self oed::tmode_activate_on_player(0);
@@ -2701,8 +2701,8 @@ function function_a65d16ff()
 */
 function function_c0fa671d(var_dda84f1a)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.pvtol endon(#"hash_c38e4003");
 	self endon(#"hash_fd4242d1");
 	show_hint = 0;
@@ -2739,8 +2739,8 @@ function function_c0fa671d(var_dda84f1a)
 */
 function function_f513fb82()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.pvtol endon(#"hash_c38e4003");
 	while(!self util::use_button_held() && !self flagsys::get("vtol_force_land"))
 	{
@@ -2759,8 +2759,8 @@ function function_f513fb82()
 */
 function function_fc017a35()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.pvtol endon(#"hash_c38e4003");
 	self.pvtol.state = "landing_mode";
 	var_2aff5bd5 = [];
@@ -2855,7 +2855,7 @@ function function_fc017a35()
 */
 function function_da487b0c()
 {
-	self endon(#"death");
+	self endon("death");
 	var_6f554d84 = 1.5;
 	start_pitch = angleclamp180(self.angles[0]);
 	var_5e782953 = angleclamp180(self.angles[2]);
@@ -2887,8 +2887,8 @@ function function_da487b0c()
 */
 function function_6a1f4649(landing_zone, var_e8e0644c = 1, var_fe173168 = 0)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(!self function_5c971cb7())
 	{
 		self notify(#"hash_4936a0ca", "end");
@@ -2924,7 +2924,7 @@ function function_6a1f4649(landing_zone, var_e8e0644c = 1, var_fe173168 = 0)
 	{
 		var_cd4db992 = int(strtok(landing_zone.script_noteworthy, "landing_zone_")[0]);
 	}
-	level notify(#"vtol_landed", self, var_cd4db992, "end");
+	level notify("vtol_landed", self, var_cd4db992, "end");
 	self.pvtol cleartargetyaw();
 	self.pvtol clearvehgoalpos();
 	self enableweaponcycling();
@@ -3041,8 +3041,8 @@ function function_5c971cb7()
 */
 function function_2b89d912(landing_zone)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.pvtol endon(#"hash_c38e4003");
 	self.pvtol.state = "autopilot";
 	self.pvtol sethoverparams(0);
@@ -3161,9 +3161,9 @@ function function_c43fe5d3()
 */
 function fixup_heightmap_on_use(force)
 {
-	self notify(#"fixing_heightmap_on_use");
-	self notify(#"changing_player_heighmaps");
-	self endon(#"fixing_heightmap_on_use");
+	self notify("fixing_heightmap_on_use");
+	self notify("changing_player_heighmaps");
+	self endon("fixing_heightmap_on_use");
 	wait(0.05);
 	if(level flag::exists("hack_terminal_right") && !level flag::get("hack_terminal_right_completed"))
 	{
@@ -3200,8 +3200,8 @@ function fixup_heightmap_on_use(force)
 */
 function wait_until_height_change_safe(player, volname, blocking)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("disconnect");
 	if(!isdefined(player.pvtol))
 	{
 		return 1;
@@ -3268,10 +3268,10 @@ function init_heightmap_intro_state(force = 0)
 */
 function player_init_heightmap_intro_state(force)
 {
-	self notify(#"changing_player_heighmaps");
-	self endon(#"changing_player_heighmaps");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("changing_player_heighmaps");
+	self endon("changing_player_heighmaps");
+	self endon("disconnect");
+	self endon("death");
 	if(!isdefined(force))
 	{
 		force = 0;
@@ -3323,10 +3323,10 @@ function function_5497473c(force)
 */
 function function_a0567298(force)
 {
-	self notify(#"changing_player_heighmaps");
-	self endon(#"changing_player_heighmaps");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("changing_player_heighmaps");
+	self endon("changing_player_heighmaps");
+	self endon("disconnect");
+	self endon("death");
 	if(!isdefined(force))
 	{
 		force = 0;
@@ -3378,10 +3378,10 @@ function init_heightmap_breach_state(force)
 */
 function player_init_heightmap_breach_state(force)
 {
-	self notify(#"changing_player_heighmaps");
-	self endon(#"changing_player_heighmaps");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("changing_player_heighmaps");
+	self endon("changing_player_heighmaps");
+	self endon("disconnect");
+	self endon("death");
 	if(!isdefined(force))
 	{
 		force = 0;
@@ -3433,10 +3433,10 @@ function init_heightmap_obj3_state()
 */
 function player_init_heightmap_obj3_state(force)
 {
-	self notify(#"changing_player_heighmaps");
-	self endon(#"changing_player_heighmaps");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("changing_player_heighmaps");
+	self endon("changing_player_heighmaps");
+	self endon("disconnect");
+	self endon("death");
 	if(!isdefined(force))
 	{
 		force = 0;
@@ -3467,8 +3467,8 @@ function player_init_heightmap_obj3_state(force)
 */
 function vtol_track_owner()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	vtol = self.pvtol;
 	self.in_vtol = self islinkedto(vtol);
 	while(true)
@@ -3531,7 +3531,7 @@ function exterior_ambiance()
 */
 function watch_vehicle_notifies()
 {
-	self endon(#"death");
+	self endon("death");
 	start_node = self.target;
 	self.last_started_path = getvehiclenode(start_node, "targetname");
 	self.disconnectpathonstop = 0;
@@ -3630,8 +3630,8 @@ function get_potential_lockon_targets()
 */
 function watch_player_lockon()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	wait(1);
 	min_dot = 0.9;
 	max_lockon_dist = 1024;
@@ -3758,7 +3758,7 @@ function handle_player_lockon(enemy)
 */
 function handle_nrc_aa()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(1);
 	self setteam("axis");
 	if(!self turret::is_turret_enabled(1))
@@ -3901,8 +3901,8 @@ function function_9baa6cb5()
 {
 	self notify(#"hash_9baa6cb5");
 	self endon(#"hash_9baa6cb5");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.ev_state))
 	{
 		self.ev_state = 0;
@@ -3936,15 +3936,15 @@ function function_9baa6cb5()
 */
 function function_c10544f()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.var_4324603c))
 	{
 		self.var_4324603c = spawnstruct();
 	}
 	while(self function_5c971cb7() && isalive(self))
 	{
-		self.pvtol waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self.pvtol waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		self.var_4324603c.attacker = attacker;
 		self.var_4324603c.loc = loc;
 		self.var_4324603c.weapon = weapon;
@@ -3963,7 +3963,7 @@ function function_c10544f()
 */
 function function_2d64c4b0(player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	skill = getlocalprofileint("g_gameskill");
 	regen_delay = 1000 * (skill + 1);
 	var_a9208969 = 100 / (skill + 1);
@@ -4011,7 +4011,7 @@ function function_2d64c4b0(player)
 					{
 						self vehicle::god_on();
 						self takeplayercontrol();
-						driver notify(#"vtol_death");
+						driver notify("vtol_death");
 						driver.pvtol clientfield::set("vtol_dogfighting", 0);
 						driver clientfield::set_player_uimodel("vehicle.lockOn", 0);
 						self clientfield::set("vtol_set_missile_lock_percent", 0);
@@ -4031,7 +4031,7 @@ function function_2d64c4b0(player)
 						}
 						if(ret == "timeout" && isdefined(self))
 						{
-							self notify(#"crash_done");
+							self notify("crash_done");
 							self vehicle::god_off();
 							self thread vehicle_death::helicopter_explode(0);
 							util::wait_network_frame();
@@ -4164,7 +4164,7 @@ function function_b7cf4d2d(player = undefined)
 	var_ea34fead = level;
 	if(isdefined(player))
 	{
-		player endon(#"disconnect");
+		player endon("disconnect");
 		var_ea34fead = player;
 	}
 	level flagsys::set("dogfight_intro_dialog");
@@ -4300,7 +4300,7 @@ function function_f005cfe(a_ents)
 */
 function function_af376a0e(animname, index, section, var_84fe82cd)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread function_22a0413d("scripted");
 	self.pvtol clientfield::set("vtol_show_missile_lock", 0);
 	self.pvtol waittillmatch(animname);
@@ -4348,7 +4348,7 @@ function function_af376a0e(animname, index, section, var_84fe82cd)
 */
 function function_9d40b42c()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level util::waittill_any_timeout(7, "dogfighting");
 	self clientfield::set_player_uimodel("vehicle.showAimHint", 1);
 	wait(3);
@@ -4403,7 +4403,7 @@ function function_a97555a0(ai_group, vol)
 */
 function function_c11cfb53(var_1f5ba763)
 {
-	self endon(#"death");
+	self endon("death");
 	self util::magic_bullet_shield();
 	while(!isdefined(self.vehicle))
 	{
@@ -4464,7 +4464,7 @@ function explosion_launcher(from, radius, tname)
 */
 function function_ab5de970(vol)
 {
-	self endon(#"death");
+	self endon("death");
 	self clearentitytarget();
 	self cleargoalvolume();
 	self clearforcedgoal();
@@ -4596,7 +4596,7 @@ function function_7d76ae16(current_vol, var_29f8e61c)
 */
 function function_ef807253(vol)
 {
-	self endon(#"death");
+	self endon("death");
 	self clearentitytarget();
 	self cleargoalvolume();
 	self clearforcedgoal();
@@ -4702,7 +4702,7 @@ function function_9cf1804b()
 {
 	level flag::wait_till("lcombat_vtol_flyin");
 	level.var_bd9300b5 = vehicle::simple_spawn_single_and_drive("lcombat_dropoff_vtol");
-	level.var_bd9300b5 waittill(#"reached_end_node");
+	level.var_bd9300b5 waittill("reached_end_node");
 	if(isdefined(level.var_bd9300b5))
 	{
 		level.var_bd9300b5 delete();
@@ -4908,7 +4908,7 @@ function function_f3326322(tname)
 */
 function function_99b61785()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_ac2ce9fc");
 	self.favoriteenemy = level.var_c37cadc1.riders[0];
 	level.var_c37cadc1.riders[0].favorite_enemy = self;
@@ -5011,7 +5011,7 @@ function exterior_aerial_threats()
 		veh = vehicle::_vehicle_spawn(var_9b96cc44);
 		veh.crashtype = "explode";
 		veh thread function_99b61785();
-		veh waittill(#"death");
+		veh waittill("death");
 		wait(1);
 	}
 }
@@ -5106,7 +5106,7 @@ function function_96450f49(var_6c968618, var_a3a78823)
 */
 function function_9476c2d5()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_96450f49");
 	self.var_36c3df0c = 0.5;
 	if(!isdefined(self.var_51cc2ae))
@@ -5152,7 +5152,7 @@ function function_9476c2d5()
 */
 function function_5b6daa1a(focus, isrockettype, var_a3a78823)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_96450f49");
 	self.var_bded8100 = undefined;
 	self thread function_9476c2d5();
@@ -5301,8 +5301,8 @@ function function_8b6935f4(ai)
 */
 function function_11b961b7(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self setbrake(1);
 	function_197eec5b(self);
 }
@@ -5403,9 +5403,9 @@ function function_6e0553f9()
 */
 function function_a330eeec()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"end_attack_thread");
-	self endon(#"change_state");
+	self endon("change_state");
 	self notify(#"hash_97c91db2");
 	self endon(#"hash_97c91db2");
 	missile_speed = 2900;
@@ -5444,7 +5444,7 @@ function function_a330eeec()
 */
 function function_9ab6fc55(var_5fe70955, max_missiles)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"end_attack_thread");
 	self vehicle::toggle_ambient_anim_group(2, 0);
 	self thread function_a330eeec();
@@ -5547,8 +5547,8 @@ function function_9ab6fc55(var_5fe70955, max_missiles)
 function function_b7aaca29(projectile)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self waittill(#"weapon_fired", projectile);
+	self endon("death");
+	self waittill("weapon_fired", projectile);
 	wait(0.75);
 	if(isdefined(projectile))
 	{
@@ -5665,7 +5665,7 @@ function function_8bf8a765(hide = 1)
 */
 function function_89eaa1b3(time)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("hijack_static_effect", 1);
 	wait(time);
 	self clientfield::set_to_player("hijack_static_effect", 0);
@@ -5683,7 +5683,7 @@ function function_89eaa1b3(time)
 function debug_ambient_vehicle()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		des_speed = 120;
 		while(true)
 		{

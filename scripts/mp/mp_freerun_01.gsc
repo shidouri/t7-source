@@ -89,7 +89,7 @@ function speed_test()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isplayer(player))
 		{
 			self thread util::trigger_thread(player, &player_on_trigger, &player_off_trigger);
@@ -109,8 +109,8 @@ function speed_test()
 */
 function player_on_trigger(player, endon_string)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("disconnect");
 	player endon(endon_string);
 	if(isdefined(player._speed_test2))
 	{
@@ -132,8 +132,8 @@ function player_on_trigger(player, endon_string)
 */
 function player_off_trigger(player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("disconnect");
 	player._speed_test2 = gettime();
 	if(isdefined(player._speed_test1))
 	{

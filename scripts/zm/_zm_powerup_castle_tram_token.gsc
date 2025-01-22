@@ -123,7 +123,7 @@ function function_ed4d87a3(player)
 {
 	if(player clientfield::get_to_player("has_castle_tram_token"))
 	{
-		player notify(#"tram_token_used");
+		player notify("tram_token_used");
 		return true;
 	}
 	return false;
@@ -205,8 +205,8 @@ function show_infotext_for_duration(str_infotext, n_duration)
 */
 function private function_1cb39173(var_1d640f59, str_widget_clientuimodel, var_18bfcc38)
 {
-	level notify(#"widget_ui_override");
-	self endon(#"disconnect");
+	level notify("widget_ui_override");
+	self endon("disconnect");
 	if(var_18bfcc38)
 	{
 		if(isdefined(var_1d640f59))

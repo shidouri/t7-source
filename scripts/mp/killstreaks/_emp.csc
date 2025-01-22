@@ -50,7 +50,7 @@ function __init__()
 */
 function monitor_emp_killstreaks()
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	if(!isdefined(level.emp_killstreaks))
 	{
 		level.emp_killstreaks = [];
@@ -161,7 +161,7 @@ function emp_turret_init(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function cleanup_fx_on_shutdown(localclientnum, handle)
 {
-	self endon(#"kill_fx_cleanup");
+	self endon("kill_fx_cleanup");
 	self waittill(#"entityshutdown");
 	stopfx(localclientnum, handle);
 }
@@ -189,7 +189,7 @@ function emp_turret_deploy_start(localclientnum, oldval, newval, bnewent, biniti
 	}
 	else
 	{
-		self notify(#"kill_fx_cleanup");
+		self notify("kill_fx_cleanup");
 		if(isdefined(self.fxhandle))
 		{
 			stopfx(localclientnum, self.fxhandle);

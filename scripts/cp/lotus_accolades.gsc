@@ -282,13 +282,13 @@ function function_367835e3()
 */
 function function_109e560b()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.archetype === "human_riotshield")
 	{
 		self thread function_d48890bb();
 		while(!isdefined(self.var_66202c1f))
 		{
-			self waittill(#"damage", n_damage, e_attacker, v_direction, v_point, s_type);
+			self waittill("damage", n_damage, e_attacker, v_direction, v_point, s_type);
 			if(isplayer(e_attacker) && (s_type === "MOD_RIFLE_BULLET" || s_type === "MOD_PISTOL_BULLET" || s_type === "MOD_HEAD_SHOT"))
 			{
 				self.var_66202c1f = 1;
@@ -308,7 +308,7 @@ function function_109e560b()
 */
 function function_d48890bb()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(isplayer(attacker) && self.var_66202c1f !== 1)
 	{
 		attacker notify(#"hash_c4928636");
@@ -477,7 +477,7 @@ function function_e36c85d8(params)
 */
 function function_8dc27487(n_max_time)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_ada946c0");
 	self.var_cacfc33c = 0;
 	self.var_29d01adc = 1;
@@ -623,7 +623,7 @@ function function_c20741bf()
 {
 	level waittill(#"hash_a450f864");
 	start_time = gettime();
-	level waittill(#"gunship_almost_dead");
+	level waittill("gunship_almost_dead");
 	end_time = gettime();
 	foreach(player in level.players)
 	{
@@ -747,15 +747,15 @@ function function_f53b652e()
 function function_d57bb90f()
 {
 	self notify(#"hash_94e247a8");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_f02d45f5");
 	self endon(#"hash_94e247a8");
-	level endon(#"gunship_almost_dead");
+	level endon("gunship_almost_dead");
 	var_cc018542 = getweapon("launcher_standard");
 	w_minigun = getweapon("minigun_lotus");
 	while(isdefined(level.vh_gunship))
 	{
-		level.vh_gunship waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		level.vh_gunship waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		if(attacker === self && damage > 0)
 		{
 			if(weapon === var_cc018542 && !isdefined(self.var_e1f9f377))
@@ -799,7 +799,7 @@ function function_aff09c5b()
 	}
 	callback::on_spawned(&function_428a25c7);
 	array::thread_all(level.players, &function_3d0c6b79);
-	level waittill(#"gunship_almost_dead");
+	level waittill("gunship_almost_dead");
 	foreach(player in level.players)
 	{
 		if(!player flag::get("accolade_15_failed"))
@@ -841,12 +841,12 @@ function function_428a25c7()
 */
 function function_3d0c6b79()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_779aa062");
 	w_gunship_cannon = getweapon("gunship_cannon");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		if(weapon === w_gunship_cannon)
 		{
 			/#

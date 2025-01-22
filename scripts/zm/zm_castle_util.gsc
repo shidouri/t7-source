@@ -58,10 +58,10 @@ function unitrigger_prompt_and_visibility(player)
 */
 function unitrigger_logic()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -76,7 +76,7 @@ function unitrigger_logic()
 		}
 		if(isdefined(self.stub.related_parent))
 		{
-			self.stub.related_parent notify(#"trigger_activated", player);
+			self.stub.related_parent notify("trigger_activated", player);
 		}
 	}
 }
@@ -92,7 +92,7 @@ function unitrigger_logic()
 */
 function function_fa7da172()
 {
-	self endon(#"death");
+	self endon("death");
 	var_82a4f07b = struct::get("keeper_end_loc");
 	var_77b9bd02 = 0;
 	while(isdefined(level.var_8ef26cd9) && level.var_8ef26cd9)

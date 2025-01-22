@@ -139,10 +139,10 @@ function randomize_gongs()
 */
 function watch_for_respawn()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		waittillframeend();
 		self zm_sidequests::add_sidequest_icon("sq", "anti115");
 		foreach(perk in level._sq_perk_array)
@@ -171,7 +171,7 @@ function watch_for_respawn()
 */
 function reward()
 {
-	level notify(#"temple_sidequest_achieved");
+	level notify("temple_sidequest_achieved");
 	self zm_sidequests::add_sidequest_icon("sq", "anti115");
 	for(i = 0; i < level._sq_perk_array.size; i++)
 	{
@@ -201,12 +201,12 @@ function raise_all_crystals()
 	{
 		wait(0.1);
 	}
-	level notify(#"raise_crystal_1");
-	level notify(#"raise_crystal_2");
-	level notify(#"raise_crystal_3");
-	level notify(#"raise_crystal_4");
-	level notify(#"raise_crystal_5");
-	level notify(#"raise_crystal_6");
+	level notify("raise_crystal_1");
+	level notify("raise_crystal_2");
+	level notify("raise_crystal_3");
+	level notify("raise_crystal_4");
+	level notify("raise_crystal_5");
+	level notify("raise_crystal_6");
 }
 
 /*
@@ -264,7 +264,7 @@ function watch_for_gongs_gone_bad()
 {
 	while(true)
 	{
-		level waittill(#"wrong_gong");
+		level waittill("wrong_gong");
 		for(i = 0; i < level._raised_crystals.size; i++)
 		{
 			if(level._raised_crystals[i])
@@ -299,7 +299,7 @@ function force_eclipse_watcher()
 {
 	level endon(#"end_game");
 	setdvar("scr_force_eclipse", 0);
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	while(true)
 	{
 		while(0 == getdvarint("scr_force_eclipse"))
@@ -339,10 +339,10 @@ function gong_trigger_handler()
 	}
 	while(true)
 	{
-		self.owner_ent.var_4ba5f5f1 waittill(#"damage", amount, attacker, dir, point, mod);
+		self.owner_ent.var_4ba5f5f1 waittill("damage", amount, attacker, dir, point, mod);
 		if(isplayer(attacker) && mod == "MOD_MELEE")
 		{
-			self.owner_ent notify(#"triggered", attacker);
+			self.owner_ent notify("triggered", attacker);
 		}
 	}
 }
@@ -417,8 +417,8 @@ function start_temple_sidequest()
 */
 function restart_sundial_monitor()
 {
-	level endon(#"kill_sundial_monitor");
-	level waittill(#"reset_sundial");
+	level endon("kill_sundial_monitor");
+	level waittill("reset_sundial");
 	wait(0.1);
 	self thread sundial_monitor();
 }
@@ -470,7 +470,7 @@ function short_dial_spin()
 */
 function sundial_monitor()
 {
-	level endon(#"reset_sundial");
+	level endon("reset_sundial");
 	level endon(#"end_game");
 	self.dont_rethread = 1;
 	self thread restart_sundial_monitor();
@@ -484,7 +484,7 @@ function sundial_monitor()
 	level._stage_active = 0;
 	level._sundial_active = 0;
 	level flag::wait_till("power_on");
-	level notify(#"kill_buttons");
+	level notify("kill_buttons");
 	wait(0.05);
 	buttons = getentarray("sq_sundial_button", "targetname");
 	array::thread_all(buttons, &sundial_button);
@@ -498,29 +498,29 @@ function sundial_monitor()
 		self playsound("evt_sq_gen_transition_start");
 		self playsound("evt_sq_gen_sundial_emerge");
 		self moveto(self.original_pos, 0.25);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		self thread spin_dial();
 		wait(0.5);
 		stage = zm_sidequests::sidequest_start_next_stage("sq");
-		level notify(#"stage_starting");
+		level notify("stage_starting");
 		amount = 8.5;
-		level waittill(#"timed_stage_75_percent");
+		level waittill("timed_stage_75_percent");
 		self playsound("evt_sq_gen_sundial_timer");
 		self moveto(self.origin - (anglestoup(self.angles) * amount), 1);
 		self thread short_dial_spin();
-		level waittill(#"timed_stage_50_percent");
+		level waittill("timed_stage_50_percent");
 		self playsound("evt_sq_gen_sundial_timer");
 		self moveto(self.origin - (anglestoup(self.angles) * amount), 1);
 		self thread short_dial_spin();
-		level waittill(#"timed_stage_25_percent");
+		level waittill("timed_stage_25_percent");
 		self playsound("evt_sq_gen_sundial_timer");
 		self moveto(self.origin - (anglestoup(self.angles) * amount), 1);
 		self thread short_dial_spin();
-		level waittill(#"timed_stage_10_seconds_to_go");
+		level waittill("timed_stage_10_seconds_to_go");
 		self thread play_one_second_increments();
 		self moveto(self.origin - (anglestoup(self.angles) * amount), 10);
 		self thread spin_dial();
-		self waittill(#"movedone");
+		self waittill("movedone");
 		level._sundial_active = 0;
 		wait(0.1);
 	}
@@ -537,8 +537,8 @@ function sundial_monitor()
 */
 function play_one_second_increments()
 {
-	level endon(#"sidequest_sq_complete");
-	level endon(#"reset_sundial");
+	level endon("sidequest_sq_complete");
+	level endon("reset_sundial");
 	while(level._sundial_active == 1)
 	{
 		self playsound("evt_sq_gen_sundial_timer");
@@ -584,8 +584,8 @@ function sundial_button_already_pressed_by(who, buttons)
 */
 function sundial_button()
 {
-	level endon(#"stage_starting");
-	level endon(#"kill_buttons");
+	level endon("stage_starting");
+	level endon("kill_buttons");
 	if(!isdefined(self.dont_rethread))
 	{
 		self.dont_rethread = 1;
@@ -610,7 +610,7 @@ function sundial_button()
 	self.trigger setcursorhint("HINT_NOICON");
 	while(true)
 	{
-		self.trigger waittill(#"trigger", who);
+		self.trigger waittill("trigger", who);
 		if(sundial_button_already_pressed_by(who, buttons))
 		{
 			continue;
@@ -740,8 +740,8 @@ function init_sidequest()
 */
 function pap_watcher()
 {
-	level notify(#"only_one_pap_watcher");
-	level endon(#"only_one_pap_watcher");
+	level notify("only_one_pap_watcher");
+	level endon("only_one_pap_watcher");
 	while(true)
 	{
 		level flag::wait_till("pap_override");
@@ -769,7 +769,7 @@ function pap_watcher()
 */
 function cheat_complete_stage()
 {
-	level endon(#"reset_sundial");
+	level endon("reset_sundial");
 	while(true)
 	{
 		if(getdvarstring("cheat_sq") != "")
@@ -814,7 +814,7 @@ function generic_stage_start()
 */
 function generic_stage_complete()
 {
-	level notify(#"reset_sundial");
+	level notify("reset_sundial");
 	level._stage_active = 0;
 	back_to_the_future();
 	hide_meteor();
@@ -831,9 +831,9 @@ function generic_stage_complete()
 */
 function complete_sidequest()
 {
-	level notify(#"kill_sundial_monitor");
-	level notify(#"reset_sundial");
-	level notify(#"kill_buttons");
+	level notify("kill_sundial_monitor");
+	level notify("reset_sundial");
+	level notify("kill_buttons");
 	level thread sidequest_done();
 }
 
@@ -848,7 +848,7 @@ function complete_sidequest()
 */
 function spin_115()
 {
-	self endon(#"picked_up");
+	self endon("picked_up");
 	while(true)
 	{
 		self rotateyaw(180, 0.4);
@@ -881,7 +881,7 @@ function sidequest_done()
 	trigger.height = 72;
 	while(true)
 	{
-		trigger waittill(#"trigger", who);
+		trigger waittill("trigger", who);
 		if(isplayer(who) && !isdefined(who._has_anti115))
 		{
 			who._has_anti115 = 1;
@@ -898,8 +898,8 @@ function sidequest_done()
 	}
 	trigger delete();
 	anti115 stoploopsound(1);
-	anti115 notify(#"picked_up");
-	level notify(#"picked_up");
+	anti115 notify("picked_up");
+	level notify("picked_up");
 	anti115 ghost();
 	exploder::stop_exploder("fxexp_520");
 	players_far = 0;
@@ -1051,7 +1051,7 @@ function back_to_the_future()
 function function_5fdf6353()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	visionset_mgr::activate("overlay", "zm_temple_eclipse", self);
 	wait(3);
 	if(isdefined(self))
@@ -1272,13 +1272,13 @@ function crystal_handler()
 	level waittill("raise_crystal_" + self.script_int, actual_stage);
 	if(isdefined(actual_stage) && actual_stage)
 	{
-		level notify(#"suspend_timer");
+		level notify("suspend_timer");
 	}
 	self show();
 	self playsound("evt_sq_gen_crystal_start");
 	self playloopsound("evt_sq_gen_crystal_loop", 2);
 	self moveto(self.origin + vectorscale((0, 0, 1), 154), 4, 0.8, 0.4);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self stoploopsound(1);
 	self playsound("evt_sq_gen_crystal_end");
 	level notify("raised_crystal_" + self.script_int);
@@ -1286,7 +1286,7 @@ function crystal_handler()
 	{
 		if(isdefined(actual_stage) && actual_stage)
 		{
-			level waittill(#"crystal_dropped");
+			level waittill("crystal_dropped");
 		}
 		self setmodel("p7_zm_sha_crystal_holder_full");
 	}
@@ -1313,7 +1313,7 @@ function crystal_handler()
 */
 function play_loopsound_while_resonating()
 {
-	self.trigger endon(#"death");
+	self.trigger endon("death");
 	while(true)
 	{
 		level flag::wait_till("gongs_resonating");
@@ -1447,7 +1447,7 @@ function shrink_time()
 	level thread shut_off_all_looping_sounds();
 	self playsound("evt_sq_bag_meteor_fall");
 	self moveto(self.origin - vectorscale((0, 0, 1), 120), 2, 0.5);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest8", 4);
 }
@@ -1564,10 +1564,10 @@ function crystal_shrink_logic(hotsauce)
 */
 function crystal_shrink_thread()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"shrunk", hotsauce);
+		self waittill("shrunk", hotsauce);
 		if(!level flag::get("gongs_resonating"))
 		{
 			hotsauce = 0;
@@ -1590,11 +1590,11 @@ function crystal_shrink_thread()
 */
 function crystal_trigger_thread()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread crystal_shrink_thread();
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, dir, point, type);
+		self waittill("damage", amount, attacker, dir, point, type);
 	}
 }
 
@@ -1634,7 +1634,7 @@ function pack_a_punch_hide()
 	level._original_pap_spot = pap_machine_trig.origin;
 	pap_machine linkto(link_ent);
 	link_ent moveto(link_ent.origin + (vectorscale((0, 0, -1), 350)), 5);
-	link_ent waittill(#"movedone");
+	link_ent waittill("movedone");
 	pap_machine_trig unlink();
 	pap_machine unlink();
 	pap_machine ghost();
@@ -1677,7 +1677,7 @@ function pack_a_punch_show()
 	pap_machine solid();
 	pap_machine show();
 	link_ent moveto(level._original_pap_spot, 5);
-	link_ent waittill(#"movedone");
+	link_ent waittill("movedone");
 	pap_machine_trig unlink();
 	pap_machine unlink();
 	link_ent delete();
@@ -1749,8 +1749,8 @@ function shut_off_all_looping_sounds()
 		}
 		gongs[i].ringing = 0;
 	}
-	level notify(#"force_stoploopsound_end");
-	level notify(#"kill_resonate");
+	level notify("force_stoploopsound_end");
+	level notify("kill_resonate");
 }
 
 /*
@@ -1764,8 +1764,8 @@ function shut_off_all_looping_sounds()
 */
 function force_stoploopsound_end()
 {
-	self.trigger endon(#"death");
-	level waittill(#"force_stoploopsound_end");
+	self.trigger endon("death");
+	level waittill("force_stoploopsound_end");
 	self stoploopsound(0.5);
 }
 
@@ -1781,7 +1781,7 @@ function force_stoploopsound_end()
 function function_e63287bf()
 {
 	/#
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		zm_devgui::add_custom_devgui_callback(&function_b1064ab3);
 		adddebugcommand("");
 		adddebugcommand("");

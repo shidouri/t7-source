@@ -134,7 +134,7 @@ function auto_turret_think()
 	{
 		cost = level.auto_turret_cost;
 		self sethintstring(&"ZOMBIE_AUTO_TURRET", cost);
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		index = zm_utility::get_player_index(player);
 		if(player laststand::player_is_in_laststand())
 		{
@@ -158,7 +158,7 @@ function auto_turret_think()
 		playsoundatposition("zmb_turret_startup", self.origin);
 		var_736ddf4 playloopsound("zmb_turret_loop");
 		self triggerenable(0);
-		self waittill(#"turret_deactivated");
+		self waittill("turret_deactivated");
 		var_736ddf4 stoploopsound();
 		playsoundatposition("zmb_turret_down", self.audio_origin);
 		var_736ddf4 delete();
@@ -181,9 +181,9 @@ function activate_move_handle()
 	{
 		self.handle rotatepitch(160, 0.5);
 		self.handle playsound("amb_sparks_l_b");
-		self.handle waittill(#"rotatedone");
+		self.handle waittill("rotatedone");
 		self notify(#"switch_activated");
-		self waittill(#"turret_deactivated");
+		self waittill("turret_deactivated");
 		self.handle rotatepitch(-160, 0.5);
 	}
 }
@@ -213,7 +213,7 @@ function play_no_money_turret_dialog()
 */
 function auto_turret_activate()
 {
-	self endon(#"turret_deactivated");
+	self endon("turret_deactivated");
 	if(level.max_auto_turrets_active <= 0)
 	{
 		return;
@@ -279,7 +279,7 @@ function auto_turret_deactivate()
 	self.turret vehicle_ai::turnoff();
 	self.turret notify(#"stop_burst_fire_unmanned");
 	self.turret_fx delete();
-	self notify(#"turret_deactivated");
+	self notify("turret_deactivated");
 }
 
 /*
@@ -293,7 +293,7 @@ function auto_turret_deactivate()
 */
 function auto_turret_update_timeout()
 {
-	self endon(#"turret_deactivated");
+	self endon("turret_deactivated");
 	while(self.curr_time > 0)
 	{
 		wait(1);

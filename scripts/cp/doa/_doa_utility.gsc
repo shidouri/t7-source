@@ -234,7 +234,7 @@ function function_a5821e05(time = 1)
 	/#
 		debugmsg("" + gettime());
 	#/
-	level notify(#"fade_out_complete");
+	level notify("fade_out_complete");
 	level flag::set("doa_screen_faded_out");
 }
 
@@ -266,7 +266,7 @@ function function_c85960dd(hold_black_time = 1.2, unfreeze = 1)
 			player thread namespace_831a4a7c::function_4519b17(0);
 		}
 	}
-	level notify(#"fade_in_complete");
+	level notify("fade_in_complete");
 	/#
 		debugmsg("");
 	#/
@@ -286,7 +286,7 @@ function function_c85960dd(hold_black_time = 1.2, unfreeze = 1)
 */
 function function_1d62c13a()
 {
-	level endon(#"fade_in_complete");
+	level endon("fade_in_complete");
 	while(isdefined(level.var_a7749866))
 	{
 		if(level flag::get("doa_game_is_over"))
@@ -316,7 +316,7 @@ function function_1d62c13a()
 */
 function function_d0c69425(var_30d383f5)
 {
-	level endon(#"fade_in_complete");
+	level endon("fade_in_complete");
 	while(!(isdefined(level.var_de693c3) && level.var_de693c3))
 	{
 		wait(0.05);
@@ -436,7 +436,7 @@ function function_999bba85(origin, time)
 */
 function notify_timeout(note, timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timeout);
 	self notify(note);
 }
@@ -519,8 +519,8 @@ function function_75e76155(other, note)
 function function_f5db70f1(other, note)
 {
 	self endon(note);
-	other endon(#"death");
-	self waittill(#"death");
+	other endon("death");
+	self waittill("death");
 	if(isdefined(other))
 	{
 		other notify(note);
@@ -542,7 +542,7 @@ function function_24245456(other, note)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	killnote = function_2ccf4b82("killNote");
 	self thread function_f5db70f1(other, killnote);
 	if(isplayer(other))
@@ -582,7 +582,7 @@ function function_24245456(other, note)
 function notifymeinnsec(note, sec, endnote, param1, param2)
 {
 	self endon(endnote);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(sec);
 	self notify(note, param1, param2);
 }
@@ -598,7 +598,7 @@ function notifymeinnsec(note, sec, endnote, param1, param2)
 */
 function function_783519c1(note, var_8b804bd9 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon("abort" + note);
 	if(!var_8b804bd9)
 	{
@@ -626,7 +626,7 @@ function function_783519c1(note, var_8b804bd9 = 0)
 */
 function function_1bd67aef(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	if(isdefined(self.anchor))
 	{
@@ -646,7 +646,7 @@ function function_1bd67aef(time)
 */
 function function_981c685d(var_627e7613)
 {
-	self endon(#"death");
+	self endon("death");
 	killnote = function_2ccf4b82("deathNote");
 	self thread function_f5db70f1(var_627e7613, killnote);
 	if(isplayer(var_627e7613))
@@ -678,8 +678,8 @@ function function_a625b5d3(player)
 	/#
 		assert(isplayer(player), "");
 	#/
-	self endon(#"death");
-	player waittill(#"disconnect");
+	self endon("death");
+	player waittill("disconnect");
 	self delete();
 }
 
@@ -870,7 +870,7 @@ function function_e3c30240(dir, var_e3e1b987 = 100, var_1f32eac0 = 0.1, attacker
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self setplayercollision(0);
 	self startragdoll();
 	if(isdefined(dir))
@@ -898,7 +898,7 @@ function function_ba30b321(time, attacker, mod = "MOD_HIT_BY_OBJECT")
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	if(time > 0)
 	{
 		wait(time);
@@ -1143,7 +1143,7 @@ function function_cf5857a3(ent, note)
 {
 	if(note != "death")
 	{
-		ent endon(#"death");
+		ent endon("death");
 	}
 	ent waittill(note);
 	ent unlink();
@@ -1173,7 +1173,7 @@ function function_a98c85b2(location, timesec = 1)
 		self.origin = self.origin - increment;
 		wait(0.05);
 	}
-	self notify(#"movedone");
+	self notify("movedone");
 }
 
 /*
@@ -1187,7 +1187,7 @@ function function_a98c85b2(location, timesec = 1)
 */
 function function_89a258a7()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_3d81b494");
 	while(true)
 	{
@@ -1465,10 +1465,10 @@ function function_dbcf48a0(delay = 0, width = 40, height = 40)
 	trigger enablelinkto();
 	trigger linkto(self);
 	trigger thread function_981c685d(self);
-	trigger endon(#"death");
+	trigger endon("death");
 	while(isdefined(self))
 	{
-		trigger waittill(#"trigger", guy);
+		trigger waittill("trigger", guy);
 		if(isdefined(guy))
 		{
 			if(isdefined(guy.untouchable) && guy.untouchable)
@@ -1533,7 +1533,7 @@ function function_1ded48e6(time, var_f88fd757)
 */
 function function_a4d1f25e(note, time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self notify(note);
 }

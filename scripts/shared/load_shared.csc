@@ -98,7 +98,7 @@ function art_review()
 	}
 	if(getdvarstring("art_review") == "1")
 	{
-		level waittill(#"forever");
+		level waittill("forever");
 	}
 }
 

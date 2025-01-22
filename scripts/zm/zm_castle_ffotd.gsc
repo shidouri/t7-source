@@ -186,7 +186,7 @@ function function_f9f5dbb3(v_origin)
 	var_640a9eac setteamfortrigger(level.zombie_team);
 	while(true)
 	{
-		var_640a9eac waittill(#"trigger", e_who);
+		var_640a9eac waittill("trigger", e_who);
 		e_who.no_powerups = 1;
 		while(isalive(e_who) && e_who istouching(var_640a9eac))
 		{
@@ -303,9 +303,9 @@ function private function_eadbcbdb()
 */
 function private function_dc683d01(var_b52b26b9)
 {
-	self endon(#"death");
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self endon("death");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	self.ignoreall = 1;
 	self.b_zombie_path_bad = 1;
 	self thread check_player_available();
@@ -327,14 +327,14 @@ function private function_dc683d01(var_b52b26b9)
 */
 function private check_player_available()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.b_zombie_path_bad) && self.b_zombie_path_bad)
 	{
 		wait(randomfloatrange(0.2, 0.5));
 		if(self can_zombie_see_any_player())
 		{
 			self.b_zombie_path_bad = undefined;
-			self notify(#"reaquire_player");
+			self notify("reaquire_player");
 			return;
 		}
 	}

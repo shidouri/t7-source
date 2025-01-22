@@ -196,7 +196,7 @@ function armor_update_fx_event(localclientnum, doarmorfx)
 */
 function armor_overlay_transition_fx(localclientnum, armorstatusnew)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self._gadget_armor_state))
 	{
 		self._gadget_armor_state = 0;

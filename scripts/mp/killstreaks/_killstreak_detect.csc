@@ -322,10 +322,10 @@ function watch_killstreak_detect_perks_changed(local_client_num)
 	{
 		return;
 	}
-	self notify(#"watch_killstreak_detect_perks_changed");
-	self endon(#"watch_killstreak_detect_perks_changed");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("watch_killstreak_detect_perks_changed");
+	self endon("watch_killstreak_detect_perks_changed");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	while(isdefined(self))
 	{
@@ -334,7 +334,7 @@ function watch_killstreak_detect_perks_changed(local_client_num)
 		util::clean_deleted(level.enemymissiles);
 		array::thread_all(level.enemyvehicles, &updateenemyvehicles, local_client_num, 1);
 		array::thread_all(level.enemymissiles, &updateenemymissiles, local_client_num, 1);
-		self waittill(#"perks_changed");
+		self waittill("perks_changed");
 	}
 }
 
@@ -371,7 +371,7 @@ function checkteamvehicles(localclientnum)
 		self.vehicleoldteam = self.team;
 		self.vehicleoldownerteam = self.owner.team;
 		self.vehicleoldwatcherteam = watcher.team;
-		self notify(#"team_changed");
+		self notify("team_changed");
 	}
 }
 
@@ -408,7 +408,7 @@ function checkteammissiles(localclientnum)
 		self.missileoldteam = self.team;
 		self.missileoldownerteam = self.owner.team;
 		self.missileoldwatcherteam = watcher.team;
-		self notify(#"team_changed");
+		self notify("team_changed");
 	}
 }
 

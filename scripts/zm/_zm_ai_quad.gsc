@@ -233,7 +233,7 @@ function init_quad_zombie_fx()
 */
 function quad_location()
 {
-	self endon(#"death");
+	self endon("death");
 	if(level.zm_loc_types["quad_location"].size <= 0)
 	{
 		/#
@@ -260,13 +260,13 @@ function quad_location()
 	}
 	self ghost();
 	self.anchor moveto(spot.origin, 0.05);
-	self.anchor waittill(#"movedone");
+	self.anchor waittill("movedone");
 	target_org = zombie_utility::get_desired_origin();
 	if(isdefined(target_org))
 	{
 		anim_ang = vectortoangles(target_org - self.origin);
 		self.anchor rotateto((0, anim_ang[1], 0), 0.05);
-		self.anchor waittill(#"rotatedone");
+		self.anchor waittill("rotatedone");
 	}
 	if(isdefined(level.zombie_spawn_fx))
 	{
@@ -278,7 +278,7 @@ function quad_location()
 		self.anchor delete();
 	}
 	self show();
-	self notify(#"risen", spot.script_string);
+	self notify("risen", spot.script_string);
 }
 
 /*
@@ -292,7 +292,7 @@ function quad_location()
 */
 function quad_vox()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(5);
 	quad_wait = 5;
 	while(true)
@@ -348,7 +348,7 @@ function set_default_attack_properties()
 */
 function quad_thundergun_knockdown(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	damage = int(self.maxhealth * 0.5);
 	self dodamage(damage, player.origin, player);
 }
@@ -478,7 +478,7 @@ function quad_gas_area_of_effect(origin, death_vars)
 */
 function quad_trail()
 {
-	self endon(#"death");
+	self endon("death");
 	self.fx_quad_trail = spawn("script_model", self gettagorigin("tag_origin"));
 	self.fx_quad_trail.angles = self gettagangles("tag_origin");
 	self.fx_quad_trail setmodel("tag_origin");

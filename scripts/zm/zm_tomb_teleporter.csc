@@ -51,7 +51,7 @@ function main()
 */
 function function_a8255fab(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(newval == 1)
 	{
 		if(!isdefined(self.var_1e8e073f))

@@ -181,11 +181,11 @@ function disable_drown(localclientnum)
 */
 function player_drown_fx(localclientnum, stage)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
-	self endon(#"player_fade_out_drown_fx");
-	self notify(#"player_drown_fx");
-	self endon(#"player_drown_fx");
+	self endon("player_fade_out_drown_fx");
+	self notify("player_drown_fx");
+	self endon("player_drown_fx");
 	self player_init_drown_values();
 	lastoutwatertimestage = self.drown_start_time + ((stage - 1) * level.player_swim_damage_interval);
 	stageduration = level.player_swim_damage_interval;
@@ -219,11 +219,11 @@ function player_drown_fx(localclientnum, stage)
 */
 function player_fade_out_drown_fx(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
-	self endon(#"player_drown_fx");
-	self notify(#"player_fade_out_drown_fx");
-	self endon(#"player_fade_out_drown_fx");
+	self endon("player_drown_fx");
+	self notify("player_fade_out_drown_fx");
+	self endon("player_fade_out_drown_fx");
 	self player_init_drown_values();
 	fadestarttime = getservertime(localclientnum);
 	currenttime = getservertime(localclientnum);

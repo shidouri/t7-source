@@ -105,7 +105,7 @@ function function_c4a37ed9()
 function run_scene_tests()
 {
 	/#
-		level endon(#"run_scene_tests");
+		level endon("run_scene_tests");
 		level.scene_test_struct = spawnstruct();
 		level.scene_test_struct.origin = (0, 0, 0);
 		level.scene_test_struct.angles = (0, 0, 0);
@@ -233,7 +233,7 @@ function toggle_scene_menu()
 						default:
 						{
 							level flagsys::clear("");
-							level notify(#"scene_menu_cleanup");
+							level notify("scene_menu_cleanup");
 							setdvar("", 1);
 						}
 					}
@@ -296,8 +296,8 @@ function display_scene_menu(str_type)
 		{
 			str_type = "";
 		}
-		level notify(#"scene_menu_cleanup");
-		level endon(#"scene_menu_cleanup");
+		level notify("scene_menu_cleanup");
+		level endon("scene_menu_cleanup");
 		waittillframeend();
 		level flagsys::set("");
 		setdvar("", 0);
@@ -617,7 +617,7 @@ function is_scene_initialized(str_scene)
 function scene_menu_cleanup(elems, title)
 {
 	/#
-		level waittill(#"scene_menu_cleanup");
+		level waittill("scene_menu_cleanup");
 		closeluimenu(0, title);
 		for(i = 0; i < elems.size; i++)
 		{
@@ -673,7 +673,7 @@ function debug_display()
 		self endon(#"entityshutdown");
 		self notify(#"hash_87671d41");
 		self endon(#"hash_87671d41");
-		level endon(#"kill_anim_debug");
+		level endon("kill_anim_debug");
 		while(true)
 		{
 			debug_frames = randomintrange(5, 15);

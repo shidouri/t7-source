@@ -170,7 +170,7 @@ function gadget_armor_on(slot, weapon)
 function gadget_armor_off(slot, weapon)
 {
 	armoron = flagsys::get("gadget_armor_on");
-	self notify(#"gadget_armor_off");
+	self notify("gadget_armor_off");
 	self flagsys::clear("gadget_armor_on");
 	self.shock_onpain = 1;
 	self clientfield::set("armor_status", 0);
@@ -196,7 +196,7 @@ function gadget_armor_off(slot, weapon)
 */
 function gadget_armor_flicker(slot, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!self gadget_armor_is_inuse(slot))
 	{
 		return;
@@ -473,7 +473,7 @@ function hitpoints_loss_event(val)
 */
 function gadget_armor_status(slot, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	maxhitpoints = isdefined(weapon.gadget_max_hitpoints) && (weapon.gadget_max_hitpoints > 0 ? weapon.gadget_max_hitpoints : 100);
 	while(self flagsys::get("gadget_armor_on"))
 	{

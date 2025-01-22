@@ -86,7 +86,7 @@ function init()
 */
 function init_player()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.pers["wager"]))
 	{
 		self.pers["wager"] = 1;
@@ -117,9 +117,9 @@ function init_player()
 */
 function on_disconnect()
 {
-	level endon(#"game_ended");
-	self endon(#"player_eliminated");
-	level notify(#"player_eliminated");
+	level endon("game_ended");
+	self endon("player_eliminated");
+	level notify("player_eliminated");
 }
 
 /*
@@ -563,8 +563,8 @@ function post_round_side_bet()
 {
 	if(isdefined(level.sidebet) && level.sidebet)
 	{
-		level notify(#"side_bet_begin");
-		level waittill(#"side_bet_end");
+		level notify("side_bet_begin");
+		level waittill("side_bet_end");
 	}
 }
 
@@ -579,14 +579,14 @@ function post_round_side_bet()
 */
 function side_bet_timer()
 {
-	level endon(#"side_bet_end");
+	level endon("side_bet_end");
 	secondstowait = (level.sidebetendtime - gettime()) / 1000;
 	if(secondstowait < 0)
 	{
 		secondstowait = 0;
 	}
 	wait(secondstowait);
-	level notify(#"side_bet_end");
+	level notify("side_bet_end");
 }
 
 /*
@@ -607,7 +607,7 @@ function side_bet_all_bets_placed()
 	}
 	level.sidebetendtime = gettime() + 3000;
 	wait(3);
-	level notify(#"side_bet_end");
+	level notify("side_bet_end");
 }
 
 /*
@@ -677,7 +677,7 @@ function assign_random_body()
 */
 function queue_popup(message, points, submessage, announcement)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	size = self.wagernotifyqueue.size;
 	self.wagernotifyqueue[size] = spawnstruct();
 	self.wagernotifyqueue[size].message = message;
@@ -698,10 +698,10 @@ function queue_popup(message, points, submessage, announcement)
 */
 function help_game_end()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	for(;;)
 	{
-		level waittill(#"player_eliminated");
+		level waittill("player_eliminated");
 		if(!isdefined(level.numlives) || !level.numlives)
 		{
 			continue;
@@ -780,8 +780,8 @@ function set_radar_visibility()
 */
 function player_scored()
 {
-	self notify(#"wager_player_scored");
-	self endon(#"wager_player_scored");
+	self notify("wager_player_scored");
+	self endon("wager_player_scored");
 	wait(0.05);
 	globallogic::updateplacement();
 	for(i = 0; i < level.placement["all"].size; i++)
@@ -1002,9 +1002,9 @@ function pulse_powerup_icon(powerupindex)
 	{
 		return;
 	}
-	self endon(#"disconnect");
-	self endon(#"delete");
-	self endon(#"clearing_powerups");
+	self endon("disconnect");
+	self endon("delete");
+	self endon("clearing_powerups");
 	pulsepercent = 1.5;
 	pulsetime = 0.5;
 	hud_elem = self.powerups[powerupindex].hud_elem_icon;
@@ -1042,9 +1042,9 @@ function pulse_powerup_icon(powerupindex)
 */
 function show_powerup_message(powerupindex, doanimation)
 {
-	self endon(#"disconnect");
-	self endon(#"delete");
-	self endon(#"clearing_powerups");
+	self endon("disconnect");
+	self endon("delete");
+	self endon("clearing_powerups");
 	if(!isdefined(doanimation))
 	{
 		doanimation = 1;
@@ -1123,7 +1123,7 @@ function show_powerup_message(powerupindex, doanimation)
 	}
 	if(level.inprematchperiod)
 	{
-		level waittill(#"prematch_over");
+		level waittill("prematch_over");
 	}
 	else if(doanimation)
 	{
@@ -1160,7 +1160,7 @@ function show_powerup_message(powerupindex, doanimation)
 */
 function clear_powerups()
 {
-	self notify(#"clearing_powerups");
+	self notify("clearing_powerups");
 	if(isdefined(self.powerups) && isdefined(self.powerups.size))
 	{
 		for(i = 0; i < self.powerups.size; i++)

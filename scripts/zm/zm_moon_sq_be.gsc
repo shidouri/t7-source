@@ -139,7 +139,7 @@ function stage_logic_2()
 function wait_for_close_player()
 {
 	level endon(#"be2_validation");
-	self endon(#"death");
+	self endon("death");
 	wait(25);
 	while(true)
 	{
@@ -349,7 +349,7 @@ function moon_be_activate()
 	start = 0;
 	while(!start)
 	{
-		d_trig waittill(#"damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
+		d_trig waittill("damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
 		if(isplayer(attacker) && moon_be_move(road_start.script_string))
 		{
 			if(moon_be_move(dmg_type))
@@ -377,14 +377,14 @@ function moon_be_activate()
 */
 function moon_be_think()
 {
-	self endon(#"death");
-	self endon(#"finished_path");
+	self endon("death");
+	self endon("finished_path");
 	self endon(#"be_stage_one_over");
 	vox_num = 2;
 	vox_dude = undefined;
 	while(isdefined(self))
 	{
-		self waittill(#"reached_node", node);
+		self waittill("reached_node", node);
 		if(level.var_e9ab794e)
 		{
 			nd_end = getvehiclenode(node.target, "targetname");
@@ -410,13 +410,13 @@ function moon_be_think()
 				if(isdefined(node.script_string) && node.script_string == "zap")
 				{
 					zm_weap_microwavegun::add_microwaveable_object(d_trig);
-					d_trig waittill(#"microwaved", vox_dude);
+					d_trig waittill("microwaved", vox_dude);
 					zm_weap_microwavegun::remove_microwaveable_object(d_trig);
 					motivation = 1;
 				}
 				else
 				{
-					d_trig waittill(#"damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
+					d_trig waittill("damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
 					if(isplayer(attacker) && moon_be_move(node.script_string))
 					{
 						motivation = moon_be_move(dmg_type);
@@ -499,7 +499,7 @@ function moon_be_think()
 					self setspeedimmediate(0);
 					self thread moon_be_stop_anim();
 					level flag::set("complete_be_1");
-					self notify(#"finished_path");
+					self notify("finished_path");
 					break;
 				}
 				default:
@@ -533,13 +533,13 @@ function moon_be_think()
 					if(isdefined(next_chain_start.script_string) && next_chain_start.script_string == "zap")
 					{
 						zm_weap_microwavegun::add_microwaveable_object(d_trig);
-						d_trig waittill(#"microwaved", vox_dude);
+						d_trig waittill("microwaved", vox_dude);
 						zm_weap_microwavegun::remove_microwaveable_object(d_trig);
 						motivation = 1;
 					}
 					else
 					{
-						d_trig waittill(#"damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
+						d_trig waittill("damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
 						if(isplayer(attacker) && moon_be_move(next_chain_start.script_string))
 						{
 							motivation = moon_be_move(dmg_type);
@@ -668,7 +668,7 @@ function get_closest_index_2d(org, array, dist = 9999999)
 */
 function moon_be_anim_swap(int_anim)
 {
-	self endon(#"death");
+	self endon("death");
 	self._be_model stopanimscripted();
 	if(int_anim == 0)
 	{
@@ -691,7 +691,7 @@ function moon_be_anim_swap(int_anim)
 */
 function moon_be_stop_anim()
 {
-	self endon(#"death");
+	self endon("death");
 	self._be_model stopanimscripted();
 }
 
@@ -706,7 +706,7 @@ function moon_be_stop_anim()
 */
 function moon_be_resume_anim()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"be_stage_one_over");
 	rand = randomint(1);
 	if(rand)

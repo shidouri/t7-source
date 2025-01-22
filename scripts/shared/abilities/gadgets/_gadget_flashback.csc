@@ -55,7 +55,7 @@ function __init__()
 */
 function flashback_activated(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"player_flashback");
+	self notify("player_flashback");
 	player = getlocalplayer(localclientnum);
 	isfirstperson = !isthirdperson(localclientnum) && player == self;
 	if(newval)

@@ -78,7 +78,7 @@ function on_player_connecting()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self setspectatepermissions();
 }
 
@@ -93,7 +93,7 @@ function on_player_spawned()
 */
 function on_joined_team()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self setspectatepermissionsformachine();
 }
 
@@ -108,7 +108,7 @@ function on_joined_team()
 */
 function on_joined_spectate()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self setspectatepermissionsformachine();
 }
 
@@ -123,7 +123,7 @@ function on_joined_spectate()
 */
 function updatespectatesettings()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	for(index = 0; index < level.players.size; index++)
 	{
 		level.players[index] setspectatepermissions();

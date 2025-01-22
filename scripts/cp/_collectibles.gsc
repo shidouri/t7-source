@@ -190,7 +190,7 @@ function on_player_connect()
 */
 function function_6ba0709f()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!missionhascollectibles(getrootmapname()))
 	{
 		return;
@@ -213,14 +213,14 @@ function function_6ba0709f()
 */
 function function_332e2cfd()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!missionhascollectibles(getrootmapname()))
 	{
 		return;
 	}
 	while(true)
 	{
-		level waittill(#"save_restore");
+		level waittill("save_restore");
 		if(!isdefined(self.var_b3dc8451))
 		{
 			self.var_b3dc8451 = [];
@@ -414,7 +414,7 @@ function function_3955ccef()
 */
 function private function_e1aad2b1()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_e1aad2b1");
 	self endon(#"hash_e1aad2b1");
 	self util::waittill_notify_or_timeout("stats_changed", 2);
@@ -422,7 +422,7 @@ function private function_e1aad2b1()
 	{
 		self setdstat("PlayerStatsList", "ALL_COLLECTIBLES_COLLECTED", "statValue", 1);
 		self givedecoration("cp_medal_all_collectibles");
-		self notify(#"give_achievement", "CP_ALL_COLLECTIBLES");
+		self notify("give_achievement", "CP_ALL_COLLECTIBLES");
 	}
 }
 
@@ -443,7 +443,7 @@ function function_a8d8b9c7()
 	if(self function_3955ccef())
 	{
 		self setdstat("PlayerStatsByMap", getrootmapname(), "allCollectiblesCollected", 1);
-		self notify(#"give_achievement", "CP_MISSION_COLLECTIBLES");
+		self notify("give_achievement", "CP_MISSION_COLLECTIBLES");
 	}
 	self thread function_e1aad2b1();
 }

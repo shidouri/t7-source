@@ -85,11 +85,11 @@ function achievement_set_interim_sidequest_stat_for_all_players(stat_name)
 function achievement_moon_sidequest()
 {
 	level endon(#"end_game");
-	level waittill(#"moon_sidequest_reveal_achieved");
+	level waittill("moon_sidequest_reveal_achieved");
 	level achievement_set_interim_sidequest_stat_for_all_players("ZOMBIE_MOON_SIDEQUEST");
 	level zm_utility::giveachievement_wrapper("DLC5_ZOM_CRYOGENIC_PARTY", 1);
-	level waittill(#"moon_sidequest_swap_achieved");
-	level waittill(#"moon_sidequest_big_bang_achieved");
+	level waittill("moon_sidequest_swap_achieved");
+	level waittill("moon_sidequest_big_bang_achieved");
 	level thread zm::set_sidequest_completed("MOON");
 	if(level.xenon)
 	{
@@ -129,8 +129,8 @@ function achievement_ground_control()
 function achievement_one_small_hack()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
-	self waittill(#"successful_hack");
+	self endon("disconnect");
+	self waittill("successful_hack");
 	/#
 	#/
 }
@@ -147,8 +147,8 @@ function achievement_one_small_hack()
 function achievement_one_giant_leap()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
-	self waittill(#"one_giant_leap");
+	self endon("disconnect");
+	self waittill("one_giant_leap");
 	/#
 	#/
 	if(!(isdefined(level.played_extra_song_a7x) && level.played_extra_song_a7x))
@@ -170,7 +170,7 @@ function achievement_one_giant_leap()
 function achievement_perks_in_space()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.perks_in_space_list = [];
 	vending_triggers = getentarray("zombie_vending", "targetname");
 	for(i = 0; i < vending_triggers.size; i++)
@@ -179,7 +179,7 @@ function achievement_perks_in_space()
 	}
 	while(true)
 	{
-		self waittill(#"perk_bought", perk);
+		self waittill("perk_bought", perk);
 		self.perks_in_space_purchased_list[perk + "_purchased"] = 1;
 		keys = getarraykeys(self.perks_in_space_purchased_list);
 		for(i = 0; i < keys.size; i++)
@@ -210,10 +210,10 @@ function achievement_perks_in_space()
 function achievement_fully_armed()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"pap_taken");
+		self waittill("pap_taken");
 		if(!self hasperk("specialty_additionalprimaryweapon"))
 		{
 			continue;

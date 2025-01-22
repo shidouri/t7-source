@@ -229,7 +229,7 @@ function isbulletimpactmod(smeansofdeath)
 */
 function waitrespawnbutton()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_respawn");
 	while(self usebuttonpressed() != 1)
 	{
@@ -257,7 +257,7 @@ function setlowermessage(text, time, combinemessageandtimer)
 		text = self.lowermessageoverride;
 		time = undefined;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	self.lowermessage settext(text);
 	if(isdefined(time) && time > 0)
 	{
@@ -307,7 +307,7 @@ function setlowermessagevalue(text, value, combinemessage)
 		text = self.lowermessageoverride;
 		time = undefined;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	if(!isdefined(combinemessage) || !combinemessage)
 	{
 		self.lowermessage settext(text);
@@ -358,15 +358,15 @@ function clearlowermessage(fadetime)
 	{
 		return;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	if(!isdefined(fadetime) || fadetime == 0)
 	{
 		setlowermessage(&"");
 	}
 	else
 	{
-		self endon(#"disconnect");
-		self endon(#"lower_message_set");
+		self endon("disconnect");
+		self endon("lower_message_set");
 		self.lowermessage fadeovertime(fadetime);
 		self.lowermessage.alpha = 0;
 		self.lowertimer fadeovertime(fadetime);
@@ -853,7 +853,7 @@ function setusingremote(remotename)
 	#/
 	self.usingremote = remotename;
 	self disableoffhandweapons();
-	self notify(#"using_remote");
+	self notify("using_remote");
 }
 
 /*

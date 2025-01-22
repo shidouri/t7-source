@@ -376,7 +376,7 @@ function radar_dish_rotate()
 	while(true)
 	{
 		self rotateyaw(360, randomfloatrange(60, 120));
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -411,7 +411,7 @@ function receiving_bay_doors_init()
 */
 function receiving_bay_doors(localclientnum)
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	doors = getentarray(localclientnum, "receiving_bay_doors", "targetname");
 	for(i = 0; i < doors.size; i++)
 	{
@@ -457,7 +457,7 @@ function computer_screens_power(localclientnum)
 	{
 		screens[i] hide();
 	}
-	level waittill(#"power_on");
+	level waittill("power_on");
 	for(i = 0; i < screens.size; i++)
 	{
 		screens[i] show();
@@ -802,7 +802,7 @@ function hide_destroyed_earth()
 {
 	while(true)
 	{
-		level waittill(#"hde");
+		level waittill("hde");
 		level thread do_hide_destroyed_earth();
 	}
 }
@@ -850,11 +850,11 @@ function function_d87a7dcc()
 		{
 			if(var_bd7ba30)
 			{
-				level notify(#"power_controlled_light");
+				level notify("power_controlled_light");
 			}
 			level util::waittill_any("power_on", "pwr", "ZPO");
 		}
-		level notify(#"power_controlled_light");
+		level notify("power_controlled_light");
 		level util::waittill_any("pwo", "ZPOff");
 		var_bd7ba30 = 1;
 	}

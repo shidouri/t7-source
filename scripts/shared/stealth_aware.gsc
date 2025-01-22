@@ -139,7 +139,7 @@ function set_awareness(str_awareness)
 	}
 	if(prevawareness != str_awareness)
 	{
-		self notify(#"awareness", str_awareness);
+		self notify("awareness", str_awareness);
 	}
 	if(bstealthmode)
 	{
@@ -306,10 +306,10 @@ function set_ignore_sentient(sentient, ignore)
 */
 function function_ca6a0809(eventpackage)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	e_originator = eventpackage.parms[0];
-	self notify(#"stealth_vo", "alert");
+	self notify("stealth_vo", "alert");
 	if(isplayer(e_originator))
 	{
 		e_originator stealth_player::function_ca6a0809(self);
@@ -358,7 +358,7 @@ function on_sighted(eventpackage)
 	if(var_edfa68f2 || !isdefined(self.stealth.aware_alerted[var_f51f605d]) || !isdefined(self.stealth.aware_sighted[var_f51f605d]))
 	{
 		curawareness = self get_awareness();
-		self notify(#"alert", curawareness, e_originator.origin + vectorscale((0, 0, 1), 20), e_originator, debugreason);
+		self notify("alert", curawareness, e_originator.origin + vectorscale((0, 0, 1), 20), e_originator, debugreason);
 		if(var_edfa68f2 && curawareness != "combat" && issentient(e_originator))
 		{
 			self setstealthsightvalue(e_originator, 0);
@@ -382,8 +382,8 @@ function on_sighted(eventpackage)
 */
 function on_sight_end(eventpackage)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(getdvarint("stealth_no_return") && self get_awareness() == "combat")
 	{
 		return;
@@ -399,7 +399,7 @@ function on_sight_end(eventpackage)
 	var_5400af02 = stealth::awareness_delta(self get_awareness(), "unaware");
 	if(isdefined(self.stealth.investigating) && (self.stealth.investigating != "infinite" || var_5400af02 == 1))
 	{
-		self waittill(#"investigate_stop");
+		self waittill("investigate_stop");
 	}
 	maxsightvalue = 0;
 	foreach(enemy in self.stealth.aware_alerted)
@@ -427,7 +427,7 @@ function on_sight_end(eventpackage)
 			}
 			else
 			{
-				self notify(#"investigate", self.origin, undefined, "quick");
+				self notify("investigate", self.origin, undefined, "quick");
 			}
 		}
 	}
@@ -509,11 +509,11 @@ function on_alert_changed(eventpackage)
 		#/
 		if(str_typename == "explosion")
 		{
-			self notify(#"stealth_vo", "explosion");
+			self notify("stealth_vo", "explosion");
 		}
 		else if(isdefined(e_originator) && iscorpse(e_originator))
 		{
-			self notify(#"stealth_vo", "corpse");
+			self notify("stealth_vo", "corpse");
 		}
 		self set_awareness(str_newalert);
 		switch(str_newalert)
@@ -521,7 +521,7 @@ function on_alert_changed(eventpackage)
 			case "high_alert":
 			case "low_alert":
 			{
-				self notify(#"investigate", v_origin, e_originator);
+				self notify("investigate", v_origin, e_originator);
 				break;
 			}
 		}
@@ -576,7 +576,7 @@ function function_101ac5(eventpackage)
 	}
 	if(stealth::awareness_delta(self.awarenesslevelcurrent, self.awarenesslevelprevious) > 0)
 	{
-		self notify(#"alert", "combat", e_originator.origin, e_originator, "close_combat");
+		self notify("alert", "combat", e_originator.origin, e_originator, "close_combat");
 	}
 }
 
@@ -619,7 +619,7 @@ function function_933965f6(eventpackage)
 			deltaorigin = var_62bc230d.origin - self.origin;
 			deltaangles = vectortoangles(deltaorigin);
 			self.react_yaw = absangleclamp360(self.angles[1] - deltaangles[1]);
-			self notify(#"investigate", var_fbbdb5f6, e_originator, "quick");
+			self notify("investigate", var_fbbdb5f6, e_originator, "quick");
 			self.stealth.var_c9b747e1 = gettime();
 		}
 	}
@@ -672,8 +672,8 @@ function alert_group(group, str_newalert, v_origin, e_originator)
 */
 function react_head_look(lookat, delay)
 {
-	self notify(#"react_head_look");
-	self endon(#"react_head_look");
+	self notify("react_head_look");
+	self endon("react_head_look");
 	ent = lookat;
 	if(!isentity(lookat))
 	{
@@ -728,7 +728,7 @@ function react_head_look(lookat, delay)
 */
 function delayed_service_event(delay, id)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(delay);
 	self serviceevent(id);
 }
@@ -744,14 +744,14 @@ function delayed_service_event(delay, id)
 */
 function on_witness_combat(eventpackage)
 {
-	self endon(#"death");
+	self endon("death");
 	e_attacker = eventpackage.parms[0];
 	debugreason = eventpackage.parms[1];
 	if(isdefined(e_attacker))
 	{
 		if(stealth::awareness_delta(self get_awareness(), "high_alert") < 0)
 		{
-			self notify(#"alert", "high_alert", e_attacker.origin, e_attacker, debugreason);
+			self notify("alert", "high_alert", e_attacker.origin, e_attacker, debugreason);
 		}
 	}
 }
@@ -767,7 +767,7 @@ function on_witness_combat(eventpackage)
 */
 function combat_alert_event(e_attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(e_attacker) && self enabled())
 	{
 		wait(randomfloatrange(0.25, 0.75));
@@ -804,7 +804,7 @@ function enter_combat_with(enemy)
 		self.stealth.aware_combat[enemyentnum] = enemy;
 		self.stealth.aware_alerted[enemyentnum] = enemy;
 		self thread combat_spread_thread(enemy);
-		self notify(#"stealth_vo", "enemy");
+		self notify("stealth_vo", "enemy");
 	}
 	if(issentient(enemy))
 	{
@@ -841,7 +841,7 @@ function combat_spread_thread(enemy)
 {
 	self notify("combat_spread_thread_" + enemy getentitynumber());
 	self endon("combat_spread_thread_" + enemy getentitynumber());
-	self endon(#"death");
+	self endon("death");
 	idletime = 0;
 	while(true)
 	{
@@ -875,7 +875,7 @@ function combat_spread_thread(enemy)
 */
 function function_a85b6c52()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(#"enemy");
@@ -893,7 +893,7 @@ function function_a85b6c52()
 			}
 			wait(0.05);
 		}
-		self notify(#"stealth_sight_end", self.enemy);
+		self notify("stealth_sight_end", self.enemy);
 	}
 }
 

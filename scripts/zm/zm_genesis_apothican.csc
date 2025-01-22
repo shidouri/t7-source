@@ -95,8 +95,8 @@ function function_b77a78c9(localclientnum, str_fx, v_origin, n_duration, v_angle
 */
 function scene_play(scene, var_165d49f6)
 {
-	self notify(#"scene_play");
-	self endon(#"scene_play");
+	self notify("scene_play");
+	self endon("scene_play");
 	self scene::stop();
 	self function_6221b6b9(scene, var_165d49f6);
 	self scene::stop();
@@ -113,7 +113,7 @@ function scene_play(scene, var_165d49f6)
 */
 function function_6221b6b9(scene, var_165d49f6)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self scene::play(scene, var_165d49f6);
 }
 
@@ -155,8 +155,8 @@ function apothicon_player_keyline(localclientnum, oldval, newval, bnewent, binit
 */
 function apothicon_entry_postfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"apothicon_entry_postfx");
-	self endon(#"apothicon_entry_postfx");
+	self notify("apothicon_entry_postfx");
+	self endon("apothicon_entry_postfx");
 	if(newval == 1)
 	{
 		if(isdemoplaying() && demoisanyfreemovecamera())
@@ -170,7 +170,7 @@ function apothicon_entry_postfx(localclientnum, oldval, newval, bnewent, binitia
 	else
 	{
 		playsound(0, "zmb_apothigod_mouth_eject", (0, 0, 0));
-		self notify(#"apothicon_entry_complete");
+		self notify("apothicon_entry_complete");
 	}
 }
 

@@ -331,7 +331,7 @@ function private hasaivsaienemy(behaviortreeentity)
 			/#
 				record3dtext("", behaviortreeentity.origin, (1, 0.5, 0), "", behaviortreeentity, 0.4);
 			#/
-			self notify(#"failed_melee_mbs", enemy);
+			self notify("failed_melee_mbs", enemy);
 			return false;
 		}
 		behaviortreeentity._ai_melee_attacker_loser = 1;
@@ -610,7 +610,7 @@ function aivsaimeleeinitialize(behaviortreeentity, asmstatename)
 */
 function playscriptedmeleeanimations()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(isdefined(self._ai_melee_opponent));
 	#/
@@ -650,7 +650,7 @@ function playscriptedmeleeanimations()
 	}
 	self thread processinterrupteddeath();
 	opponent thread processinterrupteddeath();
-	self waittillmatch(#"aivsaimeleewinner");
+	self waittillmatch("aivsaimeleewinner");
 	self.fixedlinkyawonly = 0;
 	aiutility::cleanupchargemeleeattack(self);
 	if(isdefined(self._ai_melee_attachedknife) && self._ai_melee_attachedknife)
@@ -660,7 +660,7 @@ function playscriptedmeleeanimations()
 	}
 	self.blockingpain = 0;
 	self._ai_melee_initiator = undefined;
-	self notify(#"meleecompleted", "end");
+	self notify("meleecompleted", "end");
 	self pathmode("move delayed", 1, 3);
 }
 
@@ -850,8 +850,8 @@ function private debug_chosenmeleeanimations(behaviortreeentity)
 */
 function handledeath(animationname, attacker)
 {
-	self endon(#"death");
-	self endon(#"interrupteddeath");
+	self endon("death");
+	self endon("interrupteddeath");
 	self.skipdeath = 1;
 	self.diedinscriptedanim = 1;
 	totaltime = getanimlength(animationname);
@@ -870,7 +870,7 @@ function handledeath(animationname, attacker)
 */
 function processinterrupteddeath()
 {
-	self endon(#"meleecompleted");
+	self endon("meleecompleted");
 	/#
 		assert(isdefined(self._ai_melee_opponent));
 	#/
@@ -879,7 +879,7 @@ function processinterrupteddeath()
 	{
 		return;
 	}
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self) && (isdefined(self._ai_melee_attachedknife) && self._ai_melee_attachedknife))
 	{
 		self detach("t6_wpn_knife_melee", "TAG_WEAPON_LEFT");
@@ -890,8 +890,8 @@ function processinterrupteddeath()
 		{
 			opponent.diedinscriptedanim = 1;
 			opponent.skipdeath = 1;
-			opponent notify(#"interrupteddeath");
-			opponent notify(#"meleecompleted");
+			opponent notify("interrupteddeath");
+			opponent notify("meleecompleted");
 			opponent stopanimscripted();
 			opponent killwrapper();
 			opponent startragdoll();
@@ -904,8 +904,8 @@ function processinterrupteddeath()
 			opponent.skipdeath = 0;
 			opponent.diedinscriptedanim = 0;
 			aiutility::cleanupchargemeleeattack(opponent);
-			opponent notify(#"interrupteddeath");
-			opponent notify(#"meleecompleted");
+			opponent notify("interrupteddeath");
+			opponent notify("meleecompleted");
 			opponent stopanimscripted();
 		}
 	}
@@ -913,7 +913,7 @@ function processinterrupteddeath()
 	{
 		self.diedinscriptedanim = 1;
 		self.skipdeath = 1;
-		self notify(#"interrupteddeath");
+		self notify("interrupteddeath");
 		self stopanimscripted();
 		self killwrapper();
 		self startragdoll();

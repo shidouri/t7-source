@@ -139,12 +139,12 @@ function on_player_spawned()
 */
 function function_1939853d()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_1939853d");
 	self endon(#"hash_1939853d");
 	for(;;)
 	{
-		self waittill(#"zmb_max_ammo");
+		self waittill("zmb_max_ammo");
 		wait(0.05);
 		self function_ab4fad2f();
 	}
@@ -232,7 +232,7 @@ function function_ff07e778()
 */
 function on_player_disconnect()
 {
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	if(isdefined(self.mdl_target) && !self flag::get("dragon_strike_active"))
 	{
 		mdl_target = self.mdl_target;
@@ -271,10 +271,10 @@ function function_43b5419a(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function function_2d8749cd()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		if(weapon == getweapon("launcher_dragon_strike"))
 		{
 			break;
@@ -294,10 +294,10 @@ function function_2d8749cd()
 */
 function function_d5acc054()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_change", weapon, previous_weapon);
+		self waittill("weapon_change", weapon, previous_weapon);
 		if(function_9e0c324b(weapon))
 		{
 			if(self.var_8660deae === 0)
@@ -331,7 +331,7 @@ function function_d5acc054()
 */
 function function_3e8c94e3()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"specify_weapon_request", weapon);
@@ -372,10 +372,10 @@ function function_9e0c324b(var_382bb75)
 function function_8ad253d8(previous_weapon)
 {
 	self endon(#"hash_85e0a572");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self flag::set("show_dragon_strike_reticule");
 	self thread function_7fcb14a8();
-	self waittill(#"weapon_fired");
+	self waittill("weapon_fired");
 	if(self flag::get("dragon_strike_active"))
 	{
 		self playsoundtoplayer("fly_dragon_strike_ui_error", self);
@@ -427,7 +427,7 @@ function function_f80cd2c9()
 */
 function function_2864e2c1()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_8660deae = 0;
 	self flag::wait_till_clear("dragon_strike_active");
 	self.var_8660deae = 1;
@@ -464,7 +464,7 @@ function function_42ab5fbb(var_5d020ece)
 */
 function function_a3b69ec0(var_5d020ece)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_5a0c399b = self zm_utility::get_player_placeable_mine();
 	if(var_5a0c399b == getweapon("launcher_dragon_strike_upgraded"))
 	{
@@ -509,7 +509,7 @@ function function_9af893e8(e_player, var_5d020ece, b_upgraded, var_35ab0c48, var
 	}
 	for(i = 0; i < 4; i++)
 	{
-		var_2fcea154 waittill(#"fireball");
+		var_2fcea154 waittill("fireball");
 		var_2fcea154.var_201fdf35 = var_2fcea154 gettagorigin("tag_throat_fx");
 		var_c606eb7 = 6;
 		do
@@ -670,7 +670,7 @@ function function_7fcb14a8()
 {
 	self notify(#"hash_26b100ad");
 	self endon(#"hash_26b100ad");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_b912cdaf = vectorscale((0, 0, 1), 8);
 	if(!isdefined(self.mdl_target))
 	{

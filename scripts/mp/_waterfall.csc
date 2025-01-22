@@ -78,7 +78,7 @@ function setupwaterfallmist(localclientnum)
 	trigger = self;
 	for(;;)
 	{
-		trigger waittill(#"trigger", trigplayer);
+		trigger waittill("trigger", trigplayer);
 		if(!trigplayer islocalplayer())
 		{
 			continue;
@@ -113,7 +113,7 @@ function setupwaterfall(localclientnum, localowner)
 	trigger = self;
 	for(;;)
 	{
-		trigger waittill(#"trigger", trigplayer);
+		trigger waittill("trigger", trigplayer);
 		if(!trigplayer islocalplayer())
 		{
 			continue;

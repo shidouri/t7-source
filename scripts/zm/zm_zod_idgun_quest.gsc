@@ -386,7 +386,7 @@ function function_dd2f6fe3()
 	{
 		for(;;)
 		{
-			self waittill(#"trigger", player);
+			self waittill("trigger", player);
 		}
 		for(;;)
 		{
@@ -438,7 +438,7 @@ function function_32d36516(e_heart)
 */
 function special_craftable_spawn(v_origin, str_part, var_1907d45e = 1, var_6a2f1c3a = 0)
 {
-	level endon(#"idgun_part_found");
+	level endon("idgun_part_found");
 	if(!var_6a2f1c3a)
 	{
 		mdl_part = level zm_craftables::get_craftable_piece_model("idgun", str_part);
@@ -471,7 +471,7 @@ function special_craftable_spawn(v_origin, str_part, var_1907d45e = 1, var_6a2f1
 	level thread idgun_part_blinks(mdl_part);
 	wait(10);
 	mdl_part setinvisibletoall();
-	level notify(#"idgun_part_blinks");
+	level notify("idgun_part_blinks");
 }
 
 /*
@@ -485,9 +485,9 @@ function special_craftable_spawn(v_origin, str_part, var_1907d45e = 1, var_6a2f1
 */
 function idgun_part_blinks(mdl_part)
 {
-	level notify(#"idgun_part_blinks");
-	level endon(#"idgun_part_blinks");
-	level endon(#"idgun_part_found");
+	level notify("idgun_part_blinks");
+	level endon("idgun_part_blinks");
+	level endon("idgun_part_found");
 	while(true)
 	{
 		mdl_part setinvisibletoall();
@@ -657,7 +657,7 @@ function function_47867b41(var_3fbc06aa, str_part)
 {
 	if(1)
 	{
-		self waittill(#"damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
 		level flag::set(("idgun_cocoon_" + var_3fbc06aa) + "_found");
 		if((isdefined(zm::is_idgun_damage(weapon)) && zm::is_idgun_damage(weapon)) === 0)
 		{
@@ -692,8 +692,8 @@ function function_47867b41(var_3fbc06aa, str_part)
 function idgun_proximity_sensor(var_3fbc06aa)
 {
 	self endon(#"bleed_out");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	var_e610614b = level.var_a26610f1[var_3fbc06aa].origin;
 	n_proximity_max_2 = 262144;
 	n_proximity_min_2 = 4096;

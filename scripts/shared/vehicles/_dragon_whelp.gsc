@@ -230,7 +230,7 @@ function private get_dragon_enemy()
 */
 function private dragon_target_selection()
 {
-	self endon(#"death");
+	self endon("death");
 	for(;;)
 	{
 		if(!isdefined(self.owner))
@@ -276,8 +276,8 @@ function private dragon_target_selection()
 */
 function state_power_up_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	closest_distsqr = 10000 * 10000;
 	closest = undefined;
 	foreach(powerup in level.active_powerups)
@@ -350,8 +350,8 @@ function should_go_for_power_up(from_state, to_state, connection)
 */
 function state_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	idealdisttoowner = 300;
 	self asmrequestsubstate("locomotion@movement");
 	while(!isdefined(self.owner))
@@ -491,8 +491,8 @@ function state_combat_update(params)
 */
 function attack_thread()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	for(;;)
 	{
 		wait(0.1);
@@ -620,7 +620,7 @@ function dragon_callback_damage(einflictor, eattacker, idamage, idflags, smeanso
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	attacker = params.inflictor;
 	if(!isdefined(attacker))
 	{

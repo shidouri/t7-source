@@ -59,13 +59,13 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bgb_update");
 	var_63a08f52 = 0;
 	self thread bgb::set_timer(2, 2);
 	for(;;)
 	{
-		self waittill(#"damage", amount, attacker, direction_vec, point, type);
+		self waittill("damage", amount, attacker, direction_vec, point, type);
 		if("MOD_MELEE" != type || !isai(attacker))
 		{
 			continue;

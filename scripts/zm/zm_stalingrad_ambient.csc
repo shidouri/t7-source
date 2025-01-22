@@ -124,7 +124,7 @@ function ambient_artillery_strike(localclientnum, oldval, newval, bnewent, binit
 */
 function function_a7d3e4ff(localclientnum, var_df2299f9)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	playsound(localclientnum, "prj_mortar_incoming", self.origin);
 	wait(1);
 	playsound(localclientnum, "exp_mortar", self.origin);
@@ -145,7 +145,7 @@ function power_on_level(n_local_client, n_old, n_new, b_new_ent, b_initial_snap,
 {
 	if(n_new)
 	{
-		level notify(#"power_on_level");
+		level notify("power_on_level");
 	}
 }
 
@@ -166,7 +166,7 @@ function function_866a2751()
 	level thread function_916d6917("comm_equip_top_03");
 	level thread function_916d6917("comm_equip_top_04");
 	level thread function_916d6917("comm_equip_base_02");
-	level waittill(#"power_on_level");
+	level waittill("power_on_level");
 	function_4820908f("comm_monitor_lrg_combined_off");
 	function_4820908f("comm_equip_top_01_off");
 	function_4820908f("comm_equip_top_02_off");
@@ -191,7 +191,7 @@ function function_916d6917(str_targetname)
 	{
 		hidestaticmodel(n_model_index);
 	}
-	level waittill(#"power_on_level");
+	level waittill("power_on_level");
 	foreach(n_model_index in var_1bbd14fd)
 	{
 		unhidestaticmodel(n_model_index);
@@ -214,7 +214,7 @@ function function_4820908f(str_targetname)
 	{
 		unhidestaticmodel(n_model_index);
 	}
-	level waittill(#"power_on_level");
+	level waittill("power_on_level");
 	foreach(n_model_index in var_1bbd14fd)
 	{
 		hidestaticmodel(n_model_index);
@@ -232,7 +232,7 @@ function function_4820908f(str_targetname)
 */
 function function_a8bcf075()
 {
-	level waittill(#"nbs");
+	level waittill("nbs");
 	audio::snd_set_snapshot("zmb_stal_boss_fight");
 }
 
@@ -247,7 +247,7 @@ function function_a8bcf075()
 */
 function function_1eb91e4b()
 {
-	level waittill(#"nbstp");
+	level waittill("nbstp");
 	audio::snd_set_snapshot("default");
 }
 
@@ -262,7 +262,7 @@ function function_1eb91e4b()
 */
 function function_b833e317()
 {
-	level waittill(#"dfs");
+	level waittill("dfs");
 	audio::snd_set_snapshot("zmb_stal_dragon_fight");
 }
 
@@ -277,7 +277,7 @@ function function_b833e317()
 */
 function function_b6e2489()
 {
-	level waittill(#"dfss");
+	level waittill("dfss");
 	audio::snd_set_snapshot("default");
 }
 

@@ -195,7 +195,7 @@ function function_15e20abb()
 	self endon(#"hash_dcef79ff");
 	while(true)
 	{
-		self.t_spore_explode waittill(#"touch", e_who);
+		self.t_spore_explode waittill("touch", e_who);
 		if(isai(e_who))
 		{
 			self thread function_dcef79ff(0);
@@ -268,8 +268,8 @@ function function_523b2f00()
 {
 	self endon(#"hash_dcef79ff");
 	self setcandamage(1);
-	self.t_spore_damage waittill(#"damage", damage, e_attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
-	e_attacker notify(#"update_challenge_1_4");
+	self.t_spore_damage waittill("damage", damage, e_attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+	e_attacker notify("update_challenge_1_4");
 	if(mirg2000::is_wonder_weapon(weapon))
 	{
 		self thread function_dcef79ff(1, e_attacker);
@@ -292,7 +292,7 @@ function function_523b2f00()
 function function_c77e825c()
 {
 	self endon(#"hash_dcef79ff");
-	self.t_spore_damage waittill(#"touch", e_who);
+	self.t_spore_damage waittill("touch", e_who);
 	self thread function_dcef79ff(0, e_who);
 }
 
@@ -366,7 +366,7 @@ function function_4c6beece(var_f9f788a6, b_hero_weapon, e_attacker)
 		wait(0.25);
 	}
 	self clientfield::set("spore_cloud_fx", 0);
-	var_6d602035 notify(#"cleanup");
+	var_6d602035 notify("cleanup");
 	var_6d602035 delete();
 }
 
@@ -418,7 +418,7 @@ function function_ba7a3b74(is_enemy, b_hero_weapon, e_attacker)
 	}
 	if(is_enemy)
 	{
-		self endon(#"death");
+		self endon("death");
 		if(self.targetname === "zombie")
 		{
 			if(!self.var_d07c64b6)
@@ -465,7 +465,7 @@ function function_ba7a3b74(is_enemy, b_hero_weapon, e_attacker)
 					self.var_d07c64b6 = 1;
 					if(isdefined(e_attacker))
 					{
-						e_attacker notify(#"update_challenge_3_1");
+						e_attacker notify("update_challenge_3_1");
 					}
 					if(b_hero_weapon)
 					{
@@ -495,7 +495,7 @@ function function_ba7a3b74(is_enemy, b_hero_weapon, e_attacker)
 	}
 	else
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 		if(isdefined(self.e_spider))
 		{
 			self.e_spider kill();
@@ -532,7 +532,7 @@ function function_ba7a3b74(is_enemy, b_hero_weapon, e_attacker)
 						self thread function_7fa4a0dd();
 						self thread function_afacd209();
 						self notify(#"hash_ece519d9");
-						self waittill(#"coughing_complete");
+						self waittill("coughing_complete");
 						wait(1);
 					}
 				}
@@ -557,8 +557,8 @@ function function_ba7a3b74(is_enemy, b_hero_weapon, e_attacker)
 */
 function function_365b46bb()
 {
-	self endon(#"death");
-	self notify(#"player_spore_enhanced");
+	self endon("death");
+	self notify("player_spore_enhanced");
 	self setmovespeedscale(1.15);
 	self setsprintduration(4);
 	self setsprintcooldown(0);
@@ -585,7 +585,7 @@ function function_365b46bb()
 */
 function function_703ef5e8()
 {
-	self notify(#"update_challenge_1_2");
+	self notify("update_challenge_1_2");
 	self.drownstage = 0;
 	self clientfield::set_to_player("drown_stage", 0);
 	self.lastwaterdamagetime = gettime();
@@ -605,7 +605,7 @@ function function_703ef5e8()
 function function_94e2552f()
 {
 	self endon(#"hash_ab24308c");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self dodamage(self.health / 10, self.origin);
@@ -624,7 +624,7 @@ function function_94e2552f()
 */
 function function_6cea25bb()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self isinvehicle())
 	{
 		return;
@@ -661,7 +661,7 @@ function function_6cea25bb()
 */
 function function_4febf04e()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_7149fc41 = 1;
 	wait(120);
 	self.var_7149fc41 = 0;
@@ -678,14 +678,14 @@ function function_4febf04e()
 */
 function function_afacd209()
 {
-	self endon(#"disconnect");
-	self endon(#"coughing_complete");
-	self waittill(#"player_eaten_by_thrasher");
+	self endon("disconnect");
+	self endon("coughing_complete");
+	self waittill("player_eaten_by_thrasher");
 	if(self.is_drinking > 0)
 	{
 		self zm_utility::decrement_is_drinking();
 	}
-	self notify(#"coughing_complete");
+	self notify("coughing_complete");
 }
 
 /*
@@ -699,8 +699,8 @@ function function_afacd209()
 */
 function function_7fa4a0dd()
 {
-	self endon(#"disconnect");
-	self endon(#"coughing_complete");
+	self endon("disconnect");
+	self endon("coughing_complete");
 	if(self isinvehicle())
 	{
 		return;
@@ -710,7 +710,7 @@ function function_7fa4a0dd()
 	self util::waittill_any("fake_death", "death", "player_downed", "weapon_change_complete", "player_cancel_cough", "coughing_complete");
 	self function_909c515f();
 	self.var_e1f8edd6 = 0;
-	self notify(#"coughing_complete");
+	self notify("coughing_complete");
 }
 
 /*
@@ -724,8 +724,8 @@ function function_7fa4a0dd()
 */
 function function_2ce1c95f()
 {
-	self endon(#"disconnect");
-	self endon(#"coughing_complete");
+	self endon("disconnect");
+	self endon("coughing_complete");
 	if(!(self.is_drinking > 0) && (isdefined(zm_utility::is_player_valid(self)) && zm_utility::is_player_valid(self)))
 	{
 		self zm_utility::increment_is_drinking();
@@ -733,7 +733,7 @@ function function_2ce1c95f()
 	else
 	{
 		wait(1);
-		self notify(#"coughing_complete");
+		self notify("coughing_complete");
 	}
 	w_original = self getcurrentweapon();
 	var_cb4caef3 = getweapon("zombie_cough");
@@ -744,7 +744,7 @@ function function_2ce1c95f()
 	else
 	{
 		wait(1);
-		self notify(#"player_cancel_cough");
+		self notify("player_cancel_cough");
 		return;
 	}
 	self.var_e1f8edd6 = 1;
@@ -764,8 +764,8 @@ function function_2ce1c95f()
 */
 function function_909c515f()
 {
-	self endon(#"disconnect");
-	self endon(#"coughing_complete");
+	self endon("disconnect");
+	self endon("coughing_complete");
 	self zm_utility::enable_player_move_states();
 	var_cb4caef3 = getweapon("zombie_cough");
 	if(self laststand::player_is_in_laststand() || (isdefined(self.intermission) && self.intermission))

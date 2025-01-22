@@ -304,7 +304,7 @@ function function_b33fd8cd(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_38ad4ef0(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 }
 
@@ -375,7 +375,7 @@ function falling_debris(localclientnum)
 */
 function function_9259cfc(n_index)
 {
-	self endon(#"death");
+	self endon("death");
 	var_99dbd5bf = tracepoint(self.origin, self.origin + (vectorscale((0, 0, -1), 999999)));
 	n_distance = distance(self.origin, var_99dbd5bf["position"]);
 	n_time = n_distance / 2048;
@@ -387,7 +387,7 @@ function function_9259cfc(n_index)
 	self thread function_20e0d03e();
 	wait(randomfloat(1));
 	self moveto(var_99dbd5bf["position"], n_time);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self delete();
 }
 
@@ -402,7 +402,7 @@ function function_9259cfc(n_index)
 */
 function function_20e0d03e()
 {
-	self endon(#"movedone");
+	self endon("movedone");
 	n_rotate = randomint(3);
 	n_time = randomintrange(1, 4);
 	while(isdefined(self))
@@ -440,14 +440,14 @@ function function_20e0d03e()
 */
 function spinning_fan()
 {
-	self notify(#"stop_spinning");
-	self endon(#"stop_spinning");
+	self notify("stop_spinning");
+	self endon("stop_spinning");
 	self setscale(1.25);
 	n_time = randomintrange(2, 4);
 	while(true)
 	{
 		self rotatepitch(360, n_time);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -600,7 +600,7 @@ function player_frost_breath(localclientnum, oldval, newval, bnewent, binitialsn
 	{
 		self notify(#"hash_aac931c8");
 		self endon(#"hash_aac931c8");
-		self endon(#"disconnect");
+		self endon("disconnect");
 		self endon(#"entityshutdown");
 		while(true)
 		{
@@ -636,7 +636,7 @@ function function_b8a4442e(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		self notify(#"hash_dbbbf53a");
 		self endon(#"hash_dbbbf53a");
-		self endon(#"disconnect");
+		self endon("disconnect");
 		self endon(#"entityshutdown");
 		while(true)
 		{

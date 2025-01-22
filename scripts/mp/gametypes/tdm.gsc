@@ -233,7 +233,7 @@ function onscoreclosemusic()
 		scoredif = topscore - runnerupscore;
 		if(topscore >= (scorelimit * 0.5))
 		{
-			level notify(#"sndmusichalfway");
+			level notify("sndmusichalfway");
 			return;
 		}
 		wait(1);

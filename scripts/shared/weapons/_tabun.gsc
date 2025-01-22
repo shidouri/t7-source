@@ -88,7 +88,7 @@ function checkdvarupdates()
 */
 function watchtabungrenadedetonation(owner)
 {
-	self endon(#"trophy_destroyed");
+	self endon("trophy_destroyed");
 	self waittill(#"explode", position, surface);
 	if(!isdefined(level.water_duds) || level.water_duds == 1)
 	{
@@ -180,7 +180,7 @@ function damageeffectarea(owner, position, radius, height, killcament)
 	/#
 		if(getdvarint(""))
 		{
-			level notify(#"tabun_draw_cylinder_stop");
+			level notify("tabun_draw_cylinder_stop");
 		}
 	#/
 }
@@ -196,8 +196,8 @@ function damageeffectarea(owner, position, radius, height, killcament)
 */
 function damageinpoisonarea(gaseffectarea, killcament, trace, position)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self thread watch_death();
 	self.inpoisonarea = 1;
 	self startpoisoning();
@@ -248,7 +248,7 @@ function damageinpoisonarea(gaseffectarea, killcament, trace, position)
 	wait(0.5);
 	thread sound::play_in_space(level.sound_shock_tabun_stop, position);
 	wait(0.5);
-	tabunshocksound notify(#"delete");
+	tabunshocksound notify("delete");
 	tabunshocksound delete();
 	self show_hud();
 	self stoppoisoning();
@@ -266,8 +266,8 @@ function damageinpoisonarea(gaseffectarea, killcament, trace, position)
 */
 function deleteentonownerdeath(owner)
 {
-	self endon(#"delete");
-	owner waittill(#"death");
+	self endon("delete");
+	owner waittill("death");
 	self delete();
 }
 
@@ -282,7 +282,7 @@ function deleteentonownerdeath(owner)
 */
 function watch_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self show_hud();
 }
 

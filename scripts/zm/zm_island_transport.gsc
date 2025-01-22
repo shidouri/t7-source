@@ -173,7 +173,7 @@ function function_727b0365()
 	var_ff0e60dd = arraygetclosest(self.origin, struct::get_array("transport_zip_line", "targetname"));
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(!level flag::get("flag_zipline_in_use"))
 		{
 			if(level flag::get("zipline_lightning_charge"))
@@ -266,7 +266,7 @@ function function_32c54c4()
 	var_f7516332 = self.stub.e_parent;
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(level flag::get("flag_sewer_on_cooldown_" + self.script_noteworthy))
 		{
 			continue;
@@ -415,8 +415,8 @@ function player_rail_sequence_init(s_start, var_b4b1932b)
 */
 function player_rail_sequence(var_b4b1932b)
 {
-	self endon(#"disconnect");
-	self endon(#"switch_rail");
+	self endon("disconnect");
+	self endon("switch_rail");
 	if(var_b4b1932b)
 	{
 		self.var_53539670 thread play_current_fx();
@@ -426,7 +426,7 @@ function player_rail_sequence(var_b4b1932b)
 	}
 	else
 	{
-		self notify(#"zipline_start");
+		self notify("zipline_start");
 		self clientfield::set_to_player("wind_blur", 1);
 		self playsound("evt_zipline_attach");
 		self playloopsound("evt_zipline_move", 0.3);
@@ -439,7 +439,7 @@ function player_rail_sequence(var_b4b1932b)
 	}
 	self showviewmodel();
 	self.var_53539670 vehicle::go_path();
-	self.var_53539670 notify(#"rail_over");
+	self.var_53539670 notify("rail_over");
 	if(!var_b4b1932b)
 	{
 		self stoploopsound(0.4);
@@ -450,7 +450,7 @@ function player_rail_sequence(var_b4b1932b)
 	{
 		self zm_utility::clear_streamer_hint();
 		self clientfield::set_to_player("tp_water_sheeting", 0);
-		self notify(#"sewer_over");
+		self notify("sewer_over");
 	}
 	else
 	{
@@ -487,7 +487,7 @@ function player_rail_sequence(var_b4b1932b)
 */
 function function_f027bda7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self playrumbleonentity("zm_island_rumble_zipline");
 	self waittill(#"hash_329f91e1");
 	self stoprumble("zm_island_rumble_zipline");
@@ -505,7 +505,7 @@ function function_f027bda7()
 function play_current_fx()
 {
 	self clientfield::set("sewer_current_fx", 1);
-	self waittill(#"rail_over");
+	self waittill("rail_over");
 	self clientfield::set("sewer_current_fx", 0);
 }
 
@@ -561,7 +561,7 @@ function function_8fda04e6(s_start, var_b4b1932b)
 	var_9c4f4858 scene::play(var_240b3589, var_9c4f4858);
 	if(isdefined(var_99552fbd))
 	{
-		var_99552fbd waittill(#"touch");
+		var_99552fbd waittill("touch");
 	}
 	var_fcf7bffb scene::play(var_f70ad1d7, var_fcf7bffb);
 	wait(0.5);

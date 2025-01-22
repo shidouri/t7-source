@@ -231,7 +231,7 @@ function challengeactorkills(data, time)
 */
 function function_8ef347b3(v_location)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_31573b44");
 	if(!isdefined(v_location))
 	{
@@ -268,7 +268,7 @@ function function_8ef347b3(v_location)
 */
 function function_4c17acc8()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_534b9c4b");
 	self util::delay_notify(2, "stop_catching_rapid_strike_attacks");
 	n_start_time = gettime();
@@ -290,7 +290,7 @@ function function_4c17acc8()
 */
 function actorkilled(einflictor, attacker, idamage, smeansofdeath, weapon = level.weaponnone, shitloc)
 {
-	attacker endon(#"disconnect");
+	attacker endon("disconnect");
 	data = spawnstruct();
 	data.victim = self;
 	data.einflictor = einflictor;
@@ -302,7 +302,7 @@ function actorkilled(einflictor, attacker, idamage, smeansofdeath, weapon = leve
 	data.time = gettime();
 	data.victimweapon = data.victim.currentweapon;
 	waitandprocessactorkilledcallback(data);
-	data.attacker notify(#"actorkilledchallengesprocessed");
+	data.attacker notify("actorkilledchallengesprocessed");
 }
 
 /*
@@ -318,7 +318,7 @@ function waitandprocessactorkilledcallback(data)
 {
 	if(isdefined(data.attacker))
 	{
-		data.attacker endon(#"disconnect");
+		data.attacker endon("disconnect");
 	}
 	wait(0.05);
 	util::waittillslowprocessallowed();
@@ -337,7 +337,7 @@ function waitandprocessactorkilledcallback(data)
 */
 function actordamaged(einflictor, attacker, idamage, weapon = level.weaponnone, shitloc)
 {
-	attacker endon(#"disconnect");
+	attacker endon("disconnect");
 	data = spawnstruct();
 	data.victim = self;
 	data.einflictor = einflictor;
@@ -364,7 +364,7 @@ function function_2a703585(data)
 {
 	if(isdefined(data.attacker))
 	{
-		data.attacker endon(#"disconnect");
+		data.attacker endon("disconnect");
 	}
 	wait(0.05);
 	util::waittillslowprocessallowed();
@@ -382,7 +382,7 @@ function function_2a703585(data)
 */
 function vehiclekilled(einflictor, attacker, idamage, smeansofdeath, weapon = level.weaponnone, shitloc)
 {
-	attacker endon(#"disconnect");
+	attacker endon("disconnect");
 	data = spawnstruct();
 	data.victim = self;
 	data.einflictor = einflictor;
@@ -410,7 +410,7 @@ function function_79c2e402(data)
 {
 	if(isdefined(data.attacker))
 	{
-		data.attacker endon(#"disconnect");
+		data.attacker endon("disconnect");
 	}
 	wait(0.05);
 	util::waittillslowprocessallowed();
@@ -428,7 +428,7 @@ function function_79c2e402(data)
 */
 function vehicledamaged(einflictor, attacker, idamage, weapon = level.weaponnone, shitloc)
 {
-	attacker endon(#"disconnect");
+	attacker endon("disconnect");
 	data = spawnstruct();
 	data.victim = self;
 	data.einflictor = einflictor;
@@ -455,7 +455,7 @@ function function_c0fc6584(data)
 {
 	if(isdefined(data.attacker))
 	{
-		data.attacker endon(#"disconnect");
+		data.attacker endon("disconnect");
 	}
 	wait(0.05);
 	util::waittillslowprocessallowed();
@@ -487,7 +487,7 @@ function function_85ec34dc()
 */
 function function_96ed590f(statname, n_amount = 1)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isplayer(self))
 	{
 		return;

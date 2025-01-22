@@ -251,7 +251,7 @@ function movie_reels()
 		self setcursorhint("HINT_NOICON");
 	}
 	level flag::wait_till("power_on");
-	self waittill(#"trigger", who);
+	self waittill("trigger", who);
 	who playsound("zmb_reel_pickup");
 	self.reel_model hide();
 	self triggerenable(0);
@@ -272,7 +272,7 @@ function movie_reels()
 function function_63d5f7f2(e_player)
 {
 	level endon(#"end_game");
-	e_player waittill(#"disconnect");
+	e_player waittill("disconnect");
 	self.reel_model show();
 	self triggerenable(1);
 	self.reel_active = 1;
@@ -299,7 +299,7 @@ function movie_projector_reel_change()
 	}
 	while(true)
 	{
-		projector_trigger waittill(#"trigger", who);
+		projector_trigger waittill("trigger", who);
 		if(isdefined(who.reel) && isstring(who.reel))
 		{
 			switch(who.reel)
@@ -320,11 +320,11 @@ function movie_projector_reel_change()
 					break;
 				}
 			}
-			who notify(#"reel_set");
+			who notify("reel_set");
 			who thread theater_remove_reel_hud();
 			projector_trigger thread zm_theater_amb::play_radio_egg(2);
 			who playsound("zmb_reel_place");
-			level notify(#"play_movie", who.reel);
+			level notify("play_movie", who.reel);
 			who.reel = undefined;
 			wait(3);
 		}
@@ -376,7 +376,7 @@ function theater_remove_reel_hud()
 */
 function theater_remove_reel_on_death()
 {
-	self endon(#"reel_set");
+	self endon("reel_set");
 	self util::waittill_either("death", "_zombie_game_over");
 	self thread theater_remove_reel_hud();
 }

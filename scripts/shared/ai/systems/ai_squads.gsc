@@ -291,7 +291,7 @@ function private thinksquad(squadname)
 */
 function private squadmemberdeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self.squadname) && isdefined(level._squads[self.squadname]))
 	{
 		[[ level._squads[self.squadname] ]]->removeaifromsqaud(self);
@@ -309,7 +309,7 @@ function private squadmemberdeath()
 */
 function private squadmemberthink()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.script_aisquadname))
 	{
 		return;

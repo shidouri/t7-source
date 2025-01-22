@@ -49,7 +49,7 @@ function __init__()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread monitorempgrenade();
 	self thread begin_other_grenade_tracking();
 }
@@ -65,9 +65,9 @@ function on_player_spawned()
 */
 function monitorempgrenade()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"killempmonitor");
+	self endon("disconnect");
+	self endon("death");
+	self endon("killempmonitor");
 	self.empendtime = 0;
 	while(true)
 	{
@@ -132,10 +132,10 @@ function monitorempgrenade()
 */
 function applyemp(attacker, explosionpoint)
 {
-	self notify(#"applyemp");
-	self endon(#"applyemp");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("applyemp");
+	self endon("applyemp");
+	self endon("disconnect");
+	self endon("death");
 	wait(0.05);
 	if(!(isdefined(self) && isalive(self)))
 	{
@@ -206,7 +206,7 @@ function empgrenadedeathwaiter()
 	self notify(#"empgrenadedeathwaiter");
 	self endon(#"empgrenadedeathwaiter");
 	self endon(#"empgrenadetimedout");
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self checktoturnoffemp();
@@ -227,7 +227,7 @@ function empgrenadecleansewaiter()
 	self notify(#"empgrenadecleansewaiter");
 	self endon(#"empgrenadecleansewaiter");
 	self endon(#"empgrenadetimedout");
-	self waittill(#"gadget_cleanse_on");
+	self waittill("gadget_cleanse_on");
 	if(isdefined(self))
 	{
 		self checktoturnoffemp();
@@ -308,9 +308,9 @@ function emprumbleloop(duration)
 */
 function watchempexplosion(owner, weapon)
 {
-	owner endon(#"disconnect");
-	owner endon(#"team_changed");
-	self endon(#"trophy_destroyed");
+	owner endon("disconnect");
+	owner endon("team_changed");
+	self endon("trophy_destroyed");
 	owner addweaponstat(weapon, "used", 1);
 	self waittill(#"explode", origin, surface);
 	level empexplosiondamageents(owner, weapon, origin, 425, 1);
@@ -353,13 +353,13 @@ function empexplosiondamageents(owner, weapon, origin, radius, damageplayers)
 */
 function begin_other_grenade_tracking()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self notify(#"emptrackingstart");
 	self endon(#"emptrackingstart");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon, cooktime);
+		self waittill("grenade_fire", grenade, weapon, cooktime);
 		if(grenade util::ishacked())
 		{
 			continue;

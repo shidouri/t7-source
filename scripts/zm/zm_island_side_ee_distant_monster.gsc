@@ -95,7 +95,7 @@ function function_e94b80b9()
 {
 	while(level.round_number < 50)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 	}
 	var_d95fb733 = 0;
 	do
@@ -136,9 +136,9 @@ function function_549b07cb()
 	e_vehicle setspeed(5, 100);
 	e_vehicle startpath();
 	var_53564731 playsound("zmb_distant_monster_mash");
-	e_vehicle waittill(#"reached_end_node");
+	e_vehicle waittill("reached_end_node");
 	e_vehicle.delete_on_death = 1;
-	e_vehicle notify(#"death");
+	e_vehicle notify("death");
 	if(!isalive(e_vehicle))
 	{
 		e_vehicle delete();

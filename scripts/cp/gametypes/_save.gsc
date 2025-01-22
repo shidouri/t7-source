@@ -404,9 +404,9 @@ function function_fb150717()
 */
 function private function_74fcb9ca()
 {
-	level notify(#"checkpoint_save");
-	level endon(#"checkpoint_save");
-	level endon(#"save_restore");
+	level notify("checkpoint_save");
+	level endon("checkpoint_save");
+	level endon("save_restore");
 	checkpointcreate();
 	wait(0.05);
 	wait(0.05);
@@ -426,8 +426,8 @@ function private function_74fcb9ca()
 */
 function checkpoint_trigger()
 {
-	self endon(#"death");
-	self waittill(#"trigger");
+	self endon("death");
+	self waittill("trigger");
 	checkpoint_save();
 }
 
@@ -561,8 +561,8 @@ function private function_1add9d4a(var_c36855a9)
 {
 	level notify(#"hash_1add9d4a");
 	level endon(#"hash_1add9d4a");
-	level endon(#"kill_save");
-	level endon(#"save_restore");
+	level endon("kill_save");
+	level endon("save_restore");
 	wait(0.1);
 	while(true)
 	{

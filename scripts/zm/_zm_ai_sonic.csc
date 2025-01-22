@@ -96,6 +96,6 @@ function sonic_ambient_sounds(client_num)
 */
 function function_59e62cc8(client_num)
 {
-	self notify(#"stop_sounds");
+	self notify("stop_sounds");
 }
 

@@ -97,7 +97,7 @@ function __main__()
 function function_e16148c8()
 {
 	s_spawn_pos = struct::get("tram_object_spawn_pos", "targetname");
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	exploder::exploder("lgt_tram_car_02_down");
 	level._powerup_timeout_override = &function_ccc738b1;
 	intro_powerup = zm_powerups::specific_powerup_drop("castle_tram_token", struct::get("tram_token_spawn_pos").origin);
@@ -106,7 +106,7 @@ function function_e16148c8()
 	level thread function_97f09efd();
 	while(true)
 	{
-		level waittill(#"token_tram_moving", e_who);
+		level waittill("token_tram_moving", e_who);
 		level flag::set("tram_moving");
 		level thread function_4173be8d("tram_car_02", "tram_docked");
 		level thread function_ccd0cc8e();
@@ -202,7 +202,7 @@ function function_3bda7a32()
 {
 	scene::add_scene_func("p7_fxanim_zm_castle_tram_car_01_start_bundle", &function_350d7037, "init");
 	level.var_f31afb37 = 1;
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level thread function_3fb91800();
 	level thread function_427ee40c();
 }
@@ -237,7 +237,7 @@ function function_427ee40c()
 	exploder::exploder("lgt_tram_car_02_up");
 	while(true)
 	{
-		level waittill(#"player_tram_moving", e_who);
+		level waittill("player_tram_moving", e_who);
 		level flag::set("tram_moving");
 		level thread function_4173be8d("tram_car_01", "player_tram_docked");
 		level thread function_ccd0cc8e();
@@ -274,12 +274,12 @@ function function_427ee40c()
 */
 function function_38a21d48()
 {
-	level endon(#"tram_cooldown");
+	level endon("tram_cooldown");
 	self setcandamage(1);
 	self.health = 100000;
 	while(true)
 	{
-		self waittill(#"damage", n_amount, e_attacker, v_direction, v_point, str_type);
+		self waittill("damage", n_amount, e_attacker, v_direction, v_point, str_type);
 		if(isplayer(e_attacker) && (str_type == "MOD_GRENADE" || str_type == "MOD_GRENADE_SPLASH"))
 		{
 			e_attacker.var_a1ba5103 = 1;
@@ -547,7 +547,7 @@ function function_1d6e73d0(e_player, s_spawn_pos, var_f2c2f39)
 */
 function function_bb44b161(str_powerup, var_a11baa62)
 {
-	self endon(#"powerup_grabbed");
+	self endon("powerup_grabbed");
 	var_ee91d5b = self.model;
 	for(i = 0; i < 3; i++)
 	{
@@ -598,7 +598,7 @@ function function_b21df67c(e_player, var_8b961b44)
 	mdl_weapon = zm_utility::spawn_buildkit_weapon_model(e_player, var_8b961b44, undefined, v_spawnpt, v_angles);
 	mdl_weapon.angles = v_angles;
 	mdl_weapon thread timer_til_despawn(v_spawnpt);
-	mdl_weapon endon(#"powerup_timedout");
+	mdl_weapon endon("powerup_timedout");
 	mdl_weapon.trigger = spawn_unitrigger(v_spawnpt, 100);
 	mdl_weapon.trigger.wpn = var_8b961b44;
 	mdl_weapon.trigger.prompt_and_visibility_func = &weapon_trigger_update_prompt;
@@ -617,8 +617,8 @@ function function_b21df67c(e_player, var_8b961b44)
 */
 function function_cc0d2cc9(var_8b961b44)
 {
-	self.trigger waittill(#"trigger", e_who);
-	self notify(#"powerup_grabbed");
+	self.trigger waittill("trigger", e_who);
+	self notify("powerup_grabbed");
 	e_who zm_weapons::weapon_give(var_8b961b44, 0, 0);
 	if(isdefined(self.trigger))
 	{
@@ -643,8 +643,8 @@ function function_cc0d2cc9(var_8b961b44)
 */
 function timer_til_despawn(v_float, n_dist)
 {
-	self endon(#"powerup_grabbed");
-	self endon(#"delete");
+	self endon("powerup_grabbed");
+	self endon("delete");
 	n_start_time = gettime();
 	n_total_time = 0;
 	self clientfield::set("powerup_fx", 1);
@@ -654,7 +654,7 @@ function timer_til_despawn(v_float, n_dist)
 		wait(1);
 		n_total_time = (gettime() - n_start_time) / 1000;
 	}
-	self notify(#"powerup_timedout");
+	self notify("powerup_timedout");
 	if(isdefined(self.trigger))
 	{
 		zm_unitrigger::unregister_unitrigger(self.trigger);
@@ -701,7 +701,7 @@ function function_97f09efd()
 	level thread function_8f0015e0();
 	while(true)
 	{
-		t_use waittill(#"trigger", e_who);
+		t_use waittill("trigger", e_who);
 		if(zm_powerup_castle_tram_token::function_ed4d87a3(e_who))
 		{
 			if(isdefined(e_who.var_a1ba5103) && e_who.var_a1ba5103)
@@ -714,13 +714,13 @@ function function_97f09efd()
 			n_randy = randomint(100);
 			if(isdefined(e_who.var_a1ba5103) && e_who.var_a1ba5103 && e_who.var_66e0478a >= 5)
 			{
-				level notify(#"player_tram_moving", e_who);
+				level notify("player_tram_moving", e_who);
 				e_who.var_a1ba5103 = undefined;
 				e_who.var_66e0478a = undefined;
 			}
 			else
 			{
-				level notify(#"token_tram_moving", e_who);
+				level notify("token_tram_moving", e_who);
 			}
 			util::wait_network_frame();
 			level.var_f0adc88a clientfield::increment("tram_fuse_fx");
@@ -893,12 +893,12 @@ function function_5ea427bf(player)
 */
 function unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread unitrigger_refresh_message();
 	while(true)
 	{
-		self waittill(#"trigger", var_4161ad80);
-		self.stub notify(#"trigger", var_4161ad80);
+		self waittill("trigger", var_4161ad80);
+		self.stub notify("trigger", var_4161ad80);
 	}
 }
 
@@ -982,7 +982,7 @@ function function_ccd0cc8e()
 function function_57f998e3()
 {
 	/#
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(1);
 		zm_devgui::add_custom_devgui_callback(&function_72d0fbe3);
 	#/

@@ -155,11 +155,11 @@ function function_d87a7dcc()
 			level.power_on = 0;
 			if(var_bd7ba30)
 			{
-				level notify(#"power_controlled_light");
+				level notify("power_controlled_light");
 			}
 			level util::waittill_any("power_on", "pwr", "ZPO");
 		}
-		level notify(#"power_controlled_light");
+		level notify("power_controlled_light");
 		level util::waittill_any("pwo", "ZPOff");
 		var_bd7ba30 = 1;
 	}

@@ -167,7 +167,7 @@ function walltrap_draft_blur(localclientnum, oldval, newval, bnewent, binitialsn
 function function_24f1be38(localclientnum, str_structname)
 {
 	self endon(#"hash_602aae2b");
-	self endon(#"death");
+	self endon("death");
 	var_719bbcb8 = struct::get_array(str_structname, "targetname");
 	while(true)
 	{

@@ -56,7 +56,7 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread function_1473087b();
 	self util::waittill_any("disconnect", "bled_out", "bgb_gumball_anim_give", "bgb_tone_death_maxed");
 }
@@ -102,7 +102,7 @@ function actor_death_override(e_attacker)
 		e_attacker bgb::set_timer(e_attacker.n_bgb_tone_death_count, 25);
 		if(e_attacker.n_bgb_tone_death_count <= 0)
 		{
-			e_attacker notify(#"bgb_tone_death_maxed");
+			e_attacker notify("bgb_tone_death_maxed");
 		}
 	}
 }

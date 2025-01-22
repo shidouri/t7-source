@@ -118,7 +118,7 @@ function setentityheadicon(team, owner, offset, objective, constant_size)
 	}
 	self.entityheadicons = [];
 	self.entityheadobjectives = [];
-	self notify(#"kill_entity_headicon_thread");
+	self notify("kill_entity_headicon_thread");
 	if(!isdefined(objective))
 	{
 		objective = game["entity_headicon_" + team];
@@ -254,8 +254,8 @@ function updateentityheadclientobjective(entity, objective, constant_size)
 */
 function destroyheadiconsondeath()
 {
-	self notify(#"destroyheadiconsondeath_singleton");
-	self endon(#"destroyheadiconsondeath_singleton");
+	self notify("destroyheadiconsondeath_singleton");
+	self endon("destroyheadiconsondeath_singleton");
 	self util::waittill_any("death", "hacked");
 	for(i = 0; i < self.entityheadicons.size; i++)
 	{

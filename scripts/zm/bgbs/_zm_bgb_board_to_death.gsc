@@ -78,7 +78,7 @@ function disable()
 */
 function function_3c61f2df()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	self endon(#"bgb_update");
 	while(true)

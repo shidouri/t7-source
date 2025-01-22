@@ -71,7 +71,7 @@ function watch_lockon(localclientnum)
 {
 	while(true)
 	{
-		self waittill(#"lockon_changed", state, target);
+		self waittill("lockon_changed", state, target);
 		if(isdefined(self.replay_lock) && (!isdefined(target) || self.replay_lock != target))
 		{
 			self.replay_lock duplicate_render::change_dr_flags(localclientnum, undefined, "replay_locked");

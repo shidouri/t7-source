@@ -56,9 +56,9 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("death");
+	self endon("bgb_update");
 	self.var_69d5dd7c = 5;
 	while(self.var_69d5dd7c > 0)
 	{
@@ -148,12 +148,12 @@ function function_e0e68a99(target)
 */
 function electrocute_actor(ai)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(ai) || !isalive(ai))
 	{
 		return;
 	}
-	ai notify(#"bhtn_action_notify", "electrocute");
+	ai notify("bhtn_action_notify", "electrocute");
 	if(!isdefined(self.tesla_enemies_hit))
 	{
 		self.tesla_enemies_hit = 1;
@@ -192,7 +192,7 @@ function create_lightning_params()
 */
 function arc_damage_init(player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(isdefined(self.zombie_tesla_hit) && self.zombie_tesla_hit)
 	{
 		return;
@@ -211,7 +211,7 @@ function arc_damage_init(player)
 */
 function tesla_death()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread function_862aadab(1);
 	wait(2);
 	self dodamage(self.health + 1, self.origin);
@@ -228,7 +228,7 @@ function tesla_death()
 */
 function function_862aadab(random_gibs)
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self) && isactor(self))
 	{
 		if(!random_gibs || randomint(100) < 50)

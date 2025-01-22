@@ -59,7 +59,7 @@ function __init__()
 */
 function play_claymore_effects(e_planter)
 {
-	self endon(#"death");
+	self endon("death");
 	self zm_utility::waittill_not_moving();
 	playfxontag(level._effect["claymore_laser"], self, "tag_fx");
 }
@@ -75,7 +75,7 @@ function play_claymore_effects(e_planter)
 */
 function claymore_detonation(e_planter)
 {
-	self endon(#"death");
+	self endon("death");
 	self zm_utility::waittill_not_moving();
 	detonateradius = 96;
 	damagearea = spawn("trigger_radius", self.origin, 9, detonateradius, detonateradius * 2);
@@ -99,7 +99,7 @@ function claymore_detonation(e_planter)
 	self.owner.placeable_mines[self.owner.placeable_mines.size] = self;
 	while(true)
 	{
-		damagearea waittill(#"trigger", ent);
+		damagearea waittill("trigger", ent);
 		if(isdefined(self.owner) && ent == self.owner)
 		{
 			continue;
@@ -169,7 +169,7 @@ function private should_trigger_claymore(e_mine)
 */
 function private delete_mines_on_death(player, ent)
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(player))
 	{
 		arrayremovevalue(player.placeable_mines, self);

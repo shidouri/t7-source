@@ -53,7 +53,7 @@ function __init__()
 */
 function achievement_sound_func(achievement_name_lower)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!sessionmodeisonlinegame())
 	{
 		return;
@@ -93,7 +93,7 @@ function onplayerconnect()
 function achievement_ive_seen_some_things()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_3ac4b03d = [];
 	for(i = 0; i <= 3; i++)
 	{
@@ -102,7 +102,7 @@ function achievement_ive_seen_some_things()
 	level flag::wait_till("power_on");
 	while(self.var_3ac4b03d.size > 0)
 	{
-		self waittill(#"player_teleported", n_loc);
+		self waittill("player_teleported", n_loc);
 		if(isdefined(n_loc) && isint(n_loc) && isinarray(self.var_3ac4b03d, n_loc))
 		{
 			arrayremovevalue(self.var_3ac4b03d, n_loc);
@@ -126,7 +126,7 @@ function achievement_ive_seen_some_things()
 function function_24b05d89()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_597e831d = [];
 	for(i = 1; i <= 3; i++)
 	{
@@ -135,7 +135,7 @@ function function_24b05d89()
 	level flag::wait_till("power_on");
 	while(self.var_597e831d.size > 0)
 	{
-		level waittill(#"play_movie", var_2be4351a);
+		level waittill("play_movie", var_2be4351a);
 		if(isdefined(var_2be4351a) && isinarray(self.var_597e831d, var_2be4351a))
 		{
 			arrayremovevalue(self.var_597e831d, var_2be4351a);
@@ -157,7 +157,7 @@ function function_24b05d89()
 function function_6c831509()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_386853b6 = [];
 	self.var_386853b6["zombie"] = 40;
 	self.var_386853b6["zombie_quad"] = 20;

@@ -166,9 +166,9 @@ function dempsey_rocket_twinkle()
 		var_bcfda8b9 = struct::get(var_effa4ac5.target, "targetname");
 		var_effa4ac5 = var_bcfda8b9;
 		var_bfa03783 moveto(var_effa4ac5.origin, 60);
-		var_bfa03783 waittill(#"movedone");
+		var_bfa03783 waittill("movedone");
 	}
-	level notify(#"delete_fx");
+	level notify("delete_fx");
 }
 
 /*
@@ -184,7 +184,7 @@ function time_travel()
 {
 	function_3918d831("safe_code_past");
 	function_3918d831("safe_code_present");
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	var_1bdfdb3b = array("demon_gate_upgraded", "elemental_storm_upgraded", "rune_prison_upgraded", "wolf_howl_upgraded");
 	level flag::wait_till_any(var_1bdfdb3b);
 	var_be9116cc = getentarray("activate_targets_object", "targetname");
@@ -213,7 +213,7 @@ function function_676d98e4()
 {
 	while(!(isdefined(self.b_shot) && self.b_shot))
 	{
-		self waittill(#"damage", n_damage, e_attacker, v_direction, v_point, str_means_of_death, str_tag_name, str_model_name, str_part_name, w_weapon);
+		self waittill("damage", n_damage, e_attacker, v_direction, v_point, str_means_of_death, str_tag_name, str_model_name, str_part_name, w_weapon);
 		if(issubstr(w_weapon.name, "elemental_bow"))
 		{
 			if(!issubstr(w_weapon.name, "elemental_bow_demongate") && !issubstr(w_weapon.name, "elemental_bow_rune_prison") && !issubstr(w_weapon.name, "elemental_bow_storm") && !issubstr(w_weapon.name, "elemental_bow_wolf_howl"))
@@ -298,7 +298,7 @@ function function_2634b833()
 		playsoundatposition("zmb_object_success", (0, 0, 0));
 		a_flags = array("choose_time_travel_target", "reset_time_travel_target");
 		level flag::wait_till_any(a_flags);
-		s_fx notify(#"delete_fx");
+		s_fx notify("delete_fx");
 		level.var_a0ef3c5e.var_ebeea021 = 0;
 		level flag::clear("choose_time_travel_target");
 		if(level flag::get("reset_time_travel_target"))
@@ -307,7 +307,7 @@ function function_2634b833()
 			function_dd452f0e(a_targets);
 			level flag::clear("reset_time_travel_target");
 			var_64c4082d = 0;
-			level waittill(#"start_of_round");
+			level waittill("start_of_round");
 		}
 		else
 		{
@@ -320,7 +320,7 @@ function function_2634b833()
 				level thread function_61036bd1();
 				playsoundatposition("zmb_object_final_success", (0, 0, 0));
 				level flag::set("time_travel_teleporter_ready");
-				level waittill(#"start_of_round");
+				level waittill("start_of_round");
 				var_64c4082d = 0;
 				level notify(#"hash_a8200e36");
 				level flag::clear("time_travel_teleporter_ready");
@@ -453,9 +453,9 @@ function function_dd452f0e(a_targets)
 */
 function function_7317cab3()
 {
-	level endon(#"reset_time_travel_target");
-	level endon(#"choose_time_travel_target");
-	self waittill(#"damage", n_damage, e_attacker, v_direction, v_point, str_means_of_death, str_tag_name, str_model_name, str_part_name, w_weapon);
+	level endon("reset_time_travel_target");
+	level endon("choose_time_travel_target");
+	self waittill("damage", n_damage, e_attacker, v_direction, v_point, str_means_of_death, str_tag_name, str_model_name, str_part_name, w_weapon);
 	if(issubstr(w_weapon.name, "elemental_bow_demongate") || issubstr(w_weapon.name, "elemental_bow_rune_prison") || issubstr(w_weapon.name, "elemental_bow_storm") || issubstr(w_weapon.name, "elemental_bow_wolf_howl"))
 	{
 		level flag::set("choose_time_travel_target");
@@ -478,9 +478,9 @@ function function_7317cab3()
 */
 function function_10a07e71()
 {
-	level endon(#"choose_time_travel_target");
-	level endon(#"reset_time_travel_target");
-	self waittill(#"damage");
+	level endon("choose_time_travel_target");
+	level endon("reset_time_travel_target");
+	self waittill("damage");
 	playsoundatposition("zmb_object_fail", (0, 0, 0));
 	level flag::set("reset_time_travel_target");
 }
@@ -496,8 +496,8 @@ function function_10a07e71()
 */
 function function_d613eb57()
 {
-	level endon(#"choose_time_travel_target");
-	level endon(#"reset_time_travel_target");
+	level endon("choose_time_travel_target");
+	level endon("reset_time_travel_target");
 	wait(111);
 	playsoundatposition("zmb_object_fail", (0, 0, 0));
 	level flag::set("reset_time_travel_target");
@@ -514,8 +514,8 @@ function function_d613eb57()
 */
 function function_67147dcf()
 {
-	level endon(#"choose_time_travel_target");
-	level endon(#"reset_time_travel_target");
+	level endon("choose_time_travel_target");
+	level endon("reset_time_travel_target");
 	level waittill(#"between_round_over");
 	playsoundatposition("zmb_object_fail", (0, 0, 0));
 	level flag::set("reset_time_travel_target");
@@ -538,7 +538,7 @@ function channeling_stone_replacement()
 	level thread function_f5156f29();
 	s_key = struct::get("golden_key_slot_past");
 	s_key zm_castle_util::create_unitrigger();
-	s_key waittill(#"trigger_activated");
+	s_key waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(s_key.s_unitrigger);
 	mdl_key = util::spawn_model("p7_zm_ctl_keycard_ee", s_key.origin, s_key.angles);
 	mdl_key.targetname = "golden_key_past";
@@ -551,7 +551,7 @@ function channeling_stone_replacement()
 	var_79488a88 playsound("zmb_ee_lid_open");
 	playsoundatposition("zmb_ee_lid_keyinsert", s_key.origin);
 	var_f12ee4c0 zm_castle_util::create_unitrigger();
-	var_f12ee4c0 waittill(#"trigger_activated");
+	var_f12ee4c0 waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(var_f12ee4c0.s_unitrigger);
 	var_f12ee4c0 delete();
 	var_79488a88.b_rotated = undefined;
@@ -616,7 +616,7 @@ function function_eb855685(var_f63ec558)
 {
 	level flag::wait_till("channeling_stone_replacement");
 	self zm_castle_util::create_unitrigger();
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	self show();
 	self flagsys::clear("channeling_stone_cracked");
@@ -688,13 +688,13 @@ function vril_generator(var_e8245e5f)
 	var_79b48eac = util::spawn_model("p7_zm_ctl_vril_generator", var_3b32e496.origin, var_3b32e496.angles);
 	var_79b48eac setscale(1.7);
 	var_79b48eac zm_castle_util::create_unitrigger();
-	var_79b48eac waittill(#"trigger_activated");
+	var_79b48eac waittill("trigger_activated");
 	var_79b48eac playsound("zmb_ee_resurrect_vril_pickup");
 	zm_unitrigger::unregister_unitrigger(var_79b48eac.s_unitrigger);
 	var_79b48eac delete();
 	var_ff02be4a = struct::get("vril_generator_family");
 	var_ff02be4a zm_castle_util::create_unitrigger();
-	var_ff02be4a waittill(#"trigger_activated");
+	var_ff02be4a waittill("trigger_activated");
 	playsoundatposition("zmb_ee_resurrect_vril_place", var_ff02be4a.origin);
 	zm_unitrigger::unregister_unitrigger(var_ff02be4a.s_unitrigger);
 	var_79b48eac = util::spawn_model("p7_zm_ctl_vril_generator", var_ff02be4a.origin, var_ff02be4a.angles);
@@ -709,7 +709,7 @@ function vril_generator(var_e8245e5f)
 			player thread lui::screen_flash(0.15, 1, 0.35, 0.95, "white");
 		}
 	}
-	var_79b48eac notify(#"delete_fx");
+	var_79b48eac notify("delete_fx");
 	var_79b48eac playsound("zmb_ee_resurrect_vril_end");
 	level notify(#"hash_4619f71b");
 }
@@ -725,7 +725,7 @@ function vril_generator(var_e8245e5f)
 */
 function function_2d0c5aa1(s_spawn_point)
 {
-	self endon(#"death");
+	self endon("death");
 	self setphysparams(15, 0, 72);
 	self.ignore_enemy_count = 1;
 	self.no_eye_glow = 1;
@@ -768,7 +768,7 @@ function function_2d0c5aa1(s_spawn_point)
 */
 function function_d1963bbd()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	while(true)
 	{
@@ -809,7 +809,7 @@ function function_e8de9974(e_attacker)
 							level waittill(#"hash_d8b279ab");
 							var_4a9aea8a clientfield::set("channeling_stone_glow", 1);
 							var_747532f4 = getent("keeper_archon_ai", "targetname");
-							var_747532f4 notify(#"start_moving");
+							var_747532f4 notify("start_moving");
 							var_747532f4 scene::play("cin_zm_dlc1_corrupted_keeper_charge_stone_intro", var_747532f4);
 							var_747532f4 thread scene::play("cin_zm_dlc1_corrupted_keeper_charge_stone_loop", var_747532f4);
 							var_747532f4 fx::play("keeper_charge", var_747532f4.origin, var_747532f4.angles, "keeper_charge", 1, "j_spineupper", 1);
@@ -1025,7 +1025,7 @@ function function_3faf6b59(var_747532f4)
 		level.var_8bdb0713 = 0;
 		s_stone = struct::get("cs_keeper_pos_" + level.var_f1b0baba);
 		var_747532f4 setgoal(s_stone.origin);
-		var_747532f4 waittill(#"goal");
+		var_747532f4 waittill("goal");
 		var_747532f4 thread function_37fb253(s_stone);
 		var_747532f4 playsound("zmb_ee_resurrect_start_circle");
 		level.var_1f18338d = function_4ce3eea5(i);
@@ -1063,8 +1063,8 @@ function function_3faf6b59(var_747532f4)
 		var_27fd0c6f moveto(var_54a70b81, 3);
 	}
 	var_747532f4 clientfield::set("ghost_actor", 0);
-	var_747532f4 notify(#"ghost_torso");
-	var_747532f4 notify(#"ghost_trail");
+	var_747532f4 notify("ghost_torso");
+	var_747532f4 notify("ghost_trail");
 	var_747532f4 playsound("zmb_ee_resurrect_keeper_notghost");
 	var_747532f4 playloopsound("zmb_ee_resurrect_keeper_notghost_lp");
 	var_747532f4 fx::play("keeper_torso", var_747532f4.origin, var_747532f4.angles, "keeper_torso", 1, "j_spineupper", 1);
@@ -1072,10 +1072,10 @@ function function_3faf6b59(var_747532f4)
 	var_747532f4 fx::play("keeper_trail", var_747532f4.origin, var_747532f4.angles, "keeper_trail", 1, "j_robe_front_03", 1);
 	wait(3);
 	level.var_cc2ea6e8 = undefined;
-	var_747532f4 notify(#"start_moving");
+	var_747532f4 notify("start_moving");
 	s_stone = struct::get("keeper_end_loc");
 	var_747532f4 setgoal(s_stone.origin);
-	var_747532f4 waittill(#"goal");
+	var_747532f4 waittill("goal");
 	var_747532f4 playsound("zmb_ee_resurrect_end_warpaway");
 	var_747532f4 fx::play("keeper_beam", var_747532f4.origin, var_747532f4.angles, undefined, 1, "j_mainroot", 1);
 	exploder::exploder("fxexp_601");
@@ -1096,7 +1096,7 @@ function function_3faf6b59(var_747532f4)
 	exploder::kill_exploder("fxexp_603");
 	exploder::kill_exploder("fxexp_604");
 	var_747532f4 delete();
-	var_82a4f07b notify(#"delete_fx");
+	var_82a4f07b notify("delete_fx");
 	callback::remove_on_connect(&zm_castle_util::function_fa7da172);
 	level.var_8ef26cd9 = undefined;
 	zm_castle_vo::function_70721c81();
@@ -1115,7 +1115,7 @@ function function_3faf6b59(var_747532f4)
 */
 function function_6ff05666()
 {
-	self endon(#"death");
+	self endon("death");
 	var_747532f4 = getent("keeper_archon_ai", "targetname");
 	str_player_zone = self zm_zonemgr::get_player_zone();
 	while(!zm_utility::is_player_valid(self) || str_player_zone !== "zone_undercroft")
@@ -1142,7 +1142,7 @@ function function_37fb253(var_33b10d19)
 	var_4811f4e0 rotateto(var_33b10d19.angles, 1);
 	var_91e5f72f = (var_33b10d19.origin[0], var_33b10d19.origin[1], self.origin[2]);
 	var_4811f4e0 moveto(var_91e5f72f, 1);
-	self waittill(#"start_moving");
+	self waittill("start_moving");
 	self unlink();
 	var_4811f4e0 delete();
 }
@@ -1158,7 +1158,7 @@ function function_37fb253(var_33b10d19)
 */
 function function_99ac27a()
 {
-	level endon(#"next_channeling_stone");
+	level endon("next_channeling_stone");
 	var_f12ee4c0 = getent("cs_stone_" + level.var_f1b0baba, "targetname");
 	if(isdefined(var_f12ee4c0))
 	{
@@ -1173,7 +1173,7 @@ function function_99ac27a()
 		if(function_1f8ca830())
 		{
 			var_747532f4 = getent("keeper_archon_ai", "targetname");
-			var_747532f4 notify(#"keeper_charge");
+			var_747532f4 notify("keeper_charge");
 			str_exploder = function_ac7d9299();
 			exploder::kill_exploder(str_exploder);
 			var_4a9aea8a clientfield::set("channeling_stone_glow", 2);
@@ -1261,13 +1261,13 @@ function function_f507c094()
 */
 function function_6bfbde41()
 {
-	level endon(#"next_channeling_stone");
+	level endon("next_channeling_stone");
 	while(true)
 	{
 		level.var_f91118d9 = undefined;
 		level waittill(#"end_of_round");
 		level.var_f91118d9 = 1;
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 	}
 }
 
@@ -1308,11 +1308,11 @@ function function_1f8ca830()
 */
 function function_812faaaf()
 {
-	self endon(#"death");
-	level endon(#"next_channeling_stone");
+	self endon("death");
+	level endon("next_channeling_stone");
 	while(true)
 	{
-		self waittill(#"missile_fire", var_3fee16b8, var_e1041201);
+		self waittill("missile_fire", var_3fee16b8, var_e1041201);
 		if(zm_utility::is_player_valid(self) && (isdefined(self.var_507ad4a9) && self.var_507ad4a9))
 		{
 			if(issubstr(var_e1041201.name, "elemental_bow_" + level.var_1f18338d))
@@ -1522,7 +1522,7 @@ function function_c7c38164(str_endon = undefined)
 	}
 	while(true)
 	{
-		self waittill(#"damage", n_amount, e_attacker);
+		self waittill("damage", n_amount, e_attacker);
 		if(isplayer(e_attacker))
 		{
 			self playsound("zmb_ee_rocketcrash_bell_imp_1");
@@ -1553,7 +1553,7 @@ function function_7d8964c9()
 	exploder::exploder("lgt_deathray_back");
 	var_cf2402ea = struct::get("death_ray_button");
 	var_cf2402ea zm_castle_util::create_unitrigger();
-	var_cf2402ea waittill(#"trigger_activated");
+	var_cf2402ea waittill("trigger_activated");
 	playsoundatposition("zmb_ee_rocketcrash_ray_button", var_cf2402ea.origin);
 	level clientfield::set("sndDeathRayToMoon", 1);
 	zm_unitrigger::unregister_unitrigger(var_cf2402ea.s_unitrigger);
@@ -1652,7 +1652,7 @@ function function_b404c31d(a_ents)
 */
 function function_35c1d14d()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"ee_outro");
 	var_6326f93a = getent("cryo_chamber_shock_volume", "targetname");
 	while(true)
@@ -1729,13 +1729,13 @@ function function_19abb192(var_e7113aa6)
 */
 function function_bb8e762c(var_ff508804)
 {
-	level endon(#"simon_terminal_activated");
+	level endon("simon_terminal_activated");
 	if(isdefined(self.b_done) && self.b_done)
 	{
 		return;
 	}
 	self zm_castle_util::create_unitrigger(undefined, 8);
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(var_ff508804.s_unitrigger);
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	level.var_cf5a713 = self;
@@ -1879,7 +1879,7 @@ function function_b76d0c45(var_9ed14cca, var_2fe972c1, var_8d53d8ef)
 	level notify(#"hash_706f7f9a");
 	while(true)
 	{
-		var_9ed14cca waittill(#"trigger_activated");
+		var_9ed14cca waittill("trigger_activated");
 		if(!level flag::get("simon_press_check"))
 		{
 			level flag::set("simon_press_check");
@@ -1916,7 +1916,7 @@ function function_b76d0c45(var_9ed14cca, var_2fe972c1, var_8d53d8ef)
 */
 function simon_timed_out(var_4d74106b, var_d733da61)
 {
-	level endon(#"simon_press_check");
+	level endon("simon_press_check");
 	for(i = 6; i != -1; i--)
 	{
 		var_4d74106b playsound("zmb_ee_simonsays_timer");
@@ -2012,7 +2012,7 @@ function function_2c1aa78f()
 */
 function function_1ab64038()
 {
-	level endon(#"dimension_set");
+	level endon("dimension_set");
 	var_cf2f0df8 = struct::get("ee_lab_fuse");
 	var_7698e9a4 = getent("fuse_box", "targetname");
 	while(true)
@@ -2022,13 +2022,13 @@ function function_1ab64038()
 		level flag::wait_till("time_travel_teleporter_ready");
 		var_5a28c976 = util::spawn_model("p7_zm_ctl_console_deathray_relay_2x", var_cf2f0df8.origin, var_cf2f0df8.angles);
 		var_5a28c976 zm_castle_util::create_unitrigger();
-		var_5a28c976 waittill(#"trigger_activated");
+		var_5a28c976 waittill("trigger_activated");
 		level flag::set("ee_fuse_held_by_team");
 		zm_unitrigger::unregister_unitrigger(var_5a28c976.s_unitrigger);
 		playsoundatposition("zmb_fuse_pickup", var_5a28c976.origin);
 		var_5a28c976 delete();
 		var_7698e9a4 zm_castle_util::create_unitrigger();
-		var_7698e9a4 waittill(#"trigger_activated");
+		var_7698e9a4 waittill("trigger_activated");
 		zm_unitrigger::unregister_unitrigger(var_7698e9a4.s_unitrigger);
 		var_7698e9a4 playsound("zmb_fuse_place");
 		var_7698e9a4 showpart("j_chip01");
@@ -2064,7 +2064,7 @@ function function_71568f8()
 	{
 		while(!level flag::get("switch_to_death_ray"))
 		{
-			var_367b15e7 waittill(#"trigger_activated");
+			var_367b15e7 waittill("trigger_activated");
 			if(level flag::get("ee_fuse_placed"))
 			{
 				var_367b15e7 rotatepitch(-180, 0.25);
@@ -2075,7 +2075,7 @@ function function_71568f8()
 		}
 		while(level flag::get("switch_to_death_ray"))
 		{
-			var_367b15e7 waittill(#"trigger_activated");
+			var_367b15e7 waittill("trigger_activated");
 			if(level flag::get("ee_fuse_placed"))
 			{
 				var_367b15e7 rotatepitch(180, 0.25);
@@ -2214,7 +2214,7 @@ function function_96ca12f5(var_2bfe2eca)
 	var_d665b72a = getent("symbols_launch_platform", "targetname");
 	while(true)
 	{
-		var_2bfe2eca waittill(#"trigger_activated");
+		var_2bfe2eca waittill("trigger_activated");
 		playsoundatposition("zmb_ee_simonsays_button", var_2bfe2eca.origin);
 		if(!level flag::get("simon_press_check"))
 		{
@@ -2292,7 +2292,7 @@ function function_c21dcd15()
 	var_8cf273a9 = getent("safe_uc_dmg_door", "targetname");
 	var_8cf273a9 rotateyaw(-135, 1);
 	var_8cf273a9 playsound("zmb_safe_open");
-	mdl_key waittill(#"trigger_activated");
+	mdl_key waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(mdl_key.s_unitrigger);
 	mdl_key ghost();
 	for(i = 0; i < var_f3f0fbd.size; i++)
@@ -2318,7 +2318,7 @@ function function_8d27746(str_suffix, n_exploder_id)
 {
 	var_96a3d068 = struct::get("tc_" + str_suffix);
 	var_96a3d068 zm_castle_util::create_unitrigger();
-	var_96a3d068 waittill(#"trigger_activated");
+	var_96a3d068 waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(var_96a3d068.s_unitrigger);
 	util::spawn_model("p7_zm_ctl_deathray_base_part", var_96a3d068.origin, var_96a3d068.angles);
 	exploder::exploder("fxexp_7" + n_exploder_id);
@@ -2340,7 +2340,7 @@ function function_82075ffb()
 	s_canister = struct::get("mpd_canister");
 	var_bcaed8fa = util::spawn_model("p7_zm_ctl_undercroft_pyramid_canister", s_canister.origin, s_canister.angles);
 	var_bcaed8fa zm_castle_util::create_unitrigger();
-	var_bcaed8fa waittill(#"trigger_activated");
+	var_bcaed8fa waittill("trigger_activated");
 	var_bcaed8fa playsound("zmb_ee_mpd_broken_canister_pickup");
 	zm_unitrigger::unregister_unitrigger(var_bcaed8fa.s_unitrigger);
 	var_bcaed8fa delete();
@@ -2367,7 +2367,7 @@ function function_a4b7a410()
 	s_summoning_key = struct::get("ee_mpd_summoning_key");
 	s_summoning_key zm_castle_util::create_unitrigger();
 	s_summoning_key fx::play("summoning_key_glow", s_summoning_key.origin, s_summoning_key.angles, "delete_fx", 0, undefined, 1);
-	s_summoning_key waittill(#"trigger_activated");
+	s_summoning_key waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(s_summoning_key.s_unitrigger);
 	level thread zm_castle_vo::function_3ed74336();
 	var_530ae70 = util::spawn_model("p7_zm_ctl_summoning_key_small", s_summoning_key.origin, s_summoning_key.angles);
@@ -2380,18 +2380,18 @@ function function_a4b7a410()
 	playsoundatposition("evt_sum_key_place", var_530ae70.origin);
 	wait(3);
 	level.var_758b41e = undefined;
-	s_summoning_key notify(#"delete_fx");
+	s_summoning_key notify("delete_fx");
 	var_530ae70 fx::play("summoning_key_done", s_summoning_key.origin, s_summoning_key.angles, undefined, 0, undefined, 1);
 	playsoundatposition("evt_sum_key_charged", s_summoning_key.origin);
 	s_summoning_key zm_castle_util::create_unitrigger();
-	s_summoning_key waittill(#"trigger_activated");
+	s_summoning_key waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(s_summoning_key.s_unitrigger);
-	var_530ae70 notify(#"delete_fx");
+	var_530ae70 notify("delete_fx");
 	var_530ae70 hide();
 	playsoundatposition("evt_sum_key_take", var_530ae70.origin);
 	s_summoning_key = struct::get("terminal_summoning_key");
 	s_summoning_key zm_castle_util::create_unitrigger();
-	s_summoning_key waittill(#"trigger_activated");
+	s_summoning_key waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(s_summoning_key.s_unitrigger);
 	var_530ae70.origin = s_summoning_key.origin;
 	var_530ae70 show();
@@ -2431,7 +2431,7 @@ function function_a4b7a410()
 */
 function function_ea0d3a5d()
 {
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self solid();
 	self disconnectpaths();
 }
@@ -2552,7 +2552,7 @@ function function_821a61ed()
 */
 function function_ca73b878(var_6ec25e68, str_zone)
 {
-	self endon(#"death");
+	self endon("death");
 	var_77b9bd02 = 0;
 	while(isdefined(level.var_758b41e) && level.var_758b41e)
 	{
@@ -3086,7 +3086,7 @@ function function_36c5b9b9()
 */
 function function_e5803575()
 {
-	self endon(#"death");
+	self endon("death");
 	v_start_pos = self.origin;
 	var_20a609dc = 0;
 	while(true)
@@ -3197,7 +3197,7 @@ function function_690690ef(n_val)
 		}
 		zm_zonemgr::enable_zone("");
 		level flag::set("");
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		level flag::clear("");
 		level notify(#"hash_a8200e36");
 	#/
@@ -3320,7 +3320,7 @@ function function_3c8db42b(n_val)
 function function_ef5eaa6e()
 {
 	/#
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		var_1bdfdb3b = array("", "", "", "");
 		level flag::wait_till_any(var_1bdfdb3b);
 		while(true)
@@ -3450,8 +3450,8 @@ function function_b38b0751()
 			{
 				setdvar("", 0);
 				var_747532f4 = getent("", "");
-				var_747532f4 notify(#"keeper_charge");
-				var_747532f4 notify(#"start_moving");
+				var_747532f4 notify("keeper_charge");
+				var_747532f4 notify("start_moving");
 				str_exploder = function_ac7d9299();
 				exploder::kill_exploder(str_exploder);
 				level flag::set("");

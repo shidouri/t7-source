@@ -83,7 +83,7 @@ function move_zeppelin_down_new_path(a_structs)
 	self ghost();
 	self moveto(s_path_start.origin, 0.1);
 	self rotateto(s_path_start.angles, 0.1);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self show();
 	if(!isdefined(s_path_start.goal_struct))
 	{
@@ -97,7 +97,7 @@ function move_zeppelin_down_new_path(a_structs)
 	}
 	n_move_time = randomfloatrange(120, 150);
 	self moveto(s_path_start.goal_struct.origin, n_move_time);
-	self waittill(#"movedone");
+	self waittill("movedone");
 }
 
 /*

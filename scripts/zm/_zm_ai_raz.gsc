@@ -198,12 +198,12 @@ function raz_spawner_init()
 function function_ff9b21c4()
 {
 	/#
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		function_a67ada8();
 	#/
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		function_a67ada8();
 	}
 }
@@ -231,7 +231,7 @@ function raz_round_tracker()
 	old_wait_func = level.round_wait_func;
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		/#
 			if(getdvarint("") > 0)
 			{
@@ -300,7 +300,7 @@ function raz_round_stop()
 	level flag::clear("raz_round");
 	level flag::clear("special_round");
 	level.var_b9ce6312 = 0;
-	level notify(#"raz_round_ending");
+	level notify("raz_round_ending");
 }
 
 /*
@@ -314,16 +314,16 @@ function raz_round_stop()
 */
 function raz_round_spawning()
 {
-	level endon(#"intermission");
-	level endon(#"raz_round");
+	level endon("intermission");
+	level endon("raz_round");
 	level.a_e_raz_targets = getplayers();
 	for(i = 0; i < level.a_e_raz_targets.size; i++)
 	{
 		level.a_e_raz_targets[i].hunted_by = 0;
 	}
-	level endon(#"restart_round");
+	level endon("restart_round");
 	/#
-		level endon(#"kill_round");
+		level endon("kill_round");
 		if(getdvarint("") == 2 || getdvarint("") >= 4)
 		{
 			return;
@@ -348,7 +348,7 @@ function raz_round_spawning()
 	wait(6);
 	n_raz_alive = 0;
 	level flag::set("raz_round_in_progress");
-	level endon(#"last_ai_down");
+	level endon("last_ai_down");
 	level thread raz_round_aftermath();
 	while(true)
 	{
@@ -513,9 +513,9 @@ function function_852019c2()
 */
 function raz_round_wait_func()
 {
-	level endon(#"restart_round");
+	level endon("restart_round");
 	/#
-		level endon(#"kill_round");
+		level endon("kill_round");
 	#/
 	if(level flag::get("raz_round"))
 	{
@@ -652,7 +652,7 @@ function function_a74c2884()
 */
 function raz_round_aftermath()
 {
-	level waittill(#"last_ai_down", e_enemy_ai);
+	level waittill("last_ai_down", e_enemy_ai);
 	level thread zm_audio::sndmusicsystem_playstate("raz_over");
 	if(isdefined(level.zm_override_ai_aftermath_powerup_drop))
 	{
@@ -833,14 +833,14 @@ function raz_init()
 */
 function raz_death()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	self thread zombie_utility::zombie_eye_glow_stop();
 	if(get_current_raz_count() == 0 && level.zombie_total == 0)
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
 			level.58a468e4 = self.origin;
-			level notify(#"last_ai_down", self);
+			level notify("last_ai_down", self);
 		}
 	}
 	if(isplayer(attacker))
@@ -859,7 +859,7 @@ function raz_death()
 	}
 	if(isdefined(attacker) && isai(attacker))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 	}
 	if(isdefined(self))
 	{
@@ -910,7 +910,7 @@ function zombie_setup_attack_properties_raz()
 */
 function stop_raz_sound_on_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self stopsounds();
 }
 
@@ -987,7 +987,7 @@ function special_raz_spawn(n_to_spawn = 1, func_on_spawned, b_force_spawn = 0, v
 */
 function function_175052a7()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self playsound("zmb_hellhound_vocals_amb");
@@ -1006,7 +1006,7 @@ function function_175052a7()
 */
 function raz_thundergun_knockdown(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	damage = int(self.maxhealth * 0.5);
 	self dodamage(damage, player.origin, player, undefined, "none", "MOD_UNKNOWN");
 }

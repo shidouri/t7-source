@@ -94,9 +94,9 @@ function _on_give(slot, weapon)
 */
 function _on_take(slot, weapon)
 {
-	self notify(#"active_camo_off");
-	self notify(#"active_camo_taken");
-	self notify(#"delete_false_target");
+	self notify("active_camo_off");
+	self notify("active_camo_taken");
+	self notify("delete_false_target");
 }
 
 /*
@@ -123,9 +123,9 @@ function _on_connect()
 */
 function _on_disconnect()
 {
-	self notify(#"delete_false_target");
-	self notify(#"active_camo_off");
-	self notify(#"active_camo_taken");
+	self notify("delete_false_target");
+	self notify("active_camo_off");
+	self notify("active_camo_taken");
 }
 
 /*
@@ -139,9 +139,9 @@ function _on_disconnect()
 */
 function _on(slot, weapon)
 {
-	self endon(#"active_camo_off");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("active_camo_off");
+	self endon("death");
+	self endon("disconnect");
 	self clientfield::set("camo_shader", 1);
 	cybercom::function_adc40f11(weapon, 1);
 	self.cybercom.oldignore = isdefined(self.ignoreme) && (self.ignoreme ? 1 : 0);
@@ -195,8 +195,8 @@ function _off(slot, weapon)
 			iprintlnbold("");
 		}
 	#/
-	self notify(#"delete_false_target");
-	self notify(#"active_camo_off");
+	self notify("delete_false_target");
+	self notify("active_camo_off");
 }
 
 /*
@@ -212,8 +212,8 @@ function function_cba091b7(slot, weapon)
 {
 	self notify(#"hash_cba091b7");
 	self endon(#"hash_cba091b7");
-	self endon(#"disconnect");
-	self endon(#"active_camo_off");
+	self endon("disconnect");
+	self endon("active_camo_off");
 	self flagsys::wait_till("mobile_armory_in_use");
 	self gadgetdeactivate(slot, weapon);
 }
@@ -232,7 +232,7 @@ function function_b4902c73(slot, weapon, waitnote, endnote)
 	self notify((endnote + waitnote) + weapon.name);
 	self endon((endnote + waitnote) + weapon.name);
 	self endon(endnote);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(waitnote);
 	if(self hasweapon(weapon) && isdefined(self.cybercom.activecybercomweapon) && self.cybercom.activecybercomweapon == weapon)
 	{
@@ -251,14 +251,14 @@ function function_b4902c73(slot, weapon, waitnote, endnote)
 */
 function private _camo_killreactivateonnotify(slot, note, durationmin = 300, durationmax = 1000)
 {
-	self endon(#"active_camo_taken");
-	self endon(#"disconnect");
+	self endon("active_camo_taken");
+	self endon("disconnect");
 	self notify(("_camo_killReActivateOnNotify" + slot) + note);
 	self endon(("_camo_killReActivateOnNotify" + slot) + note);
 	while(true)
 	{
 		self waittill(note, param);
-		self notify(#"kill_active_cammo_reactivate");
+		self notify("kill_active_cammo_reactivate");
 	}
 }
 
@@ -273,8 +273,8 @@ function private _camo_killreactivateonnotify(slot, note, durationmin = 300, dur
 */
 function private _camo_createfalsetarget()
 {
-	self notify(#"delete_false_target");
-	self endon(#"delete_false_target");
+	self notify("delete_false_target");
+	self endon("delete_false_target");
 	fakeme = spawn("script_model", self.origin);
 	fakeme setmodel("tag_origin");
 	fakeme makesentient();
@@ -307,11 +307,11 @@ function private _camo_createfalsetarget()
 */
 function private function_c51ef296(fakeent)
 {
-	fakeent endon(#"death");
-	self endon(#"disconnect");
+	fakeent endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_fired", projectile);
+		self waittill("weapon_fired", projectile);
 		fakeent.origin = self.origin;
 	}
 }
@@ -329,11 +329,11 @@ function private _active_cammo_reactivate()
 {
 	self notify(#"_active_cammo_reactivate");
 	self endon(#"_active_cammo_reactivate");
-	self endon(#"active_camo_taken");
-	self endon(#"kill_active_cammo_reactivate");
+	self endon("active_camo_taken");
+	self endon("kill_active_cammo_reactivate");
 	while(true)
 	{
-		self waittill(#"gadget_forced_off", slot, weapon);
+		self waittill("gadget_forced_off", slot, weapon);
 		if(isdefined(weapon) && weapon == level.cybercom.active_cammo_upgraded_weap)
 		{
 			wait(getdvarint("scr_active_camo_melee_escape_duration_SEC", 1));

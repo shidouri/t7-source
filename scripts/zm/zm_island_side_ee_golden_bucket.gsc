@@ -136,7 +136,7 @@ function function_8db1ed35()
 */
 function function_e6cfa209()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_e6cfa209");
 	e_clip = getent("swamp_planter_skull_reveal", "targetname");
 	while(true)
@@ -227,7 +227,7 @@ function function_870bdfee()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -289,7 +289,7 @@ function function_4cebde70()
 		s_planting_spot.model movez(16, 2);
 		playsoundatposition("zmb_planters_appear", s_planting_spot.origin);
 	}
-	s_planting_spot.model waittill(#"movedone");
+	s_planting_spot.model waittill("movedone");
 	level thread function_152720d8(var_fc72ce0a);
 }
 
@@ -633,7 +633,7 @@ function function_41280a71()
 		s_planting_spot.model movez(-16, 2);
 		playsoundatposition("zmb_planters_disappear", s_planting_spot.origin);
 	}
-	s_planting_spot.model waittill(#"movedone");
+	s_planting_spot.model waittill("movedone");
 	foreach(s_planting_spot in var_fc72ce0a)
 	{
 		s_planting_spot.s_plant.model delete();
@@ -679,7 +679,7 @@ function function_30804104()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -709,7 +709,7 @@ function function_da9c118b()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -725,7 +725,7 @@ function function_da9c118b()
 		if(!(isdefined(player.var_b6a244f9) && player.var_b6a244f9))
 		{
 			player thread function_bbd146a7();
-			player notify(#"player_got_gold_bucket");
+			player notify("player_got_gold_bucket");
 		}
 	}
 }
@@ -741,7 +741,7 @@ function function_da9c118b()
 */
 function function_bbd146a7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_b6a244f9 = 1;
 	self zm_island_power::function_d570abb();
 	self thread function_da0bbc71();
@@ -758,7 +758,7 @@ function function_bbd146a7()
 */
 function function_da0bbc71()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(3.75);
 	while(true)
 	{

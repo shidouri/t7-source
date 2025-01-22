@@ -65,7 +65,7 @@ function spawned(localclientnum, oldval, newval, bnewent, binitialsnap, fieldnam
 	}
 	else
 	{
-		self notify(#"counteruav_off");
+		self notify("counteruav_off");
 	}
 }
 

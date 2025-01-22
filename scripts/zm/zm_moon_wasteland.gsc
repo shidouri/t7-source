@@ -270,7 +270,7 @@ function init_moon_nml_round(target_round)
 				zombies[i].fx_quad_trail delete();
 			}
 			zombies[i] zombie_utility::reset_attack_spot();
-			zombies[i] notify(#"zombie_delete");
+			zombies[i] notify("zombie_delete");
 			zombies[i] delete();
 		}
 	}
@@ -295,7 +295,7 @@ function init_moon_nml_round(target_round)
 */
 function clear_nml_rounds()
 {
-	level endon(#"restart_round");
+	level endon("restart_round");
 	while(isdefined(level.chalk_override))
 	{
 		if(isdefined(level.chalk_override))
@@ -324,7 +324,7 @@ function resume_moon_rounds(target_round)
 	level.zombie_health = level.zombie_vars["zombie_health_start"];
 	level.zombie_total = 0;
 	zombie_utility::ai_calculate_health(target_round);
-	level notify(#"restart_round");
+	level notify("restart_round");
 	level._from_nml = 1;
 	zombies = getaispeciesarray(level.zombie_team, "all");
 	if(isdefined(zombies))
@@ -345,7 +345,7 @@ function resume_moon_rounds(target_round)
 				zombies[i].fx_quad_trail delete();
 			}
 			zombies[i] zombie_utility::reset_attack_spot();
-			zombies[i] notify(#"zombie_delete");
+			zombies[i] notify("zombie_delete");
 			zombies[i] delete();
 		}
 	}
@@ -362,7 +362,7 @@ function resume_moon_rounds(target_round)
 */
 function nml_round_manager()
 {
-	level endon(#"restart_round");
+	level endon("restart_round");
 	level.dog_targets = getplayers();
 	for(i = 0; i < level.dog_targets.size; i++)
 	{
@@ -440,7 +440,7 @@ function nml_round_manager()
 						}
 						zombies[i] zombie_utility::set_zombie_run_cycle(move_speed);
 						level.initial_spawn = 0;
-						level notify(#"start_nml_ramp");
+						level notify("start_nml_ramp");
 						if(isdefined(zombies[i].pre_black_hole_bomb_run_combatanim))
 						{
 							zombies[i].pre_black_hole_bomb_run_combatanim = move_speed;
@@ -449,7 +449,7 @@ function nml_round_manager()
 				}
 				if(current_time > next_round_time)
 				{
-					level notify(#"nml_attack_wave");
+					level notify("nml_attack_wave");
 					mode = "spawn_wave_active";
 					if(area == 1)
 					{
@@ -491,7 +491,7 @@ function nml_round_manager()
 				}
 				else
 				{
-					level notify(#"wave_attack_finished");
+					level notify("wave_attack_finished");
 					mode = "wave_finished_cooldown";
 					next_round_time = current_time + cooldown_time;
 				}
@@ -574,7 +574,7 @@ function nml_round_manager()
 */
 function function_3eb8ebf9(move_speed)
 {
-	self endon(#"death");
+	self endon("death");
 	time = gettime();
 	while(true)
 	{
@@ -602,8 +602,8 @@ function function_3eb8ebf9(move_speed)
 */
 function nml_wave_attack(num_in_wave, var_c194e88d)
 {
-	level endon(#"wave_attack_finished");
-	level endon(#"restart_round");
+	level endon("wave_attack_finished");
+	level endon("restart_round");
 	while(true)
 	{
 		zombies = getaispeciesarray(level.zombie_team, "all");
@@ -676,8 +676,8 @@ function spawn_a_zombie(max_zombies, var_c194e88d, wait_delay, ignoregravity)
 */
 function screen_shake_manager(next_round_time)
 {
-	level endon(#"nml_attack_wave");
-	level endon(#"restart_round");
+	level endon("nml_attack_wave");
+	level endon("restart_round");
 	time = 0;
 	while(time < next_round_time)
 	{
@@ -984,7 +984,7 @@ function perk_arrive_fx(pos)
 function nml_round_never_ends()
 {
 	wait(2);
-	level endon(#"restart_round");
+	level endon("restart_round");
 	while(level flag::get("enter_nml"))
 	{
 		zombies = getaispeciesarray(level.zombie_team, "all");
@@ -1009,7 +1009,7 @@ function nml_round_never_ends()
 function nml_side_stepping_zombies()
 {
 	level.mp_side_step = 0;
-	level waittill(#"nml_attack_wave");
+	level waittill("nml_attack_wave");
 	level.mp_side_step = 1;
 }
 
@@ -1024,8 +1024,8 @@ function nml_side_stepping_zombies()
 */
 function nml_ramp_up_zombies()
 {
-	self endon(#"stop_ramp");
-	level waittill(#"start_nml_ramp");
+	self endon("stop_ramp");
+	level waittill("start_nml_ramp");
 	level.nml_timer = level.nml_last_round;
 	while(level flag::get("enter_nml"))
 	{

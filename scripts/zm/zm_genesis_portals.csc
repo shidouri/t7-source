@@ -74,8 +74,8 @@ function __init__()
 */
 function player_stargate_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"player_stargate_fx");
-	self endon(#"player_stargate_fx");
+	self notify("player_stargate_fx");
+	self endon("player_stargate_fx");
 	if(newval == 1)
 	{
 		if(isdemoplaying() && demoisanyfreemovecamera())
@@ -87,7 +87,7 @@ function player_stargate_fx(localclientnum, oldval, newval, bnewent, binitialsna
 	}
 	else
 	{
-		self notify(#"player_portal_complete");
+		self notify("player_portal_complete");
 	}
 }
 

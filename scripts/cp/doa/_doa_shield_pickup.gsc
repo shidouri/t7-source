@@ -78,7 +78,7 @@ function boxingpickupupdate()
 function function_fa8666fa()
 {
 	self thread namespace_eaa992c::function_285a2999("boxing_stars");
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	corpse thread namespace_eaa992c::function_285a2999("boxing_stars");
 }
 
@@ -150,7 +150,7 @@ function private function_80bf1f40(player, note, sfx, var_5e61e69d, mod = "MOD_C
 	player endon(note);
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(isplayer(guy))
 		{
 			continue;
@@ -202,7 +202,7 @@ function private function_80bf1f40(player, note, sfx, var_5e61e69d, mod = "MOD_C
 function private function_3c5a0d64(org, note, var_3587f608, var_eaac4dd5)
 {
 	self endon(note);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(var_3587f608))
 	{
 		self playloopsound(var_3587f608);
@@ -234,8 +234,8 @@ function private function_3c5a0d64(org, note, var_3587f608, var_eaac4dd5)
 */
 function private function_121caed2(player)
 {
-	self endon(#"death");
-	player waittill(#"disconnect");
+	self endon("death");
+	player waittill("disconnect");
 	if(isdefined(self.trigger1))
 	{
 		self.trigger1 delete();
@@ -391,7 +391,7 @@ function private function_6143f535(org, note)
 */
 function private function_a0a646c2()
 {
-	self endon(#"death");
+	self endon("death");
 	self.doa.stunned = 1;
 	self thread namespace_eaa992c::function_285a2999("stunbear_affected");
 	wait(level.doa.rules.var_83dda8f2);
@@ -411,11 +411,11 @@ function private function_a0a646c2()
 function private function_5f0b5579(player)
 {
 	player endon(#"hash_792240f4");
-	player endon(#"disconnect");
-	self endon(#"death");
+	player endon("disconnect");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(isdefined(guy.var_d538832c) && guy.var_d538832c)
 		{
 			continue;
@@ -446,8 +446,8 @@ function private function_5f0b5579(player)
 function private function_813e9dbd()
 {
 	self endon(#"hash_792240f4");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level doa_utility::function_c8f4d63a();
 	self.doa.var_1a9bbba7 = gettime() + (self doa_utility::function_1ded48e6(level.doa.rules.var_4f139db6) * 1000);
 	while(gettime() < self.doa.var_1a9bbba7)
@@ -601,10 +601,10 @@ function sawbladeupdate()
 function private function_92374630(player)
 {
 	player endon(#"hash_1d724bbf");
-	player endon(#"disconnect");
+	player endon("disconnect");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(isplayer(guy))
 		{
 			continue;
@@ -646,7 +646,7 @@ function private function_92374630(player)
 function private function_f797c54(org, note)
 {
 	self endon(note);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level doa_utility::function_c8f4d63a();
 	time_left = gettime() + (self doa_utility::function_1ded48e6(level.doa.rules.var_fb13151a) * 1000);
 	while(gettime() < time_left)
@@ -741,8 +741,8 @@ function function_2016b381(time)
 {
 	self notify(#"hash_2016b381");
 	self endon(#"hash_2016b381");
-	self endon(#"player_died");
-	self endon(#"disconnect");
+	self endon("player_died");
+	self endon("disconnect");
 	orb = spawn("script_model", self.origin);
 	orb.targetname = "magnet_update";
 	orb setmodel("tag_origin");

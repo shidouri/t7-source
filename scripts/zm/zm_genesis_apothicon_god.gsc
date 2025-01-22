@@ -47,8 +47,8 @@ function main()
 */
 function function_6dd507bc()
 {
-	self endon(#"death");
-	level endon(#"apothicon_trapped");
+	self endon("death");
+	level endon("apothicon_trapped");
 	while(true)
 	{
 		if(isdefined(level.hostmigrationtimer) && level.hostmigrationtimer)
@@ -100,8 +100,8 @@ function function_16364bba()
 */
 function function_3dd4e95e(str_rumble)
 {
-	self endon(#"death");
-	level endon(#"apothicon_trapped");
+	self endon("death");
+	level endon("apothicon_trapped");
 	n_max_dist_sq = 5000 * 5000;
 	foreach(e_player in level.activeplayers)
 	{
@@ -128,7 +128,7 @@ function function_e30ec73e()
 	scene::add_scene_func("cin_genesis_apothicon_papintro", &function_860971ff, "play");
 	scene::add_scene_func("cin_genesis_apothicon_papintro", &function_a2294b99, "done");
 	level thread scene::init("cin_genesis_apothicon_papintro");
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level thread function_4fa16b52();
 	wait(3);
 	level thread scene::play("cin_genesis_apothicon_papintro");
@@ -213,7 +213,7 @@ function function_d5419c08()
 	{
 		for(;;)
 		{
-			self waittill(#"trigger_activated", e_player);
+			self waittill("trigger_activated", e_player);
 		}
 		if(!level flag::get("apothicon_near_trap"))
 		{
@@ -221,7 +221,7 @@ function function_d5419c08()
 		playsoundatposition("zmb_deathray_activate_console", self.origin);
 		exploder::exploder("fxexp_361");
 		level function_73f1531();
-		e_player notify(#"gen_pos");
+		e_player notify("gen_pos");
 		if(isdefined(self.script_flag))
 		{
 			level flag::set(self.script_flag);
@@ -417,7 +417,7 @@ function function_78f98ad9()
 function function_b89b1260()
 {
 	level endon(#"hash_b89b1260");
-	level endon(#"apothicon_trapped");
+	level endon("apothicon_trapped");
 	var_217ba6c8 = struct::get("apothicon_approach_tesla", "targetname");
 	var_329d83b2 = getent("tesla_trap_console", "targetname");
 	while(true)
@@ -449,7 +449,7 @@ function function_b89b1260()
 */
 function function_3187e8a6()
 {
-	level endon(#"apothicon_trapped");
+	level endon("apothicon_trapped");
 	while(true)
 	{
 		level scene::play("cin_genesis_apothicon_flightpath", self);

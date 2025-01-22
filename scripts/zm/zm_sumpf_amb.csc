@@ -48,7 +48,7 @@ function play_meteor_loop()
 */
 function start_lights()
 {
-	level waittill(#"start_lights");
+	level waittill("start_lights");
 	wait(2);
 	array::thread_all(struct::get_array("electrical_circuit", "targetname"), &circuit_sound);
 	playsound(0, "zmb_turn_on", (0, 0, 0));
@@ -159,7 +159,7 @@ function function_60a32834()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			level notify(#"hash_51d7bc7c", self.script_sound);

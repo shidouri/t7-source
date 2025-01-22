@@ -36,7 +36,7 @@ function init()
 */
 function monkey_cosmodrome_enter_level()
 {
-	self endon(#"death");
+	self endon("death");
 	end = self monkey_lander_get_closest_dest();
 	end_launch = struct::get(end.target, "targetname");
 	start_launch = end_launch.origin + vectorscale((0, 0, 1), 2000);
@@ -54,7 +54,7 @@ function monkey_cosmodrome_enter_level()
 	wait(2.5);
 	lander show();
 	lander moveto(end.origin, 0.6);
-	lander waittill(#"movedone");
+	lander waittill("movedone");
 	lander clientfield::set("COSMO_MONKEY_LANDER_FX", 0);
 	wait(2);
 	self unlink();
@@ -74,7 +74,7 @@ function clear_lander()
 {
 	wait(8);
 	self movez(-100, 0.5);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self delete();
 }
 
@@ -144,7 +144,7 @@ function monkey_cosmodrome_prespawn()
 */
 function monkey_cosmodrome_failsafe()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(self.state != "bhb_jump")

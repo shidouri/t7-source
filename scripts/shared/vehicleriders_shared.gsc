@@ -190,9 +190,9 @@ function unclaim_position(vh, str_pos)
 */
 function private _unclaim_position_on_death(vh, str_pos)
 {
-	vh endon(#"death");
+	vh endon("death");
 	vh endon(str_pos + "occupied");
-	self waittill(#"death");
+	self waittill("death");
 	unclaim_position(vh, str_pos);
 }
 
@@ -235,7 +235,7 @@ function find_next_open_position(ai)
 */
 function spawn_riders()
 {
-	self endon(#"death");
+	self endon("death");
 	self.riders = [];
 	if(isdefined(self.script_vehicleride))
 	{
@@ -308,8 +308,8 @@ function get_rider_info(vh, str_pos = "driver")
 */
 function get_in(vh, str_pos = vh find_next_open_position(self), b_teleport = 0)
 {
-	self endon(#"death");
-	vh endon(#"death");
+	self endon("death");
+	vh endon("death");
 	/#
 		assert(isdefined(str_pos), "");
 	#/
@@ -422,12 +422,12 @@ function get_in(vh, str_pos = vh find_next_open_position(self), b_teleport = 0)
 function handle_rider_death()
 {
 	self endon(#"exiting_vehicle");
-	self.vehicle endon(#"death");
+	self.vehicle endon("death");
 	if(isdefined(self.rider_info.ridedeathanim))
 	{
 		self animation::set_death_anim(self.rider_info.ridedeathanim);
 	}
-	self waittill(#"death");
+	self waittill("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -580,7 +580,7 @@ function can_get_in(vh, str_pos)
 function get_out(str_mode)
 {
 	ai = self;
-	self endon(#"death");
+	self endon("death");
 	self notify(#"exiting_vehicle");
 	/#
 		assert(isalive(self), "");
@@ -684,7 +684,7 @@ function set_goal()
 */
 function unload(str_group = "all", str_mode, remove_rider_before_unloading, remove_riders_wait_time)
 {
-	self notify(#"unload", str_group);
+	self notify("unload", str_group);
 	/#
 		assert(isdefined(level.vehiclerider_groups[str_group]), str_group + "");
 	#/
@@ -713,7 +713,7 @@ function unload(str_group = "all", str_mode, remove_rider_before_unloading, remo
 			remove_riders_after_wait(remove_riders_wait_time, a_ai_unloaded);
 		}
 		array::flagsys_wait_clear(a_ai_unloaded, "in_vehicle", (isdefined(self.unloadtimeout) ? self.unloadtimeout : 4));
-		self notify(#"unload", a_ai_unloaded);
+		self notify("unload", a_ai_unloaded);
 	}
 }
 
@@ -750,7 +750,7 @@ function remove_riders_after_wait(wait_time, a_riders_to_remove)
 function ragdoll_dead_exit_rider()
 {
 	self endon(#"exited_vehicle");
-	self waittill(#"death");
+	self waittill("death");
 	if(isactor(self) && !self isragdoll())
 	{
 		self unlink();
@@ -812,8 +812,8 @@ function exit_low()
 */
 function private handle_falling_death()
 {
-	self endon(#"landed");
-	self waittill(#"death");
+	self endon("landed");
+	self waittill("death");
 	if(isactor(self))
 	{
 		self unlink();
@@ -871,7 +871,7 @@ function private forward_euler_integration(e_move, v_target_landing, n_initial_s
 function exit_variable()
 {
 	ai = self;
-	self endon(#"death");
+	self endon("death");
 	self notify(#"exiting_vehicle");
 	self thread handle_falling_death();
 	self animation::set_death_anim(self.rider_info.exithighdeathanim);
@@ -909,13 +909,13 @@ function exit_variable()
 	initialspeed = bundle.dropspeed;
 	acceleration = 385.8;
 	n_fall_time = (initialspeed * -1) + (sqrt(pow(initialspeed, 2) - ((2 * acceleration) * distance))) / acceleration;
-	self notify(#"falling", n_fall_time);
+	self notify("falling", n_fall_time);
 	forward_euler_integration(e_move, v_target_landing, bundle.dropspeed);
-	e_move waittill(#"movedone");
-	self notify(#"landing");
+	e_move waittill("movedone");
+	self notify("landing");
 	self animation::set_death_anim(self.rider_info.exithighlanddeathanim);
 	animation::play(self.rider_info.exithighlandanim, e_move, "tag_origin");
-	self notify(#"landed");
+	self notify("landed");
 	self unlink();
 	wait(0.05);
 	e_move delete();
@@ -932,8 +932,8 @@ function exit_variable()
 */
 function exit_high_loop_anim(e_parent)
 {
-	self endon(#"death");
-	self endon(#"landing");
+	self endon("death");
+	self endon("landing");
 	while(true)
 	{
 		animation::play(self.rider_info.exithighloopanim, e_parent, "tag_origin");

@@ -50,7 +50,7 @@ function __init__()
 function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"entityshutdown");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(newval) || newval == 0)
 	{
 		return;
@@ -89,7 +89,7 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 */
 function vortex_shake_and_rumble(localclientnum, v_vortex_origin)
 {
-	self endon(#"vortex_stop");
+	self endon("vortex_stop");
 	while(true)
 	{
 		self playrumbleonentity(localclientnum, "zod_idgun_vortex_interior");
@@ -145,7 +145,7 @@ function function_69096485(localclientnum, vortex_fx_handle, vPosition, fx_vorte
 	audio::stoploopat("wpn_idgun_portal_loop", vPosition);
 	playsound(0, "wpn_idgun_portal_stop", vPosition);
 	wait(0.15);
-	self notify(#"vortex_stop");
+	self notify("vortex_stop");
 	var_7d342267 = playfx(localclientnum, fx_vortex_explosion, vPosition);
 	setfxignorepause(localclientnum, var_7d342267, 1);
 	playsound(0, "wpn_idgun_portal_explode", vPosition);

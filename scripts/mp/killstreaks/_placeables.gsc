@@ -182,10 +182,10 @@ function innoplacementtrigger()
 function watchplacement(placeable)
 {
 	player = self;
-	player endon(#"disconnect");
-	player endon(#"death");
-	placeable endon(#"placed");
-	placeable endon(#"cancelled");
+	player endon("disconnect");
+	player endon("death");
+	placeable endon("placed");
+	placeable endon("cancelled");
 	player thread watchcarrycancelevents(placeable);
 	lastattempt = -1;
 	placeable.canbeplaced = 0;
@@ -254,13 +254,13 @@ function watchplacement(placeable)
 				}
 				else
 				{
-					placeable notify(#"abort_ghost_wait_show");
+					placeable notify("abort_ghost_wait_show");
 					placeable.abort_ghost_wait_show_to_player = 1;
 					placeable.abort_ghost_wait_show_to_others = 1;
 					placeable ghost();
 					if(isdefined(placeable.othermodel))
 					{
-						placeable.othermodel notify(#"abort_ghost_wait_show");
+						placeable.othermodel notify("abort_ghost_wait_show");
 						placeable.othermodel.abort_ghost_wait_show_to_player = 1;
 						placeable.othermodel.abort_ghost_wait_show_to_others = 1;
 						placeable.othermodel ghost();
@@ -286,12 +286,12 @@ function watchplacement(placeable)
 						spawnmovetrigger(placeable, player);
 					}
 				}
-				placeable notify(#"placed");
+				placeable notify("placed");
 			}
 		}
 		if(placeable.cancelable && player actionslotfourbuttonpressed())
 		{
-			placeable notify(#"cancelled");
+			placeable notify("cancelled");
 		}
 		wait(0.05);
 	}
@@ -312,10 +312,10 @@ function watchcarrycancelevents(placeable)
 	/#
 		assert(isplayer(player));
 	#/
-	placeable endon(#"cancelled");
-	placeable endon(#"placed");
+	placeable endon("cancelled");
+	placeable endon("placed");
 	player util::waittill_any("death", "emp_jammed", "emp_grenaded", "disconnect", "joined_team");
-	placeable notify(#"cancelled");
+	placeable notify("cancelled");
 }
 
 /*
@@ -335,7 +335,7 @@ function ontimeout()
 		placeable.timedout = 1;
 		return;
 	}
-	placeable notify(#"delete_placeable_trigger");
+	placeable notify("delete_placeable_trigger");
 	placeable thread killstreaks::waitfortimeout(placeable.killstreakref, 5000, &forceshutdown, "cancelled");
 }
 
@@ -355,7 +355,7 @@ function ondeath(attacker, weapon)
 	{
 		[[placeable.ondeath]](attacker, weapon);
 	}
-	placeable notify(#"cancelled");
+	placeable notify("cancelled");
 }
 
 /*
@@ -387,15 +387,15 @@ function onemp(attacker)
 */
 function cancelonplayerdisconnect(placeable)
 {
-	placeable endon(#"hacked");
+	placeable endon("hacked");
 	player = self;
 	/#
 		assert(isplayer(player));
 	#/
-	placeable endon(#"cancelled");
-	placeable endon(#"death");
+	placeable endon("cancelled");
+	placeable endon("death");
 	player util::waittill_any("disconnect", "joined_team");
-	placeable notify(#"cancelled");
+	placeable notify("cancelled");
 }
 
 /*
@@ -409,10 +409,10 @@ function cancelonplayerdisconnect(placeable)
 */
 function cancelongameend(placeable)
 {
-	placeable endon(#"cancelled");
-	placeable endon(#"death");
-	level waittill(#"game_ended");
-	placeable notify(#"cancelled");
+	placeable endon("cancelled");
+	placeable endon("death");
+	level waittill("game_ended");
+	placeable notify("cancelled");
 }
 
 /*
@@ -464,15 +464,15 @@ function watchmovetriggershutdown(placeable)
 function watchpickup(player)
 {
 	placeable = self;
-	placeable endon(#"death");
-	placeable endon(#"cancelled");
+	placeable endon("death");
+	placeable endon("cancelled");
 	/#
 		assert(isdefined(placeable.pickuptrigger));
 	#/
 	trigger = placeable.pickuptrigger;
 	while(true)
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		if(!isalive(player))
 		{
 			continue;
@@ -503,7 +503,7 @@ function watchpickup(player)
 		}
 		if(player usebuttonpressed() && !player.throwinggrenade && !player meleebuttonpressed() && !player attackbuttonpressed() && (!(isdefined(player.isplanting) && player.isplanting)) && (!(isdefined(player.isdefusing) && player.isdefusing)) && !player isremotecontrolling() && !isdefined(player.holding_placeable))
 		{
-			placeable notify(#"picked_up");
+			placeable notify("picked_up");
 			placeable.held = 1;
 			placeable setcandamage(0);
 			/#
@@ -529,7 +529,7 @@ function forceshutdown()
 {
 	placeable = self;
 	placeable.cancelable = 0;
-	placeable notify(#"cancelled");
+	placeable notify("cancelled");
 }
 
 /*
@@ -543,10 +543,10 @@ function forceshutdown()
 */
 function watchownergameevents()
 {
-	self notify(#"watchownergameevents_singleton");
-	self endon(#"watchownergameevents_singleton");
+	self notify("watchownergameevents_singleton");
+	self endon("watchownergameevents_singleton");
 	placeable = self;
-	placeable endon(#"cancelled");
+	placeable endon("cancelled");
 	placeable.owner util::waittill_any("joined_team", "disconnect", "joined_spectators");
 	if(isdefined(placeable))
 	{
@@ -566,7 +566,7 @@ function watchownergameevents()
 */
 function shutdownoncancelevent(placeable)
 {
-	placeable endon(#"hacked");
+	placeable endon("hacked");
 	player = self;
 	/#
 		assert(isplayer(player));

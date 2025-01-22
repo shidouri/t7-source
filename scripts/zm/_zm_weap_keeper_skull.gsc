@@ -124,7 +124,7 @@ function function_3028b9ff()
 */
 function watch_player_death()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"bled_out");
@@ -146,7 +146,7 @@ function watch_player_death()
 */
 function function_6b7bd037()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self hasweapon(level.var_c003f5b))
@@ -172,7 +172,7 @@ function function_6b7bd037()
 */
 function function_2dda41f5()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(level.var_615d751))
 	{
 		self flag::wait_till("has_skull");
@@ -209,7 +209,7 @@ function function_2dda41f5()
 */
 function function_de235a27()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(level.var_615d751))
 	{
 		self flag::wait_till("has_skull");
@@ -254,7 +254,7 @@ function function_de235a27()
 */
 function function_23e997f4()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_9adfaccf = 1;
 	wait(0.1);
 	if(self util::attack_button_held() && !self.var_e1f8edd6)
@@ -304,7 +304,7 @@ function function_f51dbd0a()
 {
 	self notify(#"hash_f51dbd0a");
 	self endon(#"hash_f51dbd0a");
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.isinmantleaction) && self.isinmantleaction)
 	{
 		var_553c631c = 1;
@@ -345,8 +345,8 @@ function function_f51dbd0a()
 */
 function function_32afe89a(ai_zombie)
 {
-	self endon(#"disconnect");
-	ai_zombie endon(#"death");
+	self endon("disconnect");
+	ai_zombie endon("death");
 	if(ai_zombie.archetype === "zombie" || (isdefined(ai_zombie.var_61f7b3a0) && ai_zombie.var_61f7b3a0))
 	{
 		ai_zombie thread zombie_utility::zombie_eye_glow_stop();
@@ -478,7 +478,7 @@ function function_e31d6184()
 */
 function function_e703c25f()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(level.var_615d751))
 	{
 		self flag::wait_till("has_skull");
@@ -558,8 +558,8 @@ function function_e703c25f()
 */
 function function_993fa661()
 {
-	self endon(#"disconnect");
-	self endon(#"weapon_change");
+	self endon("disconnect");
+	self endon("weapon_change");
 	wait(0.1);
 	if(self util::ads_button_held() && !self.var_e1f8edd6)
 	{
@@ -579,8 +579,8 @@ function function_993fa661()
 */
 function function_c2e953fb(ai_zombie)
 {
-	self endon(#"disconnect");
-	ai_zombie endon(#"death");
+	self endon("disconnect");
+	ai_zombie endon("death");
 	while(self util::ads_button_held() && self.var_118ab24e && self function_5fa274c1(ai_zombie) && !self.var_9adfaccf && self function_97d08b97())
 	{
 		if(ai_zombie.var_9b59d7f8 !== 1)
@@ -641,7 +641,7 @@ function function_c2e953fb(ai_zombie)
 */
 function function_3fca87eb()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_11c32d95");
 	n_index = randomintrange(1, 7);
 	while(true)
@@ -680,7 +680,7 @@ function function_5fa274c1(ai_zombie)
 */
 function function_fb77a973(ai_zombie)
 {
-	ai_zombie endon(#"death");
+	ai_zombie endon("death");
 	if(self util::is_player_looking_at(ai_zombie.origin, 0.85, 0))
 	{
 		return true;
@@ -725,12 +725,12 @@ function function_3f3f64e9(e_prop)
 */
 function function_6a46a0e0()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		if(!self function_97d08b97())
 		{
-			self waittill(#"weapon_change");
+			self waittill("weapon_change");
 			if(self.sessionstate != "spectator")
 			{
 				w_current = self getcurrentweapon();
@@ -778,7 +778,7 @@ function function_6a46a0e0()
 */
 function function_79e34741()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self weaponswitchbuttonpressed())
@@ -823,7 +823,7 @@ function function_97d08b97()
 */
 function watch_weapon_change()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self weaponswitchbuttonpressed() || self.var_118ab24e < 1)
@@ -845,10 +845,10 @@ function watch_weapon_change()
 */
 function function_eadaeb18()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_change_complete");
+		self waittill("weapon_change_complete");
 		self function_e00bc70a();
 	}
 }

@@ -67,7 +67,7 @@ function init()
 	level flag::wait_till("start_zombie_round_logic");
 	callback::on_connect(&function_7a1aff0c);
 	setup_initial_lander_states();
-	level notify(#"lander_launched");
+	level notify("lander_launched");
 	wait(0.1);
 	level flag::wait_till("power_on");
 	enable_callboxes();
@@ -241,7 +241,7 @@ function open_lander_door(time)
 	open_pos = struct::get(self.target, "targetname");
 	if(isdefined(self.script_noteworthy) && self.script_noteworthy == "shaft_cap")
 	{
-		level waittill(#"lander_launched");
+		level waittill("lander_launched");
 	}
 }
 
@@ -307,7 +307,7 @@ function move_gate(pos, lower, time = 1)
 			self playsound("zmb_lander_gate");
 			self moveto(pos.origin + (vectorscale((0, 0, -1), 44)), time);
 		}
-		self waittill(#"movedone");
+		self waittill("movedone");
 		if(self.classname == "script_brushmodel")
 		{
 			self notsolid();
@@ -324,7 +324,7 @@ function move_gate(pos, lower, time = 1)
 		}
 		self notsolid();
 		self moveto(pos.origin, time);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		if(self.classname == "script_brushmodel")
 		{
 			self solid();
@@ -379,7 +379,7 @@ function init_call_boxes()
 */
 function call_box_think()
 {
-	level endon(#"fake_death");
+	level endon("fake_death");
 	lander = getent("lander", "targetname");
 	self sethintstring(&"ZOMBIE_NEED_POWER");
 	self setcursorhint("HINT_NOICON");
@@ -397,7 +397,7 @@ function call_box_think()
 	while(true)
 	{
 		who = undefined;
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(who laststand::player_is_in_laststand())
 		{
 			continue;
@@ -457,7 +457,7 @@ function call_box_think()
 */
 function lander_buy_think()
 {
-	level endon(#"fake_death");
+	level endon("fake_death");
 	self sethintstring(&"ZOMBIE_NEED_POWER");
 	level flag::wait_till("power_on");
 	lander = getent("lander", "targetname");
@@ -476,7 +476,7 @@ function lander_buy_think()
 	while(true)
 	{
 		who = undefined;
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(level flag::get("lander_cooldown") || level flag::get("lander_inuse"))
 		{
 			zm_utility::play_sound_at_pos("no_purchase", self.origin);
@@ -609,7 +609,7 @@ function function_bd6e70fe()
 			break;
 		}
 	}
-	level notify(#"new_lander_used");
+	level notify("new_lander_used");
 	level flag::set(str_flag_name);
 	wait(2);
 	level flag::wait_till("lander_grounded");
@@ -681,9 +681,9 @@ function new_lander_intro()
 	wait(1.5);
 	level thread lander_engine_fx();
 	lander.anchor moveto(spot1, 8, 0.1, 7.9);
-	level notify(#"lander_launched");
+	level notify("lander_launched");
 	util::delay(6, undefined, &flag::set, "lander_intro_done");
-	lander.anchor waittill(#"movedone");
+	lander.anchor waittill("movedone");
 	level.intro_lander = 0;
 	level flag::set("lander_grounded");
 	level thread zm_cosmodrome_amb::play_cosmo_announcer_vox("vox_ann_startup");
@@ -729,7 +729,7 @@ function lander_take_off(dest)
 	lander = getent("lander", "targetname");
 	level clientfield::set("COSMO_LANDER_STATUS_LIGHTS", 1);
 	lander thread lock_players(dest);
-	level notify(#"lu", lander.riders, self);
+	level notify("lu", lander.riders, self);
 	lander.depart_station = lander.station;
 	depart = getent(lander.station, "script_noteworthy");
 	if(depart.target == "catwalk_zip_door")
@@ -807,7 +807,7 @@ function lander_take_off(dest)
 	lander.sound_ent playloopsound("zmb_lander_flying_low_loop");
 	lander.anchor moveto(hub.origin, 3, 2, 1);
 	lander.anchor thread lander_takeoff_wobble();
-	level notify(#"lander_launched");
+	level notify("lander_launched");
 	level flag::clear("lander_takeoff");
 	wait(3.1);
 	lander clientfield::set("COSMO_LANDER_MOVE_FX", 1);
@@ -816,7 +816,7 @@ function lander_take_off(dest)
 	{
 		extra_dest = struct::get(hub.target, "targetname");
 		lander.anchor moveto(extra_dest.origin, 2);
-		lander.anchor waittill(#"movedone");
+		lander.anchor waittill("movedone");
 	}
 	call_box = getent(lander.station, "script_noteworthy");
 	call_box playsound("vox_ann_lander_current_1");
@@ -1113,7 +1113,7 @@ function unlock_players()
 */
 function lander_goto_dest()
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	lander = getent("lander", "targetname");
 	final_dest = struct::get(lander.station, "targetname");
 	arrive = getent(lander.station, "script_noteworthy");
@@ -1125,16 +1125,16 @@ function lander_goto_dest()
 			lander.anchor thread lander_flight_wobble(lander, final_dest);
 			extra_dest = struct::get(current_dest.target, "targetname");
 			lander.anchor moveto(extra_dest.origin, 5, 1);
-			lander.anchor waittill(#"movedone");
+			lander.anchor waittill("movedone");
 			lander_clean_up_corpses(lander.anchor.origin, 150);
 			lander.anchor moveto(current_dest.origin, 2, 0, 2);
-			lander.anchor waittill(#"movedone");
+			lander.anchor waittill("movedone");
 		}
 		else
 		{
 			lander.anchor thread lander_flight_wobble(lander, final_dest);
 			lander.anchor moveto(current_dest.origin, 7, 1, 2.75);
-			lander.anchor waittill(#"movedone");
+			lander.anchor waittill("movedone");
 		}
 	}
 	lander_clean_up_corpses(lander.anchor.origin, 150);
@@ -1201,7 +1201,7 @@ function lander_goto_dest()
 	}
 	lander.anchor thread lander_landing_wobble(movetime);
 	level thread player_blocking_lander();
-	lander.anchor waittill(#"movedone");
+	lander.anchor waittill("movedone");
 	lander.sound_ent stoploopsound(1);
 	lander stoploopsound(3);
 	playsoundatposition("zmb_lander_land", lander.origin);
@@ -1316,7 +1316,7 @@ function takeoff_nuke(max_zombies, range, delay, trig)
 */
 function zombie_burst()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(0.2, 0.3));
 	level.zombie_total++;
 	playsoundatposition("nuked", self.origin);
@@ -1361,7 +1361,7 @@ function takeoff_knockdown(min_range, max_range)
 */
 function zombie_knockdown()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(0.2, 0.3));
 	self.lander_knockdown = 1;
 	if(isdefined(self.thundergun_knockdown_func))
@@ -1428,8 +1428,8 @@ function lander_remove_corpses()
 function lander_flight_wobble(lander, final_dest)
 {
 	self thread lander_flight_stop_wobble();
-	self endon(#"movedone");
-	self endon(#"start_approach");
+	self endon("movedone");
+	self endon("start_approach");
 	first_time = 1;
 	rot_time = 0.75;
 	while(true)
@@ -1500,7 +1500,7 @@ function lander_flight_wobble(lander, final_dest)
 */
 function lander_takeoff_wobble()
 {
-	level endon(#"lander_launched");
+	level endon("lander_launched");
 	while(true)
 	{
 		self rotateto((randomfloatrange(-10, 10), 0, randomfloatrange(-10, 10)), 0.5);
@@ -1541,7 +1541,7 @@ function lander_landing_wobble(movetime)
 function lander_flight_stop_wobble()
 {
 	wait(3);
-	self notify(#"start_approach");
+	self notify("start_approach");
 	self.old_angles = self.angles;
 	self rotateto((self.angles[0] * -1, self.angles[1] * -1, self.angles[2] * -1), 2.75);
 	wait(3);
@@ -1565,7 +1565,7 @@ function lander_cooldown_think()
 	lander = getent("lander", "targetname");
 	while(true)
 	{
-		level waittill(#"lu", riders, trig);
+		level waittill("lu", riders, trig);
 		level flag::set("lander_inuse");
 		players = getplayers();
 		for(i = 0; i < players.size; i++)

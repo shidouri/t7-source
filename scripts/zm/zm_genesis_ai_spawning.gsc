@@ -131,7 +131,7 @@ function function_a70ab4c3()
 */
 function function_c87827a3()
 {
-	level notify(#"chaos_round_start");
+	level notify("chaos_round_start");
 	level.var_b7572a82 = 1;
 	level.a_zombie_respawn_type = [];
 	level thread zm_genesis_vo::function_c74d1a57();
@@ -170,7 +170,7 @@ function function_8e64e16a()
 	level notify(#"hash_3e06faeb");
 	zm_spawner::register_zombie_death_event_callback(&function_8d6f4be5);
 	level thread function_a61de87c();
-	level endon(#"last_ai_down");
+	level endon("last_ai_down");
 	while(true)
 	{
 		foreach(str_index, str_archetype in level.a_zombie_respawn_type)
@@ -244,7 +244,7 @@ function function_66a5ce12(ai_last, e_attacker)
 */
 function function_630f7ed5(v_origin)
 {
-	self endon(#"death");
+	self endon("death");
 	v_navmesh = getclosestpointonnavmesh(v_origin, 512, 16);
 	if(isdefined(v_navmesh))
 	{
@@ -328,7 +328,7 @@ function function_3586b759()
 */
 function function_a61de87c()
 {
-	level waittill(#"last_ai_down", ai_last, e_attacker);
+	level waittill("last_ai_down", ai_last, e_attacker);
 	level thread function_4a9010ae();
 	level thread function_66a5ce12(e_attacker);
 	zm_genesis_power::function_5003c1cd(0, 0);
@@ -356,7 +356,7 @@ function function_a61de87c()
 		}
 		e_player.var_8b5008fe = undefined;
 	}
-	level notify(#"chaos_round_complete");
+	level notify("chaos_round_complete");
 }
 
 /*
@@ -408,9 +408,9 @@ function get_spawn_delay()
 */
 function function_aa92a46b()
 {
-	level endon(#"restart_round");
-	level endon(#"kill_round");
-	level waittill(#"chaos_round_complete");
+	level endon("restart_round");
+	level endon("kill_round");
+	level waittill("chaos_round_complete");
 }
 
 /*
@@ -446,13 +446,13 @@ function function_3cf05b99()
 		case "apothicon_fury":
 		{
 			level thread function_21bbe70d();
-			level notify(#"chaos_round_spawn_apothicon");
+			level notify("chaos_round_spawn_apothicon");
 			break;
 		}
 		case "keeper":
 		{
 			ai_zombie = function_f55d851b();
-			level notify(#"chaos_round_spawn_keeper");
+			level notify("chaos_round_spawn_keeper");
 			break;
 		}
 		case "parasite":
@@ -461,7 +461,7 @@ function function_3cf05b99()
 			if(zm_genesis_wasp::ready_to_spawn_wasp())
 			{
 				zm_genesis_wasp::spawn_wasp(1, 1);
-				level notify(#"chaos_round_spawn_parasite");
+				level notify("chaos_round_spawn_parasite");
 				level.var_c4336559["parasite"]--;
 			}
 			break;
@@ -595,7 +595,7 @@ function function_f55d851b()
 				{
 					level.zombie_total--;
 					level.var_c4336559["keeper"]--;
-					var_d88e6f5f endon(#"death");
+					var_d88e6f5f endon("death");
 					var_d88e6f5f.spawn_time = gettime();
 					var_d88e6f5f.var_b8385ee5 = 1;
 					var_d88e6f5f.health = level.zombie_health;
@@ -630,7 +630,7 @@ function function_f55d851b()
 function function_77d3a18d()
 {
 	self.ignore_nuke = 1;
-	self endon(#"death");
+	self endon("death");
 	util::wait_network_frame();
 	self.ignore_nuke = undefined;
 }
@@ -665,7 +665,7 @@ function function_21bbe70d()
 				{
 					level.zombie_total--;
 					level.var_c4336559["apothicon_fury"]--;
-					var_ecb2c615 endon(#"death");
+					var_ecb2c615 endon("death");
 					var_ecb2c615.health = level.zombie_health;
 					wait(1);
 					var_ecb2c615.zombie_think_done = 1;
@@ -700,7 +700,7 @@ function function_1f0a0b52(v_spawn_pos)
 	util::wait_network_frame();
 	var_3dd66385 clientfield::set("apothicon_fury_spawn_meteor", 1);
 	var_3dd66385 moveto(v_spawn_pos, 1.5);
-	var_3dd66385 waittill(#"movedone");
+	var_3dd66385 waittill("movedone");
 	var_3dd66385 delete();
 	var_2c69e810 delete();
 }
@@ -823,8 +823,8 @@ function spawn_zombie()
 */
 function function_b3e803ec()
 {
-	level endon(#"chaos_round_complete");
-	level waittill(#"kill_round");
+	level endon("chaos_round_complete");
+	level waittill("kill_round");
 	a_ai = getaiarray();
 	for(i = 0; i < a_ai.size; i++)
 	{
@@ -856,7 +856,7 @@ function function_8d6f4be5(e_attacker)
 			if(n_alive == 0)
 			{
 				level.var_6a6f912a = self.origin;
-				level notify(#"last_ai_down", self, e_attacker);
+				level notify("last_ai_down", self, e_attacker);
 			}
 		}
 	}
@@ -1013,7 +1013,7 @@ function function_b6f47996(n_val)
 {
 	/#
 		zm_utility::zombie_goto_round(level.var_783db6ab - 1);
-		level notify(#"kill_round");
+		level notify("kill_round");
 		iprintlnbold("");
 		zm_genesis_power::function_5003c1cd(0, 1);
 	#/

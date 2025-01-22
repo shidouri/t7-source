@@ -140,7 +140,7 @@ function checkcheatchanged(toggledvar)
 */
 function specialfeaturesmenu()
 {
-	level endon(#"unloaded");
+	level endon("unloaded");
 	addcheat("sf_use_ignoreammo", &ignore_ammomode);
 	level.cheatdvars = getarraykeys(level.cheatstates);
 	for(;;)

@@ -124,18 +124,18 @@ function water_killbrush_think()
 {
 	for(;;)
 	{
-		self waittill(#"trigger", entity);
+		self waittill("trigger", entity);
 		if(isdefined(entity))
 		{
 			if(isdefined(entity.targetname))
 			{
 				if(entity.targetname == "rcbomb")
 				{
-					entity notify(#"rcbomb_shutdown");
+					entity notify("rcbomb_shutdown");
 				}
 				else if(entity.targetname == "talon" && (!(isdefined(entity.dead) && entity.dead)))
 				{
-					entity notify(#"death");
+					entity notify("death");
 				}
 			}
 			if(isdefined(entity.helitype) && entity.helitype == "qrdrone")
@@ -312,7 +312,7 @@ function update_damage_effects(vehicle, attacker)
 		current_damage_state_index = get_vehicle_damage_state_index_from_health_percentage(vehicle);
 		if(previous_damage_state_index != current_damage_state_index)
 		{
-			vehicle notify(#"damage_state_changed");
+			vehicle notify("damage_state_changed");
 			if(previous_damage_state_index < 0)
 			{
 				start_damage_state_index = 0;
@@ -363,11 +363,11 @@ function play_damage_state_effects(vehicle, start_damage_state_index, end_damage
 */
 function play_vehicle_effects(effects, isdamagedtread)
 {
-	self endon(#"delete");
-	self endon(#"removed");
+	self endon("delete");
+	self endon("removed");
 	if(!isdefined(isdamagedtread) || isdamagedtread == 0)
 	{
-		self endon(#"damage_state_changed");
+		self endon("damage_state_changed");
 	}
 	if(isdefined(effects.sound_effect))
 	{
@@ -568,9 +568,9 @@ function init_original_vehicle()
 */
 function vehicle_wait_player_enter_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	while(true)
 	{
 		self waittill(#"enter_vehicle", player);
@@ -590,7 +590,7 @@ function vehicle_wait_player_enter_t()
 */
 function player_wait_exit_vehicle_t()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"exit_vehicle", vehicle);
 	self player_update_vehicle_hud(0, vehicle);
 }
@@ -606,12 +606,12 @@ function player_wait_exit_vehicle_t()
 */
 function vehicle_wait_damage_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		occupants = self getvehoccupants();
 		if(isdefined(occupants))
 		{
@@ -813,9 +813,9 @@ function build_exhaust(effect)
 */
 function cleanup_debug_print_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	/#
 		while(true)
 		{
@@ -839,9 +839,9 @@ function cleanup_debug_print_t()
 */
 function cleanup_debug_print_clearmsg_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	/#
 		while(true)
 		{
@@ -878,9 +878,9 @@ function cleanup_debug_print(message)
 */
 function vehicle_abandoned_by_drift_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	self wait_then_cleanup_vehicle("Drift Test", "scr_veh_cleanupdrifted");
 }
 
@@ -895,9 +895,9 @@ function vehicle_abandoned_by_drift_t()
 */
 function vehicle_abandoned_by_occupants_timeout_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	self wait_then_cleanup_vehicle("Abandon Test", "scr_veh_cleanupabandoned");
 }
 
@@ -941,7 +941,7 @@ function wait_until_severely_damaged()
 		{
 			self cleanup_debug_print("Damage Test: Still healthy and working treads");
 		}
-		self waittill(#"damage");
+		self waittill("damage");
 		health_percentage = self.health / self.initial_state.health;
 		if(isdefined(level.k_severe_damage_health_percentage) && health_percentage < level.k_severe_damage_health_percentage)
 		{
@@ -1091,8 +1091,8 @@ function cleanup(test_name, cleanup_dvar_name, cleanup_func)
 */
 function vehicle_wait_tread_damage()
 {
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("death");
+	self endon("delete");
 	vehicle_name = get_vehicle_name(self);
 	while(true)
 	{
@@ -1158,9 +1158,9 @@ function wait_for_vehicle_to_stop_outside_min_radius()
 */
 function vehicle_abandoned_by_occupants_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	while(true)
 	{
 		self waittill(#"exit_vehicle");
@@ -1198,9 +1198,9 @@ function play_start_stop_sound(sound_alias, modulation)
 */
 function vehicle_ghost_entering_occupants_t()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	if(isdefined(self.vehicleclass) && "artillery" == self.vehicleclass)
 	{
 		return;
@@ -1288,11 +1288,11 @@ function player_is_driver()
 */
 function player_change_seat_handler_t(vehicle)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"exit_vehicle");
 	while(true)
 	{
-		self waittill(#"change_seat", vehicle, oldseat, newseat);
+		self waittill("change_seat", vehicle, oldseat, newseat);
 		isdriver = newseat == 0;
 		if(isdriver)
 		{
@@ -1319,7 +1319,7 @@ function player_change_seat_handler_t(vehicle)
 */
 function player_leave_vehicle_cleanup_t(vehicle)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"exit_vehicle");
 	currentweapon = self getcurrentweapon();
 	if(isdefined(self.lastweapon) && self.lastweapon != currentweapon && self.lastweapon != level.weaponnone)
@@ -1414,9 +1414,9 @@ function vehicle_recycle()
 */
 function wait_for_vehicle_overturn()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	worldup = anglestoup(vectorscale((0, 1, 0), 90));
 	overturned = 0;
 	while(!overturned)
@@ -1448,12 +1448,12 @@ function wait_for_vehicle_overturn()
 */
 function vehicle_overturn_eject_occupants()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	for(;;)
 	{
-		self waittill(#"veh_ejectoccupants");
+		self waittill("veh_ejectoccupants");
 		if(isdefined(level.onejectoccupants))
 		{
 			[[level.onejectoccupants]]();
@@ -1497,9 +1497,9 @@ function vehicle_eject_all_occupants()
 */
 function vehicle_overturn_suicide()
 {
-	self endon(#"transmute");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("transmute");
+	self endon("death");
+	self endon("delete");
 	self wait_for_vehicle_overturn();
 	seconds = randomfloatrange(5, 7);
 	wait(seconds);
@@ -1588,7 +1588,7 @@ function vehicle_transmute(attacker)
 			self radiusdamage(deathorigin, explosionradius, explosionmaxdamage, explosionmindamage, attacker, "MOD_EXPLOSIVE", getweapon(self.vehicletype + "_explosion"));
 		}
 	}
-	self notify(#"transmute");
+	self notify("transmute");
 	respawn_vehicle_now = 1;
 	if(vehiclewasdestroyed && getdvarint("scr_veh_ondeath_createhusk") != 0)
 	{
@@ -1672,7 +1672,7 @@ function respawn_vehicle(respawn_parameters)
 */
 function remove_vehicle_from_world()
 {
-	self notify(#"removed");
+	self notify("removed");
 	if(isdefined(self.original_vehicle))
 	{
 		if(!isdefined(self.permanentlyremoved))
@@ -1717,7 +1717,7 @@ function hide_vehicle()
 	self.origin = under_the_world;
 	wait(0.1);
 	self hide();
-	self notify(#"hidden_permanently");
+	self notify("hidden_permanently");
 }
 
 /*
@@ -1868,8 +1868,8 @@ function player_vehicle_position_will_telefrag(position)
 */
 function vehicle_recycle_spawner_t()
 {
-	self endon(#"delete");
-	self waittill(#"death", attacker);
+	self endon("delete");
+	self waittill("death", attacker);
 	if(isdefined(self))
 	{
 		self vehicle_transmute(attacker);
@@ -1901,11 +1901,11 @@ function vehicle_play_explosion_sound()
 */
 function vehicle_damage_t()
 {
-	self endon(#"delete");
-	self endon(#"removed");
+	self endon("delete");
+	self endon("removed");
 	for(;;)
 	{
-		self waittill(#"damage", damage, attacker);
+		self waittill("damage", damage, attacker);
 		players = getplayers();
 		for(i = 0; i < players.size; i++)
 		{
@@ -2050,9 +2050,9 @@ function _init_husk(vehicle_name, respawn_parameters)
 */
 function husk_cleanup_t()
 {
-	self endon(#"death");
-	self endon(#"delete");
-	self endon(#"hidden_permanently");
+	self endon("death");
+	self endon("delete");
+	self endon("hidden_permanently");
 	respawn_parameters = self.respawn_parameters;
 	self do_dead_cleanup_wait("Husk Cleanup Test");
 	self wait_for_unnoticeable_cleanup_opportunity();
@@ -2139,7 +2139,7 @@ function _play_sound_in_space(soundeffectname, origin)
 	org = spawn("script_origin", origin);
 	org.origin = origin;
 	org playsoundwithnotify(soundeffectname, "sounddone");
-	org waittill(#"sounddone");
+	org waittill("sounddone");
 	org delete();
 }
 
@@ -2154,7 +2154,7 @@ function _play_sound_in_space(soundeffectname, origin)
 */
 function vehicle_kill_disconnect_paths_forever()
 {
-	self notify(#"kill_disconnect_paths_forever");
+	self notify("kill_disconnect_paths_forever");
 }
 
 /*
@@ -2181,11 +2181,11 @@ function vehicle_disconnect_paths()
 */
 function follow_path(node)
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(isdefined(node), "");
 	#/
-	self notify(#"newpath");
+	self notify("newpath");
 	if(isdefined(node))
 	{
 		self.attachedpath = node;
@@ -2198,17 +2198,17 @@ function follow_path(node)
 	}
 	self attachpath(pathstart);
 	self startpath();
-	self endon(#"newpath");
+	self endon("newpath");
 	nextpoint = pathstart;
 	while(isdefined(nextpoint))
 	{
-		self waittill(#"reached_node", nextpoint);
+		self waittill("reached_node", nextpoint);
 		self.currentnode = nextpoint;
-		nextpoint notify(#"trigger", self);
+		nextpoint notify("trigger", self);
 		if(isdefined(nextpoint.script_noteworthy))
 		{
 			self notify(nextpoint.script_noteworthy);
-			self notify(#"noteworthy", nextpoint.script_noteworthy, nextpoint);
+			self notify("noteworthy", nextpoint.script_noteworthy, nextpoint);
 		}
 		waittillframeend();
 	}
@@ -2284,7 +2284,7 @@ function vehiclemainthread()
 */
 function vehiclespawnthread(veh_spawner_id, veh_name, origin, angles, time_interval)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	veh_spawner = getent(veh_name + "_spawner", "targetname");
 	kill_trigger = spawn("trigger_radius", origin, 0, 60, 180);
 	/#
@@ -2311,7 +2311,7 @@ function vehiclespawnthread(veh_spawner_id, veh_name, origin, angles, time_inter
 		/#
 			level thread function_4b28749d(vehicle);
 		#/
-		vehicle waittill(#"death");
+		vehicle waittill("death");
 		vehicle vehicle_death::deletewhensafe(0.25);
 		if(isdefined(level.vehicle_destroyed))
 		{
@@ -2481,7 +2481,7 @@ function function_87e9a4ad(veh_name, origin, angles)
 function function_4b28749d(vehicle)
 {
 	/#
-		vehicle endon(#"death");
+		vehicle endon("death");
 		setdvar("", 0);
 		while(true)
 		{
@@ -2506,7 +2506,7 @@ function function_4b28749d(vehicle)
 function vehicleteamthread()
 {
 	vehicle = self;
-	vehicle endon(#"death");
+	vehicle endon("death");
 	vehicle makevehicleusable();
 	if(target_istarget(vehicle))
 	{
@@ -2565,11 +2565,11 @@ function vehicleteamthread()
 */
 function watchplayerexitrequestthread(player)
 {
-	level endon(#"game_ended");
-	player endon(#"death");
-	player endon(#"disconnect");
+	level endon("game_ended");
+	player endon("death");
+	player endon("disconnect");
 	vehicle = self;
-	vehicle endon(#"death");
+	vehicle endon("death");
 	wait(1.5);
 	while(true)
 	{

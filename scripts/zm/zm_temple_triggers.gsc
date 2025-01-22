@@ -67,7 +67,7 @@ function trigger_code()
 	self.players = [];
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(is_in_array(self.players, who))
 		{
 			continue;
@@ -99,7 +99,7 @@ function watch_for_code_touching_trigger(code, trigger)
 	self thread watch_for_code(code);
 	self thread touching_trigger(trigger);
 	returnnotify = self util::waittill_any_return("code_correct", "stopped_touching_trigger", "death");
-	self notify(#"code_trigger_end");
+	self notify("code_trigger_end");
 	if(returnnotify == "code_correct")
 	{
 		trigger code_trigger_activated(self);
@@ -234,12 +234,12 @@ function code_trigger_activated(who)
 */
 function touching_trigger(trigger)
 {
-	self endon(#"code_trigger_end");
+	self endon("code_trigger_end");
 	while(self istouching(trigger))
 	{
 		wait(0.1);
 	}
-	self notify(#"stopped_touching_trigger");
+	self notify("stopped_touching_trigger");
 }
 
 /*
@@ -253,7 +253,7 @@ function touching_trigger(trigger)
 */
 function watch_for_code(code)
 {
-	self endon(#"code_trigger_end");
+	self endon("code_trigger_end");
 	codes = strtok(code, " ");
 	while(true)
 	{
@@ -270,7 +270,7 @@ function watch_for_code(code)
 			}
 			if(i == (codes.size - 1))
 			{
-				self notify(#"code_correct");
+				self notify("code_correct");
 				return;
 			}
 		}
@@ -363,7 +363,7 @@ function trigger_slow_touched_wait()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		player notify(#"enter_slowtrigger");
 		self trigger::function_d1278be0(player, &trigger_slow_ent, &trigger_unslow_ent);
 		wait(0.1);
@@ -538,7 +538,7 @@ function water_drop_trigger_think()
 	}
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			self trigger::function_d1278be0(who, &water_drop_trig_entered, &water_drop_trig_exit);
@@ -565,10 +565,10 @@ function water_drop_trig_entered(player, endon_string)
 	{
 		player endon(endon_string);
 	}
-	player notify(#"water_drop_trig_enter");
-	player endon(#"death");
-	player endon(#"disconnect");
-	player endon(#"spawned_spectator");
+	player notify("water_drop_trig_enter");
+	player endon("death");
+	player endon("disconnect");
+	player endon("spawned_spectator");
 	if(player.sessionstate == "spectator")
 	{
 		return;
@@ -614,11 +614,11 @@ function water_drop_trig_entered(player, endon_string)
 */
 function function_4dedd2e(player)
 {
-	player notify(#"water_drop_trig_enter");
-	player endon(#"death");
-	player endon(#"disconnect");
-	player endon(#"spawned_spectator");
-	player endon(#"irt");
+	player notify("water_drop_trig_enter");
+	player endon("death");
+	player endon("disconnect");
+	player endon("spawned_spectator");
+	player endon("irt");
 	player clientfield::set_to_player("floorrumble", 1);
 	player thread intermission_rumble_clean_up();
 	visionset_mgr::activate("overlay", "zm_waterfall_postfx", player);
@@ -643,7 +643,7 @@ function water_drop_trig_exit(player)
 	{
 		if(self.watersheeting)
 		{
-			player notify(#"irt");
+			player notify("irt");
 			player clientfield::set_to_player("floorrumble", 0);
 			player setwaterdrops(player player_get_num_water_drops());
 			visionset_mgr::deactivate("overlay", "zm_waterfall_postfx", player);
@@ -671,9 +671,9 @@ function water_drop_trig_exit(player)
 */
 function water_drop_remove(delay)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"water_drop_trig_enter");
+	self endon("death");
+	self endon("disconnect");
+	self endon("water_drop_trig_enter");
 	wait(delay);
 	self setwaterdrops(0);
 }
@@ -784,8 +784,8 @@ function structs_code()
 function code_entry(player)
 {
 	self endon(#"end_code_struct");
-	player endon(#"death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("disconnect");
 	while(true)
 	{
 		for(i = 0; i < self.codes.size; i++)
@@ -875,8 +875,8 @@ function is_player_in_radius(player)
 */
 function intermission_rumble_clean_up()
 {
-	self endon(#"irt");
-	level waittill(#"intermission");
+	self endon("irt");
+	level waittill("intermission");
 	self clientfield::set_to_player("floorrumble", 0);
 }
 

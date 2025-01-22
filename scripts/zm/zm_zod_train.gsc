@@ -335,7 +335,7 @@ class czmtrain
 	*/
 	function jump_into_train(ai, str_tag)
 	{
-		self endon(#"death");
+		self endon("death");
 		s_tag = m_a_jumptags[str_tag];
 		s_tag.occupied = 1;
 		v_tag_pos = m_vh_train gettagorigin(str_tag);
@@ -422,7 +422,7 @@ class czmtrain
 	{
 		ai_zombie.locked_in_train = 0;
 		arrayremovevalue(m_a_zombies_locked_in, ai_zombie);
-		ai_zombie notify(#"released_from_train");
+		ai_zombie notify("released_from_train");
 	}
 
 	/*
@@ -500,8 +500,8 @@ class czmtrain
 	*/
 	function watch_zombie_fall_off(ai)
 	{
-		ai endon(#"death");
-		ai endon(#"released_from_train");
+		ai endon("death");
+		ai endon("released_from_train");
 		zm_net::network_safe_init("train_fall_check", 1);
 		while(self zm_net::network_choke_action("train_fall_check", &is_touching_train, ai))
 		{
@@ -628,7 +628,7 @@ class czmtrain
 			flag::wait_till("switches_enabled");
 		}
 		m_t_switch.player_used = 0;
-		m_t_switch waittill(#"trigger");
+		m_t_switch waittill("trigger");
 		m_t_switch.player_used = 1;
 	}
 
@@ -690,7 +690,7 @@ class czmtrain
 		if(isdefined(m_s_trigger))
 		{
 			m_b_free = 1;
-			m_s_trigger notify(#"trigger");
+			m_s_trigger notify("trigger");
 		}
 	}
 
@@ -806,7 +806,7 @@ class czmtrain
 			e_door.e_clip unlink();
 			e_door.e_clip moveto(e_door.e_clip.var_b620e1b1.origin, 0.3);
 		}
-		m_a_mdl_doors[0] waittill(#"movedone");
+		m_a_mdl_doors[0] waittill("movedone");
 		util::wait_network_frame();
 		foreach(e_door in m_a_mdl_doors)
 		{
@@ -838,7 +838,7 @@ class czmtrain
 			e_door.e_clip unlink();
 			e_door.e_clip moveto(e_door.e_clip.var_b620e1b1.origin, 0.3);
 		}
-		m_a_mdl_doors[0] waittill(#"movedone");
+		m_a_mdl_doors[0] waittill("movedone");
 		util::wait_network_frame();
 		foreach(e_door in m_a_mdl_doors)
 		{
@@ -913,7 +913,7 @@ class czmtrain
 		}
 		if(a_doors_moved.size > 0)
 		{
-			a_doors_moved[0] waittill(#"movedone");
+			a_doors_moved[0] waittill("movedone");
 			util::wait_network_frame();
 		}
 		util::wait_network_frame();
@@ -1049,7 +1049,7 @@ class czmtrain
 			{
 				e_gate moveto(v_open, 1);
 				b_open = 1;
-				e_gate waittill(#"movedone");
+				e_gate waittill("movedone");
 				foreach(nd in a_jump_nodes)
 				{
 					b_fwd_node = nd.script_string === "forward";
@@ -1084,7 +1084,7 @@ class czmtrain
 		thread run_callbox_hintstring(str_callbox, t_use, getent(e_lever.target, "targetname"));
 		while(true)
 		{
-			t_use waittill(#"trigger", e_who);
+			t_use waittill("trigger", e_who);
 			if(!e_who zm_score::can_player_purchase(500))
 			{
 				e_who zm_audio::create_and_play_dialog("general", "transport_deny");
@@ -1096,10 +1096,10 @@ class czmtrain
 				if(str_callbox != m_str_destination)
 				{
 					level flag::set("callbox");
-					m_t_switch notify(#"trigger");
+					m_t_switch notify("trigger");
 					level waittill(#"hash_8939bd21");
 				}
-				m_s_trigger notify(#"trigger", e_who);
+				m_s_trigger notify("trigger", e_who);
 				util::wait_network_frame();
 				m_b_free = 1;
 				e_lever rotatepitch(180, 0.5);
@@ -1308,7 +1308,7 @@ class czmtrain
 			while(true)
 			{
 				m_vh_train clientfield::set("train_switch_light", 1);
-				m_s_trigger waittill(#"trigger", e_who);
+				m_s_trigger waittill("trigger", e_who);
 				m_vh_train clientfield::set("train_switch_light", 0);
 				if(m_b_free)
 				{
@@ -1716,7 +1716,7 @@ class czmtrain
 				var_e19f73fe[var_e19f73fe.size] = e_player;
 			}
 		}
-		m_vh_train waittill(#"docked_in_station");
+		m_vh_train waittill("docked_in_station");
 		var_1a8b64d3 = m_vh_train getcentroid();
 		var_10b9b744 = 0;
 		foreach(e_player in var_e19f73fe)
@@ -1868,11 +1868,11 @@ class czmtrain
 		m_b_incoming = 1;
 		var_97fef807 = str_chosen_path;
 		level flag::set(m_a_s_stations[str_chosen_path].str_zone_flag);
-		m_vh_train waittill(#"reached_end_node");
+		m_vh_train waittill("reached_end_node");
 		m_b_facing_forward = !m_b_facing_forward;
 		m_str_station = str_chosen_path;
 		m_str_destination = get_current_destination();
-		m_vh_train notify(#"docked_in_station", m_str_station);
+		m_vh_train notify("docked_in_station", m_str_station);
 		sndnum = m_a_s_stations[m_str_station].audio_arrive;
 		level clientfield::set("sndTrainVox", sndnum);
 		m_vh_train playsoundontag(level.var_98f27ad[sndnum - 1], "tag_support_arm_01");
@@ -1908,10 +1908,10 @@ class czmtrain
 	*/
 	function watch_node_parameters()
 	{
-		m_vh_train endon(#"docked_in_station");
+		m_vh_train endon("docked_in_station");
 		while(true)
 		{
-			m_vh_train waittill(#"reached_node", nd);
+			m_vh_train waittill("reached_node", nd);
 			if(isdefined(nd.script_parameters))
 			{
 				switch(nd.script_parameters)
@@ -2257,7 +2257,7 @@ function function_eb0db7bc()
 	level flag::wait_till("zones_initialized");
 	while(true)
 	{
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_end");
 		[[ level.o_zod_train ]]->initialize_stations();
 		[[ level.o_zod_train ]]->function_7eb2583b();
 		[[ level.o_zod_train ]]->function_dda9a9d2();
@@ -2401,14 +2401,14 @@ function player_on_spawned()
 */
 function function_69c89e00()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_69c89e00");
 	self endon(#"hash_69c89e00");
 	level flag::wait_till("all_players_spawned");
 	level flag::wait_till("zones_initialized");
 	wait(1);
 	wallbuy = level.o_zod_train.m_vh_train.buyable_weapon;
-	self notify(#"zm_bgb_secret_shopper", wallbuy);
+	self notify("zm_bgb_secret_shopper", wallbuy);
 	self.var_316060b3 = 0;
 	while(isdefined(self))
 	{
@@ -2416,7 +2416,7 @@ function function_69c89e00()
 		{
 			if(!self.var_316060b3)
 			{
-				self notify(#"zm_bgb_secret_shopper", wallbuy);
+				self notify("zm_bgb_secret_shopper", wallbuy);
 			}
 			wallbuy function_2e9b7fc1(self, wallbuy.weapon);
 		}
@@ -2546,7 +2546,7 @@ function function_d7993b3d(trigger)
 {
 	self.var_5823efe0 = self.model;
 	self setmodel("wpn_t7_none_world");
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	self setmodel(self.var_5823efe0);
 }
 

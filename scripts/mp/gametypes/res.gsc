@@ -567,7 +567,7 @@ function createtimerdisplay()
 */
 function hidetimerdisplayongameend(timerdisplay)
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	timerdisplay.alpha = 0;
 }
 
@@ -595,7 +595,7 @@ function showflag(flagindex)
 		hud_hideflagprogressbar();
 		if(level.prematchperiod > 0 && level.inprematchperiod == 1)
 		{
-			level waittill(#"prematch_over");
+			level waittill("prematch_over");
 		}
 		nextobjpoint = objpoints::create("objpoint_next_hq", resflag.curorigin + level.iconoffset, "all", "waypoint_targetneutral");
 		nextobjpoint setwaypoint(1, "waypoint_targetneutral");

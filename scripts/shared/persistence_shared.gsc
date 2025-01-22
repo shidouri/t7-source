@@ -129,7 +129,7 @@ function initialize_stat_tracking()
 */
 function upload_global_stat_counters()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	if(!level.rankedmatch && !level.wagermatch)
 	{
 		return;
@@ -699,7 +699,7 @@ function codecallback_gunchallengecomplete(rewardxp, attachmentindex, itemindex,
 {
 	if(sessionmodeiscampaigngame())
 	{
-		self notify(#"gun_level_complete", rewardxp, attachmentindex, itemindex, rankid, islastrank);
+		self notify("gun_level_complete", rewardxp, attachmentindex, itemindex, rankid, islastrank);
 		return;
 	}
 	self luinotifyevent(&"gun_level_complete", 4, rankid, itemindex, attachmentindex, rewardxp);
@@ -756,9 +756,9 @@ function add_contract_to_queue(index, passed)
 */
 function upload_stats_soon()
 {
-	self notify(#"upload_stats_soon");
-	self endon(#"upload_stats_soon");
-	self endon(#"disconnect");
+	self notify("upload_stats_soon");
+	self endon("upload_stats_soon");
+	self endon("disconnect");
 	wait(1);
 	uploadstats(self);
 }

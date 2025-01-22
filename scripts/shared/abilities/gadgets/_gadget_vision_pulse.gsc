@@ -180,10 +180,10 @@ function gadget_vision_pulse_ramp_hold_func()
 */
 function gadget_vision_pulse_watch_death()
 {
-	self notify(#"vision_pulse_watch_death");
-	self endon(#"vision_pulse_watch_death");
-	self endon(#"disconnect");
-	self waittill(#"death");
+	self notify("vision_pulse_watch_death");
+	self endon("vision_pulse_watch_death");
+	self endon("disconnect");
+	self waittill("death");
 	visionset_mgr::deactivate("visionset", "vision_pulse", self);
 	if(isdefined(self._pulse_ent))
 	{
@@ -202,9 +202,9 @@ function gadget_vision_pulse_watch_death()
 */
 function gadget_vision_pulse_watch_emp()
 {
-	self notify(#"vision_pulse_watch_emp");
-	self endon(#"vision_pulse_watch_emp");
-	self endon(#"disconnect");
+	self notify("vision_pulse_watch_emp");
+	self endon("vision_pulse_watch_emp");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self isempjammed())
@@ -270,8 +270,8 @@ function gadget_vision_pulse_off(slot, weapon)
 */
 function gadget_vision_pulse_start(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"emp_vp_jammed");
 	wait(0.1);
 	if(isdefined(self._pulse_ent))
@@ -314,7 +314,7 @@ function gadget_vision_pulse_start(slot, weapon)
 	else
 	{
 		self playsoundtoplayer("gdt_vision_pulse_no_hits", self);
-		self notify(#"ramp_out_visionset");
+		self notify("ramp_out_visionset");
 	}
 	self set_gadget_vision_pulse_status("Done");
 	self._pulse_ent delete();
@@ -354,7 +354,7 @@ function wait_until_is_done(slot, timepulse)
 */
 function gadget_vision_pulse_flicker(slot, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	time = gettime();
 	if(!self gadget_vision_pulse_is_inuse(slot))
 	{

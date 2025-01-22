@@ -164,9 +164,9 @@ function elem_storm_whirlwind_rumble(localclientnum, oldval, newval, bnewent, bi
 */
 function function_4d18057(localclientnum)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"hash_171d986a");
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		self playrumbleonentity(localclientnum, "zod_idgun_vortex_interior");

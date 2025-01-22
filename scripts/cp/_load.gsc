@@ -180,7 +180,7 @@ function function_c32ba481(var_87423d00 = 0.5, v_color = (0, 0, 0))
 	}
 	level flag::wait_till("all_players_spawned");
 	level util::streamer_wait(undefined, 0, 10);
-	level notify(#"level_is_go");
+	level notify("level_is_go");
 	level thread function_dbd0026c(var_87423d00, v_color);
 }
 
@@ -214,7 +214,7 @@ function function_84454eb5()
 	{
 		return;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(self flag::exists("loadout_given") && self flag::get("loadout_given"))
 	{
 		self openmenu("SpinnerFullscreenBlack");
@@ -269,7 +269,7 @@ function function_f063419c()
 		{
 			wait(0.05);
 		}
-		level notify(#"loading_movie_done");
+		level notify("loading_movie_done");
 	}
 }
 
@@ -350,13 +350,13 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 	non_solo_death = players.size > 1 && count == players.size;
 	if(solo_death || non_solo_death)
 	{
-		level notify(#"stop_suicide_trigger");
+		level notify("stop_suicide_trigger");
 		self thread laststand::playerlaststand(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime);
 		if(!isdefined(vdir))
 		{
 			vdir = (1, 0, 0);
 		}
-		level notify(#"last_player_died");
+		level notify("last_player_died");
 		self fakedamagefrom(vdir);
 		self thread player_fake_death();
 	}
@@ -367,7 +367,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 			if(self.lives == 0)
 			{
 				self.lives = 0;
-				level notify(#"pre_end_game");
+				level notify("pre_end_game");
 				util::wait_network_frame();
 				level notify(#"end_game");
 			}
@@ -378,7 +378,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 		}
 		else
 		{
-			level notify(#"pre_end_game");
+			level notify("pre_end_game");
 			util::wait_network_frame();
 			level notify(#"end_game");
 		}
@@ -398,8 +398,8 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 */
 function player_fake_death()
 {
-	level notify(#"fake_death");
-	self notify(#"fake_death");
+	level notify("fake_death");
+	self notify("fake_death");
 	self takeallweapons();
 	self allowstand(0);
 	self allowcrouch(0);
@@ -630,7 +630,7 @@ function end_game()
 	{
 		icon destroy();
 	}
-	level notify(#"round_end_done");
+	level notify("round_end_done");
 	if(isdefined(level.intermission_override_func))
 	{
 		[[level.intermission_override_func]]();
@@ -640,7 +640,7 @@ function end_game()
 	{
 		intermission();
 		wait(15);
-		level notify(#"stop_intermission");
+		level notify("stop_intermission");
 	}
 	array::thread_all(getplayers(), &player_exit_level);
 	wait(1.5);
@@ -665,7 +665,7 @@ function end_game()
 function intermission()
 {
 	level.intermission = 1;
-	level notify(#"intermission");
+	level notify("intermission");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
@@ -696,9 +696,9 @@ function intermission()
 function player_intermission()
 {
 	self closeingamemenu();
-	level endon(#"stop_intermission");
-	self endon(#"disconnect");
-	self endon(#"death");
+	level endon("stop_intermission");
+	self endon("disconnect");
+	self endon("death");
 	self notify(#"_zombie_game_over");
 	self.sessionstate = "intermission";
 	self.spectatorclient = -1;

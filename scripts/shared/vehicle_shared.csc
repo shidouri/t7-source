@@ -200,7 +200,7 @@ function rumble(localclientnum)
 */
 function kill_treads_forever()
 {
-	self notify(#"kill_treads_forever");
+	self notify("kill_treads_forever");
 }
 
 /*
@@ -260,7 +260,7 @@ function play_exhaust(localclientnum)
 */
 function kill_exhaust_watcher(localclientnum)
 {
-	self waittill(#"stop_exhaust_fx");
+	self waittill("stop_exhaust_fx");
 	if(isdefined(self.exhaust_id_left))
 	{
 		stopfx(localclientnum, self.exhaust_id_left);
@@ -284,7 +284,7 @@ function kill_exhaust_watcher(localclientnum)
 */
 function stop_exhaust(localclientnum)
 {
-	self notify(#"stop_exhaust_fx");
+	self notify("stop_exhaust_fx");
 }
 
 /*
@@ -299,7 +299,7 @@ function stop_exhaust(localclientnum)
 function aircraft_dustkick()
 {
 	waittillframeend();
-	self endon(#"kill_treads_forever");
+	self endon("kill_treads_forever");
 	self endon(#"entityshutdown");
 	if(!isdefined(self))
 	{
@@ -381,7 +381,7 @@ function weapon_fired()
 	self endon(#"entityshutdown");
 	while(true)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		players = level.localplayers;
 		for(i = 0; i < players.size; i++)
 		{
@@ -981,12 +981,12 @@ function field_toggle_sounds(localclientnum, oldval, newval, bnewent, binitialsn
 	{
 		if(newval)
 		{
-			self notify(#"stop_heli_sounds");
+			self notify("stop_heli_sounds");
 			self.should_not_play_sounds = 1;
 		}
 		else
 		{
-			self notify(#"play_heli_sounds");
+			self notify("play_heli_sounds");
 			self.should_not_play_sounds = 0;
 		}
 	}
@@ -1886,7 +1886,7 @@ function damage_filter_enable(localclientnum, materialid)
 */
 function damage_filter_disable(localclientnum)
 {
-	level notify(#"damage_filter_off");
+	level notify("damage_filter_off");
 	level.localplayers[0].damage_filter_intensity = 0;
 	filter::set_filter_vehicle_damage_amount(level.localplayers[0], 3, level.localplayers[0].damage_filter_intensity);
 	filter::disable_filter_vehicle_damage(level.localplayers[0], 3);
@@ -1903,9 +1903,9 @@ function damage_filter_disable(localclientnum)
 */
 function damage_filter_off(localclientnum)
 {
-	level endon(#"damage_filter");
-	level endon(#"damage_filter_off");
-	level endon(#"damage_filter_heavy");
+	level endon("damage_filter");
+	level endon("damage_filter_off");
+	level endon("damage_filter_heavy");
 	if(!isdefined(level.localplayers[0].damage_filter_intensity))
 	{
 		return;
@@ -1933,9 +1933,9 @@ function damage_filter_off(localclientnum)
 */
 function damage_filter_light(localclientnum)
 {
-	level endon(#"damage_filter_off");
-	level endon(#"damage_filter_heavy");
-	level notify(#"damage_filter");
+	level endon("damage_filter_off");
+	level endon("damage_filter_heavy");
+	level notify("damage_filter");
 	while(level.localplayers[0].damage_filter_intensity < 0.5)
 	{
 		level.localplayers[0].damage_filter_intensity = level.localplayers[0].damage_filter_intensity + 0.083335;
@@ -1959,8 +1959,8 @@ function damage_filter_light(localclientnum)
 */
 function damage_filter_heavy(localclientnum)
 {
-	level endon(#"damage_filter_off");
-	level notify(#"damage_filter_heavy");
+	level endon("damage_filter_off");
+	level notify("damage_filter_heavy");
 	while(level.localplayers[0].damage_filter_intensity < 1)
 	{
 		level.localplayers[0].damage_filter_intensity = level.localplayers[0].damage_filter_intensity + 0.083335;

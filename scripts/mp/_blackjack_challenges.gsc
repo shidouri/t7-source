@@ -558,10 +558,10 @@ function challenge_round_ended(data)
 */
 function track_blackjack_consumable()
 {
-	level endon(#"game_ended");
-	self notify(#"track_blackjack_consumable_singleton");
-	self endon(#"track_blackjack_consumable_singleton");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self notify("track_blackjack_consumable_singleton");
+	self endon("track_blackjack_consumable_singleton");
+	self endon("disconnect");
 	player = self;
 	if(!isdefined(player.last_blackjack_consumable_time))
 	{

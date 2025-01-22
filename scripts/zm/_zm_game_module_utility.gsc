@@ -23,7 +23,7 @@ function move_ring(ring)
 		foreach(position in positions)
 		{
 			self moveto(position.origin, randomintrange(30, 45));
-			self waittill(#"movedone");
+			self waittill("movedone");
 		}
 	}
 }

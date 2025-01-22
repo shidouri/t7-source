@@ -385,7 +385,7 @@ function function_6e0bf068()
 */
 function function_674d724c(class_num_for_global_weapons, var_f4132a83, var_f69e782a = 1)
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	if(!isdefined(self.cybercoreselectmenudisabled) || self.cybercoreselectmenudisabled != 1)
 	{
 		for(cybercore_type = 0; cybercore_type <= 2; cybercore_type++)
@@ -504,8 +504,8 @@ function function_4b8ac464(class_num, class_num_for_global_weapons, var_f4132a83
 */
 function weaponlockwatcher(slot, weapon, maxlocks)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self cybercom_initentityfields();
 	if(!isdefined(self.cybercom.lock_targets))
 	{
@@ -531,10 +531,10 @@ function weaponlockwatcher(slot, weapon, maxlocks)
 */
 function function_348de0be(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"weaponendlockwatcher");
-	self endon(#"ccom_stop_lock_on");
+	self endon("disconnect");
+	self endon("death");
+	self endon("weaponendlockwatcher");
+	self endon("ccom_stop_lock_on");
 	self notify(#"hash_348de0be");
 	self endon(#"hash_348de0be");
 	if(!isdefined(self.cybercom.var_46483c8f))
@@ -582,7 +582,7 @@ function function_348de0be(slot, weapon)
 */
 function function_86113d72(note)
 {
-	self endon(#"ccom_stop_lock_on");
+	self endon("ccom_stop_lock_on");
 	self endon(#"hash_3b3a12de");
 	self waittill(note);
 	self notify(#"hash_3b3a12de", note);
@@ -601,10 +601,10 @@ function function_d4f9f451(slot, weapon)
 {
 	self notify(#"hash_d4f9f451");
 	self endon(#"hash_d4f9f451");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"weaponendlockwatcher");
-	self endon(#"ccom_stop_lock_on");
+	self endon("disconnect");
+	self endon("death");
+	self endon("weaponendlockwatcher");
+	self endon("ccom_stop_lock_on");
 	while(true)
 	{
 		for(i = 0; i < self.cybercom.lock_targets.size; i++)
@@ -647,7 +647,7 @@ function weaponendlockwatcher(weapon)
 	waittillframeend();
 	weapon_lock_clearslots(1);
 	self function_f5799ee1();
-	self notify(#"ccom_stop_lock_on");
+	self notify("ccom_stop_lock_on");
 }
 
 /*
@@ -661,10 +661,10 @@ function weaponendlockwatcher(weapon)
 */
 function function_f5c296aa(weapon)
 {
-	self notify(#"weaponendlockwatcher");
-	self endon(#"weaponendlockwatcher");
-	self endon(#"ccom_stop_lock_on");
-	self waittill(#"gadget_forced_off", slot, var_188a4cc0);
+	self notify("weaponendlockwatcher");
+	self endon("weaponendlockwatcher");
+	self endon("ccom_stop_lock_on");
+	self waittill("gadget_forced_off", slot, var_188a4cc0);
 	if(weapon == var_188a4cc0)
 	{
 		self weaponendlockwatcher(weapon);
@@ -686,16 +686,16 @@ function function_f5c296aa(weapon)
 */
 function private _lock_fired_watcher(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"ccom_stop_lock_on");
+	self endon("disconnect");
+	self endon("death");
+	self endon("ccom_stop_lock_on");
 	event = self util::waittill_any_return(weapon.name + "_fired");
-	level notify(#"ccom_lock_fired", self, weapon);
+	level notify("ccom_lock_fired", self, weapon);
 	foreach(item in self.cybercom.lock_targets)
 	{
 		if(isdefined(item.target))
 		{
-			item.target notify(#"ccom_lock_fired", self, weapon);
+			item.target notify("ccom_lock_fired", self, weapon);
 			if(isdefined(item.target.lockon_owner) && item.target.lockon_owner == self)
 			{
 				item.target.lockon_owner = undefined;
@@ -1022,7 +1022,7 @@ function function_18d9de78(target)
 		target.var_9d876bed = undefined;
 		target.var_1e1a5e6f = undefined;
 		self notify(#"hash_9641f650");
-		self notify(#"ccom_lost_lock", target);
+		self notify("ccom_lost_lock", target);
 	}
 }
 
@@ -1068,7 +1068,7 @@ function weapon_lock_clearslot(slot, note, clearprogress)
 */
 function private _weapon_lock_targetwatchfordeath(player)
 {
-	self endon(#"ccom_lost_lock");
+	self endon("ccom_lost_lock");
 	self notify(#"_weapon_lock_targetwatchfordeath");
 	self endon(#"_weapon_lock_targetwatchfordeath");
 	slot = player weapon_lock_alreadylocked(self);
@@ -1155,13 +1155,13 @@ function weapon_lock_settargettoslot(slot, target, maxrange, weapon)
 			function_c5b2f654(self);
 			self weaponlocknoclearance(0, slot);
 			self weaponlockfinalize(newitem.target, newitem.lockslot);
-			newitem.target notify(#"ccom_locked_on", self);
-			level notify(#"ccom_locked_on", newitem.target, self);
+			newitem.target notify("ccom_locked_on", self);
+			level notify("ccom_locked_on", newitem.target, self);
 		}
 		else
 		{
-			newitem.target notify(#"ccom_lock_being_targeted", self);
-			level notify(#"ccom_lock_being_targeted", newitem.target, self);
+			newitem.target notify("ccom_lock_being_targeted", self);
+			level notify("ccom_lock_being_targeted", newitem.target, self);
 		}
 		newitem.target thread _weapon_lock_targetwatchfordeath(self);
 	}
@@ -1218,7 +1218,7 @@ function function_c5b2f654(hacker)
 */
 function function_9641f650(hacker)
 {
-	hacker endon(#"disconnect");
+	hacker endon("disconnect");
 	hacker notify(#"hash_9641f650");
 	hacker endon(#"hash_9641f650");
 	hacker util::waittill_any("death", "ccom_lockOnProgress_Cleared", "ccom_lost_lock", "ccom_locked_on");
@@ -1357,7 +1357,7 @@ function weapon_lock_clearslots(clearprogress = 0)
 */
 function function_b5f4e597(weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_b5f4e597");
 	self endon(#"hash_b5f4e597");
 	if(weapon.requirelockontofire)
@@ -1427,7 +1427,7 @@ function function_b5f4e597(weapon)
 */
 function function_5ad57748()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_5ad57748");
 	self endon(#"hash_5ad57748");
 	self endon(#"hash_1bf7ef5");
@@ -1483,8 +1483,8 @@ function function_f5799ee1()
 		}
 		if(!found)
 		{
-			target notify(#"ccom_lost_lock", self);
-			level notify(#"ccom_lost_lock", target, self);
+			target notify("ccom_lost_lock", self);
+			level notify("ccom_lost_lock", target, self);
 			self function_18d9de78(target);
 			continue;
 		}
@@ -1504,11 +1504,11 @@ function function_f5799ee1()
 */
 function function_17fea3ed(slot, weapon, maxtargets)
 {
-	self notify(#"ccom_stop_lock_on");
-	self endon(#"ccom_stop_lock_on");
-	self endon(#"weapon_change");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("ccom_stop_lock_on");
+	self endon("ccom_stop_lock_on");
+	self endon("weapon_change");
+	self endon("disconnect");
+	self endon("death");
 	radius = (isdefined(self.cybercom.var_23d4a73a) ? self.cybercom.var_23d4a73a : 130);
 	if(!isdefined(maxtargets))
 	{
@@ -1650,7 +1650,7 @@ function function_17fea3ed(slot, weapon, maxtargets)
 			self playrumbleonentity("damage_light");
 		}
 	}
-	self notify(#"ccom_stop_lock_on");
+	self notify("ccom_stop_lock_on");
 }
 
 /*
@@ -1665,7 +1665,7 @@ function function_17fea3ed(slot, weapon, maxtargets)
 function draworiginforever()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		for(;;)
 		{
 			debug_arrow(self.origin, self.angles);
@@ -1926,7 +1926,7 @@ function cybercom_initentityfields()
 function notifymeonmatchend(note, animname)
 {
 	self endon(note);
-	self endon(#"death");
+	self endon("death");
 	self waittillmatch(animname);
 	self notify(note, "end");
 }
@@ -2107,7 +2107,7 @@ function debug_sphere(origin, radius, color = (1, 0, 0), alpha = 0.1, timeframes
 function notifymeinnsec(note, seconds)
 {
 	self endon(note);
-	self endon(#"death");
+	self endon("death");
 	wait(seconds);
 	self notify(note);
 }
@@ -2124,7 +2124,7 @@ function notifymeinnsec(note, seconds)
 function notifymeonnote(note, waitnote)
 {
 	self endon(note);
-	self endon(#"death");
+	self endon("death");
 	self waittill(waitnote);
 	self notify(note);
 }
@@ -2140,7 +2140,7 @@ function notifymeonnote(note, waitnote)
 */
 function deleteentonnote(note, ent)
 {
-	ent endon(#"death");
+	ent endon("death");
 	self waittill(note);
 	if(isdefined(ent))
 	{
@@ -2254,7 +2254,7 @@ function function_76e3026d(entity)
 */
 function function_c3c6aff4(slot, weapon, var_ecc9d566, endnote)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(endnote);
 	self waittill(var_ecc9d566);
 	self gadgetdeactivate(slot, weapon);

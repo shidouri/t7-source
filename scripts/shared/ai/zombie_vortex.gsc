@@ -170,8 +170,8 @@ function private stop_vortex_fx_after_time(vortex_fx_handle, vortex_position, vo
 */
 function start_timed_vortex(v_vortex_origin, n_vortex_radius, vortex_pull_duration, vortex_effect_duration, n_vortex_explosion_radius, eattacker, weapon, should_shellshock_player = 0, visionset_func = undefined, should_shield = 0, effect_version = 0, should_explode = 1, vortex_projectile = undefined)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	/#
 		assert(isdefined(v_vortex_origin), "");
 	#/
@@ -465,8 +465,8 @@ function state_idgun_crush_enter(params)
 */
 function flyentdelete(enttowatch)
 {
-	self endon(#"death");
-	enttowatch waittill(#"death");
+	self endon("death");
+	enttowatch waittill("death");
 	self delete();
 }
 
@@ -481,7 +481,7 @@ function flyentdelete(enttowatch)
 */
 function state_idgun_crush_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	black_hole_center = params.vpoint;
 	attacker = params.attacker;
 	weapon = params.weapon;
@@ -543,7 +543,7 @@ function state_idgun_flying_crush_enter(params)
 */
 function state_idgun_flying_crush_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	black_hole_center = params.vpoint;
 	attacker = params.attacker;
 	weapon = params.weapon;
@@ -556,7 +556,7 @@ function state_idgun_flying_crush_update(params)
 	self asmrequestsubstate("idgun@movement");
 	self thread switch_to_crush_asm(black_hole_center);
 	self setvehgoalpos(black_hole_center, 0, 0);
-	self waittill(#"near_goal");
+	self waittill("near_goal");
 	self vehicle_ai::get_state_callbacks("death").update_func = &state_idgun_flying_death_update;
 	self.veh_idgun_allow_damage = 1;
 	self dodamage(self.health + 666, self.origin, attacker, undefined, "none", "MOD_UNKNOWN", 0, weapon);
@@ -573,7 +573,7 @@ function state_idgun_flying_crush_update(params)
 */
 function switch_to_crush_asm(black_hole_center)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(distancesquared(self.origin, black_hole_center) < 900)
@@ -596,7 +596,7 @@ function switch_to_crush_asm(black_hole_center)
 */
 function state_idgun_flying_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.parasiteenemy) && isdefined(self.parasiteenemy.hunted_by))
 	{
 		self.parasiteenemy.hunted_by--;

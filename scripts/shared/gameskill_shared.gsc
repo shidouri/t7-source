@@ -261,7 +261,7 @@ function playerhealthdebug()
 				}
 				wait(0.5);
 			}
-			level notify(#"stop_printing_grenade_timers");
+			level notify("stop_printing_grenade_timers");
 			destroyhealthdebug();
 		}
 	#/
@@ -278,8 +278,8 @@ function playerhealthdebug()
 */
 function printhealthdebug()
 {
-	level notify(#"stop_printing_health_bars");
-	level endon(#"stop_printing_health_bars");
+	level notify("stop_printing_health_bars");
+	level endon("stop_printing_health_bars");
 	y = 40;
 	level.healthbarhudelems = [];
 	level.healthbarkeys[0] = "Health";
@@ -382,7 +382,7 @@ function printhealthdebug()
 */
 function destroyhealthdebug()
 {
-	level notify(#"stop_printing_health_bars");
+	level notify("stop_printing_health_bars");
 	if(!isdefined(level.healthbarhudelems))
 	{
 		return;
@@ -406,8 +406,8 @@ function destroyhealthdebug()
 */
 function axisaccuracycontrol()
 {
-	self endon(#"long_death");
-	self endon(#"death");
+	self endon("long_death");
+	self endon("death");
 	if(isdefined(level.script) && level.script != "core_frontend")
 	{
 		self coop_axis_accuracy_scaler();
@@ -425,8 +425,8 @@ function axisaccuracycontrol()
 */
 function alliesaccuracycontrol()
 {
-	self endon(#"long_death");
-	self endon(#"death");
+	self endon("long_death");
+	self endon("death");
 	self coop_allies_accuracy_scaler();
 }
 
@@ -441,12 +441,12 @@ function alliesaccuracycontrol()
 */
 function playerhurtcheck()
 {
-	self endon(#"death");
-	self endon(#"killhurtcheck");
+	self endon("death");
+	self endon("killhurtcheck");
 	self.hurtagain = 0;
 	for(;;)
 	{
-		self waittill(#"damage", amount, attacker, dir, point, mod);
+		self waittill("damage", amount, attacker, dir, point, mod);
 		if(isdefined(attacker) && isplayer(attacker) && attacker.team == self.team)
 		{
 			continue;
@@ -472,7 +472,7 @@ function playerhurtcheck()
 			level.player_deathinvulnerabletimeout = gettime() + death_invuln_time;
 		}
 		oldratio = self.health / self.maxhealth;
-		level notify(#"hit_again");
+		level notify("hit_again");
 		health_add = 0;
 		hurttime = gettime();
 		if(!isdefined(level.disable_damage_blur))
@@ -488,7 +488,7 @@ function playerhurtcheck()
 			continue;
 		}
 		self flag::set("player_is_invulnerable");
-		level notify(#"player_becoming_invulnerable");
+		level notify("player_becoming_invulnerable");
 		if(death_invuln_time < get_player_hit_invuln_time())
 		{
 			invultime = get_player_hit_invuln_time();
@@ -512,9 +512,9 @@ function playerhurtcheck()
 */
 function playerhealthregen()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"removehealthregen");
+	self endon("death");
+	self endon("disconnect");
+	self endon("removehealthregen");
 	if(!isdefined(self.flag))
 	{
 		self.flag = [];
@@ -681,8 +681,8 @@ function debugtakecoverwarnings()
 */
 function playerinvul(timer)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.oldattackeraccuracy = self.attackeraccuracy;
 	if(timer > 0)
 	{
@@ -750,8 +750,8 @@ function grenadeawareness()
 */
 function playerheartbeatloop(healthcap)
 {
-	self endon(#"disconnect");
-	self endon(#"killed_player");
+	self endon("disconnect");
+	self endon("killed_player");
 	wait(2);
 	player = self;
 	ent = undefined;
@@ -799,8 +799,8 @@ function delayed_delete(ent, time)
 */
 function healthfadeoffwatcher(overlay, timetofadeout)
 {
-	self notify(#"new_style_health_overlay_done");
-	self endon(#"new_style_health_overlay_done");
+	self notify("new_style_health_overlay_done");
+	self endon("new_style_health_overlay_done");
 	while(!(isdefined(level.disable_damage_overlay) && level.disable_damage_overlay) && timetofadeout > 0)
 	{
 		wait(0.05);
@@ -837,8 +837,8 @@ function new_style_health_overlay()
 */
 function healthoverlay()
 {
-	self endon(#"disconnect");
-	self endon(#"nohealthoverlay");
+	self endon("disconnect");
+	self endon("nohealthoverlay");
 	new_style_health_overlay();
 }
 
@@ -899,7 +899,7 @@ function add_hudelm_position_internal(aligny)
 */
 function create_warning_elem(player)
 {
-	level notify(#"hud_elem_interupt");
+	level notify("hud_elem_interupt");
 	hudelem = newhudelem();
 	hudelem add_hudelm_position_internal();
 	hudelem thread destroy_warning_elem_when_mission_failed(player);
@@ -944,8 +944,8 @@ function play_hurt_vox()
 */
 function waittillplayerishitagain()
 {
-	level endon(#"hit_again");
-	self waittill(#"damage");
+	level endon("hit_again");
+	self waittill("damage");
 }
 
 /*
@@ -960,7 +960,7 @@ function waittillplayerishitagain()
 function destroy_warning_elem_when_mission_failed(player)
 {
 	self endon(#"being_destroyed");
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("missionfailed");
 	self thread destroy_warning_elem(1);
 }
@@ -1021,7 +1021,7 @@ function maychangecoverwarningalpha(coverwarning)
 */
 function fontscaler(scale, timer)
 {
-	self endon(#"death");
+	self endon("death");
 	scale = scale * 2;
 	dif = scale - self.fontscale;
 	self changefontscaleovertime(timer);
@@ -1039,12 +1039,12 @@ function fontscaler(scale, timer)
 */
 function cover_warning_check()
 {
-	level endon(#"missionfailed");
+	level endon("missionfailed");
 	if(self shouldshowcoverwarning())
 	{
 		coverwarning = create_warning_elem(self);
 		level.cover_warning_hud = coverwarning;
-		coverwarning endon(#"death");
+		coverwarning endon("death");
 		stopflashingbadlytime = gettime() + level.longregentime;
 		yellow_fac = 0.7;
 		while(gettime() < stopflashingbadlytime && isalive(self))
@@ -1167,7 +1167,7 @@ function fadefunc(overlay, coverwarning, severity, mult, hud_scaleonly)
 */
 function healthoverlay_remove(overlay)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_any("noHealthOverlay", "death");
 	overlay fadeovertime(3.5);
 	overlay.alpha = 0;
@@ -1209,9 +1209,9 @@ function increment_take_cover_warnings_on_death()
 	{
 		return;
 	}
-	level notify(#"new_cover_on_death_thread");
-	level endon(#"new_cover_on_death_thread");
-	self waittill(#"death");
+	level notify("new_cover_on_death_thread");
+	level endon("new_cover_on_death_thread");
+	self waittill("death");
 	if(!self flag::get("player_has_red_flashing_overlay"))
 	{
 		return;
@@ -1254,8 +1254,8 @@ function empty_kill_func(type, loc, point, attacker, amount)
 */
 function update_skill_level(skill_override)
 {
-	level notify(#"update_skill_from_profile");
-	level endon(#"update_skill_from_profile");
+	level notify("update_skill_from_profile");
+	level endon("update_skill_from_profile");
 	level.gameskilllowest = 9999;
 	level.gameskillhighest = 0;
 	n_last_gameskill = -1;
@@ -1378,7 +1378,7 @@ function coop_friendly_accuracy_scalar_watcher()
 */
 function coop_axis_accuracy_scaler()
 {
-	self endon(#"death");
+	self endon("death");
 	initialvalue = self.baseaccuracy;
 	self.baseaccuracy = initialvalue * get_coop_enemy_accuracy_modifier();
 	wait(randomfloatrange(3, 5));
@@ -1395,7 +1395,7 @@ function coop_axis_accuracy_scaler()
 */
 function coop_allies_accuracy_scaler()
 {
-	self endon(#"death");
+	self endon("death");
 	initialvalue = self.baseaccuracy;
 	while(level.players.size > 1)
 	{
@@ -2384,8 +2384,8 @@ function player_eligible_for_death_invulnerability()
 */
 function monitor_player_death_invulnerability_eligibility()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(!self.eligible_for_death_invulnerability)
 	{
 		if(self.health >= self.maxhealth)
@@ -2452,7 +2452,7 @@ function adjust_melee_damage(player, eattacker, einflictor, idamage, weapon, shi
 */
 function accuracy_buildup_over_time_init()
 {
-	self endon(#"death");
+	self endon("death");
 	self.baseaccuracy = self.accuracy;
 }
 
@@ -2467,7 +2467,7 @@ function accuracy_buildup_over_time_init()
 */
 function accuracy_buildup_before_fire(ai)
 {
-	self endon(#"death");
+	self endon("death");
 	if(getdvarint("ai_codeGameskill"))
 	{
 		return;
@@ -2543,7 +2543,7 @@ function accuracy_buildup_before_fire(ai)
 			}
 			ai.accuracy = ai.baseaccuracy * ai.buildupaccuracymodifier;
 		}
-		self waittill(#"about_to_shoot");
+		self waittill("about_to_shoot");
 	}
 }
 

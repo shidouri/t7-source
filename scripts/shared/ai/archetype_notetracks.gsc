@@ -287,11 +287,11 @@ function private notetrackfirebullet(animationentity)
 	{
 		if(animationentity.weapon != level.weaponnone)
 		{
-			animationentity notify(#"about_to_shoot");
+			animationentity notify("about_to_shoot");
 			startpos = animationentity gettagorigin("tag_flash");
 			endpos = startpos + vectorscale(animationentity getweaponforwarddir(), 100);
 			magicbullet(animationentity.weapon, startpos, endpos, animationentity);
-			animationentity notify(#"shoot");
+			animationentity notify("shoot");
 			animationentity.bulletsinclip--;
 		}
 	}

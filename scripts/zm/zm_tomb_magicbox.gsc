@@ -92,18 +92,18 @@ function custom_joker_movement()
 	m_lock = util::spawn_model(level.chest_joker_model, v_origin, self.angles);
 	m_lock playsound("zmb_hellbox_bear");
 	wait(0.5);
-	level notify(#"weapon_fly_away_start");
+	level notify("weapon_fly_away_start");
 	wait(1);
 	m_lock rotateyaw(3000, 4, 4);
 	wait(3);
 	v_angles = anglestoforward(self.angles - vectorscale((0, 1, 0), 90));
 	m_lock moveto(m_lock.origin + (20 * v_angles), 0.5, 0.5);
-	m_lock waittill(#"movedone");
+	m_lock waittill("movedone");
 	m_lock moveto(m_lock.origin + -100 * v_angles, 0.5, 0.5);
-	m_lock waittill(#"movedone");
+	m_lock waittill("movedone");
 	m_lock delete();
 	self notify(#"box_moving");
-	level notify(#"weapon_fly_away_end");
+	level notify("weapon_fly_away_end");
 }
 
 /*
@@ -117,7 +117,7 @@ function custom_joker_movement()
 */
 function custom_magic_box_timer_til_despawn(magic_box)
 {
-	self endon(#"kill_weapon_movement");
+	self endon("kill_weapon_movement");
 	putbacktime = 12;
 	v_float = (anglestoforward(magic_box.angles - vectorscale((0, 1, 0), 90))) * 40;
 	self moveto(self.origin - (v_float * 0.25), putbacktime, putbacktime * 0.5);
@@ -182,7 +182,7 @@ function set_magic_box_zbarrier_state(state)
 	{
 		self hidezbarrierpiece(i);
 	}
-	self notify(#"zbarrier_state_change");
+	self notify("zbarrier_state_change");
 	switch(state)
 	{
 		case "away":
@@ -273,7 +273,7 @@ function magic_box_arrives()
 	{
 		wait(0.05);
 	}
-	self notify(#"arrived");
+	self notify("arrived");
 	self.state = "close";
 	s_zone_capture_area = level.zone_capture.zones[self.zone_capture_area];
 	if(isdefined(s_zone_capture_area))
@@ -300,7 +300,7 @@ function magic_box_arrives()
 */
 function magic_box_leaves()
 {
-	self notify(#"stop_open_idle");
+	self notify("stop_open_idle");
 	self clientfield::set("magicbox_leaving_fx", 1);
 	self clientfield::set("magicbox_open_fx", 0);
 	self setzbarrierpiecestate(1, "closing");
@@ -309,7 +309,7 @@ function magic_box_leaves()
 	{
 		wait(0.1);
 	}
-	self notify(#"left");
+	self notify("left");
 	s_zone_capture_area = level.zone_capture.zones[self.zone_capture_area];
 	if(isdefined(s_zone_capture_area))
 	{
@@ -346,7 +346,7 @@ function magic_box_opens()
 	{
 		wait(0.1);
 	}
-	self notify(#"opened");
+	self notify("opened");
 	self thread magic_box_open_idle();
 }
 
@@ -361,7 +361,7 @@ function magic_box_opens()
 */
 function magic_box_open_idle()
 {
-	self endon(#"stop_open_idle");
+	self endon("stop_open_idle");
 	self hidezbarrierpiece(2);
 	self showzbarrierpiece(5);
 	while(true)
@@ -385,7 +385,7 @@ function magic_box_open_idle()
 */
 function magic_box_closes()
 {
-	self notify(#"stop_open_idle");
+	self notify("stop_open_idle");
 	self hidezbarrierpiece(5);
 	self showzbarrierpiece(2);
 	self setzbarrierpiecestate(2, "closing");
@@ -395,7 +395,7 @@ function magic_box_closes()
 	{
 		wait(0.1);
 	}
-	self notify(#"closed");
+	self notify("closed");
 }
 
 /*
@@ -441,7 +441,7 @@ function handle_fire_sale()
 {
 	while(true)
 	{
-		level waittill(#"fire_sale_off");
+		level waittill("fire_sale_off");
 		for(i = 0; i < level.chests.size; i++)
 		{
 			if(level.chest_index != i && isdefined(level.chests[i].was_temp))

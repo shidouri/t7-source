@@ -516,10 +516,10 @@ function function_bff3e3c5()
 function function_8bd2ff0()
 {
 	/#
-		self endon(#"game_ended");
-		self endon(#"disconnect");
+		self endon("game_ended");
+		self endon("disconnect");
 		self endon(#"hash_bff3e3c5");
-		self waittill(#"death");
+		self waittill("death");
 		setdvar("", 0);
 	#/
 }

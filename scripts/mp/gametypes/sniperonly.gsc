@@ -329,9 +329,9 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 */
 function function_357ca474()
 {
-	level endon(#"game_ended");
-	self endon(#"death");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("death");
+	self endon("disconnect");
 	self notify(#"hash_dce9eda4");
 	self endon(#"hash_dce9eda4");
 	self.var_ea382ca4.alpha = 1;
@@ -350,8 +350,8 @@ function function_357ca474()
 */
 function function_2d46be95(var_13f5941c)
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	var_e7d83b48 = var_13f5941c;
 	if(var_13f5941c >= 150)
 	{
@@ -401,10 +401,10 @@ function function_2d46be95(var_13f5941c)
 */
 function function_b5214454()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		level waittill(#"game_ended");
+		level waittill("game_ended");
 		self.var_ea382ca4.alpha = 0;
 		self.var_f9eb945c.alpha = 0;
 	}
@@ -421,7 +421,7 @@ function function_b5214454()
 */
 function function_ef6a5017()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_ea382ca4 = hud::createfontstring("objective", 1);
 	self.var_ea382ca4.label = &"MP_RANGE_KILL_INDICATOR";
 	self.var_ea382ca4 setvalue(0);

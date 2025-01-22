@@ -54,7 +54,7 @@ function magicbox_open_fx(localclientnum, oldval, newval, bnewent, binitialsnap,
 			}
 			self.fx_obj.curr_amb_fx = playfxontag(localclientnum, level._effect["box_closed"], self.fx_obj, "tag_origin");
 			self.fx_obj_2 stopallloopsounds(1);
-			self notify(#"magicbox_portal_finished");
+			self notify("magicbox_portal_finished");
 			break;
 		}
 		case 1:

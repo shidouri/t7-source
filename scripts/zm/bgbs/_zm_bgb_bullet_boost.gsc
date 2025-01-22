@@ -89,8 +89,8 @@ function validation()
 */
 function activation()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self playsoundtoplayer("zmb_bgb_bullet_boost", self);
 	self util::waittill_any_timeout(1, "weapon_change_complete", "death", "disconnect");
 	current_weapon = self getcurrentweapon();

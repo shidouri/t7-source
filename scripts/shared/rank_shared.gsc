@@ -670,7 +670,7 @@ function on_player_connect()
 */
 function on_joined_team()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread removerankhud();
 }
 
@@ -685,7 +685,7 @@ function on_joined_team()
 */
 function on_joined_spectators()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread removerankhud();
 }
 
@@ -700,7 +700,7 @@ function on_joined_spectators()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.hud_rankscroreupdate))
 	{
 		self.hud_rankscroreupdate = newscorehudelem(self);
@@ -787,7 +787,7 @@ function atleastoneplayeroneachteam()
 */
 function giverankxp(type, value, devadd)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(sessionmodeiszombiesgame())
 	{
 		return;
@@ -1074,9 +1074,9 @@ function endgameupdate()
 */
 function updaterankscorehud(amount)
 {
-	self endon(#"disconnect");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
+	self endon("disconnect");
+	self endon("joined_team");
+	self endon("joined_spectators");
 	if(isdefined(level.usingmomentum) && level.usingmomentum)
 	{
 		return;
@@ -1085,8 +1085,8 @@ function updaterankscorehud(amount)
 	{
 		return;
 	}
-	self notify(#"update_score");
-	self endon(#"update_score");
+	self notify("update_score");
+	self endon("update_score");
 	self.rankupdatetotal = self.rankupdatetotal + amount;
 	wait(0.05);
 	if(isdefined(self.hud_rankscroreupdate))
@@ -1122,15 +1122,15 @@ function updaterankscorehud(amount)
 */
 function updatemomentumhud(amount, reason, reasonvalue)
 {
-	self endon(#"disconnect");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
+	self endon("disconnect");
+	self endon("joined_team");
+	self endon("joined_spectators");
 	if(amount == 0)
 	{
 		return;
 	}
-	self notify(#"update_score");
-	self endon(#"update_score");
+	self notify("update_score");
+	self endon("update_score");
 	self.rankupdatetotal = self.rankupdatetotal + amount;
 	if(isdefined(self.hud_rankscroreupdate))
 	{

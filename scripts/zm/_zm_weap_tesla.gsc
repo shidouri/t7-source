@@ -110,7 +110,7 @@ function tesla_devgui_dvar_think()
 */
 function tesla_damage_init(hit_location, hit_origin, player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(isdefined(player.tesla_firing) && player.tesla_firing)
 	{
 		zm_utility::debug_print(("TESLA: Player: '" + player.name) + "' currently processing tesla damage");
@@ -190,7 +190,7 @@ function on_player_spawned()
 */
 function tesla_sound_thread()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
 		result = self util::waittill_any_return("grenade_fire", "death", "player_downed", "weapon_change", "grenade_pullback", "disconnect");
@@ -210,7 +210,7 @@ function tesla_sound_thread()
 			self thread tesla_engine_sweets();
 			continue;
 		}
-		self notify(#"weap_away");
+		self notify("weap_away");
 		if(isdefined(self.tesla_loop_sound))
 		{
 			self.tesla_loop_sound stoploopsound(0.25);
@@ -229,7 +229,7 @@ function tesla_sound_thread()
 */
 function cleanup_loop_sound(loop_sound)
 {
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	if(isdefined(loop_sound))
 	{
 		loop_sound delete();
@@ -247,8 +247,8 @@ function cleanup_loop_sound(loop_sound)
 */
 function tesla_engine_sweets()
 {
-	self endon(#"disconnect");
-	self endon(#"weap_away");
+	self endon("disconnect");
+	self endon("weap_away");
 	while(true)
 	{
 		wait(randomintrange(7, 15));
@@ -267,11 +267,11 @@ function tesla_engine_sweets()
 */
 function tesla_pvp_thread()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"weapon_pvp_attack", attacker, weapon, damage, mod);
+		self waittill("weapon_pvp_attack", attacker, weapon, damage, mod);
 		if(self laststand::player_is_in_laststand())
 		{
 			continue;
@@ -317,7 +317,7 @@ function tesla_pvp_thread()
 */
 function play_tesla_sound(emotion)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(level.one_emo_at_a_time))
 	{
 		level.one_emo_at_a_time = 0;
@@ -347,7 +347,7 @@ function play_tesla_sound(emotion)
 */
 function tesla_killstreak_sound()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self zm_audio::create_and_play_dialog("kill", "tesla");
 	wait(3.5);
 	level util::clientnotify("TGH");
@@ -364,8 +364,8 @@ function tesla_killstreak_sound()
 */
 function tesla_network_choke()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.tesla_network_death_choke = 0;
 	for(;;)
 	{

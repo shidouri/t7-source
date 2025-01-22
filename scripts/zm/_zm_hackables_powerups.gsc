@@ -49,7 +49,7 @@ function hack_powerups()
 {
 	while(true)
 	{
-		level waittill(#"powerup_dropped", powerup);
+		level waittill("powerup_dropped", powerup);
 		if(!unhackable_powerup(powerup.powerup_name))
 		{
 			struct = spawnstruct();
@@ -76,8 +76,8 @@ function hack_powerups()
 */
 function powerup_pickup_watcher(powerup_struct)
 {
-	self endon(#"hacked");
-	self waittill(#"death");
+	self endon("hacked");
+	self waittill("death");
 	zm_equip_hacker::deregister_hackable_struct(powerup_struct);
 }
 
@@ -92,10 +92,10 @@ function powerup_pickup_watcher(powerup_struct)
 */
 function powerup_hack(hacker)
 {
-	self.powerup notify(#"hacked");
+	self.powerup notify("hacked");
 	if(isdefined(self.powerup.zombie_grabbable) && self.powerup.zombie_grabbable)
 	{
-		self.powerup notify(#"powerup_timedout");
+		self.powerup notify("powerup_timedout");
 		origin = self.powerup.origin;
 		self.powerup delete();
 		self.powerup = zm_net::network_safe_spawn("powerup", 1, "script_model", origin);

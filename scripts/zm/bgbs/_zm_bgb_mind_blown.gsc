@@ -78,7 +78,7 @@ function validation()
 */
 function activation()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread function_2a8862aa();
 	level thread function_80e37569();
 }
@@ -110,7 +110,7 @@ function function_80e37569()
 */
 function function_2a8862aa()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_7946ded7");
 	var_bd6badee = 1200 * 1200;
 	var_3c48f56 = [];
@@ -200,7 +200,7 @@ function function_1bb7ee0(ai)
 */
 function zombie_head_gib()
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("zm_bgb_mind_ray_fx", 1);
 	wait(randomfloatrange(0.65, 2.5));
 	self clientfield::set("zm_bgb_mind_pop_fx", 1);

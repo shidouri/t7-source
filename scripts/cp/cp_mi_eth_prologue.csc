@@ -513,7 +513,7 @@ function function_b0867fa6(localclientnum, var_fd7c1054, var_81a24d4e = 14.64, v
 */
 function function_cd98eb8d()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_4551c159");
 	v_angles = vectorscale((0, -1, 0), 20);
 	n_move_time = 4;

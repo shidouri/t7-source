@@ -113,10 +113,10 @@ function register_clientfields()
 */
 function private on_connect_func_for_gravityspikes()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
-	self endon(#"gravity_spike_expired");
+	self endon("death");
+	self endon("gravity_spike_expired");
 	w_gravityspike = getweapon("hero_gravityspikes_melee");
 	self update_gravityspikes_state(0);
 	self.b_gravity_trap_spikes_in_ground = 0;
@@ -125,7 +125,7 @@ function private on_connect_func_for_gravityspikes()
 	self thread reset_after_bleeding_out();
 	do
 	{
-		self waittill(#"new_hero_weapon", weapon);
+		self waittill("new_hero_weapon", weapon);
 	}
 	while(weapon != w_gravityspike);
 	if(isdefined(self.a_gravityspikes_prev_ammo_clip) && isdefined(self.a_gravityspikes_prev_ammo_clip["hero_gravityspikes_melee"]))
@@ -162,7 +162,7 @@ function private on_connect_func_for_gravityspikes()
 */
 function reset_after_bleeding_out()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	w_gravityspike = getweapon("hero_gravityspikes_melee");
 	if(isdefined(self.b_has_gravityspikes) && self.b_has_gravityspikes)
 	{
@@ -284,7 +284,7 @@ function wield_gravityspikes(wpn_gravityspikes)
 function unwield_gravityspikes(wpn_gravityspikes)
 {
 	self zm_hero_weapon::default_unwield(wpn_gravityspikes);
-	self notify(#"gravityspikes_attack_watchers_end");
+	self notify("gravityspikes_attack_watchers_end");
 	if(isdefined(self.b_gravity_trap_spikes_in_ground) && self.b_gravity_trap_spikes_in_ground)
 	{
 		self.disable_hero_power_charging = 1;
@@ -304,10 +304,10 @@ function unwield_gravityspikes(wpn_gravityspikes)
 */
 function weapon_drop_watcher()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_switch_started", w_current);
+		self waittill("weapon_switch_started", w_current);
 		if(zm_utility::is_hero_weapon(w_current))
 		{
 			self setweaponammoclip(w_current, 0);
@@ -326,10 +326,10 @@ function weapon_drop_watcher()
 */
 function weapon_change_watcher()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_change", w_current, w_previous);
+		self waittill("weapon_change", w_current, w_previous);
 		if(isdefined(w_previous) && zm_utility::is_hero_weapon(w_current))
 		{
 			self.w_gravityspikes_wpn_prev = w_previous;
@@ -348,14 +348,14 @@ function weapon_change_watcher()
 */
 function gravityspikes_attack_watcher(wpn_gravityspikes)
 {
-	self endon(#"gravityspikes_attack_watchers_end");
-	self endon(#"disconnect");
+	self endon("gravityspikes_attack_watchers_end");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
-	self endon(#"gravity_spike_expired");
+	self endon("death");
+	self endon("gravity_spike_expired");
 	while(true)
 	{
-		self waittill(#"weapon_melee_power", weapon);
+		self waittill("weapon_melee_power", weapon);
 		if(weapon == wpn_gravityspikes)
 		{
 			self playrumbleonentity("talon_spike");
@@ -376,11 +376,11 @@ function gravityspikes_attack_watcher(wpn_gravityspikes)
 */
 function gravityspikes_stuck_above_zombie_watcher(wpn_gravityspikes)
 {
-	self endon(#"gravityspikes_attack_watchers_end");
-	self endon(#"disconnect");
+	self endon("gravityspikes_attack_watchers_end");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
-	self endon(#"gravity_spike_expired");
+	self endon("death");
+	self endon("gravity_spike_expired");
 	first_half_traces = 1;
 	while(zm_utility::is_player_valid(self))
 	{
@@ -458,14 +458,14 @@ function gravityspikes_stuck_above_zombie_watcher(wpn_gravityspikes)
 */
 function gravityspikes_altfire_watcher(wpn_gravityspikes)
 {
-	self endon(#"gravityspikes_attack_watchers_end");
-	self endon(#"disconnect");
+	self endon("gravityspikes_attack_watchers_end");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
-	self endon(#"gravity_spike_expired");
+	self endon("death");
+	self endon("gravity_spike_expired");
 	while(true)
 	{
-		self waittill(#"weapon_melee_power_left", weapon);
+		self waittill("weapon_melee_power_left", weapon);
 		if(weapon == wpn_gravityspikes && self gravity_spike_position_valid())
 		{
 			self thread plant_gravity_trap(wpn_gravityspikes);
@@ -505,7 +505,7 @@ function gravity_spike_position_valid()
 */
 function chop_actor(ai, leftswing, weapon = level.weaponnone)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(ai) || !isalive(ai))
 	{
 		return;
@@ -603,14 +603,14 @@ function spikesarc_swipe(player)
 */
 function gravityspikes_swipe_watcher(wpn_gravityspikes)
 {
-	self endon(#"gravityspikes_attack_watchers_end");
-	self endon(#"disconnect");
+	self endon("gravityspikes_attack_watchers_end");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
-	self endon(#"gravity_spike_expired");
+	self endon("death");
+	self endon("gravity_spike_expired");
 	while(true)
 	{
-		self waittill(#"weapon_melee", weapon);
+		self waittill("weapon_melee", weapon);
 		weapon thread spikesarc_swipe(self);
 	}
 }
@@ -646,7 +646,7 @@ function gravityspikes_power_expired(weapon)
 {
 	self zm_hero_weapon::default_power_empty(weapon);
 	self notify(#"stop_draining_hero_weapon");
-	self notify(#"gravityspikes_timer_end");
+	self notify("gravityspikes_timer_end");
 }
 
 /*
@@ -694,9 +694,9 @@ function no_damage_gravityspikes_slam()
 */
 function player_near_gravity_vortex(v_vortex_origin)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.b_gravity_trap_spikes_in_ground) && self.b_gravity_trap_spikes_in_ground && self.gravityspikes_state === 3)
 	{
 		foreach(e_player in level.activeplayers)
@@ -728,9 +728,9 @@ function player_near_gravity_vortex(v_vortex_origin)
 */
 function player_vortex_rumble(e_player, v_vortex_origin)
 {
-	e_player endon(#"disconnect");
+	e_player endon("disconnect");
 	e_player endon(#"bled_out");
-	e_player endon(#"death");
+	e_player endon("death");
 	e_player.vortex_rumble = 1;
 	e_player clientfield::set_to_player("gravity_trap_rumble", 1);
 	while(distance(e_player.origin, v_vortex_origin) < float(64) && self.gravityspikes_state === 3)
@@ -752,9 +752,9 @@ function player_vortex_rumble(e_player, v_vortex_origin)
 */
 function plant_gravity_trap(wpn_gravityspikes)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
+	self endon("death");
 	v_forward = anglestoforward(self.angles);
 	v_right = anglestoright(self.angles);
 	v_spawn_pos_right = self.origin + vectorscale((0, 0, 1), 32);
@@ -780,7 +780,7 @@ function plant_gravity_trap(wpn_gravityspikes)
 	self setweaponammoclip(wpn_gravityspikes, 0);
 	self.b_gravity_trap_spikes_in_ground = 1;
 	self.v_gravity_trap_pos = v_gravity_trap_pos;
-	self notify(#"gravity_trap_planted");
+	self notify("gravity_trap_planted");
 	self thread player_near_gravity_vortex(v_gravity_trap_pos);
 	self thread destroy_gravity_trap_spikes_in_ground();
 	self util::waittill_any("gravity_trap_spikes_retrieved", "disconnect", "bled_out");
@@ -788,7 +788,7 @@ function plant_gravity_trap(wpn_gravityspikes)
 	{
 		self.b_gravity_trap_spikes_in_ground = 0;
 		self.disable_hero_power_charging = 0;
-		self notify(#"destroy_ground_spikes");
+		self notify("destroy_ground_spikes");
 	}
 }
 
@@ -803,10 +803,10 @@ function plant_gravity_trap(wpn_gravityspikes)
 */
 function gravity_trap_loop(v_gravity_trap_pos, wpn_gravityspikes)
 {
-	self endon(#"gravity_trap_spikes_retrieved");
-	self endon(#"disconnect");
+	self endon("gravity_trap_spikes_retrieved");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"death");
+	self endon("death");
 	is_gravity_trap_fx_on = 1;
 	while(true)
 	{
@@ -844,10 +844,10 @@ function gravity_trap_loop(v_gravity_trap_pos, wpn_gravityspikes)
 */
 function gravity_trap_check(player)
 {
-	player endon(#"gravity_trap_spikes_retrieved");
-	player endon(#"disconnect");
+	player endon("gravity_trap_spikes_retrieved");
+	player endon("disconnect");
 	player endon(#"bled_out");
-	player endon(#"death");
+	player endon("death");
 	/#
 		assert(isdefined(level.ai_gravity_throttle));
 	#/
@@ -1065,7 +1065,7 @@ function gravity_trap_trigger_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -1096,7 +1096,7 @@ function gravity_trap_trigger_activate(trig_stub, player)
 {
 	if(player == trig_stub.gravityspike_owner)
 	{
-		player notify(#"gravity_trap_spikes_retrieved");
+		player notify("gravity_trap_spikes_retrieved");
 		player playsound("fly_talon_pickup");
 		if(player.gravityspikes_state == 3)
 		{
@@ -1255,7 +1255,7 @@ function zombie_lift(player, v_attack_source, n_push_away, n_lift_height, v_lift
 				self.mdl_trap_mover moveto(self.origin + v_lift, n_lift_time, 0, n_lift_time * 0.4);
 				self thread zombie_lift_wacky_rotate(n_lift_time, player);
 				self thread gravity_trap_notify_watcher(player);
-				self waittill(#"gravity_trap_complete");
+				self waittill("gravity_trap_complete");
 				if(isdefined(self))
 				{
 					self unlink();
@@ -1301,10 +1301,10 @@ function zombie_lift(player, v_attack_source, n_push_away, n_lift_height, v_lift
 */
 function gravity_trap_notify_watcher(player)
 {
-	self endon(#"gravity_trap_complete");
+	self endon("gravity_trap_complete");
 	self thread gravity_trap_timeout_watcher();
 	util::waittill_any_ents(self, "death", player, "gravity_trap_spikes_retrieved", player, "gravityspikes_timer_end", player, "disconnect", player, "bled_out");
-	self notify(#"gravity_trap_complete");
+	self notify("gravity_trap_complete");
 }
 
 /*
@@ -1318,13 +1318,13 @@ function gravity_trap_notify_watcher(player)
 */
 function gravity_trap_timeout_watcher()
 {
-	self endon(#"gravity_trap_complete");
+	self endon("gravity_trap_complete");
 	self.mdl_trap_mover util::waittill_any_timeout(4, "movedone", "gravity_trap_complete");
 	if(isalive(self) && (!(isdefined(self.b_melee_kill) && self.b_melee_kill)))
 	{
 		wait(randomfloatrange(0.2, 1));
 	}
-	self notify(#"gravity_trap_complete");
+	self notify("gravity_trap_complete");
 }
 
 /*
@@ -1338,14 +1338,14 @@ function gravity_trap_timeout_watcher()
 */
 function zombie_lift_wacky_rotate(n_lift_time, player)
 {
-	player endon(#"gravityspikes_timer_end");
-	self endon(#"death");
+	player endon("gravityspikes_timer_end");
+	self endon("death");
 	while(true)
 	{
 		negative_x = (randomintrange(0, 10) < 5 ? 1 : -1);
 		negative_z = (randomintrange(0, 10) < 5 ? 1 : -1);
 		self.mdl_trap_mover rotateto((randomintrange(90, 180) * negative_x, randomintrange(-90, 90), randomintrange(90, 180) * negative_z), (n_lift_time > 2 ? n_lift_time : 5), 0);
-		self.mdl_trap_mover waittill(#"rotatedone");
+		self.mdl_trap_mover waittill("rotatedone");
 	}
 }
 
@@ -1385,7 +1385,7 @@ function zombie_kill_and_gib(player)
 function track_lifted_for_ragdoll_count()
 {
 	level.n_zombies_lifted_for_ragdoll++;
-	self waittill(#"death");
+	self waittill("death");
 	level.n_zombies_lifted_for_ragdoll--;
 }
 
@@ -1400,7 +1400,7 @@ function track_lifted_for_ragdoll_count()
 */
 function corpse_off_navmesh_watcher()
 {
-	self waittill(#"actor_corpse", e_corpse);
+	self waittill("actor_corpse", e_corpse);
 	v_pos = getclosestpointonnavmesh(e_corpse.origin, 256);
 	if(!isdefined(v_pos) || e_corpse.origin[2] > (v_pos[2] + 64))
 	{
@@ -1500,7 +1500,7 @@ function play_slam_fx(v_pos)
 */
 function zombie_slam_direction(v_position)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!self.archetype === "zombie")
 	{
 		return;

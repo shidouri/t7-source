@@ -670,7 +670,7 @@ function construct_idgun_weapon_array()
 */
 function offhand_weapon_give_override(str_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_tactical_grenade(str_weapon) && isdefined(self zm_utility::get_player_tactical_grenade()) && !self zm_utility::is_player_tactical_grenade(str_weapon))
 	{
 		self setweaponammoclip(self zm_utility::get_player_tactical_grenade(), 0);
@@ -783,7 +783,7 @@ function function_ee64baa8()
 	level.var_727bd376 = getentarray("skeleton_spawner", "script_noteworthy");
 	array::thread_all(level.var_727bd376, &spawner::add_spawn_function, &zm_spawner::zombie_spawn_init);
 	array::thread_all(level.var_727bd376, &spawner::add_spawn_function, &function_68dbbc77);
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level.zones["apothicon_interior_zone"].script_int = 2;
 }
 
@@ -798,10 +798,10 @@ function function_ee64baa8()
 */
 function function_429599b3()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.spawn_point) && isdefined(self.spawn_point.speed))
 	{
-		self waittill(#"risen");
+		self waittill("risen");
 		wait(0.2);
 		if(isdefined(self.zombie_move_speed))
 		{
@@ -1052,7 +1052,7 @@ function givecustomcharacters()
 */
 function set_exert_id()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self zm_audio::setexertvoice(self.characterindex + 1);
@@ -1675,7 +1675,7 @@ function function_237000f3(str_scene, str_flag, var_38cd507c = undefined)
 function function_9c3ef4d4()
 {
 	level.b_show_single_intermission = 1;
-	level waittill(#"intermission");
+	level waittill("intermission");
 	level notify(#"hash_c9cb5160");
 	foreach(e_player in level.players)
 	{

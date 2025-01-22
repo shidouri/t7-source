@@ -94,7 +94,7 @@ function jump_pad_player_variables()
 */
 function jump_pad_think()
 {
-	self endon(#"destroyed");
+	self endon("destroyed");
 	end_point = undefined;
 	start_point = undefined;
 	z_velocity = undefined;
@@ -115,7 +115,7 @@ function jump_pad_think()
 	}
 	while(isdefined(self))
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			self thread delayed_jump_pad_start(who);
@@ -153,9 +153,9 @@ function delayed_jump_pad_start(who)
 function jump_pad_start(ent_player, endon_condition)
 {
 	self endon(#"endon_condition");
-	ent_player endon(#"left_jump_pad");
-	ent_player endon(#"death");
-	ent_player endon(#"disconnect");
+	ent_player endon("left_jump_pad");
+	ent_player endon("death");
+	ent_player endon("disconnect");
 	end_point = undefined;
 	start_point = undefined;
 	z_velocity = undefined;
@@ -391,7 +391,7 @@ function jump_pad_start(ent_player, endon_condition)
 */
 function jump_pad_cancel(ent_player)
 {
-	ent_player notify(#"left_jump_pad");
+	ent_player notify("left_jump_pad");
 	if(isdefined(self.name))
 	{
 		self._action_overrides = strtok(self.name, ",");
@@ -416,8 +416,8 @@ function jump_pad_cancel(ent_player)
 */
 function jump_pad_move(vec_direction, flt_time, struct_poi, trigger)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	start_time = gettime();
 	jump_time = flt_time * 500;
 	attract_dist = undefined;
@@ -521,10 +521,10 @@ function jump_pad_move(vec_direction, flt_time, struct_poi, trigger)
 */
 function disconnect_failsafe_pad_poi_clean()
 {
-	self notify(#"kill_disconnect_failsafe_pad_poi_clean");
-	self endon(#"kill_disconnect_failsafe_pad_poi_clean");
-	self.poi_spot endon(#"death");
-	self waittill(#"disconnect");
+	self notify("kill_disconnect_failsafe_pad_poi_clean");
+	self endon("kill_disconnect_failsafe_pad_poi_clean");
+	self.poi_spot endon("death");
+	self waittill("disconnect");
 	if(isdefined(self.poi_spot))
 	{
 		level jump_pad_ignore_poi_cleanup(self.poi_spot);
@@ -571,8 +571,8 @@ function failsafe_pad_poi_clean(ent_trig, ent_poi)
 */
 function jump_pad_enemy_follow_or_ignore(ent_poi)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	zombies = getaiteamarray(level.zombie_team);
 	players = getplayers();
 	valid_players = 0;
@@ -653,7 +653,7 @@ function jump_pad_ignore_poi_cleanup(ent_poi)
 */
 function stop_chasing_the_sky(ent_poi)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"stop_chasing_the_sky");
 	while(isdefined(self._pad_follow) && self._pad_follow)
 	{

@@ -57,7 +57,7 @@ function stage_logic()
 	/#
 		iprintln(level._cur_stage_name + "");
 	#/
-	level notify(#"tomb_sidequest_complete");
+	level notify("tomb_sidequest_complete");
 	foreach(player in getplayers())
 	{
 		if(player zm_tomb_chamber::is_player_in_chamber())
@@ -68,7 +68,7 @@ function stage_logic()
 	wait(0.5);
 	level clientfield::set("ee_sam_portal", 2);
 	exploder::exploder("fxexp_500");
-	level notify(#"stop_random_chamber_walls");
+	level notify("stop_random_chamber_walls");
 	a_walls = getentarray("chamber_wall", "script_noteworthy");
 	foreach(e_wall in a_walls)
 	{
@@ -122,7 +122,7 @@ function waittill_player_activates()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		level flag::set("ee_samantha_released");
 	}
 }

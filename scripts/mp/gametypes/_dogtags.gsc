@@ -45,7 +45,7 @@ function spawn_dog_tag(victim, attacker, on_use_function, objectives_for_attacke
 	if(isdefined(level.dogtags[victim.entnum]))
 	{
 		playfx("ui/fx_kill_confirmed_vanish", level.dogtags[victim.entnum].curorigin);
-		level.dogtags[victim.entnum] notify(#"reset");
+		level.dogtags[victim.entnum] notify("reset");
 	}
 	else
 	{
@@ -111,7 +111,7 @@ function spawn_dog_tag(victim, attacker, on_use_function, objectives_for_attacke
 		}
 	}
 	level.dogtags[victim.entnum] thread bounce();
-	level notify(#"dogtag_spawned");
+	level notify("dogtag_spawned");
 }
 
 /*
@@ -221,7 +221,7 @@ function reset_tags()
 {
 	self.attacker = undefined;
 	self.unreachable = undefined;
-	self notify(#"reset");
+	self notify("reset");
 	self.visuals[0] hide();
 	self.visuals[1] hide();
 	self.curorigin = vectorscale((0, 0, 1), 1000);
@@ -261,14 +261,14 @@ function onpickup(event)
 */
 function clear_on_victim_disconnect(victim)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	guid = victim.entnum;
-	victim waittill(#"disconnect");
+	victim waittill("disconnect");
 	if(isdefined(level.dogtags[guid]))
 	{
 		level.dogtags[guid] gameobjects::allow_use("none");
 		playfx("ui/fx_kill_confirmed_vanish", level.dogtags[guid].curorigin);
-		level.dogtags[guid] notify(#"reset");
+		level.dogtags[guid] notify("reset");
 		wait(0.05);
 		if(isdefined(level.dogtags[guid]))
 		{
@@ -281,7 +281,7 @@ function clear_on_victim_disconnect(victim)
 			{
 				level.dogtags[guid].visuals[i] delete();
 			}
-			level.dogtags[guid] notify(#"deleted");
+			level.dogtags[guid] notify("deleted");
 			level.dogtags[guid] = undefined;
 		}
 	}
@@ -324,11 +324,11 @@ function on_spawn_player()
 */
 function team_updater(tags)
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"joined_team");
+		self waittill("joined_team");
 		tags.victimteam = self.team;
 		tags reset_tags();
 	}
@@ -345,10 +345,10 @@ function team_updater(tags)
 */
 function time_out(victim)
 {
-	level endon(#"game_ended");
-	victim endon(#"disconnect");
-	self notify(#"timeout");
-	self endon(#"timeout");
+	level endon("game_ended");
+	victim endon("disconnect");
+	self notify("timeout");
+	self endon("timeout");
 	level hostmigration::waitlongdurationwithhostmigrationpause(30);
 	self.visuals[0] hide();
 	self.visuals[1] hide();
@@ -371,8 +371,8 @@ function time_out(victim)
 */
 function bounce()
 {
-	level endon(#"game_ended");
-	self endon(#"reset");
+	level endon("game_ended");
+	self endon("reset");
 	bottompos = self.curorigin;
 	toppos = self.curorigin + vectorscale((0, 0, 1), 12);
 	while(true)
@@ -401,7 +401,7 @@ function bounce()
 */
 function checkallowspectating()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.05);
 	spectating::update_settings();
 }

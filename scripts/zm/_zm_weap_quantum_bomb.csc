@@ -50,7 +50,7 @@ function quantum_bomb_notetrack_think()
 {
 	for(;;)
 	{
-		level waittill(#"notetrack", localclientnum, note);
+		level waittill("notetrack", localclientnum, note);
 		switch(note)
 		{
 			case "quantum_bomb_twist":

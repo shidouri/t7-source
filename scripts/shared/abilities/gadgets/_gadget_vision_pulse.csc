@@ -105,11 +105,11 @@ function watch_emped(localclientnum)
 */
 function disableshader(localclientnum, duration)
 {
-	self endon(#"startvpshader");
-	self endon(#"death");
+	self endon("startvpshader");
+	self endon("death");
 	self endon(#"entityshutdown");
-	self notify(#"disablevpshader");
-	self endon(#"disablevpshader");
+	self notify("disablevpshader");
+	self endon("disablevpshader");
 	wait(duration);
 	filter::disable_filter_vision_pulse(localclientnum, 3);
 }
@@ -125,8 +125,8 @@ function disableshader(localclientnum, duration)
 */
 function watch_world_pulse_end(localclientnum)
 {
-	self notify(#"watchworldpulseend");
-	self endon(#"watchworldpulseend");
+	self notify("watchworldpulseend");
+	self endon("watchworldpulseend");
 	self util::waittill_any("entityshutdown", "death", "emp_jammed_vp");
 	filter::set_filter_vision_pulse_constant(localclientnum, 3, 0, getvisionpulsemaxradius(localclientnum) + 1);
 }
@@ -143,8 +143,8 @@ function watch_world_pulse_end(localclientnum)
 function do_vision_world_pulse(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self notify(#"startvpshader");
+	self endon("death");
+	self notify("startvpshader");
 	self thread watch_world_pulse_end(localclientnum);
 	filter::enable_filter_vision_pulse(localclientnum, 3);
 	filter::set_filter_vision_pulse_constant(localclientnum, 3, 1, 1);
@@ -216,16 +216,16 @@ function vision_pulse_owner_valid(owner)
 function watch_vision_pulse_owner_death(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self endon(#"finished_local_pulse");
-	self notify(#"watch_vision_pulse_owner_death");
-	self endon(#"watch_vision_pulse_owner_death");
+	self endon("death");
+	self endon("finished_local_pulse");
+	self notify("watch_vision_pulse_owner_death");
+	self endon("watch_vision_pulse_owner_death");
 	owner = self.vision_pulse_owner;
 	if(vision_pulse_owner_valid(owner))
 	{
 		owner util::waittill_any("entityshutdown", "death");
 	}
-	self notify(#"vision_pulse_owner_death");
+	self notify("vision_pulse_owner_death");
 	filter::set_filter_vision_pulse_constant(localclientnum, 3, 7, 0);
 	self thread disableshader(localclientnum, 4);
 	self.vision_pulse_owner = undefined;
@@ -243,11 +243,11 @@ function watch_vision_pulse_owner_death(localclientnum)
 function do_vision_local_pulse(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self endon(#"vision_pulse_owner_death");
-	self notify(#"startvpshader");
-	self notify(#"startlocalpulse");
-	self endon(#"startlocalpulse");
+	self endon("death");
+	self endon("vision_pulse_owner_death");
+	self notify("startvpshader");
+	self notify("startlocalpulse");
+	self endon("startlocalpulse");
 	self thread watch_vision_pulse_owner_death(localclientnum);
 	origin = getrevealpulseorigin(localclientnum);
 	filter::enable_filter_vision_pulse(localclientnum, 3);
@@ -268,7 +268,7 @@ function do_vision_local_pulse(localclientnum)
 	}
 	filter::set_filter_vision_pulse_constant(localclientnum, 3, 7, 0);
 	self thread disableshader(localclientnum, 4);
-	self notify(#"finished_local_pulse");
+	self notify("finished_local_pulse");
 	self.vision_pulse_owner = undefined;
 }
 
@@ -308,9 +308,9 @@ function vision_pulse_changed(localclientnum, oldval, newval, bnewent, binitials
 function do_reveal_enemy_pulse(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self notify(#"startenemypulse");
-	self endon(#"startenemypulse");
+	self endon("death");
+	self notify("startenemypulse");
+	self endon("startenemypulse");
 	starttime = getservertime(localclientnum);
 	currtime = starttime;
 	self mapshaderconstant(localclientnum, 0, "scriptVector7", 0, 0, 0, 0);
@@ -376,7 +376,7 @@ function set_reveal_self(localclientnum, on_off)
 */
 function gadget_visionpulse_reveal(localclientnum, breveal)
 {
-	self notify(#"gadget_visionpulse_changed");
+	self notify("gadget_visionpulse_changed");
 	player = getlocalplayer(localclientnum);
 	if(!isdefined(self.visionpulserevealself) && player == self)
 	{

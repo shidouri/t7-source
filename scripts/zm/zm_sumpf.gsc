@@ -154,7 +154,7 @@ function main()
 	#/
 	init_sounds();
 	level thread setupmusic();
-	level notify(#"setup_rope");
+	level notify("setup_rope");
 	level.has_pack_a_punch = 0;
 	setculldist(2400);
 	/#
@@ -311,7 +311,7 @@ function function_c283498()
 	{
 		level flag::wait_till("dog_round");
 		level clientfield::set("SUMPF_VISIONSET_DOGS", 1);
-		level waittill(#"dog_round_ending");
+		level waittill("dog_round_ending");
 		level clientfield::set("SUMPF_VISIONSET_DOGS", 0);
 	}
 }
@@ -650,7 +650,7 @@ function book_useage()
 	{
 		maniac_l = getent("maniac_l", "targetname");
 		maniac_r = getent("maniac_r", "targetname");
-		book_trig waittill(#"trigger", player);
+		book_trig waittill("trigger", player);
 		if(isdefined(maniac_l))
 		{
 			maniac_l playsound("evt_maniac_l");
@@ -683,7 +683,7 @@ function function_c06f4240()
 	var_fd0167be = 0;
 	while(var_fd0167be < 4)
 	{
-		s_phone_egg waittill(#"trigger_activated");
+		s_phone_egg waittill("trigger_activated");
 		if(isdefined(level.musicsystem.currentplaytype) && level.musicsystem.currentplaytype >= 4 || (isdefined(level.musicsystemoverride) && level.musicsystemoverride))
 		{
 			continue;
@@ -749,7 +749,7 @@ function play_radio_sounds()
 	pa_system = getent("speaker_in_attic", "targetname");
 	wait(0.05);
 	pa_system playsoundwithnotify("evt_secret_message", "message_complete");
-	pa_system waittill(#"message_complete");
+	pa_system waittill("message_complete");
 }
 
 /*
@@ -816,7 +816,7 @@ function function_53e56ac8()
 	self zm_unitrigger::create_unitrigger(undefined, 128);
 	/#
 	#/
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	self zm_unitrigger::unregister_unitrigger(self.unitrigger);
 	level.superegg_counter = level.superegg_counter + 1;
 	self playloopsound(self.script_sound);
@@ -836,7 +836,7 @@ function play_super_egg_radio_pa_sounds()
 	pa_system = getent("speaker_in_attic", "targetname");
 	wait(0.05);
 	pa_system playsoundwithnotify("vox_superegg_secret_message", "message_complete");
-	pa_system waittill(#"message_complete");
+	pa_system waittill("message_complete");
 }
 
 /*
@@ -900,7 +900,7 @@ function function_4deca569()
 	self thread zm_sidequests::fake_use("sur_radio_activated");
 	/#
 	#/
-	self waittill(#"sur_radio_activated");
+	self waittill("sur_radio_activated");
 	self playsound(self.script_sound);
 }
 
@@ -943,7 +943,7 @@ function function_2fa9f915()
 	self zm_unitrigger::create_unitrigger(undefined, 128);
 	/#
 	#/
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	self zm_unitrigger::unregister_unitrigger(self.unitrigger);
 	level.radio_counter = level.radio_counter + 1;
 	self playloopsound(self.script_sound);
@@ -961,18 +961,18 @@ function function_2fa9f915()
 function meteor_trigger()
 {
 	player = getplayers();
-	level endon(#"meteor_triggered");
+	level endon("meteor_triggered");
 	dmgtrig = getent("meteor", "targetname");
 	/#
 		level thread function_620401c0((11260.5, -2091, -634), "", dmgtrig, "", 3);
 	#/
 	while(true)
 	{
-		dmgtrig waittill(#"trigger", player);
+		dmgtrig waittill("trigger", player);
 		if(distancesquared(player.origin, dmgtrig.origin) < 100000000)
 		{
 			player thread zm_audio::create_and_play_dialog("level", "meteor");
-			level notify(#"meteor_triggered");
+			level notify("meteor_triggered");
 		}
 		else
 		{
@@ -1107,7 +1107,7 @@ function function_c54ccb33()
 		if(isdefined(var_4d028102))
 		{
 			zm_devgui::zombie_devgui_open_sesame();
-			var_4d028102 notify(#"trigger", getplayers()[0]);
+			var_4d028102 notify("trigger", getplayers()[0]);
 		}
 	#/
 }
@@ -1246,7 +1246,7 @@ function function_4bb6626e()
 {
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, dir, loc, str_type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, attacker, dir, loc, str_type, model, tag, part, weapon, flags);
 		if(!isplayer(attacker))
 		{
 			continue;

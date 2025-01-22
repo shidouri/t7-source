@@ -123,7 +123,7 @@ function function_513f51e1(restart = 0)
 		var_ac086ffb = util::spawn_model(s_ballerina_start.model, s_ballerina_start.origin - vectorscale((0, 0, 1), 20), s_ballerina_start.angles);
 		var_ac086ffb clientfield::set("snd_zhdegg", 2);
 		var_ac086ffb moveto(s_ballerina_start.origin, 2);
-		var_ac086ffb waittill(#"movedone");
+		var_ac086ffb waittill("movedone");
 	}
 	else
 	{
@@ -132,7 +132,7 @@ function function_513f51e1(restart = 0)
 		var_ac086ffb clientfield::set("snd_zhdegg", 1);
 	}
 	s_ballerina_start zm_unitrigger::create_unitrigger(undefined, 80);
-	s_ballerina_start waittill(#"trigger_activated");
+	s_ballerina_start waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(s_ballerina_start.s_unitrigger);
 	var_ac086ffb clientfield::set("snd_zhdegg", 0);
 	util::wait_network_frame();
@@ -214,7 +214,7 @@ function function_3cf3ba48()
 */
 function function_9d55fd08()
 {
-	self.var_ac086ffb endon(#"death");
+	self.var_ac086ffb endon("death");
 	self endon(#"hash_636d801f");
 	self endon(#"ballerina_destroyed");
 	self endon(#"ballerina_timeout");
@@ -241,7 +241,7 @@ function function_2fdaabf3()
 	self.var_ac086ffb.health = 1000000;
 	while(true)
 	{
-		self.var_ac086ffb waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self.var_ac086ffb waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(isdefined(level.var_252a085b) && level.var_252a085b)
 		{
 			continue;
@@ -304,7 +304,7 @@ function function_5b2770da()
 	s_ballerina_end.var_ac086ffb playloopsound("mus_musicbox_lp", 2);
 	s_ballerina_end thread function_9d55fd08();
 	s_ballerina_end zm_unitrigger::create_unitrigger(undefined, 65);
-	s_ballerina_end waittill(#"trigger_activated");
+	s_ballerina_end waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(s_ballerina_end.s_unitrigger);
 	s_ballerina_end notify(#"hash_636d801f");
 	s_ballerina_end.var_ac086ffb stoploopsound(0.5);
@@ -320,14 +320,14 @@ function function_5b2770da()
 	s_ballerina_end.var_79dc7980 movez(20, 0.5);
 	wait(0.05);
 	s_ballerina_end.var_3609adde clientfield::increment("snd_zhdegg_arm");
-	s_ballerina_end.var_3609adde waittill(#"movedone");
+	s_ballerina_end.var_3609adde waittill("movedone");
 	wait(1);
 	s_ballerina_end.var_ac086ffb playloopsound("zmb_challenge_skel_arm_lp", 0.25);
 	s_ballerina_end.var_ac086ffb movez(-40, 1.5);
 	s_ballerina_end.var_3609adde movez(-40, 1.5);
 	s_ballerina_end.var_2a9b65c7 movez(-40, 1.5);
 	s_ballerina_end.var_79dc7980 movez(-40, 1.5);
-	s_ballerina_end.var_ac086ffb waittill(#"movedone");
+	s_ballerina_end.var_ac086ffb waittill("movedone");
 	zm_powerups::specific_powerup_drop("full_ammo", s_ballerina_end.origin);
 	s_ballerina_end.var_ac086ffb delete();
 	s_ballerina_end.var_3609adde delete();
@@ -380,7 +380,7 @@ function function_929c4dba()
 	#/
 	while(!(isdefined(e_origin.b_activated) && e_origin.b_activated))
 	{
-		e_origin waittill(#"trigger_activated", who);
+		e_origin waittill("trigger_activated", who);
 		if(!function_8090042c())
 		{
 			continue;
@@ -445,14 +445,14 @@ function function_bd90259b(e_player)
 */
 function snd_monty_radio()
 {
-	level waittill(#"connected", player);
+	level waittill("connected", player);
 	s_radio = struct::get("snd_monty_radio", "targetname");
 	if(!isdefined(s_radio))
 	{
 		return;
 	}
 	s_radio zm_unitrigger::create_unitrigger();
-	s_radio waittill(#"trigger_activated");
+	s_radio waittill("trigger_activated");
 	playsoundatposition("vox_abcd_radio", s_radio.origin);
 	zm_unitrigger::unregister_unitrigger(s_radio.s_unitrigger);
 }
@@ -521,7 +521,7 @@ function setup_personality_character_exerts()
 */
 function set_exert_id()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self zm_audio::setexertvoice(self.characterindex + 1);

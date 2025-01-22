@@ -108,7 +108,7 @@ function play_radio_eastereggs()
 	#/
 	while(true)
 	{
-		self waittill(#"trigger_activated");
+		self waittill("trigger_activated");
 		if(isdefined(self.script_noteworthy))
 		{
 			breakout = self checkfor_radio_override();
@@ -193,7 +193,7 @@ function waitfor_eightbit_use()
 	n_count = 0;
 	while(true)
 	{
-		self waittill(#"trigger_activated");
+		self waittill("trigger_activated");
 		if(!zm_audio_zhd::function_8090042c())
 		{
 			continue;
@@ -668,7 +668,7 @@ function function_c844cebe()
 */
 function waitfor_forest_zone_entry()
 {
-	level waittill(#"forest_zone");
+	level waittill("forest_zone");
 	while(true)
 	{
 		zone = level.zones["forest_zone"];
@@ -720,17 +720,17 @@ function setup_moon_visit_vox()
 */
 function play_delayed_first_time_vox()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self waittill(#"equip_gasmask_activate");
-	self waittill(#"weapon_change_complete");
+	self waittill("weapon_change_complete");
 	self playsoundtoplayer("vox_mcomp_suit_on", self);
 	wait(1.5);
 	self playsoundtoplayer("vox_mcomp_start", self);
 	wait(7);
 	self thread play_maskon_vox();
 	self thread play_warning_vox();
-	level notify(#"first_player_vox", self);
+	level notify("first_player_vox", self);
 }
 
 /*
@@ -744,7 +744,7 @@ function play_delayed_first_time_vox()
 */
 function waitfor_first_player()
 {
-	level waittill(#"first_player_vox", who);
+	level waittill("first_player_vox", who);
 	who thread zm_audio::create_and_play_dialog("general", "moonbase");
 }
 
@@ -759,12 +759,12 @@ function waitfor_first_player()
 */
 function play_maskon_vox()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"equip_gasmask_activate");
-		self waittill(#"weapon_change_complete");
+		self waittill("weapon_change_complete");
 		self stopsounds();
 		wait(0.05);
 		self playsoundtoplayer("vox_mcomp_suit_on", self);
@@ -782,8 +782,8 @@ function play_maskon_vox()
 */
 function play_warning_vox()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		while(!self.in_low_gravity)
@@ -850,11 +850,11 @@ function function_45b4acf2()
 */
 function function_1d6f553d()
 {
-	level endon(#"snd_zhdegg_activate");
+	level endon("snd_zhdegg_activate");
 	self zm_unitrigger::create_unitrigger();
 	while(true)
 	{
-		self waittill(#"trigger_activated");
+		self waittill("trigger_activated");
 		playsoundatposition("zmb_zhdmoon_button_" + self.script_int, self.origin);
 		level notify(#"hash_351576b1", self.script_int);
 		wait(0.5);
@@ -872,13 +872,13 @@ function function_1d6f553d()
 */
 function function_e091daa4()
 {
-	level endon(#"snd_zhdegg_activate");
+	level endon("snd_zhdegg_activate");
 	var_924a65e5 = spawn("script_origin", (919, -303, -171));
 	while(true)
 	{
 		wait(randomfloatrange(60, 120));
 		var_924a65e5 playsoundwithnotify("zmb_zhdmoon_voices", "sounddone");
-		var_924a65e5 waittill(#"sounddone");
+		var_924a65e5 waittill("sounddone");
 	}
 }
 

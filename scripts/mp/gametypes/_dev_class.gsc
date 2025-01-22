@@ -68,7 +68,7 @@ function dev_cac_init()
 				}
 				case "":
 				{
-					level notify(#"dev_cac_overlay_think");
+					level notify("dev_cac_overlay_think");
 					if(!dev_cac_overlay)
 					{
 						level thread dev_cac_overlay_think();
@@ -159,7 +159,7 @@ function dev_cac_init()
 				}
 				case "":
 				{
-					host notify(#"dev_cac_dpad_think");
+					host notify("dev_cac_dpad_think");
 					break;
 				}
 			}
@@ -210,9 +210,9 @@ function dev_cac_camera(on)
 function dev_cac_dpad_think(part_name, cycle_function, tag)
 {
 	/#
-		self notify(#"dev_cac_dpad_think");
-		self endon(#"dev_cac_dpad_think");
-		self endon(#"disconnect");
+		self notify("dev_cac_dpad_think");
+		self endon("dev_cac_dpad_think");
+		self endon("disconnect");
 		iprintln(("" + part_name) + "");
 		iprintln(("" + part_name) + "");
 		dpad_left = 0;
@@ -525,7 +525,7 @@ function dev_cac_overlay_think()
 	/#
 		hud = dev_cac_overlay_create();
 		level thread dev_cac_overlay_update(hud);
-		level waittill(#"dev_cac_overlay_think");
+		level waittill("dev_cac_overlay_think");
 		dev_cac_overlay_destroy(hud);
 	#/
 }
@@ -683,7 +683,7 @@ function dev_cac_gdt_update_think()
 	/#
 		for(;;)
 		{
-			level waittill(#"gdt_update", asset, keyvalue);
+			level waittill("gdt_update", asset, keyvalue);
 			keyvalue = strtok(keyvalue, "");
 			key = keyvalue[0];
 			switch(key)

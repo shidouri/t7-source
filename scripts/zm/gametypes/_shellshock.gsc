@@ -106,7 +106,7 @@ function on_damage(cause, damage, weapon)
 */
 function endondeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	waittillframeend();
 	self notify(#"end_explode");
 }
@@ -122,7 +122,7 @@ function endondeath()
 */
 function endontimer(timer)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(timer);
 	self notify(#"end_on_timer");
 }

@@ -146,7 +146,7 @@ function osc_button_cover_setup()
 		level._osc_rbs[i].cover setmodel("p7_zm_moo_console_button_lid");
 		level._osc_rbs[i].cover_close = level._osc_rbs[i].cover.angles;
 		level._osc_rbs[i].cover rotateroll(-90, 0.05);
-		level._osc_rbs[i].cover waittill(#"rotatedone");
+		level._osc_rbs[i].cover waittill("rotatedone");
 		level._osc_rbs[i].cover_open = level._osc_rbs[i].cover.angles;
 		level._osc_rbs[i].cover.angles = level._osc_rbs[i].cover_close;
 		level._osc_rbs[i].jolie = spawnstruct();
@@ -186,7 +186,7 @@ function exit_stage(success)
 */
 function stage_logic()
 {
-	level waittill(#"release_complete");
+	level waittill("release_complete");
 	zm_sidequests::stage_completed("sq", "osc");
 }
 
@@ -220,7 +220,7 @@ function moon_rb_dist_think()
 {
 	level endon(#"end_game");
 	level endon(level._osc_flags[1]);
-	level endon(#"stop_dist_think");
+	level endon("stop_dist_think");
 	level._lid_close_sound = 0;
 	int_close = 0;
 	dist_struct = struct::get("struct_rb_dist_check", "targetname");
@@ -268,7 +268,7 @@ function rb_cover_sound()
 		level._osc_rbs[i].cover playsound("evt_sq_rbs_close");
 		level._osc_rbs[i].cover playsoundwithnotify("vox_mcomp_quest_step3_0", "sounddone");
 	}
-	level._osc_rbs[0].cover waittill(#"sounddone");
+	level._osc_rbs[0].cover waittill("sounddone");
 	level thread play_rb_cover_player_vox(self);
 	wait(30);
 	level._lid_close_sound = 0;
@@ -285,8 +285,8 @@ function rb_cover_sound()
 */
 function play_rb_cover_player_vox(ent)
 {
-	level notify(#"prevent_dupe_rb_cover_vox");
-	level endon(#"prevent_dupe_rb_cover_vox");
+	level notify("prevent_dupe_rb_cover_vox");
+	level endon("prevent_dupe_rb_cover_vox");
 	wait(0.5);
 	player = zm_utility::get_closest_player(ent.origin);
 	player thread zm_audio::create_and_play_dialog("eggs", "quest3", 0);
@@ -353,7 +353,7 @@ function moon_jolie_greet()
 		else if(level flag::get(level._osc_flags[3]))
 		{
 			level flag::set(level._osc_flags[1]);
-			level notify(#"stop_dist_think");
+			level notify("stop_dist_think");
 			for(l = 0; l < level._osc_rbs.size; l++)
 			{
 				level._osc_rbs[l].cover.angles = level._osc_rbs[l].cover_open;
@@ -480,8 +480,8 @@ function moon_jolie_work(ent_hacker)
 */
 function moon_good_jolie()
 {
-	level endon(#"jolie_fail");
-	level endon(#"jolie_pass");
+	level endon("jolie_fail");
+	level endon("jolie_pass");
 	level endon(level._osc_flags[1]);
 	while(level._osc_terms < 4)
 	{
@@ -491,7 +491,7 @@ function moon_good_jolie()
 		wait(0.1);
 	}
 	level flag::set(level._osc_flags[3]);
-	level notify(#"jolie_pass");
+	level notify("jolie_pass");
 }
 
 /*
@@ -505,8 +505,8 @@ function moon_good_jolie()
 */
 function moon_bad_jolie()
 {
-	level endon(#"jolie_fail");
-	level endon(#"jolie_pass");
+	level endon("jolie_fail");
+	level endon("jolie_pass");
 	level endon(level._osc_flags[1]);
 	wait(level._osc_trial_time);
 	level flag::set(level._osc_flags[2]);
@@ -515,7 +515,7 @@ function moon_bad_jolie()
 	{
 		var_c597f9d8 function_27fd2e20(0);
 	}
-	level notify(#"jolie_fail");
+	level notify("jolie_fail");
 }
 
 /*
@@ -529,8 +529,8 @@ function moon_bad_jolie()
 */
 function moon_jolie_timer_vox()
 {
-	level endon(#"jolie_fail");
-	level endon(#"jolie_pass");
+	level endon("jolie_fail");
+	level endon("jolie_pass");
 	level endon(level._osc_flags[1]);
 	for(i = level._osc_trial_time; i > 0; i--)
 	{
@@ -674,7 +674,7 @@ function moon_hit_reaction()
 	level endon(level._osc_flags[9]);
 	while(!level flag::get(level._osc_flags[9]))
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(self._hit_already)
 		{
 			wait(0.1);
@@ -707,7 +707,7 @@ function moon_keyhole()
 	level flag::wait_till(level._osc_flags[9]);
 	level._osc_cap movez(-8, 1);
 	level._osc_cap playsound("evt_sq_rbs_open");
-	level._osc_cap waittill(#"movedone");
+	level._osc_cap waittill("movedone");
 	level flag::set(level._osc_flags[10]);
 }
 
@@ -750,7 +750,7 @@ function play_moon_jolie_access_vox(who)
 	{
 		level._osc_rbs[i].cover playsoundwithnotify("vox_mcomp_quest_step3_1", "rbs_sounddone");
 	}
-	level._osc_rbs[0].cover waittill(#"rbs_sounddone");
+	level._osc_rbs[0].cover waittill("rbs_sounddone");
 	if(isdefined(who))
 	{
 		who thread zm_audio::create_and_play_dialog("eggs", "quest3", 9);
@@ -773,7 +773,7 @@ function play_moon_pass_vox(who)
 	{
 		level._osc_rbs[i].cover playsoundwithnotify("vox_mcomp_quest_step5_26", "rbs_sounddone");
 	}
-	level._osc_rbs[0].cover waittill(#"rbs_sounddone");
+	level._osc_rbs[0].cover waittill("rbs_sounddone");
 	if(isdefined(who))
 	{
 		who thread zm_audio::create_and_play_dialog("eggs", "quest3", 12);
@@ -795,7 +795,7 @@ function comp_fail_vox()
 	{
 		level._osc_rbs[i].cover playsoundwithnotify("vox_mcomp_quest_step5_8", "rbs_sounddone");
 	}
-	level._osc_rbs[0].cover waittill(#"rbs_sounddone");
+	level._osc_rbs[0].cover waittill("rbs_sounddone");
 	level._lid_close_sound = 0;
 }
 

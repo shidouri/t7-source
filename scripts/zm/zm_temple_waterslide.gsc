@@ -77,7 +77,7 @@ function waterslide_main()
 			e_blocker movez(128, 1);
 		}
 	}
-	level notify(#"slide_open");
+	level notify("slide_open");
 }
 
 /*
@@ -118,7 +118,7 @@ function zombie_caveslide_anim_failsafe()
 	{
 		while(true)
 		{
-			trig waittill(#"trigger", who);
+			trig waittill("trigger", who);
 			if(isdefined(who.sliding) && who.sliding)
 			{
 				who.sliding = 0;
@@ -145,11 +145,11 @@ function slide_trig_watch()
 		return;
 	}
 	self triggerenable(0);
-	level waittill(#"slide_open");
+	level waittill("slide_open");
 	self triggerenable(1);
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(who.animname == "zombie" || who.animname == "sonic_zombie" || who.animname == "napalm_zombie")
 		{
 			if(isdefined(who.sliding) && who.sliding == 1)
@@ -179,15 +179,15 @@ function slide_trig_watch()
 */
 function zombie_sliding(slide_node)
 {
-	self endon(#"death");
-	level endon(#"intermission");
+	self endon("death");
+	level endon("intermission");
 	if(!isdefined(self.cave_slide_flag_init))
 	{
 		self flag::init("slide_anim_change");
 		self.cave_slide_flag_init = 1;
 	}
 	self.is_traversing = 1;
-	self notify(#"zombie_start_traverse");
+	self notify("zombie_start_traverse");
 	self thread zombie_slide_watch();
 	self thread play_zombie_slide_looper();
 	self.ignore_find_flesh = 1;
@@ -195,8 +195,8 @@ function zombie_sliding(slide_node)
 	self.ignoreall = 1;
 	self.b_ignore_cleanup = 1;
 	self thread gibbed_while_sliding();
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	self.var_9c5ae704 = self.zombie_move_speed;
 	self thread set_zombie_slide_anim();
 	if(!(isdefined(self.missinglegs) && self.missinglegs))
@@ -214,11 +214,11 @@ function zombie_sliding(slide_node)
 	{
 		self setphysparams(15, 0, 72);
 	}
-	self notify(#"water_slide_exit");
+	self notify("water_slide_exit");
 	self.ignore_find_flesh = 0;
 	self.sliding = 0;
 	self.is_traversing = 0;
-	self notify(#"zombie_end_traverse");
+	self notify("zombie_end_traverse");
 	self.ignoreall = 0;
 	self.b_ignore_cleanup = 0;
 	self.ai_state = "find_flesh";
@@ -235,8 +235,8 @@ function zombie_sliding(slide_node)
 */
 function play_zombie_slide_looper()
 {
-	self endon(#"death");
-	level endon(#"intermission");
+	self endon("death");
+	level endon("intermission");
 	self playloopsound("fly_dtp_slide_loop_npc_snow", 0.5);
 	self util::waittill_any("zombie_end_traverse", "death");
 	self stoploopsound(0.5);
@@ -284,7 +284,7 @@ function reset_zombie_anim()
 */
 function death_while_sliding()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.animname == "sonic_zombie" || self.animname == "napalm_zombie")
 	{
 		return self.deathanim;
@@ -309,7 +309,7 @@ function death_while_sliding()
 */
 function gibbed_while_sliding()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.animname == "sonic_zombie" || self.animname == "napalm_zombie")
 	{
 		return;
@@ -425,11 +425,11 @@ function array_remove(array, object)
 */
 function slide_player_enter_watch()
 {
-	level endon(#"fake_death");
+	level endon("fake_death");
 	trig = getent("cave_slide_force_crouch", "targetname");
 	while(true)
 	{
-		trig waittill(#"trigger", who);
+		trig waittill("trigger", who);
 		if(isdefined(who) && isplayer(who) && who.sessionstate != "spectator" && (!(isdefined(who.on_slide) && who.on_slide)))
 		{
 			who.on_slide = 1;
@@ -453,11 +453,11 @@ function slide_player_exit_watch()
 	trig = getent("cave_slide_force_stand", "targetname");
 	while(true)
 	{
-		trig waittill(#"trigger", who);
+		trig waittill("trigger", who);
 		if(isdefined(who) && isplayer(who) && who.sessionstate != "spectator" && (isdefined(who.on_slide) && who.on_slide))
 		{
 			who.on_slide = 0;
-			who notify(#"water_slide_exit");
+			who notify("water_slide_exit");
 		}
 	}
 }
@@ -493,10 +493,10 @@ function player_slide_watch()
 */
 function player_slide_fake_death_watch()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"water_slide_exit");
-	self waittill(#"fake_death");
+	self endon("death");
+	self endon("disconnect");
+	self endon("water_slide_exit");
+	self waittill("fake_death");
 	self allowstand(1);
 	self allowprone(1);
 }
@@ -512,9 +512,9 @@ function player_slide_fake_death_watch()
 */
 function on_player_enter_slide()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"water_slide_exit");
+	self endon("death");
+	self endon("disconnect");
+	self endon("water_slide_exit");
 	self playloopsound("evt_slideloop");
 	if(self laststand::player_is_in_laststand())
 	{
@@ -543,8 +543,8 @@ function on_player_enter_slide()
 */
 function on_player_exit_slide()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self allowstand(1);
 	self allowprone(1);
 	if(!self laststand::player_is_in_laststand())

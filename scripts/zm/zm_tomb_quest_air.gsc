@@ -75,7 +75,7 @@ function air_puzzle_1_cleanup()
 		e_ring rotateyaw(360, 1.5, 0.5, 0);
 		e_ring movez(n_move, 1.5, 0.5, 0);
 		e_ring playsound("zmb_squest_wind_ring_turn");
-		e_ring waittill(#"movedone");
+		e_ring waittill("movedone");
 		e_ring playsound("zmb_squest_wind_ring_stop");
 	}
 }
@@ -152,7 +152,7 @@ function ceiling_ring_update_position()
 	self rotateto(new_angles, 0.5, 0.2, 0.2);
 	exploder::exploder("fxexp_600");
 	self playsound("zmb_squest_wind_ring_turn");
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	self playsound("zmb_squest_wind_ring_stop");
 }
 
@@ -208,7 +208,7 @@ function ceiling_ring_init()
 */
 function ceiling_ring_run()
 {
-	level endon(#"air_puzzle_1_complete");
+	level endon("air_puzzle_1_complete");
 	self setcandamage(1);
 	self.position = 0;
 	ceiling_ring_randomize();
@@ -219,7 +219,7 @@ function ceiling_ring_run()
 	var_9d64b269 = 300 * 300;
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weaponname);
+		self waittill("damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weaponname);
 		if(weaponname.name == "staff_air")
 		{
 			var_a9ffa3fc = 0;
@@ -248,19 +248,19 @@ function ceiling_ring_run()
 			}
 			if(var_a9ffa3fc)
 			{
-				level notify(#"vo_try_puzzle_air1", attacker);
+				level notify("vo_try_puzzle_air1", attacker);
 				self ceiling_ring_rotate();
 				zm_tomb_utility::rumble_nearby_players(self.origin, 1500, 2);
 				n_rotations++;
 				if((n_rotations % 4) == 0)
 				{
-					level notify(#"vo_puzzle_bad", attacker);
+					level notify("vo_puzzle_bad", attacker);
 				}
 			}
 		}
 		else
 		{
-			level notify(#"vo_puzzle_confused", attacker);
+			level notify("vo_puzzle_confused", attacker);
 		}
 	}
 }
@@ -303,7 +303,7 @@ function air_puzzle_2_run()
 	w_staff_air = level.a_elemental_staffs["staff_air"].w_weapon;
 	while(true)
 	{
-		level waittill(#"air_puzzle_smoke_solved");
+		level waittill("air_puzzle_smoke_solved");
 		all_smoke_solved = 1;
 		foreach(s_smoke_pos in a_smoke_pos)
 		{
@@ -350,7 +350,7 @@ function air_puzzle_smoke()
 	self thread air_puzzle_run_smoke_direction();
 	level flag::wait_till("air_puzzle_2_complete");
 	self.e_fx movez(-1000, 1, 0.1, 0.1);
-	self.e_fx waittill(#"movedone");
+	self.e_fx waittill("movedone");
 	wait(5);
 	self.e_fx delete();
 	self.detector_brush delete();
@@ -367,8 +367,8 @@ function air_puzzle_smoke()
 */
 function air_puzzle_run_smoke_direction()
 {
-	level endon(#"air_puzzle_2_complete");
-	self endon(#"death");
+	level endon("air_puzzle_2_complete");
+	self endon("death");
 	s_dest = struct::get("puzzle_smoke_dest", "targetname");
 	v_to_dest = vectornormalize(s_dest.origin - self.origin);
 	f_min_dot = cos(self.script_int);
@@ -377,14 +377,14 @@ function air_puzzle_run_smoke_direction()
 	direction_failures = 0;
 	while(true)
 	{
-		self.detector_brush waittill(#"damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weaponname);
+		self.detector_brush waittill("damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weaponname);
 		if(weaponname.name == "staff_air")
 		{
-			level notify(#"vo_try_puzzle_air2", attacker);
+			level notify("vo_try_puzzle_air2", attacker);
 			new_yaw = math::vec_to_angles(direction_vec);
 			new_orient = (0, new_yaw, 0);
 			self.e_fx rotateto(new_orient, 1, 0.3, 0.3);
-			self.e_fx waittill(#"rotatedone");
+			self.e_fx waittill("rotatedone");
 			f_dot = vectordot(v_to_dest, direction_vec);
 			self.solved = f_dot > f_min_dot;
 			if(!self.solved)
@@ -392,18 +392,18 @@ function air_puzzle_run_smoke_direction()
 				direction_failures++;
 				if(direction_failures > 4)
 				{
-					level notify(#"vo_puzzle_confused", attacker);
+					level notify("vo_puzzle_confused", attacker);
 				}
 			}
 			else if(randomint(100) < 10)
 			{
-				level notify(#"vo_puzzle_good", attacker);
+				level notify("vo_puzzle_good", attacker);
 			}
-			level notify(#"air_puzzle_smoke_solved");
+			level notify("air_puzzle_smoke_solved");
 		}
 		else if(issubstr(weaponname, "staff"))
 		{
-			level notify(#"vo_puzzle_bad", attacker);
+			level notify("vo_puzzle_bad", attacker);
 		}
 	}
 }

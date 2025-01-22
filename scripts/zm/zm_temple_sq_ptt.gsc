@@ -42,7 +42,7 @@ function init()
 function debug_jet()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		struct = struct::get(self.target, "");
 		dir = anglestoforward(struct.angles);
 		while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
@@ -75,7 +75,7 @@ function ignite_jet()
 	self playsound("evt_sq_ptt_gas_ignite");
 	str_exploder = "fxexp_" + (self.script_int + 10);
 	exploder::exploder(str_exploder);
-	level waittill(#"sq_ptt_over");
+	level waittill("sq_ptt_over");
 	exploder::stop_exploder(str_exploder);
 }
 
@@ -90,17 +90,17 @@ function ignite_jet()
 */
 function gas_volume()
 {
-	self endon(#"death");
+	self endon("death");
 	self.jet_color = vectorscale((0, 1, 0), 255);
 	level flag::wait_till("sq_ptt_dial_dialed");
 	exploder::exploder("fxexp_" + self.script_int);
 	while(true)
 	{
-		level waittill(#"napalm_death", volume);
+		level waittill("napalm_death", volume);
 		if(volume == self.script_int)
 		{
-			self.trigger notify(#"lit");
-			level notify(#"lit");
+			self.trigger notify("lit");
+			level notify("lit");
 			self thread ignite_jet();
 			self thread play_line_on_nearby_player();
 			level._ptt_num_lit++;
@@ -142,7 +142,7 @@ function play_line_on_nearby_player()
 */
 function function_d9c0ed6()
 {
-	self endon(#"death");
+	self endon("death");
 	self triggerignoreteam();
 	while(true)
 	{
@@ -182,15 +182,15 @@ function function_d9c0ed6()
 */
 function function_74e74bde()
 {
-	self endon(#"death");
-	self endon(#"lit");
+	self endon("death");
+	self endon("lit");
 	level flag::wait_till("sq_ptt_dial_dialed");
 	self thread player_line_thread();
 	self thread function_d9c0ed6();
 	if(1)
 	{
 		self waittill(#"hash_c1510355");
-		level notify(#"napalm_death", self.owner_ent.script_int);
+		level notify("napalm_death", self.owner_ent.script_int);
 		return;
 	}
 }
@@ -206,11 +206,11 @@ function function_74e74bde()
 */
 function player_line_thread()
 {
-	self endon(#"death");
-	self endon(#"lit");
+	self endon("death");
+	self endon("lit");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			who thread zm_audio::create_and_play_dialog("eggs", "quest4", randomintrange(0, 2));
@@ -230,7 +230,7 @@ function player_line_thread()
 */
 function init_stage()
 {
-	level notify(#"ptt_start");
+	level notify("ptt_start");
 	level flag::clear("sq_ptt_dial_dialed");
 	dial = getent("sq_ptt_dial", "targetname");
 	dial thread ptt_dial();
@@ -260,7 +260,7 @@ function init_stage()
 */
 function play_choking_loop()
 {
-	level endon(#"sq_ptt_over");
+	level endon("sq_ptt_over");
 	struct = struct::get("sq_location_ptt", "targetname");
 	if(!isdefined(struct))
 	{
@@ -300,7 +300,7 @@ function delayed_start_skit(skit)
 */
 function ptt_lever()
 {
-	level endon(#"sq_ptt_over");
+	level endon("sq_ptt_over");
 	level flag::clear("sq_ptt_level_pulled");
 	if(!isdefined(self.original_angles))
 	{
@@ -309,19 +309,19 @@ function ptt_lever()
 	self.angles = self.original_angles;
 	while(level._ptt_num_lit < level._ptt_jets)
 	{
-		level waittill(#"lit");
+		level waittill("lit");
 		self playsound("evt_sq_ptt_lever_ratchet");
 		self rotateroll(-25, 0.25);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 	use_trigger = spawn("trigger_radius_use", self.origin, 0, 32, 72);
 	use_trigger triggerignoreteam();
 	use_trigger setcursorhint("HINT_NOICON");
-	use_trigger waittill(#"trigger");
+	use_trigger waittill("trigger");
 	use_trigger delete();
 	self playsound("evt_sq_ptt_lever_pull");
 	self rotateroll(100, 0.25);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	level flag::set("sq_ptt_level_pulled");
 }
 
@@ -336,7 +336,7 @@ function ptt_lever()
 */
 function ptt_story_vox(player)
 {
-	level endon(#"sq_ptt_over");
+	level endon("sq_ptt_over");
 	struct = struct::get("sq_location_ptt", "targetname");
 	if(!isdefined(struct))
 	{
@@ -345,18 +345,18 @@ function ptt_story_vox(player)
 	level._ptt_sound_ent = spawn("script_origin", struct.origin);
 	level._ptt_sound_ent_trash = spawn("script_origin", struct.origin);
 	level._ptt_sound_ent playsoundwithnotify("vox_egg_story_3_0", "sounddone");
-	level._ptt_sound_ent waittill(#"sounddone");
+	level._ptt_sound_ent waittill("sounddone");
 	level._ptt_sound_ent_trash playsound("evt_sq_ptt_trash_start");
 	level._ptt_sound_ent_trash playloopsound("evt_sq_ptt_trash_loop");
 	level._ptt_sound_ent playsoundwithnotify("vox_egg_story_3_1", "sounddone");
-	level._ptt_sound_ent waittill(#"sounddone");
+	level._ptt_sound_ent waittill("sounddone");
 	level._ptt_sound_ent playsoundwithnotify("vox_egg_story_3_2", "sounddone");
-	level._ptt_sound_ent waittill(#"sounddone");
+	level._ptt_sound_ent waittill("sounddone");
 	if(isdefined(player))
 	{
 		level.skit_vox_override = 1;
 		player playsoundwithnotify("vox_egg_story_3_3" + zm_temple_sq::function_26186755(player.characterindex), "vox_egg_sounddone");
-		player waittill(#"vox_egg_sounddone");
+		player waittill("vox_egg_sounddone");
 		level.skit_vox_override = 0;
 	}
 	level thread ptt_story_reminder_vox(45);
@@ -364,9 +364,9 @@ function ptt_story_vox(player)
 	level._ptt_sound_ent_trash stoploopsound(2);
 	level._ptt_sound_ent_trash playsound("evt_sq_ptt_trash_end");
 	level._ptt_sound_ent playsoundwithnotify("vox_egg_story_3_8", "sounddone");
-	level._ptt_sound_ent waittill(#"sounddone");
+	level._ptt_sound_ent waittill("sounddone");
 	level._ptt_sound_ent playsoundwithnotify("vox_egg_story_3_9", "sounddone");
-	level._ptt_sound_ent waittill(#"sounddone");
+	level._ptt_sound_ent waittill("sounddone");
 	level flag::set("ptt_plot_vo_done");
 	level._ptt_sound_ent_trash delete();
 	level._ptt_sound_ent_trash = undefined;
@@ -385,13 +385,13 @@ function ptt_story_vox(player)
 */
 function ptt_story_reminder_vox(waittime)
 {
-	level endon(#"sq_ptt_over");
+	level endon("sq_ptt_over");
 	wait(waittime);
 	count = 4;
 	while(!level flag::get("sq_ptt_level_pulled") && count <= 7)
 	{
 		level._ptt_sound_ent playsoundwithnotify("vox_egg_story_3_" + count, "sounddone");
-		level._ptt_sound_ent waittill(#"sounddone");
+		level._ptt_sound_ent waittill("sounddone");
 		count++;
 		wait(waittime);
 	}
@@ -414,13 +414,13 @@ function stage_logic()
 		wait(0.1);
 	}
 	level flag::wait_till("sq_ptt_level_pulled");
-	level notify(#"suspend_timer");
+	level notify("suspend_timer");
 	wait(5);
-	level notify(#"raise_crystal_1");
-	level notify(#"raise_crystal_2");
-	level notify(#"raise_crystal_3");
-	level notify(#"raise_crystal_4", 1);
-	level waittill(#"raised_crystal_4");
+	level notify("raise_crystal_1");
+	level notify("raise_crystal_2");
+	level notify("raise_crystal_3");
+	level notify("raise_crystal_4", 1);
+	level waittill("raised_crystal_4");
 	level flag::wait_till("ptt_plot_vo_done");
 	wait(5);
 	zm_sidequests::stage_completed("sq", "PtT");
@@ -510,12 +510,12 @@ function exit_stage(success)
 */
 function dial_trigger()
 {
-	level endon(#"ptt_start");
-	level endon(#"sq_ptt_over");
+	level endon("ptt_start");
+	level endon("sq_ptt_over");
 	while(true)
 	{
-		self waittill(#"trigger", who);
-		self.owner_ent notify(#"triggered", who);
+		self waittill("trigger", who);
+		self.owner_ent notify("triggered", who);
 	}
 }
 
@@ -530,17 +530,17 @@ function dial_trigger()
 */
 function ptt_dial()
 {
-	level endon(#"sq_ptt_over");
+	level endon("sq_ptt_over");
 	num_turned = 0;
 	who = undefined;
 	self.trigger triggerignoreteam();
 	self.trigger thread dial_trigger();
 	while(num_turned < 4)
 	{
-		self waittill(#"triggered", who);
+		self waittill("triggered", who);
 		self playsound("evt_sq_ptt_valve");
 		self rotateroll(90, 0.25);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 		num_turned++;
 	}
 	level thread ptt_story_vox(who);
@@ -561,12 +561,12 @@ function ptt_dial()
 */
 function dud_dial_handler()
 {
-	level endon(#"ptt_start");
+	level endon("ptt_start");
 	self.trigger triggerignoreteam();
 	self.trigger thread dial_trigger();
 	while(true)
 	{
-		self waittill(#"triggered");
+		self waittill("triggered");
 		self playsound("evt_sq_ptt_valve");
 		self rotateroll(90, 0.25);
 	}

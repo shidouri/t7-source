@@ -102,7 +102,7 @@ function locationstingerwait(zone_name, type)
 	level thread sndlocationbetweenroundswait();
 	while(true)
 	{
-		level waittill(#"newzoneactive", activezone);
+		level waittill("newzoneactive", activezone);
 		wait(0.1);
 		if(!sndlocationshouldplay(array, activezone))
 		{
@@ -295,7 +295,7 @@ function sndcurrentlocationarray(current_array, activezone, numcut, max_num_remo
 */
 function sndlocationbetweenrounds()
 {
-	level endon(#"newzoneactive");
+	level endon("newzoneactive");
 	activezones = zm_zonemgr::get_active_zone_names();
 	foreach(zone in activezones)
 	{
@@ -309,7 +309,7 @@ function sndlocationbetweenrounds()
 			if(player zm_zonemgr::entity_in_zone(zone))
 			{
 				wait(0.1);
-				level notify(#"newzoneactive", zone);
+				level notify("newzoneactive", zone);
 				return;
 			}
 		}
@@ -407,10 +407,10 @@ function snddoormusictrigs()
 */
 function snddoormusic()
 {
-	self endon(#"snddoormusic_triggered");
+	self endon("snddoormusic_triggered");
 	while(true)
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		if(!zm_audio_zhd::function_8090042c())
 		{
 			wait(0.1);
@@ -424,7 +424,7 @@ function snddoormusic()
 	if(isdefined(self.target))
 	{
 		ent = getent(self.target, "targetname");
-		ent notify(#"snddoormusic_triggered");
+		ent notify("snddoormusic_triggered");
 	}
 	level thread sndplaystingerwithoverride(self.script_sound);
 }
@@ -447,7 +447,7 @@ function sndmaelstrom()
 	}
 	while(true)
 	{
-		trig waittill(#"trigger", who);
+		trig waittill("trigger", who);
 		if(isplayer(who) && (!(isdefined(who.sndmaelstrom) && who.sndmaelstrom)))
 		{
 			who.sndmaelstrom = 1;
@@ -469,9 +469,9 @@ function sndmaelstrom()
 */
 function sndmaelstrom_timeout()
 {
-	self notify(#"sndmaelstrom_timeout");
-	self endon(#"sndmaelstrom_timeout");
-	self endon(#"disconnect");
+	self notify("sndmaelstrom_timeout");
+	self endon("sndmaelstrom_timeout");
+	self endon("disconnect");
 	wait(2);
 	self.sndmaelstrom = 0;
 	self clientfield::set_to_player("sndMaelstrom", 0);
@@ -585,10 +585,10 @@ function function_45b4acf2()
 */
 function function_ada4c741()
 {
-	level endon(#"snd_zhdegg_activate");
+	level endon("snd_zhdegg_activate");
 	while(true)
 	{
-		level waittill(#"player_zombie_blood", e_player);
+		level waittill("player_zombie_blood", e_player);
 		e_player clientfield::set_to_player("sndEggElements", 1);
 		e_player thread function_42354338();
 	}
@@ -605,9 +605,9 @@ function function_ada4c741()
 */
 function function_42354338()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self waittill(#"zombie_blood_over");
+	self endon("death");
+	self endon("disconnect");
+	self waittill("zombie_blood_over");
 	self clientfield::set_to_player("sndEggElements", 0);
 }
 
@@ -649,7 +649,7 @@ function function_66aff463()
 	var_8e7ce497 = spawn("trigger_damage", self.origin, 0, 15, 50);
 	while(true)
 	{
-		var_8e7ce497 waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weapon);
+		var_8e7ce497 waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weapon);
 		if(isplayer(inflictor) && issubstr(weapon.name, "staff_" + self.script_string))
 		{
 			level notify(#"hash_556250a8");
@@ -750,7 +750,7 @@ function function_69f032ca()
 	var_209d26c2 = struct::get(self.target, "targetname");
 	self thread function_bec55ee6();
 	self.var_ac086ffb moveto(var_209d26c2.origin, 25, 10);
-	self.var_ac086ffb waittill(#"movedone");
+	self.var_ac086ffb waittill("movedone");
 	self notify(#"hash_3a53ac43");
 	self.var_ac086ffb clientfield::set("snd_zhdegg", 0);
 	util::wait_network_frame();
@@ -773,7 +773,7 @@ function function_bec55ee6()
 	self.var_ac086ffb.health = 1000000;
 	while(true)
 	{
-		self.var_ac086ffb waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self.var_ac086ffb waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;

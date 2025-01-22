@@ -408,8 +408,8 @@ function togglezoneeffects(enabled)
 */
 function kothcaptureloop()
 {
-	level endon(#"game_ended");
-	level endon(#"zone_moved");
+	level endon("game_ended");
+	level endon("zone_moved");
 	level.kothstarttime = gettime();
 	while(true)
 	{
@@ -440,7 +440,7 @@ function kothcaptureloop()
 		level.zone.gameobject.onunoccupied = &onzoneunoccupied;
 		level.zone.gameobject.oncontested = &onzonecontested;
 		level.zone.gameobject.onuncontested = &onzoneuncontested;
-		level waittill(#"zone_destroyed", destroy_team);
+		level waittill("zone_destroyed", destroy_team);
 		if(!level.kothmode || level.zonedestroyedbytimer)
 		{
 			break;
@@ -468,7 +468,7 @@ function kothcaptureloop()
 */
 function kothmainloop()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level.zonerevealtime = -100000;
 	zonespawninginstr = &"MP_KOTH_AVAILABLE_IN";
 	if(level.kothmode)
@@ -547,7 +547,7 @@ function kothmainloop()
 		level.zone.gameobject gameobjects::set_model_visibility(0);
 		level.zone.gameobject gameobjects::must_maintain_claim(0);
 		level.zone togglezoneeffects(0);
-		level notify(#"zone_reset");
+		level notify("zone_reset");
 		setmatchflag("bomb_timer_a", 0);
 		spawn_next_zone();
 		wait(0.5);
@@ -567,7 +567,7 @@ function kothmainloop()
 */
 function hidetimerdisplayongameend()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	setmatchflag("bomb_timer_a", 0);
 }
 
@@ -592,7 +592,7 @@ function forcespawnteam(team)
 		}
 		if(player.pers["team"] == team)
 		{
-			player notify(#"force_spawn");
+			player notify("force_spawn");
 			wait(0.1);
 		}
 	}
@@ -744,7 +744,7 @@ function onzonecapture(player)
 	self gameobjects::must_maintain_claim(1);
 	self updateteamclientfield();
 	player recordgameevent("hardpoint_captured");
-	level notify(#"zone_captured");
+	level notify("zone_captured");
 	level notify("zone_captured" + capture_team);
 	player notify(#"event_ended");
 }
@@ -869,7 +869,7 @@ function onzonedestroy(player)
 		}
 		globallogic_audio::leader_dialog("koth_destroyed", team, undefined, "gamemode_objective");
 	}
-	level notify(#"zone_destroyed", destroyed_team);
+	level notify("zone_destroyed", destroyed_team);
 	if(level.kothmode)
 	{
 		level thread awardcapturepoints(destroyed_team);
@@ -888,7 +888,7 @@ function onzonedestroy(player)
 */
 function onzoneunoccupied()
 {
-	level notify(#"zone_destroyed");
+	level notify("zone_destroyed");
 	level.kothcapteam = "neutral";
 	level.zone.gameobject.wasleftunoccupied = 1;
 	level.zone.gameobject.iscontested = 0;
@@ -956,8 +956,8 @@ function onzoneuncontested(lastclaimteam)
 */
 function movezoneaftertime(time)
 {
-	level endon(#"game_ended");
-	level endon(#"zone_reset");
+	level endon("game_ended");
+	level endon("zone_reset");
 	level.zonemovetime = gettime() + (time * 1000);
 	level.zonedestroyedbytimer = 0;
 	wait(time);
@@ -971,7 +971,7 @@ function movezoneaftertime(time)
 	}
 	level.zonedestroyedbytimer = 1;
 	level.zone.gameobject recordgameeventnonplayer("hardpoint_moved");
-	level notify(#"zone_moved");
+	level notify("zone_moved");
 }
 
 /*
@@ -985,12 +985,12 @@ function movezoneaftertime(time)
 */
 function awardcapturepoints(team, lastcaptureteam)
 {
-	level endon(#"game_ended");
-	level endon(#"zone_destroyed");
-	level endon(#"zone_reset");
-	level endon(#"zone_moved");
-	level notify(#"awardcapturepointsrunning");
-	level endon(#"awardcapturepointsrunning");
+	level endon("game_ended");
+	level endon("zone_destroyed");
+	level endon("zone_reset");
+	level endon("zone_moved");
+	level notify("awardcapturepointsrunning");
+	level endon("awardcapturepointsrunning");
 	seconds = 1;
 	score = 1;
 	while(!level.gameended)
@@ -1693,11 +1693,11 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 function watchkillwhilecontesting(zone_captured_team)
 {
 	level endon(zone_captured_team);
-	level endon(#"zone_destroyed");
-	level endon(#"zone_captured");
-	level endon(#"death");
+	level endon("zone_destroyed");
+	level endon("zone_captured");
+	level endon("death");
 	self util::waittill_any_return("killWhileContesting", "disconnect");
-	level notify(#"abortkillwhilecontesting");
+	level notify("abortkillwhilecontesting");
 }
 
 /*
@@ -1711,9 +1711,9 @@ function watchkillwhilecontesting(zone_captured_team)
 */
 function killwhilecontesting()
 {
-	self notify(#"killwhilecontesting");
-	self endon(#"killwhilecontesting");
-	self endon(#"disconnect");
+	self notify("killwhilecontesting");
+	self endon("killwhilecontesting");
+	self endon("disconnect");
 	killtime = gettime();
 	playerteam = self.pers["team"];
 	if(!isdefined(self.clearenemycount))

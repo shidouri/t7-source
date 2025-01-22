@@ -295,9 +295,9 @@ function gadget_roulette_give_earned_specialist(weapon, playsound)
 */
 function disable_hero_gadget_activation(duration)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"roulette_respin_activate");
+	self endon("death");
+	self endon("disconnect");
+	self endon("roulette_respin_activate");
 	self disableoffhandspecial();
 	wait(duration);
 	self enableoffhandspecial();
@@ -314,10 +314,10 @@ function disable_hero_gadget_activation(duration)
 */
 function watchrespingadgetactivated()
 {
-	self endon(#"watchrespingadgetactivated");
-	self endon(#"death");
-	self endon(#"disconnect");
-	self waittill(#"hero_gadget_activated");
+	self endon("watchrespingadgetactivated");
+	self endon("death");
+	self endon("disconnect");
+	self waittill("hero_gadget_activated");
 	self clientfield::set_to_player("roulette_state", 0);
 }
 
@@ -332,9 +332,9 @@ function watchrespingadgetactivated()
 */
 function watchrespin(weapon)
 {
-	self endon(#"hero_gadget_activated");
-	self notify(#"watchrespin");
-	self endon(#"watchrespin");
+	self endon("hero_gadget_activated");
+	self notify("watchrespin");
+	self endon("watchrespin");
 	if(!isdefined(self.pers[#"hash_9f129a92"]) || self.pers[#"hash_9f129a92"] == 0)
 	{
 		return;
@@ -353,8 +353,8 @@ function watchrespin(weapon)
 			self.pers[#"hash_65987563"] = undefined;
 			self giverandomweapon(weapon, 0);
 			self.pers[#"hash_9f129a92"] = 0;
-			self notify(#"watchrespingadgetactivated");
-			self notify(#"roulette_respin_activate");
+			self notify("watchrespingadgetactivated");
+			self notify("roulette_respin_activate");
 			self clientfield::set_to_player("roulette_state", 2);
 			self playsoundtoplayer("mpl_bm_specialist_roulette", self);
 			self thread reset_roulette_state_to_default();
@@ -364,7 +364,7 @@ function watchrespin(weapon)
 	}
 	if(isdefined(self))
 	{
-		self notify(#"watchrespingadgetactivated");
+		self notify("watchrespingadgetactivated");
 	}
 }
 
@@ -398,8 +398,8 @@ function failsafe_reenable_offhand_special()
 */
 function reset_roulette_state_to_default()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(0.5);
 	self clientfield::set_to_player("roulette_state", 0);
 }
@@ -415,10 +415,10 @@ function reset_roulette_state_to_default()
 */
 function watchgadgetactivated(weapon)
 {
-	self endon(#"death");
-	self notify(#"watchgadgetactivated");
-	self endon(#"watchgadgetactivated");
-	self waittill(#"hero_gadget_activated");
+	self endon("death");
+	self notify("watchgadgetactivated");
+	self endon("watchgadgetactivated");
+	self waittill("hero_gadget_activated");
 	self.pers[#"hash_9f129a92"] = 1;
 	if(isdefined(weapon) || weapon.name != "gadget_roulette")
 	{
@@ -500,12 +500,12 @@ function gadget_roulette_on_deactivate(slot, weapon)
 */
 function gadget_roulette_on_deactivate_helper(weapon)
 {
-	self notify(#"gadget_roulette_on_deactivate_helper");
-	self endon(#"gadget_roulette_on_deactivate_helper");
-	self waittill(#"heroability_off", weapon_off);
+	self notify("gadget_roulette_on_deactivate_helper");
+	self endon("gadget_roulette_on_deactivate_helper");
+	self waittill("heroability_off", weapon_off);
 	if(isdefined(weapon_off) && weapon_off.name == "gadget_speed_burst")
 	{
-		self waittill(#"heroability_off", weapon_off);
+		self waittill("heroability_off", weapon_off);
 	}
 	for(i = 0; i < 3; i++)
 	{

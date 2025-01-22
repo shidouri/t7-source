@@ -253,7 +253,7 @@ function on_buy_weapon_riotshield(player)
 		player [[player.player_shield_reset_location]]();
 	}
 	player playsound("zmb_craftable_buy_shield");
-	level notify(#"shield_built", player);
+	level notify("shield_built", player);
 }
 
 /*

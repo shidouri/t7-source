@@ -194,7 +194,7 @@ function cic_turret_off(angles)
 */
 function cic_turret_on()
 {
-	self endon(#"death");
+	self endon("death");
 	self playsound("veh_cic_turret_boot");
 	self vehicle::lights_on();
 	self enableaimassist();
@@ -247,8 +247,8 @@ function bootup()
 */
 function cic_turret_fireupdate()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	cant_see_enemy_count = 0;
 	wait(0.2);
 	origin = self gettagorigin("tag_barrel");
@@ -432,10 +432,10 @@ function cic_turret_play_single_fx_on_tag(effect, tag)
 */
 function cic_turret_damage()
 {
-	self endon(#"crash_done");
+	self endon("crash_done");
 	while(isdefined(self))
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		if(self.health > 0)
 		{
 			effect = self cic_turret_get_damage_effect(self.health / self.healthdefault);
@@ -458,8 +458,8 @@ function cic_turret_damage()
 function cic_turret_death()
 {
 	wait(0.1);
-	self notify(#"nodeath_thread");
-	self waittill(#"death", attacker, damagefromunderneath, weapon, point, dir);
+	self notify("nodeath_thread");
+	self waittill("death", attacker, damagefromunderneath, weapon, point, dir);
 	if(isdefined(self.delete_on_death))
 	{
 		if(isdefined(self.damage_fx_ent))
@@ -490,7 +490,7 @@ function cic_turret_death()
 		self.damage_fx_ent delete();
 	}
 	self.ignoreme = 1;
-	self waittill(#"crash_done");
+	self waittill("crash_done");
 	self freevehicle();
 }
 
@@ -524,8 +524,8 @@ function death_fx()
 */
 function cic_turret_death_movement(attacker, hitdir)
 {
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	self playsound("veh_cic_turret_dmg_hit");
 	wait(0.1);
 	self.turretrotscale = 0.5;
@@ -533,7 +533,7 @@ function cic_turret_death_movement(attacker, hitdir)
 	target_pos = (self.origin + (anglestoforward((0, tag_angles[1], 0)) * 1000)) + (vectorscale((0, 0, -1), 1800));
 	self setturrettargetvec(target_pos);
 	wait(4);
-	self notify(#"crash_done");
+	self notify("crash_done");
 }
 
 /*
@@ -547,8 +547,8 @@ function cic_turret_death_movement(attacker, hitdir)
 */
 function cic_turret_fire_for_time(totalfiretime)
 {
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	cic_turret_alert_sound();
 	wait(0.1);
 	weapon = self seatgetweapon(0);
@@ -637,7 +637,7 @@ function cic_turret_set_team(team)
 */
 function cic_turret_blink_lights()
 {
-	self endon(#"death");
+	self endon("death");
 	self vehicle::lights_off();
 	wait(0.1);
 	self vehicle::lights_on();
@@ -654,7 +654,7 @@ function cic_turret_blink_lights()
 */
 function cic_turret_emped()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"emped");
 	self endon(#"emped");
 	self.emped = 1;
@@ -724,8 +724,8 @@ function cicturretcallback_vehicledamage(einflictor, eattacker, idamage, idflags
 function cic_overheat_hud(turret)
 {
 	self endon(#"exit_vehicle");
-	turret endon(#"turret_exited");
-	level endon(#"player_using_turret");
+	turret endon("turret_exited");
+	level endon("player_using_turret");
 	heat = 0;
 	overheat = 0;
 	while(true)
@@ -756,9 +756,9 @@ function cic_overheat_hud(turret)
 */
 function cic_turret_stunned()
 {
-	self endon(#"death");
-	self notify(#"stunned");
-	self endon(#"stunned");
+	self endon("death");
+	self notify("stunned");
+	self endon("stunned");
 	self.stunned = 1;
 	self.turretrotscale = 0.2;
 	self cic_turret_off();

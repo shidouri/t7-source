@@ -176,7 +176,7 @@ function private vehicle_damage_override(einflictor, eattacker, idamage, idflags
 */
 function function_eb0b4e74()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(!isdefined(self.var_b3258f2e));
 	#/
@@ -194,7 +194,7 @@ function function_eb0b4e74()
 	setpauseworld(1);
 	self thread function_f2925308();
 	self bgb::run_timer(20);
-	self notify(#"killing_time_done");
+	self notify("killing_time_done");
 }
 
 /*

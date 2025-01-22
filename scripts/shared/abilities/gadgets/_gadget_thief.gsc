@@ -408,8 +408,8 @@ function getstolenheroweapon(gadget)
 */
 function resetflashstartandendafterdelay(delay)
 {
-	self notify(#"resetflashstartandend");
-	self endon(#"resetflashstartandend");
+	self notify("resetflashstartandend");
+	self endon("resetflashstartandend");
 	wait(delay);
 	self clientfield::set_player_uimodel("playerAbilities.playerGadget3.flashStart", 0);
 	self clientfield::set_player_uimodel("playerAbilities.playerGadget3.flashEnd", 0);
@@ -554,15 +554,15 @@ function earnedspecialistweapon(victim, slot, wasfullycharged, stolenheroweapon)
 */
 function giveflipweapon(slot, victim, heroweapon)
 {
-	self notify(#"give_flip_weapon_singleton");
-	self endon(#"give_flip_weapon_singleton");
+	self notify("give_flip_weapon_singleton");
+	self endon("give_flip_weapon_singleton");
 	previousgivefliptime = (isdefined(self.last_thief_give_flip_time) ? self.last_thief_give_flip_time : 0);
 	self.last_thief_give_flip_time = gettime();
 	alreadygivenflipthisframe = previousgivefliptime == self.last_thief_give_flip_time;
 	self.pers[#"hash_5c5e3658"] = heroweapon;
 	victimbodyindex = getvictimbodyindex(victim, heroweapon);
 	self handlestolenscoreevent(heroweapon);
-	self notify(#"thief_flip_activated");
+	self notify("thief_flip_activated");
 	if((self.last_thief_give_flip_time - previousgivefliptime) > 99)
 	{
 		self playsoundtoplayer("mpl_bm_specialist_coin_place", self);
@@ -608,9 +608,9 @@ function givepreviouslyearnedspecialistweapon(slot, justspawned)
 */
 function disable_hero_gadget_activation(duration)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"thief_flip_activated");
+	self endon("death");
+	self endon("disconnect");
+	self endon("thief_flip_activated");
 	self disableoffhandspecial();
 	wait(duration);
 	self enableoffhandspecial();
@@ -728,12 +728,12 @@ function handlestolenscoreevent(heroweapon)
 */
 function watchforherokill(slot)
 {
-	self notify(#"watchforthiefkill_singleton");
-	self endon(#"watchforthiefkill_singleton");
+	self notify("watchforthiefkill_singleton");
+	self endon("watchforthiefkill_singleton");
 	self.gadgetthiefactive = 1;
 	while(true)
 	{
-		self waittill(#"hero_shutdown_gadget", herogadget, victim);
+		self waittill("hero_shutdown_gadget", herogadget, victim);
 		stolenheroweapon = getstolenheroweapon(herogadget);
 		performclientsideeffect = 0;
 		if(performclientsideeffect)
@@ -787,7 +787,7 @@ function watchforallkillsdebug()
 	/#
 		while(true)
 		{
-			self waittill(#"killed_enemy_player", victim);
+			self waittill("killed_enemy_player", victim);
 			self spawnthiefbeameffect(victim.origin);
 			clientsideeffect = spawn("", victim.origin);
 			clientsideeffect clientfield::set("", 1);
@@ -852,7 +852,7 @@ function gadget_give_random_gadget(slot, weapon, weaponstolenfromentnum, justspa
 	self.pers[#"hash_476984c8"] = weaponstolenfromentnum;
 	if(!isdefined(previousgadget) || previousgadget != selectedweapon)
 	{
-		self notify(#"thief_hero_weapon_changed", justspawned, selectedweapon);
+		self notify("thief_hero_weapon_changed", justspawned, selectedweapon);
 	}
 	self thread watchgadgetactivated(slot);
 }
@@ -868,10 +868,10 @@ function gadget_give_random_gadget(slot, weapon, weaponstolenfromentnum, justspa
 */
 function watchforoptionuse(slot, victimbodyindex, justspawned)
 {
-	self endon(#"death");
-	self endon(#"hero_gadget_activated");
-	self notify(#"watchforoptionuse_thief_singleton");
-	self endon(#"watchforoptionuse_thief_singleton");
+	self endon("death");
+	self endon("hero_gadget_activated");
+	self notify("watchforoptionuse_thief_singleton");
+	self endon("watchforoptionuse_thief_singleton");
 	if(self.pers[#"hash_c5c4a13f"] == 0)
 	{
 		return;
@@ -929,13 +929,13 @@ function dpad_left_pressed()
 */
 function watchheroweaponchanged()
 {
-	self notify(#"watchheroweaponchanged_singleton");
-	self endon(#"watchheroweaponchanged_singleton");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("watchheroweaponchanged_singleton");
+	self endon("watchheroweaponchanged_singleton");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"thief_hero_weapon_changed", justspawned, newweapon);
+		self waittill("thief_hero_weapon_changed", justspawned, newweapon);
 		if(justspawned)
 		{
 			if(isdefined(newweapon) && isdefined(newweapon.gadgetreadysoundplayer))
@@ -961,14 +961,14 @@ function watchheroweaponchanged()
 */
 function watchgadgetactivated(slot)
 {
-	self notify(#"watchgadgetactivated_singleton");
-	self endon(#"watchgadgetactivated_singleton");
-	self waittill(#"hero_gadget_activated");
+	self notify("watchgadgetactivated_singleton");
+	self endon("watchgadgetactivated_singleton");
+	self waittill("hero_gadget_activated");
 	self clientfield::set_to_player("thief_weapon_option", 0);
 	self.pers[#"hash_c35f137f"] = undefined;
 	self.pers[#"hash_5c5e3658"] = undefined;
 	self.pers[#"hash_c5c4a13f"] = 1;
-	self waittill(#"heroability_off");
+	self waittill("heroability_off");
 	power = self gadgetpowerget(slot);
 	power = (int(power / getthiefpowergain())) * getthiefpowergain();
 	self gadgetpowerset(slot, power);
@@ -994,7 +994,7 @@ function watchgadgetactivated(slot)
 */
 function gadget_thief_on_deactivate(slot, weapon)
 {
-	self waittill(#"heroability_off");
+	self waittill("heroability_off");
 	for(i = 0; i < 3; i++)
 	{
 		if(isdefined(self._gadgets_player[i]))

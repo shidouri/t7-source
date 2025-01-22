@@ -405,7 +405,7 @@ function set_subway_wall_dissolve(localclientnum, oldval, newval, bnewent, binit
 */
 function function_6d34f463(localclientnum, n_total_time)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	var_1baf89ac = n_total_time / 0.016;
 	exploder::exploder("lgt_sword_altar_underground");
@@ -510,7 +510,7 @@ function ritual_state_internal(localclientnum, newval, n_current_ritual)
 		}
 		case 1:
 		{
-			level notify(#"ritual_victim_animation");
+			level notify("ritual_victim_animation");
 			mdl_ritual hide();
 			mdl_memento show();
 			mdl_memento function_ae5b7493(localclientnum, 0, 0.025, 1, 1);
@@ -556,7 +556,7 @@ function ritual_state_internal(localclientnum, newval, n_current_ritual)
 		}
 		case 3:
 		{
-			level notify(#"ritual_victim_animation");
+			level notify("ritual_victim_animation");
 			mdl_relic setanim("ai_zombie_zod_gateworm_idle_loop", 1, 0, 1);
 			mdl_ritual show();
 			mdl_memento hide();
@@ -862,8 +862,8 @@ function function_267f859f(localclientnum, fx_id = undefined, b_on = 1, var_afcc
 */
 function sndritual(state, e_model)
 {
-	level notify(#"sndritual");
-	level endon(#"sndritual");
+	level notify("sndritual");
+	level endon("sndritual");
 	switch(state)
 	{
 		case 0:
@@ -1189,8 +1189,8 @@ function keeper_symbol_fx(localclientnum, oldval, newval, bnewent, binitialsnap,
 */
 function item_glow_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"item_glow_fx");
-	self endon(#"item_glow_fx");
+	self notify("item_glow_fx");
+	self endon("item_glow_fx");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{

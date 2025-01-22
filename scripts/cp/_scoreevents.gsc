@@ -499,10 +499,10 @@ function is_weapon_valid(meansofdeath, weapon, weaponclass)
 */
 function updatemultikills(weapon, weaponclass, killstreak)
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self notify(#"updaterecentkills");
-	self endon(#"updaterecentkills");
+	self endon("disconnect");
+	level endon("game_ended");
+	self notify("updaterecentkills");
+	self endon("updaterecentkills");
 	baseweapon = getweapon(getreffromitemindex(getbaseweaponitemindex(weapon)));
 	if(!isdefined(self.recentkillcount))
 	{
@@ -615,7 +615,7 @@ function updatemultikills(weapon, weaponclass, killstreak)
 */
 function waittilltimeoutordeath(timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timeout);
 }
 
@@ -630,8 +630,8 @@ function waittilltimeoutordeath(timeout)
 */
 function updateoneshotmultikills(victim, weapon, firsttimedamaged)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self notify("updateoneshotmultikills" + firsttimedamaged);
 	self endon("updateoneshotmultikills" + firsttimedamaged);
 	if(!isdefined(self.oneshotmultikills))

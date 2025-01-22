@@ -52,7 +52,7 @@ function init()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.firedkillstreakweapon = 0;
 	self.usingkillstreakheldweapon = undefined;
 	if(!util::isfirstround() && !util::isoneround())
@@ -75,12 +75,12 @@ function on_player_spawned()
 */
 function watchkillstreakweapondelay()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(true)
 	{
 		currentweapon = self getcurrentweapon();
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(level.roundstartkillstreakdelay < (globallogic_utils::gettimepassed() / 1000))
 		{
 			return;
@@ -121,7 +121,7 @@ function usekillstreakweapondrop(hardpointtype)
 		return 0;
 	}
 	result = self supplydrop::usesupplydropmarker();
-	self notify(#"supply_drop_marker_done");
+	self notify("supply_drop_marker_done");
 	if(!isdefined(result) || !result)
 	{
 		return 0;
@@ -306,15 +306,15 @@ function usekillstreakweaponfromcrate(hardpointtype)
 */
 function watchkillstreakweaponswitch(killstreakweapon, killstreak_id, isfrominventory)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	noneweapon = getweapon("none");
 	minigunweapon = getweapon("minigun");
 	miniguninventoryweapon = getweapon("inventory_minigun");
 	while(true)
 	{
 		currentweapon = self getcurrentweapon();
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(level.infinalkillcam)
 		{
 			continue;
@@ -351,7 +351,7 @@ function watchkillstreakweaponswitch(killstreakweapon, killstreak_id, isfrominve
 		self.pers["held_killstreak_clip_count"][killstreakweapon] = currentammoinclip;
 		if(killstreak_id != -1)
 		{
-			self notify(#"killstreak_weapon_switch");
+			self notify("killstreak_weapon_switch");
 		}
 		self.firedkillstreakweapon = 0;
 		self.usingkillstreakheldweapon = undefined;
@@ -397,14 +397,14 @@ function watchkillstreakweaponswitch(killstreakweapon, killstreak_id, isfrominve
 */
 function watchkillstreakweapondeath(killstreakweapon, killstreak_id, isfrominventory)
 {
-	self endon(#"disconnect");
-	self endon(#"killstreak_weapon_switch");
+	self endon("disconnect");
+	self endon("killstreak_weapon_switch");
 	if(killstreak_id == -1)
 	{
 		return;
 	}
 	oldteam = self.team;
-	self waittill(#"death");
+	self waittill("death");
 	penalty = getdvarfloat("scr_HeldKillstreak_Penalty", 0.5);
 	maxammo = killstreakweapon.maxammo;
 	currentammo = self getammocount(killstreakweapon);
@@ -481,10 +481,10 @@ function watchkillstreakweapondeath(killstreakweapon, killstreak_id, isfrominven
 */
 function watchplayerdeath(killstreakweapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	endonweaponstring = "killstreakWeapon_" + killstreakweapon.name;
 	self endon(endonweaponstring);
-	self waittill(#"death");
+	self waittill("death");
 	currentammo = self getammocount(killstreakweapon);
 	self.pers["held_killstreak_clip_count"][killstreakweapon] = (killstreakweapon.clipsize <= currentammo ? killstreakweapon.clipsize : currentammo);
 }
@@ -500,10 +500,10 @@ function watchplayerdeath(killstreakweapon)
 */
 function watchkillstreakremoval(killstreaktype, killstreak_id)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"killstreak_weapon_switch");
-	self waittill(#"oldest_killstreak_removed", removedkillstreaktype, removed_id);
+	self endon("disconnect");
+	self endon("death");
+	self endon("killstreak_weapon_switch");
+	self waittill("oldest_killstreak_removed", removedkillstreaktype, removed_id);
 	if(killstreaktype == removedkillstreaktype && killstreak_id == removed_id)
 	{
 		removedkillstreakweapon = killstreaks::get_killstreak_weapon(removedkillstreaktype);
@@ -531,10 +531,10 @@ function watchkillstreakremoval(killstreaktype, killstreak_id)
 */
 function watchkillstreakroundchange(isfrominventory, killstreak_id)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"killstreak_weapon_switch");
-	self waittill(#"round_ended");
+	self endon("disconnect");
+	self endon("death");
+	self endon("killstreak_weapon_switch");
+	self waittill("round_ended");
 	currentweapon = self getcurrentweapon();
 	if(!currentweapon.iscarriedkillstreak)
 	{

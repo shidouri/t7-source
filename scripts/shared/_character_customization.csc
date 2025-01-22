@@ -1159,8 +1159,8 @@ function get_current_frozen_moment_params(localclientnum, data_struct, params)
 */
 function play_intro_and_animation(intro_anim_name, anim_name, b_keep_link)
 {
-	self notify(#"stop_vignette_animation");
-	self endon(#"stop_vignette_animation");
+	self notify("stop_vignette_animation");
+	self endon("stop_vignette_animation");
 	if(isdefined(intro_anim_name))
 	{
 		self animation::play(intro_anim_name, self.chosenorigin, self.chosenangles, 1, 0, 0, 0, b_keep_link);
@@ -1735,7 +1735,7 @@ function setup_character_extracam_settings(localclientnum, data_struct, extracam
 */
 function update_character_extracam(localclientnum, data_struct)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	while(true)
 	{
 		level waittill("process_character_extracam" + localclientnum, extracam_data_struct);

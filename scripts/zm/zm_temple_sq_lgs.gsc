@@ -90,7 +90,7 @@ function lgs_intro()
 */
 function play_nikolai_farting()
 {
-	level endon(#"sq_lgs_over");
+	level endon("sq_lgs_over");
 	wait(2);
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
@@ -130,14 +130,14 @@ function play_intro_audio()
 */
 function first_damage()
 {
-	self endon(#"death");
-	self endon(#"first_damage_done");
+	self endon("death");
+	self endon("first_damage_done");
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
+		self waittill("damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
 		if(isplayer(attacker) && (dmg_type == "MOD_PROJECTILE" || dmg_type == "MOD_PROJECTILE_SPLASH" || dmg_type == "MOD_EXPLOSIVE" || dmg_type == "MOD_EXPLOSIVE_SPLASH" || dmg_type == "MOD_GRENADE" || dmg_type == "MOD_GRENADE_SPLASH"))
 		{
-			self.owner_ent notify(#"triggered");
+			self.owner_ent notify("triggered");
 			attacker thread zm_audio::create_and_play_dialog("eggs", "quest3", 1);
 			return;
 		}
@@ -159,8 +159,8 @@ function first_damage()
 */
 function wait_for_player_to_get_close()
 {
-	self endon(#"death");
-	self endon(#"first_damage_done");
+	self endon("death");
+	self endon("first_damage_done");
 	while(true)
 	{
 		players = getplayers();
@@ -187,11 +187,11 @@ function wait_for_player_to_get_close()
 */
 function report_melee_early()
 {
-	self endon(#"death");
-	self endon(#"shrunk");
+	self endon("death");
+	self endon("shrunk");
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
+		self waittill("damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
 		if(isplayer(attacker) && dmg_type == "MOD_MELEE")
 		{
 			attacker thread zm_audio::create_and_play_dialog("eggs", "quest3", 3);
@@ -211,13 +211,13 @@ function report_melee_early()
 */
 function wait_for_melee()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
+		self waittill("damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
 		if(isplayer(attacker) && dmg_type == "MOD_MELEE")
 		{
-			self.owner_ent notify(#"triggered");
+			self.owner_ent notify("triggered");
 			attacker thread zm_audio::create_and_play_dialog("eggs", "quest3", 6);
 			return;
 		}
@@ -237,11 +237,11 @@ function check_for_closed_slide(ent)
 {
 	if(!level flag::get("waterslide_open"))
 	{
-		self endon(#"death");
-		self endon(#"reached_end_node");
+		self endon("death");
+		self endon("reached_end_node");
 		while(true)
 		{
-			self waittill(#"reached_node", node);
+			self waittill("reached_node", node);
 			if(isdefined(node.script_noteworthy) && node.script_noteworthy == "pre_gate")
 			{
 				if(!level flag::get("waterslide_open"))
@@ -281,10 +281,10 @@ function check_for_closed_slide(ent)
 */
 function water_trail(ent)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"reached_node", node);
+		self waittill("reached_node", node);
 		if(isdefined(node.script_int))
 		{
 			if(node.script_int == 1)
@@ -310,7 +310,7 @@ function water_trail(ent)
 */
 function function_c7e74d12()
 {
-	self endon(#"triggered");
+	self endon("triggered");
 	level endon(#"end_game");
 	exploder::exploder("fxexp_602");
 	level util::waittill_any("sq_lgs_over", "sq_lgs_failed");
@@ -328,7 +328,7 @@ function function_c7e74d12()
 */
 function lgs_crystal()
 {
-	self endon(#"death");
+	self endon("death");
 	self ghost();
 	self.trigger = getent("sq_lgs_crystal_trig", "targetname");
 	self.trigger.var_b82c7478 = 1;
@@ -344,8 +344,8 @@ function lgs_crystal()
 	self.trigger thread first_damage();
 	self.trigger thread wait_for_player_to_get_close();
 	self thread function_c7e74d12();
-	self waittill(#"triggered");
-	self.trigger notify(#"first_damage_done");
+	self waittill("triggered");
+	self.trigger notify("first_damage_done");
 	exploder::stop_exploder("fxexp_602");
 	self playsound("evt_sq_lgs_crystal_pry");
 	target = self.target;
@@ -361,7 +361,7 @@ function lgs_crystal()
 			time = 1;
 		}
 		self moveto(struct.origin, time, time / 10);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		self playsound("evt_sq_lgs_crystal_hit1");
 		target = struct.target;
 	}
@@ -369,7 +369,7 @@ function lgs_crystal()
 	self.trigger.origin = self.origin;
 	self.trigger thread report_melee_early();
 	zm_weap_shrink_ray::add_shrinkable_object(self);
-	self waittill(#"shrunk");
+	self waittill("shrunk");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
@@ -383,10 +383,10 @@ function lgs_crystal()
 	self setmodel("p7_fxanim_zm_sha_crystal_sml_mod");
 	vn = getvehiclenode("sq_lgs_node_start", "targetname");
 	self.origin = vn.origin;
-	self.trigger notify(#"shrunk");
+	self.trigger notify("shrunk");
 	zm_weap_shrink_ray::remove_shrinkable_object(self);
 	self.trigger thread wait_for_melee();
-	self waittill(#"triggered");
+	self waittill("triggered");
 	self playsound("evt_sq_lgs_crystal_knife");
 	self playloopsound("evt_sq_lgs_crystal_roll", 2);
 	self.trigger.origin = self.trigger.var_d5784b10;
@@ -409,7 +409,7 @@ function lgs_crystal()
 	vehicle._origin_animate = origin_animate;
 	vehicle thread water_trail(self);
 	vehicle thread check_for_closed_slide(self);
-	vehicle waittill(#"reached_end_node");
+	vehicle waittill("reached_end_node");
 	self stopanimscripted();
 	self unlink();
 	self stoploopsound();
@@ -418,13 +418,13 @@ function lgs_crystal()
 	origin_animate delete();
 	self thread crystal_bobble();
 	level flag::wait_till("minecart_geyser_active");
-	self notify(#"kill_bobble");
+	self notify("kill_bobble");
 	self clientfield::set("watertrail", 1);
 	self moveto(self.origin + vectorscale((0, 0, 1), 4000), 2, 0.1);
-	level notify(#"suspend_timer");
-	level notify(#"raise_crystal_1");
-	level notify(#"raise_crystal_2");
-	level notify(#"raise_crystal_3", 1);
+	level notify("suspend_timer");
+	level notify("raise_crystal_1");
+	level notify("raise_crystal_2");
+	level notify("raise_crystal_3", 1);
 	level waittill(#"hash_18e4f2bc");
 	self clientfield::set("watertrail", 0);
 	wait(2);
@@ -433,11 +433,11 @@ function lgs_crystal()
 	self setmodel("p7_zm_sha_crystal");
 	playsoundatposition("evt_sq_lgs_crystal_incoming", (holder.origin[0], holder.origin[1], holder.origin[2] + 134));
 	self moveto((holder.origin[0], holder.origin[1], holder.origin[2] + 134), 2);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self playsound("evt_sq_lgs_crystal_landinholder");
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest3", 8);
-	level notify(#"crystal_dropped");
+	level notify("crystal_dropped");
 	self ghost();
 	wait(5);
 	zm_sidequests::stage_completed("sq", "LGS");
@@ -454,8 +454,8 @@ function lgs_crystal()
 */
 function crystal_spin()
 {
-	self endon(#"death");
-	self endon(#"kill_bobble");
+	self endon("death");
+	self endon("kill_bobble");
 	while(true)
 	{
 		t = randomfloatrange(0.2, 0.8);
@@ -475,8 +475,8 @@ function crystal_spin()
 */
 function crystal_bobble()
 {
-	self endon(#"death");
-	self endon(#"kill_bobble");
+	self endon("death");
+	self endon("kill_bobble");
 	self thread crystal_spin();
 	node = getvehiclenode("crystal_end", "script_noteworthy");
 	bottom_pos = node.origin + vectorscale((0, 0, 1), 4);
@@ -484,9 +484,9 @@ function crystal_bobble()
 	while(true)
 	{
 		self moveto(top_pos + (0, 0, randomfloat(3)), 0.2 + randomfloat(0.1), 0.1);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		self moveto(bottom_pos + (0, 0, randomfloat(5)), 0.05 + randomfloat(0.07), 0, 0.03);
-		self waittill(#"movedone");
+		self waittill("movedone");
 	}
 }
 

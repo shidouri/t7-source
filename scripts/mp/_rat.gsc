@@ -96,14 +96,14 @@ function rscaddenemy(params)
 function testenemy(team)
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		while(!isdefined(self.pers[""]))
 		{
 			wait(0.05);
 		}
 		if(level.teambased)
 		{
-			self notify(#"menuresponse", game[""], team);
+			self notify("menuresponse", game[""], team);
 		}
 	#/
 }
@@ -120,7 +120,7 @@ function testenemy(team)
 function deathcounter()
 {
 	/#
-		self waittill(#"death");
+		self waittill("death");
 		level.rat.deathcount++;
 		setdvar("", level.rat.deathcount);
 	#/

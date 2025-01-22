@@ -236,7 +236,7 @@ function fail_hacking_object(obj)
 	}
 	obj.hackable_hacked_amount = 0;
 	obj.hackable_being_hacked = 0;
-	obj notify(#"hackable_watch_timeout");
+	obj notify("hackable_watch_timeout");
 }
 
 /*
@@ -250,7 +250,7 @@ function fail_hacking_object(obj)
 */
 function complete_hacking_object(obj)
 {
-	obj notify(#"hackable_watch_timeout");
+	obj notify("hackable_watch_timeout");
 	if(isdefined(obj.hackable_hacked_callback))
 	{
 		obj thread [[obj.hackable_hacked_callback]](self);
@@ -270,8 +270,8 @@ function complete_hacking_object(obj)
 */
 function watch_timeout(obj, time)
 {
-	obj notify(#"hackable_watch_timeout");
-	obj endon(#"hackable_watch_timeout");
+	obj notify("hackable_watch_timeout");
+	obj endon("hackable_watch_timeout");
 	wait(time);
 	if(isdefined(obj))
 	{

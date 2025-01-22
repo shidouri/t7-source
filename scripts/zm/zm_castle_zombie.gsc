@@ -426,7 +426,7 @@ function private function_4fee0339(player)
 */
 function private update_closest_player()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		reset_closest_player = 1;

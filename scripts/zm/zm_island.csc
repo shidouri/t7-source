@@ -370,7 +370,7 @@ function function_58e931d1(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_6e954d4(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_b5e2500e))
 	{
 		self.var_b5e2500e = playfxoncamera(localclientnum, level._effect["bubbles"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
@@ -409,7 +409,7 @@ function function_6fb5501(localclientnum)
 function function_738868d4(localclientnum)
 {
 	self endon(#"hash_a48959b9");
-	self waittill(#"death");
+	self waittill("death");
 	self function_6fb5501(localclientnum);
 }
 

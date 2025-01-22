@@ -61,14 +61,14 @@ function on_player_spawned()
 */
 function begin_other_grenade_tracking()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self notify(#"bolttrackingstart");
 	self endon(#"bolttrackingstart");
 	weapon_bolt = getweapon("explosive_bolt");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon, cooktime);
+		self waittill("grenade_fire", grenade, weapon, cooktime);
 		if(grenade util::ishacked())
 		{
 			continue;

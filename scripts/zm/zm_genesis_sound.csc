@@ -72,7 +72,7 @@ function sndmusictrig()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			if(self.script_sound == "pavlov")
@@ -150,8 +150,8 @@ function function_51d7bc7c(var_6d9d81aa)
 */
 function function_c959aa5f()
 {
-	level waittill(#"zesn");
-	level notify(#"stpthm");
+	level waittill("zesn");
+	level notify("stpthm");
 	if(isdefined(level.var_eb526c90))
 	{
 		level.var_eb526c90 stopallloopsounds(2);
@@ -191,7 +191,7 @@ function function_ad9a8fa6()
 	level endon("musThemeTriggered" + self.script_sound);
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(self.script_sound == "default" && (!(isdefined(level.var_232ff65c) && level.var_232ff65c)))
 		{
 			continue;
@@ -225,7 +225,7 @@ function function_ad9a8fa6()
 */
 function function_1401492e(trigplayer, location)
 {
-	level endon(#"stpthm");
+	level endon("stpthm");
 	alias = "mus_genesis_entrytheme_" + location;
 	level.var_6191a71d = playsound(0, alias, (0, 0, 0));
 	wait(90);
@@ -245,14 +245,14 @@ function function_899d68c0()
 {
 	while(true)
 	{
-		level waittill(#"stpthm");
+		level waittill("stpthm");
 		if(isdefined(level.var_6191a71d))
 		{
 			stopsound(level.var_6191a71d);
 			level.var_6191a71d = undefined;
 		}
 		level.var_f860f73b = 0;
-		level waittill(#"strtthm");
+		level waittill("strtthm");
 		level.var_f860f73b = 1;
 	}
 }

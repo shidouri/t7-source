@@ -96,7 +96,7 @@ function main()
 	{
 		if(isspawner(spawner))
 		{
-			spawner notify(#"aigroup_spawner_death");
+			spawner notify("aigroup_spawner_death");
 		}
 	}
 	var_6a07eb6c = [];

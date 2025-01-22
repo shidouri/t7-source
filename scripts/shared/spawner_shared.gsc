@@ -154,7 +154,7 @@ function global_ai_array()
 		level.ai[self.team] = array(level.ai[self.team]);
 	}
 	level.ai[self.team][level.ai[self.team].size] = self;
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		if(isdefined(level.ai) && isdefined(level.ai[self.team]) && isinarray(level.ai[self.team], self))
@@ -337,8 +337,8 @@ function process_deathflags()
 */
 function spawn_guys_until_death_or_no_count()
 {
-	self endon(#"death");
-	self waittill(#"count_gone");
+	self endon("death");
+	self waittill("count_gone");
 }
 
 /*
@@ -370,8 +370,8 @@ function flood_spawner_scripted(spawners)
 */
 function reincrement_count_if_deleted(spawner)
 {
-	spawner endon(#"death");
-	self waittill(#"death");
+	spawner endon("death");
+	self waittill("death");
 	if(!isdefined(self))
 	{
 		spawner.count++;
@@ -411,8 +411,8 @@ function kill_trigger(trigger)
 */
 function waittilldeathorpaindeath()
 {
-	self endon(#"death");
-	self waittill(#"pain_death");
+	self endon("death");
+	self waittill("pain_death");
 }
 
 /*
@@ -538,11 +538,11 @@ function spawn_prethink()
 */
 function update_nav_triggers_for_actor()
 {
-	level notify(#"update_nav_triggers");
+	level notify("update_nav_triggers");
 	while(isalive(self))
 	{
 		self util::waittill_either("death", "goal_changed");
-		level notify(#"update_nav_triggers");
+		level notify("update_nav_triggers");
 	}
 }
 
@@ -557,7 +557,7 @@ function update_nav_triggers_for_actor()
 */
 function spawn_think(spawner)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.spawn_think_thread_active))
 	{
 		return;
@@ -616,7 +616,7 @@ function spawn_think(spawner)
 */
 function run_spawn_functions()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(level.spawn_funcs))
 	{
 		return;
@@ -913,7 +913,7 @@ function spawn_think_action(spawner)
 */
 function set_goal_volume()
 {
-	self endon(#"death");
+	self endon("death");
 	waittillframeend();
 	volume = level.goalvolumes[self.script_goalvolume];
 	if(!isdefined(volume))
@@ -961,7 +961,7 @@ function set_goal_volume()
 	{
 		if(isdefined(self.script_spawner_targets))
 		{
-			self waittill(#"spawner_target_set");
+			self waittill("spawner_target_set");
 			self setgoal(volume);
 		}
 		else
@@ -1066,7 +1066,7 @@ function go_to_struct(node, optional_arrived_at_node_func)
 */
 function go_to_node(node, goal_type, optional_arrived_at_node_func)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.used_an_mg42))
 	{
 		return;
@@ -1074,7 +1074,7 @@ function go_to_node(node, goal_type, optional_arrived_at_node_func)
 	array = get_node_funcs_based_on_target(node, goal_type);
 	if(!isdefined(array))
 	{
-		self notify(#"reached_path_end");
+		self notify("reached_path_end");
 		return;
 	}
 	if(!isdefined(optional_arrived_at_node_func))
@@ -1117,9 +1117,9 @@ function spawner_targets_init()
 */
 function go_to_spawner_target(target_names)
 {
-	self endon(#"death");
-	self notify(#"go_to_spawner_target");
-	self endon(#"go_to_spawner_target");
+	self endon("death");
+	self notify("go_to_spawner_target");
+	self endon("go_to_spawner_target");
 	nodes = [];
 	a_nodes_unavailable = [];
 	nodespresent = 0;
@@ -1212,9 +1212,9 @@ function go_to_spawner_target(target_names)
 		}
 		goal.node_claimed = 1;
 		self setgoal(goal);
-		self notify(#"spawner_target_set");
+		self notify("spawner_target_set");
 		self thread release_spawner_target_node(goal);
-		self waittill(#"goal");
+		self waittill("goal");
 	}
 	self set_goalradius_based_on_settings(goal);
 }
@@ -1310,8 +1310,8 @@ function get_least_used_from_array(array)
 */
 function go_to_node_using_funcs(node, get_target_func, set_goal_func_quits, optional_arrived_at_node_func, require_player_dist)
 {
-	self endon(#"stop_going_to_node");
-	self endon(#"death");
+	self endon("stop_going_to_node");
+	self endon("death");
 	for(;;)
 	{
 		node = get_least_used_from_array(node);
@@ -1334,7 +1334,7 @@ function go_to_node_using_funcs(node, get_target_func, set_goal_func_quits, opti
 			self.goalheight = node.height;
 		}
 		[[set_goal_func_quits]](node);
-		self waittill(#"goal");
+		self waittill("goal");
 		[[optional_arrived_at_node_func]](node);
 		if(isdefined(node.script_flag_set))
 		{
@@ -1374,7 +1374,7 @@ function go_to_node_using_funcs(node, get_target_func, set_goal_func_quits, opti
 			if(self go_to_node_wait_for_player(node, get_target_func, player_wait_dist))
 			{
 				node.script_requires_player = 1;
-				node notify(#"script_requires_player");
+				node notify("script_requires_player");
 				break;
 			}
 			wait(0.1);
@@ -1399,7 +1399,7 @@ function go_to_node_using_funcs(node, get_target_func, set_goal_func_quits, opti
 	{
 		[[self.arrived_at_end_node_func]](node);
 	}
-	self notify(#"reached_path_end");
+	self notify("reached_path_end");
 	if(isdefined(self.delete_on_path_end))
 	{
 		self delete();
@@ -1656,7 +1656,7 @@ function update_target_array(str_target)
 */
 function set_goalradius_based_on_settings(node)
 {
-	self endon(#"death");
+	self endon("death");
 	waittillframeend();
 	if(isdefined(self.script_radius))
 	{
@@ -1703,12 +1703,12 @@ function get_goal(str_goal, str_key = "targetname")
 */
 function fallback_spawner_think(num, node_array, ignorewhilefallingback)
 {
-	self endon(#"death");
+	self endon("death");
 	level.max_fallbackers[num] = level.max_fallbackers[num] + self.count;
 	firstspawn = 1;
 	while(self.count > 0)
 	{
-		self waittill(#"spawned", spawn);
+		self waittill("spawned", spawn);
 		if(firstspawn)
 		{
 			/#
@@ -1742,7 +1742,7 @@ function fallback_spawner_think(num, node_array, ignorewhilefallingback)
 */
 function fallback_ai_think_death(ai, num)
 {
-	ai waittill(#"death");
+	ai waittill("death");
 	level.current_fallbackers[num]--;
 	level notify("fallbacker_died" + num);
 }
@@ -1789,7 +1789,7 @@ function fallback_ai_think(num, node_array, spawner, ignorewhilefallingback)
 */
 function fallback_death(ai, num)
 {
-	ai waittill(#"death");
+	ai waittill("death");
 	if(isdefined(ai.fallback_node))
 	{
 		ai.fallback_node.fallback_occupied = 0;
@@ -1808,14 +1808,14 @@ function fallback_death(ai, num)
 */
 function fallback_goal(ignorewhilefallingback)
 {
-	self waittill(#"goal");
+	self waittill("goal");
 	self.ignoresuppression = 0;
 	if(isdefined(ignorewhilefallingback) && ignorewhilefallingback)
 	{
 		self.ignoreall = 0;
 	}
-	self notify(#"fallback_notify");
-	self notify(#"stop_coverprint");
+	self notify("fallback_notify");
+	self notify("stop_coverprint");
 }
 
 /*
@@ -1829,12 +1829,12 @@ function fallback_goal(ignorewhilefallingback)
 */
 function fallback_interrupt()
 {
-	self notify(#"stop_fallback_interrupt");
-	self endon(#"stop_fallback_interrupt");
-	self endon(#"stop_going_to_node");
+	self notify("stop_fallback_interrupt");
+	self endon("stop_fallback_interrupt");
+	self endon("stop_going_to_node");
 	self endon(#"hash_1f355ad7");
-	self endon(#"fallback_notify");
-	self endon(#"death");
+	self endon("fallback_notify");
+	self endon("death");
 	while(true)
 	{
 		origin = self.origin;
@@ -1858,10 +1858,10 @@ function fallback_interrupt()
 */
 function fallback_ai(num, node_array, ignorewhilefallingback)
 {
-	self notify(#"stop_going_to_node");
-	self endon(#"stop_going_to_node");
+	self notify("stop_going_to_node");
+	self endon("stop_going_to_node");
 	self endon(#"hash_1f355ad7");
-	self endon(#"death");
+	self endon("death");
 	node = undefined;
 	while(true)
 	{
@@ -1888,7 +1888,7 @@ function fallback_ai(num, node_array, ignorewhilefallingback)
 	{
 		self.goalradius = node.radius;
 	}
-	self endon(#"death");
+	self endon("death");
 	level thread fallback_death(self, num);
 	self thread fallback_goal(ignorewhilefallingback);
 	/#
@@ -1897,7 +1897,7 @@ function fallback_ai(num, node_array, ignorewhilefallingback)
 			self thread coverprint(node.origin);
 		}
 	#/
-	self waittill(#"fallback_notify");
+	self waittill("fallback_notify");
 	level notify("fallback_reached_goal" + num);
 }
 
@@ -1913,9 +1913,9 @@ function fallback_ai(num, node_array, ignorewhilefallingback)
 function coverprint(org)
 {
 	/#
-		self endon(#"fallback_notify");
-		self endon(#"stop_coverprint");
-		self endon(#"death");
+		self endon("fallback_notify");
+		self endon("stop_coverprint");
+		self endon("death");
 		while(true)
 		{
 			line(self.origin + vectorscale((0, 0, 1), 35), org, (0.2, 0.5, 0.8), 0.5);
@@ -2171,7 +2171,7 @@ function fallback_think(trigger)
 		}
 		level thread fallback_overmind(trigger.script_fallback, trigger.script_fallback_group, ignorewhilefallingback, percent);
 	}
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	level notify("fallbacker_trigger" + trigger.script_fallback);
 	kill_trigger(trigger);
 }
@@ -2271,7 +2271,7 @@ function aigroup_init(aigroup, spawner)
 function aigroup_spawner_death(tracker)
 {
 	self util::waittill_any("death", "aigroup_spawner_death");
-	tracker notify(#"update_aigroup");
+	tracker notify("update_aigroup");
 }
 
 /*
@@ -2287,18 +2287,18 @@ function aigroup_think(tracker)
 {
 	tracker.aicount++;
 	tracker.ai[tracker.ai.size] = self;
-	tracker notify(#"update_aigroup");
+	tracker notify("update_aigroup");
 	if(isdefined(self.script_deathflag_longdeath))
 	{
 		self waittilldeathorpaindeath();
 	}
 	else
 	{
-		self waittill(#"death");
+		self waittill("death");
 	}
 	tracker.aicount--;
 	tracker.killed_count++;
-	tracker notify(#"update_aigroup");
+	tracker notify("update_aigroup");
 	wait(0.05);
 	tracker.ai = array::remove_undefined(tracker.ai);
 }
@@ -2317,7 +2317,7 @@ function set_ai_group_cleared_flag(tracker)
 	waittillframeend();
 	while((tracker.aicount + get_ai_group_spawner_count(tracker.aigroup)) > tracker.cleared_count)
 	{
-		tracker waittill(#"update_aigroup");
+		tracker waittill("update_aigroup");
 	}
 	level flag::set(tracker.aigroup + "_cleared");
 }
@@ -2345,7 +2345,7 @@ function flood_trigger_think(trigger)
 		floodspawners[i].script_trigger = trigger;
 	}
 	array::thread_all(floodspawners, &flood_spawner_init);
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	floodspawners = getentarray(trigger.target, "targetname");
 	array::thread_all(floodspawners, &flood_spawner_think, trigger);
 }
@@ -2395,7 +2395,7 @@ function trigger_requires_player(trigger)
 */
 function flood_spawner_think(trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_87140c16");
 	self endon(#"hash_87140c16");
 	requires_player = trigger_requires_player(trigger);
@@ -2416,7 +2416,7 @@ function flood_spawner_think(trigger)
 			continue;
 		}
 		soldier thread reincrement_count_if_deleted(self);
-		soldier waittill(#"death", attacker);
+		soldier waittill("death", attacker);
 		if(!player_saw_kill(soldier, attacker))
 		{
 			self.count++;
@@ -2523,7 +2523,7 @@ function player_saw_kill(guy, attacker)
 function show_bad_path()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		last_bad_path_time = -5000;
 		bad_path_count = 0;
 		for(;;)
@@ -2939,7 +2939,7 @@ function waittill_ai_group_count(aigroup, count)
 {
 	while((get_ai_group_spawner_count(aigroup) + level._ai_group[aigroup].aicount) > count)
 	{
-		level._ai_group[aigroup] waittill(#"update_aigroup");
+		level._ai_group[aigroup] waittill("update_aigroup");
 	}
 }
 
@@ -2956,7 +2956,7 @@ function waittill_ai_group_ai_count(aigroup, count)
 {
 	while(level._ai_group[aigroup].aicount > count)
 	{
-		level._ai_group[aigroup] waittill(#"update_aigroup");
+		level._ai_group[aigroup] waittill("update_aigroup");
 	}
 }
 
@@ -2973,7 +2973,7 @@ function waittill_ai_group_spawner_count(aigroup, count)
 {
 	while(get_ai_group_spawner_count(aigroup) > count)
 	{
-		level._ai_group[aigroup] waittill(#"update_aigroup");
+		level._ai_group[aigroup] waittill("update_aigroup");
 	}
 }
 
@@ -2990,7 +2990,7 @@ function waittill_ai_group_amount_killed(aigroup, amount_killed)
 {
 	while(level._ai_group[aigroup].killed_count < amount_killed)
 	{
-		level._ai_group[aigroup] waittill(#"update_aigroup");
+		level._ai_group[aigroup] waittill("update_aigroup");
 	}
 }
 

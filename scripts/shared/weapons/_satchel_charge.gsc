@@ -92,7 +92,7 @@ function satcheldetonate(attacker, weapon, target)
 */
 function satchelspawn(watcher, owner)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, owner);
 	if(!(isdefined(self.previouslyhacked) && self.previouslyhacked))
 	{

@@ -87,7 +87,7 @@ function camo_on_disconnect()
 function camo_on_spawn()
 {
 	self flagsys::clear("camo_suit_on");
-	self notify(#"camo_off");
+	self notify("camo_off");
 	self clientfield::set("camo_shader", 0);
 }
 
@@ -147,7 +147,7 @@ function camo_on_give(slot, weapon)
 */
 function camo_on_take(slot, weapon)
 {
-	self notify(#"camo_removed");
+	self notify("camo_removed");
 	if(isdefined(level.cybercom) && isdefined(level.cybercom.active_camo))
 	{
 		self [[level.cybercom.active_camo._on_take]](slot, weapon);
@@ -210,7 +210,7 @@ function camo_gadget_off(slot, weapon)
 	{
 		self thread [[level.cybercom.active_camo._off]](slot, weapon);
 	}
-	self notify(#"camo_off");
+	self notify("camo_off");
 	self clientfield::set("camo_shader", 0);
 }
 
@@ -225,8 +225,8 @@ function camo_gadget_off(slot, weapon)
 */
 function suspend_camo_suit(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"camo_off");
+	self endon("disconnect");
+	self endon("camo_off");
 	self clientfield::set("camo_shader", 2);
 	suspend_camo_suit_wait(slot, weapon);
 	if(self camo_is_inuse(slot))
@@ -246,8 +246,8 @@ function suspend_camo_suit(slot, weapon)
 */
 function suspend_camo_suit_wait(slot, weapon)
 {
-	self endon(#"death");
-	self endon(#"camo_off");
+	self endon("death");
+	self endon("camo_off");
 	while(self camo_is_flickering(slot))
 	{
 		wait(0.5);

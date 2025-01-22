@@ -167,8 +167,8 @@ function function_ff057a95()
 {
 	self notify(#"hash_ff057a95");
 	self endon(#"hash_ff057a95");
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
+	self endon("disconnect");
+	self endon("stop_stealth");
 	/#
 		assert(isdefined(self.stealth));
 	#/
@@ -369,7 +369,7 @@ function get_detected()
 */
 function stance_monitor_thread()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		stance = self getstance();
@@ -407,8 +407,8 @@ function stance_monitor_thread()
 */
 function detected_monitor_thread()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
+	self endon("disconnect");
+	self endon("stop_stealth");
 	while(true)
 	{
 		self.stealth.player_detect_count = 0;
@@ -431,8 +431,8 @@ function detected_monitor_thread()
 */
 function function_7300ae66()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
+	self endon("disconnect");
+	self endon("stop_stealth");
 	wait(0.05);
 	self set_ignore_me_one_to_one(1);
 	while(true)
@@ -455,8 +455,8 @@ function function_7300ae66()
 */
 function function_bb9ffa41()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
+	self endon("disconnect");
+	self endon("stop_stealth");
 	var_52ff854e = 0;
 	while(true)
 	{
@@ -467,7 +467,7 @@ function function_bb9ffa41()
 		}
 		var_b69afa72 = kills;
 		lastkilltime = gettime();
-		self waittill(#"killed_ai", victim, smeansofdeath, weapon);
+		self waittill("killed_ai", victim, smeansofdeath, weapon);
 		waittillframeend();
 		if(isdefined(victim) && isdefined(victim.team) && victim.team != "axis")
 		{
@@ -486,7 +486,7 @@ function function_bb9ffa41()
 		}
 		if(var_c839bf74 >= 2 && isdefined(smeansofdeath) && util::isbulletimpactmod(smeansofdeath))
 		{
-			self notify(#"double_kill");
+			self notify("double_kill");
 		}
 		var_52ff854e = var_52ff854e + var_c839bf74;
 		if(!isdefined(self.stealth))
@@ -514,9 +514,9 @@ function function_e507ced8(victim, smeansofdeath, weapon, killcount)
 {
 	self notify(#"hash_e507ced8");
 	self endon(#"hash_e507ced8");
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("stop_stealth");
+	self endon("death");
 	if(!level flag::get("stealth_alert") && !level flag::get("stealth_combat") && !level flag::get("stealth_discovered"))
 	{
 		if(isdefined(victim) && isdefined(victim.var_99baf927))
@@ -619,7 +619,7 @@ function update_audio(e_other, bcansee, awareness)
 */
 function function_e6e6afd7(e_other)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	result = e_other util::waittill_any_timeout(0.25, "death");
 	if(result == "timeout")
 	{
@@ -638,11 +638,11 @@ function function_e6e6afd7(e_other)
 */
 function sighting_thread(awareness)
 {
-	self notify(#"sighting_thread");
-	self endon(#"sighting_thread");
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
-	self endon(#"death");
+	self notify("sighting_thread");
+	self endon("sighting_thread");
+	self endon("disconnect");
+	self endon("stop_stealth");
+	self endon("death");
 	sighting_field = 1;
 	if(awareness == "high_alert")
 	{
@@ -664,11 +664,11 @@ function sighting_thread(awareness)
 */
 function alerted_thread()
 {
-	self notify(#"alerted_thread");
-	self endon(#"alerted_thread");
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
-	self endon(#"death");
+	self notify("alerted_thread");
+	self endon("alerted_thread");
+	self endon("disconnect");
+	self endon("stop_stealth");
+	self endon("death");
 	self clientfield::set_to_player("stealth_alerted", 1);
 	wait(0.15);
 	self clientfield::set_to_player("stealth_alerted", 0);
@@ -739,7 +739,7 @@ function function_509ca7a6(enemy)
 	{
 		enemy notify("sight_indicator_" + entnum);
 		enemy endon("sight_indicator_" + entnum);
-		enemy endon(#"death");
+		enemy endon("death");
 		if(!isdefined(enemy.stealth.var_d1c69a51))
 		{
 			enemy.stealth.var_d1c69a51 = [];
@@ -811,8 +811,8 @@ function function_3f6bd04c(enemy)
 	}
 	self notify(#"hash_3f6bd04c");
 	self endon(#"hash_3f6bd04c");
-	self endon(#"disconnect");
-	self endon(#"stop_stealth");
+	self endon("disconnect");
+	self endon("stop_stealth");
 	self.stealth.var_45848ab = now;
 	var_612fc483 = self.angles[1] - (vectortoangles(enemy.origin - self.origin)[1]);
 	var_a113a204 = vectortoangles(enemy.origin - self.origin)[0];

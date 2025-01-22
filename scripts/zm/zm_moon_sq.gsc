@@ -118,7 +118,7 @@ function init_clientfields()
 */
 function reward()
 {
-	level notify(#"moon_sidequest_achieved");
+	level notify("moon_sidequest_achieved");
 	players = getplayers();
 	array::thread_all(players, &give_perk_reward);
 }
@@ -134,10 +134,10 @@ function reward()
 */
 function watch_for_respawn()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		waittillframeend();
 		foreach(perk in level._sq_perk_array)
 		{
@@ -278,11 +278,11 @@ function rocket_test()
 {
 	level flag::wait_till("power_on");
 	wait(5);
-	level notify(#"rl");
+	level notify("rl");
 	wait(2);
-	level notify(#"rl");
+	level notify("rl");
 	wait(2);
-	level notify(#"rl");
+	level notify("rl");
 	level thread do_launch();
 }
 
@@ -301,13 +301,13 @@ function rocket_raise(player_num)
 	array::thread_all(rockets, &nml_show_hide);
 	for(i = 3; i > 0; i--)
 	{
-		level waittill(#"rl");
+		level waittill("rl");
 		level clientfield::increment("raise_rockets");
 		rockets[i - 1] playsound("evt_rocket_move_up");
 		str_scene = ("p7_fxanim_zmhd_moon_rocket_launch_0" + i) + "_bundle";
 		level thread scene::init(str_scene);
 	}
-	level waittill(#"rl");
+	level waittill("rl");
 	for(i = 0; i < 3; i++)
 	{
 		rockets[i] thread launch();
@@ -325,8 +325,8 @@ function rocket_raise(player_num)
 */
 function nml_show_hide()
 {
-	level endon(#"intermission");
-	self endon(#"death");
+	level endon("intermission");
+	self endon("death");
 	while(true)
 	{
 		level flag::wait_till("enter_nml");
@@ -382,17 +382,17 @@ function sidequest_logic()
 	zm_sidequests::stage_start("sq", "ss1");
 	level flag::wait_till("ss1");
 	zm_sidequests::stage_start("sq", "osc");
-	level waittill(#"sq_osc_over");
+	level waittill("sq_osc_over");
 	level flag::wait_till("complete_be_1");
 	wait(4);
 	zm_sidequests::stage_start("sq", "sc");
-	level waittill(#"sq_sc_over");
+	level waittill("sq_sc_over");
 	level flag::wait_till("vg_charged");
 	zm_sidequests::stage_start("sq", "sc2");
-	level waittill(#"sq_sc2_over");
+	level waittill("sq_sc2_over");
 	wait(5);
 	level thread maxis_story_vox();
-	level waittill(#"sq_ss2_over");
+	level waittill("sq_ss2_over");
 	level flag::wait_till("be2");
 	level thread do_launch();
 }
@@ -418,7 +418,7 @@ function do_launch()
 	level.var_d8417111 = 1;
 	zm_utility::play_sound_2d("vox_xcomp_quest_step8_4");
 	wait(10);
-	level notify(#"rl");
+	level notify("rl");
 	wait(30);
 	zm_utility::play_sound_2d("vox_xcomp_quest_step8_5");
 	wait(30);
@@ -430,7 +430,7 @@ function do_launch()
 	wait(2);
 	level clientfield::increment("show_destroyed_earth");
 	level._dte_done = 1;
-	level notify(#"moon_sidequest_big_bang_achieved");
+	level notify("moon_sidequest_big_bang_achieved");
 	zm_utility::play_sound_2d("vox_xcomp_quest_laugh");
 	level thread play_end_lines_in_order();
 	reward();
@@ -566,7 +566,7 @@ function maxis_story_vox()
 function be()
 {
 	zm_sidequests::stage_start("be", "stage_one");
-	level waittill(#"sq_sc2_over");
+	level waittill("sq_sc2_over");
 	wait(2);
 	zm_sidequests::stage_start("be", "stage_two");
 }
@@ -585,7 +585,7 @@ function tanks()
 	level flag::wait_till("complete_be_1");
 	wait(4);
 	zm_sidequests::stage_start("tanks", "ctt1");
-	level waittill(#"sq_sc_over");
+	level waittill("sq_sc_over");
 	level flag::wait_till("vg_charged");
 	zm_sidequests::stage_start("tanks", "ctt2");
 }
@@ -602,7 +602,7 @@ function tanks()
 function cassimir()
 {
 	zm_sidequests::stage_start("ctvg", "build");
-	level waittill(#"ctvg_build_over");
+	level waittill("ctvg_build_over");
 	wait(5);
 	zm_sidequests::stage_start("ctvg", "charge");
 }
@@ -618,7 +618,7 @@ function cassimir()
 */
 function cheat_complete_stage()
 {
-	level endon(#"reset_sundial");
+	level endon("reset_sundial");
 	while(true)
 	{
 		if(getdvarstring("cheat_sq") != "")
@@ -803,10 +803,10 @@ function sd_init()
 */
 function function_7e76fe45(var_2ad32714)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		var_2ad32714 waittill(#"microwaved");
+		var_2ad32714 waittill("microwaved");
 		level flag::set(self.targetname);
 		var_6be16785 = struct::get(self.targetname + "_final", "targetname");
 		var_aee26521 = util::spawn_model(self.model, var_6be16785.origin, var_6be16785.angles);
@@ -902,7 +902,7 @@ function function_948d4e7d()
 			level flag::set("sd_large_complete");
 			function_cff1fcfb();
 			var_51aa97ed moveto(var_9f30ae72.origin, 1.5, 0.1, 0.1);
-			var_51aa97ed waittill(#"movedone");
+			var_51aa97ed waittill("movedone");
 			var_51aa97ed delete();
 			return;
 		}
@@ -939,7 +939,7 @@ function function_66951281()
 			level flag::set("sd_small_complete");
 			function_cff1fcfb();
 			var_51aa97ed moveto(var_e7c6777b.origin, 1.5, 0.1, 0.1);
-			var_51aa97ed waittill(#"movedone");
+			var_51aa97ed waittill("movedone");
 			var_51aa97ed delete();
 			return;
 		}
@@ -957,7 +957,7 @@ function function_66951281()
 */
 function function_69090b83()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(!isplayer(attacker))
 	{
 		return;

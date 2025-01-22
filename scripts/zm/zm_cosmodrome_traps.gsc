@@ -130,18 +130,18 @@ function rocket_move_ready()
 	level.claw_arm_r moveto(level.claw_retract_r_pos, 0.05);
 	level.claw_arm_l moveto(level.claw_retract_l_pos, 0.05);
 	level.rocket_lifter moveto(start_spot.origin, 0.05);
-	level.rocket_lifter waittill(#"movedone");
+	level.rocket_lifter waittill("movedone");
 	level.rocket_lifter_arm unlink();
 	level.rocket_lifter_arm rotateto(vectorscale((1, 0, 0), 13), 0.05);
-	level.rocket_lifter_arm waittill(#"rotatedone");
+	level.rocket_lifter_arm waittill("rotatedone");
 	unlink_rocket_pieces();
-	level waittill(#"power_on");
+	level waittill("power_on");
 	wait(5);
 	link_rocket_pieces();
 	level.rocket_lifter_arm linkto(level.rocket_lifter);
 	level.rocket_lifter moveto(dock_spot.origin, 10, 3, 3);
 	level.rocket_lifter playsound("evt_rocket_roll");
-	level.rocket_lifter waittill(#"movedone");
+	level.rocket_lifter waittill("movedone");
 	level.rocket_lifter_arm unlink();
 	rocket_move_vertical();
 	unlink_rocket_pieces();
@@ -221,7 +221,7 @@ function centrifuge_init()
 	centrifuge_trap clientfield::set("COSMO_CENTRIFUGE_LIGHTS", 1);
 	wait(4);
 	centrifuge_trap rotateyaw(720, 10, 0, 4.5);
-	centrifuge_trap waittill(#"rotatedone");
+	centrifuge_trap waittill("rotatedone");
 	centrifuge_trap playsound("zmb_cent_end");
 	centrifuge_trap clientfield::set("COSMO_CENTRIFUGE_LIGHTS", 0);
 	level thread centrifuge_random();
@@ -291,14 +291,14 @@ function centrifuge_activate()
 		self._trap_movers[i] rotateyaw(360, 5, 0, 4);
 	}
 	wait(5);
-	self notify(#"trap_done");
+	self notify("trap_done");
 	for(i = 0; i < self._trap_movers.size; i++)
 	{
 		self._trap_movers[i] rotateto((0, end_angle % 360, 0), 1, 0, 0.9);
 	}
 	wait(1);
 	self playsound("zmb_cent_lockdown");
-	self notify(#"kill_counter_end");
+	self notify("kill_counter_end");
 }
 
 /*
@@ -340,8 +340,8 @@ function centrifuge_random()
 		wait(3);
 		centrifuge_model stoploopsound(4);
 		centrifuge_model playsound("zmb_cent_end");
-		centrifuge_model waittill(#"rotatedone");
-		centrifuge_damage_trigger notify(#"trap_done");
+		centrifuge_model waittill("rotatedone");
+		centrifuge_damage_trigger notify("trap_done");
 		centrifuge_model playsound("zmb_cent_lockdown");
 		centrifuge_model clientfield::set("COSMO_CENTRIFUGE_LIGHTS", 0);
 		centrifuge_model clientfield::set("COSMO_CENTRIFUGE_RUMBLE", 0);
@@ -380,12 +380,12 @@ function centrifuge_spin_warning(ent_centrifuge_model)
 */
 function centrifuge_damage()
 {
-	self endon(#"trap_done");
+	self endon("trap_done");
 	self._trap_type = self.script_noteworthy;
 	players = getplayers();
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(isplayer(ent) && ent.health > 1)
 		{
 			if(ent getstance() == "stand")

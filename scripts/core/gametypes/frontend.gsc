@@ -218,10 +218,10 @@ function black_market_play(a_ents)
 */
 function black_market_dialog()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		if(menu != "BlackMarket")
 		{
 			continue;
@@ -284,7 +284,7 @@ function black_market_dialog()
 				level.blackmarketdealer thread animation::stop(0.2);
 				level.blackmarketdealertumbler thread animation::stop(0.2);
 				level.blackmarketdealerpistol thread animation::stop(0.2);
-				level.blackmarketdealer notify(#"closed");
+				level.blackmarketdealer notify("closed");
 				break;
 			}
 		}
@@ -325,9 +325,9 @@ function play_black_market_1st_greeting()
 	{
 		return false;
 	}
-	level.blackmarketdealer endon(#"closed");
+	level.blackmarketdealer endon("closed");
 	play_black_market_animations("pb_black_marketeer_1st_time_greeting_", "o_black_marketeer_tumbler_1st_time_greeting_", "o_black_marketeer_pistol_1st_time_greeting_", "01");
-	level.blackmarketdealer waittill(#"finished_black_market_animation");
+	level.blackmarketdealer waittill("finished_black_market_animation");
 	setlocalprofilevar("com_firsttime_blackmarket", 1);
 	return true;
 }
@@ -343,7 +343,7 @@ function play_black_market_1st_greeting()
 */
 function play_black_market_greeting_animations()
 {
-	level.blackmarketdealer endon(#"closed");
+	level.blackmarketdealer endon("closed");
 	if(play_black_market_1st_greeting())
 	{
 		return;
@@ -363,7 +363,7 @@ function play_black_market_greeting_animations()
 */
 function play_black_market_broke_animations()
 {
-	level.blackmarketdealer endon(#"closed");
+	level.blackmarketdealer endon("closed");
 	if(play_black_market_1st_greeting())
 	{
 		return;
@@ -434,12 +434,12 @@ function play_black_market_animations(dealeranim, tumbleranim, pistolanim, animn
 */
 function play_black_market_animation(animname, idleanimname, originent, tagangles)
 {
-	self notify(#"play_black_market_animation");
-	self endon(#"play_black_market_animation");
-	level.blackmarketdealer endon(#"closed");
+	self notify("play_black_market_animation");
+	self endon("play_black_market_animation");
+	level.blackmarketdealer endon("closed");
 	self thread animation::stop(0.2);
 	self animation::play(animname, originent, tagangles, 1, 0.2, 0.2);
-	self notify(#"finished_black_market_animation");
+	self notify("finished_black_market_animation");
 	self thread animation::play(idleanimname, originent, tagangles, 1, 0.2, 0);
 }
 
@@ -480,7 +480,7 @@ function dailychallengedevguiinit()
 function dailychallengedevguithink()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		while(true)
 		{
 			daily_challenge_cmd = getdvarint("");
@@ -549,7 +549,7 @@ function function_4afc218()
 function function_ead1dc1a()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		while(true)
 		{
 			if(getdvarstring("") == "")

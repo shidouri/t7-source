@@ -79,7 +79,7 @@ function delayed_start_skit()
 */
 function play_waterthrash_loop()
 {
-	level endon(#"sq_std_over");
+	level endon("sq_std_over");
 	struct = struct::get("sq_location_std", "targetname");
 	if(!isdefined(struct))
 	{
@@ -87,7 +87,7 @@ function play_waterthrash_loop()
 	}
 	level._std_sound_waterthrash_ent = spawn("script_origin", struct.origin);
 	level._std_sound_waterthrash_ent playloopsound("evt_sq_std_waterthrash_loop", 2);
-	level waittill(#"sq_std_story_vox_begun");
+	level waittill("sq_std_story_vox_begun");
 	level._std_sound_waterthrash_ent stoploopsound(5);
 	wait(5);
 	level._std_sound_waterthrash_ent delete();
@@ -106,8 +106,8 @@ function play_waterthrash_loop()
 function target_debug()
 {
 	/#
-		self endon(#"death");
-		self endon(#"spiked");
+		self endon("death");
+		self endon("spiked");
 		while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
 		{
 			print3d(self.origin, "", vectorscale((0, 1, 0), 255), 1);
@@ -144,7 +144,7 @@ function function_3ea85f63()
 	attacker = undefined;
 	while(true)
 	{
-		trigger waittill(#"damage", amount, attacker, dir, point, mod, tagname, modelname, partname, weaponname, dflags, inflictor, chargelevel);
+		trigger waittill("damage", amount, attacker, dir, point, mod, tagname, modelname, partname, weaponname, dflags, inflictor, chargelevel);
 		if(weaponname == var_a4ff74b9 && !level.var_b19e3661)
 		{
 			level.var_b19e3661 = 1;
@@ -155,7 +155,7 @@ function function_3ea85f63()
 	{
 		attacker = getplayers()[0];
 	}
-	self notify(#"spiked", attacker);
+	self notify("spiked", attacker);
 	self stoploopsound(1);
 	self playsound("evt_sq_std_spray_stop");
 	level flag::set("std_target_" + self.script_int);
@@ -189,11 +189,11 @@ function function_4fdfc508()
 */
 function player_first_success()
 {
-	self endon(#"death");
-	level endon(#"sq_std_first");
-	self waittill(#"spiked", who);
+	self endon("death");
+	level endon("sq_std_first");
+	self waittill("spiked", who);
 	who thread zm_audio::create_and_play_dialog("eggs", "quest5", 1);
-	level notify(#"sq_std_first");
+	level notify("sq_std_first");
 }
 
 /*
@@ -207,9 +207,9 @@ function player_first_success()
 */
 function player_hint_line()
 {
-	self endon(#"death");
-	level endon(#"sq_std_hint_given");
-	level waittill(#"sq_std_hint_line");
+	self endon("death");
+	level endon("sq_std_hint_given");
+	level waittill("sq_std_hint_line");
 	while(true)
 	{
 		players = getplayers();
@@ -218,7 +218,7 @@ function player_hint_line()
 			if(isdefined(self.origin) && distancesquared(self.origin, players[i].origin) <= 10000)
 			{
 				players[i] thread zm_audio::create_and_play_dialog("eggs", "quest5", 0);
-				level notify(#"sq_std_hint_given");
+				level notify("sq_std_hint_given");
 				return;
 			}
 		}
@@ -237,8 +237,8 @@ function player_hint_line()
 */
 function begin_std_story_vox()
 {
-	self endon(#"death");
-	level endon(#"sq_std_story_vox_begun");
+	self endon("death");
+	level endon("sq_std_story_vox_begun");
 	while(true)
 	{
 		players = getplayers();
@@ -247,7 +247,7 @@ function begin_std_story_vox()
 			if(distancesquared(self.origin, players[i].origin) <= 10000)
 			{
 				level thread std_story_vox(players[i]);
-				level notify(#"sq_std_story_vox_begun");
+				level notify("sq_std_story_vox_begun");
 				return;
 			}
 		}
@@ -272,7 +272,7 @@ function stage_logic()
 	level flag::wait_till("std_target_4");
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest5", 2);
-	level waittill(#"waterfall");
+	level waittill("waterfall");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
@@ -281,12 +281,12 @@ function stage_logic()
 			players[i] thread zm_audio::create_and_play_dialog("eggs", "quest5", 3);
 		}
 	}
-	level notify(#"suspend_timer");
-	level notify(#"raise_crystal_1");
-	level notify(#"raise_crystal_2");
-	level notify(#"raise_crystal_3");
-	level notify(#"raise_crystal_4");
-	level notify(#"raise_crystal_5", 1);
+	level notify("suspend_timer");
+	level notify("raise_crystal_1");
+	level notify("raise_crystal_2");
+	level notify("raise_crystal_3");
+	level notify("raise_crystal_4");
+	level notify("raise_crystal_5", 1);
 	level waittill(#"hash_ccdffdea");
 	level flag::wait_till("std_plot_vo_done");
 	wait(5);
@@ -343,7 +343,7 @@ function exit_stage(success)
 */
 function std_story_vox(player)
 {
-	level endon(#"sq_std_over");
+	level endon("sq_std_over");
 	struct = struct::get("sq_location_std", "targetname");
 	if(!isdefined(struct))
 	{
@@ -352,15 +352,15 @@ function std_story_vox(player)
 	level._std_sound_ent = spawn("script_origin", struct.origin);
 	level thread std_story_vox_wait_for_finish();
 	level._std_sound_ent playsoundwithnotify("vox_egg_story_4_0", "sounddone");
-	level._std_sound_ent waittill(#"sounddone");
+	level._std_sound_ent waittill("sounddone");
 	if(isdefined(player))
 	{
 		level.skit_vox_override = 1;
 		player playsoundwithnotify("vox_egg_story_4_1" + zm_temple_sq::function_26186755(player.characterindex), "vox_egg_sounddone");
-		player waittill(#"vox_egg_sounddone");
+		player waittill("vox_egg_sounddone");
 		level.skit_vox_override = 0;
 	}
-	level notify(#"sq_std_hint_line");
+	level notify("sq_std_hint_line");
 }
 
 /*
@@ -374,24 +374,24 @@ function std_story_vox(player)
 */
 function std_story_vox_wait_for_finish()
 {
-	level endon(#"sq_std_over");
+	level endon("sq_std_over");
 	count = 0;
 	while(true)
 	{
-		level waittill(#"waterfall");
+		level waittill("waterfall");
 		if(!level flag::get("std_target_1") || !level flag::get("std_target_2") || !level flag::get("std_target_3") || !level flag::get("std_target_4"))
 		{
 			if(count < 1)
 			{
 				level._std_sound_ent playsoundwithnotify("vox_egg_story_4_2", "sounddone");
-				level._std_sound_ent waittill(#"sounddone");
+				level._std_sound_ent waittill("sounddone");
 				count++;
 			}
 		}
 		else
 		{
 			level._std_sound_ent playsoundwithnotify("vox_egg_story_4_3", "sounddone");
-			level._std_sound_ent waittill(#"sounddone");
+			level._std_sound_ent waittill("sounddone");
 			break;
 		}
 	}

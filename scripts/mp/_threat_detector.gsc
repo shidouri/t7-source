@@ -73,7 +73,7 @@ function createthreatdetectorwatcher()
 */
 function onspawnthreatdetector(watcher, player)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, player);
 	self setowner(player);
 	self setteam(player.team);
@@ -95,12 +95,12 @@ function onspawnthreatdetector(watcher, player)
 */
 function watchforstationary(owner)
 {
-	self endon(#"death");
-	self endon(#"hacked");
+	self endon("death");
+	self endon("hacked");
 	self endon(#"explode");
-	owner endon(#"death");
-	owner endon(#"disconnect");
-	self waittill(#"stationary");
+	owner endon("death");
+	owner endon("disconnect");
+	self waittill("stationary");
 	self clientfield::set("threat_detector", 1);
 }
 
@@ -164,8 +164,8 @@ function threatdetectordestroyed(attacker, weapon, target)
 */
 function watchthreatdetectordamage(watcher)
 {
-	self endon(#"death");
-	self endon(#"hacked");
+	self endon("death");
+	self endon("hacked");
 	self setcandamage(1);
 	damagemax = 1;
 	if(!self util::ishacked())
@@ -176,7 +176,7 @@ function watchthreatdetectordamage(watcher)
 	{
 		self.maxhealth = 100000;
 		self.health = self.maxhealth;
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;

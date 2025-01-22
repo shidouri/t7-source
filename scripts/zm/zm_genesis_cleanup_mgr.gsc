@@ -67,7 +67,7 @@ function __main__()
 */
 function force_check_now()
 {
-	level notify(#"pump_distance_check");
+	level notify("pump_distance_check");
 }
 
 /*
@@ -485,7 +485,7 @@ function private get_wait_locations_in_zone(zone)
 */
 function get_escape_position_in_current_zone()
 {
-	self endon(#"death");
+	self endon("death");
 	str_zone = self.zone_name;
 	if(!isdefined(str_zone))
 	{
@@ -606,9 +606,9 @@ function private function_eadbcbdb()
 */
 function private function_dc683d01(var_b52b26b9)
 {
-	self endon(#"death");
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self endon("death");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	self.ignoreall = 1;
 	self.b_zombie_path_bad = 1;
 	self thread check_player_available();
@@ -630,14 +630,14 @@ function private function_dc683d01(var_b52b26b9)
 */
 function private check_player_available()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.b_zombie_path_bad) && self.b_zombie_path_bad)
 	{
 		wait(randomfloatrange(0.2, 0.5));
 		if(self can_zombie_see_any_player())
 		{
 			self.b_zombie_path_bad = undefined;
-			self notify(#"reaquire_player");
+			self notify("reaquire_player");
 			return;
 		}
 	}

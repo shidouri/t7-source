@@ -25,7 +25,7 @@ function autoexec __init__()
 			level flagsys::set_val("", anim_debug);
 			if(!anim_debug)
 			{
-				level notify(#"kill_anim_debug");
+				level notify("kill_anim_debug");
 			}
 			wait(0.05);
 		}
@@ -44,8 +44,8 @@ function autoexec __init__()
 function anim_info_render_thread(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp)
 {
 	/#
-		self endon(#"death");
-		self endon(#"scriptedanim");
+		self endon("death");
+		self endon("scriptedanim");
 		self notify(#"_anim_info_render_thread_");
 		self endon(#"_anim_info_render_thread_");
 		while(true)

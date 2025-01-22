@@ -52,9 +52,9 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
-	self waittill(#"zm_bgb_wall_power_used");
+	self endon("disconnect");
+	self endon("bgb_update");
+	self waittill("zm_bgb_wall_power_used");
 	self playsoundtoplayer("zmb_bgb_wall_power", self);
 	self zm_stats::increment_challenge_stat("GUM_GOBBLER_WALL_POWER");
 	self bgb::do_one_shot_use();

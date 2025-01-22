@@ -186,7 +186,7 @@ function timeuntilwavespawn(minimumwait)
 */
 function stoppoisoningandflareonspawn()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.inpoisonarea = 0;
 	self.inburnarea = 0;
 	self.inflarevisionarea = 0;
@@ -204,11 +204,11 @@ function stoppoisoningandflareonspawn()
 */
 function spawnplayerprediction()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_respawn");
-	self endon(#"game_ended");
-	self endon(#"joined_spectators");
-	self endon(#"spawned");
+	self endon("game_ended");
+	self endon("joined_spectators");
+	self endon("spawned");
 	while(true)
 	{
 		wait(0.5);
@@ -277,10 +277,10 @@ function givestartloadout()
 function spawnplayer()
 {
 	pixbeginevent("spawnPlayer_preUTS");
-	self endon(#"disconnect");
-	self endon(#"joined_spectators");
-	self notify(#"spawned");
-	level notify(#"player_spawned");
+	self endon("disconnect");
+	self endon("joined_spectators");
+	self notify("spawned");
+	level notify("player_spawned");
 	self notify(#"end_respawn");
 	self setspawnvariables();
 	self luinotifyevent(&"player_spawned", 0);
@@ -316,8 +316,8 @@ function spawnplayer()
 		self.pers["lives"]--;
 		if(self.pers["lives"] == 0)
 		{
-			level notify(#"player_eliminated");
-			self notify(#"player_eliminated");
+			level notify("player_eliminated");
+			self notify("player_eliminated");
 		}
 	}
 	self.laststand = undefined;
@@ -504,7 +504,7 @@ function spawnplayer()
 	}
 	pixendevent();
 	waittillframeend();
-	self notify(#"spawned_player");
+	self notify("spawned_player");
 	self callback::callback(#"hash_bc12b61f");
 	/#
 		print(((((("" + self.origin[0]) + "") + self.origin[1]) + "") + self.origin[2]) + "");
@@ -539,7 +539,7 @@ function spawnplayer()
 */
 function spawnspectator(origin, angles)
 {
-	self notify(#"spawned");
+	self notify("spawned");
 	self notify(#"end_respawn");
 	in_spawnspectator(origin, angles);
 }
@@ -610,10 +610,10 @@ function in_spawnspectator(origin, angles)
 */
 function spectatorthirdpersonness()
 {
-	self endon(#"disconnect");
-	self endon(#"spawned");
-	self notify(#"spectator_thirdperson_thread");
-	self endon(#"spectator_thirdperson_thread");
+	self endon("disconnect");
+	self endon("spawned");
+	self notify("spectator_thirdperson_thread");
+	self endon("spectator_thirdperson_thread");
 	self.spectatingthirdperson = 0;
 }
 
@@ -628,9 +628,9 @@ function spectatorthirdpersonness()
 */
 function forcespawn(time)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"spawned");
+	self endon("death");
+	self endon("disconnect");
+	self endon("spawned");
 	if(!isdefined(time))
 	{
 		time = 60;
@@ -688,9 +688,9 @@ function kickifdontspawn()
 */
 function kickifidontspawninternal()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"spawned");
+	self endon("death");
+	self endon("disconnect");
+	self endon("spawned");
 	waittime = 90;
 	if(getdvarstring("scr_kick_time") != "")
 	{
@@ -734,7 +734,7 @@ function kickifidontspawninternal()
 */
 function kickwait(waittime)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	hostmigration::waitlongdurationwithhostmigrationpause(waittime);
 }
 
@@ -749,7 +749,7 @@ function kickwait(waittime)
 */
 function spawninterroundintermission()
 {
-	self notify(#"spawned");
+	self notify("spawned");
 	self notify(#"end_respawn");
 	self setspawnvariables();
 	self util::clearlowermessage();
@@ -777,9 +777,9 @@ function spawninterroundintermission()
 */
 function spawnintermission(usedefaultcallback)
 {
-	self notify(#"spawned");
+	self notify("spawned");
 	self notify(#"end_respawn");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self setspawnvariables();
 	self util::clearlowermessage();
 	self util::freeze_player_controls(0);
@@ -1038,9 +1038,9 @@ function spawnclient(timealreadypassed)
 */
 function waitandspawnclient(timealreadypassed)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_respawn");
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(!isdefined(timealreadypassed))
 	{
 		timealreadypassed = 0;
@@ -1118,7 +1118,7 @@ function waitandspawnclient(timealreadypassed)
 		}
 		spawnedasspectator = 1;
 		self globallogic_utils::waitfortimeornotify(timeuntilspawn, "force_spawn");
-		self notify(#"stop_wait_safe_spawn_button");
+		self notify("stop_wait_safe_spawn_button");
 	}
 	wavebased = level.waverespawndelay > 0;
 	if(!level.playerforcerespawn && self.hasspawned && !wavebased && !self.wantsafespawn && !level.playerqueuedrespawn)
@@ -1149,7 +1149,7 @@ function waitandspawnclient(timealreadypassed)
 */
 function waitrespawnorsafespawnbutton()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_respawn");
 	while(true)
 	{
@@ -1172,14 +1172,14 @@ function waitrespawnorsafespawnbutton()
 */
 function waitinspawnqueue()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_respawn");
 	if(!level.ingraceperiod && !level.usestartspawns)
 	{
 		currentorigin = self.origin;
 		currentangles = self.angles;
 		self thread [[level.spawnspectator]](currentorigin + vectorscale((0, 0, 1), 60), currentangles);
-		self waittill(#"queue_respawn");
+		self waittill("queue_respawn");
 	}
 }
 

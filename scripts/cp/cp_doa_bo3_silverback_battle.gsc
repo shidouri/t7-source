@@ -110,7 +110,7 @@ function function_d8e6314c()
 function function_f35c54a()
 {
 	level endon(#"hash_593b80cb");
-	level waittill(#"doa_game_is_over");
+	level waittill("doa_game_is_over");
 	function_d8e6314c();
 }
 
@@ -139,7 +139,7 @@ function function_8b1dfb44()
 */
 function function_fc48f9f3()
 {
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	init();
 	level flag::set("doa_round_paused");
 	flag::set("doa_round_active");
@@ -310,7 +310,7 @@ function private function_14ba3248()
 	wait(16);
 	foreach(player in getplayers())
 	{
-		player notify(#"menuresponse", "FullscreenMovie", "finished_movie_playback");
+		player notify("menuresponse", "FullscreenMovie", "finished_movie_playback");
 	}
 }
 
@@ -373,18 +373,18 @@ function function_28eb6914(ent)
 {
 	level notify(#"hash_28eb6914");
 	level endon(#"hash_28eb6914");
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	level endon(#"hash_a95298f3");
 	level clientfield::set("pumpBannerBar", 0);
 	util::wait_network_frame();
 	level clientfield::set("pumpBannerBar", 1);
 	if(isdefined(ent))
 	{
-		ent endon(#"death");
+		ent endon("death");
 		while(true)
 		{
 			lasthealth = ent.health;
-			ent waittill(#"damage", damage, attacker);
+			ent waittill("damage", damage, attacker);
 			data = doa_utility::clamp(ent.health / ent.maxhealth, 0, 1);
 			level clientfield::set("pumpBannerBar", data);
 		}
@@ -420,8 +420,8 @@ function function_28eb6914(ent)
 */
 function private function_eb6ee9e0()
 {
-	level endon(#"doa_game_is_over");
-	self waittill(#"death");
+	level endon("doa_game_is_over");
+	self waittill("death");
 	level notify(#"hash_ae3ed999");
 	level clientfield::set("activateBanner", 0);
 }
@@ -437,7 +437,7 @@ function private function_eb6ee9e0()
 */
 function private function_b90daa04(delay)
 {
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	level endon(#"hash_a95298f3");
 	if(delay)
 	{
@@ -516,8 +516,8 @@ function private function_b90daa04(delay)
 function function_b8a39218()
 {
 	level endon(#"hash_593b80cb");
-	level endon(#"doa_game_is_over");
-	self waittill(#"death");
+	level endon("doa_game_is_over");
+	self waittill("death");
 	players = getplayers();
 	foreach(player in players)
 	{
@@ -579,9 +579,9 @@ function function_ae39e30a(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function private function_a733cd6a(mech)
 {
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	level.doa.var_6fb37836 = mech;
-	mech endon(#"death");
+	mech endon("death");
 	mech thread function_eb6ee9e0();
 	level thread function_c64a860f(mech.driver);
 	mech.driver thread function_fb3b78fe();
@@ -612,7 +612,7 @@ function private function_a733cd6a(mech)
 */
 function function_fb3b78fe()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_ae3ed999");
 	self.var_15a6bfe6 = 0;
 	self useanimtree($generic);
@@ -648,7 +648,7 @@ function function_fb3b78fe()
 */
 function private function_c64a860f(driver)
 {
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	level waittill(#"hash_ae3ed999");
 	driver playsound("zmb_simianaut_roar");
 	driver animscripted("mech_eject", driver.origin, driver.angles, "ai_zombie_doa_simianaut_mech_idle_eject");
@@ -681,13 +681,13 @@ function private function_c64a860f(driver)
 */
 function private function_19b9f1d6()
 {
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	self.var_d3627554 = int(self.health * 0.8);
 	self.var_b220d777 = int(self.health * 0.5);
 	self.var_e6ea564a = int(self.health * 0.2);
 	self.takedamage = 1;
 	self function_ec5c4c1c();
-	self waittill(#"death");
+	self waittill("death");
 }
 
 /*
@@ -758,7 +758,7 @@ function function_6441ddee(ent)
 */
 function function_3cc9ed44()
 {
-	self endon(#"death");
+	self endon("death");
 	safezone = namespace_3ca3c537::function_dc34896f();
 	failures = 0;
 	while(true)
@@ -798,12 +798,12 @@ function function_3cc9ed44()
 */
 function function_ec5c4c1c(params)
 {
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	self playsound("zmb_simianaut_roar");
 	self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_ground_pound");
-	self waittillmatch(#"pissedoff");
+	self waittillmatch("pissedoff");
 	playfx(level._effect["ground_pound"], self.origin);
-	self waittillmatch(#"pissedoff");
+	self waittillmatch("pissedoff");
 	self playsound("zmb_simianaut_roar");
 	self thread function_f61639be();
 	self thread function_a3a6c6d0();
@@ -825,7 +825,7 @@ function function_ec5c4c1c(params)
 */
 function function_2fd43405()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.maxhealth))
 	{
 		self.maxhealth = self.health;
@@ -837,7 +837,7 @@ function function_2fd43405()
 	while(true)
 	{
 		lasthealth = self.health;
-		self waittill(#"damage");
+		self waittill("damage");
 		if(lasthealth > self.var_d3627554 && self.health <= self.var_d3627554)
 		{
 			self.var_b96cf2ea = self.var_b96cf2ea + 2;
@@ -866,7 +866,7 @@ function function_47e8d1a6()
 {
 	if(getdvarint("scr_doa_soak_think", 0))
 	{
-		self endon(#"death");
+		self endon("death");
 		if(!isdefined(self.maxhealth))
 		{
 			self.maxhealth = self.health;
@@ -897,7 +897,7 @@ function function_47e8d1a6()
 */
 function function_c8f8a134()
 {
-	self endon(#"death");
+	self endon("death");
 	self function_f98533fb("run");
 	while(true)
 	{
@@ -953,10 +953,10 @@ function private function_f98533fb(rate)
 */
 function function_f5afb415(var_b84274b8, numattacks = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	self playsound("zmb_simianaut_roar");
 	self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_taunt");
-	self waittillmatch(#"pissedoff");
+	self waittillmatch("pissedoff");
 	sqr64 = 64 * 64;
 	var_b84274b8.angles = self.angles;
 	var_b84274b8.origin = self.origin;
@@ -967,7 +967,7 @@ function function_f5afb415(var_b84274b8, numattacks = 1)
 		targetorigin = self.enemy.origin;
 		anim_ang = vectortoangles(targetorigin - self.origin);
 		var_b84274b8 rotateto((0, anim_ang[1], 0), 0.5);
-		var_b84274b8 waittill(#"rotatedone");
+		var_b84274b8 waittill("rotatedone");
 		self playsound("zmb_speed_boost_activate_boss");
 		playrumbleonposition("explosion_generic", self.origin);
 		dist = distance(targetorigin, self.origin) + 256;
@@ -1010,10 +1010,10 @@ function function_f5afb415(var_b84274b8, numattacks = 1)
 */
 function function_615e73a(var_b84274b8, numattacks = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	self playsound("zmb_simianaut_roar");
 	self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_taunt");
-	self waittillmatch(#"pissedoff");
+	self waittillmatch("pissedoff");
 	while(numattacks)
 	{
 		numattacks--;
@@ -1065,7 +1065,7 @@ function function_615e73a(var_b84274b8, numattacks = 1)
 		self unlink();
 		self playsound("zmb_simianaut_roar");
 		self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_attack_v1");
-		self waittillmatch(#"pissedoff");
+		self waittillmatch("pissedoff");
 		if(isdefined(self.var_a09d9abe))
 		{
 			self.var_a09d9abe unlink();
@@ -1094,7 +1094,7 @@ function function_615e73a(var_b84274b8, numattacks = 1)
 */
 function function_b3eb3a0b(params)
 {
-	self endon(#"death");
+	self endon("death");
 	var_b84274b8 = spawn("script_origin", self.origin);
 	var_b84274b8 thread doa_utility::function_75e76155(self, "death");
 	self.var_dc477b8d = 0;
@@ -1105,7 +1105,7 @@ function function_b3eb3a0b(params)
 		{
 			self playsound("zmb_simianaut_roar");
 			self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_taunt");
-			self waittillmatch(#"pissedoff");
+			self waittillmatch("pissedoff");
 			continue;
 		}
 		if(gettime() >= self.var_dc477b8d && isdefined(self.enemy) && isplayer(self.enemy) && randomint(100) < getdvarint("scr_boss_silverback_special_attack_chance_boost", 10))
@@ -1185,10 +1185,10 @@ function function_b3eb3a0b(params)
 				self linkto(var_b84274b8);
 				anim_ang = vectortoangles(self.enemy.origin - self.origin);
 				var_b84274b8 rotateto((0, anim_ang[1], 0), 0.5);
-				var_b84274b8 waittill(#"rotatedone");
+				var_b84274b8 waittill("rotatedone");
 				self unlink();
 				self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_attack_v1");
-				self waittillmatch(#"pissedoff");
+				self waittillmatch("pissedoff");
 				self notify(#"hash_5825c195", "fire", "end");
 			}
 			self.var_dc477b8d = gettime() + getdvarint("scr_boss_silverback_special_attack_cooldown", 4000);
@@ -1260,10 +1260,10 @@ function function_b830b6d7(linktag, silverback)
 */
 function private function_c2d22e21()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(isplayer(guy))
 		{
 			if(!isdefined(guy.var_18098213) || gettime() > guy.var_18098213)
@@ -1293,13 +1293,13 @@ function private function_df12b0c9(target)
 	self endon(#"hash_7018a851");
 	self notify(#"hash_df12b0c9");
 	self endon(#"hash_df12b0c9");
-	target endon(#"death");
-	target endon(#"disconnect");
+	target endon("death");
+	target endon("disconnect");
 	while(isdefined(target))
 	{
 		anim_ang = vectortoangles(target.origin - self.origin);
 		self rotateto((0, anim_ang[1], 0), 0.5);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -1315,7 +1315,7 @@ function private function_df12b0c9(target)
 function private function_5659ec29(var_c840292d)
 {
 	self notify(#"hash_5659ec29");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_5659ec29");
 	level waittill(var_c840292d);
 	loc = spawnstruct();
@@ -1349,7 +1349,7 @@ function private function_5659ec29(var_c840292d)
 */
 function private function_a3a6c6d0()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		pickupsitems = getentarray("a_pickup_item", "script_noteworthy");
@@ -1381,8 +1381,8 @@ function private function_a3a6c6d0()
 function function_f61639be(dist = 72)
 {
 	level endon(#"exit_taken");
-	level endon(#"ape_exited");
-	self endon(#"death");
+	level endon("ape_exited");
+	self endon("death");
 	distsq = dist * dist;
 	while(isdefined(self))
 	{
@@ -1420,7 +1420,7 @@ function function_f61639be(dist = 72)
 function function_a753035a(egg)
 {
 	level.doa.var_2775f29c = egg;
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	egg physicslaunch(egg.origin, vectorscale((0, 0, 1), 10));
 	hops = 6;
 	while(hops)
@@ -1451,7 +1451,7 @@ function function_a753035a(egg)
 */
 function function_1d9d0ed2(chicken)
 {
-	chicken endon(#"death");
+	chicken endon("death");
 	chicken thread namespace_5e6c5d1f::function_cdfa9ce8(chicken);
 	chicken.var_a732885d = 1;
 	rotate180time = 1;
@@ -1473,7 +1473,7 @@ function function_1d9d0ed2(chicken)
 */
 function move_to_position_over_time(destination, timems, elevationdelta)
 {
-	self endon(#"death");
+	self endon("death");
 	frames = timems / 50;
 	delta = (destination - self.origin) / frames;
 	stoptime = gettime() + timems;
@@ -1498,8 +1498,8 @@ function move_to_position_over_time(destination, timems, elevationdelta)
 			{
 				if(isdefined(var_4f4b0e1a) && var_4f4b0e1a)
 				{
-					level notify(#"move_to_pos_downward_cycle");
-					self notify(#"move_to_pos_downward_cycle");
+					level notify("move_to_pos_downward_cycle");
+					self notify("move_to_pos_downward_cycle");
 				}
 				var_4f4b0e1a = 0;
 				deltaplus = delta - (0, 0, deltaz);

@@ -1010,8 +1010,8 @@ function readspawndata(desiredid, relativepos)
 function drawspawndata()
 {
 	/#
-		level notify(#"drawing_spawn_data");
-		level endon(#"drawing_spawn_data");
+		level notify("drawing_spawn_data");
+		level endon("drawing_spawn_data");
 		textoffset = vectorscale((0, 0, -1), 12);
 		while(true)
 		{
@@ -1558,7 +1558,7 @@ function watchspawnprofile()
 				}
 				wait(0.05);
 			}
-			level notify(#"stop_spawn_profile");
+			level notify("stop_spawn_profile");
 		}
 	#/
 }
@@ -1575,7 +1575,7 @@ function watchspawnprofile()
 function spawnprofile()
 {
 	/#
-		level endon(#"stop_spawn_profile");
+		level endon("stop_spawn_profile");
 		while(true)
 		{
 			if(level.players.size > 0 && level.spawnpoints.size > 0)
@@ -2024,8 +2024,8 @@ function updatedeathinfodebug()
 */
 function spawnweightdebug(spawnpoints)
 {
-	level notify(#"stop_spawn_weight_debug");
-	level endon(#"stop_spawn_weight_debug");
+	level notify("stop_spawn_weight_debug");
+	level endon("stop_spawn_weight_debug");
 	/#
 		while(true)
 		{

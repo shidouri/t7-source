@@ -139,11 +139,11 @@ function function_d87a7dcc()
 			level.power_on = 0;
 			if(var_bd7ba30)
 			{
-				level notify(#"power_controlled_light");
+				level notify("power_controlled_light");
 			}
 			level util::waittill_any("power_on", "pwr", "ZPO");
 		}
-		level notify(#"power_controlled_light");
+		level notify("power_controlled_light");
 		level util::waittill_any("pwo", "ZPOff");
 		var_bd7ba30 = 1;
 	}
@@ -384,7 +384,7 @@ function theatre_zpo_listener()
 	wait(0.016);
 	if(!level clientfield::get("zombie_power_on"))
 	{
-		level waittill(#"zpo");
+		level waittill("zpo");
 	}
 	while(true)
 	{
@@ -396,9 +396,9 @@ function theatre_zpo_listener()
 				theater_box_monitor(i, level._box_indicator);
 			}
 		}
-		level notify(#"threeprimaries_on");
-		level notify(#"pl1");
-		level waittill(#"zpo");
+		level notify("threeprimaries_on");
+		level notify("pl1");
+		level waittill("zpo");
 	}
 }
 
@@ -439,7 +439,7 @@ function theater_light_model_swap()
 	wait(0.016);
 	if(!level clientfield::get("zombie_power_on"))
 	{
-		level waittill(#"zpo");
+		level waittill("zpo");
 	}
 	if(self.model == "lights_hang_single")
 	{

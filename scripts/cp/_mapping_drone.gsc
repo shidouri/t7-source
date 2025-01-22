@@ -131,8 +131,8 @@ function function_74191a2(var_e3262ea5 = 1)
 */
 function function_fb6d201d()
 {
-	self endon(#"stop_speed_regulator");
-	self endon(#"reached_end_node");
+	self endon("stop_speed_regulator");
+	self endon("reached_end_node");
 	n_forward_view = cos(89);
 	/#
 		self thread function_3c36d48d();
@@ -234,8 +234,8 @@ function function_fb6d201d()
 function function_3c36d48d()
 {
 	/#
-		self endon(#"stop_speed_regulator");
-		self endon(#"reached_end_node");
+		self endon("stop_speed_regulator");
+		self endon("reached_end_node");
 		while(true)
 		{
 			wait(1);
@@ -287,7 +287,7 @@ function function_517ced56(n_yaw_left = 90, n_yaw_right = 90, n_pitch_down = 10,
 		v_look_offset = (randomfloatrange(n_pitch_down * -1, n_pitch_up), randomfloatrange(n_yaw_left * -1, n_yaw_right), 0);
 		v_look_angles = v_base_look + v_look_offset;
 		e_base rotateto(v_look_angles, 0.5, 0.2, 0.2);
-		e_base waittill(#"rotatedone");
+		e_base waittill("rotatedone");
 		wait(randomfloatrange(1, 2));
 	}
 	e_base delete();

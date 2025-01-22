@@ -138,12 +138,12 @@ function font_pulse_init()
 */
 function font_pulse(player)
 {
-	self notify(#"fontpulse");
-	self endon(#"fontpulse");
-	self endon(#"death");
-	player endon(#"disconnect");
-	player endon(#"joined_team");
-	player endon(#"joined_spectators");
+	self notify("fontpulse");
+	self endon("fontpulse");
+	self endon("death");
+	player endon("disconnect");
+	player endon("joined_team");
+	player endon("joined_spectators");
 	if(self.outframes == 0)
 	{
 		self.fontscale = 0.01;
@@ -183,7 +183,7 @@ function font_pulse(player)
 */
 function fade_to_black_for_x_sec(startwait, blackscreenwait, fadeintime, fadeouttime, shadername)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(startwait);
 	lui::screen_fade_out(fadeintime, shadername);
 	wait(blackscreenwait);

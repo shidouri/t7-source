@@ -236,7 +236,7 @@ function function_3bd05213()
 		level endon(#"hash_dae10c73");
 	#/
 	level.var_2de93bbe = 1;
-	level waittill(#"player_exited_sewer");
+	level waittill("player_exited_sewer");
 	wait(10);
 	level zm_stalingrad_vo::function_19d97b43();
 	level.var_2de93bbe = undefined;
@@ -273,7 +273,7 @@ function function_dbdd2358()
 		level endon(#"hash_7f7ecb53");
 		level endon(#"hash_dae10c73");
 	#/
-	level endon(#"keys_placed");
+	level endon("keys_placed");
 	var_1f76714 = [];
 	for(i = 0; i < 5; i++)
 	{
@@ -345,7 +345,7 @@ function function_811523a8()
 		level endon(#"hash_7f7ecb53");
 		level endon(#"hash_dae10c73");
 	#/
-	level endon(#"scenarios_complete");
+	level endon("scenarios_complete");
 	level waittill(#"hash_8df52d90");
 	var_68a6b7a1 = [];
 	for(i = 0; i < 6; i++)
@@ -411,7 +411,7 @@ function function_4b5f4145()
 	/#
 		level endon(#"hash_dae10c73");
 	#/
-	level endon(#"weapon_cores_delivered");
+	level endon("weapon_cores_delivered");
 	var_1f76714 = array::randomize(array("vox_soph_sophia_chatter_0", "vox_soph_sophia_chatter_1", "vox_soph_sophia_chatter_2", "vox_soph_sophia_chatter_3", "vox_soph_sophia_chatter_4", "vox_soph_sophia_chatter_5"));
 	for(n_current_line = 0; n_current_line < 6; n_current_line++)
 	{
@@ -437,14 +437,14 @@ function function_957ac17d()
 	/#
 		level endon(#"hash_dae10c73");
 	#/
-	level endon(#"weapon_cores_delivered");
+	level endon("weapon_cores_delivered");
 	var_1f76714 = array("vox_soph_help_nikolai_sophia_attempt_1_0", "vox_soph_help_nikolai_sophia_attempt_2_0", "vox_soph_help_nikolai_sophia_attempt_3_0", "vox_soph_help_nikolai_sophia_attempt_4_0", "vox_soph_help_nikolai_sophia_attempt_5_0", "vox_soph_help_nikolai_sophia_attempt_6_0");
 	n_current_line = 0;
 	var_af8a18df = struct::get("ee_sophia_struct", "targetname");
 	while(n_current_line < 6)
 	{
 		level function_fa7fbd4c(1);
-		var_af8a18df waittill(#"trigger_activated", e_who);
+		var_af8a18df waittill("trigger_activated", e_who);
 		level function_fa7fbd4c(0);
 		e_who clientfield::increment_to_player("interact_rumble");
 		str_notify = "sophia_leave_alone_complete";
@@ -642,7 +642,7 @@ function function_1761de01(var_ebb69637, var_2a65eda2)
 */
 function function_c78227f6()
 {
-	level endon(#"tube_puzzle_complete");
+	level endon("tube_puzzle_complete");
 	s_generator = struct::get("ee_generator", "targetname");
 	s_generator.var_efb73168 = 0;
 	s_generator zm_unitrigger::create_unitrigger("", 100, &function_a5764a2e);
@@ -662,7 +662,7 @@ function function_c78227f6()
 		s_generator.var_efb73168 = 1;
 		exploder::exploder("fxexp_702");
 		exploder::stop_exploder("fxexp_701");
-		s_generator waittill(#"trigger_activated", e_who);
+		s_generator waittill("trigger_activated", e_who);
 		e_who clientfield::increment_to_player("interact_rumble");
 		s_generator.var_efb73168 = 0;
 	}
@@ -745,13 +745,13 @@ function function_ef39c304(b_on)
 */
 function function_60619737()
 {
-	level endon(#"tube_puzzle_complete");
+	level endon("tube_puzzle_complete");
 	var_4ae0fc9f = struct::get("ee_tube_use_" + self.script_label, "targetname");
 	var_4ae0fc9f zm_unitrigger::create_unitrigger("");
 	var_367b15e7 = getent(self.target, "targetname");
 	while(true)
 	{
-		var_4ae0fc9f waittill(#"trigger_activated", e_who);
+		var_4ae0fc9f waittill("trigger_activated", e_who);
 		if(!level flag::get("generator_on"))
 		{
 			continue;
@@ -769,7 +769,7 @@ function function_60619737()
 		}
 		var_367b15e7 rotatepitch(120, 0.5);
 		var_367b15e7 playsound("zmb_tubesville_lever");
-		var_367b15e7 waittill(#"rotatedone");
+		var_367b15e7 waittill("rotatedone");
 		var_5d1d7014 = function_d6953423(self.var_cd705a9[self.var_1f3c0ca7]);
 		var_5d1d7014 function_5c0811bc(1);
 		if(function_797708de())
@@ -855,7 +855,7 @@ function function_6a9560b6()
 	var_a477d63b scene::play("p7_fxanim_zm_stal_pneumatic_tube_drop_bundle");
 	var_4ae0fc9f = struct::get("ee_tube_use_" + var_a477d63b.script_label, "targetname");
 	var_4ae0fc9f.s_unitrigger.prompt_and_visibility_func = &function_7247a337;
-	var_4ae0fc9f waittill(#"trigger_activated", e_who);
+	var_4ae0fc9f waittill("trigger_activated", e_who);
 	e_who clientfield::increment_to_player("interact_rumble");
 	e_who playsound("zmb_tubesville_pickup_cylinder");
 	zm_unitrigger::unregister_unitrigger(var_4ae0fc9f.s_unitrigger);
@@ -1071,7 +1071,7 @@ function function_c6d84fe1()
 	while(true)
 	{
 		var_2200eb08.s_unitrigger function_527f47cc(&"ZM_STALINGRAD_MASTER_PASSWORD");
-		var_2200eb08 waittill(#"trigger_activated", e_who);
+		var_2200eb08 waittill("trigger_activated", e_who);
 		level function_fa7fbd4c(0);
 		var_2200eb08.s_unitrigger function_527f47cc("");
 		e_who clientfield::increment_to_player("interact_rumble");
@@ -1106,7 +1106,7 @@ function function_604cfbfb()
 	level endon(#"hash_e84299b0");
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
+		self waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
 		if(isplayer(attacker) && mod != "MOD_EXPLOSIVE")
 		{
 			self.var_c957db9f++;
@@ -1116,7 +1116,7 @@ function function_604cfbfb()
 			}
 			self rotateyaw(45, 0.5);
 			self playsound("zmb_sophia_code_door_wheel");
-			self waittill(#"rotatedone");
+			self waittill("rotatedone");
 		}
 	}
 }
@@ -1183,7 +1183,7 @@ function function_316026e4()
 	t_damage = getent("ee_keys_anomaly_damage_trig", "targetname");
 	while(true)
 	{
-		t_damage waittill(#"damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
+		t_damage waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
 		if(isplayer(attacker))
 		{
 			level scene::play("p7_fxanim_zm_stal_pickups_figure_blob_bundle");
@@ -1210,7 +1210,7 @@ function function_a1e863ea()
 	t_damage = getent("ee_keys_puddle_damage_trig", "targetname");
 	while(true)
 	{
-		t_damage waittill(#"damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
+		t_damage waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
 		if(weapon === getweapon("launcher_dragon_fire") || weapon === getweapon("launcher_dragon_fire_upgraded"))
 		{
 			wait(3);
@@ -1238,7 +1238,7 @@ function function_b96348ee()
 	t_damage = getent("ee_keys_safe_damage_trig", "targetname");
 	while(true)
 	{
-		t_damage waittill(#"damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
+		t_damage waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
 		if(isdefined(attacker) && weapon === attacker.var_ae0fff53 && mod == "MOD_MELEE")
 		{
 			s_key = struct::get("ee_keys_pod_struct", "targetname");
@@ -1297,7 +1297,7 @@ function function_ca8026e2()
 function function_35eed524()
 {
 	level endon(#"hash_a8bfa21a");
-	self endon(#"death");
+	self endon("death");
 	s_pipe = struct::get("ee_keys_pipe", "targetname");
 	if(1)
 	{
@@ -1339,7 +1339,7 @@ function function_35eed524()
 function function_71e9014a()
 {
 	t_damage = getent("ee_sewer_damage_trig", "targetname");
-	t_damage waittill(#"damage");
+	t_damage waittill("damage");
 	t_damage delete();
 	level scene::play("p7_fxanim_zm_stal_sewer_switch_bundle");
 	exploder::exploder("sewer_switch");
@@ -1361,7 +1361,7 @@ function function_71e9014a()
 */
 function function_2433fbc0()
 {
-	level endon(#"stop_swirly");
+	level endon("stop_swirly");
 	while(true)
 	{
 		exploder::exploder("fxexp_707");
@@ -1473,7 +1473,7 @@ function function_469f74c5()
 	var_385ae3a2 zm_unitrigger::create_unitrigger("");
 	while(true)
 	{
-		var_385ae3a2 waittill(#"trigger_activated", e_who);
+		var_385ae3a2 waittill("trigger_activated", e_who);
 		if(level.var_ab1ca2f9.size)
 		{
 			e_who clientfield::increment_to_player("interact_rumble");
@@ -1558,7 +1558,7 @@ function function_72dd3113()
 			level function_67cef48(1);
 		}
 		var_4c390f6e = var_fa839427[var_f4570d42];
-		var_385ae3a2 waittill(#"trigger_activated", e_who);
+		var_385ae3a2 waittill("trigger_activated", e_who);
 		if(level flag::get("special_round") || level flag::get("lockdown_active"))
 		{
 			level.var_f0d11538 playsound("zmb_scenarios_button_deny");
@@ -1691,7 +1691,7 @@ function function_3d77d2aa()
 */
 function function_478d8886()
 {
-	level endon(#"scenarios_complete");
+	level endon("scenarios_complete");
 	var_7f5d5c6 = array("special_round", "lockdown_active");
 	while(true)
 	{
@@ -2018,7 +2018,7 @@ function function_5b047f3f()
 	level endon(#"hash_94bb84a1");
 	while(true)
 	{
-		level waittill(#"nuke_complete");
+		level waittill("nuke_complete");
 		level flag::set("spawn_ee_harassers");
 	}
 }
@@ -2035,8 +2035,8 @@ function function_5b047f3f()
 function function_6485af5f()
 {
 	level endon(#"hash_94bb84a1");
-	self endon(#"death");
-	self waittill(#"nuke_triggered");
+	self endon("death");
+	self waittill("nuke_triggered");
 	level flag::clear("spawn_ee_harassers");
 }
 
@@ -2114,7 +2114,7 @@ function function_3f7226c0()
 	{
 		self.var_4bd1ce6b vehicle_ai::waittill_pathing_done();
 	}
-	self.var_4bd1ce6b notify(#"cargo_dropped");
+	self.var_4bd1ce6b notify("cargo_dropped");
 	level.var_79fa326a unlink();
 	level thread function_e085d31();
 	return true;
@@ -2131,9 +2131,9 @@ function function_3f7226c0()
 */
 function function_948b1459()
 {
-	level.var_79fa326a endon(#"death");
-	self endon(#"cargo_dropped");
-	self waittill(#"death");
+	level.var_79fa326a endon("death");
+	self endon("cargo_dropped");
+	self waittill("death");
 	level.var_79fa326a clientfield::set("ee_cargo_explosion", 1);
 	util::wait_network_frame();
 	level flag::clear("ee_cargo_available");
@@ -2204,7 +2204,7 @@ function function_e085d31()
 */
 function function_6cacaae5()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		n_wait_time = randomfloatrange(2.5, 5);
@@ -2324,7 +2324,7 @@ function function_591777cf()
 */
 function function_de888a13()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread function_8981cfc();
 	self vehicle_ai::set_state("scripted");
 	self.b_ignore_cleanup = 1;
@@ -2333,7 +2333,7 @@ function function_de888a13()
 	self.var_81e263d5 = 1;
 	self._dragon_ignoreme = 1;
 	self.ignore_enemy_count = 1;
-	self waittill(#"completed_spawning");
+	self waittill("completed_spawning");
 	self disableaimassist();
 	self sentinel_drone::sentinel_destroyallarms(1);
 	self clientfield::set("ee_drone_cam_override", 1);
@@ -2424,8 +2424,8 @@ function function_cd8abf88(var_817b9791)
 */
 function function_a9a92838()
 {
-	self endon(#"death");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("reached_end_node");
 	b_moving = 0;
 	while(true)
 	{
@@ -2458,7 +2458,7 @@ function function_a9a92838()
 function function_8981cfc()
 {
 	level endon(#"hash_611549c5");
-	self waittill(#"death");
+	self waittill("death");
 	level notify(#"ee_escort_failed");
 }
 
@@ -2475,7 +2475,7 @@ function function_8c3c41dc()
 {
 	level endon(#"hash_611549c5");
 	self endon(#"hash_3751c122");
-	self endon(#"death");
+	self endon("death");
 	wait(60);
 	self kill();
 }
@@ -2596,7 +2596,7 @@ function function_4d790672()
 	util::wait_network_frame();
 	self clientfield::set("ee_raz_eye_override", 1);
 	self thread function_4f067ff7();
-	self waittill(#"completed_emerging_into_playable_area");
+	self waittill("completed_emerging_into_playable_area");
 	self function_c54a2f4c();
 }
 
@@ -2614,7 +2614,7 @@ function function_4f067ff7()
 	level endon(#"ee_kite_complete");
 	level endon(#"ee_kite_failed");
 	level endon(#"hash_e4034552");
-	self waittill(#"death");
+	self waittill("death");
 	level notify(#"ee_kite_failed");
 }
 
@@ -2670,17 +2670,17 @@ function function_96970289()
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_f1860bb1");
 	level endon(#"ee_kite_complete");
 	var_713bb408 = struct::get("ee_raz_escape", "targetname");
 	self setgoal(var_713bb408.origin);
-	self waittill(#"goal");
+	self waittill("goal");
 	level notify(#"ee_kite_failed");
 	self ai::set_ignoreall(1);
 	var_aa6f12ec = struct::get("ee_raz_delete", "targetname");
 	self setgoal(var_aa6f12ec.origin);
-	self waittill(#"goal");
+	self waittill("goal");
 	self kill();
 }
 
@@ -2702,7 +2702,7 @@ function function_ceeaf112()
 	var_f80d6608 = getent("ee_raz_capture", "targetname");
 	while(true)
 	{
-		var_f80d6608 waittill(#"trigger", e_who);
+		var_f80d6608 waittill("trigger", e_who);
 		if(e_who == self)
 		{
 			self clearforcedgoal();
@@ -2712,7 +2712,7 @@ function function_ceeaf112()
 			self setgoal(s_capture_point.origin);
 			var_c1fbdc10 = util::spawn_model("tag_origin", s_capture_point.origin);
 			self notsolid();
-			self waittill(#"goal");
+			self waittill("goal");
 			wait(0.5);
 			self linkto(var_c1fbdc10);
 			self solid();
@@ -3149,7 +3149,7 @@ function function_cfa09312(var_cffe61ab = 0)
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	self endon(#"step_complete");
+	self endon("step_complete");
 	level endon(#"ee_pursue_failed");
 	var_2e4b6485 = 0;
 	self thread function_77e01bd0();
@@ -3185,7 +3185,7 @@ function function_cfa09312(var_cffe61ab = 0)
 			n_accel = 1;
 		}
 		self moveto(self.var_92198510.origin, var_46b0f218, n_accel, n_accel);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		self thread function_54457756();
 		str_notify = self util::waittill_any_return("pap_damage", "keep_wandering", "death", "step_complete", "ee_pursue_failed");
 		if(str_notify === "pap_damage" || str_notify === "death")
@@ -3287,7 +3287,7 @@ function function_44084295(s_destination)
 function function_5e9a73bf(var_43a6be37)
 {
 	level endon(#"ee_pursue_failed");
-	self endon(#"step_complete");
+	self endon("step_complete");
 	var_430ccf88 = struct::get("ee_pursue_arrival_" + self.var_92198510.script_string, "targetname");
 	self playsound("zmb_anomoly_takeoff");
 	for(i = 0; i <= 8; i++)
@@ -3312,7 +3312,7 @@ function function_5e9a73bf(var_43a6be37)
 				self moveto((var_979a6a0c, var_bd9ce475, var_e39f5ede), 0.3);
 			}
 		}
-		self waittill(#"movedone");
+		self waittill("movedone");
 	}
 	wait(1);
 	var_8acc78ca = distance(self.origin, self.var_92198510.origin);
@@ -3335,10 +3335,10 @@ function function_54457756()
 		level endon(#"hash_9546144d");
 	#/
 	level endon(#"ee_pursue_failed");
-	self endon(#"pap_damage");
+	self endon("pap_damage");
 	var_9add3f18 = randomfloatrange(20, 30);
 	wait(var_9add3f18);
-	self notify(#"keep_wandering");
+	self notify("keep_wandering");
 }
 
 /*
@@ -3353,7 +3353,7 @@ function function_54457756()
 function function_77e01bd0()
 {
 	level endon(#"ee_pursue_failed");
-	self endon(#"step_complete");
+	self endon("step_complete");
 	if(self zm_stalingrad_util::function_1af75b1b(750))
 	{
 		wait(randomintrange(5, 10));
@@ -3402,15 +3402,15 @@ function function_27541a6d()
 	{
 		self.var_44b9cab5 = 0;
 		self thread function_182fe200();
-		self waittill(#"damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
+		self waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
 		if(isplayer(attacker) && zm_weapons::is_weapon_upgraded(weapon))
 		{
-			self notify(#"pap_damage");
+			self notify("pap_damage");
 			self.var_44b9cab5 = 1;
 			n_current_health = n_current_health - amount;
 			if(n_current_health <= 0)
 			{
-				self notify(#"step_complete");
+				self notify("step_complete");
 				self moveto(self.origin, 0.1);
 				self clientfield::set("ee_anomaly_loop", 0);
 				self playsound("zmb_anomoly_dmg_hit");
@@ -3479,8 +3479,8 @@ function function_4b5b4aeb(n_step)
 */
 function function_182fe200()
 {
-	self endon(#"step_complete");
-	self endon(#"pap_damage");
+	self endon("step_complete");
+	self endon("pap_damage");
 	wait(120);
 	if(isdefined(self.var_44b9cab5) && self.var_44b9cab5)
 	{
@@ -3507,14 +3507,14 @@ function function_48dcad89()
 	var_ded11e7d = struct::get("ee_pursue_pre_capture", "targetname");
 	self moveto(var_ded11e7d.origin, 12, 1, 1);
 	level thread zm_stalingrad_vo::function_e4acaa37("vox_soph_anomaly_success_0", 2.5, 1, 0, 1);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self clientfield::set("ee_anomaly_loop", 0);
 	var_ded11e7d struct::delete();
 	level function_9c8afe2b();
 	level function_2868b6f4();
 	s_capture_point = struct::get("ee_capture_point", "targetname");
 	self moveto(s_capture_point.origin + vectorscale((0, 0, 1), 48), 4, 0.5);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	level thread function_694a61ea(self, 0);
 	level zm_stalingrad_vo::function_7c3ff8b2();
 }
@@ -3707,11 +3707,11 @@ function function_20cd9521(e_player)
 */
 function function_8e92625b()
 {
-	self endon(#"death");
+	self endon("death");
 	var_46273a16 = self.stub.related_parent;
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(isdefined(var_46273a16.var_ef53764e) && var_46273a16.var_ef53764e)
 		{
 			var_46273a16.var_ef53764e = undefined;
@@ -3736,7 +3736,7 @@ function function_8e92625b()
 */
 function function_3f204480(s_unitrigger)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_8cc49f44");
 	var_a0411846 = getent("ee_koth_terminal_volume", "targetname");
 	while(true)
@@ -3935,7 +3935,7 @@ function function_e394c743(var_f2469810)
 */
 function function_7ef0d0cc(n_start_time, var_2cd0f4a0)
 {
-	self endon(#"death");
+	self endon("death");
 	self.usebar = self function_64a35779();
 	self.usebartext = self function_73e24bb9();
 	self.usebartext settext(&"ZM_STALINGRAD_DOWNLOAD_PROGRESS");
@@ -3963,7 +3963,7 @@ function function_7ef0d0cc(n_start_time, var_2cd0f4a0)
 */
 function function_6199ca7e()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"ee_lockdown_complete");
 	level endon(#"end_game");
 	while(true)
@@ -4145,8 +4145,8 @@ function function_2a7e8fc9()
 */
 function function_69e4f202(var_7694d290)
 {
-	var_7694d290 endon(#"death");
-	self waittill(#"death");
+	var_7694d290 endon("death");
+	self waittill("death");
 	var_7694d290 delete();
 }
 
@@ -4181,7 +4181,7 @@ function function_e0c4c3a8()
 	var_4c895b30 movex(114, 1);
 	level function_2868b6f4(0);
 	level flag::set("sophia_escaped");
-	var_4c895b30 waittill(#"movedone");
+	var_4c895b30 waittill("movedone");
 	var_4c895b30 disconnectpaths();
 }
 
@@ -4207,7 +4207,7 @@ function function_d47c68fb()
 	var_a9352214.var_9469fd43 = 0;
 	while(var_a9352214.var_9469fd43 < level.players.size)
 	{
-		var_a9352214 waittill(#"trigger", e_who);
+		var_a9352214 waittill("trigger", e_who);
 		if(!(isdefined(e_who.var_a0a9409e) && e_who.var_a0a9409e))
 		{
 			var_a9352214.var_9469fd43++;
@@ -4307,7 +4307,7 @@ function function_2b042a95()
 */
 function function_61f148a5(var_af81398)
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_35ea5b31 = 1;
 	self clientfield::set_to_player("ee_hatch_strain_rumble", 1);
 	while(isdefined(var_af81398) && self istouching(var_af81398))
@@ -4347,7 +4347,7 @@ function function_deda2d7a()
 */
 function function_e957e3bc()
 {
-	level waittill(#"player_enter_boss_arena");
+	level waittill("player_enter_boss_arena");
 	level flag::set("players_in_arena");
 	level thread function_2868b6f4(0);
 	level thread zm_stalingrad_vo::function_e4acaa37("vox_nik1_help_nikolai_cores_1", 2);
@@ -4376,7 +4376,7 @@ function function_d6702e87()
 	var_86cbea2c = var_2e8d47d3 + (0, -28, -50);
 	mdl_head rotateto(var_86cbea2c, 3, 0.5, 0.1);
 	mdl_head playsound("zmb_robo_eye_head_move");
-	mdl_head waittill(#"rotatedone");
+	mdl_head waittill("rotatedone");
 	mdl_head playsound("zmb_robo_eye_head_start");
 	mdl_head playloopsound("zmb_robo_eye_head_lp", 1.5);
 	exploder::exploder("fxexp_700");
@@ -4640,7 +4640,7 @@ function function_6e3a6092(n_trigger_radius = 100, str_hint = "", var_6902ec85 =
 	{
 		self.s_unitrigger function_527f47cc(str_hint);
 	}
-	self waittill(#"trigger_activated", e_who);
+	self waittill("trigger_activated", e_who);
 	e_who clientfield::increment_to_player("interact_rumble");
 	if(var_6902ec85)
 	{

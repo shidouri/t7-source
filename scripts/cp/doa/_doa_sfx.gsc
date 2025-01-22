@@ -185,7 +185,7 @@ function function_7ad8eb52(name)
 */
 function function_9ab759da(&queue, flag, var_a6cc22d4 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!var_a6cc22d4)
 	{
 		self notify("sfxProcessQueue_" + flag);
@@ -233,7 +233,7 @@ function function_4f06fb8(name)
 	}
 	self notify(#"hash_89ed98");
 	self endon(#"hash_89ed98");
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_14f92b68))
 	{
 		self.var_14f92b68 = [];
@@ -260,7 +260,7 @@ function function_90118d8c(name)
 	}
 	self notify(#"hash_42bd4d44");
 	self endon(#"hash_42bd4d44");
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_60026b2))
 	{
 		self.var_60026b2 = [];

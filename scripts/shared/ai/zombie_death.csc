@@ -35,13 +35,13 @@ function autoexec init_fire_fx()
 */
 function on_fire_timeout(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	wait(12);
 	if(isdefined(self) && isalive(self))
 	{
 		self.is_on_fire = 0;
-		self notify(#"stop_flame_damage");
+		self notify("stop_flame_damage");
 	}
 }
 
@@ -56,7 +56,7 @@ function on_fire_timeout(localclientnum)
 */
 function flame_death_fx(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	if(isdefined(self.is_on_fire) && self.is_on_fire)
 	{

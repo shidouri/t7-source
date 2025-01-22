@@ -343,7 +343,7 @@ function private _burncorpse(localclientnum, burningduration)
 		foreach(fx in self.activefx)
 		{
 			stopfx(localclientnum, fx);
-			self notify(#"stopburningsounds");
+			self notify("stopburningsounds");
 		}
 		if(isdefined(self))
 		{

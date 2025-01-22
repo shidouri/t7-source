@@ -222,7 +222,7 @@ function make_supersprinter()
 */
 function speed_change_watcher()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(level.speed_change_num > 0)
 	{
 		level.speed_change_num--;
@@ -240,10 +240,10 @@ function speed_change_watcher()
 */
 function move_zombie_spawn_location(spot)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.spawn_pos))
 	{
-		self notify(#"risen", self.spawn_pos.script_string);
+		self notify("risen", self.spawn_pos.script_string);
 		return;
 	}
 	self.spawn_pos = spot;
@@ -311,13 +311,13 @@ function move_zombie_spawn_location(spot)
 			}
 			self ghost();
 			self.anchor moveto(spot.origin, 0.05);
-			self.anchor waittill(#"movedone");
+			self.anchor waittill("movedone");
 			target_org = zombie_utility::get_desired_origin();
 			if(isdefined(target_org))
 			{
 				anim_ang = vectortoangles(target_org - self.origin);
 				self.anchor rotateto((0, anim_ang[1], 0), 0.05);
-				self.anchor waittill(#"rotatedone");
+				self.anchor waittill("rotatedone");
 			}
 			if(isdefined(level.zombie_spawn_fx))
 			{
@@ -332,7 +332,7 @@ function move_zombie_spawn_location(spot)
 			{
 				self show();
 			}
-			self notify(#"risen", spot.script_string);
+			self notify("risen", spot.script_string);
 		}
 	}
 }
@@ -348,8 +348,8 @@ function move_zombie_spawn_location(spot)
 */
 function anchor_delete_failsafe(ai_zombie)
 {
-	ai_zombie endon(#"risen");
-	ai_zombie waittill(#"death");
+	ai_zombie endon("risen");
+	ai_zombie waittill("death");
 	if(isdefined(self))
 	{
 		self delete();
@@ -367,7 +367,7 @@ function anchor_delete_failsafe(ai_zombie)
 */
 function run_spawn_functions()
 {
-	self endon(#"death");
+	self endon("death");
 	waittillframeend();
 	for(i = 0; i < level.spawn_funcs[self.team].size; i++)
 	{
@@ -822,7 +822,7 @@ function create_zombie_point_of_interest(attract_dist, num_attractors, added_poi
 */
 function watch_for_poi_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isinarray(level.zombie_poi_array, self))
 	{
 		arrayremovevalue(level.zombie_poi_array, self);
@@ -840,7 +840,7 @@ function watch_for_poi_death()
 */
 function debug_draw_new_attractor_positions()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		foreach(attract in self.attractor_positions)
@@ -872,7 +872,7 @@ function debug_draw_new_attractor_positions()
 */
 function create_zombie_point_of_interest_attractor_positions(num_attract_dists, attract_dist)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.num_poi_attracts) || (isdefined(self.script_noteworthy) && self.script_noteworthy != "zombie_poi"))
 	{
 		return;
@@ -914,8 +914,8 @@ function create_zombie_point_of_interest_attractor_positions(num_attract_dists, 
 	self.last_index[0] = 1;
 	self.last_index[1] = self.attractor_positions.size;
 	self.attract_to_origin = 0;
-	self notify(#"attractor_positions_generated");
-	level notify(#"attractor_positions_generated");
+	self notify("attractor_positions_generated");
+	level notify("attractor_positions_generated");
 }
 
 /*
@@ -929,7 +929,7 @@ function create_zombie_point_of_interest_attractor_positions(num_attract_dists, 
 */
 function generated_radius_attract_positions(forward, offset, num_positions, attract_radius)
 {
-	self endon(#"death");
+	self endon("death");
 	epsilon = 1;
 	failed = 0;
 	degs_per_pos = 360 / num_positions;
@@ -1236,7 +1236,7 @@ function deactivate_zombie_point_of_interest(dont_remove)
 	self.attractor_array = array::remove_undefined(self.attractor_array);
 	for(i = 0; i < self.attractor_array.size; i++)
 	{
-		self.attractor_array[i] notify(#"kill_poi");
+		self.attractor_array[i] notify("kill_poi");
 	}
 	self.attractor_array = [];
 	self.claimed_attractor_positions = [];
@@ -1305,7 +1305,7 @@ function remove_poi_attractor(zombie_poi)
 			arrayremovevalue(zombie_poi.claimed_attractor_positions, zombie_poi.claimed_attractor_positions[i]);
 			if(isdefined(self))
 			{
-				self notify(#"kill_poi");
+				self notify("kill_poi");
 			}
 		}
 	}
@@ -1503,8 +1503,8 @@ function can_attract(attractor)
 */
 function update_poi_on_death(zombie_poi)
 {
-	self endon(#"kill_poi");
-	self waittill(#"death");
+	self endon("kill_poi");
+	self waittill("death");
 	self remove_poi_attractor(zombie_poi);
 }
 
@@ -1519,7 +1519,7 @@ function update_poi_on_death(zombie_poi)
 */
 function update_on_poi_removal(zombie_poi)
 {
-	zombie_poi waittill(#"death");
+	zombie_poi waittill("death");
 	if(!isdefined(zombie_poi.attractor_array))
 	{
 		return;
@@ -3567,7 +3567,7 @@ function debug_round_advancer()
 function print_run_speed(speed)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			print3d(self.origin + vectorscale((0, 0, 1), 64), speed, (1, 1, 1));
@@ -3592,8 +3592,8 @@ function draw_line_ent_to_ent(ent1, ent2)
 		{
 			return;
 		}
-		ent1 endon(#"death");
-		ent2 endon(#"death");
+		ent1 endon("death");
+		ent2 endon("death");
 		while(true)
 		{
 			line(ent1.origin, ent2.origin);
@@ -3618,7 +3618,7 @@ function draw_line_ent_to_pos(ent, pos, end_on)
 		{
 			return;
 		}
-		ent endon(#"death");
+		ent endon("death");
 		ent notify(#"stop_draw_line_ent_to_pos");
 		ent endon(#"stop_draw_line_ent_to_pos");
 		if(isdefined(end_on))
@@ -3715,7 +3715,7 @@ function drawcylinder(pos, rad, height)
 function print3d_at_pos(msg, pos, thread_endon, offset)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		if(isdefined(thread_endon))
 		{
 			self notify(thread_endon);
@@ -3745,7 +3745,7 @@ function print3d_at_pos(msg, pos, thread_endon, offset)
 function debug_breadcrumbs()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		self notify(#"stop_debug_breadcrumbs");
 		self endon(#"stop_debug_breadcrumbs");
 		while(true)
@@ -3815,7 +3815,7 @@ function debug_attack_spots_taken()
 function float_print3d(msg, time)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		time = gettime() + (time * 1000);
 		offset = vectorscale((0, 0, 1), 72);
 		while(gettime() < time)
@@ -3961,7 +3961,7 @@ function trigger_invisible(enable)
 */
 function print3d_ent(text, color, scale, offset, end_msg, overwrite)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(overwrite) && overwrite && isdefined(self._debug_print3d_msg))
 	{
 		self notify(#"end_print3d");
@@ -4183,8 +4183,8 @@ function is_leaper()
 */
 function shock_onpain()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self notify(#"stop_shock_onpain");
 	self endon(#"stop_shock_onpain");
 	if(getdvarstring("blurpain") == "")
@@ -4194,7 +4194,7 @@ function shock_onpain()
 	while(true)
 	{
 		oldhealth = self.health;
-		self waittill(#"damage", damage, attacker, direction_vec, point, mod);
+		self waittill("damage", damage, attacker, direction_vec, point, mod);
 		if(isdefined(level.shock_onpain) && !level.shock_onpain)
 		{
 			continue;
@@ -4684,7 +4684,7 @@ function get_player_lethal_grenade()
 */
 function set_player_lethal_grenade(weapon = level.weaponnone)
 {
-	self notify(#"new_lethal_grenade", weapon);
+	self notify("new_lethal_grenade", weapon);
 	self.current_lethal_grenade = weapon;
 }
 
@@ -4791,7 +4791,7 @@ function get_player_tactical_grenade()
 */
 function set_player_tactical_grenade(weapon = level.weaponnone)
 {
-	self notify(#"new_tactical_grenade", weapon);
+	self notify("new_tactical_grenade", weapon);
 	self.current_tactical_grenade = weapon;
 }
 
@@ -4879,7 +4879,7 @@ function get_player_placeable_mine()
 */
 function set_player_placeable_mine(weapon = level.weaponnone)
 {
-	self notify(#"new_placeable_mine", weapon);
+	self notify("new_placeable_mine", weapon);
 	self.current_placeable_mine = weapon;
 }
 
@@ -4986,7 +4986,7 @@ function get_player_melee_weapon()
 */
 function set_player_melee_weapon(weapon = level.weaponnone)
 {
-	self notify(#"new_melee_weapon", weapon);
+	self notify("new_melee_weapon", weapon);
 	self.current_melee_weapon = weapon;
 }
 
@@ -5093,7 +5093,7 @@ function get_player_hero_weapon()
 */
 function set_player_hero_weapon(weapon = level.weaponnone)
 {
-	self notify(#"new_hero_weapon", weapon);
+	self notify("new_hero_weapon", weapon);
 	self.current_hero_weapon = weapon;
 }
 
@@ -5382,7 +5382,7 @@ function self_delete()
 */
 function ignore_triggers(timer)
 {
-	self endon(#"death");
+	self endon("death");
 	self.ignoretriggers = 1;
 	if(isdefined(timer))
 	{
@@ -5595,10 +5595,10 @@ function destroy_ent()
 */
 function waittill_not_moving()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"detonated");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	self endon("detonated");
+	level endon("game_ended");
 	if(self.classname == "grenade")
 	{
 		self waittill(#"stationary");
@@ -5666,7 +5666,7 @@ function ent_flag_init_ai_standards()
 */
 function ent_flag_wait_ai_standards(message)
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(message);
 	self.ent_flag[message] = 1;
 }
@@ -5716,8 +5716,8 @@ function clear_run_anim()
 */
 function track_players_intersection_tracker()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level endon(#"end_game");
 	wait(5);
 	while(true)
@@ -6050,7 +6050,7 @@ function get_gamemode_var(gvar)
 */
 function waittill_subset(min_num, string1, string2, string3, string4, string5)
 {
-	self endon(#"death");
+	self endon("death");
 	ent = spawnstruct();
 	ent.threads = 0;
 	returned_threads = 0;
@@ -6081,7 +6081,7 @@ function waittill_subset(min_num, string1, string2, string3, string4, string5)
 	}
 	while(ent.threads)
 	{
-		ent waittill(#"returned");
+		ent waittill("returned");
 		ent.threads--;
 		returned_threads++;
 		if(returned_threads >= min_num)
@@ -6089,7 +6089,7 @@ function waittill_subset(min_num, string1, string2, string3, string4, string5)
 			break;
 		}
 	}
-	ent notify(#"die");
+	ent notify("die");
 }
 
 /*
@@ -6407,7 +6407,7 @@ function place_navcard(str_model, str_stat, org, angles)
 	str_placing_stat = undefined;
 	while(true)
 	{
-		navcard_pickup_trig waittill(#"trigger", who);
+		navcard_pickup_trig waittill("trigger", who);
 		if(is_player_valid(who))
 		{
 			foreach(str_cur_stat in a_navcard_stats)
@@ -6469,7 +6469,7 @@ function sq_refresh_player_navcard_hud()
 */
 function sq_refresh_player_navcard_hud_internal()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	navcard_bits = 0;
 	for(i = 0; i < level.navcards.size; i++)
 	{
@@ -7030,7 +7030,7 @@ function give_player_all_perks(b_exclude_quick_revive = 0)
 */
 function wait_for_attractor_positions_complete()
 {
-	self waittill(#"attractor_positions_generated");
+	self waittill("attractor_positions_generated");
 	self.attract_to_origin = 0;
 }
 
@@ -7093,7 +7093,7 @@ function get_specific_character(n_character_index)
 */
 function zombie_goto_round(n_target_round)
 {
-	level notify(#"restart_round");
+	level notify("restart_round");
 	if(n_target_round < 1)
 	{
 		n_target_round = 1;
@@ -7161,7 +7161,7 @@ function clear_streamer_hint()
 		self.streamer_hint delete();
 		self.streamer_hint = undefined;
 	}
-	self notify(#"wait_clear_streamer_hint");
+	self notify("wait_clear_streamer_hint");
 }
 
 /*
@@ -7175,7 +7175,7 @@ function clear_streamer_hint()
 */
 function wait_clear_streamer_hint(lifetime)
 {
-	self endon(#"wait_clear_streamer_hint");
+	self endon("wait_clear_streamer_hint");
 	wait(lifetime);
 	if(isdefined(self))
 	{
@@ -7213,7 +7213,7 @@ function create_streamer_hint(origin, angles, value, lifetime)
 		self.streamer_hint setvisibletoplayer(self);
 	}
 	self.streamer_hint setincludemeshes(1);
-	self notify(#"wait_clear_streamer_hint");
+	self notify("wait_clear_streamer_hint");
 	if(isdefined(lifetime) && lifetime > 0)
 	{
 		self thread wait_clear_streamer_hint(lifetime);
@@ -7293,7 +7293,7 @@ function slowdown_ai(str_type)
 {
 	self notify(#"starting_slowdown_ai");
 	self endon(#"starting_slowdown_ai");
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(isdefined(level.a_s_slowdowns[str_type]), ("" + str_type) + "");
 	#/
@@ -7618,7 +7618,7 @@ function zm_dash_stats_wait_for_consumable_use()
 	{
 		return;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self flag::wait_till("used_consumable");
 	self setdstat("dashboardingTrackingHistory", "lastGameUsedConsumable", 1);
 	var_9eb8805a = self getdstat("dashboardingTrackingHistory", "lastGameWasHosted");

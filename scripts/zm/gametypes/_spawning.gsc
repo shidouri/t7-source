@@ -81,7 +81,7 @@ function init_spawn_system()
 */
 function on_player_connecting()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self setentertime(gettime());
 	callback::on_spawned(&on_player_spawned);
 	callback::on_joined_team(&on_joined_team);
@@ -99,11 +99,11 @@ function on_player_connecting()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	for(;;)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		self enable_player_influencers(1);
 		self thread ondeath();
 	}
@@ -120,9 +120,9 @@ function on_player_spawned()
 */
 function ondeath()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self waittill(#"death");
+	self endon("disconnect");
+	level endon("game_ended");
+	self waittill("death");
 	self enable_player_influencers(0);
 	level create_friendly_influencer("friend_dead", self.origin, self.team);
 }
@@ -138,8 +138,8 @@ function ondeath()
 */
 function on_joined_team()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	self player_influencers_set_team();
 }
 
@@ -154,11 +154,11 @@ function on_joined_team()
 */
 function ongrenadethrow()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		level thread create_grenade_influencers(self.pers["team"], weapon, grenade);
 		wait(0.05);
 	}
@@ -423,10 +423,10 @@ function remove_influencers()
 */
 function watch_remove_influencer()
 {
-	self endon(#"death");
-	self notify(#"watch_remove_influencer");
-	self endon(#"watch_remove_influencer");
-	self waittill(#"influencer_removed", index);
+	self endon("death");
+	self notify("watch_remove_influencer");
+	self endon("watch_remove_influencer");
+	self waittill("influencer_removed", index);
 	arrayremovevalue(self.influencers, index);
 	arrayremovevalue(self.influencersfriendly, index);
 	arrayremovevalue(self.influencersenemy, index);
@@ -946,8 +946,8 @@ function codecallback_updatespawnpoints()
 */
 function initialspawnprotection(specialtyname, spawnmonitorspeed)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(level.spawnprotectiontime) || level.spawnprotectiontime == 0)
 	{
 		return;

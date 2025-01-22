@@ -141,12 +141,12 @@ function stage_logic()
 	{
 		wait(0.1);
 	}
-	level notify(#"raise_crystal_1");
-	level notify(#"raise_crystal_2");
-	level notify(#"raise_crystal_3");
-	level notify(#"raise_crystal_4");
-	level notify(#"raise_crystal_5");
-	level notify(#"raise_crystal_6", 1);
+	level notify("raise_crystal_1");
+	level notify("raise_crystal_2");
+	level notify("raise_crystal_3");
+	level notify("raise_crystal_4");
+	level notify("raise_crystal_5");
+	level notify("raise_crystal_6", 1);
 	level waittill(#"hash_a6dd8381");
 	wait(5);
 	zm_sidequests::stage_completed("sq", "bttp2");
@@ -191,8 +191,8 @@ function dial_trigger()
 	level endon(#"hash_1ee44755");
 	while(true)
 	{
-		self waittill(#"triggered", who);
-		self.owner_ent notify(#"triggered", who);
+		self waittill("triggered", who);
+		self.owner_ent notify("triggered", who);
 	}
 }
 
@@ -222,10 +222,10 @@ function function_5ac3fada()
 	correct = 0;
 	while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
 	{
-		self waittill(#"triggered", who);
+		self waittill("triggered", who);
 		self playsound("evt_sq_bttp2_wheel_turn");
 		self rotatepitch(90, 0.25);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 		pos = (pos + 1) % 4;
 		if(pos == self.script_int)
 		{
@@ -273,7 +273,7 @@ function dud_dial_handler(var_10be97cb)
 	self rotatepitch(rot * 90, 0.01);
 	while(true)
 	{
-		self waittill(#"triggered");
+		self waittill("triggered");
 		self playsound("evt_sq_bttp2_wheel_turn");
 		if(isdefined(var_10be97cb))
 		{

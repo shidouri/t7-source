@@ -116,10 +116,10 @@ function on_player_connect()
 */
 function watchfirstuse()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(newweapon.isriotshield)
 		{
 			break;
@@ -158,8 +158,8 @@ function on_player_spawned()
 */
 function player_watch_ammo_change()
 {
-	self notify(#"player_watch_ammo_change");
-	self endon(#"player_watch_ammo_change");
+	self notify("player_watch_ammo_change");
+	self endon("player_watch_ammo_change");
 	for(;;)
 	{
 		self waittill(#"equipment_ammo_changed", equipment);
@@ -185,11 +185,11 @@ function player_watch_ammo_change()
 */
 function player_watch_max_ammo()
 {
-	self notify(#"player_watch_max_ammo");
-	self endon(#"player_watch_max_ammo");
+	self notify("player_watch_max_ammo");
+	self endon("player_watch_max_ammo");
 	for(;;)
 	{
-		self waittill(#"zmb_max_ammo");
+		self waittill("zmb_max_ammo");
 		wait(0.05);
 		if(isdefined(self.hasriotshield) && self.hasriotshield)
 		{
@@ -228,8 +228,8 @@ function check_weapon_ammo(weapon)
 */
 function player_watch_upgraded_pickup_from_table()
 {
-	self notify(#"player_watch_upgraded_pickup_from_table");
-	self endon(#"player_watch_upgraded_pickup_from_table");
+	self notify("player_watch_upgraded_pickup_from_table");
+	self endon("player_watch_upgraded_pickup_from_table");
 	var_4e7bbc60 = level.weaponriotshield.name;
 	str_notify = var_4e7bbc60 + "_pickup_from_table";
 	for(;;)
@@ -272,11 +272,11 @@ function player_damage_rocketshield(idamage, bheld, fromcode = 0, smod = "MOD_UN
 */
 function player_watch_shield_juke()
 {
-	self notify(#"player_watch_shield_juke");
-	self endon(#"player_watch_shield_juke");
+	self notify("player_watch_shield_juke");
+	self endon("player_watch_shield_juke");
 	for(;;)
 	{
-		self waittill(#"weapon_melee_juke", weapon);
+		self waittill("weapon_melee_juke", weapon);
 		if(weapon.isriotshield)
 		{
 			self disableoffhandweapons();
@@ -301,9 +301,9 @@ function player_watch_shield_juke()
 */
 function riotshield_melee_juke(weapon)
 {
-	self endon(#"weapon_melee");
-	self endon(#"weapon_melee_power");
-	self endon(#"weapon_melee_charge");
+	self endon("weapon_melee");
+	self endon("weapon_melee_power");
+	self endon("weapon_melee_charge");
 	start_time = gettime();
 	if(!isdefined(level.riotshield_knockdown_enemies))
 	{
@@ -592,7 +592,7 @@ function shield_recharge_trigger_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;

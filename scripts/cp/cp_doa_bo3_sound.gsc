@@ -49,7 +49,7 @@ function function_68fdd800()
 */
 function function_42b6c406()
 {
-	level waittill(#"ro");
+	level waittill("ro");
 	self stoploopsound();
 	wait(1);
 	self delete();

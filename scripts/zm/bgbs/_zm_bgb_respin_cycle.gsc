@@ -77,7 +77,7 @@ function validation()
 */
 function activation()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(i = 0; i < level.chests.size; i++)
 	{
 		chest = level.chests[i];
@@ -102,16 +102,16 @@ function function_7a5dc39b(player)
 	self.zbarrier clientfield::increment("zm_bgb_respin_cycle");
 	if(isdefined(self.zbarrier.weapon_model))
 	{
-		self.zbarrier.weapon_model notify(#"kill_respin_think_thread");
+		self.zbarrier.weapon_model notify("kill_respin_think_thread");
 	}
 	self.no_fly_away = 1;
-	self.zbarrier notify(#"box_hacked_respin");
+	self.zbarrier notify("box_hacked_respin");
 	self.zbarrier playsound("zmb_bgb_powerup_respin");
 	self thread zm_unitrigger::unregister_unitrigger(self.unitrigger_stub);
 	zm_utility::play_sound_at_pos("open_chest", self.zbarrier.origin);
 	zm_utility::play_sound_at_pos("music_chest", self.zbarrier.origin);
 	self.zbarrier thread zm_magicbox::treasure_chest_weapon_spawn(self, player);
-	self.zbarrier waittill(#"randomization_done");
+	self.zbarrier waittill("randomization_done");
 	self.no_fly_away = undefined;
 	if(!level flag::get("moving_chest_now"))
 	{

@@ -96,9 +96,9 @@ function traversing()
 */
 function leave_water_traversal(startnode, endnode)
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	level endon("game_ended");
 	self thread watch_traversal_end();
 	self botsetmoveanglefrompoint(endnode.origin);
 	while(self isplayerunderwater())
@@ -124,9 +124,9 @@ function leave_water_traversal(startnode, endnode)
 */
 function swim_traversal(startnode, endnode)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
-	self endon(#"traversal_end");
+	self endon("death");
+	level endon("game_ended");
+	self endon("traversal_end");
 	self botsetmoveanglefrompoint(endnode.origin);
 	wait(0.5);
 	self traversal_end();
@@ -143,9 +143,9 @@ function swim_traversal(startnode, endnode)
 */
 function jump_up_traversal(startnode, endnode)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
-	self endon(#"traversal_end");
+	self endon("death");
+	level endon("game_ended");
+	self endon("traversal_end");
 	self thread watch_traversal_end();
 	ledgetop = checknavmeshdirection(endnode.origin, self.origin - endnode.origin, 128, 1);
 	height = ledgetop[2] - self.origin[2];
@@ -197,9 +197,9 @@ function jump_up_traversal(startnode, endnode)
 */
 function jump_down_traversal(startnode, endnode)
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	level endon("game_ended");
 	self thread watch_traversal_end();
 	fwd = (endnode.origin[0] - startnode.origin[0], endnode.origin[1] - startnode.origin[1], 0);
 	fwd = vectornormalize(fwd) * 128;
@@ -244,9 +244,9 @@ function jump_down_traversal(startnode, endnode)
 */
 function wallrun_traversal(startnode, endnode, vector)
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	level endon("game_ended");
 	self thread watch_traversal_end();
 	wallnormal = getnavmeshfacenormal(endnode.origin, 30);
 	wallnormal = vectornormalize((wallnormal[0], wallnormal[1], 0));
@@ -269,10 +269,10 @@ function wallrun_traversal(startnode, endnode, vector)
 */
 function wait_wallrun_begin(startnode, endnode, wallnormal, rundir)
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	level endon(#"game_ended");
-	self waittill(#"wallrun_begin");
+	self endon("death");
+	self endon("traversal_end");
+	level endon("game_ended");
+	self waittill("wallrun_begin");
 	self thread watch_traversal_end();
 	self botlooknone();
 	self botsetmoveangle(rundir);
@@ -301,9 +301,9 @@ function wait_wallrun_begin(startnode, endnode, wallnormal, rundir)
 */
 function exit_wallrun(startnode, endnode, wallnormal, runnormal)
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	level endon("game_ended");
 	self thread watch_traversal_end();
 	gravity = self getplayergravity();
 	vup = sqrt(80 * gravity);
@@ -366,9 +366,9 @@ function exit_wallrun(startnode, endnode, wallnormal, runnormal)
 */
 function jump_to(target, vector)
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	level endon("game_ended");
 	if(isdefined(vector))
 	{
 		self botsetmoveangle(vector);
@@ -411,9 +411,9 @@ function jump_to(target, vector)
 */
 function bot_update_move_angle(target)
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	level endon("game_ended");
 	while(!self ismantling())
 	{
 		self botsetmoveanglefrompoint(target);
@@ -480,14 +480,14 @@ function bot_speed2d()
 */
 function watch_traversal_end()
 {
-	self notify(#"watch_travesal_end");
-	self endon(#"death");
-	self endon(#"traversal_end");
-	self endon(#"watch_travesal_end");
-	level endon(#"game_ended");
+	self notify("watch_travesal_end");
+	self endon("death");
+	self endon("traversal_end");
+	self endon("watch_travesal_end");
+	level endon("game_ended");
 	self thread wait_traversal_timeout();
 	self thread watch_start_swimming();
-	self waittill(#"acrobatics_end");
+	self waittill("acrobatics_end");
 	self thread traversal_end();
 }
 
@@ -502,10 +502,10 @@ function watch_traversal_end()
 */
 function watch_start_swimming()
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	self endon(#"watch_travesal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	self endon("watch_travesal_end");
+	level endon("game_ended");
 	while(self isplayerswimming())
 	{
 		wait(0.05);
@@ -529,10 +529,10 @@ function watch_start_swimming()
 */
 function wait_traversal_timeout()
 {
-	self endon(#"death");
-	self endon(#"traversal_end");
-	self endon(#"watch_travesal_end");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("traversal_end");
+	self endon("watch_travesal_end");
+	level endon("game_ended");
 	wait(8);
 	self thread traversal_end();
 	self botrequestpath();
@@ -549,7 +549,7 @@ function wait_traversal_timeout()
 */
 function traversal_end()
 {
-	self notify(#"traversal_end");
+	self notify("traversal_end");
 	self release_doublejump_button();
 	self botlookforward();
 	self botsetmovemagnitude(1);

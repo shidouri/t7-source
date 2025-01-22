@@ -93,10 +93,10 @@ function createtrophysystemwatcher()
 */
 function ontrophysystemspawn(watcher, player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	level endon(#"game_ended");
-	self endon(#"death");
+	player endon("death");
+	player endon("disconnect");
+	level endon("game_ended");
+	self endon("death");
 	self useanimtree($mp_trophy_system);
 	self weaponobjects::onspawnuseweaponobject(watcher, player);
 	self.trophysystemstationary = 0;
@@ -148,8 +148,8 @@ function setreconmodeldeployed()
 */
 function trophywatchhack()
 {
-	self endon(#"death");
-	self waittill(#"hacked", player);
+	self endon("death");
+	self waittill("hacked", player);
 	self clientfield::set("trophy_system_state", 0);
 }
 
@@ -189,9 +189,9 @@ function ontrophysystemsmashed(attacker)
 */
 function trophyactive(owner)
 {
-	owner endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"hacked");
+	owner endon("disconnect");
+	self endon("death");
+	self endon("hacked");
 	while(true)
 	{
 		if(!isdefined(self))
@@ -289,10 +289,10 @@ function trophyactive(owner)
 */
 function projectileexplode(projectile, trophy)
 {
-	self endon(#"death");
+	self endon("death");
 	projposition = projectile.origin;
 	playfx(level.trophydetonationfx, projposition);
-	projectile notify(#"trophy_destroyed");
+	projectile notify("trophy_destroyed");
 	trophy radiusdamage(projposition, 128, 105, 10, self);
 	scoreevents::processscoreevent("trophy_defense", self);
 	self challenges::trophy_defense(projposition, 512);
@@ -315,7 +315,7 @@ function projectileexplode(projectile, trophy)
 */
 function trophydestroytacinsert(tacinsert, trophy)
 {
-	self endon(#"death");
+	self endon("death");
 	tacpos = tacinsert.origin;
 	playfx(level.trophydetonationfx, tacinsert.origin);
 	tacinsert thread tacticalinsertion::tacticalinsertiondestroyedbytrophysystem(self, trophy);
@@ -363,8 +363,8 @@ function trophysystemdetonate(attacker, weapon, target)
 */
 function watchtrophysystemdamage(watcher)
 {
-	self endon(#"death");
-	self endon(#"hacked");
+	self endon("death");
+	self endon("hacked");
 	self setcandamage(1);
 	damagemax = 20;
 	if(!self util::ishacked())
@@ -377,7 +377,7 @@ function watchtrophysystemdamage(watcher)
 	attacker = undefined;
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		attacker = self [[level.figure_out_attacker]](attacker);
 		if(!isplayer(attacker))
 		{

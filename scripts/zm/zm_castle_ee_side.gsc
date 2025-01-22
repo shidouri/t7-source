@@ -89,7 +89,7 @@ class class_66e46dd
 		while(true)
 		{
 			var_16cc14d0.health = 1000000;
-			var_16cc14d0 waittill(#"damage", damage, attacker);
+			var_16cc14d0 waittill("damage", damage, attacker);
 			if(!var_41660b94)
 			{
 				continue;
@@ -115,7 +115,7 @@ class class_66e46dd
 		while(true)
 		{
 			var_2eb50ca2.health = 1000000;
-			var_2eb50ca2 waittill(#"damage", damage, attacker);
+			var_2eb50ca2 waittill("damage", damage, attacker);
 			if(!var_41660b94)
 			{
 				continue;
@@ -386,12 +386,12 @@ class class_d7100ae3
 		m_mdl_switch zm_castle_util::create_unitrigger();
 		while(true)
 		{
-			m_mdl_switch waittill(#"trigger_activated");
+			m_mdl_switch waittill("trigger_activated");
 			self function_aa7c5ce2();
 			m_mdl_switch playsound("evt_lever");
 			if(m_b_active)
 			{
-				self notify(#"lightning_strikes");
+				self notify("lightning_strikes");
 				var_23036e82 = 0;
 			}
 			m_mdl_switch rotatepitch(60, 0.333);
@@ -430,8 +430,8 @@ class class_d7100ae3
 	*/
 	function lightning_strikes()
 	{
-		self notify(#"lightning_strikes");
-		self endon(#"lightning_strikes");
+		self notify("lightning_strikes");
+		self endon("lightning_strikes");
 		var_23036e82 = 1;
 		while(true)
 		{
@@ -623,7 +623,7 @@ function main()
 	level.gravity_trap_spike_watcher = &gravity_trap_spike_watcher;
 	level thread function_e437a08f();
 	init_flags();
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level thread function_452b0b5a();
 	function_70b74a2d();
 	function_b8645c20();
@@ -758,7 +758,7 @@ function function_6bf381de(var_2de8cf5e, var_bee8e45)
 	while(true)
 	{
 		var_2de8cf5e[0] zm_castle_util::create_unitrigger();
-		var_2de8cf5e[0] waittill(#"trigger_activated");
+		var_2de8cf5e[0] waittill("trigger_activated");
 		function_972992c4(var_2de8cf5e, 1);
 		var_2de8cf5e[0].var_df5776d8 function_ffa9011b(var_bee8e45);
 		function_972992c4(var_2de8cf5e, 0);
@@ -780,7 +780,7 @@ function function_374ac18c(var_2de8cf5e, var_bee8e45)
 	while(true)
 	{
 		var_2de8cf5e[0].var_df5776d8.health = 1000000;
-		var_2de8cf5e[0].var_df5776d8 waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		var_2de8cf5e[0].var_df5776d8 waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;
@@ -803,7 +803,7 @@ function function_374ac18c(var_2de8cf5e, var_bee8e45)
 function function_ffa9011b(var_bee8e45)
 {
 	self playsoundwithnotify("vox_grop_groph_radio_stem_" + (var_bee8e45 + 1), "sounddone");
-	self waittill(#"sounddone");
+	self waittill("sounddone");
 }
 
 /*
@@ -878,7 +878,7 @@ function function_4eb3851()
 	while(true)
 	{
 		level.var_6d5fd229 zm_castle_util::create_unitrigger();
-		level.var_6d5fd229 waittill(#"trigger_activated");
+		level.var_6d5fd229 waittill("trigger_activated");
 		level flag::set("ee_music_box_turning");
 		zm_unitrigger::unregister_unitrigger(level.var_6d5fd229.s_unitrigger);
 		level.var_6d5fd229 playsound("mus_samantha_musicbox");
@@ -969,7 +969,7 @@ function function_5c351802()
 */
 function function_2f183e13(n_index)
 {
-	level.var_37c0c840[n_index] endon(#"skull_revealed");
+	level.var_37c0c840[n_index] endon("skull_revealed");
 	if(!isdefined(level.var_37c0c840[n_index]))
 	{
 		return;
@@ -984,7 +984,7 @@ function function_2f183e13(n_index)
 		if(self bgb::is_active("zm_bgb_in_plain_sight"))
 		{
 			level.var_37c0c840[n_index] setvisibletoplayer(self);
-			self waittill(#"activation_complete");
+			self waittill("activation_complete");
 			level.var_37c0c840[n_index] setinvisibletoplayer(self);
 		}
 	}
@@ -1005,7 +1005,7 @@ function function_e26b6053()
 	while(!b_shot)
 	{
 		self.health = 1000000;
-		self waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(isdefined(attacker) && isplayer(attacker) && attacker bgb::is_active("zm_bgb_in_plain_sight"))
 		{
 			if(function_ab61ab31(weapon))
@@ -1093,7 +1093,7 @@ function function_dbc1fb93(var_d237c2be)
 function function_67a47b1c()
 {
 	self zm_castle_util::create_unitrigger();
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	if(level.var_9bf9e084 == 0)
 	{
 		return;
@@ -1140,7 +1140,7 @@ function function_3c992a71()
 */
 function function_27da29cb()
 {
-	self endon(#"skull_revealed");
+	self endon("skull_revealed");
 	var_43af6ca7 = self.origin[2];
 	while(true)
 	{
@@ -1202,7 +1202,7 @@ function function_5d2ff09a()
 */
 function function_c02b51fb(n_index)
 {
-	level.var_23825200[n_index] endon(#"mechz_claw_revealed");
+	level.var_23825200[n_index] endon("mechz_claw_revealed");
 	if(level.var_23825200[n_index] flag::get("mechz_claw_revealed"))
 	{
 		return;
@@ -1213,7 +1213,7 @@ function function_c02b51fb(n_index)
 		if(self bgb::is_active("zm_bgb_in_plain_sight"))
 		{
 			level.var_23825200[n_index] setvisibletoplayer(self);
-			self waittill(#"activation_complete");
+			self waittill("activation_complete");
 			level.var_23825200[n_index] setinvisibletoplayer(self);
 		}
 	}
@@ -1285,7 +1285,7 @@ function function_e249cd7(n_index)
 */
 function function_4767e6ca()
 {
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self playsound("zmb_ee_mechz_fallimp");
 }
 
@@ -1300,7 +1300,7 @@ function function_4767e6ca()
 */
 function function_64e6de56()
 {
-	self waittill(#"damage", damage, attacker, direction_vec, point, type, tagname, modelname, partname, weapon, inflictor);
+	self waittill("damage", damage, attacker, direction_vec, point, type, tagname, modelname, partname, weapon, inflictor);
 	if(type === "MOD_GRENADE" || type === "MOD_GRENADE_SPLASH" || type === "MOD_EXPLOSIVE" || type === "MOD_EXPLOSIVE_SPLASH")
 	{
 		return false;
@@ -1566,14 +1566,14 @@ function function_7c237ecb(var_f00386ff = 0)
 	var_c27c9236 = struct::get("ee_plant_present");
 	var_15cfdc94 = util::spawn_model("p7_zm_ctl_plant_decor_sprout", var_c27c9236.origin, var_c27c9236.angles);
 	var_15cfdc94 zm_castle_util::create_unitrigger();
-	var_15cfdc94 waittill(#"trigger_activated");
+	var_15cfdc94 waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(var_15cfdc94.s_unitrigger);
 	var_15cfdc94 hide();
 	var_1f6712bd = struct::get("ee_plant_past");
 	var_4bb0e877 = util::spawn_model("p7_zm_ctl_plant_decor_sprout", var_1f6712bd.origin, var_1f6712bd.angles);
 	var_4bb0e877 hide();
 	var_1f6712bd zm_castle_util::create_unitrigger();
-	var_1f6712bd waittill(#"trigger_activated");
+	var_1f6712bd waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(var_1f6712bd.s_unitrigger);
 	var_4bb0e877 show();
 	var_f6cbed0f = struct::get("ee_plant_gobblegum");
@@ -1581,7 +1581,7 @@ function function_7c237ecb(var_f00386ff = 0)
 	var_15cfdc94 show();
 	var_acadbb15 = util::spawn_model("p7_zm_zod_bubblegum_machine_gumball_white", var_f6cbed0f.origin, var_f6cbed0f.angles);
 	var_15cfdc94 zm_castle_util::create_unitrigger();
-	var_15cfdc94 waittill(#"trigger_activated", player);
+	var_15cfdc94 waittill("trigger_activated", player);
 	zm_unitrigger::unregister_unitrigger(var_15cfdc94.s_unitrigger);
 	var_acadbb15 delete();
 	player.selected_bgb = bgb::function_d51db887();
@@ -1674,7 +1674,7 @@ function function_81d41eb8(var_7f701981)
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(level flag::get("ee_power_wallrun_teleport") == 0)
 		{
 			continue;
@@ -1713,7 +1713,7 @@ function function_8d508e48()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		player.var_130b9781 = 0;
 		player.var_48391945 = undefined;
 	}
@@ -1911,7 +1911,7 @@ function function_6527501a()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -2006,7 +2006,7 @@ function function_9ce92341()
 */
 function function_1fcb04d7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"bled_out");
 	self.widows_wine_knife_override = undefined;
 }
@@ -2022,11 +2022,11 @@ function function_1fcb04d7()
 */
 function function_9daec9e3()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_7c4fe278 = getweapon("knife_plunger");
 	while(true)
 	{
-		self waittill(#"weapon_melee", weapon);
+		self waittill("weapon_melee", weapon);
 		if(weapon == var_7c4fe278 && isdefined(self.var_ea5424ae) && self.var_ea5424ae > 0)
 		{
 			self clientfield::increment_to_player("plunger_charged_strike");
@@ -2174,7 +2174,7 @@ function function_db46cccd()
 	#/
 	while(!(isdefined(self.b_activated) && self.b_activated))
 	{
-		self waittill(#"trigger_activated");
+		self waittill("trigger_activated");
 		if(isdefined(level.musicsystem.currentplaytype) && level.musicsystem.currentplaytype >= 4 || (isdefined(level.musicsystemoverride) && level.musicsystemoverride))
 		{
 			continue;
@@ -2236,7 +2236,7 @@ function function_4b02c768()
 	#/
 	while(!(isdefined(e_origin.b_activated) && e_origin.b_activated))
 	{
-		e_origin waittill(#"trigger_activated");
+		e_origin waittill("trigger_activated");
 		if(isdefined(level.musicsystem.currentplaytype) && level.musicsystem.currentplaytype >= 4 || (isdefined(level.musicsystemoverride) && level.musicsystemoverride))
 		{
 			continue;
@@ -2287,7 +2287,7 @@ function check_for_change()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(e_player getstance() == "prone")
 		{
 			e_player zm_score::add_to_player_score(100);

@@ -350,7 +350,7 @@ function function_95409c5(str_model, v_model_origin, v_offset = (0, 0, 0), weapo
 */
 function function_fe2b609e(v_moveto_pos, str_model, upgraded, var_b8419776 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	self.drop_time = gettime();
 	self.origin = v_moveto_pos;
 	if(isdefined(str_model))
@@ -409,7 +409,7 @@ function function_58f94c40()
 */
 function function_8036f40b()
 {
-	self endon(#"death");
+	self endon("death");
 	upgraded = isdefined(self.upgraded) && self.upgraded;
 	if(upgraded)
 	{
@@ -437,7 +437,7 @@ function function_8036f40b()
 */
 function function_b050d188()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_56f6579a");
 	n_time_total = 18;
 	n_frames = n_time_total * 20;
@@ -524,7 +524,7 @@ function function_6b3c34cc(var_638b7f73, str_identifier, str_bonus)
 	{
 		return;
 	}
-	var_638b7f73 endon(#"death");
+	var_638b7f73 endon("death");
 	var_638b7f73 endon(#"hash_56f6579a");
 	util::wait_network_frame();
 	n_times_to_check = int(180);
@@ -781,7 +781,7 @@ function function_2beeb3b3(upgraded)
 */
 function private function_8435cfdc(var_b5725157, upgraded)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_8435cfdc");
 	self.var_cc7a6101 = 0;
 	self.var_db92ee58 = gettime();
@@ -814,7 +814,7 @@ function private function_8435cfdc(var_b5725157, upgraded)
 */
 function private function_1c087aac(upgraded)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_8435cfdc");
 	self notify(#"hash_1c087aac");
 	self endon(#"hash_1c087aac");
@@ -851,7 +851,7 @@ function private function_1c087aac(upgraded)
 */
 function private function_2d73d3d9(upgraded)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_8435cfdc");
 	self notify(#"hash_2d73d3d9");
 	self endon(#"hash_2d73d3d9");
@@ -983,7 +983,7 @@ function function_f3239cd2()
 function function_4759fbcb()
 {
 	self endon(#"hash_19ae9989");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_2559e9cc");
 	self endon(#"hash_2559e9cc");
 	self thread function_ac97a368();
@@ -1005,9 +1005,9 @@ function function_4759fbcb()
 */
 function function_ac97a368()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_2559e9cc");
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self.forceanhilateondeath) && self.forceanhilateondeath)
 	{
 		self clientfield::set_to_player("bonuszm_player_instakill_active_fx", 0);
@@ -1187,7 +1187,7 @@ function function_2a5eb705()
 {
 	while(true)
 	{
-		level waittill(#"scene_sequence_started");
+		level waittill("scene_sequence_started");
 		function_1dfabdfa();
 		if(isdefined(level.var_f011cb7c) && isalive(level.var_f011cb7c))
 		{

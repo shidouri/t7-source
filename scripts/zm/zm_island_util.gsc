@@ -144,12 +144,12 @@ function function_5ea427bf(player)
 */
 function private unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread unitrigger_refresh_message();
 	while(true)
 	{
-		self waittill(#"trigger", player);
-		self.stub notify(#"trigger", player);
+		self waittill("trigger", player);
+		self.stub notify("trigger", player);
 	}
 }
 
@@ -178,8 +178,8 @@ function unitrigger_refresh_message()
 */
 function function_acd04dc9()
 {
-	self endon(#"death");
-	self waittill(#"completed_emerging_into_playable_area");
+	self endon("death");
+	self waittill("completed_emerging_into_playable_area");
 	self.no_powerups = 1;
 }
 
@@ -194,7 +194,7 @@ function function_acd04dc9()
 */
 function function_7448e472(e_target)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(e_target.targetname))
 	{
 		var_241c185a = "someone_revealed_" + e_target.targetname;
@@ -235,7 +235,7 @@ function function_7448e472(e_target)
 							e_target.var_f0b65c0a = self;
 							var_c2b47c7a = 1;
 							playsoundatposition("zmb_wpn_skullgun_discover", e_target.origin);
-							self notify(#"skullweapon_revealed_location");
+							self notify("skullweapon_revealed_location");
 							self thread function_4aedb20b();
 							foreach(player in level.players)
 							{

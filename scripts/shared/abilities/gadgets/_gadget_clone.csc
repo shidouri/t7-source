@@ -111,7 +111,7 @@ function player_clone_activated(localclientnum, oldval, newval, bnewent, binitia
 	else
 	{
 		self set_shader(localclientnum, 0, self);
-		self notify(#"clone_shader_off");
+		self notify("clone_shader_off");
 		self mapshaderconstant(localclientnum, 0, "scriptVector3", 1, 0, 0, 1);
 	}
 }
@@ -128,10 +128,10 @@ function player_clone_activated(localclientnum, oldval, newval, bnewent, binitia
 function clone_damage_flicker(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self notify(#"start_flicker");
-	self endon(#"start_flicker");
+	self notify("start_flicker");
+	self endon("start_flicker");
 	self duplicate_render::update_dr_flag(localclientnum, "clone_damage", 1);
-	self waittill(#"stop_flicker");
+	self waittill("stop_flicker");
 	self duplicate_render::update_dr_flag(localclientnum, "clone_damage", 0);
 }
 
@@ -147,10 +147,10 @@ function clone_damage_flicker(localclientnum)
 function clone_damage_finish()
 {
 	self endon(#"entityshutdown");
-	self endon(#"start_flicker");
-	self endon(#"stop_flicker");
+	self endon("start_flicker");
+	self endon("stop_flicker");
 	wait(0.2);
-	self notify(#"stop_flicker");
+	self notify("stop_flicker");
 }
 
 /*

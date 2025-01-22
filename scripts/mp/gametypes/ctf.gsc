@@ -698,7 +698,7 @@ function ctf()
 */
 function ctf_icon_hide()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	level.teamflags["allies"] gameobjects::set_visible_team("none");
 	level.teamflags["axis"] gameobjects::set_visible_team("none");
 }
@@ -848,7 +848,7 @@ function onpickup(player)
 	self clearreturnflaghudelems();
 	if(isdefined(player) && player.pers["team"] == team)
 	{
-		self notify(#"picked_up");
+		self notify("picked_up");
 		util::printandsoundoneveryone(team, undefined, &"", undefined, "mp_obj_returned");
 		if(isdefined(player.pers["returns"]))
 		{
@@ -936,8 +936,8 @@ function onpickup(player)
 */
 function onpickupmusicstate(player)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	wait(6);
 }
 
@@ -1322,8 +1322,8 @@ function returnflagaftertimemsg(time)
 	{
 		return;
 	}
-	self notify(#"returnflagaftertimemsg");
-	self endon(#"returnflagaftertimemsg");
+	self notify("returnflagaftertimemsg");
+	self endon("returnflagaftertimemsg");
 	result = returnflaghudelems(time);
 	self removeinfluencers();
 	self clearreturnflaghudelems();
@@ -1344,8 +1344,8 @@ function returnflagaftertimemsg(time)
 */
 function returnflaghudelems(time)
 {
-	self endon(#"picked_up");
-	level endon(#"game_ended");
+	self endon("picked_up");
+	level endon("game_ended");
 	ownerteam = self gameobjects::get_owner_team();
 	/#
 		assert(!level.returnmessageelems[""][ownerteam].alpha);
@@ -1459,9 +1459,9 @@ function update_hints()
 */
 function claim_trigger(trigger)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientclaimtrigger(trigger);
-	self waittill(#"drop_object");
+	self waittill("drop_object");
 	self clientreleasetrigger(trigger);
 }
 

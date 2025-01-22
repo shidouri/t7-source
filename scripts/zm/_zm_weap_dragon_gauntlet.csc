@@ -61,13 +61,13 @@ function player_on_spawned(localclientnum)
 */
 function watch_weapon_changes(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	self.dragon_gauntlet = getweapon("dragon_gauntlet_flamethrower");
 	self.var_dd5c3be0 = getweapon("dragon_gauntlet");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		if(weapon === self.dragon_gauntlet)
 		{
 			self thread function_7645efdb(localclientnum);
@@ -100,7 +100,7 @@ function watch_weapon_changes(localclientnum)
 */
 function function_6c7c9327(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_any_timeout(0.5, "weapon_change_complete", "disconnect");
 	if(getcurrentweapon(localclientnum) === getweapon("dragon_gauntlet_flamethrower"))
 	{
@@ -126,7 +126,7 @@ function function_6c7c9327(localclientnum)
 */
 function function_a8ac2d1d(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_any_timeout(0.5, "weapon_change_complete", "disconnect");
 	if(getcurrentweapon(localclientnum) === getweapon("dragon_gauntlet"))
 	{
@@ -198,15 +198,15 @@ function function_7645efdb(localclientnum)
 */
 function function_3011ccf6(localclientnum)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"bled_out");
 	self endon(#"hash_7c243ce8");
 	self notify(#"hash_8d98e9db");
 	self endon(#"hash_8d98e9db");
 	while(isdefined(self))
 	{
-		self waittill(#"notetrack", note);
+		self waittill("notetrack", note);
 		if(note === "dragon_gauntlet_115_punch_fx_start")
 		{
 			if(!isdefined(self.var_4d73e75b))

@@ -78,7 +78,7 @@ function gravity_trigger()
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(!isplayer(who))
 		{
 			self thread trigger::function_d1278be0(who, &gravity_zombie_in, &gravity_zombie_out);
@@ -307,7 +307,7 @@ function zombie_moon_is_low_gravity_zone(zone_name)
 */
 function zombie_moon_check_zone()
 {
-	self endon(#"death");
+	self endon("death");
 	util::wait_network_frame();
 	if(!isdefined(self))
 	{
@@ -323,7 +323,7 @@ function zombie_moon_check_zone()
 	}
 	if(!(isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
 	{
-		self waittill(#"completed_emerging_into_playable_area");
+		self waittill("completed_emerging_into_playable_area");
 	}
 	if(isdefined(level.on_the_moon) && level.on_the_moon && (!level flag::get("power_on") || zombie_moon_is_low_gravity_zone(self.zone_name)))
 	{
@@ -363,7 +363,7 @@ function zombie_moon_init_done()
 */
 function zombie_low_gravity_locomotion()
 {
-	self endon(#"death");
+	self endon("death");
 	gravity_str = undefined;
 	if(self.zombie_move_speed == "walk" || self.zombie_move_speed == "run" || self.zombie_move_speed == "sprint")
 	{
@@ -388,7 +388,7 @@ function zombie_low_gravity_locomotion()
 */
 function zombie_watch_nogravity()
 {
-	self endon(#"death");
+	self endon("death");
 	_off_ground_max = 32;
 	while(true)
 	{
@@ -417,10 +417,10 @@ function zombie_watch_nogravity()
 */
 function zombie_watch_run_notetracks()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"runanim", note);
+		self waittill("runanim", note);
 		if(!isdefined(self.script_noteworthy) || self.script_noteworthy != "moon_gravity")
 		{
 			continue;
@@ -547,8 +547,8 @@ function zombie_moon_update_player_float()
 */
 function zombie_moon_player_float()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	boost_chance = 40;
 	while(true)
 	{
@@ -617,10 +617,10 @@ function check_player_gravity()
 */
 function low_gravity_watch()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"low_gravity_watch_start");
-	self endon(#"low_gravity_watch_start");
+	self endon("death");
+	self endon("disconnect");
+	self notify("low_gravity_watch_start");
+	self endon("low_gravity_watch_start");
 	level flag::wait_till("start_zombie_round_logic");
 	self.airless_vox_in_progess = 0;
 	time_in_low_gravity = 0;
@@ -736,7 +736,7 @@ function low_gravity_watch()
 */
 function remove_blur(time)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(time);
 	self setblur(0, 0.1);
 	self clientfield::set_to_player("gasp_rumble", 0);
@@ -753,8 +753,8 @@ function remove_blur(time)
 */
 function airless_vox_without_repeat()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	entity_num = self.characterindex;
 	if(isdefined(self.zm_random_char))
 	{
@@ -876,13 +876,13 @@ function watch_player_grenades()
 */
 function player_throw_grenade()
 {
-	self notify(#"player_throw_grenade");
-	self endon(#"player_throw_grenade");
-	self endon(#"disconnect");
+	self notify("player_throw_grenade");
+	self endon("player_throw_grenade");
+	self endon("disconnect");
 	level flag::wait_till("start_zombie_round_logic");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapname);
+		self waittill("grenade_fire", grenade, weapname);
 		grenade thread watch_grenade_gravity();
 	}
 }
@@ -898,7 +898,7 @@ function player_throw_grenade()
 */
 function watch_grenade_gravity()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"explode");
 	player_zones = getentarray("player_volume", "script_noteworthy");
 	while(true)
@@ -977,7 +977,7 @@ function zombie_airlock_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			continue;

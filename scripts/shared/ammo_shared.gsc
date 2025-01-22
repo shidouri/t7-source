@@ -33,7 +33,7 @@ function autoexec main()
 */
 function dropaiammo()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.ammopouch))
 	{
 		return;
@@ -62,8 +62,8 @@ function dropaiammo()
 */
 function ammo_pouch_think()
 {
-	self endon(#"death");
-	self waittill(#"scavenger", player);
+	self endon("death");
+	self waittill("scavenger", player);
 	primary_weapons = player getweaponslistprimaries();
 	offhand_weapons_and_alts = array::exclude(player getweaponslist(1), primary_weapons);
 	arrayremovevalue(offhand_weapons_and_alts, level.weaponbasemelee);
@@ -136,7 +136,7 @@ function ammo_pouch_think()
 			}
 			else if(weapon == player.grenadetypeprimary)
 			{
-				player notify(#"scavenged_primary_grenade");
+				player notify("scavenged_primary_grenade");
 			}
 			player setweaponammostock(weapon, ammo);
 			player.scavenged = 1;

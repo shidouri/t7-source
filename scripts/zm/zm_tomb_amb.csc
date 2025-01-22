@@ -95,7 +95,7 @@ function function_60a32834()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			level notify(#"hash_51d7bc7c", self.script_sound);
@@ -290,7 +290,7 @@ function function_6576aaa4()
 	self thread function_74c85975();
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(who isplayer() && (!(isdefined(who.var_c7721e47) && who.var_c7721e47)))
 		{
 			self.players++;
@@ -1184,7 +1184,7 @@ function qr_ent_cleanup(veh_ent)
 function drone_rotate_angle(heli_type, heli_part)
 {
 	self endon(#"entityshutdown");
-	level endon(#"save_restore");
+	level endon("save_restore");
 	volumerate = 2.5;
 	qr_ent_angle = spawn(0, self.origin, "script_origin");
 	qr_ent_angle thread qr_ent_cleanup(self);
@@ -1372,7 +1372,7 @@ function function_ee449b54()
 */
 function function_8b8dd551(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.sndent = spawn(0, (0, 0, 0), "script_origin");
 	self.var_c5cda021 = "mus_underscore_default";
 	self.var_a15dcd51 = "null";
@@ -1399,11 +1399,11 @@ function function_8b8dd551(localclientnum)
 */
 function function_4ff80996(localclientnum)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isdefined(who) && who islocalplayer())
 		{
 			if(isdefined(level.var_3e9ce4b5) && self.script_sound == "mus_underscore_chamber")
@@ -1432,7 +1432,7 @@ function function_4ff80996(localclientnum)
 function function_bc0edf8b()
 {
 	self notify(#"hash_11d444cc");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_11d444cc");
 	wait(4);
 	if(isdefined(self) && self islocalplayer())
@@ -1453,7 +1453,7 @@ function function_bc0edf8b()
 function function_bca19b62(alias)
 {
 	self endon(#"hash_9d70babf");
-	self endon(#"death");
+	self endon("death");
 	self stoploopsound(2);
 	wait(2);
 	self playloopsound(alias, 2);

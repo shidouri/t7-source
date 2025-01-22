@@ -478,7 +478,7 @@ function function_b14689f(localclientnum)
 function function_5efb4f48(localclientnum, str_rumble)
 {
 	self endon(#"hash_9c289640");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	delta_time = 0.1;
 	n_max_time = 10;
 	while(isdefined(self))
@@ -600,7 +600,7 @@ function function_1ee903c(localclientnum, oldval, newval, bnewent, binitialsnap,
 	e_fx playloopsound("zmb_squest_charge_soul_lp");
 	playfxontag(localclientnum, level._effect["staff_soul"], e_fx, "tag_origin");
 	e_fx moveto(v_dest + vectorscale((0, 0, 1), 5), 0.5);
-	e_fx waittill(#"movedone");
+	e_fx waittill("movedone");
 	e_fx playsound(localclientnum, "zmb_squest_charge_soul_impact");
 	playfxontag(localclientnum, level._effect["staff_charge"], e_fx, "tag_origin");
 	util::server_wait(localclientnum, 0.3);
@@ -848,7 +848,7 @@ function function_ae268bd3(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_61fd4b0c(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	level notify(#"stop_cooldown_fx");
+	level notify("stop_cooldown_fx");
 	if(newval == 1)
 	{
 		var_4c2b197a = struct::get("cooldown_steam_1", "targetname");
@@ -881,7 +881,7 @@ function function_61fd4b0c(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_bebc67a2(localclientnum)
 {
-	level endon(#"stop_cooldown_fx");
+	level endon("stop_cooldown_fx");
 	while(true)
 	{
 		playfx(localclientnum, level._effect["cooldown_steam"], self.origin);
@@ -1109,7 +1109,7 @@ function function_90b75360(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function player_rumble_and_shake(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(newval == 4)
 	{
 		self thread player_continuous_rumble(localclientnum, 1);
@@ -1149,7 +1149,7 @@ function player_rumble_and_shake(localclientnum, oldval, newval, bnewent, biniti
 						}
 						else
 						{
-							self notify(#"stop_rumble_and_shake");
+							self notify("stop_rumble_and_shake");
 						}
 					}
 				}
@@ -1169,9 +1169,9 @@ function player_rumble_and_shake(localclientnum, oldval, newval, bnewent, biniti
 */
 function player_continuous_rumble(localclientnum, rumble_level, shake_camera = 1)
 {
-	self notify(#"stop_rumble_and_shake");
-	self endon(#"disconnect");
-	self endon(#"stop_rumble_and_shake");
+	self notify("stop_rumble_and_shake");
+	self endon("disconnect");
+	self endon("stop_rumble_and_shake");
 	while(true)
 	{
 		if(isdefined(self) && self islocalplayer() && isdefined(self))
@@ -1538,7 +1538,7 @@ function _rain_thread(n_level, localclientnum)
 	level notify("_rain_begin" + localclientnum);
 	level endon("_snow_begin" + localclientnum);
 	level endon("_rain_thread" + localclientnum);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	n_wait = 0.35 / n_level;
 	if(n_wait < 0.15)
@@ -1572,7 +1572,7 @@ function _snow_thread(n_level, localclientnum)
 	level notify("_snow_begin" + localclientnum);
 	level endon("_rain_begin" + localclientnum);
 	level endon("_snow_thread" + localclientnum);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	n_wait = 0.5 / n_level;
 	self.b_lightning = 0;
@@ -1603,7 +1603,7 @@ function _snow_thread(n_level, localclientnum)
 */
 function _lightning_thread(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	self.b_lightning = 1;
 	if(localclientnum != 0)
@@ -1743,7 +1743,7 @@ function foot_print_box_fx(localclientnum, oldval, newval, bnewent, binitialsnap
 	e_fx playloopsound("zmb_squest_charge_soul_lp");
 	playfxontag(localclientnum, level._effect["staff_soul"], e_fx, "tag_origin");
 	e_fx moveto(s_box.origin, 1);
-	e_fx waittill(#"movedone");
+	e_fx waittill("movedone");
 	playsound(localclientnum, "zmb_squest_charge_soul_impact", e_fx.origin);
 	playfxontag(localclientnum, level._effect["staff_charge"], e_fx, "tag_origin");
 	wait(0.3);
@@ -1804,7 +1804,7 @@ function foot_print_box_glow(localclientnum, oldval, newval, bnewent, binitialsn
 function function_3a4d4e97()
 {
 	self endon(#"entityshutdown");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	self delete();
 }
 

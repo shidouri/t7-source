@@ -28,7 +28,7 @@
 */
 function function_be253d27(var_53e67bd3 = 0.6)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		self rotateto(self.angles + vectorscale((0, 1, 0), 180), var_53e67bd3);
@@ -47,7 +47,7 @@ function function_be253d27(var_53e67bd3 = 0.6)
 */
 function function_c4e6a6fb(startscale, var_870d9a2 = 1, timems = 3000)
 {
-	self endon(#"death");
+	self endon("death");
 	curscale = startscale;
 	var_aa32d9f9 = (var_870d9a2 - startscale) / (timems / 50);
 	endtime = gettime() + timems;
@@ -121,10 +121,10 @@ function function_ca06d008(player, origin)
 */
 function private function_963e13a0()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(isdefined(guy.var_bfd5bf9d) && guy.var_bfd5bf9d)
 		{
 			continue;
@@ -180,7 +180,7 @@ function private function_963e13a0()
 */
 function private function_770e1327(trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_770e1327");
 	self endon(#"hash_770e1327");
 	self.var_bfd5bf9d = 1;
@@ -254,10 +254,10 @@ function timeshifterupdate(player, origin)
 */
 function private function_78d20ce0()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(isdefined(guy.var_dd70dacd) && guy.var_dd70dacd)
 		{
 			continue;
@@ -308,7 +308,7 @@ function private function_78d20ce0()
 */
 function private function_59a20c67(trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_59a20c67");
 	self endon(#"hash_59a20c67");
 	self.var_dd70dacd = 1;
@@ -365,7 +365,7 @@ function function_159bb1dd(player, origin)
 	monkey makesentient();
 	monkey.threatbias = 0;
 	doa_utility::function_5fd5c3ea(monkey);
-	monkey endon(#"death");
+	monkey endon("death");
 	level thread function_254f3480(monkey);
 	monkey thread function_2271edf2(player);
 	wait(player doa_utility::function_1ded48e6(level.doa.rules.monkey_fuse_time));
@@ -383,7 +383,7 @@ function function_159bb1dd(player, origin)
 */
 function function_2271edf2(player)
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_2271edf2");
 	doa_utility::function_3d81b494(self);
 	self thread namespace_1a381543::function_90118d8c("zmb_monkey_explo");
@@ -414,7 +414,7 @@ function function_2271edf2(player)
 */
 function function_254f3480(monkey)
 {
-	monkey endon(#"death");
+	monkey endon("death");
 	level waittill(#"exit_taken", exit_trigger);
 	monkey notify(#"hash_2271edf2");
 }

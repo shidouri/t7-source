@@ -181,7 +181,7 @@ function givecustomcharacters()
 */
 function set_exert_id()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self zm_audio::setexertvoice(self.characterindex + 1);

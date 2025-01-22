@@ -47,7 +47,7 @@ function callback_hostmigration()
 	level.hostmigrationreturnedplayercount = 0;
 	if(level.inprematchperiod)
 	{
-		level waittill(#"prematch_over");
+		level waittill("prematch_over");
 	}
 	if(level.gameended)
 	{
@@ -61,7 +61,7 @@ function callback_hostmigration()
 	#/
 	level.hostmigrationtimer = 1;
 	sethostmigrationstatus(1);
-	level notify(#"host_migration_begin");
+	level notify("host_migration_begin");
 	thread locktimer();
 	players = level.players;
 	for(i = 0; i < players.size; i++)
@@ -69,13 +69,13 @@ function callback_hostmigration()
 		player = players[i];
 		player thread hostmigrationtimerthink();
 	}
-	level endon(#"host_migration_begin");
+	level endon("host_migration_begin");
 	hostmigrationwait();
 	level.hostmigrationtimer = undefined;
 	sethostmigrationstatus(0);
 	/#
 		println("" + gettime());
 	#/
-	level notify(#"host_migration_end");
+	level notify("host_migration_end");
 }
 

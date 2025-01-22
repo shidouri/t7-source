@@ -215,7 +215,7 @@ function function_ca056d7e()
 function function_5794dab9(s_bundle, delay)
 {
 	level endon(#"hash_9e245bdd");
-	level endon(#"inside_aquifer");
+	level endon("inside_aquifer");
 	level endon(#"hash_c2988129");
 	wait(delay);
 	self thread scene::play(s_bundle);

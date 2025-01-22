@@ -254,7 +254,7 @@ function function_292e5297()
 */
 function function_3f55c7ab(var_e1784c2b)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	self.var_fbdab725 = 1;
 	self clientfield::set_to_player("demongate_portal_rumble", 1);
@@ -385,7 +385,7 @@ function function_308e6c6f()
 */
 function function_1d3c583d()
 {
-	self endon(#"demongate_chomper_despawning");
+	self endon("demongate_chomper_despawning");
 	self.n_timer = 0;
 	while(self.n_timer < 3)
 	{
@@ -457,8 +457,8 @@ function function_ab77890b(e_player)
 */
 function function_9fcea3e8(e_player)
 {
-	self endon(#"demongate_chomper_despawning");
-	self endon(#"death");
+	self endon("demongate_chomper_despawning");
+	self endon("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -528,10 +528,10 @@ function function_9fcea3e8(e_player)
 */
 function function_f9dd2ee2(e_player)
 {
-	self endon(#"demongate_chomper_despawning");
-	self endon(#"demongate_chomper_found_target");
-	self endon(#"movedone");
-	self endon(#"death");
+	self endon("demongate_chomper_despawning");
+	self endon("demongate_chomper_found_target");
+	self endon("movedone");
+	self endon("death");
 	while(!isdefined(self.target_enemy))
 	{
 		wait(0.2);
@@ -607,7 +607,7 @@ function function_b6e7ec91(e_player)
 */
 function function_3a5a56c7()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_368634cd");
 	if(self.target_enemy.archetype === "mechz")
 	{
@@ -638,7 +638,7 @@ function function_3a5a56c7()
 */
 function function_3c03253d(var_aad66aa4, var_7364b0dd)
 {
-	self.target_enemy endon(#"death");
+	self.target_enemy endon("death");
 	if(isdefined(self.target_enemy.isdog) && self.target_enemy.isdog)
 	{
 		self.target_enemy ai::set_ignoreall(1);
@@ -683,9 +683,9 @@ function function_3c03253d(var_aad66aa4, var_7364b0dd)
 function function_c5e710f7()
 {
 	e_mechz = self.target_enemy;
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_368634cd");
-	e_mechz endon(#"death");
+	e_mechz endon("death");
 	while(true)
 	{
 		var_e388672 = isdefined(e_mechz.has_faceplate) && (e_mechz.has_faceplate ? 6 : 1);
@@ -744,7 +744,7 @@ function function_43415734(var_aad66aa4, var_7364b0dd)
 */
 function function_aa5b14d0()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_d3c478a0 = 1;
 	wait(16);
 	self.var_d3c478a0 = 0;
@@ -815,7 +815,7 @@ function function_5dee133f()
 function function_67903a83(e_player)
 {
 	e_target = self.target_enemy;
-	e_target endon(#"death");
+	e_target endon("death");
 	if(e_target.archetype === "mechz")
 	{
 		self thread function_3f57ba41(e_player);
@@ -850,7 +850,7 @@ function function_67903a83(e_player)
 function function_3f57ba41(e_player)
 {
 	e_target = self.target_enemy;
-	e_target endon(#"death");
+	e_target endon("death");
 	var_3bb42832 = level.mechz_health;
 	if(isdefined(level.var_f4dc2834))
 	{
@@ -906,7 +906,7 @@ function function_99d2c8aa(e_player)
 		var_9183256c = var_237d778f[0];
 		var_9183256c.var_bc9b5fbd = 1;
 		self.target_enemy = var_9183256c;
-		self notify(#"demongate_chomper_found_target");
+		self notify("demongate_chomper_found_target");
 	}
 }
 

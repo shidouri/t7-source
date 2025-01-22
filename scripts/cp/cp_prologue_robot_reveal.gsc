@@ -219,7 +219,7 @@ function function_96157f5d()
 function function_21350de5(a_ents)
 {
 	var_94848710 = a_ents["minister"];
-	var_94848710 waittill(#"death");
+	var_94848710 waittill("death");
 	level flag::set("minister_apc_done");
 }
 
@@ -270,7 +270,7 @@ function function_94976a83()
 */
 function function_54900cca()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("garage_enter");
 	self.ignoresuppression = 1;
 	wait(3);
@@ -455,7 +455,7 @@ function function_d105c430()
 */
 function function_51a9314a()
 {
-	self endon(#"death");
+	self endon("death");
 	self.n_attackeraccuracy = self.attackeraccuracy;
 	self.attackeraccuracy = 0;
 	self thread function_10302408();
@@ -474,8 +474,8 @@ function function_51a9314a()
 */
 function function_10302408()
 {
-	level endon(#"prometheus_at_apc");
-	self endon(#"death");
+	level endon("prometheus_at_apc");
+	self endon("death");
 	while(self.attackeraccuracy < 1)
 	{
 		wait(1);
@@ -495,12 +495,12 @@ function function_10302408()
 function robot_horde()
 {
 	level endon(#"hash_64ad6809");
-	self endon(#"death");
+	self endon("death");
 	self.goalradius = 32;
 	self thread function_e583f6c3();
 	self thread robot_stop();
 	self thread robot_speed();
-	self waittill(#"goal");
+	self waittill("goal");
 	self.goalradius = 2048;
 	wait(3);
 	self.perfectaim = 1;
@@ -517,7 +517,7 @@ function robot_horde()
 */
 function robot_stop()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("garage_closed");
 	self setgoal(self.origin, 1);
 	self ai::set_ignoreall(1);
@@ -534,7 +534,7 @@ function robot_stop()
 */
 function robot_speed()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("garage_open");
 	wait(5);
 	self ai::set_behavior_attribute("move_mode", "marching");
@@ -551,7 +551,7 @@ function robot_speed()
 */
 function function_e583f6c3()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreall(1);
 	level flag::wait_till("open_fire");
 	wait(3);
@@ -599,7 +599,7 @@ function function_85de96a6(str_name)
 {
 	nd_goal = getnode(str_name + "_robot_entry", "targetname");
 	self setgoal(nd_goal, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	level notify(str_name + "_ready");
 }
 
@@ -652,7 +652,7 @@ function cybersoldier_handler()
 	level flag::wait_till("spawn_robot_horde");
 	wait(2);
 	level thread scene::play("cin_pro_14_01_robothorde_vign_dismantle_new_prometheus");
-	level waittill(#"prometheus_hacking");
+	level waittill("prometheus_hacking");
 	objectives::set("cp_level_prologue_defend_theia", level.ai_prometheus);
 	level flag::wait_till("garage_open");
 	level scene::play("cin_pro_15_01_opendoor_vign_getinside_new_prometheus_move");
@@ -806,7 +806,7 @@ function function_f0042481()
 	wait(5);
 	level.ai_prometheus dialog::say("tayr_drone_s_almost_here_0");
 	wait(5);
-	level notify(#"failed");
+	level notify("failed");
 	spawn_manager::kill("sm_robot_horde1");
 	spawn_manager::kill("sm_robot_horde2");
 	spawn_manager::kill("sm_robot_horde3");
@@ -862,7 +862,7 @@ function function_341ece1b()
 	e_lift_door movez(200 * -1, 0.05);
 	level flag::wait_till("garage_open");
 	e_lift_door movez(200, 2);
-	e_lift_door waittill(#"movedone");
+	e_lift_door waittill("movedone");
 	level flag::wait_till("players_in_garage");
 	e_lift_door movez(200 * -1, 0.05);
 }

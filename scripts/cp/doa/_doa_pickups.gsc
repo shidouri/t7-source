@@ -488,7 +488,7 @@ function function_92d90e55(var_742d8fb5, location, timeout = 1, rotate = 1, angl
 	{
 		return;
 	}
-	pickup endon(#"death");
+	pickup endon("death");
 	pickup.targetname = "pickup_item";
 	pickup.var_18193c2a = location;
 	pickup.def = var_742d8fb5;
@@ -744,7 +744,7 @@ function function_2d8cb175(name, origin, amount = 1, launch = 0, ondeath = 0, sc
 */
 function spawnubertreasure(spawn_point, amount, radius = 85, launch = 0, ondeath = 0, scale, specific, interval = 0.35, shouldtimeout = 1, var_71b8054b = 1, var_5278d8d7 = 1)
 {
-	level endon(#"stop_spawning_pickups");
+	level endon("stop_spawning_pickups");
 	items = [];
 	while(amount)
 	{
@@ -799,7 +799,7 @@ function spawnubertreasure(spawn_point, amount, radius = 85, launch = 0, ondeath
 */
 function function_e904e32d(spawn_point, amount, radius = 85)
 {
-	level endon(#"stop_spawning_pickups");
+	level endon("stop_spawning_pickups");
 	for(i = 0; i < amount; i++)
 	{
 		origin = spawn_point + (randomintrange(0 - radius, radius), randomintrange(0 - radius, radius), 24);
@@ -1087,8 +1087,8 @@ function function_e2dcc82a(type)
 */
 function spawnitem(type = 0)
 {
-	level notify(#"spawnitem");
-	level endon(#"spawnitem");
+	level notify("spawnitem");
+	level endon("spawnitem");
 	while(true)
 	{
 		pickup = function_51b3bbf6(type);
@@ -1249,9 +1249,9 @@ function spawnspecificitem(pickup, origin, amount = 1, timeout = 1, radius, rota
 */
 function function_53347911(player)
 {
-	self endon(#"picked_up");
-	self endon(#"death");
-	player endon(#"disconnect");
+	self endon("picked_up");
+	self endon("death");
+	player endon("disconnect");
 	self.player = player;
 	var_42b46711 = gettime() + 1500;
 	while(isdefined(self) && gettime() < var_42b46711)
@@ -1267,7 +1267,7 @@ function function_53347911(player)
 	}
 	if(isdefined(self))
 	{
-		self.trigger notify(#"trigger", player);
+		self.trigger notify("trigger", player);
 	}
 }
 
@@ -1282,8 +1282,8 @@ function function_53347911(player)
 */
 function function_30768f24(item, time)
 {
-	self endon(#"disconnect");
-	item endon(#"death");
+	self endon("disconnect");
+	item endon("death");
 	if(time <= 0)
 	{
 		time = 1;
@@ -1319,7 +1319,7 @@ function function_30768f24(item, time)
 */
 function directeditemawardto(player, name, amount = 1)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	var_1db3e61a = function_c87a0cd7(name);
 	if(!isdefined(var_1db3e61a))
 	{
@@ -1592,11 +1592,11 @@ function function_d526f0bb()
 {
 	self notify(#"hash_d526f0bb");
 	self endon(#"hash_d526f0bb");
-	self endon(#"death");
+	self endon("death");
 	wait(0.4);
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(isdefined(self.player) && self.player != player)
 		{
 			continue;
@@ -1915,7 +1915,7 @@ function function_d526f0bb()
 			}
 			if(isdefined(var_9aec68f5) && var_9aec68f5 && isdefined(self))
 			{
-				self notify(#"picked_up");
+				self notify("picked_up");
 				if(isdefined(self.trigger))
 				{
 					self.trigger delete();
@@ -1940,7 +1940,7 @@ function function_d526f0bb()
 */
 function function_cb119fa6(timeinterval = 1)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_cb119fa6");
 	self endon(#"hash_cb119fa6");
 	var_f2801f2d = int(self.maxhealth * 0.1);
@@ -1965,7 +1965,7 @@ function function_cb119fa6(timeinterval = 1)
 */
 function function_bc81eba(time = 1)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.doa.var_655cbff1 = 1;
 	wait(time);
 	self.doa.var_655cbff1 = undefined;
@@ -1984,7 +1984,7 @@ function function_a2eecefa()
 {
 	self notify(#"hash_a2eecefa");
 	self endon(#"hash_a2eecefa");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		doa_utility::debugmsg("" + gettime());
 	#/
@@ -2119,7 +2119,7 @@ function function_8bf960cf(player)
 		doa_utility::debugmsg("" + gettime());
 	#/
 	level notify(#"hash_3b432f18");
-	level notify(#"atf");
+	level notify("atf");
 	setsharedviewport(1);
 	level clientfield::set("doafps", 0);
 }
@@ -2140,7 +2140,7 @@ function function_197694d8()
 		level.var_8ebc0a1 = spawn("script_origin", (0, 0, 0));
 	}
 	level.var_8ebc0a1 playloopsound("evt_first_person_loop");
-	level waittill(#"atf");
+	level waittill("atf");
 	if(mayspawnentity())
 	{
 		playsoundatposition("evt_first_person_slam_out", (0, 0, 0));
@@ -2168,7 +2168,7 @@ function function_197694d8()
 */
 function function_6b4a5f81(player)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_52cf38a3) && self.var_52cf38a3)
 	{
 		var_28a41a34 = 0;
@@ -2220,7 +2220,7 @@ function function_6b4a5f81(player)
 		{
 			end_pt = self.origin + vectorscale((0, 0, 1), 3000);
 		}
-		self notify(#"picked_up");
+		self notify("picked_up");
 		wait(0.05);
 		if(isdefined(self))
 		{
@@ -2248,7 +2248,7 @@ function function_6b4a5f81(player)
 */
 function function_77c1258e()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_52cf38a3) && self.var_52cf38a3)
 	{
 		util::wait_network_frame();
@@ -2273,7 +2273,7 @@ function function_ee036ce4()
 {
 	self notify(#"hash_b14b3cac");
 	self endon(#"hash_b14b3cac");
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		waittime = randomfloatrange(2.5, 5);
@@ -2303,7 +2303,7 @@ function function_ee036ce4()
 */
 function pickuprotate()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_52cf38a3) && self.var_52cf38a3)
 	{
 		util::wait_network_frame();
@@ -2336,7 +2336,7 @@ function pickuprotate()
 */
 function function_b3289e6d(scale)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_52cf38a3) && self.var_52cf38a3)
 	{
 		util::wait_network_frame();
@@ -2406,7 +2406,7 @@ function function_fbc5b316()
 */
 function pickuptimeout()
 {
-	self endon(#"death");
+	self endon("death");
 	timetowait = (isdefined(self.timeout) ? self.timeout : level.doa.rules.powerup_timeout);
 	wait(timetowait + randomfloatrange(0, 5));
 	for(i = 0; i < 40; i++)
@@ -2445,7 +2445,7 @@ function pickuptimeout()
 		wait(0.1);
 		util::wait_network_frame();
 	}
-	self notify(#"pickup_timeout");
+	self notify("pickup_timeout");
 	wait(0.1);
 	if(isdefined(self) && (!(isdefined(self.var_b2290d2d) && self.var_b2290d2d)))
 	{
@@ -2468,7 +2468,7 @@ function pickuptimeout()
 */
 function function_c1869ec8()
 {
-	level notify(#"stop_spawning_pickups");
+	level notify("stop_spawning_pickups");
 	util::wait_network_frame();
 	pickupsitems = getentarray("a_pickup_item", "script_noteworthy");
 	for(i = 0; i < pickupsitems.size; i++)
@@ -2636,8 +2636,8 @@ function private function_5441452b(maxdistsq)
 {
 	self notify(#"hash_c42bb828");
 	self endon(#"hash_c42bb828");
-	self endon(#"picked_up");
-	self endon(#"death");
+	self endon("picked_up");
+	self endon("death");
 	while(true)
 	{
 		wait(0.05);
@@ -2697,8 +2697,8 @@ function function_b33393b3()
 {
 	self notify(#"hash_c8c0fb8f");
 	self endon(#"hash_c8c0fb8f");
-	self endon(#"picked_up");
-	self endon(#"death");
+	self endon("picked_up");
+	self endon("death");
 	self thread function_5441452b();
 	if(isdefined(self.var_25e9e2fe))
 	{
@@ -2817,7 +2817,7 @@ function function_411355c0(type, player, origin)
 */
 function function_9908c4ec()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(!isdefined(level.doa.var_1332e37a))
 	{
 		level.doa.var_1332e37a = [];
@@ -2890,7 +2890,7 @@ function function_fce74a5f(heart)
 */
 function function_2e7c9798()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(level.doa.rules.powerup_timeout + randomfloatrange(0, 5));
 	self clientfield::set("heartbeat", 2);
 	for(i = 0; i < 40; i++)
@@ -2928,7 +2928,7 @@ function function_2e7c9798()
 		}
 		util::wait_network_frame();
 	}
-	self notify(#"pickup_timeout");
+	self notify("pickup_timeout");
 	wait(0.1);
 	if(isdefined(self))
 	{
@@ -3094,7 +3094,7 @@ function function_322262ea()
 {
 	self notify(#"hash_322262ea");
 	self endon(#"hash_322262ea");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self) || !isdefined(self.doa) || !isdefined(self.doa.var_c2b9d7d0))
 	{
 		return;

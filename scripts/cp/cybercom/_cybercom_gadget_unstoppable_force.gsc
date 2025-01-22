@@ -163,7 +163,7 @@ function _on(slot, weapon)
 function _off(slot, weapon)
 {
 	self clientfield::set_to_player("unstoppableforce_state", 0);
-	self notify(#"unstoppable_watch_collisions");
+	self notify("unstoppable_watch_collisions");
 	self notify(#"hash_1f17ce9a");
 	self playsound("gdt_unstoppable_stop");
 	self gadgetpowerset(slot, 0);
@@ -182,7 +182,7 @@ function _off(slot, weapon)
 */
 function private function_1852a14f(slot, weapon)
 {
-	self endon(#"weapon_melee_juke");
+	self endon("weapon_melee_juke");
 	wait(0.5);
 	self gadgetpowerchange(slot, -100);
 }
@@ -198,9 +198,9 @@ function private function_1852a14f(slot, weapon)
 */
 function private function_6c3ee126(slot, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_1f17ce9a");
-	self waittill(#"weapon_melee_juke_end");
+	self waittill("weapon_melee_juke_end");
 	self gadgetpowerset(slot, 0);
 }
 
@@ -215,9 +215,9 @@ function private function_6c3ee126(slot, weapon)
 */
 function private function_98296a6a(slot, weapon)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self waittill(#"weapon_juke_end_requested", endreason);
+	self endon("death");
+	self endon("disconnect");
+	self waittill("weapon_juke_end_requested", endreason);
 	if(endreason == 2)
 	{
 		earthquake(1, 0.75, self.origin, 100);
@@ -250,14 +250,14 @@ function _is_primed(slot, weapon)
 */
 function private function_875f1595(slot, weapon)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_1f17ce9a");
 	self clientfield::set_to_player("unstoppableforce_state", 1);
 	wait(0.05);
 	if(self isswitchingweapons())
 	{
-		self waittill(#"weapon_change_complete");
+		self waittill("weapon_change_complete");
 	}
 	self thread watch_collisions(weapon);
 	self thread function_6c3ee126(slot, weapon);
@@ -354,7 +354,7 @@ function private _get_valid_targets()
 function private function_40b93b78()
 {
 	self stopjukemove();
-	self notify(#"unstoppable_watch_collisions");
+	self notify("unstoppable_watch_collisions");
 }
 
 /*
@@ -463,10 +463,10 @@ function hit_enemy(guy, weapon)
 */
 function watch_collisions(weapon)
 {
-	self notify(#"unstoppable_watch_collisions");
-	self endon(#"unstoppable_watch_collisions");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("unstoppable_watch_collisions");
+	self endon("unstoppable_watch_collisions");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		enemies = function_518996b3();

@@ -322,7 +322,7 @@ function private function_25411db1(upgraded = 0, secondary = 0, attacker, weapon
 	self dodamage(self.health + 666, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
 	if(self function_ceb2ee11())
 	{
-		self waittill(#"puke");
+		self waittill("puke");
 		playfxontag(level._effect["puke_reaction"], self, "j_neck");
 		if(isdefined(self.voiceprefix) && isdefined(self.bcvoicenumber))
 		{
@@ -409,7 +409,7 @@ function function_da7ef8ba(target, var_9bc2efcb = 1, upgraded)
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	weapon = getweapon("gadget_mrpukey");
 	foreach(guy in validtargets)

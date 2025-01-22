@@ -145,7 +145,7 @@ function defaultrole()
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	owner = self getvehicleowner();
 	if(isdefined(owner))
 	{
@@ -190,8 +190,8 @@ function should_switch_to_unaware(current_state, to_state, connection)
 */
 function state_unaware_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	turret_left = 1;
 	relativeangle = 0;
 	self thread turret_idle_sound();
@@ -276,8 +276,8 @@ function should_switch_to_combat(current_state, to_state, connection)
 */
 function state_combat_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	if(isdefined(self.enemy))
 	{
 		sentry_turret_alert_sound();
@@ -360,8 +360,8 @@ function state_combat_exit(params)
 */
 function sentry_turret_fire_for_time(totalfiretime, enemy)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	sentry_turret_alert_sound();
 	wait(0.1);
 	weapon = self seatgetweapon(0);
@@ -472,8 +472,8 @@ function state_emped_enter(params)
 */
 function state_emped_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	time = params.notify_param[0];
 	/#
 		assert(isdefined(time));
@@ -599,7 +599,7 @@ function turret_idle_sound()
 */
 function turret_idle_sound_stop()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.sndloop_ent))
 	{
 		self.sndloop_ent stoploopsound(0.5);

@@ -60,7 +60,7 @@ function player_cam_blur(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function function_db5afebe(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_64e72e9d");
 	blur_level = 0.5;
 	while(blur_level <= 1)
@@ -129,7 +129,7 @@ function player_cam_fire(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function burn_on_postfx()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_bdb63a72");
 	self thread postfx::playpostfxbundle("pstfx_burn_loop");
 }

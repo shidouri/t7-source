@@ -88,9 +88,9 @@ function player_shock_fx_handler(localclientnum, oldval, newval, bnewent, biniti
 */
 function player_shock_fx_fade_off(localclientnum, amount, fadeouttime)
 {
-	self endon(#"disconnect");
-	self notify(#"player_shock_fx_fade_off_end");
-	self endon(#"player_shock_fx_fade_off_end");
+	self endon("disconnect");
+	self notify("player_shock_fx_fade_off_end");
+	self endon("player_shock_fx_fade_off_end");
 	if(!isalive(self))
 	{
 		return;
@@ -134,8 +134,8 @@ function update_trophy_system_state(localclientnum, oldval, newval, bnewent, bin
 function set_trophy_state(localclientnum, ison)
 {
 	self endon(#"entityshutdown");
-	self notify(#"stop_set_trophy_state");
-	self endon(#"stop_set_trophy_state");
+	self notify("stop_set_trophy_state");
+	self endon("stop_set_trophy_state");
 	if(isdefined(self.trophydestroy_fx_handle))
 	{
 		stopfx(localclientnum, self.trophydestroy_fx_handle);
@@ -224,7 +224,7 @@ function wait_for_bullet_impact(localclientnum)
 	}
 	while(true)
 	{
-		self waittill(#"damage", attacker, impactpos, effectdir, partname);
+		self waittill("damage", attacker, impactpos, effectdir, partname);
 		if(partname == "tag_target_lower" || partname == "tag_target_upper" || partname == "tag_defense_active" || partname == "tag_body_animate")
 		{
 			if(self.trophy_on)

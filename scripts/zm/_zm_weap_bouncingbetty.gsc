@@ -60,9 +60,9 @@ function __init__()
 */
 function proximityweaponobjectdetonation_override(watcher)
 {
-	self endon(#"death");
-	self endon(#"hacked");
-	self endon(#"kill_target_detection");
+	self endon("death");
+	self endon("hacked");
+	self endon("kill_target_detection");
 	weaponobjects::proximityweaponobject_activationdelay(watcher);
 	damagearea = weaponobjects::proximityweaponobject_createdamagearea(watcher);
 	up = anglestoup(self.angles);
@@ -73,7 +73,7 @@ function proximityweaponobjectdetonation_override(watcher)
 	}
 	while(true)
 	{
-		damagearea waittill(#"trigger", ent);
+		damagearea waittill("trigger", ent);
 		if(!weaponobjects::proximityweaponobject_validtriggerentity(watcher, ent))
 		{
 			continue;

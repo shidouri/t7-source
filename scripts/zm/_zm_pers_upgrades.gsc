@@ -367,11 +367,11 @@ function setup_pers_upgrade_nube()
 */
 function pers_upgrade_boards_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	last_round_number = level.round_number;
 	while(true)
 	{
-		self waittill(#"pers_stats_end_of_round");
+		self waittill("pers_stats_end_of_round");
 		if(level.round_number >= last_round_number)
 		{
 			if(is_pers_system_active())
@@ -398,10 +398,10 @@ function pers_upgrade_boards_active()
 */
 function pers_upgrade_revive_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"player_failed_revive");
+		self waittill("player_failed_revive");
 		if(is_pers_system_active())
 		{
 			if(self.failed_revives >= level.pers_revivenoperk_number_of_chances_to_keep)
@@ -425,10 +425,10 @@ function pers_upgrade_revive_active()
 */
 function pers_upgrade_headshot_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"zombie_death_no_headshot");
+		self waittill("zombie_death_no_headshot");
 		if(is_pers_system_active())
 		{
 			self.non_headshot_kill_counter++;
@@ -453,14 +453,14 @@ function pers_upgrade_headshot_active()
 */
 function pers_upgrade_cash_back_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 	#/
 	wait(0.5);
 	while(true)
 	{
-		self waittill(#"cash_back_failed_prone");
+		self waittill("cash_back_failed_prone");
 		wait(0.1);
 		/#
 		#/
@@ -492,14 +492,14 @@ function pers_upgrade_cash_back_active()
 */
 function pers_upgrade_insta_kill_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.2);
 	/#
 	#/
 	wait(0.2);
 	while(true)
 	{
-		self waittill(#"pers_melee_swipe");
+		self waittill("pers_melee_swipe");
 		if(is_pers_system_active())
 		{
 			if(isdefined(level.pers_melee_swipe_zombie_swiper))
@@ -557,7 +557,7 @@ function is_insta_kill_upgraded_and_active()
 */
 function pers_upgrade_jugg_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 	#/
@@ -599,16 +599,16 @@ function pers_upgrade_jugg_active()
 */
 function pers_upgrade_carpenter_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.2);
 	/#
 	#/
 	wait(0.2);
-	level waittill(#"carpenter_finished");
+	level waittill("carpenter_finished");
 	self.pers_carpenter_kill = undefined;
 	while(true)
 	{
-		self waittill(#"carpenter_zombie_killed_check_finished");
+		self waittill("carpenter_zombie_killed_check_finished");
 		if(is_pers_system_active())
 		{
 			if(!isdefined(self.pers_carpenter_kill))
@@ -639,7 +639,7 @@ function persistent_carpenter_ability_check()
 {
 	if(isdefined(level.pers_upgrade_carpenter) && level.pers_upgrade_carpenter)
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 		/#
 		#/
 		if(isdefined(self.pers_upgrades_awarded["carpenter"]) && self.pers_upgrades_awarded["carpenter"])
@@ -682,7 +682,7 @@ function persistent_carpenter_ability_check()
 			}
 			wait(0.01);
 		}
-		self notify(#"carpenter_zombie_killed_check_finished");
+		self notify("carpenter_zombie_killed_check_finished");
 		self.pers_carpenter_zombie_check_active = undefined;
 		level.pers_carpenter_boards_active = undefined;
 	}
@@ -746,8 +746,8 @@ function insta_kill_pers_upgrade_icon()
 */
 function time_remaining_pers_upgrade()
 {
-	self endon(#"disconnect");
-	self endon(#"kill_insta_kill_upgrade_hud_icon");
+	self endon("disconnect");
+	self endon("kill_insta_kill_upgrade_hud_icon");
 	while(self.zombie_vars["zombie_powerup_insta_kill_ug_time"] >= 0)
 	{
 		wait(0.05);
@@ -770,7 +770,7 @@ function kill_insta_kill_upgrade_hud_icon()
 	self.zombie_vars["zombie_powerup_insta_kill_ug_on"] = 0;
 	self._show_solo_hud = 0;
 	self.zombie_vars["zombie_powerup_insta_kill_ug_time"] = level.pers_insta_kill_upgrade_active_time;
-	self notify(#"kill_insta_kill_upgrade_hud_icon");
+	self notify("kill_insta_kill_upgrade_hud_icon");
 }
 
 /*
@@ -784,14 +784,14 @@ function kill_insta_kill_upgrade_hud_icon()
 */
 function pers_upgrade_perk_lose_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 		iprintlnbold("");
 	#/
 	wait(0.5);
 	self.pers_perk_lose_start_round = level.round_number;
-	self waittill(#"pers_perk_lose_lost");
+	self waittill("pers_perk_lose_lost");
 	/#
 		iprintlnbold("");
 	#/
@@ -809,7 +809,7 @@ function pers_upgrade_perk_lose_active()
 */
 function pers_upgrade_pistol_points_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 		iprintlnbold("");
@@ -817,7 +817,7 @@ function pers_upgrade_pistol_points_active()
 	wait(0.5);
 	while(true)
 	{
-		self waittill(#"pers_pistol_points_kill");
+		self waittill("pers_pistol_points_kill");
 		accuracy = self zm_pers_upgrades_functions::pers_get_player_accuracy();
 		if(accuracy > level.pers_pistol_points_accuracy)
 		{
@@ -841,13 +841,13 @@ function pers_upgrade_pistol_points_active()
 */
 function pers_upgrade_double_points_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 		iprintlnbold("");
 	#/
 	wait(0.5);
-	self waittill(#"double_points_lost");
+	self waittill("double_points_lost");
 	/#
 		iprintlnbold("");
 	#/
@@ -865,13 +865,13 @@ function pers_upgrade_double_points_active()
 */
 function pers_upgrade_sniper_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 		iprintlnbold("");
 	#/
 	wait(0.5);
-	self waittill(#"pers_sniper_lost");
+	self waittill("pers_sniper_lost");
 	/#
 		iprintlnbold("");
 	#/
@@ -889,7 +889,7 @@ function pers_upgrade_sniper_active()
 */
 function pers_upgrade_box_weapon_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 		iprintlnbold("");
@@ -925,7 +925,7 @@ function pers_upgrade_box_weapon_active()
 */
 function pers_upgrade_nube_active()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	/#
 		iprintlnbold("");

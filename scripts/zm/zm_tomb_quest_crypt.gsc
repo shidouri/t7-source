@@ -274,7 +274,7 @@ function run_crypt_gem_pos()
 	e_gem_model setcandamage(1);
 	while(true)
 	{
-		e_gem_model waittill(#"damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weapon);
+		e_gem_model waittill("damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weapon);
 		if(weapon == w_weapon)
 		{
 			break;
@@ -289,7 +289,7 @@ function run_crypt_gem_pos()
 		{
 			break;
 		}
-		level waittill(#"crypt_disc_rotation");
+		level waittill("crypt_disc_rotation");
 	}
 	level flag::set("disc_rotation_active");
 	level thread zm_tomb_amb::sndplaystinger("side_sting_5");
@@ -514,7 +514,7 @@ function chamber_disc_trigger_run(e_disc, e_lever, b_clockwise)
 	n_anim_time = getanimlength(%generic::p7_fxanim_zm_ori_puzzle_switch_anim);
 	while(true)
 	{
-		self waittill(#"trigger", e_triggerer);
+		self waittill("trigger", e_triggerer);
 		if(!level flag::get("disc_rotation_active"))
 		{
 			level flag::set("disc_rotation_active");
@@ -525,9 +525,9 @@ function chamber_disc_trigger_run(e_disc, e_lever, b_clockwise)
 			array::thread_all(discs_to_rotate, &chamber_disc_rotate, b_clockwise);
 			wait(1);
 			level flag::clear("disc_rotation_active");
-			level notify(#"vo_try_puzzle_crypt", e_triggerer);
+			level notify("vo_try_puzzle_crypt", e_triggerer);
 		}
-		level notify(#"crypt_disc_rotation");
+		level notify("crypt_disc_rotation");
 	}
 }
 

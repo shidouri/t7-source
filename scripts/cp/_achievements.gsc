@@ -101,7 +101,7 @@ function give_achievement(str_id, var_56503a18 = 0)
 */
 function on_player_connect()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_75cf9e2e = spawnstruct();
 	self.var_75cf9e2e.killindex = 0;
 	self.var_75cf9e2e.var_940a9f6e = 0;
@@ -111,7 +111,7 @@ function on_player_connect()
 	self thread function_e587e1f2();
 	while(true)
 	{
-		self waittill(#"give_achievement", str_id);
+		self waittill("give_achievement", str_id);
 		give_achievement(str_id);
 	}
 }
@@ -214,12 +214,12 @@ function function_733a6065(eplayer, levelname, difficulty, var_10c5a3ef)
 */
 function function_34eaa01b()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"wallrun_begin");
+		self waittill("wallrun_begin");
 		v_start = self.origin;
-		self waittill(#"wallrun_end");
+		self waittill("wallrun_end");
 		var_1d634a25 = distance(v_start, self.origin);
 		n_current_dist = self getdstat("Achievements", "CP_COMPLETE_WALL_RUN");
 		n_current_dist = n_current_dist + var_1d634a25;
@@ -693,10 +693,10 @@ function private function_9dab90e7(player)
 */
 function private function_e587e1f2()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"gun_level_complete", rewardxp, attachmentindex, itemindex, rankid, islastrank);
+		self waittill("gun_level_complete", rewardxp, attachmentindex, itemindex, rankid, islastrank);
 		if(islastrank && (itemindex >= 1 && itemindex <= 60))
 		{
 			self give_achievement("CP_ALL_WEAPON_ATTACHMENTS");

@@ -185,7 +185,7 @@ function isheldinventorykillstreakweapon(killstreakweapon)
 */
 function waitfortimecheck(duration, callback, endcondition1, endcondition2, endcondition3)
 {
-	self endon(#"hacked");
+	self endon("hacked");
 	if(isdefined(endcondition1))
 	{
 		self endon(endcondition1);
@@ -199,7 +199,7 @@ function waitfortimecheck(duration, callback, endcondition1, endcondition2, endc
 		self endon(endcondition3);
 	}
 	hostmigration::migrationawarewait(duration);
-	self notify(#"time_check");
+	self notify("time_check");
 	self [[callback]]();
 }
 
@@ -232,8 +232,8 @@ function emp_isempd()
 */
 function waittillemp(onempdcallback, arg)
 {
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("death");
+	self endon("delete");
 	self waittill(#"emp_deployed", attacker);
 	if(isdefined(onempdcallback))
 	{
@@ -578,7 +578,7 @@ function destroyentities(entities, attacker, team, weapon)
 		{
 			continue;
 		}
-		entity notify(#"damage", damage, attacker, direction_vec, point, meansofdeath, tagname, modelname, partname, weapon);
+		entity notify("damage", damage, attacker, direction_vec, point, meansofdeath, tagname, modelname, partname, weapon);
 	}
 }
 

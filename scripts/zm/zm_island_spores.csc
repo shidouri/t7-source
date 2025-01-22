@@ -342,8 +342,8 @@ function spore_grows(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 */
 function scene_play(scene)
 {
-	self notify(#"scene_play");
-	self endon(#"scene_play");
+	self notify("scene_play");
+	self endon("scene_play");
 	self scene::stop();
 	self function_6221b6b9(scene);
 	self scene::stop();
@@ -360,7 +360,7 @@ function scene_play(scene)
 */
 function function_6221b6b9(scene, var_165d49f6)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self scene::play(scene);
 }
 
@@ -418,7 +418,7 @@ function function_6225657f(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_3ba5e2ae(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_ea3e4398))
 	{
 		self.var_ea3e4398 = playfxoncamera(localclientnum, level._effect["SPORE_BUBBLES"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
@@ -457,7 +457,7 @@ function function_7be165af(localclientnum)
 function function_9067dab6(localclientnum)
 {
 	self endon(#"hash_a48959b9");
-	self waittill(#"death");
+	self waittill("death");
 	self function_7be165af(localclientnum);
 }
 
@@ -504,7 +504,7 @@ function spore_camera_fx(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function function_4ff31749(localclientnum, var_c55abf21)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_adac13ec))
 	{
 		if(var_c55abf21)
@@ -550,7 +550,7 @@ function function_b8071fc(localclientnum)
 function function_c0e328f2(localclientnum)
 {
 	self endon(#"hash_6cc118c6");
-	self waittill(#"death");
+	self waittill("death");
 	self function_b8071fc(localclientnum);
 }
 

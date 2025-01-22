@@ -230,7 +230,7 @@ function drawplayerviewforever()
 function drawtagforever(tag, opcolor)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		for(;;)
 		{
 			drawtag(tag, opcolor);
@@ -377,9 +377,9 @@ function createlineconstantly(ent)
 function debugmisstime()
 {
 	/#
-		self notify(#"stopdebugmisstime");
-		self endon(#"stopdebugmisstime");
-		self endon(#"death");
+		self notify("stopdebugmisstime");
+		self endon("stopdebugmisstime");
+		self endon("death");
 		for(;;)
 		{
 			if(self.a.misstime <= 0)
@@ -407,7 +407,7 @@ function debugmisstime()
 function debugmisstimeoff()
 {
 	/#
-		self notify(#"stopdebugmisstime");
+		self notify("stopdebugmisstime");
 	#/
 }
 
@@ -1200,7 +1200,7 @@ function debugthreatcalc()
 function displaythreat(entity, entitygroup)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		if(self.team == entity.team)
 		{
 			return;
@@ -2193,8 +2193,8 @@ function round_to(val, num)
 function set_event_printname_thread(text, focus)
 {
 	/#
-		level notify(#"stop_event_name_thread");
-		level endon(#"stop_event_name_thread");
+		level notify("stop_event_name_thread");
+		level endon("stop_event_name_thread");
 		if(getdvarint("") > 0)
 		{
 			return;
@@ -2291,7 +2291,7 @@ function get_playerone()
 function engagement_distance_debug_toggle()
 {
 	/#
-		level endon(#"kill_engage_dist_debug_toggle_watcher");
+		level endon("kill_engage_dist_debug_toggle_watcher");
 		laststate = getdvarint("");
 		while(true)
 		{
@@ -2305,7 +2305,7 @@ function engagement_distance_debug_toggle()
 			}
 			else if(!dvar_turned_on(currentstate) && dvar_turned_on(laststate))
 			{
-				level notify(#"kill_all_engage_dist_debug");
+				level notify("kill_all_engage_dist_debug");
 				laststate = currentstate;
 			}
 			wait(0.3);
@@ -2505,8 +2505,8 @@ function get_engage_dists(weapon)
 function engage_dists_watcher()
 {
 	/#
-		level endon(#"kill_all_engage_dist_debug");
-		level endon(#"kill_engage_dists_watcher");
+		level endon("kill_all_engage_dist_debug");
+		level endon("kill_engage_dists_watcher");
 		while(true)
 		{
 			player = get_playerone();
@@ -2547,8 +2547,8 @@ function engage_dists_watcher()
 function debug_realtime_engage_dist()
 {
 	/#
-		level endon(#"kill_all_engage_dist_debug");
-		level endon(#"kill_realtime_engagement_distance_debug");
+		level endon("kill_all_engage_dist_debug");
+		level endon("kill_realtime_engagement_distance_debug");
 		player = get_playerone();
 		hudobjarray = engagement_distance_debug_init(player);
 		level thread engage_dist_debug_hud_destroy(hudobjarray, "");
@@ -2717,8 +2717,8 @@ function engagedist_hud_changetext(engagedisttype, units)
 function debug_ai_engage_dist()
 {
 	/#
-		level endon(#"kill_all_engage_dist_debug");
-		level endon(#"kill_ai_engagement_distance_debug");
+		level endon("kill_all_engage_dist_debug");
+		level endon("kill_ai_engagement_distance_debug");
 		player = get_playerone();
 		while(true)
 		{
@@ -3272,7 +3272,7 @@ function debug_sphere(origin, radius, color, alpha, time)
 function draw_arrow_time(start, end, color, frames)
 {
 	/#
-		level endon(#"newpath");
+		level endon("newpath");
 		pts = [];
 		angles = vectortoangles(start - end);
 		right = anglestoright(angles);
@@ -3308,7 +3308,7 @@ function draw_arrow_time(start, end, color, frames)
 function draw_arrow(start, end, color)
 {
 	/#
-		level endon(#"newpath");
+		level endon("newpath");
 		pts = [];
 		angles = vectortoangles(start - end);
 		right = anglestoright(angles);
@@ -3345,7 +3345,7 @@ function debugorigin()
 	/#
 		self notify(#"hash_707e044");
 		self endon(#"hash_707e044");
-		self endon(#"death");
+		self endon("death");
 		for(;;)
 		{
 			forward = anglestoforward(self.angles);

@@ -136,7 +136,7 @@ function function_9a03e439()
 */
 function function_5508b348()
 {
-	level waittill(#"revive_on");
+	level waittill("revive_on");
 	clientfield::set("perk_light_quick_revive", 1);
 }
 
@@ -151,7 +151,7 @@ function function_5508b348()
 */
 function function_4a2261fa()
 {
-	level waittill(#"widows_wine_on");
+	level waittill("widows_wine_on");
 	clientfield::set("perk_light_widows_wine", 1);
 }
 
@@ -166,7 +166,7 @@ function function_4a2261fa()
 */
 function function_6753e7bb()
 {
-	level waittill(#"additionalprimaryweapon_on");
+	level waittill("additionalprimaryweapon_on");
 	clientfield::set("perk_light_mule_kick", 1);
 }
 
@@ -181,7 +181,7 @@ function function_6753e7bb()
 */
 function function_55b919e6()
 {
-	level waittill(#"marathon_on");
+	level waittill("marathon_on");
 	level clientfield::set("perk_light_staminup", 1);
 }
 
@@ -196,7 +196,7 @@ function function_55b919e6()
 */
 function function_e840e164(var_d80a2da2)
 {
-	level waittill(#"sleight_on");
+	level waittill("sleight_on");
 	level clientfield::set("perk_light_speed_cola", var_d80a2da2);
 }
 
@@ -211,7 +211,7 @@ function function_e840e164(var_d80a2da2)
 */
 function function_588068b3(var_d80a2da2)
 {
-	level waittill(#"juggernog_on");
+	level waittill("juggernog_on");
 	level clientfield::set("perk_light_juggernog", var_d80a2da2);
 }
 
@@ -226,7 +226,7 @@ function function_588068b3(var_d80a2da2)
 */
 function function_8b929f79(var_d80a2da2)
 {
-	level waittill(#"doubletap_on");
+	level waittill("doubletap_on");
 	level clientfield::set("perk_light_doubletap", var_d80a2da2);
 }
 

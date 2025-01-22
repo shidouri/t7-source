@@ -286,7 +286,7 @@ function on_player_connect()
 */
 function initialblack(time = 12)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self openmenu("InitialBlack");
 	self util::waittill_any_timeout(time, "killInitialBlack", "disconnect");
 	if(isdefined(self))
@@ -333,8 +333,8 @@ function function_57863b20()
 	self endon(#"hash_57863b20");
 	while(true)
 	{
-		level waittill(#"host_migration_begin");
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_begin");
+		level waittill("host_migration_end");
 		namespace_2f63e553::setupdevgui();
 		if(isdefined(level.doa.var_52cccfb6))
 		{
@@ -385,7 +385,7 @@ function function_437a340d(var_73419762)
 		doa_utility::function_11f3f381(self.var_4777f621, 1);
 	}
 	self notify(#"hash_437a340d");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_437a340d");
 	self.var_744a3931 = self openluimenu("DOA_PlayerReady");
 	currentround = level.doa.round_number;
@@ -396,7 +396,7 @@ function function_437a340d(var_73419762)
 		self.ignoreme = 1;
 		self freezecontrols(1);
 		self thread doa_utility::notifymeinnsec("menuresponse", 2, "menuresponse", "notarealmenu", "notarealresponse");
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		/#
 			doa_utility::debugmsg((("" + menu) + "") + response);
 		#/
@@ -448,7 +448,7 @@ function on_player_spawned()
 	self namespace_831a4a7c::function_7d7a7fde();
 	self namespace_831a4a7c::function_60123d1c();
 	self util::set_lighting_state();
-	self notify(#"give_achievement", "CP_UNLOCK_DOA");
+	self notify("give_achievement", "CP_UNLOCK_DOA");
 	var_9774756a = 0;
 	if(isdefined(level.doa.var_e6653624))
 	{
@@ -1002,7 +1002,7 @@ function function_64a5cd5e()
 	doa_utility::clearallcorpses();
 	namespace_d88e3a06::function_116bb43();
 	wait(1);
-	level notify(#"doa_game_is_over");
+	level notify("doa_game_is_over");
 	level notify(#"hash_24d3a44");
 	util::wait_network_frame();
 	missionrestart();
@@ -1168,8 +1168,8 @@ function function_688245f1()
 */
 function function_d2450010()
 {
-	self endon(#"disconnect");
-	self waittill(#"loadout_given");
+	self endon("disconnect");
+	self waittill("loadout_given");
 	/#
 		doa_utility::debugmsg("" + (isdefined(self.name) ? self.name : ""));
 	#/

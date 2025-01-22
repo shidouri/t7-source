@@ -142,7 +142,7 @@ function zombie_devgui_tomb(cmd)
 		{
 			case "":
 			{
-				level notify(#"force_recapture_start");
+				level notify("force_recapture_start");
 				break;
 			}
 			case "":
@@ -152,7 +152,7 @@ function zombie_devgui_tomb(cmd)
 			case "":
 			case "":
 			{
-				level notify(#"force_zone_capture", int(getsubstr(cmd_strings[0], 19)));
+				level notify("force_zone_capture", int(getsubstr(cmd_strings[0], 19)));
 				break;
 			}
 			case "":
@@ -162,7 +162,7 @@ function zombie_devgui_tomb(cmd)
 			case "":
 			case "":
 			{
-				level notify(#"force_zone_recapture", int(getsubstr(cmd_strings[0], 21)));
+				level notify("force_zone_recapture", int(getsubstr(cmd_strings[0], 21)));
 				break;
 			}
 		}
@@ -186,13 +186,13 @@ function function_23eb2509()
 			if(getdvarstring("") != "")
 			{
 				n_zone = int(getdvarstring(""));
-				level notify(#"force_zone_capture", n_zone);
+				level notify("force_zone_capture", n_zone);
 				setdvar("", "");
 			}
 			if(getdvarstring("") != "")
 			{
 				n_zone = int(getdvarstring(""));
-				level notify(#"force_zone_recapture", n_zone);
+				level notify("force_zone_recapture", n_zone);
 				setdvar("", "");
 			}
 			wait(0.5);
@@ -291,7 +291,7 @@ function function_d88b52e6()
 			if(getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "")
 			{
 				level flag::set("");
-				level waittill(#"little_girl_lost_step_1_over");
+				level waittill("little_girl_lost_step_1_over");
 				level waittill(#"hash_e6967d42");
 			}
 			if(getdvarstring("") == "")
@@ -302,7 +302,7 @@ function function_d88b52e6()
 			if(getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "")
 			{
 				level flag::set("");
-				level waittill(#"little_girl_lost_step_2_over");
+				level waittill("little_girl_lost_step_2_over");
 				level waittill(#"hash_4c5352e3");
 			}
 			if(getdvarstring("") == "")
@@ -323,7 +323,7 @@ function function_d88b52e6()
 				{
 					t_hole delete();
 				}
-				level waittill(#"little_girl_lost_step_3_over");
+				level waittill("little_girl_lost_step_3_over");
 				level waittill(#"hash_7bcf8600");
 			}
 			if(getdvarstring("") == "")
@@ -335,7 +335,7 @@ function function_d88b52e6()
 			{
 				level flag::set("");
 				level flag::set("");
-				level waittill(#"little_girl_lost_step_4_over");
+				level waittill("little_girl_lost_step_4_over");
 				level waittill(#"hash_4f3f0441");
 			}
 			if(getdvarstring("") == "")
@@ -346,7 +346,7 @@ function function_d88b52e6()
 			if(getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "")
 			{
 				level flag::set("");
-				level waittill(#"little_girl_lost_step_5_over");
+				level waittill("little_girl_lost_step_5_over");
 				level waittill(#"hash_8b0d379e");
 			}
 			if(getdvarstring("") == "")
@@ -357,7 +357,7 @@ function function_d88b52e6()
 			if(getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "")
 			{
 				level flag::set("");
-				level waittill(#"little_girl_lost_step_6_over");
+				level waittill("little_girl_lost_step_6_over");
 				level waittill(#"hash_ee01811f");
 			}
 			if(getdvarstring("") == "")
@@ -368,7 +368,7 @@ function function_d88b52e6()
 			if(getdvarstring("") == "" || getdvarstring("") == "")
 			{
 				level flag::set("");
-				level waittill(#"little_girl_lost_step_7_over");
+				level waittill("little_girl_lost_step_7_over");
 				level waittill(#"hash_7f00c03c");
 			}
 			if(getdvarstring("") == "")
@@ -409,7 +409,7 @@ function watch_devgui_complete_puzzles()
 				level flag::set("");
 				level flag::set("");
 				setdvar("", "");
-				level notify(#"open_all_gramophone_doors");
+				level notify("open_all_gramophone_doors");
 			}
 			if(getdvarstring("") == "")
 			{
@@ -675,7 +675,7 @@ function check_solo_status()
 */
 function player_slow_movement_speed_monitor()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	n_movescale_delta_no_perk = 0.35 / 10;
 	n_movescale_delta_staminup = 0.25 / 6;
 	n_new_move_scale = 1;
@@ -713,7 +713,7 @@ function player_slow_movement_speed_monitor()
 		if(!is_player_slowed)
 		{
 			self clientfield::set_to_player("sndMudSlow", 0);
-			self notify(#"mud_slowdown_cleared");
+			self notify("mud_slowdown_cleared");
 			self allowslide(1);
 			n_new_move_scale = 1;
 		}
@@ -843,7 +843,7 @@ function dug_zombie_spawn_init(animname_set = 0)
 		self [[level.zombie_init_done]]();
 	}
 	self.zombie_init_done = 1;
-	self notify(#"zombie_init_done");
+	self notify("zombie_init_done");
 }
 
 /*
@@ -857,13 +857,13 @@ function dug_zombie_spawn_init(animname_set = 0)
 */
 function dug_zombie_think()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(!self.isdog);
 	#/
 	self.ai_state = "zombie_think";
 	find_flesh_struct_string = undefined;
-	self waittill(#"zombie_custom_think_done", find_flesh_struct_string);
+	self waittill("zombie_custom_think_done", find_flesh_struct_string);
 	node = undefined;
 	desired_nodes = [];
 	self.entrance_nodes = [];
@@ -897,7 +897,7 @@ function dug_zombie_think()
 				if(isdefined(end_at_node))
 				{
 					self setgoalnode(end_at_node);
-					self waittill(#"goal");
+					self waittill("goal");
 				}
 			}
 			if(isdefined(self.start_inert) && self.start_inert)
@@ -979,7 +979,7 @@ function dug_zombie_think()
 */
 function dug_zombie_entered_playable()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(level.playable_areas))
 	{
 		level.playable_areas = getentarray("player_volume", "script_noteworthy");
@@ -1010,7 +1010,7 @@ function dug_zombie_entered_playable()
 function dug_zombie_complete_emerging_into_playable_area()
 {
 	self.completed_emerging_into_playable_area = 1;
-	self notify(#"completed_emerging_into_playable_area");
+	self notify("completed_emerging_into_playable_area");
 	self.no_powerups = 1;
 	self thread zm_spawner::zombie_free_cam_allowed();
 }
@@ -1026,7 +1026,7 @@ function dug_zombie_complete_emerging_into_playable_area()
 */
 function dug_zombie_rise(spot, func_rise_fx = &zm_spawner::zombie_rise_fx)
 {
-	self endon(#"death");
+	self endon("death");
 	self.in_the_ground = 1;
 	self.no_eye_glow = 1;
 	if(!isdefined(spot.angles))
@@ -1058,12 +1058,12 @@ function dug_zombie_rise(spot, func_rise_fx = &zm_spawner::zombie_rise_fx)
 	}
 	self playsound("zmb_vocals_capzomb_spawn");
 	self function_f356818(spot);
-	self notify(#"rise_anim_finished");
-	spot notify(#"stop_zombie_rise_fx");
+	self notify("rise_anim_finished");
+	spot notify("stop_zombie_rise_fx");
 	self.in_the_ground = 0;
 	self.no_eye_glow = 0;
 	self thread zombie_utility::zombie_eye_glow();
-	self notify(#"risen", spot.script_string);
+	self notify("risen", spot.script_string);
 	self.zombie_think_done = 1;
 	self zm_spawner::zombie_complete_emerging_into_playable_area();
 }
@@ -1079,7 +1079,7 @@ function dug_zombie_rise(spot, func_rise_fx = &zm_spawner::zombie_rise_fx)
 */
 function function_f356818(spot)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_59e307f3");
 	self thread function_4eb9088(2);
 	spot scene::play("scene_zm_dlc5_zombie_traverse_ground_dugup", self);
@@ -1097,7 +1097,7 @@ function function_f356818(spot)
 */
 function function_4eb9088(timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_59e307f3");
 	wait(timeout);
 	self notify(#"hash_59e307f3");
@@ -1141,13 +1141,13 @@ function is_weapon_upgraded_staff(w_weapon)
 */
 function watch_staff_usage()
 {
-	self notify(#"watch_staff_usage");
-	self endon(#"watch_staff_usage");
-	self endon(#"disconnect");
+	self notify("watch_staff_usage");
+	self endon("watch_staff_usage");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_staff_charge", 0);
 	while(true)
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		has_upgraded_staff = 0;
 		has_revive_staff = 0;
 		weapon_is_upgraded_staff = is_weapon_upgraded_staff(weapon);
@@ -1215,7 +1215,7 @@ function function_38af9e8e()
 	self notify(#"hash_38af9e8e");
 	self endon(#"hash_38af9e8e");
 	self endon(#"hash_75edd128");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		ammo = self getammocount(level.var_2b2f83e5);
@@ -1235,10 +1235,10 @@ function function_38af9e8e()
 */
 function staff_charge_watch()
 {
-	self endon(#"disconnect");
-	self endon(#"player_downed");
-	self endon(#"weapon_change");
-	self endon(#"weapon_fired");
+	self endon("disconnect");
+	self endon("player_downed");
+	self endon("weapon_change");
+	self endon("weapon_fired");
 	while(!self attackbuttonpressed())
 	{
 		wait(0.05);
@@ -1266,9 +1266,9 @@ function staff_charge_watch()
 */
 function staff_charge_watch_wrapper(weapon)
 {
-	self notify(#"staff_charge_watch_wrapper");
-	self endon(#"staff_charge_watch_wrapper");
-	self endon(#"disconnect");
+	self notify("staff_charge_watch_wrapper");
+	self endon("staff_charge_watch_wrapper");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_staff_charge", 0);
 	while(is_weapon_upgraded_staff(weapon))
 	{
@@ -1306,7 +1306,7 @@ function door_record_hint()
 */
 function swap_staff_hint()
 {
-	level notify(#"staff_hint");
+	level notify("staff_hint");
 	hud = setting_tutorial_hud();
 	hud settext(&"ZM_TOMB_OSO");
 	level util::waittill_any_timeout(3, "staff_hint");
@@ -1342,8 +1342,8 @@ function door_gramophone_elsewhere_hint()
 function puzzle_debug_position(string_to_show, color, origin, str_dvar, n_show_time)
 {
 	/#
-		self endon(#"death");
-		self endon(#"stop_debug_position");
+		self endon("death");
+		self endon("stop_debug_position");
 		if(!isdefined(string_to_show))
 		{
 			string_to_show = "";
@@ -1394,7 +1394,7 @@ function puzzle_debug_position(string_to_show, color, origin, str_dvar, n_show_t
 */
 function placeholder_puzzle_delete_ent(str_flag_name)
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till(str_flag_name);
 	self delete();
 }
@@ -1410,7 +1410,7 @@ function placeholder_puzzle_delete_ent(str_flag_name)
 */
 function placeholder_puzzle_spin_model()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateyaw(360, 10, 0, 0);
@@ -1531,15 +1531,15 @@ function tomb_spawn_trigger_radius(origin, radius, use_trigger = 0, var_3fe858d9
 */
 function tomb_unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	if(isdefined(self.stub.func_update_msg))
 	{
 		self thread tomb_trigger_update_message(self.stub.func_update_msg);
 	}
 	while(true)
 	{
-		self waittill(#"trigger", player);
-		self.stub notify(#"trigger", player);
+		self waittill("trigger", player);
+		self.stub notify("trigger", player);
 	}
 }
 
@@ -1883,7 +1883,7 @@ function puzzle_orb_move(v_to_pos)
 	}
 	movetime = dist / 300;
 	self moveto(v_to_pos, movetime, 0, 0);
-	self waittill(#"movedone");
+	self waittill("movedone");
 }
 
 /*
@@ -1960,8 +1960,8 @@ function puzzle_orb_follow_return_path(s_start, n_element)
 */
 function puzzle_orb_pillar_show()
 {
-	level notify(#"sky_pillar_reset");
-	level endon(#"sky_pillar_reset");
+	level notify("sky_pillar_reset");
+	level endon("sky_pillar_reset");
 	s_pillar = struct::get("crypt_pillar", "targetname");
 	exploder::exploder("fxexp_333");
 	level thread exploder::stop_after_duration("fxexp_333", 28.5);
@@ -1970,7 +1970,7 @@ function puzzle_orb_pillar_show()
 		s_pillar.e_model delete();
 	}
 	s_pillar.e_model = spawn("script_model", s_pillar.origin);
-	s_pillar.e_model endon(#"death");
+	s_pillar.e_model endon("death");
 	s_pillar.e_model ghost();
 	s_pillar.e_model setmodel("fxuse_sky_pillar_new");
 	s_pillar.e_model clientfield::set("sky_pillar", 1);
@@ -2089,7 +2089,7 @@ function puzzle_orb_chamber_to_crypt(str_start_point, e_gem_pos)
 	s_descend_start = struct::get("orb_crypt_descent_path", "targetname");
 	v_pos_above_gem = s_descend_start.origin + vectorscale((0, 0, 1), 3000);
 	e_model moveto(v_pos_above_gem, 0.05, 0, 0);
-	e_model waittill(#"movedone");
+	e_model waittill("movedone");
 	level flag::wait_till(a_puzzle_flags[1]);
 	e_model show();
 	level thread puzzle_orb_pillar_show();
@@ -2202,7 +2202,7 @@ function capture_zombie_spawn_init(animname_set = 0)
 		self [[zm_utility::get_gamemode_var("post_init_zombie_spawn_func")]]();
 	}
 	self.zombie_init_done = 1;
-	self notify(#"zombie_init_done");
+	self notify("zombie_init_done");
 }
 
 /*
@@ -2366,7 +2366,7 @@ function clean_up_bunker_doors()
 */
 function bunker_door_clean_up()
 {
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self delete();
 }
 
@@ -2504,7 +2504,7 @@ function traversal_blocker()
 */
 function traversal_blocker_disabler()
 {
-	self endon(#"death");
+	self endon("death");
 	pos1 = (-1509, 3912, -168);
 	pos2 = (672, 3720, -179);
 	b_too_close = 0;

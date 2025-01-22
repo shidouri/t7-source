@@ -185,7 +185,7 @@ function update(mod, inflictor, perkfeedback)
 */
 function play_hit_sound(mod, alert)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(self.hitsoundtracker)
 	{
 		self.hitsoundtracker = 0;
@@ -244,7 +244,7 @@ function update_special(hitent)
 */
 function send_hit_special_event_at_frame_end(hitent)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	enemyshit = 0;
 	value = 1;

@@ -80,21 +80,21 @@ function initzipline()
 	zippowertrigger.lever = getent(zippowertrigger.target, "targetname");
 	zippowertrigger sethintstring(&"ZOMBIE_ZIPLINE_ACTIVATE");
 	zippowertrigger setcursorhint("HINT_NOICON");
-	zippowertrigger waittill(#"trigger", who);
+	zippowertrigger waittill("trigger", who);
 	ziphintdeactivated = getent("zipline_deactivated_hint_trigger", "targetname");
 	ziphintdeactivated delete();
 	zippowertrigger thread recallzipswitch(180);
-	zippowertrigger waittill(#"recallleverdone");
+	zippowertrigger waittill("recallleverdone");
 	who thread zm_audio::create_and_play_dialog("level", "zipline");
 	zippowertrigger delete();
 	statictrig thread activatezip(undefined);
-	statictrig waittill(#"zipdone");
+	statictrig waittill("zipdone");
 	zipbuytrigger[0].blocker connectpaths();
 	zipbuytrigger[0].blocker notsolid();
 	zm_utility::play_sound_at_pos("door_rotate_open", zipbuytrigger[0].blocker.origin);
 	zipbuytrigger[0].blocker rotateyaw(80, 1);
 	zipbuytrigger[0].blocker playsound("zmb_wooden_door");
-	zipbuytrigger[0].blocker waittill(#"rotatedone");
+	zipbuytrigger[0].blocker waittill("rotatedone");
 	zipbuytrigger[0].blocker thread objectsolid();
 	waittime = 40;
 	/#
@@ -105,7 +105,7 @@ function initzipline()
 	#/
 	wait(waittime);
 	statictrig thread recallzipswitch(-180);
-	statictrig waittill(#"recallleverdone");
+	statictrig waittill("recallleverdone");
 	array::thread_all(zipbuytrigger, &zipthink);
 }
 
@@ -168,7 +168,7 @@ function zip_line_audio()
 */
 function rope_sounds()
 {
-	level endon(#"machine_off");
+	level endon("machine_off");
 	while(true)
 	{
 		wait(randomfloatrange(0.5, 1.5));
@@ -187,7 +187,7 @@ function rope_sounds()
 */
 function zip_line_stopsound()
 {
-	level waittill(#"machine_off");
+	level waittill("machine_off");
 	self stoploopsound(1);
 	if(isdefined(self.script_label))
 	{
@@ -219,8 +219,8 @@ function recallzipswitch(dir)
 			org playsound("zmb_switch_off");
 		}
 	}
-	self.lever waittill(#"rotatedone");
-	self notify(#"recallleverdone");
+	self.lever waittill("rotatedone");
+	self notify("recallleverdone");
 }
 
 /*
@@ -283,7 +283,7 @@ function function_73a6adde()
 function function_d3655c8e(e_trigger)
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(self istouching(e_trigger))
 	{
 		wait(0.05);
@@ -349,7 +349,7 @@ function zipthink()
 	}
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(who zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -367,7 +367,7 @@ function zipthink()
 						{
 							if(isdefined(zipbuytrigger[i].script_noteworthy) && zipbuytrigger[i].script_noteworthy == "nonstatic")
 							{
-								zipbuytrigger[i] notify(#"stopstringmonitor");
+								zipbuytrigger[i] notify("stopstringmonitor");
 								zipbuytrigger[i] linkto(zipbuytrigger[i].zip);
 								zipbuytrigger[i] sethintstring("");
 								continue;
@@ -381,7 +381,7 @@ function zipthink()
 						if(isdefined(self.script_noteworthy) && self.script_noteworthy == "static")
 						{
 							self thread recallzipswitch(180);
-							self waittill(#"recallleverdone");
+							self waittill("recallleverdone");
 						}
 						who zm_score::minus_to_player_score(self.zombie_cost);
 						if(isdefined(self.script_noteworthy) && self.script_noteworthy == "nonstatic")
@@ -392,7 +392,7 @@ function zipthink()
 						{
 							self thread activatezip(undefined);
 						}
-						self waittill(#"zipdone");
+						self waittill("zipdone");
 						if(isdefined(self.script_noteworthy) && self.script_noteworthy == "nonstatic")
 						{
 							self unlink();
@@ -409,7 +409,7 @@ function zipthink()
 						if(isdefined(self.script_noteworthy) && self.script_noteworthy == "static")
 						{
 							self thread recallzipswitch(-180);
-							self waittill(#"recallleverdone");
+							self waittill("recallleverdone");
 						}
 						for(i = 0; i < zipbuytrigger.size; i++)
 						{
@@ -480,7 +480,7 @@ function triggeroffsumpf()
 */
 function monitorziphint()
 {
-	self endon(#"stopstringmonitor");
+	self endon("stopstringmonitor");
 	while(true)
 	{
 		players = getplayers();
@@ -636,7 +636,7 @@ function activatezip(rider)
 			self.riders[i] thread zm::store_crumb((11216, 2883, -648));
 		}
 		level scene::play("p7_fxanim_zm_sumpf_zipline_down_bundle");
-		level notify(#"machine_done");
+		level notify("machine_done");
 		level.direction = "back";
 	}
 	else
@@ -667,7 +667,7 @@ function activatezip(rider)
 		}
 	}
 	self player_collision_fix();
-	self notify(#"zipdone");
+	self notify("zipdone");
 }
 
 /*
@@ -699,7 +699,7 @@ function zipdamage(parent)
 {
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(parent.zipactive == 1 && isdefined(ent) && isalive(ent))
 		{
 			if(isplayer(ent))
@@ -725,8 +725,8 @@ function zipdamage(parent)
 */
 function playerzipdamage(parent)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	players = getplayers();
 	for(i = 0; i < parent.riders.size; i++)
 	{
@@ -755,7 +755,7 @@ function playerzipdamage(parent)
 */
 function zombiezipdamage()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.isdog)
 	{
 		self.a.nodeath = 1;
@@ -778,7 +778,7 @@ function zombiezipdamage()
 */
 function objectsolid()
 {
-	self endon(#"stopmonitorsolid");
+	self endon("stopmonitorsolid");
 	while(true)
 	{
 		players = getplayers();

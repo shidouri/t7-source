@@ -118,7 +118,7 @@ function function_54ba8dfa()
 */
 function function_79eba3d6(time)
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	wait(time);
 	self disableinvulnerability();
 }
@@ -169,7 +169,7 @@ function function_a67d9d08()
 {
 	while(true)
 	{
-		level waittill(#"save_restore");
+		level waittill("save_restore");
 		music::setmusicstate("death");
 		util::cleanupactorcorpses();
 		level thread lui::screen_fade(1.25, 0, 1, "black", 1);
@@ -179,7 +179,7 @@ function function_a67d9d08()
 			player closemenu(game["menu_start_menu"]);
 			if(player flagsys::get("mobile_armory_in_use"))
 			{
-				player notify(#"menuresponse", "ChooseClass_InGame", "cancel");
+				player notify("menuresponse", "ChooseClass_InGame", "cancel");
 			}
 			player closemenu(game["menu_changeclass"]);
 			player closemenu(game["menu_changeclass_offline"]);
@@ -196,7 +196,7 @@ function function_a67d9d08()
 			}
 			else if(player laststand::player_is_in_laststand())
 			{
-				player notify(#"auto_revive");
+				player notify("auto_revive");
 			}
 			var_a7283d73 = player enableinvulnerability();
 			if(!var_a7283d73)
@@ -593,9 +593,9 @@ function displayteammatedead(dead_teammate)
 */
 function function_c14603ce()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_1528244e");
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self clientfield::set_to_player("killcam_menu", 1);
 	/#
 		printtoprightln("", (1, 0, 1));
@@ -661,10 +661,10 @@ function function_e82a1210()
 */
 function function_44e35f1a()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_1528244e");
 	self endon(#"end_respawn");
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self function_e82a1210();
 	/#
 		printtoprightln("", (1, 0, 1));
@@ -771,7 +771,7 @@ function respawn_spectators_on_objective_change()
 	level flag::wait_till("all_players_spawned");
 	while(true)
 	{
-		level waittill(#"objective_changed");
+		level waittill("objective_changed");
 		foreach(player in level.players)
 		{
 			if(player.sessionstate == "spectator" && globallogic_utils::isvalidclass(player.curclass))
@@ -811,8 +811,8 @@ function spawnedasspectator()
 */
 function function_e9f7384d()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(isdefined(self.currentweapon.isheroweapon) && self.currentweapon.isheroweapon)
 	{
 		return;
@@ -888,12 +888,12 @@ function function_e9f7384d()
 function function_51525e38()
 {
 	self notify(#"hash_dc0f8e82");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_dc0f8e82");
 	var_a151e229 = 0;
 	while(true)
 	{
-		self waittill(#"weapon_change", e_weapon);
+		self waittill("weapon_change", e_weapon);
 		if(isdefined(e_weapon))
 		{
 			if(isdefined(e_weapon.isheroweapon) && e_weapon.isheroweapon)
@@ -929,11 +929,11 @@ function function_51525e38()
 */
 function function_e9b4a63b()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_79135cb3");
 	while(true)
 	{
-		self waittill(#"weapon_fired", e_weapon);
+		self waittill("weapon_fired", e_weapon);
 		if(isdefined(e_weapon.isheroweapon) && e_weapon.isheroweapon)
 		{
 			self.var_9b416318++;

@@ -299,17 +299,17 @@ function anyballsintheair()
 */
 function waitforballtocometorest()
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
+	self endon("reset");
+	self endon("pickup_object");
 	if(isdefined(self.projectile))
 	{
 		if(self.projectile isonground())
 		{
 			return;
 		}
-		self.projectile endon(#"death");
-		self.projectile endon(#"stationary");
-		self.projectile endon(#"grenade_bounce");
+		self.projectile endon("death");
+		self.projectile endon("stationary");
+		self.projectile endon("grenade_bounce");
 		while(true)
 		{
 			wait(1);
@@ -328,10 +328,10 @@ function waitforballtocometorest()
 */
 function freezeplayersforroundend()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self globallogic_player::freezeplayerforroundend();
 	self thread globallogic::roundenddof(4);
-	self waittill(#"spawned");
+	self waittill("spawned");
 	if(self.sessionstate == "playing")
 	{
 		self globallogic_player::freezeplayerforroundend();
@@ -462,8 +462,8 @@ function onspawnplayer(predictedspawn)
 */
 function ballconsistencyswitchthread()
 {
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("death");
+	self endon("delete");
 	player = self;
 	ball = getweapon("ball");
 	while(true)
@@ -1163,7 +1163,7 @@ function can_use_ball(player)
 function chief_mammal_reset()
 {
 	self.isresetting = 1;
-	self notify(#"reset");
+	self notify("reset");
 	origin = self.curorigin;
 	if(isdefined(self.projectile))
 	{
@@ -1289,7 +1289,7 @@ function ball_carrier_cleanup()
 		self.carrier.balldropdelay = undefined;
 		self.carrier.nopickuptime = gettime() + 500;
 		self.carrier player_clear_pass_target();
-		self.carrier notify(#"cancel_update_pass_target");
+		self.carrier notify("cancel_update_pass_target");
 		self.carrier thread armor::unsetlightarmor();
 		if(!self.carrier.hasperksprintfire)
 		{
@@ -1315,7 +1315,7 @@ function ball_set_dropped(skip_physics = 0)
 {
 	self.isresetting = 1;
 	self.droptime = gettime();
-	self notify(#"dropped");
+	self notify("dropped");
 	dropangles = (0, 0, 0);
 	carrier = self.carrier;
 	if(isdefined(carrier) && carrier.team != "spectator")
@@ -1415,7 +1415,7 @@ function reset_ball()
 */
 function upload_ball(goal)
 {
-	self notify(#"score_event");
+	self notify("score_event");
 	self.in_goal = 1;
 	goal.ball_in_goal = 1;
 	if(isdefined(self.projectile))
@@ -1454,7 +1454,7 @@ function upload_ball(goal)
 */
 function download_ball()
 {
-	self endon(#"pickup_object");
+	self endon("pickup_object");
 	self gameobjects::allow_carry("any");
 	self gameobjects::set_owner_team("neutral");
 	self gameobjects::set_flags(2);
@@ -1487,7 +1487,7 @@ function download_ball()
 */
 function carry_think_ball()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread ball_pass_watch();
 	self thread ball_shoot_watch();
 	self thread ball_weapon_change_watch();
@@ -1504,10 +1504,10 @@ function carry_think_ball()
 */
 function ball_pass_watch()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"drop_object");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
+	self endon("drop_object");
 	while(true)
 	{
 		self waittill(#"ball_pass", weapon);
@@ -1555,15 +1555,15 @@ function ball_pass_watch()
 */
 function ball_shoot_watch()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"drop_object");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
+	self endon("drop_object");
 	extra_pitch = getdvarfloat("scr_ball_shoot_extra_pitch", 0);
 	force = getdvarfloat("scr_ball_shoot_force", 900);
 	while(true)
 	{
-		self waittill(#"weapon_fired", weapon);
+		self waittill("weapon_fired", weapon);
 		if(weapon != getweapon("ball"))
 		{
 			continue;
@@ -1594,10 +1594,10 @@ function ball_shoot_watch()
 */
 function ball_weapon_change_watch()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"drop_object");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
+	self endon("drop_object");
 	ballweapon = getweapon("ball");
 	while(true)
 	{
@@ -1605,11 +1605,11 @@ function ball_weapon_change_watch()
 		{
 			break;
 		}
-		self waittill(#"weapon_change");
+		self waittill("weapon_change");
 	}
 	while(true)
 	{
-		self waittill(#"weapon_change", weapon, lastweapon);
+		self waittill("weapon_change", weapon, lastweapon);
 		if(isdefined(weapon) && weapon.gadget_type == 14)
 		{
 			break;
@@ -1677,8 +1677,8 @@ function player_no_pickup_time()
 */
 function watchunderwater(trigger)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self isplayerunderwater())
@@ -1727,28 +1727,28 @@ function ball_physics_launch_drop(force, droppingplayer, switchweapon)
 */
 function ball_check_pass_kill_pickup(carryobj)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	carryobj endon(#"reset");
+	self endon("death");
+	self endon("disconnect");
+	carryobj endon("reset");
 	timer = spawnstruct();
-	timer endon(#"timer_done");
+	timer endon("timer_done");
 	timer thread timer_run(1.5);
-	carryobj waittill(#"pickup_object");
+	carryobj waittill("pickup_object");
 	timer timer_cancel();
 	if(!isdefined(carryobj.carrier) || carryobj.carrier.team == self.team)
 	{
 		return;
 	}
-	carryobj.carrier endon(#"disconnect");
+	carryobj.carrier endon("disconnect");
 	timer thread timer_run(5);
-	carryobj.carrier waittill(#"death", attacker);
+	carryobj.carrier waittill("death", attacker);
 	timer timer_cancel();
 	if(!isdefined(attacker) || attacker != self)
 	{
 		return;
 	}
 	timer thread timer_run(2);
-	carryobj waittill(#"pickup_object");
+	carryobj waittill("pickup_object");
 	timer timer_cancel();
 }
 
@@ -1763,9 +1763,9 @@ function ball_check_pass_kill_pickup(carryobj)
 */
 function timer_run(time)
 {
-	self endon(#"cancel_timer");
+	self endon("cancel_timer");
 	wait(time);
-	self notify(#"timer_done");
+	self notify("timer_done");
 }
 
 /*
@@ -1779,7 +1779,7 @@ function timer_run(time)
 */
 function timer_cancel()
 {
-	self notify(#"cancel_timer");
+	self notify("cancel_timer");
 }
 
 /*
@@ -1794,7 +1794,7 @@ function timer_cancel()
 function adjust_for_stance(ball)
 {
 	target = self;
-	target endon(#"pass_end");
+	target endon("pass_end");
 	offs = 0;
 	while(isdefined(target) && isdefined(ball))
 	{
@@ -1888,7 +1888,7 @@ function ball_pass_projectile(passer, target, last_target_origin)
 */
 function ball_on_projectile_death()
 {
-	self.projectile waittill(#"death");
+	self.projectile waittill("death");
 	ball = self.visuals[0];
 	if(!isdefined(self.carrier) && !self.in_goal)
 	{
@@ -1898,7 +1898,7 @@ function ball_on_projectile_death()
 		}
 	}
 	self ball_restore_contents();
-	ball notify(#"pass_end");
+	ball notify("pass_end");
 }
 
 /*
@@ -1930,10 +1930,10 @@ function ball_restore_contents()
 */
 function ball_on_projectile_hit_client(passer)
 {
-	self endon(#"pass_end");
-	self.projectile waittill(#"projectile_impact_player", player);
-	self.trigger notify(#"trigger", player);
-	self.projectile notify(#"kill_ball_on_projectile_death");
+	self endon("pass_end");
+	self.projectile waittill("projectile_impact_player", player);
+	self.trigger notify("trigger", player);
+	self.projectile notify("kill_ball_on_projectile_death");
 	if(isdefined(passer))
 	{
 		passer recordgameevent("pass");
@@ -1985,8 +1985,8 @@ function ball_create_killcam_ent()
 */
 function ball_pass_or_throw_active()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.pass_or_throw_active = 1;
 	self allowmelee(0);
 	while(getweapon("ball") == self getcurrentweapon())
@@ -2118,8 +2118,8 @@ function ball_physics_launch(force, droppingplayer)
 */
 function ball_check_oob()
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
+	self endon("reset");
+	self endon("pickup_object");
 	visual = self.visuals[0];
 	while(true)
 	{
@@ -2147,13 +2147,13 @@ function ball_check_oob()
 */
 function ball_physics_touch_cant_pickup_player(droppingplayer)
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
+	self endon("reset");
+	self endon("pickup_object");
 	ball = self.visuals[0];
 	trigger = self.trigger;
 	while(true)
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		if(isdefined(droppingplayer) && droppingplayer == player && player player_no_pickup_time())
 		{
 			continue;
@@ -2197,8 +2197,8 @@ function ball_physics_fake_bounce()
 */
 function ball_watch_touch_enemy_goal()
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
+	self endon("reset");
+	self endon("pickup_object");
 	enemygoal = level.ball_goals[util::getotherteam(self.lastcarrierteam)];
 	while(true)
 	{
@@ -2380,11 +2380,11 @@ function ball_check_assist(player, wasdunk)
 */
 function function_6746e980(projectile, timeout)
 {
-	projectile endon(#"stationary");
+	projectile endon("stationary");
 	ret = self util::waittill_any_timeout(timeout, "reset", "pickup_object", "score_event");
 	if(ret != "timeout" && isdefined(projectile))
 	{
-		projectile notify(#"abort_ball_physics");
+		projectile notify("abort_ball_physics");
 	}
 }
 
@@ -2399,9 +2399,9 @@ function function_6746e980(projectile, timeout)
 */
 function ball_physics_timeout()
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
-	self endon(#"score_event");
+	self endon("reset");
+	self endon("pickup_object");
+	self endon("score_event");
 	if(isdefined(self.autoresettime) && self.autoresettime > 15)
 	{
 		physicstime = self.autoresettime;
@@ -2412,7 +2412,7 @@ function ball_physics_timeout()
 	}
 	if(isdefined(self.projectile))
 	{
-		self.projectile endon(#"abort_ball_physics");
+		self.projectile endon("abort_ball_physics");
 		self thread function_6746e980(self.projectile, physicstime);
 		timeoutreason = self.projectile util::waittill_any_timeout(physicstime, "stationary", "abort_ball_physics");
 		if(!isdefined(timeoutreason))
@@ -2441,8 +2441,8 @@ function ball_physics_timeout()
 */
 function ball_physics_out_of_level()
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
+	self endon("reset");
+	self endon("pickup_object");
 	ball = self.visuals[0];
 	self waittill(#"entity_oob");
 	self reset_ball();
@@ -2459,10 +2459,10 @@ function ball_physics_out_of_level()
 */
 function player_update_pass_target(ballobj)
 {
-	self notify(#"update_pass_target");
-	self endon(#"update_pass_target");
-	self endon(#"disconnect");
-	self endon(#"cancel_update_pass_target");
+	self notify("update_pass_target");
+	self endon("update_pass_target");
+	self endon("disconnect");
+	self endon("cancel_update_pass_target");
 	test_dot = 0.8;
 	while(true)
 	{

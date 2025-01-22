@@ -103,7 +103,7 @@ function init_spawn_system()
 */
 function onplayerconnect()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self thread onplayerspawned();
 	self thread onteamchange();
 	self thread ongrenadethrow();
@@ -120,11 +120,11 @@ function onplayerconnect()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	for(;;)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		self airsupport::clearmonitoredspeed();
 		self thread initialspawnprotection();
 		if(isdefined(self.pers["hasRadar"]) && self.pers["hasRadar"])
@@ -147,9 +147,9 @@ function onplayerspawned()
 */
 function ondeath()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self waittill(#"death");
+	self endon("disconnect");
+	level endon("game_ended");
+	self waittill("death");
 	self enable_player_influencers(0);
 	level create_friendly_influencer("friend_dead", self.origin, self.team);
 }
@@ -165,11 +165,11 @@ function ondeath()
 */
 function onteamchange()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"joined_team");
+		self waittill("joined_team");
 		self.lastspawnpoint = undefined;
 		self player_influencers_set_team();
 		wait(0.05);
@@ -187,11 +187,11 @@ function onteamchange()
 */
 function ongrenadethrow()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		level thread create_grenade_influencers(self.pers["team"], weapon, grenade);
 		wait(0.05);
 	}
@@ -504,10 +504,10 @@ function remove_influencers()
 */
 function watch_remove_influencer()
 {
-	self endon(#"death");
-	self notify(#"watch_remove_influencer");
-	self endon(#"watch_remove_influencer");
-	self waittill(#"influencer_removed", index);
+	self endon("death");
+	self notify("watch_remove_influencer");
+	self endon("watch_remove_influencer");
+	self waittill("influencer_removed", index);
 	arrayremovevalue(self.influencers, index);
 	if(isdefined(self.influencersfriendly))
 	{
@@ -1275,8 +1275,8 @@ function codecallback_updatespawnpoints()
 */
 function initialspawnprotection()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self thread airsupport::monitorspeed(level.spawnprotectiontime);
 	if(!isdefined(level.spawnprotectiontime) || level.spawnprotectiontime == 0)
 	{

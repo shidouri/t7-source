@@ -115,10 +115,10 @@ function function_1b2b62b()
 function shadow_zombie_damage_fx()
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		if(randomint(100) < 50)
 		{
 			self clientfield::increment("shadow_zombie_clientfield_damaged_fx");
@@ -139,7 +139,7 @@ function shadow_zombie_damage_fx()
 function function_32a2f099()
 {
 	ai_zombie = self;
-	ai_zombie waittill(#"death", attacker);
+	ai_zombie waittill("death", attacker);
 	if(!isdefined(ai_zombie) || ai_zombie.nuked === 1)
 	{
 		return;
@@ -227,7 +227,7 @@ function private function_48fccb59(var_7478a6b4 = undefined)
 	}
 	while(isdefined(self))
 	{
-		self.trigger waittill(#"trigger", guy);
+		self.trigger waittill("trigger", guy);
 		if(isdefined(self))
 		{
 			playfx(level._effect["cursetrap_explosion"], self.origin);

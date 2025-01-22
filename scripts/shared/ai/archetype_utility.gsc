@@ -2990,7 +2990,7 @@ function private stealthreactterminate(behaviortreeentity)
 */
 function private stealthidleterminate(behaviortreeentity)
 {
-	behaviortreeentity notify(#"stealthidleterminate");
+	behaviortreeentity notify("stealthidleterminate");
 	if(isdefined(behaviortreeentity.stealth_resume_after_idle) && behaviortreeentity.stealth_resume_after_idle)
 	{
 		behaviortreeentity.stealth_resume_after_idle = undefined;
@@ -3725,7 +3725,7 @@ function forceragdoll(entity)
 */
 function preshootlaserandglinton(ai)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(ai.laserstatus))
 	{
 		ai.laserstatus = 0;
@@ -3733,7 +3733,7 @@ function preshootlaserandglinton(ai)
 	sniper_glint = "lensflares/fx_lensflare_sniper_glint";
 	while(true)
 	{
-		self waittill(#"about_to_fire");
+		self waittill("about_to_fire");
 		if(ai.laserstatus !== 1)
 		{
 			ai laseron();
@@ -3769,10 +3769,10 @@ function preshootlaserandglinton(ai)
 */
 function postshootlaserandglintoff(ai)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"stopped_firing");
+		self waittill("stopped_firing");
 		if(ai.laserstatus === 1)
 		{
 			ai laseroff();

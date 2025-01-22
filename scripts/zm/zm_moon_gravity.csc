@@ -25,7 +25,7 @@ function init()
 */
 function zombie_low_gravity(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	if(newval)
 	{
@@ -48,7 +48,7 @@ function zombie_low_gravity(localclientnum, oldval, newval, bnewent, binitialsna
 */
 function function_20286238(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	if(newval)
 	{

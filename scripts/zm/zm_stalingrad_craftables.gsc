@@ -228,7 +228,7 @@ function function_f5b7f61a()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -272,7 +272,7 @@ function function_d7eb8f21()
 {
 	while(true)
 	{
-		level waittill(#"shield_built", e_who);
+		level waittill("shield_built", e_who);
 		if(e_who.characterindex == 0)
 		{
 			var_4c5a66ad = 4;

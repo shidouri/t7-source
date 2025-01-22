@@ -73,6 +73,6 @@ function packapunch_hack(hacker)
 {
 	zm_equip_hacker::deregister_hackable_struct(level._pack_hack_struct);
 	level._pack_hack_struct.script_int = 0;
-	level notify(#"packapunch_hacked");
+	level notify("packapunch_hacked");
 }
 

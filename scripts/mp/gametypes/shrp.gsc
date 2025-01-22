@@ -410,7 +410,7 @@ function guncyclewaiter(nextguncycletime, waittime)
 	level.shrprandomweapon = getweapon(getrandomweaponnamefromprogression());
 	for(i = 0; i < level.players.size; i++)
 	{
-		level.players[i] notify(#"remove_planted_weapons");
+		level.players[i] notify("remove_planted_weapons");
 		level.players[i] givecustomloadout(0, 1);
 	}
 	return continuecycling;
@@ -427,14 +427,14 @@ function guncyclewaiter(nextguncycletime, waittime)
 */
 function chooserandomguns()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level thread awardmostpointsmedalgameend();
 	waittime = level.shrpweapontimer;
 	lightningwaittime = 15;
 	level.shrprandomweapon = getweapon(getrandomweaponnamefromprogression());
 	if(level.inprematchperiod)
 	{
-		level waittill(#"prematch_over");
+		level waittill("prematch_over");
 	}
 	guncycle = 1;
 	numguncycles = int(((level.timelimit * 60) / waittime) + 0.5);
@@ -528,7 +528,7 @@ function checkawardmostpointsthiscycle()
 */
 function awardmostpointsmedalgameend()
 {
-	level waittill(#"game_end");
+	level waittill("game_end");
 	for(i = 0; i < level.players.size; i++)
 	{
 		level.players[i] checkawardmostpointsthiscycle();
@@ -582,11 +582,11 @@ function givecustomloadout(takeallweapons, alreadyspawned)
 */
 function takeoldweapons()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(newweapon != level.weaponnone)
 		{
 			break;
@@ -743,8 +743,8 @@ function onspawnplayer(predictedspawn)
 */
 function infiniteammo()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	for(;;)
 	{
 		wait(0.1);
@@ -795,7 +795,7 @@ function onwagerawards()
 */
 function clearpowerupsongameend()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	for(i = 0; i < level.players.size; i++)
 	{
 		player = level.players[i];

@@ -908,7 +908,7 @@ function private margwateleportoutterminate(entity)
 */
 function private margwapainstart(entity)
 {
-	entity notify(#"stop_head_update");
+	entity notify("stop_head_update");
 	if(entity margwaserverutils::shouldupdatejaw())
 	{
 		head = blackboard::getblackboardattribute(self, "_margwa_head");
@@ -1058,7 +1058,7 @@ function private margwareactswordstart(entity)
 	entity.canstun = 0;
 	if(isdefined(entity.head_chopper))
 	{
-		entity.head_chopper notify(#"react_sword");
+		entity.head_chopper notify("react_sword");
 	}
 }
 
@@ -1259,10 +1259,10 @@ function private margwaspawnsetup()
 */
 function private margwadeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self.e_head_attacker))
 	{
-		self.e_head_attacker notify(#"margwa_kill");
+		self.e_head_attacker notify("margwa_kill");
 	}
 	if(isdefined(self.traveler))
 	{
@@ -1472,10 +1472,10 @@ function private margwaheadcanopen()
 */
 function private margwaheadupdate(headinfo)
 {
-	self endon(#"death");
-	self endon(#"stop_head_update");
-	headinfo notify(#"stop_head_update");
-	headinfo endon(#"stop_head_update");
+	self endon("death");
+	self endon("stop_head_update");
+	headinfo notify("stop_head_update");
+	headinfo endon("stop_head_update");
 	while(true)
 	{
 		if(self ispaused())
@@ -1541,7 +1541,7 @@ function private margwaheadupdate(headinfo)
 */
 function private margwaheaddamagedelay(headinfo, candamage)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	headinfo.candamage = candamage;
 }
@@ -1557,7 +1557,7 @@ function private margwaheaddamagedelay(headinfo, candamage)
 */
 function private margwaheadsmash()
 {
-	self notify(#"stop_head_update");
+	self notify("stop_head_update");
 	headalive = [];
 	foreach(head in self.head)
 	{
@@ -1641,7 +1641,7 @@ function margwakillhead(modelhit, attacker)
 {
 	headinfo = self.head[modelhit];
 	headinfo.health = 0;
-	headinfo notify(#"stop_head_update");
+	headinfo notify("stop_head_update");
 	if(isdefined(headinfo.candamage) && headinfo.candamage)
 	{
 		self margwaclosehead(headinfo);
@@ -1853,7 +1853,7 @@ function margwadamage(inflictor, attacker, damage, dflags, mod, weapon, point, d
 				}
 				if(isdefined(attacker))
 				{
-					attacker notify(#"margwa_headshot", self);
+					attacker notify("margwa_headshot", self);
 				}
 				headinfo.health = headinfo.health - damage;
 				damageopen = 1;
@@ -2018,7 +2018,7 @@ function margwasetgoal(origin, radius, boundarydist)
 */
 function private margwawait()
 {
-	self endon(#"death");
+	self endon("death");
 	self.waiting = 1;
 	self.needteleportin = 1;
 	destpos = self.teleportpos + vectorscale((0, 0, 1), 60);
@@ -2057,7 +2057,7 @@ function private margwawait()
 */
 function margwatell()
 {
-	self endon(#"death");
+	self endon("death");
 	self.travelertell.origin = self.teleportpos;
 	util::wait_network_frame();
 	self.travelertell clientfield::set("margwa_fx_travel_tell", 1);

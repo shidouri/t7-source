@@ -75,12 +75,12 @@ function localplayer_spawned(localclientnum)
 */
 function watch_for_thunderguns(localclientnum)
 {
-	self endon(#"disconnect");
-	self notify(#"watch_for_thunderguns");
-	self endon(#"watch_for_thunderguns");
+	self endon("disconnect");
+	self notify("watch_for_thunderguns");
+	self endon("watch_for_thunderguns");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", w_new_weapon, w_old_weapon);
+		self waittill("weapon_change", w_new_weapon, w_old_weapon);
 		if(w_new_weapon == level.weaponzmthundergun || w_new_weapon == level.weaponzmthundergunupgraded)
 		{
 			self thread thundergun_fx_power_cell(localclientnum, w_new_weapon);
@@ -99,8 +99,8 @@ function watch_for_thunderguns(localclientnum)
 */
 function thundergun_fx_power_cell(localclientnum, w_weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"weapon_change");
+	self endon("disconnect");
+	self endon("weapon_change");
 	self endon(#"entityshutdown");
 	n_old_ammo = -1;
 	n_shader_val = 0;

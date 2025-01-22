@@ -62,11 +62,11 @@ function player_on_spawned(localclientnum)
 */
 function watch_weapon_changes(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		if(weapon.isriotshield)
 		{
 			self thread lock_weapon_models(localclientnum, weapon);

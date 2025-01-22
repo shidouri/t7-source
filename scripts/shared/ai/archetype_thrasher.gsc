@@ -864,7 +864,7 @@ function thrasherdamagecallback(inflictor, attacker, damage, dflags, mod, weapon
 		{
 			if(isdefined(attacker))
 			{
-				attacker notify(#"destroyed_thrasher_head");
+				attacker notify("destroyed_thrasher_head");
 			}
 			gibserverutils::gibhead(entity);
 			thrasherhidepoppedpustules(entity);
@@ -879,7 +879,7 @@ function thrasherdamagecallback(inflictor, attacker, damage, dflags, mod, weapon
 			entity ai::set_behavior_attribute("stunned", 1);
 			if(isdefined(attacker))
 			{
-				attacker notify(#"player_stunned_thrasher");
+				attacker notify("player_stunned_thrasher");
 			}
 		}
 	}
@@ -889,7 +889,7 @@ function thrasherdamagecallback(inflictor, attacker, damage, dflags, mod, weapon
 		thrashergoberserk(entity);
 		if(isdefined(attacker))
 		{
-			attacker notify(#"player_enraged_thrasher");
+			attacker notify("player_enraged_thrasher");
 		}
 	}
 	if(isdefined(entity.b_thrasher_temp_invulnerable) && entity.b_thrasher_temp_invulnerable)
@@ -912,7 +912,7 @@ function thrasherdamagecallback(inflictor, attacker, damage, dflags, mod, weapon
 function private thrasherinvulnerability(n_time)
 {
 	entity = self;
-	entity endon(#"death");
+	entity endon("death");
 	entity notify(#"end_invulnerability");
 	entity.b_thrasher_temp_invulnerable = 1;
 	entity util::waittill_notify_or_timeout("end_invulnerability", n_time);
@@ -1273,8 +1273,8 @@ function thrashercreateplayerclone(player)
 */
 function thrasherhideplayerbody(thrasher, player)
 {
-	player endon(#"death");
-	player waittill(#"hide_body");
+	player endon("death");
+	player waittill("hide_body");
 	player hide();
 }
 
@@ -1307,8 +1307,8 @@ function thrashercanberevived(revivee)
 */
 function private thrasherstopconsumeplayerscene(thrasher, playerclone)
 {
-	thrasher endon(#"consume_scene_end");
-	thrasher waittill(#"death");
+	thrasher endon("consume_scene_end");
+	thrasher waittill("death");
 	if(isdefined(thrasher))
 	{
 		thrasher scene::stop("scene_zm_dlc2_thrasher_eat_player");
@@ -1330,10 +1330,10 @@ function private thrasherstopconsumeplayerscene(thrasher, playerclone)
 */
 function private thrasherconsumeplayerscene(thrasher, playerclone)
 {
-	thrasher endon(#"death");
+	thrasher endon("death");
 	thrasher thread thrasherstopconsumeplayerscene(thrasher, playerclone);
 	thrasher scene::play("scene_zm_dlc2_thrasher_eat_player", array(thrasher, playerclone));
-	thrasher notify(#"consume_scene_end");
+	thrasher notify("consume_scene_end");
 	targetpos = getclosestpointonnavmesh(thrasher.origin, 1024, 18);
 	if(isdefined(targetpos))
 	{
@@ -1361,7 +1361,7 @@ function thrasherconsumeplayerutil(thrasher, player)
 	/#
 		assert(isplayer(player));
 	#/
-	thrasher endon(#"kill_consume_player");
+	thrasher endon("kill_consume_player");
 	if(isdefined(player.thrasherconsumed) && player.thrasherconsumed)
 	{
 		return;
@@ -1415,9 +1415,9 @@ function thrasherconsumeplayerutil(thrasher, player)
 	{
 		thrasher thread thrasherconsumeplayerscene(thrasher, playerclone);
 		playerclone thread thrasherhideplayerbody(thrasher, playerclone);
-		player notify(#"player_eaten_by_thrasher");
+		player notify("player_eaten_by_thrasher");
 	}
-	thrasher waittill(#"death");
+	thrasher waittill("death");
 	thrasherreleaseplayer(thrasher, player);
 }
 
@@ -1432,8 +1432,8 @@ function thrasherconsumeplayerutil(thrasher, player)
 */
 function thrasherkillthrasheronautorevive(thrasher, player)
 {
-	player endon(#"death");
-	player endon(#"kill_thrasher_on_auto_revive");
+	player endon("death");
+	player endon("kill_thrasher_on_auto_revive");
 	player waittill(#"bgb_revive");
 	if(isdefined(player.thrasher))
 	{
@@ -1475,7 +1475,7 @@ function thrasherreleaseplayer(thrasher, player)
 	player setclientuivisibilityflag("weapon_hud_visible", 1);
 	player.thrasherfreedtime = gettime();
 	player setstance("prone");
-	player notify(#"kill_thrasher_on_auto_revive");
+	player notify("kill_thrasher_on_auto_revive");
 	player.thrasherconsumed = undefined;
 	player.thrasher = undefined;
 	player walkunderwater(0);
@@ -1519,7 +1519,7 @@ function thrasherreleaseplayer(thrasher, player)
 			player.origin = newposition;
 		}
 	}
-	thrasher notify(#"kill_consume_player");
+	thrasher notify("kill_consume_player");
 }
 
 /*
@@ -1533,9 +1533,9 @@ function thrasherreleaseplayer(thrasher, player)
 */
 function check_revive_after_consumed()
 {
-	self endon(#"death");
-	self waittill(#"player_revived");
-	self notify(#"achievement_zm_island_thrasher_rescue");
+	self endon("death");
+	self waittill("player_revived");
+	self notify("achievement_zm_island_thrasher_rescue");
 }
 
 /*
@@ -1549,7 +1549,7 @@ function check_revive_after_consumed()
 */
 function thrasherplayerdeath(thrasher, player)
 {
-	thrasher endon(#"kill_consume_player");
+	thrasher endon("kill_consume_player");
 	thrasher.thrasherplayer = undefined;
 	characterindex = player.characterindex;
 	if(!isdefined(characterindex))

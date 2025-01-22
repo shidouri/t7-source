@@ -204,10 +204,10 @@ function gettargeteyeoffset(target)
 */
 function fire_for_time(totalfiretime, turretidx = 0, target, intervalscale = 1)
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self notify(#"fire_stop");
-	self endon(#"fire_stop");
+	self endon("death");
+	self endon("change_state");
+	self notify("fire_stop");
+	self endon("fire_stop");
 	weapon = self seatgetweapon(turretidx);
 	/#
 		assert(isdefined(weapon) && weapon.name != "" && weapon.firetime > 0);
@@ -228,9 +228,9 @@ function fire_for_time(totalfiretime, turretidx = 0, target, intervalscale = 1)
 */
 function fire_for_rounds(firecount, turretidx, target)
 {
-	self endon(#"death");
-	self endon(#"fire_stop");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("fire_stop");
+	self endon("change_state");
 	if(!isdefined(turretidx))
 	{
 		turretidx = 0;
@@ -253,12 +253,12 @@ function fire_for_rounds(firecount, turretidx, target)
 */
 function __fire_for_rounds_internal(firecount, fireinterval, turretidx, target)
 {
-	self endon(#"death");
-	self endon(#"fire_stop");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("fire_stop");
+	self endon("change_state");
 	if(isdefined(target) && issentient(target))
 	{
-		target endon(#"death");
+		target endon("death");
 	}
 	/#
 		assert(isdefined(turretidx));
@@ -389,13 +389,13 @@ function fireturret(turretidx, isfake)
 */
 function javelin_losetargetatrighttime(target)
 {
-	self endon(#"death");
-	self waittill(#"weapon_fired", proj);
+	self endon("death");
+	self waittill("weapon_fired", proj);
 	if(!isdefined(proj))
 	{
 		return;
 	}
-	proj endon(#"death");
+	proj endon("death");
 	wait(2);
 	while(isdefined(target))
 	{
@@ -419,7 +419,7 @@ function javelin_losetargetatrighttime(target)
 */
 function waittill_pathing_done(maxtime = 15)
 {
-	self endon(#"change_state");
+	self endon("change_state");
 	self util::waittill_any_ex(maxtime, "near_goal", "force_goal", "reached_end_node", "goal", "pathfind_failed", "change_state");
 }
 
@@ -434,7 +434,7 @@ function waittill_pathing_done(maxtime = 15)
 */
 function waittill_pathresult(maxtime = 0.5)
 {
-	self endon(#"change_state");
+	self endon("change_state");
 	result = self util::waittill_any_timeout(maxtime, "pathfind_failed", "pathfind_succeeded", "change_state");
 	succeeded = result === "pathfind_succeeded";
 	return succeeded;
@@ -451,11 +451,11 @@ function waittill_pathresult(maxtime = 0.5)
 */
 function waittill_asm_terminated()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"end_asm_terminated_thread");
 	self endon(#"end_asm_terminated_thread");
-	self waittill(#"asm_terminated");
-	self notify(#"asm_complete", "__terminated__");
+	self waittill("asm_terminated");
+	self notify("asm_complete", "__terminated__");
 }
 
 /*
@@ -469,11 +469,11 @@ function waittill_asm_terminated()
 */
 function waittill_asm_timeout(timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"end_asm_timeout_thread");
 	self endon(#"end_asm_timeout_thread");
 	wait(timeout);
-	self notify(#"asm_complete", "__timeout__");
+	self notify("asm_complete", "__timeout__");
 }
 
 /*
@@ -487,13 +487,13 @@ function waittill_asm_timeout(timeout)
 */
 function waittill_asm_complete(substate_to_wait, timeout = 10)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread waittill_asm_terminated();
 	self thread waittill_asm_timeout(timeout);
 	substate = undefined;
 	while(!isdefined(substate) || (substate != substate_to_wait && substate != "__terminated__" && substate != "__timeout__"))
 	{
-		self waittill(#"asm_complete", substate);
+		self waittill("asm_complete", substate);
 	}
 	self notify(#"end_asm_terminated_thread");
 	self notify(#"end_asm_timeout_thread");
@@ -538,14 +538,14 @@ function throw_off_balance(damagetype, hitpoint, hitdirection, hitlocationinfo)
 */
 function predicted_collision()
 {
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"veh_predictedcollision", velocity, normal);
+		self waittill("veh_predictedcollision", velocity, normal);
 		if(normal[2] >= 0.6)
 		{
-			self notify(#"veh_collision", velocity, normal);
+			self notify("veh_collision", velocity, normal);
 		}
 	}
 }
@@ -577,9 +577,9 @@ function collision_fx(normal)
 */
 function nudge_collision()
 {
-	self endon(#"crash_done");
-	self endon(#"power_off_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("power_off_done");
+	self endon("death");
 	self notify(#"end_nudge_collision");
 	self endon(#"end_nudge_collision");
 	if(self.notsolid === 1)
@@ -588,7 +588,7 @@ function nudge_collision()
 	}
 	while(true)
 	{
-		self waittill(#"veh_collision", velocity, normal);
+		self waittill("veh_collision", velocity, normal);
 		ang_vel = self getangularvelocity() * 0.5;
 		self setangularvelocity(ang_vel);
 		empedoroff = self get_current_state() === "emped" || self get_current_state() === "off";
@@ -610,7 +610,7 @@ function nudge_collision()
 					pitch = math::sign(pitch) * math::clamp(abs(pitch), 10, 15);
 					self.angles = (pitch, self.angles[1], self.angles[2]);
 					self.bounced = undefined;
-					self notify(#"landed");
+					self notify("landed");
 					return;
 				}
 				self.bounced = 1;
@@ -629,7 +629,7 @@ function nudge_collision()
 				{
 					self playsound("veh_wasp_ground_death");
 					self thread vehicle_death::death_fire_loop_audio();
-					self notify(#"crash_done");
+					self notify("crash_done");
 				}
 			}
 		}
@@ -647,9 +647,9 @@ function nudge_collision()
 */
 function level_out_for_landing()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"landed");
+	self endon("death");
+	self endon("change_state");
+	self endon("landed");
 	while(true)
 	{
 		velocity = self.velocity;
@@ -672,7 +672,7 @@ function level_out_for_landing()
 */
 function immolate(attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread burning_thread(attacker, attacker);
 }
 
@@ -687,7 +687,7 @@ function immolate(attacker)
 */
 function burning_thread(attacker, inflictor)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"end_immolating_thread");
 	self endon(#"end_immolating_thread");
 	damagepersecond = self.settings.burn_damagepersecond;
@@ -739,7 +739,7 @@ function burning_thread(attacker, inflictor)
 */
 function iff_notifymeinnsec(time, note)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self notify(note);
 }
@@ -755,7 +755,7 @@ function iff_notifymeinnsec(time, note)
 */
 function iff_override(owner, time = 60)
 {
-	self endon(#"death");
+	self endon("death");
 	self._iffoverride_oldteam = self.team;
 	self iff_override_team_switch_behavior(owner.team);
 	if(isdefined(self.iff_override_cb))
@@ -774,7 +774,7 @@ function iff_override(owner, time = 60)
 	msg = self util::waittill_any_timeout(timeout, "iff_override_reverted", "death");
 	if(msg == "timeout")
 	{
-		self notify(#"iff_override_reverted");
+		self notify("iff_override_reverted");
 	}
 	self playsound("gdt_iff_deactivate");
 	self iff_override_team_switch_behavior(self._iffoverride_oldteam);
@@ -795,7 +795,7 @@ function iff_override(owner, time = 60)
 */
 function iff_override_team_switch_behavior(team)
 {
-	self endon(#"death");
+	self endon("death");
 	old_ignoreme = self.ignoreme;
 	self.ignoreme = 1;
 	self start_scripted();
@@ -820,7 +820,7 @@ function iff_override_team_switch_behavior(team)
 */
 function blink_lights_for_time(time)
 {
-	self endon(#"death");
+	self endon("death");
 	starttime = gettime();
 	self vehicle::lights_off();
 	wait(0.1);
@@ -845,7 +845,7 @@ function blink_lights_for_time(time)
 */
 function turnoff()
 {
-	self notify(#"shut_off");
+	self notify("shut_off");
 }
 
 /*
@@ -859,7 +859,7 @@ function turnoff()
 */
 function turnon()
 {
-	self notify(#"start_up");
+	self notify("start_up");
 }
 
 /*
@@ -938,7 +938,7 @@ function clearallmovement(zerooutspeed = 0)
 	self pathfixedoffsetclear();
 	if(zerooutspeed === 1)
 	{
-		self notify(#"landed");
+		self notify("landed");
 		self setvehvelocity((0, 0, 0));
 		self setphysacceleration((0, 0, 0));
 		self setangularvelocity((0, 0, 0));
@@ -981,7 +981,7 @@ function shared_callback_damage(einflictor, eattacker, idamage, idflags, smeanso
 		self.damagelevel = self.newdamagelevel;
 		if(self.pain_when_damagelevel_change === 1)
 		{
-			self notify(#"pain");
+			self notify("pain");
 		}
 		vehicle::set_damage_fx_level(self.damagelevel);
 	}
@@ -1476,7 +1476,7 @@ function callback_vehiclekilled(einflictor, eattacker, idamage, smeansofdeath, w
 function on_death_cleanup()
 {
 	state_machines = self.state_machines;
-	self waittill(#"free_vehicle");
+	self waittill("free_vehicle");
 	foreach(statemachine in state_machines)
 	{
 		statemachine statemachine::clear();
@@ -1560,7 +1560,7 @@ function emp_death_fx()
 */
 function death_radius_damage_special(radiusscale, meansofdamage)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self) || self.abandoned === 1 || self.damage_on_death === 0 || self.radiusdamageradius <= 0)
 	{
 		return;
@@ -1587,7 +1587,7 @@ function death_radius_damage_special(radiusscale, meansofdamage)
 */
 function burning_death(params)
 {
-	self endon(#"death");
+	self endon("death");
 	self burning_death_fx();
 	self.skipfriendlyfirecheck = 1;
 	self thread death_radius_damage_special(2, "MOD_BURNED");
@@ -1607,7 +1607,7 @@ function burning_death(params)
 */
 function emped_death(params)
 {
-	self endon(#"death");
+	self endon("death");
 	self emp_death_fx();
 	self.skipfriendlyfirecheck = 1;
 	self thread death_radius_damage_special(2, "MOD_ELECTROCUTED");
@@ -1627,7 +1627,7 @@ function emped_death(params)
 */
 function gibbed_death(params)
 {
-	self endon(#"death");
+	self endon("death");
 	self vehicle_death::death_fx();
 	self thread vehicle_death::death_radius_damage();
 	self vehicle_death::set_death_model(self.deathmodel, self.modelswapdelay);
@@ -1646,7 +1646,7 @@ function gibbed_death(params)
 */
 function default_death(params)
 {
-	self endon(#"death");
+	self endon("death");
 	self vehicle_death::death_fx();
 	self thread vehicle_death::death_radius_damage();
 	self vehicle_death::set_death_model(self.deathmodel, self.modelswapdelay);
@@ -1709,7 +1709,7 @@ function get_death_type(params)
 */
 function defaultstate_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(level.vehicle_destructer_cb))
 	{
 		[[level.vehicle_destructer_cb]](self);
@@ -1876,8 +1876,8 @@ function emp_startup_fx()
 */
 function defaultstate_emped_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	time = params.notify_param[0];
 	/#
 		assert(isdefined(time));
@@ -1973,8 +1973,8 @@ function defaultstate_surge_exit(params)
 */
 function defaultstate_surge_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	if(!isdefined(self.abnormal_status))
 	{
 		self.abnormal_status = spawnstruct();
@@ -2044,10 +2044,10 @@ function defaultstate_surge_update(params)
 */
 function path_update_interrupt(closest, attacker)
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
 	wait(0.1);
 	while(!self try_detonate(closest, attacker))
 	{
@@ -2056,7 +2056,7 @@ function path_update_interrupt(closest, attacker)
 			if(distance2dsquared(self.current_pathto_pos, self.goalpos) > (self.goalradius * self.goalradius))
 			{
 				wait(0.5);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.1);
@@ -2074,8 +2074,8 @@ function path_update_interrupt(closest, attacker)
 */
 function swap_team_after_time(attacker)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	wait(0.25 * self.settings.surgetimetolive);
 	self setteam(attacker.team);
 }
@@ -2132,8 +2132,8 @@ function detonate(attacker)
 */
 function flash_team_switching_lights()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	while(true)
 	{
 		self vehicle::lights_off();
@@ -3073,10 +3073,10 @@ function updatepersonalthreatbias_bots(var_9f84050f, var_1e08b2fd)
 */
 function target_hijackers()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"ccom_lock_being_targeted", hijackingplayer);
+		self waittill("ccom_lock_being_targeted", hijackingplayer);
 		self getperfectinfo(hijackingplayer, 1);
 		if(isplayer(hijackingplayer))
 		{

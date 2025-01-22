@@ -53,7 +53,7 @@ function __init__()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread watch_staff_revive_fired();
 }
 
@@ -68,15 +68,15 @@ function onplayerspawned()
 */
 function watch_staff_revive_fired()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"missile_fire", e_projectile, str_weapon);
+		self waittill("missile_fire", e_projectile, str_weapon);
 		if(!str_weapon.name == "staff_revive")
 		{
 			continue;
 		}
-		self waittill(#"projectile_impact", e_ent, v_explode_point, n_radius, str_name, n_impact);
+		self waittill("projectile_impact", e_ent, v_explode_point, n_radius, str_name, n_impact);
 		self thread staff_revive_impact(v_explode_point);
 	}
 }
@@ -92,7 +92,7 @@ function watch_staff_revive_fired()
 */
 function staff_revive_impact(v_explode_point)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	e_closest_player = undefined;
 	n_closest_dist_sq = 1024;
 	playsoundatposition("wpn_revivestaff_proj_impact", v_explode_point);
@@ -111,9 +111,9 @@ function staff_revive_impact(v_explode_point)
 	}
 	if(isdefined(e_closest_player))
 	{
-		e_closest_player notify(#"remote_revive", self);
+		e_closest_player notify("remote_revive", self);
 		e_closest_player playsoundtoplayer("wpn_revivestaff_revive_plr", e_player);
-		self notify(#"revived_player_with_upgraded_staff");
+		self notify("revived_player_with_upgraded_staff");
 	}
 }
 

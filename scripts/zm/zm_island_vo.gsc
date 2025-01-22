@@ -239,9 +239,9 @@ function function_cf8fccfe(var_eca8128e)
 */
 function function_7b697614(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"stop_vo_convo");
+	self endon("death");
+	self endon("disconnect");
+	self endon("stop_vo_convo");
 	if(isdefined(self.var_e1f8edd6) && self.var_e1f8edd6)
 	{
 		return false;
@@ -340,7 +340,7 @@ function vo_clear()
 */
 function function_502f946b()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.str_vo_being_spoken) && self.str_vo_being_spoken != "")
 	{
 		self stopsound(self.str_vo_being_spoken);
@@ -646,7 +646,7 @@ function function_772aa229()
 	self endon(#"_zombie_game_over");
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(function_70e6e39e() == 0)
 		{
 			if(level.activeplayers.size == 1)
@@ -1103,14 +1103,14 @@ function function_7fc6d0cd(a_str_zones, var_7a4c869a, var_87fad49a, var_142db61a
 */
 function function_35fd7118(a_str_zones, var_7a4c869a, var_87fad49a, var_142db61a = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_56cd6f57");
 	level flag::wait_till_any(var_7a4c869a);
 	t_pap_lookat = getent("t_pap_lookat", "targetname");
 	var_b24c0d65 = undefined;
 	while(!zm_utility::is_player_valid(var_b24c0d65))
 	{
-		t_pap_lookat waittill(#"trigger", var_b24c0d65);
+		t_pap_lookat waittill("trigger", var_b24c0d65);
 		if(zm_utility::is_player_valid(var_b24c0d65))
 		{
 			foreach(player in level.activeplayers)
@@ -1144,12 +1144,12 @@ function function_35fd7118(a_str_zones, var_7a4c869a, var_87fad49a, var_142db61a
 */
 function function_5ebe7974(var_87fad49a, var_142db61a)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_player_valid(self))
 	{
 		while(isdefined(self.var_7a36438e) && self.var_7a36438e)
 		{
-			self waittill(#"sewer_over");
+			self waittill("sewer_over");
 			wait(3);
 		}
 		var_e1bda0d1 = ((("vox_plr_" + self.characterindex) + "_") + var_87fad49a) + "_encounter_0";
@@ -1184,7 +1184,7 @@ function function_5ebe7974(var_87fad49a, var_142db61a)
 */
 function function_d258c672(var_a907ca47)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_player_valid(self))
 	{
 		var_7c01b3a = ((("vox_plr_" + 2) + "_mq_ee_") + var_a907ca47) + "_response_0_0";
@@ -1212,7 +1212,7 @@ function function_d258c672(var_a907ca47)
 */
 function function_6fc10b64()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(1.5);
 	if(zm_utility::is_player_valid(self))
 	{
@@ -1424,7 +1424,7 @@ function function_c426b455()
 */
 function function_5943b45()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_cbca0f35");
 	var_e8356f9e = 2560000;
 	var_90d45ead = 0;
@@ -1650,7 +1650,7 @@ function function_b978ce37(e_attacker)
 {
 	if(self.archetype === "thrasher" && zm_utility::is_player_valid(e_attacker) && !level flag::get("takeofight_wave_spawning"))
 	{
-		e_attacker notify(#"player_killed_thrasher");
+		e_attacker notify("player_killed_thrasher");
 	}
 }
 
@@ -1666,7 +1666,7 @@ function function_b978ce37(e_attacker)
 function function_1e767f71(e_target, n_min_dist = 600, var_79d0b667, var_b03cc213, var_a099ce87 = 1, var_ac3beede = 0, n_duration = 0)
 {
 	e_target endon(#"hash_9ed7f404");
-	e_target endon(#"death");
+	e_target endon("death");
 	while(true)
 	{
 		var_45edf029 = arraysortclosest(level.players, e_target.origin);
@@ -1733,7 +1733,7 @@ function function_65f8953a(str_event, var_79d0b667, var_b03cc213, var_a099ce87 =
 */
 function function_81d644a1()
 {
-	self endon(#"death");
+	self endon("death");
 	array::add(self.var_bac3b790, "death");
 	array::add(self.var_bac3b790, "disconnect");
 	while(true)
@@ -1787,7 +1787,7 @@ function function_c261e8aa()
 */
 function function_1881817(var_79d0b667, var_b03cc213, var_a099ce87 = 10, var_32802234 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	var_4aa3754 = 0;
 	if(zm_utility::is_player_valid(self) && (!(isdefined(self.var_e1f8edd6) && self.var_e1f8edd6)))
 	{
@@ -1825,7 +1825,7 @@ function function_1881817(var_79d0b667, var_b03cc213, var_a099ce87 = 10, var_328
 */
 function function_ecc335b6(var_346d981, var_a099ce87)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(var_a099ce87);
 	self flag::clear(var_346d981);
 }

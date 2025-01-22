@@ -174,15 +174,15 @@ function dog_spawner_init()
 */
 function dog_round_spawning()
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	level endon(#"end_of_round");
-	level endon(#"restart_round");
+	level endon("restart_round");
 	level.dog_targets = getplayers();
 	for(i = 0; i < level.dog_targets.size; i++)
 	{
 		level.dog_targets[i].hunted_by = 0;
 	}
-	level endon(#"kill_round");
+	level endon("kill_round");
 	/#
 		if(getdvarint("") == 2 || getdvarint("") >= 4)
 		{
@@ -312,7 +312,7 @@ function waiting_for_next_dog_spawn(count, max)
 */
 function dog_round_aftermath()
 {
-	level waittill(#"last_ai_down", e_last);
+	level waittill("last_ai_down", e_last);
 	level thread zm_audio::sndmusicsystem_playstate("dog_end");
 	power_up_origin = level.last_dog_origin;
 	if(isdefined(e_last))
@@ -340,7 +340,7 @@ function dog_round_aftermath()
 */
 function dog_spawn_fx(ai, ent)
 {
-	ai endon(#"death");
+	ai endon("death");
 	ai setfreecameralockonallowed(0);
 	playfx(level._effect["lightning_dog_spawn"], ent.origin);
 	playsoundatposition("zmb_hellhound_prespawn", ent.origin);
@@ -376,7 +376,7 @@ function dog_spawn_fx(ai, ent)
 	ai show();
 	ai setfreecameralockonallowed(1);
 	ai.ignoreme = 0;
-	ai notify(#"visible");
+	ai notify("visible");
 }
 
 /*
@@ -531,7 +531,7 @@ function dog_round_tracker()
 	old_wait_func = level.round_wait_func;
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		/#
 			if(getdvarint("") > 0)
 			{
@@ -575,7 +575,7 @@ function dog_round_start()
 	level flag::set("dog_round");
 	level flag::set("special_round");
 	level flag::set("dog_clips");
-	level notify(#"dog_round_starting");
+	level notify("dog_round_starting");
 	level thread zm_audio::sndmusicsystem_playstate("dog_start");
 	util::clientnotify("dog_start");
 	if(isdefined(level.dog_melee_range))
@@ -602,7 +602,7 @@ function dog_round_stop()
 	level flag::clear("dog_round");
 	level flag::clear("special_round");
 	level flag::clear("dog_clips");
-	level notify(#"dog_round_ending");
+	level notify("dog_round_ending");
 	util::clientnotify("dog_stop");
 	setdvar("ai_meleeRange", level.melee_range_sav);
 	setdvar("ai_meleeWidth", level.melee_width_sav);
@@ -711,11 +711,11 @@ function dog_init()
 */
 function dog_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(zombie_utility::get_current_zombie_count() == 0 && level.zombie_total == 0)
 	{
 		level.last_dog_origin = self.origin;
-		level notify(#"last_ai_down", self);
+		level notify("last_ai_down", self);
 	}
 	if(isplayer(self.attacker))
 	{
@@ -741,7 +741,7 @@ function dog_death()
 	}
 	if(isdefined(self.attacker) && isai(self.attacker))
 	{
-		self.attacker notify(#"killed", self);
+		self.attacker notify("killed", self);
 	}
 	self stoploopsound();
 	if(!(isdefined(self.a.nodeath) && self.a.nodeath))
@@ -763,7 +763,7 @@ function dog_death()
 	}
 	else
 	{
-		self notify(#"bhtn_action_notify", "death");
+		self notify("bhtn_action_notify", "death");
 	}
 }
 
@@ -816,7 +816,7 @@ function zombie_setup_attack_properties_dog()
 */
 function stop_dog_sound_on_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self stopsounds();
 }
 
@@ -832,9 +832,9 @@ function stop_dog_sound_on_death()
 function dog_behind_audio()
 {
 	self thread stop_dog_sound_on_death();
-	self endon(#"death");
+	self endon("death");
 	self util::waittill_any("dog_running", "dog_combat");
-	self notify(#"bhtn_action_notify", "close");
+	self notify("bhtn_action_notify", "close");
 	wait(3);
 	while(true)
 	{
@@ -846,7 +846,7 @@ function dog_behind_audio()
 			{
 				if(abs(dogangle) > 90 && distance2d(self.origin, players[i].origin) > 100)
 				{
-					self notify(#"bhtn_action_notify", "close");
+					self notify("bhtn_action_notify", "close");
 					wait(3);
 				}
 			}
@@ -987,8 +987,8 @@ function special_dog_spawn(num_to_spawn, spawners, spawn_point)
 */
 function dog_run_think()
 {
-	self endon(#"death");
-	self waittill(#"visible");
+	self endon("death");
+	self waittill("visible");
 	if(self.health > level.dog_health)
 	{
 		self.maxhealth = level.dog_health;
@@ -1021,12 +1021,12 @@ function dog_run_think()
 */
 function dog_stalk_audio()
 {
-	self endon(#"death");
-	self endon(#"dog_running");
-	self endon(#"dog_combat");
+	self endon("death");
+	self endon("dog_running");
+	self endon("dog_combat");
 	while(true)
 	{
-		self notify(#"bhtn_action_notify", "ambient");
+		self notify("bhtn_action_notify", "ambient");
 		wait(randomfloatrange(2, 4));
 	}
 }
@@ -1042,7 +1042,7 @@ function dog_stalk_audio()
 */
 function dog_thundergun_knockdown(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	damage = int(self.maxhealth * 0.5);
 	self dodamage(damage, player.origin, player);
 }

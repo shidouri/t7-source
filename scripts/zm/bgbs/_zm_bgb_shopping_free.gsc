@@ -51,9 +51,9 @@ function __init__()
 */
 function enable()
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bled_out");
+	self endon("bgb_update");
 }
 
 /*

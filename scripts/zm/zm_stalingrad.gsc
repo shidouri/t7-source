@@ -330,12 +330,12 @@ function main()
 */
 function function_3409f322()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	level waittill(#"hash_9a634383");
 	primary_weapons = self getweaponslist(1);
-	self notify(#"zmb_max_ammo");
-	self notify(#"zmb_lost_knife");
+	self notify("zmb_max_ammo");
+	self notify("zmb_lost_knife");
 	self zm_placeable_mine::disable_all_prompts_for_player();
 	for(x = 0; x < primary_weapons.size; x++)
 	{
@@ -429,7 +429,7 @@ function function_c2cd1f49()
 */
 function offhand_weapon_give_override(str_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_tactical_grenade(str_weapon) && isdefined(self zm_utility::get_player_tactical_grenade()) && !self zm_utility::is_player_tactical_grenade(str_weapon))
 	{
 		self setweaponammoclip(self zm_utility::get_player_tactical_grenade(), 0);
@@ -660,7 +660,7 @@ function givecustomcharacters()
 */
 function set_exert_id()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self zm_audio::setexertvoice(self.characterindex + 1);
@@ -1048,7 +1048,7 @@ function function_80eaf8a()
 	{
 		level flag::wait_till("power_on");
 	}
-	level notify(#"revive_on");
+	level notify("revive_on");
 }
 
 /*
@@ -1424,13 +1424,13 @@ function function_78c017aa()
 {
 	while(true)
 	{
-		self waittill(#"trap_activate");
+		self waittill("trap_activate");
 		if(isdefined(self.activated_by_player))
 		{
 			self.activated_by_player clientfield::increment_to_player("interact_rumble");
 		}
 		self zm_stalingrad_util::function_903f6b36(1, self.target);
-		self waittill(#"trap_done");
+		self waittill("trap_done");
 		self zm_stalingrad_util::function_903f6b36(0, self.target);
 	}
 }
@@ -1449,7 +1449,7 @@ function function_897d1ccc()
 	n_start_time = undefined;
 	while(level.round_number < 4)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 	}
 	while(level.round_number < 20)
 	{
@@ -1576,19 +1576,19 @@ function function_ff18dfdd(a_spots)
 */
 function function_df57d237()
 {
-	level endon(#"restart_round");
+	level endon("restart_round");
 	/#
-		level endon(#"kill_round");
+		level endon("kill_round");
 	#/
 	/#
 		if(getdvarint(""))
 		{
-			level waittill(#"forever");
+			level waittill("forever");
 		}
 	#/
 	if(zm::cheat_enabled(2))
 	{
-		level waittill(#"forever");
+		level waittill("forever");
 	}
 	level.var_88fe7b16 = 0;
 	level.var_bd1e3d02 = 0;
@@ -1605,7 +1605,7 @@ function function_df57d237()
 	/#
 		if(getdvarint("") == 0)
 		{
-			level waittill(#"forever");
+			level waittill("forever");
 		}
 	#/
 	wait(1);
@@ -1766,7 +1766,7 @@ function function_f7b7d070(player, var_65df0562, var_daaea4ad)
 */
 function function_12a6d70c()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	if(getdvarint("splitscreen_playerCount") >= 2)
 	{
 		return;
@@ -1785,7 +1785,7 @@ function function_12a6d70c()
 */
 function function_de23a4cc()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	playsoundatposition("zmb_stalingrad_main_power_on", (0, 0, 0));
 	exploder::exploder("power_on");
 	exploder::exploder("eye_beam_factory_green");
@@ -1918,7 +1918,7 @@ function function_cde49635()
 */
 function function_a9536aec()
 {
-	self endon(#"death");
+	self endon("death");
 	b_first_loop = 1;
 	while(zm_utility::is_player_valid(self) && zm_stalingrad_util::function_86b1188c(750, level.var_a090a655, self))
 	{
@@ -2037,9 +2037,9 @@ function no_target_override(ai_zombie)
 */
 function private function_dc683d01(var_b52b26b9)
 {
-	self endon(#"death");
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self endon("death");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	self ai::set_ignoreall(1);
 	self.b_zombie_path_bad = 1;
 	self thread check_player_available();
@@ -2061,14 +2061,14 @@ function private function_dc683d01(var_b52b26b9)
 */
 function private check_player_available()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.b_zombie_path_bad) && self.b_zombie_path_bad)
 	{
 		wait(randomfloatrange(0.2, 0.5));
 		if(self can_zombie_see_any_player())
 		{
 			self.b_zombie_path_bad = undefined;
-			self notify(#"reaquire_player");
+			self notify("reaquire_player");
 			return;
 		}
 	}

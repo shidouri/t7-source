@@ -299,7 +299,7 @@ function private function_d8f5da34(var_2dba2212)
 */
 function function_957c9419()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(60);
 	if(isdefined(self.var_d77404f7) && self.var_d77404f7 || (isdefined(self.var_72308ff2) && self.var_72308ff2) || (isdefined(self.ignoreall) && self.ignoreall))
 	{
@@ -427,7 +427,7 @@ function function_910e57ee(entity)
 		}
 		else
 		{
-			level.electric_trap notify(#"trap_deactivate");
+			level.electric_trap notify("trap_deactivate");
 		}
 	}
 	mechzbehavior::mechztargetservice(entity);
@@ -571,7 +571,7 @@ function function_d8d01032()
 	self thread function_b2a1b297();
 	self thread function_2a26e636();
 	self thread zm::update_zone_name();
-	self waittill(#"death");
+	self waittill("death");
 	self thread function_2a2bfc25();
 	if(isdefined(self.var_9b31a70d) && self.var_9b31a70d)
 	{
@@ -609,7 +609,7 @@ function spawn_effect()
 */
 function function_b7e11612()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self zm_genesis_vo::function_f7879c72(self.attacker);
 }
 
@@ -624,7 +624,7 @@ function function_b7e11612()
 */
 function function_b2a1b297()
 {
-	self waittill(#"actor_corpse", mechz);
+	self waittill("actor_corpse", mechz);
 	wait(60);
 	if(isdefined(mechz))
 	{
@@ -643,7 +643,7 @@ function function_b2a1b297()
 */
 function function_2a26e636()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(!isdefined(self.zone_name))
@@ -727,7 +727,7 @@ function function_17da3db2()
 */
 function function_a2a11991()
 {
-	self endon(#"death");
+	self endon("death");
 	while(!isdefined(self.zombie_lift_override))
 	{
 		wait(0.05);
@@ -800,7 +800,7 @@ function teleporttraversalmocompstart(entity, mocompanim, mocompanimblendouttime
 */
 function function_2d571578(e_player, v_attack_source, n_push_away, n_lift_height, v_lift_offset, n_lift_speed)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.in_gravity_trap) && self.in_gravity_trap && e_player.gravityspikes_state === 3)
 	{
 		if(isdefined(self.var_1f5fe943) && self.var_1f5fe943)
@@ -855,7 +855,7 @@ function function_2d571578(e_player, v_attack_source, n_push_away, n_lift_height
 */
 function function_a0b6d6b9(mechz)
 {
-	mechz endon(#"death");
+	mechz endon("death");
 	if(isdefined(mechz))
 	{
 		mechz scene::play("cin_zm_dlc1_mechz_dth_deathray_02", mechz);
@@ -1013,7 +1013,7 @@ function function_78e44cda()
 {
 	/#
 		wait(0.05);
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(0.05);
 		setdvar("", 0);
 		adddebugcommand("");

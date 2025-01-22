@@ -258,12 +258,12 @@ function perk_start_up()
 		int = undefined;
 		while(int != power_zone)
 		{
-			level waittill(#"power_on", int);
+			level waittill("power_on", int);
 		}
 	}
 	else
 	{
-		level waittill(#"power_on");
+		level waittill("power_on");
 	}
 	timer = 0;
 	duration = 0.1;

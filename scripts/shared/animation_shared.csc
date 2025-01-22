@@ -66,7 +66,7 @@ function play(animation, v_origin_or_ent, v_angles_or_tag, n_rate = 1, n_blend_i
 {
 	self endon(#"entityshutdown");
 	self thread _play(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp, b_link);
-	self waittill(#"scriptedanim");
+	self waittill("scriptedanim");
 }
 
 /*
@@ -81,8 +81,8 @@ function play(animation, v_origin_or_ent, v_angles_or_tag, n_rate = 1, n_blend_i
 function _play(animation, v_origin_or_ent = self, v_angles_or_tag, n_rate = 1, n_blend_in = 0.2, n_blend_out = 0.2, n_lerp, b_link = 0)
 {
 	self endon(#"entityshutdown");
-	self notify(#"new_scripted_anim");
-	self endon(#"new_scripted_anim");
+	self notify("new_scripted_anim");
+	self endon("new_scripted_anim");
 	flagsys::set_val("firstframe", n_rate == 0);
 	flagsys::set("scripted_anim_this_frame");
 	flagsys::set("scriptedanim");
@@ -140,7 +140,7 @@ function _play(animation, v_origin_or_ent = self, v_angles_or_tag, n_rate = 1, n
 */
 function private waittill_end()
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self waittillmatch(#"_anim_notify_");
 }
 
@@ -219,7 +219,7 @@ function _get_align_pos(v_origin_or_ent = self.origin, v_angles_or_tag = (isdefi
 */
 function play_siege(str_anim, str_shot = "default", n_rate = 1, b_loop = 0)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	if(n_rate == 0)
 	{
@@ -384,7 +384,7 @@ function setup_notetracks()
 */
 function handle_notetracks()
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	while(true)
 	{

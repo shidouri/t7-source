@@ -191,7 +191,7 @@ function cash_back_player_drinks_perk()
 */
 function cash_back_money_reward()
 {
-	self endon(#"death");
+	self endon("death");
 	step = 5;
 	amount_per_step = int(level.pers_cash_back_money_reward / step);
 	for(i = 0; i < step; i++)
@@ -212,7 +212,7 @@ function cash_back_money_reward()
 */
 function cash_back_player_prone_check(got_ability)
 {
-	self endon(#"death");
+	self endon("death");
 	prone_time = 2.5;
 	start_time = gettime();
 	while(true)
@@ -236,7 +236,7 @@ function cash_back_player_prone_check(got_ability)
 	}
 	if(got_ability)
 	{
-		self notify(#"cash_back_failed_prone");
+		self notify("cash_back_failed_prone");
 	}
 }
 
@@ -253,7 +253,7 @@ function pers_upgrade_insta_kill_upgrade_check()
 {
 	if(isdefined(level.pers_upgrade_insta_kill) && level.pers_upgrade_insta_kill)
 	{
-		self endon(#"death");
+		self endon("death");
 		if(!zm_pers_upgrades::is_pers_system_active())
 		{
 			return;
@@ -270,7 +270,7 @@ function pers_upgrade_insta_kill_upgrade_check()
 		if(!(isdefined(self.pers_upgrades_awarded["insta_kill"]) && self.pers_upgrades_awarded["insta_kill"]))
 		{
 			kills_start = self globallogic_score::getpersstat("kills");
-			self waittill(#"insta_kill_over");
+			self waittill("insta_kill_over");
 			kills_end = self globallogic_score::getpersstat("kills");
 			num_killed = kills_end - kills_start;
 			if(num_killed > 0)
@@ -296,7 +296,7 @@ function pers_upgrade_insta_kill_upgrade_check()
 */
 function insta_kill_upgraded_player_kill_func(active_time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.25);
 	if(zm_pers_upgrades::is_pers_system_disabled())
 	{
@@ -364,7 +364,7 @@ function pers_insta_kill_melee_swipe(smeansofdeath, eattacker)
 		{
 			if(isplayer(self) && zm_pers_upgrades::is_insta_kill_upgraded_and_active())
 			{
-				self notify(#"pers_melee_swipe");
+				self notify("pers_melee_swipe");
 				level.pers_melee_swipe_zombie_swiper = eattacker;
 			}
 		}
@@ -456,7 +456,7 @@ function pers_upgrade_pistol_points_kill()
 	}
 	else
 	{
-		self notify(#"pers_pistol_points_kill");
+		self notify("pers_pistol_points_kill");
 	}
 }
 
@@ -510,8 +510,8 @@ function pers_upgrade_pistol_points_set_score(score, event, mod, damage_weapon)
 */
 function pers_upgrade_double_points_pickup_start()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!zm_pers_upgrades::is_pers_system_active())
 	{
 		return;
@@ -574,7 +574,7 @@ function pers_upgrade_double_points_pickup_start()
 	{
 		if(ability_lost == 1)
 		{
-			self notify(#"double_points_lost");
+			self notify("double_points_lost");
 		}
 	}
 	else
@@ -698,7 +698,7 @@ function pers_upgrade_perk_lose_bought()
 	{
 		if(level.round_number > 1 && self.pers_perk_lose_start_round == level.round_number)
 		{
-			self notify(#"pers_perk_lose_lost");
+			self notify("pers_perk_lose_lost");
 		}
 	}
 }
@@ -892,8 +892,8 @@ function pers_upgrade_sniper_kill_check(zombie, attacker)
 */
 function pers_sniper_score_reward()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(zm_pers_upgrades::is_pers_system_active())
 	{
 		total_score = 300;
@@ -941,7 +941,7 @@ function pers_sniper_player_fires(weapon, hit)
 					self.num_sniper_misses++;
 					if(self.num_sniper_misses >= level.pers_sniper_misses)
 					{
-						self notify(#"pers_sniper_lost");
+						self notify("pers_sniper_lost");
 						self.num_sniper_misses = 0;
 					}
 				}
@@ -1027,7 +1027,7 @@ function pers_upgrade_box_weapon_used(e_user, e_grabber)
 */
 function pers_magic_box_teddy_bear()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(level.pers_magic_box_firesale) && level.pers_magic_box_firesale)
 	{
 		self thread pers_magic_box_firesale();
@@ -1225,7 +1225,7 @@ function pers_treasure_chest_get_weapons_array()
 */
 function pers_magic_box_firesale()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(1);
 	while(true)
 	{
@@ -1269,7 +1269,7 @@ function pers_magic_box_firesale()
 */
 function box_firesale_teddy_bear(box, box_index)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	m_bear = spawn("script_model", self.origin);
 	m_bear setmodel(level.chest_joker_model);
 	m_bear pers_magic_box_set_teddy_location(box_index);
@@ -1311,7 +1311,7 @@ function box_firesale_teddy_bear(box, box_index)
 */
 function pers_nube_unlock_watcher()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!zm_pers_upgrades::is_pers_system_active())
 	{
 		return;
@@ -1326,7 +1326,7 @@ function pers_nube_unlock_watcher()
 	num_boards = self.pers["boards"];
 	while(true)
 	{
-		self waittill(#"pers_player_zombie_kill");
+		self waittill("pers_player_zombie_kill");
 		if(self.pers["pers_max_round_reached"] >= level.pers_nube_lose_round)
 		{
 			self.pers_num_nube_kills = 0;

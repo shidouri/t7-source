@@ -843,8 +843,8 @@ function warlordangryattack(entity)
 */
 function warlordangryattack_shootthemall(entity, attackersarray)
 {
-	entity endon(#"disconnect");
-	entity endon(#"death");
+	entity endon("disconnect");
+	entity endon("death");
 	entity notify(#"hash_b160390f");
 	shoottime = getdvarfloat("warlordangryattack", 3);
 	foreach(attacker in attackersarray)
@@ -1613,9 +1613,9 @@ function checkifweshouldmove(entity)
 */
 function warlorddangerousenemyattack(entity, attacker, threat)
 {
-	entity endon(#"disconnect");
-	entity endon(#"death");
-	attacker endon(#"death");
+	entity endon("disconnect");
+	entity endon("death");
+	attacker endon("death");
 	entity endon(#"hash_b160390f");
 	entity notify(#"hash_beb03d5e");
 	entity endon(#"hash_beb03d5e");
@@ -1761,7 +1761,7 @@ function warlord_projectile_watcher()
 */
 function remove_repulsor()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.missile_repulsor))
 	{
 		missile_deleteattractor(self.missile_repulsor);
@@ -1785,8 +1785,8 @@ function remove_repulsor()
 */
 function repulsor_fx()
 {
-	self endon(#"death");
-	self endon(#"killing_repulsor");
+	self endon("death");
+	self endon("killing_repulsor");
 	while(true)
 	{
 		self util::waittill_any("projectile_applyattractor", "play_meleefx");
@@ -1794,7 +1794,7 @@ function repulsor_fx()
 		playfxontag("vehicle/fx_quadtank_airburst_ground", self, "tag_origin");
 		self playsound("wpn_trophy_alert");
 		self thread remove_repulsor();
-		self notify(#"killing_repulsor");
+		self notify("killing_repulsor");
 	}
 }
 

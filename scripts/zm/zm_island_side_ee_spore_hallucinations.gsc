@@ -116,7 +116,7 @@ function on_player_spawned()
 */
 function function_e58be395()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread function_b200c473();
 	while(true)
 	{
@@ -144,7 +144,7 @@ function function_e58be395()
 */
 function function_b200c473()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		wait(300);
@@ -166,7 +166,7 @@ function function_b200c473()
 */
 function function_51d3efd()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!self flag::get("hallucination_spookysounds_on"))
 	{
 		self flag::set("hallucination_spookysounds_on");
@@ -195,7 +195,7 @@ function function_51d3efd()
 */
 function function_5d6bcf98()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!self flag::get("hallucination_bloodywalls_on"))
 	{
 		self flag::set("hallucination_bloodywalls_on");

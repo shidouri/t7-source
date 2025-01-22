@@ -442,17 +442,17 @@ function private _security_breach(player, weapon)
 	}
 	vehentnum = self getentitynumber();
 	self notify(#"hash_f8c5dd60", weapon, player);
-	self notify(#"cloneandremoveentity", vehentnum);
-	level notify(#"cloneandremoveentity", vehentnum);
+	self notify("cloneandremoveentity", vehentnum);
+	level notify("cloneandremoveentity", vehentnum);
 	player gadgetpowerset(0, 0);
 	player gadgetpowerset(1, 0);
 	player gadgetpowerset(2, 0);
 	player cybercom::disablecybercom(1);
 	if(isai(self) && self.archetype == "quadtank")
 	{
-		player notify(#"give_achievement", "CP_CONTROL_QUAD");
+		player notify("give_achievement", "CP_CONTROL_QUAD");
 	}
-	player notify(#"security_breach", self);
+	player notify("security_breach", self);
 	waittillframeend();
 	self notsolid();
 	var_66ff806d = self.var_66ff806d;
@@ -462,8 +462,8 @@ function private _security_breach(player, weapon)
 		return;
 	}
 	clone solid();
-	level notify(#"clonedentity", clone, vehentnum);
-	player notify(#"clonedentity", clone, vehentnum);
+	level notify("clonedentity", clone, vehentnum);
+	player notify("clonedentity", clone, vehentnum);
 	clone.takedamage = 0;
 	clone.hijacked = 1;
 	clone.var_a076880e = undefined;
@@ -547,7 +547,7 @@ function function_dc86efaa(var_b6c35df6, str_state)
 			player clientfield::set("camo_shader", 2);
 			player thread _start_transition(2);
 			player thread _security_breach_ramp_visionset(player, "hijack_vehicle", 0.1, 1, 0.1);
-			player waittill(#"transition_in_do_switch");
+			player waittill("transition_in_do_switch");
 			player setlowready(1);
 			visionset_mgr::activate("visionset", "hijack_vehicle_blur", player);
 			player hide();
@@ -560,13 +560,13 @@ function function_dc86efaa(var_b6c35df6, str_state)
 		}
 		case "cloak_wait":
 		{
-			player waittill(#"transition_done");
+			player waittill("transition_done");
 			player clientfield::set_to_player("vehicle_hijacked", 1);
 			return "return_wait";
 		}
 		case "return_wait":
 		{
-			player waittill(#"return_to_body");
+			player waittill("return_to_body");
 			player player::give_back_weapons(1);
 			player seteverhadweaponall(1);
 			player thread _security_breach_ramp_visionset(player, "hijack_vehicle", 0, -1, 0.1);
@@ -580,7 +580,7 @@ function function_dc86efaa(var_b6c35df6, str_state)
 			player setstance(var_b6c35df6.oldstance);
 			player setlowready(0);
 			player.b_tactical_mode_enabled = var_b6c35df6.var_d40d5a7d;
-			player waittill(#"transition_done");
+			player waittill("transition_done");
 			player seteverhadweaponall(0);
 			player clientfield::set_to_player("vehicle_hijacked", 0);
 			player clientfield::set_to_player("sndInDrivableVehicle", 0);
@@ -591,7 +591,7 @@ function function_dc86efaa(var_b6c35df6, str_state)
 			player cybercom::enablecybercom();
 			wait(1);
 			player clientfield::set("camo_shader", 0);
-			player notify(#"stop_camo_sound");
+			player notify("stop_camo_sound");
 			return;
 		}
 	}
@@ -608,15 +608,15 @@ function function_dc86efaa(var_b6c35df6, str_state)
 */
 function _start_transition(direction)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"_start_transition");
 	self endon(#"_start_transition");
 	self clientfield::set_to_player("hijack_vehicle_transition", direction);
 	util::wait_network_frame();
-	self notify(#"transition_in_do_switch");
+	self notify("transition_in_do_switch");
 	wait(0.2);
 	wait(0.2);
-	self notify(#"transition_done");
+	self notify("transition_done");
 	self clientfield::set_to_player("hijack_vehicle_transition", 1);
 }
 
@@ -674,11 +674,11 @@ function clearanchorvolume()
 */
 function private _anchor_to_location(player, anchor)
 {
-	self endon(#"death");
-	player endon(#"return_to_body");
-	player endon(#"kill_static_achor");
-	player endon(#"disconnect");
-	player waittill(#"transition_done");
+	self endon("death");
+	player endon("return_to_body");
+	player endon("kill_static_achor");
+	player endon("disconnect");
+	player waittill("transition_done");
 	wait(0.1);
 	maxstatic = 0.95;
 	lastoutofrangewarningvalue = undefined;
@@ -764,7 +764,7 @@ function private _anchor_to_location(player, anchor)
 */
 function private _invulnerableforatime(time, player)
 {
-	self endon(#"death");
+	self endon("death");
 	self.takedamage = 0;
 	player util::waittill_any_timeout(time, "return_to_body");
 	self.takedamage = !isgodmode(player);
@@ -781,7 +781,7 @@ function private _invulnerableforatime(time, player)
 */
 function private _playerspectate(vehicle)
 {
-	self endon(#"spawned");
+	self endon("spawned");
 	self util::freeze_player_controls(1);
 	self clientfield::set_to_player("hijack_static_ramp_up", 1);
 	if(isdefined(vehicle.archetype) && vehicle.archetype == "wasp" && (!(isdefined(vehicle.var_66ff806d) && vehicle.var_66ff806d)))
@@ -793,7 +793,7 @@ function private _playerspectate(vehicle)
 		self clientfield::set_to_player("hijack_spectate", 1);
 	}
 	self cameraactivate(1);
-	self waittill(#"transition_in_do_switch");
+	self waittill("transition_in_do_switch");
 	self clientfield::set_to_player("hijack_static_ramp_up", 0);
 	self cameraactivate(0);
 	self clientfield::set_to_player("hijack_spectate", 0);
@@ -848,16 +848,16 @@ function private _playerspectatechase(vehicle)
 */
 function private _wait_for_death(player)
 {
-	player endon(#"return_to_body");
-	self waittill(#"death");
+	player endon("return_to_body");
+	self waittill("death");
 	player thread _playerspectate(self);
 	wait(3);
-	player notify(#"kill_static_achor");
+	player notify("kill_static_achor");
 	player thread _start_transition(3);
-	player waittill(#"transition_in_do_switch");
+	player waittill("transition_in_do_switch");
 	waittillframeend();
 	player unlink();
-	player notify(#"return_to_body", 1);
+	player notify("return_to_body", 1);
 }
 
 /*
@@ -871,8 +871,8 @@ function private _wait_for_death(player)
 */
 function private _wait_for_player_exit(player)
 {
-	self endon(#"death");
-	player endon(#"return_to_body");
+	self endon("death");
+	player endon("return_to_body");
 	self util::waittill_any("unlink", "exit_vehicle");
 	if(game["state"] == "postgame" || (isdefined(level.gameended) && level.gameended))
 	{
@@ -908,7 +908,7 @@ function private _wait_for_return(player)
 	original_angles = player.angles;
 	player.cybercom.tacrigs_disabled = 1;
 	self.vehdontejectoccupantsondeath = 1;
-	player waittill(#"return_to_body", reason);
+	player waittill("return_to_body", reason);
 	wait(0.05);
 	player setorigin(original_location);
 	player setplayerangles(original_angles);
@@ -981,7 +981,7 @@ function function_43b801ea(onoff, entnum)
 {
 	while(true)
 	{
-		level waittill(#"clonedentity", clone, vehentnum);
+		level waittill("clonedentity", clone, vehentnum);
 		if(vehentnum == entnum)
 		{
 			clone.var_66ff806d = onoff;
@@ -1001,8 +1001,8 @@ function function_43b801ea(onoff, entnum)
 */
 function function_f002d0f9()
 {
-	self endon(#"death");
-	self waittill(#"cloneandremoveentity", var_3c0fc0de);
+	self endon("death");
+	self waittill("cloneandremoveentity", var_3c0fc0de);
 	level thread function_43b801ea(0, var_3c0fc0de);
 }
 

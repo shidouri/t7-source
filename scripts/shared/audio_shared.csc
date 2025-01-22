@@ -135,7 +135,7 @@ function snddoublejump_watcher()
 	self endon(#"entityshutdown");
 	while(true)
 	{
-		self waittill(#"doublejump_start");
+		self waittill("doublejump_start");
 		trace = tracepoint(self.origin, self.origin - vectorscale((0, 0, 1), 100000));
 		trace_surface_type = trace["surfacetype"];
 		trace_origin = trace["position"];
@@ -244,7 +244,7 @@ function snd_snapshot_init()
 */
 function sndonwait()
 {
-	level endon(#"sndonoverride");
+	level endon("sndonoverride");
 	level util::waittill_any_timeout(20, "sndOn", "sndOnOverride");
 }
 
@@ -263,7 +263,7 @@ function snd_set_snapshot(state)
 	/#
 		println(("" + state) + "");
 	#/
-	level notify(#"new_bus");
+	level notify("new_bus");
 }
 
 /*
@@ -281,7 +281,7 @@ function snd_snapshot_think()
 	{
 		if(level._sndactivesnapshot == level._sndnextsnapshot)
 		{
-			level waittill(#"new_bus");
+			level waittill("new_bus");
 		}
 		if(level._sndactivesnapshot == level._sndnextsnapshot)
 		{
@@ -469,7 +469,7 @@ function soundloopthink()
 */
 function soundloopcheckpointrestore()
 {
-	level waittill(#"save_restore");
+	level waittill("save_restore");
 	soundloopemitter(self.script_sound, self.origin);
 }
 
@@ -537,7 +537,7 @@ function soundlinethink()
 */
 function soundlinecheckpointrestore(target)
 {
-	level waittill(#"save_restore");
+	level waittill("save_restore");
 	soundlineemitter(self.script_sound, self.origin, target.origin);
 }
 
@@ -694,7 +694,7 @@ function audio_step_trigger(localclientnum)
 	self._localclientnum = localclientnum;
 	for(;;)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		self thread trigger::function_d1278be0(trigplayer, &trig_enter_audio_step_trigger, &trig_leave_audio_step_trigger);
 	}
 }
@@ -712,7 +712,7 @@ function audio_material_trigger(trig)
 {
 	for(;;)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		self thread trigger::function_d1278be0(trigplayer, &trig_enter_audio_material_trigger, &trig_leave_audio_material_trigger);
 	}
 }
@@ -879,7 +879,7 @@ function thread_bump_trigger(localclientnum)
 	self._localclientnum = localclientnum;
 	for(;;)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		self thread trigger::function_d1278be0(trigplayer, &trig_enter_bump, &trig_leave_bump);
 	}
 }
@@ -940,9 +940,9 @@ function trig_enter_bump(ent)
 */
 function mantle_wait(alias, localclientnum)
 {
-	self endon(#"death");
-	self endon(#"left_mantle");
-	self waittill(#"traversesound");
+	self endon("death");
+	self endon("left_mantle");
+	self waittill("traversesound");
 	self playsound(localclientnum, alias, self.origin, 1);
 }
 
@@ -958,7 +958,7 @@ function mantle_wait(alias, localclientnum)
 function trig_leave_bump(ent)
 {
 	wait(1);
-	ent notify(#"left_mantle");
+	ent notify("left_mantle");
 }
 
 /*
@@ -1234,11 +1234,11 @@ function soundwait(id)
 */
 function snd_underwater(localclientnum)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	level endon("killcam_begin" + localclientnum);
 	level endon("killcam_end" + localclientnum);
-	self endon(#"sndenduwwatcher");
+	self endon("sndenduwwatcher");
 	if(!isdefined(level.audiosharedswimming))
 	{
 		level.audiosharedswimming = 0;
@@ -1343,9 +1343,9 @@ function underwaterend()
 */
 function setpfxcontext()
 {
-	level waittill(#"pfx_igc_on");
+	level waittill("pfx_igc_on");
 	setsoundcontext("igc", "on");
-	level waittill(#"pfx_igc_off");
+	level waittill("pfx_igc_off");
 	setsoundcontext("igc", "");
 	return;
 }
@@ -1556,7 +1556,7 @@ function sndhealthsystem(localclientnum, oldval, newval, bnewent, binitialsnap, 
 			{
 				playsound(localclientnum, lowhealthexitalias, (0, 0, 0));
 				forceambientroom("sndHealth_LastStand");
-				self notify(#"snddnirepairdone");
+				self notify("snddnirepairdone");
 				setsoundcontext("laststand", "active");
 				break;
 			}
@@ -1585,7 +1585,7 @@ function sndhealthsystem(localclientnum, oldval, newval, bnewent, binitialsnap, 
 		if(oldval == 1)
 		{
 			playsound(localclientnum, lowhealthexitalias, (0, 0, 0));
-			self notify(#"snddnirepairdone");
+			self notify("snddnirepairdone");
 		}
 		else
 		{
@@ -1597,7 +1597,7 @@ function sndhealthsystem(localclientnum, oldval, newval, bnewent, binitialsnap, 
 					playsound(localclientnum, "gdt_cybercore_regen_complete", (0, 0, 0));
 				}
 			}
-			self notify(#"snddnirepairdone");
+			self notify("snddnirepairdone");
 		}
 		return;
 	}
@@ -1614,7 +1614,7 @@ function sndhealthsystem(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function snddnirepair(localclientnum, alais, min, max)
 {
-	self endon(#"snddnirepairdone");
+	self endon("snddnirepairdone");
 	wait(0.5);
 	if(isdefined(self) && isdefined(self.isinfected))
 	{
@@ -1838,7 +1838,7 @@ function snddeath_activate()
 {
 	while(true)
 	{
-		level waittill(#"sndded");
+		level waittill("sndded");
 		snd_set_snapshot("mpl_death");
 	}
 }
@@ -1856,7 +1856,7 @@ function snddeath_deactivate()
 {
 	while(true)
 	{
-		level waittill(#"snddede");
+		level waittill("snddede");
 		snd_set_snapshot("default");
 	}
 }
@@ -1874,7 +1874,7 @@ function sndfinalkillcam_activate()
 {
 	while(true)
 	{
-		level waittill(#"sndfks");
+		level waittill("sndfks");
 		playsound(0, "mpl_final_killcam_enter", (0, 0, 0));
 		snd_set_snapshot("mpl_final_killcam");
 	}
@@ -1893,7 +1893,7 @@ function sndfinalkillcam_slowdown()
 {
 	while(true)
 	{
-		level waittill(#"sndfksl");
+		level waittill("sndfksl");
 		playsound(0, "mpl_final_killcam_enter", (0, 0, 0));
 		playsound(0, "mpl_final_killcam_slowdown", (0, 0, 0));
 		snd_set_snapshot("mpl_final_killcam_slowdown");
@@ -1913,7 +1913,7 @@ function sndfinalkillcam_deactivate()
 {
 	while(true)
 	{
-		level waittill(#"sndfke");
+		level waittill("sndfke");
 		snd_set_snapshot("default");
 	}
 }
@@ -1950,7 +1950,7 @@ function sndswitchvehiclecontext(localclientnum, oldval, newval, bnewent, biniti
 */
 function sndmusicdeathwatcher()
 {
-	self waittill(#"death");
+	self waittill("death");
 	soundsetmusicstate("death");
 }
 

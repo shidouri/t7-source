@@ -96,7 +96,7 @@ function insta_kill_powerup(drop_item, player)
 	{
 		if(isdefined(players[i]))
 		{
-			players[i] notify(#"insta_kill_over");
+			players[i] notify("insta_kill_over");
 		}
 	}
 }

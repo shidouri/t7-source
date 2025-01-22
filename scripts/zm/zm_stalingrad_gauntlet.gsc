@@ -136,7 +136,7 @@ function function_fa149742()
 */
 function function_a3a149a9()
 {
-	self waittill(#"damage");
+	self waittill("damage");
 	level thread scene::play("p7_fxanim_zm_stal_pavlov_boards_bundle");
 	self delete();
 }
@@ -277,7 +277,7 @@ function function_48a9eab7()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(!level flag::get("egg_placed_in_hazard"))
 		{
 			e_player clientfield::increment_to_player("interact_rumble");
@@ -313,7 +313,7 @@ function function_d0ba871e()
 	}
 	level flag::wait_till("egg_bathed_in_flame");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 1);
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	level waittill(#"end_of_round");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 0);
 	level flag::set("egg_cooled_hazard");
@@ -664,7 +664,7 @@ function function_59a929b0(s_stub)
 */
 function function_91191904()
 {
-	self endon(#"death");
+	self endon("death");
 	self setphysparams(15, 0, 72);
 	self.ignore_enemy_count = 1;
 	self.deathpoints_already_given = 1;
@@ -691,7 +691,7 @@ function function_91191904()
 function function_dcc4fd22()
 {
 	level endon(#"hash_917b3ab2");
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self.var_4d11bb60) && self.var_4d11bb60)
 	{
 		return;
@@ -744,7 +744,7 @@ function function_77c54581()
 	var_21e43ff6 zm_unitrigger::create_unitrigger(&"ZM_STALINGRAD_EGG_RETRIEVE", 40, &function_86e242);
 	level notify(#"hash_8c192d5a");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 1);
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	level waittill(#"end_of_round");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 0);
 	level flag::set("egg_cooled_incubator");
@@ -881,7 +881,7 @@ function function_1a7c9b89(var_a48df19e)
 	level flag::wait_till("lockdown_complete");
 	foreach(e_light in var_604d90e0)
 	{
-		e_light notify(#"lockdown_complete");
+		e_light notify("lockdown_complete");
 		e_light kill();
 	}
 }
@@ -946,7 +946,7 @@ function function_86e242(e_player)
 */
 function function_d29c33e()
 {
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	self.var_62ceb838 delete();
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	level flag::set("gauntlet_quest_complete");

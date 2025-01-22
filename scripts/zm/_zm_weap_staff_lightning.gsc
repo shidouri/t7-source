@@ -65,7 +65,7 @@ function __init__()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread watch_staff_lightning_fired();
 	self thread zm_tomb_utility::watch_staff_usage();
 }
@@ -81,10 +81,10 @@ function onplayerspawned()
 */
 function watch_staff_lightning_fired()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"missile_fire", e_projectile, str_weapon);
+		self waittill("missile_fire", e_projectile, str_weapon);
 		if(str_weapon.name == "staff_lightning_upgraded2" || str_weapon.name == "staff_lightning_upgraded3")
 		{
 			fire_angles = vectortoangles(self getweaponforwarddir());
@@ -105,8 +105,8 @@ function watch_staff_lightning_fired()
 */
 function lightning_ball_wait(n_lifetime_after_move)
 {
-	level endon(#"lightning_ball_created");
-	self waittill(#"movedone");
+	level endon("lightning_ball_created");
+	self waittill("movedone");
 	wait(n_lifetime_after_move);
 	return true;
 }
@@ -122,8 +122,8 @@ function lightning_ball_wait(n_lifetime_after_move)
 */
 function staff_lightning_position_source(v_detonate, v_angles, str_weapon)
 {
-	self endon(#"disconnect");
-	level notify(#"lightning_ball_created");
+	self endon("disconnect");
+	level notify("lightning_ball_created");
 	if(!isdefined(v_angles))
 	{
 		v_angles = (0, 0, 0);
@@ -176,7 +176,7 @@ function staff_lightning_position_source(v_detonate, v_angles, str_weapon)
 */
 function staff_lightning_ball_kill_zombies(e_attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"stop_killing");
 	while(true)
 	{
@@ -207,7 +207,7 @@ function staff_lightning_ball_kill_zombies(e_attacker)
 */
 function staff_lightning_get_valid_targets(player, v_source)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	a_enemies = [];
 	a_zombies = getaiarray();
 	a_zombies = util::get_array_of_closest(v_source, a_zombies, undefined, undefined, self.n_range);
@@ -346,7 +346,7 @@ function staff_lightning_is_target_valid(ai_zombie)
 */
 function staff_lightning_ball_damage_over_time(e_source, e_target, e_attacker)
 {
-	e_attacker endon(#"disconnect");
+	e_attacker endon("disconnect");
 	e_target clientfield::set("lightning_impact_fx", 1);
 	n_range_sq = e_source.n_range * e_source.n_range;
 	e_target.is_being_zapped = 1;
@@ -406,7 +406,7 @@ function staff_lightning_ball_damage_over_time(e_source, e_target, e_attacker)
 */
 function staff_lightning_arc_fx(e_source, ai_zombie)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(ai_zombie))
 	{
 		return;
@@ -432,7 +432,7 @@ function staff_lightning_arc_fx(e_source, ai_zombie)
 */
 function staff_lightning_kill_zombie(player, str_weapon)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(!isalive(self))
 	{
 		return;
@@ -559,7 +559,7 @@ function staff_lightning_death_event(attacker)
 		self thread zombie_shock_eyes();
 		if(isdefined(self.deathanim))
 		{
-			self waittillmatch(#"death_anim");
+			self waittillmatch("death_anim");
 		}
 		self zm_tomb_utility::do_damage_network_safe(self.attacker, self.health, self.damageweapon, "MOD_RIFLE_BULLET");
 	}
@@ -576,7 +576,7 @@ function staff_lightning_death_event(attacker)
 */
 function stun_zombie()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.is_mechz) && self.is_mechz)
 	{
 		return;

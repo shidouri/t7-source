@@ -213,8 +213,8 @@ function private genesis_octobomb_targets(targets)
 */
 function function_dc84c8cc()
 {
-	self endon(#"death");
-	self endon(#"disconnnect");
+	self endon("death");
+	self endon("disconnnect");
 	var_c17e74e6 = gettime();
 	var_eaacaebf = level.round_number;
 	var_e274e0c3 = undefined;
@@ -273,8 +273,8 @@ function function_dc84c8cc()
 */
 function function_2fa8f151()
 {
-	self endon(#"death");
-	self endon(#"disconnnect");
+	self endon("death");
+	self endon("disconnnect");
 	while(isdefined(self))
 	{
 		self.var_a3d40b8 = undefined;
@@ -581,7 +581,7 @@ function private genesis_closest_player(origin, players)
 */
 function private update_closest_player()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		reset_closest_player = 1;

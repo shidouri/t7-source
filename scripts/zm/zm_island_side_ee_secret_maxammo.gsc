@@ -117,8 +117,8 @@ function on_player_connected()
 */
 function function_1c4fc4a7(mdl_target)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"hash_49419595");
 	if(isdefined(mdl_target))
 	{

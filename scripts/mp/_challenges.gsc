@@ -156,7 +156,7 @@ function addspecialistusedstatonconnect()
 */
 function spawnwatcher()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.pers["killNemesis"] = 0;
 	self.pers["killsFastMagExt"] = 0;
 	self.pers["longshotsPerLife"] = 0;
@@ -176,7 +176,7 @@ function spawnwatcher()
 	self.explosiveinfo = [];
 	for(;;)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		self.weaponkillsthisspawn = [];
 		self.attachmentkillsthisspawn = [];
 		self.challenge_hatchettosscount = 0;
@@ -206,12 +206,12 @@ function spawnwatcher()
 */
 function watchscavengelethal()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.challenge_scavengedcount = 0;
 	for(;;)
 	{
-		self waittill(#"scavenged_primary_grenade");
+		self waittill("scavenged_primary_grenade");
 		self.challenge_scavengedcount++;
 	}
 }
@@ -227,8 +227,8 @@ function watchscavengelethal()
 */
 function watchdoublejump()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.challenge_doublejump_begin = 0;
 	self.challenge_doublejump_end = 0;
 	for(;;)
@@ -261,8 +261,8 @@ function watchdoublejump()
 */
 function watchjump()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.challenge_jump_begin = 0;
 	self.challenge_jump_end = 0;
 	for(;;)
@@ -295,8 +295,8 @@ function watchjump()
 */
 function watchswimming()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.challenge_swimming_begin = 0;
 	self.challenge_swimming_end = 0;
 	for(;;)
@@ -329,8 +329,8 @@ function watchswimming()
 */
 function watchwallrun()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.challenge_wallrun_begin = 0;
 	self.challenge_wallrun_end = 0;
 	for(;;)
@@ -363,8 +363,8 @@ function watchwallrun()
 */
 function watchslide()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.challenge_slide_begin = 0;
 	self.challenge_slide_end = 0;
 	for(;;)
@@ -397,8 +397,8 @@ function watchslide()
 */
 function watchsprint()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.challenge_sprint_begin = 0;
 	self.challenge_sprint_end = 0;
 	for(;;)
@@ -1727,7 +1727,7 @@ function challengegameendmp(data)
 */
 function killedbaseoffender(objective, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self addplayerstatwithgametype("defends", 1);
 	self.challenge_offenderkillcount++;
 	if(!isdefined(self.challenge_objectiveoffensive) || self.challenge_objectiveoffensive != objective)
@@ -1811,7 +1811,7 @@ function killedbaseoffender(objective, weapon)
 */
 function killedbasedefender(objective)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self addplayerstatwithgametype("offends", 1);
 	if(!isdefined(self.challenge_objectivedefensive) || self.challenge_objectivedefensive != objective)
 	{
@@ -1840,7 +1840,7 @@ function killedbasedefender(objective)
 */
 function waittilltimeoutordeath(timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timeout);
 }
 
@@ -1902,8 +1902,8 @@ function heroabilityactivateneardeath()
 */
 function checkforherosurvival()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self util::waittill_any_timeout(8, "challenge_survived_from_death", "disconnect");
 	self addplayerstat("death_dodger", 1);
 }
@@ -2010,11 +2010,11 @@ function trackkillstreaksupportkills(victim)
 */
 function monitorreloads()
 {
-	self endon(#"disconnect");
-	self endon(#"killmonitorreloads");
+	self endon("disconnect");
+	self endon("killmonitorreloads");
 	while(true)
 	{
-		self waittill(#"reload");
+		self waittill("reload");
 		currentweapon = self getcurrentweapon();
 		if(currentweapon == level.weaponnone)
 		{
@@ -2040,12 +2040,12 @@ function monitorreloads()
 */
 function monitorgrenadefire()
 {
-	self notify(#"grenadetrackingstart");
-	self endon(#"grenadetrackingstart");
-	self endon(#"disconnect");
+	self notify("grenadetrackingstart");
+	self endon("grenadetrackingstart");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(!isdefined(grenade))
 		{
 			continue;
@@ -2073,14 +2073,14 @@ function monitorgrenadefire()
 */
 function watchweaponchangecomplete()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
+	self endon("death");
+	self endon("disconnect");
+	self endon("joined_team");
+	self endon("joined_spectators");
 	while(true)
 	{
 		self.heroweaponkillsthisactivation = 0;
-		self waittill(#"weapon_change_complete");
+		self waittill("weapon_change_complete");
 	}
 }
 
@@ -2134,17 +2134,17 @@ function capturedobjectivefunction()
 function watchwallruntwooppositewallsnoground()
 {
 	player = self;
-	player endon(#"death");
-	player endon(#"disconnect");
-	player endon(#"joined_team");
-	player endon(#"joined_spectators");
+	player endon("death");
+	player endon("disconnect");
+	player endon("joined_team");
+	player endon("joined_spectators");
 	self.wallrantwooppositewallsnoground = 0;
 	while(true)
 	{
 		if(!player iswallrunning())
 		{
 			self.wallrantwooppositewallsnoground = 0;
-			player waittill(#"wallrun_begin");
+			player waittill("wallrun_begin");
 		}
 		ret = player util::waittill_any_return("jump_begin", "wallrun_end", "disconnect", "joined_team", "joined_spectators");
 		if(ret == "wallrun_end")
@@ -2152,7 +2152,7 @@ function watchwallruntwooppositewallsnoground()
 			continue;
 		}
 		wall_normal = player getwallrunwallnormal();
-		player waittill(#"jump_end");
+		player waittill("jump_end");
 		if(!player iswallrunning())
 		{
 			continue;

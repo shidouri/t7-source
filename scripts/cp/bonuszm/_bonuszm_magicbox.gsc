@@ -75,7 +75,7 @@ class class_dafbfd8e
 		{
 			wait(0.1);
 		}
-		var_b8eeb0fe notify(#"closed");
+		var_b8eeb0fe notify("closed");
 	}
 
 	/*
@@ -171,7 +171,7 @@ class class_dafbfd8e
 		var_b8eeb0fe.weapon_model.angles = (var_b8eeb0fe.angles[0] * -1, var_b8eeb0fe.angles[1] + 180, var_b8eeb0fe.angles[2] * -1);
 		var_b8eeb0fe.weapon_model useweaponmodel(var_b8eeb0fe.weaponinfo[0], var_b8eeb0fe.weaponinfo[0].worldmodel);
 		var_b8eeb0fe.weapon_model setweaponrenderoptions(var_b8eeb0fe.weaponinfo[2], 0, 0, 0, 0);
-		var_b8eeb0fe notify(#"randomization_done");
+		var_b8eeb0fe notify("randomization_done");
 	}
 
 	/*
@@ -232,7 +232,7 @@ class class_dafbfd8e
 		var_aafa484e gameobjects::destroy_object(1, 1);
 		self thread function_b449e467();
 		var_aafa484e delete();
-		var_b8eeb0fe waittill(#"closed");
+		var_b8eeb0fe waittill("closed");
 		var_b8eeb0fe clientfield::set("magicbox_closed_glow", 1);
 		var_b8eeb0fe clientfield::set("magicbox_open_glow", 0);
 		var_3f29a509.gameobject gameobjects::enable_object(1);
@@ -523,7 +523,7 @@ function function_76eab3e(magicbox)
 */
 function function_73ea8d16(magicbox)
 {
-	magicbox endon(#"death");
+	magicbox endon("death");
 	magicbox clientfield::set("magicbox_closed_glow", 0);
 	util::wait_network_frame();
 	magicbox delete();

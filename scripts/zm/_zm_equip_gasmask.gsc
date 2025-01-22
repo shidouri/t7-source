@@ -93,9 +93,9 @@ function on_player_spawned()
 */
 function gasmask_removed_watcher_thread()
 {
-	self notify(#"only_one_gasmask_removed_thread");
-	self endon(#"only_one_gasmask_removed_thread");
-	self endon(#"disconnect");
+	self notify("only_one_gasmask_removed_thread");
+	self endon("only_one_gasmask_removed_thread");
+	self endon("disconnect");
 	for(;;)
 	{
 		self waittill(#"hash_5a02c845");
@@ -135,8 +135,8 @@ function gasmask_removed_watcher_thread()
 */
 function gasmask_activation_watcher_thread()
 {
-	self endon(#"zombified");
-	self endon(#"disconnect");
+	self endon("zombified");
+	self endon("disconnect");
 	self notify(#"hash_b0734faa");
 	self endon(#"hash_b0734faa");
 	var_f499fcb0 = getweapon("lower_equip_gasmask");
@@ -166,7 +166,7 @@ function gasmask_activation_watcher_thread()
 				self [[level.zombiemode_gasmask_change_player_headmodel]](ent_num, 1);
 			}
 			self clientfield::increment_to_player("gas_mask_on");
-			self waittill(#"weapon_change_complete");
+			self waittill("weapon_change_complete");
 			level clientfield::set(("player" + self getentitynumber()) + "wearableItem", 1);
 			self clientfield::set_to_player("gasmaskoverlay", 1);
 			visionset_mgr::activate("overlay", "zm_gasmask_postfx", self);
@@ -191,7 +191,7 @@ function gasmask_activation_watcher_thread()
 			self clientfield::set_to_player("gasmaskoverlay", 0);
 			visionset_mgr::deactivate("overlay", "zm_gasmask_postfx", self);
 			level clientfield::set(("player" + self getentitynumber()) + "wearableItem", 0);
-			self waittill(#"weapon_change_complete");
+			self waittill("weapon_change_complete");
 			self takeweapon(var_f499fcb0);
 			self giveweapon(level.var_f486078e);
 		}
@@ -231,10 +231,10 @@ function function_4933258e()
 {
 	self notify(#"hash_17dade16");
 	self endon(#"hash_17dade16");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"player_given", equipment);
+		self waittill("player_given", equipment);
 		if(equipment == level.var_f486078e)
 		{
 			self clientfield::set_player_uimodel("hudItems.showDpadDown_PES", 1);
@@ -263,7 +263,7 @@ function function_4933258e()
 */
 function remove_gasmask_on_player_bleedout()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"bled_out");
@@ -287,7 +287,7 @@ function remove_gasmask_on_player_bleedout()
 function remove_gasmask_on_game_over()
 {
 	self endon(#"hash_5a02c845");
-	level waittill(#"pre_end_game");
+	level waittill("pre_end_game");
 	if(isdefined(self))
 	{
 		self clientfield::set_to_player("gasmaskoverlay", 0);

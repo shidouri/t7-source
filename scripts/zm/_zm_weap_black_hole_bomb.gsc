@@ -104,7 +104,7 @@ function player_give_black_hole_bomb()
 function player_handle_black_hole_bomb()
 {
 	self notify(#"starting_black_hole_bomb");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"starting_black_hole_bomb");
 	attract_dist_diff = level.black_hole_attract_dist_diff;
 	if(!isdefined(attract_dist_diff))
@@ -218,11 +218,11 @@ function player_handle_black_hole_bomb()
 function function_e877695e()
 {
 	self notify(#"hash_e877695e");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_e877695e");
 	while(true)
 	{
-		self waittill(#"grenade_pullback", var_f4612f93);
+		self waittill("grenade_pullback", var_f4612f93);
 		var_fe9168ca = 0.75;
 		if(var_f4612f93 == level.w_black_hole_bomb)
 		{
@@ -339,7 +339,7 @@ function move_valid_poi_to_navmesh(valid_poi)
 */
 function wait_for_attractor_positions_complete()
 {
-	self waittill(#"attractor_positions_generated");
+	self waittill("attractor_positions_generated");
 	self.attract_to_origin = 0;
 }
 
@@ -419,11 +419,11 @@ function black_hole_bomb_corpse_delete()
 */
 function get_thrown_black_hole_bomb()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"starting_black_hole_bomb");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(weapon == level.w_black_hole_bomb)
 		{
 			grenade.weapon = weapon;
@@ -493,7 +493,7 @@ function monitor_zombie_groans(info)
 */
 function play_zombie_groans()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"black_hole_bomb_blown_up");
 	while(true)
 	{
@@ -534,7 +534,7 @@ function black_hole_bomb_exists()
 */
 function black_hole_bomb_store_movement_anim()
 {
-	self endon(#"death");
+	self endon("death");
 	current_anim = self.run_combatanim;
 	anim_keys = getarraykeys(level.scr_anim[self.animname]);
 	for(j = 0; j < anim_keys.size; j++)
@@ -560,7 +560,7 @@ function black_hole_bomb_store_movement_anim()
 */
 function black_hole_bomb_being_pulled_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	util::wait_network_frame();
 	self clientfield::set("toggle_black_hole_being_pulled", 1);
 	self._black_hole_bomb_being_pulled_in_fx = 1;
@@ -694,7 +694,7 @@ function black_hole_bomb_trigger_monitor(ent_trigger)
 	ent_trigger endon(#"black_hole_complete");
 	while(true)
 	{
-		ent_trigger waittill(#"trigger", ent_player);
+		ent_trigger waittill("trigger", ent_player);
 		if(isplayer(ent_player) && !ent_player isonground() && (!(isdefined(ent_player.lander) && ent_player.lander)))
 		{
 			ent_trigger thread black_hole_teleport_trigger_thread(ent_player, &black_hole_time_before_teleport, &black_hole_teleport_cancel);
@@ -777,7 +777,7 @@ function black_hole_teleport_cancel(ent_player)
 */
 function black_hole_teleport(struct_dest)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(struct_dest))
 	{
 		return;
@@ -844,7 +844,7 @@ function slightly_delayed_player_response()
 */
 function black_hole_teleport_trigger_thread(ent, on_enter_payload, on_exit_payload)
 {
-	ent endon(#"death");
+	ent endon("death");
 	self endon(#"black_hole_complete");
 	if(ent black_hole_teleport_ent_already_in_trigger(self))
 	{
@@ -948,8 +948,8 @@ function black_hole_teleport_ent_already_in_trigger(trig)
 */
 function black_hole_bomb_kill_counter(grenade)
 {
-	self endon(#"death");
-	grenade endon(#"death");
+	self endon("death");
+	grenade endon("death");
 	kill_count = 0;
 	for(;;)
 	{
@@ -1037,7 +1037,7 @@ function black_hole_bomb_stolen_by_sam(ent_grenade, ent_model)
 	playfxontag(level._effect["black_hole_samantha_steal"], ent_model, "tag_origin");
 	ent_model movez(60, 1, 0.25, 0.25);
 	ent_model vibrate(direction, 1.5, 2.5, 1);
-	ent_model waittill(#"movedone");
+	ent_model waittill("movedone");
 	ent_model delete();
 }
 

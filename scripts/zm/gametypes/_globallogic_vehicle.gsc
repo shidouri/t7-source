@@ -446,7 +446,7 @@ function callback_vehiclekilled(einflictor, eattacker, idamage, smeansofdeath, w
 */
 function vehiclecrush()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(level._effect) && isdefined(level._effect["tanksquish"]))
 	{
 		playfx(level._effect["tanksquish"], self.origin + vectorscale((0, 0, 1), 30));

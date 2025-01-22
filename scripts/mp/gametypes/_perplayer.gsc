@@ -110,7 +110,7 @@ function onplayerconnect(handler)
 {
 	for(;;)
 	{
-		level waittill(#"connecting", player);
+		level waittill("connecting", player);
 		if(!isdefined(player.handlers))
 		{
 			player.handlers = [];
@@ -139,7 +139,7 @@ function onplayerconnect(handler)
 */
 function onplayerdisconnect(handler)
 {
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	newplayers = [];
 	for(i = 0; i < handler.players.size; i++)
 	{
@@ -163,10 +163,10 @@ function onplayerdisconnect(handler)
 */
 function onjoinedteam(handler)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"joined_team");
+		self waittill("joined_team");
 		self thread unhandleplayer(handler, 1, 0);
 	}
 }
@@ -182,10 +182,10 @@ function onjoinedteam(handler)
 */
 function onjoinedspectators(handler)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"joined_spectators");
+		self waittill("joined_spectators");
 		self thread unhandleplayer(handler, 1, 0);
 	}
 }
@@ -201,10 +201,10 @@ function onjoinedspectators(handler)
 */
 function onplayerspawned(handler)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		self thread handleplayer(handler);
 	}
 }
@@ -220,10 +220,10 @@ function onplayerspawned(handler)
 */
 function onplayerkilled(handler)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"killed_player");
+		self waittill("killed_player");
 		self thread unhandleplayer(handler, 1, 0);
 	}
 }

@@ -566,7 +566,7 @@ function function_43750b40()
 function function_13d06927()
 {
 	level.disable_nuke_delay_spawning = 1;
-	level notify(#"disable_nuke_delay_spawning");
+	level notify("disable_nuke_delay_spawning");
 	level flag::clear("spawn_zombies");
 	function_5db6ba34();
 	level thread function_3fe90552();
@@ -651,8 +651,8 @@ function function_224a2f3e()
 */
 function function_5334c072(player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("disconnect");
 	player endon(#"bled_out");
 	level endon(#"ee_final_boss_staggered");
 	player.var_884d1375 = 1;
@@ -800,7 +800,7 @@ function function_91c4dc69()
 				ai zombie_utility::set_zombie_run_cycle("run");
 			}
 			find_flesh_struct_string = "find_flesh";
-			ai notify(#"zombie_custom_think_done", find_flesh_struct_string);
+			ai notify("zombie_custom_think_done", find_flesh_struct_string);
 			ai ai::set_behavior_attribute("can_juke", 0);
 			if(level.zombie_respawns > 0 && level.zombie_vars["zombie_spawn_delay"] > 1)
 			{
@@ -827,7 +827,7 @@ function function_91c4dc69()
 function function_91b5dbe8(ai_margwa)
 {
 	level endon(#"ee_final_boss_defeated");
-	ai_margwa waittill(#"death");
+	ai_margwa waittill("death");
 	v_origin = ai_margwa.origin;
 	zm_altbody_beast::function_f6014f2c(v_origin, 3);
 	function_224a2f3e();
@@ -914,7 +914,7 @@ function function_3bd22f9e(var_9a8bfa33)
 	var_a5fd6c97 clientfield::set("ee_rail_electricity_state", 0);
 	while(true)
 	{
-		var_9440a97c waittill(#"trigger", e_triggerer);
+		var_9440a97c waittill("trigger", e_triggerer);
 		function_d3b3eb03(var_9a8bfa33);
 	}
 }
@@ -1098,19 +1098,19 @@ function function_f30f87e4(n_index)
 	level endon("ee_final_boss_keeper_electricity_watcher_" + n_index);
 	level endon(#"ee_final_boss_defeated");
 	var_da3dbbdf = level.var_76c101df[n_index];
-	var_da3dbbdf endon(#"delete");
+	var_da3dbbdf endon("delete");
 	var_da3dbbdf solid();
 	var_da3dbbdf setcandamage(1);
 	var_da3dbbdf.health = 1000000;
 	while(true)
 	{
-		var_da3dbbdf waittill(#"damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
+		var_da3dbbdf waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
 		var_da3dbbdf.health = 1000000;
 		if(zm_altbody_beast::is_lightning_weapon(weapon) && isdefined(attacker) && amount > 0)
 		{
 			if(isdefined(attacker))
 			{
-				attacker notify(#"shockable_shocked");
+				attacker notify("shockable_shocked");
 			}
 			level thread function_6774c6fd(var_da3dbbdf);
 			level flag::set("ee_final_boss_keeper_electricity_" + n_index);
@@ -1261,7 +1261,7 @@ function function_533399b1()
 			level clientfield::set("rain_state", 1);
 			level thread function_19076f5e();
 			cleanup_ai();
-			level notify(#"debug_pod_spawn");
+			level notify("debug_pod_spawn");
 			level clientfield::set("ee_keeper_beam_state", 2);
 			level.var_1a1d4400--;
 		}
@@ -1329,8 +1329,8 @@ function function_19076f5e()
 */
 function function_d26c80f1()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	self zm_zod_util::set_rumble_to_player(5);
 	earthquake(0.333, 7, self.origin, 1000);
@@ -1430,7 +1430,7 @@ function ee_ending()
 */
 function function_e186ed49(a_ents)
 {
-	a_ents["archon"] waittill(#"start_fade");
+	a_ents["archon"] waittill("start_fade");
 	level thread lui::screen_flash(1, 1.5, 0.5, 1, "white");
 	playsoundatposition("zmb_zod_endigc_whitescreen", (0, 0, 0));
 	wait(1);
@@ -1441,7 +1441,7 @@ function function_e186ed49(a_ents)
 		level clientfield::set(var_91341fca, 0);
 	}
 	level clientfield::set("ee_keeper_beam_state", 0);
-	a_ents["archon"] waittill(#"start_fade");
+	a_ents["archon"] waittill("start_fade");
 	level thread lui::screen_flash(0.5, 1, 0.5, 1, "black");
 	level flag::set("ee_complete");
 }
@@ -1529,7 +1529,7 @@ function function_e30b3505()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -1656,7 +1656,7 @@ function function_f3d23e2c()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -1716,7 +1716,7 @@ function function_9190a90e(n_char_index)
 	var_e6e52f57 = getent(str_triggername, "targetname");
 	while(true)
 	{
-		var_e6e52f57 waittill(#"trigger", player);
+		var_e6e52f57 waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -1971,7 +1971,7 @@ function function_8f4b6b20(var_ee1ff130, var_dcdf1cd5 = 0)
 */
 function function_e6dd2eaf()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	level function_e525a12(1);
 	level clientfield::set("ee_totem_state", 1);
 }
@@ -2060,7 +2060,7 @@ function function_5eae8cbb()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -2276,7 +2276,7 @@ function function_96ac6f7d()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -2371,7 +2371,7 @@ function function_57b64f04(player)
 {
 	player playsound("evt_nuke_flash");
 	level.disable_nuke_delay_spawning = 1;
-	level notify(#"disable_nuke_delay_spawning");
+	level notify("disable_nuke_delay_spawning");
 	level flag::clear("spawn_zombies");
 	function_5db6ba34(1, 1);
 	level thread function_83bdd16b();
@@ -2458,8 +2458,8 @@ function function_6b57b2d3()
 */
 function function_596e7950(goal)
 {
-	self endon(#"death");
-	self waittill(#"visible");
+	self endon("death");
+	self waittill("visible");
 	self vehicle_ai::set_state("scripted");
 	self setvehgoalpos(goal, 0, 1);
 	self thread zm_zod_shadowman::function_75c9aad2(goal, 64, 1);
@@ -2532,7 +2532,7 @@ function function_943c90e6()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -2733,7 +2733,7 @@ function function_353871a(var_ee1ff130, owner)
 	var_a62764b3 = 2400 + -1600 * ((level.activeplayers.size - 1) / 3);
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
 		self.health = 1000000;
 		if(isdefined(level.var_ad555b99) && level.var_ad555b99)
 		{
@@ -2871,7 +2871,7 @@ function function_877ea350()
 				ai zombie_utility::set_zombie_run_cycle("run");
 			}
 			find_flesh_struct_string = "find_flesh";
-			ai notify(#"zombie_custom_think_done", find_flesh_struct_string);
+			ai notify("zombie_custom_think_done", find_flesh_struct_string);
 			ai ai::set_behavior_attribute("can_juke", 0);
 			if(level.zombie_respawns > 0 && level.zombie_vars["zombie_spawn_delay"] > 1)
 			{

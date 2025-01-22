@@ -130,7 +130,7 @@ function function_43b5419a(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function function_ea7e3000(s_unitrigger, var_df61c394, var_60e07243)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_8de3e280 = getent("pavlovs_second_floor", "targetname");
 	while(!level flag::get(var_df61c394))
 	{
@@ -359,7 +359,7 @@ function function_68299355()
 	level flag::wait_till("all_players_spawned");
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		e_player clientfield::increment_to_player("interact_rumble");
 		e_player playsound("zmb_stalingrad_buttons");
 		if(level flag::get("draconite_available") && e_player zm_utility::get_player_placeable_mine() != getweapon("launcher_dragon_strike_upgraded"))
@@ -457,7 +457,7 @@ function function_8258d71c()
 */
 function function_b8ea3482(str_widget_clientuimodel)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread clientfield::set_player_uimodel(str_widget_clientuimodel, 1);
 	wait(3);
 	self thread clientfield::set_player_uimodel(str_widget_clientuimodel, 0);
@@ -654,7 +654,7 @@ function function_75a7ba2d()
 	self.takedamage = 1;
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(weapon === getweapon("launcher_dragon_fire"))
 		{
 			break;

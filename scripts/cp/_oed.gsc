@@ -141,8 +141,8 @@ function on_player_spawned()
 */
 function function_cec8e852()
 {
-	self endon(#"death");
-	self endon(#"killoedmonitor");
+	self endon("death");
+	self endon("killoedmonitor");
 	while(true)
 	{
 		/#
@@ -210,7 +210,7 @@ function enable_thermal_on_spawned()
 */
 function enable_thermal(str_disable)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("thermal_active", 1);
 	self thread disable_thermal_on_death();
 	if(isdefined(str_disable))
@@ -231,8 +231,8 @@ function enable_thermal(str_disable)
 */
 function disable_thermal_on_death()
 {
-	self endon(#"disable_thermal");
-	self waittill(#"death");
+	self endon("disable_thermal");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self disable_thermal();
@@ -251,7 +251,7 @@ function disable_thermal_on_death()
 function disable_thermal()
 {
 	self clientfield::set("thermal_active", 0);
-	self notify(#"disable_thermal");
+	self notify("disable_thermal");
 }
 
 /*
@@ -392,11 +392,11 @@ function tmode_activate_on_player(b_enabled = 1, b_playsound = 1, b_turnoffev = 
 	}
 	if(self.tmode_state)
 	{
-		self notify(#"tactical_mode_activated");
+		self notify("tactical_mode_activated");
 	}
 	else
 	{
-		self notify(#"tactical_mode_deactivated");
+		self notify("tactical_mode_deactivated");
 	}
 	self tmodesetserveruser(self.tmode_state);
 	code = 0;
@@ -484,7 +484,7 @@ function set_force_tmode(b_enabled = 1)
 */
 function enable_keyline(b_interact = 0, str_disable)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("sitrep_material", 1);
 	self thread disable_on_death();
 	if(isdefined(str_disable))
@@ -505,7 +505,7 @@ function enable_keyline(b_interact = 0, str_disable)
 */
 function disable_on_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self disable_keyline();

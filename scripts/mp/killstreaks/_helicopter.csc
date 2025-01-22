@@ -218,7 +218,7 @@ function doreveal(local_client_num, direction)
 function heli_comlink_bootup_anim(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	self setupanimtree();
 	self setanim(%mp_vehicles::veh_anim_future_heli_gearup_bay_open, 1, 0, 1);
 }
@@ -235,7 +235,7 @@ function heli_comlink_bootup_anim(localclientnum, oldval, newval, bnewent, binit
 function supplydrop_care_package_state(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	self setupanimtree();
 	if(newval == 1)
 	{
@@ -259,7 +259,7 @@ function supplydrop_care_package_state(localclientnum, oldval, newval, bnewent, 
 function supplydrop_ai_tank_state(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	self setupanimtree();
 	if(newval == 1)
 	{
@@ -564,7 +564,7 @@ function trail_fx(localclientnum, trail_fx, trail_tag)
 function heli_comlink_lights_on_after_wait(localclientnum, wait_time)
 {
 	self endon(#"entityshutdown");
-	self endon(#"heli_comlink_lights_off");
+	self endon("heli_comlink_lights_off");
 	wait(wait_time);
 	self heli_comlink_lights_on(localclientnum);
 }
@@ -608,7 +608,7 @@ function heli_comlink_lights_on(localclientnum)
 */
 function heli_comlink_lights_off(localclientnum)
 {
-	self notify(#"heli_comlink_lights_off");
+	self notify("heli_comlink_lights_off");
 	if(isdefined(self.light_fx_handles_heli_comlink))
 	{
 		for(i = 0; i < self.light_fx_handles_heli_comlink.size; i++)
@@ -692,8 +692,8 @@ function stopcrateeffects(localclientnum)
 function cleanupthrustersthread(localclientnum)
 {
 	crate = self;
-	crate notify(#"cleanupthrustersthread_singleton");
-	crate endon(#"cleanupthrustersthread_singleton");
+	crate notify("cleanupthrustersthread_singleton");
+	crate endon("cleanupthrustersthread_singleton");
 	crate waittill(#"entityshutdown");
 	crate stopcrateeffects(localclientnum);
 }

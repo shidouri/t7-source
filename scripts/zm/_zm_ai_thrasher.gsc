@@ -656,7 +656,7 @@ function spawn_thrasher(var_42fbb5b1 = 1)
 */
 function function_89976d94(v_pos)
 {
-	self endon(#"death");
+	self endon("death");
 	var_2e57f81c = util::spawn_model("tag_origin", self.origin, self.angles);
 	var_2e57f81c thread scene::play("scene_zm_dlc2_thrasher_teleport_out", self);
 	self util::waittill_notify_or_timeout("thrasher_teleport_out_done", 4);
@@ -1129,7 +1129,7 @@ function function_4912c054(hitentity)
 */
 function function_565fed9e(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	if(isdefined(entity) && isalive(entity))
 	{
 		entity.bgbignorefearinheadlights = 1;
@@ -1196,7 +1196,7 @@ function function_70622dc9()
 */
 function function_871a3bd5()
 {
-	self waittill(#"death", e_attacker);
+	self waittill("death", e_attacker);
 	arrayremovevalue(level.var_35a5aa88, self);
 	if(isplayer(e_attacker))
 	{
@@ -1217,7 +1217,7 @@ function function_871a3bd5()
 	}
 	if(isdefined(e_attacker) && isai(e_attacker))
 	{
-		e_attacker notify(#"killed", self);
+		e_attacker notify("killed", self);
 	}
 }
 
@@ -1232,7 +1232,7 @@ function function_871a3bd5()
 */
 function function_632dead()
 {
-	self endon(#"death");
+	self endon("death");
 	self playloopsound("zmb_thrasher_lp_close", 2);
 	wait(randomintrange(2, 5));
 	while(true)
@@ -1304,7 +1304,7 @@ function function_11d343a5(thrasher)
 	/#
 		thrasher notify(#"hash_eafe225a");
 		thrasher endon(#"hash_eafe225a");
-		thrasher endon(#"death");
+		thrasher endon("death");
 		thrasher.ignoreall = 1;
 		while(true)
 		{
@@ -1322,7 +1322,7 @@ function function_11d343a5(thrasher)
 				}
 			}
 			thrasher setgoal(var_46b60716);
-			thrasher waittill(#"goal");
+			thrasher waittill("goal");
 		}
 	#/
 }

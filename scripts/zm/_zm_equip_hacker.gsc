@@ -519,7 +519,7 @@ function deregister_hackable_struct(struct)
 				new_list[new_list.size] = level._hackable_objects[i];
 				continue;
 			}
-			level._hackable_objects[i] notify(#"hackable_deregistered");
+			level._hackable_objects[i] notify("hackable_deregistered");
 			if(isdefined(level._hackable_objects[i]._trigger))
 			{
 				level._hackable_objects[i]._trigger delete();
@@ -554,7 +554,7 @@ function deregister_hackable(noteworthy)
 		}
 		else
 		{
-			level._hackable_objects[i] notify(#"hackable_deregistered");
+			level._hackable_objects[i] notify("hackable_deregistered");
 			if(isdefined(level._hackable_objects[i]._trigger))
 			{
 				level._hackable_objects[i]._trigger delete();
@@ -777,8 +777,8 @@ function set_hack_hint_string()
 */
 function tidy_on_deregister(hackable)
 {
-	self endon(#"clean_up_tidy_up");
-	hackable waittill(#"hackable_deregistered");
+	self endon("clean_up_tidy_up");
+	hackable waittill("hackable_deregistered");
 	if(isdefined(self.hackerprogressbar))
 	{
 		self.hackerprogressbar hud::destroyelem();
@@ -871,7 +871,7 @@ function hacker_do_hack(hackable)
 	{
 		hackable._trigger.beinghacked = 0;
 	}
-	self notify(#"clean_up_tidy_up");
+	self notify("clean_up_tidy_up");
 	return hacked;
 }
 
@@ -886,9 +886,9 @@ function hacker_do_hack(hackable)
 */
 function lowreadywatcher(player)
 {
-	player endon(#"disconnected");
-	self endon(#"kill_lowreadywatcher");
-	self waittill(#"hackable_deregistered");
+	player endon("disconnected");
+	self endon("kill_lowreadywatcher");
+	self waittill("hackable_deregistered");
 	player setlowready(0);
 }
 
@@ -903,7 +903,7 @@ function lowreadywatcher(player)
 */
 function hackable_object_thread()
 {
-	self endon(#"hackable_deregistered");
+	self endon("hackable_deregistered");
 	height = 72;
 	radius = 64;
 	if(isdefined(self.radius))
@@ -974,7 +974,7 @@ function hackable_object_thread()
 				hacker setlowready(1);
 				self thread lowreadywatcher(hacker);
 				hack_success = hacker hacker_do_hack(self);
-				self notify(#"kill_lowreadywatcher");
+				self notify("kill_lowreadywatcher");
 				if(isdefined(hacker))
 				{
 					hacker setlowready(0);
@@ -1040,7 +1040,7 @@ function hacker_on_player_connect()
 */
 function player_hack_disconnect_watcher(player)
 {
-	player waittill(#"disconnect");
+	player waittill("disconnect");
 	deregister_hackable_struct(self);
 }
 
@@ -1057,10 +1057,10 @@ function function_b743c597()
 {
 	self notify(#"hash_36caa6f");
 	self endon(#"hash_36caa6f");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"player_given", equipment);
+		self waittill("player_given", equipment);
 		if(equipment == level.var_bbd4901d)
 		{
 			self clientfield::set_player_uimodel("hudItems.showDpadDown_HackTool", 1);
@@ -1081,7 +1081,7 @@ function function_778301bd()
 {
 	self notify(#"hash_b90a8375");
 	self endon(#"hash_b90a8375");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"hash_e15d5390");

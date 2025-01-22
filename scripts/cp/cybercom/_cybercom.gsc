@@ -207,12 +207,12 @@ function function_25889576(einflictor, eattacker, idamage, idflags, smeansofdeat
 		if(weapon == getweapon("gadget_ravage_core") || (weapon == getweapon("gadget_ravage_core_upgraded") && isdefined(self.archetype) && self.archetype == "robot"))
 		{
 			self ai::set_behavior_attribute("can_gib", 0);
-			level notify(#"ravage_core", self, eattacker, idamage, weapon, vpoint);
+			level notify("ravage_core", self, eattacker, idamage, weapon, vpoint);
 			var_2d399bc8 = 1;
 		}
 		if(weapon == getweapon("gadget_rapid_strike") || weapon == getweapon("gadget_rapid_strike_upgraded"))
 		{
-			level notify(#"rapid_strike", self, eattacker, idamage, weapon, vpoint);
+			level notify("rapid_strike", self, eattacker, idamage, weapon, vpoint);
 			var_2d399bc8 = 1;
 		}
 	}
@@ -384,12 +384,12 @@ function private function_4d11675a(menu, response)
 */
 function on_menu_response()
 {
-	self endon(#"disconnect");
-	self notify(#"start_ccom_menu_response");
-	self endon(#"start_ccom_menu_response");
+	self endon("disconnect");
+	self notify("start_ccom_menu_response");
+	self endon("start_ccom_menu_response");
 	for(;;)
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		if(isdefined(self.cybercom.menu) && menu == self.cybercom.menu)
 		{
 			if(isdefined(self.cybercom.is_primed) && self.cybercom.is_primed)
@@ -457,7 +457,7 @@ function disablecybercom(var_1e41d598)
 	self.cybercom.var_3e73c959 = self gadgetpowerget(1);
 	self.cybercom.var_647643c2 = self gadgetpowerget(1);
 	self.cybercom.var_384c5e6e = var_1e41d598;
-	self notify(#"cybercom_disabled");
+	self notify("cybercom_disabled");
 	if(isdefined(self.cybercom.activecybercommeleeweapon) && self hasweapon(self.cybercom.activecybercommeleeweapon))
 	{
 		self.cybercom.var_7116dac7 = self.cybercom.activecybercommeleeweapon;
@@ -467,7 +467,7 @@ function disablecybercom(var_1e41d598)
 	if(isdefined(self.cybercom.activecybercomweapon))
 	{
 		self takeweapon(self.cybercom.activecybercomweapon);
-		self notify(#"weapon_taken", self.cybercom.activecybercomweapon);
+		self notify("weapon_taken", self.cybercom.activecybercomweapon);
 		self.cybercom.activecybercomweapon = undefined;
 	}
 	self clientfield::set_to_player("cybercom_disabled", 1);
@@ -583,7 +583,7 @@ function _cybercom_notify_toggle_off()
 	level endon(#"_cybercom_notify_toggle_off");
 	while(true)
 	{
-		level waittill(#"disable_cybercom", player, var_1e41d598);
+		level waittill("disable_cybercom", player, var_1e41d598);
 		if(isdefined(player))
 		{
 			player disablecybercom(var_1e41d598);
@@ -632,7 +632,7 @@ function cybercom_getadjusteddamage(player, eattacker, einflictor, idamage, weap
 */
 function function_d240e350(var_7872e02, target, var_9bc2efcb = 1, upgraded = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	while(var_9bc2efcb && self isplayinganimscripted())
 	{
 		wait(0.1);

@@ -148,7 +148,7 @@ function function_5b19179b()
 */
 function function_26bc55e3()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level.custom_intermission = &function_5b19179b;
 	level thread function_a062344d();
 	if(getdvarint("splitscreen_playerCount") > 2)
@@ -217,7 +217,7 @@ function function_3c2e817d()
 	var_765a3ab1 = 1;
 	while(var_765a3ab1 <= 4)
 	{
-		level waittill(#"character", n_shot);
+		level waittill("character", n_shot);
 		if(n_shot == var_765a3ab1)
 		{
 			var_765a3ab1++;
@@ -256,11 +256,11 @@ function function_3c2e817d()
 */
 function wait_for_damage()
 {
-	level endon(#"character_stones_done");
+	level endon("character_stones_done");
 	while(true)
 	{
-		self waittill(#"trigger");
-		level notify(#"character", self.script_int);
+		self waittill("trigger");
+		level notify("character", self.script_int);
 	}
 	self delete();
 }
@@ -310,12 +310,12 @@ function function_bde2ec4(var_f5e9fb6c)
 		wait(n_time - 0.2);
 		var_d955a5b1 rotateto(var_939c099.angles, 0.2);
 		var_d955a5b1 moveto(var_939c099.origin, 0.2);
-		var_d955a5b1 waittill(#"movedone");
+		var_d955a5b1 waittill("movedone");
 		var_d955a5b1 playsound("zmb_main_reel_land");
 	}
 	s_unitrigger = var_d955a5b1 zm_unitrigger::create_unitrigger("", 100);
 	s_unitrigger.require_look_at = 1;
-	var_d955a5b1 waittill(#"trigger_activated", e_player);
+	var_d955a5b1 waittill("trigger_activated", e_player);
 	e_player playsound("zmb_main_reel_pickup");
 	level thread zm_genesis_vo::function_21783178(e_player);
 	level flag::set("got_audio" + var_f5e9fb6c);
@@ -338,7 +338,7 @@ function function_7914cbc8()
 	level flag::wait_till("got_audio" + self.script_int);
 	s_unitrigger = self zm_unitrigger::create_unitrigger("", 100);
 	s_unitrigger.require_look_at = 1;
-	self waittill(#"trigger_activated", e_player);
+	self waittill("trigger_activated", e_player);
 	level flag::set("placed_audio" + self.script_int);
 	var_be748f8 = [];
 	var_d955a5b1 = util::spawn_model("p7_zm_ctl_radio_recorder_tape_01", self.origin, self.angles);
@@ -386,8 +386,8 @@ function function_7914cbc8()
 	}
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
 	self struct::delete();
-	var_d955a5b1 waittill(#"audio_log_complete");
-	level notify(#"audio_log_complete");
+	var_d955a5b1 waittill("audio_log_complete");
+	level notify("audio_log_complete");
 	function_ccdb680e(var_be748f8, 0);
 }
 
@@ -454,7 +454,7 @@ function function_be26578d(var_f5e9fb6c)
 	var_b44af04e = util::spawn_model("p7_zm_gen_horror_shards_kit_03_h", var_4d544c7f.origin - v_offset, var_4d544c7f.angles);
 	util::wait_network_frame();
 	var_b44af04e moveto(var_4d544c7f.origin, 15);
-	var_b44af04e waittill(#"movedone");
+	var_b44af04e waittill("movedone");
 	while(true)
 	{
 		if(isdefined(level.ai_companion) && isalive(level.var_bfd9ed83))
@@ -815,7 +815,7 @@ function function_24240140()
 	self setcandamage(1);
 	while(true)
 	{
-		self waittill(#"damage", n_damage, e_attacker, v_dir, v_loc, str_type, str_model, str_tag, str_part, w_weapon, n_flags);
+		self waittill("damage", n_damage, e_attacker, v_dir, v_loc, str_type, str_model, str_tag, str_part, w_weapon, n_flags);
 		if(isdefined(w_weapon) && w_weapon.name != "idgun_genesis_0_upgraded")
 		{
 			b_upgraded = zm_weapons::is_weapon_upgraded(w_weapon);
@@ -870,7 +870,7 @@ function function_156b5313()
 	level flag::wait_till("b_target_flesh");
 	wait(randomfloatrange(0.6666666, 1.333333));
 	self moveto(level.var_3848ad63, randomfloatrange(1, 3));
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self playsound("zmb_main_reel3_bone_disappear_quiet");
 	util::wait_network_frame();
 	self delete();
@@ -1044,7 +1044,7 @@ function ee_sophia_activate()
 	#/
 	var_913a622d = struct::get("ee_sophia_activate", "targetname");
 	s_unitrigger = var_913a622d zm_unitrigger::create_unitrigger("", 64);
-	var_913a622d waittill(#"trigger_activated", e_player);
+	var_913a622d waittill("trigger_activated", e_player);
 	level thread zm_genesis_vo::function_efdd99e2(e_player);
 	playfx(level._effect["lightning_dog_spawn"], self.origin);
 	level flag::set("sophia_activated");
@@ -1101,7 +1101,7 @@ function function_9449053f()
 	wait(1);
 	level.var_2309b03e startpath();
 	level.var_2309b03e resumespeed();
-	level.var_2309b03e waittill(#"reached_end_node");
+	level.var_2309b03e waittill("reached_end_node");
 	self unlink();
 	level.var_2309b03e delete();
 	level flag::set("sophia_at_teleporter");
@@ -1118,10 +1118,10 @@ function function_9449053f()
 */
 function function_ab34209c()
 {
-	level endon(#"sophia_at_teleporter");
+	level endon("sophia_at_teleporter");
 	while(true)
 	{
-		level.var_2309b03e waittill(#"reached_node", nd_current);
+		level.var_2309b03e waittill("reached_node", nd_current);
 		b_pause = 1;
 		if(isdefined(nd_current))
 		{
@@ -1219,7 +1219,7 @@ function function_a3bddb7c()
 	if(!level flag::get("book_picked_up"))
 	{
 		level flag::set("teleporter_cooldown");
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		self thread function_a3bddb7c();
 	}
 }
@@ -1278,7 +1278,7 @@ function function_e483fde2(b_solid)
 function function_7eefe596(str_endon)
 {
 	level endon(str_endon);
-	self endon(#"death");
+	self endon("death");
 	var_89bdf56b = self.origin;
 	var_f72fcc71 = self.angles;
 	while(true)
@@ -1329,7 +1329,7 @@ function function_cde49635()
 function function_a9536aec()
 {
 	level endon(#"hash_deeb3634");
-	self endon(#"death");
+	self endon("death");
 	b_first_loop = 1;
 	while(zm_utility::is_player_valid(self) && function_86b1188c(750, level.var_a090a655, self))
 	{
@@ -1492,7 +1492,7 @@ function function_11b415e8()
 {
 	s_unitrigger = self zm_unitrigger::create_unitrigger("", 100);
 	s_unitrigger.require_look_at = 1;
-	self waittill(#"trigger_activated", e_player);
+	self waittill("trigger_activated", e_player);
 	e_player playsound("zmb_main_runey_book_pickup");
 	level flag::set("book_picked_up");
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
@@ -1549,7 +1549,7 @@ function function_83245b0e()
 	#/
 	s_unitrigger = self zm_unitrigger::create_unitrigger("", 100);
 	s_unitrigger.require_look_at = 1;
-	self waittill(#"trigger_activated", e_player);
+	self waittill("trigger_activated", e_player);
 	level flag::set("book_placed");
 	level clientfield::set("ee_quest_state", 7);
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
@@ -1587,7 +1587,7 @@ function function_83245b0e()
 function function_cf63e7c4(var_d3a0e40c)
 {
 	self moveto((-467, -8200, -1270), 3.2, 1.2);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self playsound("zmb_ee_soul_impact");
 	var_d3a0e40c.var_eee7ee77 = array::exclude(var_d3a0e40c.var_eee7ee77, self);
 	self delete();
@@ -1616,7 +1616,7 @@ function function_1b0994cb()
 	s_unitrigger = self zm_unitrigger::create_unitrigger("", 100);
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		level notify(#"hash_6760e3ae");
 		level clientfield::set("arena_timeout_warning", 0);
 		level flag::set("book_runes_in_progress");
@@ -1634,7 +1634,7 @@ function function_1b0994cb()
 		{
 			thread [[ level.var_d90687be ]]->function_b4aac082();
 			e_player thread function_54e04357();
-			level waittill(#"start_of_round");
+			level waittill("start_of_round");
 			level flag::clear("book_runes_failed");
 		}
 		level waittill(#"hash_78e9c51c");
@@ -1794,7 +1794,7 @@ function function_71fa98ee()
 	level endon(#"book_runes_success");
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		self function_d3e3222b();
 	}
 }
@@ -1872,7 +1872,7 @@ function function_fde3e99f(n_time)
 	if(isdefined(n_time))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_time, "timeout");
 	}
 	level waittill(#"hash_ef87390a");
@@ -1911,7 +1911,7 @@ function function_3d57dcdd()
 	while(level.var_be50c24f < level.var_6000c357.size)
 	{
 		level thread zm_genesis_arena::function_e3fb6380();
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		if(isdefined(level.var_63fa69fd))
 		{
 			level notify(#"hash_6760e3ae");
@@ -2091,7 +2091,7 @@ function function_79fd9323()
 */
 function function_27b96bc()
 {
-	level endon(#"toys_collected");
+	level endon("toys_collected");
 	var_cb6acc3e = undefined;
 	while(level.var_6e907685.size)
 	{
@@ -2146,7 +2146,7 @@ function function_27b96bc()
 					wait(4.8);
 					var_39018584 delete();
 					level thread zm_genesis_vo::function_e644549c(var_46352a82.lastcarrier);
-					var_f03dd5b1 notify(#"toy_found");
+					var_f03dd5b1 notify("toy_found");
 					/#
 						iprintlnbold("");
 					#/
@@ -2191,7 +2191,7 @@ function function_e2a94206(var_39815a1b)
 	self clientfield::set("grand_tour_found_toy_fx", 1);
 	self moveto(self.origin + var_39815a1b, 5);
 	self thread function_7134f126();
-	self waittill(#"movedone");
+	self waittill("movedone");
 	var_ed98644e = vectornormalize((-6130, 390, 150) - self.origin);
 	var_ed98644e = (var_ed98644e[0], var_ed98644e[1], 0);
 	var_ed98644e = var_ed98644e * 3072;
@@ -2212,7 +2212,7 @@ function function_e2a94206(var_39815a1b)
 */
 function function_7134f126()
 {
-	self endon(#"movedone");
+	self endon("movedone");
 	while(true)
 	{
 		self rotateto(self.angles + vectorscale((0, 1, 0), 180), 0.83);
@@ -2231,8 +2231,8 @@ function function_7134f126()
 */
 function function_d86f4446()
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
+	self endon("reset");
+	self endon("pickup_object");
 	var_6c9f55e = self function_48e1990b();
 	self ball::reset_ball(1, var_6c9f55e.origin, 1);
 }
@@ -2248,8 +2248,8 @@ function function_d86f4446()
 */
 function function_48e1990b()
 {
-	self endon(#"reset");
-	self endon(#"pickup_object");
+	self endon("reset");
+	self endon("pickup_object");
 	var_d6ba68c5 = self.visuals[0];
 	wait(60);
 	var_6c9f55e = self.lastcarrier;
@@ -2308,7 +2308,7 @@ function function_1661918a()
 	if(!level flag::get("boss_fight"))
 	{
 		level flag::set("teleporter_cooldown");
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		self thread function_1661918a();
 	}
 }
@@ -2338,7 +2338,7 @@ function ee_ending()
 		e_player zm_utility::create_streamer_hint(var_221e828b[0].origin, var_221e828b[0].angles, 1);
 	}
 	wait(level.n_teleport_delay);
-	self notify(#"fx_done");
+	self notify("fx_done");
 	zm_genesis_util::function_342295d8("samanthas_room_zone");
 	level.var_7d7ca0ea zm_genesis_teleporter::teleport_players(var_221e828b, 1, 1, 1);
 	music::setmusicstate("samroom");

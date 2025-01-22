@@ -28,6 +28,6 @@ function main()
 */
 function party_stop()
 {
-	level notify(#"no_party");
+	level notify("no_party");
 }
 

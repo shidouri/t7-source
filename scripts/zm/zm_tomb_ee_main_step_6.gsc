@@ -98,7 +98,7 @@ function ruins_fist_glow_monitor()
 		self.has_soul = 1;
 		while(isalive(self))
 		{
-			self waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weapon, idflags);
+			self waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weapon, idflags);
 			if(!isdefined(inflictor.n_ee_punch_souls))
 			{
 				inflictor.n_ee_punch_souls = 0;
@@ -199,11 +199,11 @@ function spawn_punch_upgrade_tablet(v_origin, e_player)
 */
 function rotate_punch_upgrade_tablet()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateyaw(360, 5);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 

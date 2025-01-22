@@ -89,7 +89,7 @@ function custom_class_init(localclientnum)
 */
 function custom_class_start_threads(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	while(true)
 	{
 		level thread custom_class_update(localclientnum);
@@ -111,7 +111,7 @@ function custom_class_start_threads(localclientnum)
 */
 function handle_cac_customization(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	self.lastxcam = [];
 	self.lastsubxcam = [];
 	self.lastnotetrack = [];
@@ -136,7 +136,7 @@ function handle_cac_customization(localclientnum)
 */
 function custom_class_update(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon("CustomClass_focus" + localclientnum);
 	level endon("CustomClass_remove" + localclientnum);
 	level endon("CustomClass_closed" + localclientnum);
@@ -177,7 +177,7 @@ function custom_class_update(localclientnum)
 		toggle_locked_weapon_shader(localclientnum, is_item_unlocked);
 		toggle_tokenlocked_weapon_shader(localclientnum, is_item_unlocked && is_item_tokenlocked);
 		update_weapon_script_model(localclientnum, weapon_full_name, undefined, is_item_unlocked, is_item_tokenlocked);
-		level notify(#"xcammoved");
+		level notify("xcammoved");
 		lerpduration = get_lerp_duration(camera);
 		setup_paintshop_bg(localclientnum, camera);
 		level transition_camera_immediate(localclientnum, base_weapon_slot, "cam_cac_weapon", "cam_cac", lerpduration, camera);
@@ -270,7 +270,7 @@ function is_optic(attachmentname)
 */
 function custom_class_attachment_select_focus(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon("CustomClass_update" + localclientnum);
 	level endon("CustomClass_remove" + localclientnum);
 	level endon("CustomClass_closed" + localclientnum);
@@ -333,7 +333,7 @@ function custom_class_attachment_select_focus(localclientnum)
 */
 function custom_class_remove(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon("CustomClass_update" + localclientnum);
 	level endon("CustomClass_focus" + localclientnum);
 	level endon("CustomClass_closed" + localclientnum);
@@ -364,7 +364,7 @@ function custom_class_remove(localclientnum)
 */
 function custom_class_closed(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon("CustomClass_update" + localclientnum);
 	level endon("CustomClass_focus" + localclientnum);
 	level endon("CustomClass_remove" + localclientnum);
@@ -849,9 +849,9 @@ function update_weapon_script_model(localclientnum, newweaponstring, should_upda
 function transition_camera(localclientnum, weapontype, camera, subxcam, initialdelay, lerpduration, notetrack, newweaponstring, should_update_weapon_options = 0)
 {
 	self endon(#"entityshutdown");
-	self notify(#"xcammoved");
-	self endon(#"xcammoved");
-	level endon(#"cam_customization_closed");
+	self notify("xcammoved");
+	self endon("xcammoved");
+	level endon("cam_customization_closed");
 	if(isdefined(newweaponstring))
 	{
 		preload_weapon_model(localclientnum, newweaponstring, should_update_weapon_options);
@@ -909,7 +909,7 @@ function get_attachments_intersection(oldweapon, newweapon)
 */
 function handle_cac_customization_focus(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon("cam_customization_closed" + localclientnum);
 	while(true)
 	{
@@ -935,7 +935,7 @@ function handle_cac_customization_focus(localclientnum)
 */
 function handle_cac_customization_weaponoption(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon("cam_customization_closed" + localclientnum);
 	while(true)
 	{
@@ -984,7 +984,7 @@ function handle_cac_customization_weaponoption(localclientnum)
 */
 function handle_cac_customization_attachmentvariant(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon("cam_customization_closed" + localclientnum);
 	while(true)
 	{
@@ -1015,7 +1015,7 @@ function handle_cac_customization_attachmentvariant(localclientnum)
 */
 function handle_cac_customization_closed(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level waittill("cam_customization_closed" + localclientnum, param1, param2, param3, param4);
 	if(isdefined(level.weapon_clientscript_cac_model[localclientnum]) && isdefined(level.weapon_clientscript_cac_model[localclientnum][level.loadout_slot_name]))
 	{

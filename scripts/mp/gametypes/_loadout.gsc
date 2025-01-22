@@ -1028,7 +1028,7 @@ function giveloadout_init(takeallweapons)
 	self.grenadetypeprimarycount = 0;
 	self.grenadetypesecondary = level.weaponnone;
 	self.grenadetypesecondarycount = 0;
-	self notify(#"give_map");
+	self notify("give_map");
 }
 
 /*

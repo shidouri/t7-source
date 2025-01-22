@@ -227,7 +227,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 		self takeallweapons();
 		if(isdefined(attacker) && isplayer(attacker) && attacker != self)
 		{
-			attacker notify(#"killed_a_zombie_player", einflictor, self, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
+			attacker notify("killed_a_zombie_player", einflictor, self, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 		}
 	}
 	else
@@ -261,7 +261,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 		self thread laststand_bleedout(bleedout_time);
 	}
 	demo::bookmark("player_downed", gettime(), self);
-	self notify(#"player_downed");
+	self notify("player_downed");
 	self thread refire_player_downed();
 	self thread laststand::cleanup_laststand_on_disconnect();
 }
@@ -277,13 +277,13 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 */
 function refire_player_downed()
 {
-	self endon(#"player_revived");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("death");
+	self endon("disconnect");
 	wait(1);
 	if(self.num_perks)
 	{
-		self notify(#"player_downed");
+		self notify("player_downed");
 	}
 }
 
@@ -388,7 +388,7 @@ function laststand_disable_player_weapons()
 			self.laststandpistol = level.laststandpistol;
 		}
 	}
-	self notify(#"weapons_taken_for_last_stand");
+	self notify("weapons_taken_for_last_stand");
 }
 
 /*
@@ -467,9 +467,9 @@ function laststand_has_players_weapons_returned(e_player)
 */
 function laststand_clean_up_on_disconnect(e_revivee, w_reviver, w_revive_tool)
 {
-	self endon(#"do_revive_ended_normally");
+	self endon("do_revive_ended_normally");
 	revivetrigger = e_revivee.revivetrigger;
-	e_revivee waittill(#"disconnect");
+	e_revivee waittill("disconnect");
 	if(isdefined(revivetrigger))
 	{
 		revivetrigger delete();
@@ -500,7 +500,7 @@ function laststand_clean_up_on_disconnect(e_revivee, w_reviver, w_revive_tool)
 */
 function laststand_clean_up_reviving_any(e_revivee)
 {
-	self endon(#"do_revive_ended_normally");
+	self endon("do_revive_ended_normally");
 	e_revivee util::waittill_any("disconnect", "zombified", "stop_revive_trigger");
 	self.is_reviving_any--;
 	if(0 > self.is_reviving_any)
@@ -558,10 +558,10 @@ function laststand_give_pistol()
 */
 function wait_switch_weapon(n_delay, w_weapon)
 {
-	self endon(#"player_revived");
-	self endon(#"player_suicide");
-	self endon(#"zombified");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("player_suicide");
+	self endon("zombified");
+	self endon("disconnect");
 	wait(n_delay);
 	self switchtoweapon(w_weapon);
 }
@@ -577,10 +577,10 @@ function wait_switch_weapon(n_delay, w_weapon)
 */
 function laststand_bleedout(delay)
 {
-	self endon(#"player_revived");
-	self endon(#"player_suicide");
-	self endon(#"zombified");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("player_suicide");
+	self endon("zombified");
+	self endon("disconnect");
 	if(isdefined(self.is_zombie) && self.is_zombie || (isdefined(self.no_revive_trigger) && self.no_revive_trigger))
 	{
 		self notify(#"bled_out");
@@ -715,12 +715,12 @@ function suicide_trigger_spawn()
 */
 function suicide_trigger_think()
 {
-	self endon(#"disconnect");
-	self endon(#"zombified");
+	self endon("disconnect");
+	self endon("zombified");
 	self endon(#"stop_revive_trigger");
-	self endon(#"player_revived");
+	self endon("player_revived");
 	self endon(#"bled_out");
-	self endon(#"fake_death");
+	self endon("fake_death");
 	level endon(#"end_game");
 	level endon(#"stop_suicide_trigger");
 	self thread laststand::clean_up_suicide_hud_on_end_game();
@@ -754,7 +754,7 @@ function suicide_trigger_think()
 		self takeweapon(level.weaponsuicide);
 		if(suicide_success)
 		{
-			self notify(#"player_suicide");
+			self notify("player_suicide");
 			util::wait_network_frame();
 			self zm_stats::increment_client_stat("suicides");
 			self bleed_out();
@@ -923,11 +923,11 @@ function revive_trigger_spawn()
 */
 function revive_trigger_think(t_secondary)
 {
-	self endon(#"disconnect");
-	self endon(#"zombified");
+	self endon("disconnect");
+	self endon("zombified");
 	self endon(#"stop_revive_trigger");
 	level endon(#"end_game");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		wait(0.05);
@@ -992,7 +992,7 @@ function revive_trigger_think(t_secondary)
 				w_revive_tool = undefined;
 			}
 			b_revive_successful = e_reviver revive_do_revive(self, w_reviver, w_revive_tool, t_secondary);
-			e_reviver notify(#"revive_done");
+			e_reviver notify("revive_done");
 			if(isplayer(self))
 			{
 				self allowjump(1);
@@ -1027,12 +1027,12 @@ function revive_trigger_think(t_secondary)
 */
 function revive_give_back_weapons_wait(e_reviver, e_revivee)
 {
-	e_revivee endon(#"disconnect");
-	e_revivee endon(#"zombified");
+	e_revivee endon("disconnect");
+	e_revivee endon("zombified");
 	e_revivee endon(#"stop_revive_trigger");
 	level endon(#"end_game");
-	e_revivee endon(#"death");
-	e_reviver waittill(#"revive_done");
+	e_revivee endon("death");
+	e_reviver waittill("revive_done");
 }
 
 /*
@@ -1331,7 +1331,7 @@ function revive_do_revive(e_revivee, w_reviver, w_revive_tool, t_secondary)
 	}
 	e_revivee.revivetrigger sethintstring(&"ZOMBIE_BUTTON_TO_REVIVE_PLAYER");
 	e_revivee.revivetrigger.beingrevived = 0;
-	self notify(#"do_revive_ended_normally");
+	self notify("do_revive_ended_normally");
 	self.is_reviving_any--;
 	if(!revived)
 	{
@@ -1351,10 +1351,10 @@ function revive_do_revive(e_revivee, w_reviver, w_revive_tool, t_secondary)
 */
 function checkforbleedout(player)
 {
-	self endon(#"player_revived");
-	self endon(#"player_suicide");
-	self endon(#"disconnect");
-	player endon(#"disconnect");
+	self endon("player_revived");
+	self endon("player_suicide");
+	self endon("disconnect");
+	player endon("disconnect");
 	if(isdefined(player) && zm_utility::is_classic())
 	{
 		if(!isdefined(player.failed_revives))
@@ -1362,7 +1362,7 @@ function checkforbleedout(player)
 			player.failed_revives = 0;
 		}
 		player.failed_revives++;
-		player notify(#"player_failed_revive");
+		player notify("player_failed_revive");
 	}
 }
 
@@ -1408,7 +1408,7 @@ function auto_revive(reviver, dont_enable_weapons)
 	self laststand::cleanup_suicide_hud();
 	visionset_mgr::deactivate("visionset", "zombie_last_stand", self);
 	visionset_mgr::deactivate("visionset", "zombie_death", self);
-	self notify(#"clear_red_flashing_overlay");
+	self notify("clear_red_flashing_overlay");
 	self allowjump(1);
 	self util::delay(2, "death", &set_ignoreme, 0);
 	self.laststand = undefined;
@@ -1423,7 +1423,7 @@ function auto_revive(reviver, dont_enable_weapons)
 			demo::bookmark("zm_player_revived", gettime(), reviver, self);
 		}
 	}
-	self notify(#"player_revived", reviver);
+	self notify("player_revived", reviver);
 	wait(0.05);
 	if(!isdefined(dont_enable_weapons) || dont_enable_weapons == 0)
 	{
@@ -1463,15 +1463,15 @@ function revive_success(reviver, b_track_stats = 1)
 {
 	if(!isplayer(self))
 	{
-		self notify(#"player_revived", reviver);
+		self notify("player_revived", reviver);
 		return;
 	}
 	if(isdefined(b_track_stats) && b_track_stats)
 	{
 		demo::bookmark("zm_player_revived", gettime(), reviver, self);
 	}
-	self notify(#"player_revived", reviver);
-	reviver notify(#"player_did_a_revive", self);
+	self notify("player_revived", reviver);
+	reviver notify("player_did_a_revive", self);
 	self reviveplayer();
 	self zm_perks::perk_set_max_health_if_jugg("health_reboot", 1, 0);
 	if(isdefined(self.pers_upgrades_awarded["perk_lose"]) && self.pers_upgrades_awarded["perk_lose"])
@@ -1613,8 +1613,8 @@ function player_getup_setup()
 */
 function laststand_getup()
 {
-	self endon(#"player_revived");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("disconnect");
 	/#
 		println("");
 	#/
@@ -1643,11 +1643,11 @@ function laststand_getup()
 */
 function laststand_getup_damage_watcher()
 {
-	self endon(#"player_revived");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		self.laststand_info.getup_bar_value = self.laststand_info.getup_bar_value - level.const_laststand_getup_bar_damage;
 		if(self.laststand_info.getup_bar_value < 0)
 		{
@@ -1669,7 +1669,7 @@ function check_for_sacrifice()
 {
 	self util::delay_notify("sacrifice_denied", 1);
 	self endon(#"sacrifice_denied");
-	self waittill(#"player_downed");
+	self waittill("player_downed");
 	self zm_stats::increment_client_stat("sacrifices");
 	self zm_stats::increment_player_stat("sacrifices");
 }
@@ -1685,12 +1685,12 @@ function check_for_sacrifice()
 */
 function check_for_failed_revive(e_revivee)
 {
-	self endon(#"disconnect");
-	e_revivee endon(#"disconnect");
-	e_revivee endon(#"player_suicide");
-	self notify(#"checking_for_failed_revive");
-	self endon(#"checking_for_failed_revive");
-	e_revivee endon(#"player_revived");
+	self endon("disconnect");
+	e_revivee endon("disconnect");
+	e_revivee endon("player_suicide");
+	self notify("checking_for_failed_revive");
+	self endon("checking_for_failed_revive");
+	e_revivee endon("player_revived");
 	e_revivee waittill(#"bled_out");
 	self zm_stats::increment_client_stat("failed_revives");
 	self zm_stats::increment_player_stat("failed_revives");

@@ -153,7 +153,7 @@ function killclones(player)
 		{
 			if(isdefined(clone))
 			{
-				clone notify(#"clone_shutdown");
+				clone notify("clone_shutdown");
 			}
 		}
 	}
@@ -333,7 +333,7 @@ function removeoldestclone()
 	/#
 		println((("" + i) + "") + level._clone.size);
 	#/
-	level._clone[oldestindex] notify(#"clone_shutdown");
+	level._clone[oldestindex] notify("clone_shutdown");
 	level._clone[oldestindex] = undefined;
 	array::remove_undefined(level._clone);
 }
@@ -349,7 +349,7 @@ function removeoldestclone()
 */
 function spawnclones()
 {
-	self endon(#"death");
+	self endon("death");
 	self killclones(self);
 	self._clone = [];
 	velocity = self getvelocity();
@@ -390,7 +390,7 @@ function spawnclones()
 		insertclone(clone);
 		wait(0.05);
 	}
-	self notify(#"reveal_clone");
+	self notify("reveal_clone");
 	if(self oob::isoutofbounds())
 	{
 		gadget_clone_off(self, undefined);
@@ -426,7 +426,7 @@ function gadget_clone_on(slot, weapon)
 */
 function private _updateclonepathing()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(getdvarint("tu1_gadgetCloneSwimming", 1))
@@ -640,7 +640,7 @@ function private _playdematerialization()
 */
 function private _clonewatchdeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self stoploopsound();
@@ -683,7 +683,7 @@ function private _configurecloneteam(clone, player, ishacked)
 */
 function private _show(spawntime)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(spawntime);
 	self show();
 	self clientfield::set("clone_activated", 1);
@@ -724,7 +724,7 @@ function gadget_clone_off(slot, weapon)
 */
 function private _clonedamaged()
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("clone_damaged", 1);
 	util::wait_network_frame();
 	self clientfield::set("clone_damaged", 0);
@@ -768,18 +768,18 @@ function clonedamageoverride(einflictor, eattacker, idamage, idflags, smeansofde
 	if(weapon.isemp && smeansofdeath == "MOD_GRENADE_SPLASH")
 	{
 		processclonescoreevent(self, eattacker, weapon);
-		self notify(#"clone_shutdown");
+		self notify("clone_shutdown");
 	}
 	if(isdefined(level.weaponlightninggun) && weapon == level.weaponlightninggun)
 	{
 		processclonescoreevent(self, eattacker, weapon);
-		self notify(#"clone_shutdown");
+		self notify("clone_shutdown");
 	}
 	supplydrop = getweapon("supplydrop");
 	if(isdefined(supplydrop) && supplydrop == weapon)
 	{
 		processclonescoreevent(self, eattacker, weapon);
-		self notify(#"clone_shutdown");
+		self notify("clone_shutdown");
 	}
 	return idamage;
 }
@@ -796,13 +796,13 @@ function clonedamageoverride(einflictor, eattacker, idamage, idflags, smeansofde
 function _clonewatchownerdisconnect(player)
 {
 	clone = self;
-	clone notify(#"watchcloneownerdisconnect");
-	clone endon(#"watchcloneownerdisconnect");
-	clone endon(#"clone_shutdown");
+	clone notify("watchcloneownerdisconnect");
+	clone endon("watchcloneownerdisconnect");
+	clone endon("clone_shutdown");
 	player util::waittill_any("joined_team", "disconnect", "joined_spectators");
 	if(isdefined(clone))
 	{
-		clone notify(#"clone_shutdown");
+		clone notify("clone_shutdown");
 	}
 }
 
@@ -818,7 +818,7 @@ function _clonewatchownerdisconnect(player)
 function _clonewatchshutdown()
 {
 	clone = self;
-	clone waittill(#"clone_shutdown");
+	clone waittill("clone_shutdown");
 	removeclone(clone);
 	if(isdefined(clone))
 	{
@@ -847,8 +847,8 @@ function _clonewatchshutdown()
 function _clonebreakglass()
 {
 	clone = self;
-	clone endon(#"clone_shutdown");
-	clone endon(#"death");
+	clone endon("clone_shutdown");
+	clone endon("death");
 	while(true)
 	{
 		clone util::break_glass();
@@ -868,8 +868,8 @@ function _clonebreakglass()
 function _clonefakefire()
 {
 	clone = self;
-	clone endon(#"clone_shutdown");
-	clone endon(#"death");
+	clone endon("clone_shutdown");
+	clone endon("death");
 	while(true)
 	{
 		waittime = randomfloatrange(0.5, 3);

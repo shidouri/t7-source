@@ -420,7 +420,7 @@ function private function_26c35525()
 */
 function private function_8d578a58()
 {
-	self waittill(#"death", attacker, mod, weapon);
+	self waittill("death", attacker, mod, weapon);
 	foreach(player in level.players)
 	{
 		if(player.am_i_valid && (!(isdefined(level.var_1f6ca9c8) && level.var_1f6ca9c8)) && (!(isdefined(self.var_2d5d7413) && self.var_2d5d7413)))
@@ -1384,7 +1384,7 @@ function private function_6af3c534(entity)
 */
 function private function_face7ad8(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	entity.var_322364e8 = 0;
 	entity thread function_90ec324d();
 }
@@ -1500,7 +1500,7 @@ function private function_90ec324d()
 			}
 			position = trace["position"];
 			var_898f5d33 moveto(position, 0.15);
-			var_898f5d33 waittill(#"movedone");
+			var_898f5d33 waittill("movedone");
 			var_898f5d33 clientfield::increment("play_margwa_fire_attack_fx");
 			var_898f5d33 thread function_396590c8(position, 48);
 			self thread function_308ca6aa(position, 48, 30, "MOD_BURNED");
@@ -1920,7 +1920,7 @@ function private function_c2614d30(entity)
 */
 function private function_9a9f35ac(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	var_3e944f2d = 0;
 	entity.var_3c58b79c = 0;
 	entity.var_187c138e = 1;
@@ -2077,14 +2077,14 @@ function private function_8969ba81(var_bc39bd09, var_1be3af57, target = undefine
 		skull = entity magicmissile(weapon, var_bc39bd09, var_4126099a);
 		skull thread function_16cddcb6();
 		entity.var_ed0c0558[entity.var_ed0c0558.size] = skull;
-		entity notify(#"shadow_margwa_skull_launched");
+		entity notify("shadow_margwa_skull_launched");
 	}
 	else
 	{
 		skull = entity magicmissile(weapon, var_bc39bd09, var_4126099a, target);
 		skull thread function_16cddcb6();
 		entity.var_ed0c0558[entity.var_ed0c0558.size] = skull;
-		entity notify(#"shadow_margwa_skull_launched");
+		entity notify("shadow_margwa_skull_launched");
 	}
 }
 
@@ -2108,7 +2108,7 @@ function function_16cddcb6()
 	}
 	while(isdefined(self))
 	{
-		self waittill(#"damage", n_damage, e_attacker);
+		self waittill("damage", n_damage, e_attacker);
 		if(isplayer(e_attacker))
 		{
 			var_b5f846f3 = var_b5f846f3 + n_damage;
@@ -2360,7 +2360,7 @@ function function_258d1434(var_c37d9885, var_6cd7eac7, var_19d406c9)
 */
 function function_2ab5f647(e_player, v_attack_source, n_push_away, n_lift_height, v_lift_offset, n_lift_speed)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.in_gravity_trap) && self.in_gravity_trap && e_player.gravityspikes_state === 3)
 	{
 		if(isdefined(self.var_1f5fe943) && self.var_1f5fe943)
@@ -2424,7 +2424,7 @@ function function_2ab5f647(e_player, v_attack_source, n_push_away, n_lift_height
 */
 function function_3f3b0b14(margwa)
 {
-	margwa endon(#"death");
+	margwa endon("death");
 	if(isdefined(margwa))
 	{
 		self.var_3abf1eec = self.origin;
@@ -2471,7 +2471,7 @@ function function_15492d9b()
 {
 	/#
 		wait(0.05);
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(0.05);
 		str_cmd = "";
 		adddebugcommand(str_cmd);

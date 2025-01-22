@@ -28,7 +28,7 @@ function main()
 	level thread light_model_swap("smodel_light_electric", "lights_indlight_on");
 	level thread dog_start_monitor();
 	level thread dog_stop_monitor();
-	level notify(#"dog_stop");
+	level notify("dog_stop");
 	level thread projector_screen_fx();
 }
 
@@ -245,7 +245,7 @@ function trap_play_fx(loc, trap_type)
 */
 function light_model_swap(name, model)
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	players = getlocalplayers();
 	for(p = 0; p < players.size; p++)
 	{
@@ -285,7 +285,7 @@ function projector_screen_fx()
 	wait(0.016);
 	if(!level clientfield::get("zm_theater_screen_in_place"))
 	{
-		level waittill(#"sip");
+		level waittill("sip");
 	}
 	players = getlocalplayers();
 	for(i = 0; i < players.size; i++)
@@ -363,17 +363,17 @@ function function_e4b3e1ca(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		case 1:
 		{
-			level notify(#"ps1");
+			level notify("ps1");
 			break;
 		}
 		case 2:
 		{
-			level notify(#"ps2");
+			level notify("ps2");
 			break;
 		}
 		case 3:
 		{
-			level notify(#"ps3");
+			level notify("ps3");
 			break;
 		}
 	}
@@ -392,7 +392,7 @@ function dog_start_monitor()
 {
 	while(true)
 	{
-		level waittill(#"dog_start");
+		level waittill("dog_start");
 		players = getlocalplayers();
 		for(i = 0; i < players.size; i++)
 		{
@@ -414,7 +414,7 @@ function dog_stop_monitor()
 {
 	while(true)
 	{
-		level waittill(#"dog_stop");
+		level waittill("dog_stop");
 		players = getlocalplayers();
 		for(i = 0; i < players.size; i++)
 		{

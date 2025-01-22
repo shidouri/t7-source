@@ -243,7 +243,7 @@ function spin_it()
 {
 	angle = 0;
 	time = 0;
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		angle = time * 90;
@@ -268,7 +268,7 @@ function watch_player_pickup()
 	self.pickuptrigger = trigger;
 	while(isdefined(self))
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		if(player thread pickup(self))
 		{
 			break;

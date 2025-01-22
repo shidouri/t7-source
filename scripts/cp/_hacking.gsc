@@ -126,7 +126,7 @@ function init_hack_trigger(n_hacking_time = 0.5, str_objective = &"cp_hacking", 
 */
 function trigger_wait()
 {
-	self waittill(#"trigger_hack", e_who);
+	self waittill("trigger_hack", e_who);
 	return e_who;
 }
 
@@ -191,8 +191,8 @@ function onuse(player)
 			}
 			s_align scene::play("cin_gen_player_hack_start", player);
 		}
-		level notify(#"hacking_complete", 1, player);
-		self.trigger notify(#"trigger_hack", player);
+		level notify("hacking_complete", 1, player);
+		self.trigger notify("trigger_hack", player);
 		if(isdefined(player))
 		{
 			player clientfield::set_to_player("sndCCHacking", 0);

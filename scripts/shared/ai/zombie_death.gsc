@@ -18,7 +18,7 @@
 */
 function on_fire_timeout()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.flame_fx_timeout))
 	{
 		wait(self.flame_fx_timeout);
@@ -30,7 +30,7 @@ function on_fire_timeout()
 	if(isdefined(self) && isalive(self))
 	{
 		self.is_on_fire = 0;
-		self notify(#"stop_flame_damage");
+		self notify("stop_flame_damage");
 	}
 }
 
@@ -45,7 +45,7 @@ function on_fire_timeout()
 */
 function flame_death_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.is_on_fire) && self.is_on_fire)
 	{
 		return;
@@ -155,8 +155,8 @@ function randomize_array(array)
 */
 function set_last_gib_time()
 {
-	anim notify(#"stop_last_gib_time");
-	anim endon(#"stop_last_gib_time");
+	anim notify("stop_last_gib_time");
+	anim endon("stop_last_gib_time");
 	wait(0.05);
 	anim.lastgibtime = gettime();
 	anim.totalgibs = randomintrange(anim.mingibs, anim.maxgibs);

@@ -218,7 +218,7 @@ function function_15a0c9b5(room)
 	doa_utility::function_390adefe(0);
 	level thread doa_utility::function_c5f3ece8(&"DOA_PLAYER_CHALLENGE_ROOM", undefined, 6);
 	level.voice playsoundwithnotify("vox_doaa_silverback_challenge", "soundDone");
-	level.voice waittill(#"sounddone");
+	level.voice waittill("sounddone");
 	wait(0.75);
 	level thread doa_utility::function_37fb5c23(room.text);
 	if(isdefined(room.vox))

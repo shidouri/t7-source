@@ -161,7 +161,7 @@ function gadget_flashback_on_connect()
 */
 function clone_watch_death()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(1);
 	self clientfield::set("flashback_clone", 0);
 	self ghost();
@@ -255,7 +255,7 @@ function gadget_flashback_on(slot, weapon)
 	self gadgetsetactivatetime(slot, gettime());
 	visionset_mgr::activate("overlay", "flashback_warp", self, 0.8, 0.8);
 	self.flashbacktime = gettime();
-	self notify(#"flashback");
+	self notify("flashback");
 	clone = self createflashbackclone();
 	clone thread clone_watch_death();
 	clone clientfield::set("flashback_clone", 1);
@@ -289,8 +289,8 @@ function gadget_flashback_on(slot, weapon)
 */
 function watchclientfields()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	util::wait_network_frame();
 	self clientfield::set("flashback_activated", 1);
 	util::wait_network_frame();
@@ -335,7 +335,7 @@ function flashbacktrailimpact(startpos, endpos, recursiondepth)
 */
 function deactivateflashbackwarpaftertime(time)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_any_timeout(time, "death");
 	visionset_mgr::deactivate("overlay", "flashback_warp", self);
 }
@@ -366,7 +366,7 @@ function flashbacktrailfx(slot, weapon, oldpos, newpos)
 	util::wait_network_frame();
 	tagpos = self gettagorigin("j_spineupper");
 	fxorg moveto(tagpos, 0.1);
-	fxorg waittill(#"movedone");
+	fxorg waittill("movedone");
 	wait(1);
 	fxorg clientfield::set("flashback_trail_fx", 0);
 	util::wait_network_frame();

@@ -79,7 +79,7 @@ function wait_for_face_event()
 {
 	while(true)
 	{
-		level waittill(#"face", face_notify, ent);
+		level waittill("face", face_notify, ent);
 		if(isdefined(ent) && isdefined(ent.do_face_anims) && ent.do_face_anims)
 		{
 			if(isdefined(level.face_event_handler.events[face_notify]))

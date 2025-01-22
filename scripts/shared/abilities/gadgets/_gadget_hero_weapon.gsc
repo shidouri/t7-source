@@ -257,10 +257,10 @@ function hero_handle_ammo_save(slot, weapon)
 */
 function hero_wait_for_game_end(slot, weapon)
 {
-	self endon(#"disconnect");
-	self notify(#"hero_ongameend");
-	self endon(#"hero_ongameend");
-	level waittill(#"game_ended");
+	self endon("disconnect");
+	self notify("hero_ongameend");
+	self endon("hero_ongameend");
+	level waittill("game_ended");
 	if(isalive(self))
 	{
 		self hero_save_ammo(slot, weapon);
@@ -278,10 +278,10 @@ function hero_wait_for_game_end(slot, weapon)
 */
 function hero_wait_for_death(slot, weapon)
 {
-	self endon(#"disconnect");
-	self notify(#"hero_ondeath");
-	self endon(#"hero_ondeath");
-	self waittill(#"death");
+	self endon("disconnect");
+	self notify("hero_ondeath");
+	self endon("hero_ondeath");
+	self waittill("death");
 	self hero_save_ammo(slot, weapon);
 }
 
@@ -310,10 +310,10 @@ function hero_save_ammo(slot, weapon)
 */
 function hero_wait_for_out_of_ammo(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self notify(#"hero_noammo");
-	self endon(#"hero_noammo");
+	self endon("disconnect");
+	self endon("death");
+	self notify("hero_noammo");
+	self endon("hero_noammo");
 	while(true)
 	{
 		wait(0.1);

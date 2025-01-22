@@ -45,7 +45,7 @@ function wait_network_frame(n_count = 1)
 			acked = undefined;
 			while(!isdefined(acked))
 			{
-				level waittill(#"snapacknowledged");
+				level waittill("snapacknowledged");
 				acked = snapshotacknowledged(snapshot_ids);
 			}
 		}
@@ -67,7 +67,7 @@ function wait_network_frame(n_count = 1)
 */
 function streamer_wait(n_stream_request_id, n_wait_frames = 0, n_timeout = 0, b_bonuszm_streamer_fallback = 1)
 {
-	level endon(#"loading_movie_done");
+	level endon("loading_movie_done");
 	if(n_wait_frames > 0)
 	{
 		wait_network_frame(n_wait_frames);
@@ -103,7 +103,7 @@ function streamer_wait(n_stream_request_id, n_wait_frames = 0, n_timeout = 0, b_
 	}
 	else
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 		do
 		{
 			wait_network_frame();
@@ -277,11 +277,11 @@ function waittill_string(msg, ent)
 {
 	if(msg != "death")
 	{
-		self endon(#"death");
+		self endon("death");
 	}
-	ent endon(#"die");
+	ent endon("die");
 	self waittill(msg);
-	ent notify(#"returned", msg);
+	ent notify("returned", msg);
 }
 
 /*
@@ -295,10 +295,10 @@ function waittill_string(msg, ent)
 */
 function waittill_level_string(msg, ent, otherent)
 {
-	otherent endon(#"death");
-	ent endon(#"die");
+	otherent endon("death");
+	ent endon("die");
 	level waittill(msg);
-	ent notify(#"returned", msg);
+	ent notify("returned", msg);
 }
 
 /*
@@ -320,7 +320,7 @@ function waittill_multiple(...)
 	}
 	if(s_tracker._wait_count > 0)
 	{
-		s_tracker waittill(#"waitlogic_finished");
+		s_tracker waittill("waitlogic_finished");
 	}
 }
 
@@ -413,7 +413,7 @@ function waittill_multiple_ents(...)
 	}
 	if(s_tracker._wait_count > 0)
 	{
-		s_tracker waittill(#"waitlogic_finished");
+		s_tracker waittill("waitlogic_finished");
 	}
 }
 
@@ -442,7 +442,7 @@ function _waitlogic(s_tracker, notifies)
 	s_tracker._wait_count--;
 	if(s_tracker._wait_count == 0)
 	{
-		s_tracker notify(#"waitlogic_finished");
+		s_tracker notify("waitlogic_finished");
 	}
 }
 
@@ -459,7 +459,7 @@ function waittill_any_return(string1, string2, string3, string4, string5, string
 {
 	if(!isdefined(string1) || string1 != "death" && (!isdefined(string2) || string2 != "death") && (!isdefined(string3) || string3 != "death") && (!isdefined(string4) || string4 != "death") && (!isdefined(string5) || string5 != "death") && (!isdefined(string6) || string6 != "death") && (!isdefined(string7) || string7 != "death"))
 	{
-		self endon(#"death");
+		self endon("death");
 	}
 	ent = spawnstruct();
 	if(isdefined(string1))
@@ -490,8 +490,8 @@ function waittill_any_return(string1, string2, string3, string4, string5, string
 	{
 		self thread waittill_string(string7, ent);
 	}
-	ent waittill(#"returned", msg);
-	ent notify(#"die");
+	ent waittill("returned", msg);
+	ent notify("die");
 	return msg;
 }
 
@@ -540,8 +540,8 @@ function waittill_any_ex(...)
 			e_current thread waittill_string(a_params[i], s_common);
 		}
 	}
-	s_common waittill(#"returned", str_notify);
-	s_common notify(#"die");
+	s_common waittill("returned", str_notify);
+	s_common notify("die");
 	return str_notify;
 }
 
@@ -558,7 +558,7 @@ function waittill_any_array_return(a_notifies)
 {
 	if(isinarray(a_notifies, "death"))
 	{
-		self endon(#"death");
+		self endon("death");
 	}
 	s_tracker = spawnstruct();
 	foreach(str_notify in a_notifies)
@@ -568,8 +568,8 @@ function waittill_any_array_return(a_notifies)
 			self thread waittill_string(str_notify, s_tracker);
 		}
 	}
-	s_tracker waittill(#"returned", msg);
-	s_tracker notify(#"die");
+	s_tracker waittill("returned", msg);
+	s_tracker notify("die");
 	return msg;
 }
 
@@ -635,7 +635,7 @@ function waittill_any_timeout(n_timeout, string1, string2, string3, string4, str
 {
 	if(!isdefined(string1) || string1 != "death" && (!isdefined(string2) || string2 != "death") && (!isdefined(string3) || string3 != "death") && (!isdefined(string4) || string4 != "death") && (!isdefined(string5) || string5 != "death"))
 	{
-		self endon(#"death");
+		self endon("death");
 	}
 	ent = spawnstruct();
 	if(isdefined(string1))
@@ -659,8 +659,8 @@ function waittill_any_timeout(n_timeout, string1, string2, string3, string4, str
 		self thread waittill_string(string5, ent);
 	}
 	ent thread _timeout(n_timeout);
-	ent waittill(#"returned", msg);
-	ent notify(#"die");
+	ent waittill("returned", msg);
+	ent notify("die");
 	return msg;
 }
 
@@ -675,7 +675,7 @@ function waittill_any_timeout(n_timeout, string1, string2, string3, string4, str
 */
 function waittill_level_any_timeout(n_timeout, otherent, string1, string2, string3, string4, string5)
 {
-	otherent endon(#"death");
+	otherent endon("death");
 	ent = spawnstruct();
 	if(isdefined(string1))
 	{
@@ -702,8 +702,8 @@ function waittill_level_any_timeout(n_timeout, otherent, string1, string2, strin
 		otherent thread waittill_string("death", ent);
 	}
 	ent thread _timeout(n_timeout);
-	ent waittill(#"returned", msg);
-	ent notify(#"die");
+	ent waittill("returned", msg);
+	ent notify("die");
 	return msg;
 }
 
@@ -718,9 +718,9 @@ function waittill_level_any_timeout(n_timeout, otherent, string1, string2, strin
 */
 function _timeout(delay)
 {
-	self endon(#"die");
+	self endon("die");
 	wait(delay);
-	self notify(#"returned", "timeout");
+	self notify("returned", "timeout");
 }
 
 /*
@@ -1005,7 +1005,7 @@ function timeout(n_time, func, arg1, arg2, arg3, arg4, arg5, arg6)
 	if(isdefined(n_time))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s delay_notify(n_time, "timeout");
 	}
 	single_func(self, func, arg1, arg2, arg3, arg4, arg5, arg6);
@@ -1262,8 +1262,8 @@ function fileprint_radiant_vec(vector)
 */
 function death_notify_wrapper(attacker, damagetype)
 {
-	level notify(#"face", "death", self);
-	self notify(#"death", attacker, damagetype);
+	level notify("face", "death", self);
+	self notify("death", attacker, damagetype);
 }
 
 /*
@@ -1277,8 +1277,8 @@ function death_notify_wrapper(attacker, damagetype)
 */
 function damage_notify_wrapper(damage, attacker, direction_vec, point, type, modelname, tagname, partname, idflags)
 {
-	level notify(#"face", "damage", self);
-	self notify(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, idflags);
+	level notify("face", "damage", self);
+	self notify("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, idflags);
 }
 
 /*
@@ -1292,7 +1292,7 @@ function damage_notify_wrapper(damage, attacker, direction_vec, point, type, mod
 */
 function explode_notify_wrapper()
 {
-	level notify(#"face", "explode", self);
+	level notify("face", "explode", self);
 	self notify(#"explode");
 }
 
@@ -1307,8 +1307,8 @@ function explode_notify_wrapper()
 */
 function alert_notify_wrapper()
 {
-	level notify(#"face", "alert", self);
-	self notify(#"alert");
+	level notify("face", "alert", self);
+	self notify("alert");
 }
 
 /*
@@ -1322,8 +1322,8 @@ function alert_notify_wrapper()
 */
 function shoot_notify_wrapper()
 {
-	level notify(#"face", "shoot", self);
-	self notify(#"shoot");
+	level notify("face", "shoot", self);
+	self notify("shoot");
 }
 
 /*
@@ -1337,8 +1337,8 @@ function shoot_notify_wrapper()
 */
 function melee_notify_wrapper()
 {
-	level notify(#"face", "melee", self);
-	self notify(#"melee");
+	level notify("face", "melee", self);
+	self notify("melee");
 }
 
 /*
@@ -1509,7 +1509,7 @@ function delay(time_or_notify, str_endon, func, arg1, arg2, arg3, arg4, arg5, ar
 */
 function _delay(time_or_notify, str_endon, func, arg1, arg2, arg3, arg4, arg5, arg6)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(str_endon))
 	{
 		self endon(str_endon);
@@ -1584,7 +1584,7 @@ function delay_notify(time_or_notify, str_notify, str_endon, arg1, arg2, arg3, a
 */
 function _delay_notify(time_or_notify, str_notify, str_endon, arg1, arg2, arg3, arg4, arg5)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(str_endon))
 	{
 		self endon(str_endon);
@@ -1921,7 +1921,7 @@ function spawn_anim_player_model(model_name, origin, angles, n_spawnflags = 0)
 */
 function waittill_player_looking_at(origin, arc_angle_degrees = 90, do_trace, e_ignore)
 {
-	self endon(#"death");
+	self endon("death");
 	arc_angle_degrees = absangleclamp360(arc_angle_degrees);
 	dot = cos(arc_angle_degrees * 0.5);
 	while(!is_player_looking_at(origin, dot, do_trace, e_ignore))
@@ -1941,7 +1941,7 @@ function waittill_player_looking_at(origin, arc_angle_degrees = 90, do_trace, e_
 */
 function waittill_player_not_looking_at(origin, dot, do_trace)
 {
-	self endon(#"death");
+	self endon("death");
 	while(is_player_looking_at(origin, dot, do_trace))
 	{
 		wait(0.05);
@@ -2185,8 +2185,8 @@ function is_primary_damage(meansofdeath)
 */
 function delete_on_death(ent)
 {
-	ent endon(#"death");
-	self waittill(#"death");
+	ent endon("death");
+	self waittill("death");
 	if(isdefined(ent))
 	{
 		ent delete();
@@ -2204,7 +2204,7 @@ function delete_on_death(ent)
 */
 function delete_on_death_or_notify(e_to_delete, str_notify, str_clientfield = undefined)
 {
-	e_to_delete endon(#"death");
+	e_to_delete endon("death");
 	self waittill_either("death", str_notify);
 	if(isdefined(e_to_delete))
 	{
@@ -2234,8 +2234,8 @@ function wait_till_not_touching(e_to_check, e_to_touch)
 	/#
 		assert(isdefined(e_to_touch), "");
 	#/
-	e_to_check endon(#"death");
-	e_to_touch endon(#"death");
+	e_to_check endon("death");
+	e_to_touch endon("death");
 	while(e_to_check istouching(e_to_touch))
 	{
 		wait(0.05);
@@ -2451,9 +2451,9 @@ function debug_magic_bullet_shield_death(guy)
 	{
 		targetname = guy.targetname;
 	}
-	guy endon(#"stop_magic_bullet_shield");
+	guy endon("stop_magic_bullet_shield");
 	guy endon(#"_stop_magic_bullet_shield_debug");
-	guy waittill(#"death");
+	guy waittill("death");
 	/#
 		assert(!isdefined(guy), "" + targetname);
 	#/
@@ -2519,7 +2519,7 @@ function stop_magic_bullet_shield(ent = self)
 		}
 		ent.attackeraccuracy = 1;
 	}
-	ent notify(#"stop_magic_bullet_shield");
+	ent notify("stop_magic_bullet_shield");
 }
 
 /*
@@ -2673,7 +2673,7 @@ function within_fov(start_origin, start_angles, end_origin, fov)
 */
 function button_held_think(which_button)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self._holding_button))
 	{
 		self._holding_button = [];
@@ -3293,7 +3293,7 @@ function waittillnotmoving()
 	}
 	if(self.classname == "grenade")
 	{
-		self waittill(#"stationary");
+		self waittill("stationary");
 	}
 	else
 	{
@@ -3434,7 +3434,7 @@ function deleteaftertime(time)
 */
 function deleteaftertimethread(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self delete();
 }
@@ -3879,7 +3879,7 @@ function set_sun_shadow_split_distance(f_distance)
 */
 function auto_delete(n_mode = 1, n_min_time_alive = 0, n_dist_horizontal = 0, n_dist_vertical = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"__auto_delete__");
 	self endon(#"__auto_delete__");
 	level flag::wait_till("all_players_spawned");
@@ -4844,7 +4844,7 @@ function do_chyron_text(str_1_full, str_1_short, str_2_full, str_2_short, str_3_
 	{
 		player thread player_set_chyron_menu(str_1_full, str_1_short, str_2_full, str_2_short, str_3_full, str_3_short, str_4_full, str_4_short, str_5_full, str_5_short, n_duration);
 	}
-	level waittill(#"chyron_menu_closed");
+	level waittill("chyron_menu_closed");
 	level.chyron_text_active = undefined;
 	level flagsys::clear("chyron_active");
 }
@@ -4860,7 +4860,7 @@ function do_chyron_text(str_1_full, str_1_short, str_2_full, str_2_short, str_3_
 */
 function player_set_chyron_menu(str_1_full, str_1_short, str_2_full, str_2_short, str_3_full, str_3_short, str_4_full, str_4_short, str_5_full = "", str_5_short = "", n_duration)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		assert(isdefined(n_duration), "");
 	#/
@@ -4888,15 +4888,15 @@ function player_set_chyron_menu(str_1_full, str_1_short, str_2_full, str_2_short
 		self setluimenudata(menuhandle, "line5short", str_5_short);
 	}
 	waittillframeend();
-	self notify(#"chyron_menu_open");
-	level notify(#"chyron_menu_open");
+	self notify("chyron_menu_open");
+	level notify("chyron_menu_open");
 	do
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 	}
 	while(menu != "CPChyron" || response != "closed");
-	self notify(#"chyron_menu_closed");
-	level notify(#"chyron_menu_closed");
+	self notify("chyron_menu_closed");
+	level notify("chyron_menu_closed");
 	wait(5);
 	self closeluimenu(menuhandle);
 }
@@ -5023,8 +5023,8 @@ function add_queued_debug_command(cmd)
 function queued_debug_commands()
 {
 	/#
-		self notify(#"queued_debug_commands");
-		self endon(#"queued_debug_commands");
+		self notify("queued_debug_commands");
+		self endon("queued_debug_commands");
 		if(!isdefined(level.dbg_cmd_queue))
 		{
 			level.dbg_cmd_queue = [];
@@ -5060,7 +5060,7 @@ function player_lock_control()
 		{
 			e_player freeze_player_controls(1);
 			e_player scene::set_igc_active(1);
-			level notify(#"disable_cybercom", e_player, 1);
+			level notify("disable_cybercom", e_player, 1);
 			e_player show_hud(0);
 		}
 	}
@@ -5068,7 +5068,7 @@ function player_lock_control()
 	{
 		self freeze_player_controls(1);
 		self scene::set_igc_active(1);
-		level notify(#"disable_cybercom", self, 1);
+		level notify("disable_cybercom", self, 1);
 		self show_hud(0);
 	}
 }
@@ -5422,18 +5422,18 @@ function str_strip_lh(str)
 */
 function trackwallrunningdistance()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.movementtracking.wallrunning = spawnstruct();
 	self.movementtracking.wallrunning.distance = 0;
 	self.movementtracking.wallrunning.count = 0;
 	self.movementtracking.wallrunning.time = 0;
 	while(true)
 	{
-		self waittill(#"wallrun_begin");
+		self waittill("wallrun_begin");
 		startpos = self.origin;
 		starttime = gettime();
 		self.movementtracking.wallrunning.count++;
-		self waittill(#"wallrun_end");
+		self waittill("wallrun_end");
 		self.movementtracking.wallrunning.distance = self.movementtracking.wallrunning.distance + distance(startpos, self.origin);
 		self.movementtracking.wallrunning.time = self.movementtracking.wallrunning.time + (gettime() - starttime);
 	}
@@ -5450,18 +5450,18 @@ function trackwallrunningdistance()
 */
 function tracksprintdistance()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.movementtracking.sprinting = spawnstruct();
 	self.movementtracking.sprinting.distance = 0;
 	self.movementtracking.sprinting.count = 0;
 	self.movementtracking.sprinting.time = 0;
 	while(true)
 	{
-		self waittill(#"sprint_begin");
+		self waittill("sprint_begin");
 		startpos = self.origin;
 		starttime = gettime();
 		self.movementtracking.sprinting.count++;
-		self waittill(#"sprint_end");
+		self waittill("sprint_end");
 		self.movementtracking.sprinting.distance = self.movementtracking.sprinting.distance + distance(startpos, self.origin);
 		self.movementtracking.sprinting.time = self.movementtracking.sprinting.time + (gettime() - starttime);
 	}
@@ -5478,18 +5478,18 @@ function tracksprintdistance()
 */
 function trackdoublejumpdistance()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.movementtracking.doublejump = spawnstruct();
 	self.movementtracking.doublejump.distance = 0;
 	self.movementtracking.doublejump.count = 0;
 	self.movementtracking.doublejump.time = 0;
 	while(true)
 	{
-		self waittill(#"doublejump_begin");
+		self waittill("doublejump_begin");
 		startpos = self.origin;
 		starttime = gettime();
 		self.movementtracking.doublejump.count++;
-		self waittill(#"doublejump_end");
+		self waittill("doublejump_end");
 		self.movementtracking.doublejump.distance = self.movementtracking.doublejump.distance + distance(startpos, self.origin);
 		self.movementtracking.doublejump.time = self.movementtracking.doublejump.time + (gettime() - starttime);
 	}

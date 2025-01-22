@@ -105,7 +105,7 @@ function init_temple_geyser()
 function alternate_geysers()
 {
 	currentgeyser = undefined;
-	level waittill(#"geyser_enabled");
+	level waittill("geyser_enabled");
 	while(true)
 	{
 		geysers = [];
@@ -119,7 +119,7 @@ function alternate_geysers()
 		}
 		if(isdefined(currentgeyser))
 		{
-			currentgeyser notify(#"geyser_end");
+			currentgeyser notify("geyser_end");
 			currentgeyser = undefined;
 		}
 		if(geysers.size > 0)
@@ -167,10 +167,10 @@ function geyser_start()
 */
 function geyser_watch_for_zombies()
 {
-	self endon(#"geyser_end");
+	self endon("geyser_end");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(!self.geyser_active)
 		{
 			continue;
@@ -193,12 +193,12 @@ function geyser_watch_for_zombies()
 */
 function geyser_watch_for_player()
 {
-	self endon(#"geyser_end");
-	level endon(#"intermission");
-	level endon(#"fake_death");
+	self endon("geyser_end");
+	level endon("intermission");
+	level endon("fake_death");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(!isplayer(who))
 		{
 			continue;
@@ -294,7 +294,7 @@ function geyser_erupt(playerstouching)
 	}
 	level flag::set(self.script_noteworthy + "_active");
 	wait(10);
-	self notify(#"stop_geyser_fx");
+	self notify("stop_geyser_fx");
 	level flag::clear(self.script_noteworthy + "_active");
 	if(isdefined(self.jump_down_start) && isdefined(self.jump_down_end))
 	{
@@ -314,9 +314,9 @@ function geyser_erupt(playerstouching)
 */
 function player_geyser_move(geyser)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"spawned_spectator");
+	self endon("death");
+	self endon("disconnect");
+	self endon("spawned_spectator");
 	if(isdefined(self.riding_geyser) && self.riding_geyser || (isdefined(self.intermission) && self.intermission))
 	{
 		return;
@@ -386,8 +386,8 @@ function player_geyser_move(geyser)
 */
 function player_geyser_move_wait(waittime)
 {
-	self endon(#"death");
-	self endon(#"player_downed");
+	self endon("death");
+	self endon("player_downed");
 	wait(waittime);
 }
 
@@ -434,7 +434,7 @@ function geyser_erupt_old(playerstouching)
 	wait(0.1);
 	self.lift solid();
 	wait(5);
-	self notify(#"stop_geyser_fx");
+	self notify("stop_geyser_fx");
 	self.geyser_active = 0;
 }
 
@@ -452,7 +452,7 @@ function geyser_fx()
 	self thread geyser_earthquake();
 	fxobj = spawnfx(level._effect["fx_ztem_geyser"], self.bottom.origin);
 	triggerfx(fxobj);
-	self waittill(#"stop_geyser_fx");
+	self waittill("stop_geyser_fx");
 	wait(5);
 	fxobj delete();
 }
@@ -468,7 +468,7 @@ function geyser_fx()
 */
 function geyser_earthquake()
 {
-	self endon(#"stop_geyser_fx");
+	self endon("stop_geyser_fx");
 	while(true)
 	{
 		earthquake(0.2, 0.1, self.origin, 100);
@@ -528,7 +528,7 @@ function geyser_blocker_think(blocker)
 	blocker thread geyser_blocker_remove();
 	self thread geyser_start();
 	self.enabled = 1;
-	level notify(#"geyser_enabled", self);
+	level notify("geyser_enabled", self);
 }
 
 /*
@@ -611,7 +611,7 @@ function geyser_trigger_dust_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isdefined(player) && isdefined(player.geyser_dust_time) && player.geyser_dust_time > gettime())
 		{
 			playfx(level._effect["player_land_dust"], player.origin);

@@ -485,8 +485,8 @@ function function_7884e6b8()
 	var_d3757c7[3] = array(0, 0.75);
 	var_d3757c7[4] = array(0, 0.75);
 	var_e60d01d = 0;
-	level waittill(#"all_players_spawned");
-	level waittill(#"start_of_round");
+	level waittill("all_players_spawned");
+	level waittill("start_of_round");
 	wait(1.5);
 	function_6b96bf38();
 	while(true)
@@ -863,8 +863,8 @@ function function_4974f895(var_c35eec70, n_wait, b_wait_if_busy, n_priority)
 */
 function function_7b697614(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0, var_248b6239 = 0, var_a5d9e5f7 = undefined)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(level flag::get("story_playing"))
 	{
 		return false;
@@ -1011,7 +1011,7 @@ function vo_clear()
 */
 function function_502f946b(var_7a483c9a = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!(isdefined(var_7a483c9a) && var_7a483c9a))
 	{
 		if(level flag::get("abcd_speaking") || level flag::get("shadowman_speaking"))
@@ -1020,7 +1020,7 @@ function function_502f946b(var_7a483c9a = 0)
 		}
 	}
 	self stopsounds();
-	self notify(#"stop_vo_convo");
+	self notify("stop_vo_convo");
 	self vo_clear();
 }
 
@@ -1570,7 +1570,7 @@ function function_edee8c1e()
 {
 	while(true)
 	{
-		level waittill(#"flogger_killed_zombie", e_zombie, var_ecf98bb6);
+		level waittill("flogger_killed_zombie", e_zombie, var_ecf98bb6);
 		e_zombie function_52f36cdc("flogger", var_ecf98bb6);
 	}
 }
@@ -1588,7 +1588,7 @@ function function_5b684ae5()
 {
 	while(true)
 	{
-		level waittill(#"trap_kill", e_zombie, var_f1c4d54d);
+		level waittill("trap_kill", e_zombie, var_f1c4d54d);
 		var_ecf98bb6 = (isplayer(var_f1c4d54d) ? var_f1c4d54d : var_f1c4d54d.activated_by_player);
 		e_zombie function_52f36cdc("generic", var_ecf98bb6);
 	}
@@ -1605,8 +1605,8 @@ function function_5b684ae5()
 */
 function function_52f36cdc(str_type, var_ecf98bb6)
 {
-	var_ecf98bb6 endon(#"disconnect");
-	var_ecf98bb6 endon(#"death");
+	var_ecf98bb6 endon("disconnect");
+	var_ecf98bb6 endon("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -1730,7 +1730,7 @@ function function_3fecec4e()
 {
 	while(true)
 	{
-		level waittill(#"trap_activate", e_trap);
+		level waittill("trap_activate", e_trap);
 		e_trap thread function_bc8dac38();
 	}
 }
@@ -1754,8 +1754,8 @@ function function_bc8dac38(e_player, str_type_override)
 	{
 		var_ecf98bb6 = self.activated_by_player;
 	}
-	var_ecf98bb6 endon(#"disconnect");
-	var_ecf98bb6 endon(#"death");
+	var_ecf98bb6 endon("disconnect");
+	var_ecf98bb6 endon("death");
 	if(!zm_utility::is_player_valid(var_ecf98bb6))
 	{
 		return;
@@ -1777,7 +1777,7 @@ function function_bc8dac38(e_player, str_type_override)
 				return;
 			}
 			self.var_98b34c52 = 1;
-			self notify(#"gen_pos");
+			self notify("gen_pos");
 			self thread function_593460bf();
 		}
 		str_vo = level.var_f594048b[var_63feebc3][var_ecf98bb6.characterindex][0];
@@ -1800,7 +1800,7 @@ function function_bc8dac38(e_player, str_type_override)
 */
 function function_593460bf()
 {
-	self waittill(#"turret_timeout");
+	self waittill("turret_timeout");
 	self.var_98b34c52 = 0;
 }
 
@@ -1958,10 +1958,10 @@ function function_59a4b1e6()
 */
 function function_1af15c36()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"margwa_headshot", ai_margwa);
+		self waittill("margwa_headshot", ai_margwa);
 		var_3c161673 = 0;
 		foreach(s_head in ai_margwa.head)
 		{
@@ -2103,8 +2103,8 @@ function function_c3d7d23e()
 */
 function function_aa5f0ceb(str_category, n_delay = 0)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(!zm_utility::is_player_valid(self))
 	{
 		return 0;
@@ -2146,7 +2146,7 @@ function function_cc2b9e13(var_2afa3837, var_8c599c54, var_b25c16bd)
 */
 function function_8271d5e3(str_type, n_percentage = 50, n_rest = 3)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		foreach(player in level.activeplayers)
@@ -2176,7 +2176,7 @@ function function_8271d5e3(str_type, n_percentage = 50, n_rest = 3)
 */
 function function_dfd59b6d(str_type, var_614a7182 = 120)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!(isdefined(self.var_996d46ad) && self.var_996d46ad))
 	{
 		self.var_996d46ad = 1;
@@ -2197,7 +2197,7 @@ function function_dfd59b6d(str_type, var_614a7182 = 120)
 */
 function function_6a2d6df(str_type, var_614a7182 = 30)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!(isdefined(self.var_9a189147) && self.var_9a189147))
 	{
 		self.var_9a189147 = 1;
@@ -2311,7 +2311,7 @@ function function_5ebe7974()
 	var_9fce6d52["zm_tomb_generator_zone"] = "visit_tomb";
 	var_9fce6d52["zm_tomb_ruins2_zone"] = "visit_tomb";
 	level thread function_a800aae9();
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	while(true)
 	{
 		while(!level flag::get("area_visit_new_round"))
@@ -2387,7 +2387,7 @@ function function_5ebe7974()
 */
 function function_5a86ac8d()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_3d303d7e = 1;
 	wait(30);
 	self.var_3d303d7e = 0;
@@ -2465,7 +2465,7 @@ function function_79eeee03(str_enemy)
 	}
 	if(level.var_c1feb276 !== "wisps_off")
 	{
-		level notify(#"wisps_off");
+		level notify("wisps_off");
 	}
 }
 
@@ -2480,10 +2480,10 @@ function function_79eeee03(str_enemy)
 */
 function function_c74d1a57()
 {
-	level endon(#"chaos_round_complete");
+	level endon("chaos_round_complete");
 	level thread function_98ebb22a();
 	level.var_83e70c7a = 1;
-	level notify(#"wisps_off");
+	level notify("wisps_off");
 	if(level.var_8c92b387["chaos_round_start"].size > 0)
 	{
 		var_5945c71b = level.var_8c92b387["chaos_round_start"][0];
@@ -2536,13 +2536,13 @@ function function_c74d1a57()
 */
 function function_98ebb22a()
 {
-	level waittill(#"chaos_round_complete");
+	level waittill("chaos_round_complete");
 	if(level.var_7b3abc9b.size > 0)
 	{
 		function_58758962(level.var_7b3abc9b[0]);
 		arrayremoveindex(level.var_7b3abc9b, 0, 0);
 	}
-	level notify(#"chaos_round_end_vo_done");
+	level notify("chaos_round_end_vo_done");
 }
 
 /*
@@ -2621,7 +2621,7 @@ function function_e658d896()
 	{
 		if(randomint(100) < 50)
 		{
-			self notify(#"gen_neg");
+			self notify("gen_neg");
 		}
 		else
 		{
@@ -2665,7 +2665,7 @@ function function_2b0fa0c0()
 {
 	while(true)
 	{
-		self waittill(#"player_bought", var_58aaa67b);
+		self waittill("player_bought", var_58aaa67b);
 		if(isdefined(var_58aaa67b) && isdefined(var_58aaa67b.name))
 		{
 			if(var_58aaa67b.name == "dragonshield")
@@ -2841,7 +2841,7 @@ function function_e5bc23b9(str_type)
 */
 function function_60f0dfbc()
 {
-	self notify(#"gen_pickup");
+	self notify("gen_pickup");
 }
 
 /*
@@ -2855,7 +2855,7 @@ function function_60f0dfbc()
 */
 function function_e6873e6a()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		str_notify = self util::waittill_any_return("disconnect", "gen_pickup", "player_got_keeper_companion_piece", "player_got_craftable_piece_for_craft_shield_zm");
@@ -2875,10 +2875,10 @@ function function_e6873e6a()
 */
 function function_f24af040()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"gen_pos");
+		self waittill("gen_pos");
 		self.var_f069d80e++;
 		if(self.var_f069d80e <= 4)
 		{
@@ -2904,10 +2904,10 @@ function function_f24af040()
 */
 function function_4eab9dac()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"gen_neg");
+		self waittill("gen_neg");
 		self thread function_e5bc23b9("gen_neg");
 		wait(30);
 	}
@@ -2924,8 +2924,8 @@ function function_4eab9dac()
 */
 function function_a2bd8b29()
 {
-	level endon(#"final_boss_defeated");
-	level waittill(#"chaos_round_complete");
+	level endon("final_boss_defeated");
+	level waittill("chaos_round_complete");
 	var_db6be061 = 100;
 	while(level.var_8c92b387["misc_abcd_encouragement"].size)
 	{
@@ -2941,7 +2941,7 @@ function function_a2bd8b29()
 			{
 				if(isdefined(level.var_793cad85))
 				{
-					level.var_793cad85 notify(#"gen_pos");
+					level.var_793cad85 notify("gen_pos");
 				}
 				var_58cd035a = 0;
 				break;
@@ -3007,7 +3007,7 @@ function function_a8d63dab(var_141eb752)
 */
 function function_ee206f01()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		str_notify = self util::waittill_any_return("flag_player_completed_challenge_1", "flag_player_completed_challenge_2", "flag_player_completed_challenge_3", "changed_wearable");
@@ -3017,12 +3017,12 @@ function function_ee206f01()
 			case "flag_player_completed_challenge_2":
 			case "flag_player_completed_challenge_3":
 			{
-				self notify(#"gen_pos");
+				self notify("gen_pos");
 				break;
 			}
 			case "changed_wearable":
 			{
-				self notify(#"gen_pos");
+				self notify("gen_pos");
 				break;
 			}
 		}
@@ -3126,7 +3126,7 @@ function function_dfe962f()
 			e_closest_player = zm_utility::get_player_closest_to(e_richtofen);
 			var_67d3fdc6 = e_closest_player.characterindex;
 		}
-		level waittill(#"audio_log_complete");
+		level waittill("audio_log_complete");
 		if(isdefined(level.var_8c92b387["sophia_appears_1_convo"][var_67d3fdc6]))
 		{
 			var_d44b84c3 = level.var_8c92b387["sophia_appears_1_convo"][var_67d3fdc6];
@@ -3354,7 +3354,7 @@ function function_8c5fea67(e_player)
 */
 function function_a9c857()
 {
-	level endon(#"final_boss_defeated");
+	level endon("final_boss_defeated");
 	level endon(#"hash_38b4845b");
 	while(level.var_8c92b387["shad_boss_taunts"].size)
 	{
@@ -3448,7 +3448,7 @@ function function_273b3233()
 */
 function function_d96c6f7()
 {
-	level endon(#"grand_tour");
+	level endon("grand_tour");
 	level endon(#"hash_38b4845b");
 	while(level.var_8c92b387["shad_boss_rush_taunts"].size > 0)
 	{
@@ -3823,7 +3823,7 @@ function function_b28d80bd(var_9485d9b7)
 function function_cb9eba2(n_val)
 {
 	/#
-		level.activeplayers[n_val] notify(#"gen_pos");
+		level.activeplayers[n_val] notify("gen_pos");
 	#/
 }
 
@@ -3839,7 +3839,7 @@ function function_cb9eba2(n_val)
 function function_f030bece(n_val)
 {
 	/#
-		level.activeplayers[n_val] notify(#"gen_neg");
+		level.activeplayers[n_val] notify("gen_neg");
 	#/
 }
 
@@ -3855,7 +3855,7 @@ function function_f030bece(n_val)
 function function_a012e4e0(n_val)
 {
 	/#
-		level.activeplayers[n_val] notify(#"gen_pickup");
+		level.activeplayers[n_val] notify("gen_pickup");
 	#/
 }
 

@@ -53,8 +53,8 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bgb_update");
 	self zm_utility::give_player_all_perks();
 	self bgb::do_one_shot_use(1);
 	wait(0.05);

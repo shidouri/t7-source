@@ -159,7 +159,7 @@ function function_f163b5b5()
 */
 function function_ed878303()
 {
-	self waittill(#"death");
+	self waittill("death");
 	level.var_1821d194 = 0;
 }
 
@@ -174,7 +174,7 @@ function function_ed878303()
 */
 function function_241013f7()
 {
-	self endon(#"death");
+	self endon("death");
 	self flag::wait_till("spider_from_mars_identified");
 	self.var_75bf845a = [];
 	while(true)
@@ -207,7 +207,7 @@ function function_241013f7()
 */
 function function_60b06e98(var_c6cad973)
 {
-	self endon(#"death");
+	self endon("death");
 	self vehicle_ai::set_state("scripted");
 	self clientfield::set("spider_drinks_fx", var_c6cad973);
 	loop_snd_ent = spawn("script_origin", self.origin);
@@ -272,7 +272,7 @@ function function_6dff284c()
 		}
 		else
 		{
-			self waittill(#"death");
+			self waittill("death");
 		}
 	}
 	level.var_67359403 = 0;
@@ -299,14 +299,14 @@ function function_89826011()
 	var_a2176993 = getent("jungle_lab_ee_control_panel_elf", "targetname");
 	while(true)
 	{
-		e_clip waittill(#"damage", n_damage, e_attacker, v_direction, v_point, str_mod, str_tag_name, str_model_name, str_part_name, w_weapon);
+		e_clip waittill("damage", n_damage, e_attacker, v_direction, v_point, str_mod, str_tag_name, str_model_name, str_part_name, w_weapon);
 		if(!level.var_1dbad94a && !level flag::get("power_on"))
 		{
 			continue;
 		}
 		if(w_weapon.name === "island_riotshield" && (isdefined(e_attacker.var_36c3d64a) && e_attacker.var_36c3d64a) && (!(isdefined(level.var_1deeff56) && level.var_1deeff56)) && (!(isdefined(level.var_90e478e7) && level.var_90e478e7)) && (!(isdefined(level.var_48762d0c) && level.var_48762d0c)))
 		{
-			e_attacker notify(#"riotshield_lost_lightning");
+			e_attacker notify("riotshield_lost_lightning");
 			level.var_1deeff56 = 1;
 			var_a2176993 clientfield::set("jungle_cage_charged_fx", 1);
 			level waittill(#"hash_59a385d1");
@@ -546,7 +546,7 @@ function function_2818665b()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(e_who zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -563,7 +563,7 @@ function function_2818665b()
 		{
 			continue;
 		}
-		e_who notify(#"aquired_spider_equipment");
+		e_who notify("aquired_spider_equipment");
 		e_who thread controllable_spider::function_468b927();
 	}
 }

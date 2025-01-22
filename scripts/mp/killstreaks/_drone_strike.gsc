@@ -86,13 +86,13 @@ function selectdronestrikepath()
 	if(!isdefined(location.origin))
 	{
 		self.pers["drone_strike_radar_used"] = 1;
-		self notify(#"cancel_selection");
+		self notify("cancel_selection");
 		return 0;
 	}
 	if(self killstreakrules::iskillstreakallowed("drone_strike", self.team) == 0)
 	{
 		self.pers["drone_strike_radar_used"] = 1;
-		self notify(#"cancel_selection");
+		self notify("cancel_selection");
 		return 0;
 	}
 	self.pers["drone_strike_radar_used"] = 0;
@@ -112,7 +112,7 @@ function waitforlocationselection()
 {
 	self endon(#"emp_jammed");
 	self endon(#"emp_grenaded");
-	self waittill(#"confirm_location", location, yaw);
+	self waittill("confirm_location", location, yaw);
 	locationinfo = spawnstruct();
 	locationinfo.origin = location;
 	locationinfo.yaw = yaw;
@@ -171,9 +171,9 @@ function watchforkillstreakend(team, influencer, killstreak_id)
 function startdronestrike(position, yaw, team, killstreak_id)
 {
 	self endon(#"emp_jammed");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
-	self endon(#"disconnect");
+	self endon("joined_team");
+	self endon("joined_spectators");
+	self endon("disconnect");
 	angles = (0, yaw, 0);
 	direction = anglestoforward(angles);
 	height = airsupport::getminimumflyheight() + 3000;
@@ -198,7 +198,7 @@ function startdronestrike(position, yaw, team, killstreak_id)
 		self playsound("mpl_thunder_flyover_wash");
 	}
 	wait(3);
-	self notify(#"drone_strike_complete");
+	self notify("drone_strike_complete");
 }
 
 /*
@@ -221,8 +221,8 @@ function spawndrone(startpoint, endpoint, targetpoint, angles, team, killstreak_
 	drone killstreaks::configure_team("drone_strike", killstreak_id, self);
 	drone killstreak_hacking::enable_hacking("drone_strike");
 	target_set(drone);
-	drone endon(#"delete");
-	drone endon(#"death");
+	drone endon("delete");
+	drone endon("death");
 	drone.angles = angles;
 	drone setmodel("veh_t7_drone_rolling_thunder");
 	drone setenemymodel("veh_t7_drone_rolling_thunder");
@@ -245,7 +245,7 @@ function spawndrone(startpoint, endpoint, targetpoint, angles, team, killstreak_
 	target_set(bomb);
 	bomb killstreaks::configure_team("drone_strike", killstreak_id, self);
 	bomb killstreak_hacking::enable_hacking("drone_strike");
-	drone notify(#"hackertool_update_ent", bomb);
+	drone notify("hackertool_update_ent", bomb);
 	bomb clientfield::set("enemyvehicle", 1);
 	bomb.targetname = "drone_strike";
 	bomb setowner(self);
@@ -291,7 +291,7 @@ function setupdamagehandling()
 */
 function destroydroneplane(attacker, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	attacker = self [[level.figure_out_attacker]](attacker);
 	if(isdefined(attacker) && (!isdefined(self.owner) || self.owner util::isenemyplayer(attacker)))
 	{
@@ -322,7 +322,7 @@ function destroydroneplane(attacker, weapon)
 function watchownerevents(bomb)
 {
 	player = self;
-	bomb endon(#"death");
+	bomb endon("death");
 	player util::waittill_any("disconnect", "joined_team", "joined_spectators");
 	if(isdefined(isalive(bomb)))
 	{
@@ -341,8 +341,8 @@ function watchownerevents(bomb)
 */
 function watchforemp(owner)
 {
-	self endon(#"delete");
-	self endon(#"death");
+	self endon("delete");
+	self endon("death");
 	self waittill(#"emp_deployed", attacker);
 	thread dronestrikeawardempscoreevent(attacker, self);
 	self blowupdronestrike();
@@ -375,9 +375,9 @@ function empdamagedrone(attacker)
 function dronestrikeawardempscoreevent(attacker, victim)
 {
 	owner = self.owner;
-	attacker endon(#"disconnect");
-	attacker notify(#"dronestrikeawardscoreevent_singleton");
-	attacker endon(#"dronestrikeawardscoreevent_singleton");
+	attacker endon("disconnect");
+	attacker notify("dronestrikeawardscoreevent_singleton");
+	attacker endon("dronestrikeawardscoreevent_singleton");
 	waittillframeend();
 	attacker = self [[level.figure_out_attacker]](attacker);
 	scoreevents::processscoreevent("destroyed_rolling_thunder_all_drones", attacker, victim, getweapon("emp"));

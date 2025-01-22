@@ -287,9 +287,9 @@ function function_5e04bf78()
 	org2 delete();
 	silverback playsound("zmb_simianaut_roar");
 	silverback animscripted("pissedoff", silverback.origin, silverback.angles, "ai_zombie_doa_simianaut_ground_pound");
-	silverback waittillmatch(#"pissedoff");
+	silverback waittillmatch("pissedoff");
 	playfx(level._effect["ground_pound"], silverback.origin);
-	silverback waittillmatch(#"pissedoff");
+	silverback waittillmatch("pissedoff");
 	silverback playsound("zmb_simianaut_roar");
 	silverback playsound("evt_turret_takeoff");
 	silverback thread namespace_eaa992c::function_285a2999("boss_takeoff");
@@ -313,7 +313,7 @@ function function_5e04bf78()
 	wait(2);
 	level thread function_46882430(&"DOA_MY_TREASURE", silverback.origin + vectorscale((0, 0, 1), 95), 2);
 	wait(1.8);
-	level notify(#"zombie_outro_mood_angry");
+	level notify("zombie_outro_mood_angry");
 	level.doa.var_63e2b87e = level.doa.var_e102b46;
 	silverback playsound("evt_turret_takeoff");
 	silverback thread namespace_eaa992c::function_285a2999("boss_takeoff");
@@ -439,7 +439,7 @@ function function_5e04bf78()
 function function_f7e6e4b1(scale = 1, var_fb37ad89 = 9999)
 {
 	level endon(#"hash_448ca7a6");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		level waittill(#"hash_71c0bde9");
@@ -504,7 +504,7 @@ function function_d834fdd0()
 */
 function function_566de51a()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread namespace_eaa992c::function_285a2999("bomb");
 	self stopanimscripted();
 	self startragdoll(1);
@@ -708,7 +708,7 @@ function function_5e06cff2()
 function function_7206982b()
 {
 	level endon(#"hash_448ca7a6");
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_7206982b");
 	self endon(#"hash_7206982b");
 	while(true)
@@ -731,7 +731,7 @@ function function_7206982b()
 function function_78713841()
 {
 	level endon(#"hash_448ca7a6");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(!isdefined(level.doa.var_63e2b87e))
@@ -742,7 +742,7 @@ function function_78713841()
 		{
 			anim_ang = vectortoangles(level.doa.var_63e2b87e.origin - self.origin);
 			self.org rotateto((0, anim_ang[1], 0), randomfloatrange(0.5, 2));
-			self.org waittill(#"rotatedone");
+			self.org waittill("rotatedone");
 		}
 	}
 }
@@ -759,7 +759,7 @@ function function_78713841()
 function function_b8de7628()
 {
 	level endon(#"hash_448ca7a6");
-	self endon(#"death");
+	self endon("death");
 	var_2c143867 = array(%generic::ai_zombie_base_idle_ad_v1, %generic::ai_zombie_base_idle_au_v1, %generic::bo3_ai_zombie_attack_v1, %generic::bo3_ai_zombie_attack_v2, %generic::bo3_ai_zombie_attack_v3, %generic::bo3_ai_zombie_attack_v4, %generic::bo3_ai_zombie_attack_v6);
 	var_6ac65424 = array(%generic::ai_zombie_doa_cheer_v1, %generic::ai_zombie_doa_cheer_v2, %generic::ai_zombie_doa_cheer_v3);
 	self.animarray = var_2c143867;
@@ -792,7 +792,7 @@ function function_b8de7628()
 function function_fccfcf0c()
 {
 	level endon(#"hash_448ca7a6");
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(0, 2));
 	location = self.origin + vectorscale((0, 0, 1), 90);
 	while(true)
@@ -834,7 +834,7 @@ function function_fccfcf0c()
 function function_fb3b78fe()
 {
 	level endon(#"hash_448ca7a6");
-	self endon(#"death");
+	self endon("death");
 	self useanimtree($generic);
 	while(true)
 	{
@@ -865,10 +865,10 @@ function function_4036d4c6()
 	level endon(#"hash_448ca7a6");
 	self notify(#"hash_4036d4c6");
 	self endon(#"hash_4036d4c6");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		playrumbleonposition("explosion_generic", self.origin);
 		physicsexplosionsphere(self.origin, 512, 512, 5);
 		level notify(#"hash_71c0bde9");
@@ -893,8 +893,8 @@ function function_e4d4b80(animation)
 	while(true)
 	{
 		self animscripted("podium", self.origin, self.angles, animation, "normal", %generic::body, 1, 0.5, 0.5);
-		self waittillmatch(#"podium");
-		self notify(#"animation_loop", animation, "end");
+		self waittillmatch("podium");
+		self notify("animation_loop", animation, "end");
 	}
 }
 

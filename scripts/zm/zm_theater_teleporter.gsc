@@ -174,7 +174,7 @@ function teleport_core_think(index)
 			exploder::kill_exploder("teleporter_light_red");
 			exploder::exploder("teleporter_light_green");
 			trigger sethintstring(&"ZM_THEATER_USE_TELEPORTER");
-			trigger waittill(#"trigger", user);
+			trigger waittill("trigger", user);
 			if(zombie_utility::is_player_valid(user) && user zm_score::can_player_purchase(level.teleport_cost))
 			{
 				active = 1;
@@ -218,7 +218,7 @@ function teleport_link_think()
 		if(!level flag::get("core_linked"))
 		{
 			core sethintstring(&"ZM_THEATER_LINK_CORE");
-			core waittill(#"trigger", user);
+			core waittill("trigger", user);
 			core playsound("evt_teleporter_activate_start");
 			level flag::set("core_linked");
 			core sethintstring("");
@@ -269,7 +269,7 @@ function teleport_pad_think()
 	{
 		if(!level flag::get("teleporter_linked") && level flag::get("core_linked"))
 		{
-			pad waittill(#"trigger", user);
+			pad waittill("trigger", user);
 			pad sethintstring("");
 			pad playsound("evt_teleporter_activate_finish");
 			level flag::set("teleporter_linked");
@@ -296,7 +296,7 @@ function player_teleporting(index)
 	self thread teleport_nuke(undefined, 300);
 	wait(level.teleport_delay);
 	exploder::exploder("fxexp_202");
-	self notify(#"fx_done");
+	self notify("fx_done");
 	var_1bea176e = self teleport_players(var_1bea176e, "projroom");
 	if(!isdefined(var_1bea176e) || (isdefined(var_1bea176e) && var_1bea176e.size < 1))
 	{
@@ -328,7 +328,7 @@ function player_teleporting(index)
 	self thread teleport_2d_audio_specialroom_start(var_1bea176e);
 	wait(level.teleport_delay);
 	var_1bea176e = array::filter(var_1bea176e, 0, &function_1488cf91);
-	self notify(#"fx_done");
+	self notify("fx_done");
 	self thread teleport_2d_audio_specialroom_go(var_1bea176e);
 	self teleport_players(var_1bea176e, loc);
 	if(isdefined(loc) && loc == "eerooms")
@@ -341,7 +341,7 @@ function player_teleporting(index)
 		self thread teleport_pad_player_fx(var_1bea176e);
 		wait(level.teleport_delay);
 		var_1bea176e = array::filter(var_1bea176e, 0, &function_1488cf91);
-		self notify(#"fx_done");
+		self notify("fx_done");
 		self thread teleport_2d_audio_specialroom_go(var_1bea176e);
 		self teleport_players(var_1bea176e, loc);
 	}
@@ -397,7 +397,7 @@ function player_is_near_pad(player)
 */
 function teleport_pad_player_fx(players)
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	inprojroom = 0;
 	if(!isdefined(players))
 	{
@@ -449,7 +449,7 @@ function function_1488cf91(e_player)
 */
 function teleport_players(var_1bea176e, loc)
 {
-	self endon(#"death");
+	self endon("death");
 	player_radius = 16;
 	dest_room = [];
 	all_players = level.players;
@@ -578,7 +578,7 @@ function teleport_players(var_1bea176e, loc)
 			}
 			dest_room[slot].occupied = 1;
 			util::setclientsysstate("levelNotify", "black_box_end", var_1bea176e[i]);
-			var_1bea176e[i] notify(#"stop_teleport_fx");
+			var_1bea176e[i] notify("stop_teleport_fx");
 			/#
 				assert(isdefined(var_1bea176e[i].teleport_origin));
 			#/
@@ -616,7 +616,7 @@ function teleport_players(var_1bea176e, loc)
 				}
 				else
 				{
-					players[i] notify(#"player_teleported", slot);
+					players[i] notify("player_teleported", slot);
 				}
 			}
 			players[i].is_teleporting = 0;
@@ -730,7 +730,7 @@ function check_for_occupied_spots(dest, players, player_radius)
 */
 function teleport_2d_audio()
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	util::clientnotify("tpa");
 	players = getplayers();
 	wait(1.7);
@@ -757,7 +757,7 @@ function teleport_2d_audio()
 */
 function teleport_2d_audio_nopad(player)
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	for(i = 0; i < player.size; i++)
 	{
 		if(isdefined(player[i]))
@@ -778,7 +778,7 @@ function teleport_2d_audio_nopad(player)
 */
 function teleport_2d_audio_specialroom_start(player)
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	for(i = 0; i < player.size; i++)
 	{
 		if(isdefined(player[i]))
@@ -799,7 +799,7 @@ function teleport_2d_audio_specialroom_start(player)
 */
 function teleport_2d_audio_specialroom_go(player)
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	for(i = 0; i < player.size; i++)
 	{
 		if(isdefined(player[i]))
@@ -1070,7 +1070,7 @@ function zombietheaterteleporterseeklogic()
 */
 function zombies_goto_position(position)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bad_path");
 	orig_radius = self.goalradius;
 	self.ignoreall = 1;
@@ -1079,7 +1079,7 @@ function zombies_goto_position(position)
 		iprintlnbold("", orig_radius);
 	#/
 	self setgoalpos(position.origin + (randomfloatrange(-40, 40), randomfloatrange(-40, 40), 0));
-	self waittill(#"goal");
+	self waittill("goal");
 	self.ignoreall = 0;
 	self.goalradius = orig_radius;
 	self orientmode("face point", level.extracam_screen.origin);
@@ -1097,7 +1097,7 @@ function zombies_goto_position(position)
 function start_wall_clock()
 {
 	self rotatepitch(180, 0.05);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	for(clocktime = 0; clocktime != 30; clocktime++)
 	{
 		self rotatepitch(6, 0.1);
@@ -1160,11 +1160,11 @@ function theater_fly_me_to_the_moon_init()
 */
 function function_2cdd3a26()
 {
-	self endon(#"death");
+	self endon("death");
 	self.a_e_players = [];
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(isinarray(self.a_e_players, e_player))
 		{
 			continue;
@@ -1199,8 +1199,8 @@ function function_2cdd3a26()
 function function_edc40283(var_4e54c41)
 {
 	self endon(#"exit_trigger");
-	self endon(#"death");
-	var_4e54c41 endon(#"death");
+	self endon("death");
+	var_4e54c41 endon("death");
 	while(self._moon_jumps < 5)
 	{
 		if(self jumpbuttonpressed())
@@ -1225,7 +1225,7 @@ function function_edc40283(var_4e54c41)
 function function_bc057378(var_4e54c41)
 {
 	self endon(#"hash_7bde7d2d");
-	var_4e54c41 endon(#"death");
+	var_4e54c41 endon("death");
 	while(self istouching(var_4e54c41))
 	{
 		wait(0.05);
@@ -1254,7 +1254,7 @@ function theater_fly_me_to_the_moon()
 	self setcursorhint("HINT_NOICON");
 	while(isdefined(self))
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(!isdefined(e_player._moon_jumps) || e_player._moon_jumps < 5)
 		{
 			wait(0.05);
@@ -1284,7 +1284,7 @@ function theater_moon_jump_go()
 	wait(0.05);
 	ship clientfield::set("play_fly_me_to_the_moon_fx", 1);
 	ship movez(120, 3, 0.7, 0);
-	ship waittill(#"movedone");
+	ship waittill("movedone");
 	ship clientfield::set("play_fly_me_to_the_moon_fx", 0);
 	ship delete();
 	var_4e54c41 = getent("trigger_jump", "targetname");
@@ -1304,7 +1304,7 @@ function theater_moon_jump_go()
 */
 function function_7e0ed731(var_f7b84b84, v_offset)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_51bf1eed = var_f7b84b84 + 1;
 	var_2d8dac7a = "teleport_room_fx_" + var_51bf1eed;
 	var_b4c5584f = struct::get(var_2d8dac7a, "targetname");

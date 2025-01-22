@@ -236,7 +236,7 @@ function play_fx_prop_anims()
 */
 function function_1c1d65fb()
 {
-	self endon(#"delete");
+	self endon("delete");
 	scene::add_scene_func(self.scriptbundlename, &function_b9b12551, "done");
 	while(true)
 	{

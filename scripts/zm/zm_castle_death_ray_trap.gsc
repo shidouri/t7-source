@@ -85,7 +85,7 @@ function function_b8bad181()
 */
 function tesla_coil_activate()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	exploder::exploder("fxexp_710");
 	exploder::exploder("fxexp_720");
 	self thread function_40bac98d();
@@ -227,7 +227,7 @@ function function_3d3feaa2()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		self setinvisibletoall();
 		if(e_who.is_drinking > 0)
 		{
@@ -384,7 +384,7 @@ function function_98484afb()
 */
 function function_9eaff330()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_5e3b2ce3))
 	{
 		return;
@@ -421,7 +421,7 @@ function function_172d425(ai_enemy, var_2c11866b)
 */
 function function_383d6ca4(var_9ffdb9e2, var_2c11866b)
 {
-	level endon(#"tesla_coil_cooldown");
+	level endon("tesla_coil_cooldown");
 	/#
 		if(isgodmode(self))
 		{
@@ -491,7 +491,7 @@ function function_55b881b7(var_2c11866b)
 */
 function function_120a8b07(var_ecf98bb6, e_panel)
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.isdog)
 	{
 		self kill(self.origin, e_panel);
@@ -546,7 +546,7 @@ function function_120a8b07(var_ecf98bb6, e_panel)
 			if(isdefined(var_ecf98bb6) && isdefined(var_ecf98bb6.zapped_zombies))
 			{
 				var_ecf98bb6.zapped_zombies++;
-				var_ecf98bb6 notify(#"zombie_zapped");
+				var_ecf98bb6 notify("zombie_zapped");
 			}
 			self thread function_67cc41d(var_ecf98bb6, e_panel);
 		}
@@ -571,8 +571,8 @@ function function_67cc41d(attacker, e_panel)
 	self playsound("zmb_deathray_zombie_poof");
 	if(isdefined(attacker))
 	{
-		self notify(#"death", e_panel);
-		level notify(#"trap_kill", self, attacker);
+		self notify("death", e_panel);
+		level notify("trap_kill", self, attacker);
 	}
 	self ghost();
 	self util::delay(0.25, undefined, &zm_utility::self_delete);
@@ -589,7 +589,7 @@ function function_67cc41d(attacker, e_panel)
 */
 function function_41ecbdf9()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_bce6e774 = 1;
 	self.zombie_tesla_hit = 1;
 	while(isdefined(self.var_bce6e774) && self.var_bce6e774)
@@ -652,8 +652,8 @@ function function_43b12d8e(v_position)
 */
 function function_90df19()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(3);
 	self zm_audio::create_and_play_dialog("trap", "start");
 }

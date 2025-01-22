@@ -113,7 +113,7 @@ function update_regen_delay_progress(duration)
 function player_health_regen()
 {
 	self endon(#"end_healthregen");
-	self endon(#"removehealthregen");
+	self endon("removehealthregen");
 	if(self.health <= 0)
 	{
 		/#
@@ -195,7 +195,7 @@ function player_health_regen()
 			if((gettime() - lastsoundtime_recover) > regentime)
 			{
 				lastsoundtime_recover = gettime();
-				self notify(#"snd_breathing_better");
+				self notify("snd_breathing_better");
 			}
 			if(veryhurt)
 			{
@@ -315,7 +315,7 @@ function player_breathing_sound(healthcap)
 		{
 			continue;
 		}
-		player notify(#"snd_breathing_hurt");
+		player notify("snd_breathing_hurt");
 		wait(0.784);
 		wait(0.1 + randomfloat(0.8));
 	}
@@ -333,7 +333,7 @@ function player_breathing_sound(healthcap)
 function sndhealthlow(healthcap)
 {
 	self endon(#"end_healthregen");
-	self endon(#"removehealthregen");
+	self endon("removehealthregen");
 	self.sndhealthlow = 0;
 	while(true)
 	{

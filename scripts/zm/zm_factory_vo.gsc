@@ -106,7 +106,7 @@ function function_7884e6b8()
 	array::add(var_4c7aad4a, array("vox_plr_1_interaction_niko_demp_4_0", "vox_plr_0_interaction_niko_demp_4_0"));
 	array::add(var_4c7aad4a, array("vox_plr_1_interaction_niko_demp_5_0", "vox_plr_0_interaction_niko_demp_5_0"));
 	var_22f40782 = 0;
-	level waittill(#"all_players_spawned");
+	level waittill("all_players_spawned");
 	wait(1);
 	while(true)
 	{
@@ -309,8 +309,8 @@ function function_897246e4(str_vo_alias, n_wait = 0, b_wait_if_busy = 0, n_prior
 */
 function function_7b697614(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!self flag::exists("in_beastmode") || !self flag::get("in_beastmode"))
 	{
 		if(zm_audio::arenearbyspeakersactive(10000) && (!(isdefined(var_d1295208) && var_d1295208)))

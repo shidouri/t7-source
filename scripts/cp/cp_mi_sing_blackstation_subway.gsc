@@ -139,7 +139,7 @@ function function_c7ea2242()
 */
 function function_99f304f0()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_15caaa0c = 0;
 	while(!level flag::get("flag_kane_intro_complete"))
 	{
@@ -159,11 +159,11 @@ function function_99f304f0()
 			wait(0.1);
 		}
 		self clientfield::set_to_player("play_bubbles", 0);
-		self notify(#"swim_done");
+		self notify("swim_done");
 		wait(0.1);
 	}
 	self clientfield::set_to_player("play_bubbles", 0);
-	self notify(#"swim_done");
+	self notify("swim_done");
 }
 
 /*
@@ -239,7 +239,7 @@ function hendricks_swimming()
 	{
 		trigger::use("trig_hendricks_color_b2", "targetname");
 	}
-	level.ai_hendricks notify(#"move_to_subway_exit");
+	level.ai_hendricks notify("move_to_subway_exit");
 	level.ai_hendricks ai::set_behavior_attribute("forceTacticalWalk", 1);
 	level flag::wait_till("subway_exit");
 	level.ai_hendricks ai::set_behavior_attribute("forceTacticalWalk", 0);
@@ -271,7 +271,7 @@ function function_561cae8a(a_ents)
 */
 function function_5f8ce82c(a_ents)
 {
-	level.ai_hendricks notify(#"swim_done");
+	level.ai_hendricks notify("swim_done");
 }
 
 /*
@@ -285,7 +285,7 @@ function function_5f8ce82c(a_ents)
 */
 function subway_floating_bodies()
 {
-	level endon(#"out_of_water");
+	level endon("out_of_water");
 	e_floating_bodies = getentarray("subway_corpse_floating", "targetname");
 	array::thread_all(e_floating_bodies, &subway_floating_bodies_move);
 }
@@ -301,8 +301,8 @@ function subway_floating_bodies()
 */
 function subway_floating_bodies_move()
 {
-	level endon(#"out_of_water");
-	self endon(#"death");
+	level endon("out_of_water");
+	self endon("death");
 	e_body = self;
 	n_rotate_angle = 60;
 	while(true)
@@ -323,21 +323,21 @@ function subway_floating_bodies_move()
 */
 function subway_scare_scene_01()
 {
-	level endon(#"out_of_water");
-	level endon(#"cancel_scare");
+	level endon("out_of_water");
+	level endon("cancel_scare");
 	e_corpse = getent("subway_corpse", "targetname");
 	e_linkto = util::spawn_model("tag_origin", e_corpse.origin, e_corpse.angles);
 	e_corpse linkto(e_linkto);
 	e_corpse thread scene::play("cin_bla_08_02_subway_vign_dead_body_scare", e_corpse);
 	t_trigger = getent("trig_subway_scare", "targetname");
-	t_trigger waittill(#"trigger", player);
+	t_trigger waittill("trigger", player);
 	playsoundatposition("mus_subway_scare", (0, 0, 0));
-	level notify(#"scare_happened");
+	level notify("scare_happened");
 	level thread corpse_dialog(player);
 	e_linkto movey(-60, 0.5);
 	e_linkto rotateroll(50, 2);
 	e_linkto rotateyaw(90, 1);
-	e_linkto waittill(#"movedone");
+	e_linkto waittill("movedone");
 	e_linkto moveto(e_corpse.origin - (0, 50, 25), 5);
 }
 
@@ -352,15 +352,15 @@ function subway_scare_scene_01()
 */
 function subway_scare_scene_02()
 {
-	level endon(#"out_of_water");
+	level endon("out_of_water");
 	t_trigger = getent("trig_subway_scare_2", "targetname");
 	e_corpse = getent("subway_corpse_2", "targetname");
-	level waittill(#"scare_happened");
-	e_corpse endon(#"death");
-	t_trigger waittill(#"trigger", player);
+	level waittill("scare_happened");
+	e_corpse endon("death");
+	t_trigger waittill("trigger", player);
 	e_corpse movex(-80, 2);
 	e_corpse rotatepitch(60, 5);
-	e_corpse waittill(#"movedone");
+	e_corpse waittill("movedone");
 	e_corpse moveto(e_corpse.origin - (0, -50, 50), 5);
 }
 
@@ -375,14 +375,14 @@ function subway_scare_scene_02()
 */
 function subway_scare_scene_03()
 {
-	level endon(#"out_of_water");
+	level endon("out_of_water");
 	t_trigger = getent("trig_subway_scare_3", "targetname");
 	e_corpse = getent("subway_corpse_3", "targetname");
-	e_corpse endon(#"death");
-	t_trigger waittill(#"trigger", player);
+	e_corpse endon("death");
+	t_trigger waittill("trigger", player);
 	e_corpse movez(-24, 0.75);
 	e_corpse rotateroll(60, 5);
-	e_corpse waittill(#"movedone");
+	e_corpse waittill("movedone");
 	e_corpse moveto(e_corpse.origin - (25, 25, 75), 5);
 }
 
@@ -397,6 +397,6 @@ function subway_scare_scene_03()
 */
 function corpse_dialog(player)
 {
-	level endon(#"out_of_water");
+	level endon("out_of_water");
 }
 

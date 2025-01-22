@@ -145,7 +145,7 @@ function player_give_nesting_dolls()
 function player_handle_nesting_dolls()
 {
 	self notify(#"starting_nesting_dolls");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"starting_nesting_dolls");
 	while(true)
 	{
@@ -174,8 +174,8 @@ function player_handle_nesting_dolls()
 */
 function doll_spawner(start_grenade)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	num_dolls = 1;
 	max_dolls = 4;
 	self nesting_dolls_set_id();
@@ -211,8 +211,8 @@ function doll_spawner(start_grenade)
 */
 function doll_spawner_cluster(start_grenade)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	num_dolls = 1;
 	max_dolls = 4;
 	self nesting_dolls_set_id();
@@ -591,11 +591,11 @@ function do_nesting_dolls_sound(model, info)
 */
 function get_thrown_nesting_dolls()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"starting_nesting_dolls");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(weapon == level.w_nesting_dolls)
 		{
 			return grenade;
@@ -725,8 +725,8 @@ function nesting_dolls_create_randomized_indices(id)
 */
 function nesting_dolls_setup_next_doll_throw()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(0.5);
 	next_id = self.doll_id + 1;
 	if(next_id >= level.nesting_dolls_max_ids)

@@ -242,7 +242,7 @@ function function_ee24bc2e()
 */
 function private update_trigger_visibility()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		for(i = 0; i < level.players.size; i++)
@@ -297,7 +297,7 @@ function teleport_pad_active_think()
 	exploder::exploder("fxexp_100");
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(zm_utility::is_player_valid(e_player) && !level.is_cooldown && !level flag::get("rocket_firing") && level flag::get("time_travel_teleporter_ready"))
 		{
 			if(function_6b3344b4())
@@ -432,7 +432,7 @@ function function_264f93ff(var_edc2ee2a = 0, var_66f7e6b9 = 0)
 		}
 	}
 	wait(level.n_teleport_delay);
-	self notify(#"fx_done");
+	self notify("fx_done");
 	if(var_edc2ee2a && !var_66f7e6b9)
 	{
 		if(!level flag::get("dimension_set"))
@@ -502,7 +502,7 @@ function function_e421dd3f()
 	level notify(#"hash_bff04a2b");
 	level endon(#"hash_bff04a2b");
 	var_9e5ac8d1 = getent("trig_mechz_ee_a10", "targetname");
-	var_9e5ac8d1 waittill(#"trigger", e_who);
+	var_9e5ac8d1 waittill("trigger", e_who);
 	s_spawn_pos = arraygetclosest(e_who.origin, level.zm_loc_types["mechz_location"]);
 	if(isplayer(e_who) && isdefined(s_spawn_pos))
 	{
@@ -575,7 +575,7 @@ function function_f5a06c(n_duration)
 */
 function teleport_pad_player_fx(var_7d7ca0ea, n_duration)
 {
-	var_7d7ca0ea endon(#"fx_done");
+	var_7d7ca0ea endon("fx_done");
 	n_start_time = gettime();
 	n_total_time = 0;
 	while(n_total_time < n_duration)
@@ -779,7 +779,7 @@ function function_4a0d1595()
 */
 function teleport_2d_audio()
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	while(true)
 	{
 		players = getplayers();

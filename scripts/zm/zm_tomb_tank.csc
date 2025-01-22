@@ -150,9 +150,9 @@ function function_de8b2ce1(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_a2fe7f71(localclientnum, var_2bc319f0)
 {
-	self notify(#"stop_exhaust_fx");
+	self notify("stop_exhaust_fx");
 	self endon(#"entityshutdown");
-	self endon(#"stop_exhaust_fx");
+	self endon("stop_exhaust_fx");
 	fx_id = level._effect["tank_exhaust"];
 	if(var_2bc319f0)
 	{
@@ -185,7 +185,7 @@ function function_a2fe7f71(localclientnum, var_2bc319f0)
 function function_341f7b4c(origin)
 {
 	audio::playloopat("zmb_bot_timeout_steam", origin);
-	self waittill(#"stop_exhaust_fx");
+	self waittill("stop_exhaust_fx");
 	audio::stoploopat("zmb_bot_timeout_steam", origin);
 }
 
@@ -208,7 +208,7 @@ function function_64744406()
 	ent2 linkto(self, "tag_exhaust_2");
 	ent1 playloopsound("zmb_tank_exhaust_pipe", 1);
 	ent2 playloopsound("zmb_tank_exhaust_pipe", 1);
-	self waittill(#"stop_exhaust_fx");
+	self waittill("stop_exhaust_fx");
 	ent1 delete();
 	ent2 delete();
 }
@@ -224,7 +224,7 @@ function function_64744406()
 */
 function function_5bc757af(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self notify(#"stop_exhaust_fx");
+	self notify("stop_exhaust_fx");
 	if(isdefined(self.var_d168dad5))
 	{
 		stopfx(localclientnum, self.var_d168dad5);

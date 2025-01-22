@@ -67,8 +67,8 @@ function sessionadvertisementcheck()
 	{
 		return;
 	}
-	level endon(#"game_end");
-	level waittill(#"prematch_over");
+	level endon("game_end");
+	level waittill("prematch_over");
 	while(true)
 	{
 		sessionadvertcheckwait = getdvarint("sessionAdvertCheckwait", 1);
@@ -641,7 +641,7 @@ function updatedebughud(hudindex, text, value)
 function sessionadvertismentupdatedebughud()
 {
 	/#
-		level endon(#"game_end");
+		level endon("game_end");
 		sessionadverthud_0 = undefined;
 		sessionadverthud_1a = undefined;
 		sessionadverthud_1b = undefined;

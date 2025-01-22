@@ -150,7 +150,7 @@ function container_update(c_container)
 	targetname = c_container.m_s_container_instance.targetname;
 	n_radius = s_bundle.trigger_radius;
 	e_trigger = create_locker_trigger(c_container.m_s_container_instance.origin, n_radius, "Press [{+activate}] to open");
-	e_trigger waittill(#"trigger", e_who);
+	e_trigger waittill("trigger", e_who);
 	e_trigger delete();
 	scene::play(targetname, "targetname");
 }
@@ -197,7 +197,7 @@ function setup_general_container_bundle(str_targetname, str_intel_vo, str_narrat
 	e_trigger = create_locker_trigger(s_struct.origin, 64, "Press [{+activate}] to open");
 	if(!isdefined(force_open) || force_open == 0)
 	{
-		e_trigger waittill(#"trigger", e_who);
+		e_trigger waittill("trigger", e_who);
 	}
 	else
 	{
@@ -210,7 +210,7 @@ function setup_general_container_bundle(str_targetname, str_intel_vo, str_narrat
 	{
 		for(i = 0; i < s_struct.a_entity.size; i++)
 		{
-			s_struct.a_entity[i] notify(#"opened");
+			s_struct.a_entity[i] notify("opened");
 		}
 	}
 	if(isdefined(str_narrative_collectable_model))
@@ -230,7 +230,7 @@ function setup_general_container_bundle(str_targetname, str_intel_vo, str_narrat
 		e_collectable.angles = v_angles;
 		wait(1);
 		e_trigger = create_locker_trigger(s_struct.origin, 64, "Press [{+activate}] to pickup collectable");
-		e_trigger waittill(#"trigger", e_who);
+		e_trigger waittill("trigger", e_who);
 		e_trigger delete();
 		e_collectable delete();
 	}
@@ -317,7 +317,7 @@ function create_locker_doors(e_left_door, e_right_door, door_open_angle, door_op
 	v_locker_pos = (e_left_door.origin + e_right_door.origin) / 2;
 	n_trigger_radius = 48;
 	e_trigger = create_locker_trigger(v_locker_pos, n_trigger_radius, "Press [{+activate}] to open");
-	e_trigger waittill(#"trigger");
+	e_trigger waittill("trigger");
 	e_left_door playsound("evt_cabinet_open");
 	v_angle = (e_left_door.angles[0], e_left_door.angles[1] - door_open_angle, e_left_door.angles[2]);
 	e_left_door rotateto(v_angle, door_open_time);

@@ -256,7 +256,7 @@ function private _getadjusttocoverrotation(archetype, node, stance, angletonode)
 */
 function private debuglocoexplosion(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	/#
 		startorigin = entity.origin;
 		startyawforward = anglestoforward((0, entity.angles[1], 0));

@@ -174,7 +174,7 @@ function private function_85d4833b()
 */
 function keeper_death()
 {
-	self waittill(#"death", e_attacker);
+	self waittill("death", e_attacker);
 	if(isdefined(e_attacker) && isdefined(e_attacker.var_4d307aef))
 	{
 		e_attacker.var_4d307aef++;
@@ -227,7 +227,7 @@ function private function_e361808(cmd)
 */
 function private function_dfdf3fc1()
 {
-	self endon(#"death");
+	self endon("death");
 	self.spawn_time = gettime();
 	self thread keeper_death();
 	self.heroweapon_kill_power = 2;
@@ -270,10 +270,10 @@ function function_6ded398b()
 */
 function function_e5e94978()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isalive(self))
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		if(isplayer(self.attacker))
 		{
 			if(zm_spawner::player_using_hi_score_weapon(self.attacker))
@@ -310,7 +310,7 @@ function function_e5e94978()
 */
 function function_1dcdd145()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self zm_spawner::check_zombie_death_event_callbacks(self.attacker);
 	if(isplayer(self.attacker))
 	{

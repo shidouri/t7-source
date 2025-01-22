@@ -54,9 +54,9 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bled_out");
+	self endon("bgb_update");
 	self.var_abd23dd0 = 6;
 	while(self.var_abd23dd0 > 0)
 	{

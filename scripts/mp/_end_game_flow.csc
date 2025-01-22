@@ -277,7 +277,7 @@ function checkforplayergestures(localclientnum, localplayer, playerindex)
 	}
 	else if(isdefined(charactermodel.playingtaunt))
 	{
-		charactermodel waittill(#"tauntfinished");
+		charactermodel waittill("tauntfinished");
 	}
 	showgestures(localclientnum, playerindex);
 }
@@ -379,7 +379,7 @@ function streamerwatcher()
 {
 	while(true)
 	{
-		level waittill(#"streamfksl", localclientnum);
+		level waittill("streamfksl", localclientnum);
 		preparetopthreeplayers(localclientnum);
 		end_game_taunts::stream_epic_models();
 	}

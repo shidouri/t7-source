@@ -137,7 +137,7 @@ function turret_set_difficulty(turret, difficulty)
 */
 function turret_suppression_fire(targets)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"stop_suppression_fire");
 	if(!isdefined(self.suppresionfire))
 	{
@@ -198,7 +198,7 @@ function burst_fire_settings(setting)
 */
 function burst_fire(turret, manual_target)
 {
-	turret endon(#"death");
+	turret endon("death");
 	turret endon(#"stopfiring");
 	self endon(#"stop_using_built_in_burst_fire");
 	if(isdefined(turret.script_delay_min))
@@ -261,9 +261,9 @@ function burst_fire_unmanned()
 {
 	self notify(#"stop_burst_fire_unmanned");
 	self endon(#"stop_burst_fire_unmanned");
-	self endon(#"death");
-	self endon(#"remote_start");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("remote_start");
+	level endon("game_ended");
 	if(isdefined(self.controlled) && self.controlled)
 	{
 		return;
@@ -322,7 +322,7 @@ function burst_fire_unmanned()
 			}
 			duration = turret_burst + randomfloat(turret_burst_range);
 			self thread turret_timer(duration);
-			self waittill(#"turretstatechange");
+			self waittill("turretstatechange");
 			self.script_shooting = 0;
 			duration = turret_delay + randomfloat(turret_delay_range);
 			pauseuntiltime = gettime() + (int(duration * 1000));
@@ -333,7 +333,7 @@ function burst_fire_unmanned()
 			turretstate = "aim";
 		}
 		self thread turret_timer(duration);
-		self waittill(#"turretstatechange");
+		self waittill("turretstatechange");
 	}
 }
 
@@ -368,8 +368,8 @@ function avoid_synchronization(time)
 */
 function do_shoot()
 {
-	self endon(#"death");
-	self endon(#"turretstatechange");
+	self endon("death");
+	self endon("turretstatechange");
 	for(;;)
 	{
 		while(isdefined(level._zm_mgturret_firing) && level._zm_mgturret_firing)
@@ -397,11 +397,11 @@ function turret_timer(duration)
 	{
 		return;
 	}
-	self endon(#"turretstatechange");
+	self endon("turretstatechange");
 	wait(duration);
 	if(isdefined(self))
 	{
-		self notify(#"turretstatechange");
+		self notify("turretstatechange");
 	}
 }
 
@@ -416,7 +416,7 @@ function turret_timer(duration)
 */
 function random_spread(ent)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_d175a918");
 	self endon(#"hash_d175a918");
 	self endon(#"stopfiring");

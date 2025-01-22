@@ -441,8 +441,8 @@ function function_ef4c8536(localclientnum, var_2646032, var_72af98b3)
 {
 	self notify(#"hash_ef4c8536");
 	self endon(#"hash_ef4c8536");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	if(!isdefined(self.var_90b6339d))
 	{
@@ -1084,7 +1084,7 @@ function function_2a7bb7b3(localclientnum, on_off)
 	{
 		while(isdefined(self))
 		{
-			level waittill(#"notetrack", lcn, note);
+			level waittill("notetrack", lcn, note);
 			if(note == "shock_loop")
 			{
 				function_14637ad2(localclientnum);
@@ -1276,7 +1276,7 @@ function function_ac7706bc()
 */
 function function_55af4b5b(player, tag, pivot, delay)
 {
-	player endon(#"grapple_done");
+	player endon("grapple_done");
 	wait(delay);
 	thread grapple_beam(player, tag, pivot);
 }
@@ -1293,7 +1293,7 @@ function function_55af4b5b(player, tag, pivot, delay)
 function grapple_beam(player, tag, pivot)
 {
 	level beam::launch(player, tag, pivot, "tag_origin", "zod_beast_grapple_beam");
-	player waittill(#"grapple_done");
+	player waittill("grapple_done");
 	level beam::kill(player, tag, pivot, "tag_origin", "zod_beast_grapple_beam");
 }
 
@@ -1308,14 +1308,14 @@ function grapple_beam(player, tag, pivot)
 */
 function grapple_watch(onoff, tag = "tag_flash", delay = 0.15)
 {
-	self notify(#"grapple_done");
-	self notify(#"grapple_watch");
-	self endon(#"grapple_watch");
+	self notify("grapple_done");
+	self notify("grapple_watch");
+	self endon("grapple_watch");
 	if(onoff)
 	{
 		while(isdefined(self))
 		{
-			self waittill(#"grapple_beam_on", pivot);
+			self waittill("grapple_beam_on", pivot);
 			var_1e66ebb1 = tag;
 			/#
 				if(getdvarint("") > 0)
@@ -1328,7 +1328,7 @@ function grapple_watch(onoff, tag = "tag_flash", delay = 0.15)
 				thread function_55af4b5b(self, var_1e66ebb1, pivot, delay);
 			}
 			evt = self util::waittill_any_ex(7.5, "grapple_pulled", "grapple_landed", "grapple_cancel", "grapple_beam_off", "grapple_watch", "disconnect");
-			self notify(#"grapple_done");
+			self notify("grapple_done");
 		}
 	}
 }

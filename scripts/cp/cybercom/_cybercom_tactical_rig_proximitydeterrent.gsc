@@ -114,7 +114,7 @@ function proximitydeterrentgive(type)
 function proximitydeterrenttake(type)
 {
 	self.cybercom.var_a9774972 = undefined;
-	self notify(#"proximitydeterrenttake");
+	self notify("proximitydeterrenttake");
 }
 
 /*
@@ -128,13 +128,13 @@ function proximitydeterrenttake(type)
 */
 function proximitydeterrentthink(type)
 {
-	self notify(#"proximitydeterrentthink");
-	self endon(#"proximitydeterrentthink");
-	self endon(#"disconnect");
+	self notify("proximitydeterrentthink");
+	self endon("proximitydeterrentthink");
+	self endon("disconnect");
 	self endon("take_ability_" + type);
 	while(true)
 	{
-		self waittill(#"damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
+		self waittill("damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
 		if(issubstr(str_means_of_death, "MOD_MELEE") && isdefined(e_attacker))
 		{
 			self.cybercom.proximity_deterrent_target = e_attacker;
@@ -155,7 +155,7 @@ function proximitydeterrentthink(type)
 */
 function function_f5590749()
 {
-	self endon(#"proximitydeterrenttake");
+	self endon("proximitydeterrenttake");
 	while(true)
 	{
 		curtime = gettime();
@@ -305,7 +305,7 @@ function proximitydeterrentonattacker(type, player)
 */
 function private _stunassailant(player, attacker, upgraded)
 {
-	attacker endon(#"death");
+	attacker endon("death");
 	if(!isdefined(attacker.archetype))
 	{
 		return;
@@ -446,7 +446,7 @@ function function_c0ba5acc(player, attacker, radius)
 */
 function private function_c8e11a8b(ent, note)
 {
-	ent endon(#"death");
+	ent endon("death");
 	self waittill(note);
 	ent delete();
 }
@@ -462,16 +462,16 @@ function private function_c8e11a8b(ent, note)
 */
 function private function_a38f70a1(player, target)
 {
-	target endon(#"death");
-	player endon(#"disconnect");
+	target endon("death");
+	player endon("disconnect");
 	orb = spawn("script_model", player.origin + vectorscale((0, 0, 1), 45));
 	orb setmodel("tag_origin");
 	playfxontag(level._effect["es_arc"], orb, "tag_origin");
-	orb endon(#"death");
+	orb endon("death");
 	target thread function_c8e11a8b(orb, "death");
 	player thread function_c8e11a8b(orb, "disconnect");
 	orb moveto(target.origin + vectorscale((0, 0, 1), 45), 0.3);
-	orb waittill(#"movedone");
+	orb waittill("movedone");
 	target playsound("gdt_cybercore_rig_prox_imp");
 	damage = getdvarint("scr_proximity_stun_damage", 20);
 	switch(target.archetype)

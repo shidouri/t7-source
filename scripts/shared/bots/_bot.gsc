@@ -306,17 +306,17 @@ function on_player_connect()
 	{
 		return;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.bot = spawnstruct();
 	self.bot.threat = spawnstruct();
 	self.bot.damage = spawnstruct();
 	self.pers["isBot"] = 1;
 	if(level.teambased)
 	{
-		self notify(#"menuresponse", game["menu_team"], self.team);
+		self notify("menuresponse", game["menu_team"], self.team);
 		wait(0.5);
 	}
-	self notify(#"joined_team");
+	self notify("joined_team");
 	callback::callback(#"hash_95a6c4c0");
 	self thread [[level.onbotconnect]]();
 }
@@ -377,8 +377,8 @@ function on_player_killed()
 */
 function bot_think_loop()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self bot_think();
@@ -503,8 +503,8 @@ function update_swim()
 */
 function wait_release_swim_buttons(waittime)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	wait(waittime);
 	self release_swim_up();
 	self release_swim_down();
@@ -875,8 +875,8 @@ function check_stuck_position()
 */
 function stuck_resolution()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	self clear_stuck();
 	self bottakemanualcontrol();
 	escapeangle = (self getangles()[1] + 180) + (randomintrange(-60, 60));
@@ -930,8 +930,8 @@ function camp()
 */
 function wait_bot_path_failed_loop()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self waittill(#"bot_path_failed", reason);
@@ -960,8 +960,8 @@ function wait_bot_path_failed_loop()
 */
 function wait_bot_goal_reached_loop()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self waittill(#"bot_goal_reached", reason);
@@ -1453,9 +1453,9 @@ function revive_player(player)
 */
 function watch_bot_corner(startcornerdist, cornerdist)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bot_combat_target");
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(!isdefined(startcornerdist))
 	{
 		startcornerdist = 64;
@@ -1492,11 +1492,11 @@ function watch_bot_corner(startcornerdist, cornerdist)
 */
 function wait_corner_radius(startcornerdistsq, centerpoint, enterpoint, leavepoint, angle, nextenterpoint)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bot_corner");
 	self endon(#"bot_goal_reached");
 	self endon(#"bot_combat_target");
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(distance2dsquared(self.origin, enterpoint) > startcornerdistsq)
 	{
 		if(self bot_combat::has_threat())
@@ -1520,9 +1520,9 @@ function wait_corner_radius(startcornerdistsq, centerpoint, enterpoint, leavepoi
 */
 function finish_corner()
 {
-	self endon(#"death");
-	self endon(#"combat_target");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("combat_target");
+	level endon("game_ended");
 	self util::waittill_any("bot_corner", "bot_goal_reached");
 	self botlookforward();
 }
@@ -1646,7 +1646,7 @@ function add_bot_at_eye_trace(team)
 		bot = add_bot(team);
 		if(isdefined(bot))
 		{
-			bot waittill(#"spawned_player");
+			bot waittill("spawned_player");
 			bot setorigin(trace[""]);
 			bot setplayerangles((bot.angles[0], yaw, bot.angles[2]));
 		}
@@ -1773,9 +1773,9 @@ function get_nav_points()
 function debug_patrol(points)
 {
 	/#
-		self notify(#"debug_patrol");
-		self endon(#"death");
-		self endon(#"debug_patrol");
+		self notify("debug_patrol");
+		self endon("death");
+		self endon("debug_patrol");
 		i = 0;
 		while(true)
 		{

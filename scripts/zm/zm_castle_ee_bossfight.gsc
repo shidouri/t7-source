@@ -193,7 +193,7 @@ function function_b18f59bf()
 	var_293d02aa.targetname = "undercroft_pyramid";
 	var_293d02aa playsound("zmb_ee_mpd_spawn_pyramid");
 	var_293d02aa disconnectpaths();
-	var_82a4f07b notify(#"delete_fx");
+	var_82a4f07b notify("delete_fx");
 	callback::remove_on_connect(&zm_castle_util::function_fa7da172);
 	level.var_8ef26cd9 = undefined;
 	level thread function_1fd76e61(var_293d02aa);
@@ -280,11 +280,11 @@ function function_83ff2eda()
 	mdl_origin = util::spawn_model("tag_origin", s_canister.origin, s_canister.angles);
 	mdl_origin playloopsound("zmb_ee_mpd_broken_canister_lp", 1);
 	s_canister zm_castle_util::create_unitrigger(undefined, 128);
-	s_canister waittill(#"trigger_activated");
+	s_canister waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(s_canister.s_unitrigger);
 	mdl_origin playsound("zmb_ee_mpd_broken_canister_replace");
 	mdl_origin stoploopsound(1);
-	self notify(#"delete_fx");
+	self notify("delete_fx");
 	self hidepart("tag_broken_can");
 	self showpart("tag_prestine_can");
 	exploder::exploder("lgt_MPD_broken_exp");
@@ -320,7 +320,7 @@ function function_91a378e3()
 	level.var_8ef26cd9 = undefined;
 	var_da3dbbdf delete();
 	var_82a4f07b = struct::get("keeper_end_loc");
-	var_82a4f07b notify(#"delete_fx");
+	var_82a4f07b notify("delete_fx");
 	var_293d02aa = getent("undercroft_pyramid", "targetname");
 	var_293d02aa delete();
 }
@@ -336,7 +336,7 @@ function function_91a378e3()
 */
 function function_735d5e85()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_1dc9cc26 = getweapon("hero_gravityspikes_melee");
 	wait(3);
 	while(!self.b_gravity_trap_spikes_in_ground)
@@ -404,7 +404,7 @@ function function_434db4ff()
 function function_2777756a()
 {
 	ai_zombie = self;
-	ai_zombie waittill(#"death", e_attacker);
+	ai_zombie waittill("death", e_attacker);
 	if(isplayer(e_attacker))
 	{
 		[[level.hero_power_update]](e_attacker, ai_zombie);
@@ -422,7 +422,7 @@ function function_2777756a()
 */
 function function_77025eb5(spot)
 {
-	self endon(#"death");
+	self endon("death");
 	self.in_the_ground = 1;
 	if(isdefined(self.anchor))
 	{
@@ -440,13 +440,13 @@ function function_77025eb5(spot)
 	anim_org = anim_org + (0, 0, 0);
 	self ghost();
 	self.anchor moveto(anim_org, 0.05);
-	self.anchor waittill(#"movedone");
+	self.anchor waittill("movedone");
 	target_org = zombie_utility::get_desired_origin();
 	if(isdefined(target_org))
 	{
 		anim_ang = vectortoangles(target_org - self.origin);
 		self.anchor rotateto((0, anim_ang[1], 0), 0.05);
-		self.anchor waittill(#"rotatedone");
+		self.anchor waittill("rotatedone");
 	}
 	self unlink();
 	if(isdefined(self.anchor))
@@ -482,10 +482,10 @@ function function_77025eb5(spot)
 		self animscripted("rise_anim", self.origin, spot.angles, "ai_zombie_traverse_ground_climbout_fast");
 	}
 	self zombie_shared::donotetracks("rise_anim", &zombie_utility::handle_rise_notetracks, spot);
-	self notify(#"rise_anim_finished");
-	spot notify(#"stop_zombie_rise_fx");
+	self notify("rise_anim_finished");
+	spot notify("stop_zombie_rise_fx");
 	self.in_the_ground = 0;
-	self notify(#"risen", spot.script_string);
+	self notify("risen", spot.script_string);
 }
 
 /*
@@ -670,14 +670,14 @@ function function_73c15b91(player)
 	level endon(#"boss_fight_begin");
 	while(true)
 	{
-		player waittill(#"gravity_trap_planted");
+		player waittill("gravity_trap_planted");
 		/#
 		#/
 		if(!self.b_claimed)
 		{
 			self.b_claimed = 1;
 			level.var_b366f2dc++;
-			player waittill(#"gravityspikes_timer_end");
+			player waittill("gravityspikes_timer_end");
 			self.b_claimed = 0;
 			level.var_b366f2dc--;
 		}
@@ -1008,7 +1008,7 @@ function function_4bea595()
 	level endon(#"boss_fight_completed");
 	level endon(#"_zombie_game_over");
 	self endon(#"bleed_out");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_67f6c267 = getent("boss_dot_area", "targetname");
 	while(!level flag::get("boss_fight_completed"))
 	{
@@ -1636,7 +1636,7 @@ function function_28bb5727(var_4a14cd40)
 function function_96db213f()
 {
 	self endon(#"hash_ed87af95");
-	self.var_40b46e43 endon(#"death");
+	self.var_40b46e43 endon("death");
 	wait(randomintrange(7, 20));
 	while(true)
 	{
@@ -1957,14 +1957,14 @@ function function_abdb4498()
 function function_e20da5e0(player, var_a7ddd99)
 {
 	level endon(#"hash_adcabea1");
-	player waittill(#"gravity_trap_planted");
+	player waittill("gravity_trap_planted");
 	if(player istouching(var_a7ddd99))
 	{
 		/#
 		#/
 		self.var_cc5c4782++;
 		player.var_7b3316ec = 1;
-		player waittill(#"destroy_ground_spikes");
+		player waittill("destroy_ground_spikes");
 		self.var_cc5c4782--;
 		player.var_7b3316ec = 0;
 	}
@@ -2045,7 +2045,7 @@ function function_eda57e8b()
 {
 	while(level flag::get("boss_stunned"))
 	{
-		self.var_e3d9917e waittill(#"damage", n_damage, e_attacker);
+		self.var_e3d9917e waittill("damage", n_damage, e_attacker);
 		self.var_42433bc = self.var_42433bc + n_damage;
 		self.var_ee000bfc = self.var_ee000bfc + n_damage;
 	}
@@ -2475,7 +2475,7 @@ function function_2cef3631()
 	var_b5f846f3 = 0;
 	while(var_b5f846f3 < level.var_de21b83b)
 	{
-		self waittill(#"damage", n_damage, e_attacker);
+		self waittill("damage", n_damage, e_attacker);
 		var_b5f846f3 = var_b5f846f3 + n_damage;
 	}
 	self boss_demongate_chomper_despawn();
@@ -2798,7 +2798,7 @@ function function_49bf49de()
 	var_b5f846f3 = 0;
 	while(var_b5f846f3 < level.var_de21b83b)
 	{
-		self waittill(#"damage", n_damage, e_attacker);
+		self waittill("damage", n_damage, e_attacker);
 		var_b5f846f3 = var_b5f846f3 + n_damage;
 	}
 	self.is_destroyed = 1;
@@ -3107,7 +3107,7 @@ function spawn_mech()
 */
 function function_512742d3()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"_zombie_game_over");
 	while(true)
 	{
@@ -3131,7 +3131,7 @@ function function_512742d3()
 function function_fb4ac7ae()
 {
 	/#
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(1);
 		zm_devgui::add_custom_devgui_callback(&function_b68d06ec);
 		adddebugcommand("");

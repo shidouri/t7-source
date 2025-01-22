@@ -30,8 +30,8 @@ function init()
 */
 function oneinchpunch_impact(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	var_4383636a = 75;
 	var_bf0c8e05 = 60;
 	if(newval == 1)

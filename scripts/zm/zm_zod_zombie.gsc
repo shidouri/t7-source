@@ -258,7 +258,7 @@ function private zod_closest_player(origin, players)
 */
 function private update_closest_player()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		reset_closest_player = 1;

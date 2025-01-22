@@ -84,7 +84,7 @@ function signal_activated(val = 1)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("equipment_activated", val);
 	for(i = 0; i < 2; i++)
 	{
@@ -347,7 +347,7 @@ function equipment_spawn_think()
 {
 	for(;;)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger() || player.is_drinking > 0)
 		{
 			wait(0.1);
@@ -503,7 +503,7 @@ function give(equipment)
 	self setactionslot(2, "weapon", equipment);
 	self thread slot_watcher(equipment);
 	self zm_audio::create_and_play_dialog("weapon_pickup", level.zombie_equipment[equipment].vox);
-	self notify(#"player_given", equipment);
+	self notify("player_given", equipment);
 }
 
 /*
@@ -528,7 +528,7 @@ function buy(equipment)
 	{
 		self take(self.current_equipment);
 	}
-	self notify(#"player_bought", equipment);
+	self notify("player_bought", equipment);
 	self give(equipment);
 	if(equipment.isriotshield && isdefined(self.player_shield_reset_health))
 	{
@@ -547,13 +547,13 @@ function buy(equipment)
 */
 function slot_watcher(equipment)
 {
-	self notify(#"kill_equipment_slot_watcher");
-	self endon(#"kill_equipment_slot_watcher");
-	self endon(#"disconnect");
+	self notify("kill_equipment_slot_watcher");
+	self endon("kill_equipment_slot_watcher");
+	self endon("disconnect");
 	notify_strings = get_notify_strings(equipment);
 	while(true)
 	{
-		self waittill(#"weapon_change", curr_weapon, prev_weapon);
+		self waittill("weapon_change", curr_weapon, prev_weapon);
 		if(self.sessionstate != "spectator")
 		{
 			self.prev_weapon_before_equipment_change = undefined;
@@ -672,7 +672,7 @@ function setup_limited(equipment)
 */
 function release_limited_on_taken(equipment)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	notify_strings = get_notify_strings(equipment);
 	self util::waittill_either(notify_strings.taken, "spawned_spectator");
 	players = getplayers();
@@ -695,7 +695,7 @@ function release_limited_on_disconnect(equipment)
 {
 	notify_strings = get_notify_strings(equipment);
 	self endon(notify_strings.taken);
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
@@ -755,8 +755,8 @@ function init_hint_hudelem(x, y, alignx, aligny, fontscale, alpha)
 */
 function setup_client_hintelem(ypos = 220, font_scale = 1.25)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.hintelem))
 	{
 		self.hintelem = newclienthudelem(self);
@@ -789,10 +789,10 @@ function setup_client_hintelem(ypos = 220, font_scale = 1.25)
 */
 function show_hint(equipment)
 {
-	self notify(#"kill_previous_show_equipment_hint_thread");
-	self endon(#"kill_previous_show_equipment_hint_thread");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("kill_previous_show_equipment_hint_thread");
+	self endon("kill_previous_show_equipment_hint_thread");
+	self endon("death");
+	self endon("disconnect");
 	if(isdefined(self.do_not_display_equipment_pickup_hint) && self.do_not_display_equipment_pickup_hint)
 	{
 		return;
@@ -813,7 +813,7 @@ function show_hint(equipment)
 */
 function show_hint_text(text, show_for_time = 3.2, font_scale = 1.25, ypos = 220)
 {
-	self notify(#"hide_equipment_hint_text");
+	self notify("hide_equipment_hint_text");
 	wait(0.05);
 	self setup_client_hintelem(ypos, font_scale);
 	self.hintelem settext(text);
@@ -1085,7 +1085,7 @@ function set_player_equipment(weapon)
 	{
 		self.equipment_got_in_round[weapon] = level.round_number;
 	}
-	self notify(#"new_equipment", weapon);
+	self notify("new_equipment", weapon);
 	self.current_equipment = weapon;
 }
 

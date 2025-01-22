@@ -301,7 +301,7 @@ function registercratetype(category, type, name, weight, hint, hint_gambler, giv
 function add_devgui_command(category, name)
 {
 	/#
-		level endon(#"game_ended");
+		level endon("game_ended");
 		wait(0.1);
 		wait(randomintrange(2, 10) * 0.05);
 		if(category == "" && killstreaks::is_registered(name))
@@ -423,13 +423,13 @@ function givecrateitem(crate)
 */
 function givecratekillstreakwaiter(event, removecrate, extraendon)
 {
-	self endon(#"give_crate_killstreak_done");
+	self endon("give_crate_killstreak_done");
 	if(isdefined(extraendon))
 	{
 		self endon(extraendon);
 	}
 	self waittill(event);
-	self notify(#"give_crate_killstreak_done", removecrate);
+	self notify("give_crate_killstreak_done", removecrate);
 }
 
 /*
@@ -529,7 +529,7 @@ function givecrateweapon(weapon_name)
 	givespecializedcrateweapon(weapon);
 	self giveweapon(weapon);
 	self switchtoweapon(weapon);
-	self waittill(#"weapon_change", newweapon);
+	self waittill("weapon_change", newweapon);
 	self killstreak_weapons::usekillstreakweaponfromcrate(weapon);
 	return true;
 }
@@ -546,8 +546,8 @@ function givecrateweapon(weapon_name)
 function usesupplydropmarker(package_contents_id, context)
 {
 	player = self;
-	self endon(#"disconnect");
-	self endon(#"spawned_player");
+	self endon("disconnect");
+	self endon("spawned_player");
 	supplydropweapon = level.weaponnone;
 	currentweapon = self getcurrentweapon();
 	prevweapon = currentweapon;
@@ -580,7 +580,7 @@ function usesupplydropmarker(package_contents_id, context)
 			break;
 		}
 	}
-	self notify(#"trigger_weapon_shutdown");
+	self notify("trigger_weapon_shutdown");
 	if(supplydropweapon == level.weaponnone)
 	{
 		cleanup(context, player);
@@ -738,7 +738,7 @@ function usekillstreaksupplydrop(killstreak)
 	context.droptagoffset = (-32, 0, 23);
 	context.killstreaktype = killstreak;
 	result = player usesupplydropmarker(undefined, context);
-	player notify(#"supply_drop_marker_done");
+	player notify("supply_drop_marker_done");
 	if(!isdefined(result) || !result)
 	{
 		return 0;
@@ -896,14 +896,14 @@ function use_killstreak_mp40(killstreak)
 function cleanupwatcherondeath(team, killstreak_id)
 {
 	player = self;
-	self endon(#"disconnect");
-	self endon(#"supplydropwatcher");
-	self endon(#"trigger_weapon_shutdown");
-	self endon(#"spawned_player");
-	self endon(#"weapon_change");
+	self endon("disconnect");
+	self endon("supplydropwatcher");
+	self endon("trigger_weapon_shutdown");
+	self endon("spawned_player");
+	self endon("weapon_change");
 	self util::waittill_any("death", "joined_team", "joined_spectators");
 	killstreakrules::killstreakstop("supply_drop", team, killstreak_id);
-	self notify(#"cleanup_marker");
+	self notify("cleanup_marker");
 }
 
 /*
@@ -946,11 +946,11 @@ function cleanup(context, player)
 function markerupdatethread(context)
 {
 	player = self;
-	player endon(#"supplydropwatcher");
-	player endon(#"spawned_player");
-	player endon(#"disconnect");
-	player endon(#"weapon_change");
-	player endon(#"death");
+	player endon("supplydropwatcher");
+	player endon("spawned_player");
+	player endon("disconnect");
+	player endon("weapon_change");
+	player endon("death");
 	markermodel = spawn("script_model", (0, 0, 0));
 	context.marker = markermodel;
 	player thread markercleanupthread(context);
@@ -998,11 +998,11 @@ function markerupdatethread(context)
 function supplydropwatcher(package_contents_id, trigger_event, supplydropweapon, context)
 {
 	player = self;
-	self notify(#"supplydropwatcher");
-	self endon(#"supplydropwatcher");
-	self endon(#"spawned_player");
-	self endon(#"disconnect");
-	self endon(#"weapon_change");
+	self notify("supplydropwatcher");
+	self endon("supplydropwatcher");
+	self endon("spawned_player");
+	self endon("disconnect");
+	self endon("weapon_change");
 	team = self.team;
 	killstreak_id = killstreakrules::killstreakstart("supply_drop", team, 0, 0);
 	if(killstreak_id == -1)
@@ -1059,7 +1059,7 @@ function supplydropwatcher(package_contents_id, trigger_event, supplydropweapon,
 		else
 		{
 			killstreakrules::killstreakstop("supply_drop", team, killstreak_id);
-			self notify(#"cleanup_marker");
+			self notify("cleanup_marker");
 		}
 		break;
 	}
@@ -1078,12 +1078,12 @@ function supplydropwatcher(package_contents_id, trigger_event, supplydropweapon,
 */
 function checkforemp()
 {
-	self endon(#"supplydropwatcher");
-	self endon(#"spawned_player");
-	self endon(#"disconnect");
-	self endon(#"weapon_change");
-	self endon(#"death");
-	self endon(#"trigger_weapon_shutdown");
+	self endon("supplydropwatcher");
+	self endon("spawned_player");
+	self endon("disconnect");
+	self endon("weapon_change");
+	self endon("death");
+	self endon("trigger_weapon_shutdown");
 	self waittill(#"emp_jammed");
 	self killstreaks::switch_to_last_non_killstreak_weapon();
 }
@@ -1099,39 +1099,39 @@ function checkforemp()
 */
 function supplydropgrenadetimeout(team, killstreak_id, weapon)
 {
-	self endon(#"death");
-	self endon(#"stationary");
+	self endon("death");
+	self endon("stationary");
 	grenade_lifetime = 10;
 	wait(grenade_lifetime);
 	if(!isdefined(self))
 	{
 		return;
 	}
-	self notify(#"grenade_timeout");
+	self notify("grenade_timeout");
 	killstreakrules::killstreakstop("supply_drop", team, killstreak_id);
 	if(weapon.name == "ai_tank_drop")
 	{
 		killstreakrules::killstreakstop("ai_tank_drop", team, killstreak_id);
-		self notify(#"cleanup_marker");
+		self notify("cleanup_marker");
 	}
 	else
 	{
 		if(weapon.name == "inventory_ai_tank_drop")
 		{
 			killstreakrules::killstreakstop("inventory_ai_tank_drop", team, killstreak_id);
-			self notify(#"cleanup_marker");
+			self notify("cleanup_marker");
 		}
 		else
 		{
 			if(weapon.name == "combat_robot_drop")
 			{
 				killstreakrules::killstreakstop("combat_robot_drop", team, killstreak_id);
-				self notify(#"cleanup_marker");
+				self notify("cleanup_marker");
 			}
 			else if(weapon.name == "inventory_combat_robot_drop")
 			{
 				killstreakrules::killstreakstop("inventory_combat_robot_drop", team, killstreak_id);
-				self notify(#"cleanup_marker");
+				self notify("cleanup_marker");
 			}
 		}
 	}
@@ -1149,14 +1149,14 @@ function supplydropgrenadetimeout(team, killstreak_id, weapon)
 */
 function checkweaponchange(team, killstreak_id)
 {
-	self endon(#"supplydropwatcher");
-	self endon(#"spawned_player");
-	self endon(#"disconnect");
-	self endon(#"trigger_weapon_shutdown");
-	self endon(#"death");
-	self waittill(#"weapon_change");
+	self endon("supplydropwatcher");
+	self endon("spawned_player");
+	self endon("disconnect");
+	self endon("trigger_weapon_shutdown");
+	self endon("death");
+	self waittill("weapon_change");
 	killstreakrules::killstreakstop("supply_drop", team, killstreak_id);
-	self notify(#"cleanup_marker");
+	self notify("cleanup_marker");
 }
 
 /*
@@ -1170,12 +1170,12 @@ function checkweaponchange(team, killstreak_id)
 */
 function supplydropgrenadepullwatcher(killstreak_id)
 {
-	self endon(#"disconnect");
-	self endon(#"weapon_change");
-	self waittill(#"grenade_pullback", weapon);
+	self endon("disconnect");
+	self endon("weapon_change");
+	self waittill("grenade_pullback", weapon);
 	self util::_disableusability();
 	self thread watchforgrenadeputdown();
-	self waittill(#"death");
+	self waittill("death");
 	killstreak = "supply_drop";
 	self.supplygrenadedeathdrop = 1;
 	if(weapon.issupplydropweapon)
@@ -1203,12 +1203,12 @@ function supplydropgrenadepullwatcher(killstreak_id)
 */
 function watchforgrenadeputdown()
 {
-	self notify(#"watchforgrenadeputdown");
-	self endon(#"watchforgrenadeputdown");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("watchforgrenadeputdown");
+	self endon("watchforgrenadeputdown");
+	self endon("death");
+	self endon("disconnect");
 	self util::waittill_any("grenade_fire", "weapon_change");
-	self notify(#"trigger_weapon_shutdown");
+	self notify("trigger_weapon_shutdown");
 	self util::_enableusability();
 }
 
@@ -1223,16 +1223,16 @@ function watchforgrenadeputdown()
 */
 function playerchangeweaponwaiter()
 {
-	self endon(#"supply_drop_marker_done");
-	self endon(#"disconnect");
-	self endon(#"spawned_player");
+	self endon("supply_drop_marker_done");
+	self endon("disconnect");
+	self endon("spawned_player");
 	currentweapon = self getcurrentweapon();
 	while(currentweapon.issupplydropweapon)
 	{
-		self waittill(#"weapon_change", currentweapon);
+		self waittill("weapon_change", currentweapon);
 	}
 	waittillframeend();
-	self notify(#"supply_drop_marker_done");
+	self notify("supply_drop_marker_done");
 }
 
 /*
@@ -1431,7 +1431,7 @@ function crateactivate(hacker)
 	}
 	if(isdefined(self.owner))
 	{
-		self.owner notify(#"crate_landed", self);
+		self.owner notify("crate_landed", self);
 		setricochetprotectionendtime("supply_drop", self.killstreak_id, self.owner);
 	}
 }
@@ -1501,14 +1501,14 @@ function cratedeactivate()
 */
 function ownerteamchangewatcher()
 {
-	self notify(#"ownerteamchangewatcher_singleton");
-	self endon(#"ownerteamchangewatcher_singleton");
-	self endon(#"death");
+	self notify("ownerteamchangewatcher_singleton");
+	self endon("ownerteamchangewatcher_singleton");
+	self endon("death");
 	if(!level.teambased || !isdefined(self.owner))
 	{
 		return;
 	}
-	self.owner waittill(#"joined_team");
+	self.owner waittill("joined_team");
 	self.owner = undefined;
 }
 
@@ -1527,7 +1527,7 @@ function dropalltoground(origin, radius, stickyobjectradius)
 	wait(0.05);
 	weapons::drop_all_to_ground(origin, radius);
 	dropcratestoground(origin, radius);
-	level notify(#"drop_objects_to_ground", origin, stickyobjectradius);
+	level notify("drop_objects_to_ground", origin, stickyobjectradius);
 }
 
 /*
@@ -1555,7 +1555,7 @@ function dropeverythingtouchingcrate(origin)
 */
 function dropalltogroundaftercratedelete(crate, crate_origin)
 {
-	crate waittill(#"death");
+	crate waittill("death");
 	wait(0.1);
 	crate dropeverythingtouchingcrate(crate_origin);
 }
@@ -1593,7 +1593,7 @@ function dropcratestoground(origin, radius)
 */
 function dropcratetoground()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.droppingtoground))
 	{
 		return;
@@ -1757,12 +1757,12 @@ function cratedelete(drop_all_to_ground)
 */
 function stationarycrateoverride()
 {
-	self endon(#"death");
-	self endon(#"stationary");
+	self endon("death");
+	self endon("stationary");
 	wait(3);
 	self.angles = self.angles;
 	self.origin = self.origin;
-	self notify(#"stationary");
+	self notify("stationary");
 }
 
 /*
@@ -1776,8 +1776,8 @@ function stationarycrateoverride()
 */
 function timeoutcratewaiter()
 {
-	self endon(#"death");
-	self endon(#"stationary");
+	self endon("death");
+	self endon("stationary");
 	wait(20);
 	self cratedelete(1);
 }
@@ -1805,7 +1805,7 @@ function cratephysics()
 	self thread stationarycrateoverride();
 	self thread update_crate_velocity();
 	self thread play_impact_sound();
-	self waittill(#"stationary");
+	self waittill("stationary");
 }
 
 /*
@@ -1878,7 +1878,7 @@ function cratecontrolleddrop(killstreak, v_target_location)
 	{
 		crate clientfield::set("aitank_thrusters_state", 1);
 	}
-	crate waittill(#"movedone");
+	crate waittill("movedone");
 	hostmigration::waittillhostmigrationdone();
 	if(supplydrop)
 	{
@@ -1903,8 +1903,8 @@ function cratecontrolleddrop(killstreak, v_target_location)
 function play_impact_sound()
 {
 	self endon(#"entityshutdown");
-	self endon(#"stationary");
-	self endon(#"death");
+	self endon("stationary");
+	self endon("death");
 	wait(0.5);
 	while(abs(self.velocity[2]) > 5)
 	{
@@ -1925,7 +1925,7 @@ function play_impact_sound()
 function update_crate_velocity()
 {
 	self endon(#"entityshutdown");
-	self endon(#"stationary");
+	self endon("stationary");
 	self.velocity = (0, 0, 0);
 	self.old_origin = self.origin;
 	while(isdefined(self))
@@ -1952,7 +1952,7 @@ function crateredophysics()
 	self physicslaunch(forcepoint, initialvelocity);
 	self thread timeoutcratewaiter();
 	self thread stationarycrateoverride();
-	self waittill(#"stationary");
+	self waittill("stationary");
 }
 
 /*
@@ -1966,12 +1966,12 @@ function crateredophysics()
 */
 function do_supply_drop_detonation(weapon, owner)
 {
-	self notify(#"supplydropwatcher");
-	self endon(#"supplydropwatcher");
-	self endon(#"spawned_player");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"grenade_timeout");
+	self notify("supplydropwatcher");
+	self endon("supplydropwatcher");
+	self endon("spawned_player");
+	self endon("disconnect");
+	self endon("death");
+	self endon("grenade_timeout");
 	self util::waittillnotmoving();
 	self.angles = (0, self.angles[1], 90);
 	fuse_time = weapon.fusetime / 1000;
@@ -1999,12 +1999,12 @@ function do_supply_drop_detonation(weapon, owner)
 function dosupplydrop(weapon_instance, weapon, owner, killstreak_id, package_contents_id, context)
 {
 	weapon endon(#"explode");
-	weapon endon(#"grenade_timeout");
-	self endon(#"disconnect");
+	weapon endon("grenade_timeout");
+	self endon("disconnect");
 	team = owner.team;
 	weapon_instance thread watchexplode(weapon, owner, killstreak_id, package_contents_id);
 	weapon_instance util::waittillnotmoving();
-	weapon_instance notify(#"stoppedmoving");
+	weapon_instance notify("stoppedmoving");
 	self thread helidelivercrate(weapon_instance.origin, weapon, owner, team, killstreak_id, package_contents_id, context);
 }
 
@@ -2019,7 +2019,7 @@ function dosupplydrop(weapon_instance, weapon, owner, killstreak_id, package_con
 */
 function watchexplode(weapon, owner, killstreak_id, package_contents_id)
 {
-	self endon(#"stoppedmoving");
+	self endon("stoppedmoving");
 	team = owner.team;
 	self waittill(#"explode", position);
 	owner thread helidelivercrate(position, weapon, owner, team, killstreak_id, package_contents_id);
@@ -2068,7 +2068,7 @@ function cratetimeout(time)
 function deleteonownerleave()
 {
 	crate = self;
-	crate endon(#"death");
+	crate endon("death");
 	crate.owner util::waittill_any("joined_team", "joined_spectators", "disconnect");
 	crate cratedelete(1);
 }
@@ -2084,7 +2084,7 @@ function deleteonownerleave()
 */
 function waitanddelete(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self delete();
 }
@@ -2115,7 +2115,7 @@ function dropcrate(origin, angle, killstreak, owner, team, killcament, killstrea
 	crate.package_contents_id = package_contents_id;
 	killcament thread util::deleteaftertime(15);
 	killcament thread unlinkonrotation(crate);
-	crate endon(#"death");
+	crate endon("death");
 	crate cratetimeoutthreader();
 	trace = groundtrace(crate.origin + (vectorscale((0, 0, -1), 100)), crate.origin + (vectorscale((0, 0, -1), 10000)), 0, crate, 0);
 	v_target_location = trace["position"];
@@ -2156,10 +2156,10 @@ function dropcrate(origin, angle, killstreak, owner, team, killcament, killstrea
 */
 function unlinkonrotation(crate)
 {
-	self endon(#"delete");
-	crate endon(#"death");
+	self endon("delete");
+	crate endon("death");
 	crate endon(#"entityshutdown");
-	crate endon(#"stationary");
+	crate endon("stationary");
 	waitbeforerotationcheck = getdvarfloat("scr_supplydrop_killcam_rot_wait", 0.5);
 	wait(waitbeforerotationcheck);
 	mincos = getdvarfloat("scr_supplydrop_killcam_max_rot", 0.999);
@@ -2190,7 +2190,7 @@ function default_land_function(crate, category, owner, team)
 	{
 		for(;;)
 		{
-			crate waittill(#"captured", player, remote_hack);
+			crate waittill("captured", player, remote_hack);
 			player challenges::capturedcrate(owner);
 			deletecrate = player givecrateitem(crate);
 		}
@@ -2260,7 +2260,7 @@ function watch_explosive_crate()
 {
 	killcament = spawn("script_model", self.origin + vectorscale((0, 0, 1), 60));
 	self.killcament = killcament;
-	self waittill(#"captured", player, remote_hack);
+	self waittill("captured", player, remote_hack);
 	if(!player hasperk("specialty_showenemyequipment") && !remote_hack)
 	{
 		self thread entityheadicons::setentityheadicon(player.team, player, level.crate_headicon_offset, "headicon_dead", 1);
@@ -2295,7 +2295,7 @@ function watch_explosive_crate()
 */
 function loop_sound(alias, interval)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		playsoundatposition(alias, self.origin);
@@ -2320,8 +2320,8 @@ function loop_sound(alias, interval)
 function watchforcratekill(start_kill_watch_z_threshold)
 {
 	crate = self;
-	crate endon(#"death");
-	crate endon(#"stationary");
+	crate endon("death");
+	crate endon("stationary");
 	while(crate.origin[2] > start_kill_watch_z_threshold)
 	{
 		wait(0.05);
@@ -2369,7 +2369,7 @@ function watchforcratekill(start_kill_watch_z_threshold)
 */
 function cratekill()
 {
-	self endon(#"death");
+	self endon("death");
 	stationarythreshold = 2;
 	killthreshold = 15;
 	maxframestillstationary = 20;
@@ -2413,8 +2413,8 @@ function cratekill()
 */
 function cratedroptogroundkill()
 {
-	self endon(#"death");
-	self endon(#"stationary");
+	self endon("death");
+	self endon("stationary");
 	for(;;)
 	{
 		players = getplayers();
@@ -2548,7 +2548,7 @@ function is_touching_crate()
 			{
 				if(crate istouching(vehicle, vectorscale((1, 1, 1), 2)))
 				{
-					vehicle notify(#"sentinel_shutdown");
+					vehicle notify("sentinel_shutdown");
 				}
 			}
 		}
@@ -2658,8 +2658,8 @@ function spawnuseent()
 */
 function useentownerdeathwaiter(owner)
 {
-	self endon(#"death");
-	owner waittill(#"death");
+	self endon("death");
+	owner waittill("death");
 	self delete();
 }
 
@@ -2676,7 +2676,7 @@ function crateusethink()
 {
 	while(isdefined(self))
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!isdefined(self))
 		{
 			break;
@@ -2708,7 +2708,7 @@ function crateusethink()
 		if(result && isdefined(self))
 		{
 			scoreevents::givecratecapturemedal(self, player);
-			self notify(#"captured", player, 0);
+			self notify("captured", player, 0);
 		}
 	}
 }
@@ -2724,10 +2724,10 @@ function crateusethink()
 */
 function crateusethinkowner()
 {
-	self endon(#"joined_team");
+	self endon("joined_team");
 	while(isdefined(self))
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!isdefined(self))
 		{
 			break;
@@ -2747,7 +2747,7 @@ function crateusethinkowner()
 		result = self useholdthink(player, level.crateownerusetime);
 		if(result && isdefined(self) && isdefined(player))
 		{
-			self notify(#"captured", player, 0);
+			self notify("captured", player, 0);
 		}
 	}
 }
@@ -2763,7 +2763,7 @@ function crateusethinkowner()
 */
 function useholdthink(player, usetime)
 {
-	player notify(#"use_hold");
+	player notify("use_hold");
 	player util::freeze_player_controls(1);
 	player util::_disableweapon();
 	self.curprogress = 0;
@@ -2774,7 +2774,7 @@ function useholdthink(player, usetime)
 	result = useholdthinkloop(player);
 	if(isdefined(player))
 	{
-		player notify(#"done_using");
+		player notify("done_using");
 	}
 	if(isdefined(player))
 	{
@@ -2856,9 +2856,9 @@ function continueholdthinkloop(player)
 */
 function useholdthinkloop(player)
 {
-	level endon(#"game_ended");
-	self endon(#"disabled");
-	self.owner endon(#"crate_use_interrupt");
+	level endon("game_ended");
+	self endon("disabled");
+	self.owner endon("crate_use_interrupt");
 	timedout = 0;
 	while(self continueholdthinkloop(player))
 	{
@@ -2888,10 +2888,10 @@ function useholdthinkloop(player)
 */
 function crategamblerthink()
 {
-	self endon(#"death");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"trigger_use_doubletap", player);
+		self waittill("trigger_use_doubletap", player);
 		if(!player hasperk("specialty_showenemyequipment"))
 		{
 			continue;
@@ -2907,8 +2907,8 @@ function crategamblerthink()
 		self.cratetype = getrandomcratetype("gambler", self.cratetype.name);
 		self cratereactivate();
 		self sethintstringforperk("specialty_showenemyequipment", self.cratetype.hint);
-		self notify(#"crate_use_interrupt");
-		level notify(#"use_interrupt", self);
+		self notify("crate_use_interrupt");
+		level notify("use_interrupt", self);
 		return;
 	}
 }
@@ -2940,7 +2940,7 @@ function cratereactivate()
 */
 function personalusebar(object)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	capturecratestate = 0;
 	if(self hasperk("specialty_showenemyequipment") && object.owner != self && !isdefined(object.hacker) && (level.teambased && object.owner.team != self.team || !level.teambased))
 	{
@@ -3012,7 +3012,7 @@ function spawn_helicopter(owner, team, origin, angles, model, targetname, killst
 		if(isplayer(owner))
 		{
 			killstreakrules::killstreakstop("supply_drop", team, killstreak_id);
-			self notify(#"cleanup_marker");
+			self notify("cleanup_marker");
 		}
 		return undefined;
 	}
@@ -3434,15 +3434,15 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 	if(owner emp::enemyempactive() && !owner hasperk("specialty_immuneemp"))
 	{
 		killstreakrules::killstreakstop("supply_drop", team, killstreak_id);
-		self notify(#"cleanup_marker");
+		self notify("cleanup_marker");
 		return;
 	}
 	/#
 		if(getdvarint("", 0))
 		{
-			level notify(#"stop_heli_drop_valid_location_marked_cylinder");
-			level notify(#"stop_heli_drop_valid_location_arrived_at_goal_cylinder");
-			level notify(#"stop_heli_drop_valid_location_dropped_cylinder");
+			level notify("stop_heli_drop_valid_location_marked_cylinder");
+			level notify("stop_heli_drop_valid_location_arrived_at_goal_cylinder");
+			level notify("stop_heli_drop_valid_location_dropped_cylinder");
 			util::drawcylinder(origin, context.radius, 8000, 99999999, "", vectorscale((1, 0, 1), 0.4), 0.8);
 		}
 	#/
@@ -3558,10 +3558,10 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 	{
 		chopper thread helidropcrate(level.killstreakweapons[weapon], owner, rear_hatch_offset_local, killcament, killstreak_id, package_contents_id, context);
 	}
-	chopper endon(#"death");
+	chopper endon("death");
 	chopper thread airsupport::followpath(goalpath.path, "drop_goal", 1);
 	chopper thread speedregulator(heli_drop_goal);
-	chopper waittill(#"drop_goal");
+	chopper waittill("drop_goal");
 	if(isdefined(context) && isdefined(context.epilog))
 	{
 		chopper [[context.epilog]](context);
@@ -3625,7 +3625,7 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 			iprintln("" + distance2d(chopper_drop_point, heli_drop_goal));
 		}
 	#/
-	chopper notify(#"drop_crate", chopper.origin, chopper.angles, chopper.owner);
+	chopper notify("drop_crate", chopper.origin, chopper.angles, chopper.owner);
 	chopper.droptime = gettime();
 	chopper playsound("veh_supply_drop");
 	wait(0.7);
@@ -3644,7 +3644,7 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 	/#
 		println("" + (gettime() - chopper.droptime));
 	#/
-	chopper notify(#"leaving");
+	chopper notify("leaving");
 	chopper delete();
 }
 
@@ -3659,9 +3659,9 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 */
 function samturretwatcher(destination)
 {
-	self endon(#"leaving");
-	self endon(#"helicopter_gone");
-	self endon(#"death");
+	self endon("leaving");
+	self endon("helicopter_gone");
+	self endon("death");
 	sam_turret_aquire_dist = 1500;
 	while(true)
 	{
@@ -3689,8 +3689,8 @@ function samturretwatcher(destination)
 */
 function speedregulator(goal)
 {
-	self endon(#"drop_goal");
-	self endon(#"death");
+	self endon("drop_goal");
+	self endon("death");
 	wait(3);
 	supplydropspeed = getdvarint("scr_supplydropSpeed", 400);
 	supplydropaccel = getdvarint("scr_supplydropAccel", 60);
@@ -3717,7 +3717,7 @@ function speedregulator(goal)
 function helidropcrate(killstreak, originalowner, offset, killcament, killstreak_id, package_contents_id, context)
 {
 	helicopter = self;
-	originalowner endon(#"disconnect");
+	originalowner endon("disconnect");
 	crate = cratespawn(killstreak, killstreak_id, originalowner, self.team, self.origin, self.angles);
 	if(killstreak == "inventory_supply_drop" || killstreak == "supply_drop")
 	{
@@ -3732,7 +3732,7 @@ function helidropcrate(killstreak, originalowner, offset, killcament, killstreak
 		helicopter clientfield::set("supplydrop_ai_tank_state", 1);
 	}
 	team = self.team;
-	helicopter waittill(#"drop_crate", origin, angles, chopperowner);
+	helicopter waittill("drop_crate", origin, angles, chopperowner);
 	if(isdefined(chopperowner))
 	{
 		owner = chopperowner;
@@ -3784,9 +3784,9 @@ function helidropcrate(killstreak, originalowner, offset, killcament, killstreak
 */
 function helidestroyed()
 {
-	self endon(#"leaving");
-	self endon(#"helicopter_gone");
-	self endon(#"death");
+	self endon("leaving");
+	self endon("helicopter_gone");
+	self endon("death");
 	while(true)
 	{
 		if(self.damagetaken > self.maxhealth)
@@ -3802,7 +3802,7 @@ function helidestroyed()
 	self setspeed(25, 5);
 	self thread lbspin(randomintrange(180, 220));
 	wait(randomfloatrange(0.5, 1.5));
-	self notify(#"drop_crate", self.origin, self.angles, self.owner);
+	self notify("drop_crate", self.origin, self.angles, self.owner);
 	lbexplode();
 }
 
@@ -3865,9 +3865,9 @@ function lbspin(speed)
 */
 function refcountdecchopper(team, killstreak_id)
 {
-	self waittill(#"death");
+	self waittill("death");
 	killstreakrules::killstreakstop("supply_drop", team, killstreak_id);
-	self notify(#"cleanup_marker");
+	self notify("cleanup_marker");
 }
 
 /*

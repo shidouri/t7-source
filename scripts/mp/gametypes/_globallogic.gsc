@@ -1109,7 +1109,7 @@ function updategameevents()
 */
 function mpintro_visionset_ramp_hold_func()
 {
-	level endon(#"mpintro_ramp_out_notify");
+	level endon("mpintro_ramp_out_notify");
 	while(true)
 	{
 		for(player_index = 0; player_index < level.players.size; player_index++)
@@ -1145,7 +1145,7 @@ function mpintro_visionset_activate_func()
 */
 function mpintro_visionset_deactivate_func()
 {
-	level notify(#"mpintro_ramp_out_notify");
+	level notify("mpintro_ramp_out_notify");
 }
 
 /*
@@ -1209,7 +1209,7 @@ function matchstarttimer()
 */
 function notifyendofgameplay()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	level clientfield::set("gameplay_started", 0);
 }
 
@@ -1272,7 +1272,7 @@ function notifyteamwavespawn(team, time)
 */
 function wavespawntimer()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(game["state"] == "playing")
 	{
 		time = gettime();
@@ -1769,7 +1769,7 @@ function displayroundend(winner, endreasontext)
 			player = players[index];
 			if(!util::waslastround())
 			{
-				player notify(#"round_ended");
+				player notify("round_ended");
 			}
 			if(!isdefined(player.pers["team"]))
 			{
@@ -2070,7 +2070,7 @@ function resetoutcomeforallplayers()
 	for(index = 0; index < players.size; index++)
 	{
 		player = players[index];
-		player notify(#"reset_outcome");
+		player notify("reset_outcome");
 	}
 }
 
@@ -2170,11 +2170,11 @@ function settopplayerstats()
 				if(!index)
 				{
 					level.placement["all"][index] addplayerstatwithgametype("TOPPLAYER", 1);
-					level.placement["all"][index] notify(#"topplayer");
+					level.placement["all"][index] notify("topplayer");
 				}
 				else
 				{
-					level.placement["all"][index] notify(#"nottopplayer");
+					level.placement["all"][index] notify("nottopplayer");
 				}
 				level.placement["all"][index] addplayerstatwithgametype("TOP3", 1);
 				level.placement["all"][index] addplayerstat("TOP3ANY", 1);
@@ -2186,13 +2186,13 @@ function settopplayerstats()
 				{
 					level.placement["all"][index] addplayerstat("TOP3ANY_MULTITEAM", 1);
 				}
-				level.placement["all"][index] notify(#"top3");
+				level.placement["all"][index] notify("top3");
 			}
 		}
 		for(index = 3; index < placement.size; index++)
 		{
-			level.placement["all"][index] notify(#"nottop3");
-			level.placement["all"][index] notify(#"nottopplayer");
+			level.placement["all"][index] notify("nottop3");
+			level.placement["all"][index] notify("nottopplayer");
 		}
 		if(level.teambased)
 		{
@@ -2482,7 +2482,7 @@ function endgame(winner, endreasontext)
 	level.gameended = 1;
 	setdvar("g_gameEnded", 1);
 	level.ingraceperiod = 0;
-	level notify(#"game_ended");
+	level notify("game_ended");
 	level clientfield::set("game_ended", 1);
 	globallogic_audio::flush_dialog();
 	foreach(team in level.teams)
@@ -2658,7 +2658,7 @@ function endgame(winner, endreasontext)
 	for(index = 0; index < players.size; index++)
 	{
 		player = players[index];
-		player notify(#"reset_outcome", level.infinalkillcam);
+		player notify("reset_outcome", level.infinalkillcam);
 		player thread [[level.spawnintermission]](0, level.usexcamsforendgame);
 		player setclientuivisibilityflag("hud_visible", 1);
 	}
@@ -2668,7 +2668,7 @@ function endgame(winner, endreasontext)
 	{
 		level thread [[level.endgamefunction]]();
 	}
-	level notify(#"sfade");
+	level notify("sfade");
 	/#
 		print("");
 	#/
@@ -2788,7 +2788,7 @@ function update_top_scorers(winner)
 */
 function checkforgestures(topplayerindex)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	fieldname = ("playTop" + topplayerindex) + "Gesture";
 	level clientfield::set(fieldname, 7);
 	wait(0.05);
@@ -2827,8 +2827,8 @@ function checkforgestures(topplayerindex)
 */
 function setgestureclientfield(fieldname, gesturetype)
 {
-	self notify(#"setgestureclientfield");
-	self endon(#"setgestureclientfield");
+	self notify("setgestureclientfield");
+	self endon("setgestureclientfield");
 	level clientfield::set(fieldname, gesturetype);
 	wait(0.05);
 	level clientfield::set(fieldname, 7);
@@ -2971,11 +2971,11 @@ function roundendwait(defaultdelay, matchbonus)
 	if(!matchbonus)
 	{
 		wait(defaultdelay);
-		level notify(#"round_end_done");
+		level notify("round_end_done");
 		return;
 	}
 	wait(defaultdelay / 2);
-	level notify(#"give_match_bonus");
+	level notify("give_match_bonus");
 	wait(defaultdelay / 2);
 	notifiesdone = 0;
 	while(!notifiesdone)
@@ -2992,7 +2992,7 @@ function roundendwait(defaultdelay, matchbonus)
 		}
 		wait(0.5);
 	}
-	level notify(#"round_end_done");
+	level notify("round_end_done");
 }
 
 /*
@@ -3195,21 +3195,21 @@ function checkroundscorelimit()
 */
 function updategametypedvars()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(game["state"] == "playing")
 	{
 		roundlimit = math::clamp(getgametypesetting("roundLimit"), level.roundlimitmin, level.roundlimitmax);
 		if(roundlimit != level.roundlimit)
 		{
 			level.roundlimit = roundlimit;
-			level notify(#"update_roundlimit");
+			level notify("update_roundlimit");
 		}
 		timelimit = [[level.gettimelimit]]();
 		if(timelimit != level.timelimit)
 		{
 			level.timelimit = timelimit;
 			setdvar("ui_timelimit", level.timelimit);
-			level notify(#"update_timelimit");
+			level notify("update_timelimit");
 		}
 		thread checktimelimit();
 		scorelimit = math::clamp(getgametypesetting("scoreLimit"), level.scorelimitmin, level.scorelimitmax);
@@ -3217,14 +3217,14 @@ function updategametypedvars()
 		{
 			level.scorelimit = scorelimit;
 			setdvar("ui_scorelimit", level.scorelimit);
-			level notify(#"update_scorelimit");
+			level notify("update_scorelimit");
 		}
 		thread checkscorelimit();
 		roundscorelimit = math::clamp(getgametypesetting("roundScoreLimit"), level.roundscorelimitmin, level.roundscorelimitmax);
 		if(roundscorelimit != level.roundscorelimit)
 		{
 			level.roundscorelimit = roundscorelimit;
-			level notify(#"update_roundscorelimit");
+			level notify("update_roundscorelimit");
 		}
 		thread checkroundscorelimit();
 		if(isdefined(level.starttime))
@@ -3284,7 +3284,7 @@ function removedisconnectedplayerfromplacement()
 	for(i = 0; i < numplayers; i++)
 	{
 		player = level.placement["all"][i];
-		player notify(#"update_outcome");
+		player notify("update_outcome");
 	}
 }
 
@@ -3605,9 +3605,9 @@ function resetteamvariables(team)
 */
 function updateteamstatus()
 {
-	level notify(#"updating_team_status");
-	level endon(#"updating_team_status");
-	level endon(#"game_ended");
+	level notify("updating_team_status");
+	level endon("updating_team_status");
+	level endon("game_ended");
 	waittillframeend();
 	wait(0);
 	if(game["state"] == "postgame")
@@ -3817,7 +3817,7 @@ function checkteamscorelimitsoon(team)
 	timeleft = globallogic_utils::getestimatedtimeuntilscorelimit(team);
 	if(timeleft < 1)
 	{
-		level notify(#"match_ending_soon", "score");
+		level notify("match_ending_soon", "score");
 	}
 }
 
@@ -3850,7 +3850,7 @@ function checkplayerscorelimitsoon()
 	timeleft = globallogic_utils::getestimatedtimeuntilscorelimit(undefined);
 	if(timeleft < 1)
 	{
-		level notify(#"match_ending_soon", "score");
+		level notify("match_ending_soon", "score");
 	}
 }
 
@@ -3865,7 +3865,7 @@ function checkplayerscorelimitsoon()
 */
 function timelimitclock()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	wait(0.05);
 	clockobject = spawn("script_origin", (0, 0, 0));
 	while(game["state"] == "playing")
@@ -3892,19 +3892,19 @@ function timelimitclock()
 			}
 			if(timeleftint >= 40 && timeleftint <= 60)
 			{
-				level notify(#"match_ending_soon", "time");
+				level notify("match_ending_soon", "time");
 			}
 			if(timeleftint >= 30 && timeleftint <= 40)
 			{
-				level notify(#"match_ending_pretty_soon", "time");
+				level notify("match_ending_pretty_soon", "time");
 			}
 			if(timeleftint <= 32)
 			{
-				level notify(#"match_ending_vox");
+				level notify("match_ending_vox");
 			}
 			if(timeleftint <= 10 || (timeleftint <= 30 && (timeleftint % 2) == 0))
 			{
-				level notify(#"match_ending_very_soon", "time");
+				level notify("match_ending_very_soon", "time");
 				if(timeleftint == 0)
 				{
 					break;
@@ -3955,7 +3955,7 @@ function timelimitclock_intermission(waittime)
 */
 function recordbreadcrumbdata()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
 		for(i = 0; i < level.players.size; i++)
@@ -4000,7 +4000,7 @@ function startgame()
 	{
 		prematchperiod();
 	}
-	level notify(#"prematch_over");
+	level notify("prematch_over");
 	level.prematch_over = 1;
 	level clientfield::set("gameplay_started", 1);
 	thread notifyendofgameplay();
@@ -4155,7 +4155,7 @@ function isprematchrequirementconditionmet(activeteamcount, starttime)
 */
 function waitforplayers()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	starttime = gettime();
 	playerready = 0;
 	activeplayercount = 0;
@@ -4212,7 +4212,7 @@ function waitforplayers()
 			{
 				if(playerready == 0)
 				{
-					level notify(#"first_player_ready", player);
+					level notify("first_player_ready", player);
 				}
 				playerready = 1;
 			}
@@ -4254,7 +4254,7 @@ function prematchwaitingforplayers()
 {
 	if(level.prematchrequirement != 0)
 	{
-		level waittill(#"first_player_ready", player);
+		level waittill("first_player_ready", player);
 		thread function_27cab3b4();
 	}
 }
@@ -4288,11 +4288,11 @@ function function_27cab3b4()
 */
 function function_53995bbb()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level endon(#"hash_32c1c011");
 	while(true)
 	{
-		level waittill(#"connected", player);
+		level waittill("connected", player);
 		self thread function_d95d1608(player);
 	}
 }
@@ -4308,9 +4308,9 @@ function function_53995bbb()
 */
 function function_d95d1608(player)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level endon(#"hash_32c1c011");
-	player endon(#"disconnect");
+	player endon("disconnect");
 	while(true)
 	{
 		if(isdefined(player.hasspawned) && player.hasspawned)
@@ -4319,7 +4319,7 @@ function function_d95d1608(player)
 			player luinotifyevent(&"prematch_waiting_for_players");
 			return;
 		}
-		player waittill(#"spawned");
+		player waittill("spawned");
 	}
 }
 
@@ -4335,7 +4335,7 @@ function function_d95d1608(player)
 function prematchperiod()
 {
 	setmatchflag("hud_hardcore", level.hardcoremode);
-	level endon(#"game_ended");
+	level endon("game_ended");
 	globallogic_audio::sndmusicsetrandomizer();
 	if(level.prematchperiod > 0)
 	{
@@ -4374,7 +4374,7 @@ function prematchperiod()
 */
 function graceperiod()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(isdefined(level.graceperiodfunc))
 	{
 		[[level.graceperiodfunc]]();
@@ -4383,7 +4383,7 @@ function graceperiod()
 	{
 		wait(level.graceperiod);
 	}
-	level notify(#"grace_period_ending");
+	level notify("grace_period_ending");
 	wait(0.05);
 	level.ingraceperiod = 0;
 	if(game["state"] != "playing")
@@ -4418,7 +4418,7 @@ function graceperiod()
 function watchmatchendingsoon()
 {
 	setdvar("xblive_matchEndingSoon", 0);
-	level waittill(#"match_ending_soon", reason);
+	level waittill("match_ending_soon", reason);
 	setdvar("xblive_matchEndingSoon", 1);
 }
 
@@ -4968,7 +4968,7 @@ function function_aa9e547b()
 */
 function listenforgameend()
 {
-	self waittill(#"host_sucks_end_game");
+	self waittill("host_sucks_end_game");
 	level.skipvote = 1;
 	if(!level.gameended)
 	{
@@ -5078,7 +5078,7 @@ function annihilatorgunplayerkilleffect(attacker, weapon)
 */
 function annihilatorgunactorkilleffect(attacker, weapon)
 {
-	self waittill(#"actor_corpse", body);
+	self waittill("actor_corpse", body);
 	if(weapon.fusetime != 0)
 	{
 		wait(weapon.fusetime * 0.001);
@@ -5169,7 +5169,7 @@ function bowplayerkilleffect()
 */
 function pineapplegunactorkilleffect()
 {
-	self waittill(#"actor_corpse", body);
+	self waittill("actor_corpse", body);
 	wait(0.75);
 	if(!isdefined(self))
 	{
@@ -5286,7 +5286,7 @@ function doweaponspecificcorpseeffects(body, einflictor, attacker, idamage, smea
 */
 function burncorpse()
 {
-	self endon(#"death");
+	self endon("death");
 	codesetclientfield(self, "burned_effect", 1);
 	wait(3);
 	codesetclientfield(self, "burned_effect", 0);

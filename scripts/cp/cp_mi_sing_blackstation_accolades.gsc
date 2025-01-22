@@ -128,7 +128,7 @@ function function_feac00a()
 {
 	self notify(#"hash_dff0891a");
 	self endon(#"hash_dff0891a");
-	self endon(#"death");
+	self endon("death");
 	wait(3);
 	self.var_8477b47b = 0;
 	self.var_3a4bbe6b = undefined;
@@ -219,7 +219,7 @@ function function_80f71baf()
 */
 function function_41954f8f()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("warlord_fight");
 	wait(1);
 	self.overrideactordamage = &function_587c487b;
@@ -255,7 +255,7 @@ function function_587c487b(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function warlord_death_watcher()
 {
-	self waittill(#"death", eattacker, damagefromunderneath, weapon, point, dir);
+	self waittill("death", eattacker, damagefromunderneath, weapon, point, dir);
 	if(level.var_76663db9 && isplayer(eattacker))
 	{
 		foreach(player in level.activeplayers)
@@ -421,10 +421,10 @@ function function_81a32f61()
 */
 function function_35dfc997()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"reload");
+		self waittill("reload");
 		self.var_27d2276e = 0;
 		self.var_6fd54591 = 0;
 	}
@@ -483,7 +483,7 @@ function function_635e0947(params)
 */
 function function_af8faf92()
 {
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till("trigger_roof_escape", "targetname", self);
 	level.var_8454c072 = 0;
 }
@@ -534,7 +534,7 @@ function function_91f0e7d2()
 */
 function function_91fa5513()
 {
-	level waittill(#"wheelhouse_breached");
+	level waittill("wheelhouse_breached");
 	callback::on_ai_killed(&function_92bc12da);
 	level flag::wait_till("barge_breach_cleared");
 	callback::remove_on_ai_killed(&function_92bc12da);
@@ -771,7 +771,7 @@ function function_ccfcd136(a_ai)
 */
 function riotshield_death()
 {
-	self waittill(#"death", eattacker, damagefromunderneath, weapon, point, dir);
+	self waittill("death", eattacker, damagefromunderneath, weapon, point, dir);
 	if(!isplayer(eattacker))
 	{
 		level.var_63855bec = 0;

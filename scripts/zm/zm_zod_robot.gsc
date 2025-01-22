@@ -150,7 +150,7 @@ function monitor_robot_power()
 function function_33a20979()
 {
 	/#
-		level waittill(#"open_sesame");
+		level waittill("open_sesame");
 		level flag::set("");
 	#/
 }
@@ -258,7 +258,7 @@ function robot_callbox_trigger_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -659,8 +659,8 @@ function private gib_check(damage_percent)
 */
 function function_f9a6039c(entity, suffix, delay)
 {
-	entity endon(#"death");
-	entity endon(#"disconnect");
+	entity endon("death");
+	entity endon("disconnect");
 	alias = "vox_crbt_robot_" + suffix;
 	num_variants = zm_spawner::get_number_variants(alias);
 	if(num_variants <= 0)
@@ -676,7 +676,7 @@ function function_f9a6039c(entity, suffix, delay)
 	{
 		entity.is_speaking = 1;
 		entity playsoundwithnotify((alias + "_") + var_4dc11cc, "sndDone");
-		entity waittill(#"snddone");
+		entity waittill("snddone");
 		entity.is_speaking = 0;
 	}
 }
@@ -692,11 +692,11 @@ function function_f9a6039c(entity, suffix, delay)
 */
 function function_be60a9fd()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"killed", who);
+		self waittill("killed", who);
 		if(randomintrange(0, 101) <= 30)
 		{
 			level thread function_f9a6039c(level.ai_robot, "kills");
@@ -715,8 +715,8 @@ function function_be60a9fd()
 */
 function function_677061ac()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		wait(randomintrange(15, 25));

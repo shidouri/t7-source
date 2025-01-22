@@ -657,7 +657,7 @@ function updatedevsettings()
 														}
 														else
 														{
-															player notify(#"devgui_spawn_think");
+															player notify("devgui_spawn_think");
 															player.devgui_spawn_active = 0;
 															player setactionslot(3, "");
 														}
@@ -691,7 +691,7 @@ function updatedevsettings()
 																	players[i] thread devgui_unlimited_ammo();
 																	continue;
 																}
-																players[i] notify(#"devgui_unlimited_ammo");
+																players[i] notify("devgui_unlimited_ammo");
 															}
 															setdvar("", "");
 														}
@@ -715,7 +715,7 @@ function updatedevsettings()
 																else
 																{
 																	iprintln("");
-																	level notify(#"devgui_unlimited_momentum");
+																	level notify("devgui_unlimited_momentum");
 																}
 																setdvar("", "");
 															}
@@ -803,7 +803,7 @@ function updatedevsettings()
 																							host.devgui_health_debug = 0;
 																							for(i = 0; i < players.size; i++)
 																							{
-																								players[i] notify(#"devgui_health_debug");
+																								players[i] notify("devgui_health_debug");
 																								if(isdefined(players[i].debug_health_bar))
 																								{
 																									players[i].debug_health_bar destroy();
@@ -841,7 +841,7 @@ function updatedevsettings()
 																							}
 																							else
 																							{
-																								level notify(#"hide_hq_points");
+																								level notify("hide_hq_points");
 																							}
 																							level.devgui_show_hq = !level.devgui_show_hq;
 																						}
@@ -1016,7 +1016,7 @@ function updatedevsettings()
 				player thread rank::giverankxp("", newxp - lastxp);
 				lastxp = newxp;
 				wait(0.25);
-				self notify(#"cancel_notify");
+				self notify("cancel_notify");
 			}
 		}
 		if(getdvarstring("") != "")
@@ -1065,7 +1065,7 @@ function updatedevsettings()
 		}
 		else if(getdvarstring("") == "")
 		{
-			level notify(#"kill_larry");
+			level notify("kill_larry");
 		}
 		if(level.bot_overlay == 0 && getdvarint("") == 1)
 		{
@@ -1127,7 +1127,7 @@ function waitthennotifyroundkillcam()
 {
 	/#
 		wait(0.05);
-		level notify(#"play_final_killcam");
+		level notify("play_final_killcam");
 		setdvar("", 0);
 	#/
 }
@@ -1145,7 +1145,7 @@ function waitthennotifyfinalkillcam()
 {
 	/#
 		wait(0.05);
-		level notify(#"play_final_killcam");
+		level notify("play_final_killcam");
 		wait(0.05);
 		setdvar("", 0);
 	#/
@@ -1163,9 +1163,9 @@ function waitthennotifyfinalkillcam()
 function devgui_spawn_think()
 {
 	/#
-		self notify(#"devgui_spawn_think");
-		self endon(#"devgui_spawn_think");
-		self endon(#"disconnect");
+		self notify("devgui_spawn_think");
+		self endon("devgui_spawn_think");
+		self endon("disconnect");
 		dpad_left = 0;
 		dpad_right = 0;
 		for(;;)
@@ -1207,9 +1207,9 @@ function devgui_spawn_think()
 function devgui_unlimited_ammo()
 {
 	/#
-		self notify(#"devgui_unlimited_ammo");
-		self endon(#"devgui_unlimited_ammo");
-		self endon(#"disconnect");
+		self notify("devgui_unlimited_ammo");
+		self endon("devgui_unlimited_ammo");
+		self endon("disconnect");
 		for(;;)
 		{
 			wait(1);
@@ -1246,8 +1246,8 @@ function devgui_unlimited_ammo()
 function devgui_unlimited_momentum()
 {
 	/#
-		level notify(#"devgui_unlimited_momentum");
-		level endon(#"devgui_unlimited_momentum");
+		level notify("devgui_unlimited_momentum");
+		level endon("devgui_unlimited_momentum");
 		for(;;)
 		{
 			wait(1);
@@ -1316,9 +1316,9 @@ function devgui_increase_momentum(score)
 function devgui_health_debug()
 {
 	/#
-		self notify(#"devgui_health_debug");
-		self endon(#"devgui_health_debug");
-		self endon(#"disconnect");
+		self notify("devgui_health_debug");
+		self endon("devgui_health_debug");
+		self endon("disconnect");
 		x = 80;
 		y = 40;
 		self.debug_health_bar = newclienthudelem(self);
@@ -1633,7 +1633,7 @@ function addenemyheli()
 				level.helilocation = ent.origin;
 				ent thread helicopter::usekillstreakhelicopter("");
 				wait(0.5);
-				ent notify(#"confirm_location", level.helilocation);
+				ent notify("confirm_location", level.helilocation);
 				break;
 			}
 			case 2:
@@ -1842,7 +1842,7 @@ function showspawnpoints()
 function hidespawnpoints()
 {
 	/#
-		level notify(#"hide_spawnpoints");
+		level notify("hide_spawnpoints");
 	#/
 }
 
@@ -1908,7 +1908,7 @@ function showstartspawnpoints()
 function hidestartspawnpoints()
 {
 	/#
-		level notify(#"hide_startspawnpoints");
+		level notify("hide_startspawnpoints");
 	#/
 }
 
@@ -1966,7 +1966,7 @@ function lineuntilnotified(start, end, color, depthtest, notification)
 function engagement_distance_debug_toggle()
 {
 	/#
-		level endon(#"kill_engage_dist_debug_toggle_watcher");
+		level endon("kill_engage_dist_debug_toggle_watcher");
 		if(!isdefined(getdvarint("")))
 		{
 			setdvar("", "");
@@ -1983,7 +1983,7 @@ function engagement_distance_debug_toggle()
 			}
 			else if(!dvar_turned_on(currentstate) && dvar_turned_on(laststate))
 			{
-				level notify(#"kill_all_engage_dist_debug");
+				level notify("kill_all_engage_dist_debug");
 				laststate = currentstate;
 			}
 			wait(0.3);
@@ -2237,8 +2237,8 @@ function get_engage_dists(weapon)
 function engage_dists_watcher()
 {
 	/#
-		level endon(#"kill_all_engage_dist_debug");
-		level endon(#"kill_engage_dists_watcher");
+		level endon("kill_all_engage_dist_debug");
+		level endon("kill_engage_dists_watcher");
 		while(true)
 		{
 			player = util::gethostplayer();
@@ -2279,8 +2279,8 @@ function engage_dists_watcher()
 function debug_realtime_engage_dist()
 {
 	/#
-		level endon(#"kill_all_engage_dist_debug");
-		level endon(#"kill_realtime_engagement_distance_debug");
+		level endon("kill_all_engage_dist_debug");
+		level endon("kill_realtime_engagement_distance_debug");
 		hudobjarray = engagement_distance_debug_init();
 		level thread engage_dist_debug_hud_destroy(hudobjarray, "");
 		level.debugrtengagedistcolor = level.green;
@@ -2498,7 +2498,7 @@ function larry_thread()
 		level.larry = spawnstruct();
 		player = util::gethostplayer();
 		player thread larry_init(level.larry);
-		level waittill(#"kill_larry");
+		level waittill("kill_larry");
 		larry_hud_destroy(level.larry);
 		if(isdefined(level.larry.model))
 		{
@@ -2527,7 +2527,7 @@ function larry_thread()
 function larry_init(larry)
 {
 	/#
-		level endon(#"kill_larry");
+		level endon("kill_larry");
 		larry_hud_init(larry);
 		larry.model = spawn("", (0, 0, 0));
 		larry.model setmodel("");
@@ -2593,10 +2593,10 @@ function larry_ai(larry)
 function larry_ai_thread(larry, origin, angles)
 {
 	/#
-		level endon(#"kill_larry");
+		level endon("kill_larry");
 		for(;;)
 		{
-			self waittill(#"spawned_player");
+			self waittill("spawned_player");
 			larry.menu[larry.menu_health] setvalue(self.health);
 			larry.menu[larry.menu_damage] settext("");
 			larry.menu[larry.menu_range] settext("");
@@ -2622,10 +2622,10 @@ function larry_ai_thread(larry, origin, angles)
 function larry_ai_damage(larry)
 {
 	/#
-		level endon(#"kill_larry");
+		level endon("kill_larry");
 		for(;;)
 		{
-			self waittill(#"damage", damage, attacker, dir, point);
+			self waittill("damage", damage, attacker, dir, point);
 			if(!isdefined(attacker))
 			{
 				continue;
@@ -2674,7 +2674,7 @@ function larry_ai_damage(larry)
 function larry_ai_health(larry)
 {
 	/#
-		level endon(#"kill_larry");
+		level endon("kill_larry");
 		for(;;)
 		{
 			wait(0.05);
@@ -2913,7 +2913,7 @@ function getattachmentchangemodifierbutton()
 function watchattachmentchange()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		clientnum = self getentitynumber();
 		if(clientnum != 0)
 		{
@@ -2997,16 +2997,16 @@ function watchattachmentchange()
 function print_weapon_name()
 {
 	/#
-		self notify(#"print_weapon_name");
-		self endon(#"print_weapon_name");
+		self notify("print_weapon_name");
+		self endon("print_weapon_name");
 		wait(0.2);
 		if(self isswitchingweapons())
 		{
-			self waittill(#"weapon_change_complete", weapon);
+			self waittill("weapon_change_complete", weapon);
 			fail_safe = 0;
 			while(weapon == level.weaponnone)
 			{
-				self waittill(#"weapon_change_complete", weapon);
+				self waittill("weapon_change_complete", weapon);
 				wait(0.05);
 				fail_safe++;
 				if(fail_safe > 120)
@@ -3856,7 +3856,7 @@ function draw_pathnode(node, color)
 function draw_pathnode_think(node, color)
 {
 	/#
-		level endon(#"draw_pathnode_stop");
+		level endon("draw_pathnode_stop");
 		for(;;)
 		{
 			draw_pathnode(node, color);
@@ -3878,7 +3878,7 @@ function draw_pathnodes_stop()
 {
 	/#
 		wait(5);
-		level notify(#"draw_pathnode_stop");
+		level notify("draw_pathnode_stop");
 	#/
 }
 
@@ -3940,7 +3940,7 @@ function dev_get_node_pair()
 			start = node_get(player);
 			if(player buttonpressed(""))
 			{
-				level notify(#"draw_pathnode_stop");
+				level notify("draw_pathnode_stop");
 				return undefined;
 			}
 		}
@@ -3955,7 +3955,7 @@ function dev_get_node_pair()
 			end = node_get(player);
 			if(player buttonpressed(""))
 			{
-				level notify(#"draw_pathnode_stop");
+				level notify("draw_pathnode_stop");
 				return undefined;
 			}
 		}

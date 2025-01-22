@@ -36,7 +36,7 @@ function autoexec main()
 */
 function function_8e835895(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(getdvarint("test_cam") > 0)
 	{
 		value = getdvarint("test_cam");
@@ -127,7 +127,7 @@ function function_8e835895(einflictor, attacker, idamage, smeansofdeath, weapon,
 */
 function function_812435e3()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread util::screen_message_create_client("Press USE button to watch KillCam", undefined, undefined, 200, 10000);
 	wait(3);
 	self thread util::screen_message_delete_client();
@@ -211,7 +211,7 @@ function is_falling(position)
 */
 function function_c003e53f(vdir, var_f120d111, var_f40ed68d, var_9aadeff9, var_933bfc9b, var_67ca400f, var_f06dc6a2, var_b633f381, lookdir, var_213955be, var_956c7382)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_d3468831");
 	epsilon = getdvarint("movecamera_epsilon", 2);
 	original_position = self getplayercamerapos();
@@ -380,7 +380,7 @@ function function_956c7382(position)
 */
 function function_a0c37dda(position, angles, var_956c7382)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_12327db5 = getdvarfloat("dc_drop_length", 10);
 	var_43c0c3c7 = position + (0, 0, var_12327db5);
 	self camerasetposition(var_43c0c3c7, angles);
@@ -425,7 +425,7 @@ function function_22196132()
 */
 function function_f05a5931(einflictor, attacker, idamage, weapon, vdir, shitloc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_cam_blur", 1);
 	var_67ca400f = getdvarfloat("cam_bullet_position_z_speed", 20);
 	var_933bfc9b = getdvarfloat("cam_bullet_position_f_speed", 20);
@@ -450,7 +450,7 @@ function function_f05a5931(einflictor, attacker, idamage, weapon, vdir, shitloc)
 */
 function function_6e880b57(einflictor, attacker, idamage, weapon, vdir, shitloc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_cam_blur", 1);
 	var_67ca400f = getdvarfloat("cam_bullet_position_z_speed", 20);
 	var_933bfc9b = getdvarfloat("cam_bullet_position_f_speed", 20);
@@ -475,7 +475,7 @@ function function_6e880b57(einflictor, attacker, idamage, weapon, vdir, shitloc)
 */
 function function_1e43c03b(einflictor, attacker, idamage, weapon, vdir, shitloc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_cam_blur", 1);
 	sign = self function_22196132();
 	var_67ca400f = getdvarfloat("cam_bullet_position_z_speed", 8);
@@ -500,7 +500,7 @@ function function_1e43c03b(einflictor, attacker, idamage, weapon, vdir, shitloc)
 */
 function function_7a3707a6(einflictor, attacker, idamage, weapon, vdir, shitloc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_cam_blur", 1);
 	var_67ca400f = getdvarfloat("cam_explosion_position_z_speed", 8);
 	var_933bfc9b = getdvarfloat("cam_explosion_position_f_speed", 10);
@@ -537,7 +537,7 @@ function function_7a3707a6(einflictor, attacker, idamage, weapon, vdir, shitloc)
 */
 function function_1c006469(einflictor, attacker, idamage, weapon, vdir, shitloc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_cam_fire", 1);
 	angles = self getplayerangles();
 	forwarddir = anglestoforward(angles);
@@ -563,7 +563,7 @@ function function_1c006469(einflictor, attacker, idamage, weapon, vdir, shitloc)
 */
 function function_514913aa(einflictor, attacker, idamage, weapon, vdir, shitloc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_cam_bubbles", 1);
 	angles = self getplayerangles();
 	forwarddir = anglestoforward(angles);
@@ -587,7 +587,7 @@ function function_514913aa(einflictor, attacker, idamage, weapon, vdir, shitloc)
 */
 function function_fd6ad16(einflictor, attacker, idamage, weapon, vdir, shitloc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_67ca400f = getdvarfloat("cam_fall_position_z_speed", 500);
 	var_933bfc9b = getdvarfloat("cam_fall_position_f_speed", 0);
 	var_9aadeff9 = getdvarfloat("cam_fall_max_z_length", 500);

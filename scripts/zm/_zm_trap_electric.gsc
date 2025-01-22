@@ -70,8 +70,8 @@ function trap_activate_electric()
 	{
 		level thread [[level.sndtrapfunc]](self, 1);
 	}
-	self notify(#"trap_activate");
-	level notify(#"trap_activate", self);
+	self notify("trap_activate");
+	level notify("trap_activate", self);
 	level clientfield::set(self.target, 1);
 	fx_points = struct::get_array(self.target, "targetname");
 	for(i = 0; i < fx_points.size; i++)
@@ -81,7 +81,7 @@ function trap_activate_electric()
 	}
 	self thread zm_traps::trap_damage();
 	self util::waittill_notify_or_timeout("trap_deactivate", self._trap_duration);
-	self notify(#"trap_done");
+	self notify("trap_done");
 	level clientfield::set(self.target, 0);
 }
 
@@ -121,7 +121,7 @@ function trap_audio(trap)
 */
 function play_electrical_sound(trap)
 {
-	trap endon(#"trap_done");
+	trap endon("trap_done");
 	while(true)
 	{
 		wait(randomfloatrange(0.1, 0.5));
@@ -157,7 +157,7 @@ function player_damage()
 */
 function damage(trap)
 {
-	self endon(#"death");
+	self endon("death");
 	n_param = randomint(100);
 	self.marked_for_death = 1;
 	if(isdefined(trap.activated_by_player) && isplayer(trap.activated_by_player))
@@ -166,7 +166,7 @@ function damage(trap)
 		if(isdefined(trap.activated_by_player.zapped_zombies))
 		{
 			trap.activated_by_player.zapped_zombies++;
-			trap.activated_by_player notify(#"zombie_zapped");
+			trap.activated_by_player notify("zombie_zapped");
 		}
 	}
 	if(isdefined(self.animname) && self.animname != "zombie_dog" && isactor(self))
@@ -206,7 +206,7 @@ function damage(trap)
 	}
 	else
 	{
-		level notify(#"trap_kill", self, trap);
+		level notify("trap_kill", self, trap);
 		self dodamage(self.health + 666, self.origin, trap);
 	}
 }

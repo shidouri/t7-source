@@ -67,10 +67,10 @@ function cybercom_setupdevgui()
 */
 function constantjuice()
 {
-	self notify(#"constantjuice");
-	self endon(#"constantjuice");
-	self endon(#"disconnect");
-	self endon(#"spawned");
+	self notify("constantjuice");
+	self endon("constantjuice");
+	self endon("disconnect");
+	self endon("spawned");
 	while(true)
 	{
 		wait(1);

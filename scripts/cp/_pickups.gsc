@@ -146,7 +146,7 @@ class cpickupitem : cbaseinteractable
 	*/
 	function pickupitem_despawn()
 	{
-		self notify(#"respawn_pickupitem");
+		self notify("respawn_pickupitem");
 	}
 
 	/*
@@ -160,7 +160,7 @@ class cpickupitem : cbaseinteractable
 	*/
 	function debug_despawn_timer()
 	{
-		self endon(#"cancel_despawn");
+		self endon("cancel_despawn");
 		n_time_remaining = m_n_despawn_wait;
 		while(n_time_remaining >= 0 && isdefined(m_e_model))
 		{
@@ -183,7 +183,7 @@ class cpickupitem : cbaseinteractable
 	*/
 	function pickupitem_despawn_timer()
 	{
-		self endon(#"cancel_despawn");
+		self endon("cancel_despawn");
 		if(m_n_despawn_wait <= 0)
 		{
 			return;
@@ -228,8 +228,8 @@ class cpickupitem : cbaseinteractable
 		}
 		m_e_body_trigger setvisibletoall();
 		m_e_body_trigger.origin = v_pos;
-		m_e_body_trigger notify(#"upgrade_trigger_moved");
-		m_e_body_trigger notify(#"upgrade_trigger_enable", 1);
+		m_e_body_trigger notify("upgrade_trigger_moved");
+		m_e_body_trigger notify("upgrade_trigger_enable", 1);
 		m_e_body_trigger sethintstring(m_str_pickup_hintstring);
 		m_e_body_trigger.str_itemname = m_str_itemname;
 		if(!isdefined(m_e_body_trigger.targetname))
@@ -274,7 +274,7 @@ class cpickupitem : cbaseinteractable
 				m_str_holding_hintstring = ("Press ^3[{+usereload}]^7 to drop ") + m_str_itemname;
 				pickupitem_spawn(v_pos, v_angles);
 			}
-			self waittill(#"respawn_pickupitem");
+			self waittill("respawn_pickupitem");
 			pickupitem_respawn_delay();
 		}
 	}
@@ -470,8 +470,8 @@ class cbaseinteractable
 	*/
 	function drop_on_death(e_triggerer)
 	{
-		self notify(#"drop_on_death");
-		self endon(#"drop_on_death");
+		self notify("drop_on_death");
+		self endon("drop_on_death");
 		e_triggerer util::waittill_any("player_downed", "death");
 		if(isdefined(m_e_player_currently_holding))
 		{
@@ -490,7 +490,7 @@ class cbaseinteractable
 	*/
 	function _wait_for_button_release()
 	{
-		self endon(#"player_downed");
+		self endon("player_downed");
 		while(self usebuttonpressed())
 		{
 			wait(0.05);
@@ -508,7 +508,7 @@ class cbaseinteractable
 	*/
 	function wait_for_button_release()
 	{
-		self endon(#"death_or_disconnect");
+		self endon("death_or_disconnect");
 		disable_object_pickup = 1;
 		self _wait_for_button_release();
 		self.disable_object_pickup = undefined;
@@ -555,7 +555,7 @@ class cbaseinteractable
 			m_e_carry_model delete();
 		}
 		m_e_player_currently_holding = undefined;
-		self notify(#"respawn_pickupitem");
+		self notify("respawn_pickupitem");
 	}
 
 	/*
@@ -598,13 +598,13 @@ class cbaseinteractable
 	*/
 	function restore_player_controls_from_carry(e_triggerer)
 	{
-		e_triggerer endon(#"death");
-		e_triggerer endon(#"player_downed");
+		e_triggerer endon("death");
+		e_triggerer endon("player_downed");
 		if(!e_triggerer.is_carrying_pickupitem)
 		{
 			return;
 		}
-		e_triggerer notify(#"restore_player_controls_from_carry");
+		e_triggerer notify("restore_player_controls_from_carry");
 		e_triggerer enableweapons();
 		e_triggerer.is_carrying_pickupitem = 0;
 		e_triggerer allowjump(1);
@@ -621,9 +621,9 @@ class cbaseinteractable
 	*/
 	function show_carry_model(e_triggerer)
 	{
-		e_triggerer endon(#"restore_player_controls_from_carry");
-		e_triggerer endon(#"death");
-		e_triggerer endon(#"player_downed");
+		e_triggerer endon("restore_player_controls_from_carry");
+		e_triggerer endon("death");
+		e_triggerer endon("player_downed");
 		v_eye_origin = e_triggerer geteye();
 		v_player_angles = e_triggerer getplayerangles();
 		v_player_angles = v_player_angles + m_v_holding_offset_angle;
@@ -666,9 +666,9 @@ class cbaseinteractable
 	*/
 	function thread_allow_drop(e_triggerer)
 	{
-		e_triggerer endon(#"restore_player_controls_from_carry");
-		e_triggerer endon(#"death");
-		e_triggerer endon(#"player_downed");
+		e_triggerer endon("restore_player_controls_from_carry");
+		e_triggerer endon("death");
+		e_triggerer endon("player_downed");
 		self thread drop_on_death(e_triggerer);
 		while(e_triggerer usebuttonpressed())
 		{
@@ -692,7 +692,7 @@ class cbaseinteractable
 	*/
 	function flash_drop_prompt_stop(player)
 	{
-		player notify(#"stop_flashing_drop_prompt");
+		player notify("stop_flashing_drop_prompt");
 		player util::screen_message_delete_client();
 	}
 
@@ -707,9 +707,9 @@ class cbaseinteractable
 	*/
 	function flash_drop_prompt(player)
 	{
-		self endon(#"death");
-		player endon(#"death");
-		player endon(#"stop_flashing_drop_prompt");
+		self endon("death");
+		player endon("death");
+		player endon("stop_flashing_drop_prompt");
 		while(true)
 		{
 			player util::screen_message_create_client(get_drop_prompt(), undefined, undefined, 0, 0.35);
@@ -756,12 +756,12 @@ class cbaseinteractable
 	*/
 	function carry(e_triggerer)
 	{
-		e_triggerer endon(#"death");
-		e_triggerer endon(#"player_downed");
+		e_triggerer endon("death");
+		e_triggerer endon("player_downed");
 		e_triggerer.o_pickupitem = self;
 		m_e_player_currently_holding = e_triggerer;
-		m_e_body_trigger notify(#"upgrade_trigger_enable", 0);
-		self notify(#"cancel_despawn");
+		m_e_body_trigger notify("upgrade_trigger_enable", 0);
+		self notify("cancel_despawn");
 		e_triggerer disableweapons();
 		wait(0.5);
 		if(isdefined(a_carry_threads))
@@ -791,16 +791,16 @@ class cbaseinteractable
 	*/
 	function thread_allow_carry()
 	{
-		self notify(#"thread_allow_carry");
-		self endon(#"thread_allow_carry");
-		self endon(#"unmake");
+		self notify("thread_allow_carry");
+		self endon("thread_allow_carry");
+		self endon("unmake");
 		if(1)
 		{
 			for(;;)
 			{
 				wait(0.05);
 				return;
-				m_e_body_trigger waittill(#"trigger", e_triggerer);
+				m_e_body_trigger waittill("trigger", e_triggerer);
 				m_e_body_trigger sethintstringforplayer(e_triggerer, "");
 			}
 			for(;;)
@@ -873,7 +873,7 @@ class cbaseinteractable
 	function disable_carry()
 	{
 		m_iscarryable = 0;
-		self notify(#"thread_allow_carry");
+		self notify("thread_allow_carry");
 	}
 
 	/*
@@ -919,10 +919,10 @@ class cbaseinteractable
 	*/
 	function repair_trigger()
 	{
-		self endon(#"unmake");
+		self endon("unmake");
 		while(true)
 		{
-			m_e_body_trigger waittill(#"trigger", player);
+			m_e_body_trigger waittill("trigger", player);
 			if(isdefined(player.is_carrying_pickupitem) && player.is_carrying_pickupitem && player.o_pickupitem.m_str_itemname == "Toolbox")
 			{
 				[[ player.o_pickupitem ]]->remove(player);
@@ -943,7 +943,7 @@ class cbaseinteractable
 	*/
 	function repair_completed(player)
 	{
-		self notify(#"repair_completed");
+		self notify("repair_completed");
 		if(isdefined(m_repair_custom_complete_func))
 		{
 			self thread [[m_repair_custom_complete_func]](player);

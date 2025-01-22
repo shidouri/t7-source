@@ -297,7 +297,7 @@ function function_a91b6cca()
 */
 function function_daea15a5(e_player)
 {
-	self.beacon notify(#"trigger", e_player);
+	self.beacon notify("trigger", e_player);
 }
 
 /*
@@ -347,7 +347,7 @@ function function_d03d00c6()
 */
 function function_89e36314()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(self.var_3c66c303 != 2)
@@ -358,7 +358,7 @@ function function_89e36314()
 			while(self.var_3c66c303 != 2)
 			{
 				self moveto(self.var_792a209 + (0, 0, var_53a79e45), var_ad74c1fa, n_accel, n_accel);
-				self waittill(#"movedone");
+				self waittill("movedone");
 				wait(0.15);
 				var_53a79e45 = var_53a79e45 * -1;
 				self playloopsound("veh_mapper_drone_main");
@@ -386,7 +386,7 @@ function function_cf1101c0()
 	self.var_77104b83 playsound("veh_mapper_drone_ping");
 	self.var_77104b83 playsound("veh_beacon_ball_move_start");
 	self.var_77104b83 playloopsound("veh_mapper_drone_move");
-	self.var_77104b83 waittill(#"movedone");
+	self.var_77104b83 waittill("movedone");
 	self.var_77104b83.e_fx = self.var_77104b83 fx::play("round_beacon_disabled", self.var_77104b83.origin, self.var_77104b83.angles, "round_beacon_moving", 1);
 	self.var_77104b83.var_3c66c303 = 1;
 }
@@ -406,7 +406,7 @@ function function_fcd1719a()
 	self.var_77104b83.var_3c66c303 = 2;
 	self.var_77104b83.var_792a209 = self.s_beacon.origin + vectorscale((0, 0, 1), 50);
 	self.var_77104b83 moveto(self.var_77104b83.var_792a209, 1.5, 0.3, 1.1);
-	self.var_77104b83 waittill(#"movedone");
+	self.var_77104b83 waittill("movedone");
 	self.var_77104b83.var_3c66c303 = 0;
 	self.var_77104b83.e_fx = self.var_77104b83 fx::play("round_beacon_enabled", self.var_77104b83.origin, self.var_77104b83.angles, "round_beacon_moving", 1);
 	self.var_77104b83 playsound("veh_mapper_drone_ping");
@@ -515,8 +515,8 @@ function run(var_cc1de81f)
 */
 function function_a1fa0b8e()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_3a6467f0");
 	wait(5);
 	music::setmusicstate("underscore", self);
@@ -533,7 +533,7 @@ function function_a1fa0b8e()
 */
 function _run(var_cc1de81f)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread teleport_player(var_cc1de81f);
 	wait(0.05);
 	self util::freeze_player_controls(1);
@@ -659,12 +659,12 @@ function function_7f7e9ea5()
 */
 function function_86a2dc30()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_1c919c84");
-	self waittill(#"menuresponse", menu, response);
+	self waittill("menuresponse", menu, response);
 	while(response != "EndTrainingSim")
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 	}
 	self lui::screen_fade_out(1.5, "black");
 	self notify(#"hash_1c919c84");
@@ -689,7 +689,7 @@ function function_b5b532e8()
 	objectives::show("cp_safehouse_training_start", self);
 	self.var_77104b83.e_fx = self.var_77104b83 fx::play("round_beacon_enabled", self.var_77104b83.origin, self.var_77104b83.angles, "round_beacon_moving", 1);
 	var_762314d8.prompt safehouse::function_a8271940(self);
-	var_762314d8 waittill(#"trigger");
+	var_762314d8 waittill("trigger");
 	var_762314d8.prompt safehouse::function_e04cba0f(self);
 	objectives::hide("cp_safehouse_training_start", self);
 }
@@ -705,7 +705,7 @@ function function_b5b532e8()
 */
 function function_cce02c2e()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_1c919c84");
 	/#
 		self thread function_453e055b();
@@ -856,7 +856,7 @@ function function_cce02c2e()
 		function_fcd1719a();
 		var_38184ced = 3.5;
 		self.s_beacon.prompt safehouse::function_a8271940(self);
-		self.s_beacon waittill(#"trigger");
+		self.s_beacon waittill("trigger");
 		self thread function_4837ece8(self.s_beacon);
 		function_e8f80ed0();
 		function_31f3ed94(self);
@@ -1157,8 +1157,8 @@ function function_4041981f()
 */
 function function_6dbfd048(e_player)
 {
-	self endon(#"death");
-	e_player waittill(#"death");
+	self endon("death");
+	e_player waittill("death");
 	objectives::hide("cp_safehouse_training_nextround", e_player);
 	objectives::hide("cp_safehouse_training_start", e_player);
 	self delete();
@@ -1366,7 +1366,7 @@ function get_struct_array(str_value, str_key)
 */
 function on_ai_spawned()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.script_noteworthy === "training_spawners")
 	{
 		self.var_72f54197 = function_c1a5b344();
@@ -1471,7 +1471,7 @@ function on_ai_killed(s_params)
 */
 function function_a5ac6877()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_1c919c84");
 	wait(0.05);
 	self.score = int(self.var_d1b47d51);
@@ -1550,7 +1550,7 @@ function function_5ecb6fa8(s_beacon, str_volume)
 */
 function function_9b1ae7e9(player)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.script_goalvolume))
 	{
 		self setgoal(function_5ecb6fa8(player.s_beacon, self.script_goalvolume), 1);
@@ -1664,7 +1664,7 @@ function function_826a69d8(player)
 */
 function function_5c685ad1()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self) && !self function_9d7569cc())
 	{
 		self clientfield::set("enable_ethereal_overlay", 0);
@@ -1732,8 +1732,8 @@ function function_29281420()
 */
 function derez_when_actor_becomes_corpse()
 {
-	self endon(#"ai_derez_death");
-	self waittill(#"actor_corpse", e_corpse);
+	self endon("ai_derez_death");
+	self waittill("actor_corpse", e_corpse);
 	if(isdefined(e_corpse))
 	{
 		e_corpse clientfield::set("rez_out", 1);
@@ -1750,7 +1750,7 @@ function derez_when_actor_becomes_corpse()
 	}
 	if(isdefined(self))
 	{
-		self notify(#"ai_derez_death");
+		self notify("ai_derez_death");
 	}
 }
 
@@ -1765,8 +1765,8 @@ function derez_when_actor_becomes_corpse()
 */
 function derez_on_ragdoll_start()
 {
-	self endon(#"ai_derez_death");
-	self waittill(#"start_ragdoll");
+	self endon("ai_derez_death");
+	self waittill("start_ragdoll");
 	if(self.b_balcony_death === 1)
 	{
 		wait(4);
@@ -1784,7 +1784,7 @@ function derez_on_ragdoll_start()
 	if(isdefined(self))
 	{
 		self delete();
-		self notify(#"ai_derez_death");
+		self notify("ai_derez_death");
 	}
 }
 
@@ -1878,10 +1878,10 @@ function function_3206b93a()
 	self function_6d04e0c2();
 	uploadstats(self);
 	self function_9ab09984();
-	self waittill(#"menuresponse", menu, response);
+	self waittill("menuresponse", menu, response);
 	while(response != "closed")
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 	}
 	self closeluimenu(self.var_cae9ddc4);
 }
@@ -1917,7 +1917,7 @@ function function_9ab09984()
 function function_e22afa2c()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		while(true)
 		{
 			var_dd6f0201 = getdvarint("");

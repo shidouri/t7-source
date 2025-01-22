@@ -62,7 +62,7 @@ function autoexec __init__sytem__()
 function function_5efc91a4()
 {
 	/#
-		level waittill(#"open_sesame");
+		level waittill("open_sesame");
 		level flag::set("");
 	#/
 }
@@ -102,7 +102,7 @@ function function_2fcaffe2()
 	level flag::init("lockdown_active");
 	level thread namespace_2e6e7fce::function_2bb254bb();
 	level thread function_2b0bc12();
-	level notify(#"pack_a_punch_on");
+	level notify("pack_a_punch_on");
 }
 
 /*
@@ -236,7 +236,7 @@ function transport_pavlovs_to_fountain()
 	var_63979061 = getent("transport_pavlovs_to_fountain", "targetname");
 	while(true)
 	{
-		var_63979061 waittill(#"trigger", e_who);
+		var_63979061 waittill("trigger", e_who);
 		if(!(isdefined(e_who.var_a0a9409e) && e_who.var_a0a9409e))
 		{
 			e_who.var_a0a9409e = 1;
@@ -428,7 +428,7 @@ function function_6236d848(var_e57afa84, var_7741a4b8, var_ed686791, var_2a448c9
 	var_d98b610d = level.zombie_spawners[0];
 	var_ddb16ab3 = struct::get("lockdown_ammo_lower", "targetname");
 	var_93eb638b = zm_powerups::specific_powerup_drop("full_ammo", var_ddb16ab3.origin + vectorscale((0, 0, 1), 48));
-	var_93eb638b notify(#"powerup_reset");
+	var_93eb638b notify("powerup_reset");
 	do
 	{
 		for(i = 0; i < 3; i++)
@@ -1063,7 +1063,7 @@ function function_2c6fd7(var_2b71b5b4, var_15eb9a52, var_f92c3865, var_13d1e831)
 	var_d98b610d = level.zombie_spawners[0];
 	var_ddb16ab3 = struct::get("lockdown_ammo_lower", "targetname");
 	var_93eb638b = zm_powerups::specific_powerup_drop("full_ammo", var_ddb16ab3.origin + vectorscale((0, 0, 1), 48));
-	var_93eb638b notify(#"powerup_reset");
+	var_93eb638b notify("powerup_reset");
 	for(i = 0; i < 3; i++)
 	{
 		if(level flag::get(var_13d1e831))

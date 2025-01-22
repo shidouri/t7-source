@@ -377,7 +377,7 @@ function ai_activatesystemoverload(target, var_9bc2efcb = 1, disabletimemsec)
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	weapon = getweapon("gadget_system_overload");
 	foreach(guy in validtargets)
@@ -402,7 +402,7 @@ function ai_activatesystemoverload(target, var_9bc2efcb = 1, disabletimemsec)
 */
 function system_overload(attacker, disabletimemsec, weapon = getweapon("gadget_system_overload"), checkvalid = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_f8c5dd60", weapon, attacker);
 	if(isvehicle(self))
 	{
@@ -453,7 +453,7 @@ function system_overload(attacker, disabletimemsec, weapon = getweapon("gadget_s
 	self thread cybercom::stopanimscriptedonnotify("damage_pain", "shutdown_anim", 1, attacker, weapon);
 	self thread cybercom::stopanimscriptedonnotify("notify_melee_damage", "shutdown_anim", 1, attacker, weapon);
 	self thread cybercom::stopanimscriptedonnotify("breakout_sysoverload_loop", "shutdown_anim", 0, attacker, weapon);
-	self waittillmatch(#"shutdown_anim");
+	self waittillmatch("shutdown_anim");
 	waittillframeend();
 	self ai::set_behavior_attribute("robot_lights", 2);
 	self.ignoreall = 1;
@@ -474,7 +474,7 @@ function system_overload(attacker, disabletimemsec, weapon = getweapon("gadget_s
 		self animscripted("restart_anim", self.origin, self.angles, ("ai_robot_base_" + type) + "_shutdown_2_alert");
 		self thread cybercom::stopanimscriptedonnotify("damage_pain", "restart_anim", 1, attacker, weapon);
 		self thread cybercom::stopanimscriptedonnotify("notify_melee_damage", "restart_anim", 1, attacker, weapon);
-		self waittillmatch(#"restart_anim");
+		self waittillmatch("restart_anim");
 		if(var_c60a5dd5)
 		{
 			blackboard::setblackboardattribute(self, "_stance", "crouch");
@@ -503,7 +503,7 @@ function system_overload(attacker, disabletimemsec, weapon = getweapon("gadget_s
 */
 function function_53cfe88a()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(getdvarfloat("scr_system_overload_loop_time", 5.9));
 	self notify(#"hash_355afb47");
 }

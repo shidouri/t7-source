@@ -79,9 +79,9 @@ function get_parent(n_index)
 */
 function laser_death_watcher()
 {
-	self notify(#"laser_death_thread_stop");
-	self endon(#"laser_death_thread_stop");
-	self waittill(#"death");
+	self notify("laser_death_thread_stop");
+	self endon("laser_death_thread_stop");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self laseroff();
@@ -109,7 +109,7 @@ function enable_laser(b_enable, n_index)
 	{
 		_get_turret_data(n_index).has_laser = undefined;
 		self laseroff();
-		self notify(#"laser_death_thread_stop");
+		self notify("laser_death_thread_stop");
 	}
 }
 
@@ -124,12 +124,12 @@ function enable_laser(b_enable, n_index)
 */
 function watch_for_flash()
 {
-	self endon(#"watch_for_flash_and_stun");
-	self endon(#"death");
+	self endon("watch_for_flash_and_stun");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"flashbang", pct_dist, pct_angle, attacker, team);
-		self notify(#"damage", 1, attacker, undefined, undefined, undefined, undefined, undefined, undefined, "flash_grenade");
+		self waittill("flashbang", pct_dist, pct_angle, attacker, team);
+		self notify("damage", 1, attacker, undefined, undefined, undefined, undefined, undefined, undefined, "flash_grenade");
 	}
 }
 
@@ -144,13 +144,13 @@ function watch_for_flash()
 */
 function watch_for_flash_and_stun(n_index)
 {
-	self notify(#"watch_for_flash_and_stun_end");
-	self endon(#"watch_for_flash_and_stun");
-	self endon(#"death");
+	self notify("watch_for_flash_and_stun_end");
+	self endon("watch_for_flash_and_stun");
+	self endon("death");
 	self thread watch_for_flash();
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
 		if(weapon.dostun)
 		{
 			if(isdefined(self.stunned))
@@ -178,10 +178,10 @@ function emp_watcher(n_index)
 {
 	self notify(#"emp_thread_stop");
 	self endon(#"emp_thread_stop");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
 		if(weapon.isemp)
 		{
 			if(isdefined(self.emped))
@@ -339,7 +339,7 @@ function _set_turret_needs_user(n_index, b_needs_user)
 	}
 	else
 	{
-		self notify(#"watch_for_flash_and_stun_end");
+		self notify("watch_for_flash_and_stun_end");
 		s_turret.b_needs_user = 0;
 	}
 }
@@ -443,7 +443,7 @@ function clear_ignore_ent_array(n_index)
 */
 function _wait_for_current_user_to_finish(n_index)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isalive(get_user(n_index)))
 	{
 		wait(0.05);
@@ -844,8 +844,8 @@ function fire_for_time(n_time, n_index = 0)
 	/#
 		assert(isdefined(n_time), "");
 	#/
-	self endon(#"death");
-	self endon(#"drone_death");
+	self endon("death");
+	self endon("drone_death");
 	self endon("_stop_turret" + _index(n_index));
 	self endon("turret_disabled" + _index(n_index));
 	self notify("_fire_turret_for_time" + _index(n_index));
@@ -888,8 +888,8 @@ function shoot_at_target(e_target, n_time, v_offset, n_index, b_just_once)
 	/#
 		assert(isdefined(e_target), "");
 	#/
-	self endon(#"drone_death");
-	self endon(#"death");
+	self endon("drone_death");
+	self endon("death");
 	s_turret = _get_turret_data(n_index);
 	s_turret flag::set("turret manual");
 	_shoot_turret_at_target(e_target, n_time, v_offset, n_index, b_just_once);
@@ -907,15 +907,15 @@ function shoot_at_target(e_target, n_time, v_offset, n_index, b_just_once)
 */
 function _shoot_turret_at_target(e_target, n_time, v_offset, n_index, b_just_once)
 {
-	self endon(#"drone_death");
-	self endon(#"death");
+	self endon("drone_death");
+	self endon("death");
 	self endon("_stop_turret" + _index(n_index));
 	self endon("turret_disabled" + _index(n_index));
 	self notify("_shoot_turret_at_target" + _index(n_index));
 	self endon("_shoot_turret_at_target" + _index(n_index));
 	if(n_time == -1)
 	{
-		e_target endon(#"death");
+		e_target endon("death");
 	}
 	if(!isdefined(b_just_once))
 	{
@@ -952,11 +952,11 @@ function _waittill_turret_on_target(e_target, n_index)
 		wait((isdefined(self.waittill_turret_on_target_delay) ? self.waittill_turret_on_target_delay : 0.5));
 		if(!isdefined(n_index) || n_index == 0)
 		{
-			self waittill(#"turret_on_target");
+			self waittill("turret_on_target");
 		}
 		else
 		{
-			self waittill(#"gunner_turret_on_target");
+			self waittill("gunner_turret_on_target");
 		}
 	}
 	while(isdefined(e_target) && !can_hit_target(e_target, n_index));
@@ -1107,7 +1107,7 @@ function _turret_think(n_index, v_offset)
 {
 	turret_think_time = max(1.5, get_weapon(n_index).firetime);
 	no_target_start_time = 0;
-	self endon(#"death");
+	self endon("death");
 	self endon("turret_disabled" + _index(n_index));
 	self notify("_turret_think" + _index(n_index));
 	self endon("_turret_think" + _index(n_index));
@@ -1147,7 +1147,7 @@ function _turret_think(n_index, v_offset)
 				self thread _shoot_turret_at_target(s_turret.e_next_target, turret_think_time, v_offset, n_index);
 				if(s_turret.e_next_target !== e_original_next_target)
 				{
-					self notify(#"has_new_target", s_turret.e_next_target);
+					self notify("has_new_target", s_turret.e_next_target);
 				}
 			}
 		}
@@ -1270,7 +1270,7 @@ function _did_turret_lose_target(n_time_now)
 */
 function _turret_user_think(n_index)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon("turret_disabled" + _index(n_index));
 	self endon("_turret_think" + _index(n_index));
 	s_turret = _get_turret_data(n_index);
@@ -1308,14 +1308,14 @@ function _turret_user_think(n_index)
 */
 function _listen_for_damage_on_actor(ai_user, n_index)
 {
-	self endon(#"death");
-	ai_user endon(#"death");
+	self endon("death");
+	ai_user endon("death");
 	self endon("turret_disabled" + _index(n_index));
 	self endon("_turret_think" + _index(n_index));
 	self endon(#"exit_vehicle");
 	while(true)
 	{
-		ai_user waittill(#"damage", n_amount, e_attacker, v_org, v_dir, str_mod);
+		ai_user waittill("damage", n_amount, e_attacker, v_org, v_dir, str_mod);
 		s_turret = _get_turret_data(n_index);
 		if(isdefined(s_turret))
 		{
@@ -1343,7 +1343,7 @@ function _waittill_user_change(n_index)
 	{
 		if(isactor(ai_user))
 		{
-			ai_user endon(#"death");
+			ai_user endon("death");
 		}
 		else if(isplayer(ai_user))
 		{
@@ -1412,7 +1412,7 @@ function _drop_turret(n_index, bexitifautomatedonly)
 */
 function _turret_new_user_think(n_index)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon("_turret_think" + _index(n_index));
 	self endon("turret_disabled" + _index(n_index));
 	s_turret = _get_turret_data(n_index);
@@ -1526,7 +1526,7 @@ function _user_check(n_index)
 function _debug_turret_think(n_index)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		self endon("" + _index(n_index));
 		self endon("" + _index(n_index));
 		s_turret = _get_turret_data(n_index);
@@ -1656,7 +1656,7 @@ function has_turret(n_index)
 */
 function _init_turret(n_index = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	w_weapon = get_weapon(n_index);
 	if(w_weapon == level.weaponnone)
 	{
@@ -1856,7 +1856,7 @@ function _init_vehicle_turret(n_index)
 */
 function _burst_fire(n_max_time, n_index)
 {
-	self endon(#"terminate_all_turrets_firing");
+	self endon("terminate_all_turrets_firing");
 	if(n_max_time < 0)
 	{
 		n_max_time = 9999;
@@ -2220,7 +2220,7 @@ function _get_any_priority_targets(n_index)
 			if(s_turret.priority_target_array.size <= 0)
 			{
 				s_turret.priority_target_array = undefined;
-				self notify(#"target_array_destroyed");
+				self notify("target_array_destroyed");
 				break;
 			}
 		}
@@ -2510,9 +2510,9 @@ function toggle_lensflare(bool)
 */
 function track_lens_flare()
 {
-	self endon(#"death");
-	self notify(#"disable_lens_flare");
-	self endon(#"disable_lens_flare");
+	self endon("death");
+	self notify("disable_lens_flare");
+	self endon("disable_lens_flare");
 	while(true)
 	{
 		e_target = self gettargetentity();

@@ -57,7 +57,7 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bgb_update");
 	self waittill(#"bgb_about_to_take_on_bled_out");
 	self bgb::do_one_shot_use(1);

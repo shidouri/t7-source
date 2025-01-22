@@ -106,7 +106,7 @@ function function_5156e4d8()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(!level flag::get("bridge_in_use"))
 		{
 			if(e_player zm_score::can_player_purchase(500))
@@ -153,7 +153,7 @@ function activate_bridge(e_player)
 	level thread scene::play("p7_fxanim_zm_stal_elevator_bundle");
 	function_ef72d561();
 	e_gate movez(100 * -1, 0.05);
-	e_gate waittill(#"movedone");
+	e_gate waittill("movedone");
 	e_gate connectpaths();
 	foreach(var_8bd15b35 in var_cefeeda4)
 	{
@@ -167,7 +167,7 @@ function activate_bridge(e_player)
 	level flag::set("bridge_jitter_stop");
 	level flag::wait_till_clear("bridge_jitter_stop");
 	e_gate movez(100, 0.05);
-	e_gate waittill(#"movedone");
+	e_gate waittill("movedone");
 	e_gate disconnectpaths();
 	foreach(var_8bd15b35 in var_cefeeda4)
 	{
@@ -220,7 +220,7 @@ function function_ef72d561()
 	var_c83a1961 = getent("bridge_right", "targetname");
 	e_bridge rotatepitch(90, 0.75);
 	var_c83a1961 rotatepitch(-90, 0.75);
-	e_bridge waittill(#"rotatedone");
+	e_bridge waittill("rotatedone");
 }
 
 /*
@@ -245,10 +245,10 @@ function function_40ac3c12(e_player)
 	{
 		var_fa30b172 movez(2 * -1, 0.05);
 		var_c83a1961 movez(2 * -1, 0.05);
-		var_fa30b172 waittill(#"movedone");
+		var_fa30b172 waittill("movedone");
 		var_fa30b172 movez(2, 0.05);
 		var_c83a1961 movez(2, 0.05);
-		var_fa30b172 waittill(#"movedone");
+		var_fa30b172 waittill("movedone");
 	}
 	var_edc0081d = getent("bridge_left_volume", "targetname");
 	var_55155900 = getent("bridge_right_volume", "targetname");
@@ -301,7 +301,7 @@ function function_e0c7ad1e(var_fa30b172, var_c83a1961)
 */
 function function_fce6cca8(str_side)
 {
-	self endon(#"death");
+	self endon("death");
 	var_9439ece6 = struct::get("barracks_bridge_fling_target", "targetname");
 	var_7bb55377 = struct::get("armory_bridge_fling_target", "targetname");
 	v_left = var_9439ece6.origin;
@@ -388,7 +388,7 @@ function function_54227761(var_fa30b172, var_c83a1961, e_player)
 */
 function function_d2f913f5(str_side)
 {
-	self endon(#"death");
+	self endon("death");
 	if(str_side == "left")
 	{
 		self startragdoll();

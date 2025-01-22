@@ -97,7 +97,7 @@ function add_callback(event, func, obj)
 */
 function remove_callback_on_death(event, func)
 {
-	self waittill(#"death");
+	self waittill("death");
 	remove_callback(event, func, self);
 }
 
@@ -777,7 +777,7 @@ function codecallback_startgametype()
 */
 function codecallback_playerconnect()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	[[level.callbackplayerconnect]]();
 }
 
@@ -792,10 +792,10 @@ function codecallback_playerconnect()
 */
 function codecallback_playerdisconnect()
 {
-	self notify(#"death");
+	self notify("death");
 	self.player_disconnected = 1;
-	self notify(#"disconnect");
-	level notify(#"disconnect", self);
+	self notify("disconnect");
+	level notify("disconnect", self);
 	[[level.callbackplayerdisconnect]]();
 	callback(#"hash_aebdd257");
 }
@@ -896,7 +896,7 @@ function codecallback_playermigrated()
 */
 function codecallback_playerdamage(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, timeoffset, boneindex, vsurfacenormal)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	[[level.callbackplayerdamage]](einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, timeoffset, boneindex, vsurfacenormal);
 }
 
@@ -911,7 +911,7 @@ function codecallback_playerdamage(einflictor, eattacker, idamage, idflags, smea
 */
 function codecallback_playerkilled(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, timeoffset, deathanimduration)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	[[level.callbackplayerkilled]](einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, timeoffset, deathanimduration);
 }
 
@@ -926,7 +926,7 @@ function codecallback_playerkilled(einflictor, eattacker, idamage, smeansofdeath
 */
 function codecallback_playerlaststand(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, timeoffset, delayoverride)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	[[level.callbackplayerlaststand]](einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, timeoffset, delayoverride);
 }
 
@@ -941,7 +941,7 @@ function codecallback_playerlaststand(einflictor, eattacker, idamage, smeansofde
 */
 function codecallback_playermelee(eattacker, idamage, weapon, vorigin, vdir, boneindex, shieldhit, frombehind)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	[[level.callbackplayermelee]](eattacker, idamage, weapon, vorigin, vdir, boneindex, shieldhit, frombehind);
 }
 
@@ -1071,15 +1071,15 @@ function codecallback_vehicleradiusdamage(einflictor, eattacker, idamage, finner
 */
 function finishcustomtraversallistener()
 {
-	self endon(#"death");
-	self waittillmatch(#"custom_traversal_anim_finished");
+	self endon("death");
+	self waittillmatch("custom_traversal_anim_finished");
 	self finishtraversal();
 	self unlink();
 	self.usegoalanimweight = 0;
 	self.blockingpain = 0;
 	self.customtraverseendnode = undefined;
 	self.customtraversestartnode = undefined;
-	self notify(#"custom_traversal_cleanup", "end");
+	self notify("custom_traversal_cleanup", "end");
 }
 
 /*
@@ -1093,8 +1093,8 @@ function finishcustomtraversallistener()
 */
 function killedcustomtraversallistener()
 {
-	self endon(#"custom_traversal_cleanup");
-	self waittill(#"death");
+	self endon("custom_traversal_cleanup");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self finishtraversal();
@@ -1171,7 +1171,7 @@ function codecallback_menuresponse(action, arg)
 	level.menuresponsequeue[index].action = action;
 	level.menuresponsequeue[index].arg = arg;
 	level.menuresponsequeue[index].ent = self;
-	level notify(#"menuresponse_queue");
+	level notify("menuresponse_queue");
 }
 
 /*
@@ -1187,10 +1187,10 @@ function menu_response_queue_pump()
 {
 	while(true)
 	{
-		level waittill(#"menuresponse_queue");
+		level waittill("menuresponse_queue");
 		do
 		{
-			level.menuresponsequeue[0].ent notify(#"menuresponse", level.menuresponsequeue[0].action, level.menuresponsequeue[0].arg);
+			level.menuresponsequeue[0].ent notify("menuresponse", level.menuresponsequeue[0].action, level.menuresponsequeue[0].arg);
 			arrayremoveindex(level.menuresponsequeue, 0, 0);
 			wait(0.05);
 		}
@@ -1289,7 +1289,7 @@ function codecallback_fadeblackscreen(duration, blendtime)
 */
 function codecallback_setactivecybercomability(new_ability)
 {
-	self notify(#"setcybercomability", new_ability);
+	self notify("setcybercomability", new_ability);
 }
 
 /*
@@ -1337,7 +1337,7 @@ function abort_level()
 */
 function codecallback_glasssmash(pos, dir)
 {
-	level notify(#"glass_smash", pos, dir);
+	level notify("glass_smash", pos, dir);
 }
 
 /*
@@ -1372,14 +1372,14 @@ function codecallback_decoration(name)
 	}
 	if(a_decorations.size == 12)
 	{
-		self notify(#"give_achievement", "CP_ALL_DECORATIONS");
+		self notify("give_achievement", "CP_ALL_DECORATIONS");
 	}
 	a_all_decorations = self getdecorations();
 	if(a_decorations.size == (a_all_decorations.size - 1))
 	{
 		self givedecoration("cp_medal_all_decorations");
 	}
-	level notify(#"decoration_awarded");
+	level notify("decoration_awarded");
 	[[level.callbackdecorationawarded]]();
 }
 

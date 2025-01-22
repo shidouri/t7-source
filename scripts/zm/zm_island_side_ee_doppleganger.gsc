@@ -173,7 +173,7 @@ function function_b1aa7056()
 	{
 		while(true)
 		{
-			t_lookat_doppleganger_enable waittill(#"trigger", e_who);
+			t_lookat_doppleganger_enable waittill("trigger", e_who);
 			if(zm_utility::is_player_valid(e_who) && e_who util::ads_button_held() && !e_who flag::get("doppleganger_enabled"))
 			{
 				e_weapon = e_who getcurrentweapon();
@@ -199,7 +199,7 @@ function function_b1aa7056()
 */
 function function_957b43e5()
 {
-	self endon(#"death");
+	self endon("death");
 	self flag::set("doppleganger_enabled");
 	level notify(#"hash_8d6c8d6d");
 	wait(300);
@@ -334,8 +334,8 @@ function function_5ee3951f()
 */
 function function_c948de86()
 {
-	self.ai_doppleganger endon(#"death");
-	self endon(#"death");
+	self.ai_doppleganger endon("death");
+	self endon("death");
 	self.ai_doppleganger asmsetanimationrate(1.2);
 	util::magic_bullet_shield(self.ai_doppleganger);
 	var_4010e215 = 10000;
@@ -402,9 +402,9 @@ function function_69f74476()
 		ai thread scene::play("zm_dlc2_side_ee_doppleganger_scare_180l");
 		wait(0.05);
 		var_1f377995 moveto(v_dest, 0.1);
-		var_1f377995 waittill(#"movedone");
+		var_1f377995 waittill("movedone");
 		var_1f377995 linkto(self);
-		ai waittill(#"scene_done");
+		ai waittill("scene_done");
 		self notify(#"hash_916d8c9f");
 		self util::player_unlock_control();
 		self function_38165cb6();
@@ -430,7 +430,7 @@ function function_69f74476()
 function function_89b0bd32()
 {
 	self endon(#"hash_916d8c9f");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self playrumbleonentity("tank_damage_heavy_mp");

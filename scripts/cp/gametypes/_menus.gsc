@@ -94,7 +94,7 @@ function function_521a4b1f(player)
 		return;
 	}
 	player setcontrolleruimodelvalue("MusicPlayer.state", "stop");
-	player notify(#"music_stop");
+	player notify("music_stop");
 	player.musicplaying = 0;
 	if(isdefined(player.var_c6ff6155))
 	{
@@ -114,10 +114,10 @@ function function_521a4b1f(player)
 */
 function on_menu_response()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		if(response == "back")
 		{
 			self closeingamemenu();

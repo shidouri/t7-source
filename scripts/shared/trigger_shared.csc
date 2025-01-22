@@ -113,7 +113,7 @@ function remove_from_ent(ent, trig)
 */
 function death_monitor(ent, ender)
 {
-	ent waittill(#"death");
+	ent waittill("death");
 	self endon(ender);
 	self remove_from_ent(ent);
 }

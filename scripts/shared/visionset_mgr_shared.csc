@@ -720,7 +720,7 @@ function demo_spectate_monitor()
 			if(!(isdefined(level.vsmgr_is_spectating) && level.vsmgr_is_spectating))
 			{
 				fog_vol_to_visionset_force_instant_transition(0);
-				level notify(#"visionset_mgr_reset");
+				level notify("visionset_mgr_reset");
 			}
 			level.vsmgr_is_spectating = 1;
 		}
@@ -728,7 +728,7 @@ function demo_spectate_monitor()
 		{
 			if(isdefined(level.vsmgr_is_spectating) && level.vsmgr_is_spectating)
 			{
-				level notify(#"visionset_mgr_reset");
+				level notify("visionset_mgr_reset");
 			}
 			level.vsmgr_is_spectating = 0;
 		}
@@ -1236,7 +1236,7 @@ function fog_vol_to_visionset_force_instant_transition(localclientnum)
 */
 function fog_vol_to_visionset_instant_transition_monitor()
 {
-	level endon(#"hmo");
+	level endon("hmo");
 	level thread fog_vol_to_visionset_hostmigration_monitor();
 	while(true)
 	{
@@ -1262,13 +1262,13 @@ function fog_vol_to_visionset_instant_transition_monitor()
 */
 function fog_vol_to_visionset_hostmigration_monitor()
 {
-	level waittill(#"hmo");
+	level waittill("hmo");
 	wait(3);
 	/#
 	#/
 	init_fog_vol_to_visionset_monitor(level._fv2vs_default_visionset, level._fv2vs_default_trans_in, 1);
 	wait(1);
-	level notify(#"visionset_mgr_reset");
+	level notify("visionset_mgr_reset");
 }
 
 /*
@@ -1282,7 +1282,7 @@ function fog_vol_to_visionset_hostmigration_monitor()
 */
 function fog_vol_to_visionset_monitor()
 {
-	level endon(#"hmo");
+	level endon("hmo");
 	level thread fog_vol_to_visionset_instant_transition_monitor();
 	was_not_in_default_type = [];
 	was_not_in_default_type[0] = 0;
@@ -1338,10 +1338,10 @@ function fog_vol_to_visionset_monitor()
 */
 function reset_player_fv2vs_infos_on_respawn()
 {
-	level endon(#"hmo");
+	level endon("hmo");
 	while(true)
 	{
-		level waittill(#"respawn");
+		level waittill("respawn");
 		players = getlocalplayers();
 		for(localclientnum = 0; localclientnum < players.size; localclientnum++)
 		{

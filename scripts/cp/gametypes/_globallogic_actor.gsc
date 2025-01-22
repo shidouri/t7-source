@@ -52,7 +52,7 @@ function callback_actorspawned(spawner)
 */
 function callback_actordamage(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, psoffsettime, boneindex, modelindex, surfacetype, surfacenormal)
 {
-	self endon(#"death");
+	self endon("death");
 	params = spawnstruct();
 	params.einflictor = einflictor;
 	params.eattacker = eattacker;
@@ -157,7 +157,7 @@ function callback_actordamage(einflictor, eattacker, idamage, idflags, smeansofd
 			{
 				if(smeansofdeath == "MOD_MELEE")
 				{
-					eattacker notify(#"melee_kill");
+					eattacker notify("melee_kill");
 				}
 			}
 		}
@@ -270,7 +270,7 @@ function callback_actorkilled(einflictor, eattacker, idamage, smeansofdeath, wea
 	}
 	if(isdefined(eattacker) && isplayer(eattacker))
 	{
-		eattacker notify(#"killed_ai", self, smeansofdeath, weapon);
+		eattacker notify("killed_ai", self, smeansofdeath, weapon);
 		globallogic_score::inctotalkills(eattacker.team);
 		eattacker thread globallogic_score::givekillstats(smeansofdeath, weapon, self);
 		if(smeansofdeath == "MOD_MELEE" || smeansofdeath == "MOD_MELEE_ASSASSINATE" || smeansofdeath == "MOD_MELEE_WEAPON_BUTT")

@@ -40,7 +40,7 @@ function init()
 */
 function achievement_sound_func(achievement_name_lower)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!sessionmodeisonlinegame())
 	{
 		return;
@@ -111,7 +111,7 @@ function onplayerconnect()
 function achievement_tomb_sidequest()
 {
 	level endon(#"end_game");
-	level waittill(#"tomb_sidequest_complete");
+	level waittill("tomb_sidequest_complete");
 	/#
 	#/
 	level zm_utility::giveachievement_wrapper("ZM_DLC4_TOMB_SIDEQUEST", 1);
@@ -129,7 +129,7 @@ function achievement_tomb_sidequest()
 function achievement_all_your_base()
 {
 	level endon(#"end_game");
-	level waittill(#"all_zones_captured_none_lost");
+	level waittill("all_zones_captured_none_lost");
 	/#
 	#/
 	level zm_utility::giveachievement_wrapper("ZM_DLC4_ALL_YOUR_BASE", 1);
@@ -164,8 +164,8 @@ function achievement_playing_with_power()
 function achievement_overachiever()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
-	self waittill(#"all_challenges_complete");
+	self endon("disconnect");
+	self waittill("all_challenges_complete");
 	/#
 	#/
 	self zm_utility::giveachievement_wrapper("ZM_DLC4_OVERACHIEVER");
@@ -183,8 +183,8 @@ function achievement_overachiever()
 function achievement_not_a_gold_digger()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
-	self waittill(#"dig_up_weapon_shared");
+	self endon("disconnect");
+	self waittill("dig_up_weapon_shared");
 	/#
 	#/
 }
@@ -201,7 +201,7 @@ function achievement_not_a_gold_digger()
 function achievement_kung_fu_grip()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_multiple("mechz_grab_released_self", "mechz_grab_released_friendly");
 	/#
 	#/
@@ -219,8 +219,8 @@ function achievement_kung_fu_grip()
 function achievement_im_on_a_tank()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
-	self waittill(#"rode_tank_around_map");
+	self endon("disconnect");
+	self waittill("rode_tank_around_map");
 	/#
 	#/
 }
@@ -237,7 +237,7 @@ function achievement_im_on_a_tank()
 function achievement_saving_the_day_all_day()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_multiple("revived_player", "quick_revived_player", "revived_player_with_quadrotor", "revived_player_with_upgraded_staff");
 	/#
 	#/
@@ -254,7 +254,7 @@ function achievement_saving_the_day_all_day()
 */
 function _zombie_blood_achievement_think()
 {
-	self endon(#"zombie_blood_over");
+	self endon("zombie_blood_over");
 	b_finished_achievement = 0;
 	if(!isdefined(self.zombie_blood_revives))
 	{
@@ -296,10 +296,10 @@ function _zombie_blood_achievement_think()
 function achievement_master_of_disguise()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"zombie_blood");
+		self waittill("zombie_blood");
 		b_finished_achievement = self _zombie_blood_achievement_think();
 		if(isdefined(b_finished_achievement) && b_finished_achievement)
 		{
@@ -321,11 +321,11 @@ function achievement_master_of_disguise()
 */
 function watch_equipped_weapons_for_upgraded_staffs()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_weapon_switch_watcher_thread");
+	self endon("disconnect");
+	self endon("stop_weapon_switch_watcher_thread");
 	while(true)
 	{
-		self waittill(#"weapon_change", w_weapon);
+		self waittill("weapon_change", w_weapon);
 		if(self.sessionstate != "playing")
 		{
 			continue;
@@ -333,23 +333,23 @@ function watch_equipped_weapons_for_upgraded_staffs()
 		str_weapon = w_weapon.name;
 		if(str_weapon == "staff_water")
 		{
-			self notify(#"upgraded_water_staff_equipped");
+			self notify("upgraded_water_staff_equipped");
 		}
 		else
 		{
 			if(str_weapon == "staff_lightning")
 			{
-				self notify(#"upgraded_lightning_staff_equipped");
+				self notify("upgraded_lightning_staff_equipped");
 			}
 			else
 			{
 				if(str_weapon == "staff_fire")
 				{
-					self notify(#"upgraded_fire_staff_equipped");
+					self notify("upgraded_fire_staff_equipped");
 				}
 				else if(str_weapon == "staff_air")
 				{
-					self notify(#"upgraded_air_staff_equipped");
+					self notify("upgraded_air_staff_equipped");
 				}
 			}
 		}
@@ -368,10 +368,10 @@ function watch_equipped_weapons_for_upgraded_staffs()
 function achievement_master_wizard()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread watch_equipped_weapons_for_upgraded_staffs();
 	self util::waittill_multiple("upgraded_air_staff_equipped", "upgraded_lightning_staff_equipped", "upgraded_water_staff_equipped", "upgraded_fire_staff_equipped");
-	self notify(#"stop_weapon_switch_watcher_thread");
+	self notify("stop_weapon_switch_watcher_thread");
 	/#
 	#/
 }

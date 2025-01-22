@@ -123,11 +123,11 @@ function private function_d95d34bd(spawner)
 */
 function private function_555608c7()
 {
-	self endon(#"death");
+	self endon("death");
 	self.takedamage = 1;
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker);
+		self waittill("damage", amount, attacker);
 		if(isdefined(attacker) && isplayer(attacker))
 		{
 			break;
@@ -154,15 +154,15 @@ function private function_555608c7()
 	self linkto(self.anchor);
 	anim_ang = vectortoangles(attacker.origin - self.origin);
 	self.anchor rotateto((0, anim_ang[1], 0), 0.5);
-	self.anchor waittill(#"rotatedone");
+	self.anchor waittill("rotatedone");
 	self thread namespace_1a381543::function_90118d8c("zmb_simianaut_roar");
 	self forceteleport(self.origin, (0, anim_ang[1], 0));
 	self unlink();
 	self orientmode("face enemy");
 	self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_ground_pound");
-	self waittillmatch(#"pissedoff");
+	self waittillmatch("pissedoff");
 	playfx(level._effect["ground_pound"], self.origin);
-	self waittillmatch(#"pissedoff");
+	self waittillmatch("pissedoff");
 	self.anchor delete();
 	self.var_faa677d7 = gettime() + 10000;
 	self thread namespace_1a381543::function_90118d8c("zmb_simianaut_roar");
@@ -172,7 +172,7 @@ function private function_555608c7()
 		self setgoal(attacker.origin, 1);
 		self.ignoreall = 0;
 		self.favoriteenemy = attacker;
-		self waittill(#"goal");
+		self waittill("goal");
 	}
 	self.var_88168473 = undefined;
 }
@@ -188,7 +188,7 @@ function private function_555608c7()
 */
 function private function_4e81959(waittime)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(waittime);
 	self.zombie_move_speed = "sprint";
 }
@@ -204,7 +204,7 @@ function private function_4e81959(waittime)
 */
 function private function_a2756e92()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_d96c599c");
 	self thread namespace_1a381543::function_90118d8c("zmb_simianaut_roar");
 	self.var_88168473 = 1;
@@ -239,13 +239,13 @@ function function_ce73145c()
 	trigger.targetname = "_doaBossDamageShield";
 	trigger enablelinkto();
 	trigger linkto(self, "tag_origin");
-	trigger endon(#"death");
+	trigger endon("death");
 	trigger thread doa_utility::function_783519c1("exit_taken", 1);
 	trigger thread doa_utility::function_981c685d(self);
 	trigger.silverback = 1;
 	while(isdefined(self))
 	{
-		trigger waittill(#"trigger", guy);
+		trigger waittill("trigger", guy);
 		if(!isdefined(guy))
 		{
 			continue;
@@ -259,7 +259,7 @@ function function_ce73145c()
 			if(!isplayer(guy))
 			{
 				self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_attack_v1");
-				self waittillmatch(#"pissedoff");
+				self waittillmatch("pissedoff");
 				if(isdefined(guy))
 				{
 					playfx(level._effect["ground_pound"], guy.origin);
@@ -283,7 +283,7 @@ function function_ce73145c()
 			{
 				guy.doa.var_1db1e638 = gettime() + 10000;
 				self animscripted("pissedoff", self.origin, self.angles, "ai_zombie_doa_simianaut_chestbeat");
-				self waittillmatch(#"pissedoff");
+				self waittillmatch("pissedoff");
 			}
 		}
 	}
@@ -300,7 +300,7 @@ function function_ce73145c()
 */
 function private function_66efd1eb()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_19503b17");
 	while(isdefined(self))
 	{
@@ -370,7 +370,7 @@ function private function_66efd1eb()
 */
 function private function_5bd24aae()
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"exit_taken");
 	level notify(#"hash_48b870e4");
 	level.doa.boss = undefined;
@@ -389,7 +389,7 @@ function private function_5bd24aae()
 */
 function private function_2ca4656()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	timeout = gettime() + 10000;
 	while(isdefined(self.var_88168473) && self.var_88168473 && gettime() < timeout)
@@ -476,7 +476,7 @@ function private function_2ca4656()
 		if(distsq > 64 || tries > 9)
 		{
 			self setgoal(self.var_f4a5c4fe, 1);
-			self waittill(#"goal");
+			self waittill("goal");
 			self.var_f4a5c4fe = self.var_f1eeb152;
 			tries++;
 		}
@@ -521,7 +521,7 @@ function private function_2ca4656()
 */
 function private function_e5e28b1b()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		pickupsitems = getentarray("a_pickup_item", "script_noteworthy");
@@ -552,12 +552,12 @@ function private function_e5e28b1b()
 */
 function function_76b30cc1()
 {
-	self endon(#"death");
+	self endon("death");
 	amount = int(self.health * 0.15);
 	while(self.health > 0)
 	{
 		wait(3);
-		self notify(#"damage", amount);
+		self notify("damage", amount);
 	}
 }
 

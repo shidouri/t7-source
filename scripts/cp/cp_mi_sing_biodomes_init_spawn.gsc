@@ -64,7 +64,7 @@ function __main__()
 */
 function sm_axis_initial_spawn_func(spawn_struct)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(1);
 	if(!level flag::get("sm_combat_started"))
 	{
@@ -84,7 +84,7 @@ function sm_axis_initial_spawn_func(spawn_struct)
 */
 function start_wave_spawning_on_combat()
 {
-	level waittill(#"sm_combat_started");
+	level waittill("sm_combat_started");
 }
 
 /*
@@ -179,7 +179,7 @@ function spawn_infil_zones()
 {
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(isdefined(ent.sessionstate) && ent.sessionstate != "spectator")
 		{
 			break;
@@ -200,7 +200,7 @@ function spawn_infil_zones()
 			entity handle_role_assignment(s_handler);
 		}
 	}
-	self notify(#"infil_spawn_complete");
+	self notify("infil_spawn_complete");
 }
 
 /*
@@ -364,10 +364,10 @@ function get_offset_scale(i)
 */
 function infil_patrol_logic(str_start_node)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"patrol_wp_reached", node);
+		self waittill("patrol_wp_reached", node);
 		if(isdefined(node.script_wait) || (isdefined(node.script_wait_min) && isdefined(node.script_wait_max)))
 		{
 			node util::script_wait();

@@ -136,8 +136,8 @@ function on_spawn_firefly_pod(watcher, owner)
 {
 	weaponobjects::onspawnproximityweaponobject(watcher, owner);
 	self playloopsound("wpn_gelgun_blob_alert_lp", 1);
-	self endon(#"death");
-	self waittill(#"stationary");
+	self endon("death");
+	self waittill("stationary");
 	self setmodel("wpn_t7_hero_chemgun_residue3_grn");
 	self setenemymodel("wpn_t7_hero_chemgun_residue3_org");
 }
@@ -173,8 +173,8 @@ function start_damage_effects()
 */
 function end_damage_effects()
 {
-	self endon(#"disconnect");
-	self waittill(#"death");
+	self endon("disconnect");
+	self waittill("death");
 }
 
 /*
@@ -239,7 +239,7 @@ function firefly_mover_damage()
 {
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		self thread firefly_death();
 	}
 }
@@ -335,7 +335,7 @@ function firefly_killcam_move(position, time)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	wait(0.5);
 	accel = 0;
 	decel = 0;
@@ -353,7 +353,7 @@ function firefly_killcam_move(position, time)
 */
 function firefly_killcam_stop()
 {
-	self notify(#"stop_killcam");
+	self notify("stop_killcam");
 	if(isdefined(self.killcament))
 	{
 		self.killcament moveto(self.killcament.origin, 0.1, 0, 0);
@@ -371,12 +371,12 @@ function firefly_killcam_stop()
 */
 function firefly_move(position, time)
 {
-	self endon(#"death");
+	self endon("death");
 	accel = 0;
 	decel = 0;
 	self thread firefly_killcam_move(position, time);
 	self moveto(position, time, accel, decel);
-	self waittill(#"movedone");
+	self waittill("movedone");
 }
 
 /*
@@ -390,15 +390,15 @@ function firefly_move(position, time)
 */
 function firefly_partial_move(target, position, time, percent)
 {
-	self endon(#"death");
-	self endon(#"stop_killcam");
+	self endon("death");
+	self endon("stop_killcam");
 	accel = 0;
 	decel = 0;
 	self thread firefly_killcam_move(position, time);
 	self moveto(position, time, accel, decel);
 	self thread firefly_check_for_collisions(target, position, time);
 	wait(time * percent);
-	self notify(#"movedone");
+	self notify("movedone");
 }
 
 /*
@@ -412,9 +412,9 @@ function firefly_partial_move(target, position, time, percent)
 */
 function firefly_rotate(angles, time)
 {
-	self endon(#"death");
+	self endon("death");
 	self rotateto(angles, time, 0, 0);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 }
 
 /*
@@ -428,8 +428,8 @@ function firefly_rotate(angles, time)
 */
 function firefly_check_for_collisions(target, move_to, time)
 {
-	self endon(#"death");
-	self endon(#"movedone");
+	self endon("death");
+	self endon("movedone");
 	original_position = self.origin;
 	dir = vectornormalize(move_to - self.origin);
 	dist = distance(self.origin, move_to);
@@ -488,8 +488,8 @@ function firefly_pod_random_point()
 */
 function firefly_pod_random_movement()
 {
-	self endon(#"death");
-	self endon(#"attacking");
+	self endon("death");
+	self endon("attacking");
 	while(true)
 	{
 		point = firefly_pod_random_point();
@@ -518,8 +518,8 @@ function firefly_pod_random_movement()
 */
 function firefly_spyrograph_patrol(degrees, increment, radius)
 {
-	self endon(#"death");
-	self endon(#"attacking");
+	self endon("death");
+	self endon("attacking");
 	current_degrees = (randomint(int(360 / degrees))) * degrees;
 	height_offset = 0;
 	while(true)
@@ -551,16 +551,16 @@ function firefly_spyrograph_patrol(degrees, increment, radius)
 */
 function firefly_damage_target(target)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
-	target endon(#"disconnect");
-	target endon(#"death");
+	level endon("game_ended");
+	self endon("death");
+	target endon("disconnect");
+	target endon("death");
 	target endon(#"entering_last_stand");
 	damage = 25;
 	damage_delay = 0.1;
 	weapon = self.weapon;
 	target playsound("wpn_gelgun_hive_attack");
-	target notify(#"snd_burn_scream");
+	target notify("snd_burn_scream");
 	remaining_hits = 10;
 	if(!isplayer(target))
 	{
@@ -609,7 +609,7 @@ function firefly_damage_target(target)
 */
 function firefly_watch_for_target_death(target)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isalive(target))
 	{
 		target util::waittill_any("death", "flashback", "game_ended");
@@ -633,8 +633,8 @@ function firefly_watch_for_target_death(target)
 */
 function firefly_watch_for_game_ended(target)
 {
-	self endon(#"death");
-	level waittill(#"game_ended");
+	self endon("death");
+	level waittill("game_ended");
 	if(isalive(target) && isplayer(target))
 	{
 		target clientfield::set_to_player("fireflies_attacking", 0);
@@ -724,8 +724,8 @@ function get_attack_speed(target)
 */
 function firefly_attack(target, state)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("death");
 	target endon(#"entering_last_stand");
 	self thread firefly_killcam_stop();
 	self clientfield::set("firefly_state", state);
@@ -796,8 +796,8 @@ function get_crumb_position(target)
 function target_bread_crumbs_render(target)
 {
 	/#
-		self endon(#"death");
-		self endon(#"attack");
+		self endon("death");
+		self endon("attack");
 		while(true)
 		{
 			previous_crumb = self.origin;
@@ -832,8 +832,8 @@ function target_bread_crumbs_render(target)
 */
 function target_bread_crumbs(target)
 {
-	self endon(#"death");
-	target endon(#"death");
+	self endon("death");
+	target endon("death");
 	self.target_breadcrumbs = [];
 	self.target_breadcrumb_current_index = 0;
 	self.target_breadcrumb_last_added = 0;
@@ -912,9 +912,9 @@ function firefly_check_move(position, target)
 */
 function firefly_chase(target)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
-	target endon(#"death");
+	level endon("game_ended");
+	self endon("death");
+	target endon("death");
 	target endon(#"entering_last_stand");
 	self clientfield::set("firefly_state", 2);
 	if(isplayer(target))
@@ -968,9 +968,9 @@ function firefly_chase(target)
 */
 function firefly_pod_start(start_pos, target, linked)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
-	self notify(#"attack");
+	level endon("game_ended");
+	self endon("death");
+	self notify("attack");
 	/#
 		if(level.firefly_debug)
 		{
@@ -988,7 +988,7 @@ function firefly_pod_start(start_pos, target, linked)
 	}
 	thread target_bread_crumbs(target);
 	self moveto(start_pos, level.fireflies_emit_time, 0, level.fireflies_emit_time);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	if(isdefined(target) && isdefined(target.origin))
 	{
 		delta = target.origin - self.origin;

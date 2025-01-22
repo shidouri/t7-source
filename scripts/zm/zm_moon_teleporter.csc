@@ -101,7 +101,7 @@ function teleporter_fx_cool_down(clientnum)
 {
 	while(true)
 	{
-		level waittill(#"cool_fx", clientnum);
+		level waittill("cool_fx", clientnum);
 		players = getlocalplayers();
 		if(level.packtime[clientnum] == 0)
 		{
@@ -141,7 +141,7 @@ function teleporter_fx_cool_down(clientnum)
 function turn_off_cool_down_fx(fx_pos, clientnum)
 {
 	fx_pos thread cool_down_timer();
-	fx_pos waittill(#"cool_down_over");
+	fx_pos waittill("cool_down_over");
 	if(isdefined(fx_pos) && isdefined(fx_pos.portalfx))
 	{
 		deletefx(clientnum, fx_pos.portalfx);
@@ -171,7 +171,7 @@ function cool_down_timer()
 		wait(1);
 		time++;
 	}
-	self notify(#"cool_down_over");
+	self notify("cool_down_over");
 }
 
 /*
@@ -185,7 +185,7 @@ function cool_down_timer()
 */
 function pack_cooldown_listener()
 {
-	self endon(#"cool_down_over");
+	self endon("cool_down_over");
 	level waittill(#"end_cool_downs");
 	self.defcon_active = 1;
 }
@@ -203,7 +203,7 @@ function wait_for_teleport_aftereffect()
 {
 	while(true)
 	{
-		level waittill(#"ae1", clientnum);
+		level waittill("ae1", clientnum);
 		visionsetnaked(clientnum, "flare", 0.4);
 	}
 }

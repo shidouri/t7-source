@@ -93,7 +93,7 @@ function takingburndamage(eattacker, weapon, smeansofdeath)
 */
 function watchburnfinished()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_any("death", "burn_finished");
 	self clientfield::set("burn", 0);
 	self stoploopsound(1);
@@ -112,8 +112,8 @@ function watchburntimer(duration)
 {
 	self notify(#"burnplayer_watchburntimer");
 	self endon(#"burnplayer_watchburntimer");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	wait(duration);
 	self notify(#"burn_finished");
 }
@@ -133,8 +133,8 @@ function watchburndamage(interval, damage, attacker, weapon)
 	{
 		return;
 	}
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"burnplayer_watchburntimer");
 	self endon(#"burn_finished");
 	while(true)
@@ -157,8 +157,8 @@ function watchburndamage(interval, damage, attacker, weapon)
 */
 function watchforwater()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self endon(#"burn_finished");
 	while(true)
 	{

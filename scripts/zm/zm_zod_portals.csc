@@ -77,8 +77,8 @@ function __init__()
 */
 function player_stargate_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"player_stargate_fx");
-	self endon(#"player_stargate_fx");
+	self notify("player_stargate_fx");
+	self endon("player_stargate_fx");
 	if(newval == 1)
 	{
 		if(isdemoplaying() && demoisanyfreemovecamera())
@@ -90,7 +90,7 @@ function player_stargate_fx(localclientnum, oldval, newval, bnewent, binitialsna
 	}
 	else
 	{
-		self notify(#"player_portal_complete");
+		self notify("player_portal_complete");
 	}
 }
 
@@ -120,7 +120,7 @@ function function_e7a8756e(localclientnum)
 */
 function portal_3p(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"death");
+	self endon("death");
 	if(newval == 1)
 	{
 		self.fx_portal_3p = playfxontag(localclientnum, level._effect["portal_3p"], self, "j_spineupper");

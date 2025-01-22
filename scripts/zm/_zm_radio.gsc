@@ -86,7 +86,7 @@ function function_8554d5da()
 	self thread function_f184004e();
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;

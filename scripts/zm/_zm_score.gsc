@@ -80,7 +80,7 @@ function register_score_event(str_event, func_callback)
 */
 function reset_doublexp_timer()
 {
-	self notify(#"reset_doublexp_timer");
+	self notify("reset_doublexp_timer");
 	self thread doublexp_timer();
 }
 
@@ -95,9 +95,9 @@ function reset_doublexp_timer()
 */
 function doublexp_timer()
 {
-	self notify(#"doublexp_timer");
-	self endon(#"doublexp_timer");
-	self endon(#"reset_doublexp_timer");
+	self notify("doublexp_timer");
+	self endon("doublexp_timer");
+	self endon("reset_doublexp_timer");
 	self endon(#"end_game");
 	level flagsys::wait_till("start_zombie_round_logic");
 	if(!level.onlinegame)
@@ -589,7 +589,7 @@ function player_reduce_points(event, n_amount)
 		case "downed":
 		{
 			percent = level.zombie_vars["penalty_downed"];
-			self notify(#"i_am_down");
+			self notify("i_am_down");
 			points = self.score * percent;
 			self.score_lost_when_downed = zm_utility::round_up_to_ten(int(points));
 			break;

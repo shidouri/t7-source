@@ -317,8 +317,8 @@ function function_cf8fccfe(var_eca8128e)
 */
 function function_7b697614(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!self flag::exists("in_beastmode") || !self flag::get("in_beastmode"))
 	{
 		if(zm_audio::arenearbyspeakersactive(10000) && (!(isdefined(var_d1295208) && var_d1295208)))
@@ -413,7 +413,7 @@ function vo_clear()
 */
 function function_502f946b()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.str_vo_being_spoken) && self.str_vo_being_spoken != "")
 	{
 		self stopsound(self.str_vo_being_spoken);
@@ -731,7 +731,7 @@ function custom_get_mod_type(impact, mod, weapon, zombie, instakill, dist, playe
 function function_6bccb368()
 {
 	self endon(#"_zombie_game_over");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!level flag::exists("someone_saw_zombie"))
 	{
 		level flag::init("someone_saw_zombie");
@@ -911,7 +911,7 @@ function function_7884e6b8()
 	var_561dc75[0] = array(0, 0.5);
 	var_561dc75[1] = array(0);
 	var_561dc75[2] = array(0, 0.5);
-	level waittill(#"all_players_spawned");
+	level waittill("all_players_spawned");
 	wait(1);
 	level flag::init("someone_saw_1st_zombie");
 	foreach(dude in level.activeplayers)
@@ -930,7 +930,7 @@ function function_7884e6b8()
 			}
 			if(level.round_number > 1)
 			{
-				level waittill(#"start_of_round");
+				level waittill("start_of_round");
 			}
 			if(!level flag::get("ritual_in_progress"))
 			{
@@ -992,7 +992,7 @@ function function_7884e6b8()
 		}
 		else
 		{
-			level waittill(#"start_of_round");
+			level waittill("start_of_round");
 			if(!level flag::get("ritual_in_progress"))
 			{
 				e_speaker = array::random(level.activeplayers);
@@ -1516,7 +1516,7 @@ function function_f9003879(var_d3be01d9)
 	var_6afd6b = undefined;
 	while(!zombie_utility::is_player_valid(var_6afd6b))
 	{
-		e_trig waittill(#"trigger", var_6afd6b);
+		e_trig waittill("trigger", var_6afd6b);
 		if(var_6afd6b flag::get("in_beastmode"))
 		{
 			var_6afd6b = undefined;
@@ -1814,7 +1814,7 @@ function function_edca6dc9()
 	mdl_key = getent("quest_key_pickup", "targetname");
 	mdl_key hide();
 	mdl_key clientfield::set("shadowman_fx", 2);
-	level notify(#"vo_ritual_pap_succeed_done");
+	level notify("vo_ritual_pap_succeed_done");
 }
 
 /*
@@ -2012,7 +2012,7 @@ function function_43b03c7f(var_f30428a8)
 function function_7e398d3()
 {
 	self endon(#"_zombie_game_over");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self zm_audio::create_and_play_dialog("margwa", "headshot");
 }
 
@@ -2050,8 +2050,8 @@ function function_c11b8117(var_e02e9917)
 function function_9bd30516()
 {
 	self endon(#"_zombie_game_over");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.var_74a00938))
 	{
 		str_vo = (("vox_plr_" + self.characterindex) + "_pickup_egg_") + randomint(3);
@@ -2077,8 +2077,8 @@ function function_9bd30516()
 function function_c10cc6c5()
 {
 	self endon(#"_zombie_game_over");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.var_d094704f))
 	{
 		self.var_d094704f = 0;
@@ -2107,7 +2107,7 @@ function function_c10cc6c5()
 function function_da45447a()
 {
 	self endon(#"_zombie_game_over");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_86757168 = function_5803cf05(3, self.var_8faf79c9);
 	self.var_8faf79c9 = var_86757168;
 	str_vo = (("vox_plr_" + self.characterindex) + "_charge_egg_") + var_86757168;
@@ -2126,7 +2126,7 @@ function function_da45447a()
 function function_a543408d()
 {
 	self endon(#"_zombie_game_over");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_6c37d9ef = function_5803cf05(3, self.var_106675e6);
 	self.var_106675e6 = var_6c37d9ef;
 	str_vo = (("vox_plr_" + self.characterindex) + "_take_sword_") + var_6c37d9ef;

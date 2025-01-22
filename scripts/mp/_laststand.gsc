@@ -146,12 +146,12 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 */
 function makesureswitchtoweapon()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"bleed_out");
-	self endon(#"player_input_revive");
-	self endon(#"player_input_suicide");
-	level endon(#"game_ended");
+	self endon("player_input_revive");
+	self endon("player_input_suicide");
+	level endon("game_ended");
 	while(true)
 	{
 		if(self getcurrentweapon() != self.resurrect_weapon)
@@ -227,7 +227,7 @@ function laststand_enable_player_weapons(b_allow_grenades = 1)
 */
 function laststand_clean_up_on_interrupt(playerbeingrevived, revivergun)
 {
-	self endon(#"do_revive_ended_normally");
+	self endon("do_revive_ended_normally");
 	revivetrigger = playerbeingrevived.revivetrigger;
 	playerbeingrevived util::waittill_any("disconnect", "game_ended", "death");
 	if(isdefined(revivetrigger))
@@ -256,7 +256,7 @@ function laststand_clean_up_on_interrupt(playerbeingrevived, revivergun)
 */
 function laststand_clean_up_reviving_any(playerbeingrevived)
 {
-	self endon(#"do_revive_ended_normally");
+	self endon("do_revive_ended_normally");
 	playerbeingrevived util::waittill_any("disconnect", "zombified", "stop_revive_trigger");
 	self.is_reviving_any--;
 	if(0 > self.is_reviving_any)
@@ -315,11 +315,11 @@ function watch_player_input()
 */
 function watch_player_input_revive()
 {
-	level endon(#"game_ended");
-	self endon(#"player_input_bleed_out");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self waittill(#"player_input_revive");
+	level endon("game_ended");
+	self endon("player_input_bleed_out");
+	self endon("disconnect");
+	self endon("death");
+	self waittill("player_input_revive");
 	demo::bookmark("player_revived", gettime(), self, self);
 	self rejack();
 	self laststand_enable_player_weapons();
@@ -339,11 +339,11 @@ function watch_player_input_revive()
 */
 function watch_player_input_suicide()
 {
-	level endon(#"game_ended");
-	self endon(#"player_input_revive");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self waittill(#"player_input_suicide");
+	level endon("game_ended");
+	self endon("player_input_revive");
+	self endon("disconnect");
+	self endon("death");
+	self waittill("player_input_suicide");
 	self bleed_out();
 }
 

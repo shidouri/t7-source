@@ -81,10 +81,10 @@ function validation()
 */
 function activation()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"bled_out");
-	self endon(#"replaced_upgraded_weapon");
+	self endon("death");
+	self endon("disconnect");
+	self endon("bled_out");
+	self endon("replaced_upgraded_weapon");
 	self util::waittill_any_timeout(1, "weapon_change_complete", "death", "disconnect", "bled_out", "replaced_upgraded_weapon");
 	if(self laststand::player_is_in_laststand())
 	{
@@ -113,7 +113,7 @@ function activation()
 	self notify(#"hash_5cefcc84");
 	if(self laststand::player_is_in_laststand())
 	{
-		self waittill(#"player_revived");
+		self waittill("player_revived");
 	}
 	if(isdefined(level.var_b6d13a4e))
 	{
@@ -160,16 +160,16 @@ function activation()
 */
 function function_79585675(var_19dc14f6)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
+	self endon("death");
+	self endon("disconnect");
+	self endon("bgb_update");
 	self endon(#"hash_5cefcc84");
 	while(true)
 	{
-		self waittill(#"weapon_change_complete");
+		self waittill("weapon_change_complete");
 		if(!self zm_weapons::has_weapon_or_attachments(var_19dc14f6))
 		{
-			self notify(#"replaced_upgraded_weapon");
+			self notify("replaced_upgraded_weapon");
 			self.var_fb11234e = undefined;
 			return;
 		}

@@ -185,7 +185,7 @@ function private function_57c223eb()
 */
 function private function_9ba47060()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	if(isdefined(self.traveler))
 	{
@@ -204,7 +204,7 @@ function private function_9ba47060()
 */
 function private function_f05e4819()
 {
-	self endon(#"death");
+	self endon("death");
 	self.waiting = 1;
 	self.needteleportin = 1;
 	self thread margwaserverutils::margwatell();
@@ -225,7 +225,7 @@ function private function_f05e4819()
 */
 function private function_e1f5236a()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(1);
 	self margwaserverutils::margwaenablestun();
 }

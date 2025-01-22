@@ -95,7 +95,7 @@ function tag_origin_allocate(v_pos, v_angles)
 	arrayremoveindex(level.tag_origin_pool, n_index);
 	e_model.angles = v_angles;
 	e_model.origin = v_pos;
-	e_model notify(#"reallocated_from_pool");
+	e_model notify("reallocated_from_pool");
 	return e_model;
 }
 
@@ -133,7 +133,7 @@ function tag_origin_free()
 */
 function private tag_origin_expire()
 {
-	self endon(#"reallocated_from_pool");
+	self endon("reallocated_from_pool");
 	wait(20);
 	arrayremovevalue(level.tag_origin_pool, self);
 	self delete();
@@ -150,7 +150,7 @@ function private tag_origin_expire()
 */
 function private watch_zombie_death()
 {
-	self waittill(#"death", e_attacker, str_means_of_death, weapon);
+	self waittill("death", e_attacker, str_means_of_death, weapon);
 	if(isdefined(self))
 	{
 		if(isdefined(level.zombie_death_callbacks))
@@ -261,14 +261,14 @@ function unitrigger_allow_beastmode()
 */
 function private unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread unitrigger_refresh_message();
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isdefined(self.allow_beastmode) && self.allow_beastmode || (!(isdefined(player.beastmode) && player.beastmode)))
 		{
-			self.stub notify(#"trigger", player);
+			self.stub notify("trigger", player);
 		}
 	}
 }
@@ -475,7 +475,7 @@ function add_zod_zombie_spawn_func(fn_zombie_spawned)
 */
 function on_player_connect()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"bled_out");
@@ -552,9 +552,9 @@ function on_player_bled_out(fn_callback)
 */
 function set_rumble_to_player(n_rumbletype, var_d00db512)
 {
-	self notify(#"set_rumble_to_player");
-	self endon(#"disconnect");
-	self endon(#"set_rumble_to_player");
+	self notify("set_rumble_to_player");
+	self endon("disconnect");
+	self endon("set_rumble_to_player");
 	self thread clientfield::set_to_player("player_rumble_and_shake", n_rumbletype);
 	if(isdefined(var_d00db512))
 	{
@@ -604,7 +604,7 @@ function function_5cc835d6(v_origin, v_target, n_duration)
 	e_fx = tag_origin_allocate(v_origin, (0, 0, 0));
 	e_fx clientfield::set("zod_egg_soul", 1);
 	e_fx moveto(v_target, n_duration);
-	e_fx waittill(#"movedone");
+	e_fx waittill("movedone");
 	e_fx clientfield::set("zod_egg_soul", 0);
 	e_fx tag_origin_free();
 }

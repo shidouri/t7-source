@@ -39,7 +39,7 @@ function autoexec main()
 */
 function private _throwstowedweapon(entity, weapon, weaponmodel)
 {
-	entity waittill(#"death");
+	entity waittill("death");
 	if(isdefined(entity))
 	{
 		weaponmodel unlink();
@@ -85,7 +85,7 @@ function stowweapon(weapon, positionoffset, orientationoffset)
 */
 function placeweaponon(weapon, position)
 {
-	self notify(#"weapon_position_change");
+	self notify("weapon_position_change");
 	if(isstring(weapon))
 	{
 		weapon = getweapon(weapon);
@@ -319,7 +319,7 @@ function throwweapon(weapon, positiontag, scavenger)
 */
 function dropaiweapon()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.weapon == level.weaponnone)
 	{
 		return;
@@ -609,7 +609,7 @@ function donotetracksforeverproc(notetracksfunc, flagname, killstring, customfun
 	{
 		self endon(killstring);
 	}
-	self endon(#"killanimscript");
+	self endon("killanimscript");
 	if(!isdefined(debugidentifier))
 	{
 		debugidentifier = "undefined";
@@ -678,7 +678,7 @@ function donotetracksfortimeintercept(time, flagname, interceptfunction, debugid
 */
 function donotetracksfortimeproc(donotetracksforeverfunc, time, flagname, customfunction, debugidentifier, ent)
 {
-	ent endon(#"stop_notetracks");
+	ent endon("stop_notetracks");
 	[[donotetracksforeverfunc]](flagname, undefined, customfunction, debugidentifier);
 }
 
@@ -694,6 +694,6 @@ function donotetracksfortimeproc(donotetracksforeverfunc, time, flagname, custom
 function donotetracksfortimeendnotify(time)
 {
 	wait(time);
-	self notify(#"stop_notetracks");
+	self notify("stop_notetracks");
 }
 

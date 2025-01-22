@@ -65,7 +65,7 @@ function tagging_thread()
 	/#
 		assert(self enabled());
 	#/
-	self endon(#"disconnect");
+	self endon("disconnect");
 	timeinc = 0.25;
 	wait(randomfloatrange(0.05, 1));
 	while(true)

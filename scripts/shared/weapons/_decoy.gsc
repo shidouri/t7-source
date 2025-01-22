@@ -56,8 +56,8 @@ function create_watcher()
 */
 function on_spawn(watcher, owner)
 {
-	owner endon(#"disconnect");
-	self endon(#"death");
+	owner endon("disconnect");
+	self endon("death");
 	weaponobjects::onspawnuseweaponobject(watcher, owner);
 	self.initial_velocity = self getvelocity();
 	delay = 1;
@@ -88,8 +88,8 @@ function on_spawn(watcher, owner)
 */
 function move(owner, count, fire_time, main_dir, max_offset_angle)
 {
-	self endon(#"death");
-	self endon(#"done");
+	self endon("death");
+	self endon("done");
 	if(!self isonground())
 	{
 		return;
@@ -126,7 +126,7 @@ function move(owner, count, fire_time, main_dir, max_offset_angle)
 */
 function destroy(watcher, owner)
 {
-	self notify(#"done");
+	self notify("done");
 	self entityheadicons::setentityheadicon("none");
 }
 
@@ -141,7 +141,7 @@ function destroy(watcher, owner)
 */
 function detonate(attacker, weapon, target)
 {
-	self notify(#"done");
+	self notify("done");
 	self entityheadicons::setentityheadicon("none");
 }
 
@@ -156,9 +156,9 @@ function detonate(attacker, weapon, target)
 */
 function simulate_weapon_fire(owner)
 {
-	owner endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"done");
+	owner endon("disconnect");
+	self endon("death");
+	self endon("done");
 	weapon = pick_random_weapon();
 	self thread watch_for_explosion(owner, weapon);
 	self thread track_main_direction();
@@ -441,8 +441,8 @@ function play_reload_sounds(weapon, reloadtime)
 function watch_for_explosion(owner, weapon)
 {
 	self thread watch_for_death_before_explosion();
-	owner endon(#"disconnect");
-	self endon(#"death_before_explode");
+	owner endon("disconnect");
+	self endon("death_before_explode");
 	self waittill(#"explode", pos);
 	level thread do_explosion(owner, pos, weapon, randomintrange(5, 10));
 }
@@ -458,11 +458,11 @@ function watch_for_explosion(owner, weapon)
 */
 function watch_for_death_before_explosion()
 {
-	self waittill(#"death");
+	self waittill("death");
 	wait(0.1);
 	if(isdefined(self))
 	{
-		self notify(#"death_before_explode");
+		self notify("death_before_explode");
 	}
 }
 
@@ -539,13 +539,13 @@ function should_play_reload_sound()
 */
 function track_main_direction()
 {
-	self endon(#"death");
-	self endon(#"done");
+	self endon("death");
+	self endon("done");
 	self.main_dir = int(vectortoangles((self.initial_velocity[0], self.initial_velocity[1], 0))[1]);
 	up = (0, 0, 1);
 	while(true)
 	{
-		self waittill(#"grenade_bounce", pos, normal);
+		self waittill("grenade_bounce", pos, normal);
 		dot = vectordot(normal, up);
 		if(dot < 0.5 && dot > -0.5)
 		{

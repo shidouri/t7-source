@@ -360,8 +360,8 @@ function ismovingpowerloss()
 */
 function power_consume_timer_think(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	time = gettime();
 	while(true)
 	{

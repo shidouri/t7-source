@@ -326,7 +326,7 @@ function private function_48c03479(entity)
 */
 function private function_fa513ca0()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_8225d137");
 	while(true)
 	{
@@ -420,11 +420,11 @@ function private function_1aacf7d4()
 */
 function private function_5dfc412a()
 {
-	self endon(#"death");
-	self.m_claw_damage_trigger endon(#"death");
+	self endon("death");
+	self.m_claw_damage_trigger endon("death");
 	while(true)
 	{
-		self.m_claw_damage_trigger waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
+		self.m_claw_damage_trigger waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
 		self.m_claw_damage_trigger.health = 10000;
 		if(self.m_claw islinkedto(self))
 		{
@@ -434,7 +434,7 @@ function private function_5dfc412a()
 		{
 			self dodamage(1, inflictor.origin, inflictor, inflictor, "left_hand", type);
 			self.m_claw setcandamage(0);
-			self notify(#"claw_damaged");
+			self notify("claw_damaged");
 		}
 	}
 }
@@ -450,7 +450,7 @@ function private function_5dfc412a()
 */
 function private function_31c4b972()
 {
-	self endon(#"claw_complete");
+	self endon("claw_complete");
 	self util::waittill_either("death", "kill_claw");
 	self function_90832db7();
 }
@@ -493,7 +493,7 @@ function private function_90832db7()
 				n_time = n_dist / 1000;
 				self.m_claw moveto(v_claw_origin, max(0.05, n_time));
 				self.m_claw playloopsound("zmb_ai_mechz_claw_loop_in", 0.1);
-				self.m_claw waittill(#"movedone");
+				self.m_claw waittill("movedone");
 				v_claw_origin = self gettagorigin("tag_claw");
 				v_claw_angles = self gettagangles("tag_claw");
 				self.m_claw playsound("zmb_ai_mechz_claw_back");
@@ -506,7 +506,7 @@ function private function_90832db7()
 			self.m_claw setanim(%mechz_claw::ai_zombie_mech_grapple_arm_closed_idle, 1, 0.2, 1);
 		}
 	}
-	self notify(#"claw_complete");
+	self notify("claw_complete");
 	self.var_7bee990f = 0;
 }
 
@@ -636,7 +636,7 @@ function private function_d6f31ed2()
 */
 function private function_5f5eaf3a(ai_mechz)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self zm_audio::create_and_play_dialog("general", "mech_grab");
 	while(isdefined(self) && (isdefined(self.isspeaking) && self.isspeaking))
 	{
@@ -660,7 +660,7 @@ function private function_5f5eaf3a(ai_mechz)
 */
 function private play_shoot_arm_hint_vo()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(!isdefined(self.e_grabbed))
@@ -739,11 +739,11 @@ function private function_6028875a()
 */
 function private function_8b0a73b5(mechz)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	mechz endon(#"death");
-	mechz endon(#"claw_complete");
-	mechz endon(#"kill_claw");
+	self endon("death");
+	self endon("disconnect");
+	mechz endon("death");
+	mechz endon("claw_complete");
+	mechz endon("kill_claw");
 	while(true)
 	{
 		if(isdefined(self) && self laststand::player_is_in_laststand())
@@ -766,11 +766,11 @@ function private function_8b0a73b5(mechz)
 */
 function private function_bed84b4(mechz)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	mechz endon(#"death");
-	mechz endon(#"claw_complete");
-	mechz endon(#"kill_claw");
+	self endon("death");
+	self endon("disconnect");
+	mechz endon("death");
+	mechz endon("claw_complete");
+	mechz endon("kill_claw");
 	while(true)
 	{
 		self waittill(#"bgb_activation_request");
@@ -793,11 +793,11 @@ function private function_bed84b4(mechz)
 */
 function private function_38d105a4(mechz)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	mechz endon(#"death");
-	mechz endon(#"claw_complete");
-	mechz endon(#"kill_claw");
+	self endon("death");
+	self endon("disconnect");
+	mechz endon("death");
+	mechz endon("claw_complete");
+	mechz endon("kill_claw");
 	if(1)
 	{
 		self waittill(#"hash_e2be4752");
@@ -817,8 +817,8 @@ function private function_38d105a4(mechz)
 */
 function private function_672f9804()
 {
-	self endon(#"death");
-	self endon(#"kill_claw");
+	self endon("death");
+	self endon("kill_claw");
 	if(!isdefined(self.favoriteenemy))
 	{
 		return;
@@ -929,7 +929,7 @@ function private function_672f9804()
 	v_claw_angles = self gettagangles("tag_claw");
 	self.m_claw moveto(v_claw_origin, max(0.05, n_time));
 	self.m_claw playloopsound("zmb_ai_mechz_claw_loop_in", 0.1);
-	self.m_claw waittill(#"movedone");
+	self.m_claw waittill("movedone");
 	v_claw_origin = self gettagorigin("tag_claw");
 	v_claw_angles = self gettagangles("tag_claw");
 	self.m_claw playsound("zmb_ai_mechz_claw_back");
@@ -977,22 +977,22 @@ function private function_672f9804()
 */
 function private function_eb9df173(player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"claw_complete");
-	self endon(#"kill_claw");
+	player endon("death");
+	player endon("disconnect");
+	self endon("death");
+	self endon("claw_complete");
+	self endon("kill_claw");
 	self thread function_7792d05e(player);
 	player thread function_d0e280a0(self);
 	self.m_claw setcandamage(1);
 	while(isdefined(self.e_grabbed))
 	{
-		self.m_claw waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
+		self.m_claw waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
 		if(zm_utility::is_player_valid(inflictor))
 		{
 			self dodamage(1, inflictor.origin, inflictor, inflictor, "left_hand", type);
 			self.m_claw setcandamage(0);
-			self notify(#"claw_damaged");
+			self notify("claw_damaged");
 			break;
 		}
 	}
@@ -1009,9 +1009,9 @@ function private function_eb9df173(player)
 */
 function private function_7792d05e(player)
 {
-	self endon(#"claw_damaged");
-	player endon(#"death");
-	player endon(#"disconnect");
+	self endon("claw_damaged");
+	player endon("death");
+	player endon("disconnect");
 	self util::waittill_any("death", "claw_complete", "kill_claw");
 	if(isdefined(self) && isdefined(self.m_claw))
 	{
@@ -1030,10 +1030,10 @@ function private function_7792d05e(player)
 */
 function private function_d0e280a0(mechz)
 {
-	mechz endon(#"claw_damaged");
-	mechz endon(#"death");
-	mechz endon(#"claw_complete");
-	mechz endon(#"kill_claw");
+	mechz endon("claw_damaged");
+	mechz endon("death");
+	mechz endon("claw_complete");
+	mechz endon("kill_claw");
 	self util::waittill_any("death", "disconnect");
 	if(isdefined(mechz) && isdefined(mechz.m_claw))
 	{
@@ -1052,7 +1052,7 @@ function private function_d0e280a0(mechz)
 */
 function private function_2998f2a1()
 {
-	self waittill(#"movedone");
+	self waittill("movedone");
 	wait(0.05);
 	level flag::set("mechz_claw_move_complete");
 }
@@ -1068,7 +1068,7 @@ function private function_2998f2a1()
 */
 function private function_860f0461(mechz)
 {
-	mechz waittillmatch(#"flamethrower_anim");
+	mechz waittillmatch("flamethrower_anim");
 	if(isalive(self))
 	{
 		self dodamage(self.health, self.origin, self);

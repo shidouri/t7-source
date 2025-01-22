@@ -223,7 +223,7 @@ function flush_dialog_on_player()
 	self.currentleaderdialog = undefined;
 	self.killstreakdialogqueue = [];
 	self.scorestreakdialogplaying = 0;
-	self notify(#"flush_dialog");
+	self notify("flush_dialog");
 }
 
 /*
@@ -433,9 +433,9 @@ function killstreak_dialog_on_player(dialogkey, killstreaktype, killstreakid, pi
 */
 function wait_for_player_dialog()
 {
-	self endon(#"disconnect");
-	self endon(#"flush_dialog");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("flush_dialog");
+	level endon("game_ended");
 	while(self.playingdialog)
 	{
 		wait(0.5);
@@ -454,9 +454,9 @@ function wait_for_player_dialog()
 */
 function play_next_killstreak_dialog()
 {
-	self endon(#"disconnect");
-	self endon(#"flush_dialog");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("flush_dialog");
+	level endon("game_ended");
 	if(self.killstreakdialogqueue.size == 0)
 	{
 		self.currentkillstreakdialog = undefined;
@@ -523,9 +523,9 @@ function play_next_killstreak_dialog()
 */
 function wait_next_killstreak_dialog()
 {
-	self endon(#"disconnect");
-	self endon(#"flush_dialog");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("flush_dialog");
+	level endon("game_ended");
 	wait(battlechatter::mpdialog_value("killstreakDialogBuffer", 0));
 	self thread play_next_killstreak_dialog();
 }
@@ -680,9 +680,9 @@ function leader_dialog_on_player(dialogkey, objectivekey, killstreakid, dialogbu
 */
 function play_next_leader_dialog()
 {
-	self endon(#"disconnect");
-	self endon(#"flush_dialog");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("flush_dialog");
+	level endon("game_ended");
 	if(self.leaderdialogqueue.size == 0)
 	{
 		self.currentleaderdialog = undefined;
@@ -738,9 +738,9 @@ function play_next_leader_dialog()
 */
 function wait_next_leader_dialog(dialogbuffer)
 {
-	self endon(#"disconnect");
-	self endon(#"flush_dialog");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("flush_dialog");
+	level endon("game_ended");
 	wait(dialogbuffer);
 	self thread play_next_leader_dialog();
 }
@@ -1062,9 +1062,9 @@ function get_round_switch_dialog(switchtype)
 */
 function post_match_snapshot_watcher()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	level util::clientnotify("pm");
-	level waittill(#"sfade");
+	level waittill("sfade");
 	level util::clientnotify("pmf");
 }
 
@@ -1079,8 +1079,8 @@ function post_match_snapshot_watcher()
 */
 function announcercontroller()
 {
-	level endon(#"game_ended");
-	level waittill(#"match_ending_soon");
+	level endon("game_ended");
+	level waittill("match_ending_soon");
 	if(util::islastround() || util::isoneround())
 	{
 		if(level.teambased)
@@ -1090,7 +1090,7 @@ function announcercontroller()
 				leader_dialog("min_draw");
 			}
 		}
-		level waittill(#"match_ending_very_soon");
+		level waittill("match_ending_very_soon");
 		foreach(team in level.teams)
 		{
 			leader_dialog("roundTimeWarning", team, undefined, undefined);
@@ -1098,7 +1098,7 @@ function announcercontroller()
 	}
 	else
 	{
-		level waittill(#"match_ending_vox");
+		level waittill("match_ending_vox");
 		leader_dialog("roundTimeWarning");
 	}
 }
@@ -1157,7 +1157,7 @@ function sndmusicsetrandomizer()
 */
 function sndmusicunlock()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	unlockname = undefined;
 	switch(game["musicSet"])
 	{
@@ -1204,9 +1204,9 @@ function sndmusicunlock()
 */
 function sndmusictimesout()
 {
-	level endon(#"game_ended");
-	level endon(#"musicendingoverride");
-	level waittill(#"match_ending_very_soon");
+	level endon("game_ended");
+	level endon("musicendingoverride");
+	level waittill("match_ending_very_soon");
 	if(isdefined(level.gametype) && (level.gametype == "sd" || level.gametype == "prop"))
 	{
 		level thread set_music_on_team("timeOutQuiet");
@@ -1228,10 +1228,10 @@ function sndmusictimesout()
 */
 function sndmusichalfway()
 {
-	level endon(#"game_ended");
-	level endon(#"match_ending_soon");
-	level endon(#"match_ending_very_soon");
-	level waittill(#"sndmusichalfway");
+	level endon("game_ended");
+	level endon("match_ending_soon");
+	level endon("match_ending_very_soon");
+	level waittill("sndmusichalfway");
 	level thread set_music_on_team("underscore");
 }
 
@@ -1246,10 +1246,10 @@ function sndmusichalfway()
 */
 function sndmusictimelimitwatcher()
 {
-	level endon(#"game_ended");
-	level endon(#"match_ending_soon");
-	level endon(#"match_ending_very_soon");
-	level endon(#"sndmusichalfway");
+	level endon("game_ended");
+	level endon("match_ending_soon");
+	level endon("match_ending_very_soon");
+	level endon("sndmusichalfway");
 	if(!isdefined(level.timelimit) || level.timelimit == 0)
 	{
 		return;
@@ -1260,7 +1260,7 @@ function sndmusictimelimitwatcher()
 		timeleft = globallogic_utils::gettimeremaining() / 1000;
 		if(timeleft <= halfway)
 		{
-			level notify(#"sndmusichalfway");
+			level notify("sndmusichalfway");
 			return;
 		}
 		wait(2);
@@ -1306,7 +1306,7 @@ function set_music_on_team(state, team = "both", wait_time = 0, save_state = 0, 
 */
 function set_music_on_player(state, wait_time = 0, save_state = 0, return_state = 0)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		assert(isplayer(self));
 	#/

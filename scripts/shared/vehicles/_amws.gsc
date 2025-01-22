@@ -134,7 +134,7 @@ function defaultrole()
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	death_type = vehicle_ai::get_death_type(params);
 	if(!isdefined(death_type))
 	{
@@ -159,7 +159,7 @@ function state_death_update(params)
 */
 function death_suicide_crash(params)
 {
-	self endon(#"death");
+	self endon("death");
 	goaldir = anglestoforward(self.angles);
 	goaldist = randomfloatrange(300, 400);
 	goalpos = self.origin + (goaldir * goaldist);
@@ -186,14 +186,14 @@ function death_suicide_crash(params)
 */
 function state_driving_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	driver = self getseatoccupant(0);
 	if(isplayer(driver))
 	{
 		while(true)
 		{
-			driver endon(#"disconnect");
+			driver endon("disconnect");
 			driver util::waittill_vehicle_move_up_button_pressed();
 			if(self.cobra === 0)
 			{
@@ -241,7 +241,7 @@ function cobra_retract()
 {
 	self.cobra = 0;
 	self laseroff();
-	self notify(#"disable_lens_flare");
+	self notify("disable_lens_flare");
 	self asmrequestsubstate("locomotion@movement");
 	self vehicle_ai::waittill_asm_complete("locomotion@movement", 4);
 }
@@ -257,8 +257,8 @@ function cobra_retract()
 */
 function state_emped_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	angles = self gettagangles("tag_turret");
 	self setturrettargetrelativeangles((45, angles[1] - self.angles[1], 0), 0);
 	angles = self gettagangles("tag_gunner_turret1");
@@ -277,8 +277,8 @@ function state_emped_update(params)
 */
 function state_surge_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	self setmaxspeedscale(880 / self getmaxspeed(1));
 	self setmaxaccelerationscale(50 / self getdefaultacceleration());
 	self vehicle_ai::defaultstate_surge_update(params);
@@ -328,9 +328,9 @@ function state_stationary_enter(params)
 */
 function state_stationary_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self notify(#"stop_rocket_firing_thread");
+	self endon("death");
+	self endon("change_state");
+	self notify("stop_rocket_firing_thread");
 	vehicle_ai::clearalllookingandtargeting();
 	vehicle_ai::clearallmovement();
 	wait(1);
@@ -393,7 +393,7 @@ function state_stationary_update(params)
 		}
 		wait(0.1);
 	}
-	self notify(#"stop_rocket_firing_thread");
+	self notify("stop_rocket_firing_thread");
 	vehicle_ai::clearalllookingandtargeting();
 	vehicle_ai::clearallmovement();
 	if(evade_now)
@@ -483,8 +483,8 @@ function turretfireupdate()
 	{
 		return;
 	}
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self setontargetangle(7);
 	self setontargetangle(7, 0);
 	while(true)
@@ -551,8 +551,8 @@ function turretfireupdate()
 */
 function state_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	lasttimechangeposition = 0;
 	self.shouldgotonewposition = 0;
 	self.lasttimetargetinsight = 0;
@@ -621,7 +621,7 @@ function state_combat_update(params)
 					self thread path_update_interrupt_by_attacker();
 					self thread path_update_interrupt();
 					self vehicle_ai::waittill_pathing_done();
-					self notify(#"amws_end_interrupt_watch");
+					self notify("amws_end_interrupt_watch");
 					self playsound("veh_amws_scan");
 				}
 			}
@@ -663,7 +663,7 @@ function state_combat_update(params)
 					self thread path_update_interrupt_by_attacker();
 					self thread path_update_interrupt();
 					self vehicle_ai::waittill_pathing_done();
-					self notify(#"amws_end_interrupt_watch");
+					self notify("amws_end_interrupt_watch");
 				}
 				if(isdefined(self.enemy) && vehicle_ai::iscooldownready("rocket", 0.5) && self vehcansee(self.enemy) && self.gib_rocket !== 1)
 				{
@@ -688,10 +688,10 @@ function state_combat_update(params)
 */
 function aim_and_fire_rocket_launcher(aim_time)
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self notify(#"stop_rocket_firing_thread");
-	self endon(#"stop_rocket_firing_thread");
+	self endon("death");
+	self endon("change_state");
+	self notify("stop_rocket_firing_thread");
+	self endon("stop_rocket_firing_thread");
 	if(!self.turretontarget)
 	{
 		wait(aim_time);
@@ -785,10 +785,10 @@ function wait_evasion_reaction_time()
 */
 function firerocketlauncher(enemy)
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self notify(#"stop_rocket_firing_thread");
-	self endon(#"stop_rocket_firing_thread");
+	self endon("death");
+	self endon("change_state");
+	self notify("stop_rocket_firing_thread");
+	self endon("stop_rocket_firing_thread");
 	if(isdefined(enemy))
 	{
 		self setturrettargetent(enemy);
@@ -1150,11 +1150,11 @@ function getnextmoveposition_tactical(enemy)
 */
 function path_update_interrupt_by_attacker()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
-	self endon(#"amws_end_interrupt_watch");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
+	self endon("amws_end_interrupt_watch");
 	self util::waittill_any("locking on", "missile_lock", "damage");
 	if(self.locked_on || self.locking_on)
 	{
@@ -1170,7 +1170,7 @@ function path_update_interrupt_by_attacker()
 		self clearvehgoalpos();
 		self.lock_evade_now = 1;
 	}
-	self notify(#"near_goal");
+	self notify("near_goal");
 }
 
 /*
@@ -1184,11 +1184,11 @@ function path_update_interrupt_by_attacker()
 */
 function path_update_interrupt()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
-	self endon(#"amws_end_interrupt_watch");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
+	self endon("amws_end_interrupt_watch");
 	wait(1);
 	while(true)
 	{
@@ -1197,19 +1197,19 @@ function path_update_interrupt()
 			if(distance2dsquared(self.current_pathto_pos, self.goalpos) > (self.goalradius * self.goalradius))
 			{
 				wait(0.2);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		if(isdefined(self.enemy))
 		{
 			if(self vehcansee(self.enemy) && distance2dsquared(self.origin, self.enemy.origin) < (0.4 * (self.settings.engagementdistmin + self.settings.engagementdistmax)) * (0.4 * (self.settings.engagementdistmin + self.settings.engagementdistmax)))
 			{
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			if(vehicle_ai::iscooldownready("rocket") && vehicle_ai::iscooldownready("rocket_launcher_check"))
 			{
 				vehicle_ai::cooldown("rocket_launcher_check", 2.5);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);

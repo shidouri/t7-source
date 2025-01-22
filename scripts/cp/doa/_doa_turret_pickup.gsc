@@ -84,8 +84,8 @@ function init()
 */
 function missile_logic(fake)
 {
-	self waittill(#"missile_fire", missile, weap);
-	missile endon(#"death");
+	self waittill("missile_fire", missile, weap);
+	missile endon("death");
 	fake thread doa_utility::function_981c685d(missile);
 	missile missile_settarget(fake);
 	uptime = gettime() + (getdvarfloat("scr_doa_missile_upwardMax", 2) * 1000);
@@ -231,7 +231,7 @@ function turretthink()
 		self sentry_turret::function_21af94b3();
 		self thread turret_target();
 		self thread function_2c414dda();
-		self notify(#"start_scan");
+		self notify("start_scan");
 		self waittill(#"hash_d3ef93e9");
 		self sentry_turret::function_e6f10cc7();
 	}
@@ -248,9 +248,9 @@ function turretthink()
 */
 function turret_target()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_d3ef93e9");
-	self waittill(#"start_scan");
+	self waittill("start_scan");
 	while(true)
 	{
 		if(!isdefined(self.e_target))
@@ -274,7 +274,7 @@ function turret_target()
 		{
 			wait(0.5);
 		}
-		self notify(#"lost_target");
+		self notify("lost_target");
 		self.is_attacking = 0;
 		wait(0.5);
 	}
@@ -291,7 +291,7 @@ function turret_target()
 */
 function function_4deaa5de(totalfiretime, enemy)
 {
-	self endon(#"death");
+	self endon("death");
 	weapon = self seatgetweapon(0);
 	firetime = weapon.firetime;
 	time = 0;
@@ -326,8 +326,8 @@ function function_2c414dda()
 {
 	self notify(#"hash_2c414dda");
 	self endon(#"hash_2c414dda");
-	self endon(#"death");
-	self endon(#"lost_target");
+	self endon("death");
+	self endon("lost_target");
 	self endon(#"hash_d3ef93e9");
 	self waittill(#"hash_dc8a04ab");
 	self.turretrotscale = 6;
@@ -465,7 +465,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 */
 function function_a0d09d25(player)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_7a0ce382");
 	weapon = getweapon("zombietron_sprinkler_launcher");
 	top = self.origin + vectorscale((0, 0, 1), 32);
@@ -680,7 +680,7 @@ function function_f3ee1c57(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function private function_43d18fa4(player, note)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(note);
 	while(isdefined(player))
 	{

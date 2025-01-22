@@ -79,7 +79,7 @@ function start_grapple(var_683c052c, var_a2613153, n_type, n_speed = 1800)
 		var_c35f0f99 = var_a2613153 function_1e702195();
 		var_b7c15e33 playsound("zmb_grapple_start");
 		var_b7c15e33 moveto(var_c35f0f99, n_time);
-		var_b7c15e33 waittill(#"movedone");
+		var_b7c15e33 waittill("movedone");
 		var_8986f6e8 = var_c35f0f99 - var_a2613153.origin;
 		var_b7c15e33.origin = var_a2613153.origin;
 		if(isplayer(var_a2613153))
@@ -94,7 +94,7 @@ function start_grapple(var_683c052c, var_a2613153, n_type, n_speed = 1800)
 		var_de84fe14 = var_683c052c function_1e702195() - var_8986f6e8;
 		var_b7c15e33 moveto(var_de84fe14, n_time);
 		var_b7c15e33 playsound("zmb_grapple_pull");
-		var_b7c15e33 waittill(#"movedone");
+		var_b7c15e33 waittill("movedone");
 		function_b7c692b0();
 		var_b7c15e33 clientfield::set("grappler_beam_target", 0);
 		var_a2613153 unlink();

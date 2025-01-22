@@ -79,9 +79,9 @@ function on_player_spawned()
 */
 function last_valid_position()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_last_valid_position");
-	self endon(#"stop_last_valid_position");
+	self endon("disconnect");
+	self notify("stop_last_valid_position");
+	self endon("stop_last_valid_position");
 	while(!isdefined(self.last_valid_position))
 	{
 		self.last_valid_position = getclosestpointonnavmesh(self.origin, 2048, 0);

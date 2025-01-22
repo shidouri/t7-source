@@ -220,8 +220,8 @@ function function_7884e6b8()
 	var_d3757c7[4] = array(0, 0.5);
 	var_e60d01d = 0;
 	level.var_1d8d988e = 0;
-	level waittill(#"all_players_spawned");
-	level waittill(#"start_of_round");
+	level waittill("all_players_spawned");
+	level waittill("start_of_round");
 	function_6b96bf38();
 	while(true)
 	{
@@ -588,7 +588,7 @@ function function_6184b9c1()
 */
 function function_7520820b()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	if(!level flag::get("death_ray_trap_used"))
 	{
 		function_897246e4("vox_grop_groph_additional4_0", undefined, 1);
@@ -611,7 +611,7 @@ function function_44c11f63()
 	var_e9d68101 = struct::get("death_ray_button", "targetname");
 	var_d808cbab = spawn("script_model", var_e9d68101.origin);
 	var_d808cbab playsoundwithnotify("vox_grop_cyro_1_0", "sounddone");
-	var_d808cbab waittill(#"sounddone");
+	var_d808cbab waittill("sounddone");
 	wait(0.75);
 	level.sndvoxoverride = 0;
 	var_ceb8ae25 = function_ff6cc972();
@@ -675,13 +675,13 @@ function function_70721c81()
 	function_8ac5430(1, var_337b3942.origin);
 	e_speaker playsound("vox_groph_keeper_intro_sfx");
 	e_speaker playsoundwithnotify("vox_grop_keeper_intro_0", "sounddone");
-	e_speaker waittill(#"sounddone");
+	e_speaker waittill("sounddone");
 	wait(0.5);
 	e_speaker playsoundwithnotify("vox_grop_keeper_intro_1", "sounddone");
-	e_speaker waittill(#"sounddone");
+	e_speaker waittill("sounddone");
 	wait(1);
 	e_speaker playsoundwithnotify("vox_grop_keeper_intro_2", "sounddone");
-	e_speaker waittill(#"sounddone");
+	e_speaker waittill("sounddone");
 	e_speaker delete();
 	function_8ac5430();
 }
@@ -959,19 +959,19 @@ function function_f28fd307()
 	var_ff1ab13b = spawn("script_model", var_4ae0fc9f.origin);
 	function_8ac5430(1, var_4ae0fc9f.origin);
 	var_ff1ab13b playsoundwithnotify("vox_grop_moon_intro_0", "sounddone");
-	var_ff1ab13b waittill(#"sounddone");
+	var_ff1ab13b waittill("sounddone");
 	wait(0.5);
 	var_ff1ab13b playsoundwithnotify("vox_grop_moon_intro_1", "sounddone");
-	var_ff1ab13b waittill(#"sounddone");
+	var_ff1ab13b waittill("sounddone");
 	wait(1);
 	var_ff1ab13b playsoundwithnotify("vox_grop_moon_intro_2", "sounddone");
-	var_ff1ab13b waittill(#"sounddone");
+	var_ff1ab13b waittill("sounddone");
 	wait(1);
 	var_ff1ab13b playsoundwithnotify("vox_grop_moon_intro_3", "sounddone");
-	var_ff1ab13b waittill(#"sounddone");
+	var_ff1ab13b waittill("sounddone");
 	wait(1);
 	var_ff1ab13b playsoundwithnotify("vox_grop_moon_intro_4", "sounddone");
-	var_ff1ab13b waittill(#"sounddone");
+	var_ff1ab13b waittill("sounddone");
 	wait(2);
 	function_8ac5430();
 	var_ceb8ae25 = function_ff6cc972();
@@ -1076,8 +1076,8 @@ function function_5eded46b(str_vo_line, n_wait = 0, b_wait_if_busy, n_priority =
 */
 function function_7b697614(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(level flag::get("story_playing"))
 	{
 		return false;
@@ -1195,7 +1195,7 @@ function vo_clear()
 */
 function function_502f946b()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.str_vo_being_spoken) && self.str_vo_being_spoken != "")
 	{
 		self stopsound(self.str_vo_being_spoken);
@@ -1767,7 +1767,7 @@ function function_1d8b909c()
 {
 	while(true)
 	{
-		self waittill(#"left");
+		self waittill("left");
 		var_bbced690 = undefined;
 		var_4b41add1 = array::get_all_closest(self.origin, level.activeplayers, undefined, 4, 256);
 		foreach(e_player in var_4b41add1)
@@ -1797,7 +1797,7 @@ function function_1d8b909c()
 */
 function function_a1e1ab31()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level.var_aea601e7[0] = 6;
 	level.var_aea601e7[1] = 6;
 	level.var_aea601e7[2] = 5;
@@ -1836,7 +1836,7 @@ function function_e58d3756(e_attacker)
 */
 function function_7254ce1d()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"bled_out");
 	if(!zm_utility::is_player_valid(self))
 	{
@@ -1924,7 +1924,7 @@ function function_5b684ae5()
 {
 	while(true)
 	{
-		level waittill(#"trap_kill", e_zombie, var_f1c4d54d);
+		level waittill("trap_kill", e_zombie, var_f1c4d54d);
 		var_ecf98bb6 = (isplayer(var_f1c4d54d) ? var_f1c4d54d : var_f1c4d54d.activated_by_player);
 		e_zombie function_52f36cdc("generic", var_ecf98bb6);
 	}
@@ -1941,8 +1941,8 @@ function function_5b684ae5()
 */
 function function_52f36cdc(str_type, var_ecf98bb6)
 {
-	var_ecf98bb6 endon(#"disconnect");
-	var_ecf98bb6 endon(#"death");
+	var_ecf98bb6 endon("disconnect");
+	var_ecf98bb6 endon("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -2352,7 +2352,7 @@ function function_604361f()
 {
 	while(true)
 	{
-		level waittill(#"shield_built", e_player);
+		level waittill("shield_built", e_player);
 		e_player thread function_7b697614((("vox_plr_" + e_player.characterindex) + "_pickup_rocket_") + randomint(5), 1);
 	}
 }
@@ -2552,7 +2552,7 @@ function function_894d806e(s_spawn_loc)
 */
 function function_e8a09e6e()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_fe8911ae");
 	level.var_b3bb5f5f++;
 	if(level.var_b3bb5f5f > 4)
@@ -2579,7 +2579,7 @@ function function_e8a09e6e()
 		e_attacker = undefined;
 		while(!isdefined(e_attacker))
 		{
-			self waittill(#"damage", n_damage, e_attacker);
+			self waittill("damage", n_damage, e_attacker);
 			if(!zm_utility::is_player_valid(e_attacker))
 			{
 				e_attacker = undefined;
@@ -2612,7 +2612,7 @@ function function_e8a09e6e()
 */
 function function_6d7d2595()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_fe8911ae");
 	while(isdefined(self.powercap_covered) && self.powercap_covered)
 	{
@@ -2674,7 +2674,7 @@ function function_bdcf0afc(e_attacker, var_70bd2a66, var_68c69747)
 */
 function function_5e426b67()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(!zm_utility::is_player_valid(self.attacker))
 	{
 		return;
@@ -2748,10 +2748,10 @@ function function_59fdea16()
 */
 function function_88db2665()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		self thread function_4b5f8d2e(e_player);
 		wait(1);
 	}
@@ -2813,7 +2813,7 @@ function function_91db1c0b(str_vo_alias, s_unitrigger_stub)
 */
 function function_fbe2f6cb()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	var_1b10157c = 0;
 	while(true)
 	{
@@ -3010,7 +3010,7 @@ function function_56c65986(b_correct)
 */
 function function_c123b81c(str_label, str_vo_alias)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(str_vo_alias + "_vo_failed");
 	self waittill(str_vo_alias + "_vo_started");
 	if(isdefined(level.var_6e68c0d8))

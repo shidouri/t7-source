@@ -17,7 +17,7 @@
 */
 function ignore_triggers(timer)
 {
-	self endon(#"death");
+	self endon("death");
 	self.ignoretriggers = 1;
 	if(isdefined(timer))
 	{
@@ -276,7 +276,7 @@ function drawcylinder(pos, rad, height, color)
 */
 function umbra_fix_logic(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	umbra_settometrigger(localclientnum, "");
 	while(true)

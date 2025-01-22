@@ -206,10 +206,10 @@ function deactivate()
 function do_damage(damage)
 {
 	self.health = self.health - damage;
-	self notify(#"attackable_damaged");
+	self notify("attackable_damaged");
 	if(self.health <= 0)
 	{
-		self notify(#"attackable_deactivated");
+		self notify("attackable_deactivated");
 		if(!(isdefined(self.b_deferred_deactivation) && self.b_deferred_deactivation))
 		{
 			self deactivate();

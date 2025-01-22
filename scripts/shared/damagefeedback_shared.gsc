@@ -436,9 +436,9 @@ function damage_feedback_growth(victim, mod, weapon)
 */
 function kill_hitmarker_fade()
 {
-	self notify(#"kill_hitmarker_fade");
-	self endon(#"kill_hitmarker_fade");
-	self endon(#"disconnect");
+	self notify("kill_hitmarker_fade");
+	self endon("kill_hitmarker_fade");
+	self endon("disconnect");
 	self.hud_damagefeedback.alpha = 1;
 	wait(0.25);
 	self.hud_damagefeedback fadeovertime(0.3);
@@ -533,7 +533,7 @@ function update_special(hitent)
 */
 function send_hit_special_event_at_frame_end(hitent)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	enemyshit = 0;
 	value = 1;

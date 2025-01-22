@@ -151,7 +151,7 @@ function electric_switch(switch_array)
 	{
 		self sethintstring(&"ZOMBIE_ELECTRIC_SWITCH");
 		self setvisibletoall();
-		self waittill(#"trigger", user);
+		self waittill("trigger", user);
 		self setinvisibletoall();
 		if(isdefined(master_switch))
 		{
@@ -166,7 +166,7 @@ function electric_switch(switch_array)
 		level thread zm_perks::perk_unpause_all_perks(power_zone);
 		if(isdefined(master_switch))
 		{
-			master_switch waittill(#"rotatedone");
+			master_switch waittill("rotatedone");
 			playfx(level._effect["switch_sparks"], fx_pos.origin);
 			master_switch playsound("zmb_turn_on");
 		}
@@ -183,7 +183,7 @@ function electric_switch(switch_array)
 		}
 		self sethintstring(&"ZOMBIE_ELECTRIC_SWITCH_OFF");
 		self setvisibletoall();
-		self waittill(#"trigger", user);
+		self waittill("trigger", user);
 		self setinvisibletoall();
 		if(isdefined(master_switch))
 		{
@@ -193,7 +193,7 @@ function electric_switch(switch_array)
 		level thread zm_perks::perk_pause_all_perks(power_zone);
 		if(isdefined(master_switch))
 		{
-			master_switch waittill(#"rotatedone");
+			master_switch waittill("rotatedone");
 		}
 		if(isdefined(switchentnum) && isdefined(user))
 		{
@@ -369,7 +369,7 @@ function add_temp_powered_item(power_on_func, power_off_func, range_func, cost_f
 */
 function watch_temp_powered_item(powered)
 {
-	powered.target waittill(#"death");
+	powered.target waittill("death");
 	remove_powered_item(powered);
 	if(isdefined(level.local_power))
 	{
@@ -862,7 +862,7 @@ function door_power_on(origin, radius)
 		println("");
 	#/
 	self.target.power_on = 1;
-	self.target notify(#"power_on");
+	self.target notify("power_on");
 }
 
 /*
@@ -879,7 +879,7 @@ function door_power_off(origin, radius)
 	/#
 		println("");
 	#/
-	self.target notify(#"power_off");
+	self.target notify("power_off");
 	self.target.power_on = 0;
 }
 
@@ -898,7 +898,7 @@ function door_local_power_on(origin, radius)
 		println("");
 	#/
 	self.target.local_power_on = 1;
-	self.target notify(#"local_power_on");
+	self.target notify("local_power_on");
 }
 
 /*
@@ -915,7 +915,7 @@ function door_local_power_off(origin, radius)
 	/#
 		println("");
 	#/
-	self.target notify(#"local_power_off");
+	self.target notify("local_power_off");
 	self.target.local_power_on = 0;
 }
 
@@ -1004,7 +1004,7 @@ function zombie_power_off(origin, radius)
 */
 function stun_zombie()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"stun_zombie");
 	self endon(#"stun_zombie");
 	if(self.health <= 0)
@@ -1095,7 +1095,7 @@ function perk_power_off(origin, radius)
 	/#
 		println(("" + self.target.script_noteworthy) + "");
 	#/
-	self.target notify(#"death");
+	self.target notify("death");
 	self.target thread zm_perks::vending_trigger_think();
 	if(isdefined(self.target.perk_hum))
 	{
@@ -1137,12 +1137,12 @@ function turn_power_on_and_open_doors(power_zone)
 		}
 		if(!isdefined(power_zone) && (door.script_noteworthy == "electric_door" || door.script_noteworthy == "electric_buyable_door"))
 		{
-			door notify(#"power_on");
+			door notify("power_on");
 			continue;
 		}
 		if(isdefined(door.script_int) && door.script_int == power_zone && (door.script_noteworthy == "electric_door" || door.script_noteworthy == "electric_buyable_door"))
 		{
-			door notify(#"power_on");
+			door notify("power_on");
 			if(isdefined(level.temporary_power_switch_logic))
 			{
 				door.power_on = 1;
@@ -1151,7 +1151,7 @@ function turn_power_on_and_open_doors(power_zone)
 		}
 		if(isdefined(door.script_int) && door.script_int == power_zone && door.script_noteworthy === "local_electric_door")
 		{
-			door notify(#"local_power_on");
+			door notify("local_power_on");
 		}
 	}
 }
@@ -1188,24 +1188,24 @@ function turn_power_off_and_close_doors(power_zone)
 		}
 		if(!isdefined(power_zone) && (door.script_noteworthy == "electric_door" || door.script_noteworthy == "electric_buyable_door"))
 		{
-			door notify(#"power_on");
+			door notify("power_on");
 			continue;
 		}
 		if(isdefined(door.script_int) && door.script_int == power_zone && (door.script_noteworthy == "electric_door" || door.script_noteworthy == "electric_buyable_door"))
 		{
-			door notify(#"power_on");
+			door notify("power_on");
 			if(isdefined(level.temporary_power_switch_logic))
 			{
 				door.power_on = 0;
 				door sethintstring(&"ZOMBIE_NEED_POWER");
-				door notify(#"kill_door_think");
+				door notify("kill_door_think");
 				door thread zm_blockers::door_think();
 			}
 			continue;
 		}
 		if(isdefined(door.script_noteworthy) && door.script_noteworthy == "local_electric_door")
 		{
-			door notify(#"local_power_on");
+			door notify("local_power_on");
 		}
 	}
 }

@@ -486,7 +486,7 @@ function updatedevsettings()
 														}
 														else
 														{
-															player notify(#"devgui_spawn_think");
+															player notify("devgui_spawn_think");
 															player.devgui_spawn_active = 0;
 															player setactionslot(3, "");
 														}
@@ -520,7 +520,7 @@ function updatedevsettings()
 																	players[i] thread devgui_unlimited_ammo();
 																	continue;
 																}
-																players[i] notify(#"devgui_unlimited_ammo");
+																players[i] notify("devgui_unlimited_ammo");
 															}
 															setdvar("", "");
 														}
@@ -683,7 +683,7 @@ function updatedevsettings()
 				player thread rank::giverankxp("", newxp - lastxp);
 				lastxp = newxp;
 				wait(0.25);
-				self notify(#"cancel_notify");
+				self notify("cancel_notify");
 			}
 		}
 		if(getdvarstring("") != "")
@@ -741,9 +741,9 @@ function updatedevsettings()
 function devgui_spawn_think()
 {
 	/#
-		self notify(#"devgui_spawn_think");
-		self endon(#"devgui_spawn_think");
-		self endon(#"disconnect");
+		self notify("devgui_spawn_think");
+		self endon("devgui_spawn_think");
+		self endon("disconnect");
 		dpad_left = 0;
 		dpad_right = 0;
 		for(;;)
@@ -785,9 +785,9 @@ function devgui_spawn_think()
 function devgui_unlimited_ammo()
 {
 	/#
-		self notify(#"devgui_unlimited_ammo");
-		self endon(#"devgui_unlimited_ammo");
-		self endon(#"disconnect");
+		self notify("devgui_unlimited_ammo");
+		self endon("devgui_unlimited_ammo");
+		self endon("disconnect");
 		for(;;)
 		{
 			wait(1);
@@ -820,9 +820,9 @@ function devgui_unlimited_ammo()
 function devgui_health_debug()
 {
 	/#
-		self notify(#"devgui_health_debug");
-		self endon(#"devgui_health_debug");
-		self endon(#"disconnect");
+		self notify("devgui_health_debug");
+		self endon("devgui_health_debug");
+		self endon("disconnect");
 		x = 80;
 		y = 40;
 		self.debug_health_bar = newclienthudelem(self);
@@ -1265,7 +1265,7 @@ function getattachmentchangemodifierbutton()
 function watchattachmentchange()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		clientnum = self getentitynumber();
 		if(clientnum != 0)
 		{
@@ -1349,16 +1349,16 @@ function watchattachmentchange()
 function print_weapon_name()
 {
 	/#
-		self notify(#"print_weapon_name");
-		self endon(#"print_weapon_name");
+		self notify("print_weapon_name");
+		self endon("print_weapon_name");
 		wait(0.2);
 		if(self isswitchingweapons())
 		{
-			self waittill(#"weapon_change_complete", weapon);
+			self waittill("weapon_change_complete", weapon);
 			fail_safe = 0;
 			while(weapon == level.weaponnone)
 			{
-				self waittill(#"weapon_change_complete", weapon);
+				self waittill("weapon_change_complete", weapon);
 				wait(0.05);
 				fail_safe++;
 				if(fail_safe > 120)
@@ -1955,7 +1955,7 @@ function draw_pathnode(node, color)
 function draw_pathnode_think(node, color)
 {
 	/#
-		level endon(#"draw_pathnode_stop");
+		level endon("draw_pathnode_stop");
 		for(;;)
 		{
 			draw_pathnode(node, color);
@@ -1977,7 +1977,7 @@ function draw_pathnodes_stop()
 {
 	/#
 		wait(5);
-		level notify(#"draw_pathnode_stop");
+		level notify("draw_pathnode_stop");
 	#/
 }
 
@@ -2039,7 +2039,7 @@ function dev_get_node_pair()
 			start = node_get(player);
 			if(player buttonpressed(""))
 			{
-				level notify(#"draw_pathnode_stop");
+				level notify("draw_pathnode_stop");
 				return undefined;
 			}
 		}
@@ -2054,7 +2054,7 @@ function dev_get_node_pair()
 			end = node_get(player);
 			if(player buttonpressed(""))
 			{
-				level notify(#"draw_pathnode_stop");
+				level notify("draw_pathnode_stop");
 				return undefined;
 			}
 		}

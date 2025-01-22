@@ -66,10 +66,10 @@ function play_minigun_loop()
 {
 	while(true)
 	{
-		level waittill(#"minis");
+		level waittill("minis");
 		ent = spawn(0, (0, 0, 0), "script_origin");
 		ent playloopsound("zmb_insta_kill_loop");
-		level waittill(#"minie");
+		level waittill("minie");
 		playsound(0, "zmb_insta_kill", (0, 0, 0));
 		ent stoploopsound(0.5);
 		wait(0.5);
@@ -88,11 +88,11 @@ function play_minigun_loop()
 */
 function alarm_a_timer()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	wait(2.5);
 	level thread alarm_a();
 	wait(21);
-	level notify(#"alarm_a_off");
+	level notify("alarm_a_off");
 }
 
 /*
@@ -106,7 +106,7 @@ function alarm_a_timer()
 */
 function alarm_b_timer()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	wait(8.5);
 	level thread alarm_b();
 }
@@ -122,7 +122,7 @@ function alarm_b_timer()
 */
 function play_alarm_a()
 {
-	level endon(#"alarm_a_off");
+	level endon("alarm_a_off");
 	while(true)
 	{
 		playsound(0, "evt_alarm_a", self.origin);
@@ -228,7 +228,7 @@ function samantha_is_angry_earthquake_and_rumbles(localclientnum)
 */
 function do_that_sam_rumble()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	count = 0;
 	while(count <= 4 && isdefined(self))
 	{
@@ -268,7 +268,7 @@ function function_60a32834()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			level notify(#"hash_51d7bc7c", self.script_sound);
@@ -341,7 +341,7 @@ function amb_power_up()
 {
 	wait(2);
 	level.var_41176517 = struct::get_array("amb_computer", "targetname");
-	level waittill(#"power_on");
+	level waittill("power_on");
 	level.var_39f6798 = struct::get("amb_power_up", "targetname");
 	if(isdefined(level.var_39f6798))
 	{

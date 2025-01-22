@@ -257,14 +257,14 @@ function function_e8676a98()
 */
 function function_ee2d9cb4(volume)
 {
-	self endon(#"death");
+	self endon("death");
 	self clearforcedgoal();
 	self cleargoalvolume();
 	self.fixednode = 0;
 	self.forcegoal = 0;
 	wait(0.1);
 	self setgoal(volume, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self delete();
 }
 
@@ -288,7 +288,7 @@ function quad_battle_quadtank_setup()
 	setthreatbias("quad_tank", "garage_hendricks", 10000);
 	setthreatbias("garage_players", "quad_tank", 1000);
 	util::delay(2.5, undefined, &objectives::set, "cp_level_vengeance_destroy_quad", self);
-	self waittill(#"death");
+	self waittill("death");
 	level flag::set("quad_tank_dead");
 	objectives::hide("cp_level_vengeance_destroy_quad");
 }
@@ -307,7 +307,7 @@ function quadtank_hijacked_watcher()
 	level endon(#"hash_91e59520");
 	while(true)
 	{
-		level waittill(#"clonedentity", e_clone);
+		level waittill("clonedentity", e_clone);
 		if(isdefined(e_clone.scriptvehicletype) && e_clone.scriptvehicletype == "quadtank")
 		{
 			level flag::set("quadtank_hijacked");
@@ -327,7 +327,7 @@ function quadtank_hijacked_watcher()
 */
 function function_ca8f95ab()
 {
-	self waittill(#"death");
+	self waittill("death");
 	var_7f6ee28b = spawn("trigger_box", (-18575, -17133.5, 224), 0, 504, 375, 448);
 	wait(10);
 	if(isdefined(self) && self istouching(var_7f6ee28b))
@@ -348,12 +348,12 @@ function function_ca8f95ab()
 */
 function function_7c605010()
 {
-	self endon(#"death");
+	self endon("death");
 	e_goalvolume = getent("qt_right_goalvolume", "targetname");
 	self setneargoalnotifydist(384);
 	self.goalradius = 384;
 	self setgoal(e_goalvolume, 1);
-	self waittill(#"at_anchor");
+	self waittill("at_anchor");
 	level flag::set("quad_tank_downstairs");
 	str_side = "right";
 	while(true)
@@ -368,7 +368,7 @@ function function_7c605010()
 		}
 		level flag::set(("qt_" + str_side) + "_side");
 		self thread function_b331b9b2(str_side);
-		self waittill(#"at_anchor");
+		self waittill("at_anchor");
 	}
 }
 
@@ -385,7 +385,7 @@ function function_b331b9b2(str_side)
 {
 	level notify(#"hash_b331b9b2");
 	level endon(#"hash_b331b9b2");
-	self endon(#"death");
+	self endon("death");
 	if(str_side == "left")
 	{
 		e_goalvolume = getent("qt_left_goalvolume", "targetname");
@@ -433,7 +433,7 @@ function function_a5928078()
 */
 function function_7d7a1bdd()
 {
-	level endon(#"quad_battle_ends");
+	level endon("quad_battle_ends");
 	var_a3076518 = getent("sm_qt_hijack", "targetname");
 	e_goal_volume = getent("garage_enemy_n_goalvolume", "targetname");
 	foreach(var_56b381f2 in getentarray(var_a3076518.target, "targetname"))
@@ -522,7 +522,7 @@ function quad_battle_hendricks()
 	self.script_accuracy = 0.2;
 	e_node = getnode("quad_battle_hendricks_node", "targetname");
 	self setgoalnode(e_node, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self thread function_fd7b3b3b();
 	self thread function_1314293f();
 	level flag::wait_till("quad_battle_ends");
@@ -538,7 +538,7 @@ function quad_battle_hendricks()
 	level flag::wait_till("hendricks_exiting_market");
 	self ai::set_behavior_attribute("sprint", 0);
 	level thread plaza_enemies();
-	self waittill(#"goal");
+	self waittill("goal");
 	exit_trigger = getent("exit_to_plaza", "targetname");
 	exit_trigger triggerenable(1);
 	s_node = struct::get("quad_battle_script_node", "targetname");
@@ -585,7 +585,7 @@ function function_8ccac57d()
 */
 function function_fd7b3b3b()
 {
-	level.quadtank endon(#"death");
+	level.quadtank endon("death");
 	level flag::wait_till("quad_tank_downstairs");
 	self colors::enable();
 	wait(0.05);
@@ -603,7 +603,7 @@ function function_fd7b3b3b()
 */
 function function_1314293f()
 {
-	level.quadtank endon(#"death");
+	level.quadtank endon("death");
 	while(true)
 	{
 		if(isdefined(self) && self isatcovernode())
@@ -691,7 +691,7 @@ function quad_battle_vo()
 */
 function function_f14d81a9()
 {
-	level.quadtank endon(#"death");
+	level.quadtank endon("death");
 	self endon(#"hash_b8804640");
 	wait(20);
 	level.ai_hendricks vengeance_util::function_5fbec645("hend_we_need_something_bi_0");
@@ -708,7 +708,7 @@ function function_f14d81a9()
 */
 function function_bc3db33d()
 {
-	level.quadtank waittill(#"trophy_system_disabled");
+	level.quadtank waittill("trophy_system_disabled");
 	var_90911853 = getweapon("launcher_standard");
 	foreach(e_player in level.activeplayers)
 	{
@@ -731,8 +731,8 @@ function function_bc3db33d()
 */
 function function_43458bf2()
 {
-	level.quadtank endon(#"death");
-	self endon(#"trophy_system_disabled");
+	level.quadtank endon("death");
+	self endon("trophy_system_disabled");
 	wait(20);
 	var_c823b7c6 = [];
 	var_c823b7c6[0] = "hend_shoot_out_its_weak_p_1";
@@ -772,14 +772,14 @@ function function_43458bf2()
 */
 function function_55c599e4()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trophy_system_disabled");
+		self waittill("trophy_system_disabled");
 		vengeance_garage::function_73a79ca0("hend_hit_it_with_a_rocket_1");
-		self waittill(#"trophy_system_enabled");
+		self waittill("trophy_system_enabled");
 		self thread function_455f3062();
-		self waittill(#"trophy_system_disabled");
+		self waittill("trophy_system_disabled");
 		vengeance_garage::function_73a79ca0("hend_defenses_down_hit_0");
 	}
 }
@@ -795,8 +795,8 @@ function function_55c599e4()
 */
 function function_455f3062()
 {
-	self endon(#"death");
-	self endon(#"trophy_system_disabled");
+	self endon("death");
+	self endon("trophy_system_disabled");
 	wait(20);
 	vengeance_garage::function_73a79ca0("hend_it_s_defense_system_0");
 }
@@ -812,11 +812,11 @@ function function_455f3062()
 */
 function function_e955ac45()
 {
-	self endon(#"death");
-	self waittill(#"trophy_system_enabled");
+	self endon("death");
+	self waittill("trophy_system_enabled");
 	level dialog::player_say("plyr_how_the_hell_is_this_0");
-	self waittill(#"trophy_system_disabled");
-	self waittill(#"trophy_system_enabled");
+	self waittill("trophy_system_disabled");
+	self waittill("trophy_system_enabled");
 	vengeance_garage::function_73a79ca0("hend_it_s_back_online_wa_0");
 }
 
@@ -858,7 +858,7 @@ function monitor_quadtank_health(obj, params)
 */
 function function_82671202()
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"hash_e09e14de");
 	vengeance_garage::function_73a79ca0("hend_that_outta_slow_it_d_0");
 }
@@ -889,7 +889,7 @@ function function_f8295b7()
 */
 function function_23dea593()
 {
-	self endon(#"death");
+	self endon("death");
 	var_361ba23a = [];
 	var_361ba23a[0] = "hend_keep_moving_don_t_l_2";
 	while(true)
@@ -1174,7 +1174,7 @@ function plaza_main()
 function function_f7d00e6a()
 {
 	var_a3a9af43 = getent("players_near_safehouse", "targetname");
-	var_a3a9af43 endon(#"death");
+	var_a3a9af43 endon("death");
 	var_a3a9af43 trigger::wait_till();
 	return var_a3a9af43.who;
 }
@@ -1207,7 +1207,7 @@ function plaza_hendricks()
 {
 	e_node = getnode("hendricks_plaza_node", "targetname");
 	self setgoalnode(e_node, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	level flag::set("hendricks_at_plaza");
 	level flag::wait_till("plaza_hendricks_jump");
 	self ai::set_behavior_attribute("cqb", 0);
@@ -1435,7 +1435,7 @@ function function_db772ecc(goalradius)
 */
 function function_d824ba94(group)
 {
-	self endon(#"death");
+	self endon("death");
 	self setthreatbiasgroup(group);
 	if(level flag::get("plaza_combat_live"))
 	{
@@ -1588,7 +1588,7 @@ function function_3dc47c4e()
 */
 function function_eef8125c()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self) || !isalive(self))
 	{
 		return;
@@ -1646,10 +1646,10 @@ function function_aecb2215()
 */
 function function_dcf7f342()
 {
-	level endon(#"plaza_combat_live");
+	level endon("plaza_combat_live");
 	while(true)
 	{
-		self waittill(#"weapon_fired", curweapon);
+		self waittill("weapon_fired", curweapon);
 		if(!weaponhasattachment(curweapon, "suppressed") || curweapon.name != "ar_marksman_veng_hero_weap")
 		{
 			level flag::set("plaza_combat_live");
@@ -1668,7 +1668,7 @@ function function_dcf7f342()
 */
 function wasp_think(e_goal_volume)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(e_goal_volume))
 	{
 		self setgoal(e_goal_volume, 1);
@@ -1686,7 +1686,7 @@ function wasp_think(e_goal_volume)
 */
 function function_47370bbe()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(1.5, 5));
 	self kill();
 }
@@ -1702,7 +1702,7 @@ function function_47370bbe()
 */
 function function_892fb7e0()
 {
-	level endon(#"plaza_cleared");
+	level endon("plaza_cleared");
 	level thread function_5f5b64cf();
 	exploder::exploder("sh_lhs_fire");
 	wait(2.5);
@@ -1742,8 +1742,8 @@ function function_5f5b64cf()
 */
 function function_29587c78()
 {
-	self endon(#"disconnect");
-	level endon(#"plaza_cleared");
+	self endon("disconnect");
+	level endon("plaza_cleared");
 	while(true)
 	{
 		eye = self geteye();
@@ -1822,7 +1822,7 @@ function function_29587c78()
 */
 function function_9af0090()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_c23c76ef");
 	nag_vo = [];
 	nag_vo[0] = "hend_get_down_here_we_go_0";
@@ -1853,7 +1853,7 @@ function function_9af0090()
 */
 function function_2b657656()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	trigger::wait_till("plaza_combat_failsafe", "targetname", self);
 	self notify(#"hash_c23c76ef");
 }

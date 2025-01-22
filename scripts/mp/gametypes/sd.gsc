@@ -299,7 +299,7 @@ function onspawnplayer(predictedspawn)
 */
 function sd_playerspawnedcb()
 {
-	level notify(#"spawned_player");
+	level notify("spawned_player");
 }
 
 /*
@@ -386,7 +386,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 */
 function checkallowspectating()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.05);
 	update = 0;
 	livesleft = !(level.numlives && !self.pers["lives"]);
@@ -570,8 +570,8 @@ function warnlastplayer(team)
 */
 function givelastattackerwarning(team)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	fullhealthtime = 0;
 	interval = 0.05;
 	self.lastmansd = 1;
@@ -758,11 +758,11 @@ function bombs()
 */
 function setbomboverheatingafterweaponchange(useobject, overheated, heat)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
-	self waittill(#"weapon_change", weapon);
+	self endon("death");
+	self endon("disconnect");
+	self endon("joined_team");
+	self endon("joined_spectators");
+	self waittill("weapon_change", weapon);
 	if(weapon == useobject.useweapon)
 	{
 		self setweaponoverheating(overheated, heat, weapon);
@@ -1197,7 +1197,7 @@ function bombplanted(destroyedobj, player)
 */
 function bombtimerwait()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level endon(#"bomb_defused");
 	hostmigration::waitlongdurationwithgameendtimeupdate(level.bombtimer);
 }

@@ -746,7 +746,7 @@ function blood_soul_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 	}
 	else
 	{
-		self notify(#"remove_blood_soul");
+		self notify("remove_blood_soul");
 	}
 }
 

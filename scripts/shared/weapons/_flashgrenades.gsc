@@ -35,9 +35,9 @@ function init_shared()
 */
 function flashrumbleloop(duration)
 {
-	self endon(#"stop_monitoring_flash");
-	self endon(#"flash_rumble_loop");
-	self notify(#"flash_rumble_loop");
+	self endon("stop_monitoring_flash");
+	self endon("flash_rumble_loop");
+	self notify("flash_rumble_loop");
 	goaltime = gettime() + (duration * 1000);
 	while(gettime() < goaltime)
 	{
@@ -150,12 +150,12 @@ function monitorflash_internal(amount_distance, amount_angle, attacker, direct_o
 */
 function monitorflash()
 {
-	self endon(#"disconnect");
-	self endon(#"killflashmonitor");
+	self endon("disconnect");
+	self endon("killflashmonitor");
 	self.flashendtime = 0;
 	while(true)
 	{
-		self waittill(#"flashbang", amount_distance, amount_angle, attacker);
+		self waittill("flashbang", amount_distance, amount_angle, attacker);
 		if(!isalive(self))
 		{
 			continue;
@@ -175,11 +175,11 @@ function monitorflash()
 */
 function monitorrcbombflash()
 {
-	self endon(#"death");
+	self endon("death");
 	self.flashendtime = 0;
 	while(true)
 	{
-		self waittill(#"flashbang", amount_distance, amount_angle, attacker);
+		self waittill("flashbang", amount_distance, amount_angle, attacker);
 		driver = self getseatoccupant(0);
 		if(!isdefined(driver) || !isalive(driver))
 		{
@@ -238,8 +238,8 @@ function applyflash(duration, rumbleduration, attacker)
 */
 function playflashsound(duration)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	flashsound = spawn("script_origin", (0, 0, 1));
 	flashsound.origin = self.origin;
 	flashsound linkto(self);
@@ -253,7 +253,7 @@ function playflashsound(duration)
 	flashsound playsound(level.sound_flash_start);
 	flashsound stoploopsound(0.5);
 	wait(0.5);
-	flashsound notify(#"delete");
+	flashsound notify("delete");
 	flashsound delete();
 }
 
@@ -268,8 +268,8 @@ function playflashsound(duration)
 */
 function deleteentonownerdeath(owner)
 {
-	self endon(#"delete");
-	owner waittill(#"death");
+	self endon("delete");
+	owner waittill("death");
 	self delete();
 }
 

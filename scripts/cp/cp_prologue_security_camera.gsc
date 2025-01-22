@@ -122,7 +122,7 @@ function function_6475a61e()
 	level flag::wait_till("everyone_in_camera_room");
 	objectives::complete("cp_level_prologue_locate_the_security_room");
 	objectives::set("cp_level_prologue_locate_the_minister");
-	level waittill(#"minister_located");
+	level waittill("minister_located");
 	objectives::complete("cp_level_prologue_security_camera");
 	objectives::complete("cp_level_prologue_locate_the_minister");
 	objectives::set("cp_level_prologue_free_the_minister");
@@ -285,8 +285,8 @@ function activate_player_video_screens(var_3675dd99, str_player_use_struct, extr
 */
 function check_for_video_cam_disable()
 {
-	self endon(#"death");
-	level waittill(#"minister_located");
+	self endon("death");
+	level waittill("minister_located");
 	wait(1);
 	self gameobjects::disable_object();
 }
@@ -318,8 +318,8 @@ function function_b85fc83f(e_player)
 */
 function function_85343e08(e_player)
 {
-	level endon(#"minister_located");
-	e_player waittill(#"disconnect");
+	level endon("minister_located");
+	e_player waittill("disconnect");
 	self gameobjects::enable_object();
 }
 
@@ -334,7 +334,7 @@ function function_85343e08(e_player)
 */
 function player_uses_the_security_camera_station(s_player_use, extra_cam_index)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_1f4942ae = 1;
 	snd_key = spawn("script_origin", s_player_use.origin);
 	snd_key playsound("evt_typing");
@@ -379,7 +379,7 @@ function player_uses_the_security_camera_station(s_player_use, extra_cam_index)
 	self thread function_a4090f73(level.var_d658503a);
 	level thread namespace_21b2c1f2::function_973b77f9();
 	level.minister_located = 1;
-	level notify(#"minister_located");
+	level notify("minister_located");
 	var_38907d67 = getent("t_regroup_security_camera", "targetname");
 	var_38907d67 triggerenable(1);
 	snd_key delete();
@@ -563,7 +563,7 @@ function turn_on_security_camera(cam_index)
 */
 function scan_handler(str_anim_idle, str_anim_comfirm, s_align_struct)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_1ca98eed = function_6840a15e(level.var_d658503a);
 	if(level.var_d658503a > 0)
 	{
@@ -678,7 +678,7 @@ function function_2e16b263(scenename)
 */
 function start_face_scanner(extra_cam_index)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level flag::clear("face_scanning_complete");
 	var_1ca98eed = function_6840a15e(extra_cam_index);
 	if(var_1ca98eed.var_a1a1b35e == 0)

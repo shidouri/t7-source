@@ -137,7 +137,7 @@ function deactivate(type, name, player)
 	{
 		state set_state_inactive(players[player_index]);
 	}
-	state notify(#"visionset_mgr_deactivate_all");
+	state notify("visionset_mgr_deactivate_all");
 }
 
 /*
@@ -316,7 +316,7 @@ function ramp_in_thread_per_player(player, duration)
 */
 function ramp_in_out_thread_hold_func()
 {
-	level endon(#"kill_ramp_in_out_thread_hold_func");
+	level endon("kill_ramp_in_out_thread_hold_func");
 	while(true)
 	{
 		for(player_index = 0; player_index < level.players.size; player_index++)
@@ -363,7 +363,7 @@ function ramp_in_out_thread(ramp_in, full_period, ramp_out)
 	{
 		wait(full_period);
 	}
-	level notify(#"kill_ramp_in_out_thread_hold_func");
+	level notify("kill_ramp_in_out_thread_hold_func");
 	start_time = gettime();
 	end_time = start_time + (int(ramp_out * 1000));
 	while(true)
@@ -441,10 +441,10 @@ function ramp_in_out_thread_per_player_internal(player, ramp_in, full_period, ra
 */
 function ramp_in_out_thread_watch_player_shutdown(player)
 {
-	player notify(#"ramp_in_out_thread_watch_player_shutdown");
-	player endon(#"ramp_in_out_thread_watch_player_shutdown");
-	player endon(#"disconnect");
-	player waittill(#"death");
+	player notify("ramp_in_out_thread_watch_player_shutdown");
+	player endon("ramp_in_out_thread_watch_player_shutdown");
+	player endon("disconnect");
+	player waittill("death");
 	if(player isremotecontrolling() == 0)
 	{
 		deactivate_per_player(self.type, self.name, player);
@@ -462,7 +462,7 @@ function ramp_in_out_thread_watch_player_shutdown(player)
 */
 function ramp_in_out_thread_per_player_death_shutdown(player, ramp_in, full_period, ramp_out)
 {
-	player endon(#"death");
+	player endon("death");
 	thread ramp_in_out_thread_watch_player_shutdown(player);
 	ramp_in_out_thread_per_player_internal(player, ramp_in, full_period, ramp_out);
 }
@@ -842,8 +842,8 @@ function update_clientfields(player, type_struct)
 */
 function lerp_thread_wrapper(func, opt_param_1, opt_param_2, opt_param_3)
 {
-	self notify(#"visionset_mgr_deactivate_all");
-	self endon(#"visionset_mgr_deactivate_all");
+	self notify("visionset_mgr_deactivate_all");
+	self endon("visionset_mgr_deactivate_all");
 	self [[func]](opt_param_1, opt_param_2, opt_param_3);
 }
 
@@ -859,9 +859,9 @@ function lerp_thread_wrapper(func, opt_param_1, opt_param_2, opt_param_3)
 function lerp_thread_per_player_wrapper(func, player, opt_param_1, opt_param_2, opt_param_3)
 {
 	player_entnum = player getentitynumber();
-	self.players[player_entnum] notify(#"visionset_mgr_deactivate");
-	self.players[player_entnum] endon(#"visionset_mgr_deactivate");
-	player endon(#"disconnect");
+	self.players[player_entnum] notify("visionset_mgr_deactivate");
+	self.players[player_entnum] endon("visionset_mgr_deactivate");
+	player endon("disconnect");
 	self [[func]](player, opt_param_1, opt_param_2, opt_param_3);
 }
 
@@ -918,7 +918,7 @@ function deactivate_per_player(type, name, player)
 		}
 	}
 	state set_state_inactive(player);
-	state.players[player_entnum] notify(#"visionset_mgr_deactivate");
+	state.players[player_entnum] notify("visionset_mgr_deactivate");
 }
 
 /*

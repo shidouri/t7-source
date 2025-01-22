@@ -155,7 +155,7 @@ function black_hole_activated(ent_model, int_local_client_num)
 */
 function black_hole_zombie_being_pulled(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	if(localclientnum != 0)
 	{
@@ -176,7 +176,7 @@ function black_hole_zombie_being_pulled(localclientnum, oldval, newval, bnewent,
 	}
 	else if(isdefined(self._bhb_pulled_in_fx))
 	{
-		self._bhb_pulled_in_fx notify(#"no_clean_up_needed");
+		self._bhb_pulled_in_fx notify("no_clean_up_needed");
 		self._bhb_pulled_in_fx unlink();
 		self._bhb_pulled_in_fx delete();
 	}
@@ -193,7 +193,7 @@ function black_hole_zombie_being_pulled(localclientnum, oldval, newval, bnewent,
 */
 function black_hole_bomb_pulled_in_fx_clean(ent_zombie, ent_fx_origin)
 {
-	ent_fx_origin endon(#"no_clean_up_needed");
+	ent_fx_origin endon("no_clean_up_needed");
 	if(!isdefined(ent_zombie))
 	{
 		return;

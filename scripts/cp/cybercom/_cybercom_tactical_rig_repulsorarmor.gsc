@@ -116,7 +116,7 @@ function repulsorarmorshieldtake(type)
 		missile_deleteattractor(self.missile_repulsor);
 		self.missile_repulsor = undefined;
 	}
-	self notify(#"repulsorarmorshieldtake");
+	self notify("repulsorarmorshieldtake");
 	self.cybercom.var_c281e3c = undefined;
 }
 
@@ -131,11 +131,11 @@ function repulsorarmorshieldtake(type)
 */
 function private _threatmonitor(weapon)
 {
-	self notify(#"repulsearmorthreatmonitor");
-	self endon(#"repulsearmorthreatmonitor");
-	self endon(#"repulsorarmorshieldtake");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("repulsearmorthreatmonitor");
+	self endon("repulsearmorthreatmonitor");
+	self endon("repulsorarmorshieldtake");
+	self endon("death");
+	self endon("disconnect");
 	isupgraded = self hascybercomrig(weapon) == 2;
 	fx = (isupgraded ? level._effect["repulsorarmorUpgraded_fx"] : level._effect["repulsorarmor_fx"]);
 	if(!isdefined(self.missile_repulsor))
@@ -146,7 +146,7 @@ function private _threatmonitor(weapon)
 	var_6d621232 = gettime();
 	while(true)
 	{
-		self waittill(#"projectile_applyattractor", missile);
+		self waittill("projectile_applyattractor", missile);
 		if(gettime() > (var_6d621232 + (cooldown * 1000)))
 		{
 			if(!isdefined(self.usingvehicle) || (isdefined(self.usingvehicle) && self.usingvehicle != 1))
@@ -171,9 +171,9 @@ function private _threatmonitor(weapon)
 */
 function private function_170e07a2()
 {
-	self endon(#"repulsorarmorshieldtake");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("repulsorarmorshieldtake");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		curtime = gettime();

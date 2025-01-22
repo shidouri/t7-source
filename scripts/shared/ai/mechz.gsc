@@ -939,9 +939,9 @@ function private mechzshootflame(entity)
 */
 function private mechzdelayflame()
 {
-	self endon(#"death");
-	self notify(#"mechzdelayflame");
-	self endon(#"mechzdelayflame");
+	self endon("death");
+	self notify("mechzdelayflame");
+	self endon("mechzdelayflame");
 	wait(0.3);
 	self clientfield::set("mechz_ft", 1);
 	self.isshootingflame = 1;
@@ -999,8 +999,8 @@ function private mechzupdateflame(entity)
 */
 function playerflamedamage(mechz)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!(isdefined(self.is_burning) && self.is_burning) && zombie_utility::is_player_valid(self, 1))
 	{
 		self.is_burning = 1;
@@ -1028,7 +1028,7 @@ function playerflamedamage(mechz)
 */
 function mechzstopflame(entity)
 {
-	self notify(#"mechzdelayflame");
+	self notify("mechzdelayflame");
 	entity clientfield::set("mechz_ft", 0);
 	entity.isshootingflame = 0;
 	entity.nextflametime = gettime() + 7500;
@@ -1082,8 +1082,8 @@ function private mechzplayedberserkintro(entity)
 */
 function private mechzendberserk()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(self.berserk === 1)
 	{
 		if(gettime() >= self.berserkendtime)
@@ -1218,7 +1218,7 @@ function private mechzspawnsetup()
 */
 function private mechzflamewatcher()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(self.favoriteenemy))
@@ -1774,7 +1774,7 @@ function mechz_track_faceplate_damage(damage)
 		self.partdestroyed = 1;
 		blackboard::setblackboardattribute(self, "_mechz_part", "mechz_faceplate");
 		self mechzbehavior::mechzgoberserk();
-		level notify(#"mechz_faceplate_detached");
+		level notify("mechz_faceplate_detached");
 	}
 }
 
@@ -1830,7 +1830,7 @@ function mechz_track_powercap_damage(damage)
 		self.gun_attached = 0;
 		self.partdestroyed = 1;
 		blackboard::setblackboardattribute(self, "_mechz_part", "mechz_gun");
-		level notify(#"mechz_gun_detached");
+		level notify("mechz_gun_detached");
 	}
 }
 

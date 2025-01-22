@@ -189,12 +189,12 @@ function function_aa37ce2d()
 	level flag::wait_till("pap_water_drained");
 	if(zm_utility::is_player_valid(level.var_16e32c2f))
 	{
-		level.var_16e32c2f notify(#"player_opened_pap");
+		level.var_16e32c2f notify("player_opened_pap");
 	}
 	mdl_gate moveto(mdl_gate.s_pos.origin, 3);
 	mdl_gate playsound("zmb_papquest_gate_move");
 	level thread zm_island_vo::function_3bf2d62a("pap_opens", 0, 1, 0);
-	mdl_gate waittill(#"movedone");
+	mdl_gate waittill("movedone");
 	level flag::set("pap_open");
 	var_b1e70b95 delete();
 	t_door = getent("trigger_pap", "script_noteworthy");
@@ -292,7 +292,7 @@ function function_dd9ccb8(n_id)
 	}
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(zm_utility::is_player_valid(player) && level flag::get(self.script_noteworthy))
 		{
 			zm_unitrigger::unregister_unitrigger(self.trigger);
@@ -387,10 +387,10 @@ function function_1a519eae(str_flag)
 {
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(zm_utility::is_player_valid(player))
 		{
-			player notify(#"player_got_valve_part");
+			player notify("player_got_valve_part");
 			zm_unitrigger::unregister_unitrigger(self.trigger);
 			player playsound("zmb_valve_pickup");
 			level flag::set(str_flag);
@@ -498,7 +498,7 @@ function function_d0901c34()
 */
 function function_c762197b()
 {
-	self waittill(#"opened");
+	self waittill("opened");
 	if(isdefined(self.clip))
 	{
 		self.clip connectpaths();
@@ -749,7 +749,7 @@ function defend_start()
 */
 function function_3d4e00c()
 {
-	level endon(#"defend_over");
+	level endon("defend_over");
 	wait(5);
 	while(true)
 	{
@@ -777,19 +777,19 @@ function function_3d4e00c()
 */
 function function_9fcd89f7()
 {
-	level notify(#"defend_success");
+	level notify("defend_success");
 	exploder::exploder("fxexp_201");
 	exploder::exploder_stop("lgt_penstock_event");
 	level.var_ced49fc moveto(level.var_ced49fc.v_org, 3);
 	level.var_ced49fc rotateto(level.var_ced49fc.v_ang, 3);
-	level.var_ced49fc waittill(#"movedone");
+	level.var_ced49fc waittill("movedone");
 	level.var_ced49fc.trigger = zm_island_util::spawn_trigger_radius(level.var_ced49fc.origin, 50, 1, &function_9bd3096f);
 	level.var_ced49fc thread function_1a519eae("valve3_found");
 	level flag::set("defend_success");
 	level.mdl_gate moveto(level.mdl_gate.v_org, 3);
 	level.mdl_gate playsound("zmb_papquest_defend_gate_open");
 	exploder::exploder("fxexp_202");
-	level.mdl_gate waittill(#"movedone");
+	level.mdl_gate waittill("movedone");
 	level.mdl_clip delete();
 }
 
@@ -866,7 +866,7 @@ function function_55dac330()
 	iprintlnbold("DEFEND FAILED");
 	level.mdl_gate movez(96, 3);
 	level.mdl_gate playsound("zmb_papquest_defend_gate_open");
-	level.mdl_gate waittill(#"movedone");
+	level.mdl_gate waittill("movedone");
 	level.mdl_clip movez(96, 3);
 	level thread defend_start();
 	level flag::set("spawn_zombies");
@@ -883,13 +883,13 @@ function function_55dac330()
 */
 function function_2392e644()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_6eb9188d = 1;
 	if(isdefined(self.var_57b55f08))
 	{
 		self thread function_318ec9ba();
 	}
-	self waittill(#"completed_emerging_into_playable_area");
+	self waittill("completed_emerging_into_playable_area");
 	self.no_damage_points = 1;
 	self.deathpoints_already_given = 1;
 	self.no_powerups = 1;
@@ -908,7 +908,7 @@ function function_2392e644()
 */
 function function_318ec9ba()
 {
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till("trigger_penstock_water", "targetname", self);
 	self clientfield::set("zombie_splash", 1);
 }
@@ -924,7 +924,7 @@ function function_318ec9ba()
 */
 function function_83af0b87(t_water)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		while(!self istouching(t_water))
@@ -992,7 +992,7 @@ function function_851f0b97()
 */
 function function_145f4b1a()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_62f73de6");
 	var_1af0fcd8 = getent("bunker_penstock_blue_sign_reveal", "targetname");
 	self zm_island_util::function_7448e472(var_1af0fcd8);

@@ -66,8 +66,8 @@ function remove_mp_contracts_devgui(localclientnum)
 function create_mp_contracts_devgui(localclientnum)
 {
 	/#
-		level notify(#"create_mp_contracts_devgui_singleton");
-		level endon(#"create_mp_contracts_devgui_singleton");
+		level notify("create_mp_contracts_devgui_singleton");
+		level endon("create_mp_contracts_devgui_singleton");
 		remove_mp_contracts_devgui(localclientnum);
 		wait(0.05);
 		if(0)
@@ -476,8 +476,8 @@ function calculate_schedule_start_time(ref_time)
 function watch_devgui()
 {
 	/#
-		level notify(#"watch_devgui_client_mp_singleton");
-		level endon(#"watch_devgui_client_mp_singleton");
+		level notify("watch_devgui_client_mp_singleton");
+		level endon("watch_devgui_client_mp_singleton");
 		while(true)
 		{
 			wait(0.1);

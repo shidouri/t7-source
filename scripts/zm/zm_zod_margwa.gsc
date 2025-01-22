@@ -268,7 +268,7 @@ function function_8d578a58()
 {
 	level.var_6e63e659++;
 	level.zombie_ai_limit--;
-	self waittill(#"death");
+	self waittill("death");
 	level thread zm_zod_vo::function_c11b8117(self.origin);
 	level.var_6e63e659--;
 	level.zombie_ai_limit++;

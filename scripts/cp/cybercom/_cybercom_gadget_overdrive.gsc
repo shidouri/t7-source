@@ -133,8 +133,8 @@ function _on_disconnect()
 function _on(slot, weapon)
 {
 	self endon(#"hash_3ca9ab77");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(flagsys::get("gadget_overdrive_on"))
 	{
 		return;

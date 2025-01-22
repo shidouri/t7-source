@@ -178,9 +178,9 @@ function resetoobtimer(is_host_migrating, b_disable_timekeep)
 	}
 	if(!(isdefined(is_host_migrating) && is_host_migrating))
 	{
-		self notify(#"oob_host_migration_exit");
+		self notify("oob_host_migration_exit");
 	}
-	self notify(#"oob_exit");
+	self notify("oob_exit");
 }
 
 /*
@@ -194,13 +194,13 @@ function resetoobtimer(is_host_migrating, b_disable_timekeep)
 */
 function waitforclonetouch()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", clone);
+		self waittill("trigger", clone);
 		if(isactor(clone) && isdefined(clone.isaiclone) && clone.isaiclone && !clone isplayinganimscripted())
 		{
-			clone notify(#"clone_shutdown");
+			clone notify("clone_shutdown");
 		}
 	}
 }
@@ -234,14 +234,14 @@ function getadjusedplayer(player)
 */
 function waitforplayertouch()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(sessionmodeismultiplayergame())
 		{
 			hostmigration::waittillhostmigrationdone();
 		}
-		self waittill(#"trigger", entity);
+		self waittill("trigger", entity);
 		if(!isplayer(entity) && (!(isvehicle(entity) && (isdefined(entity.hijacked) && entity.hijacked) && isdefined(entity.owner) && isalive(entity))))
 		{
 			continue;
@@ -257,7 +257,7 @@ function waitforplayertouch()
 		}
 		if(!player isoutofbounds() && !player isplayinganimscripted() && (!(isdefined(player.oobdisabled) && player.oobdisabled)))
 		{
-			player notify(#"oob_enter");
+			player notify("oob_enter");
 			if(isdefined(level.oob_timekeep_ms) && isdefined(player.last_oob_timekeep_ms) && isdefined(player.last_oob_duration_ms) && (gettime() - player.last_oob_timekeep_ms) < level.oob_timekeep_ms)
 			{
 				player.oob_start_time = gettime() - (level.oob_timelimit_ms - player.last_oob_duration_ms);
@@ -392,8 +392,8 @@ function killentity(entity)
 */
 function watchforleave(trigger, entity)
 {
-	self endon(#"oob_exit");
-	entity endon(#"death");
+	self endon("oob_exit");
+	entity endon("death");
 	while(true)
 	{
 		if(entity istouchinganyoobtrigger())
@@ -433,8 +433,8 @@ function watchforleave(trigger, entity)
 */
 function watchfordeath(trigger, entity)
 {
-	self endon(#"disconnect");
-	self endon(#"oob_exit");
+	self endon("disconnect");
+	self endon("oob_exit");
 	util::waittill_any_ents_two(self, "death", entity, "death");
 	self resetoobtimer();
 }
@@ -450,8 +450,8 @@ function watchfordeath(trigger, entity)
 */
 function watchforhostmigration(trigger, entity)
 {
-	self endon(#"oob_host_migration_exit");
-	level waittill(#"host_migration_begin");
+	self endon("oob_host_migration_exit");
+	level waittill("host_migration_begin");
 	self resetoobtimer(1, 1);
 }
 

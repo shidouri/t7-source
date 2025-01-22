@@ -447,7 +447,7 @@ function private margwafxtraveltellcallback(localclientnum, oldvalue, newvalue, 
 		case 0:
 		{
 			deletefx(localclientnum, self.travelertellfx);
-			self notify(#"stop_margwatraveltell");
+			self notify("stop_margwatraveltell");
 			break;
 		}
 		case 1:
@@ -470,8 +470,8 @@ function private margwafxtraveltellcallback(localclientnum, oldvalue, newvalue, 
 */
 function private margwatraveltellupdate(localclientnum)
 {
-	self notify(#"stop_margwatraveltell");
-	self endon(#"stop_margwatraveltell");
+	self notify("stop_margwatraveltell");
+	self endon("stop_margwatraveltell");
 	self endon(#"entityshutdown");
 	player = getlocalplayer(localclientnum);
 	while(true)

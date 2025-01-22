@@ -60,8 +60,8 @@ function __init__()
 */
 function super_ee(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level notify(#"hope_state");
-	level endon(#"hope_state");
+	level notify("hope_state");
+	level endon("hope_state");
 	var_d461c73e = struct::get("hope_spark", "targetname");
 	switch(newval)
 	{

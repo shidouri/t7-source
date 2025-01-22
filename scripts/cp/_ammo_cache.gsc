@@ -54,7 +54,7 @@ class cammocrate
 	*/
 	function function_71f6269a(var_bd13c94b)
 	{
-		self waittill(#"death");
+		self waittill("death");
 		gameobject gameobjects::destroy_object(1);
 		gameobject delete();
 		if(isdefined(var_bd13c94b))
@@ -74,7 +74,7 @@ class cammocrate
 	*/
 	function function_2902ab6c(var_60a09143)
 	{
-		var_60a09143 endon(#"death");
+		var_60a09143 endon("death");
 		if(var_60a09143.var_ce22f999)
 		{
 			return;
@@ -111,11 +111,11 @@ class cammocrate
 	*/
 	function function_e76edd0b(var_60a09143)
 	{
-		self endon(#"death");
-		var_60a09143 endon(#"death");
+		self endon("death");
+		var_60a09143 endon("death");
 		while(true)
 		{
-			self waittill(#"trigger", entity);
+			self waittill("trigger", entity);
 			if(!isdefined(var_60a09143))
 			{
 				break;
@@ -170,7 +170,7 @@ class cammocrate
 			e_player givemaxammo(w_weapon);
 			e_player setweaponammoclip(w_weapon, w_weapon.clipsize);
 		}
-		e_player notify(#"ammo_refilled");
+		e_player notify("ammo_refilled");
 		e_player playrumbleonentity("damage_light");
 		e_player util::_enableweapon();
 		if(single_use)

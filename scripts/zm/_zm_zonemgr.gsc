@@ -1001,7 +1001,7 @@ function manage_zones(initial_zone)
 				}
 				if(!isdefined(oldzone) || oldzone != newzone)
 				{
-					level notify(#"newzoneactive", zkeys[z]);
+					level notify("newzoneactive", zkeys[z]);
 					oldzone = newzone;
 				}
 				azkeys = getarraykeys(zone.adjacent_zones);

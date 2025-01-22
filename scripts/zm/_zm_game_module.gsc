@@ -256,7 +256,7 @@ function respawn_players()
 */
 function zombie_goto_round(target_round)
 {
-	level notify(#"restart_round");
+	level notify("restart_round");
 	if(target_round < 1)
 	{
 		target_round = 1;
@@ -302,8 +302,8 @@ function game_module_custom_intermission(intermission_struct)
 {
 	self closeingamemenu();
 	level endon(#"stop_intermission");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self notify(#"_zombie_game_over");
 	self.score = self.score_total;
 	self.sessionstate = "intermission";
@@ -393,7 +393,7 @@ function fireworks_launch(launch_spot)
 		dist = distance(new_dest.origin + random_offset, firework.origin);
 		time = dist / 700;
 		firework moveto(new_dest.origin + random_offset, time);
-		firework waittill(#"movedone");
+		firework waittill("movedone");
 	}
 	firework playsound("zmb_souls_end");
 	playfx(level._effect["fw_pre_burst"], firework.origin);

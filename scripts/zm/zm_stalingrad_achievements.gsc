@@ -84,7 +84,7 @@ function function_73d8758f()
 */
 function function_69021ea7()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_4e21f047");
 	self giveachievement("ZM_STALINGRAD_WIELD_DRAGON");
 }
@@ -115,7 +115,7 @@ function function_42b2ae41()
 */
 function function_35e5c39b()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_2e47bc4a");
 	self giveachievement("ZM_STALINGRAD_RIDE_DRAGON");
 }
@@ -131,7 +131,7 @@ function function_35e5c39b()
 */
 function function_68cad44c()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_1d89afbc");
 	self giveachievement("ZM_STALINGRAD_LOCKDOWN");
 }
@@ -147,7 +147,7 @@ function function_68cad44c()
 */
 function function_77f84ddb()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_41370469");
 	self giveachievement("ZM_STALINGRAD_SOLO_TRIALS");
 }
@@ -163,7 +163,7 @@ function function_77f84ddb()
 */
 function function_3a3c9cc6()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(#"hash_c925c266", n_kill_count);
@@ -186,7 +186,7 @@ function function_3a3c9cc6()
 */
 function function_b6e817dd()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(#"hash_ddb84fad", n_kill_count);
@@ -209,7 +209,7 @@ function function_b6e817dd()
 */
 function function_bdcf8e90()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(#"hash_8c80a390", n_kill_count);
@@ -247,7 +247,7 @@ function function_54dbe534()
 */
 function function_99a5ed1a(n_target_kills)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_c43b59a6");
 	while(true)
 	{
@@ -271,7 +271,7 @@ function function_99a5ed1a(n_target_kills)
 */
 function function_60593db9(n_target_kills)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_c43b59a6");
 	while(true)
 	{

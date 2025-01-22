@@ -172,7 +172,7 @@ function add_entity_callback(event, func, obj)
 */
 function remove_callback_on_death(event, func)
 {
-	self waittill(#"death");
+	self waittill("death");
 	remove_callback(event, func, self);
 }
 
@@ -455,7 +455,7 @@ function codecallback_localclientdisconnect(clientnum)
 */
 function codecallback_glasssmash(org, dir)
 {
-	level notify(#"glass_smash", org, dir);
+	level notify("glass_smash", org, dir);
 }
 
 /*
@@ -681,7 +681,7 @@ function codecallback_airsupport(localclientnum, x, y, z, type, yaw, team, teamf
 */
 function codecallback_demojump(localclientnum, time)
 {
-	level notify(#"demo_jump", time);
+	level notify("demo_jump", time);
 	level notify("demo_jump" + localclientnum, time);
 }
 
@@ -696,7 +696,7 @@ function codecallback_demojump(localclientnum, time)
 */
 function codecallback_demoplayerswitch(localclientnum)
 {
-	level notify(#"demo_player_switch");
+	level notify("demo_player_switch");
 	level notify("demo_player_switch" + localclientnum);
 }
 
@@ -711,7 +711,7 @@ function codecallback_demoplayerswitch(localclientnum)
 */
 function codecallback_playerswitch(localclientnum)
 {
-	level notify(#"player_switch");
+	level notify("player_switch");
 	level notify("player_switch" + localclientnum);
 }
 
@@ -726,7 +726,7 @@ function codecallback_playerswitch(localclientnum)
 */
 function codecallback_killcambegin(localclientnum, time)
 {
-	level notify(#"killcam_begin", time);
+	level notify("killcam_begin", time);
 	level notify("killcam_begin" + localclientnum, time);
 }
 
@@ -741,7 +741,7 @@ function codecallback_killcambegin(localclientnum, time)
 */
 function codecallback_killcamend(localclientnum, time)
 {
-	level notify(#"killcam_end", time);
+	level notify("killcam_end", time);
 	level notify("killcam_end" + localclientnum, time);
 }
 

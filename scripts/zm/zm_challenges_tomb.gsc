@@ -106,7 +106,7 @@ function onplayerconnect()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
 		foreach(s_stat in level._challenges.a_players[self.characterindex].a_stats)
@@ -429,7 +429,7 @@ function check_stat_complete(s_stat)
 		{
 			if((level._challenges.a_players[self.characterindex].n_completed + level._challenges.s_team.n_completed) == level._challenges.a_stats.size)
 			{
-				self notify(#"all_challenges_complete");
+				self notify("all_challenges_complete");
 			}
 		}
 		else
@@ -440,7 +440,7 @@ function check_stat_complete(s_stat)
 				{
 					if((level._challenges.a_players[player.characterindex].n_completed + level._challenges.s_team.n_completed) == level._challenges.a_stats.size)
 					{
-						player notify(#"all_challenges_complete");
+						player notify("all_challenges_complete");
 					}
 				}
 			}
@@ -754,11 +754,11 @@ function update_box_prompt(player)
 */
 function box_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	s_team = level._challenges.s_team;
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!zombie_utility::is_player_valid(player))
 		{
 			continue;
@@ -895,7 +895,7 @@ function spawn_reward(player, s_select_stat)
 {
 	if(isdefined(player))
 	{
-		player endon(#"death_or_disconnect");
+		player endon("death_or_disconnect");
 		if(isdefined(s_select_stat))
 		{
 			s_category = get_reward_category(player, s_select_stat);
@@ -946,7 +946,7 @@ function reward_grab_wait(n_timeout = 10)
 {
 	self flag::clear("reward_timeout");
 	self flag::set("waiting_for_grab");
-	self endon(#"waiting_for_grab");
+	self endon("waiting_for_grab");
 	if(n_timeout > 0)
 	{
 		wait(n_timeout);

@@ -359,7 +359,7 @@ function function_26729028(entity)
 */
 function function_8a22bf01(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	util::wait_network_frame();
 	entity.var_2c553c41 delete();
 	entity delete();
@@ -451,7 +451,7 @@ function private function_bd5d4573()
 */
 function private function_98f178fc(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	while(true)
 	{
 		/#
@@ -545,8 +545,8 @@ function private keepercompanionshouldmove(entity)
 */
 function private function_469c9511(entity)
 {
-	entity endon(#"death");
-	entity endon(#"outro");
+	entity endon("death");
+	entity endon("outro");
 	if(isdefined(entity.forcefire) && entity.forcefire)
 	{
 		return;
@@ -755,10 +755,10 @@ function private get_average_origin(entities, var_d4653ed3)
 */
 function private function_34117adf(var_5935e1b9)
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_53ce2a4e = 1;
 	self setgoal(var_5935e1b9, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	wait(1);
 	self.var_53ce2a4e = 0;
 }
@@ -774,10 +774,10 @@ function private function_34117adf(var_5935e1b9)
 */
 function private teleport_to_location(position, angles)
 {
-	self endon(#"death");
-	self endon(#"outro");
-	self notify(#"teleport_to_location");
-	self endon(#"teleport_to_location");
+	self endon("death");
+	self endon("outro");
+	self notify("teleport_to_location");
+	self endon("teleport_to_location");
 	self.var_641791df = 1;
 	self clearpath();
 	self pathmode("dont move");
@@ -800,8 +800,8 @@ function private teleport_to_location(position, angles)
 */
 function private function_3463b8c2(var_ee6ad78e)
 {
-	self endon(#"death");
-	self endon(#"outro");
+	self endon("death");
+	self endon("outro");
 	self.var_c0e8df41 = 1;
 	var_c9277d64 = getnodearray("flinger_traversal", "script_noteworthy");
 	var_292fba5b = arraygetclosest(var_ee6ad78e, var_c9277d64);
@@ -883,8 +883,8 @@ function private function_ab299a53(parasite)
 */
 function function_95adf61c(player)
 {
-	self endon(#"outro");
-	self endon(#"revive_terminated");
+	self endon("outro");
+	self endon("revive_terminated");
 	self endon(#"end_game");
 	player endon(#"end_game");
 	if(!(isdefined(self.reviving_a_player) && self.reviving_a_player))
@@ -908,7 +908,7 @@ function function_95adf61c(player)
 		self forceteleport(self.origin, self.angles, 1);
 		wait(0.05);
 		self setgoal(self.companion_destination, 1);
-		self waittill(#"goal");
+		self waittill("goal");
 		self.var_1a5b8ffb = 1;
 		self.var_b46b4189 = player;
 		wait(2);
@@ -937,7 +937,7 @@ function function_95adf61c(player)
 	}
 	if(player laststand::player_is_in_laststand())
 	{
-		player notify(#"stop_revive_trigger");
+		player notify("stop_revive_trigger");
 		if(isplayer(player))
 		{
 			player allowjump(1);
@@ -966,7 +966,7 @@ function function_95adf61c(player)
 */
 function function_f95febaf(player)
 {
-	self endon(#"revive_terminated");
+	self endon("revive_terminated");
 	while(true)
 	{
 		if(isdefined(player.revivetrigger) && player.revivetrigger.beingrevived === 1 && player.var_c35d3027 !== 1)
@@ -1008,7 +1008,7 @@ function function_703fda6d(player)
 		player.var_c35d3027 = 0;
 		player clientfield::set("being_keeper_revived", 0);
 	}
-	self notify(#"revive_terminated");
+	self notify("revive_terminated");
 }
 
 /*
@@ -1046,7 +1046,7 @@ function private keepercompanionkeepsupdatemovementmode(entity)
 */
 function private function_36af0313(entity, var_109b8552)
 {
-	entity endon(#"death");
+	entity endon("death");
 	entity notify(#"hash_36af0313");
 	entity endon(#"hash_36af0313");
 	entity.var_92aa697 = 1;
@@ -1674,7 +1674,7 @@ function private function_cd2f0f8a(entity, var_4fd6352b, var_e54db1ed)
 */
 function private function_5250c5dd()
 {
-	level waittill(#"intermission");
+	level waittill("intermission");
 	wait(5.25);
 	self.allowdeath = 1;
 	self kill();

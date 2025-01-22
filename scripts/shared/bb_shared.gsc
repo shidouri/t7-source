@@ -60,7 +60,7 @@ function player_init()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self._bbdata = [];
 	self._bbdata["score"] = 0;
 	self._bbdata["momentum"] = 0;
@@ -82,7 +82,7 @@ function on_player_disconnect()
 {
 	for(;;)
 	{
-		self waittill(#"disconnect");
+		self waittill("disconnect");
 		self commit_spawn_data();
 		break;
 	}
@@ -99,10 +99,10 @@ function on_player_disconnect()
 */
 function on_player_death()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"death");
+		self waittill("death");
 		self commit_spawn_data();
 	}
 }
@@ -218,7 +218,7 @@ function recordbbdataforplayer(breadcrumb_table)
 */
 function recordblackboxbreadcrumbdata(breadcrumb_table)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(!sessionmodeisonlinegame() || (isdefined(level.gametype) && level.gametype === "doa"))
 	{
 		return;

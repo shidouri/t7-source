@@ -85,7 +85,7 @@ function spawned(localclientnum, oldval, newval, bnewent, binitialsnap, fieldnam
 function playflarefx(localclientnum)
 {
 	self endon(#"entityshutdown");
-	level endon(#"player_switch");
+	level endon("player_switch");
 	if(util::friend_not_foe(localclientnum))
 	{
 		self.tacticalinsertionfx = playfxontag(localclientnum, level._effect["tacticalInsertionFriendly"], self, "tag_flash");
@@ -151,7 +151,7 @@ function checkforplayerswitch(localclientnum)
 	self endon(#"entityshutdown");
 	while(true)
 	{
-		level waittill(#"player_switch");
+		level waittill("player_switch");
 		if(isdefined(self.tacticalinsertionfx))
 		{
 			stopfx(localclientnum, self.tacticalinsertionfx);

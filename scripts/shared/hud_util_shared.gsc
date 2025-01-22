@@ -1051,7 +1051,7 @@ function showelem()
 */
 function flashthread()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!self.hidden)
 	{
 		self.alpha = 1;

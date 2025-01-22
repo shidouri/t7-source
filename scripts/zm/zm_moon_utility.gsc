@@ -191,7 +191,7 @@ function airlock_buy_init()
 */
 function airlock_buy_think()
 {
-	self endon(#"kill_door_think");
+	self endon("kill_door_think");
 	cost = 1000;
 	if(isdefined(self.zombie_cost))
 	{
@@ -241,7 +241,7 @@ function airlock_buy_think()
 */
 function moon_door_opened()
 {
-	self notify(#"door_opened");
+	self notify("door_opened");
 	if(isdefined(self.script_flag))
 	{
 		tokens = strtok(self.script_flag, ",");
@@ -329,7 +329,7 @@ function airlock_connect_paths()
 */
 function airlock_buy()
 {
-	self waittill(#"trigger", who, force);
+	self waittill("trigger", who, force);
 	if(getdvarint("zombie_unlock_all") > 0 || (isdefined(force) && force))
 	{
 		return true;
@@ -415,7 +415,7 @@ function airlock_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isdefined(self.doors[0].startpos) && self.doors[0].startpos != self.doors[0].origin)
 		{
 			continue;
@@ -651,9 +651,9 @@ function zapper_light_red(light_name, key_name)
 function moon_intermission()
 {
 	self closeingamemenu();
-	level endon(#"stop_intermission");
-	self endon(#"disconnect");
-	self endon(#"death");
+	level endon("stop_intermission");
+	self endon("disconnect");
+	self endon("death");
 	self notify(#"_zombie_game_over");
 	self.score = self.score_total;
 	self.sessionstate = "intermission";
@@ -903,7 +903,7 @@ function glass_gets_destroyed()
 */
 function wait_for_grenade_explode(player)
 {
-	player endon(#"projectile_impact");
+	player endon("projectile_impact");
 	self waittill(#"explode", grenade_origin);
 	self thread check_for_grenade_damage_on_window(grenade_origin);
 }
@@ -920,7 +920,7 @@ function wait_for_grenade_explode(player)
 function wait_for_projectile_impact(grenade)
 {
 	grenade endon(#"explode");
-	self waittill(#"projectile_impact", weapon_name, position);
+	self waittill("projectile_impact", weapon_name, position);
 	self thread check_for_grenade_damage_on_window(position);
 }
 
@@ -972,7 +972,7 @@ function check_for_grenade_throw()
 {
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapname);
+		self waittill("grenade_fire", grenade, weapname);
 		grenade thread wait_for_grenade_explode(self);
 		self thread wait_for_projectile_impact(grenade);
 	}
@@ -989,7 +989,7 @@ function check_for_grenade_throw()
 */
 function glass_breach_think()
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	self.fxpos_array = [];
 	if(isdefined(self.target))
 	{
@@ -999,7 +999,7 @@ function glass_breach_think()
 	self.damage_state = 0;
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction, point, dmg_type);
+		self waittill("damage", amount, attacker, direction, point, dmg_type);
 		if(isplayer(attacker) && (dmg_type == "MOD_PROJECTILE" || dmg_type == "MOD_PROJECTILE_SPLASH"))
 		{
 			if(self.damage_state == 0)

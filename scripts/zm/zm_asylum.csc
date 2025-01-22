@@ -151,11 +151,11 @@ function function_d87a7dcc()
 			level.power_on = 0;
 			if(var_bd7ba30)
 			{
-				level notify(#"power_controlled_light");
+				level notify("power_controlled_light");
 			}
 			level util::waittill_any("power_on", "pwr", "ZPO");
 		}
-		level notify(#"power_controlled_light");
+		level notify("power_controlled_light");
 		level util::waittill_any("pwo", "ZPOff");
 		var_bd7ba30 = 1;
 	}
@@ -231,7 +231,7 @@ function function_60a32834()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			level notify(#"hash_51d7bc7c", self.script_sound);

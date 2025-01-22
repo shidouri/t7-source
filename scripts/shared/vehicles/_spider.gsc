@@ -135,7 +135,7 @@ function defaultrole()
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	self asmrequestsubstate("death@stationary");
 	vehicle_ai::waittill_asm_complete("death@stationary", 2);
 	self vehicle_death::death_fx();
@@ -153,8 +153,8 @@ function state_death_update(params)
 */
 function state_driving_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	self asmrequestsubstate("locomotion@aggressive");
 }
 
@@ -264,8 +264,8 @@ function getnextmoveposition_ranged(enemy)
 */
 function state_range_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	self.pathfailcount = 0;
 	self.foundpath = 1;
 	if(params.playtransition === 1)
@@ -332,8 +332,8 @@ function state_range_combat_update(params)
 */
 function state_range_combat_attack()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	for(;;)
 	{
 		if(!isdefined(self.enemy))
@@ -383,7 +383,7 @@ function state_range_combat_attack()
 */
 function do_ranged_attack(enemy)
 {
-	self notify(#"near_goal");
+	self notify("near_goal");
 	self vehicle_ai::clearallmovement(1);
 	self.dont_move = 1;
 	self setlookatent(enemy);
@@ -472,8 +472,8 @@ function should_switch_to_melee(from_state, to_state, connection)
 */
 function state_melee_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	if(params.playtransition === 1)
 	{
 		self vehicle_ai::clearallmovement(1);
@@ -599,7 +599,7 @@ function state_melee_combat_update(params)
 				self.current_pathto_pos = undefined;
 				self thread path_update_interrupt_melee();
 				wait(2);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);
@@ -617,8 +617,8 @@ function state_melee_combat_update(params)
 */
 function state_melee_combat_attack()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	for(;;)
 	{
 		state_params = spawnstruct();
@@ -658,7 +658,7 @@ function state_melee_combat_attack()
 */
 function do_melee_attack(enemy)
 {
-	self notify(#"near_goal");
+	self notify("near_goal");
 	self vehicle_ai::clearallmovement(1);
 	self.dont_move = 1;
 	self asmrequestsubstate("melee@stationary");
@@ -722,8 +722,8 @@ function should_switch_to_range(from_state, to_state, connection)
 */
 function prevent_stuck()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	self notify(#"end_prevent_stuck");
 	self endon(#"end_prevent_stuck");
 	wait(2);
@@ -839,12 +839,12 @@ function spider_get_target_position()
 */
 function path_update_interrupt_melee()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
-	self notify(#"clear_interrupt_threads");
-	self endon(#"clear_interrupt_threads");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
+	self notify("clear_interrupt_threads");
+	self endon("clear_interrupt_threads");
 	wait(0.1);
 	while(true)
 	{
@@ -853,7 +853,7 @@ function path_update_interrupt_melee()
 			if(distance2dsquared(self.current_pathto_pos, self.goalpos) > (self.goalradius * self.goalradius))
 			{
 				wait(0.5);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			targetpos = spider_get_target_position();
 			if(isdefined(targetpos))
@@ -869,7 +869,7 @@ function path_update_interrupt_melee()
 				}
 				if(distance2dsquared(self.current_pathto_pos, targetpos) > (repath_range * repath_range))
 				{
-					self notify(#"near_goal");
+					self notify("near_goal");
 				}
 			}
 			if(isdefined(self.enemy) && isplayer(self.enemy))
@@ -911,13 +911,13 @@ function path_update_interrupt_melee()
 */
 function nudge_collision()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self notify(#"end_nudge_collision");
 	self endon(#"end_nudge_collision");
 	while(true)
 	{
-		self waittill(#"veh_collision", velocity, normal);
+		self waittill("veh_collision", velocity, normal);
 		ang_vel = self getangularvelocity() * 0.8;
 		self setangularvelocity(ang_vel);
 		if(isalive(self) && vectordot(normal, (0, 0, 1)) < 0.5)

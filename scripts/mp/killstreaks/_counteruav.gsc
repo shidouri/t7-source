@@ -154,7 +154,7 @@ function movementmanagerthink(teamorentnum)
 {
 	while(true)
 	{
-		level waittill(#"counter_uav_updated");
+		level waittill("counter_uav_updated");
 		activecount = 0;
 		while(level.activecounteruavs[teamorentnum] > 0)
 		{
@@ -275,7 +275,7 @@ function maintaincouteruaventities()
 function waitanddebugdrawoffsetlist()
 {
 	/#
-		level endon(#"game_ended");
+		level endon("game_ended");
 		wait(10);
 		debugdrawoffsetlist();
 	#/
@@ -461,8 +461,8 @@ function configureteampost(owner, ishacked)
 */
 function listenformove()
 {
-	self endon(#"death");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("leaving");
 	while(true)
 	{
 		self thread counteruavmove();
@@ -481,8 +481,8 @@ function listenformove()
 */
 function counteruavmove()
 {
-	self endon(#"death");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("leaving");
 	level endon("counter_uav_move_" + self.team);
 	destination = (0, 0, 0);
 	if(level.teambased)
@@ -512,7 +512,7 @@ function counteruavmove()
 */
 function playfx(name)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	if(isdefined(self))
 	{
@@ -658,7 +658,7 @@ function destroycounteruav(attacker, weapon)
 */
 function deletecounteruav()
 {
-	self notify(#"crashing");
+	self notify("crashing");
 	params = level.killstreakbundle["counteruav"];
 	if(isdefined(params.ksexplosionfx) && isdefined(self))
 	{
@@ -672,7 +672,7 @@ function deletecounteruav()
 	wait(0.2);
 	if(isdefined(self))
 	{
-		self notify(#"delete");
+		self notify("delete");
 		self delete();
 	}
 }
@@ -802,7 +802,7 @@ function addactivecounteruav()
 		}
 	}
 	level.activeplayercounteruavs[self.ownerentnum]++;
-	level notify(#"counter_uav_updated");
+	level notify("counter_uav_updated");
 }
 
 /*
@@ -862,7 +862,7 @@ function resetactivecounteruav()
 		}
 	}
 	level.activeplayercounteruavs[self.ownerentnum]--;
-	level notify(#"counter_uav_updated");
+	level notify("counter_uav_updated");
 }
 
 /*
@@ -878,7 +878,7 @@ function watchcounteruavs()
 {
 	while(true)
 	{
-		level waittill(#"counter_uav_updated");
+		level waittill("counter_uav_updated");
 		foreach(player in level.players)
 		{
 			if(player enemycounteruavactive())

@@ -119,7 +119,7 @@ function function_a2c7acf5()
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
-		players[i] notify(#"altbody_end");
+		players[i] notify("altbody_end");
 	}
 }
 
@@ -259,10 +259,10 @@ function function_a27a52af(name)
 */
 function private player_try_altbody(trigger, name)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(self player_can_altbody(trigger, name))
 	{
-		level notify(#"kiosk_used", trigger.stub.kiosk);
+		level notify("kiosk_used", trigger.stub.kiosk);
 		self player_altbody(name, trigger);
 	}
 }
@@ -281,7 +281,7 @@ function private player_altbody(name, trigger)
 	self.altbody = 1;
 	self thread function_1f9554ce();
 	self player_enter_altbody(name, trigger);
-	self waittill(#"altbody_end");
+	self waittill("altbody_end");
 	self player_exit_altbody(name, trigger);
 	self.altbody = 0;
 }
@@ -297,7 +297,7 @@ function private player_altbody(name, trigger)
 */
 function private function_1f9554ce()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	was_inv = self enableinvulnerability();
 	wait(1);
 	if(isdefined(self) && (!(isdefined(was_inv) && was_inv)))
@@ -599,7 +599,7 @@ function kiosk_trigger_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isdefined(self.stub.usable) && self.stub.usable)
 		{
 			self.stub.usable = 0;
@@ -646,7 +646,7 @@ function private watch_kiosk_triggers(name, trigger_name, trigger_hint, whenvisi
 */
 function private trigger_watch_kiosk(name, trigger_name, trigger_hint, whenvisible)
 {
-	self endon(#"death");
+	self endon("death");
 	self sethintstring(trigger_hint);
 	self setcursorhint("HINT_NOICON");
 	self setvisibletoall();
@@ -660,7 +660,7 @@ function private trigger_watch_kiosk(name, trigger_name, trigger_hint, whenvisib
 		}
 		while(isdefined(self))
 		{
-			self waittill(#"trigger", player);
+			self waittill("trigger", player);
 			if(isdefined(player.custom_altbody_callback))
 			{
 				player thread [[player.custom_altbody_callback]](self, name);
@@ -684,7 +684,7 @@ function private trigger_watch_kiosk(name, trigger_name, trigger_hint, whenvisib
 */
 function trigger_monitor_visibility(name, whenvisible)
 {
-	self endon(#"death");
+	self endon("death");
 	self setinvisibletoall();
 	level flagsys::wait_till("start_zombie_round_logic");
 	self setvisibletoall();

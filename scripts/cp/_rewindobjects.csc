@@ -405,10 +405,10 @@ function waitforservertime(localclientnum, timefromstart)
 */
 function removecliententonjump(clientent, localclientnum)
 {
-	clientent endon(#"complete");
+	clientent endon("complete");
 	player = getlocalplayer(localclientnum);
 	level waittill("demo_jump" + localclientnum);
-	clientent notify(#"delete");
+	clientent notify("delete");
 	clientent forcedelete();
 }
 

@@ -417,10 +417,10 @@ function function_88b9bf27()
 */
 function function_959f59b8()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(isdefined(self))
 	{
-		self waittill(#"player_revived");
+		self waittill("player_revived");
 		b_exclude_quick_revive = level.players.size == 1;
 		self zm_utility::give_player_all_perks(b_exclude_quick_revive);
 	}

@@ -231,7 +231,7 @@ function function_d4c69cd(localclientnum, oldval, newval, bnewent, binitialsnap,
 	}
 	else
 	{
-		self notify(#"stop_eject_steam_fx");
+		self notify("stop_eject_steam_fx");
 		if(isdefined(self.fieldname))
 		{
 			stopfx(localclientnum, self.fieldname);
@@ -250,8 +250,8 @@ function function_d4c69cd(localclientnum, oldval, newval, bnewent, binitialsnap,
 */
 function function_691b8375(localclientnum)
 {
-	self endon(#"stop_eject_steam_fx");
-	self endon(#"player_intermission");
+	self endon("stop_eject_steam_fx");
+	self endon("player_intermission");
 	var_bd5df270 = struct::get_array("giant_robot_eject_tube", "script_noteworthy");
 	s_tube = arraygetclosest(self.origin, var_bd5df270);
 	self thread function_caeb1b02("stop_eject_steam_fx", s_tube.origin);
@@ -296,7 +296,7 @@ function all_tubes_play_eject_steam_fx(localclientnum, oldval, newval, bnewent, 
 	{
 		foreach(struct in level.var_bd5df270[localclientnum])
 		{
-			struct notify(#"stop_all_tubes_eject_steam");
+			struct notify("stop_all_tubes_eject_steam");
 		}
 	}
 }
@@ -312,7 +312,7 @@ function all_tubes_play_eject_steam_fx(localclientnum, oldval, newval, bnewent, 
 */
 function function_3ae72e85(localclientnum)
 {
-	self endon(#"stop_all_tubes_eject_steam");
+	self endon("stop_all_tubes_eject_steam");
 	self thread function_caeb1b02("stop_all_tubes_eject_steam", self.origin);
 	while(true)
 	{
@@ -627,7 +627,7 @@ function function_d46dfa88(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function giant_robot_rumble_and_shake(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(newval == 3)
 	{
 		self earthquake(0.6, 1.5, self.origin, 100);

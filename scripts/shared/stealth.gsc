@@ -130,7 +130,7 @@ function stop()
 	{
 		return;
 	}
-	self notify(#"stop_stealth");
+	self notify("stop_stealth");
 	if(isdefined(self.stealth.agents))
 	{
 		foreach(agent in self.stealth.agents)
@@ -143,7 +143,7 @@ function stop()
 			{
 				continue;
 			}
-			agent notify(#"stop_stealth");
+			agent notify("stop_stealth");
 			agent agent_stop();
 		}
 	}
@@ -393,13 +393,13 @@ function level_wait_notify(waitfor)
 	self endon("level_wait_notify_" + waitfor);
 	if(isplayer(self))
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 	}
 	else
 	{
-		self endon(#"death");
+		self endon("death");
 	}
-	self endon(#"stop_stealth");
+	self endon("stop_stealth");
 	level waittill(waitfor);
 	self notify(waitfor);
 }
@@ -704,8 +704,8 @@ function private function_762607ad()
 {
 	level notify(#"hash_762607ad");
 	level endon(#"hash_762607ad");
-	level endon(#"save_restore");
-	level endon(#"stop_stealth");
+	level endon("save_restore");
+	level endon("stop_stealth");
 	secondswaited = 0;
 	while(secondswaited < 10)
 	{

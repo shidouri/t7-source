@@ -78,7 +78,7 @@ function widows_wine_knife_override()
 */
 function one_inch_punch_melee_attack()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"stop_one_inch_punch_attack");
 	if(!(isdefined(self.one_inch_punch_flag_has_been_init) && self.one_inch_punch_flag_has_been_init))
 	{
@@ -161,7 +161,7 @@ function one_inch_punch_melee_attack()
 */
 function monitor_melee_swipe()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"stop_monitor_melee_swipe");
 	self endon(#"stop_monitor_melee_swipe");
 	self endon(#"bled_out");
@@ -258,7 +258,7 @@ function is_oneinch_punch_damage()
 */
 function gib_zombies_head(player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	self zombie_utility::zombie_head_gib();
 }
 
@@ -288,7 +288,7 @@ function punch_cooldown()
 */
 function zombie_punch_damage(ai_zombie, n_mod)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	ai_zombie.punch_handle_pain_notetracks = &handle_punch_pain_notetracks;
 	if(isdefined(n_mod))
 	{
@@ -424,7 +424,7 @@ function handle_punch_pain_notetracks(note)
 */
 function one_inch_punch_take_think()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"bled_out");
@@ -449,8 +449,8 @@ function one_inch_punch_take_think()
 function knockdown_zombie_animate()
 {
 	self notify(#"end_play_punch_pain_anim");
-	self endon(#"killanimscript");
-	self endon(#"death");
+	self endon("killanimscript");
+	self endon("death");
 	self endon(#"end_play_punch_pain_anim");
 	if(isdefined(self.marked_for_death) && self.marked_for_death)
 	{
@@ -537,7 +537,7 @@ function knockdown_zombie_animate()
 */
 function knockdown_zombie_animate_state()
 {
-	self endon(#"death");
+	self endon("death");
 	self.is_knocked_down = 1;
 	self util::waittill_any("damage", "back_up");
 	self.is_knocked_down = 0;

@@ -276,7 +276,7 @@ function sentinel_drone_initialize()
 */
 function sentinel_initbeamlaunchers()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.target_initialized))
 	{
 		wait(1);
@@ -490,8 +490,8 @@ function set_sentinel_drone_enemy(enemy)
 */
 function private sentinel_drone_target_selection()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	for(;;)
 	{
 		if(isdefined(self.ignoreall) && self.ignoreall)
@@ -532,8 +532,8 @@ function private sentinel_drone_target_selection()
 */
 function state_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	self.lasttimetargetinsight = 0;
 	self.nextjuketime = 0;
 	wait(0.3);
@@ -633,8 +633,8 @@ function sentinel_introcompleted()
 */
 function sentinel_dodgeroll()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	roll_dir = anglestoright(self.angles);
 	roll_dir = vectornormalize(roll_dir);
 	juke_initial_pause = getdvarfloat("sentinel_drone_juke_initial_pause_dvar", 0.2);
@@ -720,10 +720,10 @@ function sentinel_dodgeroll()
 */
 function sentinel_navigationstandstill()
 {
-	self endon(#"change_state");
-	self endon(#"death");
-	self notify(#"abort_navigation");
-	self notify(#"near_goal");
+	self endon("change_state");
+	self endon("death");
+	self notify("abort_navigation");
+	self notify("near_goal");
 	wait(0.05);
 	if(getdvarint("sentinel_NavigationStandStill_new", 0) > 0)
 	{
@@ -826,11 +826,11 @@ function private sentinel_changesentinelposition()
 */
 function sentinel_navigatetheworld()
 {
-	self endon(#"change_state");
-	self endon(#"death");
-	self endon(#"abort_navigation");
-	self notify(#"sentinel_navigatetheworld");
-	self endon(#"sentinel_navigatetheworld");
+	self endon("change_state");
+	self endon("death");
+	self endon("abort_navigation");
+	self notify("sentinel_navigatetheworld");
+	self endon("sentinel_navigatetheworld");
 	lasttimechangeposition = 0;
 	self.shouldgotonewposition = 0;
 	self.last_failsafe_count = 0;
@@ -891,7 +891,7 @@ function sentinel_navigatetheworld()
 						self.evading_player = 1;
 						self.next_near_player_check = gettime() + 1000;
 						self.nextjuketime = 0;
-						self notify(#"near_goal");
+						self notify("near_goal");
 					}
 				}
 			}
@@ -1038,8 +1038,8 @@ function sentinel_navigatetheworld()
 */
 function sentinel_getnextmovepositiontactical(b_do_not_chase_enemy)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	if(isdefined(self.sentinel_droneenemy))
 	{
 		selfdisttotarget = distance2d(self.origin, self.sentinel_droneenemy.origin);
@@ -1265,8 +1265,8 @@ function sentinel_getnextmovepositiontactical(b_do_not_chase_enemy)
 */
 function sentinel_chargeatplayernavigation(b_charge_at_player, time_out, charge_at_position)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	if(isdefined(time_out))
 	{
 		max_charge_time = gettime() + time_out;
@@ -1328,12 +1328,12 @@ function sentinel_chargeatplayernavigation(b_charge_at_player, time_out, charge_
 */
 function sentinel_pathupdateinterrupt()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
-	self notify(#"sentinel_pathupdateinterrupt");
-	self endon(#"sentinel_pathupdateinterrupt");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
+	self notify("sentinel_pathupdateinterrupt");
+	self endon("sentinel_pathupdateinterrupt");
 	skip_sentinel_pathupdateinterrupt = getdvarint("skip_sentinel_PathUpdateInterrupt", 1);
 	if(skip_sentinel_pathupdateinterrupt == 1)
 	{
@@ -1353,7 +1353,7 @@ function sentinel_pathupdateinterrupt()
 					}
 				#/
 				wait(0.2);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);
@@ -1371,8 +1371,8 @@ function sentinel_pathupdateinterrupt()
 */
 function sentine_rumblewhennearplayer()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	while(true)
 	{
 		while(sentinel_isnearanotherplayer(self.origin, 120))
@@ -1534,7 +1534,7 @@ function sentinel_firelogic()
 				self.angles = vectortoangles(beam_dir);
 				self setlookatent(self.beam_fire_target);
 				self setturrettargetent(self.beam_fire_target);
-				self waittill(#"fire_beam");
+				self waittill("fire_beam");
 				self clientfield::set("sentinel_drone_beam_charge", 0);
 				result = sentinel_canseeenemy(self.beam_start_position, result.hit_position);
 				if(result.can_see_enemy)
@@ -1582,10 +1582,10 @@ function sentinel_firelogic()
 */
 function sentinel_firebeam(target_position, b_succession)
 {
-	self endon(#"change_state");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"death_state_activated");
+	self endon("change_state");
+	self endon("disconnect");
+	self endon("death");
+	self endon("death_state_activated");
 	self.lasttimefired = gettime();
 	beam_dir = target_position - self.origin;
 	self.beam_fire_target.origin = target_position;
@@ -1615,10 +1615,10 @@ function sentinel_firebeam(target_position, b_succession)
 */
 function sentinel_firebeamburst(target_position)
 {
-	self endon(#"change_state");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"death_state_activated");
+	self endon("change_state");
+	self endon("disconnect");
+	self endon("death");
+	self endon("death_state_activated");
 	for(i = 1; i <= 3; i++)
 	{
 		if(self.sentineldronehealtharms[i] <= 0)
@@ -1657,10 +1657,10 @@ function sentinel_firebeamburst(target_position)
 */
 function sentinel_firebeamsuccession(target_position)
 {
-	self endon(#"change_state");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"death_state_activated");
+	self endon("change_state");
+	self endon("disconnect");
+	self endon("death");
+	self endon("death_state_activated");
 	player_damage = int(30);
 	arms_order = [];
 	arms_order[0] = 2;
@@ -1718,10 +1718,10 @@ function sentinel_damagebeamtouchingentity(player_damage, target_position, b_suc
 */
 function sentinel_selfdestruct(time)
 {
-	self endon(#"change_state");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"death_state_activated");
+	self endon("change_state");
+	self endon("disconnect");
+	self endon("death");
+	self endon("death_state_activated");
 	wait(time);
 	sentinel_killmyself();
 }
@@ -1741,10 +1741,10 @@ function sentinel_chargeatplayer()
 	{
 		return;
 	}
-	self endon(#"change_state");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"death_state_activated");
+	self endon("change_state");
+	self endon("disconnect");
+	self endon("death");
+	self endon("death_state_activated");
 	charge_at_position = self.sentinel_droneenemy.origin + vectorscale((0, 0, 1), 48);
 	wait(0.3);
 	self.is_charging_at_player = 1;
@@ -1967,7 +1967,7 @@ function private sentinel_armdamage(damage, arm, eattacker = undefined)
 			sentinel_onallarmsdestroyed();
 			if(isplayer(eattacker))
 			{
-				level notify(#"all_sentinel_arms_destroyed", self.b_same_arms_attacker, eattacker);
+				level notify("all_sentinel_arms_destroyed", self.b_same_arms_attacker, eattacker);
 			}
 		}
 	}
@@ -2136,7 +2136,7 @@ function private sentinel_cameradamage(damage, partname, eattacker)
 		self thread sentinel_chargeatplayer();
 		if(isplayer(eattacker))
 		{
-			level notify(#"sentinel_camera_destroyed", eattacker);
+			level notify("sentinel_camera_destroyed", eattacker);
 		}
 	}
 }
@@ -2229,7 +2229,7 @@ function sentinel_drone_callbackradiusdamage(einflictor, eattacker, idamage, fin
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	self sentinel_removefromlevelarray();
 	self sentinel_deactivatealleffects();
 	self asmrequestsubstate("normal@death");
@@ -2267,8 +2267,8 @@ function state_death_update(params)
 */
 function sentinel_deletedronedeathfx(explosion_origin)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.origin = explosion_origin;
 	wait(0.1);
 	self clientfield::set("sentinel_drone_deathfx", 1);
@@ -2386,8 +2386,8 @@ function sentinel_setcompactmode(b_compact)
 */
 function sentinel_hideinitialbrokenparts()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	wait(0.2);
 	self hidepart("tag_arm_left_01_d1", "", 1);
 	self hidepart("tag_arm_right_01_d1", "", 1);
@@ -2546,8 +2546,8 @@ function sentinel_trace(start, end, ignore_ent, b_physics_trace, ignore_characte
 */
 function sentinel_electrifyzombie(origin, zombie, radius)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(isdefined(self.sentinel_electrifyzombie))
 	{
 		self thread [[self.sentinel_electrifyzombie]](origin, zombie, radius);
@@ -2582,11 +2582,11 @@ function sentinel_deactivatealleffects()
 */
 function sentinel_damageplayer(damage, eattacker, b_light_damage = 0)
 {
-	self notify(#"proximitygrenadedamagestart");
-	self endon(#"proximitygrenadedamagestart");
-	self endon(#"disconnect");
-	self endon(#"death");
-	eattacker endon(#"disconnect");
+	self notify("proximitygrenadedamagestart");
+	self endon("proximitygrenadedamagestart");
+	self endon("disconnect");
+	self endon("death");
+	eattacker endon("disconnect");
 	self dodamage(damage, eattacker.origin, eattacker, eattacker);
 	if(b_light_damage)
 	{
@@ -2731,7 +2731,7 @@ function sentinel_play_taunt(taunt_arr)
 function sentinel_debugdrawsize()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			radius = getdvarint("", 35);
@@ -2753,7 +2753,7 @@ function sentinel_debugdrawsize()
 function sentinel_debugfx()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			if(getdvarint("", 0) == 1)
@@ -2813,7 +2813,7 @@ function sentinel_debugfx()
 function sentinel_debugbehavior()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(isdefined(self))
 		{
 			if(getdvarint("", 0) == 1)

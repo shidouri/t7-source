@@ -208,7 +208,7 @@ function dragon_boss_intro_init()
 */
 function function_e56b0a04()
 {
-	level waittill(#"player_enter_boss_arena");
+	level waittill("player_enter_boss_arena");
 	zm_stalingrad_util::function_4da6e8(0);
 }
 
@@ -431,7 +431,7 @@ function function_59bb533b(a_ents)
 function function_851889a0(var_2e1f54d4, var_777ffc66)
 {
 	level endon(#"hash_9ccce34a");
-	level waittill(#"wingflap_arrival");
+	level waittill("wingflap_arrival");
 	switch(var_777ffc66)
 	{
 		case "start":
@@ -470,7 +470,7 @@ function function_851889a0(var_2e1f54d4, var_777ffc66)
 			break;
 		}
 	}
-	level waittill(#"wingflap_exit");
+	level waittill("wingflap_exit");
 	switch(var_777ffc66)
 	{
 		case "start":
@@ -723,7 +723,7 @@ function dragon_hazard(b_debug = 0)
 */
 function function_51d28faf()
 {
-	level endon(#"dragon_full");
+	level endon("dragon_full");
 	wait(10);
 	if(level.var_163a43e4.size > 0)
 	{
@@ -885,7 +885,7 @@ function function_3d1f7c2e(var_2e1f54d4, var_777ffc66, var_90929db6 = 0, var_c30
 	var_90f8d95e = struct::get_array("rumble_" + var_777ffc66, "targetname");
 	if(!var_90929db6)
 	{
-		level waittill(#"arrival");
+		level waittill("arrival");
 		level thread function_3b45d6c2(var_90f8d95e);
 	}
 	var_12bd8497 = getent(var_777ffc66 + "_1_damage", "targetname");
@@ -904,16 +904,16 @@ function function_3d1f7c2e(var_2e1f54d4, var_777ffc66, var_90929db6 = 0, var_c30
 */
 function function_21146aa(var_2e1f54d4, var_777ffc66)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	var_90f8d95e = struct::get_array("rumble_" + var_777ffc66, "targetname");
-	level waittill(#"fire_start");
+	level waittill("fire_start");
 	var_2e1f54d4 clientfield::set("dragon_body_glow", 1);
 	level thread function_acdda91d("zm_stalingrad_dragon_fire_charge", var_90f8d95e);
 	level waittill(#"breathe_fire");
 	stopallrumbles();
 	util::wait_network_frame();
 	level thread function_acdda91d("zm_stalingrad_dragon_fire_breathe", var_90f8d95e);
-	level waittill(#"fire_end");
+	level waittill("fire_end");
 	var_2e1f54d4 clientfield::set("dragon_body_glow", 0);
 	level waittill(#"hash_ed468118");
 	stopallrumbles();
@@ -966,7 +966,7 @@ function function_acdda91d(str_rumble, var_90f8d95e)
 */
 function function_ca29ccc4(var_2e1f54d4, var_777ffc66)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	var_2e1f54d4 thread function_c4860ff6();
 	switch(var_777ffc66)
 	{
@@ -1013,7 +1013,7 @@ function function_ca29ccc4(var_2e1f54d4, var_777ffc66)
 */
 function function_d4556285(var_2e1f54d4, var_777ffc66)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	level waittill(#"breathe_fire");
 	level thread function_ca29ccc4(var_2e1f54d4, var_777ffc66);
@@ -1053,8 +1053,8 @@ function function_d4556285(var_2e1f54d4, var_777ffc66)
 */
 function function_c4860ff6()
 {
-	level endon(#"dragon_interrupt");
-	level waittill(#"fire_end");
+	level endon("dragon_interrupt");
+	level waittill("fire_end");
 	self.var_caa5308f.firing = 0;
 }
 
@@ -1151,8 +1151,8 @@ function function_c6f5d03()
 */
 function function_2cc55104()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.var_c777a4de = 1;
 	self clientfield::set_to_player("dragon_fire_burn_tell", self getentitynumber() + 1);
 	self function_2114330(2);
@@ -1172,8 +1172,8 @@ function function_2cc55104()
 function function_2114330(n_duration)
 {
 	level endon(#"breathe_fire");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(n_duration);
 }
 
@@ -1188,7 +1188,7 @@ function function_2114330(n_duration)
 */
 function function_20b34915()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isplayer(self))
 	{
 		current_weapon = self getcurrentweapon();
@@ -1242,8 +1242,8 @@ function function_20b34915()
 */
 function function_17d42ef()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.var_e3fc4787 = 1;
 	if(self.is_zombie === 1 && self.completed_emerging_into_playable_area === 1)
 	{
@@ -1833,11 +1833,11 @@ function function_bd21006c(player)
 */
 function function_8b508a1b()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread zm_unitrigger::run_visibility_function_for_all_triggers();
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		var_422cea21 = level.var_f5464041[self.targetname];
 		if(var_422cea21 == 3)
 		{
@@ -2126,10 +2126,10 @@ function craftable_use_hold_think(player)
 */
 function function_76121f8c(s_unitrigger)
 {
-	self endon(#"craft_succeed");
-	self endon(#"craft_failed");
-	s_unitrigger waittill(#"kill_trigger");
-	self notify(#"dragon_ride_kill_trigger");
+	self endon("craft_succeed");
+	self endon("craft_failed");
+	s_unitrigger waittill("kill_trigger");
+	self notify("dragon_ride_kill_trigger");
 }
 
 /*
@@ -2161,7 +2161,7 @@ function craftable_use_hold_think_internal(player)
 		{
 			wait(0.05);
 		}
-		player notify(#"craftable_progress_end");
+		player notify("craftable_progress_end");
 		player playsoundtoplayer("zmb_dragon_mount", player);
 		if(isdefined(player.is_drinking) && player.is_drinking)
 		{
@@ -2173,7 +2173,7 @@ function craftable_use_hold_think_internal(player)
 	{
 		if(player player_continue_crafting(self) && (self.craft_time <= 0 || (gettime() - self.craft_start_time) >= self.craft_time))
 		{
-			self notify(#"craft_succeed");
+			self notify("craft_succeed");
 			if(isdefined(player.usebartext))
 			{
 				player.usebartext hud::destroyelem();
@@ -2187,7 +2187,7 @@ function craftable_use_hold_think_internal(player)
 		}
 		else
 		{
-			self notify(#"craft_failed");
+			self notify("craft_failed");
 		}
 	}
 }
@@ -2233,10 +2233,10 @@ function player_progress_bar(start_time, craft_time)
 function player_progress_bar_update(start_time, craft_time)
 {
 	self endon(#"entering_last_stand");
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"craftable_progress_end");
-	self endon(#"craft_succeed");
+	self endon("death");
+	self endon("disconnect");
+	self endon("craftable_progress_end");
+	self endon("craft_succeed");
 	while(isdefined(self) && (gettime() - start_time) < craft_time)
 	{
 		progress = (gettime() - start_time) / craft_time;
@@ -2375,11 +2375,11 @@ function function_cd9b4bf3(player)
 */
 function function_69f9b2b8()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread zm_unitrigger::run_visibility_function_for_all_triggers();
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		var_422cea21 = level.var_f5464041[self.targetname];
 		if(var_422cea21 == 6 || var_422cea21 == 7)
 		{
@@ -2419,7 +2419,7 @@ function function_69f9b2b8()
 */
 function function_31efd8da(player)
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	player thread function_76121f8c(self);
 	result = self craftable_use_hold_think(player);
 	if(result)
@@ -2439,8 +2439,8 @@ function function_31efd8da(player)
 */
 function function_280af5e8()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(!array::contains(level.var_163a43e4, self))
 	{
 		level.var_428b5b88++;
@@ -2489,7 +2489,7 @@ function function_280af5e8()
 function function_d1ac3943()
 {
 	level endon(#"hash_9a634383");
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	arrayremovevalue(level.var_163a43e4, self);
 }
 
@@ -2504,8 +2504,8 @@ function function_d1ac3943()
 */
 function function_fce6cca8(v_target_origin, var_2a65eda2)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	var_848f1155 = spawn("script_model", self.origin);
 	var_848f1155 setmodel("tag_origin");
 	var_848f1155.angles = var_2a65eda2;
@@ -2740,13 +2740,13 @@ function function_c0e035d6(str_spawn, var_bf7e118f = 0, var_8f4dddff = 1)
 	var_ad0ee644 = array::filter(var_ad0ee644, 0, &zm_stalingrad_util::function_c66f2957);
 	if(!var_bf7e118f)
 	{
-		level notify(#"stop_dragon_boss_zombie");
+		level notify("stop_dragon_boss_zombie");
 		wait(1);
 		level thread zm_stalingrad_util::function_f70dde0b(level.zombie_spawners[0], var_ad0ee644, str_spawn, level.var_e66ebd0c[level.activeplayers.size - 1], 1.25, undefined, "stop_dragon_boss_zombie", 0);
 	}
 	else
 	{
-		level notify(#"stop_dragon_boss_zombie");
+		level notify("stop_dragon_boss_zombie");
 		wait(1);
 		n_zombie_count = (level.var_e66ebd0c[level.activeplayers.size - 1]) - ((level.var_8447be11[level.activeplayers.size - 1]) * var_8f4dddff);
 		level thread zm_stalingrad_util::function_f70dde0b(level.zombie_spawners[0], var_ad0ee644, str_spawn, n_zombie_count, 1.25, undefined, "stop_dragon_boss_zombie", 0);
@@ -3140,7 +3140,7 @@ function function_bd0972bc(a_ents)
 */
 function function_cab64a16(a_ents)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 }
 
@@ -3155,7 +3155,7 @@ function function_cab64a16(a_ents)
 */
 function function_3bc22c00(a_ents)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	if(level flag::get("dragon_boss_vignette"))
 	{
@@ -3199,7 +3199,7 @@ function function_3bc22c00(a_ents)
 */
 function function_c08b162c(a_ents)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	if(!flag::get("dragon_interrupt") && !flag::get("world_is_paused"))
 	{
@@ -3320,7 +3320,7 @@ function function_1a2d9dc9()
 */
 function function_8226b1a6(a_ents)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	if(level flag::get("dragon_boss_vignette"))
 	{
@@ -3406,7 +3406,7 @@ function function_98ee9e20(n_number, var_6646a04b, v_target_origin, e_player)
 	}
 	var_201fdf35 = level.var_357a65b gettagorigin("tag_aim");
 	var_aa911866 = magicbullet(var_6646a04b, var_201fdf35, v_target_origin, level.var_357a65b);
-	var_aa911866 waittill(#"death");
+	var_aa911866 waittill("death");
 	e_fx delete();
 }
 
@@ -3470,7 +3470,7 @@ function function_cbded78b(a_ents)
 */
 function function_c24d6636(a_ents)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 }
 
@@ -3485,7 +3485,7 @@ function function_c24d6636(a_ents)
 */
 function function_33594820(a_ents)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	if(level flag::get("dragon_boss_vignette"))
 	{
@@ -3546,7 +3546,7 @@ function function_3b09a8e3(a_ents)
 {
 	level endon(#"hash_a35dee4e");
 	level flag::clear("dragon_boss_in_air");
-	level.var_ef9c43d7 notify(#"reselect_goal");
+	level.var_ef9c43d7 notify("reselect_goal");
 	level.var_181b1223 = level.var_5494305;
 	level.var_5494305 = undefined;
 	if(level flag::get("dragon_boss_vignette"))
@@ -3697,8 +3697,8 @@ function function_d0a25c9e(a_ents)
 		if(player laststand::player_is_in_laststand())
 		{
 			self reviveplayer();
-			self notify(#"player_revived");
-			self notify(#"stop_revive_trigger");
+			self notify("player_revived");
+			self notify("stop_revive_trigger");
 			if(isdefined(self.revivetrigger))
 			{
 				self.revivetrigger delete();
@@ -3741,7 +3741,7 @@ function function_2a3b64e3()
 */
 function function_b55a5517()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	switch(self.characterindex)
 	{
 		case 0:
@@ -3836,7 +3836,7 @@ function function_8d48f9f7(a_ents, var_765a3ab1)
 */
 function dragon_boss_transition_dempsey_done(a_ents)
 {
-	level notify(#"dragon_boss_transition_dempsey_done");
+	level notify("dragon_boss_transition_dempsey_done");
 }
 
 /*
@@ -3850,7 +3850,7 @@ function dragon_boss_transition_dempsey_done(a_ents)
 */
 function dragon_boss_transition_nikolai_done(a_ents)
 {
-	level notify(#"dragon_boss_transition_nikolai_done");
+	level notify("dragon_boss_transition_nikolai_done");
 }
 
 /*
@@ -3864,7 +3864,7 @@ function dragon_boss_transition_nikolai_done(a_ents)
 */
 function dragon_boss_transition_richtofen_done(a_ents)
 {
-	level notify(#"dragon_boss_transition_richtofen_done");
+	level notify("dragon_boss_transition_richtofen_done");
 }
 
 /*
@@ -3878,7 +3878,7 @@ function dragon_boss_transition_richtofen_done(a_ents)
 */
 function dragon_boss_transition_takeo_done(a_ents)
 {
-	level notify(#"dragon_boss_transition_takeo_done");
+	level notify("dragon_boss_transition_takeo_done");
 }
 
 /*
@@ -3900,7 +3900,7 @@ function function_47b84e6b()
 	}
 	wait(1.5);
 	level thread lui::screen_fade_in(1, "white");
-	level waittill(#"fadeout");
+	level waittill("fadeout");
 	level thread lui::screen_fade_out(1, "white");
 }
 
@@ -3978,7 +3978,7 @@ function function_96eb8639()
 */
 function function_cf6274b2()
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	var_94bcf41e = randomfloat(1);
 	if(level.var_ef6a691 < 3)
@@ -4047,7 +4047,7 @@ function function_bba545e9()
 */
 function function_c40e4649(var_94bcf41e)
 {
-	level endon(#"dragon_interrupt");
+	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	switch(var_94bcf41e)
 	{
@@ -4282,7 +4282,7 @@ function function_2ce58010()
 	level endon(#"hash_a35dee4e");
 	while(true)
 	{
-		self waittill(#"damage", n_damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", n_damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		if(isplayer(attacker) && level flag::get("dragon_boss_takedamage") && !level flag::get("world_is_paused"))
 		{
 			foreach(var_61c194b7 in level.var_61699bd7[level.var_ef6a691])
@@ -4361,7 +4361,7 @@ function function_30560c4b()
 {
 	level notify(#"hash_dfaade1d");
 	level notify(#"hash_a35dee4e");
-	level notify(#"stop_dragon_boss_zombie");
+	level notify("stop_dragon_boss_zombie");
 	level thread zm_stalingrad_util::function_adf4d1d0();
 	level thread function_80c3dfb0(0);
 	level clientfield::set("deactivate_ai_vox", 0);
@@ -4468,7 +4468,7 @@ function function_285a7d29()
 */
 function function_11044369()
 {
-	level.var_ef9c43d7 notify(#"stop_dragon_nikolai_think");
+	level.var_ef9c43d7 notify("stop_dragon_nikolai_think");
 	level.var_ef9c43d7.var_fa4643fb delete();
 	util::wait_network_frame();
 	level.var_ef9c43d7 delete();
@@ -4537,12 +4537,12 @@ function function_b1a4952d()
 */
 function attack_thread_gun()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self endon(#"end_attack_thread");
 	self notify(#"end_attack_thread_gun");
 	self endon(#"end_attack_thread_gun");
-	self endon(#"stop_dragon_nikolai_think");
+	self endon("stop_dragon_nikolai_think");
 	count = 0;
 	while(true)
 	{
@@ -4631,7 +4631,7 @@ function attack_thread_gun()
 */
 function function_32faa6e1(no_delay = 0)
 {
-	self endon(#"stop_dragon_nikolai_think");
+	self endon("stop_dragon_nikolai_think");
 	self setcandamage(0);
 	self thread attack_thread_gun();
 	if(!no_delay)
@@ -4749,7 +4749,7 @@ function function_6689dfc5(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function function_5b3d5084(var_8a585abc)
 {
-	self endon(#"stop_dragon_nikolai_think");
+	self endon("stop_dragon_nikolai_think");
 	if(var_8a585abc)
 	{
 		v_target = level.var_357a65b gettagorigin(level.var_61699bd7[level.var_ef6a691][0]);
@@ -4777,15 +4777,15 @@ function function_5b3d5084(var_8a585abc)
 */
 function function_4e639a6a()
 {
-	level endon(#"dragon_boss_dead");
+	level endon("dragon_boss_dead");
 	s_dragon_boss_full_ammo = struct::get("s_dragon_boss_full_ammo", "targetname");
 	while(true)
 	{
 		level waittill(#"hash_2425bb5b");
 		var_93eb638b = zm_powerups::specific_powerup_drop("full_ammo", s_dragon_boss_full_ammo.origin);
-		var_93eb638b notify(#"powerup_reset");
+		var_93eb638b notify("powerup_reset");
 		level thread function_bdbc171f(var_93eb638b);
-		var_93eb638b waittill(#"powerup_grabbed");
+		var_93eb638b waittill("powerup_grabbed");
 	}
 }
 
@@ -4800,8 +4800,8 @@ function function_4e639a6a()
 */
 function function_bdbc171f(var_93eb638b)
 {
-	var_93eb638b endon(#"powerup_grabbed");
-	level waittill(#"nikolai_complete");
+	var_93eb638b endon("powerup_grabbed");
+	level waittill("nikolai_complete");
 	if(isdefined(var_93eb638b))
 	{
 		var_93eb638b thread zm_powerups::powerup_timeout();
@@ -4825,7 +4825,7 @@ function function_9f54bfc4()
 	{
 		wait(level.var_299d7581[level.var_7a29ed06]);
 		level flag::set("dragon_boss_vignette");
-		level.var_ef9c43d7 notify(#"reselect_goal");
+		level.var_ef9c43d7 notify("reselect_goal");
 		level flag::wait_till("dragon_boss_vignette_ready");
 		switch(level.var_7a29ed06)
 		{
@@ -4882,7 +4882,7 @@ function function_f3810a1d(var_2443f661)
 		}
 		wait(0.05);
 	}
-	self notify(#"stop_dragon_nikolai_think");
+	self notify("stop_dragon_nikolai_think");
 	self setturrettargetrelativeangles((0, 0, 0), 0);
 	self setturrettargetrelativeangles((0, 0, 0), 1);
 	self setturrettargetrelativeangles((0, 0, 0), 2);
@@ -4906,7 +4906,7 @@ function function_f3810a1d(var_2443f661)
 */
 function function_a08562dc(scriptbundlename, var_4ee9a8c8, var_8d89a2d7)
 {
-	self notify(#"stop_dragon_nikolai_think");
+	self notify("stop_dragon_nikolai_think");
 	self thread function_719d5095(var_8d89a2d7);
 	level thread scene::play(scriptbundlename);
 	self asmrequestsubstate(var_4ee9a8c8);
@@ -4928,7 +4928,7 @@ function function_a08562dc(scriptbundlename, var_4ee9a8c8, var_8d89a2d7)
 */
 function function_719d5095(animname)
 {
-	self endon(#"death");
+	self endon("death");
 	self util::waittill_notify_or_timeout("fire_harpoon_pre", 2);
 	align = struct::get("tag_align_dragon_path", "targetname");
 	origin = self gettagorigin("tag_gunner_flash2");
@@ -5268,7 +5268,7 @@ function function_c09859f(n_seat)
 function function_e73b4306(a_ents)
 {
 	/#
-		level waittill(#"fadeout");
+		level waittill("fadeout");
 		level thread lui::screen_fade_out(1, "");
 	#/
 }
@@ -5301,7 +5301,7 @@ function function_a2ac4477(a_ents)
 function handle_notetracks()
 {
 	self thread function_5173a048();
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		str_notify = self util::waittill_any_return("arrival", "big_wingflap", "sml_wingflap", "wingflap_arrival", "wingflap_exit", "flak", "death");
@@ -5352,7 +5352,7 @@ function handle_notetracks()
 */
 function function_5173a048()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		str_notify = self util::waittill_any_return("footstep_fr", "footstep_fl", "footstep_br", "footstep_bl", "death");

@@ -750,10 +750,10 @@ function debug_draw_blocked_path_kill_radius(center, radius)
 */
 function wait_robot_moving()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"robot_moving");
+		self waittill("robot_moving");
 		self recordgameeventnonplayer("robot_start");
 		self clientfield::set("robot_state", 1);
 		level.moveobject gameobjects::set_flags(1);
@@ -771,10 +771,10 @@ function wait_robot_moving()
 */
 function wait_robot_stopped()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"robot_stopped");
+		self waittill("robot_stopped");
 		if(self.active)
 		{
 			self recordgameeventnonplayer("robot_stop");
@@ -795,10 +795,10 @@ function wait_robot_stopped()
 */
 function wait_robot_shutdown()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"robot_shutdown");
+		self waittill("robot_shutdown");
 		level.moveobject gameobjects::allow_use("none");
 		objective_setprogress(level.moveobject.objectiveid, -0.05);
 		self clientfield::set("robot_state", 2);
@@ -823,10 +823,10 @@ function wait_robot_shutdown()
 */
 function wait_robot_reboot()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"robot_reboot");
+		self waittill("robot_reboot");
 		self recordgameeventnonplayer("robot_repair_complete");
 		level.moveobject gameobjects::allow_use("friendly");
 		otherteam = util::getotherteam(self.team);
@@ -858,8 +858,8 @@ function wait_robot_reboot()
 */
 function auto_reboot_robot(time)
 {
-	self endon(#"robot_reboot");
-	self endon(#"game_ended");
+	self endon("robot_reboot");
+	self endon("game_ended");
 	shutdowntime = 0;
 	while(shutdowntime < time)
 	{
@@ -907,10 +907,10 @@ function auto_reboot_robot(time)
 */
 function watch_robot_damaged()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"robot_damaged");
+		self waittill("robot_damaged");
 		percent = min(1, self.shutdowndamage / level.shutdowndamage);
 		objective_setprogress(level.moveobject.objectiveid, 1 - percent);
 		health = level.shutdowndamage - self.shutdowndamage;
@@ -938,7 +938,7 @@ function watch_robot_damaged()
 */
 function delete_on_endgame_sequence()
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"endgame_sequence");
 	self delete();
 }
@@ -1087,7 +1087,7 @@ function robot_damage(einflictor, eattacker, idamage, idflags, smeansofdeath, we
 		return false;
 	}
 	self.shutdowndamage = self.shutdowndamage + weapon_damage;
-	self notify(#"robot_damaged");
+	self notify("robot_damaged");
 	if(!isdefined(eattacker.damagerobot))
 	{
 		eattacker.damagerobot = 0;
@@ -1210,7 +1210,7 @@ function shutdown_robot()
 	self ai::set_ignoreme(1);
 	self.canwalk = 0;
 	self stop_robot();
-	self notify(#"robot_shutdown");
+	self notify("robot_shutdown");
 	if(target_istarget(self))
 	{
 		target_remove(self);
@@ -1235,12 +1235,12 @@ function shutdown_robot()
 */
 function reboot_robot()
 {
-	self endon(#"robot_shutdown");
-	level endon(#"game_ended");
+	self endon("robot_shutdown");
+	level endon("game_ended");
 	self.active = 1;
 	self.shutdowndamage = 0;
 	self ai::set_ignoreme(0);
-	self notify(#"robot_reboot");
+	self notify("robot_reboot");
 	if(isdefined(level.shutdowndamage) && level.shutdowndamage)
 	{
 		target_set(self, vectorscale((0, 0, 1), 50));
@@ -1279,7 +1279,7 @@ function move_robot()
 	{
 		return;
 	}
-	self notify(#"robot_moving");
+	self notify("robot_moving");
 	self.moving = 1;
 	self set_goal_to_point_on_path();
 	self thread robot_wait_next_point();
@@ -1432,16 +1432,16 @@ function watch_goal_becoming_blocked(goal)
 {
 	self notify(#"end_watch_goal_becoming_blocked_singleton");
 	self endon(#"end_watch_goal_becoming_blocked_singleton");
-	self endon(#"robot_stopped");
-	self endon(#"goal");
-	level endon(#"game_ended");
+	self endon("robot_stopped");
+	self endon("goal");
+	level endon("game_ended");
 	disttogoalsqr = 1E+09;
 	while(true)
 	{
 		wait(0.1);
 		if(isdefined(self.traversestartnode))
 		{
-			self waittill(#"traverse_end");
+			self waittill("traverse_end");
 			continue;
 		}
 		if(self asmistransdecrunning())
@@ -1460,7 +1460,7 @@ function watch_goal_becoming_blocked(goal)
 		else
 		{
 			self.goaljustblocked = 1;
-			self notify(#"goal_blocked");
+			self notify("goal_blocked");
 		}
 	}
 }
@@ -1478,11 +1478,11 @@ function watch_becoming_blocked_at_goal()
 {
 	self notify(#"end_watch_becoming_blocked_at_goal");
 	self endon(#"end_watch_becoming_blocked_at_goal");
-	self endon(#"robot_stop");
-	level endon(#"game_ended");
+	self endon("robot_stop");
+	level endon("game_ended");
 	while(isdefined(self.traversestartnode))
 	{
-		self waittill(#"traverse_end");
+		self waittill("traverse_end");
 	}
 	self.watch_becoming_blocked_at_goal_established = 1;
 	startpos = self.origin;
@@ -1498,7 +1498,7 @@ function watch_becoming_blocked_at_goal()
 		if(atsameposcount >= 2)
 		{
 			self.goaljustblocked = 1;
-			self notify(#"goal_blocked");
+			self notify("goal_blocked");
 		}
 		iterationcount++;
 		if(iterationcount >= 3)
@@ -1536,7 +1536,7 @@ function stop_robot()
 	deltapos = velocity * 0.05;
 	stopgoal = (isdefined(getclosestpointonnavmesh(self.origin + deltapos, 48, 15)) ? getclosestpointonnavmesh(self.origin + deltapos, 48, 15) : self.origin);
 	self setgoal(stopgoal, 0);
-	self notify(#"robot_stopped");
+	self notify("robot_stopped");
 }
 
 /*
@@ -1550,10 +1550,10 @@ function stop_robot()
 */
 function check_robot_on_travesal_end()
 {
-	self notify(#"check_robot_on_travesal_end_singleton");
-	self endon(#"check_robot_on_travesal_end_singleton");
-	self endon(#"death");
-	self waittill(#"traverse_end");
+	self notify("check_robot_on_travesal_end_singleton");
+	self endon("check_robot_on_travesal_end_singleton");
+	self endon("death");
+	self waittill("traverse_end");
 	numowners = (isdefined(level.moveobject.numtouching[level.moveobject.ownerteam]) ? level.moveobject.numtouching[level.moveobject.ownerteam] : 0);
 	if(numowners < level.moveplayers)
 	{
@@ -1576,11 +1576,11 @@ function check_robot_on_travesal_end()
 */
 function update_stop_position()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"traverse_end");
+		self waittill("traverse_end");
 		if(!self.moving)
 		{
 			self setgoal(self.origin, 1);
@@ -1599,9 +1599,9 @@ function update_stop_position()
 */
 function robot_wait_next_point()
 {
-	self endon(#"robot_stopped");
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("robot_stopped");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self util::waittill_any("goal", "goal_blocked");
@@ -1770,7 +1770,7 @@ function is_path_distance_to_goal_too_long(&patharray, toolongthreshold)
 function debug_reset_robot_to_start()
 {
 	/#
-		level endon(#"game_ended");
+		level endon("game_ended");
 		while(true)
 		{
 			if((isdefined(getdvarint("")) ? getdvarint("") : 0) > 0)
@@ -1851,7 +1851,7 @@ function explode_robot()
 function wait_robot_corpse()
 {
 	archetype = self.archetype;
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	corpse clientfield::set("escort_robot_burn", 1);
 }
 
@@ -1866,7 +1866,7 @@ function wait_robot_corpse()
 */
 function robot_move_chatter()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
 		if(self.moving)
@@ -1962,8 +1962,8 @@ function on_update_use_rate_robot_move(team, progress, change)
 */
 function track_escorting_players()
 {
-	level endon(#"game_ended");
-	self.robot endon(#"robot_stopped");
+	level endon("game_ended");
+	self.robot endon("robot_stopped");
 	while(true)
 	{
 		foreach(touch in self.touchlist[self.team])
@@ -1988,10 +1988,10 @@ function track_escorting_players()
 */
 function track_escort_time(player)
 {
-	level endon(#"game_ended");
-	player endon(#"death");
-	player endon(#"disconnect");
-	self.robot endon(#"robot_shutdown");
+	level endon("game_ended");
+	player endon("death");
+	player endon("disconnect");
+	self.robot endon("robot_shutdown");
 	player.escortingrobot = 1;
 	player recordgameevent("player_escort_start");
 	self thread wait_escort_death(player);
@@ -2059,10 +2059,10 @@ function player_stop_escort()
 */
 function wait_escort_death(player)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	player endon(#"escorting_stopped");
-	player endon(#"disconnect");
-	player waittill(#"death");
+	player endon("disconnect");
+	player waittill("death");
 	player thread player_stop_escort();
 }
 
@@ -2077,10 +2077,10 @@ function wait_escort_death(player)
 */
 function wait_escort_shutdown(player)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	player endon(#"escorting_stopped");
-	player endon(#"disconnect");
-	self.robot waittill(#"robot_shutdown");
+	player endon("disconnect");
+	self.robot waittill("robot_shutdown");
 	player thread player_stop_escort();
 }
 
@@ -2138,8 +2138,8 @@ function setup_goal_object(robot, triggername)
 */
 function watch_robot_enter(robot)
 {
-	robot endon(#"death");
-	level endon(#"game_ended");
+	robot endon("death");
+	level endon("game_ended");
 	radiussq = self.trigger.radius * self.trigger.radius;
 	while(true)
 	{
@@ -2244,7 +2244,7 @@ function kill_anything_blocking_goal(goal)
 		{
 			if(entity.targetname == "talon")
 			{
-				entity notify(#"death");
+				entity notify("death");
 				return 1;
 			}
 		}

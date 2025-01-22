@@ -311,8 +311,8 @@ function recordendgamecomscoreeventforplayer(player, result)
 */
 function player_monitor_travel_dist()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	waittime = 1;
 	minimummovedistance = 16;
 	wait(4);
@@ -323,7 +323,7 @@ function player_monitor_travel_dist()
 		wait(waittime);
 		if(self util::isusingremote())
 		{
-			self waittill(#"stopped_using_remote");
+			self waittill("stopped_using_remote");
 			prevpos = self.origin;
 			positionptm = self.origin;
 			continue;
@@ -392,9 +392,9 @@ function record_special_move_data_for_life(killer)
 */
 function player_monitor_wall_run()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_monitor_wall_run");
-	self endon(#"stop_player_monitor_wall_run");
+	self endon("disconnect");
+	self notify("stop_player_monitor_wall_run");
+	self endon("stop_player_monitor_wall_run");
 	self.lastwallrunstarttime = 0;
 	self.timespentwallrunninginlife = 0;
 	while(true)
@@ -425,9 +425,9 @@ function player_monitor_wall_run()
 */
 function player_monitor_swimming()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_monitor_swimming");
-	self endon(#"stop_player_monitor_swimming");
+	self endon("disconnect");
+	self notify("stop_player_monitor_swimming");
+	self endon("stop_player_monitor_swimming");
 	self.lastswimmingstarttime = 0;
 	self.timespentswimminginlife = 0;
 	while(true)
@@ -458,9 +458,9 @@ function player_monitor_swimming()
 */
 function player_monitor_slide()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_monitor_slide");
-	self endon(#"stop_player_monitor_slide");
+	self endon("disconnect");
+	self notify("stop_player_monitor_slide");
+	self endon("stop_player_monitor_slide");
 	self.lastslidestarttime = 0;
 	self.numberofslidesinlife = 0;
 	while(true)
@@ -491,9 +491,9 @@ function player_monitor_slide()
 */
 function player_monitor_doublejump()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_monitor_doublejump");
-	self endon(#"stop_player_monitor_doublejump");
+	self endon("disconnect");
+	self notify("stop_player_monitor_doublejump");
+	self endon("stop_player_monitor_doublejump");
 	self.lastdoublejumpstarttime = 0;
 	self.numberofdoublejumpsinlife = 0;
 	while(true)
@@ -524,9 +524,9 @@ function player_monitor_doublejump()
 */
 function player_monitor_inactivity()
 {
-	self endon(#"disconnect");
-	self notify(#"player_monitor_inactivity");
-	self endon(#"player_monitor_inactivity");
+	self endon("disconnect");
+	self notify("player_monitor_inactivity");
+	self endon("player_monitor_inactivity");
 	wait(10);
 	while(true)
 	{
@@ -566,7 +566,7 @@ function callback_playerconnect()
 	self.leaderdialogqueue = [];
 	self.killstreakdialogqueue = [];
 	profilelog_begintiming(4, "ship");
-	level notify(#"connected", self);
+	level notify("connected", self);
 	callback::callback(#"hash_eaffea17");
 	if(self ishost())
 	{
@@ -899,7 +899,7 @@ function callback_playerconnect()
 	{
 		self persistence::set_after_action_report_stat("demoFileID", "0");
 	}
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(isdefined(level.hostmigrationtimer))
 	{
 		self thread hostmigration::hostmigrationtimerthink();
@@ -1166,7 +1166,7 @@ function record_misc_player_stats()
 */
 function spectate_player_watcher()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!level.splitscreen && !level.hardcoremode && getdvarint("scr_showperksonspawn") == 1 && game["state"] != "postgame" && !isdefined(self.perkhudelem))
 	{
 		if(level.perksenabled == 1)
@@ -1248,7 +1248,7 @@ function callback_playermigrated()
 		/#
 			println("");
 		#/
-		level notify(#"hostmigration_enoughplayers");
+		level notify("hostmigration_enoughplayers");
 	}
 }
 
@@ -2740,7 +2740,7 @@ function playerkilled_obituary(attacker, einflictor, weapon, smeansofdeath)
 {
 	if(!isplayer(attacker) || self util::isenemyplayer(attacker) == 0 || (isdefined(weapon) && killstreaks::is_killstreak_weapon(weapon)))
 	{
-		level notify(#"reset_obituary_count");
+		level notify("reset_obituary_count");
 		level.lastobituaryplayercount = 0;
 		level.lastobituaryplayer = undefined;
 	}
@@ -2752,14 +2752,14 @@ function playerkilled_obituary(attacker, einflictor, weapon, smeansofdeath)
 		}
 		else
 		{
-			level notify(#"reset_obituary_count");
+			level notify("reset_obituary_count");
 			level.lastobituaryplayer = attacker;
 			level.lastobituaryplayercount = 1;
 		}
 		level thread scoreevents::decrementlastobituaryplayercountafterfade();
 		if(level.lastobituaryplayercount >= 4)
 		{
-			level notify(#"reset_obituary_count");
+			level notify("reset_obituary_count");
 			level.lastobituaryplayercount = 0;
 			level.lastobituaryplayer = undefined;
 			self thread scoreevents::uninterruptedobitfeedkills(attacker, weapon);
@@ -2831,7 +2831,7 @@ function playerkilled_suicide(einflictor, attacker, smeansofdeath, weapon, shitl
 		}
 		if(level.maxsuicidesbeforekick > 0 && level.maxsuicidesbeforekick <= self.suicides)
 		{
-			self notify(#"teamkillkicked");
+			self notify("teamkillkicked");
 			self suicidekick();
 		}
 		thread battlechatter::on_player_suicide_or_team_kill(self, "suicide");
@@ -2905,7 +2905,7 @@ function playerkilled_teamkill(einflictor, attacker, smeansofdeath, weapon, shit
 			attacker thread wait_and_suicide();
 			if(attacker shouldteamkillkick(teamkilldelay))
 			{
-				attacker notify(#"teamkillkicked");
+				attacker notify("teamkillkicked");
 				attacker thread teamkillkick();
 			}
 			attacker thread reduceteamkillsovertime();
@@ -2928,7 +2928,7 @@ function playerkilled_teamkill(einflictor, attacker, smeansofdeath, weapon, shit
 */
 function wait_and_suicide()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::freeze_player_controls(1);
 	wait(0.25);
 	self suicide();
@@ -3075,7 +3075,7 @@ function playerkilled_kill(einflictor, attacker, smeansofdeath, weapon, shitloc)
 		}
 		if(isdefined(einflictor) && (killstreak == "dart" || killstreak == "inventory_dart"))
 		{
-			einflictor notify(#"veh_collision");
+			einflictor notify("veh_collision");
 		}
 	}
 	else
@@ -3174,7 +3174,7 @@ function do_post_game_death(einflictor, attacker, idamage, smeansofdeath, weapon
 function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration, enteredresurrect = 0)
 {
 	profilelog_begintiming(7, "ship");
-	self endon(#"spawned");
+	self endon("spawned");
 	if(game["state"] == "postgame")
 	{
 		do_post_game_death(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
@@ -3184,7 +3184,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	{
 		return;
 	}
-	self notify(#"killed_player");
+	self notify("killed_player");
 	self callback::callback(#"hash_bc435202");
 	self needsrevive(0);
 	if(isdefined(self.burning) && self.burning == 1)
@@ -3200,8 +3200,8 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 			self.pers["lives"]--;
 			if(self.pers["lives"] == 0)
 			{
-				level notify(#"player_eliminated");
-				self notify(#"player_eliminated");
+				level notify("player_eliminated");
+				self notify("player_eliminated");
 			}
 		}
 		if(game[self.team + "_lives"])
@@ -3209,8 +3209,8 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 			game[self.team + "_lives"]--;
 			if((game[self.team + "_lives"]) == 0)
 			{
-				level notify(#"player_eliminated");
-				self notify(#"player_eliminated");
+				level notify("player_eliminated");
+				self notify("player_eliminated");
 			}
 		}
 	}
@@ -3458,7 +3458,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 			awardassists = 1;
 			if(level.maxsuicidesbeforekick > 0 && level.maxsuicidesbeforekick <= self.suicides)
 			{
-				self notify(#"teamkillkicked");
+				self notify("teamkillkicked");
 				self suicidekick();
 			}
 		}
@@ -3516,7 +3516,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	self.lastdeathpos = self.origin;
 	if(isdefined(attacker) && isplayer(attacker) && attacker != self && (!level.teambased || attacker.team != self.team))
 	{
-		attacker notify(#"killed_enemy_player", self, weapon);
+		attacker notify("killed_enemy_player", self, weapon);
 		if(isdefined(attacker.gadget_thief_kill_callback))
 		{
 			attacker [[attacker.gadget_thief_kill_callback]](self, weapon);
@@ -3525,7 +3525,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	}
 	else
 	{
-		self notify(#"playerkilledchallengesprocessed");
+		self notify("playerkilledchallengesprocessed");
 	}
 	if(isdefined(self.attackers))
 	{
@@ -3779,7 +3779,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		self.psoffsettime = 0;
 		self.spectatekillcam = 0;
 		globallogic_utils::waitfortimeornotify(secondary_deathcam, "end_death_delay");
-		self notify(#"death_delay_finished");
+		self notify("death_delay_finished");
 	}
 	if(!self.cancelkillcam && dokillcam && level.killcam && keep_deathcam)
 	{
@@ -3886,7 +3886,7 @@ function playerkilled_watch_death(weapon, smeansofdeath, deathanimduration)
 		defaultplayerdeathwatchtime = [[level.overrideplayerdeathwatchtimer]](defaultplayerdeathwatchtime);
 	}
 	globallogic_utils::waitfortimeornotify(defaultplayerdeathwatchtime, "end_death_delay");
-	self notify(#"death_delay_finished");
+	self notify("death_delay_finished");
 }
 
 /*
@@ -3970,7 +3970,7 @@ function waittillkillstreakdone()
 function suicidekick()
 {
 	self globallogic_score::incpersstat("sessionbans", 1);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	globallogic::gamehistoryplayerkicked();
 	ban(self getentitynumber());
@@ -3989,7 +3989,7 @@ function suicidekick()
 function teamkillkick()
 {
 	self globallogic_score::incpersstat("sessionbans", 1);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	playlistbanquantum = tweakables::gettweakablevalue("team", "teamkillerplaylistbanquantum");
 	playlistbanpenalty = tweakables::gettweakablevalue("team", "teamkillerplaylistbanpenalty");
@@ -4314,7 +4314,7 @@ function notifyconnecting()
 	waittillframeend();
 	if(isdefined(self))
 	{
-		level notify(#"connecting", self);
+		level notify("connecting", self);
 	}
 	callback::callback(#"hash_fefe13f5");
 }
@@ -4517,12 +4517,12 @@ function updateattacker(attacker, weapon)
 	}
 	if(attacker.classname == "script_vehicle" && isdefined(attacker.owner))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 		attacker = attacker.owner;
 	}
 	if(isai(attacker))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 	}
 	if(isdefined(self.capturinglastflag) && self.capturinglastflag == 1)
 	{
@@ -4584,7 +4584,7 @@ function updateinflictor(einflictor)
 {
 	if(isdefined(einflictor) && einflictor.classname == "script_vehicle")
 	{
-		einflictor notify(#"killed", self);
+		einflictor notify("killed", self);
 		if(isdefined(einflictor.bda))
 		{
 			einflictor.bda++;

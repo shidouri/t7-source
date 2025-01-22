@@ -141,7 +141,7 @@ function on_player_connect()
 */
 function function_99a382c3()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	var_1f76714 = [];
 	var_1f76714[0] = "vox_nik1_intro_intro_0";
 	var_1f76714[1] = "vox_nik1_intro_intro_1";
@@ -257,9 +257,9 @@ function function_5eded46b(str_vo_line, n_wait = 0, b_wait_if_busy, n_priority =
 */
 function function_7b697614(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"stop_vo_convo");
+	self endon("death");
+	self endon("disconnect");
+	self endon("stop_vo_convo");
 	if(level flag::get("story_playing"))
 	{
 		return false;
@@ -377,7 +377,7 @@ function vo_clear()
 */
 function function_502f946b()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.str_vo_being_spoken) && self.str_vo_being_spoken != "")
 	{
 		self stopsound(self.str_vo_being_spoken);
@@ -917,7 +917,7 @@ function function_772aa229()
 	self endon(#"_zombie_game_over");
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(level.activeplayers.size == 1)
 		{
 			level thread function_54cd030a();
@@ -1883,7 +1883,7 @@ function function_9bdbe3a4()
 	level endon(#"_zombie_game_over");
 	while(true)
 	{
-		self waittill(#"weapon_give", w_weapon);
+		self waittill("weapon_give", w_weapon);
 		if(w_weapon == self.weapon_dragon_gauntlet)
 		{
 			self thread function_897246e4(("vox_plr_" + self.characterindex) + "_dragon_glove_aquire_0");
@@ -2548,7 +2548,7 @@ function function_1033e5c6(var_30874640, var_4c5a66ad)
 	self.mdl_fx.targetname = self.targetname + "_fx";
 	self.mdl_fx clientfield::set("ethereal_audio_log_fx", 1);
 	self.takedamage = 1;
-	self waittill(#"damage");
+	self waittill("damage");
 	self.mdl_fx clientfield::set("ethereal_audio_log_fx", 0);
 	level function_8c6e04dc(var_30874640, var_4c5a66ad);
 	self.mdl_fx delete();
@@ -2570,7 +2570,7 @@ function function_ffc15961(var_30874640, var_4c5a66ad)
 	self.mdl_fx = util::spawn_model("tag_origin", self.origin, self.angles);
 	self.mdl_fx.targetname = self.targetname + "_fx";
 	self.mdl_fx clientfield::set("ethereal_audio_log_fx", 1);
-	self waittill(#"trigger_activated", e_who);
+	self waittill("trigger_activated", e_who);
 	e_who clientfield::increment_to_player("interact_rumble");
 	self.mdl_fx clientfield::set("ethereal_audio_log_fx", 0);
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
@@ -2873,7 +2873,7 @@ function function_af0d4b36()
 function function_e12b1498()
 {
 	level endon(#"_zombie_game_over");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_c041bd97 = [];
 	switch(self.characterindex)
 	{
@@ -2913,7 +2913,7 @@ function function_e12b1498()
 	var_816a0127 = 1;
 	while(var_816a0127 <= 3)
 	{
-		self waittill(#"player_downed");
+		self waittill("player_downed");
 		if(self hasperk("specialty_quickrevive") && level.players.size > 1)
 		{
 			continue;
@@ -3013,7 +3013,7 @@ function function_568549ce()
 */
 function function_8eafdf30(var_4c5a66ad)
 {
-	self endon(#"death");
+	self endon("death");
 	var_cbd11028 = [];
 	for(i = 0; i < var_4c5a66ad; i++)
 	{
@@ -3046,7 +3046,7 @@ function function_8eafdf30(var_4c5a66ad)
 */
 function function_df1536ac()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_df1536ac");
 	e_speaker = undefined;
 	while(!isdefined(e_speaker))
@@ -3112,8 +3112,8 @@ function function_2854be75()
 */
 function function_999cab02()
 {
-	self endon(#"death");
-	self waittill(#"raz_arm_detach", e_speaker);
+	self endon("death");
+	self waittill("raz_arm_detach", e_speaker);
 	if(!zm_utility::is_player_valid(e_speaker))
 	{
 		return;
@@ -3239,7 +3239,7 @@ function function_6d6eb04e()
 function function_cd0b1f13()
 {
 	level endon(#"_zombie_game_over");
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_6460283a");
 	for(i = 0; i < 4; i++)
 	{
@@ -3256,14 +3256,14 @@ function function_cd0b1f13()
 	}
 	for(i = 0; i < 2; i++)
 	{
-		self waittill(#"nikolai_weakpoint_destroyed");
+		self waittill("nikolai_weakpoint_destroyed");
 		str_vo_line = array::random(self.var_b5cc11cd);
 		self.var_fa4643fb thread function_897246e4(str_vo_line, 1);
 		arrayremovevalue(self.var_b5cc11cd, str_vo_line);
 	}
 	for(i = 0; i < 2; i++)
 	{
-		self waittill(#"nikolai_weakpoint_destroyed");
+		self waittill("nikolai_weakpoint_destroyed");
 		str_vo_line = array::random(self.var_dbce8c36);
 		self.var_fa4643fb thread function_897246e4(str_vo_line, 1);
 		arrayremovevalue(self.var_dbce8c36, str_vo_line);
@@ -3577,7 +3577,7 @@ function function_233dcc5d(v_source = undefined)
 function function_1e767f71(e_target, n_min_dist = 600, var_79d0b667, var_b03cc213, var_a099ce87 = 1, var_ac3beede = 0, n_duration = 0)
 {
 	e_target endon(#"hash_9ed7f404");
-	e_target endon(#"death");
+	e_target endon("death");
 	while(true)
 	{
 		var_45edf029 = arraysortclosest(level.players, e_target.origin);
@@ -3644,7 +3644,7 @@ function function_65f8953a(str_event, var_79d0b667, var_b03cc213, var_a099ce87 =
 */
 function function_81d644a1()
 {
-	self endon(#"death");
+	self endon("death");
 	array::add(self.var_bac3b790, "death");
 	array::add(self.var_bac3b790, "disconnect");
 	while(true)
@@ -3698,7 +3698,7 @@ function function_c261e8aa()
 */
 function function_1881817(var_79d0b667, var_b03cc213, var_a099ce87 = 10, var_32802234 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	var_4aa3754 = 0;
 	if(zm_utility::is_player_valid(self) && (!(isdefined(self.var_e1f8edd6) && self.var_e1f8edd6)))
 	{
@@ -3736,7 +3736,7 @@ function function_1881817(var_79d0b667, var_b03cc213, var_a099ce87 = 10, var_328
 */
 function function_ecc335b6(var_346d981, var_a099ce87)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(var_a099ce87);
 	self flag::clear(var_346d981);
 }

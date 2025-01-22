@@ -559,9 +559,9 @@ function function_56dd76b(val)
 		setuimodelvalue(getuimodel(level.var_7e2a814c, "countdown"), "");
 		wait(0.016);
 		val = val - 1;
-		level notify(#"countdown", val);
+		level notify("countdown", val);
 	}
-	level notify(#"countdown", 0);
+	level notify("countdown", 0);
 	setuimodelvalue(getuimodel(level.var_7e2a814c, "countdown"), &"CP_DOA_BO3_GO");
 	playsound(0, "evt_countdown_go", (0, 0, 0));
 	wait(1.1);

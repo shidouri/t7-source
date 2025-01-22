@@ -691,7 +691,7 @@ function giveloadout(team, weaponclass, var_dc236bc8, altplayer)
 	primaryindex = 0;
 	self.specialty = [];
 	self.killstreak = [];
-	self notify(#"give_map");
+	self notify("give_map");
 	class_num_for_global_weapons = 0;
 	primaryweaponoptions = 0;
 	secondaryweaponoptions = 0;
@@ -1132,7 +1132,7 @@ function onplayerconnecting()
 {
 	for(;;)
 	{
-		level waittill(#"connecting", player);
+		level waittill("connecting", player);
 		if(!level.oldschool)
 		{
 			if(!isdefined(player.pers["class"]))

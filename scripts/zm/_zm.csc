@@ -527,14 +527,14 @@ function zpo_listener()
 	while(true)
 	{
 		int = undefined;
-		level waittill(#"zpo", int);
+		level waittill("zpo", int);
 		if(isdefined(int))
 		{
-			level notify(#"power_on", int);
+			level notify("power_on", int);
 		}
 		else
 		{
-			level notify(#"power_on");
+			level notify("power_on");
 		}
 	}
 }
@@ -553,14 +553,14 @@ function zpoff_listener()
 	while(true)
 	{
 		int = undefined;
-		level waittill(#"zpoff", int);
+		level waittill("zpoff", int);
 		if(isdefined(int))
 		{
-			level notify(#"power_off", int);
+			level notify("power_off", int);
 		}
 		else
 		{
-			level notify(#"power_off");
+			level notify("power_off");
 		}
 	}
 }
@@ -578,7 +578,7 @@ function zombie_power_clientfield_on(localclientnum, oldval, newval, bnewent, bi
 {
 	if(newval)
 	{
-		level notify(#"zpo", newval);
+		level notify("zpo", newval);
 	}
 }
 
@@ -595,7 +595,7 @@ function zombie_power_clientfield_off(localclientnum, oldval, newval, bnewent, b
 {
 	if(newval)
 	{
-		level notify(#"zpoff", newval);
+		level notify("zpoff", newval);
 	}
 }
 
@@ -760,7 +760,7 @@ function player_eyes_clientfield_cb(localclientnum, oldval, newval, bnewent, bin
 	if(self isplayer())
 	{
 		self.zombie_face = newval;
-		self notify(#"face", "face_advance");
+		self notify("face", "face_advance");
 		if(isdefined(self.special_eyes) && self.special_eyes)
 		{
 		}
@@ -837,8 +837,8 @@ function player_eye_color_clientfield_cb(localclientnum, oldval, newval, bnewent
 function zombie_eyes_handle_demo_jump(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death_or_disconnect");
-	self endon(#"new_zombie_eye_cb");
+	self endon("death_or_disconnect");
+	self endon("new_zombie_eye_cb");
 	while(true)
 	{
 		level util::waittill_any("demo_jump", "demo_player_switch");
@@ -860,8 +860,8 @@ function zombie_eyes_handle_demo_jump(localclientnum)
 function zombie_eyes_demo_watcher(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death_or_disconnect");
-	self endon(#"new_zombie_eye_cb");
+	self endon("death_or_disconnect");
+	self endon("new_zombie_eye_cb");
 	self thread zombie_eyes_handle_demo_jump(localclientnum);
 	if(newval)
 	{
@@ -904,7 +904,7 @@ function zombie_eyes_demo_watcher(localclientnum, oldval, newval, bnewent, binit
 */
 function zombie_eyes_demo_clientfield_cb(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"new_zombie_eye_cb");
+	self notify("new_zombie_eye_cb");
 	self thread zombie_eyes_demo_watcher(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump);
 }
 
@@ -1308,7 +1308,7 @@ function check_should_gib()
 */
 function resetgibcounter()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		wait(level.gibresettime);
@@ -1470,8 +1470,8 @@ function on_gib_event(localclientnum, type, locations)
 */
 function zombie_vision_set_apply(str_visionset, int_priority, flt_transition_time, int_clientnum)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self._zombie_visionset_list))
 	{
 		self._zombie_visionset_list = [];
@@ -1540,8 +1540,8 @@ function zombie_vision_set_apply(str_visionset, int_priority, flt_transition_tim
 */
 function zombie_vision_set_remove(str_visionset, flt_transition_time, int_clientnum)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(str_visionset))
 	{
 		return;
@@ -1627,7 +1627,7 @@ function zombie_highest_vision_set_apply()
 */
 function handle_zombie_risers_foliage(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	if(!oldval && newval)
 	{
@@ -1654,7 +1654,7 @@ function handle_zombie_risers_foliage(localclientnum, oldval, newval, bnewent, b
 */
 function handle_zombie_risers_water(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	if(!oldval && newval)
 	{
@@ -1681,7 +1681,7 @@ function handle_zombie_risers_water(localclientnum, oldval, newval, bnewent, bin
 */
 function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	if(!oldval && newval)
 	{
@@ -1716,7 +1716,7 @@ function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitials
 */
 function handle_zombie_risers_lowg(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	if(!oldval && newval)
 	{
@@ -1753,7 +1753,7 @@ function rise_dust_fx(clientnum, type, billow_fx, burst_fx)
 {
 	dust_tag = "J_SpineUpper";
 	self endon(#"entityshutdown");
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	if(isdefined(level.zombie_custom_riser_fx_handler))
 	{
 		s_info = self [[level.zombie_custom_riser_fx_handler]]();
@@ -1833,7 +1833,7 @@ function rise_dust_fx(clientnum, type, billow_fx, burst_fx)
 */
 function end_last_stand(clientnum)
 {
-	self waittill(#"laststandend");
+	self waittill("laststandend");
 	/#
 		println("" + clientnum);
 	#/
@@ -1856,7 +1856,7 @@ function end_last_stand(clientnum)
 function last_stand_thread(clientnum)
 {
 	self thread end_last_stand(clientnum);
-	self endon(#"laststandend");
+	self endon("laststandend");
 	/#
 		println("" + clientnum);
 	#/
@@ -1926,7 +1926,7 @@ function last_stand_monitor(clientnum, state, oldstate)
 			level.lslooper stopallloopsounds(0.7);
 			playsound(0, "evt_laststand_in", (0, 0, 0));
 		}
-		player notify(#"laststandend");
+		player notify("laststandend");
 		level._laststand[clientnum] = 0;
 	}
 }

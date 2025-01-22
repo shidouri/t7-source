@@ -61,7 +61,7 @@ function onplayerconnect()
 */
 function achievement_temple_sidequest()
 {
-	level waittill(#"temple_sidequest_achieved");
+	level waittill("temple_sidequest_achieved");
 	level thread zm::set_sidequest_completed("EOA");
 	level zm_utility::giveachievement_wrapper("DLC4_ZOM_TEMPLE_SIDEQUEST", 1);
 }
@@ -78,7 +78,7 @@ function achievement_temple_sidequest()
 function achievement_zomb_disposal()
 {
 	level endon(#"end_game");
-	level waittill(#"zomb_disposal_achieved");
+	level waittill("zomb_disposal_achieved");
 }
 
 /*
@@ -92,7 +92,7 @@ function achievement_zomb_disposal()
 */
 function achievement_monkey_see_monkey_dont()
 {
-	level waittill(#"monkey_see_monkey_dont_achieved");
+	level waittill("monkey_see_monkey_dont_achieved");
 }
 
 /*
@@ -107,7 +107,7 @@ function achievement_monkey_see_monkey_dont()
 function achievement_blinded_by_the_fright()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"blinded_by_the_fright_achieved");
 }
 
@@ -123,10 +123,10 @@ function achievement_blinded_by_the_fright()
 function achievement_small_consolation()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		currentweapon = self getcurrentweapon();
 		if(currentweapon.name != "shrink_ray" && currentweapon.name != "shrink_ray_upgraded")
 		{

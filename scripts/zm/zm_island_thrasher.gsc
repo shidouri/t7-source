@@ -57,7 +57,7 @@ function private function_f8333089()
 */
 function private function_9b57ea16()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(1);
 	self ai::set_behavior_attribute("use_attackable", 1);
 }

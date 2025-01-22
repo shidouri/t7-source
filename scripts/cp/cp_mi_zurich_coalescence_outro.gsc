@@ -96,7 +96,7 @@ function function_4fa5eed()
 */
 function function_4163ce88()
 {
-	level endon(#"movie_done");
+	level endon("movie_done");
 	wait(0.2);
 	level dialog::remote("tcor_it_s_all_wrong_0", 1, "NO_DNI");
 	level dialog::remote("tcor_it_was_supposed_to_m_0", 1, "NO_DNI");
@@ -282,7 +282,7 @@ function function_c0ced31c()
 */
 function function_354b619b(var_495fe8ae)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	w_pistol = getweapon("pistol_standard");
 	self takeallweapons();
 	self giveweapon(w_pistol);
@@ -461,7 +461,7 @@ function function_e2a2e56e()
 function function_f0e5d1d()
 {
 	hidemiscmodels("server_interior_dead_bodies");
-	level waittill(#"dead_bodies");
+	level waittill("dead_bodies");
 	showmiscmodels("server_interior_dead_bodies");
 }
 
@@ -593,7 +593,7 @@ function function_e611368a()
 	{
 		return;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_e0529ad4");
 	while(true)
 	{
@@ -614,7 +614,7 @@ function function_e611368a()
 */
 function function_51e85b80()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(sessionmodeiscampaignzombiesgame())
 	{
 		return;
@@ -908,7 +908,7 @@ function function_83b161ee(nd_goal)
 	wait(randomfloatrange(0.15, 0.5));
 	self clearforcedgoal();
 	self ai::patrol(getnode(nd_goal, "targetname"));
-	self waittill(#"goal");
+	self waittill("goal");
 	self scene::play("sb_t7_c_nrc_assault_idle", self);
 }
 
@@ -1002,7 +1002,7 @@ function function_ffeb5fe9()
 	n_time = n_distance / self.n_speed;
 	self moveto(s_next.origin, n_time);
 	self rotateto(s_next.angles, n_time);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	if(self.model === "veh_t7_mil_vtol_egypt")
 	{
 		self thread function_61438a39();
@@ -1100,8 +1100,8 @@ function larry_the_limper()
 	{
 		return;
 	}
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.var_ea4a62a = util::spawn_model("tag_origin");
 	self playersetgroundreferenceent(self.var_ea4a62a);
 	self setmovespeedscale(0.85);
@@ -1173,9 +1173,9 @@ function larry_the_limper()
 */
 function limp_loop()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"player_not_moving");
+	self endon("disconnect");
+	self endon("death");
+	self endon("player_not_moving");
 	self setblur(0.5, 0.5);
 	var_f7fdecc8 = (level.var_a8cde67a, level.var_ced060e3, level.var_5cc8f1a8);
 	v_angles = self adjust_angles_to_player(var_f7fdecc8);
@@ -1206,8 +1206,8 @@ function limp_loop()
 */
 function player_velocity_tracker()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	var_7ba6849c = 0;
 	while(true)
 	{
@@ -1215,7 +1215,7 @@ function player_velocity_tracker()
 		self.player_speed = abs(v_player_velocity[0]) + abs(v_player_velocity[1]);
 		if(self.player_speed < 1 && var_7ba6849c > 1)
 		{
-			self notify(#"player_not_moving");
+			self notify("player_not_moving");
 			self.var_ea4a62a rotateto((0, 0, 0), 1);
 			wait(0.5);
 		}
@@ -1479,8 +1479,8 @@ function decent_rightlimp()
 */
 function adjust_angles_to_player(var_cb29ad00)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	var_ba8b2edd = var_cb29ad00[0];
 	v_ra = var_cb29ad00[2];
 	var_7d94cf0c = anglestoright(self.angles);
@@ -1503,8 +1503,8 @@ function adjust_angles_to_player(var_cb29ad00)
 */
 function player_speed_set(n_speed, n_time)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	var_6d63a9b5 = getdvarint("g_speed");
 	var_f44c8c7e = n_speed;
 	if(isdefined(self._player_speed_modifier))
@@ -1593,7 +1593,7 @@ function function_3ec4c691()
 */
 function function_7e39583d(players)
 {
-	self endon(#"death");
+	self endon("death");
 	foreach(player in level.players)
 	{
 		foreach(var_e6ef2725 in level.players)

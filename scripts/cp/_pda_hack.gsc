@@ -121,7 +121,7 @@ class chackableobject
 	*/
 	function do_bar_update(n_hack_duration)
 	{
-		self endon(#"kill_bar");
+		self endon("kill_bar");
 		self hud::updatebar(0.01, 1 / n_hack_duration);
 	}
 
@@ -175,15 +175,15 @@ class chackableobject
 	*/
 	function thread_hacking_progress()
 	{
-		self endon(#"hacking_completed");
-		self endon(#"hacking_disabled");
-		m_e_hack_trigger endon(#"death");
+		self endon("hacking_completed");
+		self endon("hacking_disabled");
+		m_e_hack_trigger endon("death");
 		m_is_trigger_thread_active = 1;
 		m_e_hack_trigger sethintstring("");
 		m_e_hack_trigger sethintlowpriority(1);
 		while(true)
 		{
-			m_e_hack_trigger waittill(#"trigger", e_triggerer);
+			m_e_hack_trigger waittill("trigger", e_triggerer);
 			if(!m_is_functional)
 			{
 				continue;
@@ -244,7 +244,7 @@ class chackableobject
 			}
 			if(isdefined(m_progress_bar))
 			{
-				m_progress_bar notify(#"kill_bar");
+				m_progress_bar notify("kill_bar");
 				m_progress_bar hud::destroyelem();
 			}
 			e_triggerer temp_player_lock_in_place_remove();
@@ -278,7 +278,7 @@ class chackableobject
 	*/
 	function wait_till_hacking_completed()
 	{
-		self waittill(#"hacking_completed");
+		self waittill("hacking_completed");
 	}
 
 	/*
@@ -292,7 +292,7 @@ class chackableobject
 	*/
 	function hacking_completed(e_triggerer)
 	{
-		self notify(#"hacking_completed");
+		self notify("hacking_completed");
 		m_str_team = "allies";
 		m_e_hack_trigger sethintstring("");
 		m_e_hack_trigger sethintlowpriority(1);
@@ -323,7 +323,7 @@ class chackableobject
 	{
 		if(m_is_hackable)
 		{
-			self notify(#"hacking_disabled");
+			self notify("hacking_disabled");
 			m_e_hack_trigger sethintstring("");
 			m_e_hack_trigger sethintlowpriority(1);
 			m_is_trigger_thread_active = 0;

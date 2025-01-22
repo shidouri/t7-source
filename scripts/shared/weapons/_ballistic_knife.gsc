@@ -33,10 +33,10 @@ function init_shared()
 */
 function onspawn(watcher, player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	level endon(#"game_ended");
-	self waittill(#"stationary", endpos, normal, angles, attacker, prey, bone);
+	player endon("death");
+	player endon("disconnect");
+	level endon("game_ended");
+	self waittill("stationary", endpos, normal, angles, attacker, prey, bone);
 	isfriendly = 0;
 	if(isdefined(endpos))
 	{
@@ -74,7 +74,7 @@ function onspawn(watcher, player)
 		watcher.objectarray[watcher.objectarray.size] = retrievable_model;
 		if(isfriendly)
 		{
-			retrievable_model waittill(#"stationary");
+			retrievable_model waittill("stationary");
 		}
 		retrievable_model thread dropknivestoground();
 		if(isfriendly)
@@ -100,7 +100,7 @@ function onspawn(watcher, player)
 function watch_shutdown()
 {
 	pickuptrigger = self.pickuptrigger;
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(pickuptrigger))
 	{
 		pickuptrigger delete();
@@ -118,9 +118,9 @@ function watch_shutdown()
 */
 function onspawnretrievetrigger(watcher, player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	level endon(#"game_ended");
+	player endon("death");
+	player endon("disconnect");
+	level endon("game_ended");
 	player waittill(#"ballistic_knife_stationary", retrievable_model, normal, prey);
 	if(!isdefined(retrievable_model))
 	{
@@ -169,13 +169,13 @@ function onspawnretrievetrigger(watcher, player)
 */
 function watch_use_trigger(trigger, model, callback, playersoundonuse, npcsoundonuse)
 {
-	self endon(#"death");
-	self endon(#"delete");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("delete");
+	level endon("game_ended");
 	max_ammo = level.weaponballisticknife.maxammo + 1;
 	while(true)
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		if(!isalive(player))
 		{
 			continue;
@@ -298,10 +298,10 @@ function destroy_ent()
 */
 function dropknivestoground()
 {
-	self endon(#"death");
+	self endon("death");
 	for(;;)
 	{
-		level waittill(#"drop_objects_to_ground", origin, radius);
+		level waittill("drop_objects_to_ground", origin, radius);
 		self droptoground(origin, radius);
 	}
 }
@@ -335,8 +335,8 @@ function droptoground(origin, radius)
 */
 function updateretrievetrigger()
 {
-	self endon(#"death");
-	self waittill(#"stationary");
+	self endon("death");
+	self waittill("stationary");
 	trigger = self.pickuptrigger;
 	trigger.origin = (self.origin[0], self.origin[1], self.origin[2] + 10);
 	trigger linkto(self);

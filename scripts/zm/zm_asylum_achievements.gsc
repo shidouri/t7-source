@@ -55,7 +55,7 @@ function __init__()
 */
 function achievement_sound_func(achievement_name_lower)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!sessionmodeisonlinegame())
 	{
 		return;
@@ -94,7 +94,7 @@ function onplayerconnect()
 function function_fa4b9452()
 {
 	level endon(#"end_game");
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(level.round_number < 5 && !level flag::get("power_on"))
 	{
 		level function_64c5daf7();
@@ -118,7 +118,7 @@ function function_fa4b9452()
 function function_64c5daf7()
 {
 	level endon(#"end_game");
-	level endon(#"power_on");
+	level endon("power_on");
 	level waittill(#"end_of_round");
 }
 
@@ -134,7 +134,7 @@ function function_64c5daf7()
 function function_a90f7ab8()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_2418ad9a = 20;
 	self waittill(#"hash_fadd25a2");
 	/#
@@ -154,7 +154,7 @@ function function_a90f7ab8()
 function function_9c59bc3()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.zapped_zombies = 0;
 	self thread function_a366eb3e();
 	self waittill(#"hash_c0226895");
@@ -174,11 +174,11 @@ function function_9c59bc3()
 function function_a366eb3e()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_c0226895");
 	while(self.zapped_zombies < 50)
 	{
-		self waittill(#"zombie_zapped");
+		self waittill("zombie_zapped");
 	}
 	self notify(#"hash_c0226895");
 }

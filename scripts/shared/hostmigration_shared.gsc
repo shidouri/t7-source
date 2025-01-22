@@ -105,8 +105,8 @@ function resumetimer()
 */
 function locktimer()
 {
-	level endon(#"host_migration_begin");
-	level endon(#"host_migration_end");
+	level endon("host_migration_begin");
+	level endon("host_migration_end");
 	for(;;)
 	{
 		currtime = gettime();
@@ -130,7 +130,7 @@ function locktimer()
 function matchstarttimerconsole_internal(counttime, matchstarttimer)
 {
 	waittillframeend();
-	level endon(#"match_start_timer_beginning");
+	level endon("match_start_timer_beginning");
 	while(counttime > 0 && !level.gameended)
 	{
 		matchstarttimer thread hud::font_pulse(level);
@@ -156,7 +156,7 @@ function matchstarttimerconsole_internal(counttime, matchstarttimer)
 */
 function matchstarttimerconsole(type, duration)
 {
-	level notify(#"match_start_timer_beginning");
+	level notify("match_start_timer_beginning");
 	wait(0.05);
 	matchstarttext = hud::createserverfontstring("objective", 1.5);
 	matchstarttext hud::setpoint("CENTER", "CENTER", 0, -40);
@@ -200,13 +200,13 @@ function matchstarttimerconsole(type, duration)
 */
 function hostmigrationwait()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(level.hostmigrationreturnedplayercount < ((level.players.size * 2) / 3))
 	{
 		thread matchstarttimerconsole("waiting_for_teams", 20);
 		hostmigrationwaitforplayers();
 	}
-	level notify(#"host_migration_countdown_begin");
+	level notify("host_migration_countdown_begin");
 	thread matchstarttimerconsole("match_starting_in", 5);
 	wait(5);
 }
@@ -222,12 +222,12 @@ function hostmigrationwait()
 */
 function waittillhostmigrationcountdown()
 {
-	level endon(#"host_migration_end");
+	level endon("host_migration_end");
 	if(!isdefined(level.hostmigrationtimer))
 	{
 		return;
 	}
-	level waittill(#"host_migration_countdown_begin");
+	level waittill("host_migration_countdown_begin");
 }
 
 /*
@@ -241,7 +241,7 @@ function waittillhostmigrationcountdown()
 */
 function hostmigrationwaitforplayers()
 {
-	level endon(#"hostmigration_enoughplayers");
+	level endon("hostmigration_enoughplayers");
 	wait(15);
 }
 
@@ -256,16 +256,16 @@ function hostmigrationwaitforplayers()
 */
 function hostmigrationtimerthink_internal()
 {
-	level endon(#"host_migration_begin");
-	level endon(#"host_migration_end");
+	level endon("host_migration_begin");
+	level endon("host_migration_end");
 	self.hostmigrationcontrolsfrozen = 0;
 	while(!isalive(self))
 	{
-		self waittill(#"spawned");
+		self waittill("spawned");
 	}
 	self.hostmigrationcontrolsfrozen = 1;
 	self freezecontrols(1);
-	level waittill(#"host_migration_end");
+	level waittill("host_migration_end");
 }
 
 /*
@@ -279,8 +279,8 @@ function hostmigrationtimerthink_internal()
 */
 function hostmigrationtimerthink()
 {
-	self endon(#"disconnect");
-	level endon(#"host_migration_begin");
+	self endon("disconnect");
+	level endon("host_migration_begin");
 	hostmigrationtimerthink_internal();
 	if(self.hostmigrationcontrolsfrozen)
 	{
@@ -304,7 +304,7 @@ function waittillhostmigrationdone()
 		return 0;
 	}
 	starttime = gettime();
-	level waittill(#"host_migration_end");
+	level waittill("host_migration_end");
 	return gettime() - starttime;
 }
 
@@ -323,7 +323,7 @@ function waittillhostmigrationstarts(duration)
 	{
 		return;
 	}
-	level endon(#"host_migration_begin");
+	level endon("host_migration_begin");
 	wait(duration);
 }
 

@@ -132,7 +132,7 @@ function pick_boost_number()
 */
 function on_joined_team()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(level.teambased)
 	{
 		if(self.team == "allies")
@@ -330,8 +330,8 @@ function mpdialog_value(mpdialogkey, defaultvalue)
 */
 function water_vox()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		interval = mpdialog_value("underwaterInterval", 0.05);
@@ -432,8 +432,8 @@ function pain_vox(meansofdeath)
 */
 function on_player_suicide_or_team_kill(player, type)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	waittillframeend();
 	if(!level.teambased)
 	{
@@ -452,8 +452,8 @@ function on_player_suicide_or_team_kill(player, type)
 */
 function on_player_near_explodable(object, type)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 }
 
 /*
@@ -467,15 +467,15 @@ function on_player_near_explodable(object, type)
 */
 function enemy_threat()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	if(util::isprophuntgametype())
 	{
 		return;
 	}
 	while(true)
 	{
-		self waittill(#"weapon_ads");
+		self waittill("weapon_ads");
 		if(self hasperk("specialty_quieter"))
 		{
 			continue;
@@ -502,7 +502,7 @@ function enemy_threat()
 				if(dialog_chance("enemyContactChance"))
 				{
 					self thread play_dialog("threatInfantry", 1);
-					level notify(#"level_enemy_spotted", self.team);
+					level notify("level_enemy_spotted", self.team);
 					self.enemythreattime = gettime();
 				}
 			}
@@ -521,9 +521,9 @@ function enemy_threat()
 */
 function killed_by_sniper(sniper)
 {
-	self endon(#"disconnect");
-	sniper endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	sniper endon("disconnect");
+	level endon("game_ended");
 	if(!level.teambased)
 	{
 		return false;
@@ -687,11 +687,11 @@ function say_kill_battle_chatter(attacker, weapon, victim, inflictor)
 */
 function grenade_tracking()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(!isdefined(grenade.weapon) || !isdefined(grenade.weapon.rootweapon) || !dialog_chance("incomingProjectileChance"))
 		{
 			continue;
@@ -716,11 +716,11 @@ function grenade_tracking()
 */
 function missile_tracking()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"missile_fire", missile, weapon);
+		self waittill("missile_fire", missile, weapon);
 		if(!isdefined(missile.item) || !isdefined(missile.item.rootweapon) || !dialog_chance("incomingProjectileChance"))
 		{
 			continue;
@@ -745,7 +745,7 @@ function missile_tracking()
 */
 function incoming_projectile_alert(thrower, projectile, dialogkey, waittime)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(waittime <= 0)
 	{
 		/#
@@ -796,11 +796,11 @@ function incoming_projectile_alert(thrower, projectile, dialogkey, waittime)
 */
 function sticky_grenade_tracking()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"grenade_stuck", grenade);
+		self waittill("grenade_stuck", grenade);
 		if(isalive(self) && isdefined(grenade) && isdefined(grenade.weapon))
 		{
 			if(grenade.weapon.rootweapon.name == "sticky_grenade")
@@ -822,8 +822,8 @@ function sticky_grenade_tracking()
 */
 function hero_weapon_success_reaction()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	if(!level.teambased)
 	{
 		return;
@@ -881,8 +881,8 @@ function hero_weapon_success_reaction()
 */
 function play_promotion_reaction()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	if(!level.teambased)
 	{
 		return;
@@ -929,8 +929,8 @@ function play_promotion_reaction()
 */
 function gametype_specific_battle_chatter(event, team)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 }
 
 /*
@@ -1033,8 +1033,8 @@ function play_killstreak_threat(killstreaktype)
 */
 function wait_play_dialog(waittime, dialogkey, dialogflags, dialogbuffer, enemy, endnotify)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	if(isdefined(waittime) && waittime > 0)
 	{
 		if(isdefined(endnotify))
@@ -1057,8 +1057,8 @@ function wait_play_dialog(waittime, dialogkey, dialogflags, dialogbuffer, enemy,
 */
 function play_dialog(dialogkey, dialogflags, dialogbuffer, enemy)
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	if(!isdefined(dialogkey) || !isplayer(self) || !isalive(self) || level.gameended)
 	{
 		return;
@@ -1129,7 +1129,7 @@ function play_dialog(dialogkey, dialogflags, dialogbuffer, enemy)
 			self playlocalsound(dialogalias);
 		}
 	}
-	self notify(#"played_dialog");
+	self notify("played_dialog");
 	self thread wait_dialog_buffer(dialogbuffer);
 }
 
@@ -1144,10 +1144,10 @@ function play_dialog(dialogkey, dialogflags, dialogbuffer, enemy)
 */
 function wait_dialog_buffer(dialogbuffer)
 {
-	self endon(#"death");
-	self endon(#"played_dialog");
-	self endon(#"stop_dialog");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("played_dialog");
+	self endon("stop_dialog");
+	level endon("game_ended");
 	self.playingdialog = 1;
 	if(isdefined(dialogbuffer) && dialogbuffer > 0)
 	{
@@ -1168,7 +1168,7 @@ function wait_dialog_buffer(dialogbuffer)
 */
 function stop_dialog()
 {
-	self notify(#"stop_dialog");
+	self notify("stop_dialog");
 	self stopsounds();
 	self.playingdialog = 0;
 	self.playinggadgetreadydialog = 0;
@@ -1450,7 +1450,7 @@ function play_gadget_ready(weapon, userflip = 0)
 	self.laststolengadgettime = gettime();
 	if(waittime)
 	{
-		self notify(#"cancel_kill_dialog");
+		self notify("cancel_kill_dialog");
 	}
 	self thread wait_play_dialog(waittime, dialogkey, dialogflags);
 }

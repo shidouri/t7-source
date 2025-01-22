@@ -64,7 +64,7 @@ function init()
 */
 function update_settings()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	for(index = 0; index < level.players.size; index++)
 	{
 		level.players[index] set_permissions();

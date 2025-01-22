@@ -174,7 +174,7 @@ function function_5f435187()
 {
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_who);
+		self waittill("trigger_activated", e_who);
 		if(level flag::get("special_round") || level flag::get("ee_round"))
 		{
 			continue;
@@ -410,7 +410,7 @@ function function_855f59cb()
 		level waittill(#"end_of_round");
 		level flag::set("between_rounds");
 		level thread function_a3d6f85c();
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		level flag::clear("between_rounds");
 		level.var_583e4a97.var_cac771d3 = 0;
 	}
@@ -686,7 +686,7 @@ function function_943a35e3()
 {
 	self fx::play("drop_pod_smoke", self.origin + vectorscale((0, 0, 1), 24), self.angles + vectorscale((0, 1, 0), 180), "drop_pod_smoke_kill");
 	level waittill(#"hash_5ddea7af");
-	self notify(#"drop_pod_smoke_kill");
+	self notify("drop_pod_smoke_kill");
 }
 
 /*
@@ -889,7 +889,7 @@ function function_51837de8()
 function function_bb390883()
 {
 	level endon(#"hash_94bb84a1");
-	self waittill(#"death");
+	self waittill("death");
 	if(level flag::get("between_rounds"))
 	{
 		level.var_583e4a97.var_cac771d3++;
@@ -908,7 +908,7 @@ function function_bb390883()
 */
 function function_a3d6f85c()
 {
-	level waittill(#"zombie_total_set");
+	level waittill("zombie_total_set");
 	if(level.var_583e4a97.var_cac771d3 > 0)
 	{
 		level.zombie_total = level.zombie_total - level.var_583e4a97.var_cac771d3;
@@ -940,7 +940,7 @@ function function_e677d12()
 	var_603f1f19 = 1;
 	while(true)
 	{
-		self waittill(#"attackable_damaged");
+		self waittill("attackable_damaged");
 		if(var_603f1f19)
 		{
 			var_603f1f19 = 0;
@@ -986,7 +986,7 @@ function function_e677d12()
 				var_165d49f6 hidepart("tag_health_green");
 				var_165d49f6 hidepart("tag_health_yellow");
 				var_165d49f6 showpart("tag_health_red");
-				var_165d49f6 notify(#"start_flashing");
+				var_165d49f6 notify("start_flashing");
 				var_165d49f6.var_2d5af28c = 1;
 				if(!(isdefined(var_165d49f6.var_16f934b6) && var_165d49f6.var_16f934b6))
 				{
@@ -1016,7 +1016,7 @@ function function_e677d12()
 function function_cdc52f02()
 {
 	level endon(#"hash_94bb84a1");
-	self waittill(#"start_flashing");
+	self waittill("start_flashing");
 	var_b454101b = level.var_8cc024f2.var_b454101b;
 	var_e975a0cb = 0;
 	self thread function_1ce76e16();
@@ -1169,8 +1169,8 @@ function function_94bb84a1(var_e7a36389, var_51d4ce0d)
 	level.var_8cc024f2.var_d2e1ce53 = 0;
 	level.var_583e4a97.var_caa5bc3e = undefined;
 	level.var_583e4a97.var_a622ee25 = 0;
-	level notify(#"drop_pod_boom");
-	level.var_8cc024f2.var_165d49f6 notify(#"score_change");
+	level notify("drop_pod_boom");
+	level.var_8cc024f2.var_165d49f6 notify("score_change");
 	level.var_8cc024f2.var_165d49f6 connectpaths();
 	level.var_8cc024f2.var_165d49f6 delete();
 	level.var_8cc024f2.var_2d41c802 delete();
@@ -1505,7 +1505,7 @@ function function_a0a37968(var_db0ac3dc)
 */
 function function_8df46779(var_304415d7, var_57a3fb53)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.var_9e067339))
 	{
 		self.var_9e067339 = newclienthudelem(self);

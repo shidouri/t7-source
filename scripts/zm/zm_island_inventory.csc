@@ -104,7 +104,7 @@ function function_67b53ed4(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_63119d2(var_1b778cf0, var_6e653641, n_new_value)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_63119d2");
 	self endon(#"hash_63119d2");
 	n_start_time = getrealtime();

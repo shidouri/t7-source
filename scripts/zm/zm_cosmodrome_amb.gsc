@@ -206,7 +206,7 @@ function radio_easter_eggs()
 function function_5fd10b57()
 {
 	self zm_unitrigger::create_unitrigger();
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	playsoundatposition("vox_radio_egg_" + self.script_int, self.origin);
 }
 
@@ -263,12 +263,12 @@ function function_337aada8()
 */
 function function_10544d8()
 {
-	self endon(#"phone_activated");
-	self endon(#"timeout");
+	self endon("phone_activated");
+	self endon("timeout");
 	self.t_damage = spawn("trigger_damage", self.origin, 0, 5, 5);
 	while(true)
 	{
-		self.t_damage waittill(#"damage", n_amount, e_attacker, dir, point, str_means_of_death);
+		self.t_damage waittill("damage", n_amount, e_attacker, dir, point, str_means_of_death);
 		if(!zm_audio_zhd::function_8090042c())
 		{
 			continue;
@@ -392,14 +392,14 @@ function function_de8ef595()
 function function_99199901()
 {
 	level endon(#"hash_2d7a77fa");
-	self endon(#"timeout");
+	self endon("timeout");
 	self endon(#"hash_b524a8eb");
 	self.var_7f6e3a35 = spawn("trigger_radius", self.origin - vectorscale((0, 0, 1), 200), 0, 75, 400);
 	self.var_48df29fd = spawn("script_origin", self.origin);
 	self.var_48df29fd playloopsound("zmb_egg_phone_loop", 0.05);
 	while(true)
 	{
-		self.var_7f6e3a35 waittill(#"trigger", who);
+		self.var_7f6e3a35 waittill("trigger", who);
 		if(!isplayer(who))
 		{
 			wait(0.05);
@@ -409,7 +409,7 @@ function function_99199901()
 		{
 			if(who usebuttonpressed())
 			{
-				self notify(#"phone_activated");
+				self notify("phone_activated");
 				self.var_7f6e3a35 delete();
 				self.var_48df29fd delete();
 				return;
@@ -431,10 +431,10 @@ function function_99199901()
 function function_d772340()
 {
 	level endon(#"hash_2d7a77fa");
-	self endon(#"phone_activated");
+	self endon("phone_activated");
 	self endon(#"hash_b524a8eb");
 	wait(10);
-	self notify(#"timeout");
+	self notify("timeout");
 	self.var_7f6e3a35 delete();
 	self.var_48df29fd delete();
 }
@@ -482,7 +482,7 @@ function doll_egg(num)
 	alias = undefined;
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		index = zm_utility::get_player_index(player);
 		switch(index)
 		{

@@ -343,8 +343,8 @@ function function_b8580c84(a_ents)
 */
 function function_2a895f94(var_a3612ddd)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	scene::add_scene_func("cin_zur_12_01_root_1st_mirror_taylor_0" + var_a3612ddd, &function_cbebe415, "play");
 	var_b16f0715 = [];
 	var_e0cf565f = array::exclude(level.players, array(self));
@@ -386,8 +386,8 @@ function function_2a895f94(var_a3612ddd)
 */
 function function_2398f048(var_b16f0715, var_a3612ddd)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level waittill(#"hash_1f51b705");
 	e_taylor = scene::get_existing_ent("taylor_0" + var_a3612ddd);
 	e_taylor setvisibletoplayer(self);
@@ -477,7 +477,7 @@ function function_3292451c()
 		var_6fe9b606 moveto(var_6fe9b606.end_pos, 0.5);
 		v_ground = groundtrace(var_6fe9b606.fx_pos.origin, var_6fe9b606.origin, 0, var_6fe9b606)["position"];
 		var_f33892ac = util::spawn_model("tag_origin", v_ground, var_6fe9b606.angles);
-		var_6fe9b606 waittill(#"movedone");
+		var_6fe9b606 waittill("movedone");
 		var_f33892ac clientfield::increment("zurich_snow_rise");
 		playsoundatposition("evt_roots_grow", var_f33892ac.origin);
 		var_f33892ac thread function_df835392();
@@ -530,7 +530,7 @@ function function_2d897f84(str_objective)
 			return;
 		}
 		objectives::set("cp_waypoint_breadcrumb", var_f6e695c0);
-		var_b1fe230f waittill(#"trigger");
+		var_b1fe230f waittill("trigger");
 		level notify(#"hash_431e9a83");
 		savegame::checkpoint_save();
 		objectives::complete("cp_waypoint_breadcrumb", var_f6e695c0);
@@ -590,7 +590,7 @@ function function_ddbd0859()
 			var_4cb02780[i] movez(-128, 0.05);
 		}
 	}
-	self waittill(#"trigger");
+	self waittill("trigger");
 	foreach(e_wall in var_4cb02780)
 	{
 		e_wall thread function_300319e3();
@@ -620,7 +620,7 @@ function function_300319e3()
 			{
 				v_ground = groundtrace(var_abc323ed[i].origin, self.origin, 0, self)["position"];
 				var_f33892ac = util::spawn_model("tag_origin", v_ground, var_abc323ed[i].angles);
-				self waittill(#"movedone");
+				self waittill("movedone");
 				var_f33892ac clientfield::increment("zurich_snow_rise");
 				playsoundatposition("evt_roots_grow", var_abc323ed[i].origin);
 				var_f33892ac thread function_df835392();
@@ -646,7 +646,7 @@ function function_e8047245()
 	{
 		setenablenode(nd_cover, 0);
 	}
-	self waittill(#"movedone");
+	self waittill("movedone");
 	foreach(nd_cover in a_nd_cover)
 	{
 		setenablenode(nd_cover, 1);

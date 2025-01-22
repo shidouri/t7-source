@@ -79,7 +79,7 @@ function function_f61f00f(localclientnum)
 		return;
 	}
 	e_trigger._localclientnum = localclientnum;
-	e_trigger waittill(#"trigger", trigplayer);
+	e_trigger waittill("trigger", trigplayer);
 	e_trigger thread trigger::function_d1278be0(trigplayer, &trig_mobile_shop_1_final_ascent);
 }
 

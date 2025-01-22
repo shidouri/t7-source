@@ -33,8 +33,8 @@ function main()
 */
 function function_f53f6b0a(localclientnum)
 {
-	self notify(#"stop_bbq_fx_loop");
-	self endon(#"stop_bbq_fx_loop");
+	self notify("stop_bbq_fx_loop");
+	self endon("stop_bbq_fx_loop");
 	self endon(#"entityshutdown");
 	while(true)
 	{
@@ -61,7 +61,7 @@ function barbecue_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 	}
 	else
 	{
-		self notify(#"stop_bbq_fx_loop");
+		self notify("stop_bbq_fx_loop");
 	}
 }
 

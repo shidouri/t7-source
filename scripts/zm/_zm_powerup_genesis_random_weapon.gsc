@@ -155,9 +155,9 @@ function function_984a38e(e_player)
 */
 function function_89d232d2()
 {
-	self endon(#"powerup_grabbed");
-	self endon(#"death");
-	self endon(#"powerup_reset");
+	self endon("powerup_grabbed");
+	self endon("death");
+	self endon("powerup_reset");
 	self zm_powerups::powerup_show(1);
 }
 

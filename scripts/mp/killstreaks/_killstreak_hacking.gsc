@@ -247,7 +247,7 @@ function killstreak_switch_team_end()
 {
 	/#
 		killstreakentity = self;
-		killstreakentity notify(#"killstreak_switch_team_end");
+		killstreakentity notify("killstreak_switch_team_end");
 	#/
 }
 
@@ -264,9 +264,9 @@ function killstreak_switch_team(owner)
 {
 	/#
 		killstreakentity = self;
-		killstreakentity notify(#"killstreak_switch_team_singleton");
-		killstreakentity endon(#"killstreak_switch_team_singleton");
-		killstreakentity endon(#"death");
+		killstreakentity notify("killstreak_switch_team_singleton");
+		killstreakentity endon("killstreak_switch_team_singleton");
+		killstreakentity endon("death");
 		setdvar("", "");
 		while(true)
 		{
@@ -296,7 +296,7 @@ function killstreak_switch_team(owner)
 					#/
 					return;
 				}
-				killstreakentity notify(#"killstreak_hacked", player);
+				killstreakentity notify("killstreak_hacked", player);
 				killstreakentity.previouslyhacked = 1;
 				killstreakentity [[killstreakentity.killstreak_hackedcallback]](player);
 				wait(0.5);

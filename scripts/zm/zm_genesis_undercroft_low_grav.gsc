@@ -103,7 +103,7 @@ function __main__()
 */
 function function_3fa7f11a()
 {
-	level endon(#"pressure_pads_activated");
+	level endon("pressure_pads_activated");
 	var_15ed352b = getentarray("grav_pad_trigger", "targetname");
 	level.var_4a455ac4 = 0;
 	level.var_eca8388c = [];
@@ -164,10 +164,10 @@ function function_e49e9c09()
 	var_93f2a402 = var_4de8678a.origin;
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		var_4de8678a moveto(var_2e8e2853, 0.5);
 		playsoundatposition("evt_stone_plate_down", var_4de8678a.origin);
-		var_4de8678a waittill(#"movedone");
+		var_4de8678a waittill("movedone");
 		var_e3260cf clientfield::set("undercroft_emissives", 1);
 		n_start_time = gettime();
 		n_end_time = n_start_time + 3000;
@@ -287,7 +287,7 @@ function function_e1998cb5()
 */
 function function_3ccd9604()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(self istouching(level.var_e3f239e5) && level flag::get("low_grav_on") && self.low_gravity == 0)
@@ -315,7 +315,7 @@ function function_3ccd9604()
 */
 function function_f4766f6()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(self istouching(level.var_e3f239e5) && level flag::get("low_grav_on") && (!(isdefined(self.low_gravity) && self.low_gravity)))
@@ -343,8 +343,8 @@ function function_f4766f6()
 */
 function function_c3f6aa22()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	level flag::wait_till("low_grav_on");
 	self.var_6921c563 = 0;
 	while(true)
@@ -399,8 +399,8 @@ function function_c3f6aa22()
 */
 function function_e997f73a()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_eb16fe00");
 	while(true)
 	{
@@ -423,11 +423,11 @@ function function_e997f73a()
 */
 function function_573a448e()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(self.var_6921c563 == 1)
 	{
-		self waittill(#"jump_begin");
+		self waittill("jump_begin");
 		var_5ed20759 = spawn("script_model", self.origin);
 		var_5ed20759 setmodel("tag_origin");
 		var_5ed20759 enablelinkto();
@@ -456,7 +456,7 @@ function function_ba48ca38()
 	e_trig = getent("low_grav_tp_return", "targetname");
 	while(true)
 	{
-		e_trig waittill(#"trigger", e_who);
+		e_trig waittill("trigger", e_who);
 		if(!isdefined(e_who.var_ee422cb0))
 		{
 			e_who thread function_23f211e9();
@@ -515,9 +515,9 @@ function function_c3e8e4a4()
 */
 function function_e4e4f426()
 {
-	self endon(#"powerup_grabbed");
-	self endon(#"death");
-	self endon(#"powerup_reset");
+	self endon("powerup_grabbed");
+	self endon("death");
+	self endon("powerup_reset");
 	self zm_powerups::powerup_show(1);
 }
 

@@ -131,7 +131,7 @@ function defaultrole()
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isarray(self.followers))
 	{
 		foreach(follower in self.followers)
@@ -221,8 +221,8 @@ function state_death_update(params)
 */
 function state_emped_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	wait(0.05);
 	gravity = 400;
 	self notify(#"end_nudge_collision");
@@ -250,7 +250,7 @@ function state_emped_update(params)
 		killonimpact_speed = 1;
 	}
 	self fall_and_bounce(killonimpact_speed, self.settings.killonimpact_time);
-	self notify(#"landed");
+	self notify("landed");
 	self setvehvelocity((0, 0, 0));
 	self setphysacceleration((0, 0, (gravity * -1) * 0.1));
 	self setangularvelocity((0, 0, 0));
@@ -319,8 +319,8 @@ function state_emped_update(params)
 */
 function fall_and_bounce(killonimpact_speed, killonimpact_time)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	maxbouncetime = 3;
 	bouncescale = 0.3;
 	velocityloss = 0.3;
@@ -332,7 +332,7 @@ function fall_and_bounce(killonimpact_speed, killonimpact_time)
 	fallstart = gettime();
 	while(bouncedtime < maxbouncetime && lengthsquared(self.velocity) > (10 * 10))
 	{
-		self waittill(#"veh_collision", impact_vel, normal);
+		self waittill("veh_collision", impact_vel, normal);
 		if(lengthsquared(impact_vel) > (killonimpact_speed * killonimpact_speed) || (vehicle_ai::timesince(fallstart) > killonimpact_time && lengthsquared(impact_vel) > (killonimpact_speed * 0.8) * (killonimpact_speed * 0.8)))
 		{
 			self kill();
@@ -459,7 +459,7 @@ function init_guard_points()
 function guard_points_debug()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		if(self.isdebugdrawing === 1)
 		{
 			return;
@@ -678,8 +678,8 @@ function test_get_back_queryresult(queryresult)
 */
 function state_guard_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self sethoverparams(20, 40, 30);
 	timenotatgoal = gettime();
 	pointindex = 0;
@@ -830,7 +830,7 @@ function state_guard_update(params)
 				{
 					self playsound("veh_wasp_direction");
 					self clearlookatent();
-					self notify(#"fire_stop");
+					self notify("fire_stop");
 					self thread path_update_interrupt();
 					if(onnavvolume)
 					{
@@ -887,8 +887,8 @@ function state_combat_enter(params)
 */
 function turretfireupdate()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	isrockettype = self.variant === "rocket";
 	while(true)
 	{
@@ -981,10 +981,10 @@ function turretfireupdate()
 */
 function path_update_interrupt()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
 	old_enemy = self.enemy;
 	wait(1);
 	while(true)
@@ -994,7 +994,7 @@ function path_update_interrupt()
 			if(distance2dsquared(self.current_pathto_pos, self.goalpos) > (self.goalradius * self.goalradius))
 			{
 				wait(0.2);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		if(isdefined(self.enemy))
@@ -1006,15 +1006,15 @@ function path_update_interrupt()
 			}
 			if(!isdefined(old_enemy))
 			{
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			else if(self.enemy != old_enemy)
 			{
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			if(self vehcansee(self.enemy) && distance2dsquared(self.origin, self.enemy.origin) < (250 * 250))
 			{
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);
@@ -1032,8 +1032,8 @@ function path_update_interrupt()
 */
 function wait_till_something_happens(timeout)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	wait(0.1);
 	time = timeout;
 	cant_see_count = 0;
@@ -1216,8 +1216,8 @@ function should_fly_forward(distancetogoalsq)
 */
 function state_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	wait(0.1);
 	stuckcount = 0;
 	for(;;)
@@ -1368,7 +1368,7 @@ function state_combat_update(params)
 					if(should_fly_forward(distancetogoalsq))
 					{
 						self clearlookatent();
-						self notify(#"fire_stop");
+						self notify("fire_stop");
 						self.noshoot = 1;
 					}
 					self thread path_update_interrupt();
@@ -1652,7 +1652,7 @@ function drone_allowfriendlyfiredamage(einflictor, eattacker, smeansofdeath, wea
 */
 function wasp_driving(params)
 {
-	self endon(#"change_state");
+	self endon("change_state");
 	driver = self getseatoccupant(0);
 	if(isplayer(driver))
 	{
@@ -1675,10 +1675,10 @@ function wasp_driving(params)
 */
 function wasp_manage_camera_swaps()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	driver = self getseatoccupant(0);
-	driver endon(#"disconnect");
+	driver endon("disconnect");
 	cam_low_type = self.vehicletype;
 	cam_high_type = self.playerdrivenversion;
 }

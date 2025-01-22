@@ -87,8 +87,8 @@ function parasite_fog_on(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function parasite_round_fx(n_local_client, n_val_old, n_val_new, b_ent_new, b_initial_snap, str_field, b_demo_jump)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(isspectating(n_local_client))
 	{
 		return;
@@ -109,7 +109,7 @@ function parasite_round_fx(n_local_client, n_val_old, n_val_new, b_ent_new, b_in
 */
 function parasite_round_ring_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isspectating(localclientnum))
 	{
 		return;

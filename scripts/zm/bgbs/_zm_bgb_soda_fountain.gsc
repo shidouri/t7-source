@@ -53,12 +53,12 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bgb_update");
 	self.var_76382430 = 5;
 	while(self.var_76382430 > 0)
 	{
-		self waittill(#"perk_purchased", str_perk);
+		self waittill("perk_purchased", str_perk);
 		self bgb::do_one_shot_use();
 		a_str_perks = getarraykeys(level._custom_perks);
 		if(isinarray(a_str_perks, str_perk))

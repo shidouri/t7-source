@@ -269,8 +269,8 @@ function updatecustomgamewinner(winner)
 */
 function givematchbonus(scoretype, score)
 {
-	self endon(#"disconnect");
-	level waittill(#"give_match_bonus");
+	self endon("disconnect");
+	level waittill("give_match_bonus");
 	if(scoreevents::shouldaddrankxp(self))
 	{
 		self addrankxpvalue(scoretype, score);
@@ -346,7 +346,7 @@ function resetplayerscorechainandmomentum(player)
 */
 function resetscorechain()
 {
-	self notify(#"reset_score_chain");
+	self notify("reset_score_chain");
 	self.scorechain = 0;
 	self.rankupdatetotal = 0;
 }
@@ -362,11 +362,11 @@ function resetscorechain()
 */
 function scorechaintimer()
 {
-	self notify(#"score_chain_timer");
-	self endon(#"reset_score_chain");
-	self endon(#"score_chain_timer");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("score_chain_timer");
+	self endon("reset_score_chain");
+	self endon("score_chain_timer");
+	self endon("death");
+	self endon("disconnect");
 	wait(20);
 	self thread resetscorechain();
 }
@@ -1377,7 +1377,7 @@ function incpersstat(dataname, increment, record_stats, includegametype)
 */
 function threadedrecordplayerstats(dataname)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	recordplayerstats(self, dataname, self.pers[dataname]);
 }
@@ -1406,7 +1406,7 @@ function updatewinstats(winner)
 	winner updatestatratio("wlratio", "wins", "losses");
 	restorewinstreaks(winner);
 	winner addplayerstatwithgametype("cur_win_streak", 1);
-	winner notify(#"win");
+	winner notify("win");
 	winner.lootxpmultiplier = 1;
 	cur_gamemode_win_streak = winner persistence::stat_get_with_gametype("cur_win_streak");
 	gamemode_win_streak = winner persistence::stat_get_with_gametype("win_streak");
@@ -1596,7 +1596,7 @@ function updatelossstats(loser)
 {
 	loser addplayerstatwithgametype("losses", 1);
 	loser updatestatratio("wlratio", "wins", "losses");
-	loser notify(#"loss");
+	loser notify("loss");
 }
 
 /*
@@ -1633,7 +1633,7 @@ function updatetiestats(loser)
 	{
 		loser setdstat("playerstatslist", "cur_win_streak", "StatValue", 0);
 	}
-	loser notify(#"tie");
+	loser notify("tie");
 }
 
 /*
@@ -1798,7 +1798,7 @@ function restorewinstreaks(winner)
 */
 function inckillstreaktracker(weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	if(weapon.name == "artillery")
 	{
@@ -1821,7 +1821,7 @@ function inckillstreaktracker(weapon)
 */
 function trackattackerkill(name, rank, xp, prestige, xuid, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	attacker = self;
 	waittillframeend();
 	pixbeginevent("trackAttackerKill");
@@ -1898,7 +1898,7 @@ function trackattackerkill(name, rank, xp, prestige, xuid, weapon)
 */
 function trackattackeedeath(attackername, rank, xp, prestige, xuid)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	pixbeginevent("trackAttackeeDeath");
 	if(!isdefined(self.pers["killed_by"][attackername]))
@@ -1966,7 +1966,7 @@ function default_iskillboosting()
 */
 function givekillstats(smeansofdeath, weapon, evictim)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.kills = self.kills + 1;
 	waittillframeend();
 	if(level.rankedmatch && self [[level.iskillboosting]]())
@@ -2071,8 +2071,8 @@ function setinflictorstat(einflictor, eattacker, weapon)
 */
 function processshieldassist(killedplayer)
 {
-	self endon(#"disconnect");
-	killedplayer endon(#"disconnect");
+	self endon("disconnect");
+	killedplayer endon("disconnect");
 	wait(0.05);
 	util::waittillslowprocessallowed();
 	if(!isdefined(level.teams[self.pers["team"]]))
@@ -2103,8 +2103,8 @@ function processshieldassist(killedplayer)
 */
 function processassist(killedplayer, damagedone, weapon)
 {
-	self endon(#"disconnect");
-	killedplayer endon(#"disconnect");
+	self endon("disconnect");
+	killedplayer endon("disconnect");
 	wait(0.05);
 	util::waittillslowprocessallowed();
 	if(!isdefined(level.teams[self.pers["team"]]))
@@ -2318,9 +2318,9 @@ function process_killstreak_assist_score(killstreak, scoregiven)
 function xpratethread()
 {
 	/#
-		self endon(#"death");
-		self endon(#"disconnect");
-		level endon(#"game_ended");
+		self endon("death");
+		self endon("disconnect");
+		level endon("game_ended");
 		while(level.inprematchperiod)
 		{
 			wait(0.05);

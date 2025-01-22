@@ -164,7 +164,7 @@ function trigger_unlock(trigger)
 	while(true)
 	{
 		array::run_all(target_triggers, &triggerenable, 0);
-		trigger waittill(#"trigger");
+		trigger waittill("trigger");
 		array::run_all(target_triggers, &triggerenable, 1);
 		wait_for_an_unlocked_trigger(target_triggers, noteworthy);
 		array::notify_all(target_triggers, "relock");
@@ -182,7 +182,7 @@ function trigger_unlock(trigger)
 */
 function trigger_unlock_death(target)
 {
-	self waittill(#"death");
+	self waittill("death");
 	target_triggers = getentarray(target, "targetname");
 	array::run_all(target_triggers, &triggerenable, 0);
 }
@@ -204,7 +204,7 @@ function wait_for_an_unlocked_trigger(triggers, noteworthy)
 	{
 		triggers[i] thread report_trigger(ent, noteworthy);
 	}
-	ent waittill(#"trigger");
+	ent waittill("trigger");
 	level notify("unlocked_trigger_hit" + noteworthy);
 }
 
@@ -219,10 +219,10 @@ function wait_for_an_unlocked_trigger(triggers, noteworthy)
 */
 function report_trigger(ent, noteworthy)
 {
-	self endon(#"relock");
+	self endon("relock");
 	level endon("unlocked_trigger_hit" + noteworthy);
-	self waittill(#"trigger");
-	ent notify(#"trigger");
+	self waittill("trigger");
+	ent notify("trigger");
 }
 
 /*
@@ -283,7 +283,7 @@ function get_trigger_look_target()
 */
 function trigger_look(trigger)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	e_target = trigger get_trigger_look_target();
 	if(isdefined(trigger.script_flag) && !isdefined(level.flag[trigger.script_flag]))
 	{
@@ -297,14 +297,14 @@ function trigger_look(trigger)
 	b_ads_check = isinarray(a_parameters, "check_ads");
 	while(true)
 	{
-		trigger waittill(#"trigger", e_other);
+		trigger waittill("trigger", e_other);
 		if(isplayer(e_other))
 		{
 			while(isdefined(e_other) && e_other istouching(trigger))
 			{
 				if(e_other util::is_looking_at(e_target, trigger.script_dot, isdefined(trigger.script_trace) && trigger.script_trace) && (!b_ads_check || !e_other util::is_ads()))
 				{
-					trigger notify(#"trigger_look", e_other);
+					trigger notify("trigger_look", e_other);
 					if(isdefined(trigger.script_flag))
 					{
 						level flag::set(trigger.script_flag);
@@ -345,7 +345,7 @@ function trigger_spawner(trigger)
 	/#
 		assert(a_spawners.size > 0, ("" + trigger.origin) + "");
 	#/
-	trigger endon(#"death");
+	trigger endon("death");
 	trigger wait_till();
 	foreach(sp in a_spawners)
 	{
@@ -367,7 +367,7 @@ function trigger_spawner(trigger)
 */
 function trigger_spawner_spawn()
 {
-	self endon(#"death");
+	self endon("death");
 	self flag::script_flag_wait();
 	self util::script_delay();
 	self spawner::spawn();
@@ -384,7 +384,7 @@ function trigger_spawner_spawn()
 */
 function trigger_notify(trigger, msg)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	other = trigger wait_till();
 	if(isdefined(trigger.target))
 	{
@@ -408,7 +408,7 @@ function trigger_notify(trigger, msg)
 */
 function flag_set_trigger(trigger, str_flag)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	if(!isdefined(str_flag))
 	{
 		str_flag = trigger.script_flag;
@@ -439,7 +439,7 @@ function flag_set_trigger(trigger, str_flag)
 */
 function flag_clear_trigger(trigger, str_flag)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	if(!isdefined(str_flag))
 	{
 		str_flag = trigger.script_flag;
@@ -524,7 +524,7 @@ function script_flag_true_trigger(trigger)
 */
 function friendly_respawn_trigger(trigger)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	spawners = getentarray(trigger.target, "targetname");
 	/#
 		assert(spawners.size == 1, ("" + trigger.target) + "");
@@ -534,10 +534,10 @@ function friendly_respawn_trigger(trigger)
 		assert(!isdefined(spawner.script_forcecolor), ("" + spawner.origin) + "");
 	#/
 	spawners = undefined;
-	spawner endon(#"death");
+	spawner endon("death");
 	while(true)
 	{
-		trigger waittill(#"trigger");
+		trigger waittill("trigger");
 		if(isdefined(trigger.script_forcecolor))
 		{
 			level.respawn_spawners_specific[trigger.script_forcecolor] = spawner;
@@ -562,10 +562,10 @@ function friendly_respawn_trigger(trigger)
 */
 function friendly_respawn_clear(trigger)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	while(true)
 	{
-		trigger waittill(#"trigger");
+		trigger waittill("trigger");
 		level flag::clear("respawn_friendlies");
 		wait(0.5);
 	}
@@ -606,7 +606,7 @@ function trigger_turns_off(trigger)
 */
 function script_flag_set_touching(trigger)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	if(isdefined(trigger.script_flag_set_on_touching))
 	{
 		level flag::init(trigger.script_flag_set_on_touching, undefined, 1);
@@ -662,10 +662,10 @@ function script_flag_set_touching(trigger)
 */
 function _detect_touched()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		self.script_touched = 1;
 	}
 }
@@ -683,7 +683,7 @@ function trigger_delete_on_touch(trigger)
 {
 	while(true)
 	{
-		trigger waittill(#"trigger", other);
+		trigger waittill("trigger", other);
 		if(isdefined(other))
 		{
 			other delete();
@@ -709,7 +709,7 @@ function flag_set_touching(trigger)
 	}
 	while(true)
 	{
-		trigger waittill(#"trigger", other);
+		trigger waittill("trigger", other);
 		level flag::set(str_flag);
 		while(isalive(other) && other istouching(trigger) && isdefined(trigger))
 		{
@@ -730,14 +730,14 @@ function flag_set_touching(trigger)
 */
 function trigger_once(trig)
 {
-	trig endon(#"death");
+	trig endon("death");
 	if(is_look_trigger(trig))
 	{
-		trig waittill(#"trigger_look");
+		trig waittill("trigger_look");
 	}
 	else
 	{
-		trig waittill(#"trigger");
+		trig waittill("trigger");
 	}
 	waittillframeend();
 	waittillframeend();
@@ -766,7 +766,7 @@ function trigger_hint(trigger)
 	/#
 		assert(isdefined(trigger.script_hint), ("" + trigger.origin) + "");
 	#/
-	trigger endon(#"death");
+	trigger endon("death");
 	if(!isdefined(level.displayed_hints))
 	{
 		level.displayed_hints = [];
@@ -775,7 +775,7 @@ function trigger_hint(trigger)
 	/#
 		assert(isdefined(level.trigger_hint_string[trigger.script_hint]), ("" + trigger.script_hint) + "");
 	#/
-	trigger waittill(#"trigger", other);
+	trigger waittill("trigger", other);
 	/#
 		assert(isplayer(other), "");
 	#/
@@ -798,10 +798,10 @@ function trigger_hint(trigger)
 */
 function trigger_exploder(trigger)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	while(true)
 	{
-		trigger waittill(#"trigger");
+		trigger waittill("trigger");
 		if(isdefined(trigger.target))
 		{
 			activateclientradiantexploder(trigger.target);
@@ -1095,7 +1095,7 @@ function wait_till(str_name, str_key = "targetname", e_entity, b_assert = 1)
 			{
 				s_tracker = spawnstruct();
 				array::thread_all(triggers, &_trigger_wait_think, s_tracker, e_entity);
-				s_tracker waittill(#"trigger", e_other, trigger_hit);
+				s_tracker waittill("trigger", e_other, trigger_hit);
 				trigger_hit.who = e_other;
 			}
 			return trigger_hit;
@@ -1125,10 +1125,10 @@ function wait_till(str_name, str_key = "targetname", e_entity, b_assert = 1)
 */
 function _trigger_wait(e_entity)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(e_entity))
 	{
-		e_entity endon(#"death");
+		e_entity endon("death");
 	}
 	/#
 		if(is_look_trigger(self))
@@ -1148,7 +1148,7 @@ function _trigger_wait(e_entity)
 	{
 		if(is_look_trigger(self))
 		{
-			self waittill(#"trigger_look", e_other);
+			self waittill("trigger_look", e_other);
 			if(isdefined(e_entity))
 			{
 				if(e_other !== e_entity)
@@ -1161,7 +1161,7 @@ function _trigger_wait(e_entity)
 		{
 			if(self.classname === "trigger_damage")
 			{
-				self waittill(#"trigger", e_other);
+				self waittill("trigger", e_other);
 				if(isdefined(e_entity))
 				{
 					if(e_other !== e_entity)
@@ -1172,7 +1172,7 @@ function _trigger_wait(e_entity)
 			}
 			else
 			{
-				self waittill(#"trigger", e_other);
+				self waittill("trigger", e_other);
 				if(isdefined(e_entity))
 				{
 					if(isarray(e_entity))
@@ -1206,10 +1206,10 @@ function _trigger_wait(e_entity)
 */
 function _trigger_wait_think(s_tracker, e_entity)
 {
-	self endon(#"death");
-	s_tracker endon(#"trigger");
+	self endon("death");
+	s_tracker endon("trigger");
 	e_other = _trigger_wait(e_entity);
-	s_tracker notify(#"trigger", e_other, self);
+	s_tracker notify("trigger", e_other, self);
 }
 
 /*
@@ -1253,7 +1253,7 @@ function use(str_name, str_key = "targetname", ent = getplayers()[0], b_assert =
 	level notify(str_name, ent);
 	if(is_look_trigger(e_trig))
 	{
-		e_trig notify(#"trigger_look", ent);
+		e_trig notify("trigger_look", ent);
 	}
 	return e_trig;
 }
@@ -1380,7 +1380,7 @@ function wait_for_either(str_targetname1, str_targetname2)
 	{
 		ent thread _ent_waits_for_trigger(array[i]);
 	}
-	ent waittill(#"done", t_hit);
+	ent waittill("done", t_hit);
 	return t_hit;
 }
 
@@ -1396,7 +1396,7 @@ function wait_for_either(str_targetname1, str_targetname2)
 function _ent_waits_for_trigger(trigger)
 {
 	trigger wait_till();
-	self notify(#"done", trigger);
+	self notify("done", trigger);
 }
 
 /*
@@ -1413,7 +1413,7 @@ function wait_or_timeout(n_time, str_name, str_key)
 	if(isdefined(n_time))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_time, "timeout");
 	}
 	wait_till(str_name, str_key);
@@ -1439,14 +1439,14 @@ function trigger_on_timeout(n_time, b_cancel_on_triggered = 1, str_name, str_key
 	{
 		if(is_look_trigger(trig))
 		{
-			trig endon(#"trigger_look");
+			trig endon("trigger_look");
 		}
 		else
 		{
-			trig endon(#"trigger");
+			trig endon("trigger");
 		}
 	}
-	trig endon(#"death");
+	trig endon("death");
 	wait(n_time);
 	trig use();
 }
@@ -1480,7 +1480,7 @@ function multiple_waits(str_trigger_name, str_trigger_notify)
 function multiple_wait(str_trigger_notify)
 {
 	level endon(str_trigger_notify);
-	self waittill(#"trigger");
+	self waittill("trigger");
 	level notify(str_trigger_notify);
 }
 
@@ -1509,8 +1509,8 @@ function add_function(trigger, str_remove_on, func, param_1, param_2, param_3, p
 */
 function _do_trigger_function(trigger, str_remove_on, func, param_1, param_2, param_3, param_4, param_5, param_6)
 {
-	self endon(#"death");
-	trigger endon(#"death");
+	self endon("death");
+	trigger endon("death");
 	if(isdefined(str_remove_on))
 	{
 		trigger endon(str_remove_on);
@@ -1596,7 +1596,7 @@ function get_script_linkto_targets()
 */
 function delete_link_chain(trigger)
 {
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	targets = trigger get_script_linkto_targets();
 	array::thread_all(targets, &delete_links_then_self);
 }
@@ -1630,7 +1630,7 @@ function no_crouch_or_prone_think(trigger)
 {
 	while(true)
 	{
-		trigger waittill(#"trigger", other);
+		trigger waittill("trigger", other);
 		if(!isplayer(other))
 		{
 			continue;
@@ -1659,7 +1659,7 @@ function no_prone_think(trigger)
 {
 	while(true)
 	{
-		trigger waittill(#"trigger", other);
+		trigger waittill("trigger", other);
 		if(!isplayer(other))
 		{
 			continue;
@@ -1686,7 +1686,7 @@ function trigger_group()
 {
 	self thread trigger_group_remove();
 	level endon("trigger_group_" + self.script_trigger_group);
-	self waittill(#"trigger");
+	self waittill("trigger");
 	level notify("trigger_group_" + self.script_trigger_group, self);
 }
 

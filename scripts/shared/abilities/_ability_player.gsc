@@ -238,9 +238,9 @@ function gadgets_save_power(game_ended)
 */
 function gadgets_wait_for_death()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.pers["held_gadgets_power"] = [];
-	self waittill(#"death");
+	self waittill("death");
 	if(!isdefined(self._gadgets_player))
 	{
 		return;
@@ -259,7 +259,7 @@ function gadgets_wait_for_death()
 */
 function gadgets_wait_for_game_end()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	players = getplayers();
 	foreach(player in players)
 	{
@@ -731,8 +731,8 @@ function turn_gadget_on(slot, weapon)
 			{
 				self [[turn_on]](slot, weapon);
 				self trackheropoweractivated(game["timepassed"]);
-				level notify(#"hero_gadget_activated", self, weapon);
-				self notify(#"hero_gadget_activated", weapon);
+				level notify("hero_gadget_activated", self, weapon);
+				self notify("hero_gadget_activated", weapon);
 			}
 		}
 	}
@@ -812,7 +812,7 @@ function turn_gadget_off(slot, weapon)
 		self.heroabilityactive = undefined;
 		self.heroability = weapon;
 	}
-	self notify(#"heroability_off", weapon);
+	self notify("heroability_off", weapon);
 	xuid = self getxuid();
 	bbprint("mpheropowerevents", "spawnid %d gametime %d name %s powerstate %s playername %s xuid %s", getplayerspawnid(self), gettime(), self._gadgets_player[slot].name, "expired", self.name, xuid);
 	if(isdefined(level.oldschool) && level.oldschool)
@@ -1310,7 +1310,7 @@ function abilities_devgui_give(weapon_name)
 				self takeweapon(self._gadgets_player[i]);
 			}
 		}
-		self notify(#"gadget_devgui_give");
+		self notify("gadget_devgui_give");
 		weapon = getweapon(weapon_name);
 		self giveweapon(weapon);
 		if(self util::is_bot())
@@ -1418,9 +1418,9 @@ function abilities_devgui_power_toggle_auto_fill()
 function abilities_devgui_power_toggle_auto_fill_think()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"auto_fill_think");
-		self endon(#"auto_fill_think");
+		self endon("disconnect");
+		self notify("auto_fill_think");
+		self endon("auto_fill_think");
 		for(;;)
 		{
 			if(!isdefined(self) || !isdefined(self._gadgets_player))

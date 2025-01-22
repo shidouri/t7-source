@@ -114,10 +114,10 @@ function killing_streets_main(str_objective)
 */
 function setup_killing_streets_alley_hendricks()
 {
-	level endon(#"stealth_combat");
-	level endon(#"stealth_alert");
-	level endon(#"killing_streets_intro_patroller_spawners_cleared");
-	self endon(#"death");
+	level endon("stealth_combat");
+	level endon("stealth_alert");
+	level endon("killing_streets_intro_patroller_spawners_cleared");
+	self endon("death");
 	self.holdfire = 1;
 	self.ignoreall = 0;
 	self.ignoreme = 1;
@@ -139,7 +139,7 @@ function setup_killing_streets_alley_hendricks()
 	}
 	node = getnode("killing_streets_hendricks_node_10", "targetname");
 	self setgoal(node, 1, 16);
-	self waittill(#"goal");
+	self waittill("goal");
 	wait(7);
 	level flag::set("hendricks_break_ally_stealth");
 }
@@ -211,8 +211,8 @@ function function_9736d8c9()
 	}
 	guy.perfectaim = 1;
 	guy laseron();
-	guy endon(#"death");
-	guy waittill(#"sniper_fire");
+	guy endon("death");
+	guy waittill("sniper_fire");
 	level.var_abd93cb3 notify(#"hash_55f87e20");
 	guy animation::fire_weapon();
 }
@@ -242,23 +242,23 @@ function function_286754f2(a_ents)
 */
 function setup_killing_streets_lineup_hendricks()
 {
-	level endon(#"killing_streets_lineup_patrollers_alerted");
-	self endon(#"death");
+	level endon("killing_streets_lineup_patrollers_alerted");
+	self endon("death");
 	self thread setup_killing_streets_lineup_hendricks_stealth_broken();
 	level flag::set("move_hendricks_to_meat_market");
 	var_6e87e729 = struct::get("hendricks_open_alley_door_01_gather_org");
 	objectives::set("cp_waypoint_breadcrumb", var_6e87e729);
 	e_node = getnode("hendricks_pre_butcher_node", "targetname");
 	self setgoal(e_node, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self ai::set_behavior_attribute("cqb", 0);
 	self ai::set_behavior_attribute("forceTacticalWalk", 1);
 	e_node = getnode("hendricks_pre_butcher_node_2", "targetname");
 	self setgoal(e_node, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	level.lineup_kill_scripted_node scene::init("cin_ven_03_20_storelineup_vign_start_hendricks_only");
 	level flag::set("enable_hendricks_open_alley_door_01");
-	self waittill(#"reach_done");
+	self waittill("reach_done");
 	level thread function_96d0d9ff();
 	level flag::wait_till("start_hendricks_open_alley_door_01");
 	if(isdefined(level.bzm_vengeancedialogue3_1callback))
@@ -277,7 +277,7 @@ function setup_killing_streets_lineup_hendricks()
 	storelineup_door1_clip thread storelineup_door1_clip();
 	level thread lineup_kill_scene_manager();
 	level thread lineup_kill_scene_stopper();
-	level waittill(#"cin_ven_03_20_storelineup_vign_start_done");
+	level waittill("cin_ven_03_20_storelineup_vign_start_done");
 	if(!level flag::get("move_killing_streets_hendricks_node_30"))
 	{
 		level flag::wait_till("move_killing_streets_hendricks_node_30");
@@ -356,7 +356,7 @@ function setup_killing_streets_lineup_hendricks_stealth_broken()
 	if(!level flag::get("hendricks_cleared_meat_market_door"))
 	{
 		level.var_b40baa9d thread scene::play("cin_ven_03_20_storelineup_vign_exit_reach");
-		self waittill(#"reach_done");
+		self waittill("reach_done");
 		wait(0.5);
 	}
 	self clearforcedgoal();
@@ -386,7 +386,7 @@ function setup_killing_streets_lineup_hendricks_stealth_broken()
 */
 function function_2adde689()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_behavior_attribute("vignette_mode", "fast");
 	self ai::set_behavior_attribute("coverIdleOnly", 1);
 	level waittill(#"hash_f1a04aa0");
@@ -422,9 +422,9 @@ function function_96d0d9ff()
 */
 function function_a39cd1bb()
 {
-	level endon(#"killing_streets_lineup_patrollers_alerted");
+	level endon("killing_streets_lineup_patrollers_alerted");
 	level endon(#"hash_f1a04aa0");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_68586610 = getentarray("killing_streets_outside", "targetname");
 	while(true)
 	{
@@ -452,14 +452,14 @@ function function_a39cd1bb()
 */
 function lineup_kill_scene_manager()
 {
-	level endon(#"killing_streets_lineup_patrollers_alerted");
+	level endon("killing_streets_lineup_patrollers_alerted");
 	level thread function_fd81381e("execution_blood_spray_lt", "lineup_civ_1_killed", "lineup_kill_decal_lt_window_broken");
 	level thread function_fd81381e("execution_blood_spray_rt", "lineup_civ_2_killed", "lineup_kill_decal_rt_window_broken");
 	level thread function_d864c642();
 	level.lineup_kill_scripted_node thread scene::init("cin_ven_03_20_storelineup_vign_fire");
 	level.var_b40baa9d thread scene::play("cin_ven_03_20_storelineup_vign_start_doors_only");
 	level.lineup_kill_scripted_node scene::play("cin_ven_03_20_storelineup_vign_start_hendricks_only");
-	level notify(#"cin_ven_03_20_storelineup_vign_start_done");
+	level notify("cin_ven_03_20_storelineup_vign_start_done");
 	level flag::wait_till("start_lineup_kill_execution");
 	level.lineup_kill_scripted_node scene::play("cin_ven_03_20_storelineup_vign_fire");
 	level flag::set("cin_ven_03_20_storelineup_vign_fire_done");
@@ -616,7 +616,7 @@ function setup_killing_streets_intro_patroller_spawners()
 */
 function function_a45594e6()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreme(1);
 	self ai::set_ignoreall(1);
 	setdvar("ai_awarenessEnabled", 0);
@@ -664,7 +664,7 @@ function function_a45594e6()
 */
 function function_68661375()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreme(1);
 	self ai::set_ignoreall(1);
 	self waittill(#"hash_55f87e20");
@@ -683,8 +683,8 @@ function function_68661375()
 */
 function function_53a6540a()
 {
-	self endon(#"death");
-	self waittill(#"alert");
+	self endon("death");
+	self waittill("alert");
 	self notify(#"hash_30dac0b5");
 	level.var_abd93cb3 notify(#"hash_55f87e20");
 	level.var_abd93cb3 stealth::stop();
@@ -693,7 +693,7 @@ function function_53a6540a()
 		self stealth::stop();
 		self.var_30dac0b5 = 1;
 		self scene::play(self.script_parameters);
-		self waittill(#"scene_done");
+		self waittill("scene_done");
 		self notify(#"hash_45b11ba2");
 	}
 }
@@ -709,7 +709,7 @@ function function_53a6540a()
 */
 function setup_killing_streets_civilian()
 {
-	self endon(#"death");
+	self endon("death");
 	self.team = "allies";
 	self ai::set_ignoreme(1);
 	self ai::set_ignoreall(1);
@@ -742,7 +742,7 @@ function setup_killing_streets_civilian()
 */
 function setup_killing_streets_civilian_lineup()
 {
-	self endon(#"death");
+	self endon("death");
 	self.team = "allies";
 	self.civilian = 1;
 	self ai::set_ignoreme(1);
@@ -765,8 +765,8 @@ function setup_killing_streets_civilian_lineup()
 */
 function function_cfede1cf()
 {
-	self endon(#"death");
-	self waittill(#"kill_me");
+	self endon("death");
+	self waittill("kill_me");
 	self.takedamage = 1;
 	self.skipdeath = 1;
 	self.allowdeath = 1;
@@ -784,7 +784,7 @@ function function_cfede1cf()
 */
 function setup_killing_streets_lineup_patroller_spawners()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreme(1);
 	self util::waittill_any("damage", "alert");
 	self ai::set_ignoreme(0);
@@ -979,7 +979,7 @@ function function_4b7aea65()
 */
 function function_ff499dd5()
 {
-	level endon(#"start_hendricks_open_alley_door_02");
+	level endon("start_hendricks_open_alley_door_02");
 	wait(20);
 	if(!flag::get("clear_killing_streets_breadcrumb_04"))
 	{

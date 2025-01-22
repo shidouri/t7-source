@@ -191,7 +191,7 @@ function function_677ed44f(weapon)
 	self notify(#"hash_677ed44f");
 	self endon(#"hash_677ed44f");
 	self endon(#"hash_343d4580");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		level waittill(#"hash_63acb616", target, attacker, damage, weapon, hitorigin);
@@ -242,7 +242,7 @@ function function_677ed44f(weapon)
 */
 function function_71a4f1d5()
 {
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	corpse clientfield::set("arch_actor_fire_fx", 3);
 }
 
@@ -273,11 +273,11 @@ function aielectrostatickillmonitor(statusoverride)
 {
 	if(isplayer(self))
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 	}
 	else
 	{
-		self endon(#"death");
+		self endon("death");
 	}
 	self notify(#"electro_static_monitor_kill");
 	self endon(#"electro_static_monitor_kill");
@@ -490,7 +490,7 @@ function electrostaticcontact(attacker, source, upgraded = 0, contactpoint, seco
 */
 function electrostaticarc(player, upgraded)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!upgraded)
 	{
 		return;

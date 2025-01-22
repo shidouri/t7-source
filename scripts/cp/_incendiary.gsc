@@ -97,9 +97,9 @@ function create_incendiary_watcher()
 */
 function incendiary_system_spawn(watcher, player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	level endon(#"game_ended");
+	player endon("death");
+	player endon("disconnect");
+	level endon("game_ended");
 	player addweaponstat(self.weapon, "used", 1);
 	thread watchforexplode(player);
 }
@@ -115,15 +115,15 @@ function incendiary_system_spawn(watcher, player)
 */
 function watchforexplode(owner)
 {
-	self endon(#"hacked");
-	self endon(#"delete");
+	self endon("hacked");
+	self endon("delete");
 	killcament = spawn("script_model", self.origin);
 	killcament util::deleteaftertime(15);
 	killcament.starttime = gettime();
 	killcament linkto(self);
 	killcament setweapon(self.weapon);
 	killcament killcam::store_killcam_entity_on_entity(self);
-	self waittill(#"projectile_impact_explode", origin, normal, surface);
+	self waittill("projectile_impact_explode", origin, normal, surface);
 	killcament unlink();
 	/#
 		updateincendiaryfromdvars();
@@ -340,7 +340,7 @@ function damageeffectarea(owner, position, radius, height, killcament)
 	/#
 		if(getdvarint(""))
 		{
-			level notify(#"incendiary_draw_cylinder_stop");
+			level notify("incendiary_draw_cylinder_stop");
 		}
 	#/
 }
@@ -444,8 +444,8 @@ function trytoapplyfiredamage(target, owner, position, fireeffectarea, resetfire
 */
 function damageinfirearea(fireeffectarea, killcament, trace, position, resetfiretime)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	timer = 0;
 	damage = level.incendiaryfiredamage;
 	if(level.hardcoremode)
@@ -483,10 +483,10 @@ function damageinfirearea(fireeffectarea, killcament, trace, position, resetfire
 */
 function sndfiredamage()
 {
-	self notify(#"sndfire");
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"sndfire");
+	self notify("sndfire");
+	self endon("death");
+	self endon("disconnect");
+	self endon("sndfire");
 	if(!isdefined(self.sndfireent))
 	{
 		self.sndfireent = spawn("script_origin", self.origin);
@@ -511,8 +511,8 @@ function sndfiredamage()
 */
 function sndfiredamage_deleteent(ent)
 {
-	self endon(#"disconnect");
-	self waittill(#"death");
+	self endon("disconnect");
+	self waittill("death");
 	if(isdefined(ent))
 	{
 		ent delete();

@@ -50,7 +50,7 @@ function __init__()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clearaptarget();
 	thread aptoggleloop();
 	self thread apfirednotify();
@@ -77,7 +77,7 @@ function clearaptarget(weapon, whom)
 		{
 			if(whom.aptarget == self.multilocklist[i].aptarget)
 			{
-				self.multilocklist[i].aptarget notify(#"missile_unlocked");
+				self.multilocklist[i].aptarget notify("missile_unlocked");
 				self notify("stop_sound" + whom.apsoundid);
 				self weaponlockremoveslot(i);
 				arrayremovevalue(self.multilocklist, whom, 0);
@@ -89,7 +89,7 @@ function clearaptarget(weapon, whom)
 	{
 		for(i = 0; i < self.multilocklist.size; i++)
 		{
-			self.multilocklist[i].aptarget notify(#"missile_unlocked");
+			self.multilocklist[i].aptarget notify("missile_unlocked");
 			self notify("stop_sound" + self.multilocklist[i].apsoundid);
 		}
 		self.multilocklist = [];
@@ -124,18 +124,18 @@ function clearaptarget(weapon, whom)
 */
 function apfirednotify()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"missile_fire", missile, weapon);
+		self waittill("missile_fire", missile, weapon);
 		if(weapon.lockontype == "AP Single")
 		{
 			foreach(target in self.multilocklist)
 			{
 				if(isdefined(target.aptarget) && target.aplockfinalized)
 				{
-					target.aptarget notify(#"stinger_fired_at_me", missile, weapon, self);
+					target.aptarget notify("stinger_fired_at_me", missile, weapon, self);
 				}
 			}
 		}
@@ -153,11 +153,11 @@ function apfirednotify()
 */
 function aptoggleloop()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		while(weapon.lockontype == "AP Single")
 		{
 			abort = 0;
@@ -180,7 +180,7 @@ function aptoggleloop()
 			{
 				wait(0.05);
 			}
-			self notify(#"ap_off");
+			self notify("ap_off");
 			self clearaptarget(weapon);
 			weapon = self getcurrentweapon();
 		}
@@ -198,9 +198,9 @@ function aptoggleloop()
 */
 function aplockloop(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"ap_off");
+	self endon("disconnect");
+	self endon("death");
+	self endon("ap_off");
 	locklength = self getlockonspeed();
 	self.multilocklist = [];
 	for(;;)
@@ -252,7 +252,7 @@ function aplockloop(weapon)
 					target.aplockpending = 0;
 					self weaponlockfinalize(target.aptarget, i);
 					self thread seekersound(weapon.lockonseekerlockedsound, weapon.lockonseekerlockedsoundloops, target.apsoundid);
-					target.aptarget notify(#"missile_lock", self, weapon);
+					target.aptarget notify("missile_lock", self, weapon);
 				}
 			}
 		}
@@ -531,8 +531,8 @@ function seekersound(alias, looping, id)
 {
 	self notify("stop_sound" + id);
 	self endon("stop_sound" + id);
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(isdefined(alias))
 	{
 		self playrumbleonentity("stinger_lock_rumble");

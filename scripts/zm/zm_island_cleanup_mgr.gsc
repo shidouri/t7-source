@@ -245,7 +245,7 @@ function private delete_zombie_noone_looking()
 */
 function private function_cc0c7e36()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread delete_zombie_noone_looking();
 }
 
@@ -351,7 +351,7 @@ function private player_ahead_of_me(player)
 */
 function get_escape_position()
 {
-	self endon(#"death");
+	self endon("death");
 	str_zone = zm_zonemgr::get_zone_from_position(self.origin, 1);
 	if(!isdefined(str_zone))
 	{
@@ -477,7 +477,7 @@ function private get_wait_locations_in_zone(zone)
 */
 function get_escape_position_in_current_zone()
 {
-	self endon(#"death");
+	self endon("death");
 	str_zone = zm_zonemgr::get_zone_from_position(self.origin, 1);
 	if(!isdefined(str_zone))
 	{

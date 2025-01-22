@@ -49,14 +49,14 @@ function scriptstruct_debug_render()
 	/#
 		while(true)
 		{
-			level waittill(#"liveupdate", selected_struct);
+			level waittill("liveupdate", selected_struct);
 			if(isdefined(selected_struct))
 			{
 				level thread render_struct(selected_struct);
 			}
 			else
 			{
-				level notify(#"stop_struct_render");
+				level notify("stop_struct_render");
 			}
 		}
 	#/
@@ -74,7 +74,7 @@ function scriptstruct_debug_render()
 function render_struct(selected_struct)
 {
 	/#
-		self endon(#"stop_struct_render");
+		self endon("stop_struct_render");
 		while(isdefined(selected_struct) && isdefined(selected_struct.origin))
 		{
 			box(selected_struct.origin, vectorscale((-1, -1, -1), 16), vectorscale((1, 1, 1), 16), 0, (1, 0.4, 0.4));

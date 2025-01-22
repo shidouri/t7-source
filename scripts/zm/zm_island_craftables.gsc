@@ -171,7 +171,7 @@ function function_aef4c63(player)
 	str_piece = (self.craftablename + "_") + self.piecename;
 	level flag::set(str_piece + "_found");
 	player thread function_9708cb71(self.piecename);
-	player notify(#"player_got_gasmask_part");
+	player notify("player_got_gasmask_part");
 	level thread function_f34bd805(str_piece);
 }
 
@@ -264,7 +264,7 @@ function function_4e02c665(player)
 	var_6796a7a4 setscale(1.5);
 	var_6796a7a4 moveto((self.origin + anglestoforward(self.angles)) + (-5, 0, -105), 0.05);
 	var_6796a7a4 rotateto(self.angles + vectorscale((0, 1, 0), 90), 0.05);
-	var_6796a7a4 waittill(#"movedone");
+	var_6796a7a4 waittill("movedone");
 	return true;
 }
 
@@ -330,7 +330,7 @@ function function_272fcc74()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -363,7 +363,7 @@ function function_272fcc74()
 function function_b4c30297(trig_stub, player)
 {
 	player.var_df4182b1 = 1;
-	player notify(#"player_has_gasmask");
+	player notify("player_has_gasmask");
 }
 
 /*

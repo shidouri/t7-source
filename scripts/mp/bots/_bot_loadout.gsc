@@ -387,11 +387,11 @@ function get_item_name(itemreference)
 */
 function init()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level.bot_banned_killstreaks = array("KILLSTREAK_RCBOMB", "KILLSTREAK_QRDRONE", "KILLSTREAK_REMOTE_MISSILE", "KILLSTREAK_REMOTE_MORTAR", "KILLSTREAK_HELICOPTER_GUNNER");
 	for(;;)
 	{
-		level waittill(#"connected", player);
+		level waittill("connected", player);
 		if(!player istestclient())
 		{
 			continue;
@@ -411,7 +411,7 @@ function init()
 */
 function on_bot_connect()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(self.pers["bot_loadout"]))
 	{
 		return;

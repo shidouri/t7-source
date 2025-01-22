@@ -192,7 +192,7 @@ function globallogic_setupdefault_zombiecallbacks()
 */
 function do_game_mode_shellshock()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self._being_shellshocked = 1;
 	self shellshock("grief_stab_zm", 0.75);
 	wait(0.75);
@@ -307,8 +307,8 @@ function mayspawn()
 	}
 	if(self.pers["lives"] == 0)
 	{
-		level notify(#"player_eliminated");
-		self notify(#"player_eliminated");
+		level notify("player_eliminated");
+		self notify("player_eliminated");
 		return 0;
 	}
 	return 1;
@@ -631,7 +631,7 @@ function menu_onplayerconnect()
 {
 	for(;;)
 	{
-		level waittill(#"connecting", player);
+		level waittill("connecting", player);
 		player thread menu_onmenuresponse();
 	}
 }
@@ -647,10 +647,10 @@ function menu_onplayerconnect()
 */
 function menu_onmenuresponse()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		if(response == "back")
 		{
 			self closeingamemenu();
@@ -836,8 +836,8 @@ function menuallieszombies()
 		self globallogic_ui::updateobjectivetext();
 		self.sessionteam = "allies";
 		self setclientscriptmainmenu(game["menu_start_menu"]);
-		self notify(#"joined_team");
-		level notify(#"joined_team");
+		self notify("joined_team");
+		level notify("joined_team");
 		self callback::callback(#"hash_95a6c4c0");
 		self notify(#"end_respawn");
 	}
@@ -887,7 +887,7 @@ function onplayerconnect()
 {
 	for(;;)
 	{
-		level waittill(#"connected", player);
+		level waittill("connected", player);
 		player thread onplayerspawned();
 		if(isdefined(level.game_module_onplayerconnect))
 		{
@@ -908,7 +908,7 @@ function onplayerconnect()
 function onplayerspawned()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
 		self util::waittill_either("spawned_player", "fake_spawned_player");
@@ -992,7 +992,7 @@ function onplayerconnect_check_for_hotjoin()
 */
 function player_hotjoin()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self initialblack();
 	self.rebuild_barrier_reward = 1;
 	self.is_hotjoining = 1;

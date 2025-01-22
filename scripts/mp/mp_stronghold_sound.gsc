@@ -35,7 +35,7 @@ function snd_dmg_chant()
 	}
 	while(true)
 	{
-		trigger waittill(#"trigger", who);
+		trigger waittill("trigger", who);
 		if(isplayer(who))
 		{
 			trigger playsound("amb_monk_chant");

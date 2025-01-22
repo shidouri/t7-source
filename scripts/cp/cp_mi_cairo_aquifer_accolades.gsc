@@ -410,7 +410,7 @@ function function_3b8b405()
 	{
 		if(array::contains(level.activeplayers, player))
 		{
-			player notify(#"destroy_defenses_completed");
+			player notify("destroy_defenses_completed");
 		}
 	}
 	wait(1);
@@ -428,8 +428,8 @@ function function_3b8b405()
 */
 function function_2edc96bc()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level endon(#"hash_ebe4266");
 	retval = self util::waittill_any_return("player_took_accolade_damage", "destroy_defenses_completed");
 	if(isdefined(retval) && retval == "destroy_defenses_completed")
@@ -476,15 +476,15 @@ function function_f208dfd8()
 */
 function function_deee0b62(params)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level endon(#"hash_4af9ae51");
 	self.var_80329ae2 = 0;
 	while(true)
 	{
 		if(isdefined(self.pvtol))
 		{
-			self.pvtol waittill(#"damage", damage, attacker, direction_vec, point, meansofdeath, tagname, modelname, partname, weapon);
+			self.pvtol waittill("damage", damage, attacker, direction_vec, point, meansofdeath, tagname, modelname, partname, weapon);
 			if(weapon.type != "bullet")
 			{
 				self.var_80329ae2 = 1;
@@ -577,7 +577,7 @@ function function_f42b5fa1()
 */
 function function_a2aa8ca8()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_2899a2c7");
 	self thread function_c2ba8da();
 	retval = self util::waittill_any_return("sniper_boss_damage", "accolades_boss_done");
@@ -598,12 +598,12 @@ function function_a2aa8ca8()
 */
 function function_c2ba8da()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_2899a2c7");
 	attacker = self;
 	while(attacker != level.sniper_boss)
 	{
-		self waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 	}
 	self notify(#"hash_703e1e78");
 }
@@ -619,7 +619,7 @@ function function_c2ba8da()
 */
 function function_b362fb44()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_2899a2c7");
 	retval = self util::waittill_any_return("weapon_fired", "accolades_boss_done");
 	if(isdefined(retval) && retval == "accolades_boss_done")

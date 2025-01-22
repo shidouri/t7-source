@@ -310,7 +310,7 @@ function function_c1808198()
 */
 function function_498a7d66()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("player_bubbles_fx", 1);
 	wait(2);
 	self clientfield::set_to_player("player_bubbles_fx", 0);
@@ -518,7 +518,7 @@ function shutdownemprebootindicatormenu()
 */
 function function_4f725f0b()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self enableinvulnerability();
 	self.empduration = 7;
 	self.empgrenaded = 1;
@@ -605,7 +605,7 @@ function function_846f1215(n_alpha)
 */
 function function_45676b91(n_alpha)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::screen_fade_to_alpha(n_alpha, 1);
 	self util::screen_fade_to_alpha(0, 1);
 }
@@ -681,9 +681,9 @@ function function_e367262c()
 */
 function player_underwater()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_1fffa65c");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_1fffa65c");
 	while(true)
 	{
@@ -708,7 +708,7 @@ function function_41018429()
 {
 	self notify(#"hash_8f1abd30");
 	self endon(#"hash_8f1abd30");
-	self endon(#"death");
+	self endon("death");
 	self.is_underwater = 1;
 	self hazard::function_459e5eff("o2", 0);
 	var_dd075cd2 = 1;
@@ -979,7 +979,7 @@ function function_a0faf694(var_4b70f64, kane, var_be38fd90)
 	{
 		rotator rotateto(vectortoangles(kane.origin - player_eye), 0.7, 0.3, 0.3);
 	}
-	rotator waittill(#"rotatedone");
+	rotator waittill("rotatedone");
 	var_4b70f64 unlink();
 	rotator delete();
 }
@@ -1000,7 +1000,7 @@ function robot_underwater_callback()
 	self.skipdeath = 1;
 	self asmsetanimationrate(0.7);
 	self clientfield::set("robot_bubbles_fx", 1);
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self startragdoll();

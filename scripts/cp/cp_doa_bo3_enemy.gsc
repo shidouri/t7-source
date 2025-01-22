@@ -382,13 +382,13 @@ function function_92159541(spawner, loc, def)
 function function_8b898788()
 {
 	self.damage_trigger = spawn("trigger_radius", self.origin, 3, 40, 50);
-	self.damage_trigger endon(#"death");
+	self.damage_trigger endon("death");
 	self.damage_trigger thread doa_utility::function_981c685d(self);
 	self.damage_trigger enablelinkto();
 	self.damage_trigger linkto(self);
 	while(isdefined(self))
 	{
-		self.damage_trigger waittill(#"trigger", guy);
+		self.damage_trigger waittill("trigger", guy);
 		if(!isdefined(guy))
 		{
 			continue;
@@ -441,7 +441,7 @@ function function_8b898788()
 */
 function function_b18c6347()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread namespace_eaa992c::function_285a2999("player_shield_short");
 	self thread namespace_eaa992c::function_285a2999("electrical_surge");
 	invultime = gettime() + 3000;
@@ -464,7 +464,7 @@ function function_b18c6347()
 */
 function function_d4107a2a()
 {
-	self endon(#"death");
+	self endon("death");
 	while(!self isatgoal())
 	{
 		wait(0.05);
@@ -560,7 +560,7 @@ function function_7517e6b7(origin)
 */
 function function_471897()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self.damage_trigger))
 	{
 		self.damage_trigger delete();
@@ -578,8 +578,8 @@ function function_471897()
 */
 function function_b3a0f63()
 {
-	self endon(#"death");
-	self endon(#"movedone");
+	self endon("death");
+	self endon("movedone");
 	timeout = gettime() + 2100;
 	while(gettime() < timeout)
 	{
@@ -633,7 +633,7 @@ function function_5e86b6fa(spawner, loc, def)
 */
 function droptoground(origin, trailfx, var_b8f99479 = "turret_impact", var_96214f04 = 1, var_7c5f2b05 = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	self.dropping = 1;
 	self.ignoreall = 1;
 	if(!isdefined(origin))
@@ -721,7 +721,7 @@ function droptoground(origin, trailfx, var_b8f99479 = "turret_impact", var_96214
 */
 function private function_9a5d69ac()
 {
-	self endon(#"death");
+	self endon("death");
 	self.zombie_move_speed = "walk";
 	self util::waittill_any_timeout(30, "damage");
 	if(level.players.size == 1 && self.zombie_move_speed == "sprint")
@@ -742,7 +742,7 @@ function private function_9a5d69ac()
 */
 function function_a1f1cd46()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self) && isdefined(self.origin))
 	{
 		physicsexplosionsphere(self.origin, 128, 128, 2);
@@ -877,7 +877,7 @@ function function_fb051310(spawner, loc, def, droptoground = 1, hp, force = 0)
 */
 function function_5f1a1e65(var_b48b7b5d)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		if(self.origin[2] <= var_b48b7b5d)
@@ -941,8 +941,8 @@ function function_7ebf419e()
 */
 function function_307cc86e()
 {
-	self endon(#"death");
-	self waittill(#"goal");
+	self endon("death");
+	self waittill("goal");
 	self setgoal(namespace_3ca3c537::function_2a9d778d() + vectorscale((0, 0, 1), 42), 0);
 }
 
@@ -1064,7 +1064,7 @@ function function_e59bd7c5(carrier)
 function function_3dc77ad7()
 {
 	origin = self.origin;
-	self waittill(#"death");
+	self waittill("death");
 	/#
 		doa_utility::debugmsg("" + origin);
 	#/
@@ -1096,12 +1096,12 @@ function function_e4004164()
 */
 function function_deb6cf13()
 {
-	self endon(#"death");
+	self endon("death");
 	origin = self.origin;
 	self.takedamage = 1;
 	while(true)
 	{
-		self waittill(#"damage", damage);
+		self waittill("damage", damage);
 		/#
 			doa_utility::debugmsg((("" + damage) + "") + self.health);
 		#/
@@ -1119,7 +1119,7 @@ function function_deb6cf13()
 */
 function function_70320f4a(time = 5)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("heartbeat", 7);
 	wait(time);
 	level notify(#"hash_842cebcb", self.origin);
@@ -1138,7 +1138,7 @@ function function_70320f4a(time = 5)
 */
 function function_197752f7(lifetime = 15)
 {
-	self endon(#"death");
+	self endon("death");
 	self solid();
 	self setmodel("zombietron_spider_egg_invis");
 	self enableaimassist();
@@ -1177,7 +1177,7 @@ function function_e0df2a3e()
 */
 function function_8fe0340c()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		level waittill(#"hash_842cebcb", origin);
@@ -1201,7 +1201,7 @@ function function_8fe0340c()
 */
 function function_517ce292()
 {
-	self waittill(#"death");
+	self waittill("death");
 	arrayremovevalue(level.doa.hazards, self);
 	if(isdefined(self))
 	{
@@ -1279,7 +1279,7 @@ function function_129ef3d()
 */
 function function_4c047459()
 {
-	self endon(#"death");
+	self endon("death");
 	self.zombie_move_speed = "sprint";
 	goalpoints = doa_utility::function_308fa126(10);
 	goalpoint = goalpoints[randomint(goalpoints.size)] + (randomintrange(-80, 80), randomintrange(-80, 80), 0);
@@ -1292,7 +1292,7 @@ function function_4c047459()
 	egg linkto(self, "tag_origin", vectorscale((0, 0, 1), 54));
 	egg thread function_45f23318(self);
 	self doa_enemy::function_d30fe558(self.var_8f12ed02, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self.var_8f12ed02 = undefined;
 	if(isdefined(egg))
 	{
@@ -1510,7 +1510,7 @@ function function_ef4fa49d(&spots, mindist = 300)
 */
 function shadowteleportmenow(initial = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_eee6567d))
 	{
 		return;
@@ -1784,7 +1784,7 @@ function private function_28cdab69(def)
 function private function_1ee8b18c(def, ai)
 {
 	ai endon(#"hash_9757351b");
-	ai waittill(#"death");
+	ai waittill("death");
 	def.var_40c7a009--;
 }
 
@@ -1799,7 +1799,7 @@ function private function_1ee8b18c(def, ai)
 */
 function private function_be745286(def, ai)
 {
-	ai endon(#"death");
+	ai endon("death");
 	ai thread function_1ee8b18c(def, ai);
 	def.var_40c7a009++;
 	ai.ignoreall = 1;
@@ -1823,7 +1823,7 @@ function private function_be745286(def, ai)
 */
 function private function_b6d31d3a(spot, hold = 0, fx = "zombie_riser_fx", var_3d98e879 = "ai_zombie_traverse_ground_climbout_fast")
 {
-	self endon(#"death");
+	self endon("death");
 	self.rising = 1;
 	self.anchor = spawn("script_origin", self.origin);
 	self.anchor thread doa_utility::function_981c685d(self);
@@ -1852,7 +1852,7 @@ function private function_b6d31d3a(spot, hold = 0, fx = "zombie_riser_fx", var_3
 	self animscripted("rise_anim", self.origin, self.angles, var_3d98e879);
 	self waittill(#"end");
 	self solid();
-	self notify(#"rise_anim_finished");
+	self notify("rise_anim_finished");
 	self.rising = undefined;
 }
 
@@ -1867,7 +1867,7 @@ function private function_b6d31d3a(spot, hold = 0, fx = "zombie_riser_fx", var_3
 */
 function private function_2f0633b5()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.5);
 	if(isdefined(self))
 	{
@@ -1886,10 +1886,10 @@ function private function_2f0633b5()
 */
 function private function_7c9f5521(zombie, spot)
 {
-	zombie endon(#"rise_anim_finished");
+	zombie endon("rise_anim_finished");
 	while(isdefined(zombie) && isdefined(zombie.health) && zombie.health > 1)
 	{
-		zombie waittill(#"damage", amount);
+		zombie waittill("damage", amount);
 	}
 	if(isdefined(zombie))
 	{
@@ -1939,7 +1939,7 @@ function function_43f48136(var_bbd280b0)
 */
 function function_57aea19e()
 {
-	self endon(#"death");
+	self endon("death");
 	waittillframeend();
 	if(isalive(self) && !self isragdoll())
 	{
@@ -2164,7 +2164,7 @@ function function_c783bef2()
 */
 function function_772a04fe()
 {
-	self endon(#"death");
+	self endon("death");
 	self.zombie_move_speed = "sprint";
 	goalpoints = doa_utility::function_308fa126(10);
 	goalpoint = goalpoints[randomint(goalpoints.size)] + (randomintrange(-80, 80), randomintrange(-80, 80), 0);
@@ -2181,11 +2181,11 @@ function function_772a04fe()
 	trashcan thread function_45f23318(self);
 	self doa_enemy::function_d30fe558(self.var_8f12ed02, 1);
 	trashcan thread namespace_d88e3a06::function_d8d20160();
-	self waittill(#"goal");
+	self waittill("goal");
 	self.var_8f12ed02 = undefined;
 	if(isdefined(trashcan))
 	{
-		trashcan notify(#"dropped");
+		trashcan notify("dropped");
 		trashcan unlink();
 		trashcan.origin = self.origin + vectorscale((0, 0, 1), 32);
 		trashcan.angles = (0, 0, 0);
@@ -2203,9 +2203,9 @@ function function_772a04fe()
 */
 function private function_45f23318(ai)
 {
-	self endon(#"death");
-	ai endon(#"goal");
-	ai waittill(#"death");
+	self endon("death");
+	ai endon("goal");
+	ai waittill("death");
 	if(isdefined(self.death_func))
 	{
 		self [[self.death_func]]();
@@ -2227,7 +2227,7 @@ function function_7e51c1d2()
 	level clientfield::set("activateBanner", 0);
 	if(isdefined(level.doa.margwa))
 	{
-		level waittill(#"fade_out_complete");
+		level waittill("fade_out_complete");
 		level.doa.margwa delete();
 	}
 }
@@ -2290,7 +2290,7 @@ function function_4ce6d0ea()
 		players[i] freezecontrols(0);
 	}
 	level clientfield::set("activateBanner", 4);
-	level.doa.margwa waittill(#"death");
+	level.doa.margwa waittill("death");
 	level clientfield::set("activateBanner", 0);
 	level flag::set("doa_round_paused");
 	doa_utility::function_1ced251e();
@@ -2318,7 +2318,7 @@ function function_4ce6d0ea()
 */
 function private function_e8a17069()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(getdvarint("scr_doa_soak_think", 0))
@@ -2365,7 +2365,7 @@ function function_62d794a5()
 */
 function private function_13109fad()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self waittill(#"hash_2f07c48c");
@@ -2385,7 +2385,7 @@ function private function_13109fad()
 function private function_c0147a11()
 {
 	wait(0.05);
-	self endon(#"death");
+	self endon("death");
 	self.takedamage = 1;
 	self.health = (getplayers().size * 250000) + ((1 + level.doa.var_da96f13c) * 300000);
 	self.maxhealth = self.health;
@@ -2410,7 +2410,7 @@ function private function_c0147a11()
 		while(self.health > 0)
 		{
 			lasthealth = self.health;
-			self waittill(#"damage", damage, attacker);
+			self waittill("damage", damage, attacker);
 			data = doa_utility::clamp(self.health / self.maxhealth, 0, 1);
 			level clientfield::set("pumpBannerBar", data);
 			if(isdefined(attacker) && isplayer(attacker))
@@ -2541,12 +2541,12 @@ function private function_1c99c7cd()
 	trigger.targetname = "margwaDamag";
 	trigger enablelinkto();
 	trigger linkto(self, "tag_origin");
-	trigger endon(#"death");
+	trigger endon("death");
 	trigger thread doa_utility::function_783519c1("exit_taken", 1);
 	trigger thread doa_utility::function_981c685d(self);
 	while(isdefined(self))
 	{
-		trigger waittill(#"trigger", guy);
+		trigger waittill("trigger", guy);
 		if(isdefined(self))
 		{
 			guy dodamage(665, guy.origin, self, self);
@@ -2567,7 +2567,7 @@ function function_771e3915()
 {
 	level notify(#"hash_93296b5");
 	level endon(#"hash_93296b5");
-	level endon(#"doa_game_is_over");
+	level endon("doa_game_is_over");
 	extrawait = 0;
 	while(true)
 	{

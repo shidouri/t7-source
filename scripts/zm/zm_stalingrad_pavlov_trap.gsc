@@ -116,7 +116,7 @@ function function_fbea6a64(e_player)
 */
 function function_335dff5e()
 {
-	self waittill(#"trigger", e_player);
+	self waittill("trigger", e_player);
 	if(self.stub.var_dd690f31 !== 0 && e_player zm_score::can_player_purchase(1000))
 	{
 		e_player clientfield::increment_to_player("interact_rumble");
@@ -274,7 +274,7 @@ function function_e0c7ad1e(var_a70a7d09)
 */
 function function_fce6cca8()
 {
-	self endon(#"death");
+	self endon("death");
 	var_8e692aea = [];
 	var_8e692aea[0] = (-274, 3830, -12);
 	var_8e692aea[1] = (270, 3865, -12);
@@ -303,7 +303,7 @@ function function_fce6cca8()
 */
 function function_d2f913f5(v_fling)
 {
-	self endon(#"death");
+	self endon("death");
 	angle = v_fling * 300;
 	self startragdoll();
 	self launchragdoll(angle);

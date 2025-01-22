@@ -110,7 +110,7 @@ function function_9940e82f(str_objective, b_starting)
 	}
 	else
 	{
-		level waittill(#"chyron_menu_closed");
+		level waittill("chyron_menu_closed");
 		level thread util::screen_fade_in(2);
 	}
 	level thread function_37ee22ee();
@@ -178,7 +178,7 @@ function function_ab4451a1()
 			wait(0.15);
 			mdl movez(85, randomfloatrange(0.9, 1.2));
 		}
-		mdl waittill(#"movedone");
+		mdl waittill("movedone");
 		if(!n_count)
 		{
 			var_c522d6c9 = zurich_util::function_33ec653f("skybar_raven_enemy_spawn_manager", undefined, undefined, &zurich_util::function_d065a580);
@@ -196,7 +196,7 @@ function function_ab4451a1()
 			wait(0.15);
 			mdl movez(85 * -1, randomfloatrange(0.9, 1.2));
 		}
-		mdl waittill(#"movedone");
+		mdl waittill("movedone");
 		level notify(#"hash_2fa6d91");
 	}
 }
@@ -212,12 +212,12 @@ function function_ab4451a1()
 */
 function function_52073baf()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self setcandamage(1);
 		self.health = 999999;
-		self waittill(#"damage", n_damage, e_attacker, $_, $_, str_damage_type);
+		self waittill("damage", n_damage, e_attacker, $_, $_, str_damage_type);
 		if(isplayer(e_attacker))
 		{
 			level notify(#"hash_443f3c33");
@@ -353,9 +353,9 @@ function function_d9b234c1(nd_start = getnode(self.target, "targetname"))
 */
 function function_84f0b3d2(nd_start)
 {
-	self endon(#"death");
-	self notify(#"stop_running");
-	self endon(#"stop_running");
+	self endon("death");
+	self notify("stop_running");
+	self endon("stop_running");
 	self forceteleport(nd_start.origin);
 	wait(0.05);
 	while(isdefined(nd_start.target))
@@ -511,8 +511,8 @@ function function_b8f105c6(a_ents)
 */
 function function_663b5805(ai_hunter)
 {
-	self endon(#"death");
-	ai_hunter endon(#"death");
+	self endon("death");
+	ai_hunter endon("death");
 	ai_hunter waittill(#"hash_77b2a1ab");
 	self setentitytarget(ai_hunter);
 	magicbullet(self.weapon, self gettagorigin("tag_flash"), ai_hunter.origin);
@@ -547,7 +547,7 @@ function function_73361364(a_ents)
 */
 function function_b82ef7f0()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::magic_bullet_shield();
 	self ai::set_ignoreall(1);
 	self ai::set_ignoreme(1);
@@ -570,12 +570,12 @@ function function_b82ef7f0()
 */
 function function_5568741b()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreall(1);
 	self ai::set_ignoreme(1);
 	self dodamage(int(self.health / 2), self.origin);
 	self vehicle::god_on();
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	self setvehgoalpos(self.origin, 1);
 }
 
@@ -590,7 +590,7 @@ function function_5568741b()
 */
 function function_d8d72142()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_1b75d876");
 	n_offset = 32;
 	var_3f44bbce = struct::get_array("intro_magic_bullet_scene_spot");
@@ -651,7 +651,7 @@ function function_6e68a9b()
 */
 function function_56e5aa4d()
 {
-	self endon(#"death");
+	self endon("death");
 	self.script_accuracy = 0.1;
 	if(self.team == "allies")
 	{
@@ -729,7 +729,7 @@ function function_5e558eb(a_ents)
 */
 function function_19017cb9()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreme(1);
 	nd_start = getnode("intro_street_front_siegebot_start_node", "targetname");
 	nd_end = getnode(nd_start.target, "targetname");
@@ -843,7 +843,7 @@ function function_da30164f()
 	level endon(#"hash_e0d14dc8");
 	var_6a6344b5 = struct::get("street_choke_throw_look_point");
 	var_1a20be33 = getent("street_balcony_choke_throw_trig", "targetname");
-	var_1a20be33 endon(#"death");
+	var_1a20be33 endon("death");
 	if(!isdefined(var_1a20be33))
 	{
 		return;
@@ -972,7 +972,7 @@ function function_ddcc04ff()
 */
 function ai_cleanup(n_dist = 512)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(!(isdefined(self zurich_util::player_can_see_me(n_dist)) && self zurich_util::player_can_see_me(n_dist)))

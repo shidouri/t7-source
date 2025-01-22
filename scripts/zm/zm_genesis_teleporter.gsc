@@ -135,7 +135,7 @@ function teleport_pad_think()
 {
 	self setcursorhint("HINT_NOICON");
 	self sethintstring(&"");
-	level waittill(#"sophia_at_teleporter");
+	level waittill("sophia_at_teleporter");
 	self thread teleport_pad_active_think();
 	while(true)
 	{
@@ -163,7 +163,7 @@ function teleport_pad_active_think()
 	level thread zm_genesis_vo::function_14ee80c6();
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(zm_utility::is_player_valid(e_player) && !level.var_18879020)
 		{
 			var_12b659cf = 0;
@@ -250,7 +250,7 @@ function function_264f93ff(var_12b659cf = 0)
 		}
 		var_2950e51 = struct::get_array("dark_arena_teleport_hijack", "targetname");
 		wait(2);
-		self notify(#"fx_done");
+		self notify("fx_done");
 		zm_genesis_util::function_342295d8("dark_arena2_zone");
 		zm_genesis_util::function_342295d8("dark_arena_zone");
 		b_result = self function_67eda94(var_2950e51);
@@ -282,7 +282,7 @@ function function_264f93ff(var_12b659cf = 0)
 		}
 	}
 	wait(2);
-	self notify(#"fx_done");
+	self notify("fx_done");
 	zm_genesis_util::function_342295d8("samanthas_room_zone");
 	b_result = self function_f898dba2(var_221e828b, var_12b659cf);
 	if(!b_result)
@@ -363,7 +363,7 @@ function function_f5a06c(n_duration)
 */
 function teleport_pad_player_fx(var_7d7ca0ea, n_duration)
 {
-	var_7d7ca0ea endon(#"fx_done");
+	var_7d7ca0ea endon("fx_done");
 	n_start_time = gettime();
 	n_total_time = 0;
 	while(n_total_time < n_duration)
@@ -633,7 +633,7 @@ function teleport_nuke(n_max_zombies, n_range)
 */
 function teleport_2d_audio()
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	while(true)
 	{
 		wait(1.7);

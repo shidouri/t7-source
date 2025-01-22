@@ -185,7 +185,7 @@ function on_player_spawned(localclientnum)
 */
 function player_snow_thread(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	if(1 == getdvarint("movie_intro"))
 	{
@@ -218,7 +218,7 @@ function player_snow_thread(localclientnum)
 */
 function power_on_fxanims()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	level thread scene::play("p7_fxanim_gp_wire_sparking_ground_01_bundle");
 }
 
@@ -306,7 +306,7 @@ function fx_overrides()
 */
 function function_e0500062()
 {
-	level waittill(#"sndsb");
+	level waittill("sndsb");
 	playsound(0, "zmb_robothead_laser", (-434, 706, 439));
 	playsound(0, "zmb_robothead_reflection_laser", (-451, -397, 294));
 }

@@ -223,8 +223,8 @@ function _is_primed(slot, weapon)
 */
 function private function_f1ec3062(team, attacker)
 {
-	self endon(#"death");
-	self waittill(#"iff_override_reverted");
+	self endon("death");
+	self waittill("iff_override_reverted");
 	self clientfield::set("cybercom_setiffname", 4);
 	self setteam(team);
 	wait(1);
@@ -271,7 +271,7 @@ function private function_2458babe(entity)
 		arrayremoveindex(self.cybercom.var_46a37937, 0);
 		if(isdefined(var_983e95da))
 		{
-			var_983e95da notify(#"iff_override_reverted");
+			var_983e95da notify("iff_override_reverted");
 			wait(1.5);
 			if(isalive(var_983e95da))
 			{
@@ -429,15 +429,15 @@ function private _activate_iff_override(slot, weapon)
 */
 function private _iff_leash_to_owner(owner)
 {
-	self endon(#"death");
-	self endon(#"iff_override_reverted");
+	self endon("death");
+	self endon("iff_override_reverted");
 	if(isplayer(owner))
 	{
-		owner endon(#"disconnect");
+		owner endon("disconnect");
 	}
 	else
 	{
-		owner endon(#"death");
+		owner endon("death");
 	}
 	while(isdefined(owner))
 	{
@@ -486,8 +486,8 @@ function iff_vehiclecb(isactive)
 */
 function private function_384a3bfb()
 {
-	self endon(#"death");
-	self waittill(#"iff_override_reverted");
+	self endon("death");
+	self waittill("iff_override_reverted");
 	self clientfield::set("cybercom_setiffname", 4);
 }
 
@@ -502,7 +502,7 @@ function private function_384a3bfb()
 */
 function private _iff_overridevehicle(assignedowner)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(0, 0.75));
 	if(isplayer(assignedowner))
 	{
@@ -524,8 +524,8 @@ function private _iff_overridevehicle(assignedowner)
 */
 function private function_2b203db0()
 {
-	self endon(#"death");
-	self waittill(#"iff_override_revert_warn");
+	self endon("death");
+	self waittill("iff_override_revert_warn");
 	self clientfield::set("cybercom_setiffname", 3);
 }
 
@@ -582,8 +582,8 @@ function iff_override(attacker, disabletimemsec, weapon = getweapon("gadget_iff_
 		return;
 	}
 	entnum = self getentitynumber();
-	self notify(#"cloneandremoveentity", entnum);
-	level notify(#"cloneandremoveentity", entnum);
+	self notify("cloneandremoveentity", entnum);
+	level notify("cloneandremoveentity", entnum);
 	wait(0.05);
 	team = self.team;
 	clone = cloneandremoveentity(self);
@@ -591,7 +591,7 @@ function iff_override(attacker, disabletimemsec, weapon = getweapon("gadget_iff_
 	{
 		return;
 	}
-	level notify(#"clonedentity", clone, entnum);
+	level notify("clonedentity", clone, entnum);
 	if(isactor(clone))
 	{
 		clone ai::set_behavior_attribute("move_mode", "rusher");
@@ -635,7 +635,7 @@ function iff_override(attacker, disabletimemsec, weapon = getweapon("gadget_iff_
 */
 function iff_notifymeinnsec(time, note)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self notify(note);
 }
@@ -651,14 +651,14 @@ function iff_notifymeinnsec(time, note)
 */
 function private _iff_override_revert_after(timesec, attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timesec - 6);
-	self notify(#"iff_override_revert_warn");
+	self notify("iff_override_revert_warn");
 	wait(6);
 	self clientfield::set("cybercom_setiffname", 4);
 	wait(2);
 	self setteam(self.oldteam);
-	self notify(#"iff_override_reverted");
+	self notify("iff_override_reverted");
 }
 
 /*
@@ -705,7 +705,7 @@ function ai_activateiffoverride(target, var_9bc2efcb = 1)
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	weapon = getweapon("gadget_iff_override");
 	foreach(guy in validtargets)

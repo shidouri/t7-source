@@ -50,7 +50,7 @@ function __init__()
 function transition_shader(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"clone_shader_off");
+	self endon("clone_shader_off");
 	rampinshader = 0;
 	while(rampinshader < 1)
 	{

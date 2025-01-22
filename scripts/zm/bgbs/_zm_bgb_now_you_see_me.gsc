@@ -81,7 +81,7 @@ function validation()
 */
 function activation()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.b_is_designated_target = 1;
 	self thread bgb::run_timer(10);
 	self playsound("zmb_bgb_nysm_start");

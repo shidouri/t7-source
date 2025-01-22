@@ -51,10 +51,10 @@ function __init__()
 */
 function main()
 {
-	self endon(#"nodeath_thread");
+	self endon("nodeath_thread");
 	while(isdefined(self))
 	{
-		self waittill(#"death", attacker, damagefromunderneath, weapon, point, dir);
+		self waittill("death", attacker, damagefromunderneath, weapon, point, dir);
 		if(isdefined(self.death_enter_cb))
 		{
 			[[self.death_enter_cb]]();
@@ -78,7 +78,7 @@ function main()
 			{
 				self death_cleanup_riders();
 			}
-			self notify(#"delete_destructible");
+			self notify("delete_destructible");
 			return;
 		}
 		self vehicle::lights_off();
@@ -115,7 +115,7 @@ function main()
 					wait(0.05);
 					if(isdefined(self))
 					{
-						self notify(#"death_finished");
+						self notify("death_finished");
 						self delete();
 					}
 				}
@@ -150,8 +150,8 @@ function main()
 			{
 				wait(0.05);
 			}
-			self notify(#"stop_looping_death_fx");
-			self notify(#"death_finished");
+			self notify("stop_looping_death_fx");
+			self notify("death_finished");
 			wait(0.05);
 			if(isdefined(self))
 			{
@@ -348,7 +348,7 @@ function helicopter_crash(point, dir)
 */
 function helicopter_crash_movement(point, dir)
 {
-	self endon(#"crash_done");
+	self endon("crash_done");
 	self cancelaimove();
 	self clearvehgoalpos();
 	if(isdefined(level.heli_crash_smoke_trail_fx))
@@ -429,7 +429,7 @@ function helicopter_crash_movement(point, dir)
 	wait(15);
 	if(isdefined(self))
 	{
-		self notify(#"crash_done");
+		self notify("crash_done");
 	}
 }
 
@@ -444,9 +444,9 @@ function helicopter_crash_movement(point, dir)
 */
 function helicopter_crash_accel()
 {
-	self endon(#"crash_done");
-	self endon(#"crash_move_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("crash_move_done");
+	self endon("death");
 	if(!isdefined(self.crash_accel))
 	{
 		self.crash_accel = randomfloatrange(50, 80);
@@ -469,9 +469,9 @@ function helicopter_crash_accel()
 */
 function helicopter_crash_rotation(point, dir)
 {
-	self endon(#"crash_done");
-	self endon(#"crash_move_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("crash_move_done");
+	self endon("death");
 	start_angles = self.angles;
 	start_angles = (start_angles[0] + 10, start_angles[1], start_angles[2]);
 	start_angles = (start_angles[0], start_angles[1], start_angles[2] + 10);
@@ -525,8 +525,8 @@ function helicopter_crash_rotation(point, dir)
 */
 function helicopter_crash_zone_accel(dir)
 {
-	self endon(#"crash_done");
-	self endon(#"crash_move_done");
+	self endon("crash_done");
+	self endon("crash_move_done");
 	torque = (0, randomintrange(90, 150), 0);
 	ang_vel = self getangularvelocity();
 	torque = torque * math::sign(ang_vel[1]);
@@ -613,10 +613,10 @@ function helicopter_crash_zone_accel(dir)
 */
 function helicopter_collision()
 {
-	self endon(#"crash_done");
+	self endon("crash_done");
 	while(true)
 	{
-		self waittill(#"veh_collision", velocity, normal);
+		self waittill("veh_collision", velocity, normal);
 		ang_vel = self getangularvelocity() * 0.5;
 		self setangularvelocity(ang_vel);
 		if(normal[2] < 0.7)
@@ -625,7 +625,7 @@ function helicopter_collision()
 		}
 		else
 		{
-			self notify(#"crash_done");
+			self notify("crash_done");
 		}
 	}
 }
@@ -659,7 +659,7 @@ function play_crashing_loop()
 */
 function helicopter_explode(delete_me)
 {
-	self endon(#"death");
+	self endon("death");
 	self vehicle::do_death_fx();
 	if(isdefined(delete_me) && delete_me == 1)
 	{
@@ -679,8 +679,8 @@ function helicopter_explode(delete_me)
 */
 function aircraft_crash_move(point, dir)
 {
-	self endon(#"crash_move_done");
-	self endon(#"death");
+	self endon("crash_move_done");
+	self endon("death");
 	self thread crash_collision_test();
 	self clearvehgoalpos();
 	self cancelaimove();
@@ -775,8 +775,8 @@ function aircraft_crash_move(point, dir)
 */
 function delay_set_gravity(delay)
 {
-	self endon(#"crash_move_done");
-	self endon(#"death");
+	self endon("crash_move_done");
+	self endon("death");
 	wait(delay);
 	self setphysacceleration((randomintrange(-1600, 1600), randomintrange(-1600, 1600), -1600));
 }
@@ -792,8 +792,8 @@ function delay_set_gravity(delay)
 */
 function helicopter_crash_move(point, dir)
 {
-	self endon(#"crash_move_done");
-	self endon(#"death");
+	self endon("crash_move_done");
+	self endon("death");
 	self thread crash_collision_test();
 	self cancelaimove();
 	self clearvehgoalpos();
@@ -873,8 +873,8 @@ function boat_crash(point, dir)
 */
 function boat_crash_movement(point, dir)
 {
-	self endon(#"crash_move_done");
-	self endon(#"death");
+	self endon("crash_move_done");
+	self endon("death");
 	self cancelaimove();
 	self clearvehgoalpos();
 	self setphysacceleration(vectorscale((0, 0, -1), 50));
@@ -917,11 +917,11 @@ function boat_crash_movement(point, dir)
 */
 function boat_crash_monitor(point, dir, crash_time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(crash_time);
-	self notify(#"crash_move_done");
+	self notify("crash_move_done");
 	self crash_stop();
-	self notify(#"crash_done");
+	self notify("crash_done");
 }
 
 /*
@@ -935,7 +935,7 @@ function boat_crash_monitor(point, dir, crash_time)
 */
 function crash_stop()
 {
-	self endon(#"death");
+	self endon("death");
 	self setphysacceleration((0, 0, 0));
 	self setrotorspeed(0);
 	speed = self getspeedmph();
@@ -968,10 +968,10 @@ function crash_stop()
 */
 function crash_collision_test()
 {
-	self endon(#"death");
-	self waittill(#"veh_collision", velocity, normal);
+	self endon("death");
+	self waittill("veh_collision", velocity, normal);
 	self helicopter_explode();
-	self notify(#"crash_move_done");
+	self notify("crash_move_done");
 	if(normal[2] > 0.7)
 	{
 		forward = anglestoforward(self.angles);
@@ -979,7 +979,7 @@ function crash_collision_test()
 		desired_forward = vectorcross(right, normal);
 		self setphysangles(vectortoangles(desired_forward));
 		self crash_stop();
-		self notify(#"crash_done");
+		self notify("crash_done");
 	}
 	else
 	{
@@ -1113,7 +1113,7 @@ function death_make_badplace(type)
 */
 function death_jolt(type)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.ignore_death_jolt) && self.ignore_death_jolt)
 	{
 		return;
@@ -1122,7 +1122,7 @@ function death_jolt(type)
 	if(isdefined(self.death_anim))
 	{
 		self animscripted("death_anim", self.origin, self.angles, self.death_anim, "normal", %generic::root, 1, 0);
-		self waittillmatch(#"death_anim");
+		self waittillmatch("death_anim");
 	}
 	else if(self.isphysicsvehicle)
 	{
@@ -1164,7 +1164,7 @@ function deathrollon()
 function deathrolloff()
 {
 	self.rollingdeath = undefined;
-	self notify(#"deathrolloff");
+	self notify("deathrolloff");
 }
 
 /*
@@ -1187,7 +1187,7 @@ function loop_fx_on_vehicle_tag(effect, looptime, tag)
 	/#
 		assert(isdefined(looptime));
 	#/
-	self endon(#"stop_looping_death_fx");
+	self endon("stop_looping_death_fx");
 	while(isdefined(self))
 	{
 		playfxontag(effect, deathfx_ent(), tag);
@@ -1298,7 +1298,7 @@ function death_cleanup_riders()
 */
 function death_radius_damage(meansofdamage = "MOD_EXPLOSIVE")
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self) || self.abandoned === 1 || self.damage_on_death === 0 || self.radiusdamageradius <= 0)
 	{
 		return;
@@ -1395,21 +1395,21 @@ function death_update_crash(point, dir)
 					}
 					else
 					{
-						self waittill(#"deathrolloff");
+						self waittill("deathrolloff");
 						self vehicle::set_speed(0, 25, "Dead, finished path intersection");
 					}
 					wait(0.4);
 					if(isdefined(self) && !vehicle::is_corpse(self))
 					{
 						self vehicle::set_speed(0, 10000, "deadstop");
-						self notify(#"deadstop");
+						self notify("deadstop");
 						if(self.disconnectpathonstop === 1)
 						{
 							self vehicle::disconnect_paths();
 						}
 						if(isdefined(self.tankgetout) && self.tankgetout > 0)
 						{
-							self waittill(#"animsdone");
+							self waittill("animsdone");
 						}
 					}
 				}
@@ -1429,12 +1429,12 @@ function death_update_crash(point, dir)
 */
 function waittill_crash_done_or_stopped()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self) && (isdefined(self.vehicleclass) && self.vehicleclass == "plane" || (isdefined(self.vehicleclass) && self.vehicleclass == "boat")))
 	{
 		if(isdefined(self.crashing) && self.crashing == 1)
 		{
-			self waittill(#"crash_done");
+			self waittill("crash_done");
 		}
 	}
 	else
@@ -1480,7 +1480,7 @@ function waittill_crash_done_or_stopped()
 */
 function vehicle_damage_filter_damage_watcher(driver, heavy_damage_threshold)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	self endon(#"end_damage_filter");
 	if(!isdefined(heavy_damage_threshold))
@@ -1489,7 +1489,7 @@ function vehicle_damage_filter_damage_watcher(driver, heavy_damage_threshold)
 	}
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
 		earthquake(0.25, 0.15, self.origin, 512, self);
 		driver playrumbleonentity("damage_light");
 		time = gettime();
@@ -1534,7 +1534,7 @@ function vehicle_damage_filter_exit_watcher(driver)
 */
 function vehicle_damage_filter(vision_set, heavy_damage_threshold, filterid = 0, b_use_player_damage = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	self endon(#"end_damage_filter");
 	driver = self getseatoccupant(0);
@@ -1584,7 +1584,7 @@ function flipping_shooting_death(attacker, hitdir)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self death_cleanup_level_variables();
 	self disableaimassist();
 	self death_fx();
@@ -1595,7 +1595,7 @@ function flipping_shooting_death(attacker, hitdir)
 	self vehicle::toggle_sounds(0);
 	self vehicle::lights_off();
 	self thread flipping_shooting_crash_movement(attacker, hitdir);
-	self waittill(#"crash_done");
+	self waittill("crash_done");
 	while(isdefined(self.controlled) && self.controlled)
 	{
 		wait(0.05);
@@ -1614,7 +1614,7 @@ function flipping_shooting_death(attacker, hitdir)
 */
 function plane_crash()
 {
-	self endon(#"death");
+	self endon("death");
 	self setphysacceleration(vectorscale((0, 0, -1), 1000));
 	self.vehcheckforpredictedcrash = 1;
 	forward = anglestoforward(self.angles);
@@ -1649,7 +1649,7 @@ function plane_crash()
 */
 function barrel_rolling_crash()
 {
-	self endon(#"death");
+	self endon("death");
 	self setphysacceleration(vectorscale((0, 0, -1), 1000));
 	self.vehcheckforpredictedcrash = 1;
 	forward = anglestoforward(self.angles);
@@ -1680,7 +1680,7 @@ function barrel_rolling_crash()
 */
 function random_crash(hitdir)
 {
-	self endon(#"death");
+	self endon("death");
 	self setphysacceleration(vectorscale((0, 0, -1), 1000));
 	self.vehcheckforpredictedcrash = 1;
 	if(!isdefined(hitdir))
@@ -1746,7 +1746,7 @@ function set_movement_and_accel(new_vel, ang_vel)
 	}
 	else
 	{
-		self notify(#"crash_done");
+		self notify("crash_done");
 	}
 }
 
@@ -1761,8 +1761,8 @@ function set_movement_and_accel(new_vel, ang_vel)
 */
 function flipping_shooting_crash_movement(attacker, hitdir)
 {
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	self cancelaimove();
 	self clearvehgoalpos();
 	self clearlookatent();
@@ -1829,8 +1829,8 @@ function flipping_shooting_dmg_snd()
 */
 function flipping_shooting_crash_accel()
 {
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	count = 0;
 	prev_forward = anglestoforward(self.angles);
 	prev_forward_vel = vectordot(self.velocity, prev_forward) * self.velocity_rotation_frac;
@@ -1938,8 +1938,8 @@ function delayedremove_thread(time, shoulddelete)
 	{
 		return;
 	}
-	self endon(#"death");
-	self endon(#"free_vehicle");
+	self endon("death");
+	self endon("free_vehicle");
 	if(shoulddelete === 1)
 	{
 		self setvehvelocity((0, 0, 0));

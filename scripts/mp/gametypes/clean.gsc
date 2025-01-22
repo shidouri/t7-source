@@ -182,7 +182,7 @@ function onstartgametype()
 */
 function function_7ae0a91b()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	foreach(taco in level.tacos)
 	{
 		if(taco clientfield::get("taco_flag") > 0)
@@ -305,8 +305,8 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 */
 function function_d740a523()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self flagsys::wait_till("camo_suit_on");
@@ -326,8 +326,8 @@ function function_d740a523()
 */
 function function_2b8b2197()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self flagsys::wait_till("camo_suit_on");
@@ -347,8 +347,8 @@ function function_2b8b2197()
 */
 function function_3063d818()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self flagsys::wait_till("clone_activated");
@@ -368,8 +368,8 @@ function function_3063d818()
 */
 function function_f1188a86()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self flagsys::wait_till("clone_activated");
@@ -389,8 +389,8 @@ function function_f1188a86()
 */
 function function_7858ab06()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
 		self util::waittill_any("enter_vehicle", "exit_vehicle");
@@ -548,9 +548,9 @@ function function_992fbc7a(victim, attacker, pos, yawangle)
 */
 function function_31778038()
 {
-	level endon(#"game_ended");
-	self endon(#"reset");
-	self.var_88b94427 endon(#"stationary");
+	level endon("game_ended");
+	self endon("reset");
+	self.var_88b94427 endon("stationary");
 	while(true)
 	{
 		if(!isdefined(self))
@@ -583,9 +583,9 @@ function function_31778038()
 */
 function function_3073cc55()
 {
-	level endon(#"game_ended");
-	self endon(#"reset");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("reset");
+	self endon("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -594,7 +594,7 @@ function function_3073cc55()
 	{
 		return;
 	}
-	self.var_88b94427 waittill(#"stationary");
+	self.var_88b94427 waittill("stationary");
 	self.trigger.origin = self.var_88b94427.origin;
 	objective_position(self.objectiveid, self.trigger.origin);
 	self playsound("mpl_fracture_core_drop");
@@ -614,8 +614,8 @@ function function_3073cc55()
 */
 function function_6769c4da()
 {
-	level endon(#"game_ended");
-	self endon(#"reset");
+	level endon("game_ended");
+	self endon("reset");
 	wait(60);
 	/#
 		level.var_b24377b2++;
@@ -637,7 +637,7 @@ function function_8e1efaa2()
 	/#
 		level.var_75f6aaa3--;
 	#/
-	self notify(#"reset");
+	self notify("reset");
 	self clientfield::set("taco_flag", 0);
 	self stoploopsound();
 	self.trigger.origin = vectorscale((0, 0, 1), 1000);
@@ -785,7 +785,7 @@ function function_4c41767e(origin)
 */
 function function_9bc55b1b()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self.var_6de41998 = spawn("script_model", self.effectorigin);
 	self.var_6de41998 setmodel("tag_origin");
 	self.var_6de41998.angles = vectorscale((-1, 0, 0), 90);
@@ -824,7 +824,7 @@ function function_9bc55b1b()
 */
 function function_5b1f87d2()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(level.inprematchperiod)
 	{
 		wait(0.05);
@@ -991,7 +991,7 @@ function function_d8d5d6ee(var_1bc0e62e)
 */
 function hidetimerdisplayongameend()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	setmatchflag("bomb_timer_a", 0);
 }
 
@@ -1108,8 +1108,8 @@ function function_c8e1c6b3(player, var_b9fd331)
 */
 function function_aaca5c8e(var_b9fd331)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	level endon(#"hash_9c7ac0c3");
 	self thread function_cde390a2();
 	wait(0.1);
@@ -1135,8 +1135,8 @@ function function_aaca5c8e(var_b9fd331)
 */
 function function_cde390a2()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	level waittill(#"hash_9c7ac0c3");
 	self.var_3d64ac00 = 0;
 }

@@ -335,7 +335,7 @@ function perk_fx(fx, turnofffx)
 */
 function electric_perks_dialog()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.01);
 	level flag::wait_till("start_zombie_round_logic");
 	players = getplayers();
@@ -343,7 +343,7 @@ function electric_perks_dialog()
 	{
 		return;
 	}
-	self endon(#"warning_dialog");
+	self endon("warning_dialog");
 	level endon(#"switch_flipped");
 	timer = 0;
 	while(true)
@@ -375,7 +375,7 @@ function electric_perks_dialog()
 				}
 				players[i] thread zm_utility::do_player_vo("vox_start", 5);
 				wait(3);
-				self notify(#"warning_dialog");
+				self notify("warning_dialog");
 				/#
 					iprintlnbold("");
 				#/
@@ -463,7 +463,7 @@ function vending_trigger_can_player_use(player)
 */
 function vending_trigger_think()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.01);
 	perk = self.script_noteworthy;
 	solo = 0;
@@ -538,7 +538,7 @@ function vending_trigger_think()
 	}
 	for(;;)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		index = zm_utility::get_player_index(player);
 		if(!vending_trigger_can_player_use(player))
 		{
@@ -597,7 +597,7 @@ function vending_trigger_think()
 		}
 		player recordmapevent(29, gettime(), self.origin, level.round_number, perkhash);
 		player.perk_purchased = perk;
-		player notify(#"perk_purchased", perk);
+		player notify("perk_purchased", perk);
 		self thread zm_audio::sndperksjingles_player(1);
 		self thread vending_trigger_post_think(player, perk);
 	}
@@ -614,9 +614,9 @@ function vending_trigger_think()
 */
 function vending_trigger_post_think(player, perk)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player endon(#"end_game");
-	player endon(#"perk_abort_drinking");
+	player endon("perk_abort_drinking");
 	gun = player perk_give_bottle_begin(perk);
 	evt = player util::waittill_any_return("fake_death", "death", "player_downed", "weapon_change_complete", "perk_abort_drinking", "disconnect");
 	if(evt == "weapon_change_complete")
@@ -660,10 +660,10 @@ function vending_trigger_post_think(player, perk)
 */
 function wait_give_perk(perk, bought)
 {
-	self endon(#"player_downed");
-	self endon(#"disconnect");
+	self endon("player_downed");
+	self endon("disconnect");
 	self endon(#"end_game");
-	self endon(#"perk_abort_drinking");
+	self endon("perk_abort_drinking");
 	self util::waittill_any_timeout(0.5, "burp", "player_downed", "disconnect", "end_game", "perk_abort_drinking");
 	self give_perk(perk, bought);
 }
@@ -703,10 +703,10 @@ function return_retained_perks()
 */
 function give_perk_presentation(perk)
 {
-	self endon(#"player_downed");
-	self endon(#"disconnect");
+	self endon("player_downed");
+	self endon("disconnect");
 	self endon(#"end_game");
-	self endon(#"perk_abort_drinking");
+	self endon("perk_abort_drinking");
 	self zm_audio::playerexert("burp");
 	if(isdefined(level.remove_perk_vo_delay) && level.remove_perk_vo_delay)
 	{
@@ -737,7 +737,7 @@ function give_perk(perk, bought)
 	if(isdefined(bought) && bought)
 	{
 		self thread give_perk_presentation(perk);
-		self notify(#"perk_bought", perk);
+		self notify("perk_bought", perk);
 		self zm_stats::increment_challenge_stat("SURVIVALIST_BUY_PERK");
 	}
 	if(isdefined(level._custom_perks[perk]) && isdefined(level._custom_perks[perk].player_thread_give))
@@ -768,7 +768,7 @@ function give_perk(perk, bought)
 		self.perks_active = array(self.perks_active);
 	}
 	self.perks_active[self.perks_active.size] = perk;
-	self notify(#"perk_acquired");
+	self notify("perk_acquired");
 	self thread perk_think(perk);
 }
 
@@ -853,7 +853,7 @@ function perk_set_max_health_if_jugg(str_perk, set_premaxhealth, clamp_health_to
 */
 function check_player_has_perk(perk)
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		if(getdvarint("") >= 5)
 		{
@@ -911,7 +911,7 @@ function vending_set_hintstring(perk)
 */
 function perk_think(perk)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		if(getdvarint("") >= 5)
 		{
@@ -959,7 +959,7 @@ function perk_think(perk)
 	{
 		arrayremovevalue(self.perks_active, perk, 0);
 	}
-	self notify(#"perk_lost");
+	self notify("perk_lost");
 }
 
 /*
@@ -1050,7 +1050,7 @@ function perk_give_bottle_begin(perk)
 */
 function perk_give_bottle_end(original_weapon, perk)
 {
-	self endon(#"perk_abort_drinking");
+	self endon("perk_abort_drinking");
 	/#
 		assert(!original_weapon.isperkbottle);
 	#/
@@ -1087,7 +1087,7 @@ function perk_give_bottle_end(original_weapon, perk)
 	{
 		self zm_weapons::switch_back_primary_weapon();
 	}
-	self waittill(#"weapon_change_complete");
+	self waittill("weapon_change_complete");
 	if(!self laststand::player_is_in_laststand() && (!(isdefined(self.intermission) && self.intermission)))
 	{
 		self zm_utility::decrement_is_drinking();
@@ -1107,7 +1107,7 @@ function perk_abort_drinking(post_delay)
 {
 	if(self.is_drinking)
 	{
-		self notify(#"perk_abort_drinking");
+		self notify("perk_abort_drinking");
 		self zm_utility::decrement_is_drinking();
 		self zm_utility::enable_player_move_states();
 		if(isdefined(post_delay))
@@ -1469,7 +1469,7 @@ function perk_machine_removal(machine, replacement_model)
 	machine_model = undefined;
 	if(isdefined(trig))
 	{
-		trig notify(#"warning_dialog");
+		trig notify("warning_dialog");
 		if(isdefined(trig.target))
 		{
 			parts = getentarray(trig.target, "targetname");
@@ -1737,7 +1737,7 @@ function thread_bump_trigger()
 {
 	for(;;)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		trigplayer playsound(self.script_sound);
 		while(zm_utility::is_player_valid(trigplayer) && trigplayer istouching(self))
 		{
@@ -1791,11 +1791,11 @@ function players_are_in_perk_area(perk_machine)
 function perk_hostmigration()
 {
 	level endon(#"end_game");
-	level notify(#"perk_hostmigration");
-	level endon(#"perk_hostmigration");
+	level notify("perk_hostmigration");
+	level endon("perk_hostmigration");
 	while(true)
 	{
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_end");
 		if(isdefined(level._custom_perks) && level._custom_perks.size > 0)
 		{
 			a_keys = getarraykeys(level._custom_perks);
@@ -1864,10 +1864,10 @@ function spare_change(str_trigger = "audio_bump_trigger", str_sound = "zmb_perks
 */
 function check_for_change()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player getstance() == "prone")
 		{
 			player zm_score::add_to_player_score(100);

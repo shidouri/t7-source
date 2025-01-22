@@ -285,9 +285,9 @@ function main()
 	level.custom_get_round_enemy_array_func = &zm_tomb_get_round_enemy_array;
 	level flag::wait_till("start_zombie_round_logic");
 	util::wait_network_frame();
-	level notify(#"specialty_additionalprimaryweapon_power_on");
+	level notify("specialty_additionalprimaryweapon_power_on");
 	util::wait_network_frame();
-	level notify(#"additionalprimaryweapon_on");
+	level notify("additionalprimaryweapon_on");
 	zombie_utility::set_zombie_var("zombie_use_failsafe", 0);
 	level zm_tomb_utility::check_solo_status();
 	level thread zm_tomb_utility::adjustments_for_solo();
@@ -494,7 +494,7 @@ function function_7b72be0d()
 		return;
 	}
 	self clientfield::set("crusader_emissive_fx", 1);
-	self waittill(#"death");
+	self waittill("death");
 	self clientfield::set("crusader_emissive_fx", 0);
 }
 
@@ -772,17 +772,17 @@ function on_player_connect()
 */
 function revive_watcher()
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	while(true)
 	{
-		self waittill(#"do_revive_ended_normally");
+		self waittill("do_revive_ended_normally");
 		if(self hasperk("specialty_quickrevive"))
 		{
-			self notify(#"quick_revived_player");
+			self notify("quick_revived_player");
 		}
 		else
 		{
-			self notify(#"revived_player");
+			self notify("revived_player");
 		}
 	}
 }
@@ -820,7 +820,7 @@ function setup_tomb_spawn_groups()
 	level.use_multiple_spawns = 1;
 	level.spawner_int = 1;
 	level.fn_custom_zombie_spawner_selection = &function_df9f5719;
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 }
 
 /*
@@ -884,8 +884,8 @@ function function_df9f5719()
 */
 function chamber_capture_zombie_spawn_init()
 {
-	self endon(#"death");
-	self waittill(#"completed_emerging_into_playable_area");
+	self endon("death");
+	self waittill("completed_emerging_into_playable_area");
 	self clientfield::set("zone_capture_zombie", 1);
 }
 
@@ -900,7 +900,7 @@ function chamber_capture_zombie_spawn_init()
 */
 function tomb_round_spawn_failsafe()
 {
-	self endon(#"death");
+	self endon("death");
 	prevorigin = self.origin;
 	while(true)
 	{
@@ -1043,7 +1043,7 @@ function give_personality_characters()
 */
 function set_exert_id()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self zm_audio::setexertvoice(self.characterindex + 1);
@@ -1147,8 +1147,8 @@ function zm_player_fake_death_cleanup()
 */
 function zm_player_fake_death(vdir)
 {
-	level notify(#"fake_death");
-	self notify(#"fake_death");
+	level notify("fake_death");
+	self notify("fake_death");
 	stance = self getstance();
 	self.ignoreme = 1;
 	self enableinvulnerability();
@@ -1181,8 +1181,8 @@ function zm_player_fake_death(vdir)
 */
 function fall_down(vdir, stance)
 {
-	self endon(#"disconnect");
-	level endon(#"game_module_ended");
+	self endon("disconnect");
+	level endon("game_module_ended");
 	self ghost();
 	origin = self.origin;
 	xyspeed = (0, 0, 0);
@@ -1213,7 +1213,7 @@ function fall_down(vdir, stance)
 	self freezecontrols(1);
 	if(falling)
 	{
-		linker waittill(#"movedone");
+		linker waittill("movedone");
 	}
 	self giveweapon(level.weaponzmdeaththroe);
 	self switchtoweapon(level.weaponzmdeaththroe);
@@ -1223,11 +1223,11 @@ function fall_down(vdir, stance)
 		origin = (origin + (0, 0, bounce)) - (xyspeed * 0.1);
 		lerptime = bounce / 50;
 		linker moveto(origin, lerptime, 0, lerptime);
-		linker waittill(#"movedone");
+		linker waittill("movedone");
 		origin = (origin + (0, 0, bounce * -1)) + (xyspeed * 0.1);
 		lerptime = lerptime / 2;
 		linker moveto(origin, lerptime, lerptime);
-		linker waittill(#"movedone");
+		linker waittill("movedone");
 		linker moveto(origin, 5, 0);
 	}
 	wait(15);
@@ -1286,7 +1286,7 @@ function equipment_safe_to_drop(weapon)
 */
 function offhand_weapon_give_override(str_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_tactical_grenade(str_weapon) && isdefined(self zm_utility::get_player_tactical_grenade()) && !self zm_utility::is_player_tactical_grenade(str_weapon))
 	{
 		self setweaponammoclip(self zm_utility::get_player_tactical_grenade(), 0);
@@ -1887,7 +1887,7 @@ function working_zone_init()
 function activate_zone_trig(str_name, str_zone1, str_zone2)
 {
 	trig = getent(str_name, "targetname");
-	trig waittill(#"trigger");
+	trig waittill("trigger");
 	if(isdefined(str_zone1))
 	{
 		level flag::set(str_zone1);
@@ -1912,7 +1912,7 @@ function check_tank_platform_zone()
 {
 	while(true)
 	{
-		level waittill(#"newzoneactive", activezone);
+		level waittill("newzoneactive", activezone);
 		if(activezone == "zone_bunker_3")
 		{
 			break;
@@ -2133,7 +2133,7 @@ function tomb_validate_enemy_path_length(player)
 */
 function show_zombie_count()
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	level flag::wait_till("start_zombie_round_logic");
 	while(true)
 	{
@@ -2203,14 +2203,14 @@ function tomb_custom_electric_cherry_laststand()
 */
 function tomb_custom_electric_cherry_reload_attack()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"stop_electric_cherry_reload_attack");
+	self endon("death");
+	self endon("disconnect");
+	self endon("stop_electric_cherry_reload_attack");
 	self.wait_on_reload = [];
 	self.consecutive_electric_cherry_attacks = 0;
 	while(true)
 	{
-		self waittill(#"reload_start");
+		self waittill("reload_start");
 		w_current_weapon = self getcurrentweapon();
 		if(isinarray(self.wait_on_reload, w_current_weapon))
 		{
@@ -2320,9 +2320,9 @@ function tomb_custom_electric_cherry_reload_attack()
 */
 function tomb_custom_player_track_ammo_count()
 {
-	self notify(#"stop_ammo_tracking");
-	self endon(#"disconnect");
-	self endon(#"stop_ammo_tracking");
+	self notify("stop_ammo_tracking");
+	self endon("disconnect");
+	self endon("stop_ammo_tracking");
 	ammolowcount = 0;
 	ammooutcount = 0;
 	while(true)

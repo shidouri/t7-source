@@ -108,8 +108,8 @@ function monitor__drop_landing_changed(localclientnum, oldval, newval, bnewent, 
 function monitor_drop_landing(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self notify(#"monitor_drop_landing_entity_singleton");
-	self endon(#"monitor_drop_landing_entity_singleton");
+	self notify("monitor_drop_landing_entity_singleton");
+	self endon("monitor_drop_landing_entity_singleton");
 	a_trace = bullettrace(self.origin + (vectorscale((0, 0, -1), 200)), self.origin + (vectorscale((0, 0, -1), 5000)), 0, self, 1);
 	v_ground = a_trace["position"];
 	wait(0.5);

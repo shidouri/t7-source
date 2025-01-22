@@ -478,7 +478,7 @@ function trail_effect()
 */
 function trail_effect_ender(ent, ender)
 {
-	ent endon(#"death");
+	ent endon("death");
 	self waittill(ender);
 	ent delete();
 }
@@ -640,7 +640,7 @@ function brush_throw()
 */
 function exploder_trigger(trigger, script_value)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	level endon("killexplodertridgers" + script_value);
 	trigger trigger::wait_till();
 	if(isdefined(trigger.script_chance) && randomfloat(1) > trigger.script_chance)

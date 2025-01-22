@@ -95,11 +95,11 @@ function move_rocket_arm()
 */
 function rocket_launch_preparation()
 {
-	level waittill(#"new_lander_used");
+	level waittill("new_lander_used");
 	exploder::exploder("fxexp_5601");
-	level waittill(#"new_lander_used");
+	level waittill("new_lander_used");
 	wait(6);
-	level notify(#"rocket_lights_on");
+	level notify("rocket_lights_on");
 }
 
 /*
@@ -115,7 +115,7 @@ function pack_a_punch_close_door()
 {
 	move_dist = -228;
 	level.pack_a_punch_door movez(move_dist, 1.5);
-	level.pack_a_punch_door waittill(#"movedone");
+	level.pack_a_punch_door waittill("movedone");
 	level.pack_a_punch_door disconnectpaths();
 }
 
@@ -139,7 +139,7 @@ function pack_a_punch_open_door()
 	level.pack_a_punch_door.clip notsolid();
 	upper_door_model playsound("zmb_heavy_door_open");
 	level.pack_a_punch_door.clip playsound("zmb_heavy_door_open");
-	level.pack_a_punch_door waittill(#"movedone");
+	level.pack_a_punch_door waittill("movedone");
 	level.pack_a_punch_door.clip connectpaths();
 }
 
@@ -177,7 +177,7 @@ function launch_rocket()
 	self usetriggerrequirelookat();
 	self sethintstring(&"ZOMBIE_NEED_POWER");
 	self setcursorhint("HINT_NOICON");
-	level waittill(#"pack_a_punch_on");
+	level waittill("pack_a_punch_on");
 	self sethintstring(&"ZM_COSMODROME_WAITING_AUTHORIZATION");
 	level flag::wait_till("launch_activated");
 	self sethintstring(&"ZM_COSMODROME_LAUNCH_AVAILABLE");
@@ -185,7 +185,7 @@ function launch_rocket()
 	/#
 		self thread zm_cosmodrome::function_620401c0(self.origin, "", "");
 	#/
-	self waittill(#"trigger", who);
+	self waittill("trigger", who);
 	panel playsound("zmb_comp_activate");
 	level thread zm_cosmodrome_amb::play_cosmo_announcer_vox("vox_ann_launch_button");
 	level thread do_launch_countdown();
@@ -203,7 +203,7 @@ function launch_rocket()
 */
 function play_launch_loopers()
 {
-	level endon(#"rocket_dmg");
+	level endon("rocket_dmg");
 	level.rocket_base_looper = getent("rocket_base_engine", "script_noteworthy");
 	level.rocket_base_looper playloopsound("zmb_rocket_launch", 0.1);
 	wait(2);
@@ -292,7 +292,7 @@ function rocket_liftoff()
 	{
 		rocket_pieces[i] linkto(level.rocket);
 	}
-	level endon(#"rocket_dmg");
+	level endon("rocket_dmg");
 	rocket_base = getent("rocket_base_engine", "script_noteworthy");
 	exploder::stop_exploder("fxexp_5601");
 	exploder::exploder("fxexp_5701");
@@ -310,8 +310,8 @@ function rocket_liftoff()
 	level flag::set("launch_complete");
 	level thread zm_cosmodrome_amb::play_cosmo_announcer_vox("vox_ann_after_launch");
 	wait(20);
-	level notify(#"stop_rumble");
-	level.rocket waittill(#"movedone");
+	level notify("stop_rumble");
+	level.rocket waittill("movedone");
 	rocket_pieces = getentarray(level.rocket.target, "targetname");
 	for(i = 0; i < rocket_pieces.size; i++)
 	{
@@ -331,8 +331,8 @@ function rocket_liftoff()
 */
 function launch_rumble_and_quake()
 {
-	level endon(#"stop_rumble");
-	level endon(#"stop_rumble_dmg");
+	level endon("stop_rumble");
+	level endon("stop_rumble_dmg");
 	while(isdefined(level.rocket))
 	{
 		players = getplayers();
@@ -370,11 +370,11 @@ function launch_rumble_and_quake()
 */
 function rocket_monitor_for_damage()
 {
-	level endon(#"stop_rumble");
+	level endon("stop_rumble");
 	rocket_pieces = getentarray(level.rocket.target, "targetname");
 	array::thread_all(rocket_pieces, &rocket_piece_monitor_for_damage);
 	level.rocket thread rocket_piece_monitor_for_damage();
-	level waittill(#"rocket_dmg");
+	level waittill("rocket_dmg");
 	playsoundatposition("zmb_rocket_destroyed", (0, 0, 0));
 	level.rocket thread rocket_explode();
 	level.rocket thread piece_crash_down();
@@ -461,12 +461,12 @@ function piece_crash_down(num)
 */
 function rocket_piece_monitor_for_damage()
 {
-	level endon(#"no_rocket_damage");
+	level endon("no_rocket_damage");
 	self setcandamage(1);
-	self waittill(#"damage", dmg_amount, attacker, dir, point, dmg_type);
+	self waittill("damage", dmg_amount, attacker, dir, point, dmg_type);
 	if(isplayer(attacker) && (dmg_type == "MOD_PROJECTILE" || dmg_type == "MOD_PROJECTILE_SPLASH" || dmg_type == "MOD_EXPLOSIVE" || dmg_type == "MOD_EXPLOSIVE_SPLASH" || dmg_type == "MOD_GRENADE" || dmg_type == "MOD_GRENADE_SPLASH"))
 	{
-		level notify(#"rocket_dmg");
+		level notify("rocket_dmg");
 		level.rocket_base_looper stoploopsound(1);
 		level.var_4ba14d27 stoploopsound(1);
 		level.var_d999ddec stoploopsound(1);

@@ -98,7 +98,7 @@ function skipto_main(str_objective, b_starting)
 */
 function function_44ee5cb7()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
 		wait(1);
@@ -188,7 +188,7 @@ function function_19d7c072()
 	e_door_clip = getent("hq_atrium_door_clip", "targetname");
 	var_e26726e5 moveto(var_e26726e5.origin + vectorscale((0, 0, 1), 44), 0.5);
 	var_9a7f401d moveto(var_9a7f401d.origin + (vectorscale((0, 0, -1), 44)), 0.5);
-	var_9a7f401d waittill(#"movedone");
+	var_9a7f401d waittill("movedone");
 	e_door_clip notsolid();
 	e_door_clip connectpaths();
 	trigger::wait_till("hq_exit_zone_trig");
@@ -297,7 +297,7 @@ function function_9006ed1d()
 function function_187d0cba()
 {
 	level endon(#"hash_13a0547d");
-	self waittill(#"trigger", e_who);
+	self waittill("trigger", e_who);
 	e_who util::break_glass(200);
 }
 
@@ -359,8 +359,8 @@ function function_66b77465()
 	e_door movez(140, 3);
 	e_door playsound("evt_siegebot_elevator_door");
 	e_door thread function_a8bf6ebc();
-	e_door waittill(#"movedone");
-	level notify(#"doors_open");
+	e_door waittill("movedone");
+	level notify("doors_open");
 }
 
 /*
@@ -431,7 +431,7 @@ function function_47e79f7()
 	objectives::hide("cp_level_zurich_apprehend_obj");
 	objectives::set("cp_level_zurich_destroy_pawws_obj", self);
 	objectives::set("cp_level_zurich_low_destroy", self);
-	self waittill(#"death");
+	self waittill("death");
 	objectives::hide_for_target("cp_level_zurich_destroy_pawws_obj", self);
 	objectives::complete("cp_level_zurich_low_destroy", self);
 	objectives::show("cp_level_zurich_apprehend_obj");
@@ -615,7 +615,7 @@ function function_8cb99e45()
 */
 function function_b87db3a3()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_63f76929");
 	self thread function_ee7e8dd7();
 	if(isdefined(self.script_noteworthy))
@@ -624,7 +624,7 @@ function function_b87db3a3()
 		{
 			if(self.script_noteworthy == ("security_robot_0" + i))
 			{
-				self waittill(#"goal");
+				self waittill("goal");
 				self ai::set_goal("security_room_attack_node_0" + i, "targetname");
 			}
 		}
@@ -646,7 +646,7 @@ function function_b6d67e55()
 	{
 		level.var_64f4feb8 = 0;
 	}
-	self waittill(#"death");
+	self waittill("death");
 	level.var_64f4feb8++;
 	if(level.var_64f4feb8 == 2)
 	{
@@ -665,7 +665,7 @@ function function_b6d67e55()
 */
 function function_56de520f()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_63f76929");
 	self thread function_ee7e8dd7();
 	if(isdefined(self.script_noteworthy))
@@ -692,7 +692,7 @@ function function_56de520f()
 */
 function function_ee7e8dd7()
 {
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till("trig_move_to_lab");
 	self notify(#"hash_63f76929");
 	self ai::set_goal("hq_lab_defend_volume", "targetname");
@@ -720,7 +720,7 @@ function function_3b671c19()
 	}
 	else
 	{
-		self waittill(#"death");
+		self waittill("death");
 	}
 	level flag::set("flag_start_elevator_siege_bot");
 }
@@ -739,7 +739,7 @@ function function_e877afeb()
 	self ai::set_ignoreall(1);
 	self ai::set_ignoreme(1);
 	self scene::init("cin_zur_02_001_siegebot_elevator_entrance", self);
-	level waittill(#"doors_open");
+	level waittill("doors_open");
 	self scene::play("cin_zur_02_001_siegebot_elevator_entrance", self);
 	self ai::set_ignoreall(0);
 	self ai::set_ignoreme(0);
@@ -826,7 +826,7 @@ function spawn_turrets()
 */
 function turret_think()
 {
-	self endon(#"death");
+	self endon("death");
 	n_min = 0.3;
 	n_max = 1.3;
 	var_39178da3 = randomfloatrange(n_min, n_max);
@@ -836,7 +836,7 @@ function turret_think()
 	s_moveto = struct::get(self.target);
 	self linkto(self.var_61ba68c8, "tag_origin");
 	self.var_61ba68c8 moveto(s_moveto.origin, n_move_time);
-	self.var_61ba68c8 waittill(#"movedone");
+	self.var_61ba68c8 waittill("movedone");
 	wait(var_39178da3);
 	self turret_activate();
 }
@@ -862,7 +862,7 @@ function function_525e4268()
 		if(isalive(vh_turret))
 		{
 			vh_turret.delete_on_death = 1;
-			vh_turret notify(#"death");
+			vh_turret notify("death");
 			if(!isalive(vh_turret))
 			{
 				vh_turret delete();

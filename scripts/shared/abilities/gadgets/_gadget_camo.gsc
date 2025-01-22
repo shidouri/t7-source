@@ -121,7 +121,7 @@ function camo_on_disconnect()
 function camo_on_spawn()
 {
 	self flagsys::clear("camo_suit_on");
-	self notify(#"camo_off");
+	self notify("camo_off");
 	self camo_bread_crumb_delete();
 	self clientfield::set("camo_shader", 0);
 	if(isdefined(self.sound_ent))
@@ -142,8 +142,8 @@ function camo_on_spawn()
 */
 function suspend_camo_suit(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"camo_off");
+	self endon("disconnect");
+	self endon("camo_off");
 	self clientfield::set("camo_shader", 2);
 	suspend_camo_suit_wait(slot, weapon);
 	if(self camo_is_inuse(slot))
@@ -163,8 +163,8 @@ function suspend_camo_suit(slot, weapon)
 */
 function suspend_camo_suit_wait(slot, weapon)
 {
-	self endon(#"death");
-	self endon(#"camo_off");
+	self endon("death");
+	self endon("camo_off");
 	while(self camo_is_flickering(slot))
 	{
 		wait(0.5);
@@ -199,7 +199,7 @@ function camo_on_give(slot, weapon)
 */
 function camo_on_take(slot, weapon)
 {
-	self notify(#"camo_removed");
+	self notify("camo_removed");
 	if(isdefined(level.cybercom) && isdefined(level.cybercom.active_camo))
 	{
 		self [[level.cybercom.active_camo._on_take]](slot, weapon);
@@ -290,7 +290,7 @@ function camo_gadget_off(slot, weapon)
 	{
 		self thread [[level.cybercom.active_camo._off]](slot, weapon);
 	}
-	self notify(#"camo_off", isdefined(self.sound_ent));
+	self notify("camo_off", isdefined(self.sound_ent));
 	if(isdefined(self._gadget_camo_oldignoreme))
 	{
 		self.ignoreme = self._gadget_camo_oldignoreme;
@@ -316,8 +316,8 @@ function camo_gadget_off(slot, weapon)
 */
 function camo_bread_crumb(slot, weapon)
 {
-	self notify(#"camo_bread_crumb");
-	self endon(#"camo_bread_crumb");
+	self notify("camo_bread_crumb");
+	self endon("camo_bread_crumb");
 	self camo_bread_crumb_delete();
 	if(!self camo_is_inuse())
 	{
@@ -340,10 +340,10 @@ function camo_bread_crumb(slot, weapon)
 */
 function camo_bread_crumb_wait(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"camo_off");
-	self endon(#"camo_bread_crumb");
+	self endon("disconnect");
+	self endon("death");
+	self endon("camo_off");
+	self endon("camo_bread_crumb");
 	starttime = gettime();
 	while(true)
 	{
@@ -385,11 +385,11 @@ function camo_bread_crumb_delete()
 */
 function camo_takedown_watch(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"camo_off");
+	self endon("disconnect");
+	self endon("camo_off");
 	while(true)
 	{
-		self waittill(#"weapon_assassination");
+		self waittill("weapon_assassination");
 		if(self camo_is_inuse())
 		{
 			if(self._gadgets_player[slot].gadget_takedownrevealtime > 0)
@@ -411,12 +411,12 @@ function camo_takedown_watch(slot, weapon)
 */
 function camo_temporary_dont_ignore(slot)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!self camo_is_inuse())
 	{
 		return;
 	}
-	self notify(#"temporary_dont_ignore");
+	self notify("temporary_dont_ignore");
 	wait(0.1);
 	old_ignoreme = 0;
 	if(isdefined(self._gadget_camo_oldignoreme))
@@ -439,10 +439,10 @@ function camo_temporary_dont_ignore(slot)
 */
 function camo_temporary_dont_ignore_wait(slot)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"camo_off");
-	self endon(#"temporary_dont_ignore");
+	self endon("disconnect");
+	self endon("death");
+	self endon("camo_off");
+	self endon("temporary_dont_ignore");
 	while(true)
 	{
 		if(!self camo_is_flickering(slot))
@@ -464,9 +464,9 @@ function camo_temporary_dont_ignore_wait(slot)
 */
 function camo_suit_flicker(slot, weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"camo_off");
+	self endon("disconnect");
+	self endon("death");
+	self endon("camo_off");
 	if(!self camo_is_inuse())
 	{
 		return;

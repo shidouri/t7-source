@@ -291,7 +291,7 @@ function function_3700164e(model, index, v_start, localclientnum)
 	playfxontag(localclientnum, level._effect["beacon_shell_trail"], self, "tag_origin");
 	self playsound(0, "zmb_homingbeacon_missile_boom");
 	self thread function_42cb41ec(var_89ea469b);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	if(index == 1)
 	{
 		model notify(#"hash_962e0148");

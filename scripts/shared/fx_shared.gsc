@@ -200,7 +200,7 @@ function _play_fx_delete(ent, time_to_delete_or_notify = -1)
 		}
 		else
 		{
-			ent waittill(#"death");
+			ent waittill("death");
 		}
 	}
 	if(isdefined(self))

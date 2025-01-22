@@ -66,10 +66,10 @@ function register()
 */
 function watchpregameclasschange()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"track_riot_shield");
-	self waittill(#"changed_class");
+	self endon("death");
+	self endon("disconnect");
+	self endon("track_riot_shield");
+	self waittill("changed_class");
 	if(level.ingraceperiod && !self.hasdonecombat)
 	{
 		self clearstowedweapon();
@@ -89,13 +89,13 @@ function watchpregameclasschange()
 */
 function watchriotshieldpickup()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"track_riot_shield");
-	self notify(#"watch_riotshield_pickup");
-	self endon(#"watch_riotshield_pickup");
-	self waittill(#"pickup_riotshield");
-	self endon(#"weapon_change");
+	self endon("death");
+	self endon("disconnect");
+	self endon("track_riot_shield");
+	self notify("watch_riotshield_pickup");
+	self endon("watch_riotshield_pickup");
+	self waittill("pickup_riotshield");
+	self endon("weapon_change");
 	/#
 		println("");
 	#/
@@ -120,12 +120,12 @@ function watchriotshieldpickup()
 */
 function trackriotshield()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"track_riot_shield");
-	self endon(#"track_riot_shield");
+	self endon("death");
+	self endon("disconnect");
+	self notify("track_riot_shield");
+	self endon("track_riot_shield");
 	self thread watchpregameclasschange();
-	self waittill(#"weapon_change", newweapon);
+	self waittill("weapon_change", newweapon);
 	self refreshshieldattachment();
 	currentweapon = self getcurrentweapon();
 	self.hasriotshield = self hasriotshield();
@@ -139,13 +139,13 @@ function trackriotshield()
 		self.hasriotshield = self hasriotshield();
 		self.hasriotshieldequipped = currentweapon.isriotshield;
 		refresh_attach = 0;
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(newweapon.isriotshield)
 		{
 			refresh_attach = 1;
 			if(isdefined(self.riotshieldentity))
 			{
-				self notify(#"destroy_riotshield");
+				self notify("destroy_riotshield");
 			}
 			if(self.hasriotshield)
 			{
@@ -212,7 +212,7 @@ function isvalidnonshieldweapon(weapon)
 */
 function startriotshielddeploy()
 {
-	self notify(#"start_riotshield_deploy");
+	self notify("start_riotshield_deploy");
 	self thread watchriotshielddeploy();
 }
 
@@ -276,7 +276,7 @@ function resetreconmodelvisibility(owner)
 */
 function resetreconmodelonevent(eventname, owner)
 {
-	self endon(#"death");
+	self endon("death");
 	for(;;)
 	{
 		level waittill(eventname, newowner);
@@ -352,10 +352,10 @@ function spawnriotshieldcover(origin, angles)
 */
 function watchriotshielddeploy()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"start_riotshield_deploy");
-	self waittill(#"deploy_riotshield", deploy_attempt, weapon);
+	self endon("death");
+	self endon("disconnect");
+	self endon("start_riotshield_deploy");
+	self waittill("deploy_riotshield", deploy_attempt, weapon);
 	self setplacementhint(1);
 	placement_hint = 0;
 	if(deploy_attempt)
@@ -409,7 +409,7 @@ function watchriotshielddeploy()
 			self thread deleteshieldontriggerdeath(self.riotshieldretrievetrigger);
 			self thread deleteshieldonplayerdeathordisconnect(shield_ent);
 			self.riotshieldentity thread watchdeployedriotshielddamage();
-			level notify(#"riotshield_planted", self);
+			level notify("riotshield_planted", self);
 		}
 		else
 		{
@@ -482,7 +482,7 @@ function watchdeployedriotshieldents()
 			assert(isdefined(self.riotshieldentity));
 		#/
 	#/
-	self waittill(#"destroy_riotshield");
+	self waittill("destroy_riotshield");
 	if(isdefined(self.riotshieldretrievetrigger))
 	{
 		self.riotshieldretrievetrigger delete();
@@ -509,14 +509,14 @@ function watchdeployedriotshieldents()
 */
 function watchdeployedriotshielddamage()
 {
-	self endon(#"death");
+	self endon("death");
 	damagemax = getdvarint("riotshield_deployed_health");
 	self.damagetaken = 0;
 	while(true)
 	{
 		self.maxhealth = 100000;
 		self.health = self.maxhealth;
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
 		if(!isdefined(attacker))
 		{
 			continue;
@@ -582,8 +582,8 @@ function watchdeployedriotshielddamage()
 */
 function damagethendestroyriotshield(attacker, weapon)
 {
-	self notify(#"damagethendestroyriotshield");
-	self endon(#"death");
+	self notify("damagethendestroyriotshield");
+	self endon("death");
 	if(isdefined(self.owner.riotshieldretrievetrigger))
 	{
 		self.owner.riotshieldretrievetrigger delete();
@@ -616,7 +616,7 @@ function damagethendestroyriotshield(attacker, weapon)
 function deleteshieldontriggerdeath(shield_trigger)
 {
 	shield_trigger util::waittill_any("trigger", "death");
-	self notify(#"destroy_riotshield");
+	self notify("destroy_riotshield");
 }
 
 /*
@@ -630,8 +630,8 @@ function deleteshieldontriggerdeath(shield_trigger)
 */
 function deleteshieldonplayerdeathordisconnect(shield_ent)
 {
-	shield_ent endon(#"death");
-	shield_ent endon(#"damagethendestroyriotshield");
+	shield_ent endon("death");
+	shield_ent endon("damagethendestroyriotshield");
 	self util::waittill_any("death", "disconnect", "remove_planted_weapons");
 	shield_ent thread damagethendestroyriotshield();
 }
@@ -647,7 +647,7 @@ function deleteshieldonplayerdeathordisconnect(shield_ent)
 */
 function watchriotshieldstuckentitydeath(grenade, owner)
 {
-	grenade endon(#"death");
+	grenade endon("death");
 	self util::waittill_any("damageThenDestroyRiotshield", "death", "disconnect", "weapon_change", "deploy_riotshield");
 	grenade detonate(owner);
 }
@@ -678,12 +678,12 @@ function on_player_spawned()
 */
 function watch_riot_shield_use()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self thread trackriotshield();
 	for(;;)
 	{
-		self waittill(#"raise_riotshield");
+		self waittill("raise_riotshield");
 		self thread startriotshielddeploy();
 	}
 }
@@ -699,13 +699,13 @@ function watch_riot_shield_use()
 */
 function begin_other_grenade_tracking()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"riotshieldtrackingstart");
-	self endon(#"riotshieldtrackingstart");
+	self endon("death");
+	self endon("disconnect");
+	self notify("riotshieldtrackingstart");
+	self endon("riotshieldtrackingstart");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon, cooktime);
+		self waittill("grenade_fire", grenade, weapon, cooktime);
 		if(grenade util::ishacked())
 		{
 			continue;
@@ -734,8 +734,8 @@ function begin_other_grenade_tracking()
 */
 function check_stuck_to_shield()
 {
-	self endon(#"death");
-	self waittill(#"stuck_to_shield", other, owner);
+	self endon("death");
+	self waittill("stuck_to_shield", other, owner);
 	other watchriotshieldstuckentitydeath(self, owner);
 }
 

@@ -80,8 +80,8 @@ function stop_sound_on_ent_shutdown(handle)
 */
 function fx_think(localclientnum)
 {
-	self notify(#"light_disable");
-	self endon(#"light_disable");
+	self notify("light_disable");
+	self endon("light_disable");
 	self endon(#"entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	handle = self playsound(localclientnum, "wpn_semtex_countdown");
@@ -155,7 +155,7 @@ function sticky_indicator(player, localclientnum)
 		wait(0.016);
 	}
 	setuimodelvalue(stickyimagemodel, "blacktransparent");
-	player notify(#"sticky_shutdown");
+	player notify("sticky_shutdown");
 }
 
 /*
@@ -169,9 +169,9 @@ function sticky_indicator(player, localclientnum)
 */
 function stick_indicator_watch_early_shutdown(stickyimagemodel)
 {
-	self endon(#"sticky_shutdown");
+	self endon("sticky_shutdown");
 	self endon(#"entityshutdown");
-	self waittill(#"player_flashback");
+	self waittill("player_flashback");
 	setuimodelvalue(stickyimagemodel, "blacktransparent");
 }
 

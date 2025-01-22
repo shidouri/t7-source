@@ -61,18 +61,18 @@ function custom_joker_movement()
 	m_lock.angles = self.angles + vectorscale((0, 1, 0), 180);
 	m_lock playsound("zmb_hellbox_bear");
 	wait(0.5);
-	level notify(#"weapon_fly_away_start");
+	level notify("weapon_fly_away_start");
 	wait(1);
 	m_lock rotateyaw(3000, 4.5, 4.5);
 	wait(3);
 	v_angles = anglestoforward(self.angles - vectorscale((1, 1, 0), 90));
 	m_lock moveto(m_lock.origin + (35 * v_angles), 1.5, 1);
-	m_lock waittill(#"movedone");
+	m_lock waittill("movedone");
 	m_lock moveto(m_lock.origin + -100 * v_angles, 0.5, 0.5);
-	m_lock waittill(#"movedone");
+	m_lock waittill("movedone");
 	m_lock delete();
 	self notify(#"box_moving");
-	level notify(#"weapon_fly_away_end");
+	level notify("weapon_fly_away_end");
 }
 
 /*
@@ -86,7 +86,7 @@ function custom_joker_movement()
 */
 function custom_magic_box_timer_til_despawn(magic_box)
 {
-	self endon(#"kill_weapon_movement");
+	self endon("kill_weapon_movement");
 	putbacktime = 12;
 	v_float = anglestoup(self.angles) * level.custom_magicbox_float_height;
 	self moveto(self.origin - (v_float * 0.4), putbacktime, putbacktime * 0.5);
@@ -121,7 +121,7 @@ function custom_magic_box_fx()
 */
 function custom_pandora_fx_func()
 {
-	self endon(#"death");
+	self endon("death");
 	self.pandora_light = util::spawn_model("tag_origin", self.zbarrier.origin, vectorscale((-1, 0, -1), 90));
 	if(!(isdefined(level._box_initialized) && level._box_initialized))
 	{
@@ -186,7 +186,7 @@ function set_magic_box_zbarrier_state(state)
 	{
 		self hidezbarrierpiece(i);
 	}
-	self notify(#"zbarrier_state_change");
+	self notify("zbarrier_state_change");
 	switch(state)
 	{
 		case "away":
@@ -278,7 +278,7 @@ function magic_box_arrives()
 	{
 		wait(0.05);
 	}
-	self notify(#"arrived");
+	self notify("arrived");
 	self.state = "close";
 	self clientfield::set("magicbox_amb_sound", 1);
 }
@@ -301,7 +301,7 @@ function magic_box_leaves()
 	{
 		wait(0.1);
 	}
-	self notify(#"left");
+	self notify("left");
 	self clientfield::set("magicbox_open_fx", 2);
 	self clientfield::set("magicbox_amb_sound", 0);
 	if(!(isdefined(level.dig_magic_box_moved) && level.dig_magic_box_moved))
@@ -328,7 +328,7 @@ function magic_box_opens()
 	{
 		wait(0.1);
 	}
-	self notify(#"opened");
+	self notify("opened");
 	self thread magic_box_open_idle();
 }
 
@@ -377,7 +377,7 @@ function magic_box_closes()
 	{
 		wait(0.1);
 	}
-	self notify(#"closed");
+	self notify("closed");
 }
 
 /*
@@ -453,11 +453,11 @@ function handle_fire_sale()
 function custom_magicbox_host_migration()
 {
 	level endon(#"end_game");
-	level notify(#"mb_hostmigration");
-	level endon(#"mb_hostmigration");
+	level notify("mb_hostmigration");
+	level endon("mb_hostmigration");
 	while(true)
 	{
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_end");
 		if(!isdefined(level.chests))
 		{
 			continue;

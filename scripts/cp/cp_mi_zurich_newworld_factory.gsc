@@ -233,7 +233,7 @@ function function_69cfc912()
 */
 function function_788efb3b()
 {
-	self waittill(#"disconnect_paths");
+	self waittill("disconnect_paths");
 	self disconnectpaths();
 }
 
@@ -268,7 +268,7 @@ function function_8db0ac1a(a_ents)
 */
 function function_94d27(a_ents)
 {
-	level.ai_diaz waittill(#"unfreeze");
+	level.ai_diaz waittill("unfreeze");
 	e_clip = getent("snow_umbrella_factory_intro_igc", "targetname");
 	e_clip delete();
 	setpauseworld(0);
@@ -303,7 +303,7 @@ function function_1b440643(a_ents)
 */
 function function_921c1035(a_ents)
 {
-	a_ents["taylor"] waittill(#"rez_in");
+	a_ents["taylor"] waittill("rez_in");
 	a_ents["taylor"] thread newworld_util::function_c949a8ed(1);
 }
 
@@ -318,7 +318,7 @@ function function_921c1035(a_ents)
 */
 function function_8af70712(a_ents)
 {
-	a_ents["diaz"] waittill(#"rez_in");
+	a_ents["diaz"] waittill("rez_in");
 	a_ents["diaz"] thread newworld_util::function_c949a8ed(1);
 }
 
@@ -333,7 +333,7 @@ function function_8af70712(a_ents)
 */
 function function_86604714(a_ents)
 {
-	a_ents["taylor"] waittill(#"rez_out");
+	a_ents["taylor"] waittill("rez_out");
 	a_ents["taylor"] thread newworld_util::function_4943984c();
 }
 
@@ -497,7 +497,7 @@ function skipto_foundry_init(str_objective, b_starting)
 	level thread namespace_e38c3c58::function_d8182956();
 	foundry_area();
 	skipto::objective_completed(str_objective);
-	level notify(#"foundry_complete");
+	level notify("foundry_complete");
 }
 
 /*
@@ -646,7 +646,7 @@ function function_6cc0f04e()
 */
 function function_900831e2()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::stop_magic_bullet_shield();
 	wait(randomfloatrange(10, 20));
 	b_can_delete = 0;
@@ -908,7 +908,7 @@ function function_9fb5e88f(str_start, n_delay, str_scene)
 	s_start = struct::get(str_start, "targetname");
 	s_end = struct::get(s_start.target, "targetname");
 	e_missile = magicbullet(var_90911853, s_start.origin, s_end.origin);
-	e_missile waittill(#"death");
+	e_missile waittill("death");
 	if(isdefined(str_scene))
 	{
 		level thread scene::play(str_scene);
@@ -1038,9 +1038,9 @@ function function_574f2ed1(a_ents)
 */
 function function_9e64a31f(a_ents)
 {
-	a_ents["diaz"] waittill(#"start_fx");
+	a_ents["diaz"] waittill("start_fx");
 	level.ai_diaz clientfield::set("wall_run_fx", 1);
-	a_ents["diaz"] waittill(#"stop_fx");
+	a_ents["diaz"] waittill("stop_fx");
 	level.ai_diaz clientfield::set("wall_run_fx", 0);
 }
 
@@ -1070,14 +1070,14 @@ function function_8b723eb()
 */
 function function_b64491f1()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_3cb382c8");
 	self thread function_823ff83e();
 	self waittill(#"hash_342714c9");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	self flag::init("wallrun_tutorial_complete");
@@ -1102,7 +1102,7 @@ function function_b64491f1()
 */
 function function_823ff83e()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_342714c9");
 	level endon(#"hash_3cb382c8");
 	trigger::wait_till("player_at_wallrun_ledge", "targetname", self);
@@ -1120,12 +1120,12 @@ function function_823ff83e()
 */
 function function_f72a6585()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_3cb382c8");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	while(true)
@@ -1192,12 +1192,12 @@ function show_tac_mode_hint()
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_827eb14f");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	while(!self flag::get("tactical_mode_used"))
@@ -1250,7 +1250,7 @@ function function_c5eadf67()
 */
 function player_tac_mode_watcher()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_827eb14f");
 	self flag::init("tactical_mode_used");
 	self thread function_859fc69a();
@@ -1268,11 +1268,11 @@ function player_tac_mode_watcher()
 */
 function function_859fc69a()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_68b78be8");
 	while(true)
 	{
-		self waittill(#"tactical_mode_activated");
+		self waittill("tactical_mode_activated");
 		self flag::set("tactical_mode_used");
 	}
 }
@@ -1288,11 +1288,11 @@ function function_859fc69a()
 */
 function function_b085bdaf()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_68b78be8");
 	while(true)
 	{
-		self waittill(#"tactical_mode_deactivated");
+		self waittill("tactical_mode_deactivated");
 		self flag::clear("tactical_mode_used");
 	}
 }
@@ -1326,7 +1326,7 @@ function alley_allies_lower_health()
 */
 function wait_and_lower_health()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(1, 5));
 	self.health = 1;
 }
@@ -1439,7 +1439,7 @@ function function_f7e76a4c()
 */
 function function_da86d58f()
 {
-	level endon(#"foundry_start");
+	level endon("foundry_start");
 	level.ai_diaz dialog::say("diaz_keep_moving_up_0", 15);
 }
 
@@ -1454,7 +1454,7 @@ function function_da86d58f()
 */
 function function_14da3d31()
 {
-	level endon(#"foundry_start");
+	level endon("foundry_start");
 	while(true)
 	{
 		var_da5600e3 = getentarray("warehouse_ammo", "targetname");
@@ -1559,7 +1559,7 @@ function function_54cce95e(a_ents)
 function function_43764348(a_ents)
 {
 	ai_enemy = a_ents["ai_warehouse_startup"];
-	ai_enemy endon(#"death");
+	ai_enemy endon("death");
 	level endon(#"hash_a495f22c");
 	e_goalvolume = getent("warehouse_end_goalvolume", "targetname");
 	ai_enemy setgoal(e_goalvolume);
@@ -1651,7 +1651,7 @@ function close_heavy_doors(is_for_skipto = 0)
 	e_door_left = getent("warehouse_exit_door_left", "targetname");
 	e_door_right rotateyaw(75, 5, 0.25, 0.3);
 	e_door_left rotateyaw(75 * -1, 5, 0.25, 0.3);
-	e_door_right waittill(#"rotatedone");
+	e_door_right waittill("rotatedone");
 	umbragate_set("umbra_gate_factory_door_01", 0);
 	var_cecf22e2 = getent("ug_factory_hideme", "targetname");
 	var_cecf22e2 show();
@@ -1849,7 +1849,7 @@ function function_341b5959(b_wait = 1)
 {
 	if(b_wait)
 	{
-		level waittill(#"player_hijacked_vehicle");
+		level waittill("player_hijacked_vehicle");
 	}
 	level thread namespace_e38c3c58::function_964ce03c();
 	objectives::complete("cp_level_newworld_factory_subobj_hijack_drone");
@@ -1866,7 +1866,7 @@ function function_341b5959(b_wait = 1)
 */
 function function_1fff53ca()
 {
-	level endon(#"flag_hijack_complete");
+	level endon("flag_hijack_complete");
 	while(true)
 	{
 		if(newworld_util::function_70aba08e())
@@ -1894,7 +1894,7 @@ function function_1fff53ca()
 */
 function function_6eff1530()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_8db6922a");
 	level endon(#"hash_45205ed8");
 	self endon(#"hash_cf0ffa56");
@@ -1933,11 +1933,11 @@ function function_40c6f0a4()
 	self util::hide_hint_text(1);
 	while(!self flag::get("player_hijacked_vehicle"))
 	{
-		level waittill(#"ccom_locked_on", ent, e_player);
+		level waittill("ccom_locked_on", ent, e_player);
 		if(e_player == self)
 		{
 			self thread util::show_hint_text(&"CP_MI_ZURICH_NEWWORLD_REMOTE_HIJACK_DRONE_RELEASE", 0, undefined, -1);
-			level waittill(#"ccom_lost_lock", ent, e_player);
+			level waittill("ccom_lost_lock", ent, e_player);
 			if(e_player == self)
 			{
 				self util::hide_hint_text(1);
@@ -1958,10 +1958,10 @@ function function_40c6f0a4()
 */
 function function_c3c54cd1()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_8db6922a");
 	level endon(#"hash_45205ed8");
-	self endon(#"player_hijacked_vehicle");
+	self endon("player_hijacked_vehicle");
 	trigger::wait_till("player_entering_foundry_on_foot", "targetname", self);
 	self notify(#"hash_cf0ffa56");
 	self util::hide_hint_text(1);
@@ -1978,8 +1978,8 @@ function function_c3c54cd1()
 */
 function player_hijack_watcher()
 {
-	self endon(#"disconnect");
-	level endon(#"foundry_complete");
+	self endon("disconnect");
+	level endon("foundry_complete");
 	if(!self flag::exists("player_hijacked_vehicle"))
 	{
 		self flag::init("player_hijacked_vehicle");
@@ -1992,13 +1992,13 @@ function player_hijack_watcher()
 	{
 		level flag::set("flag_hijack_complete");
 		self flag::set("player_hijacked_vehicle");
-		level notify(#"player_hijacked_vehicle");
+		level notify("player_hijacked_vehicle");
 	}
 	else
 	{
 		while(true)
 		{
-			self waittill(#"clonedentity", e_clone);
+			self waittill("clonedentity", e_clone);
 			if(e_clone.targetname === "foundry_hackable_vehicle_ai")
 			{
 				self cybercom_gadget_security_breach::setanchorvolume(getent("hijacked_vehicle_range", "targetname"));
@@ -2006,7 +2006,7 @@ function player_hijack_watcher()
 				e_clone thread hijacked_vehicle_death_watch();
 				level flag::set("flag_hijack_complete");
 				self flag::set("player_hijacked_vehicle");
-				level notify(#"player_hijacked_vehicle");
+				level notify("player_hijacked_vehicle");
 				if(!level flag::get("foundry_objective_complete"))
 				{
 					objectives::hide("cp_level_newworld_factory_hijack", self);
@@ -2019,8 +2019,8 @@ function player_hijack_watcher()
 						self thread function_baeddf9e();
 					}
 				}
-				self waittill(#"return_to_body");
-				self waittill(#"transition_done");
+				self waittill("return_to_body");
+				self waittill("transition_done");
 				wait(0.1);
 				self gadgetpowerchange(0, 100);
 				self gadgetpowerchange(1, 100);
@@ -2054,7 +2054,7 @@ function player_hijack_watcher()
 */
 function function_baeddf9e()
 {
-	self endon(#"death");
+	self endon("death");
 	self flag::set("player_hijacked_wasp");
 	if(self newworld_util::function_c633d8fe())
 	{
@@ -2118,7 +2118,7 @@ function objective_hijack_drone_markers()
 function function_483e8906()
 {
 	level endon(#"hash_8db6922a");
-	self waittill(#"cloneandremoveentity");
+	self waittill("cloneandremoveentity");
 	objectives::complete("cp_level_newworld_factory_hijack", self.var_1ab87762);
 }
 
@@ -2180,7 +2180,7 @@ function callback_foundry_vehicle_damage(einflictor, eattacker, idamage, idflags
 */
 function hijacked_vehicle_death_watch()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self.owner))
 	{
 		self.owner gadgetpowerchange(0, 100);
@@ -2300,7 +2300,7 @@ function open_door_to_junkyard_after_hijack()
 	var_9b668c87 = getent("fake_foundry_door", "targetname");
 	var_9b668c87 movez(128, 3, 1, 0.5);
 	var_9b668c87 playsound("evt_junkyard_door_open");
-	var_9b668c87 waittill(#"movedone");
+	var_9b668c87 waittill("movedone");
 	level flag::set("junkyard_door_open");
 }
 
@@ -2358,7 +2358,7 @@ function function_dd0bd7eb(a_ents)
 */
 function function_ae816470()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_c8ac660c");
 	self util::waittill_any("damage", "bulletwhizby", "pain", "proximity");
 	level flag::set("foundry_junkyard_enemies_retreat");
@@ -2398,9 +2398,9 @@ function function_328f9079(a_ents)
 */
 function function_ff59cf8(nd_goal)
 {
-	self endon(#"death");
+	self endon("death");
 	self setgoal(nd_goal, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self ai::set_ignoreall(0);
 	self ai::set_ignoreme(0);
 }
@@ -2417,10 +2417,10 @@ function function_ff59cf8(nd_goal)
 function function_83d084fe(str_targetname)
 {
 	t_to_check = getent(str_targetname, "targetname");
-	t_to_check endon(#"death");
+	t_to_check endon("death");
 	while(true)
 	{
-		t_to_check waittill(#"trigger", var_4161ad80);
+		t_to_check waittill("trigger", var_4161ad80);
 		if(isplayer(var_4161ad80) || isdefined(var_4161ad80.owner))
 		{
 			if(isdefined(var_4161ad80.owner))
@@ -2443,10 +2443,10 @@ function function_83d084fe(str_targetname)
 */
 function function_8df847d()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", var_4161ad80);
+		self waittill("trigger", var_4161ad80);
 		if(isplayer(var_4161ad80) || isdefined(var_4161ad80.owner))
 		{
 			if(isdefined(var_4161ad80.owner))
@@ -2468,12 +2468,12 @@ function function_8df847d()
 */
 function function_763f6f1c(s_warp_pos)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread lui::screen_fade_out(1);
 	level util::delay(1, undefined, &flag::set, "player_returned_to_body_post_foundry");
 	self freezecontrols(1);
-	self waittill(#"return_to_body");
-	self waittill(#"transition_done");
+	self waittill("return_to_body");
+	self waittill("transition_done");
 	self setorigin(s_warp_pos.origin);
 	self setplayerangles(s_warp_pos.angles);
 	self setstance("stand");
@@ -2588,7 +2588,7 @@ function generator_damage_watch()
 	var_5c2b0988 setcandamage(1);
 	while(n_damage < 1000)
 	{
-		var_5c2b0988 waittill(#"damage", idamage, sattacker, vdirection, vpoint, stype, smodelname, sattachtag, stagname);
+		var_5c2b0988 waittill("damage", idamage, sattacker, vdirection, vpoint, stype, smodelname, sattachtag, stagname);
 		if(isplayer(sattacker))
 		{
 			if(stype === "MOD_PROJECTILE_SPLASH")
@@ -2720,7 +2720,7 @@ function function_ff771cc8(str_door, str_spawn_manager, n_delay)
 	}
 	mdl_door = getent(str_door, "targetname");
 	mdl_door movez(98, 1);
-	mdl_door waittill(#"movedone");
+	mdl_door waittill("movedone");
 	spawn_manager::enable(str_spawn_manager);
 }
 
@@ -2876,11 +2876,11 @@ function function_f2c01307()
 {
 	e_door = getent("vat_room_spawn_door", "targetname");
 	e_door movez(136, 2, 0.5, 0.3);
-	e_door waittill(#"movedone");
+	e_door waittill("movedone");
 	spawn_manager::enable("sm_vat_room_closet");
 	spawn_manager::wait_till_complete("sm_vat_room_closet");
 	var_13cfcc3e = getent("gv_vat_room_spawn_closet", "targetname");
-	var_13cfcc3e endon(#"death");
+	var_13cfcc3e endon("death");
 	b_clear = 0;
 	while(!b_clear)
 	{
@@ -2942,8 +2942,8 @@ function function_2a38ab40()
 */
 function function_5e3e5d06()
 {
-	self endon(#"death");
-	level endon(#"vat_room_turrets_all_dead");
+	self endon("death");
+	level endon("vat_room_turrets_all_dead");
 	self flag::init("vat_room_turret_hijacked");
 	if(sessionmodeiscampaignzombiesgame())
 	{
@@ -2953,7 +2953,7 @@ function function_5e3e5d06()
 	{
 		while(true)
 		{
-			self waittill(#"clonedentity", e_clone);
+			self waittill("clonedentity", e_clone);
 			if(e_clone.targetname === "vat_room_auto_turret_ai")
 			{
 				self flag::set("vat_room_turret_hijacked");
@@ -2991,12 +2991,12 @@ function function_10195ade()
 */
 function function_13458178()
 {
-	self endon(#"death");
-	level endon(#"vat_room_turrets_all_dead");
+	self endon("death");
+	level endon("vat_room_turrets_all_dead");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	while(!self flag::get("vat_room_turret_hijacked"))
@@ -3432,7 +3432,7 @@ function function_2cd7e04e(a_ents)
 */
 function function_ed4818dc(a_ents)
 {
-	a_ents["player 1"] waittill(#"fade_out");
+	a_ents["player 1"] waittill("fade_out");
 	level flag::set("infinite_white_transition");
 }
 
@@ -3514,7 +3514,7 @@ function common_startup_tasks(str_objective)
 */
 function function_2dbbd9b1(e_goalvolume)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isai(self) || !isalive(self))
 	{
 		return;
@@ -3598,7 +3598,7 @@ function function_9ea16200(a_ents)
 */
 function actor_camo(n_camo_state)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("diaz_camo_shader", 2);
 	wait(2);
 	self clientfield::set("diaz_camo_shader", n_camo_state);
@@ -3611,7 +3611,7 @@ function actor_camo(n_camo_state)
 	{
 		self ai::set_ignoreme(0);
 		self ai::set_ignoreall(0);
-		self notify(#"actor_camo_off");
+		self notify("actor_camo_off");
 	}
 }
 
@@ -3645,7 +3645,7 @@ function setup_destroyable_vats(str_location)
 */
 function function_aef915b2()
 {
-	self endon(#"death");
+	self endon("death");
 	switch(self.script_string)
 	{
 		case "s1_01":
@@ -3747,7 +3747,7 @@ function function_35fa6de(var_b3db89e0)
 	s_move_to = struct::get(var_b3db89e0, "targetname");
 	n_move_time = distance(self.origin, s_move_to.origin) / 80;
 	e_mover moveto(s_move_to.origin, n_move_time);
-	e_mover waittill(#"movedone");
+	e_mover waittill("movedone");
 	e_mover delete();
 	self delete();
 }
@@ -3763,7 +3763,7 @@ function function_35fa6de(var_b3db89e0)
 */
 function destroyable_vat()
 {
-	self endon(#"death");
+	self endon("death");
 	self setcandamage(1);
 	self.health = 10000;
 	self.n_hit_count = 0;
@@ -3779,7 +3779,7 @@ function destroyable_vat()
 	self fx::play("smk_idle_cauldron", undefined, undefined, "stop_static_fx", 1, "fx_spill_middle_jnt");
 	while(true)
 	{
-		self waittill(#"damage", idamage, sattacker, vdirection, vpoint, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", idamage, sattacker, vdirection, vpoint, type, modelname, tagname, partname, weapon, idflags);
 		self.health = 10000;
 		if(weapon === level.var_e4124849 || weapon === level.var_7e8adada || weapon === level.var_3e8a5e10)
 		{
@@ -3827,7 +3827,7 @@ function destroyable_vat()
 				self.var_84d67e66 triggerenable(1);
 				self.var_f3e8791a delete();
 				self.var_8406755b movez(256, 0.05);
-				self.var_8406755b waittill(#"movedone");
+				self.var_8406755b waittill("movedone");
 				foreach(ai in getaiteamarray("axis"))
 				{
 					if(ai istouching(self.var_8406755b))
@@ -3838,7 +3838,7 @@ function destroyable_vat()
 				if(isdefined(self.var_3d0b54ab))
 				{
 					self.var_cb14c98c movez(256, 0.05);
-					self.var_cb14c98c waittill(#"movedone");
+					self.var_cb14c98c waittill("movedone");
 					foreach(ai in getaiteamarray("axis"))
 					{
 						if(ai istouching(self.var_cb14c98c))
@@ -3936,10 +3936,10 @@ function function_528ae2fd(sattacker)
 */
 function molten_metal_damage_trigger()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", e_victim);
+		self waittill("trigger", e_victim);
 		if(e_victim.var_6ce47035 === 1)
 		{
 			continue;
@@ -3972,7 +3972,7 @@ function molten_metal_damage_trigger()
 */
 function function_5ccfae48(str_location)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_ecac2aac");
 	var_b414ae3d = getentarray(str_location + "_vat_door_trigger", "targetname");
 	while(true)
@@ -4023,7 +4023,7 @@ function function_2aec5af4(a_ents)
 */
 function function_9e51be07(min_duration, max_duration)
 {
-	self endon(#"death");
+	self endon("death");
 	duration = randomfloatrange(min_duration, max_duration);
 	wait(randomfloatrange(0.1, 0.75));
 	self clientfield::set("arch_actor_fire_fx", 1);
@@ -4044,7 +4044,7 @@ function function_9e51be07(min_duration, max_duration)
 */
 function private function_48516b3d()
 {
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	corpse clientfield::set("arch_actor_fire_fx", 2);
 }
 
@@ -4059,7 +4059,7 @@ function private function_48516b3d()
 */
 function private function_8823cee2(weapon, duration)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"bhtn_action_notify", "scream");
 	endtime = gettime() + (duration * 1000);
 	while(gettime() < endtime)
@@ -4081,7 +4081,7 @@ function private function_8823cee2(weapon, duration)
 */
 function reset_damage_after_pause()
 {
-	self endon(#"death");
+	self endon("death");
 	n_saved_hit_count = self.n_hit_count;
 	wait(0.4);
 	if(n_saved_hit_count == self.n_hit_count)
@@ -4173,11 +4173,11 @@ function function_738d040b()
 */
 function function_e8db2799(var_46100e43, str_path)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_e8db2799");
 	while(true)
 	{
-		var_46100e43 waittill(#"trigger", ent);
+		var_46100e43 waittill("trigger", ent);
 		if(isplayer(ent) && isalive(ent))
 		{
 			switch(str_path)
@@ -4254,7 +4254,7 @@ function function_a77545da()
 function function_cd561d8f()
 {
 	level endon(#"hash_48600f62");
-	self endon(#"death");
+	self endon("death");
 	self flag::wait_till("tactical_mode_used");
 	level.ai_diaz dialog::say("diaz_like_opening_your_ey_0", undefined, undefined, self);
 }
@@ -4271,8 +4271,8 @@ function function_cd561d8f()
 function function_a96367c2()
 {
 	level endon(#"hash_48600f62");
-	self endon(#"tactical_mode_used");
-	self endon(#"death");
+	self endon("tactical_mode_used");
+	self endon("death");
 	wait(15);
 	level.ai_diaz dialog::say("diaz_don_t_got_all_day_n_0", undefined, undefined, self);
 }
@@ -4307,7 +4307,7 @@ function function_f83d1fd6()
 	self endon(#"hash_70797a3a");
 	self endon(#"hash_d67cc85b");
 	level endon(#"hash_3cb382c8");
-	self endon(#"death");
+	self endon("death");
 	wait(30);
 	level.ai_diaz dialog::say("diaz_you_gotta_wall_run_t_0", undefined, undefined, self);
 	wait(30);
@@ -4329,7 +4329,7 @@ function function_5b31eadc()
 {
 	self endon(#"hash_70797a3a");
 	level endon(#"hash_3cb382c8");
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till("wallrun_tutorial_fail_VO", "targetname", self);
 	self notify(#"hash_d67cc85b");
 	level.ai_diaz dialog::say("diaz_yeah_i_messed_up_my_0", undefined, undefined, self);
@@ -4348,7 +4348,7 @@ function function_d0776ef()
 {
 	self endon(#"hash_d67cc85b");
 	level endon(#"hash_3cb382c8");
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till("wallrun_tutorial_success_vo", "targetname", self);
 	self notify(#"hash_70797a3a");
 	level.ai_diaz dialog::say("diaz_not_bad_newbie_not_0", undefined, undefined, self);
@@ -4380,9 +4380,9 @@ function function_70704b5f()
 */
 function function_a4ef4f4f()
 {
-	self endon(#"player_hijacked_vehicle");
-	level endon(#"foundry_complete");
-	self endon(#"death");
+	self endon("player_hijacked_vehicle");
+	level endon("foundry_complete");
+	self endon("death");
 	wait(15);
 	level.ai_diaz dialog::say("diaz_let_s_get_moving_hi_0", undefined, undefined, self);
 }
@@ -4398,9 +4398,9 @@ function function_a4ef4f4f()
 */
 function function_76f95fc()
 {
-	level endon(#"foundry_complete");
+	level endon("foundry_complete");
 	level endon(#"hash_c24bd1ea");
-	self endon(#"death");
+	self endon("death");
 	self flag::wait_till("player_hijacked_vehicle");
 	wait(1);
 	level.ai_diaz thread dialog::say("diaz_fits_like_a_glove_r_0");
@@ -4491,7 +4491,7 @@ function function_5dfc077c()
 */
 function function_451d7f3e()
 {
-	level endon(#"death");
+	level endon("death");
 	level endon(#"hash_7fb08868");
 	if(sessionmodeiscampaignzombiesgame())
 	{
@@ -4533,7 +4533,7 @@ function function_451d7f3e()
 */
 function function_8b7ac3d()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_7fb08868");
 	level waittill(#"hash_76cbcc2f");
 	level.ai_diaz dialog::say("diaz_your_cyber_abilities_0", 1);
@@ -4570,13 +4570,13 @@ function function_6199a2b7()
 function function_4ff24fae()
 {
 	level endon(#"hash_7fb08868");
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.hijacked_vehicle_entity))
 	{
-		self waittill(#"clonedentity");
+		self waittill("clonedentity");
 	}
 	level notify(#"hash_16f7f7c4");
-	self waittill(#"return_to_body");
+	self waittill("return_to_body");
 	level notify(#"hash_96bdb9d9");
 }
 

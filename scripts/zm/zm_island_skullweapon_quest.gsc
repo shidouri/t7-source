@@ -329,7 +329,7 @@ function function_279e8476(str_state)
 	}
 	else if(str_state == "fall")
 	{
-		self.mdl_skulltar waittill(#"scene_done");
+		self.mdl_skulltar waittill("scene_done");
 		var_affd5bec unlink();
 		if(isdefined(self.var_226d2560))
 		{
@@ -390,8 +390,8 @@ function function_e1c1e667()
 	#/
 	self thread function_d15f7b3d();
 	level flag::wait_till_clear("skullquest_ritual_inprogress" + self.script_special);
-	self.var_94495615 notify(#"death");
-	self notify(#"skulltar_attractors_off");
+	self.var_94495615 notify("death");
+	self notify("skulltar_attractors_off");
 }
 
 /*
@@ -405,7 +405,7 @@ function function_e1c1e667()
 */
 function function_d15f7b3d()
 {
-	self endon(#"skulltar_attractors_off");
+	self endon("skulltar_attractors_off");
 	level endon("skullquest_ritual_ended" + self.script_special);
 	while(true)
 	{
@@ -438,7 +438,7 @@ function function_afdb341(ai)
 	self endon("skulltar_attractors_off" + self.script_special);
 	level endon("skullquest_ritual_ended" + self.script_special);
 	ai endon(#"hash_87952665");
-	ai endon(#"death");
+	ai endon("death");
 	if(isdefined(ai.var_6a7c27af) && ai.var_6a7c27af)
 	{
 		return;
@@ -495,7 +495,7 @@ function function_2a2ce01f(ai)
 {
 	self.var_cec6c329++;
 	ai.var_6a7c27af = 1;
-	ai waittill(#"death");
+	ai waittill("death");
 	if(isdefined(ai.var_6a7c27af) && ai.var_6a7c27af)
 	{
 		self.var_cec6c329--;
@@ -713,7 +713,7 @@ function function_186d9bd6()
 */
 function function_c7a0c111(b_success = 1, var_bf49654c = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_eb13d3a5");
 	if(!(isdefined(self.var_3f6ea790) && self.var_3f6ea790))
 	{
@@ -851,7 +851,7 @@ function function_a050863e(var_964af2de, v_dest)
 		var_b6f3d7c3 setmodel("p7_sky_vista_light_flare_blue");
 		var_b6f3d7c3 playsound("zmb_skull_soul_feed");
 		var_b6f3d7c3 moveto(v_dest, 0.5);
-		var_b6f3d7c3 waittill(#"movedone");
+		var_b6f3d7c3 waittill("movedone");
 		var_b6f3d7c3 delete();
 	}
 }
@@ -1164,7 +1164,7 @@ function function_ff1550bd()
 */
 function function_c46730e7(var_f2e38849)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(5);
 	if(!self function_b948e12a(var_f2e38849))
 	{
@@ -1214,7 +1214,7 @@ function function_b948e12a(var_f2e38849)
 */
 function function_bd5d2a96(var_4126c532)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isalive(self))
 	{
 		self disableaimassist();
@@ -1232,7 +1232,7 @@ function function_bd5d2a96(var_4126c532)
 		if(isalive(self))
 		{
 			self show();
-			var_197f1988 waittill(#"scene_done");
+			var_197f1988 waittill("scene_done");
 			self thread function_1cbe53ee(var_4126c532);
 			self enableaimassist();
 		}
@@ -1268,12 +1268,12 @@ function function_1c624caf(a_ents, e_align)
 */
 function function_1cbe53ee(var_5e9499e0)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_aedf5455");
 	self endon(#"hash_eb13d3a5");
 	self zombie_utility::set_zombie_run_cycle("walk");
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	self ai::set_ignoreall(1);
 	while(distance(self.origin, var_5e9499e0.s_skulltar_skull_pos.origin) > 32 && (!(isdefined(self.aat_turned) && self.aat_turned)))
 	{
@@ -1304,7 +1304,7 @@ function function_1cbe53ee(var_5e9499e0)
 			self.s_goal.var_b1c2844f = self;
 		}
 		self lookatentity(var_5e9499e0.mdl_skull_s);
-		self waittill(#"goal");
+		self waittill("goal");
 		wait(1);
 	}
 }
@@ -1367,7 +1367,7 @@ function function_3aa06eec(e_attacker)
 */
 function function_25b82d3f()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self) && isdefined(self.var_ecc789a5) && isinarray(level.var_a576e0b9[self.var_ecc789a5].var_d38f69da, self))
 	{
 		arrayremovevalue(level.var_a576e0b9[self.var_ecc789a5].var_d38f69da, self);
@@ -1622,7 +1622,7 @@ function function_c8ef1118()
 {
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(ent function_9e2f0e52() && !level flag::get("skullroom_defend_inprogress"))
 		{
 			if(isdefined(level.var_b10ab148) && level.var_b10ab148 && !ent hasweapon(level.var_c003f5b, 1))
@@ -1852,7 +1852,7 @@ function function_b820cada()
 */
 function function_2d0c5aa1(s_spawn_point)
 {
-	self endon(#"death");
+	self endon("death");
 	self.script_string = "find_flesh";
 	self setphysparams(15, 0, 72);
 	self.ignore_enemy_count = 1;
@@ -1913,7 +1913,7 @@ function function_440fec7a(params)
 */
 function function_efbd4abf(ai_zombie, s_spawn_point)
 {
-	ai_zombie waittill(#"death");
+	ai_zombie waittill("death");
 	var_4124898d = ai_zombie.origin;
 	level.var_92914699--;
 	level.var_9bc0cd6e++;
@@ -1947,7 +1947,7 @@ function function_efbd4abf(ai_zombie, s_spawn_point)
 */
 function function_458f50f2()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!self hasweapon(level.var_c003f5b, 1))
 	{
 		if(!(isdefined(self.var_b319e777) && self.var_b319e777))
@@ -1963,10 +1963,10 @@ function function_458f50f2()
 			self switchtoweapon(level.var_c003f5b);
 			self notify(#"hash_ae5d6003");
 			level flag::set("a_player_got_skullgun");
-			self waittill(#"weapon_change_complete");
+			self waittill("weapon_change_complete");
 			wait(0.25);
 			self switchtoweapon(var_7277c7f7);
-			self waittill(#"weapon_change_complete");
+			self waittill("weapon_change_complete");
 			self gadgetpowerset(0, 100);
 			self setweaponammoclip(level.var_c003f5b, 0);
 			self giveachievement("ZM_ISLAND_OBTAIN_SKULL");
@@ -1997,7 +1997,7 @@ function function_458f50f2()
 */
 function function_940267cd()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level flag::wait_till("a_player_got_skullgun");
 	var_d9516038 = getent("reveal_keeper_mural_01", "targetname");
 	if(isdefined(var_d9516038) && !isdefined(var_d9516038.b_shown))
@@ -2021,7 +2021,7 @@ function function_940267cd()
 */
 function function_ba04e236()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level flag::wait_till("a_player_got_skullgun");
 	var_d9516038 = getent("reveal_keeper_mural_02", "targetname");
 	if(isdefined(var_d9516038) && !isdefined(var_d9516038.b_shown))
@@ -2045,7 +2045,7 @@ function function_ba04e236()
 */
 function function_e0075c9f()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level flag::wait_till("a_player_got_skullgun");
 	var_d9516038 = getent("reveal_keeper_mural_03", "targetname");
 	if(isdefined(var_d9516038) && !isdefined(var_d9516038.b_shown))
@@ -2069,8 +2069,8 @@ function function_e0075c9f()
 */
 function function_f293f820(mdl_target, var_6a4cf64a)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level endon(var_6a4cf64a);
 	if(isdefined(mdl_target))
 	{
@@ -2233,7 +2233,7 @@ function function_b6c35b21(var_f2e38849)
 		var_e36aa077 clientfield::set("do_emissive_material", 1);
 		var_e36aa077 thread scene::play(var_c9260a5[var_f7d3c273], var_e36aa077);
 		mdl_skull_p linkto(var_e36aa077, var_9d012998[var_f7d3c273]);
-		var_e36aa077 waittill(#"scene_done");
+		var_e36aa077 waittill("scene_done");
 		level notify("skull_p_returned" + var_1a3afb94);
 	}
 }
@@ -2658,7 +2658,7 @@ function function_fae0aa01(var_f2e38849, var_f2a1da83, player)
 				level.var_a576e0b9[var_f2e38849].mdl_skull_s.angles = level.var_a576e0b9[var_f2e38849].s_skulltar_skull_pos.angles;
 				level.var_a576e0b9[var_f2e38849].mdl_skull_s ghost();
 				level.var_a576e0b9[var_f2e38849].mdl_skull_s clientfield::set("skullquest_finish_start_fx", 1);
-				level waittill(#"start_of_round");
+				level waittill("start_of_round");
 				if(level.var_a576e0b9[var_f2e38849].str_state === "pre_retry")
 				{
 					level thread function_fae0aa01(var_f2e38849, "start");
@@ -2808,7 +2808,7 @@ function function_dc9fe8fe()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player function_9e2f0e52())
 		{
 			var_6d538e4e = function_741beb6d(self.stub.script_special);
@@ -2920,7 +2920,7 @@ function function_d757eab6()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player function_9e2f0e52())
 		{
 			var_6d538e4e = function_741beb6d(self.stub.script_special);
@@ -3088,11 +3088,11 @@ function function_71593151()
 */
 function function_5d65695d()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_1ff2320b = 0;
 	while(!self.var_1ff2320b)
 	{
-		self waittill(#"weapon_change");
+		self waittill("weapon_change");
 		if(self getcurrentweapon() == level.var_c003f5b)
 		{
 			self.var_1ff2320b = 1;

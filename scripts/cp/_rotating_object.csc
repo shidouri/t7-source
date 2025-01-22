@@ -106,7 +106,7 @@ function rotating_object_think()
 				break;
 			}
 		}
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 		self.angles = angles;
 	}
 }

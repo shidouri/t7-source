@@ -561,13 +561,13 @@ function function_939ae9de(var_e88629ec, localclientnum, direction, var_3c6f5c75
 	self moveto(self.origin + var_6ea7737a, animlength * 0.75, animlength * 0.75, 0);
 	var_31e7de73 = var_e88629ec gettagangles("tag_attach");
 	self rotateto(var_31e7de73, animlength * 0.75);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	animlength = getanimlength(var_3c6f5c75);
 	animlength = animlength - (animlength * var_e88629ec getanimtime(var_3c6f5c75));
 	animlength = max(animlength, 0.05);
 	var_6b61dff7 = var_e88629ec gettagorigin("tag_attach");
 	self moveto(var_6b61dff7, animlength, animlength, 0);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	if(!isdefined(self))
 	{
 		return;

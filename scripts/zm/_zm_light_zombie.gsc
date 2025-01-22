@@ -109,7 +109,7 @@ function function_a35db70f()
 */
 function function_cb744db7()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(2);
 	self clientfield::set("light_zombie_clientfield_aura_fx", 1);
 }
@@ -126,10 +126,10 @@ function function_cb744db7()
 function function_68da949()
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		if(randomint(100) < 50)
 		{
 			self clientfield::increment("light_zombie_clientfield_damaged_fx");
@@ -150,7 +150,7 @@ function function_68da949()
 function light_zombie_death()
 {
 	ai_zombie = self;
-	ai_zombie waittill(#"death", attacker);
+	ai_zombie waittill("death", attacker);
 	if(!isdefined(ai_zombie) || ai_zombie.nuked === 1)
 	{
 		return;
@@ -182,8 +182,8 @@ function light_zombie_death()
 */
 function function_4745b0a9(flash_origin)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	player = self;
 	dist_sq = distancesquared(player.origin, flash_origin);
 	var_bfff29b1 = 16384;
@@ -220,8 +220,8 @@ function function_4745b0a9(flash_origin)
 */
 function function_2335214f(flash_time)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	player = self;
 	player.var_442e1e5b = 1;
 	player shellshock("light_zombie_death", flash_time, 0);

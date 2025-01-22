@@ -47,7 +47,7 @@
 */
 function function_4c171b8e()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!isdefined(self.doa))
 	{
 		wait(0.05);
@@ -74,7 +74,7 @@ function function_bb59f698()
 	level endon(#"hash_16154574");
 	level endon(#"hash_d1f5acf7");
 	trigger = getent("spiral_killAllEnemy", "targetname");
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	level thread doa_utility::killallenemy();
 	level notify(#"hash_16154574");
 }
@@ -183,7 +183,7 @@ function triggernotify()
 {
 	target = getent(self.target, "targetname");
 	target.origin = (target.origin[0], target.origin[1], int(target.script_parameters));
-	self waittill(#"trigger");
+	self waittill("trigger");
 	target.origin = target.origin + vectorscale((0, 0, 1), 1000);
 	level notify(self.script_parameters);
 }
@@ -390,7 +390,7 @@ function private function_533483a3(room)
 */
 function function_c0808a91()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(self.players_viscache))
@@ -416,7 +416,7 @@ function function_c0808a91()
 */
 function function_b6c25c3c(spot)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!isdefined(self.doa))
 	{
 		wait(0.05);
@@ -576,7 +576,7 @@ function function_5900e5de(room)
 {
 	level endon(#"hash_16154574");
 	level endon(#"hash_d1f5acf7");
-	self waittill(#"death");
+	self waittill("death");
 	room.var_74415e9d--;
 }
 
@@ -593,7 +593,7 @@ function function_a1151ae3(room)
 {
 	room.var_74415e9d++;
 	self thread function_5900e5de(room);
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_16154574");
 	level endon(#"hash_d1f5acf7");
 }
@@ -940,8 +940,8 @@ function function_c2b99e74(room)
 */
 function function_9c687a5d(player)
 {
-	self endon(#"death");
-	player waittill(#"disconnect");
+	self endon("death");
+	player waittill("disconnect");
 	self delete();
 }
 
@@ -956,7 +956,7 @@ function function_9c687a5d(player)
 */
 function function_14e75d7a(spot)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!isdefined(self.doa))
 	{
 		wait(0.05);
@@ -1108,7 +1108,7 @@ function function_f14ef72f(room)
 */
 function function_10aa3e48(room)
 {
-	level waittill(#"fade_in_complete");
+	level waittill("fade_in_complete");
 	level clientfield::set("redinstutorial", 1);
 	level clientfield::set("redinsinstruct", room.var_2f400c3b + (room.var_b57e2384 << 4));
 	level waittill(#"hash_97276c43");
@@ -1220,7 +1220,7 @@ function function_ce5fc0d(room)
 		player namespace_2848f8c2::function_d41a4517();
 	}
 	spots = struct::get_array("redins_pickup_location");
-	level notify(#"ro");
+	level notify("ro");
 	foreach(spot in spots)
 	{
 		if(isdefined(spot.gem))
@@ -1249,7 +1249,7 @@ function function_67b5ba67()
 	level endon(#"hash_16154574");
 	while(true)
 	{
-		var_efa02a6c waittill(#"trigger", truck);
+		var_efa02a6c waittill("trigger", truck);
 		if(truck.var_f71159da == level.doa.var_c93ed68a)
 		{
 			truck.var_bbda805b = 1;
@@ -1375,13 +1375,13 @@ function function_3ed913b4(room)
 */
 function function_2228a040(item)
 {
-	self endon(#"disconnect");
-	item endon(#"death");
+	self endon("disconnect");
+	item endon("death");
 	item.trigger triggerenable(0);
 	self thread doa_pickups::function_30768f24(item, 1);
 	self waittill(#"hash_30768f24");
 	item.trigger triggerenable(1);
-	item.trigger notify(#"trigger", self);
+	item.trigger notify("trigger", self);
 }
 
 /*
@@ -1401,7 +1401,7 @@ function function_c218114a()
 	level function_bbb36dbe(myflag);
 	while(true)
 	{
-		self waittill(#"trigger", truck);
+		self waittill("trigger", truck);
 		truck.var_f71159da = truck.var_f71159da | (1 << myflag);
 		/#
 		#/
@@ -1437,7 +1437,7 @@ function function_bbb36dbe(flag)
 */
 function function_fa6d5f56()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self clientfield::get("toggle_lights_group1"))
 	{
 		self vehicle::toggle_lights_group(1, 0);
@@ -1464,8 +1464,8 @@ function function_c71e611c(vehicle)
 	level endon(#"hash_d1f5acf7");
 	self notify(#"hash_89f9d324");
 	self endon(#"hash_89f9d324");
-	self endon(#"disconnect");
-	vehicle endon(#"death");
+	self endon("disconnect");
+	vehicle endon("death");
 	level.launchforce = 500;
 	vehicle vehicle::toggle_lights_group(1, 0);
 	while(true)
@@ -1543,14 +1543,14 @@ function function_fb199a7c()
 	self.gem = doa_pickups::spawnubertreasure(self.origin, 1, 0, 0, 0, 5, self.script_noteworthy, undefined, 0, 0)[0];
 	while(true)
 	{
-		mytrigger waittill(#"trigger", truck);
+		mytrigger waittill("trigger", truck);
 		if(isplayer(truck))
 		{
 			continue;
 		}
 		if(isdefined(truck) && isdefined(truck.owner) && isdefined(self.gem))
 		{
-			self.gem.trigger notify(#"trigger", truck.owner);
+			self.gem.trigger notify("trigger", truck.owner);
 		}
 		truck.owner.doa.var_4b3052ec++;
 		level clientfield::set("set_ui_gpr2DOA" + truck.owner.entnum, truck.owner.doa.var_4b3052ec);
@@ -1636,7 +1636,7 @@ function function_d64204d9()
 	level endon(#"hash_276164a7");
 	level endon(#"hash_16154574");
 	level endon(#"hash_d1f5acf7");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.doa.var_8779c24b = 0;
 	while(true)
 	{
@@ -1674,7 +1674,7 @@ function function_d64204d9()
 */
 function function_dae418ed()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!isdefined(self.doa))
 	{
 		wait(0.05);
@@ -1793,7 +1793,7 @@ function function_5284e8dc(room)
 */
 function function_76dd5557(room)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(8);
 	while(true)
 	{
@@ -1881,7 +1881,7 @@ function function_ebb572b(player)
 		}
 		if(isdefined(item.trigger))
 		{
-			item.trigger notify(#"trigger", player);
+			item.trigger notify("trigger", player);
 		}
 		wait(0.5);
 	}
@@ -1919,7 +1919,7 @@ function function_db9097e4(room)
 */
 function function_7c9617ef(var_7bb420a0, goaltrigger)
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"hash_130fa748");
 	while(true)
 	{
@@ -2053,7 +2053,7 @@ function function_5dac2dae(room)
 	self.org thread namespace_eaa992c::function_285a2999("blow_hole");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(!isdefined(guy))
 		{
 			continue;
@@ -2381,7 +2381,7 @@ function function_b3939e94(room)
 */
 function function_6274a031()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self clientfield::get("toggle_lights_group1"))
 	{
 		self vehicle::toggle_lights_group(1, 0);
@@ -2408,8 +2408,8 @@ function function_e619ee5(vehicle)
 	level endon(#"hash_d1f5acf7");
 	self notify(#"hash_2747daf7");
 	self endon(#"hash_2747daf7");
-	self endon(#"disconnect");
-	vehicle endon(#"death");
+	self endon("disconnect");
+	vehicle endon("death");
 	level.launchforce = 500;
 	vehicle vehicle::toggle_lights_group(1, 0);
 	self.doa.var_f6a4f3f = 0;
@@ -2540,12 +2540,12 @@ function function_dfbad276(number, startside)
 */
 function function_caf96f2d()
 {
-	self endon(#"death");
+	self endon("death");
 	self useanimtree($critter);
 	while(true)
 	{
 		self animscripted("anim", self.origin, self.angles, self.animation);
-		self waittillmatch(#"anim");
+		self waittillmatch("anim");
 	}
 }
 
@@ -2560,9 +2560,9 @@ function function_caf96f2d()
 */
 function function_c9a224d9()
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"exit_taken");
-	self notify(#"medium_rare");
+	self notify("medium_rare");
 }
 
 /*
@@ -2576,9 +2576,9 @@ function function_c9a224d9()
 */
 function cow_deleter()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread function_c9a224d9();
-	self waittill(#"medium_rare");
+	self waittill("medium_rare");
 	util::wait_network_frame();
 	if(isdefined(self))
 	{
@@ -2597,14 +2597,14 @@ function cow_deleter()
 */
 function run_cow_run(dest)
 {
-	self endon(#"death");
+	self endon("death");
 	self useanimtree($critter);
 	self.animation = (randomint(2) ? %critter::a_water_buffalo_run_a : %critter::a_water_buffalo_run_b);
 	self clientfield::set("runcowanim", 1);
 	self thread cow_damage_watch();
 	self moveto(dest, self.move_time, 0, 0);
-	self waittill(#"movedone");
-	self notify(#"medium_rare");
+	self waittill("movedone");
+	self notify("medium_rare");
 }
 
 /*
@@ -2618,10 +2618,10 @@ function run_cow_run(dest)
 */
 function cow_damage_trigger(cow)
 {
-	cow endon(#"death");
+	cow endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(!isdefined(guy))
 		{
 			continue;
@@ -2680,10 +2680,10 @@ function cow_damage_trigger(cow)
 */
 function cow_damage_watch()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", damagetaken, attacker, dir, point, dmg_type, model, tag, part, weapon, flags);
+		self waittill("damage", damagetaken, attacker, dir, point, dmg_type, model, tag, part, weapon, flags);
 		if(dmg_type == "MOD_PROJECTILE" || dmg_type == "MOD_GRENADE" || dmg_type == "MOD_CRUSH" || weapon == level.doa.var_69899304)
 		{
 			if(isdefined(attacker))
@@ -2699,7 +2699,7 @@ function cow_damage_watch()
 			}
 			self thread namespace_eaa992c::function_285a2999("cow_explode");
 			self playsound("zmb_cow_explode");
-			self notify(#"medium_rare");
+			self notify("medium_rare");
 			if(isdefined(self.sacred))
 			{
 				if(isplayer(attacker))
@@ -2755,7 +2755,7 @@ function function_c35db0c1()
 	level endon(#"hash_6df89d17");
 	while(!level flag::get("doa_game_is_over"))
 	{
-		level waittill(#"round_spawning_starting");
+		level waittill("round_spawning_starting");
 		wait(10);
 		level thread random_cow_stampede();
 	}

@@ -53,9 +53,9 @@ function __init__()
 function on_bot_connect()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		wait(0.25);
-		self notify(#"menuresponse", "", "");
+		self notify("menuresponse", "", "");
 		wait(0.25);
 		if(isdefined(self.pers))
 		{

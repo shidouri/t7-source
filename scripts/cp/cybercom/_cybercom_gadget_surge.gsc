@@ -333,7 +333,7 @@ function private _activate_surge(slot, weapon)
 */
 function private _surge_vehicle(upgraded = 0, secondary = 0, attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	self.ignoreall = 1;
 	self clientfield::set("cybercom_surge", (upgraded ? 2 : 1));
 	if(!upgraded)
@@ -355,7 +355,7 @@ function private _surge_vehicle(upgraded = 0, secondary = 0, attacker)
 			}
 			return;
 		}
-		self notify(#"surge", attacker);
+		self notify("surge", attacker);
 	}
 }
 
@@ -370,7 +370,7 @@ function private _surge_vehicle(upgraded = 0, secondary = 0, attacker)
 */
 function private _surge(upgraded = 0, secondary = 0, attacker, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_f8c5dd60", weapon, attacker);
 	weapon = getweapon("gadget_surge");
 	if(isvehicle(self))
@@ -433,7 +433,7 @@ function private _surge(upgraded = 0, secondary = 0, attacker, weapon)
 function function_e4f42bf7(attacker, weapon, var_a360d6f5)
 {
 	self endon(#"hash_147d6ee");
-	self endon(#"death");
+	self endon("death");
 	self thread function_c1b2cc5a(var_a360d6f5);
 	self dodamage(2, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
 	self waittillmatch(#"bhtn_action_terminate");
@@ -452,7 +452,7 @@ function function_e4f42bf7(attacker, weapon, var_a360d6f5)
 function function_c1b2cc5a(var_a360d6f5)
 {
 	self endon(#"hash_a738dd0");
-	self endon(#"death");
+	self endon("death");
 	wait(var_a360d6f5);
 	self notify(#"hash_147d6ee");
 }
@@ -469,7 +469,7 @@ function function_c1b2cc5a(var_a360d6f5)
 function function_b8a5c1a6(attacker)
 {
 	self endon(#"hash_2a105d32");
-	self waittill(#"death");
+	self waittill("death");
 	self thread function_2a105d32(attacker);
 }
 
@@ -484,7 +484,7 @@ function function_b8a5c1a6(attacker)
 */
 function private function_a405f422()
 {
-	self endon(#"death");
+	self endon("death");
 	starttime = gettime();
 	while(true)
 	{
@@ -512,8 +512,8 @@ function private function_a405f422()
 */
 function private function_d007b404(upgraded, enemy, attacker)
 {
-	self endon(#"death");
-	enemy endon(#"death");
+	self endon("death");
+	enemy endon("death");
 	traveltime = (distancesquared(enemy.origin, self.origin) / (128 * 128)) * getdvarfloat("scr_surge_arc_travel_time", 0.05);
 	self thread _electrodischargearcfx(enemy, traveltime);
 	wait(traveltime);
@@ -538,7 +538,7 @@ function private function_d007b404(upgraded, enemy, attacker)
 */
 function private function_3e26e5ce(upgraded, attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	enemies = self function_3e621fd5(self.origin + vectorscale((0, 0, 1), 50), getdvarint("scr_surge_radius", 220), getdvarint("scr_surge_count", 4));
 	foreach(enemy in enemies)
 	{
@@ -687,8 +687,8 @@ function private _electrodischargearcfx(target, traveltime)
 */
 function private function_d09562d9(target, time, tag)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self notify(#"hash_d09562d9");
 	self endon(#"hash_d09562d9");
 	if(!isdefined(target))
@@ -718,7 +718,7 @@ function private function_d09562d9(target, time, tag)
 		#/
 		intervals--;
 		self moveto(self.origin + v_to_target, 0.05);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		dest = target gettagorigin(tag);
 	}
 }
@@ -767,7 +767,7 @@ function ai_activatesurge(target, var_9bc2efcb = 1, upgraded = 0)
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	weapon = getweapon("gadget_surge");
 	foreach(guy in validtargets)

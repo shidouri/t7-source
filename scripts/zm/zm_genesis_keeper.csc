@@ -88,7 +88,7 @@ function function_ea48e71e(localclientnum)
 		self mapshaderconstant(localclientnum, 0, "scriptVector0", n_delta_val);
 	}
 	while(n_current_time < n_phase_in);
-	s_timer notify(#"timer_done");
+	s_timer notify("timer_done");
 }
 
 /*
@@ -120,7 +120,7 @@ function new_timer(localclientnum)
 function timer_increment_loop(localclientnum, entity)
 {
 	entity endon(#"entityshutdown");
-	self endon(#"timer_done");
+	self endon("timer_done");
 	while(isdefined(self))
 	{
 		util::server_wait(localclientnum, 0.016);
@@ -200,7 +200,7 @@ function function_6e8422e9(localclientnum, oldval, newval, bnewent, binitialsnap
 			self mapshaderconstant(localclientnum, 0, "scriptVector2", n_delta_val);
 		}
 		while(n_current_time < n_phase_in);
-		s_timer notify(#"timer_done");
+		s_timer notify("timer_done");
 		self.removingfireshader = 0;
 	}
 	else if(newval == 2)
@@ -219,7 +219,7 @@ function function_6e8422e9(localclientnum, oldval, newval, bnewent, binitialsnap
 			self mapshaderconstant(localclientnum, 0, "scriptVector0", n_delta_val);
 		}
 		while(n_current_time < n_phase_in);
-		s_timer notify(#"timer_done");
+		s_timer notify("timer_done");
 		self mapshaderconstant(localclientnum, 0, "scriptVector0", 0);
 	}
 }

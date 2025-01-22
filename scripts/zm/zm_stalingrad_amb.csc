@@ -164,7 +164,7 @@ function sndmusictrig()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			if(self.script_sound == "pavlov")
@@ -244,7 +244,7 @@ function function_8620d917()
 {
 	while(true)
 	{
-		level waittill(#"sndpd");
+		level waittill("sndpd");
 		if(level.var_98f2b64e == "pavlov")
 		{
 			level.var_98f2b64e = "pavlov_defend";
@@ -273,7 +273,7 @@ function function_a2a905a5()
 {
 	while(true)
 	{
-		level waittill(#"sndeed");
+		level waittill("sndeed");
 		if(level.var_98f2b64e == "pavlov" || level.var_98f2b64e == "pavlov_defend")
 		{
 			level.var_98f2b64e = "pavlov_ee_koth";
@@ -368,7 +368,7 @@ function play_flux_whispers()
 */
 function function_157aa38()
 {
-	level waittill(#"power_on_level");
+	level waittill("power_on_level");
 	playsound(0, "amb_sophia_boot", (300, 4862, 296));
 	audio::playloopat("amb_sophia_computer_screen_lp", (-404, 4764, 223));
 	wait(8);

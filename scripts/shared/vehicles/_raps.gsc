@@ -119,12 +119,12 @@ function defaultrole()
 */
 function state_scripted_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	driver = self getseatoccupant(0);
 	if(isplayer(driver))
 	{
-		driver endon(#"disconnect");
+		driver endon("disconnect");
 		driver util::waittill_attack_button_pressed();
 		self kill(self.origin, driver);
 	}
@@ -141,7 +141,7 @@ function state_scripted_update(params)
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	attacker = params.inflictor;
 	if(!isdefined(attacker))
 	{
@@ -179,8 +179,8 @@ function state_death_update(params)
 */
 function state_emped_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	if(self.servershortout === 1)
 	{
 		forward = vectornormalize((self getvelocity()[0], self getvelocity()[1], 0));
@@ -208,8 +208,8 @@ function state_emped_update(params)
 */
 function state_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	pathfailcount = 0;
 	foundpath = 1;
 	self thread prevent_stuck();
@@ -414,7 +414,7 @@ function state_combat_update(params)
 				self.current_pathto_pos = undefined;
 				self thread path_update_interrupt();
 				wait(2);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);
@@ -432,8 +432,8 @@ function state_combat_update(params)
 */
 function prevent_stuck()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	self notify(#"end_prevent_stuck");
 	self endon(#"end_prevent_stuck");
 	wait(2);
@@ -571,8 +571,8 @@ function detonate_damage_monitored(enemy, weapon)
 */
 function detonation_monitor()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	lastenemy = undefined;
 	while(true)
 	{
@@ -642,7 +642,7 @@ function detonation_monitor()
 */
 function raps_audio_cleanup(owner)
 {
-	owner waittill(#"death");
+	owner waittill("death");
 	if(isdefined(owner))
 	{
 		owner stopsounds();
@@ -823,12 +823,12 @@ function raps_get_target_position()
 */
 function path_update_interrupt()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
-	self notify(#"clear_interrupt_threads");
-	self endon(#"clear_interrupt_threads");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
+	self notify("clear_interrupt_threads");
+	self endon("clear_interrupt_threads");
 	wait(0.1);
 	while(true)
 	{
@@ -837,7 +837,7 @@ function path_update_interrupt()
 			if(distance2dsquared(self.current_pathto_pos, self.goalpos) > (self.goalradius * self.goalradius))
 			{
 				wait(0.5);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			targetpos = raps_get_target_position();
 			if(isdefined(targetpos))
@@ -857,7 +857,7 @@ function path_update_interrupt()
 					{
 						self playsound(self.sndalias["direction"]);
 					}
-					self notify(#"near_goal");
+					self notify("near_goal");
 				}
 			}
 			if(isdefined(self.enemy) && isplayer(self.enemy) && !isdefined(self.slow_trigger))
@@ -926,13 +926,13 @@ function collision_fx(normal)
 */
 function nudge_collision()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self notify(#"end_nudge_collision");
 	self endon(#"end_nudge_collision");
 	while(true)
 	{
-		self waittill(#"veh_collision", velocity, normal);
+		self waittill("veh_collision", velocity, normal);
 		ang_vel = self getangularvelocity() * 0.8;
 		self setangularvelocity(ang_vel);
 		if(isalive(self) && vectordot(normal, (0, 0, 1)) < 0.5)
@@ -1034,10 +1034,10 @@ function raps_callback_damage(einflictor, eattacker, idamage, idflags, smeansofd
 */
 function slow_raps_trigger()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", other);
+		self waittill("trigger", other);
 		if(isvehicle(other) && isdefined(other.archetype) && other.archetype == "raps")
 		{
 			other thread slow_raps(self);
@@ -1057,9 +1057,9 @@ function slow_raps_trigger()
 */
 function slow_raps(trigger)
 {
-	self notify(#"slow_raps");
-	self endon(#"slow_raps");
-	self endon(#"death");
+	self notify("slow_raps");
+	self endon("slow_raps");
+	self endon("death");
 	self.slow_trigger = 1;
 	if(isdefined(trigger.script_int))
 	{
@@ -1173,10 +1173,10 @@ function sndfunctions()
 */
 function drivablerapsinair()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"veh_landed");
+		self waittill("veh_landed");
 		if(isdefined(self.sndalias["land"]))
 		{
 			self playsound(self.sndalias["land"]);
@@ -1195,19 +1195,19 @@ function drivablerapsinair()
 */
 function raps_in_air_audio()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!sessionmodeiscampaigngame() && !sessionmodeiszombiesgame())
 	{
-		self waittill(#"veh_landed");
+		self waittill("veh_landed");
 	}
 	while(true)
 	{
-		self waittill(#"veh_inair");
+		self waittill("veh_inair");
 		if(isdefined(self.sndalias["inAir"]))
 		{
 			self playsound(self.sndalias["inAir"]);
 		}
-		self waittill(#"veh_landed");
+		self waittill("veh_landed");
 		if(isdefined(self.sndalias["land"]))
 		{
 			self playsound(self.sndalias["land"]);
@@ -1226,7 +1226,7 @@ function raps_in_air_audio()
 */
 function raps_spawn_audio()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(0.25, 1.5));
 	if(isdefined(self.sndalias["spawn"]))
 	{

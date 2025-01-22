@@ -194,8 +194,8 @@ function defaultrole()
 */
 function function_f7035c2f(nikolai_driver)
 {
-	self endon(#"death");
-	nikolai_driver endon(#"death");
+	self endon("death");
+	nikolai_driver endon("death");
 	self.nikolai_driver = nikolai_driver;
 	self enablelinkto();
 	nikolai_driver.origin = self gettagorigin("tag_driver");
@@ -221,8 +221,8 @@ function function_f7035c2f(nikolai_driver)
 */
 function state_death_update(params)
 {
-	self endon(#"death");
-	self endon(#"nodeath_thread");
+	self endon("death");
+	self endon("nodeath_thread");
 	streamermodelhint(self.deathmodel, 6);
 	self setturretspinning(0);
 	self clean_up_spawned();
@@ -235,7 +235,7 @@ function state_death_update(params)
 	level flag::set("nikolai_complete");
 	self asmrequestsubstate("death@stationary");
 	self.nikolai_driver thread scene::play("cin_zm_stalingrad_nikolai_cockpit_death");
-	self waittill(#"model_swap");
+	self waittill("model_swap");
 	self vehicle_death::death_fx();
 	wait(10);
 	self vehicle_death::set_death_model(self.deathmodel, self.modelswapdelay);
@@ -328,7 +328,7 @@ function pain_exit(params)
 */
 function pain_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	if(1 <= self.damagelevel && self.damagelevel <= 4)
 	{
 		asmstate = ("damage_" + self.damagelevel) + "@pain";
@@ -457,8 +457,8 @@ function state_jump_exit(params)
 */
 function state_jump_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	goal = self.jump.goal;
 	self face_target(goal);
 	self.jump.linkent.origin = self.origin;
@@ -506,7 +506,7 @@ function state_jump_update(params)
 		self.jump.linkent.origin = self.jump.linkent.origin + velocity;
 		if(self.jump.linkent.origin[2] < heightthreshold && (oldheight > heightthreshold || (oldverticlespeed > 0 && velocity[2] < 0)))
 		{
-			self notify(#"start_landing");
+			self notify("start_landing");
 			if(isdefined(self.enemy))
 			{
 				forward = anglestoforward(self.angles);
@@ -522,7 +522,7 @@ function state_jump_update(params)
 		wait(0.05);
 	}
 	self.jump.linkent.origin = (self.jump.linkent.origin[0], self.jump.linkent.origin[1], 0) + (0, 0, goal[2]);
-	self notify(#"land_crush");
+	self notify("land_crush");
 	foreach(player in level.players)
 	{
 		if(distance2dsquared(self.origin, player.origin) < (200 * 200))
@@ -548,7 +548,7 @@ function state_jump_update(params)
 	self setgoal(self.origin, 0, self.goalradius, self.goalheight);
 	self vehicle_ai::waittill_asm_complete(params.coptermodel, 3);
 	self vehicle_ai::cooldown("jump_cooldown", 3);
-	self notify(#"jump_finished");
+	self notify("jump_finished");
 	self locomotion_start();
 	self vehicle_ai::evaluate_connections();
 }
@@ -623,8 +623,8 @@ function side_step()
 */
 function state_groundcombat_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self thread attack_thread_gun();
 	self thread movement_thread();
 	self thread footstep_left_monitor();
@@ -662,13 +662,13 @@ function footstep_damage(tag_name)
 */
 function footstep_left_monitor()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self notify(#"stop_left_footstep_damage");
-	self endon(#"stop_left_footstep_damage");
+	self endon("death");
+	self endon("change_state");
+	self notify("stop_left_footstep_damage");
+	self endon("stop_left_footstep_damage");
 	while(true)
 	{
-		self waittill(#"footstep_left_large_theia");
+		self waittill("footstep_left_large_theia");
 		footstep_damage("tag_leg_left_foot_animate");
 	}
 }
@@ -684,13 +684,13 @@ function footstep_left_monitor()
 */
 function footstep_right_monitor()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self notify(#"stop_right_footstep_damage");
-	self endon(#"stop_right_footstep_damage");
+	self endon("death");
+	self endon("change_state");
+	self notify("stop_right_footstep_damage");
+	self endon("stop_right_footstep_damage");
 	while(true)
 	{
-		self waittill(#"footstep_right_large_theia");
+		self waittill("footstep_right_large_theia");
 		footstep_damage("tag_leg_right_foot_animate");
 	}
 }
@@ -706,8 +706,8 @@ function footstep_right_monitor()
 */
 function movement_thread()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self notify(#"end_movement_thread");
 	self endon(#"end_movement_thread");
 	self.current_pathto_pos = self.origin;
@@ -765,8 +765,8 @@ function state_groundcombat_exit(params)
 */
 function attack_thread_gun()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self endon(#"end_attack_thread");
 	self notify(#"end_attack_thread_gun");
 	self endon(#"end_attack_thread_gun");
@@ -834,7 +834,7 @@ function locomotion_start()
 */
 function function_7fcc2a80()
 {
-	self notify(#"near_goal");
+	self notify("near_goal");
 }
 
 /*
@@ -865,7 +865,7 @@ function _sort_by_distance2d(left, right, point)
 function stopmovementandsetbrake()
 {
 	self notify(#"end_movement_thread");
-	self notify(#"near_goal");
+	self notify("near_goal");
 	self cancelaimove();
 	self clearvehgoalpos();
 	self clearturrettarget();
@@ -1046,7 +1046,7 @@ function function_b9b039e0(einflictor, eattacker, idamage, idflags, smeansofdeat
 	eattacker show_hit_marker();
 	if(var_cf402baf)
 	{
-		self notify(#"nikolai_weakpoint_destroyed");
+		self notify("nikolai_weakpoint_destroyed");
 		if(n_index == 1)
 		{
 			self hidepart("tag_heat_vent_01_d0_col");
@@ -1071,7 +1071,7 @@ function function_b9b039e0(einflictor, eattacker, idamage, idflags, smeansofdeat
 		if(function_86cc3c11() >= 4)
 		{
 			self finishvehicledamage(einflictor, eattacker, 4000, idflags, "MOD_IMPACT", weapon, vpoint, vdir, shitloc, psoffsettime, damagefromunderneath, modelindex, "tag_heat_vent_05_d0", 1);
-			level notify(#"nikolai_final_weakpoint_revealed");
+			level notify("nikolai_final_weakpoint_revealed");
 		}
 	}
 	return false;
@@ -1190,9 +1190,9 @@ function function_a3258c2a(var_f8b7c9a1)
 	{
 		return false;
 	}
-	self endon(#"death");
+	self endon("death");
 	self vehicle_ai::set_state("special_attack");
-	self endon(#"change_state");
+	self endon("change_state");
 	foreach(player in level.activeplayers)
 	{
 		self getperfectinfo(player, 0);
@@ -1223,7 +1223,7 @@ function function_a3258c2a(var_f8b7c9a1)
 		wait(fireinterval);
 		self fireweapon(1, undefined, angleoffset + var_8a7bdf21, self);
 	}
-	self notify(#"fire_stop");
+	self notify("fire_stop");
 	self clientfield::set("nikolai_gatling_tell", 0);
 	if(self.var_65850094[2] > 0)
 	{
@@ -1251,9 +1251,9 @@ function function_59fe8c9c(targetposition)
 	{
 		return false;
 	}
-	self endon(#"death");
+	self endon("death");
 	self vehicle_ai::set_state("special_attack");
-	self endon(#"change_state");
+	self endon("change_state");
 	self setturrettargetrelativeangles((0, 0, 0), 0);
 	self setturrettargetrelativeangles((0, 0, 0), 1);
 	self setturrettargetrelativeangles((0, 0, 0), 2);
@@ -1352,7 +1352,7 @@ function function_59fe8c9c(targetposition)
 */
 function function_853d3b2b(var_ff72f147, launchforce)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("play_raps_trail_fx", 1);
 	self vehicle_ai::set_state("scripted");
 	self vehicle::toggle_sounds(0);
@@ -1407,10 +1407,10 @@ function function_902a2c47()
 */
 function function_6deb3e8d()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isalive(self))
 	{
-		self waittill(#"veh_predictedcollision", otherent);
+		self waittill("veh_predictedcollision", otherent);
 		if(isalive(otherent) && otherent.archetype === "zombie" && otherent.knockdown !== 1)
 		{
 			otherent zombie_utility::setup_zombie_knockdown(self);
@@ -1429,7 +1429,7 @@ function function_6deb3e8d()
 */
 function function_3b145bbb()
 {
-	self waittill(#"death");
+	self waittill("death");
 	level.var_6d27427c--;
 	if(level.var_6d27427c < 1)
 	{
@@ -1448,7 +1448,7 @@ function function_3b145bbb()
 */
 function pin_spike_to_ground(spike, targetorigin)
 {
-	spike endon(#"death");
+	spike endon("death");
 	targetdist = distance2d(spike.origin, targetorigin) - (400 + randomfloat(60));
 	startorigin = spike.origin;
 	while(distance2dsquared(spike.origin, startorigin) < (targetdist * 0.4) * (targetdist * 0.4))
@@ -1495,10 +1495,10 @@ function function_db9ecada()
 {
 	self notify(#"hash_f7204730");
 	self endon(#"hash_f7204730");
-	self endon(#"change_state");
+	self endon("change_state");
 	while(true)
 	{
-		self waittill(#"grenade_stuck", var_8e857deb, origin, normal);
+		self waittill("grenade_stuck", var_8e857deb, origin, normal);
 		var_8e857deb thread function_d7ef4d80();
 		self function_75775e52(var_8e857deb.origin, 120);
 		var_8e857deb clientfield::set("harpoon_impact", 1);
@@ -1516,7 +1516,7 @@ function function_db9ecada()
 */
 function function_d7ef4d80()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		a_ai_zombies = getaiarchetypearray("zombie");
@@ -1548,7 +1548,7 @@ function function_dfc5ede1(targetent)
 	{
 		return false;
 	}
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(isalive(targetent));
 	#/
@@ -1559,7 +1559,7 @@ function function_dfc5ede1(targetent)
 		return false;
 	}
 	self vehicle_ai::set_state("special_attack");
-	self endon(#"change_state");
+	self endon("change_state");
 	spikecoverradius = 600;
 	randomscale = 40;
 	self setturrettargetrelativeangles((0, 0, 0), 0);
@@ -1576,7 +1576,7 @@ function function_dfc5ede1(targetent)
 	self thread function_db9ecada();
 	for(i = 0; i < 3; i++)
 	{
-		self waittill(#"fire_harpoon");
+		self waittill("fire_harpoon");
 		spike = self fireweapon(2);
 		self clearturrettarget();
 		if(isdefined(spike))

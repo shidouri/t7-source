@@ -86,7 +86,7 @@ function attach_model(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 function function_9a8e9819(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"unfreeze");
+	self endon("unfreeze");
 	var_5e5728a8 = 0.9;
 	rate = randomfloatrange(0.005, 0.01);
 	f = 0.6;
@@ -110,7 +110,7 @@ function function_9a8e9819(localclientnum)
 function function_56ddd8d9(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self notify(#"unfreeze");
+	self notify("unfreeze");
 	f = 1;
 	while(f >= 0.6)
 	{

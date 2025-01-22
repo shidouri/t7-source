@@ -89,7 +89,7 @@ function damager_trigger_thread(dam_types, trigger_func)
 {
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, dir, point, type);
+		self waittill("damage", amount, attacker, dir, point, type);
 		self.dam_amount = amount;
 		self.attacker = attacker;
 		self.dam_dir = dir;
@@ -107,7 +107,7 @@ function damager_trigger_thread(dam_types, trigger_func)
 	{
 		self [[trigger_func]]();
 	}
-	self notify(#"triggered");
+	self notify("triggered");
 }
 
 /*
@@ -121,11 +121,11 @@ function damager_trigger_thread(dam_types, trigger_func)
 */
 function damage_trigger_thread()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage");
-		self.owner_ent notify(#"triggered");
+		self waittill("damage");
+		self.owner_ent notify("triggered");
 	}
 }
 
@@ -140,11 +140,11 @@ function damage_trigger_thread()
 */
 function entity_damage_thread()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage");
-		self.owner_ent notify(#"triggered");
+		self waittill("damage");
+		self.owner_ent notify("triggered");
 	}
 }
 
@@ -785,20 +785,20 @@ function build_assets()
 */
 function radius_trigger_thread()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!isplayer(player))
 		{
 			continue;
 		}
-		self.owner_ent notify(#"triggered");
+		self.owner_ent notify("triggered");
 		while(player istouching(self))
 		{
 			wait(0.05);
 		}
-		self.owner_ent notify(#"untriggered");
+		self.owner_ent notify("untriggered");
 	}
 }
 
@@ -931,7 +931,7 @@ function display_stage_title(wait_for_teleport_done_notify)
 {
 	if(wait_for_teleport_done_notify)
 	{
-		level waittill(#"teleport_done");
+		level waittill("teleport_done");
 		wait(2);
 	}
 	stage_text = newhudelem();
@@ -984,13 +984,13 @@ function time_limited_stage(sidequest)
 		time_limit = self.time_limit * 0.25;
 	}
 	wait(time_limit);
-	level notify(#"timed_stage_75_percent");
+	level notify("timed_stage_75_percent");
 	wait(time_limit);
-	level notify(#"timed_stage_50_percent");
+	level notify("timed_stage_50_percent");
 	wait(time_limit);
-	level notify(#"timed_stage_25_percent");
+	level notify("timed_stage_25_percent");
 	wait(time_limit - 10);
-	level notify(#"timed_stage_10_seconds_to_go");
+	level notify("timed_stage_10_seconds_to_go");
 	wait(10);
 	stage_failed(sidequest, self);
 }
@@ -1241,16 +1241,16 @@ function get_damage_trigger(radius, origin, damage_types)
 */
 function dam_trigger_thread(damage_types)
 {
-	self endon(#"death");
+	self endon("death");
 	damage_type = "NONE";
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, dir, point, mod);
+		self waittill("damage", amount, attacker, dir, point, mod);
 		for(i = 0; i < damage_types.size; i++)
 		{
 			if(mod == damage_types[i])
 			{
-				self notify(#"triggered");
+				self notify("triggered");
 			}
 		}
 	}
@@ -1267,11 +1267,11 @@ function dam_trigger_thread(damage_types)
 */
 function use_trigger_thread()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
-		self.owner_ent notify(#"triggered", player);
+		self waittill("trigger", player);
+		self.owner_ent notify("triggered", player);
 		wait(0.1);
 	}
 }

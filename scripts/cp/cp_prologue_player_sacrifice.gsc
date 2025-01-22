@@ -99,12 +99,12 @@ function function_21c12b92()
 */
 function function_ae9ce6f0()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_99343b5f");
 	level endon(#"hash_9d83ef5");
 	while(true)
 	{
-		self waittill(#"weapon_fired", wpn_current);
+		self waittill("weapon_fired", wpn_current);
 		if(wpn_current.weapclass !== "pistol")
 		{
 			self.var_c34702c6 = 1;
@@ -124,10 +124,10 @@ function function_ae9ce6f0()
 */
 function function_bfce7c2a()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_99343b5f");
 	level endon(#"hash_9d83ef5");
-	self waittill(#"grenade_fire");
+	self waittill("grenade_fire");
 	self.var_c34702c6 = 1;
 	self notify(#"hash_99343b5f");
 }
@@ -432,7 +432,7 @@ function function_ff1a7b45()
 function function_2d1c6af3()
 {
 	self setcandamage(0);
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	wait(5);
 	self setcandamage(1);
 }
@@ -448,7 +448,7 @@ function function_2d1c6af3()
 */
 function function_40fd81b()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreall(1);
 	self.grenadeammo = 0;
 	self.goalradius = 16;
@@ -486,7 +486,7 @@ function function_54454538()
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self thread function_32c0959c();
 	self thread function_3b49905c();
 	self util::magic_bullet_shield();
@@ -495,7 +495,7 @@ function function_54454538()
 	self ai::set_ignoreme(1);
 	self.grenadeammo = 0;
 	self.goalradius = 16;
-	self waittill(#"goal");
+	self waittill("goal");
 	var_5aebca26 = getent("rpg_target", "targetname");
 	var_5aebca26.health = 1;
 	var_90911853 = getweapon("launcher_standard_magic_bullet");
@@ -506,13 +506,13 @@ function function_54454538()
 		var_f8e04bb3 = self.origin;
 	}
 	e_projectile = magicbullet(var_90911853, var_f8e04bb3, var_5aebca26.origin);
-	e_projectile waittill(#"death");
+	e_projectile waittill("death");
 	e_projectile thread fx::play("rock_explosion", e_projectile.origin);
 	wait(1);
 	v_offset = (40, 0, 72);
 	var_5aebca26 moveto(level.activeplayers[randomint(level.activeplayers.size)].origin + v_offset, 0.05);
 	self thread ai::shoot_at_target("normal", var_5aebca26, undefined, undefined);
-	self waittill(#"stop_shoot_at_target");
+	self waittill("stop_shoot_at_target");
 	self util::stop_magic_bullet_shield();
 	self ai::enable_pain();
 	self ai::set_ignoreall(0);
@@ -531,7 +531,7 @@ function function_54454538()
 */
 function function_3b49905c()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("apc_arrive");
 	self util::stop_magic_bullet_shield();
 }
@@ -547,7 +547,7 @@ function function_3b49905c()
 */
 function function_32c0959c()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(level.players.size > 1)
 	{
 		spawner::simple_spawn_single("rpg_coop");
@@ -565,10 +565,10 @@ function function_32c0959c()
 */
 function function_4b1fb716()
 {
-	self endon(#"death");
+	self endon("death");
 	self.goalradius = 4;
 	self ai::set_behavior_attribute("sprint", 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self ai::set_behavior_attribute("sprint", 0);
 }
 
@@ -583,7 +583,7 @@ function function_4b1fb716()
 */
 function function_64dd8530()
 {
-	self endon(#"death");
+	self endon("death");
 	self.grenadeammo = 0;
 }
 
@@ -598,7 +598,7 @@ function function_64dd8530()
 */
 function function_96551790()
 {
-	self endon(#"death");
+	self endon("death");
 	self.grenadeammo = 0;
 	spawner::waittill_ai_group_count("group_defend_1", 1);
 	self kill();
@@ -615,7 +615,7 @@ function function_96551790()
 */
 function function_b9081af()
 {
-	self endon(#"death");
+	self endon("death");
 	self colors::set_force_color("o");
 	self.grenadeammo = 0;
 }
@@ -631,7 +631,7 @@ function function_b9081af()
 */
 function function_7f708ee()
 {
-	self endon(#"death");
+	self endon("death");
 	self.grenadeammo = 0;
 }
 
@@ -646,10 +646,10 @@ function function_7f708ee()
 */
 function function_bf932181()
 {
-	self endon(#"death");
+	self endon("death");
 	self.goalradius = 4;
 	self ai::set_behavior_attribute("move_mode", "rambo");
-	self waittill(#"goal");
+	self waittill("goal");
 	self ai::set_behavior_attribute("move_mode", "normal");
 }
 
@@ -664,13 +664,13 @@ function function_bf932181()
 */
 function function_c3228115(var_a917e7b9, var_cf1a6222)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread turret::disable_ai_getoff(var_a917e7b9, 1);
 	self thread turret::disable_ai_getoff(var_cf1a6222, 1);
 	self turret::enable(var_a917e7b9, 1);
 	self turret::enable(var_cf1a6222, 1);
 	self thread vehicle::get_on_and_go_path(getvehiclenode(self.target, "targetname"));
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	wait(1);
 	ai_driver = self vehicle::get_rider("driver");
 	if(isalive(ai_driver))
@@ -690,13 +690,13 @@ function function_c3228115(var_a917e7b9, var_cf1a6222)
 */
 function function_45c35350()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::magic_bullet_shield();
 	self thread turret::disable_ai_getoff(1, 1);
 	self turret::enable(1, 1);
 	self thread vehicle::get_on_and_go_path(getvehiclenode(self.target, "targetname"));
 	wait(1);
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	self util::stop_magic_bullet_shield();
 	foreach(ai_rider in self.riders)
 	{
@@ -721,7 +721,7 @@ function function_45c35350()
 */
 function function_b2d7edae()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::magic_bullet_shield();
 	self thread turret::disable_ai_getoff(1, 1);
 	self turret::enable(1, 1);
@@ -734,7 +734,7 @@ function function_b2d7edae()
 			self thread function_58b0f8d8(ai_rider);
 		}
 	}
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	self util::stop_magic_bullet_shield();
 	foreach(ai_rider in self.riders)
 	{
@@ -756,11 +756,11 @@ function function_b2d7edae()
 */
 function function_58b0f8d8(ai_gunner)
 {
-	self endon(#"death");
-	self waittill(#"reached_end_node");
+	self endon("death");
+	self waittill("reached_end_node");
 	if(isalive(ai_gunner))
 	{
-		ai_gunner waittill(#"death");
+		ai_gunner waittill("death");
 	}
 	else
 	{
@@ -780,7 +780,7 @@ function function_58b0f8d8(ai_gunner)
 */
 function function_98ae774()
 {
-	self endon(#"death");
+	self endon("death");
 	if(randomint(6) < 2)
 	{
 		self cp_prologue_util::set_robot_unarmed();
@@ -802,7 +802,7 @@ function function_98ae774()
 */
 function function_9d374()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreall(1);
 	self cp_prologue_util::set_robot_unarmed();
 	s_goal = struct::get("pod_pos");
@@ -941,7 +941,7 @@ function function_4dc9c2f9(a_ents)
 */
 function function_4e2b6779(a_ents)
 {
-	level notify(#"khalil_ready");
+	level notify("khalil_ready");
 }
 
 /*
@@ -955,7 +955,7 @@ function function_4e2b6779(a_ents)
 */
 function function_8600d87b(a_ents)
 {
-	level notify(#"hendricks_ready");
+	level notify("hendricks_ready");
 }
 
 /*
@@ -998,7 +998,7 @@ function function_b0cce50c()
 	var_6848ea7f thread function_a950a3ec();
 	level thread function_a3ac9ae0();
 	level flag::wait_till("pod_arrive");
-	var_f3fb06d8 waittill(#"trigger");
+	var_f3fb06d8 waittill("trigger");
 	objectives::complete("cp_waypoint_breadcrumb", s_pod);
 	objectives::hide("cp_level_prologue_goto_exfil");
 	objectives::set("cp_level_prologue_defend_pod", s_defend);
@@ -1059,7 +1059,7 @@ function function_cd56c2cf(player)
 	level endon(#"hash_2ef4a1f0");
 	while(true)
 	{
-		self waittill(#"trigger", e_entity);
+		self waittill("trigger", e_entity);
 		if(e_entity == player)
 		{
 			level.var_fc71d8f++;
@@ -1249,7 +1249,7 @@ function function_a43cf0f6()
 */
 function function_c794d3c2(n_height = 300, var_7ad049d6 = 100, b_do_rumble = 1, var_688fa2d2 = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	self enableinvulnerability();
 	v_player_fwd = anglestoforward(self.angles);
 	var_652493a5 = v_player_fwd * var_7ad049d6;
@@ -1316,7 +1316,7 @@ function function_f7af5999()
 */
 function function_de0720c1()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::magic_bullet_shield();
 	if(level flag::get("start_defend_countdown"))
 	{
@@ -1376,7 +1376,7 @@ function function_aba4324()
 */
 function function_3df1f906(s_rpg)
 {
-	self endon(#"death");
+	self endon("death");
 	var_90911853 = getweapon("launcher_standard");
 	for(i = 0; i < 8; i++)
 	{
@@ -1502,7 +1502,7 @@ function function_114d2017(e_target)
 */
 function function_1082845c(v_target)
 {
-	self waittill(#"death");
+	self waittill("death");
 	radiusdamage(v_target, 100, 1500, 500, undefined, "MOD_EXPLOSIVE");
 }
 
@@ -1720,11 +1720,11 @@ function function_947bfdac(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function function_45756e82(var_1fd9b48b = "chicken_zone")
 {
-	level endon(#"robot_defend_done");
+	level endon("robot_defend_done");
 	var_e512db80 = getent(var_1fd9b48b + "_trigger", "targetname");
 	while(true)
 	{
-		var_e512db80 waittill(#"trigger", e_who);
+		var_e512db80 waittill("trigger", e_who);
 		e_who function_d311c75a(var_1fd9b48b);
 	}
 }
@@ -1740,7 +1740,7 @@ function function_45756e82(var_1fd9b48b = "chicken_zone")
 */
 function function_d311c75a(var_1fd9b48b)
 {
-	self endon(#"death");
+	self endon("death");
 	str_endon = "player_exited_" + var_1fd9b48b;
 	level endon(str_endon);
 	level thread function_4d64d2f6(var_1fd9b48b);
@@ -1800,8 +1800,8 @@ function function_e78f61a0(w_weapon, a_s_starts, a_s_targets)
 */
 function function_4d64d2f6(var_1fd9b48b)
 {
-	level endon(#"death");
-	level endon(#"robot_defend_done");
+	level endon("death");
+	level endon("robot_defend_done");
 	var_fe2701d = "player_touching_" + var_1fd9b48b;
 	level flag::wait_till_clear(var_fe2701d);
 	str_endon = "player_exited_" + var_1fd9b48b;

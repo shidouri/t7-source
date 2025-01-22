@@ -387,8 +387,8 @@ function scoreeventplayerkill(data, time)
 			}
 			if(isdefined(victimheroability))
 			{
-				attacker notify(#"hero_shutdown", victimheroability);
-				attacker notify(#"hero_shutdown_gadget", victimheroability, victim);
+				attacker notify("hero_shutdown", victimheroability);
+				attacker notify("hero_shutdown_gadget", victimheroability, victim);
 			}
 		}
 		if(attackervisionpulseactivatetime != 0 && attackervisionpulseactivatetime > (time - 6500))
@@ -424,8 +424,8 @@ function scoreeventplayerkill(data, time)
 		}
 		if(victimheroabilityactive && isdefined(victimheroability))
 		{
-			attacker notify(#"hero_shutdown", victimheroability);
-			attacker notify(#"hero_shutdown_gadget", victimheroability, victim);
+			attacker notify("hero_shutdown", victimheroability);
+			attacker notify("hero_shutdown_gadget", victimheroability, victim);
 			switch(victimheroability.name)
 			{
 				case "gadget_armor":
@@ -456,20 +456,20 @@ function scoreeventplayerkill(data, time)
 		}
 		else if(isdefined(victimpowerarmorlasttookdamagetime) && (time - victimpowerarmorlasttookdamagetime) <= 3000)
 		{
-			attacker notify(#"hero_shutdown", victimheroability);
-			attacker notify(#"hero_shutdown_gadget", victimheroability, victim);
+			attacker notify("hero_shutdown", victimheroability);
+			attacker notify("hero_shutdown_gadget", victimheroability, victim);
 			processscoreevent("kill_enemy_who_has_powerarmor", attacker, victim, weapon);
 			attacker util::player_contract_event("killed_hero_ability_enemy");
 		}
 		if(isdefined(data.victimweapon) && isdefined(data.victimweapon.isheroweapon) && data.victimweapon.isheroweapon == 1)
 		{
-			attacker notify(#"hero_shutdown", data.victimweapon);
-			attacker notify(#"hero_shutdown_gadget", data.victimweapon, victim);
+			attacker notify("hero_shutdown", data.victimweapon);
+			attacker notify("hero_shutdown_gadget", data.victimweapon, victim);
 		}
 		else if(isdefined(victim.heroweapon) && victimgadgetwasactivelastdamage && victimgadgetpower < 100)
 		{
-			attacker notify(#"hero_shutdown", victim.heroweapon);
-			attacker notify(#"hero_shutdown_gadget", victim.heroweapon, victim);
+			attacker notify("hero_shutdown", victim.heroweapon);
+			attacker notify("hero_shutdown_gadget", victim.heroweapon, victim);
 		}
 		if(attackerheroabilityactive && isdefined(attackerheroability))
 		{
@@ -1247,10 +1247,10 @@ function is_weapon_valid(meansofdeath, weapon, weaponclass, killstreak)
 */
 function updatesinglefragmultikill(victim, weapon, weaponclass, killstreak)
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self notify(#"updatesinglefragmultikill");
-	self endon(#"updatesinglefragmultikill");
+	self endon("disconnect");
+	level endon("game_ended");
+	self notify("updatesinglefragmultikill");
+	self endon("updatesinglefragmultikill");
 	if(!isdefined(self.recent_singlefragmultikill) || self.recent_singlefragmultikillid != victim.explosiveinfo["damageid"])
 	{
 		self.recent_singlefragmultikill = 0;
@@ -1276,10 +1276,10 @@ function updatesinglefragmultikill(victim, weapon, weaponclass, killstreak)
 */
 function updatemultikills(weapon, weaponclass, killstreak, victim)
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self notify(#"updaterecentkills");
-	self endon(#"updaterecentkills");
+	self endon("disconnect");
+	level endon("game_ended");
+	self notify("updaterecentkills");
+	self endon("updaterecentkills");
 	baseweaponparam = [[level.get_base_weapon_param]](weapon);
 	baseweapon = getweapon(getreffromitemindex(getbaseweaponitemindex(baseweaponparam)));
 	if(!isdefined(self.recentkillvariables))
@@ -1641,7 +1641,7 @@ function resetrecentkillvariables()
 */
 function waittilltimeoutordeath(timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timeout);
 }
 
@@ -1656,8 +1656,8 @@ function waittilltimeoutordeath(timeout)
 */
 function updateoneshotmultikills(victim, weapon, firsttimedamaged)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self notify("updateoneshotmultikills" + firsttimedamaged);
 	self endon("updateoneshotmultikills" + firsttimedamaged);
 	if(!isdefined(self.oneshotmultikills) || firsttimedamaged > (isdefined(self.oneshotmultikillsdamagetime) ? self.oneshotmultikillsdamagetime : 0))
@@ -1833,8 +1833,8 @@ function specialistmedalachievement()
 */
 function specialiststatabilityusage(usagesinglegame, multitrackperlife)
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	self notify(#"hash_359cf118");
 	self endon(#"hash_359cf118");
 	isroulette = self.isroulette === 1;

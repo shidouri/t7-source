@@ -139,7 +139,7 @@ function main()
 */
 function function_1c53c4e1(a_ents)
 {
-	level endon(#"zesn");
+	level endon("zesn");
 	while(true)
 	{
 		while(!isdefined(level.localplayers[0]) || !isigcactive(level.localplayers[0].localclientnum))
@@ -435,7 +435,7 @@ function function_da4ab728(localclientnum, var_b81de649)
 	self endon(#"hash_e7cca3ce");
 	while(true)
 	{
-		var_b81de649 waittill(#"trigger", who);
+		var_b81de649 waittill("trigger", who);
 		if(who islocalplayer())
 		{
 			playsound(localclientnum, "zmb_stalingrad_sewer_pipe_exit");
@@ -604,7 +604,7 @@ function function_21deab84(localclientnum, oldval, newval, bnewent, binitialsnap
 		level notify(#"hash_deeb3634");
 		wait(0.5);
 		var_1c7b6837 rotateto((0, 0, 0), 0.2);
-		level waittill(#"outro_done");
+		level waittill("outro_done");
 		var_1c7b6837 delete();
 	}
 }
@@ -620,7 +620,7 @@ function function_21deab84(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_a431bec5(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	var_1c7b6837 = getent(localclientnum, "sophia_eye", "targetname");
 	if(!isdefined(var_1c7b6837))
 	{
@@ -654,9 +654,9 @@ function function_a431bec5(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_36666e11(e_player)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	level endon(#"hash_deeb3634");
-	e_player endon(#"death");
+	e_player endon("death");
 	self endon(#"entityshutdown");
 	while(isdefined(e_player))
 	{

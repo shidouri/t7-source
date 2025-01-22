@@ -195,10 +195,10 @@ function function_f4768ce9(n_player)
 */
 function shovel_unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(e_player != self.parent_player)
 		{
 			continue;
@@ -245,7 +245,7 @@ function dig_reward_dialog(str_category)
 */
 function dig_reward_vo_cooldown()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.dig_vo_cooldown = 1;
 	wait(60);
 	self.dig_vo_cooldown = undefined;
@@ -281,7 +281,7 @@ function unitrigger_stub_show_hint_prompt_valid(e_player)
 */
 function dig_disconnect_watch(n_player, v_origin, v_angles)
 {
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	level clientfield::set(function_f4768ce9(n_player), 0);
 	level clientfield::set(function_6e5f017f(n_player), 0);
 	m_shovel = spawn("script_model", v_origin);
@@ -426,7 +426,7 @@ function dig_spot_spawn()
 	self.m_dig setmodel("p7_zm_ori_dig_mound");
 	self.m_dig.angles = self.angles;
 	self.m_dig moveto(self.origin, 3, 0, 1);
-	self.m_dig waittill(#"movedone");
+	self.m_dig waittill("movedone");
 	t_dig = zm_tomb_utility::tomb_spawn_trigger_radius(self.origin + vectorscale((0, 0, 1), 20), 100, 1);
 	t_dig.prompt_and_visibility_func = &dig_spot_trigger_visibility;
 	t_dig.require_look_at = 1;
@@ -472,7 +472,7 @@ function waittill_dug(s_dig_spot)
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isdefined(player.dig_vars["has_shovel"]) && player.dig_vars["has_shovel"])
 		{
 			player playsound("evt_dig");
@@ -566,21 +566,21 @@ function waittill_dug(s_dig_spot)
 function dig_up_zombie(player, s_dig_spot)
 {
 	ai_zombie = zombie_utility::spawn_zombie(level.dig_spawners[0]);
-	ai_zombie endon(#"death");
+	ai_zombie endon("death");
 	ai_zombie ghost();
 	e_linker = spawn("script_origin", (0, 0, 0));
 	e_linker.origin = ai_zombie.origin;
 	e_linker.angles = ai_zombie.angles;
 	ai_zombie linkto(e_linker);
 	e_linker moveto(player.origin + vectorscale((1, 1, 0), 100), 0.1);
-	e_linker waittill(#"movedone");
+	e_linker waittill("movedone");
 	ai_zombie unlink();
 	e_linker delete();
 	ai_zombie show();
 	ai_zombie playsound("evt_zombie_dig_dirt");
 	ai_zombie zm_tomb_utility::dug_zombie_rise(s_dig_spot);
 	find_flesh_struct_string = "find_flesh";
-	ai_zombie notify(#"zombie_custom_think_done", find_flesh_struct_string);
+	ai_zombie notify("zombie_custom_think_done", find_flesh_struct_string);
 }
 
 /*
@@ -595,8 +595,8 @@ function dig_up_zombie(player, s_dig_spot)
 function dig_up_powerup(player)
 {
 	powerup = spawn("script_model", self.origin);
-	powerup endon(#"powerup_grabbed");
-	powerup endon(#"powerup_timedout");
+	powerup endon("powerup_grabbed");
+	powerup endon("powerup_timedout");
 	a_rare_powerups = dig_get_rare_powerups(player);
 	powerup_item = undefined;
 	if((level.dig_n_powerups_spawned + level.powerup_drop_count) > 4 || level.dig_last_prize_rare || a_rare_powerups.size == 0 || randomint(100) < 80)
@@ -623,7 +623,7 @@ function dig_up_powerup(player)
 	}
 	powerup zm_powerups::powerup_setup(powerup_item);
 	powerup movez(40, 0.6);
-	powerup waittill(#"movedone");
+	powerup waittill("movedone");
 	powerup thread zm_powerups::powerup_timeout();
 	powerup thread zm_powerups::powerup_wobble();
 	powerup thread zm_powerups::powerup_grab();
@@ -687,7 +687,7 @@ function dig_get_rare_powerups(player)
 */
 function dig_up_grenade(player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	v_spawnpt = self.origin;
 	w_grenade = getweapon("frag_grenade");
 	n_rand = randomintrange(0, 4);
@@ -737,13 +737,13 @@ function dig_up_weapon(digger)
 	m_weapon.angles = v_angles;
 	m_weapon playloopsound("evt_weapon_digup");
 	m_weapon thread timer_til_despawn(v_spawnpt, 40 * -1);
-	m_weapon endon(#"dig_up_weapon_timed_out");
+	m_weapon endon("dig_up_weapon_timed_out");
 	playfxontag(level._effect["powerup_on_solo"], m_weapon, "tag_origin");
 	m_weapon.trigger = zm_tomb_utility::tomb_spawn_trigger_radius(v_spawnpt, 100, 1, undefined, &weapon_trigger_update_prompt);
 	m_weapon.trigger.cursor_hint = "HINT_WEAPON";
 	m_weapon.trigger.cursor_hint_weapon = var_59d5868d;
-	m_weapon.trigger waittill(#"trigger", player);
-	m_weapon.trigger notify(#"weapon_grabbed");
+	m_weapon.trigger waittill("trigger", player);
+	m_weapon.trigger notify("weapon_grabbed");
 	m_weapon.trigger thread swap_weapon(var_59d5868d, player);
 	if(isdefined(m_weapon.trigger))
 	{
@@ -756,7 +756,7 @@ function dig_up_weapon(digger)
 	}
 	if(player != digger)
 	{
-		digger notify(#"dig_up_weapon_shared");
+		digger notify("dig_up_weapon_shared");
 	}
 }
 
@@ -825,11 +825,11 @@ function swap_weapon(var_375664a9, e_player)
 */
 function timer_til_despawn(v_float, n_dist)
 {
-	self endon(#"weapon_grabbed");
+	self endon("weapon_grabbed");
 	putbacktime = 12;
 	self movez(n_dist, putbacktime, putbacktime * 0.5);
-	self waittill(#"movedone");
-	self notify(#"dig_up_weapon_timed_out");
+	self waittill("movedone");
+	self notify("dig_up_weapon_timed_out");
 	if(isdefined(self.trigger))
 	{
 		zm_unitrigger::unregister_unitrigger(self.trigger);
@@ -891,7 +891,7 @@ function increment_player_perk_purchase_limit()
 */
 function ee_zombie_blood_dig()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	n_z_spots_found = 0;
 	a_z_spots = struct::get_array("zombie_blood_dig_spot", "targetname");
 	self.t_zombie_blood_dig = spawn("trigger_radius_use", (0, 0, 0), 0, 100, 50);
@@ -935,7 +935,7 @@ function ee_zombie_blood_dig()
 */
 function ee_zombie_blood_dig_disconnect_watch()
 {
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	if(isdefined(self.t_zombie_blood_dig))
 	{
 		self.t_zombie_blood_dig delete();
@@ -970,7 +970,7 @@ function create_zombie_blood_dig_spot(e_player)
 	self.m_dig setmodel("p7_zm_ori_dig_mound_blood");
 	self.m_dig zm_powerup_zombie_blood::make_zombie_blood_entity();
 	self.m_dig moveto(self.origin, 3, 0, 1);
-	self.m_dig waittill(#"movedone");
+	self.m_dig waittill("movedone");
 	self.m_dig.e_unique_player = e_player;
 	/#
 		self thread zm_tomb_utility::puzzle_debug_position("", vectorscale((0, 0, 1), 255), self.origin);
@@ -978,7 +978,7 @@ function create_zombie_blood_dig_spot(e_player)
 	e_player.t_zombie_blood_dig.origin = self.origin + vectorscale((0, 0, 1), 20);
 	e_player.t_zombie_blood_dig waittill_zombie_blood_dug(self);
 	/#
-		self notify(#"stop_debug_position");
+		self notify("stop_debug_position");
 	#/
 }
 
@@ -993,10 +993,10 @@ function create_zombie_blood_dig_spot(e_player)
 */
 function waittill_zombie_blood_dug(s_dig_spot)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isdefined(player.dig_vars["has_shovel"]) && player.dig_vars["has_shovel"])
 		{
 			player.t_zombie_blood_dig.origin = (0, 0, 0);
@@ -1055,11 +1055,11 @@ function spawn_perk_upgrade_bottle(v_origin, e_player)
 */
 function rotate_perk_upgrade_bottle()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateyaw(360, 5);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 

@@ -208,7 +208,7 @@ function function_39fb9593()
 {
 	self notify(#"hash_39fb9593");
 	self endon(#"hash_39fb9593");
-	self endon(#"death");
+	self endon("death");
 	self.var_75a707ea = 1;
 	if(!(isdefined(self.script_stealth_dontseek) && self.script_stealth_dontseek))
 	{
@@ -241,7 +241,7 @@ function function_39fb9593()
 		}
 		if(str_awareness != "combat")
 		{
-			self notify(#"investigate", self.origin, undefined, "infinite");
+			self notify("investigate", self.origin, undefined, "infinite");
 		}
 		else if(str_awareness == "combat")
 		{
@@ -266,7 +266,7 @@ function function_39fb9593()
 function function_8be8b843()
 {
 	self endon(#"hash_39fb9593");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		foreach(player in level.activeplayers)
@@ -295,10 +295,10 @@ function function_8be8b843()
 function function_517ba9d2()
 {
 	self endon(#"hash_39fb9593");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"awareness", str_awareness);
+		self waittill("awareness", str_awareness);
 		self notify(#"hash_3dce0f1d", str_awareness);
 	}
 }
@@ -315,7 +315,7 @@ function function_517ba9d2()
 function function_56e538df()
 {
 	self endon(#"hash_39fb9593");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		level flag::wait_till("stealth_combat");
@@ -337,7 +337,7 @@ function function_1064f733()
 {
 	self notify(#"hash_1064f733");
 	self endon(#"hash_1064f733");
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_75a707ea) && self.var_75a707ea)
 	{
 		return;

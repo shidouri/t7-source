@@ -303,7 +303,7 @@ function spawn_next_radio()
 */
 function hqmainloop()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level.hqrevealtime = -100000;
 	hqspawninginstr = &"MP_HQ_AVAILABLE_IN";
 	if(level.kothmode)
@@ -350,7 +350,7 @@ function hqmainloop()
 		{
 			if(distancesquared(rcbombs[index], level.radio.origin) < (radius * radius))
 			{
-				rcbombs[index] notify(#"rcbomb_shutdown");
+				rcbombs[index] notify("rcbomb_shutdown");
 			}
 		}
 		if(level.hqspawntime)
@@ -386,7 +386,7 @@ function hqmainloop()
 		level.radio.gameobject.onuse = &onradiocapture;
 		level.radio.gameobject.onbeginuse = &onbeginuse;
 		level.radio.gameobject.onenduse = &onenduse;
-		level waittill(#"hq_captured");
+		level waittill("hq_captured");
 		ownerteam = level.radio.gameobject gameobjects::get_owner_team();
 		if(level.hqautodestroytime)
 		{
@@ -429,7 +429,7 @@ function hqmainloop()
 				}
 			}
 			level thread dropallaroundhq();
-			level waittill(#"hq_destroyed", destroy_team);
+			level waittill("hq_destroyed", destroy_team);
 			level.radio spawning::enable_influencers(0);
 			if(!level.kothmode || level.hqdestroyedbytimer)
 			{
@@ -445,7 +445,7 @@ function hqmainloop()
 		level.radio.gameobject gameobjects::allow_use("none");
 		level.radio.gameobject gameobjects::set_owner_team("neutral");
 		level.radio.gameobject gameobjects::set_model_visibility(0);
-		level notify(#"hq_reset");
+		level notify("hq_reset");
 		foreach(team in level.teams)
 		{
 			timerdisplay[team].alpha = 0;
@@ -468,7 +468,7 @@ function hqmainloop()
 */
 function hidetimerdisplayongameend(timerdisplay)
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	timerdisplay.alpha = 0;
 }
 
@@ -493,7 +493,7 @@ function forcespawnteam(team)
 		}
 		if(player.pers["team"] == team)
 		{
-			player notify(#"force_spawn");
+			player notify("force_spawn");
 			wait(0.1);
 		}
 	}
@@ -573,7 +573,7 @@ function onradiocapture(player)
 		thread sound::play_on_players("mp_war_objective_lost", team);
 	}
 	level thread awardhqpoints(capture_team);
-	level notify(#"hq_captured");
+	level notify("hq_captured");
 	player notify(#"event_ended");
 }
 
@@ -624,7 +624,7 @@ function dropalltoground(origin, radius, stickyobjectradius)
 	wait(0.05);
 	weapons::drop_all_to_ground(origin, radius);
 	supplydrop::dropcratestoground(origin, radius);
-	level notify(#"drop_objects_to_ground", origin, stickyobjectradius);
+	level notify("drop_objects_to_ground", origin, stickyobjectradius);
 }
 
 /*
@@ -639,7 +639,7 @@ function dropalltoground(origin, radius, stickyobjectradius)
 function dropallaroundhq(radio)
 {
 	origin = level.radio.origin;
-	level waittill(#"hq_reset");
+	level waittill("hq_reset");
 	dropalltoground(origin, 100, 50);
 }
 
@@ -691,7 +691,7 @@ function onradiodestroy(firstplayer)
 		thread util::printonteam(otherteammessage, team);
 		globallogic_audio::leader_dialog("hq_enemy_destroyed", team);
 	}
-	level notify(#"hq_destroyed", destroyed_team);
+	level notify("hq_destroyed", destroyed_team);
 	if(level.kothmode)
 	{
 		level thread awardhqpoints(destroyed_team);
@@ -710,15 +710,15 @@ function onradiodestroy(firstplayer)
 */
 function destroyhqaftertime(time, ownerteam)
 {
-	level endon(#"game_ended");
-	level endon(#"hq_reset");
+	level endon("game_ended");
+	level endon("hq_reset");
 	level.hqdestroytime = gettime() + (time * 1000);
 	level.hqdestroyedbytimer = 0;
 	wait(time);
 	globallogic_audio::leader_dialog("hq_offline");
 	level.hqdestroyedbytimer = 1;
 	checkplayercount(ownerteam);
-	level notify(#"hq_destroyed");
+	level notify("hq_destroyed");
 }
 
 /*
@@ -766,10 +766,10 @@ function checkplayercount(ownerteam)
 */
 function awardhqpoints(team)
 {
-	level endon(#"game_ended");
-	level endon(#"hq_destroyed");
-	level notify(#"awardhqpointsrunning");
-	level endon(#"awardhqpointsrunning");
+	level endon("game_ended");
+	level endon("hq_destroyed");
+	level notify("awardhqpointsrunning");
+	level endon("awardhqpointsrunning");
 	seconds = 5;
 	while(!level.gameended)
 	{
@@ -1421,9 +1421,9 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 */
 function killwhilecontesting(radio)
 {
-	self notify(#"killwhilecontesting");
-	self endon(#"killwhilecontesting");
-	self endon(#"disconnect");
+	self notify("killwhilecontesting");
+	self endon("killwhilecontesting");
+	self endon("disconnect");
 	killtime = gettime();
 	playerteam = self.pers["team"];
 	if(!isdefined(self.clearenemycount))
@@ -1431,7 +1431,7 @@ function killwhilecontesting(radio)
 		self.clearenemycount = 0;
 	}
 	self.clearenemycount++;
-	radio waittill(#"state_change");
+	radio waittill("state_change");
 	if(playerteam != self.pers["team"] || (isdefined(self.spawntime) && killtime < self.spawntime))
 	{
 		self.clearenemycount = 0;
@@ -1532,7 +1532,7 @@ function onupdateuserate()
 	}
 	if(self.currentcontendercount != previousstate)
 	{
-		self notify(#"state_change");
+		self notify("state_change");
 	}
 }
 

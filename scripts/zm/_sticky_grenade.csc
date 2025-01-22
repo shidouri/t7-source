@@ -48,9 +48,9 @@ function spawned(localclientnum)
 */
 function fx_think(localclientnum)
 {
-	self notify(#"light_disable");
+	self notify("light_disable");
 	self endon(#"entityshutdown");
-	self endon(#"light_disable");
+	self endon("light_disable");
 	self util::waittill_dobj(localclientnum);
 	interval = 0.3;
 	for(;;)

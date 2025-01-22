@@ -178,7 +178,7 @@ function function_1ebbce9b()
 */
 function function_1249f13c()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		if(function_89ce0aca())
@@ -208,7 +208,7 @@ function function_1249f13c()
 */
 function function_56fe13df()
 {
-	self endon(#"death");
+	self endon("death");
 	spot = self.spawn_point_override;
 	self.spawn_point = spot;
 	if(isdefined(spot.target))
@@ -396,7 +396,7 @@ function _zombie_initsidestep()
 */
 function _zombie_death_watch()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self clientfield::set("issonic", 0);
 }
 
@@ -411,7 +411,7 @@ function _zombie_death_watch()
 */
 function _zombie_ambient_sounds()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 	}
@@ -561,9 +561,9 @@ function _zombie_scream_attack_done()
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
-		players[i] notify(#"scream_watch_done");
+		players[i] notify("scream_watch_done");
 	}
-	self notify(#"scream_attack_done");
+	self notify("scream_attack_done");
 }
 
 /*
@@ -603,9 +603,9 @@ function _zombie_playscreamfx()
 */
 function _player_screamattackwatch(sonic_zombie)
 {
-	self endon(#"death");
-	self endon(#"scream_watch_done");
-	sonic_zombie endon(#"death");
+	self endon("death");
+	self endon("scream_watch_done");
+	sonic_zombie endon("death");
 	self.screamattackblur = 0;
 	while(true)
 	{
@@ -688,8 +688,8 @@ function _zombie_any_players_in_blur_area()
 */
 function _player_sonicblurvision(zombie)
 {
-	self endon(#"disconnect");
-	level endon(#"intermission");
+	self endon("disconnect");
+	level endon("intermission");
 	if(!self.screamattackblur)
 	{
 		mini = isdefined(zombie) && (isdefined(zombie.shrinked) && zombie.shrinked);
@@ -738,9 +738,9 @@ function _player_screamattackdamage(time, blurscale, earthquakescale, rumble, at
 */
 function _player_blurfailsafe()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"blur_cleared");
-	level waittill(#"intermission");
+	level waittill("intermission");
 	visionset_mgr::deactivate("overlay", "zm_ai_screecher_blur", self);
 }
 
@@ -755,8 +755,8 @@ function _player_blurfailsafe()
 */
 function _player_screamattack_wait(time)
 {
-	self endon(#"disconnect");
-	level endon(#"intermission");
+	self endon("disconnect");
+	level endon("intermission");
 	wait(time);
 }
 
@@ -876,7 +876,7 @@ function sonic_zombie_death(einflictor, attacker, idamage, smeansofdeath, weapon
 */
 function zombie_sonic_scream_death(attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	randomwait = randomfloatrange(0, 1);
 	wait(randomwait);
 	self.no_powerups = 1;
@@ -1105,7 +1105,7 @@ function _soniczombie_fling_zombie(player, fling_vec, index)
 */
 function _soniczombie_knockdown_zombie(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self) || !isalive(self))
 	{
 		return;
@@ -1169,7 +1169,7 @@ function sonic_zombie_count_watch()
 		level.soniczombiecount = 0;
 	}
 	level.soniczombiecount++;
-	self waittill(#"death");
+	self waittill("death");
 	level.soniczombiecount--;
 	if(isdefined(self.shrinked) && self.shrinked)
 	{

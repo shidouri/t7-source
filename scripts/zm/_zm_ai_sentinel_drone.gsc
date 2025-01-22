@@ -292,16 +292,16 @@ function function_5cf4e163()
 */
 function sentinel_round_spawning()
 {
-	level endon(#"intermission");
-	level endon(#"sentinel_round");
+	level endon("intermission");
+	level endon("sentinel_round");
 	level.var_6693a532 = getplayers();
 	for(i = 0; i < level.var_6693a532.size; i++)
 	{
 		level.var_6693a532[i].hunted_by = 0;
 	}
-	level endon(#"restart_round");
+	level endon("restart_round");
 	/#
-		level endon(#"kill_round");
+		level endon("kill_round");
 		if(getdvarint("") == 2 || getdvarint("") >= 4)
 		{
 			return;
@@ -328,7 +328,7 @@ function sentinel_round_spawning()
 	level thread zm_stalingrad_vo::function_3800b6e0();
 	wait(3);
 	level flag::set("sentinel_round_in_progress");
-	level endon(#"last_ai_down");
+	level endon("last_ai_down");
 	level thread sentinel_round_aftermath();
 	while(true)
 	{
@@ -476,7 +476,7 @@ function spawn_sentinel(var_c94972aa = 0)
 */
 function function_b27530eb(v_pos)
 {
-	self endon(#"death");
+	self endon("death");
 	self sentinel_drone::sentinel_intro();
 	self vehicle::toggle_sounds(0);
 	var_92968756 = v_pos + vectorscale((0, 0, 1), 30);
@@ -541,7 +541,7 @@ function function_306f9403(player, mod, hit_location)
 function function_d600cb9a()
 {
 	self endon(#"hash_d600cb9a");
-	self endon(#"death");
+	self endon("death");
 	self thread function_caadf4b1();
 	self flag::wait_till("completed_spawning");
 	var_4b9c276c = function_5b91ab3a();
@@ -649,7 +649,7 @@ function function_d600cb9a()
 			self.var_7e04bb3 = 1;
 			self thread function_b7a02494();
 			self sentinel_drone::sentinel_forcegoandstayinposition(1, v_spawn_pos + vectorscale((0, 0, 1), 106));
-			self waittill(#"goal");
+			self waittill("goal");
 			level.var_a657e360.origin = v_spawn_pos + vectorscale((0, 0, 1), 8);
 			level.var_a657e360.angles = self.angles;
 			self clientfield::set("necro_sentinel_fx", 1);
@@ -675,8 +675,8 @@ function function_d600cb9a()
 */
 function function_b7a02494()
 {
-	self endon(#"sentinel_rez_in_progress");
-	self waittill(#"death");
+	self endon("sentinel_rez_in_progress");
+	self waittill("death");
 	level flag::clear("sentinel_rez_in_progress");
 }
 
@@ -691,7 +691,7 @@ function function_b7a02494()
 */
 function function_1a7787ed()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_15969cec");
 	var_4bb04d82 = get_zombie_spawn_delay();
 	var_4b9c276c = function_5b91ab3a();
@@ -740,7 +740,7 @@ function function_1a7787ed()
 */
 function function_caadf4b1()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self clientfield::set("necro_sentinel_fx", 0);
 	a_ai_zombies = getaiteamarray(level.zombie_team);
 	var_7f0cc3c7 = [];
@@ -777,8 +777,8 @@ function function_caadf4b1()
 */
 function function_fdd9c3df(var_4e5c415e)
 {
-	self endon(#"death");
-	var_4e5c415e endon(#"death");
+	self endon("death");
+	var_4e5c415e endon("death");
 	self.b_ignore_cleanup = 1;
 	self.exclude_cleanup_adding_to_total = 1;
 	if(var_4e5c415e.var_580a32ea > 0)
@@ -795,7 +795,7 @@ function function_fdd9c3df(var_4e5c415e)
 	self.var_bb98125f = 1;
 	zm_elemental_zombie::function_1b1bb1b();
 	self.health = int(level.zombie_health / 2);
-	self waittill(#"completed_emerging_into_playable_area");
+	self waittill("completed_emerging_into_playable_area");
 	self.no_powerups = 1;
 	n_timeout = gettime() + 60000;
 	while(!isdefined(self.enemy))
@@ -833,7 +833,7 @@ function function_fdd9c3df(var_4e5c415e)
 function function_ea9730d8(var_4e5c415e)
 {
 	self endon(#"hash_107a4ece");
-	var_4e5c415e endon(#"death");
+	var_4e5c415e endon("death");
 	self function_cb2c6547();
 	if(!isdefined(self.attacker) || !isplayer(self.attacker))
 	{
@@ -852,10 +852,10 @@ function function_ea9730d8(var_4e5c415e)
 */
 function function_cb2c6547()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", n_damage, e_attacker);
+		self waittill("damage", n_damage, e_attacker);
 		if(isdefined(e_attacker) && isplayer(e_attacker))
 		{
 			self notify(#"hash_107a4ece");
@@ -986,9 +986,9 @@ function get_zombie_spawn_delay()
 */
 function function_989acb59()
 {
-	level endon(#"restart_round");
+	level endon("restart_round");
 	/#
-		level endon(#"kill_round");
+		level endon("kill_round");
 	#/
 	if(level flag::get("sentinel_round"))
 	{
@@ -1146,7 +1146,7 @@ function function_20c64325()
 */
 function sentinel_round_aftermath()
 {
-	level waittill(#"last_ai_down", ai_sentinel, e_attacker);
+	level waittill("last_ai_down", ai_sentinel, e_attacker);
 	level thread zm_audio::sndmusicsystem_playstate("sentinel_roundend");
 	if(isdefined(level.zm_override_ai_aftermath_powerup_drop))
 	{
@@ -1188,7 +1188,7 @@ function sentinel_round_aftermath()
 */
 function function_630f7ed5(v_origin)
 {
-	self endon(#"death");
+	self endon("death");
 	v_navmesh = getclosestpointonnavmesh(v_origin, 512, 16);
 	if(isdefined(v_navmesh))
 	{
@@ -1318,13 +1318,13 @@ function function_3b40bf32()
 */
 function sentinel_death()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(function_41375d48() == 0 && level.zombie_total <= 0)
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
 			level.var_6a6f912a = self.origin;
-			level notify(#"last_ai_down", self, attacker);
+			level notify("last_ai_down", self, attacker);
 		}
 	}
 	if(isplayer(attacker))
@@ -1343,7 +1343,7 @@ function sentinel_death()
 	}
 	if(isdefined(attacker) && isai(attacker))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 	}
 	if(isdefined(self))
 	{
@@ -1376,7 +1376,7 @@ function sentintel_explode_fx(origin)
 */
 function function_6cb24476()
 {
-	self endon(#"death");
+	self endon("death");
 	v_compact_mode = getent("sentinel_compact", "targetname");
 	while(true)
 	{
@@ -1422,7 +1422,7 @@ function zombie_setup_attack_properties_sentinel()
 */
 function stop_sentinel_sound_on_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self stopsounds();
 }
 
@@ -1489,7 +1489,7 @@ function special_sentinel_spawn(n_to_spawn = 1, func_on_spawned, b_force_spawn =
 */
 function function_9a59090e()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self playsound("zmb_hellhound_vocals_amb");
@@ -1508,9 +1508,9 @@ function function_9a59090e()
 */
 function function_c72cf6e1(origin, zombie, radius)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"delete");
+	self endon("death");
+	self endon("disconnect");
+	self endon("delete");
 	if(isdefined(zombie) && (isdefined(zombie.zombie_think_done) && zombie.zombie_think_done))
 	{
 		if(zombie.is_elemental_zombie !== 1 && zombie.var_3531cf2b !== 1)
@@ -1567,9 +1567,9 @@ function function_c72cf6e1(origin, zombie, radius)
 */
 function function_49b3a408(origin, b_ignore_elemental = 1, b_outside_playable_area = 1, radius = 2000)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"delete");
+	self endon("death");
+	self endon("disconnect");
+	self endon("delete");
 	if(isdefined(radius) && radius > 0)
 	{
 		var_199ecc3a = zm_elemental_zombie::function_4aeed0a5("sparky");

@@ -241,9 +241,9 @@ function sophia_eye_on(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function function_36666e11(e_player)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	level endon(#"hash_deeb3634");
-	e_player endon(#"death");
+	e_player endon("death");
 	self endon(#"entityshutdown");
 	while(isdefined(e_player))
 	{

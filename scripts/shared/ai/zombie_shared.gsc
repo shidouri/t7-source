@@ -591,7 +591,7 @@ function donotetracksforeverproc(notetracksfunc, flagname, killstring, customfun
 	{
 		self endon(killstring);
 	}
-	self endon(#"killanimscript");
+	self endon("killanimscript");
 	for(;;)
 	{
 		time = gettime();
@@ -638,7 +638,7 @@ function donotetracksforever(flagname, killstring, customfunction, var1)
 */
 function donotetracksfortimeproc(donotetracksforeverfunc, time, flagname, customfunction, ent, var1)
 {
-	ent endon(#"stop_notetracks");
+	ent endon("stop_notetracks");
 	[[donotetracksforeverfunc]](flagname, undefined, customfunction, var1);
 }
 
@@ -670,7 +670,7 @@ function donotetracksfortime(time, flagname, customfunction, var1)
 function donotetracksfortimeendnotify(time)
 {
 	wait(time);
-	self notify(#"stop_notetracks");
+	self notify("stop_notetracks");
 }
 
 /*
@@ -759,7 +759,7 @@ function playfootstepeffect(foot, groundtype)
 */
 function movetooriginovertime(origin, time)
 {
-	self endon(#"killanimscript");
+	self endon("killanimscript");
 	if(distancesquared(self.origin, origin) > 256 && !self maymovetopoint(origin))
 	{
 		/#

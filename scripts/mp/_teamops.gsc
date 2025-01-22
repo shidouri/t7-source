@@ -142,7 +142,7 @@ function teamopsallowed(name)
 */
 function startteamops(name)
 {
-	level notify(#"teamops_starting");
+	level notify("teamops_starting");
 	level.teamopsonplayerkilled = undefined;
 	if(!teamopsallowed(name))
 	{
@@ -393,10 +393,10 @@ function getcompatibleoperation()
 */
 function watchteamopstime()
 {
-	level endon(#"teamops_starting");
+	level endon("teamops_starting");
 	if(isdefined(level.inprematchperiod) && level.inprematchperiod)
 	{
-		level waittill(#"prematch_over");
+		level waittill("prematch_over");
 	}
 	activeteamops = getcompatibleoperation();
 	if(!isdefined(activeteamops))
@@ -436,7 +436,7 @@ function watchteamopstime()
 */
 function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	level endon(#"teamops_starting");
+	level endon("teamops_starting");
 	if(isplayer(attacker) == 0 || attacker.team == self.team)
 	{
 		return;

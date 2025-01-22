@@ -222,7 +222,7 @@ function registerdialoggroup(group, skipifcurrentlyplayinggroup)
 */
 function sndstartmusicsystem()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(game["state"] == "postgame")
 	{
 		return;
@@ -251,7 +251,7 @@ function sndstartmusicsystem()
 */
 function suspensemusicforplayer()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread set_music_on_player("UNDERSCORE", 0);
 	/#
 		if(getdvarint("") > 0)
@@ -272,9 +272,9 @@ function suspensemusicforplayer()
 */
 function suspensemusic(random)
 {
-	level endon(#"game_ended");
-	level endon(#"match_ending_soon");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	level endon("match_ending_soon");
+	self endon("disconnect");
 	/#
 		if(getdvarint("") > 0)
 		{
@@ -417,7 +417,7 @@ function announcegamewinner(winner, delay)
 */
 function doflameaudio()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	if(!isdefined(self.lastflamehurtaudio))
 	{
@@ -770,7 +770,7 @@ function playleaderdialogonplayer(dialog)
 		return;
 	}
 	team = self.pers["team"];
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.leaderdialogactive = 1;
 	if(isdefined(self.leaderdialoggroups[dialog]))
 	{
@@ -874,9 +874,9 @@ function announceteamiswinning()
 */
 function musiccontroller()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level thread musictimesout();
-	level waittill(#"match_ending_soon");
+	level waittill("match_ending_soon");
 	if(util::islastround() || util::isoneround())
 	{
 		if(!level.splitscreen)
@@ -888,7 +888,7 @@ function musiccontroller()
 					leaderdialog("min_draw");
 				}
 			}
-			level waittill(#"match_ending_very_soon");
+			level waittill("match_ending_very_soon");
 			foreach(team in level.teams)
 			{
 				leaderdialog("timesup", team, undefined, undefined, "squad_30sec");
@@ -897,7 +897,7 @@ function musiccontroller()
 	}
 	else
 	{
-		level waittill(#"match_ending_vox");
+		level waittill("match_ending_vox");
 		leaderdialog("timesup");
 	}
 }
@@ -913,8 +913,8 @@ function musiccontroller()
 */
 function musictimesout()
 {
-	level endon(#"game_ended");
-	level waittill(#"match_ending_very_soon");
+	level endon("game_ended");
+	level waittill("match_ending_very_soon");
 	thread set_music_on_team("TIME_OUT", "both", 1, 0);
 }
 
@@ -929,7 +929,7 @@ function musictimesout()
 */
 function actionmusicset()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level.playingactionmusic = 1;
 	wait(45);
 	level.playingactionmusic = 0;
@@ -1049,7 +1049,7 @@ function set_music_on_team(state, team, save_state, return_state, wait_time)
 */
 function set_music_on_player(state, save_state, return_state, wait_time)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(sessionmodeiszombiesgame())
 	{
 		return;
@@ -1205,7 +1205,7 @@ function return_music_state_team(team, wait_time)
 */
 function set_next_music_state(nextstate, wait_time)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.pers["music"].nextstate = nextstate;
 	/#
 		if(getdvarint("") > 0)
@@ -1269,9 +1269,9 @@ function getroundswitchdialog(switchtype)
 */
 function post_match_snapshot_watcher()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	level util::clientnotify("pm");
-	level waittill(#"sfade");
+	level waittill("sfade");
 	level util::clientnotify("pmf");
 }
 

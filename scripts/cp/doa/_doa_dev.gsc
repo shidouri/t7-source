@@ -181,7 +181,7 @@ function function_92c840a6(delay = 0.1)
 	self notify(#"hash_92c840a6");
 	self endon(#"hash_92c840a6");
 	level endon(#"hash_a291d1ee");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(delay);
 	while(true)
 	{
@@ -212,8 +212,8 @@ function function_92c840a6(delay = 0.1)
 */
 function function_a4d5519a(pickup)
 {
-	self endon(#"disconnect");
-	pickup endon(#"death");
+	self endon("disconnect");
+	pickup endon("death");
 	wait(randomfloatrange(0.1, 1));
 	if(self isinmovemode("ufo", "noclip"))
 	{
@@ -251,7 +251,7 @@ function function_a4d5519a(pickup)
 */
 function function_733651c()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_733651c");
 	self endon(#"hash_733651c");
 	level endon(#"hash_e20ba07c");
@@ -440,7 +440,7 @@ function function_a3bba13d()
 				}
 				if(isdefined(level.doa.teleporter) && isdefined(level.doa.teleporter.trigger))
 				{
-					level.doa.teleporter.trigger notify(#"trigger");
+					level.doa.teleporter.trigger notify("trigger");
 				}
 			}
 		}
@@ -862,7 +862,7 @@ function function_5e6b8376(origin, radius, time, color = (0, 1, 0))
 {
 	/#
 		level endon(#"hash_48b870e4");
-		self endon(#"death");
+		self endon("death");
 		hangtime = 0.05;
 		circleres = 16;
 		hemires = circleres / 2;
@@ -927,8 +927,8 @@ function plotpoints(plotpoints, var_c75b4e78, server_frames = 1)
 function drawcylinder(pos, rad, height, server_frames = 1, color = (0, 0, 0))
 {
 	/#
-		self endon(#"stop_cylinder");
-		self endon(#"death");
+		self endon("stop_cylinder");
+		self endon("death");
 		currad = rad;
 		curheight = height;
 		for(server_frames = int(server_frames); server_frames; server_frames--)
@@ -960,7 +960,7 @@ function debugorigin()
 	/#
 		self notify(#"hash_707e044");
 		self endon(#"hash_707e044");
-		self endon(#"death");
+		self endon("death");
 		for(;;)
 		{
 			forward = anglestoforward(self.angles);

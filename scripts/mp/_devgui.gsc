@@ -788,8 +788,8 @@ function devgui_give_weapon(weapon_name)
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_give_ammo");
-		self endon(#"devgui_give_ammo");
+		self notify("devgui_give_ammo");
+		self endon("devgui_give_ammo");
 		currentweapon = self getcurrentweapon();
 		split = strtok(weapon_name, "");
 		switch(split.size)
@@ -1065,7 +1065,7 @@ function add_vehicle_at_eye_trace(vehiclename)
 function watch_player_death()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		vehicle = self;
 		while(true)
 		{

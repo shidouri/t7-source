@@ -419,7 +419,7 @@ function nuked_mannequin_init()
 	}
 	arrayremovevalue(mannequins, undefined);
 	level.mannequins = mannequins;
-	level waittill(#"prematch_over");
+	level waittill("prematch_over");
 	level.mannequin_time = gettime();
 	function_5fdaba50();
 	if(getdvarint("nuketown_mannequin", 0))
@@ -639,7 +639,7 @@ function private function_d77bb766()
 	/#
 		while(true)
 		{
-			level waittill(#"mannequin_force_cleanup");
+			level waittill("mannequin_force_cleanup");
 			function_6ac7b21();
 		}
 	#/

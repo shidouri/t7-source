@@ -104,7 +104,7 @@ function start_fire_sale(item)
 	}
 	level thread check_to_clear_fire_sale();
 	level.zombie_vars["zombie_powerup_fire_sale_on"] = 0;
-	level notify(#"fire_sale_off");
+	level notify("fire_sale_off");
 }
 
 /*
@@ -183,8 +183,8 @@ function toggle_fire_sale_on()
 			}
 		}
 	}
-	level notify(#"fire_sale_on");
-	level waittill(#"fire_sale_off");
+	level notify("fire_sale_on");
+	level waittill("fire_sale_off");
 	waittillframeend();
 	level thread sndfiresalemusic_stop();
 	bgb_machine::turn_off_fire_sale();
@@ -220,7 +220,7 @@ function apply_fire_sale_to_chest()
 		{
 			wait(0.1);
 		}
-		self.zbarrier waittill(#"left");
+		self.zbarrier waittill("left");
 	}
 	wait(0.1);
 	self thread zm_magicbox::show_chest();

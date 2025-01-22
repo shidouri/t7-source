@@ -42,8 +42,8 @@ function init()
 */
 function release_control_on_landing()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(self isonground())
 	{
 		wait(0.05);

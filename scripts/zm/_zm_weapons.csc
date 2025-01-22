@@ -518,7 +518,7 @@ function wallbuy_callback_idx(localclientnum, oldval, newval, bnewent, binitials
 				fx = level._effect[weaponname + "_fx"];
 			}
 			struct.fx[localclientnum] = playfx(localclientnum, fx, struct.origin, anglestoforward(struct.angles), anglestoup(struct.angles), 0.1);
-			level notify(#"wallbuy_updated");
+			level notify("wallbuy_updated");
 		}
 	}
 }

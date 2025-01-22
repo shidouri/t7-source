@@ -133,12 +133,12 @@ function player_overdrive_handler(localclientnum, oldval, newval, bnewent, binit
 */
 function activation_flash(localclientnum)
 {
-	self notify(#"activation_flash");
-	self endon(#"activation_flash");
-	self endon(#"death");
+	self notify("activation_flash");
+	self endon("activation_flash");
+	self endon("death");
 	self endon(#"entityshutdown");
-	self endon(#"stop_player_fx");
-	self endon(#"disable_cybercom");
+	self endon("stop_player_fx");
+	self endon("disable_cybercom");
 	self.whiteflashfade = 1;
 	lui::screen_fade(getdvarfloat("scr_overdrive_flash_fade_in_time", 0.075), getdvarfloat("scr_overdrive_flash_alpha", 0.7), 0, "white");
 	wait(getdvarfloat("scr_overdrive_flash_fade_in_time", 0.075));
@@ -177,8 +177,8 @@ function enable_boost_camera_fx(localclientnum)
 */
 function watch_stop_player_fx(localclientnum, fx)
 {
-	self notify(#"watch_stop_player_fx");
-	self endon(#"watch_stop_player_fx");
+	self notify("watch_stop_player_fx");
+	self endon("watch_stop_player_fx");
 	self endon(#"entityshutdown");
 	self util::waittill_any("stop_player_fx", "death", "disable_cybercom");
 	if(isdefined(fx))
@@ -199,7 +199,7 @@ function watch_stop_player_fx(localclientnum, fx)
 */
 function stop_boost_camera_fx(localclientnum)
 {
-	self notify(#"stop_player_fx");
+	self notify("stop_player_fx");
 	if(isdefined(self.whiteflashfade) && self.whiteflashfade)
 	{
 		lui::screen_fade(getdvarfloat("scr_overdrive_flash_fade_out_time", 0.45), 0, getdvarfloat("scr_overdrive_flash_alpha", 0.7), "white");
@@ -217,7 +217,7 @@ function stop_boost_camera_fx(localclientnum)
 */
 function overdrive_boost_fx_interrupt_handler(localclientnum)
 {
-	self endon(#"overdrive_boost_fx_interrupt_handler");
+	self endon("overdrive_boost_fx_interrupt_handler");
 	self endon(#"end_overdrive_boost_fx");
 	self endon(#"entityshutdown");
 	self util::waittill_any("death", "disable_cybercom");
@@ -256,10 +256,10 @@ function overdrive_shutdown(localclientnum)
 */
 function boost_fx_on_velocity(localclientnum)
 {
-	self endon(#"disable_cybercom");
-	self endon(#"death");
+	self endon("disable_cybercom");
+	self endon("death");
 	self endon(#"end_overdrive_boost_fx");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self enable_boost_camera_fx(localclientnum);
 	self thread overdrive_boost_fx_interrupt_handler(localclientnum);
 	wait(getdvarfloat("scr_overdrive_boost_fx_time", 0.75));

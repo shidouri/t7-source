@@ -176,10 +176,10 @@ function function_677ed44f(weapon)
 	self notify(#"hash_677ed44f");
 	self endon(#"hash_677ed44f");
 	self endon(#"hash_343d4580");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		level waittill(#"rapid_strike", target, attacker, damage, weapon, hitorigin);
+		level waittill("rapid_strike", target, attacker, damage, weapon, hitorigin);
 		self notify(weapon.name + "_fired");
 		level notify(weapon.name + "_fired");
 		wait(0.05);

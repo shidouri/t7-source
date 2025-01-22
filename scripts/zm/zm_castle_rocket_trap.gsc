@@ -64,7 +64,7 @@ function register_clientfields()
 function function_6827f93b()
 {
 	n_timeout = randomintrange(30, 240);
-	level waittill(#"castle_teleporter_used");
+	level waittill("castle_teleporter_used");
 	level thread function_79ce76bb();
 	level.zones["zone_v10_pad_exterior"].is_spawning_allowed = 1;
 	level.zones["zone_v10_pad_door"].is_spawning_allowed = 1;
@@ -141,7 +141,7 @@ function function_713600fe(var_44f606ad = 0)
 	level.zones["zone_v10_pad_exterior"].is_spawning_allowed = 1;
 	level.zones["zone_v10_pad_door"].is_spawning_allowed = 1;
 	level.zones["zone_v10_pad"].adjacent_zones["zone_v10_pad_door"].is_connected = 1;
-	level notify(#"open_a10_doors");
+	level notify("open_a10_doors");
 	if(isdefined(level.var_c62829c7) && !level flag::get("rune_prison_obelisk"))
 	{
 		level thread flag::set_for_time(7.5, "rune_prison_obelisk_magma_enabled");
@@ -189,7 +189,7 @@ function function_e52f317f(is_left_door, n_time)
 	{
 		level waittill(#"hash_d6ba1e76");
 		self moveto(self.origin + (n_move_x, var_80b1884b, 0), n_time);
-		level waittill(#"open_a10_doors");
+		level waittill("open_a10_doors");
 		self moveto(v_original_origin, n_time * 0.75);
 	}
 }
@@ -330,7 +330,7 @@ function function_92008f69(var_ec7cc126)
 */
 function function_76de618f(vol_area, var_ec7cc126 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isplayer(self) && var_ec7cc126 == 1)
 	{
 		self thread function_5acfb0f();
@@ -558,7 +558,7 @@ function function_65b37e40()
 {
 	/#
 		wait(0.05);
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(0.05);
 		setdvar("", 0);
 		adddebugcommand("");
@@ -593,15 +593,15 @@ function function_343a73a4()
 	{
 		self thread function_80af95ac(e_player);
 	}
-	self waittill(#"movedone");
+	self waittill("movedone");
 	level notify(#"hash_c009e96d");
 	level.var_f363d488 = undefined;
 	self stoploopsound();
 	self playsound("evt_rocket_door_stop");
-	level waittill(#"open_a10_doors");
+	level waittill("open_a10_doors");
 	self playsound("evt_rocket_door_start");
 	self playloopsound("evt_rocket_door_lp");
-	self waittill(#"movedone");
+	self waittill("movedone");
 	level notify(#"hash_c009e96d");
 	self stoploopsound();
 	self playsound("evt_rocket_door_stop");
@@ -618,7 +618,7 @@ function function_343a73a4()
 */
 function function_ff1f70cd(e_grenade, var_412615f9)
 {
-	e_grenade endon(#"death");
+	e_grenade endon("death");
 	e_grenade endon(#"explode");
 	if(e_grenade.weapon.name === "cymbal_monkey" && (e_grenade zm_zonemgr::entity_in_zone("zone_v10_pad_door") || e_grenade zm_zonemgr::entity_in_zone("zone_v10_pad_exterior")))
 	{
@@ -641,7 +641,7 @@ function function_ff1f70cd(e_grenade, var_412615f9)
 */
 function function_80af95ac(e_player)
 {
-	e_player endon(#"death");
+	e_player endon("death");
 	e_player endon(#"hash_9265913f");
 	if(!isdefined(e_player.var_37aa2a5b))
 	{

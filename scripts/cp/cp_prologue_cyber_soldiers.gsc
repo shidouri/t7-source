@@ -302,7 +302,7 @@ function function_39b556d(a_ents)
 {
 	var_7b00e29e = a_ents["pallas"];
 	var_7b00e29e actor_camo(1, 0);
-	var_7b00e29e waittill(#"uncloak");
+	var_7b00e29e waittill("uncloak");
 	var_7b00e29e actor_camo(0);
 }
 
@@ -319,9 +319,9 @@ function function_e98e1240(a_ents)
 {
 	var_7b00e29e = a_ents["prometheus"];
 	var_7b00e29e actor_camo(1, 0);
-	var_7b00e29e waittill(#"uncloak");
+	var_7b00e29e waittill("uncloak");
 	var_7b00e29e actor_camo(0);
-	var_7b00e29e waittill(#"cloak");
+	var_7b00e29e waittill("cloak");
 	nd_goal = getnode("nd_taylor_after_intro", "targetname");
 	var_7b00e29e setgoal(nd_goal);
 	var_7b00e29e actor_camo(1, 1);
@@ -342,9 +342,9 @@ function function_4e5acf5e(a_ents)
 {
 	var_7b00e29e = a_ents["theia"];
 	var_7b00e29e actor_camo(1, 0);
-	var_7b00e29e waittill(#"uncloak");
+	var_7b00e29e waittill("uncloak");
 	var_7b00e29e actor_camo(0);
-	var_7b00e29e waittill(#"cloak");
+	var_7b00e29e waittill("cloak");
 	nd_goal = getnode("nd_theia_after_intro", "targetname");
 	var_7b00e29e setgoal(nd_goal);
 	var_7b00e29e actor_camo(1, 1);
@@ -364,7 +364,7 @@ function function_4e5acf5e(a_ents)
 function function_a21df404(a_ents)
 {
 	var_7b00e29e = a_ents["hyperion"];
-	var_7b00e29e waittill(#"cloak");
+	var_7b00e29e waittill("cloak");
 	nd_goal = getnode("nd_hyperion_after_intro", "targetname");
 	var_7b00e29e setgoal(nd_goal);
 	var_7b00e29e actor_camo(1, 1);
@@ -383,7 +383,7 @@ function function_a21df404(a_ents)
 */
 function actor_camo(n_camo_state, b_use_spawn_fx = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	if(n_camo_state == 1)
 	{
 		self playsoundontag("gdt_activecamo_on_npc", "tag_eye");
@@ -432,7 +432,7 @@ function function_e3957b4()
 		level.e_lift linkto(level.var_3dce3f88);
 	}
 	level.var_3dce3f88 movez(220, 12.3);
-	level.var_3dce3f88 waittill(#"movedone");
+	level.var_3dce3f88 waittill("movedone");
 	level.ai_hendricks clearforcedgoal();
 	level.ai_hendricks setgoal(level.ai_hendricks.origin, 1);
 	level thread link_traversals();
@@ -459,7 +459,7 @@ function function_f9753551()
 	level.snd_lift playloopsound("evt_freight_lift_loop");
 	level.var_1dd14818 = 1;
 	level.var_3dce3f88 movez(-354, 0.05);
-	level.var_3dce3f88 waittill(#"movedone");
+	level.var_3dce3f88 waittill("movedone");
 	level.snd_lift stoploopsound(0.1);
 }
 

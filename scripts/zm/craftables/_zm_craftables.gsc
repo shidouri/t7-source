@@ -201,12 +201,12 @@ function anystub_on_spawn_trigger(trigger)
 */
 function craftables_watch_swipes()
 {
-	self endon(#"disconnect");
-	self notify(#"craftables_watch_swipes");
-	self endon(#"craftables_watch_swipes");
+	self endon("disconnect");
+	self notify("craftables_watch_swipes");
+	self endon("craftables_watch_swipes");
 	while(true)
 	{
-		self waittill(#"melee_swipe", zombie);
+		self waittill("melee_swipe", zombie);
 		if(distancesquared(zombie.origin, self.origin) > (zombie.meleeattackdist * zombie.meleeattackdist))
 		{
 			continue;
@@ -583,7 +583,7 @@ function add_craftable_piece(piecestub, tag_name, can_reuse)
 function player_drop_piece_on_downed(slot)
 {
 	self endon("craftable_piece_released" + slot);
-	self waittill(#"bled_out");
+	self waittill("bled_out");
 	onplayerlaststand();
 }
 
@@ -831,12 +831,12 @@ function piecestub_update_prompt(player, slot = self.piece.inventory_slot)
 */
 function piece_unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	slot = self.stub.piece.inventory_slot;
 	while(true)
 	{
-		self waittill(#"trigger", player);
-		self.stub notify(#"trigger", player);
+		self waittill("trigger", player);
+		self.stub notify("trigger", player);
 		if(player != self.parent_player)
 		{
 			continue;
@@ -943,7 +943,7 @@ function player_throw_piece(piece, origin, dir, return_to_spawn, return_time, en
 			altmodel.angles = grenade.angles;
 			altmodel linkto(grenade, "", (0, 0, 0), (0, 0, 0));
 			grenade.altmodel = altmodel;
-			grenade waittill(#"stationary");
+			grenade waittill("stationary");
 			grenade_origin = grenade.origin;
 			grenade_angles = grenade.angles;
 			landed_on = grenade getgroundent();
@@ -990,11 +990,11 @@ function player_throw_piece(piece, origin, dir, return_to_spawn, return_time, en
 */
 function watch_hit_players()
 {
-	self endon(#"death");
-	self endon(#"stationary");
+	self endon("death");
+	self endon("stationary");
 	while(isdefined(self))
 	{
-		self waittill(#"grenade_bounce", pos, normal, ent);
+		self waittill("grenade_bounce", pos, normal, ent);
 		if(isplayer(ent))
 		{
 			ent explosiondamage(25, pos);
@@ -1013,7 +1013,7 @@ function watch_hit_players()
 */
 function piece_wait_and_return(return_time)
 {
-	self endon(#"pickup");
+	self endon("pickup");
 	wait(0.15);
 	if(isdefined(level.exploding_jetgun_fx))
 	{
@@ -1036,7 +1036,7 @@ function piece_wait_and_return(return_time)
 	wait(1);
 	self piece_show();
 	wait(1);
-	self notify(#"respawn");
+	self notify("respawn");
 	self piece_unspawn();
 	self piece_spawn_at();
 }
@@ -1084,7 +1084,7 @@ function player_drop_piece_on_death(slot = 0)
 		origin = piece.start_origin;
 		angles = piece.start_angles;
 	}
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	piece piece_spawn_at(origin, angles);
 	if(isdefined(self))
 	{
@@ -1159,7 +1159,7 @@ function player_take_piece(piecespawn)
 		self clientfield::set_to_player("craftable", piecestub.client_field_state);
 	}
 	piecespawn piece_unspawn();
-	piecespawn notify(#"pickup");
+	piecespawn notify("pickup");
 	if(isdefined(piecestub.is_shared) && piecestub.is_shared)
 	{
 		piecespawn.in_shared_inventory = 1;
@@ -2573,7 +2573,7 @@ function player_finish_craftable(craftablespawn)
 {
 	craftablespawn.crafted = 1;
 	craftablespawn.stub.crafted = 1;
-	craftablespawn notify(#"crafted", self);
+	craftablespawn notify("crafted", self);
 	level.craftables_crafted[craftablespawn.craftable_name] = 1;
 	level notify(craftablespawn.craftable_name + "_crafted", self);
 }
@@ -2748,7 +2748,7 @@ function craftablestub_update_prompt(player, unitrigger, slot = self.craftablest
 */
 function choose_open_craftable(player)
 {
-	self endon(#"kill_choose_open_craftable");
+	self endon("kill_choose_open_craftable");
 	n_playernum = player getentitynumber();
 	self.b_open_craftable_checking_input = 1;
 	b_got_input = 1;
@@ -2839,7 +2839,7 @@ function open_craftablestub_update_prompt(player, slot = 0)
 		}
 		if(self.a_uts_open_craftables_available.size < 2)
 		{
-			self notify(#"kill_choose_open_craftable");
+			self notify("kill_choose_open_craftable");
 			self.b_open_craftable_checking_input = 0;
 			n_entitynum = player getentitynumber();
 			if(isdefined(self.opencraftablehudelem) && isdefined(self.opencraftablehudelem[n_entitynum]))
@@ -2971,9 +2971,9 @@ function player_continue_crafting(craftablespawn, slot)
 function player_progress_bar_update(start_time, craft_time)
 {
 	self endon(#"entering_last_stand");
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"craftable_progress_end");
+	self endon("death");
+	self endon("disconnect");
+	self endon("craftable_progress_end");
 	while(isdefined(self) && (gettime() - start_time) < craft_time)
 	{
 		progress = (gettime() - start_time) / craft_time;
@@ -3070,7 +3070,7 @@ function craftable_use_hold_think_internal(player, slot = self.stub.craftablespa
 		{
 			wait(0.05);
 		}
-		player notify(#"craftable_progress_end");
+		player notify("craftable_progress_end");
 		player zm_weapons::switch_back_primary_weapon(orgweapon);
 		player takeweapon(build_weapon);
 		if(isdefined(player.is_drinking) && player.is_drinking)
@@ -3089,7 +3089,7 @@ function craftable_use_hold_think_internal(player, slot = self.stub.craftablespa
 		{
 			player finish_crafting_shared_piece();
 		}
-		self notify(#"craft_succeed");
+		self notify("craft_succeed");
 	}
 	else
 	{
@@ -3106,7 +3106,7 @@ function craftable_use_hold_think_internal(player, slot = self.stub.craftablespa
 		{
 			player finish_crafting_shared_piece();
 		}
-		self notify(#"craft_failed");
+		self notify("craft_failed");
 	}
 }
 
@@ -3121,9 +3121,9 @@ function craftable_use_hold_think_internal(player, slot = self.stub.craftablespa
 */
 function craftable_play_craft_fx(player)
 {
-	self endon(#"kill_trigger");
-	self endon(#"craft_succeed");
-	self endon(#"craft_failed");
+	self endon("kill_trigger");
+	self endon("craft_succeed");
+	self endon("craft_failed");
 	while(true)
 	{
 		playfx(level._effect["building_dust"], player getplayercamerapos(), player.angles);
@@ -3163,13 +3163,13 @@ function craftable_use_hold_think(player)
 */
 function craftable_place_think()
 {
-	self notify(#"craftable_place_think");
-	self endon(#"craftable_place_think");
-	self endon(#"kill_trigger");
+	self notify("craftable_place_think");
+	self endon("craftable_place_think");
+	self endon("kill_trigger");
 	player_crafted = undefined;
 	while(!(isdefined(self.stub.crafted) && self.stub.crafted))
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isdefined(level.custom_craftable_validation))
 		{
 			valid = self [[level.custom_craftable_validation]](player);
@@ -3275,7 +3275,7 @@ function craftable_place_think()
 		}
 		while(self.stub.persistent == 2)
 		{
-			self waittill(#"trigger", player);
+			self waittill("trigger", player);
 			if(isdefined(self.stub.bought) && self.stub.bought == 1)
 			{
 				continue;
@@ -3360,7 +3360,7 @@ function craftable_place_think()
 		}
 		while(self.stub.persistent == 1)
 		{
-			self waittill(#"trigger", player);
+			self waittill("trigger", player);
 			if(isdefined(player.screecher_weapon))
 			{
 				continue;
@@ -3467,7 +3467,7 @@ function model_fly_away(unitrigger)
 		direction = (direction[0] * -1, direction[1], 0);
 	}
 	self vibrate(direction, 10, 0.5, 4);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self ghost();
 	playfx(level._effect["poltergeist"], self.origin);
 }
@@ -3524,7 +3524,7 @@ function stub_uncraft_craftable(stub, return_pieces, origin, angles, use_random_
 		craftable = stub.craftablespawn;
 		craftable.crafted = 0;
 		craftable.stub.crafted = 0;
-		craftable notify(#"uncrafted");
+		craftable notify("uncrafted");
 		level.craftables_crafted[craftable.craftable_name] = 0;
 		level notify(craftable.craftable_name + "_uncrafted");
 		for(i = 0; i < craftable.a_piecespawns.size; i++)
@@ -3573,7 +3573,7 @@ function player_explode_craftable(equipname, origin, speed, return_to_spawn, ret
 		craftable = stub.craftablespawn;
 		craftable.crafted = 0;
 		craftable.stub.crafted = 0;
-		craftable notify(#"uncrafted");
+		craftable notify("uncrafted");
 		level.craftables_crafted[craftable.craftable_name] = 0;
 		level notify(craftable.craftable_name + "_uncrafted");
 		for(i = 0; i < craftable.a_piecespawns.size; i++)
@@ -3923,7 +3923,7 @@ function onuseplantobjectuts(player)
 	{
 		self [[self.craftablestub.onuseplantobject]](player);
 	}
-	player notify(#"bomb_planted");
+	player notify("bomb_planted");
 }
 
 /*
@@ -4016,8 +4016,8 @@ function get_craftable_hint(craftable_name)
 */
 function delete_on_disconnect(craftable, self_notify, skip_delete)
 {
-	craftable endon(#"death");
-	self waittill(#"disconnect");
+	craftable endon("death");
+	self waittill("disconnect");
 	if(isdefined(self_notify))
 	{
 		self notify(self_notify);
@@ -4324,7 +4324,7 @@ function track_craftables_planted(equipment)
 */
 function placed_craftable_vo_timer()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.craftable_timer = 1;
 	wait(60);
 	self.craftable_timer = 0;
@@ -4341,7 +4341,7 @@ function placed_craftable_vo_timer()
 */
 function craftable_pickedup_timer()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.craftable_pickedup_timer = 1;
 	wait(60);
 	self.craftable_pickedup_timer = 0;
@@ -4674,8 +4674,8 @@ function get_craftable_piece_model(str_craftable, str_piece)
 */
 function player_show_craftable_parts_ui(str_crafted_clientuimodel, str_widget_clientuimodel, b_is_crafted)
 {
-	self notify(#"player_show_craftable_parts_ui");
-	self endon(#"player_show_craftable_parts_ui");
+	self notify("player_show_craftable_parts_ui");
+	self endon("player_show_craftable_parts_ui");
 	if(b_is_crafted)
 	{
 		if(isdefined(str_crafted_clientuimodel))
@@ -4702,7 +4702,7 @@ function player_show_craftable_parts_ui(str_crafted_clientuimodel, str_widget_cl
 */
 function player_hide_craftable_parts_ui_after_duration(str_widget_clientuimodel, n_show_ui_duration)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread clientfield::set_player_uimodel(str_widget_clientuimodel, 1);
 	wait(n_show_ui_duration);
 	self thread clientfield::set_player_uimodel(str_widget_clientuimodel, 0);

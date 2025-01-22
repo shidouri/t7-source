@@ -490,16 +490,16 @@ function function_7eea24df()
 	chest = level.chests[level.chest_index];
 	while(level.chest_accessed < level.chest_min_move_usage)
 	{
-		chest waittill(#"chest_accessed");
+		chest waittill("chest_accessed");
 	}
 	chest triggerenable(0);
 	chest.chest_lid zm_magicbox::treasure_chest_lid_open();
 	chest thread zm_magicbox::treasure_chest_move();
 	wait(0.5);
-	level notify(#"weapon_fly_away_start");
+	level notify("weapon_fly_away_start");
 	wait(2);
 	chest notify(#"box_moving");
-	level notify(#"weapon_fly_away_end");
+	level notify("weapon_fly_away_end");
 	level.chest_min_move_usage = undefined;
 }
 
@@ -629,7 +629,7 @@ function electric_switch()
 	trig sethintstring(&"ZOMBIE_ELECTRIC_SWITCH");
 	trig setcursorhint("HINT_NOICON");
 	level thread wait_for_power();
-	trig waittill(#"trigger", user);
+	trig waittill("trigger", user);
 	playsoundatposition("zmb_poweron_front", (0, 0, 0));
 }
 
@@ -766,7 +766,7 @@ function function_c6807eeb()
 	while(true)
 	{
 		self rotateyaw(360, 20);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -955,7 +955,7 @@ function cosmodrome_offhand_weapon_overrride()
 */
 function offhand_weapon_give_override(w_current_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_tactical_grenade(w_current_weapon) && isdefined(self zm_utility::get_player_tactical_grenade()) && !self zm_utility::is_player_tactical_grenade(w_current_weapon))
 	{
 		self setweaponammoclip(self zm_utility::get_player_tactical_grenade(), 0);
@@ -1537,7 +1537,7 @@ function function_9d5d7bb3(choose)
 function function_a15d765e(spot, perk_attack_anim)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		self notify(#"hash_cb63b091");
 		self endon(#"hash_cb63b091");
 		if(isdefined(spot))

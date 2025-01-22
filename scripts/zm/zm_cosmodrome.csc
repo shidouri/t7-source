@@ -125,7 +125,7 @@ function function_82a94b2c(localclientnum)
 */
 function function_85c8e13c(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		var_f4570d42 = randomint(5);
@@ -491,12 +491,12 @@ function function_d87a7dcc()
 		{
 			if(var_bd7ba30)
 			{
-				level notify(#"power_controlled_light");
+				level notify("power_controlled_light");
 			}
 			level util::waittill_any("power_on", "pwr", "ZPO");
 		}
 		level._power_on = 1;
-		level notify(#"power_controlled_light");
+		level notify("power_controlled_light");
 		players = getlocalplayers();
 		for(i = 0; i < players.size; i++)
 		{
@@ -558,7 +558,7 @@ function radar_dish_rotate()
 	while(true)
 	{
 		self rotateyaw(360, 10);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -601,7 +601,7 @@ function perk_wire_fx_client(client_num, done_notify)
 			break;
 		}
 	}
-	level notify(#"spark_done");
+	level notify("spark_done");
 	mover delete();
 	level notify(done_notify);
 }
@@ -617,7 +617,7 @@ function perk_wire_fx_client(client_num, done_notify)
 */
 function tele_spark_audio_mover(fake_ent)
 {
-	level endon(#"spark_done");
+	level endon("spark_done");
 	while(true)
 	{
 		wait(0.05);
@@ -1090,8 +1090,8 @@ function lander_engine_fx(localclientnum, oldval, newval, bnewent, binitialsnap,
 function start_ground_sounds()
 {
 	self endon(#"entityshutdown");
-	level endon(#"save_restore");
-	self notify(#"start_ground_sounds");
+	level endon("save_restore");
+	self notify("start_ground_sounds");
 	self.stop_ground_sounds = 0;
 	trace = undefined;
 	self.ground_sound_ent = spawn(0, (0, 0, 0), "script_origin");
@@ -1140,7 +1140,7 @@ function start_ground_sounds()
 function function_fb377b79()
 {
 	self endon(#"entityshutdown");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	self delete();
 }
 
@@ -1155,7 +1155,7 @@ function function_fb377b79()
 */
 function end_ground_sounds()
 {
-	self endon(#"start_ground_sounds");
+	self endon("start_ground_sounds");
 	self.stop_ground_sounds = 1;
 	wait(3);
 	if(isdefined(self) && isdefined(self.ground_sound_ent))
@@ -1612,8 +1612,8 @@ function update_rocket_display(on_model)
 function lander_rumble_and_quake(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	player = getlocalplayers()[localclientnum];
-	player endon(#"death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("disconnect");
 	if(isspectating(localclientnum, 0))
 	{
 		return;
@@ -1633,7 +1633,7 @@ function lander_rumble_and_quake(localclientnum, oldval, newval, bnewent, biniti
 		{
 			player earthquake(randomfloatrange(0.1, 0.2), randomfloatrange(0.2, 0.3), self.origin, 150);
 		}
-		level notify(#"stop_lander_rumble");
+		level notify("stop_lander_rumble");
 	}
 }
 
@@ -1648,10 +1648,10 @@ function lander_rumble_and_quake(localclientnum, oldval, newval, bnewent, biniti
 */
 function do_lander_rumble_quake(localclientnum)
 {
-	level endon(#"stop_lander_rumble");
+	level endon("stop_lander_rumble");
 	player = getlocalplayers()[localclientnum];
 	player endon(#"entityshutdown");
-	player endon(#"disconnect");
+	player endon("disconnect");
 	while(true)
 	{
 		if(!isdefined(self.origin) || !isdefined(player.origin))
@@ -1705,7 +1705,7 @@ function centrifuge_rumble_control(local_client_num, oldval, newval, bnewent, bi
 	}
 	else
 	{
-		level notify(#"centrifuge_rumble_done");
+		level notify("centrifuge_rumble_done");
 	}
 }
 
@@ -1720,9 +1720,9 @@ function centrifuge_rumble_control(local_client_num, oldval, newval, bnewent, bi
 */
 function centrifuge_rumble_when_close(ent_centrifuge, int_client_num)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"centrifuge_rumble_done");
+	self endon("death");
+	self endon("disconnect");
+	level endon("centrifuge_rumble_done");
 	rumble_range = 360000;
 	centrifuge_rumble = "damage_heavy";
 	client_num = undefined;
@@ -1758,8 +1758,8 @@ function centrifuge_rumble_when_close(ent_centrifuge, int_client_num)
 */
 function centrifuge_clean_rumble(int_client_num)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self stoprumble(int_client_num, "damage_heavy");
 }
 
@@ -1809,7 +1809,7 @@ function centrifuge_warning_lights_init(local_client_num, oldval, newval, bnewen
 */
 function monkey_lander_fx_on()
 {
-	self endon(#"switch_off_monkey_lander_fx");
+	self endon("switch_off_monkey_lander_fx");
 	playsound(0, "zmb_ape_intro_whoosh", self.origin);
 	wait(2.5);
 	if(isdefined(self))
@@ -2024,8 +2024,8 @@ function centrifuge_warning_lights_off(client_num)
 */
 function fog_apply(str_fog, int_priority)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self._zombie_fog_list))
 	{
 		self._zombie_fog_list = [];
@@ -2072,8 +2072,8 @@ function fog_apply(str_fog, int_priority)
 */
 function fog_remove(str_fog)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(str_fog))
 	{
 		return;

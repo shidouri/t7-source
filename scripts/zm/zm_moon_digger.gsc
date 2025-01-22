@@ -188,7 +188,7 @@ function function_c497263d()
 */
 function digger_round_logic()
 {
-	level endon(#"digger_logic_stop");
+	level endon("digger_logic_stop");
 	level flag::wait_till("power_on");
 	wait(30);
 	last_active_round = level.round_number;
@@ -469,8 +469,8 @@ function digger_think_move()
 */
 function wait_for_digger_hack_digging(arm, blade_center, tracks)
 {
-	self endon(#"stop_monitor");
-	self waittill(#"digger_arm_raised");
+	self endon("stop_monitor");
+	self waittill("digger_arm_raised");
 	exploder::delete_exploder_on_clients(self.var_575a869f);
 	blade_center linkto(arm);
 	arm linkto(self);
@@ -492,15 +492,15 @@ function wait_for_digger_hack_digging(arm, blade_center, tracks)
 */
 function wait_for_digger_hack_moving(arm, blade_center, tracks)
 {
-	self endon(#"arm_lower");
+	self endon("arm_lower");
 	while(true)
 	{
-		level waittill(#"digger_hacked", digger_name);
+		level waittill("digger_hacked", digger_name);
 		if(digger_name == self.digger_name)
 		{
 			level flag::clear(self.hacked_flag);
 			level flag::clear(self.start_flag);
-			self notify(#"stop_monitor");
+			self notify("stop_monitor");
 			self thread digger_think_move();
 			break;
 		}
@@ -524,7 +524,7 @@ function digger_arm_breach_logic(arm, blade_center, tracks)
 	{
 		return;
 	}
-	level notify(#"digger_arm_smash", self.digger_name, self.zones);
+	level notify("digger_arm_smash", self.digger_name, self.zones);
 	switch(self.digger_name)
 	{
 		case "hangar":
@@ -576,7 +576,7 @@ function digger_arm_breach_logic(arm, blade_center, tracks)
 	{
 		level flag::clear("both_tunnels_blocked");
 	}
-	arm waittill(#"rotatedone");
+	arm waittill("rotatedone");
 	arm playsound("evt_dig_arm_stop");
 	blade_center unlink();
 	switch(self.digger_name)
@@ -624,7 +624,7 @@ function digger_arm_logic(arm, blade_center, tracks)
 	{
 		if(!(isdefined(self.arm_lowered) && self.arm_lowered))
 		{
-			self notify(#"arm_lower");
+			self notify("arm_lower");
 			self.arm_lowered = 1;
 			self.arm_moving = 1;
 			arm unlink();
@@ -655,7 +655,7 @@ function digger_arm_logic(arm, blade_center, tracks)
 		arm playsound("evt_dig_arm_move");
 		arm rotatepitch(self.up_angle, level.arm_move_speed, level.arm_move_speed / 4, level.arm_move_speed / 4);
 		wait(2);
-		level notify(#"digger_arm_lift", self.digger_name);
+		level notify("digger_arm_lift", self.digger_name);
 		switch(self.digger_name)
 		{
 			case "hangar":
@@ -683,11 +683,11 @@ function digger_arm_logic(arm, blade_center, tracks)
 				break;
 			}
 		}
-		arm waittill(#"rotatedone");
+		arm waittill("rotatedone");
 		arm linkto(self);
 		arm playsound("evt_dig_arm_stop");
 		self.arm_moving = undefined;
-		self notify(#"digger_arm_raised");
+		self notify("digger_arm_raised");
 	}
 }
 
@@ -830,13 +830,13 @@ function digger_hack_func(hacker)
 	level notify(self.digger_name + "_vox_timer_stop");
 	while(true)
 	{
-		level waittill(#"digger_reached_end", digger_name);
+		level waittill("digger_reached_end", digger_name);
 		if(digger_name == self.digger_name)
 		{
 			break;
 		}
 	}
-	level notify(#"digger_hacked", self.digger_name);
+	level notify("digger_hacked", self.digger_name);
 }
 
 /*
@@ -885,7 +885,7 @@ function digger_think_biodome(digger_name)
 {
 	while(true)
 	{
-		level waittill(#"digger_arm_smash", name, zones);
+		level waittill("digger_arm_smash", name, zones);
 		if(name == digger_name)
 		{
 			level flag::set("biodome_breached");
@@ -938,11 +938,11 @@ function digger_think_blocker(blocker, digger_name, dmg_trig)
 	level thread digger_think_blocker_remove(blocker, digger_name, dmg_trig);
 	while(true)
 	{
-		level waittill(#"digger_arm_smash", name, zones);
+		level waittill("digger_arm_smash", name, zones);
 		if(name == digger_name)
 		{
 			blocker movez(-512, 0.05, 0.05);
-			blocker waittill(#"movedone");
+			blocker waittill("movedone");
 			blocker disconnectpaths();
 			blocker thread kill_anyone_touching_blocker();
 			dmg_trig triggerenable(1);
@@ -973,7 +973,7 @@ function digger_damage_player()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!zombie_utility::is_player_valid(player) && (!(isdefined(player._pushed) && player._pushed)))
 		{
 			continue;
@@ -1000,7 +1000,7 @@ function digger_damage_player()
 */
 function digger_push_player(trig, player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player._pushed = 1;
 	eye_org = trig.origin;
 	foot_org = trig.origin;
@@ -1036,7 +1036,7 @@ function digger_push_player(trig, player)
 */
 function kill_anyone_touching_blocker()
 {
-	self endon(#"stop_check");
+	self endon("stop_check");
 	while(true)
 	{
 		if(isdefined(self.trigger_off))
@@ -1093,7 +1093,7 @@ function player_digger_instant_kill()
 */
 function zombie_ragdoll_death()
 {
-	self endon(#"death");
+	self endon("death");
 	fwd = anglestoforward(zm_utility::flat_angle(self.angles));
 	my_velocity = vectorscale(fwd, 200);
 	my_velocity_with_lift = (my_velocity[0], my_velocity[1], 20);
@@ -1115,13 +1115,13 @@ function digger_think_blocker_remove(blocker, digger_name, dmg_trig)
 {
 	while(true)
 	{
-		level waittill(#"digger_arm_lift", name);
+		level waittill("digger_arm_lift", name);
 		if(name == digger_name)
 		{
 			blocker connectpaths();
 			blocker movez(512, 0.05, 0.05);
 			dmg_trig triggerenable(0);
-			blocker notify(#"stop_check");
+			blocker notify("stop_check");
 		}
 	}
 }
@@ -1137,7 +1137,7 @@ function digger_think_blocker_remove(blocker, digger_name, dmg_trig)
 */
 function diggers_think_no_mans_land()
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	diggers = getentarray("digger_body", "targetname");
 	while(true)
 	{
@@ -1276,7 +1276,7 @@ function play_timer_vox(digger_name)
 */
 function get_correct_times(digger)
 {
-	level endon(#"digger_arm_smash");
+	level endon("digger_arm_smash");
 	for(i = 0; i < 500; i++)
 	{
 		iprintlnbold(i);
@@ -1297,7 +1297,7 @@ function waitfor_smash()
 {
 	while(true)
 	{
-		level waittill(#"digger_arm_smash", digger, zones);
+		level waittill("digger_arm_smash", digger, zones);
 		level thread play_delayed_breach_vox(digger);
 		level thread switch_ambient_packages(digger);
 		level thread player_breach_vox(zones);
@@ -1777,8 +1777,8 @@ function digger_follow_path(body, reverse, arm)
 	exploder::delete_exploder_on_clients(body.var_3d838929);
 	exploder::delete_exploder_on_clients(body.var_ebcc585f);
 	level flag::clear("digger_moving");
-	level notify(#"digger_reached_end", body.digger_name);
-	self notify(#"path_end");
+	level notify("digger_reached_end", body.digger_name);
+	self notify("path_end");
 }
 
 /*

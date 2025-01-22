@@ -94,7 +94,7 @@ function teleporter_function(name)
 					teleporter_ending(teleporter, 1);
 					teleport_state = "Waiting for Players";
 					util::clientnotify("cafx");
-					teleporter notify(#"stop_exploder");
+					teleporter notify("stop_exploder");
 				}
 				else
 				{
@@ -115,7 +115,7 @@ function teleporter_function(name)
 						}
 						teleport_state = "Recharging";
 						teleport_time = gettime() + 5000;
-						teleporter notify(#"stop_exploder");
+						teleporter notify("stop_exploder");
 						if(name == "generator_teleporter")
 						{
 							if(isdefined(level._dte_done) && level._dte_done)
@@ -198,7 +198,7 @@ function function_6454df1b()
 	var_c35f7190 = getent("t_stream_hint_nml_player", "targetname");
 	while(true)
 	{
-		var_c35f7190 waittill(#"trigger", e_player);
+		var_c35f7190 waittill("trigger", e_player);
 		if(!(isdefined(e_player.var_a31e4590) && e_player.var_a31e4590))
 		{
 			e_player.var_a31e4590 = 1;
@@ -218,7 +218,7 @@ function function_6454df1b()
 */
 function function_7305cc9b(var_34ef544f)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_f657052b = getent("generator_teleporter", "targetname");
 	var_5021a61d = get_teleporter_target_positions(var_f657052b, "generator_teleporter");
 	self zm_utility::create_streamer_hint(var_5021a61d[0].origin, var_5021a61d[0].angles, 1);
@@ -396,8 +396,8 @@ function teleport_player_to_target(player, target_positions)
 */
 function turn_override_off()
 {
-	level notify(#"no_multiple_overrides");
-	level endon(#"no_multiple_overrides");
+	level notify("no_multiple_overrides");
+	level endon("no_multiple_overrides");
 	wait(15);
 	level.skit_vox_override = 0;
 }
@@ -489,7 +489,7 @@ function function_2f6b6897()
 		}
 	}
 	exploder::exploder(str_exploder_name);
-	self waittill(#"stop_exploder");
+	self waittill("stop_exploder");
 	exploder::stop_exploder(str_exploder_name);
 }
 
@@ -604,13 +604,13 @@ function teleporter_ending(teleporter_ent, was_aborted)
 			else if(teleporter_ent.script_noteworthy == "exit_no_mans_land")
 			{
 				level flag::clear("enter_nml");
-				level notify(#"stop_ramp");
+				level notify("stop_ramp");
 				level flag::clear("start_supersprint");
 				level.on_the_moon = 1;
 				level.ignore_distance_tracking = 1;
 				if(!(isdefined(level.intermission) && level.intermission) && isdefined(level.ever_been_on_the_moon) && !level.ever_been_on_the_moon)
 				{
-					level notify(#"track_nml_time");
+					level notify("track_nml_time");
 					level thread display_time_survived();
 					level.ever_been_on_the_moon = 1;
 				}
@@ -957,7 +957,7 @@ function teleporter_exit_nml_gate_move(open_it)
 */
 function play_stopmoving_sounds()
 {
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self stoploopsound(0.5);
 	self playsound("amb_teleporter_gate_stop");
 }

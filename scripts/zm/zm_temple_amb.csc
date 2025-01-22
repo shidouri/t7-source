@@ -39,7 +39,7 @@ function main()
 */
 function function_28416c1e()
 {
-	level waittill(#"drb");
+	level waittill("drb");
 	level notify(#"hash_91064368");
 }
 
@@ -175,7 +175,7 @@ function function_762642a6()
 */
 function wait_for_game_end()
 {
-	level waittill(#"zesn");
+	level waittill("zesn");
 	audio::snd_set_snapshot("zmb_temple_egg");
 }
 
@@ -206,7 +206,7 @@ function function_60a32834()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			level notify(#"hash_51d7bc7c", self.script_sound);

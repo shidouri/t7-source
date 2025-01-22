@@ -495,7 +495,7 @@ function function_533186ee()
 */
 function wait_for_revive_machine_to_be_turned_on()
 {
-	level waittill(#"specialty_quickrevive_power_on");
+	level waittill("specialty_quickrevive_power_on");
 	if(!level flag::exists("solo_revive"))
 	{
 		level flag::init("solo_revive");
@@ -628,7 +628,7 @@ function register_clientfields()
 */
 function player_rain_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self.b_rain_on = 1;
@@ -666,7 +666,7 @@ function monitor_outdoor_rain_doorways()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(isdefined(e_player.b_rain_on) && e_player.b_rain_on)
 		{
 			e_player thread pause_rain_overlay(self);
@@ -685,7 +685,7 @@ function monitor_outdoor_rain_doorways()
 */
 function pause_rain_overlay(e_trig)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.b_rain_on = 0;
 	self clientfield::set_to_player("fullscreen_rain_fx", 0);
 	util::wait_till_not_touching(e_trig, self);
@@ -884,7 +884,7 @@ function offhand_weapon_overrride()
 */
 function offhand_weapon_give_override(str_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_tactical_grenade(str_weapon) && isdefined(self zm_utility::get_player_tactical_grenade()) && !self zm_utility::is_player_tactical_grenade(str_weapon))
 	{
 		self setweaponammoclip(self zm_utility::get_player_tactical_grenade(), 0);
@@ -924,7 +924,7 @@ function activate_beast_platforms(platformname)
 	{
 		beast_connect_platforms[i] hide();
 	}
-	self waittill(#"trigger");
+	self waittill("trigger");
 	for(i = 0; i < beast_connect_platforms.size; i++)
 	{
 		beast_connect_platforms[i] show();
@@ -1367,7 +1367,7 @@ function givecustomcharacters()
 */
 function set_exert_id()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	self zm_audio::setexertvoice(self.characterindex + 1);
@@ -2024,13 +2024,13 @@ function function_8535c602()
 */
 function function_e33614b9()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::wait_network_frame();
 	while(true)
 	{
 		if(isdefined(self) && isplayer(self))
 		{
-			self notify(#"lightning_strike");
+			self notify("lightning_strike");
 			self clientfield::increment_to_player("devgui_lightning_test", 1);
 		}
 		wait(12);
@@ -2062,8 +2062,8 @@ function function_c9e2531c()
 */
 function function_5abd3b41(n_index)
 {
-	level notify(#"devgui_lightning_test");
-	level endon(#"devgui_lightning_test");
+	level notify("devgui_lightning_test");
+	level endon("devgui_lightning_test");
 	player = getplayers()[0];
 	while(true)
 	{
@@ -2097,8 +2097,8 @@ function function_c876231d()
 */
 function zod_ghost_test(n_index)
 {
-	level notify(#"zod_ghost_test");
-	level endon(#"zod_ghost_test");
+	level notify("zod_ghost_test");
+	level endon("zod_ghost_test");
 	player = getplayers()[0];
 	var_8cfd368 = 1;
 	while(true)
@@ -2343,7 +2343,7 @@ function function_30018788()
 			{
 				level.n_next_raps_round = 15;
 			}
-			level notify(#"raps_round_ending");
+			level notify("raps_round_ending");
 			zm_devgui::zombie_devgui_goto_round(level.n_next_raps_round);
 		}
 	#/
@@ -2639,7 +2639,7 @@ function function_eda7de97()
 */
 function function_631e737d()
 {
-	level waittill(#"raps_round_ending");
+	level waittill("raps_round_ending");
 	level.zm_mixed_wasp_raps_spawning = &function_243d0df6;
 	level.zm_ai_round_over = &function_68990a1c;
 }
@@ -2868,7 +2868,7 @@ function function_48fda59a()
 					{
 						a_zombies[0] zombie_utility::set_zombie_run_cycle("sprint");
 						level waittill(#"between_round_over");
-						level waittill(#"start_of_round");
+						level waittill("start_of_round");
 						wait(10);
 					}
 				}
@@ -2914,8 +2914,8 @@ function function_f7d81bd5()
 {
 	self notify(#"hash_f7d81bd5");
 	self endon(#"hash_f7d81bd5");
-	self endon(#"disconnect");
-	level endon(#"stop_suicide_trigger");
+	self endon("disconnect");
+	level endon("stop_suicide_trigger");
 	e_volume = getent("into_disable_prone", "targetname");
 	var_d8d76cd3 = 0;
 	while(!(isdefined(level.intermission) && level.intermission))
@@ -2982,7 +2982,7 @@ function function_aab1d0bd()
 {
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(level.round_number < 12)
 		{
 			setdvar("r_maxSpotShadowUpdates", "12");
@@ -3020,8 +3020,8 @@ function function_a988e9bb()
 */
 function player_noire_ee()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	s_start = struct::get("s_noire_ee_start", "targetname");
 	s_end = struct::get("s_noire_ee_end", "targetname");
 	var_3acf33ec = 0;
@@ -3162,7 +3162,7 @@ function function_f88e4c70()
 */
 function function_35c958af()
 {
-	self endon(#"death");
+	self endon("death");
 	var_f1af2991 = 0;
 	while(true)
 	{
@@ -3209,7 +3209,7 @@ function function_4df9f4ad()
 	level endon(#"hash_a3369c1f");
 	while(true)
 	{
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_end");
 		setdvar("doublejump_enabled", 1);
 		setdvar("playerEnergy_enabled", 1);
 		setdvar("wallrun_enabled", 1);

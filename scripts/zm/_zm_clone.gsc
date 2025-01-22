@@ -84,7 +84,7 @@ function clone_damage_func(einflictor, eattacker, idamage, idflags, smeansofdeat
 	idamage = 0;
 	if(weapon.isballisticknife && zm_weapons::is_weapon_upgraded(weapon))
 	{
-		self notify(#"player_revived", eattacker);
+		self notify("player_revived", eattacker);
 	}
 	return idamage;
 }

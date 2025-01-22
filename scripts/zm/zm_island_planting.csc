@@ -214,7 +214,7 @@ function plant_watered(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function function_2179698b(localclientnum)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"hash_15110cf6");
 	self.var_5257f4ba = playfx(localclientnum, level._effect["plant_watered_startup"], self.origin + vectorscale((0, 0, 1), 8));
 	wait(2);
@@ -259,7 +259,7 @@ function function_b8ba462e(localclientnum, b_on = 1)
 	self endon(#"entityshutdown");
 	self notify(#"hash_67a9e087");
 	self endon(#"hash_67a9e087");
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	n_start_time = gettime();
 	n_end_time = n_start_time + (2 * 1000);
 	b_is_updating = 1;

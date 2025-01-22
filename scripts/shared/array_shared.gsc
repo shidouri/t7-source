@@ -194,7 +194,7 @@ function delete_all(&array, is_struct)
 			}
 			if(isdefined(ent.__vtable))
 			{
-				ent notify(#"death");
+				ent notify("death");
 				ent = undefined;
 				continue;
 			}
@@ -521,7 +521,7 @@ function wait_till(&array, notifies, n_timeout)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	s_tracker = spawnstruct();
@@ -535,7 +535,7 @@ function wait_till(&array, notifies, n_timeout)
 	}
 	if(s_tracker._wait_count > 0)
 	{
-		s_tracker waittill(#"waitlogic_finished");
+		s_tracker waittill("waitlogic_finished");
 	}
 }
 
@@ -553,7 +553,7 @@ function wait_till_match(&array, str_notify, str_match, n_timeout)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	s_tracker = spawnstruct();
@@ -569,7 +569,7 @@ function wait_till_match(&array, str_notify, str_match, n_timeout)
 	}
 	if(s_tracker._array_wait_count > 0)
 	{
-		s_tracker waittill(#"array_wait");
+		s_tracker waittill("array_wait");
 	}
 }
 
@@ -584,7 +584,7 @@ function wait_till_match(&array, str_notify, str_match, n_timeout)
 */
 function _waitlogic_match(s_tracker, str_notify, str_match)
 {
-	self endon(#"death");
+	self endon("death");
 	self waittillmatch(str_notify);
 	update_waitlogic_tracker(s_tracker);
 }
@@ -600,7 +600,7 @@ function _waitlogic_match(s_tracker, str_notify, str_match)
 */
 function _waitlogic_death(s_tracker)
 {
-	self waittill(#"death");
+	self waittill("death");
 	update_waitlogic_tracker(s_tracker);
 }
 
@@ -618,7 +618,7 @@ function update_waitlogic_tracker(s_tracker)
 	s_tracker._array_wait_count--;
 	if(s_tracker._array_wait_count == 0)
 	{
-		s_tracker notify(#"array_wait");
+		s_tracker notify("array_wait");
 	}
 }
 
@@ -779,7 +779,7 @@ function flagsys_wait_clear(&array, str_flag, n_timeout)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	do
@@ -812,7 +812,7 @@ function wait_any(array, msg, n_timeout)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	s_tracker = spawnstruct();
@@ -823,7 +823,7 @@ function wait_any(array, msg, n_timeout)
 			level thread util::timeout(n_timeout, &_waitlogic2, s_tracker, ent, msg);
 		}
 	}
-	s_tracker endon(#"array_wait");
+	s_tracker endon("array_wait");
 	wait_till(array, "death");
 }
 
@@ -838,13 +838,13 @@ function wait_any(array, msg, n_timeout)
 */
 function _waitlogic2(s_tracker, ent, msg)
 {
-	s_tracker endon(#"array_wait");
+	s_tracker endon("array_wait");
 	if(msg != "death")
 	{
-		ent endon(#"death");
+		ent endon("death");
 	}
 	ent util::waittill_any_array(msg);
-	s_tracker notify(#"array_wait");
+	s_tracker notify("array_wait");
 }
 
 /*
@@ -858,7 +858,7 @@ function _waitlogic2(s_tracker, ent, msg)
 */
 function flag_wait_any(array, str_flag)
 {
-	self endon(#"death");
+	self endon("death");
 	foreach(ent in array)
 	{
 		if(ent flag::get(str_flag))

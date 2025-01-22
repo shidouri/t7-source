@@ -1525,7 +1525,7 @@ function zombieidgundeathupdate(entity, mocompanim, mocompanimblendouttime, moco
 			entity.takedamage = 1;
 			entity.aioverridedamage = undefined;
 			entity.magic_bullet_shield = 0;
-			level notify(#"interdimensional_kill", entity);
+			level notify("interdimensional_kill", entity);
 			if(isdefined(entity.interdimensional_gun_weapon) && isdefined(entity.interdimensional_gun_attacker))
 			{
 				entity kill(entity.origin, entity.interdimensional_gun_attacker, entity.interdimensional_gun_attacker, entity.interdimensional_gun_weapon);

@@ -240,7 +240,7 @@ function magicbox_glow_callback(localclientnum, newval, fx)
 function glow_obj_demo_jump_listener(localclientnum)
 {
 	self endon(#"end_demo_jump_listener");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	if(isdefined(self))
 	{
 		self glow_obj_cleanup(localclientnum);

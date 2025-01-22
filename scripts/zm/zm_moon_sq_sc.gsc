@@ -123,7 +123,7 @@ function wall_move()
 	scene::play("p7_fxanim_zmhd_moon_pyramid_bundle");
 	level clientfield::set("sam_init", 1);
 	wait(0.1);
-	level notify(#"walls_down");
+	level notify("walls_down");
 	level clientfield::set("sam_end_rumble", 0);
 }
 
@@ -142,7 +142,7 @@ function stage_logic()
 	level thread wall_move();
 	level thread zm_audio::sndmusicsystem_playstate("samantha_reveal");
 	level thread sam_reveal_richtofen_vox();
-	level waittill(#"walls_down");
+	level waittill("walls_down");
 	wait(1);
 	players = getplayers();
 	array::thread_all(players, &room_sweeper);
@@ -189,7 +189,7 @@ function room_sweeper()
 	}
 	level thread zm_powerup_weapon_minigun::minigun_weapon_powerup(self, 90);
 	level thread dempsey_gersh_vox();
-	level notify(#"moon_sidequest_reveal_achieved");
+	level notify("moon_sidequest_reveal_achieved");
 }
 
 /*
@@ -237,7 +237,7 @@ function sq_sc_switch()
 {
 	level flag::wait_till("first_tanks_charged");
 	var_bf58ee19 = getent("use_tank_switch", "targetname");
-	var_bf58ee19 waittill(#"trigger");
+	var_bf58ee19 waittill("trigger");
 	self playsound("zmb_switch_flip_no2d");
 	self scene::play("p7_fxanim_zmhd_power_switch_bundle", self);
 	playfx(level._effect["switch_sparks"], struct::get("sq_knife_switch_fx", "targetname").origin);
@@ -267,7 +267,7 @@ function do_soul_swap(who)
 	{
 		who clientfield::set_to_player("soul_swap", 0);
 	}
-	level notify(#"moon_sidequest_swap_achieved");
+	level notify("moon_sidequest_swap_achieved");
 }
 
 /*
@@ -304,7 +304,7 @@ function place_qualifier()
 */
 function richtofen_sam_vo()
 {
-	level endon(#"ss_done");
+	level endon("ss_done");
 	level.skit_vox_override = 1;
 	players = getplayers();
 	richtofen = undefined;
@@ -326,14 +326,14 @@ function richtofen_sam_vo()
 		return;
 	}
 	richtofen playsoundwithnotify("vox_plr_2_quest_step6_7", "line_spoken");
-	richtofen waittill(#"line_spoken");
+	richtofen waittill("line_spoken");
 	targ = struct::get("sq_sam", "targetname");
 	targ = struct::get(targ.target, "targetname");
 	sound::play_in_space("vox_plr_4_quest_step6_10", targ.origin);
 	if(isdefined(richtofen))
 	{
 		richtofen playsoundwithnotify("vox_plr_2_quest_step6_8", "line_spoken");
-		richtofen waittill(#"line_spoken");
+		richtofen waittill("line_spoken");
 	}
 	level.skit_vox_override = 0;
 }
@@ -353,12 +353,12 @@ function place_cvg()
 	level thread richtofen_sam_vo();
 	s = struct::get("sq_vg_final", "targetname");
 	s thread zm_sidequests::fake_use("placed_cvg", &place_qualifier);
-	s waittill(#"placed_cvg", who);
+	s waittill("placed_cvg", who);
 	level flag::set("cvg_placed");
 	level clientfield::set("vril_generator", 4);
 	who zm_sidequests::remove_sidequest_icon("sq", "cgenerator");
 	level flag::wait_till("second_tanks_drained");
-	level notify(#"ss_done");
+	level notify("ss_done");
 	level thread do_soul_swap(who);
 	level flag::set("soul_swap_done");
 	level thread play_sam_then_response_line();
@@ -393,7 +393,7 @@ function play_sam_then_response_line()
 		}
 	}
 	sam playsoundwithnotify("vox_plr_4_quest_step6_12", "linedone");
-	sam waittill(#"linedone");
+	sam waittill("linedone");
 	if(!isdefined(sam))
 	{
 		return;

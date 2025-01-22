@@ -362,8 +362,8 @@ function moon_quad_prespawn()
 */
 function moon_quad_sidestep(animname, stepanim)
 {
-	self endon(#"death");
-	self endon(#"stop_sidestep");
+	self endon("death");
+	self endon("stop_sidestep");
 	self thread moon_quad_wait_phase_end(stepanim);
 	self thread moon_quad_exit_align(stepanim);
 	while(true)
@@ -377,7 +377,7 @@ function moon_quad_sidestep(animname, stepanim)
 		}
 		else if(note == "phase_end")
 		{
-			self notify(#"stop_wait_phase_end");
+			self notify("stop_wait_phase_end");
 			self thread moon_quad_phase_fx("quad_phasing_in");
 			self show();
 			self playsound("zmb_quad_phase_in");
@@ -415,13 +415,13 @@ function moon_quad_fastsprint()
 */
 function moon_quad_wait_phase_end(stepanim)
 {
-	self endon(#"death");
-	self endon(#"stop_wait_phase_end");
+	self endon("death");
+	self endon("stop_wait_phase_end");
 	anim_length = getanimlength(stepanim);
 	wait(anim_length);
 	self thread moon_quad_phase_fx("quad_phasing_in");
 	self show();
-	self notify(#"stop_sidestep");
+	self notify("stop_sidestep");
 }
 
 /*
@@ -435,12 +435,12 @@ function moon_quad_wait_phase_end(stepanim)
 */
 function moon_quad_exit_align(stepanim)
 {
-	self endon(#"death");
+	self endon("death");
 	anim_length = getanimlength(stepanim);
 	wait(anim_length);
 	if(!(isdefined(self.exit_align) && self.exit_align))
 	{
-		self notify(#"stepanim", "exit_align");
+		self notify("stepanim", "exit_align");
 	}
 }
 
@@ -455,7 +455,7 @@ function moon_quad_exit_align(stepanim)
 */
 function moon_quad_phase_fx(var_99a8589b)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(level._effect[var_99a8589b]))
 	{
 		playfxontag(level._effect[var_99a8589b], self, "j_spine4");
@@ -473,7 +473,7 @@ function moon_quad_phase_fx(var_99a8589b)
 */
 function moon_quad_gas_immune()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 }
 

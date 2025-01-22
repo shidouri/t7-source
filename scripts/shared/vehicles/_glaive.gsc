@@ -202,7 +202,7 @@ function private get_glaive_enemy()
 */
 function private glaive_target_selection()
 {
-	self endon(#"death");
+	self endon("death");
 	for(;;)
 	{
 		if(!isdefined(self.owner))
@@ -324,8 +324,8 @@ function state_combat_enter(params)
 */
 function state_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	pathfailcount = 0;
 	while(!isdefined(self.owner))
 	{
@@ -511,8 +511,8 @@ function go_back_on_navvolume()
 */
 function chooseswordanim(enemy)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	sword_anim = "o_zombie_zod_sword_projectile_melee_synced_a";
 	self._glaive_linktotag = "tag_origin";
 	if(isdefined(enemy.archetype))
@@ -551,14 +551,14 @@ function chooseswordanim(enemy)
 */
 function state_slash_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	enemy = self.glaiveenemy;
 	should_reevaluate_target = 0;
 	sword_anim = self chooseswordanim(enemy);
 	self animscripted("anim_notify", enemy gettagorigin(self._glaive_linktotag), enemy gettagangles(self._glaive_linktotag), sword_anim, "normal", undefined, undefined, 0.3, 0.3);
 	self clientfield::set("glaive_blood_fx", 1);
-	self waittill(#"anim_notify");
+	self waittill("anim_notify");
 	if(isalive(enemy) && isdefined(enemy.archetype) && enemy.archetype == "margwa")
 	{
 		if(isdefined(enemy.chop_actor_cb))
@@ -591,10 +591,10 @@ function state_slash_update(params)
 			}
 		}
 	}
-	self waittill(#"anim_notify", notetrack);
+	self waittill("anim_notify", notetrack);
 	while(!isdefined(notetrack) || notetrack != "end")
 	{
-		self waittill(#"anim_notify", notetrack);
+		self waittill("anim_notify", notetrack);
 	}
 	self clientfield::set("glaive_blood_fx", 0);
 	if(should_reevaluate_target)
@@ -616,7 +616,7 @@ function state_slash_update(params)
 */
 function glaive_ignore_cooldown(duration)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(duration);
 	self._glaive_ignoreme = undefined;
 }
@@ -632,7 +632,7 @@ function glaive_ignore_cooldown(duration)
 */
 function go_to_near_owner()
 {
-	self endon(#"near_owner");
+	self endon("near_owner");
 	self thread back_to_near_owner_check();
 	starttime = gettime();
 	self asmrequestsubstate("forward@movement");
@@ -745,7 +745,7 @@ function go_to_owner()
 	{
 		self.origin = self.owner.origin + vectorscale((0, 0, 1), 40);
 	}
-	self notify(#"returned_to_owner");
+	self notify("returned_to_owner");
 	wait(2);
 }
 
@@ -760,12 +760,12 @@ function go_to_owner()
 */
 function back_to_owner_check()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.owner) && ((abs(self.origin[2] - self.owner.origin[2])) > (80 * 80) || distance2dsquared(self.origin, self.owner.origin) > (80 * 80)))
 	{
 		wait(0.1);
 	}
-	self notify(#"returned_to_owner");
+	self notify("returned_to_owner");
 }
 
 /*
@@ -779,13 +779,13 @@ function back_to_owner_check()
 */
 function back_to_near_owner_check()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.owner) && ((abs(self.origin[2] - self.owner.origin[2])) > (160 * 160) || distance2dsquared(self.origin, self.owner.origin) > (160 * 160) || !util::within_fov(self.owner.origin, self.owner.angles, self.origin, cos(60))))
 	{
 		wait(0.1);
 	}
 	self asmrequestsubstate("idle@movement");
-	self notify(#"near_owner");
+	self notify("near_owner");
 }
 
 /*

@@ -102,16 +102,16 @@ function waitremotecontrol()
 		notifystring = self util::waittill_any_return("remote_weapon_end", "rcbomb_shutdown");
 		if(notifystring == "remote_weapon_end")
 		{
-			self waittill(#"rcbomb_shutdown");
+			self waittill("rcbomb_shutdown");
 		}
 		else
 		{
-			self waittill(#"remote_weapon_end");
+			self waittill("remote_weapon_end");
 		}
 	}
 	else
 	{
-		self waittill(#"rcbomb_shutdown");
+		self waittill("rcbomb_shutdown");
 	}
 }
 
@@ -126,10 +126,10 @@ function waitremotecontrol()
 */
 function togglelightsonaftertime(time)
 {
-	self notify(#"togglelightsonaftertime_singleton");
-	self endon(#"togglelightsonaftertime_singleton");
+	self notify("togglelightsonaftertime_singleton");
+	self endon("togglelightsonaftertime_singleton");
 	rcbomb = self;
-	rcbomb endon(#"death");
+	rcbomb endon("death");
 	wait(time);
 	rcbomb clientfield::set("toggle_lights", 0);
 }
@@ -241,8 +241,8 @@ function activatercbomb(hardpointtype)
 	{
 		if(isdefined(rcbomb))
 		{
-			rcbomb notify(#"remote_weapon_shutdown");
-			rcbomb notify(#"rcbomb_shutdown");
+			rcbomb notify("remote_weapon_shutdown");
+			rcbomb notify("rcbomb_shutdown");
 		}
 		return false;
 	}
@@ -306,7 +306,7 @@ function endremotecontrol(rcbomb, exitrequestedbyowner)
 {
 	if(exitrequestedbyowner == 0)
 	{
-		rcbomb notify(#"rcbomb_shutdown");
+		rcbomb notify("rcbomb_shutdown");
 		rcbomb thread audio::sndupdatevehiclecontext(0);
 	}
 	rcbomb clientfield::set("vehicletransition", 0);
@@ -324,13 +324,13 @@ function endremotecontrol(rcbomb, exitrequestedbyowner)
 function watchdetonation()
 {
 	rcbomb = self;
-	rcbomb endon(#"rcbomb_shutdown");
-	rcbomb endon(#"death");
+	rcbomb endon("rcbomb_shutdown");
+	rcbomb endon("death");
 	while(!rcbomb.owner attackbuttonpressed())
 	{
 		wait(0.05);
 	}
-	rcbomb notify(#"rcbomb_shutdown");
+	rcbomb notify("rcbomb_shutdown");
 }
 
 /*
@@ -344,7 +344,7 @@ function watchdetonation()
 */
 function watchwater()
 {
-	self endon(#"rcbomb_shutdown");
+	self endon("rcbomb_shutdown");
 	inwater = 0;
 	while(!inwater)
 	{
@@ -353,7 +353,7 @@ function watchwater()
 		inwater = trace["fraction"] < 1;
 	}
 	self.abandoned = 1;
-	self notify(#"rcbomb_shutdown");
+	self notify("rcbomb_shutdown");
 }
 
 /*
@@ -367,13 +367,13 @@ function watchwater()
 */
 function watchownergameevents()
 {
-	self notify(#"watchownergameevents_singleton");
-	self endon(#"watchownergameevents_singleton");
+	self notify("watchownergameevents_singleton");
+	self endon("watchownergameevents_singleton");
 	rcbomb = self;
-	rcbomb endon(#"rcbomb_shutdown");
+	rcbomb endon("rcbomb_shutdown");
 	rcbomb.owner util::waittill_any("joined_team", "disconnect", "joined_spectators");
 	rcbomb.abandoned = 1;
-	rcbomb notify(#"rcbomb_shutdown");
+	rcbomb notify("rcbomb_shutdown");
 }
 
 /*
@@ -403,7 +403,7 @@ function watchtimeout()
 function rc_shutdown()
 {
 	rcbomb = self;
-	rcbomb notify(#"rcbomb_shutdown");
+	rcbomb notify("rcbomb_shutdown");
 }
 
 /*
@@ -418,12 +418,12 @@ function rc_shutdown()
 function watchshutdown()
 {
 	rcbomb = self;
-	rcbomb endon(#"death");
-	rcbomb waittill(#"rcbomb_shutdown");
+	rcbomb endon("death");
+	rcbomb waittill("rcbomb_shutdown");
 	if(isdefined(rcbomb.activatingkillstreak) && rcbomb.activatingkillstreak)
 	{
 		killstreakrules::killstreakstop("rcbomb", rcbomb.originalteam, rcbomb.killstreak_id);
-		rcbomb notify(#"rcbomb_shutdown");
+		rcbomb notify("rcbomb_shutdown");
 		rcbomb delete();
 	}
 	else
@@ -445,13 +445,13 @@ function watchshutdown()
 function watchhurttriggers()
 {
 	rcbomb = self;
-	rcbomb endon(#"rcbomb_shutdown");
+	rcbomb endon("rcbomb_shutdown");
 	while(true)
 	{
-		rcbomb waittill(#"touch", ent);
+		rcbomb waittill("touch", ent);
 		if(isdefined(ent.classname) && (ent.classname == "trigger_hurt" || ent.classname == "trigger_out_of_bounds"))
 		{
-			rcbomb notify(#"rcbomb_shutdown");
+			rcbomb notify("rcbomb_shutdown");
 		}
 	}
 }
@@ -504,9 +504,9 @@ function ondeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, sh
 {
 	rcbomb = self;
 	player = rcbomb.owner;
-	player endon(#"disconnect");
-	player endon(#"joined_team");
-	player endon(#"joined_spectators");
+	player endon("disconnect");
+	player endon("joined_team");
+	player endon("joined_spectators");
 	killstreakrules::killstreakstop("rcbomb", rcbomb.originalteam, rcbomb.killstreak_id);
 	rcbomb clientfield::set("enemyvehicle", 0);
 	rcbomb explode(eattacker, weapon);
@@ -524,7 +524,7 @@ function ondeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, sh
 	}
 	if(isdefined(rcbomb))
 	{
-		rcbomb notify(#"rcbomb_shutdown");
+		rcbomb notify("rcbomb_shutdown");
 	}
 }
 
@@ -540,11 +540,11 @@ function ondeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, sh
 function watchgameended()
 {
 	rcbomb = self;
-	rcbomb endon(#"death");
-	level waittill(#"game_ended");
+	rcbomb endon("death");
+	level waittill("game_ended");
 	rcbomb.abandoned = 1;
 	rcbomb.selfdestruct = 1;
-	rcbomb notify(#"rcbomb_shutdown");
+	rcbomb notify("rcbomb_shutdown");
 }
 
 /*
@@ -558,7 +558,7 @@ function watchgameended()
 */
 function hideafterwait(waittime)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(waittime);
 	self setinvisibletoall();
 }
@@ -574,7 +574,7 @@ function hideafterwait(waittime)
 */
 function explode(attacker, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	owner = self.owner;
 	if(!isdefined(attacker) && isdefined(self.owner))
 	{

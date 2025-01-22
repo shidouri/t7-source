@@ -76,7 +76,7 @@ function on_player_spawned(localclientnum)
 function delay_set_exert_id(newval)
 {
 	self endon(#"entityshutdown");
-	self endon(#"sndendexertoverride");
+	self endon("sndendexertoverride");
 	wait(0.5);
 	self.player_exert_id = newval;
 }
@@ -96,7 +96,7 @@ function charindex_cb(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	{
 		self.player_exert_id = newval;
 		self._first_frame_exert_id_recieved = 1;
-		self notify(#"sndendexertoverride");
+		self notify("sndendexertoverride");
 	}
 	else if(!isdefined(self._first_frame_exert_id_recieved))
 	{
@@ -155,7 +155,7 @@ function zmbmuslooper()
 */
 function waitfor_music_stop()
 {
-	level waittill(#"stpm");
+	level waittill("stpm");
 	self stopallloopsounds(0.1);
 	playsound(0, "mus_zmb_gamemode_end", (0, 0, 0));
 	wait(1);
@@ -274,7 +274,7 @@ function sndvonotifydtp(localclientnum, notifystring)
 		player = getnonpredictedlocalplayer(localclientnum);
 		wait(0.05);
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	for(;;)
 	{
 		player waittill(notifystring, surfacetype);
@@ -299,7 +299,7 @@ function sndmeleeswipe(localclientnum, notifystring)
 		player = getnonpredictedlocalplayer(localclientnum);
 		wait(0.05);
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	for(;;)
 	{
 		player waittill(notifystring);
@@ -351,7 +351,7 @@ function sndvonotifyplain(localclientnum, notifystring)
 		player = getnonpredictedlocalplayer(localclientnum);
 		wait(0.05);
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	for(;;)
 	{
 		player waittill(notifystring);
@@ -391,7 +391,7 @@ function end_gameover_snapshot()
 */
 function gameover_snapshot()
 {
-	level waittill(#"zesn");
+	level waittill("zesn");
 	audio::snd_set_snapshot("zmb_game_over");
 	level thread end_gameover_snapshot();
 }

@@ -103,7 +103,7 @@ function init_spawn_system()
 */
 function onplayerconnect()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self setentertime(gettime());
 	self thread onplayerspawned();
 	self thread onteamchange();
@@ -121,14 +121,14 @@ function onplayerconnect()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
-	self endon(#"killspawnmonitor");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("killspawnmonitor");
+	level endon("game_ended");
 	self flag::init("player_has_red_flashing_overlay");
 	self flag::init("player_is_invulnerable");
 	for(;;)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		if(isdefined(self.pers["hasRadar"]) && self.pers["hasRadar"])
 		{
 			self.hasspyplane = 1;
@@ -151,10 +151,10 @@ function onplayerspawned()
 */
 function ondeath()
 {
-	self endon(#"disconnect");
-	self endon(#"killspawnmonitor");
-	level endon(#"game_ended");
-	self waittill(#"death");
+	self endon("disconnect");
+	self endon("killspawnmonitor");
+	level endon("game_ended");
+	self waittill("death");
 	self enable_player_influencers(0);
 	level create_friendly_influencer("friend_dead", self.origin, self.team);
 }
@@ -170,12 +170,12 @@ function ondeath()
 */
 function onteamchange()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self endon(#"killteamchangemonitor");
+	self endon("disconnect");
+	level endon("game_ended");
+	self endon("killteamchangemonitor");
 	while(true)
 	{
-		self waittill(#"joined_team");
+		self waittill("joined_team");
 		self player_influencers_set_team();
 		wait(0.05);
 	}
@@ -192,12 +192,12 @@ function onteamchange()
 */
 function ongrenadethrow()
 {
-	self endon(#"disconnect");
-	self endon(#"killgrenademonitor");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("killgrenademonitor");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		level thread create_grenade_influencers(self.pers["team"], weapon, grenade);
 		wait(0.05);
 	}
@@ -463,10 +463,10 @@ function remove_influencers()
 */
 function watch_remove_influencer()
 {
-	self endon(#"death");
-	self notify(#"watch_remove_influencer");
-	self endon(#"watch_remove_influencer");
-	self waittill(#"influencer_removed", index);
+	self endon("death");
+	self notify("watch_remove_influencer");
+	self endon("watch_remove_influencer");
+	self waittill("influencer_removed", index);
 	arrayremovevalue(self.influencers, index);
 	if(isdefined(self.influencersfriendly))
 	{

@@ -221,7 +221,7 @@ function dev_warehouse_door_func(str_objective, n_squad)
 function warehouse_warlord_dev()
 {
 	self.health = 100;
-	self waittill(#"death");
+	self waittill("death");
 	level flag::set("warehouse_warlord_dead");
 	level flag::set("sm_warehouse_enemy_warlord_manager_cleared");
 }
@@ -255,7 +255,7 @@ function vo_warehouse_wasps()
 */
 function function_16ff311a()
 {
-	level waittill(#"container_done");
+	level waittill("container_done");
 	level spawn_manager::wait_till_cleared("sm_warehouse_robot_jumpdown");
 	if(!level flag::get("left_path") && !level flag::get("right_path") && !level flag::get("center_path"))
 	{
@@ -282,8 +282,8 @@ function function_16ff311a()
 */
 function function_1050699d()
 {
-	level endon(#"left_path");
-	level endon(#"right_path");
+	level endon("left_path");
+	level endon("right_path");
 	level endon(#"hash_9aade370");
 	wait(14);
 	a_dialogue_lines = [];
@@ -319,7 +319,7 @@ function function_2a08e741()
 */
 function robots_crates_spawn()
 {
-	self endon(#"death");
+	self endon("death");
 	nd_start = getnode(self.target, "targetname");
 	if(isdefined(nd_start))
 	{
@@ -339,8 +339,8 @@ function robots_crates_spawn()
 */
 function robot_jump_landing_exploder()
 {
-	self endon(#"death");
-	self endon(#"crate_jump_landed");
+	self endon("death");
+	self endon("crate_jump_landed");
 	t_exploders = getentarray("trig_robot_jump_landing", "script_noteworthy");
 	while(true)
 	{
@@ -356,7 +356,7 @@ function robot_jump_landing_exploder()
 				{
 					exploder::exploder("fx_warehouse_robot_jmp_dust_r");
 				}
-				self notify(#"crate_jump_landed");
+				self notify("crate_jump_landed");
 			}
 		}
 		wait(0.05);
@@ -436,17 +436,17 @@ function function_3c56dee4()
 */
 function wasps_warehouse_spawn()
 {
-	self endon(#"death");
+	self endon("death");
 	self vehicle_ai::start_scripted();
 	nd_start = getvehiclenode(self.target, "targetname");
 	self thread vehicle::get_on_and_go_path(nd_start);
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	v_pos = self getclosestpointonnavvolume(self.origin, 1024);
 	v_pos = (v_pos[0], v_pos[1], v_pos[2] + randomintrange(0, 72));
 	if(isdefined(v_pos))
 	{
 		self setvehgoalpos(v_pos, 0);
-		self waittill(#"goal");
+		self waittill("goal");
 	}
 	e_volume = undefined;
 	if(self.script_aigroup == "wasps_warehouse_left")
@@ -491,10 +491,10 @@ function function_6fb5d6ef()
 */
 function function_26edc5d7()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", ai_guy);
+		self waittill("trigger", ai_guy);
 		if(isdefined(ai_guy.owner) && isplayer(ai_guy.owner) || isplayer(ai_guy))
 		{
 			break;
@@ -530,11 +530,11 @@ function hendricks_hero_moment(str_path)
 {
 	if(str_path == "right")
 	{
-		level endon(#"left_path");
+		level endon("left_path");
 	}
 	else
 	{
-		level endon(#"right_path");
+		level endon("right_path");
 	}
 	level trigger::wait_till("trig_hero_sprint_" + str_path);
 	if(level flag::get("warehouse_intro_vo_done"))
@@ -545,7 +545,7 @@ function hendricks_hero_moment(str_path)
 	ai_target ai::set_ignoreme(1);
 	ai_target ai::set_behavior_attribute("can_become_rusher", 0);
 	ai_target.goalradius = 8;
-	ai_target endon(#"death");
+	ai_target endon("death");
 	level thread scene::init("scene_warehouse_hendricks_jump_" + str_path, "targetname", array(level.ai_hendricks, ai_target));
 	level trigger::wait_till("trig_hero_moment_" + str_path);
 	if(isalive(ai_target))
@@ -567,7 +567,7 @@ function hendricks_hero_moment(str_path)
 */
 function function_2b42cba3(str_scene)
 {
-	self waittill(#"death");
+	self waittill("death");
 	level scene::stop(str_scene);
 }
 
@@ -591,7 +591,7 @@ function make_an_exit()
 	objectives::show("cp_waypoint_breadcrumb");
 	level thread squad_control::squad_assign_task_independent("pry_door");
 	level dialog::remote("kane_the_robots_should_be_0", 2);
-	level waittill(#"notetrack_warehouse_scene_done");
+	level waittill("notetrack_warehouse_scene_done");
 	level flag::set("back_door_opened");
 	level function_cb52a73();
 	level squad_control_final_orders();
@@ -660,7 +660,7 @@ function squad_control_final_orders()
 */
 function shoot_container()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreme(1);
 	self ai::set_ignoreall(1);
 	self.upaimlimit = 80;
@@ -704,7 +704,7 @@ function shoot_container()
 */
 function container_done()
 {
-	level waittill(#"container_done");
+	level waittill("container_done");
 	level flag::set("container_done");
 }
 
@@ -726,7 +726,7 @@ function container_crash()
 	spawn_manager::enable("sm_warehouse_robot_jumpdown");
 	level thread scene::play("p7_fxanim_cp_biodomes_container_collapse_bundle");
 	level thread vo_warehouse_container();
-	level waittill(#"container_hit_01");
+	level waittill("container_hit_01");
 	var_d76c34c9 delete();
 	level thread container_crushes_robots();
 	e_container_clip disconnectpaths();
@@ -791,13 +791,13 @@ function container_crushes_robots()
 */
 function container_ambusher()
 {
-	self endon(#"death");
+	self endon("death");
 	self setgoal(self.origin, 1, 1);
 	level flag::wait_till("container_done");
 	self ai::set_behavior_attribute("move_mode", "rambo");
 	nd_target = getnode(self.target, "targetname");
 	self setgoal(nd_target, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self ai::set_behavior_attribute("move_mode", "normal");
 	wait(10);
 	self setgoal(self.origin, 0, 1200);
@@ -846,7 +846,7 @@ function glass_break(str_trigger_name)
 */
 function function_d1e71c2c()
 {
-	level endon(#"left_path");
+	level endon("left_path");
 	level endon(#"hash_9aade370");
 	level flag::wait_till("right_path");
 	level scene::init("cin_bio_05_02_warehouse_vign_forklift_move");
@@ -904,7 +904,7 @@ function back_door_close()
 	level.mdl_door_lower movez(60, 2);
 	level.mdl_door_upper playsound("evt_warehouse_door_close_start");
 	level.mdl_door_upper playloopsound("evt_warehouse_door_close_loop", 1);
-	level.mdl_door_lower waittill(#"movedone");
+	level.mdl_door_lower waittill("movedone");
 	level.mdl_door_upper playsound("evt_warehouse_door_close_stop");
 	level.mdl_door_upper stoploopsound(0.5);
 	level flag::set("back_door_closed");
@@ -944,7 +944,7 @@ function warehouse_door_open()
 	level.mdl_door_lower moveto(level.mdl_door_lower.v_open_pos, 2);
 	level.mdl_door_upper playsound("evt_warehouse_door_close_start");
 	level.mdl_door_upper playloopsound("evt_warehouse_door_close_loop", 1);
-	level.mdl_door_lower waittill(#"movedone");
+	level.mdl_door_lower waittill("movedone");
 	level.mdl_door_upper playsound("evt_warehouse_door_close_stop");
 	level.mdl_door_upper stoploopsound(0.5);
 	wait(3);
@@ -1003,8 +1003,8 @@ function function_994b4243()
 {
 	self endon(#"back_door_opened");
 	self endon(#"hash_b35c4231");
-	self endon(#"death");
-	self waittill(#"ccom_lock_being_targeted", hijackingplayer);
+	self endon("death");
+	self waittill("ccom_lock_being_targeted", hijackingplayer);
 	trigger::use("trig_siegebot_alerted", "targetname");
 }
 
@@ -1093,7 +1093,7 @@ function back_door_ai_side()
 */
 function wait_for_sight_to_engage()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"enemy");
 	wait(0.05);
 	while(isdefined(self.enemy) && !self cansee(self.enemy))
@@ -1119,7 +1119,7 @@ function warehouse_warlord_surprise()
 	savegame::checkpoint_save();
 	wait(1.5);
 	spawn_manager::enable("warehouse_enemy_warlord_manager");
-	level waittill(#"warehouse_window_break");
+	level waittill("warehouse_window_break");
 	level thread clientfield::set("warehouse_window_break", 1);
 	level flag::set("warehouse_warlord");
 	objectives::hide("cp_waypoint_breadcrumb");
@@ -1164,7 +1164,7 @@ function function_652f488c()
 */
 function warehouse_surprise_spawns()
 {
-	self endon(#"death");
+	self endon("death");
 	self.ignoreall = 1;
 	wait(1);
 	self.ignoreall = 0;
@@ -1181,7 +1181,7 @@ function warehouse_surprise_spawns()
 */
 function function_4940548b()
 {
-	self endon(#"death");
+	self endon("death");
 	self.ignoreall = 1;
 	level scene::play("cin_bio_05_02_warehouse_aie_jump", self);
 	self.goalradius = 2048;
@@ -1192,7 +1192,7 @@ function function_4940548b()
 	self trigger::wait_till("trig_siegebot_alerted");
 	self warlordinterface::clearallpreferedpoints();
 	self cp_mi_sing_biodomes_util::function_f61c0df8("node_warlord_mountain_entrance_preferred", 1, 2);
-	self waittill(#"death");
+	self waittill("death");
 	self warlordinterface::clearallpreferedpoints();
 }
 
@@ -1207,7 +1207,7 @@ function function_4940548b()
 */
 function function_62523f1d()
 {
-	level endon(#"warehouse_warlord_dead");
+	level endon("warehouse_warlord_dead");
 	trigger::wait_till("trig_siegebot_alerted");
 	var_7b95742a = 1;
 	while(var_7b95742a)
@@ -1267,11 +1267,11 @@ function add_open_door_action()
 */
 function player_hijack_watcher()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_43a6ada4");
 	while(true)
 	{
-		self waittill(#"clonedentity", e_clone);
+		self waittill("clonedentity", e_clone);
 		self cybercom_gadget_security_breach::setanchorvolume(getent("hijacked_vehicle_range", "targetname"));
 	}
 }

@@ -269,7 +269,7 @@ function function_d1c7245c()
 */
 function function_75772673(player)
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_behavior_attribute("rogue_control", "forced_level_1");
 	self.health = 15000;
 	self.team = player.team;
@@ -320,10 +320,10 @@ function function_75772673(player)
 */
 function function_e1cd643e(projectile, weapon, player)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(projectile))
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(!isdefined(guy.boss) && isalive(guy))
 		{
 			guy dodamage(guy.health, self.origin, (isdefined(player) ? player : undefined), (isdefined(player) ? player : undefined), "torso_lower", "MOD_EXPLOSIVE", 0, weapon, -1, 1);
@@ -343,10 +343,10 @@ function function_e1cd643e(projectile, weapon, player)
 */
 function function_8e619e60(player)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"missile_fire", projectile, weapon);
+		self waittill("missile_fire", projectile, weapon);
 		trigger = spawn("trigger_radius", projectile.origin, 9, 16, 24);
 		trigger.targetname = "sawBladeProjectile";
 		trigger enablelinkto();
@@ -436,7 +436,7 @@ function function_f45d4afc(target)
 */
 function function_cd6da677(owner)
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(owner))
 	{
 		if(isdefined(self))
@@ -461,7 +461,7 @@ function function_cd6da677(owner)
 */
 function function_5633d485()
 {
-	self endon(#"death");
+	self endon("death");
 	lifetime = self.owner doa_utility::function_1ded48e6(level.doa.rules.var_109b458d);
 	self thread doa_utility::function_783519c1("doa_game_is_over", 1);
 	self thread doa_utility::function_783519c1("doa_game_restart", 1);
@@ -481,7 +481,7 @@ function function_5633d485()
 */
 function function_cef7f9fd()
 {
-	self endon(#"death");
+	self endon("death");
 	lifetime = self.owner doa_utility::function_1ded48e6(level.doa.rules.var_109b458d);
 	self thread doa_utility::function_783519c1("doa_game_is_over", 1);
 	self thread doa_utility::function_783519c1("doa_game_restart", 1);

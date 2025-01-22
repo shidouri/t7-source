@@ -120,9 +120,9 @@ function func_should_drop_minigun()
 */
 function minigun_weapon_powerup(ent_player, time)
 {
-	ent_player endon(#"disconnect");
-	ent_player endon(#"death");
-	ent_player endon(#"player_downed");
+	ent_player endon("disconnect");
+	ent_player endon("death");
+	ent_player endon("player_downed");
 	if(!isdefined(time))
 	{
 		time = 30;

@@ -74,7 +74,7 @@ function function_60a32834()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			level notify(#"hash_51d7bc7c", self.script_sound);
@@ -160,7 +160,7 @@ function snd_start_autofx_audio()
 */
 function ambience_randoms()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	array::thread_all(struct::get_array("amb_random_beeps", "targetname"), &play_random_beeps);
 }
 
@@ -330,7 +330,7 @@ function teleporter_audio_sfx(localclientnum, oldval, newval, bnewent, binitials
 */
 function play_teleporter_sounds()
 {
-	level endon(#"cafx");
+	level endon("cafx");
 	wait(0.5);
 	if(isdefined(self.script_int) && isdefined(self.script_noteworthy))
 	{
@@ -351,7 +351,7 @@ function play_teleporter_sounds()
 */
 function play_warmup_cooldown()
 {
-	level endon(#"cafx");
+	level endon("cafx");
 	playsound(0, "evt_teleporter_warmup", self.origin);
 	wait(2);
 	playsound(0, "evt_teleporter_cooldown", self.origin);
@@ -368,7 +368,7 @@ function play_warmup_cooldown()
 */
 function setup_zone_1_special()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	level reset_ambient_packages("1", 1);
 	level reset_ambient_packages("2a", 1);
 	level reset_ambient_packages("2b", 1);

@@ -189,7 +189,7 @@ function visual_trigger_vox(place)
 	vox_trig = spawn("trigger_radius", struct.origin - vectorscale((0, 0, 1), 100), 0, 250, 200);
 	while(true)
 	{
-		vox_trig waittill(#"trigger", who);
+		vox_trig waittill("trigger", who);
 		if(isplayer(who))
 		{
 			who thread zm_audio::create_and_play_dialog("general", place);
@@ -255,10 +255,10 @@ function function_45b4acf2()
 */
 function function_19277046()
 {
-	level endon(#"snd_zhdegg_activate");
+	level endon("snd_zhdegg_activate");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, dir, loc, str_type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, attacker, dir, loc, str_type, model, tag, part, weapon, flags);
 		if(!level flag::get("gongs_resonating"))
 		{
 			continue;

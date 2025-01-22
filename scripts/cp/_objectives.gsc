@@ -417,7 +417,7 @@ class cbreadcrumbobjective : cobjective
 	{
 		level endon("breadcrumb_" + m_str_type);
 		level endon(("breadcrumb_" + m_str_type) + "_complete");
-		player endon(#"death");
+		player endon("death");
 		str_trig_targetname = m_str_first_trig_targetname;
 		entnum = player getentitynumber();
 		obj_id = m_a_player_game_obj[entnum];

@@ -145,7 +145,7 @@ function usekillstreakaitankdrop(hardpointtype)
 	context.droptag = "tag_attach";
 	context.droptagoffset = (-35, 0, 10);
 	result = self supplydrop::usesupplydropmarker(killstreak_id, context);
-	self notify(#"supply_drop_marker_done");
+	self notify("supply_drop_marker_done");
 	if(!isdefined(result) || !result)
 	{
 		killstreakrules::killstreakstop(hardpointtype, team, killstreak_id);
@@ -273,7 +273,7 @@ function hackedcallbackpost(hacker)
 {
 	drone = self;
 	hacker remote_weapons::useremoteweapon(drone, "killstreak_ai_tank", 0);
-	drone notify(#"watchremotecontroldeactivate_remoteweapons");
+	drone notify("watchremotecontroldeactivate_remoteweapons");
 	drone.killstreak_end_time = hacker killstreak_hacking::set_vehicle_drivable_time_starting_now(drone);
 }
 
@@ -424,7 +424,7 @@ function setup_gameplay_think(category)
 */
 function tank_think_debug()
 {
-	self endon(#"death");
+	self endon("death");
 	server_frames_to_persist = 1;
 	text_scale = 0.5;
 	text_alpha = 1;
@@ -552,9 +552,9 @@ function tank_think_debug()
 */
 function tank_team_kill()
 {
-	self endon(#"death");
-	self.owner waittill(#"teamkillkicked");
-	self notify(#"death");
+	self endon("death");
+	self.owner waittill("teamkillkicked");
+	self notify("death");
 }
 
 /*
@@ -568,12 +568,12 @@ function tank_team_kill()
 */
 function kill_monitor()
 {
-	self endon(#"death");
+	self endon("death");
 	last_kill_vo = 0;
 	kill_vo_spacing = 4000;
 	while(true)
 	{
-		self waittill(#"killed", victim);
+		self waittill("killed", victim);
 		if(!isdefined(self.owner) || !isdefined(victim))
 		{
 			continue;
@@ -622,7 +622,7 @@ function tank_timeout_callback()
 {
 	self killstreaks::play_pilot_dialog_on_owner("timeout", "ai_tank_drop");
 	self.timed_out = 1;
-	self notify(#"death");
+	self notify("death");
 }
 
 /*
@@ -636,9 +636,9 @@ function tank_timeout_callback()
 */
 function tank_watch_owner_events()
 {
-	self notify(#"tank_watch_owner_events_singleton");
-	self endon(#"tank_watch_owner_events_singleton");
-	self endon(#"death");
+	self notify("tank_watch_owner_events_singleton");
+	self endon("tank_watch_owner_events_singleton");
+	self endon("death");
 	self.owner util::waittill_any("joined_team", "disconnect", "joined_spectators");
 	self makevehicleusable();
 	self.controlled = 0;
@@ -654,7 +654,7 @@ function tank_watch_owner_events()
 		self.owner stop_remote();
 	}
 	self.abandoned = 1;
-	self notify(#"death");
+	self notify("death");
 }
 
 /*
@@ -668,9 +668,9 @@ function tank_watch_owner_events()
 */
 function tank_game_end_think(drone)
 {
-	drone endon(#"death");
-	level waittill(#"game_ended");
-	drone notify(#"death");
+	drone endon("death");
+	level waittill("game_ended");
+	drone notify("death");
 }
 
 /*
@@ -726,7 +726,7 @@ function tank_hacked_health_update(hacker)
 */
 function tank_damage_think()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(isdefined(self.maxhealth));
 	#/
@@ -741,7 +741,7 @@ function tank_damage_think()
 	self.damagetaken = 0;
 	for(;;)
 	{
-		self waittill(#"damage", damage, attacker, dir, point, mod, model, tag, part, weapon, flags, inflictor, chargelevel);
+		self waittill("damage", damage, attacker, dir, point, mod, model, tag, part, weapon, flags, inflictor, chargelevel);
 		self.maxhealth = 999999;
 		self.health = self.maxhealth;
 		/#
@@ -811,7 +811,7 @@ function tank_damage_think()
 				self.owner.dofutz = 1;
 			}
 			self.health = 0;
-			self notify(#"death", attacker, mod, weapon);
+			self notify("death", attacker, mod, weapon);
 			return;
 		}
 		if(!low_health && self.damagetaken > (maxhealth / 1.8))
@@ -834,7 +834,7 @@ function tank_damage_think()
 */
 function tank_low_health_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	self.damage_fx = spawn("script_model", self gettagorigin("tag_origin") + (vectorscale((0, 0, -1), 14)));
 	if(!isdefined(self.damage_fx))
 	{
@@ -857,8 +857,8 @@ function tank_low_health_fx()
 */
 function deleteonkillbrush(player)
 {
-	player endon(#"disconnect");
-	self endon(#"death");
+	player endon("disconnect");
+	self endon("death");
 	killbrushes = getentarray("trigger_hurt", "classname");
 	while(true)
 	{
@@ -868,7 +868,7 @@ function deleteonkillbrush(player)
 			{
 				if(isdefined(self))
 				{
-					self notify(#"death", self.owner);
+					self notify("death", self.owner);
 				}
 				return;
 			}
@@ -888,8 +888,8 @@ function deleteonkillbrush(player)
 */
 function tank_stun(duration)
 {
-	self endon(#"death");
-	self notify(#"stunned");
+	self endon("death");
+	self notify("stunned");
 	self clearvehgoalpos();
 	forward = anglestoforward(self.angles);
 	forward = self.origin + (forward * 128);
@@ -937,7 +937,7 @@ function tank_stun(duration)
 function emp_crazy_death()
 {
 	self clientfield::set("ai_tank_stun", 1);
-	self notify(#"death");
+	self notify("death");
 	time = 0;
 	randomangle = randomint(360);
 	while(time < 1.45)
@@ -978,7 +978,7 @@ function tank_death_think(hardpointname)
 {
 	team = self.team;
 	killstreak_id = self.killstreak_id;
-	self waittill(#"death", attacker, damagefromunderneath, weapon);
+	self waittill("death", attacker, damagefromunderneath, weapon);
 	if(!isdefined(self))
 	{
 		killstreak_stop_and_assert(hardpointname, team, killstreak_id, "Failed to handle death. A.");
@@ -1097,7 +1097,7 @@ function killstreak_stop_and_assert(hardpoint_name, team, killstreak_id, assert_
 */
 function tank_too_far_from_nav_mesh_abort_think()
 {
-	self endon(#"death");
+	self endon("death");
 	not_on_nav_mesh_count = 0;
 	for(;;)
 	{
@@ -1105,7 +1105,7 @@ function tank_too_far_from_nav_mesh_abort_think()
 		not_on_nav_mesh_count = (isdefined(getclosestpointonnavmesh(self.origin, 480)) ? 0 : not_on_nav_mesh_count + 1);
 		if(not_on_nav_mesh_count >= 4)
 		{
-			self notify(#"death");
+			self notify("death");
 		}
 	}
 }
@@ -1425,8 +1425,8 @@ function update_client_ammo(ammo_count, driver_only_update = 0)
 */
 function tank_rocket_watch(player)
 {
-	self endon(#"death");
-	player endon(#"stopped_using_remote");
+	self endon("death");
+	player endon("stopped_using_remote");
 	if(self.numberrockets <= 0)
 	{
 		self reload_rockets(player);
@@ -1437,7 +1437,7 @@ function tank_rocket_watch(player)
 	}
 	while(true)
 	{
-		player waittill(#"missile_fire", missile);
+		player waittill("missile_fire", missile);
 		missile.ignore_team_kills = self.ignore_team_kills;
 		self.numberrockets--;
 		self update_client_ammo(self.numberrockets);
@@ -1460,10 +1460,10 @@ function tank_rocket_watch(player)
 */
 function tank_rocket_watch_ai()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"missile_fire", missile);
+		self waittill("missile_fire", missile);
 		missile.ignore_team_kills = self.ignore_team_kills;
 		missile.killcament = self;
 	}
@@ -1506,7 +1506,7 @@ function reload_rockets(player)
 */
 function watchwater()
 {
-	self endon(#"death");
+	self endon("death");
 	inwater = 0;
 	while(!inwater)
 	{
@@ -1524,7 +1524,7 @@ function watchwater()
 	{
 		self.owner.dofutz = 1;
 	}
-	self notify(#"death");
+	self notify("death");
 }
 
 /*
@@ -1565,15 +1565,15 @@ function tank_devgui_think()
 function tank_debug_patrol(node1, node2)
 {
 	/#
-		self endon(#"death");
-		self endon(#"debug_patrol");
+		self endon("death");
+		self endon("debug_patrol");
 		for(;;)
 		{
 			self setvehgoalpos(node1.origin, 1);
-			self waittill(#"reached_end_node");
+			self waittill("reached_end_node");
 			wait(1);
 			self setvehgoalpos(node2.origin, 1);
-			self waittill(#"reached_end_node");
+			self waittill("reached_end_node");
 			wait(1);
 		}
 	#/
@@ -1602,7 +1602,7 @@ function devgui_debug_route()
 		tanks = getentarray("", "");
 		foreach(tank in tanks)
 		{
-			tank notify(#"debug_patrol");
+			tank notify("debug_patrol");
 			tank thread tank_debug_patrol(nodes[0], nodes[1]);
 		}
 	#/

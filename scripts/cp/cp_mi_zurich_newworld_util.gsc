@@ -191,7 +191,7 @@ function function_3a7ee040()
 	if(!isdefined(level.var_ba7d14b0[self getentitynumber()]))
 	{
 		level.var_ba7d14b0[self getentitynumber()] = 1;
-		self waittill(#"disconnect");
+		self waittill("disconnect");
 		level.var_ba7d14b0[self getentitynumber()] = undefined;
 	}
 }
@@ -586,8 +586,8 @@ function should_derez_on_death()
 */
 function derez_when_actor_becomes_corpse()
 {
-	self endon(#"ai_derez_death");
-	self waittill(#"actor_corpse", e_corpse);
+	self endon("ai_derez_death");
+	self waittill("actor_corpse", e_corpse);
 	if(isdefined(level.player_on_top_of_train) && level.player_on_top_of_train)
 	{
 		wait(10);
@@ -604,7 +604,7 @@ function derez_when_actor_becomes_corpse()
 	}
 	if(isdefined(self))
 	{
-		self notify(#"ai_derez_death");
+		self notify("ai_derez_death");
 	}
 }
 
@@ -619,8 +619,8 @@ function derez_when_actor_becomes_corpse()
 */
 function derez_on_ragdoll_start()
 {
-	self endon(#"ai_derez_death");
-	self waittill(#"start_ragdoll");
+	self endon("ai_derez_death");
+	self waittill("start_ragdoll");
 	if(isdefined(level.player_on_top_of_train) && level.player_on_top_of_train)
 	{
 		wait(10);
@@ -638,7 +638,7 @@ function derez_on_ragdoll_start()
 	if(isdefined(self))
 	{
 		self delete();
-		self notify(#"ai_derez_death");
+		self notify("ai_derez_death");
 	}
 }
 
@@ -655,7 +655,7 @@ function function_523cdc93(var_9e5eb4d9 = 1)
 {
 	if(isdefined(var_9e5eb4d9) && var_9e5eb4d9)
 	{
-		self waittill(#"damage", damage, attacker);
+		self waittill("damage", damage, attacker);
 		self thread function_91b16538();
 		self thread function_4ccc51b5();
 	}
@@ -688,7 +688,7 @@ function function_523cdc93(var_9e5eb4d9 = 1)
 function function_91b16538()
 {
 	self endon(#"hash_ed74b5db");
-	self waittill(#"start_ragdoll");
+	self waittill("start_ragdoll");
 	wait(0.25);
 	if(isdefined(self))
 	{
@@ -709,7 +709,7 @@ function function_91b16538()
 function function_4ccc51b5()
 {
 	self endon(#"hash_ed74b5db");
-	self waittill(#"actor_corpse", e_corpse);
+	self waittill("actor_corpse", e_corpse);
 	wait(0.25);
 	if(isdefined(e_corpse))
 	{
@@ -751,12 +751,12 @@ function wait_till_flag_or_ai_group_ai_count(str_flag, str_aigroup, n_count)
 */
 function function_948d4091(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 1, var_6e6341cf, var_8cb8bcef, var_9e68f294)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(str_endon);
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	self flag::init(var_81a32895 + "_WW_opened");
@@ -808,13 +808,13 @@ function function_948d4091(var_81a32895, var_2380d5c = 0, str_endon, b_looping =
 */
 function function_c585d78f(var_81a32895, str_endon)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(str_endon);
 	self endon(var_81a32895 + "_WW_opened");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	self util::hide_hint_text(1);
@@ -847,7 +847,7 @@ function function_c585d78f(var_81a32895, str_endon)
 */
 function function_e5122074(var_bcb7a46f, str_endon)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(str_endon);
 	self.var_bb5e2d77 = self openluimenu("CyberComTutorial");
 	self setluimenudata(self.var_bb5e2d77, "tutorial_line_1", var_bcb7a46f);
@@ -870,7 +870,7 @@ function function_e5122074(var_bcb7a46f, str_endon)
 */
 function function_d81a8f6f()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_bb5e2d77))
 	{
 		lui::play_animation(self.var_bb5e2d77, "fadeout");
@@ -890,17 +890,17 @@ function function_d81a8f6f()
 */
 function function_8531ac12(var_81a32895, str_endon)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(str_endon);
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	while(!self flag::get(var_81a32895 + "_WW_tutorial"))
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		var_66700f08 = strtok(response, ",");
 		if(var_66700f08[0] == "opened")
 		{
@@ -921,17 +921,17 @@ function function_8531ac12(var_81a32895, str_endon)
 */
 function function_b95b168e(var_81a32895, str_endon)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(str_endon);
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	while(true)
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		var_66700f08 = strtok(response, ",");
 		if(var_66700f08[0] == "opened")
 		{
@@ -961,7 +961,7 @@ function function_b95b168e(var_81a32895, str_endon)
 */
 function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 1, var_6e6341cf, var_e8551372, var_9e68f294, var_3945b2c8)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isarray(str_endon))
 	{
 		foreach(str_condition in str_endon)
@@ -991,7 +991,7 @@ function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	if(!self flag::exists(var_81a32895 + "_use_ability_tutorial"))
@@ -1043,7 +1043,7 @@ function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 
 */
 function function_c60fae50(var_81a32895, str_endon, b_looping, var_f069395f)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isarray(str_endon))
 	{
 		foreach(str_condition in str_endon)
@@ -1059,7 +1059,7 @@ function function_c60fae50(var_81a32895, str_endon, b_looping, var_f069395f)
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	while(!self flag::get(var_81a32895 + "_use_ability_tutorial"))
@@ -1097,7 +1097,7 @@ function function_c60fae50(var_81a32895, str_endon, b_looping, var_f069395f)
 */
 function function_5dca74fc(var_81a32895, str_endon, var_e8551372)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isarray(str_endon))
 	{
 		foreach(str_condition in str_endon)
@@ -1113,13 +1113,13 @@ function function_5dca74fc(var_81a32895, str_endon, var_e8551372)
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	self util::hide_hint_text(1);
 	while(!self flag::get(var_81a32895 + "_use_ability_tutorial"))
 	{
-		level waittill(#"ccom_locked_on", ent, e_player);
+		level waittill("ccom_locked_on", ent, e_player);
 		if(e_player == self)
 		{
 			self function_e52b73c0(var_81a32895, str_endon, var_e8551372);
@@ -1138,7 +1138,7 @@ function function_5dca74fc(var_81a32895, str_endon, var_e8551372)
 */
 function function_e52b73c0(var_81a32895, str_endon, var_f069395f)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isarray(str_endon))
 	{
 		foreach(str_condition in str_endon)
@@ -1154,7 +1154,7 @@ function function_e52b73c0(var_81a32895, str_endon, var_f069395f)
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	self endon(#"hash_5e2557e1");
@@ -1178,7 +1178,7 @@ function function_e52b73c0(var_81a32895, str_endon, var_f069395f)
 */
 function function_e84823a9(var_81a32895, str_endon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isarray(str_endon))
 	{
 		foreach(str_condition in str_endon)
@@ -1194,12 +1194,12 @@ function function_e84823a9(var_81a32895, str_endon)
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	while(true)
 	{
-		level waittill(#"ccom_lost_lock", ent, e_player);
+		level waittill("ccom_lost_lock", ent, e_player);
 		if(e_player == self)
 		{
 			if(isdefined(self.cybercom) && self.cybercom.lock_targets.size < 1)
@@ -1223,7 +1223,7 @@ function function_e84823a9(var_81a32895, str_endon)
 */
 function function_a7a2da7e(var_81a32895, var_2380d5c = 0, str_endon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isarray(str_endon))
 	{
 		foreach(str_condition in str_endon)
@@ -1238,7 +1238,7 @@ function function_a7a2da7e(var_81a32895, var_2380d5c = 0, str_endon)
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
 	weapon = function_71840183(var_81a32895, var_2380d5c);
@@ -1283,7 +1283,7 @@ function function_71840183(var_81a32895, var_2380d5c = 0)
 */
 function function_2e7b4007()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_982eac9f");
 	self.var_8a320fc6 = 0;
 	var_6d5d984c = function_71840183("cybercom_immolation");
@@ -1310,7 +1310,7 @@ function function_2e7b4007()
 */
 function function_6851db33(var_3283f77e, var_239727aa)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_982eac9f");
 	while(true)
 	{
@@ -1347,7 +1347,7 @@ function function_6851db33(var_3283f77e, var_239727aa)
 */
 function function_70176ad6()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self function_c633d8fe())
 	{
 		return;
@@ -1358,7 +1358,7 @@ function function_70176ad6()
 	}
 	while(self.var_98bf72c3 < 3)
 	{
-		self waittill(#"gadget_denied_activation", n_slot, var_2de327e8);
+		self waittill("gadget_denied_activation", n_slot, var_2de327e8);
 		if(var_2de327e8 == 1)
 		{
 			self.var_98bf72c3++;
@@ -1401,7 +1401,7 @@ function function_901793d(str_trigger, str_notify)
 	e_trigger = getent(str_trigger, "targetname");
 	if(isdefined(e_trigger))
 	{
-		e_trigger waittill(#"trigger");
+		e_trigger waittill("trigger");
 	}
 	level notify(str_notify);
 }
@@ -1456,7 +1456,7 @@ function function_9a829e81()
 		wait(self.script_delay);
 	}
 	e_ent = self spawner::spawn();
-	e_ent endon(#"death");
+	e_ent endon("death");
 	if(isdefined(e_ent.script_noteworthy) && e_ent.script_noteworthy == "rusher_on_spawn")
 	{
 		e_ent ai::set_behavior_attribute("move_mode", "rusher");
@@ -1464,7 +1464,7 @@ function function_9a829e81()
 	}
 	if(isdefined(e_ent.target))
 	{
-		e_ent waittill(#"goal");
+		e_ent waittill("goal");
 	}
 	if(isdefined(e_ent.script_noteworthy) && e_ent.script_noteworthy == "rusher_at_goal")
 	{
@@ -1510,7 +1510,7 @@ function function_c478189b(str_trigger, var_390543cc, var_9d774f5d, var_43a68d40
 	if(isdefined(str_trigger))
 	{
 		e_trigger = getent(str_trigger, "targetname");
-		e_trigger waittill(#"trigger");
+		e_trigger waittill("trigger");
 	}
 	var_441bd962 = getent(var_390543cc, "targetname");
 	var_ee2fd889 = getent(var_9d774f5d, "targetname");
@@ -1565,7 +1565,7 @@ function function_f5363f47(str_trigger)
 function function_7eb8a7ab(e_trigger, str_notify)
 {
 	level endon(str_notify);
-	e_trigger waittill(#"trigger");
+	e_trigger waittill("trigger");
 	level notify(str_notify);
 }
 
@@ -1692,7 +1692,7 @@ function function_8f7b1e06(str_trigger, var_390543cc, var_9d774f5d)
 	if(isdefined(str_trigger))
 	{
 		e_trigger = getent(str_trigger, "targetname");
-		e_trigger waittill(#"trigger");
+		e_trigger waittill("trigger");
 	}
 	var_441bd962 = getent(var_390543cc, "targetname");
 	var_ee2fd889 = getent(var_9d774f5d, "targetname");
@@ -1802,7 +1802,7 @@ function function_30ec5bf7(b_starting = 0)
 	level flag::wait_till_clear("infinite_white_transition");
 	foreach(e_player in level.activeplayers)
 	{
-		e_player notify(#"menuresponse", "FullscreenMovie", "finished_movie_playback");
+		e_player notify("menuresponse", "FullscreenMovie", "finished_movie_playback");
 	}
 	util::screen_fade_in(0.5, "white", "infinite_white");
 	lock_player_controls(0);
@@ -1822,7 +1822,7 @@ function function_43dfaf16(a_ents)
 {
 	foreach(player in level.activeplayers)
 	{
-		player notify(#"menuresponse", "FullscreenMovie", "finished_movie_playback");
+		player notify("menuresponse", "FullscreenMovie", "finished_movie_playback");
 	}
 }
 
@@ -1949,7 +1949,7 @@ function function_39c9b63e(b_enable = 1, var_98011344)
 */
 function function_95132241()
 {
-	self endon(#"death");
+	self endon("death");
 	b_can_delete = 0;
 	while(b_can_delete == 0)
 	{
@@ -2028,7 +2028,7 @@ function function_c949a8ed(var_b06baa1b = 0)
 */
 function function_e44cc74b(var_b06baa1b)
 {
-	self endon(#"death");
+	self endon("death");
 	if(var_b06baa1b)
 	{
 		if(self.animname == "hall")
@@ -2092,7 +2092,7 @@ function function_4943984c(var_b06baa1b = 0)
 */
 function function_9ab5a5ab(var_b06baa1b)
 {
-	self endon(#"death");
+	self endon("death");
 	if(var_b06baa1b)
 	{
 		if(self.animname == "hall")
@@ -2132,7 +2132,7 @@ function function_9ab5a5ab(var_b06baa1b)
 */
 function function_d0aa2f4f(n_delay = 0.25)
 {
-	self endon(#"death");
+	self endon("death");
 	self function_4943984c();
 	wait(0.4);
 	self util::delay(n_delay, undefined, &function_c949a8ed);
@@ -2153,7 +2153,7 @@ function function_737d2864(str_location, str_time)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	wait(3);
 	self.var_55167309 = self openluimenu("LocationAndTime");
 	self setluimenudata(self.var_55167309, "loctime_location", str_location);
@@ -2267,7 +2267,7 @@ function function_3e37f48b(b_enabled)
 			{
 				continue;
 			}
-			level notify(#"disable_cybercom", e_player, 1);
+			level notify("disable_cybercom", e_player, 1);
 		}
 		callback::on_spawned(&function_d17cfcf8);
 	}
@@ -2288,7 +2288,7 @@ function function_d17cfcf8()
 	{
 		return;
 	}
-	level notify(#"disable_cybercom", self, 1);
+	level notify("disable_cybercom", self, 1);
 }
 
 /*
@@ -2423,7 +2423,7 @@ function scene_cleanup(str_scene_name)
 */
 function function_921d7387()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		level waittill(#"hash_921d7387");
@@ -2436,7 +2436,7 @@ function function_921d7387()
 		{
 			continue;
 		}
-		self notify(#"scriptedbc", "generic_encourage");
+		self notify("scriptedbc", "generic_encourage");
 		self.var_30a16593 = 1;
 		self thread function_9464547d();
 	}
@@ -2453,7 +2453,7 @@ function function_921d7387()
 */
 function function_9464547d()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(30);
 	self.var_30a16593 = 0;
 }

@@ -125,7 +125,7 @@ function overridespawn(ispredictedspawn)
 */
 function waitanddelete(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.05);
 	self delete();
 }
@@ -160,10 +160,10 @@ function watch(player)
 */
 function watchusetrigger(trigger, callback, playersoundonuse, npcsoundonuse)
 {
-	self endon(#"delete");
+	self endon("delete");
 	while(true)
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		if(!isalive(player))
 		{
 			continue;
@@ -210,8 +210,8 @@ function watchusetrigger(trigger, callback, playersoundonuse, npcsoundonuse)
 */
 function watchdisconnect()
 {
-	self.tacticalinsertion endon(#"delete");
-	self waittill(#"disconnect");
+	self.tacticalinsertion endon("delete");
+	self waittill("disconnect");
 	self.tacticalinsertion thread destroy_tactical_insertion();
 }
 
@@ -227,8 +227,8 @@ function watchdisconnect()
 function destroy_tactical_insertion(attacker)
 {
 	self.owner.tacticalinsertion = undefined;
-	self notify(#"delete");
-	self.owner notify(#"tactical_insertion_destroyed");
+	self notify("delete");
+	self.owner notify("tactical_insertion_destroyed");
 	self.friendlytrigger delete();
 	self.enemytrigger delete();
 	if(isdefined(attacker) && isdefined(attacker.pers["team"]) && isdefined(self.owner) && isdefined(self.owner.pers["team"]))
@@ -237,7 +237,7 @@ function destroy_tactical_insertion(attacker)
 		{
 			if(attacker.pers["team"] != self.owner.pers["team"])
 			{
-				attacker notify(#"destroyed_explosive");
+				attacker notify("destroyed_explosive");
 				attacker challenges::destroyedequipment();
 				attacker challenges::destroyedtacticalinsert();
 				scoreevents::processscoreevent("destroyed_tac_insert", attacker);
@@ -245,7 +245,7 @@ function destroy_tactical_insertion(attacker)
 		}
 		else if(attacker != self.owner)
 		{
-			attacker notify(#"destroyed_explosive");
+			attacker notify("destroyed_explosive");
 			attacker challenges::destroyedequipment();
 			attacker challenges::destroyedtacticalinsert();
 			scoreevents::processscoreevent("destroyed_tac_insert", attacker);
@@ -310,7 +310,7 @@ function pickup(attacker)
 */
 function spawntacticalinsertion()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	trace = bullettrace(self.origin, self.origin + (vectorscale((0, 0, -1), 30)), 0, self);
 	trace["position"] = trace["position"] + (0, 0, 1);
 	if(!self isonground() && bullettracepassed(self.origin, self.origin + (vectorscale((0, 0, -1), 30)), 0, self))
@@ -328,7 +328,7 @@ function spawntacticalinsertion()
 	self.tacticalinsertion.owner = self;
 	self.tacticalinsertion setowner(self);
 	self.tacticalinsertion setweapon(level.weapontacticalinsertion);
-	self.tacticalinsertion endon(#"delete");
+	self.tacticalinsertion endon("delete");
 	self.tacticalinsertion hacker_tool::registerwithhackertool(level.equipmenthackertoolradius, level.equipmenthackertooltimems);
 	triggerheight = 64;
 	triggerradius = 128;
@@ -368,7 +368,7 @@ function spawntacticalinsertion()
 	self.tacticalinsertion.health = 1;
 	while(true)
 	{
-		self.tacticalinsertion waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
+		self.tacticalinsertion waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
 		if(level.teambased && (!isdefined(attacker) || !isplayer(attacker) || attacker.team == self.team) && attacker != self)
 		{
 			continue;
@@ -468,9 +468,9 @@ function canceltackinsertionbutton()
 */
 function cancel_button_press()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_killcam");
-	self endon(#"abort_killcam");
+	self endon("abort_killcam");
 	while(true)
 	{
 		wait(0.05);
@@ -479,7 +479,7 @@ function cancel_button_press()
 			break;
 		}
 	}
-	self notify(#"tactical_insertion_canceled");
+	self notify("tactical_insertion_canceled");
 }
 
 /*
@@ -560,8 +560,8 @@ function tacticalinsertiondestroyedbytrophysystem(attacker, trophysystem)
 	self thread fizzle();
 	if(isdefined(owner))
 	{
-		owner endon(#"death");
-		owner endon(#"disconnect");
+		owner endon("death");
+		owner endon("disconnect");
 		wait(0.05);
 		if(isdefined(level.globallogic_audio_dialog_on_player_override))
 		{
@@ -581,13 +581,13 @@ function tacticalinsertiondestroyedbytrophysystem(attacker, trophysystem)
 */
 function begin_other_grenade_tracking()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"insertiontrackingstart");
-	self endon(#"insertiontrackingstart");
+	self endon("death");
+	self endon("disconnect");
+	self notify("insertiontrackingstart");
+	self endon("insertiontrackingstart");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon, cooktime);
+		self waittill("grenade_fire", grenade, weapon, cooktime);
 		if(grenade util::ishacked())
 		{
 			continue;

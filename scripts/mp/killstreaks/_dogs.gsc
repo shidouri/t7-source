@@ -142,7 +142,7 @@ function usekillstreakdogs(hardpointtype)
 	self addweaponstat(getweapon("dogs"), "used", 1);
 	ownerdeathcount = self.deathcount;
 	level thread dog_manager_spawn_dogs(self, ownerdeathcount, killstreak_id);
-	level notify(#"called_in_the_dogs");
+	level notify("called_in_the_dogs");
 	return true;
 }
 
@@ -157,7 +157,7 @@ function usekillstreakdogs(hardpointtype)
 */
 function ownerhadactivedogs()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.dogsactive = 1;
 	self.dogsactivekillstreak = 0;
 	self util::waittill_any("death", "game_over", "dogs_complete");
@@ -376,10 +376,10 @@ function dog_manager_spawn_dog(owner, team, spawn_node, requireddeathcount)
 */
 function monitor_dog_special_grenades()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		if(weapon_utils::isflashorstunweapon(weapon))
 		{
 			damage_area = spawn("trigger_radius", self.origin, 0, 128, 128);
@@ -422,7 +422,7 @@ function dog_manager_spawn_dogs(owner, deathcount, killstreak_id)
 			wait(randomfloatrange(2, 5));
 			dogs = dog_manager_get_dogs();
 		}
-		level waittill(#"dog_died");
+		level waittill("dog_died");
 	}
 	for(;;)
 	{
@@ -432,11 +432,11 @@ function dog_manager_spawn_dogs(owner, deathcount, killstreak_id)
 			killstreakrules::killstreakstop("dogs", team, killstreak_id);
 			if(isdefined(owner))
 			{
-				owner notify(#"dogs_complete");
+				owner notify("dogs_complete");
 			}
 			return;
 		}
-		level waittill(#"dog_died");
+		level waittill("dog_died");
 	}
 }
 
@@ -455,9 +455,9 @@ function dog_abort()
 	dogs = dog_manager_get_dogs();
 	foreach(dog in dogs)
 	{
-		dog notify(#"abort");
+		dog notify("abort");
 	}
-	level notify(#"dog_abort");
+	level notify("dog_abort");
 }
 
 /*
@@ -471,7 +471,7 @@ function dog_abort()
 */
 function dog_manager_abort()
 {
-	level endon(#"dog_abort");
+	level endon("dog_abort");
 	self util::wait_endon(45, "disconnect", "joined_team", "joined_spectators");
 	dog_abort();
 }
@@ -487,8 +487,8 @@ function dog_manager_abort()
 */
 function dog_manager_game_ended()
 {
-	level endon(#"dog_abort");
-	level waittill(#"game_ended");
+	level endon("dog_abort");
+	level waittill("game_ended");
 	dog_abort();
 }
 
@@ -503,8 +503,8 @@ function dog_manager_game_ended()
 */
 function dog_notify_level_on_death()
 {
-	self waittill(#"death");
-	level notify(#"dog_died");
+	self waittill("death");
+	level notify("dog_died");
 }
 
 /*
@@ -537,9 +537,9 @@ function dog_leave()
 */
 function dog_patrol()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
-		self endon(#"debug_patrol");
+		self endon("debug_patrol");
 	#/
 	for(;;)
 	{
@@ -761,13 +761,13 @@ function dog_owner_kills()
 	{
 		return;
 	}
-	self endon(#"clear_owner");
-	self endon(#"death");
-	self.script_owner endon(#"disconnect");
+	self endon("clear_owner");
+	self endon("death");
+	self.script_owner endon("disconnect");
 	while(true)
 	{
-		self waittill(#"killed", player);
-		self.script_owner notify(#"dog_handler");
+		self waittill("killed", player);
+		self.script_owner notify("dog_handler");
 	}
 }
 
@@ -782,13 +782,13 @@ function dog_owner_kills()
 */
 function dog_health_regen()
 {
-	self endon(#"death");
+	self endon("death");
 	interval = 0.5;
 	regen_interval = int((self.health / 5) * interval);
 	regen_start = 2;
 	for(;;)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
 		self trackattackerdamage(attacker);
 		self thread dog_health_regen_think(regen_start, interval, regen_interval);
 	}
@@ -851,8 +851,8 @@ function resetattackerdamage()
 */
 function dog_health_regen_think(delay, interval, regen_interval)
 {
-	self endon(#"death");
-	self endon(#"damage");
+	self endon("death");
+	self endon("damage");
 	wait(delay);
 	step = 0;
 	while(step <= 5)
@@ -880,7 +880,7 @@ function dog_health_regen_think(delay, interval, regen_interval)
 */
 function selfdefensechallenge()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(isdefined(attacker) && isplayer(attacker))
 	{
 		if(isdefined(self.script_owner) && self.script_owner == attacker)
@@ -901,7 +901,7 @@ function selfdefensechallenge()
 				}
 			}
 		}
-		attacker notify(#"selfdefense_dog");
+		attacker notify("selfdefense_dog");
 	}
 }
 
@@ -931,7 +931,7 @@ function dog_get_exit_node()
 */
 function flash_dogs(area)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	dogs = dog_manager_get_dogs();
 	foreach(dog in dogs)
 	{
@@ -1088,7 +1088,7 @@ function devgui_dog_spawn(team)
 		{
 			dog.team = team;
 			dog clearentityowner();
-			dog notify(#"clear_owner");
+			dog notify("clear_owner");
 		}
 	#/
 }
@@ -1225,7 +1225,7 @@ function devgui_spawn_show()
 		}
 		if(!level.dog_spawn_show)
 		{
-			level notify(#"hide_dog_spawns");
+			level notify("hide_dog_spawns");
 			return;
 		}
 		spawns = level.dog_spawns;
@@ -1259,7 +1259,7 @@ function devgui_exit_show()
 		}
 		if(!level.dog_exit_show)
 		{
-			level notify(#"hide_dog_exits");
+			level notify("hide_dog_exits");
 			return;
 		}
 		exits = getnodearray("", "");
@@ -1283,8 +1283,8 @@ function devgui_exit_show()
 function dog_debug_patrol(node1, node2)
 {
 	/#
-		self endon(#"death");
-		self endon(#"debug_patrol");
+		self endon("death");
+		self endon("debug_patrol");
 		for(;;)
 		{
 			self setgoal(node1);
@@ -1320,7 +1320,7 @@ function devgui_debug_route()
 		dogs = dog_manager_get_dogs();
 		if(isdefined(dogs[0]))
 		{
-			dogs[0] notify(#"debug_patrol");
+			dogs[0] notify("debug_patrol");
 			dogs[0] thread dog_debug_patrol(nodes[0], nodes[1]);
 		}
 	#/

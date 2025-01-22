@@ -98,7 +98,7 @@ function quadrotor_medallions()
 	b_retrieved = 0;
 	while(!b_retrieved)
 	{
-		t_weapon_swap waittill(#"trigger", e_player);
+		t_weapon_swap waittill("trigger", e_player);
 		b_retrieved = swap_mg(e_player);
 	}
 	t_weapon_swap zm_tomb_utility::tomb_unitrigger_delete();
@@ -119,7 +119,7 @@ function quadrotor_medallions_vo()
 	n_vo_counter = 0;
 	while(n_vo_counter < 4)
 	{
-		level waittill(#"quadrotor_medallion_found", v_quadrotor);
+		level waittill("quadrotor_medallion_found", v_quadrotor);
 		v_quadrotor playsound("zmb_medallion_pickup");
 		if(isdefined(v_quadrotor))
 		{
@@ -185,7 +185,7 @@ function wall_hole_poster()
 	m_poster.maxhealth = m_poster.health;
 	while(true)
 	{
-		m_poster waittill(#"damage");
+		m_poster waittill("damage");
 		if(m_poster.health <= 0)
 		{
 			m_poster physicslaunch(m_poster.origin, (0, 0, 0));
@@ -270,13 +270,13 @@ function wagon_fire_start()
 */
 function wagon_fire_trigger_watch()
 {
-	self notify(#"watch_reset");
-	self endon(#"watch_reset");
+	self notify("watch_reset");
+	self endon("watch_reset");
 	var_83560def = level.a_elemental_staffs["staff_water"].w_weapon;
 	var_2499bc6a = level.a_elemental_staffs_upgraded["staff_water_upgraded"].w_weapon;
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon);
 		if(isplayer(attacker) && (weapon == var_83560def || weapon == var_2499bc6a))
 		{
 			level.n_wagon_fires_out++;
@@ -306,7 +306,7 @@ function wagon_fire_trigger_watch()
 */
 function onplayerconnect_ee_jump_scare()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(level.jump_scare_lookat_point))
 	{
 		level.jump_scare_lookat_point = struct::get("struct_gg_look", "targetname");
@@ -366,7 +366,7 @@ function onplayerconnect_ee_oneinchpunch()
 */
 function sq_one_inch_punch_disconnect_watch()
 {
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	if(isdefined(self.sq_one_inch_punch_tablet))
 	{
 		self.sq_one_inch_punch_tablet delete();
@@ -386,7 +386,7 @@ function sq_one_inch_punch_disconnect_watch()
 */
 function sq_one_inch_punch_death_watch()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"bled_out");
 	if(self.sq_one_inch_punch_stage < 6)
 	{
@@ -441,7 +441,7 @@ function bunker_trigger_thread()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player.sq_one_inch_punch_stage == 0)
 		{
 			player.sq_one_inch_punch_stage++;
@@ -500,7 +500,7 @@ function birdbath_trigger_thread()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player.sq_one_inch_punch_stage == 1)
 		{
 			if(isdefined(player.sq_one_inch_punch_reclean))
@@ -549,7 +549,7 @@ function birdbath_trigger_thread()
 */
 function tablet_cleanliness_thread()
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	while(self.sq_one_inch_punch_stage == 4)
 	{
 		if(self.is_player_slowed)
@@ -615,7 +615,7 @@ function tablet_cleanliness_chastise(e_player, b_cleaned = 0)
 */
 function bunker_volume_death_check()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -662,7 +662,7 @@ function bunker_volume_death_check()
 */
 function bunker_spawn_reward()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(2);
 	self clientfield::set_to_player("ee_beacon_reward", 1);
 	wait(2);
@@ -680,7 +680,7 @@ function bunker_spawn_reward()
 */
 function church_volume_death_check()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -795,7 +795,7 @@ function radio_ee_song()
 function radio_ee_debug()
 {
 	/#
-		self endon(#"stop_display");
+		self endon("stop_display");
 		while(true)
 		{
 			print3d(self.origin, "", vectorscale((1, 0, 1), 255), 1);
@@ -815,10 +815,10 @@ function radio_ee_debug()
 */
 function radio_ee_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!zm_audio_zhd::function_8090042c())
 		{
 			continue;
@@ -832,7 +832,7 @@ function radio_ee_think()
 				level thread zm_audio::sndmusicsystem_playstate("shepherd_of_fire");
 			}
 			/#
-				self.stub notify(#"stop_display");
+				self.stub notify("stop_display");
 			#/
 			zm_unitrigger::unregister_unitrigger(self.stub);
 			return;

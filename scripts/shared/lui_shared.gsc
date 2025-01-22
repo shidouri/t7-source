@@ -255,7 +255,7 @@ function play_movie(str_movie, str_type, show_black_screen = 0, b_looping = 0, s
 			self util::show_hud(1);
 		}
 	}
-	level notify(#"movie_done", str_type);
+	level notify("movie_done", str_type);
 }
 
 /*
@@ -269,7 +269,7 @@ function play_movie(str_movie, str_type, show_black_screen = 0, b_looping = 0, s
 */
 function private _play_movie_for_player(str_movie, str_type, show_black_screen, b_looping, str_key)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	str_menu = undefined;
 	switch(str_type)
 	{
@@ -309,7 +309,7 @@ function private _play_movie_for_player(str_movie, str_type, show_black_screen, 
 		}
 		while(true)
 		{
-			self waittill(#"menuresponse", menu, response);
+			self waittill("menuresponse", menu, response);
 			if(menu == str_menu && response == "finished_movie_playback")
 			{
 				if(str_type == "pip")
@@ -317,7 +317,7 @@ function private _play_movie_for_player(str_movie, str_type, show_black_screen, 
 					self playsoundtoplayer("uin_pip_close", self);
 				}
 				self closeluimenu(lui_menu);
-				self notify(#"movie_done");
+				self notify("movie_done");
 			}
 		}
 	}
@@ -359,7 +359,7 @@ function play_movie_with_timeout(str_movie, str_type, timeout, show_black_screen
 			player util::show_hud(1);
 		}
 	}
-	level notify(#"movie_done", str_type);
+	level notify("movie_done", str_type);
 }
 
 /*
@@ -373,7 +373,7 @@ function play_movie_with_timeout(str_movie, str_type, timeout, show_black_screen
 */
 function private _play_movie_for_player_with_timeout(str_movie, str_type, timeout, show_black_screen, b_looping, str_key)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	str_menu = undefined;
 	switch(str_type)
 	{
@@ -417,7 +417,7 @@ function private _play_movie_for_player_with_timeout(str_movie, str_type, timeou
 			self playsoundtoplayer("uin_pip_close", self);
 		}
 		self closeluimenu(lui_menu);
-		self notify(#"movie_done");
+		self notify("movie_done");
 	}
 }
 
@@ -441,7 +441,7 @@ function screen_flash(n_fadein_time, n_hold_time, n_fadeout_time, n_target_alpha
 	}
 	else
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 		self _screen_fade(n_fadein_time, n_target_alpha, 0, v_color, b_force_close_menu);
 		wait(n_hold_time);
 		self _screen_fade(n_fadeout_time, 0, n_target_alpha, v_color, b_force_close_menu);
@@ -539,7 +539,7 @@ function private _screen_close_menu()
 {
 	self notify(#"_screen_fade");
 	self endon(#"_screen_fade");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(self.screen_fade_menus))
 	{
 		foreach(str_menu_id, lui_menu in self.screen_fade_menus)
@@ -563,7 +563,7 @@ function private _screen_fade(n_time, n_target_alpha, n_start_alpha, v_color, b_
 {
 	self notify("_screen_fade_" + str_menu_id);
 	self endon("_screen_fade_" + str_menu_id);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.screen_fade_menus))
 	{
 		self.screen_fade_menus = [];
@@ -677,13 +677,13 @@ function private _one_screen_fade_per_network_frame(s_menu)
 */
 function open_generic_script_dialog(title, description)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	dialog = self openluimenu("ScriptMessageDialog_Compact");
 	self setluimenudata(dialog, "title", title);
 	self setluimenudata(dialog, "description", description);
 	do
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 	}
 	while(menu != "ScriptMessageDialog_Compact" || response != "close");
 	self closeluimenu(dialog);
@@ -700,11 +700,11 @@ function open_generic_script_dialog(title, description)
 */
 function open_script_dialog(dialog_name)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	dialog = self openluimenu(dialog_name);
 	do
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 	}
 	while(menu != dialog_name || response != "close");
 	self closeluimenu(dialog);

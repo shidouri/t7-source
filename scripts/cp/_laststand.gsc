@@ -268,7 +268,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 		self thread laststand_bleedout(bleedout_time);
 	}
 	demo::bookmark("player_downed", gettime(), self);
-	self notify(#"player_downed");
+	self notify("player_downed");
 	self thread refire_player_downed();
 	self thread cleanup_laststand_on_disconnect();
 	self thread auto_revive_on_notify();
@@ -286,9 +286,9 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 */
 function function_fb3dd978()
 {
-	self endon(#"player_revived");
-	self endon(#"disconnect");
-	self waittill(#"death");
+	self endon("player_revived");
+	self endon("disconnect");
+	self waittill("death");
 	self undolaststand();
 }
 
@@ -303,11 +303,11 @@ function function_fb3dd978()
 */
 function refire_player_downed()
 {
-	self endon(#"player_revived");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("death");
+	self endon("disconnect");
 	wait(1);
-	self notify(#"player_downed");
+	self notify("player_downed");
 }
 
 /*
@@ -321,7 +321,7 @@ function refire_player_downed()
 */
 function wait_for_weapon_pullout()
 {
-	self endon(#"weapon_change");
+	self endon("weapon_change");
 	while(!self attackbuttonpressed())
 	{
 		wait(0.05);
@@ -340,11 +340,11 @@ function wait_for_weapon_pullout()
 function laststand_watch_weapon_switch()
 {
 	self endon(#"bled_out");
-	self endon(#"disconnect");
-	self endon(#"player_revived");
+	self endon("disconnect");
+	self endon("player_revived");
 	while(true)
 	{
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		/#
 			assert(isdefined(self.laststandpistol));
 		#/
@@ -414,7 +414,7 @@ function laststand_disable_player_weapons()
 	{
 		[[level.laststandweaponoverride]]();
 	}
-	self notify(#"weapons_taken_for_last_stand");
+	self notify("weapons_taken_for_last_stand");
 }
 
 /*
@@ -467,7 +467,7 @@ function laststand_enable_player_weapons(b_allow_grenades = 1)
 */
 function laststand_clean_up_on_interrupt(playerbeingrevived, revivergun)
 {
-	self endon(#"do_revive_ended_normally");
+	self endon("do_revive_ended_normally");
 	revivetrigger = playerbeingrevived.revivetrigger;
 	playerbeingrevived util::waittill_any("disconnect", "game_ended", "death");
 	if(isdefined(revivetrigger))
@@ -497,7 +497,7 @@ function laststand_clean_up_on_interrupt(playerbeingrevived, revivergun)
 */
 function laststand_clean_up_reviving_any(playerbeingrevived)
 {
-	self endon(#"do_revive_ended_normally");
+	self endon("do_revive_ended_normally");
 	playerbeingrevived util::waittill_any("disconnect", "zombified", "stop_revive_trigger");
 	self.is_reviving_any--;
 	if(0 > self.is_reviving_any)
@@ -603,9 +603,9 @@ function private check_early_bleedout()
 */
 function laststand_bleedout_damage()
 {
-	self endon(#"player_revived");
-	self endon(#"player_suicide");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("player_suicide");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	if(level.players.size == 1)
 	{
@@ -613,7 +613,7 @@ function laststand_bleedout_damage()
 	}
 	while(true)
 	{
-		self waittill(#"laststand_damage", amt);
+		self waittill("laststand_damage", amt);
 		if(!self.ignoreme)
 		{
 			self.bleedout_time = self.bleedout_time - (0.02 * amt);
@@ -632,10 +632,10 @@ function laststand_bleedout_damage()
 */
 function laststand_bleedout(delay)
 {
-	self endon(#"player_revived");
-	self endon(#"player_suicide");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("player_revived");
+	self endon("player_suicide");
+	self endon("disconnect");
+	self endon("death");
 	self clientfield::set_to_player("sndHealth", 2);
 	self.var_320b6880 = delay;
 	self.bleedout_time = delay;
@@ -727,15 +727,15 @@ function bleed_out()
 */
 function respawn_player_after_time(n_time_seconds)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	players = getplayers();
 	if(players.size == 1)
 	{
 		return;
 	}
-	self waittill(#"spawned_spectator");
-	self endon(#"spawned");
-	level endon(#"objective_changed");
+	self waittill("spawned_spectator");
+	self endon("spawned");
+	level endon("objective_changed");
 	wait(n_time_seconds);
 	if(self.sessionstate == "spectator")
 	{
@@ -784,13 +784,13 @@ function suicide_trigger_spawn()
 */
 function suicide_trigger_think()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_revive_trigger");
-	self endon(#"player_revived");
+	self endon("disconnect");
+	self endon("stop_revive_trigger");
+	self endon("player_revived");
 	self endon(#"bled_out");
-	self endon(#"fake_death");
-	level endon(#"game_ended");
-	level endon(#"stop_suicide_trigger");
+	self endon("fake_death");
+	level endon("game_ended");
+	level endon("stop_suicide_trigger");
 	self thread clean_up_suicide_hud_on_end_game();
 	self thread clean_up_suicide_hud_on_bled_out();
 	while(self usebuttonpressed())
@@ -822,7 +822,7 @@ function suicide_trigger_think()
 		self takeweapon(level.suicide_weapon);
 		if(suicide_success)
 		{
-			self notify(#"player_suicide");
+			self notify("player_suicide");
 			util::wait_network_frame();
 			self bleed_out();
 			return;
@@ -843,8 +843,8 @@ function suicide_trigger_think()
 */
 function suicide_do_suicide(duration)
 {
-	level endon(#"game_ended");
-	level endon(#"stop_suicide_trigger");
+	level endon("game_ended");
+	level endon("stop_suicide_trigger");
 	suicidetime = duration;
 	timer = 0;
 	suicided = 0;
@@ -986,16 +986,16 @@ function revive_trigger_spawn()
 */
 function revive_trigger_think()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_revive_trigger");
-	level endon(#"game_ended");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("stop_revive_trigger");
+	level endon("game_ended");
+	self endon("death");
 	while(true)
 	{
 		wait(0.1);
 		if(!isdefined(self.revivetrigger))
 		{
-			self notify(#"stop_revive_trigger");
+			self notify("stop_revive_trigger");
 		}
 		self.revivetrigger sethintstring("");
 		players = getplayers();
@@ -1283,7 +1283,7 @@ function revive_do_revive(playerbeingrevived, revivergun)
 	}
 	playerbeingrevived.revivetrigger sethintstring(&"COOP_BUTTON_TO_REVIVE_PLAYER");
 	playerbeingrevived.revivetrigger.beingrevived = 0;
-	self notify(#"do_revive_ended_normally");
+	self notify("do_revive_ended_normally");
 	self.is_reviving_any--;
 	if(!revived)
 	{
@@ -1303,11 +1303,11 @@ function revive_do_revive(playerbeingrevived, revivergun)
 */
 function checkforbleedout(player)
 {
-	self endon(#"player_revived");
-	self endon(#"player_suicide");
-	self endon(#"disconnect");
-	player endon(#"disconnect");
-	player notify(#"player_failed_revive");
+	self endon("player_revived");
+	self endon("player_suicide");
+	self endon("disconnect");
+	player endon("disconnect");
+	player notify("player_failed_revive");
 }
 
 /*
@@ -1321,8 +1321,8 @@ function checkforbleedout(player)
 */
 function auto_revive_on_notify()
 {
-	self endon(#"player_revived");
-	self waittill(#"auto_revive", reviver, dont_enable_weapons);
+	self endon("player_revived");
+	self waittill("auto_revive", reviver, dont_enable_weapons);
 	auto_revive(reviver, dont_enable_weapons);
 }
 
@@ -1355,7 +1355,7 @@ function auto_revive(reviver, dont_enable_weapons)
 	}
 	self reviveplayer();
 	self clientfield::set_to_player("sndHealth", 0);
-	self notify(#"stop_revive_trigger");
+	self notify("stop_revive_trigger");
 	if(isdefined(self.revivetrigger))
 	{
 		self.revivetrigger delete();
@@ -1389,7 +1389,7 @@ function auto_revive(reviver, dont_enable_weapons)
 			}
 		}
 	}
-	self notify(#"player_revived", reviver);
+	self notify("player_revived", reviver);
 }
 
 /*
@@ -1423,7 +1423,7 @@ function revive_success(reviver, b_track_stats = 1)
 {
 	if(!isplayer(self))
 	{
-		self notify(#"player_revived", reviver);
+		self notify("player_revived", reviver);
 		return;
 	}
 	if(isdefined(b_track_stats) && b_track_stats)
@@ -1435,7 +1435,7 @@ function revive_success(reviver, b_track_stats = 1)
 		self allowjump(1);
 	}
 	self.laststand = undefined;
-	self notify(#"player_revived", reviver);
+	self notify("player_revived", reviver);
 	bb::logplayermapnotification("player_revived", self);
 	self reviveplayer();
 	if(isplayer(reviver) && isdefined(getrootmapname()))
@@ -1499,7 +1499,7 @@ function revive_force_revive(reviver)
 */
 function revive_hud_think()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
 		wait(0.1);
@@ -1572,8 +1572,8 @@ function faderevivemessageover(playertorevive, time)
 */
 function laststand_getup()
 {
-	self endon(#"player_revived");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("disconnect");
 	/#
 		println("");
 	#/
@@ -1604,8 +1604,8 @@ function laststand_getup()
 function check_for_sacrifice()
 {
 	self util::delay_notify("sacrifice_denied", 1);
-	self endon(#"sacrifice_denied");
-	self waittill(#"player_downed");
+	self endon("sacrifice_denied");
+	self waittill("player_downed");
 }
 
 /*
@@ -1619,12 +1619,12 @@ function check_for_sacrifice()
 */
 function check_for_failed_revive(playerbeingrevived)
 {
-	self endon(#"disconnect");
-	playerbeingrevived endon(#"disconnect");
-	playerbeingrevived endon(#"player_suicide");
-	self notify(#"checking_for_failed_revive");
-	self endon(#"checking_for_failed_revive");
-	playerbeingrevived endon(#"player_revived");
+	self endon("disconnect");
+	playerbeingrevived endon("disconnect");
+	playerbeingrevived endon("player_suicide");
+	self notify("checking_for_failed_revive");
+	self endon("checking_for_failed_revive");
+	playerbeingrevived endon("player_revived");
 	playerbeingrevived waittill(#"bled_out");
 }
 
@@ -1673,8 +1673,8 @@ function update_regen_widget(duration, eventtoendon)
 */
 function wait_and_revive(emergency_reserve = 0)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level flag::set("wait_and_revive");
 	if(isdefined(self.waiting_to_revive) && self.waiting_to_revive == 1)
 	{
@@ -1732,12 +1732,12 @@ function wait_and_revive(emergency_reserve = 0)
 */
 function remote_revive_watch()
 {
-	self endon(#"death");
-	self endon(#"player_revived");
+	self endon("death");
+	self endon("player_revived");
 	keep_checking = 1;
 	while(keep_checking)
 	{
-		self waittill(#"remote_revive", reviver);
+		self waittill("remote_revive", reviver);
 		if(reviver.team == self.team)
 		{
 			keep_checking = 0;

@@ -97,6 +97,6 @@ function copycatgive(type)
 function copycattake(type)
 {
 	self thread cybercom_tacrig::turn_rig_ability_off(type);
-	self notify(#"copycattake");
+	self notify("copycattake");
 }
 

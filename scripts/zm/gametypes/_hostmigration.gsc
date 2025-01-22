@@ -143,8 +143,8 @@ function resumetimer()
 */
 function locktimer()
 {
-	level endon(#"host_migration_begin");
-	level endon(#"host_migration_end");
+	level endon("host_migration_begin");
+	level endon("host_migration_end");
 	for(;;)
 	{
 		currtime = gettime();
@@ -179,7 +179,7 @@ function callback_hostmigration()
 		return;
 	}
 	sethostmigrationstatus(1);
-	level notify(#"host_migration_begin");
+	level notify("host_migration_begin");
 	for(i = 0; i < level.players.size; i++)
 	{
 		if(isdefined(level.hostmigration_link_entity_callback))
@@ -221,7 +221,7 @@ function callback_hostmigration()
 	}
 	if(level.inprematchperiod)
 	{
-		level waittill(#"prematch_over");
+		level waittill("prematch_over");
 	}
 	/#
 		println("" + gettime());
@@ -254,7 +254,7 @@ function callback_hostmigration()
 			}
 		}
 	}
-	level endon(#"host_migration_begin");
+	level endon("host_migration_begin");
 	should_pause_spawning = level flag::get("spawn_zombies");
 	if(should_pause_spawning)
 	{
@@ -289,7 +289,7 @@ function callback_hostmigration()
 	/#
 		println("" + gettime());
 	#/
-	level notify(#"host_migration_end");
+	level notify("host_migration_end");
 }
 
 /*
@@ -303,7 +303,7 @@ function callback_hostmigration()
 */
 function post_migration_become_vulnerable()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 }
 
 /*
@@ -317,7 +317,7 @@ function post_migration_become_vulnerable()
 */
 function post_migration_invulnerability()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	was_inv = self enableinvulnerability();
 	wait(3);
 	self disableinvulnerability();
@@ -375,7 +375,7 @@ function host_migration_respawn()
 function matchstarttimerconsole_internal(counttime, matchstarttimer)
 {
 	waittillframeend();
-	level endon(#"match_start_timer_beginning");
+	level endon("match_start_timer_beginning");
 	while(counttime > 0 && !level.gameended)
 	{
 		matchstarttimer thread hud::font_pulse(level);
@@ -398,7 +398,7 @@ function matchstarttimerconsole_internal(counttime, matchstarttimer)
 function matchstarttimerconsole(type, duration)
 {
 	thread matchstartblacscreen(duration);
-	level notify(#"match_start_timer_beginning");
+	level notify("match_start_timer_beginning");
 	wait(0.05);
 	matchstarttext = hud::createserverfontstring("objective", 1.5);
 	matchstarttext hud::setpoint("CENTER", "CENTER", 0, -40);
@@ -452,7 +452,7 @@ function matchstartblacscreen(duration)
 */
 function hostmigrationwait()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(level.hostmigrationreturnedplayercount < ((level.players.size * 2) / 3))
 	{
 		thread matchstarttimerconsole("waiting_for_teams", 20);
@@ -473,7 +473,7 @@ function hostmigrationwait()
 */
 function hostmigrationwaitforplayers()
 {
-	level endon(#"hostmigration_enoughplayers");
+	level endon("hostmigration_enoughplayers");
 	wait(15);
 }
 
@@ -488,12 +488,12 @@ function hostmigrationwaitforplayers()
 */
 function hostmigrationtimerthink_internal()
 {
-	level endon(#"host_migration_begin");
-	level endon(#"host_migration_end");
+	level endon("host_migration_begin");
+	level endon("host_migration_end");
 	self.hostmigrationcontrolsfrozen = 0;
 	while(!isalive(self))
 	{
-		self waittill(#"spawned");
+		self waittill("spawned");
 	}
 	if(isdefined(self._host_migration_link_entity))
 	{
@@ -508,7 +508,7 @@ function hostmigrationtimerthink_internal()
 	}
 	self.hostmigrationcontrolsfrozen = 1;
 	self freezecontrols(1);
-	level waittill(#"host_migration_end");
+	level waittill("host_migration_end");
 }
 
 /*
@@ -522,8 +522,8 @@ function hostmigrationtimerthink_internal()
 */
 function hostmigrationtimerthink()
 {
-	self endon(#"disconnect");
-	level endon(#"host_migration_begin");
+	self endon("disconnect");
+	level endon("host_migration_begin");
 	hostmigrationtimerthink_internal();
 	if(self.hostmigrationcontrolsfrozen)
 	{
@@ -562,7 +562,7 @@ function waittillhostmigrationdone()
 		return 0;
 	}
 	starttime = gettime();
-	level waittill(#"host_migration_end");
+	level waittill("host_migration_end");
 	return gettime() - starttime;
 }
 
@@ -581,7 +581,7 @@ function waittillhostmigrationstarts(duration)
 	{
 		return;
 	}
-	level endon(#"host_migration_begin");
+	level endon("host_migration_begin");
 	wait(duration);
 }
 

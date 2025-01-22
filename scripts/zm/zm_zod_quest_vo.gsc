@@ -47,7 +47,7 @@ function see_map_trigger()
 */
 function vo_play_soliloquy(convo)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		assert(isdefined(convo), "");
 	#/
@@ -64,7 +64,7 @@ function vo_play_soliloquy(convo)
 				self.dontspeak = 0;
 				self clientfield::set_to_player("isspeaking", 0);
 				level flag::clear("story_vo_playing");
-				self notify(#"soliloquy_vo_done");
+				self notify("soliloquy_vo_done");
 				return;
 			}
 			self playsoundwithnotify(convo[i], "sound_done" + convo[i]);
@@ -74,7 +74,7 @@ function vo_play_soliloquy(convo)
 		self.dontspeak = 0;
 		self clientfield::set_to_player("isspeaking", 0);
 		level flag::clear("story_vo_playing");
-		self notify(#"soliloquy_vo_done");
+		self notify("soliloquy_vo_done");
 	}
 }
 
@@ -89,8 +89,8 @@ function vo_play_soliloquy(convo)
 */
 function vo_play_soliloquy_disconnect_listener()
 {
-	self endon(#"soliloquy_vo_done");
-	self waittill(#"disconnect");
+	self endon("soliloquy_vo_done");
+	self waittill("disconnect");
 	level flag::clear("story_vo_playing");
 }
 

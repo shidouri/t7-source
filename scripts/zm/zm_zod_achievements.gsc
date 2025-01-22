@@ -123,10 +123,10 @@ function achievement_complete_all_rituals()
 function achievement_spot_the_shadowman()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(var_66f8342 = 0; var_66f8342 < 5; var_66f8342++)
 	{
-		self waittill(#"shadowman_spotted");
+		self waittill("shadowman_spotted");
 	}
 	self giveachievement("ZM_SPOT_SHADOWMAN");
 }
@@ -143,7 +143,7 @@ function achievement_spot_the_shadowman()
 function function_f50b1960()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_a49e2257 = [];
 	while(var_a49e2257.size < 5)
 	{
@@ -178,11 +178,11 @@ function function_f50b1960()
 function achievement_zombie_store_kills()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_fce7f186 = 0;
 	while(var_fce7f186 < 10)
 	{
-		self waittill(#"zombie_death_params", var_7ef6d493, var_c3f7e0ed);
+		self waittill("zombie_death_params", var_7ef6d493, var_c3f7e0ed);
 		if(isdefined(var_7ef6d493) && isstring(var_7ef6d493) && var_7ef6d493 == "zod_store")
 		{
 			if(!var_c3f7e0ed)
@@ -206,7 +206,7 @@ function achievement_zombie_store_kills()
 function function_b9e36150()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self waittill(#"hash_4438d786", var_c2faf069);
@@ -230,7 +230,7 @@ function function_b9e36150()
 function achievement_civil_protector()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_edf7e9c1 = 0;
 	var_5c366274 = 0;
 	var_6ca52f65 = 0;
@@ -282,11 +282,11 @@ function achievement_civil_protector()
 function achievement_widows_wine_kill()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_fce7f186 = 0;
 	while(var_fce7f186 < 10)
 	{
-		self waittill(#"widows_wine_kill", var_190c9827);
+		self waittill("widows_wine_kill", var_190c9827);
 		if(isdefined(var_190c9827) && var_190c9827 == self)
 		{
 			var_fce7f186++;
@@ -307,11 +307,11 @@ function achievement_widows_wine_kill()
 function achievement_margwa_kill()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_b8ac8cce = 0;
 	while(true)
 	{
-		self waittill(#"margwa_kill");
+		self waittill("margwa_kill");
 		if(var_b8ac8cce == 0)
 		{
 			var_a07758ed = level.round_number;
@@ -342,10 +342,10 @@ function achievement_margwa_kill()
 function achievement_parasite_train_kills()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(var_fce7f186 = 0; var_fce7f186 < 5; var_fce7f186++)
 	{
-		self waittill(#"wasp_train_kill");
+		self waittill("wasp_train_kill");
 	}
 	self giveachievement("ZM_PARASITE_KILL");
 }

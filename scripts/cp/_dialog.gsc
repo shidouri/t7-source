@@ -170,7 +170,7 @@ function say(str_vo_line, n_delay, b_fake_ent = 0, e_to_player, var_43937b21)
 		level notify(#"hash_120cde7f", ent);
 		b_fake_ent = 1;
 	}
-	ent endon(#"death");
+	ent endon("death");
 	ent thread _say(str_vo_line, n_delay, b_fake_ent, e_to_player);
 	ent waittillmatch(#"hash_90f83311");
 	if(self == level)
@@ -194,11 +194,11 @@ function say(str_vo_line, n_delay, b_fake_ent = 0, e_to_player, var_43937b21)
 */
 function private _say(str_vo_line, n_delay, b_fake_ent = 0, e_to_player)
 {
-	self endon(#"death");
+	self endon("death");
 	self.is_about_to_talk = 1;
 	self thread _on_kill_pending_dialog(str_vo_line);
-	level endon(#"kill_pending_dialog");
-	self endon(#"kill_pending_dialog");
+	level endon("kill_pending_dialog");
+	self endon("kill_pending_dialog");
 	if(isdefined(n_delay) && n_delay > 0)
 	{
 		wait(n_delay);
@@ -248,7 +248,7 @@ function private _say(str_vo_line, n_delay, b_fake_ent = 0, e_to_player)
 */
 function _on_kill_pending_dialog(str_vo_line)
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"_on_kill_pending_dialog_end");
 	self endon(#"_on_kill_pending_dialog_end");
 	util::waittill_any_ents_two(level, "kill_pending_dialog", self, "kill_pending_dialog");

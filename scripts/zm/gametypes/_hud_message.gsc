@@ -47,8 +47,8 @@ function init()
 */
 function teamoutcomenotify(winner, isround, endreasontext)
 {
-	self endon(#"disconnect");
-	self notify(#"reset_outcome");
+	self endon("disconnect");
+	self notify("reset_outcome");
 	team = self.pers["team"];
 	if(isdefined(team) && team == "spectator")
 	{
@@ -69,7 +69,7 @@ function teamoutcomenotify(winner, isround, endreasontext)
 	{
 		wait(0.05);
 	}
-	self endon(#"reset_outcome");
+	self endon("reset_outcome");
 	headerfont = "extrabig";
 	font = "default";
 	if(self issplitscreen())
@@ -270,8 +270,8 @@ function teamoutcomenotify(winner, isround, endreasontext)
 */
 function teamoutcomenotifyzombie(winner, isround, endreasontext)
 {
-	self endon(#"disconnect");
-	self notify(#"reset_outcome");
+	self endon("disconnect");
+	self notify("reset_outcome");
 	team = self.pers["team"];
 	if(isdefined(team) && team == "spectator")
 	{
@@ -292,7 +292,7 @@ function teamoutcomenotifyzombie(winner, isround, endreasontext)
 	{
 		wait(0.05);
 	}
-	self endon(#"reset_outcome");
+	self endon("reset_outcome");
 	if(self issplitscreen())
 	{
 		titlesize = 2;
@@ -326,13 +326,13 @@ function teamoutcomenotifyzombie(winner, isround, endreasontext)
 */
 function outcomenotify(winner, isroundend, endreasontext)
 {
-	self endon(#"disconnect");
-	self notify(#"reset_outcome");
+	self endon("disconnect");
+	self notify("reset_outcome");
 	while(self.doingnotify)
 	{
 		wait(0.05);
 	}
-	self endon(#"reset_outcome");
+	self endon("reset_outcome");
 	headerfont = "extrabig";
 	font = "default";
 	if(self issplitscreen())
@@ -460,13 +460,13 @@ function outcomenotify(winner, isroundend, endreasontext)
 */
 function wageroutcomenotify(winner, endreasontext)
 {
-	self endon(#"disconnect");
-	self notify(#"reset_outcome");
+	self endon("disconnect");
+	self notify("reset_outcome");
 	while(self.doingnotify)
 	{
 		wait(0.05);
 	}
-	self endon(#"reset_outcome");
+	self endon("reset_outcome");
 	headerfont = "extrabig";
 	font = "objective";
 	if(self issplitscreen())
@@ -629,8 +629,8 @@ function wageroutcomenotify(winner, endreasontext)
 */
 function teamwageroutcomenotify(winner, isroundend, endreasontext)
 {
-	self endon(#"disconnect");
-	self notify(#"reset_outcome");
+	self endon("disconnect");
+	self notify("reset_outcome");
 	team = self.pers["team"];
 	if(!isdefined(team) || !isdefined(level.teams[team]))
 	{
@@ -641,7 +641,7 @@ function teamwageroutcomenotify(winner, isroundend, endreasontext)
 	{
 		wait(0.05);
 	}
-	self endon(#"reset_outcome");
+	self endon("reset_outcome");
 	headerfont = "extrabig";
 	font = "objective";
 	if(self issplitscreen())
@@ -815,8 +815,8 @@ function teamwageroutcomenotify(winner, isroundend, endreasontext)
 */
 function resetoutcomenotify(hudelemlist1, hudelemlist2, hudelem3, hudelem4, hudelem5, hudelem6, hudelem7, hudelem8, hudelem9, hudelem10)
 {
-	self endon(#"disconnect");
-	self waittill(#"reset_outcome");
+	self endon("disconnect");
+	self waittill("reset_outcome");
 	destroyhudelem(hudelem3);
 	destroyhudelem(hudelem4);
 	destroyhudelem(hudelem5);
@@ -852,8 +852,8 @@ function resetoutcomenotify(hudelemlist1, hudelemlist2, hudelem3, hudelem4, hude
 */
 function resetwageroutcomenotify(playernamehudelems, playercphudelems, outcometitle, outcometext)
 {
-	self endon(#"disconnect");
-	self waittill(#"reset_outcome");
+	self endon("disconnect");
+	self waittill("reset_outcome");
 	for(i = playernamehudelems.size - 1; i >= 0; i--)
 	{
 		if(isdefined(playernamehudelems[i]))
@@ -889,11 +889,11 @@ function resetwageroutcomenotify(playernamehudelems, playercphudelems, outcometi
 */
 function updateoutcome(firsttitle, secondtitle, thirdtitle)
 {
-	self endon(#"disconnect");
-	self endon(#"reset_outcome");
+	self endon("disconnect");
+	self endon("reset_outcome");
 	while(true)
 	{
-		self waittill(#"update_outcome");
+		self waittill("update_outcome");
 		players = level.placement["all"];
 		if(isdefined(firsttitle) && isdefined(players[0]))
 		{
@@ -933,11 +933,11 @@ function updateoutcome(firsttitle, secondtitle, thirdtitle)
 */
 function updatewageroutcome(playernamehudelems, playercphudelems)
 {
-	self endon(#"disconnect");
-	self endon(#"reset_outcome");
+	self endon("disconnect");
+	self endon("reset_outcome");
 	while(true)
 	{
-		self waittill(#"update_outcome");
+		self waittill("update_outcome");
 		players = level.placement["all"];
 		for(i = 0; i < playernamehudelems.size; i++)
 		{

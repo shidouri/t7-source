@@ -173,10 +173,10 @@ function stop_radio_listener()
 {
 	while(true)
 	{
-		level waittill(#"ktr");
+		level waittill("ktr");
 		level.var_58522184 = 1;
 		level thread next_song();
-		level waittill(#"rrd");
+		level waittill("rrd");
 		level.var_58522184 = 0;
 		wait(0.5);
 	}

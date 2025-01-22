@@ -223,12 +223,12 @@ function private wait_and_detonate()
 */
 function private mine_watch(wpn_type)
 {
-	self endon(#"death");
-	self notify(#"mine_watch");
-	self endon(#"mine_watch");
+	self endon("death");
+	self notify("mine_watch");
+	self endon("mine_watch");
 	while(true)
 	{
-		self waittill(#"grenade_fire", mine, fired_weapon);
+		self waittill("grenade_fire", mine, fired_weapon);
 		if(fired_weapon == wpn_type)
 		{
 			mine.owner = self;
@@ -419,8 +419,8 @@ function private pickup_placeable_mine_trigger_listener(trigger, player)
 */
 function private pickup_placeable_mine_trigger_listener_enable(trigger, player)
 {
-	self endon(#"delete");
-	self endon(#"death");
+	self endon("delete");
+	self endon("death");
 	while(true)
 	{
 		player util::waittill_any(("zmb_enable_" + self.weapon.name) + "_prompt", "spawned_player");
@@ -444,8 +444,8 @@ function private pickup_placeable_mine_trigger_listener_enable(trigger, player)
 */
 function private pickup_placeable_mine_trigger_listener_disable(trigger, player)
 {
-	self endon(#"delete");
-	self endon(#"death");
+	self endon("delete");
+	self endon("death");
 	while(true)
 	{
 		player waittill(("zmb_disable_" + self.weapon.name) + "_prompt");
@@ -469,14 +469,14 @@ function private pickup_placeable_mine_trigger_listener_disable(trigger, player)
 */
 function private placeable_mine_damage()
 {
-	self endon(#"death");
+	self endon("death");
 	self setcandamage(1);
 	self.health = 100000;
 	self.maxhealth = self.health;
 	attacker = undefined;
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker);
+		self waittill("damage", amount, attacker);
 		if(!isdefined(self))
 		{
 			return;

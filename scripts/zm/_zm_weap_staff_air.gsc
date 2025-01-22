@@ -65,7 +65,7 @@ function __init__()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread watch_staff_air_fired();
 	self thread watch_staff_air_impact();
 	self thread zm_tomb_utility::watch_staff_usage();
@@ -82,7 +82,7 @@ function onplayerspawned()
 */
 function air_projectile_delete()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.75);
 	self delete();
 }
@@ -98,10 +98,10 @@ function air_projectile_delete()
 */
 function watch_staff_air_fired()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"missile_fire", e_projectile, w_weapon);
+		self waittill("missile_fire", e_projectile, w_weapon);
 		if(w_weapon.name == "staff_air_upgraded" || w_weapon.name == "staff_air")
 		{
 			e_projectile thread air_projectile_delete();
@@ -124,10 +124,10 @@ function watch_staff_air_fired()
 */
 function watch_staff_air_impact()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"projectile_impact", w_weapon, v_explode_point, n_radius, projectile);
+		self waittill("projectile_impact", w_weapon, v_explode_point, n_radius, projectile);
 		if(w_weapon.name == "staff_air_upgraded2" || w_weapon.name == "staff_air_upgraded3")
 		{
 			self thread staff_air_find_source(v_explode_point, w_weapon);
@@ -146,7 +146,7 @@ function watch_staff_air_impact()
 */
 function staff_air_find_source(v_detonate, w_weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(v_detonate))
 	{
 		return;
@@ -192,7 +192,7 @@ function staff_air_find_source(v_detonate, w_weapon)
 */
 function staff_air_zombie_source(ai_zombie, w_weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	ai_zombie.staff_hit = 1;
 	ai_zombie.is_source = 1;
 	v_whirlwind_pos = ai_zombie.origin;
@@ -214,14 +214,14 @@ function staff_air_zombie_source(ai_zombie, w_weapon)
 */
 function staff_air_position_source(v_detonate, w_weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(v_detonate))
 	{
 		return;
 	}
 	if(level flag::get("whirlwind_active"))
 	{
-		level notify(#"whirlwind_stopped");
+		level notify("whirlwind_stopped");
 		while(level flag::get("whirlwind_active"))
 		{
 			util::wait_network_frame();
@@ -235,7 +235,7 @@ function staff_air_position_source(v_detonate, w_weapon)
 	e_whirlwind.angles = vectorscale((-1, 0, 0), 90);
 	e_whirlwind thread zm_tomb_utility::puzzle_debug_position("X", vectorscale((1, 1, 0), 255));
 	e_whirlwind moveto(zm_utility::groundpos_ignore_water_new(e_whirlwind.origin), 0.05);
-	e_whirlwind waittill(#"movedone");
+	e_whirlwind waittill("movedone");
 	e_whirlwind clientfield::set("whirlwind_play_fx", 1);
 	e_whirlwind thread zm_tomb_utility::whirlwind_rumble_nearby_players("whirlwind_active");
 	e_whirlwind thread whirlwind_timeout(n_time);
@@ -255,7 +255,7 @@ function staff_air_position_source(v_detonate, w_weapon)
 */
 function whirlwind_seek_zombies(n_level, w_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self.b_found_zombies = 0;
 	n_range = get_air_blast_range(n_level);
 	while(true)
@@ -282,9 +282,9 @@ function whirlwind_seek_zombies(n_level, w_weapon)
 */
 function whirlwind_timeout(n_time)
 {
-	self endon(#"death");
+	self endon("death");
 	level util::waittill_any_timeout(n_time, "whirlwind_stopped");
-	level notify(#"whirlwind_stopped");
+	level notify("whirlwind_stopped");
 	self clientfield::set("whirlwind_play_fx", 0);
 	self notify(#"stop_debug_position");
 	level flag::clear("whirlwind_active");
@@ -320,7 +320,7 @@ function move_along_ground_position(v_position, n_time)
 */
 function whirlwind_kill_zombies(n_level, w_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	n_range = get_air_blast_range(n_level);
 	self.n_charge_level = n_level;
 	while(true)
@@ -432,7 +432,7 @@ function whirlwind_move_zombie(e_whirlwind)
 		self.e_linker thread move_along_ground_position(e_whirlwind.origin, n_movetime);
 		wait(0.05);
 	}
-	self notify(#"reached_whirlwind");
+	self notify("reached_whirlwind");
 	self.e_linker delete();
 }
 
@@ -447,8 +447,8 @@ function whirlwind_move_zombie(e_whirlwind)
 */
 function whirlwind_unlink(e_whirlwind)
 {
-	self endon(#"death");
-	e_whirlwind waittill(#"death");
+	self endon("death");
+	e_whirlwind waittill("death");
 	self unlink();
 }
 
@@ -463,7 +463,7 @@ function whirlwind_unlink(e_whirlwind)
 */
 function source_zombie_death(ai_zombie)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	n_range = get_air_blast_range(self.chargeshotlevel);
 	tag = "J_SpineUpper";
 	if(ai_zombie.isdog)
@@ -518,7 +518,7 @@ function get_air_blast_range(n_charge)
 */
 function staff_air_proximity_kill(a_zombies)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(a_zombies))
 	{
 		return;
@@ -582,7 +582,7 @@ function staff_air_zombie_range(v_source, n_range)
 */
 function staff_air_fling_zombie(player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(!isalive(self))
 	{
 		return;
@@ -773,7 +773,7 @@ function wind_damage_cone(w_weapon)
 */
 function stun_zombie()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.is_mechz) && self.is_mechz)
 	{
 		return;
@@ -811,7 +811,7 @@ function stun_zombie()
 */
 function whirlwind_attract_anim_watch_cancel()
 {
-	self endon(#"death");
+	self endon("death");
 	while(level flag::get("whirlwind_active"))
 	{
 		util::wait_network_frame();
@@ -832,8 +832,8 @@ function whirlwind_attract_anim_watch_cancel()
 */
 function whirlwind_attract_anim(v_attract_point, b_move_fast = 0)
 {
-	self endon(#"death");
-	level endon(#"whirlwind_stopped");
+	self endon("death");
+	level endon("whirlwind_stopped");
 	if(isdefined(self._whirlwind_attract_anim) && self._whirlwind_attract_anim)
 	{
 		return;
@@ -865,6 +865,6 @@ function whirlwind_attract_anim(v_attract_point, b_move_fast = 0)
 	self._whirlwind_attract_anim = 1;
 	self.a.runblendtime = self._normal_run_blend_time;
 	self thread whirlwind_attract_anim_watch_cancel();
-	self waittill(#"reached_whirlwind");
+	self waittill("reached_whirlwind");
 }
 

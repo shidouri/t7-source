@@ -130,7 +130,7 @@ function handle_prometheus_flee()
 	self ai::set_behavior_attribute("sprint", 1);
 	self ai::disable_pain();
 	trigger::use("promethius_flee_hangar", "targetname");
-	self waittill(#"goal");
+	self waittill("goal");
 	self delete();
 }
 
@@ -230,7 +230,7 @@ function handle_hideout(b_starting = 0)
 	}
 	aquifer_obj::function_f67ca613(1);
 	scene::play("cin_aqu_16_outro_3rd_sh010", level.hendricks);
-	level waittill(#"hideout_scene_done");
+	level waittill("hideout_scene_done");
 	level thread namespace_71a63eac::function_a1e074db();
 	util::teleport_players_igc("post_hideout_igc");
 }
@@ -282,7 +282,7 @@ function function_3a77d1bf()
 {
 	struct = getent("run_out_cinematic2", "targetname");
 	struct scene::init("cin_aqu_07_10_escape_vign_crush_death_ally");
-	level waittill(#"collapse");
+	level waittill("collapse");
 	thread aquifer_util::toggle_door("ceiling_ac_unit", 1);
 	struct scene::play("cin_aqu_07_10_escape_vign_crush_death_ally");
 }
@@ -301,7 +301,7 @@ function function_64386226()
 	level endon(#"hash_a384e425");
 	while(true)
 	{
-		level waittill(#"collapse");
+		level waittill("collapse");
 		iprintlnbold("COLLAPSE START");
 	}
 }
@@ -320,7 +320,7 @@ function function_291b34c9()
 	level endon(#"hash_a384e425");
 	while(true)
 	{
-		level waittill(#"shake");
+		level waittill("shake");
 		earthquake(0.5, 2, level.hendricks.origin, 1000);
 		level thread cp_mi_cairo_aquifer_sound::function_5d0cee98();
 		staggers = array("pb_aqu_07_10_escape_vign_stagger_l_player", "pb_aqu_07_10_escape_vign_stagger_r_player");
@@ -443,7 +443,7 @@ function function_246476fd(var_8a6d11, var_f17304b7, var_75422735, var_b6b983f4,
 		level.hendricks stopanimscripted();
 		return true;
 	}
-	struct waittill(#"scene_done");
+	struct waittill("scene_done");
 	return false;
 }
 
@@ -551,7 +551,7 @@ function escape_vo()
 	var_296988d3[var_296988d3.size] = "hend_keep_up_0";
 	for(i = 0; i < var_296988d3.size; i++)
 	{
-		level waittill(#"shake");
+		level waittill("shake");
 		wait(2);
 		if(var_296988d3[i] != "skip")
 		{

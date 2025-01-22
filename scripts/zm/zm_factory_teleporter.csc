@@ -103,7 +103,7 @@ function wait_for_teleport_aftereffect()
 {
 	while(true)
 	{
-		level waittill(#"tae", localclientnum);
+		level waittill("tae", localclientnum);
 		if(getdvarstring("factoryAftereffectOverride") == ("-1"))
 		{
 			self thread [[level.teleport_ae_funcs[randomint(level.teleport_ae_funcs.size)]]](localclientnum);

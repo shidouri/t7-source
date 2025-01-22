@@ -35,7 +35,7 @@ function main()
 */
 function function_25b0085d()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	if(getdvarint("splitscreen_playerCount") >= 2)
 	{
 		return;

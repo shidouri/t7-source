@@ -122,9 +122,9 @@ function cleanup_suicide_hud()
 */
 function clean_up_suicide_hud_on_end_game()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_revive_trigger");
-	self endon(#"player_revived");
+	self endon("disconnect");
+	self endon("stop_revive_trigger");
+	self endon("player_revived");
 	self endon(#"bled_out");
 	level util::waittill_any("game_ended", "stop_suicide_trigger");
 	self cleanup_suicide_hud();
@@ -149,8 +149,8 @@ function clean_up_suicide_hud_on_end_game()
 */
 function clean_up_suicide_hud_on_bled_out()
 {
-	self endon(#"disconnect");
-	self endon(#"stop_revive_trigger");
+	self endon("disconnect");
+	self endon("stop_revive_trigger");
 	self util::waittill_any("bled_out", "player_revived", "fake_death");
 	self cleanup_suicide_hud();
 	if(isdefined(self.suicideprogressbar))
@@ -312,7 +312,7 @@ function update_lives_remaining(increment)
 	#/
 	increment = (isdefined(increment) ? increment : 0);
 	self.laststand_info.type_getup_lives = max(0, (increment ? self.laststand_info.type_getup_lives + 1 : self.laststand_info.type_getup_lives - 1));
-	self notify(#"laststand_lives_updated");
+	self notify("laststand_lives_updated");
 }
 
 /*
@@ -344,11 +344,11 @@ function player_getup_setup()
 */
 function laststand_getup_damage_watcher()
 {
-	self endon(#"player_revived");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		self.laststand_info.getup_bar_value = self.laststand_info.getup_bar_value - 0.1;
 		if(self.laststand_info.getup_bar_value < 0)
 		{
@@ -368,8 +368,8 @@ function laststand_getup_damage_watcher()
 */
 function laststand_getup_hud()
 {
-	self endon(#"player_revived");
-	self endon(#"disconnect");
+	self endon("player_revived");
+	self endon("disconnect");
 	hudelem = newclienthudelem(self);
 	hudelem.alignx = "left";
 	hudelem.aligny = "middle";
@@ -418,11 +418,11 @@ function laststand_getup_hud_destroy(hudelem)
 */
 function cleanup_laststand_on_disconnect()
 {
-	self endon(#"player_revived");
-	self endon(#"player_suicide");
+	self endon("player_revived");
+	self endon("player_suicide");
 	self endon(#"bled_out");
 	trig = self.revivetrigger;
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	if(isdefined(trig))
 	{
 		trig delete();

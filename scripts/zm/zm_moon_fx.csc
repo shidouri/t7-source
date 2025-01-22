@@ -81,7 +81,7 @@ function airlock_fx_init()
 */
 function airlock_fx(localclientnum)
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	var_2043fd45 = struct::get_array("s_airlock_jambs_fx", "targetname");
 	for(i = 0; i < var_2043fd45.size; i++)
 	{
@@ -200,7 +200,7 @@ function precache_createfx_fx()
 */
 function power_on_spinning_lights()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 }
 
 /*
@@ -241,7 +241,7 @@ function breach_receiving_fx()
 	{
 		level util::waittill_any("power_on", "pwr", "ZPO");
 	}
-	level notify(#"sl0");
+	level notify("sl0");
 }
 
 /*
@@ -260,8 +260,8 @@ function breach_labs_lower_fx()
 	{
 		level util::waittill_any("power_on", "pwr", "ZPO");
 	}
-	level notify(#"sl5");
-	level notify(#"sl6");
+	level notify("sl5");
+	level notify("sl6");
 }
 
 /*
@@ -280,7 +280,7 @@ function breach_labs_upper_fx()
 	{
 		level util::waittill_any("power_on", "pwr", "ZPO");
 	}
-	level notify(#"sl4");
+	level notify("sl4");
 }
 
 /*
@@ -375,7 +375,7 @@ function fog_trigger(change_func)
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(who islocalplayer())
 		{
 			self thread util::trigger_thread(who, change_func);

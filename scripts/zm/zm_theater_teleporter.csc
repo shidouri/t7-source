@@ -68,7 +68,7 @@ function main()
 */
 function setup_teleporter_screen()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	for(i = 0; i < level.localplayers.size; i++)
 	{
 		level.extracamactive[i] = 0;
@@ -86,7 +86,7 @@ function setup_teleporter_screen()
 */
 function pack_clock_init()
 {
-	level waittill(#"pack_clock_start", clientnum);
+	level waittill("pack_clock_start", clientnum);
 	curr_time = getsystemtime();
 	hours = curr_time[0];
 	if(hours > 12)
@@ -134,11 +134,11 @@ function pack_clock_run(time_values)
 {
 	self endon(#"entityshutdown");
 	self rotatepitch((time_values["hand_time"] * time_values["rotate"]) * -1, 0.05);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	if(isdefined(time_values["first_rotate"]))
 	{
 		self rotatepitch(time_values["first_rotate"] * -1, 0.05);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 	prev_time = getsystemtime();
 	while(true)

@@ -68,8 +68,8 @@ function notifyonplayercommandremove(command, key)
 */
 function function_e17a8f06(command, key)
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	self notify((command + "_") + key);
 	self endon((command + "_") + key);
 	switch(key)
@@ -378,9 +378,9 @@ function propcontrolshud()
 */
 function cleanuppropcontrolshudondeath()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self waittill(#"death");
+	level endon("game_ended");
+	self endon("disconnect");
+	self waittill("death");
 	self thread function_3122ae57();
 	self thread cleanuppropcontrolshud();
 }
@@ -435,9 +435,9 @@ function cleanuppropcontrolshud()
 */
 function updatetextongamepadchange()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
 	if(level.console)
 	{
 		return;
@@ -490,9 +490,9 @@ function updatetextongamepadchange()
 */
 function propinputwatch()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	if(isai(self))
 	{
 		return;
@@ -1212,9 +1212,9 @@ function get_ground_normal(var_a84e1ffa, debug)
 */
 function propmoveunlock()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	var_f98cbcda = 0;
 	var_bc31618a = 0;
 	var_449744f5 = 0;
@@ -1303,7 +1303,7 @@ function lockprop()
 		self.propent linkto(self.propanchor);
 	}
 	self.lock = 1;
-	self notify(#"locked");
+	self notify("locked");
 	if(prop::useprophudserver())
 	{
 		self.lockpropkey.label = &"MP_PH_LOCKED";
@@ -1322,11 +1322,11 @@ function lockprop()
 */
 function flashlockpropkey()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self notify(#"flashlockpropkey");
-	self endon(#"flashlockpropkey");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
+	self notify("flashlockpropkey");
+	self endon("flashlockpropkey");
 	var_ec404e3d = self.lockpropkey.startfontscale + 0.75;
 	self.lockpropkey changefontscaleovertime(0.1);
 	self.lockpropkey.fontscale = var_ec404e3d;
@@ -1527,9 +1527,9 @@ function canlock()
 */
 function propcamerazoom()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	var_8ea3acea = 10;
 	self.thirdpersonrange = self.prop.info.proprange;
 	while(true)
@@ -1641,7 +1641,7 @@ function setnewabilitycount(var_9c968389, count)
 */
 function endondeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	waittillframeend();
 	self notify(#"end_explode");
 }
@@ -1657,8 +1657,8 @@ function endondeath()
 */
 function flashtheprops(var_e967d644)
 {
-	level endon(#"game_ended");
-	var_e967d644 endon(#"disconnect");
+	level endon("game_ended");
+	var_e967d644 endon("disconnect");
 	self thread endondeath();
 	self endon(#"end_explode");
 	self waittill(#"explode", position);
@@ -1713,7 +1713,7 @@ function flashenemies(var_e967d644 = self, position = self.origin)
 			dir = vectornormalize(vec);
 			fwd = anglestoforward(otherplayer getplayerangles());
 			var_b02fb38d = vectordot(fwd, dir);
-			otherplayer notify(#"flashbang", var_bdf6b2ee, var_b02fb38d, var_e967d644);
+			otherplayer notify("flashbang", var_bdf6b2ee, var_b02fb38d, var_e967d644);
 			var_e967d644 thread damagefeedback::update();
 		}
 	}
@@ -1980,8 +1980,8 @@ function function_a40d8853()
 */
 function function_7244ebc6(var_ad5f9a75, fade_in_time, fade_out_time)
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	if(!isdefined(var_ad5f9a75))
 	{
 		var_ad5f9a75 = 5;
@@ -2042,14 +2042,14 @@ function function_7244ebc6(var_ad5f9a75, fade_in_time, fade_out_time)
 */
 function watchspecialgrenadethrow()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self notify(#"watchspecialgrenadethrow");
-	self endon(#"watchspecialgrenadethrow");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
+	self notify("watchspecialgrenadethrow");
+	self endon("watchspecialgrenadethrow");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		self thread function_899a39ec(grenade);
 		self.thrownspecialcount = self.thrownspecialcount + 1;
 	}
@@ -2066,8 +2066,8 @@ function watchspecialgrenadethrow()
 */
 function function_899a39ec(grenade)
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	weapon = grenade.weapon;
 	grenade waittill(#"explode", damageorigin);
 	if(!isdefined(level.var_56d3e86e))
@@ -2506,9 +2506,9 @@ function function_bf45ce54()
 */
 function function_227409a5()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self waittill(#"death");
+	level endon("game_ended");
+	self endon("disconnect");
+	self waittill("death");
 	self thread function_b4c19c50();
 	self thread function_7fd4f3ae();
 }
@@ -2636,9 +2636,9 @@ function function_afeda2bf(newvalue)
 */
 function function_1abcc66()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	if(isai(self))
 	{
 		return;
@@ -2695,9 +2695,9 @@ function function_38543493()
 */
 function function_aac4667c()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
 	self.var_ad7b9a66 = 1;
 	if(prop::useprophudserver())
 	{
@@ -2741,7 +2741,7 @@ function function_aac4667c()
 */
 function function_41584b4b(var_6f71e4e9)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self endon(#"hash_9c5a8370");
 	self util::waittill_either("disconnect", "death");
 	gameobjects::release_obj_id(var_6f71e4e9);

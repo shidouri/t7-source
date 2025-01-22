@@ -348,8 +348,8 @@ function moon_biodome_powerup_temptation(struct_array)
 {
 	powerup = spawn("script_model", struct_array[0].origin);
 	level thread moon_biodome_temptation_active(powerup);
-	powerup endon(#"powerup_grabbed");
-	powerup endon(#"powerup_timedout");
+	powerup endon("powerup_grabbed");
+	powerup endon("powerup_timedout");
 	temptation_array = array("fire_sale", "insta_kill", "nuke", "double_points", "carpenter");
 	temptation_index = 0;
 	spot_index = 0;
@@ -454,7 +454,7 @@ function moon_jump_pads_low_gravity()
 	biodome_compromised = 0;
 	while(!biodome_compromised)
 	{
-		level waittill(#"digger_arm_smash", digger, zone);
+		level waittill("digger_arm_smash", digger, zone);
 		if(digger == "biodome" && isarray(zone) && zone[0] == "forest_zone")
 		{
 			biodome_compromised = 1;
@@ -563,7 +563,7 @@ function moon_pad_malfunction_think()
 */
 function moon_zombie_run_change(ent_poi)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self._pad_chase) && self._pad_chase)
 	{
 		return;
@@ -622,7 +622,7 @@ function moon_zombie_run_change(ent_poi)
 */
 function jump_pad_store_movement_anim()
 {
-	self endon(#"death");
+	self endon("death");
 	current_anim = self.run_combatanim;
 	anim_keys = getarraykeys(level.scr_anim[self.animname]);
 	for(j = 0; j < anim_keys.size; j++)
@@ -650,7 +650,7 @@ function jump_pad_store_movement_anim()
 */
 function moon_stop_running_to_catch()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!(isdefined(self._pad_chase) && self._pad_chase))
 	{
 		return;
@@ -707,7 +707,7 @@ function moon_jump_pad_cushion_play_sound()
 {
 	while(isdefined(self))
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who) && (isdefined(who._padded) && who._padded))
 		{
 			self playsound("evt_jump_pad_land");

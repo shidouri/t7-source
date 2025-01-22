@@ -65,7 +65,7 @@ function start_boss()
 */
 function defend_obj_hack(ent)
 {
-	ent endon(#"death");
+	ent endon("death");
 	while(!level flag::get("end_battle"))
 	{
 		offset = vectorscale((0, 0, 1), 60);
@@ -198,7 +198,7 @@ function function_7c54d87d()
 */
 function init_sniper_boss()
 {
-	level endon(#"start_finale");
+	level endon("start_finale");
 	incoming_vo = [];
 	incoming_vo[0] = "hend_we_ve_got_company_0";
 	incoming_vo[1] = "hend_tangoes_on_the_floor_0";
@@ -253,11 +253,11 @@ function init_sniper_boss()
 	}
 	if(isdefined(shootme))
 	{
-		level.sniper_boss.lase_ent notify(#"target_lase_transition");
+		level.sniper_boss.lase_ent notify("target_lase_transition");
 		level.sniper_boss.lase_ent thread ai_sniper::target_lase_override(level.sniper_boss geteye(), shootme, 1, level.sniper_boss, 1, 0);
 		thread function_60e39f29(shootme);
 		shootme waittill(#"broken");
-		level.sniper_boss.lase_ent notify(#"target_lase_override");
+		level.sniper_boss.lase_ent notify("target_lase_override");
 		level.sniper_boss.lase_ent.lase_override = undefined;
 		exploder::exploder("bossceiling_smk_level1");
 		exploder::exploder("lighting_turbine_boss_03");
@@ -321,7 +321,7 @@ function init_sniper_boss()
 */
 function function_60e39f29(shootme)
 {
-	level.sniper_boss waittill(#"fire");
+	level.sniper_boss waittill("fire");
 	shootme kill(level.sniper_boss.origin, level.sniper_boss);
 }
 
@@ -480,7 +480,7 @@ function choose_sniper_location()
 */
 function set_up_sniper_location(index)
 {
-	level notify(#"sniper_moved");
+	level notify("sniper_moved");
 	level.sniper_target = level.ally_target;
 	level.sniper_override_target = undefined;
 	if(index >= 0 && index < level.sniper_origins.size)
@@ -508,9 +508,9 @@ function set_up_sniper_location(index)
 */
 function sniper_timer(duration)
 {
-	level endon(#"sniper_interrupted");
+	level endon("sniper_interrupted");
 	wait(duration);
-	level notify(#"sniper_fire_timeout");
+	level notify("sniper_fire_timeout");
 }
 
 /*
@@ -524,10 +524,10 @@ function sniper_timer(duration)
 */
 function sniper_suppression_monitor()
 {
-	level endon(#"sniper_interrupted");
-	level endon(#"sniper_moved");
-	level.sniper_hit_trigger waittill(#"damage");
-	level notify(#"sniper_interrupted");
+	level endon("sniper_interrupted");
+	level endon("sniper_moved");
+	level.sniper_hit_trigger waittill("damage");
+	level notify("sniper_interrupted");
 }
 
 /*
@@ -642,7 +642,7 @@ function end_battle()
 	trig triggerenable(1);
 	trig.var_611ccff1 = util::init_interactive_gameobject(trig, &"cp_level_aquifer_capture_door", &"CP_MI_CAIRO_AQUIFER_BREACH", &function_479374a3);
 	trig.var_611ccff1 gameobjects::set_use_time(0.35);
-	level waittill(#"start_finale");
+	level waittill("start_finale");
 	trig.var_611ccff1 gameobjects::disable_object();
 	trig triggerenable(0);
 }
@@ -660,7 +660,7 @@ function function_479374a3()
 {
 	util::set_streamer_hint(10);
 	aquifer_obj::objectives_complete("cp_level_aquifer_boss");
-	level notify(#"start_finale");
+	level notify("start_finale");
 	level.sniper_boss show();
 	level.sniper_boss util::stop_magic_bullet_shield();
 	guys = getaiteamarray("axis");
@@ -857,9 +857,9 @@ function function_e146f6ef()
 	}
 	if(isdefined(shootme))
 	{
-		level.sniper_boss.lase_ent notify(#"lase_points");
-		level.sniper_boss.lase_ent notify(#"target_lase_override");
-		level.sniper_boss.lase_ent notify(#"target_lase_transition");
+		level.sniper_boss.lase_ent notify("lase_points");
+		level.sniper_boss.lase_ent notify("target_lase_override");
+		level.sniper_boss.lase_ent notify("target_lase_transition");
 		wait(0.1);
 		if(isdefined(shootme))
 		{
@@ -940,7 +940,7 @@ function function_6ea369f7()
 	trig = getent("sniper_alley", "targetname");
 	while(!level flag::get("end_battle"))
 	{
-		trig waittill(#"trigger", who);
+		trig waittill("trigger", who);
 		if(isplayer(who) && isalive(who))
 		{
 			if(!isdefined(level.sniper_boss.player_target))
@@ -1016,7 +1016,7 @@ function function_e9c4785f(gameobj)
 */
 function function_dae6fcbf(name)
 {
-	level endon(#"hacking_complete");
+	level endon("hacking_complete");
 	panels = getentarray(name, "targetname");
 	delay = 3;
 	while(true)
@@ -1051,7 +1051,7 @@ function function_a354fb63(num)
 	{
 		level.hacking flag::wait_till("in_progress");
 		thread function_41ca61ef(num);
-		level waittill(#"hacking_complete", b_success);
+		level waittill("hacking_complete", b_success);
 		if(!b_success)
 		{
 			level notify(#"hash_90029dea");
@@ -1182,7 +1182,7 @@ function function_567a5fa()
 */
 function function_7bde3a88()
 {
-	level endon(#"start_finale");
+	level endon("start_finale");
 	level flag::wait_till("boss_taunt1");
 	wait(3);
 	level flag::set("boss_convo");
@@ -1204,7 +1204,7 @@ function function_7bde3a88()
 */
 function function_ede5a9c3()
 {
-	level endon(#"start_finale");
+	level endon("start_finale");
 	level flag::wait_till("boss_taunt2");
 	level flag::set("boss_convo");
 	level dialog::remote("mare_aren_t_you_worried_a_0");
@@ -1429,15 +1429,15 @@ function function_c3af0181()
 */
 function function_ae438739(var_ecd4dcd7)
 {
-	level endon(#"start_finale");
-	level endon(#"death");
+	level endon("start_finale");
+	level endon("death");
 	nags = [];
 	nags[0] = "hend_keep_your_head_down_1";
 	nags[1] = "hend_watch_it_1";
 	nags[2] = "hend_watch_that_laser_1";
 	while(level.var_6343f89f < nags.size)
 	{
-		self waittill(#"damage", amount, attacker, dir, point, mod);
+		self waittill("damage", amount, attacker, dir, point, mod);
 		if(attacker == level.sniper_boss && gettime() > (level.var_9ef3831c + (var_ecd4dcd7 * 1000)))
 		{
 			var_f0c8f3cf = level.hendricks boss_vo(nags[level.var_6343f89f], 2);

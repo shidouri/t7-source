@@ -119,7 +119,7 @@ function function_fd8775a2()
 		{
 			self.stub flag::wait_till_clear("beam_cooldown");
 		}
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(!self.stub flag::get("beam_on") && !self.stub flag::get("beam_cooldown"))
 		{
 			if(!e_who zm_score::can_player_purchase(1500))
@@ -273,7 +273,7 @@ function function_78f79e79(var_66a9cd70)
 */
 function function_6009178e(e_kill_zone)
 {
-	level endon(#"tesla_coil_cooldown");
+	level endon("tesla_coil_cooldown");
 	/#
 		if(isgodmode(self))
 		{

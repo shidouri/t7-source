@@ -144,8 +144,8 @@ function mech_zombie_hole_search()
 */
 function ee_mechz_spawn(n_spawn_pos)
 {
-	self endon(#"death");
-	level endon(#"intermission");
+	self endon("death");
+	level endon("intermission");
 	self.animname = "mechz_zombie";
 	self.missinglegs = 0;
 	self.no_gib = 1;
@@ -157,13 +157,13 @@ function ee_mechz_spawn(n_spawn_pos)
 	zm_utility::recalc_zombie_array();
 	self setphysparams(20, 0, 80);
 	self.zombie_init_done = 1;
-	self notify(#"zombie_init_done");
+	self notify("zombie_init_done");
 	self.allowpain = 0;
 	self animmode("normal");
 	self orientmode("face enemy");
 	self zm_spawner::zombie_setup_attack_properties();
 	self.completed_emerging_into_playable_area = 1;
-	self notify(#"completed_emerging_into_playable_area");
+	self notify("completed_emerging_into_playable_area");
 	self.no_powerups = 0;
 	self setfreecameralockonallowed(0);
 	self thread zombie_utility::zombie_eye_glow();
@@ -199,7 +199,7 @@ function ee_mechz_spawn(n_spawn_pos)
 */
 function mechz_death_ee()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self clientfield::set("tomb_mech_eye", 0);
 	level.ee_mech_zombies_killed++;
 	level.ee_mech_zombies_alive--;
@@ -227,8 +227,8 @@ function mechz_death_ee()
 */
 function ee_mechz_do_jump(s_spawn_pos)
 {
-	self endon(#"death");
-	self endon(#"kill_jump");
+	self endon("death");
+	self endon("kill_jump");
 	/#
 		if(getdvarint("") > 0)
 		{

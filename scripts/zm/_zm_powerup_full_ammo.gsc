@@ -78,7 +78,7 @@ function full_ammo_powerup(drop_item, player)
 	{
 		players = [[level._get_game_module_players]](player);
 	}
-	level notify(#"zmb_max_ammo_level");
+	level notify("zmb_max_ammo_level");
 	for(i = 0; i < players.size; i++)
 	{
 		if(players[i] laststand::player_is_in_laststand())
@@ -93,8 +93,8 @@ function full_ammo_powerup(drop_item, player)
 			}
 		}
 		primary_weapons = players[i] getweaponslist(1);
-		players[i] notify(#"zmb_max_ammo");
-		players[i] notify(#"zmb_lost_knife");
+		players[i] notify("zmb_max_ammo");
+		players[i] notify("zmb_lost_knife");
 		players[i] zm_placeable_mine::disable_all_prompts_for_player();
 		for(x = 0; x < primary_weapons.size; x++)
 		{

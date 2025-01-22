@@ -324,7 +324,7 @@ function player_watch_weapon_change()
 {
 	for(;;)
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		self updateriotshieldmodel();
 	}
 }
@@ -342,7 +342,7 @@ function player_watch_shield_melee()
 {
 	for(;;)
 	{
-		self waittill(#"weapon_melee", weapon);
+		self waittill("weapon_melee", weapon);
 		if(weapon.isriotshield)
 		{
 			self [[level.riotshield_melee]](weapon);
@@ -363,7 +363,7 @@ function player_watch_shield_melee_power()
 {
 	for(;;)
 	{
-		self waittill(#"weapon_melee_power", weapon);
+		self waittill("weapon_melee_power", weapon);
 		if(weapon.isriotshield)
 		{
 			self [[level.riotshield_melee_power]](weapon);
@@ -443,7 +443,7 @@ function zombie_knockdown(player, gib)
 */
 function riotshield_knockdown_zombie(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	playsoundatposition("vox_riotshield_forcehit", self.origin);
 	playsoundatposition("wpn_riotshield_proj_impact", self.origin);
 	if(!isdefined(self) || !isalive(self))
@@ -667,7 +667,7 @@ function updateriotshieldmodel()
 */
 function player_take_riotshield()
 {
-	self notify(#"destroy_riotshield");
+	self notify("destroy_riotshield");
 	current = self getcurrentweapon();
 	if(current.isriotshield)
 	{
@@ -693,7 +693,7 @@ function player_take_riotshield()
 			{
 				self switchtoweaponimmediate();
 				self playsound("wpn_riotshield_zm_destroy");
-				self waittill(#"weapon_change");
+				self waittill("weapon_change");
 			}
 		}
 	}

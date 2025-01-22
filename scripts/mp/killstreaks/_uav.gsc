@@ -229,7 +229,7 @@ function destroyuav(attacker, weapon)
 		self removeactiveuav();
 		self killstreaks::play_destroyed_dialog_on_owner("uav", self.killstreak_id);
 	}
-	self notify(#"crashing");
+	self notify("crashing");
 	self playsound("evt_helicopter_midair_exp");
 	params = level.killstreakbundle["uav"];
 	if(isdefined(params.ksexplosionfx))
@@ -242,7 +242,7 @@ function destroyuav(attacker, weapon)
 	self unlink();
 	wait(0.5);
 	arrayremovevalue(level.spawneduavs, self);
-	self notify(#"delete");
+	self notify("delete");
 	self delete();
 }
 
@@ -276,10 +276,10 @@ function onplayerconnect()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(level.teambased == 0 || level.multiteam == 1)
 	{
-		level notify(#"uav_update");
+		level notify("uav_update");
 	}
 }
 
@@ -348,7 +348,7 @@ function ontimecheck()
 */
 function startuavfx()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	if(isdefined(self))
 	{
@@ -369,7 +369,7 @@ function startuavfx()
 */
 function playafterburnerfx()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	if(isdefined(self))
 	{
@@ -424,7 +424,7 @@ function addactiveuav()
 		level.activeuavs[self.entnum]++;
 	}
 	level.activeplayeruavs[self.entnum]++;
-	level notify(#"uav_update");
+	level notify("uav_update");
 }
 
 /*
@@ -490,7 +490,7 @@ function resetactiveuav()
 			assert(level.activeplayeruavs[self.owner.entnum] >= 0);
 		#/
 	}
-	level notify(#"uav_update");
+	level notify("uav_update");
 }
 
 /*
@@ -504,10 +504,10 @@ function resetactiveuav()
 */
 function uavtracker()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
-		level waittill(#"uav_update");
+		level waittill("uav_update");
 		if(level.teambased)
 		{
 			foreach(team in level.teams)

@@ -105,8 +105,8 @@ function watchtriggerusage()
 {
 	for(;;)
 	{
-		self waittill(#"trigger", e_player);
-		level notify(#"mp_stronghold_trigger_use");
+		self waittill("trigger", e_player);
+		level notify("mp_stronghold_trigger_use");
 	}
 }
 
@@ -167,14 +167,14 @@ function door_think()
 		exploder::kill_exploder("fx_switch_red");
 		if(self door_should_open())
 		{
-			level notify(#"mp_stronghold_trigger_disable");
+			level notify("mp_stronghold_trigger_disable");
 		}
 		else
 		{
-			level notify(#"mp_stronghold_trigger_enable");
+			level notify("mp_stronghold_trigger_enable");
 		}
-		level waittill(#"mp_stronghold_trigger_use");
-		level notify(#"mp_stronghold_trigger_cooldown");
+		level waittill("mp_stronghold_trigger_use");
+		level notify("mp_stronghold_trigger_cooldown");
 		if(self door_should_open())
 		{
 			self thread door_open();
@@ -220,7 +220,7 @@ function door_open()
 	halftime = 4.5;
 	self moveto(self.origin_closed_half, halftime);
 	self.upper moveto(self.origin_opened, halftime);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self moveto(self.origin_opened, halftime);
 	self.opened = 1;
 }
@@ -244,7 +244,7 @@ function door_close()
 	frac = dist / 180;
 	halftime = 4.5;
 	self moveto(self.origin_closed_half, halftime);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self moveto(self.origin_closed, halftime);
 	self.upper moveto(self.origin_closed_half, halftime);
 	self.opened = 0;
@@ -261,7 +261,7 @@ function door_close()
 */
 function security_door_drop_think(killplayers)
 {
-	self endon(#"movedone");
+	self endon("movedone");
 	self.disablefinalkillcam = 1;
 	door = self;
 	corpse_delay = 0;
@@ -283,7 +283,7 @@ function security_door_drop_think(killplayers)
 			{
 				if(entity.targetname == "talon")
 				{
-					entity notify(#"death");
+					entity notify("death");
 					continue;
 				}
 				else if(entity.targetname == "riotshield_mp")

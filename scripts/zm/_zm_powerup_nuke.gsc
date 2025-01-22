@@ -62,7 +62,7 @@ function grab_nuke(player)
 	player thread zm_powerups::powerup_vo("nuke");
 	zombies = getaiteamarray(level.zombie_team);
 	player.zombie_nuked = arraysort(zombies, self.origin);
-	player notify(#"nuke_triggered");
+	player notify("nuke_triggered");
 }
 
 /*
@@ -136,7 +136,7 @@ function nuke_powerup(drop_item, player_team)
 		zombies_nuked[i] dodamage(zombies_nuked[i].health + 666, zombies_nuked[i].origin);
 		level thread zm_daily_challenges::increment_nuked_zombie();
 	}
-	level notify(#"nuke_complete");
+	level notify("nuke_complete");
 	players = getplayers(player_team);
 	for(i = 0; i < players.size; i++)
 	{
@@ -177,14 +177,14 @@ function nuke_flash(team)
 */
 function nuke_delay_spawning(n_spawn_delay)
 {
-	level endon(#"disable_nuke_delay_spawning");
+	level endon("disable_nuke_delay_spawning");
 	if(isdefined(level.disable_nuke_delay_spawning) && level.disable_nuke_delay_spawning)
 	{
 		return;
 	}
 	b_spawn_zombies_before_nuke = level flag::get("spawn_zombies");
 	level flag::clear("spawn_zombies");
-	level waittill(#"nuke_complete");
+	level waittill("nuke_complete");
 	if(isdefined(level.disable_nuke_delay_spawning) && level.disable_nuke_delay_spawning)
 	{
 		return;

@@ -182,8 +182,8 @@ function on_player_connect()
 function spawn_manager_debug_spawn_manager()
 {
 	/#
-		level notify(#"spawn_manager_debug_spawn_manager");
-		level endon(#"spawn_manager_debug_spawn_manager");
+		level notify("spawn_manager_debug_spawn_manager");
+		level endon("spawn_manager_debug_spawn_manager");
 		level.current_debug_spawn_manager = undefined;
 		level.current_debug_spawn_manager_targetname = undefined;
 		level.test_player = getplayers()[0];
@@ -317,7 +317,7 @@ function spawn_manager_debug_spawner_values()
 function ent_print(text)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			print3d(self.origin + vectorscale((0, 0, 1), 65), text, (0.48, 9.4, 0.76), 1, 1);
@@ -771,7 +771,7 @@ function spawn_manager_debug_setup()
 function modify_debug_hud2(text)
 {
 	/#
-		self notify(#"modified");
+		self notify("modified");
 		wait(0.05);
 		level.spawn_manager_debug_hud2 settext(text);
 		level.spawn_manager_debug_hud2 thread moniter_debug_hud2();
@@ -790,7 +790,7 @@ function modify_debug_hud2(text)
 function moniter_debug_hud2()
 {
 	/#
-		self endon(#"modified");
+		self endon("modified");
 		wait(10);
 		level.spawn_manager_debug_hud2 settext("");
 	#/

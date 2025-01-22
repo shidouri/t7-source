@@ -196,9 +196,9 @@ function setup_player_contracts()
 function watch_contract_debug()
 {
 	/#
-		level notify(#"watch_contract_debug_singleton");
-		level endon(#"watch_contract_debug_singleton");
-		level endon(#"game_ended");
+		level notify("watch_contract_debug_singleton");
+		level endon("watch_contract_debug_singleton");
+		level endon("game_ended");
 		while(true)
 		{
 			if(getdvarint("") > 0)

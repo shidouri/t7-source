@@ -115,7 +115,7 @@ function validation()
 */
 function activation()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.var_e20073c4))
 	{
 		self.var_e20073c4 = 0;
@@ -127,7 +127,7 @@ function activation()
 		wait(0.05);
 		self.var_e20073c4++;
 	}
-	self notify(#"bgb_eye_candy_activation");
+	self notify("bgb_eye_candy_activation");
 	if(self.var_e20073c4 >= 4)
 	{
 		return;
@@ -216,7 +216,7 @@ function function_b390826f()
 function function_3b5b1f1e()
 {
 	self endon(#"hash_67d0cc9f");
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self function_67d0cc9f();

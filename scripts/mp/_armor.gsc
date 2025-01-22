@@ -47,7 +47,7 @@ function setlightarmorhp(newvalue)
 */
 function setlightarmor(optionalarmorvalue)
 {
-	self notify(#"give_light_armor");
+	self notify("give_light_armor");
 	if(isdefined(self.lightarmorhp))
 	{
 		unsetlightarmor();
@@ -76,10 +76,10 @@ function setlightarmor(optionalarmorvalue)
 */
 function removelightarmorondeath()
 {
-	self endon(#"disconnect");
-	self endon(#"give_light_armor");
-	self endon(#"remove_light_armor");
-	self waittill(#"death");
+	self endon("disconnect");
+	self endon("give_light_armor");
+	self endon("remove_light_armor");
+	self waittill("death");
 	unsetlightarmor();
 }
 
@@ -95,7 +95,7 @@ function removelightarmorondeath()
 function unsetlightarmor()
 {
 	self setlightarmorhp(undefined);
-	self notify(#"remove_light_armor");
+	self notify("remove_light_armor");
 }
 
 /*
@@ -109,9 +109,9 @@ function unsetlightarmor()
 */
 function removelightarmoronmatchend()
 {
-	self endon(#"disconnect");
-	self endon(#"remove_light_armor");
-	level waittill(#"game_ended");
+	self endon("disconnect");
+	self endon("remove_light_armor");
+	level waittill("game_ended");
 	self thread unsetlightarmor();
 }
 

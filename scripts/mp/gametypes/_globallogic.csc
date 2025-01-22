@@ -63,7 +63,7 @@ function game_ended(localclientnum, oldval, newval, bnewent, binitialsnap, field
 {
 	if(newval && !level.gameended)
 	{
-		level notify(#"game_ended");
+		level notify("game_ended");
 		level.gameended = 1;
 	}
 }
@@ -81,7 +81,7 @@ function post_game(localclientnum, oldval, newval, bnewent, binitialsnap, fieldn
 {
 	if(newval && !level.postgame)
 	{
-		level notify(#"post_game");
+		level notify("post_game");
 		level.postgame = 1;
 	}
 }
@@ -174,7 +174,7 @@ function watch_plant_sound(localclientnum)
 	self endon(#"entityshutdown");
 	while(true)
 	{
-		self waittill(#"start_plant_sound");
+		self waittill("start_plant_sound");
 		self thread play_plant_sound(localclientnum);
 	}
 }
@@ -190,10 +190,10 @@ function watch_plant_sound(localclientnum)
 */
 function play_plant_sound(localclientnum)
 {
-	self notify(#"play_plant_sound");
-	self endon(#"play_plant_sound");
+	self notify("play_plant_sound");
+	self endon("play_plant_sound");
 	self endon(#"entityshutdown");
-	self endon(#"stop_plant_sound");
+	self endon("stop_plant_sound");
 	player = getlocalplayer(localclientnum);
 	plantweapon = getweapon("briefcase_bomb");
 	defuseweapon = getweapon("briefcase_bomb_defuse");

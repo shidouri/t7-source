@@ -76,7 +76,7 @@ function update_dvars()
 */
 function lightninggun_start_damage_effects(eattacker)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		if(isgodmode(self))
 		{
@@ -148,7 +148,7 @@ function lightninggun_arc_fx(arc_source_pos, arc_target, arc_target_pos, distanc
 	fx = playfxontag(level._effect["lightninggun_arc"], fxorg, "tag_origin");
 	playsoundatposition("wpn_lightning_gun_bounce", fxorg.origin);
 	fxorg moveto(arc_target_pos, waittime);
-	fxorg waittill(#"movedone");
+	fxorg waittill("movedone");
 	util::wait_network_frame();
 	util::wait_network_frame();
 	util::wait_network_frame();

@@ -358,7 +358,7 @@ function function_1f5d3f75(drop_point)
 */
 function function_af95a19e()
 {
-	level endon(#"unloaded");
+	level endon("unloaded");
 	players = level.players;
 	level.var_e4f2021b = 2000;
 	score_to_drop = (players.size * (level.zombie_vars[("zombie_score_start_" + players.size) + "p"])) + level.var_e4f2021b;
@@ -394,8 +394,8 @@ function function_af95a19e()
 */
 function function_ca5485fa(var_93eb638b)
 {
-	var_93eb638b endon(#"powerup_grabbed");
-	var_93eb638b waittill(#"powerup_timedout");
+	var_93eb638b endon("powerup_grabbed");
+	var_93eb638b waittill("powerup_timedout");
 	if(level.var_9895ed0d > 0)
 	{
 		level.var_9895ed0d--;

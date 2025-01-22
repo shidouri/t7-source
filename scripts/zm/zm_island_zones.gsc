@@ -173,7 +173,7 @@ function function_2043d032()
 function function_87fe8382()
 {
 	zm_zonemgr::add_adjacent_zone("zone_flooded_bunker_right", "zone_flooded_bunker_tunnel", "connect_flooded_bunker_right_to_flooded_tunnel");
-	level waittill(#"zone_flooded_bunker_tunnel");
+	level waittill("zone_flooded_bunker_tunnel");
 	level.zones["zone_flooded_bunker_tunnel"].is_spawning_allowed = 0;
 }
 
@@ -189,7 +189,7 @@ function function_87fe8382()
 function function_8b7501aa()
 {
 	/#
-		level waittill(#"open_sesame");
+		level waittill("open_sesame");
 		level flag::set("");
 		level flag::set("");
 		level flag::set("");
@@ -226,7 +226,7 @@ function function_6ed87461(a_ents)
 */
 function function_feb4ddde()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till(self.script_flag);
 	var_4c616d31 = self.target + "_vine";
 	var_593fa92c = struct::get_array(var_4c616d31 + "_fx", "targetname");
@@ -273,7 +273,7 @@ function function_cd881f16()
 */
 function function_afc937e7()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::waittill_either("rotatedone", "movedone");
 	wait(2);
 	self delete();

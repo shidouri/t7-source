@@ -190,7 +190,7 @@ function on_player_disconnect()
 */
 function function_b7156b15(var_a879fa43)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self flag::init("flag_player_collected_reward_1");
 	self flag::init("flag_player_collected_reward_2");
 	self flag::init("flag_player_collected_reward_3");
@@ -266,7 +266,7 @@ function function_72a5d5e5(var_a879fa43, var_8e2d9e6f, var_e01fcddc)
 */
 function function_fbbc8608(n_challenge_index, var_d4adfa57)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self flag::wait_till(var_d4adfa57);
 	var_d6b47fd3 = "";
 	if(n_challenge_index == 1)
@@ -455,10 +455,10 @@ function function_3f67a723(origin, arc_angle_degrees = 90, do_trace, e_ignore)
 */
 function function_a00e23d0()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(e_who getentitynumber() == self.stub.var_a879fa43)
 		{
 			for(i = 1; i < 4; i++)
@@ -487,7 +487,7 @@ function function_a00e23d0()
 */
 function function_7fc84e9c(var_a879fa43, n_challenge)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self flag::wait_till("flag_player_completed_challenge_" + n_challenge);
 	switch(var_a879fa43)
 	{
@@ -528,7 +528,7 @@ function function_7fc84e9c(var_a879fa43, n_challenge)
 */
 function function_e43d4636(var_a879fa43, n_challenge)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level flag::wait_till("flag_init_challenge_pillars");
 	level clientfield::set((("pillar_challenge_" + var_a879fa43) + "_") + n_challenge, 2);
 	self flag::wait_till("flag_player_completed_challenge_" + n_challenge);
@@ -548,7 +548,7 @@ function function_e43d4636(var_a879fa43, n_challenge)
 */
 function function_8675d6ed(n_challenge)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_a879fa43 = self getentitynumber();
 	var_81d71db = [];
 	s_altar = struct::get("s_challenge_altar");
@@ -597,11 +597,11 @@ function function_8675d6ed(n_challenge)
 	self thread function_5c44a258(var_30ff0d6c);
 	var_30ff0d6c endon(#"hash_59e0fa55");
 	var_30ff0d6c.trigger = s_altar function_be89930d(var_a879fa43, n_challenge);
-	var_30ff0d6c.trigger waittill(#"trigger", e_who);
+	var_30ff0d6c.trigger waittill("trigger", e_who);
 	if(e_who == self)
 	{
 		self playsoundtoplayer("zmb_trial_unlock_reward", self);
-		var_30ff0d6c.trigger notify(#"reward_grabbed");
+		var_30ff0d6c.trigger notify("reward_grabbed");
 		self player_give_reward(n_challenge, s_altar, var_c9d33fc4);
 		if(isdefined(var_30ff0d6c.trigger))
 		{
@@ -641,10 +641,10 @@ function function_5e39bbbe(var_c9d33fc4, v_origin, v_angles)
 */
 function timer_til_despawn(player, n_challenge, v_float, n_dist)
 {
-	player endon(#"disconnect");
-	self endon(#"reward_grabbed");
+	player endon("disconnect");
+	self endon("reward_grabbed");
 	self movez(n_dist, 12, 6);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self notify(#"hash_59e0fa55");
 	level flag::clear("flag_player_initialized_reward");
 	if(isdefined(self.trigger))
@@ -670,7 +670,7 @@ function timer_til_despawn(player, n_challenge, v_float, n_dist)
 function function_5c44a258(var_30ff0d6c)
 {
 	self endon(#"hash_994b4784");
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	level flag::clear("flag_player_initialized_reward");
 	var_30ff0d6c delete();
 }
@@ -718,7 +718,7 @@ function player_give_reward(n_challenge, s_altar, var_c9d33fc4)
 	}
 	self flag::set("flag_player_collected_reward_" + n_challenge);
 	level flag::clear("flag_player_initialized_reward");
-	self notify(#"reward_grabbed");
+	self notify("reward_grabbed");
 }
 
 /*
@@ -784,10 +784,10 @@ function function_6d42affc(player)
 */
 function function_1e314338()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		w_current = player getcurrentweapon();
 		if(zm_utility::is_placeable_mine(w_current) || zm_equipment::is_equipment(w_current) || w_current == level.weaponnone || w_current.isheroweapon == 1 && self.stub.n_challenge == 2)
 		{
@@ -797,7 +797,7 @@ function function_1e314338()
 		{
 			continue;
 		}
-		self.stub notify(#"trigger", player);
+		self.stub notify("trigger", player);
 	}
 }
 
@@ -880,11 +880,11 @@ function function_6168d051(var_30ff0d6c)
 */
 function function_2dbc7cd3()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!self flag::get("flag_player_completed_challenge_1"))
 	{
 		self waittill(#"hash_7ae66b0a");
-		self notify(#"update_challenge_1_5");
+		self notify("update_challenge_1_5");
 	}
 }
 
@@ -901,7 +901,7 @@ function function_fe94c179(e_attacker)
 {
 	if(isplayer(e_attacker) && (isdefined(self.var_61f7b3a0) && self.var_61f7b3a0) && (!(isdefined(self.thrasherhasturnedberserk) && self.thrasherhasturnedberserk)))
 	{
-		e_attacker notify(#"update_challenge_2_1");
+		e_attacker notify("update_challenge_2_1");
 	}
 }
 
@@ -916,11 +916,11 @@ function function_fe94c179(e_attacker)
 */
 function function_25c1bab7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!self flag::get("flag_player_completed_challenge_2"))
 	{
 		self waittill(#"hash_61bbe625");
-		self notify(#"update_challenge_2_2");
+		self notify("update_challenge_2_2");
 	}
 }
 
@@ -939,7 +939,7 @@ function function_5a2a9ef9(e_attacker)
 	{
 		if(self.attackable.scriptbundlename == "zm_island_trap_plant_attackable" || self.attackable.scriptbundlename == "zm_island_trap_plant_upgraded_attackable")
 		{
-			e_attacker notify(#"update_challenge_2_3");
+			e_attacker notify("update_challenge_2_3");
 		}
 	}
 }
@@ -957,7 +957,7 @@ function function_682e6fc4(e_attacker)
 {
 	if(isplayer(e_attacker) && self.archetype === "zombie" && (isdefined(self.var_34d00e7) && self.var_34d00e7))
 	{
-		e_attacker notify(#"update_challenge_3_2");
+		e_attacker notify("update_challenge_3_2");
 	}
 }
 
@@ -972,11 +972,11 @@ function function_682e6fc4(e_attacker)
 */
 function function_5a96677a()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!self flag::get("flag_player_completed_challenge_3"))
 	{
 		self waittill(#"hash_3e1e1a8");
-		self notify(#"update_challenge_3_3");
+		self notify("update_challenge_3_3");
 	}
 }
 
@@ -997,12 +997,12 @@ function function_905d9544(e_attacker)
 		{
 			if(isdefined(self.damagelocation) && self.damagelocation == "head" || self.damagelocation == "helmet")
 			{
-				e_attacker notify(#"update_challenge_2_4");
+				e_attacker notify("update_challenge_2_4");
 			}
 		}
 		if(!e_attacker flag::get("flag_player_completed_challenge_2") && self.archetype === "zombie" && e_attacker isplayerunderwater())
 		{
-			e_attacker notify(#"update_challenge_2_5");
+			e_attacker notify("update_challenge_2_5");
 		}
 	}
 }
@@ -1018,11 +1018,11 @@ function function_905d9544(e_attacker)
 */
 function function_26c58398()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"destroyed_thrasher_head");
-		self notify(#"update_challenge_3_5");
+		self waittill("destroyed_thrasher_head");
+		self notify("update_challenge_3_5");
 	}
 }
 
@@ -1037,7 +1037,7 @@ function function_26c58398()
 */
 function function_2ce855f3(n_challenge_index, var_d675d6d8, var_80792f67, str_challenge_notify)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		self endon(#"hash_1e547c60");
 	#/
@@ -1071,7 +1071,7 @@ function function_2ce855f3(n_challenge_index, var_d675d6d8, var_80792f67, str_ch
 */
 function function_974d5f1d()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	a_flags = array("flag_player_completed_challenge_1", "flag_player_completed_challenge_2", "flag_player_completed_challenge_3");
 	self flag::wait_till_all(a_flags);
 	level notify(#"hash_41370469");

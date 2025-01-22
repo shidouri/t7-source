@@ -99,7 +99,7 @@ function player_give_cymbal_monkey()
 function player_give_cymbal_monkey_upgraded()
 {
 	/#
-		self notify(#"give_tactical_grenade_thread");
+		self notify("give_tactical_grenade_thread");
 	#/
 	if(isdefined(self zm_utility::get_player_tactical_grenade()))
 	{
@@ -122,7 +122,7 @@ function player_give_cymbal_monkey_upgraded()
 function player_handle_cymbal_monkey()
 {
 	self notify(#"starting_monkey_watch");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"starting_monkey_watch");
 	attract_dist_diff = level.monkey_attract_dist_diff;
 	if(!isdefined(attract_dist_diff))
@@ -158,8 +158,8 @@ function player_handle_cymbal_monkey()
 */
 function watch_for_dud(model, actor)
 {
-	self endon(#"death");
-	self waittill(#"grenade_dud");
+	self endon("death");
+	self waittill("grenade_dud");
 	model.dud = 1;
 	self playsound("zmb_vox_monkey_scream");
 	self.monk_scream_vox = 1;
@@ -193,7 +193,7 @@ function watch_for_dud(model, actor)
 */
 function watch_for_emp(model, actor)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!zm_utility::should_watch_for_emp())
 	{
 		return;
@@ -247,8 +247,8 @@ function watch_for_emp(model, actor)
 */
 function clone_player_angles(owner)
 {
-	self endon(#"death");
-	owner endon(#"death");
+	self endon("death");
+	owner endon("death");
 	while(isdefined(self))
 	{
 		self.angles = owner.angles;
@@ -295,15 +295,15 @@ function show_briefly(showtime)
 */
 function show_owner_on_attack(owner)
 {
-	owner endon(#"hide_owner");
+	owner endon("hide_owner");
 	owner endon(#"show_owner");
 	self endon(#"explode");
-	self endon(#"death");
-	self endon(#"grenade_dud");
+	self endon("death");
+	self endon("grenade_dud");
 	owner.show_for_time = undefined;
 	for(;;)
 	{
-		owner waittill(#"weapon_fired");
+		owner waittill("weapon_fired");
 		owner thread show_briefly(0.5);
 	}
 }
@@ -319,8 +319,8 @@ function show_owner_on_attack(owner)
 */
 function hide_owner(owner)
 {
-	owner notify(#"hide_owner");
-	owner endon(#"hide_owner");
+	owner notify("hide_owner");
+	owner endon("hide_owner");
 	owner setperk("specialty_immunemms");
 	owner.no_burning_sfx = 1;
 	owner notify(#"stop_flame_sounds");
@@ -372,7 +372,7 @@ function proximity_detonate(owner)
 	self.damagearea = damagearea;
 	while(isdefined(self))
 	{
-		damagearea waittill(#"trigger", ent);
+		damagearea waittill("trigger", ent);
 		if(isdefined(owner) && ent == owner)
 		{
 			continue;
@@ -411,8 +411,8 @@ function proximity_detonate(owner)
 */
 function fakelinkto(linkee)
 {
-	self notify(#"fakelinkto");
-	self endon(#"fakelinkto");
+	self notify("fakelinkto");
+	self endon("fakelinkto");
 	self.backlinked = 1;
 	while(isdefined(self) && isdefined(linkee))
 	{
@@ -433,11 +433,11 @@ function fakelinkto(linkee)
 */
 function player_throw_cymbal_monkey(grenade, num_attractors, max_attract_dist, attract_dist_diff)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"starting_monkey_watch");
 	if(isdefined(grenade))
 	{
-		grenade endon(#"death");
+		grenade endon("death");
 		if(self laststand::player_is_in_laststand())
 		{
 			if(isdefined(grenade.damagearea))
@@ -618,7 +618,7 @@ function grenade_stolen_by_sam(ent_grenade, ent_model, ent_actor)
 	ent_model stopanimscripted();
 	ent_model movez(60, 1, 0.25, 0.25);
 	ent_model vibrate(direction, 1.5, 2.5, 1);
-	ent_model waittill(#"movedone");
+	ent_model waittill("movedone");
 	if(isdefined(self.damagearea))
 	{
 		self.damagearea delete();
@@ -754,7 +754,7 @@ function do_monkey_sound(model, info)
 		self thread play_delayed_explode_vox();
 	}
 	self waittill(#"explode", position);
-	level notify(#"grenade_exploded", position, 100, 5000, 450);
+	level notify("grenade_exploded", position, 100, 5000, 450);
 	monkey_index = -1;
 	for(i = 0; i < level.cymbal_monkeys.size; i++)
 	{
@@ -776,7 +776,7 @@ function do_monkey_sound(model, info)
 	{
 		if(isdefined(info.sound_attractors[i]))
 		{
-			info.sound_attractors[i] notify(#"monkey_blown_up");
+			info.sound_attractors[i] notify("monkey_blown_up");
 		}
 	}
 }
@@ -817,11 +817,11 @@ function play_delayed_explode_vox()
 */
 function get_thrown_monkey()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"starting_monkey_watch");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(weapon == level.weaponzmcymbalmonkey || weapon == level.w_cymbal_monkey_upgraded)
 		{
 			grenade.use_grenade_special_long_bookmark = 1;
@@ -893,8 +893,8 @@ function monitor_zombie_groans(info)
 */
 function play_zombie_groans()
 {
-	self endon(#"death");
-	self endon(#"monkey_blown_up");
+	self endon("death");
+	self endon("monkey_blown_up");
 	while(true)
 	{
 		if(isdefined(self))

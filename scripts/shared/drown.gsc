@@ -112,9 +112,9 @@ function on_player_spawned()
 */
 function watch_player_drowning()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("death");
+	level endon("game_ended");
 	self.lastwaterdamagetime = self getlastoutwatertime();
 	self.drownstage = 0;
 	self clientfield::set_to_player("drown_stage", 0);
@@ -170,9 +170,9 @@ function watch_player_drowning()
 */
 function watch_player_drown_death()
 {
-	self endon(#"disconnect");
-	self endon(#"game_ended");
-	self waittill(#"death");
+	self endon("disconnect");
+	self endon("game_ended");
+	self waittill("death");
 	self.drownstage = 0;
 	self clientfield::set_to_player("drown_stage", 0);
 	self deactivate_player_health_visionset();
@@ -189,9 +189,9 @@ function watch_player_drown_death()
 */
 function watch_game_ended()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	level waittill(#"game_ended");
+	self endon("disconnect");
+	self endon("death");
+	level waittill("game_ended");
 	self.drownstage = 0;
 	self clientfield::set_to_player("drown_stage", 0);
 	self deactivate_player_health_visionset();

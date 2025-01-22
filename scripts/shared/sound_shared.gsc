@@ -35,7 +35,7 @@ function loop_fx_sound(alias, origin, ender)
 */
 function loop_delete(ender, ent)
 {
-	ent endon(#"death");
+	ent endon("death");
 	self waittill(ender);
 	ent delete();
 }
@@ -58,7 +58,7 @@ function play_in_space(alias, origin, master)
 	}
 	org.origin = origin;
 	org playsoundwithnotify(alias, "sounddone");
-	org waittill(#"sounddone");
+	org waittill("sounddone");
 	if(isdefined(org))
 	{
 		org delete();
@@ -77,7 +77,7 @@ function play_in_space(alias, origin, master)
 function loop_on_tag(alias, tag, bstopsoundondeath)
 {
 	org = spawn("script_origin", (0, 0, 0));
-	org endon(#"death");
+	org endon("death");
 	if(!isdefined(bstopsoundondeath))
 	{
 		bstopsoundondeath = 1;
@@ -114,7 +114,7 @@ function loop_on_tag(alias, tag, bstopsoundondeath)
 function play_on_tag(alias, tag, ends_on_death)
 {
 	org = spawn("script_origin", (0, 0, 0));
-	org endon(#"death");
+	org endon("death");
 	thread delete_on_death_wait(org, "sounddone");
 	if(isdefined(tag))
 	{
@@ -138,7 +138,7 @@ function play_on_tag(alias, tag, ends_on_death)
 	}
 	else
 	{
-		org waittill(#"sounddone");
+		org waittill("sounddone");
 	}
 	org delete();
 }
@@ -168,8 +168,8 @@ function play_on_entity(alias)
 */
 function wait_for_sounddone_or_death(org)
 {
-	self endon(#"death");
-	org waittill(#"sounddone");
+	self endon("death");
+	org waittill("sounddone");
 }
 
 /*
@@ -198,7 +198,7 @@ function stop_loop_on_entity(alias)
 function loop_on_entity(alias, offset)
 {
 	org = spawn("script_origin", (0, 0, 0));
-	org endon(#"death");
+	org endon("death");
 	thread util::delete_on_death(org);
 	if(isdefined(offset))
 	{
@@ -253,8 +253,8 @@ function loop_in_space(alias, origin, ender)
 */
 function delete_on_death_wait(ent, sounddone)
 {
-	ent endon(#"death");
-	self waittill(#"death");
+	ent endon("death");
+	self waittill("death");
 	if(isdefined(ent))
 	{
 		ent delete();

@@ -57,7 +57,7 @@ function createacousticsensorwatcher()
 */
 function onspawnacousticsensor(watcher, player)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, player);
 	player.acousticsensor = self;
 	self setowner(player);
@@ -141,8 +141,8 @@ function watchshutdown(player, origin)
 */
 function watchacousticsensordamage(watcher)
 {
-	self endon(#"death");
-	self endon(#"hacked");
+	self endon("death");
+	self endon("hacked");
 	self setcandamage(1);
 	damagemax = 100;
 	if(!self util::ishacked())
@@ -153,7 +153,7 @@ function watchacousticsensordamage(watcher)
 	{
 		self.maxhealth = 100000;
 		self.health = self.maxhealth;
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;

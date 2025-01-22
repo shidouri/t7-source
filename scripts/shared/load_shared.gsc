@@ -296,7 +296,7 @@ function load_checkpoint_on_notify()
 	/#
 		while(true)
 		{
-			level waittill(#"save");
+			level waittill("save");
 			checkpointcreate();
 			checkpointcommit();
 		}
@@ -317,7 +317,7 @@ function save_checkpoint_on_notify()
 	/#
 		while(true)
 		{
-			level waittill(#"load");
+			level waittill("load");
 			checkpointrestore();
 		}
 	#/
@@ -406,7 +406,7 @@ function playerdamagerumble()
 {
 	while(true)
 	{
-		self waittill(#"damage", amount);
+		self waittill("damage", amount);
 		if(isdefined(self.specialdamage))
 		{
 			continue;
@@ -452,8 +452,8 @@ function map_is_early_in_the_game()
 */
 function player_throwgrenade_timer()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.lastgrenadetime = 0;
 	while(true)
 	{
@@ -480,13 +480,13 @@ function player_throwgrenade_timer()
 */
 function player_special_death_hint()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread player_throwgrenade_timer();
 	if(issplitscreen() || util::coopgame())
 	{
 		return;
 	}
-	self waittill(#"death", attacker, cause, weapon, inflicter);
+	self waittill("death", attacker, cause, weapon, inflicter);
 	if(cause != "MOD_GAS" && cause != "MOD_GRENADE" && cause != "MOD_GRENADE_SPLASH" && cause != "MOD_SUICIDE" && cause != "MOD_EXPLOSIVE" && cause != "MOD_PROJECTILE" && cause != "MOD_PROJECTILE_SPLASH")
 	{
 		return;
@@ -502,7 +502,7 @@ function player_special_death_hint()
 	{
 		if(isdefined(attacker) && (attacker.classname == "script_vehicle" || isdefined(attacker.create_fake_vehicle_damage)))
 		{
-			level notify(#"new_quote_string");
+			level notify("new_quote_string");
 			setdvar("ui_deadquote", "@SCRIPT_EXPLODING_VEHICLE_DEATH");
 			self thread explosive_vehice_death_indicator_hudelement();
 			return;
@@ -511,13 +511,13 @@ function player_special_death_hint()
 		{
 			if(issubstr(inflicter.destructibledef, "barrel_explosive"))
 			{
-				level notify(#"new_quote_string");
+				level notify("new_quote_string");
 				setdvar("ui_deadquote", "@SCRIPT_EXPLODING_BARREL_DEATH");
 				return;
 			}
 			if(isdefined(inflicter.destructiblecar) && inflicter.destructiblecar)
 			{
-				level notify(#"new_quote_string");
+				level notify("new_quote_string");
 				setdvar("ui_deadquote", "@SCRIPT_EXPLODING_VEHICLE_DEATH");
 				self thread explosive_vehice_death_indicator_hudelement();
 				return;
@@ -530,7 +530,7 @@ function player_special_death_hint()
 		{
 			return;
 		}
-		level notify(#"new_quote_string");
+		level notify("new_quote_string");
 		if(weapon.name == "explosive_bolt")
 		{
 			setdvar("ui_deadquote", "@SCRIPT_EXPLOSIVE_BOLT_DEATH");
@@ -607,7 +607,7 @@ function grenade_death_text_hudelement(textline1, textline2)
 */
 function grenade_death_indicator_hudelement()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	overlayicon = newclienthudelem(self);
 	overlayicon.x = 0;
@@ -649,7 +649,7 @@ function grenade_death_indicator_hudelement()
 */
 function explosive_arrow_death_indicator_hudelement()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	overlayicon = newclienthudelem(self);
 	overlayicon.x = 0;
@@ -691,7 +691,7 @@ function explosive_arrow_death_indicator_hudelement()
 */
 function explosive_dart_death_indicator_hudelement()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	overlayicon = newclienthudelem(self);
 	overlayicon.x = 0;
@@ -733,7 +733,7 @@ function explosive_dart_death_indicator_hudelement()
 */
 function explosive_nitrogen_tank_death_indicator_hudelement()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	overlayicon = newclienthudelem(self);
 	overlayicon.x = 0;
@@ -775,7 +775,7 @@ function explosive_nitrogen_tank_death_indicator_hudelement()
 */
 function explosive_vehice_death_indicator_hudelement()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	overlayicon = newclienthudelem(self);
 	overlayicon.x = 0;
@@ -805,8 +805,8 @@ function explosive_vehice_death_indicator_hudelement()
 */
 function grenade_death_indicator_hudelement_cleanup(hudelemicon, hudelempointer)
 {
-	self endon(#"disconnect");
-	self waittill(#"spawned");
+	self endon("disconnect");
+	self waittill("spawned");
 	hudelemicon destroy();
 	hudelempointer destroy();
 }
@@ -864,8 +864,8 @@ function special_death_indicator_hudelement(shader, iwidth, iheight, fdelay = 0.
 */
 function special_death_death_indicator_hudelement_cleanup(overlay)
 {
-	self endon(#"disconnect");
-	self waittill(#"spawned");
+	self endon("disconnect");
+	self waittill("spawned");
 	overlay destroy();
 }
 
@@ -905,7 +905,7 @@ function water_think()
 				players[i] allowstand(1);
 			}
 		}
-		self waittill(#"trigger", other);
+		self waittill("trigger", other);
 		if(!isplayer(other))
 		{
 			continue;
@@ -1176,9 +1176,9 @@ function all_players_spawned()
 */
 function shock_onpain()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"killonpainmonitor");
+	self endon("death");
+	self endon("disconnect");
+	self endon("killonpainmonitor");
 	if(getdvarstring("blurpain") == "")
 	{
 		setdvar("blurpain", "on");
@@ -1186,7 +1186,7 @@ function shock_onpain()
 	while(true)
 	{
 		oldhealth = self.health;
-		self waittill(#"damage", damage, attacker, direction_vec, point, mod);
+		self waittill("damage", damage, attacker, direction_vec, point, mod);
 		if(isdefined(level.shock_onpain) && !level.shock_onpain)
 		{
 			continue;
@@ -1266,7 +1266,7 @@ function shock_onexplosion(damage)
 */
 function shock_ondeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(level.shock_ondeath) && !level.shock_ondeath)
 	{
 		return;
@@ -1380,7 +1380,7 @@ function art_review()
 					trig triggerenable(0);
 				}
 			}
-			level waittill(#"forever");
+			level waittill("forever");
 			break;
 		}
 	}

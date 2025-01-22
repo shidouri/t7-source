@@ -65,7 +65,7 @@ function private on_player_shutdown(localclientnum)
 {
 	if(self isplayer())
 	{
-		self notify(#"stopfacialthread");
+		self notify("stopfacialthread");
 		corpse = self getplayercorpse();
 		if(!isdefined(corpse))
 		{
@@ -96,10 +96,10 @@ function private on_player_shutdown(localclientnum)
 function private on_player_death(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self waittill(#"death");
+	self waittill("death");
 	if(self isplayer())
 	{
-		self notify(#"stopfacialthread");
+		self notify("stopfacialthread");
 		corpse = self getplayercorpse();
 		if(isdefined(corpse.facialdeathanimstarted) && corpse.facialdeathanimstarted)
 		{
@@ -225,8 +225,8 @@ function private facialanimationthink_getwaittime(localclientnum)
 function private facialanimationthink(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self notify(#"stopfacialthread");
-	self endon(#"stopfacialthread");
+	self notify("stopfacialthread");
+	self endon("stopfacialthread");
 	if(isdefined(self.__clientfacialanimationsthinkstarted))
 	{
 		return;

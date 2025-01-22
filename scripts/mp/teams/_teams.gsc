@@ -159,7 +159,7 @@ function on_joined_spectators()
 */
 function track_played_time()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.pers["totalTimePlayed"]))
 	{
 		self.pers["totalTimePlayed"] = 0;
@@ -417,7 +417,7 @@ function count_players()
 */
 function track_free_played_time()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	foreach(team in level.teams)
 	{
 		self.timeplayed[team] = 0;

@@ -47,7 +47,7 @@ function main()
 */
 function start_lights()
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	array::thread_all(struct::get_array("dyn_light", "targetname"), &light_sound);
 	array::thread_all(struct::get_array("switch_progress", "targetname"), &switch_progress_sound);
 	array::thread_all(struct::get_array("dyn_generator", "targetname"), &generator_sound);
@@ -175,7 +175,7 @@ function switch_progress_sound()
 */
 function homepad_loop()
 {
-	level waittill(#"pap1");
+	level waittill("pap1");
 	homepad = struct::get("homepad_power_looper", "targetname");
 	home_breaker = struct::get("homepad_breaker", "targetname");
 	if(isdefined(homepad))
@@ -419,7 +419,7 @@ function teleport_2d()
 {
 	while(true)
 	{
-		level waittill(#"t2d");
+		level waittill("t2d");
 		playsound(0, "evt_teleport_2d_fnt", (0, 0, 0));
 		playsound(0, "evt_teleport_2d_rear", (0, 0, 0));
 	}
@@ -436,7 +436,7 @@ function teleport_2d()
 */
 function power_audio_2d()
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	playsound(0, "evt_power_up_2d", (0, 0, 0));
 }
 
@@ -451,7 +451,7 @@ function power_audio_2d()
 */
 function linkall_2d()
 {
-	level waittill(#"pap1");
+	level waittill("pap1");
 	playsound(0, "evt_linkall_2d", (0, 0, 0));
 }
 
@@ -479,7 +479,7 @@ function pa_level_start()
 */
 function pa_power_on()
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	playsound(0, "evt_pa_buzz", self.origin);
 	wait(1.2);
 	self pa_play_dialog("vox_pa_power_on");
@@ -496,7 +496,7 @@ function pa_power_on()
 */
 function crazy_power()
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	playsound(0, "evt_crazy_power_left", (-510, 394, 102));
 	playsound(0, "evt_crazy_power_right", (554, -1696, 156));
 }
@@ -512,7 +512,7 @@ function crazy_power()
 */
 function flip_sparks()
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	playsound(0, "evt_flip_sparks_left", (511, -1771, 116));
 	playsound(0, "evt_flip_sparks_right", (550, -1771, 116));
 }

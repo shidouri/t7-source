@@ -77,13 +77,13 @@ function watch_predicted_player_changes(localclientnum)
 		predicted_local_player = getlocalplayer(localclientnum);
 		if(nonpredicted_local_player !== level.demolocalclients[localclientnum].nonpredicted_local_player)
 		{
-			level notify(#"demo_nplplayer_change", localclientnum, level.demolocalclients[localclientnum].nonpredicted_local_player, nonpredicted_local_player);
+			level notify("demo_nplplayer_change", localclientnum, level.demolocalclients[localclientnum].nonpredicted_local_player, nonpredicted_local_player);
 			level notify("demo_nplplayer_change" + localclientnum, level.demolocalclients[localclientnum].nonpredicted_local_player, nonpredicted_local_player);
 			level.demolocalclients[localclientnum].nonpredicted_local_player = nonpredicted_local_player;
 		}
 		if(predicted_local_player !== level.demolocalclients[localclientnum].predicted_local_player)
 		{
-			level notify(#"demo_plplayer_change", localclientnum, level.demolocalclients[localclientnum].predicted_local_player, predicted_local_player);
+			level notify("demo_plplayer_change", localclientnum, level.demolocalclients[localclientnum].predicted_local_player, predicted_local_player);
 			level notify("demo_plplayer_change" + localclientnum, level.demolocalclients[localclientnum].predicted_local_player, predicted_local_player);
 			level.demolocalclients[localclientnum].predicted_local_player = predicted_local_player;
 		}

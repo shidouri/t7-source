@@ -85,7 +85,7 @@ function free_perk_powerup(item)
 			{
 				player zm_stats::increment_client_stat("buried_ghost_perk_acquired", 0);
 				player zm_stats::increment_player_stat("buried_ghost_perk_acquired");
-				player notify(#"player_received_ghost_round_free_perk");
+				player notify("player_received_ghost_round_free_perk");
 			}
 			free_perk = player zm_perks::give_random_perk();
 			if(isdefined(level.disable_free_perks_before_power) && level.disable_free_perks_before_power)
@@ -111,7 +111,7 @@ function free_perk_powerup(item)
 */
 function disable_perk_before_power(perk)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(perk))
 	{
 		wait(0.1);

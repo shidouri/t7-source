@@ -215,7 +215,7 @@ class ctrap
 	*/
 	function trap_damage_nonplayer(ent)
 	{
-		ent endon(#"death");
+		ent endon("death");
 		if(isdefined(ent.trap_damage_cooldown))
 		{
 			return;
@@ -250,8 +250,8 @@ class ctrap
 	*/
 	function trap_damage_player(ent)
 	{
-		ent endon(#"death");
-		ent endon(#"disconnect");
+		ent endon("death");
+		ent endon("disconnect");
 		if(ent laststand::player_is_in_laststand())
 		{
 			return;
@@ -285,11 +285,11 @@ class ctrap
 	*/
 	function trap_damage()
 	{
-		self endon(#"trap_done");
+		self endon("trap_done");
 		m_t_damage._trap_type = "chain";
 		while(true)
 		{
-			m_t_damage waittill(#"trigger", ent);
+			m_t_damage waittill("trigger", ent);
 			m_t_damage.activated_by_player = m_e_who;
 			if(isplayer(ent))
 			{
@@ -404,19 +404,19 @@ class ctrap
 			case 2:
 			{
 				[[ self ]]->trap_active();
-				self notify(#"trap_start");
+				self notify("trap_start");
 				break;
 			}
 			case 3:
 			{
 				[[ self ]]->trap_cooldown();
-				self notify(#"trap_done");
+				self notify("trap_done");
 				break;
 			}
 			case 0:
 			{
 				[[ self ]]->trap_unavailable();
-				self notify(#"trap_done");
+				self notify("trap_done");
 				break;
 			}
 		}
@@ -579,7 +579,7 @@ class ctrap
 	{
 		while(true)
 		{
-			self waittill(#"trigger", who);
+			self waittill("trigger", who);
 			if(who zm_utility::in_revive_trigger())
 			{
 				continue;

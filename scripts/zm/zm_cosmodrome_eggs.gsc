@@ -60,7 +60,7 @@ function init()
 	pressure_plate_event();
 	lander_passkey_event();
 	weapon_combo_event();
-	level notify(#"help_found");
+	level notify("help_found");
 	monitor = getent("casimir_monitor", "targetname");
 	monitor setmodel("p7_zm_asc_monitor_screen_off");
 	monitor stoploopsound(0.1);
@@ -86,7 +86,7 @@ function play_easter_egg_audio(alias, sound_ent, text)
 		return;
 	}
 	sound_ent playsoundwithnotify(alias, "sounddone");
-	sound_ent waittill(#"sounddone");
+	sound_ent waittill("sounddone");
 }
 
 /*
@@ -251,7 +251,7 @@ function wait_for_use(monitor)
 	#/
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		while(isplayer(who) && who istouching(self))
 		{
 			if(who usebuttonpressed())
@@ -362,16 +362,16 @@ function reveal_switch()
 function wait_for_sync_use(ss, button)
 {
 	level endon(#"between_round_over");
-	level endon(#"switches_synced");
+	level endon("switches_synced");
 	ss.pressed = 0;
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		while(isplayer(who) && who istouching(self))
 		{
 			if(who usebuttonpressed())
 			{
-				level notify(#"sync_button_pressed");
+				level notify("sync_button_pressed");
 				button playsound("zmb_ee_syncbutton_button");
 				ss.pressed = 1;
 				/#
@@ -403,7 +403,7 @@ function switch_watcher()
 	switches = struct::get_array("sync_switch_start", "targetname");
 	while(true)
 	{
-		level waittill(#"sync_button_pressed");
+		level waittill("sync_button_pressed");
 		timeout = gettime() + 500;
 		/#
 			if(isdefined(level.var_ee92e6f7) && level.var_ee92e6f7)
@@ -424,7 +424,7 @@ function switch_watcher()
 			if(pressed == 4)
 			{
 				level flag::set("switches_synced");
-				level notify(#"switches_synced");
+				level notify("switches_synced");
 				for(i = 0; i < switches.size; i++)
 				{
 					playsoundatposition("zmb_ee_syncbutton_success", switches[i].origin);
@@ -510,7 +510,7 @@ function area_timer(time)
 	step = 1;
 	while(!level flag::get("pressure_sustained"))
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		stop_timer = 0;
 		players = getplayers();
 		for(i = 0; i < players.size; i++)
@@ -613,7 +613,7 @@ function function_1129ebfe()
 {
 	/#
 		wait(1);
-		self notify(#"trigger");
+		self notify("trigger");
 	#/
 }
 
@@ -675,7 +675,7 @@ function lander_monitor()
 	#/
 	while(!level flag::get("passkey_confirmed"))
 	{
-		level waittill(#"lander_launched");
+		level waittill("lander_launched");
 		if(lander.called)
 		{
 			start = lander.depart_station;
@@ -820,8 +820,8 @@ function function_e07806c9(s_station)
 */
 function spin_letter()
 {
-	level endon(#"lander_grounded");
-	level endon(#"letter_acquired");
+	level endon("lander_grounded");
+	level endon("letter_acquired");
 	while(true)
 	{
 		self rotateyaw(90, 5);
@@ -840,8 +840,8 @@ function spin_letter()
 */
 function letter_grab(letter, model)
 {
-	level endon(#"lander_grounded");
-	self waittill(#"trigger", e_player);
+	level endon("lander_grounded");
+	self waittill("trigger", e_player);
 	level flag::set("letter_acquired");
 	playsoundatposition("zmb_powerup_grabbed", model.origin);
 	model ghost();
@@ -933,7 +933,7 @@ function function_a0ad103c(weapon_combo_spot)
 		{
 			self thread function_510c4845();
 			wait(1);
-			self notify(#"death");
+			self notify("death");
 		}
 		else
 		{
@@ -1004,7 +1004,7 @@ function function_510c4845()
 */
 function wait_for_combo(trig)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread kill_trig_on_death(trig);
 	weapon_combo_spot = struct::get("weapon_combo_spot", "targetname");
 	ray_gun_hit = 0;
@@ -1020,7 +1020,7 @@ function wait_for_combo(trig)
 	array::thread_all(players, &thundergun_check, self, trig, weapon_combo_spot);
 	while(true)
 	{
-		trig waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weapon);
+		trig waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weapon);
 		if(isdefined(inflictor))
 		{
 			if(type == "MOD_PROJECTILE" && (weapon.name == "ray_gun_upgraded" || weapon.name == "raygun_mark2_upgraded"))
@@ -1060,10 +1060,10 @@ function thundergun_check(model, trig, weapon_combo_spot)
 			return;
 		}
 	#/
-	model endon(#"death");
+	model endon("death");
 	while(true)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		var_ca8d49bb = self getcurrentweapon();
 		if(var_ca8d49bb.name == "thundergun_upgraded")
 		{
@@ -1107,7 +1107,7 @@ function function_30d8de55(trig)
 */
 function kill_trig_on_death(trig)
 {
-	self waittill(#"death");
+	self waittill("death");
 	trig delete();
 	if(level flag::get("thundergun_hit") && !level flag::get("weapons_combined"))
 	{
@@ -1136,7 +1136,7 @@ function soul_release(model, origin)
 	soul playloopsound("zmb_egg_soul");
 	fx = playfxontag(level._effect["gersh_spark"], soul, "tag_origin");
 	time = 20;
-	model waittill(#"death");
+	model waittill("death");
 	level thread play_egg_vox("vox_ann_egg6_success", "vox_gersh_egg6_success", 9);
 	level thread wait_for_gersh_vox();
 	soul movez(2500, time, time - 1);
@@ -1207,7 +1207,7 @@ function play_egg_vox(ann_alias, gersh_alias, plr_num)
 		players = getplayers();
 		rand = randomintrange(0, players.size);
 		players[rand] playsoundwithnotify((("vox_plr_" + players[rand].characterindex) + "_level_start_") + randomintrange(0, 4), "level_start_vox_done");
-		players[rand] waittill(#"level_start_vox_done");
+		players[rand] waittill("level_start_vox_done");
 		level.var_92ed253c = 1;
 	}
 	if(isdefined(gersh_alias))

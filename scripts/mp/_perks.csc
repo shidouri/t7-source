@@ -194,7 +194,7 @@ function on_player_spawned(local_client_num)
 	/#
 		self thread watch_perks_change(local_client_num);
 	#/
-	self notify(#"perks_changed");
+	self notify("perks_changed");
 	self thread updatesitrepscan();
 	/#
 		self thread updatesitrepscan();
@@ -242,11 +242,11 @@ function array_equal(&a, &b)
 function watch_perks_change(local_client_num)
 {
 	/#
-		self notify(#"watch_perks_change");
+		self notify("watch_perks_change");
 		self endon(#"entityshutdown");
-		self endon(#"watch_perks_change");
-		self endon(#"death");
-		self endon(#"disconnect");
+		self endon("watch_perks_change");
+		self endon("death");
+		self endon("disconnect");
 		self.last_perks = self getperks(local_client_num);
 		while(isdefined(self))
 		{
@@ -254,7 +254,7 @@ function watch_perks_change(local_client_num)
 			if(!array_equal(perks, self.last_perks))
 			{
 				self.last_perks = perks;
-				self notify(#"perks_changed");
+				self notify("perks_changed");
 			}
 			wait(1);
 		}
@@ -298,9 +298,9 @@ function get_players(local_client_num)
 */
 function monitor_tracker_existing_players(local_client_num)
 {
-	self endon(#"death");
-	self endon(#"monitor_tracker_existing_players");
-	self notify(#"monitor_tracker_existing_players");
+	self endon("death");
+	self endon("monitor_tracker_existing_players");
+	self notify("monitor_tracker_existing_players");
 	players = getplayers(local_client_num);
 	foreach(player in players)
 	{
@@ -383,10 +383,10 @@ function monitor_tracker_perk_killcam(local_client_num)
 */
 function monitor_tracker_perk(local_client_num)
 {
-	self notify(#"monitor_tracker_perk");
-	self endon(#"monitor_tracker_perk");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("monitor_tracker_perk");
+	self endon("monitor_tracker_perk");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	self.flying = 0;
 	self.tracker_flying = 0;
@@ -482,7 +482,7 @@ function killtrackerfx_track(local_client_num, handle)
 */
 function killtrackerfx_on_death(local_client_num)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!(isdefined(level.killtrackerfxenable) && level.killtrackerfxenable))
 	{
 		return;

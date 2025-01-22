@@ -65,8 +65,8 @@ function player_sound_context_hack()
 	if(getgametypesetting("silentPlant") != 0)
 	{
 		self endon(#"entityshutdown");
-		self notify(#"player_sound_context_hack");
-		self endon(#"player_sound_context_hack");
+		self notify("player_sound_context_hack");
+		self endon("player_sound_context_hack");
 		while(true)
 		{
 			self setsoundentcontext("bomb_plant", "silent");

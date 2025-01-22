@@ -97,7 +97,7 @@ function watch_riotshield_damage()
 	self endon(#"entityshutdown");
 	while(true)
 	{
-		self waittill(#"damage", damage_loc, damage_type);
+		self waittill("damage", damage_loc, damage_type);
 		self useanimtree($mp_riotshield);
 		if(damage_type == "MOD_MELEE" || damage_type == "MOD_MELEE_WEAPON_BUTT" || damage_type == "MOD_MELEE_ASSASSINATE")
 		{

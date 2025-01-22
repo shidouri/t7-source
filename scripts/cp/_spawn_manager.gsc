@@ -130,7 +130,7 @@ function spawn_manager_can_spawn(spawngroupsize)
 */
 function spawn_manager_spawn(maxdelay)
 {
-	self endon(#"death");
+	self endon("death");
 	start = gettime();
 	while(true)
 	{
@@ -207,7 +207,7 @@ function spawn_accounting(spawner, manager)
 	origin = spawner.origin;
 	manager.activeai[manager.activeai.size] = self;
 	spawner.activeai[spawner.activeai.size] = self;
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(spawner))
 	{
 		arrayremovevalue(spawner.activeai, self);
@@ -567,7 +567,7 @@ function spawn_manager_wave_wait()
 */
 function spawn_manager_think()
 {
-	self endon(#"death");
+	self endon("death");
 	self set_defaults();
 	self spawn_manager_flags_setup();
 	self thread spawn_manager_enable_think();
@@ -737,7 +737,7 @@ function spawn_manager_enable_think()
 		self waittill(#"enable");
 		self.enable = 1;
 		self spawn_manager_flag_enabled();
-		self waittill(#"disable");
+		self waittill("disable");
 		self spawn_manager_flag_disabled();
 	}
 	self spawn_manager_flag_disabled();
@@ -754,10 +754,10 @@ function spawn_manager_enable_think()
 */
 function spawn_manager_enable_trigger_think(spawn_manager)
 {
-	spawn_manager endon(#"death");
+	spawn_manager endon("death");
 	spawn_manager endon(#"enable");
-	self endon(#"death");
-	self waittill(#"trigger");
+	self endon("death");
+	self waittill("trigger");
 	spawn_manager notify(#"enable");
 }
 
@@ -772,7 +772,7 @@ function spawn_manager_enable_trigger_think(spawn_manager)
 */
 function spawn_manager_kill_think()
 {
-	self waittill(#"death");
+	self waittill("death");
 	sm_id = self.sm_id;
 	a_spawners = self.allspawners;
 	a_active_ai = self.activeai;
@@ -1158,7 +1158,7 @@ function use_trig_when_complete(spawn_manager_targetname, trig_name, trig_key, o
 		/#
 			assert(isdefined(trigger), ((("" + trig_key) + "") + trig_name) + "");
 		#/
-		trigger endon(#"trigger");
+		trigger endon("trigger");
 	}
 	if(level flag::exists(("sm_" + spawn_manager_targetname) + "_enabled"))
 	{
@@ -1190,7 +1190,7 @@ function use_trig_when_cleared(spawn_manager_targetname, trig_name, trig_key, on
 		/#
 			assert(isdefined(trigger), ((("" + trig_key) + "") + trig_name) + "");
 		#/
-		trigger endon(#"trigger");
+		trigger endon("trigger");
 	}
 	if(level flag::exists(("sm_" + spawn_manager_targetname) + "_enabled"))
 	{
@@ -1222,7 +1222,7 @@ function use_trig_when_enabled(spawn_manager_targetname, trig_name, trig_key, on
 		/#
 			assert(isdefined(trigger), ((("" + trig_key) + "") + trig_name) + "");
 		#/
-		trigger endon(#"trigger");
+		trigger endon("trigger");
 	}
 	if(level flag::exists(("sm_" + spawn_manager_targetname) + "_enabled"))
 	{
@@ -1347,7 +1347,7 @@ function disable(spawn_manager_targetname, no_assert)
 		{
 			if(isdefined(sm) && sm.sm_id == spawn_manager_targetname)
 			{
-				sm notify(#"disable");
+				sm notify("disable");
 				return;
 			}
 		}

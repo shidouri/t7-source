@@ -202,7 +202,7 @@ function run_chamber_exit(n_enum)
 	level flag::wait_till("start_zombie_round_logic");
 	while(true)
 	{
-		s_activate_pos.trigger_stub waittill(#"trigger", e_player);
+		s_activate_pos.trigger_stub waittill("trigger", e_player);
 		if(!zombie_utility::is_player_valid(e_player))
 		{
 			continue;
@@ -235,7 +235,7 @@ function run_chamber_exit(n_enum)
 		e_portal_frame thread scene::play("p7_fxanim_zm_ori_portal_collapse_bundle", e_portal_frame);
 		e_portal_frame stoploopsound(0.5);
 		e_portal_frame playsound("zmb_teleporter_anim_collapse_pew");
-		s_portal notify(#"teleporter_radius_stop");
+		s_portal notify("teleporter_radius_stop");
 		e_fx clientfield::set("element_glow_fx", 0);
 		wait(collapse_time);
 		e_fx delete();
@@ -254,7 +254,7 @@ function run_chamber_exit(n_enum)
 */
 function run_chamber_entrance_teleporter()
 {
-	self endon(#"death");
+	self endon("death");
 	fx_glow = zm_tomb_utility::get_teleport_fx_from_enum(self.script_int);
 	e_model = level.a_teleport_models[self.script_int];
 	self.origin = e_model gettagorigin("fx_portal_jnt");
@@ -358,7 +358,7 @@ function run_chamber_entrance_teleporter()
 */
 function teleporter_radius_think(radius = 120)
 {
-	self endon(#"teleporter_radius_stop");
+	self endon("teleporter_radius_stop");
 	radius_sq = radius * radius;
 	while(true)
 	{
@@ -388,17 +388,17 @@ function teleporter_radius_think(radius = 120)
 */
 function stargate_teleport_think()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon("disable_teleporter_" + self.script_int);
 	e_potal = level.a_teleport_models[self.script_int];
 	while(true)
 	{
-		self.trigger_stub waittill(#"trigger", e_player);
+		self.trigger_stub waittill("trigger", e_player);
 		if(e_player getstance() != "prone" && (!(isdefined(e_player.teleporting) && e_player.teleporting)))
 		{
 			playfx(level._effect["teleport_3p"], self.origin, (1, 0, 0), (0, 0, 1));
 			playsoundatposition("zmb_teleporter_tele_3d", self.origin);
-			level notify(#"player_teleported", e_player, self.script_int);
+			level notify("player_teleported", e_player, self.script_int);
 			level thread stargate_teleport_player(self.target, e_player);
 		}
 	}
@@ -444,7 +444,7 @@ function stargate_teleport_disable(n_index)
 function stargate_play_fx()
 {
 	self.e_fx clientfield::set("teleporter_fx", 1);
-	self waittill(#"stop_teleport_fx");
+	self waittill("stop_teleport_fx");
 	self.e_fx clientfield::set("teleporter_fx", 0);
 }
 
@@ -538,7 +538,7 @@ function stargate_teleport_player(str_teleport_to, player, n_teleport_time_sec =
 		player thread hud::fade_to_black_for_x_sec(0, var_c5af343b + 0.3, 0, 0.5, "white");
 		util::wait_network_frame();
 	}
-	image_room notify(#"stop_teleport_fx");
+	image_room notify("stop_teleport_fx");
 	a_pos = struct::get_array(str_teleport_to, "targetname");
 	s_pos = get_free_teleport_pos(player, a_pos);
 	player unlink();
@@ -559,7 +559,7 @@ function stargate_teleport_player(str_teleport_to, player, n_teleport_time_sec =
 	}
 	player.teleporting = 0;
 	player clientfield::increment("teleport_arrival_departure_fx");
-	player notify(#"teleport_finished");
+	player notify("teleport_finished");
 }
 
 /*

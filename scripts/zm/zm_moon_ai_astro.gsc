@@ -71,7 +71,7 @@ function function_82c2a8f1()
 */
 function moon_astro_enter_level()
 {
-	self endon(#"death");
+	self endon("death");
 	self hide();
 	self.entered_level = 1;
 	self.no_widows_wine = 1;

@@ -185,8 +185,8 @@ function function_e17e849c()
 */
 function function_fd7fd40d()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self thread function_8e0d7da8();
 	weap = getweapon("ar_marksman_veng_hero_weap");
 	if(!self hasweapon(weap))
@@ -208,8 +208,8 @@ function function_fd7fd40d()
 */
 function function_8e0d7da8()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self hideviewmodel();
 	weap = getweapon("ar_marksman_veng_hero_weap");
 	wait(0.15);
@@ -330,7 +330,7 @@ function function_7272ed9d()
 */
 function setup_dogleg_1_hendricks()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreall(1);
 	self ai::set_ignoreme(1);
 	self colors::disable();
@@ -415,7 +415,7 @@ function cafe_execution_setup()
 */
 function cafe_execution_civ_spawn_func()
 {
-	self endon(#"death");
+	self endon("death");
 	self.team = "allies";
 	self ai::set_ignoreme(1);
 	self ai::set_ignoreall(1);
@@ -456,8 +456,8 @@ function cafe_execution_civ_spawn_func()
 */
 function cafe_exeuction_thug_spawn_func()
 {
-	self endon(#"death");
-	self waittill(#"alert");
+	self endon("death");
+	self waittill("alert");
 	level.cafe_execution_org scene::play("cin_ven_04_20_cafeexecution_vign_intro");
 }
 
@@ -472,14 +472,14 @@ function cafe_exeuction_thug_spawn_func()
 */
 function cafe_exeuction_thug_death_watcher_spawn_func()
 {
-	self waittill(#"death");
+	self waittill("death");
 	level flag::set("cafe_execution_thug_dead");
 	for(i = 1; i < 6; i++)
 	{
 		guy = getent(("cafe_execution_civ_0" + i) + "_ai", "targetname");
 		if(isdefined(guy) && isalive(guy))
 		{
-			guy notify(#"try_to_escape");
+			guy notify("try_to_escape");
 		}
 	}
 }
@@ -495,14 +495,14 @@ function cafe_exeuction_thug_death_watcher_spawn_func()
 */
 function function_dbe2f523()
 {
-	level.var_f7d1a350 endon(#"death");
-	level.var_3848e5e1 endon(#"death");
-	level.var_1836a85c endon(#"death");
-	level.var_f6f4fc0b endon(#"death");
-	level.var_f7d1a350 endon(#"alert");
+	level.var_f7d1a350 endon("death");
+	level.var_3848e5e1 endon("death");
+	level.var_1836a85c endon("death");
+	level.var_f6f4fc0b endon("death");
+	level.var_f7d1a350 endon("alert");
 	level.var_f7d1a350 endon(#"hash_da6a4775");
 	trigger = getent("cafeexecution_vign_vo_trigger", "targetname");
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	level.var_f7d1a350 vengeance_util::function_5fbec645("ffim1_all_your_money_won_t_1");
 	wait(0.5);
 	level.var_f7d1a350 vengeance_util::function_5fbec645("ffim2_laughter_2");
@@ -577,17 +577,17 @@ function function_e9e34547()
 */
 function function_558e4ac8()
 {
-	level.var_b6fadac7 endon(#"death");
-	level.var_2e6fdc0e endon(#"death");
-	level.var_3a5715c2 endon(#"death");
-	level.var_4e5d9a0c endon(#"death");
-	level.var_96a3037b endon(#"death");
-	level.var_b6fadac7 endon(#"alert");
-	level.var_2e6fdc0e endon(#"alert");
+	level.var_b6fadac7 endon("death");
+	level.var_2e6fdc0e endon("death");
+	level.var_3a5715c2 endon("death");
+	level.var_4e5d9a0c endon("death");
+	level.var_96a3037b endon("death");
+	level.var_b6fadac7 endon("alert");
+	level.var_2e6fdc0e endon("alert");
 	level.var_b6fadac7 endon(#"hash_da6a4775");
 	level.var_2e6fdc0e endon(#"hash_da6a4775");
 	trigger = getent("cafeburning_vign_vo_trigger", "targetname");
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	level.var_b6fadac7 vengeance_util::function_5fbec645("ffim1_now_we_re_the_ones_w_1");
 	wait(1);
 	level.var_2e6fdc0e vengeance_util::function_5fbec645("ffim2_laughter_3");
@@ -639,7 +639,7 @@ function function_924af258(a_ents, hide_me)
 */
 function function_8b8b9516()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_behavior_attribute("can_melee", 0);
 	var_ccf9b73f = util::spawn_anim_model("p7_ven_gascan_static");
 	var_ccf9b73f linkto(self, "tag_weapon_chest", (0, 0, 0), (0, 0, 0));
@@ -678,9 +678,9 @@ function function_78c388c0(var_ccf9b73f)
 */
 function function_3f42ba98(var_ccf9b73f)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_da6a4775");
-	self endon(#"alert");
+	self endon("alert");
 	while(true)
 	{
 		level waittill(#"hash_e239447e");
@@ -721,7 +721,7 @@ function function_3f42ba98(var_ccf9b73f)
 */
 function function_97ac3293()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread watch_for_death();
 	wait(0.2);
 	self thread function_a44271e3();
@@ -732,7 +732,7 @@ function function_97ac3293()
 		return;
 	}
 	level.cafe_burning_org thread scene::play("cin_ven_04_20_cafeburning_vign_main");
-	self waittill(#"cafe_burning_match_thrown");
+	self waittill("cafe_burning_match_thrown");
 	level flag::set("cafe_burning_match_thrown");
 	self.allowdeath = 1;
 }
@@ -779,7 +779,7 @@ function function_a44271e3()
 */
 function watch_for_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	level notify(#"hash_22b8c948");
 }
 
@@ -794,7 +794,7 @@ function watch_for_death()
 */
 function cafe_burning_civ_spawn_func()
 {
-	self endon(#"death");
+	self endon("death");
 	self.team = "allies";
 	self ai::set_ignoreme(1);
 	self ai::set_ignoreall(1);
@@ -818,7 +818,7 @@ function cafe_burning_civ_spawn_func()
 	}
 	else
 	{
-		self waittill(#"cafe_burning_check_for_escape");
+		self waittill("cafe_burning_check_for_escape");
 		playsoundatposition("evt_civ_group_burn", (21564, -86, 136));
 		self vengeance_util::set_civilian_on_fire(0);
 		self vengeance_util::set_civilian_on_fire(0);
@@ -839,7 +839,7 @@ function function_dc4e86b5(enemy_array)
 {
 	level endon(#"hash_e9ff59d5");
 	level endon(#"hash_8a3b89d3");
-	self waittill(#"damage", damage, attacker);
+	self waittill("damage", damage, attacker);
 	if(isplayer(attacker))
 	{
 		foreach(enemy in enemy_array)
@@ -952,7 +952,7 @@ function cafe_molotov_setup()
 */
 function function_147bbbbf()
 {
-	self endon(#"death");
+	self endon("death");
 	self.team = "allies";
 	self ai::set_ignoreme(1);
 	self ai::set_ignoreall(1);
@@ -1071,7 +1071,7 @@ function function_6fdd2184()
 */
 function function_24a63cea()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.script_stealth_dontseek) && self.script_stealth_dontseek)
 	{
 		self ai::set_behavior_attribute("sprint", 1);

@@ -282,7 +282,7 @@ function function_58655f2a()
 */
 function function_9bac2f00(e_player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	self function_b8e0ce15(e_player);
 	if(!(isdefined(self.stun) && self.stun) && self.stumble_stun_cooldown_time < gettime())
 	{
@@ -301,7 +301,7 @@ function function_9bac2f00(e_player, gib)
 */
 function mechz_thundergun_knockdown(e_player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	self function_b8e0ce15(e_player);
 	if(!(isdefined(self.stun) && self.stun) && self.stumble_stun_cooldown_time < gettime())
 	{
@@ -427,7 +427,7 @@ function spawn_mechz(s_location, flyin = 0)
 */
 function function_d07fd448()
 {
-	self endon(#"death");
+	self endon("death");
 	self.b_flyin_done = 0;
 	self.bgbignorefearinheadlights = 1;
 	self util::waittill_any("mechz_flyin_done", "scene_done");
@@ -446,7 +446,7 @@ function function_d07fd448()
 */
 function function_c441eaba(var_678a2319)
 {
-	self endon(#"death");
+	self endon("death");
 	var_b54110bd = 2304;
 	var_f0dad551 = 9216;
 	var_44615973 = 2250000;
@@ -504,7 +504,7 @@ function function_c441eaba(var_678a2319)
 */
 function function_bbdc1f34(var_678a2319)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_f93797a6");
 	self waittill(#"hash_3d18ed4f");
 	var_f0dad551 = 9216;
@@ -574,7 +574,7 @@ function function_3389e2f3(mechz)
 */
 function function_817c85eb(e_player, v_attack_source, n_push_away, n_lift_height, v_lift_offset, n_lift_speed)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.in_gravity_trap) && self.in_gravity_trap && e_player.gravityspikes_state === 3)
 	{
 		if(isdefined(self.var_1f5fe943) && self.var_1f5fe943)
@@ -629,7 +629,7 @@ function function_817c85eb(e_player, v_attack_source, n_push_away, n_lift_height
 */
 function function_bb84a54(mechz)
 {
-	mechz endon(#"death");
+	mechz endon("death");
 	if(isdefined(mechz))
 	{
 		mechz scene::play("cin_zm_dlc1_mechz_dth_deathray_02", mechz);
@@ -686,7 +686,7 @@ function function_1add8026(mechz)
 */
 function function_ef1ba7e5()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isplayer(self.attacker))
 	{
 		event = "death_mechz";
@@ -881,7 +881,7 @@ function function_10d36217(mechz)
 */
 function function_bb048b27()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		wait(randomintrange(9, 14));
@@ -900,7 +900,7 @@ function function_bb048b27()
 */
 function function_75a79bb5()
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		while(true)
 		{

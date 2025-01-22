@@ -187,7 +187,7 @@ function private mechzflamethrowercallback(localclientnum, oldvalue, newvalue, b
 		}
 		case 0:
 		{
-			self notify(#"stopflamethrower");
+			self notify("stopflamethrower");
 			if(isdefined(self.fire_beam_id))
 			{
 				beamkill(localclientnum, self.fire_beam_id);

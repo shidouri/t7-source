@@ -116,7 +116,7 @@ function function_f734357f(e_player)
 */
 function function_be759ad7()
 {
-	self waittill(#"trigger", e_who);
+	self waittill("trigger", e_who);
 	if(!e_who zm_score::can_player_purchase(1000) && self.stub.b_enabled)
 	{
 		e_who zm_audio::create_and_play_dialog("general", "transport_deny");
@@ -172,7 +172,7 @@ function function_f8b87a4e(e_player)
 function function_8e896de5(e_player)
 {
 	e_player endon(#"exit_vehicle");
-	e_player endon(#"death");
+	e_player endon("death");
 	level.var_ffcc580a.n_start_time = gettime();
 	wait(30);
 	level.var_ffcc580a usevehicle(e_player, 0);

@@ -1005,7 +1005,7 @@ function mechz_round_tracker()
 			level.mechz_left_to_spawn = level.mechz_zombie_per_round;
 			mechz_spawning = level.mechz_left_to_spawn;
 			wait(randomfloatrange(10, 15));
-			level notify(#"spawn_mechz");
+			level notify("spawn_mechz");
 			if(isdefined(level.is_forever_solo_game) && level.is_forever_solo_game)
 			{
 				n_round_gap = randomintrange(level.mechz_min_round_fq_solo, level.mechz_max_round_fq_solo);
@@ -1054,7 +1054,7 @@ function mechz_spawning_logic()
 	level thread enable_mechz_rounds();
 	while(true)
 	{
-		level waittill(#"spawn_mechz");
+		level waittill("spawn_mechz");
 		while(level.mechz_left_to_spawn)
 		{
 			s_loc = function_27b9fdd3();
@@ -1091,7 +1091,7 @@ function mechz_death()
 {
 	self waittill(#"hash_46c1e51d");
 	self clientfield::set("tomb_mech_eye", 0);
-	level notify(#"mechz_killed", self.origin);
+	level notify("mechz_killed", self.origin);
 	if(level flag::get("zombie_drop_powerups") && (!(isdefined(self.no_powerups) && self.no_powerups)))
 	{
 		a_bonus_types = array("double_points", "insta_kill", "full_ammo", "nuke");
@@ -1400,9 +1400,9 @@ function private mechz_launch_armor_piece()
 */
 function mechz_interrupt()
 {
-	self notify(#"kill_claw");
-	self notify(#"kill_ft");
-	self notify(#"kill_jump");
+	self notify("kill_claw");
+	self notify("kill_ft");
+	self notify("kill_jump");
 }
 
 /*
@@ -1416,7 +1416,7 @@ function mechz_interrupt()
 */
 function mechz_robot_stomp_callback()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.robot_stomped) && self.robot_stomped)
 	{
 		return;
@@ -1518,9 +1518,9 @@ function start_see_mech_zombie_vo()
 */
 function player_looking_at_mechz_watcher(ai_mechz)
 {
-	self endon(#"disconnect");
-	ai_mechz endon(#"death");
-	level endon(#"first_mech_zombie_seen");
+	self endon("disconnect");
+	ai_mechz endon("death");
+	level endon("first_mech_zombie_seen");
 	while(true)
 	{
 		if(distancesquared(self.origin, ai_mechz.origin) < 1000000)
@@ -1530,7 +1530,7 @@ function player_looking_at_mechz_watcher(ai_mechz)
 				if(!(isdefined(self.dontspeak) && self.dontspeak))
 				{
 					self zm_audio::create_and_play_dialog("general", "discover_mech");
-					level notify(#"first_mech_zombie_seen");
+					level notify("first_mech_zombie_seen");
 					break;
 				}
 			}
@@ -1550,7 +1550,7 @@ function player_looking_at_mechz_watcher(ai_mechz)
 */
 function mechz_grabbed_played_vo(ai_mechz)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self zm_audio::create_and_play_dialog("general", "mech_grab");
 	while(isdefined(self) && (isdefined(self.isspeaking) && self.isspeaking))
 	{
@@ -1574,7 +1574,7 @@ function mechz_grabbed_played_vo(ai_mechz)
 */
 function play_shoot_arm_hint_vo()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(!isdefined(self.e_grabbed))
@@ -1615,7 +1615,7 @@ function play_shoot_arm_hint_vo()
 */
 function mechz_hint_vo()
 {
-	self endon(#"death");
+	self endon("death");
 }
 
 /*
@@ -1629,7 +1629,7 @@ function mechz_hint_vo()
 */
 function shoot_mechz_head_vo()
 {
-	self endon(#"death");
+	self endon("death");
 	a_players = getplayers();
 	foreach(player in a_players)
 	{
@@ -1690,7 +1690,7 @@ function mechz_jump_vo()
 */
 function mechz_stomped_by_giant_robot_vo()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(5);
 	a_players = getplayers();
 	foreach(player in a_players)

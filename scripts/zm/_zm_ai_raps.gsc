@@ -192,7 +192,7 @@ function raps_round_start()
 		level.rapsround_nomusic = 0;
 	}
 	level.rapsround_nomusic = 1;
-	level notify(#"raps_round_starting");
+	level notify("raps_round_starting");
 	level thread zm_audio::sndmusicsystem_playstate("meatball_start");
 	if(isdefined(level.raps_melee_range))
 	{
@@ -222,7 +222,7 @@ function raps_round_stop()
 		level.rapsround_nomusic = 0;
 	}
 	level.rapsround_nomusic = 0;
-	level notify(#"raps_round_ending");
+	level notify("raps_round_ending");
 	setdvar("ai_meleeRange", level.melee_range_sav);
 	setdvar("ai_meleeWidth", level.melee_width_sav);
 	setdvar("ai_meleeHeight", level.melee_height_sav);
@@ -239,15 +239,15 @@ function raps_round_stop()
 */
 function raps_round_spawning()
 {
-	level endon(#"intermission");
-	level endon(#"raps_round");
+	level endon("intermission");
+	level endon("raps_round");
 	level.raps_targets = getplayers();
 	for(i = 0; i < level.raps_targets.size; i++)
 	{
 		level.raps_targets[i].hunted_by = 0;
 	}
-	level endon(#"restart_round");
-	level endon(#"kill_round");
+	level endon("restart_round");
+	level endon("kill_round");
 	/#
 		if(getdvarint("") == 2 || getdvarint("") >= 4)
 		{
@@ -276,7 +276,7 @@ function raps_round_spawning()
 	wait(6);
 	n_raps_alive = 0;
 	level flag::set("raps_round_in_progress");
-	level endon(#"last_ai_down");
+	level endon("last_ai_down");
 	level thread raps_round_aftermath();
 	while(true)
 	{
@@ -396,8 +396,8 @@ function get_raps_spawn_total()
 */
 function raps_round_wait_func()
 {
-	level endon(#"restart_round");
-	level endon(#"kill_round");
+	level endon("restart_round");
+	level endon("kill_round");
 	if(level flag::get("raps_round"))
 	{
 		level flag::wait_till("raps_round_in_progress");
@@ -554,7 +554,7 @@ function waiting_for_next_raps_spawn()
 */
 function raps_round_aftermath()
 {
-	level waittill(#"last_ai_down", e_enemy_ai);
+	level waittill("last_ai_down", e_enemy_ai);
 	level thread zm_audio::sndmusicsystem_playstate("meatball_over");
 	if(isdefined(level.zm_override_ai_aftermath_powerup_drop))
 	{
@@ -587,7 +587,7 @@ function raps_round_aftermath()
 */
 function raps_spawn_fx(ai, ent)
 {
-	ai endon(#"death");
+	ai endon("death");
 	if(!isdefined(ent))
 	{
 		ent = self;
@@ -653,7 +653,7 @@ function raps_spawn_fx(ai, ent)
 	ai zombie_setup_attack_properties_raps();
 	ai setvisibletoall();
 	ai.ignoreme = 0;
-	ai notify(#"visible");
+	ai notify("visible");
 }
 
 /*
@@ -667,8 +667,8 @@ function raps_spawn_fx(ai, ent)
 */
 function cleanup_meteor()
 {
-	self endon(#"death");
-	self.ai waittill(#"death");
+	self endon("death");
+	self.ai waittill("death");
 	self delete();
 }
 
@@ -683,7 +683,7 @@ function cleanup_meteor()
 */
 function cleanup_meteor_fx(portal_fx, ground_tell)
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(portal_fx))
 	{
 		portal_fx delete();
@@ -982,7 +982,7 @@ function raps_init()
 */
 function raps_timeout_after_xsec(timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timeout);
 	self dodamage(self.health + 100, self.origin, self, undefined, "none", "MOD_UNKNOWN");
 }
@@ -998,13 +998,13 @@ function raps_timeout_after_xsec(timeout)
 */
 function raps_death()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(get_current_raps_count() == 0 && level.zombie_total == 0)
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
 			level.last_ai_origin = self.origin;
-			level notify(#"last_ai_down", self);
+			level notify("last_ai_down", self);
 		}
 	}
 	if(isplayer(attacker))
@@ -1026,7 +1026,7 @@ function raps_death()
 	}
 	if(isdefined(attacker) && isai(attacker))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 	}
 	if(isdefined(self))
 	{
@@ -1063,7 +1063,7 @@ function raps_custom_player_shellshock(damage, attacker, direction_vec, point, m
 */
 function player_watch_shellshock_accumulation()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.raps_recent_explosions))
 	{
 		self.raps_recent_explosions = 0;
@@ -1120,7 +1120,7 @@ function zombie_setup_attack_properties_raps()
 */
 function stop_raps_sound_on_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self stopsounds();
 }
 
@@ -1191,8 +1191,8 @@ function special_raps_spawn(n_to_spawn = 1, s_spawn_loc, fn_on_spawned)
 */
 function raps_run_think()
 {
-	self endon(#"death");
-	self waittill(#"visible");
+	self endon("death");
+	self waittill("visible");
 	if(self.health > level.n_raps_health)
 	{
 		self.maxhealth = level.n_raps_health;
@@ -1251,7 +1251,7 @@ function should_raps_giveup_inaccessible_player(player)
 */
 function raps_stalk_audio()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self playsound("zmb_hellhound_vocals_amb");
@@ -1270,7 +1270,7 @@ function raps_stalk_audio()
 */
 function raps_thundergun_knockdown(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	damage = int(self.maxhealth * 0.5);
 	self dodamage(damage, player.origin, player, undefined, "none", "MOD_UNKNOWN");
 }

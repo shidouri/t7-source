@@ -161,7 +161,7 @@ function playidleface()
 */
 function playfacethread(facialanim, str_script_alias, importance, notifystring, waitornot, timetowait, toplayer)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(str_script_alias))
 	{
 		wait(1);
@@ -330,8 +330,8 @@ function playfacethread(facialanim, str_script_alias, importance, notifystring, 
 */
 function _play_sound_to_player_with_notify(soundalias, toplayer, uniquenotify)
 {
-	self endon(#"death");
-	toplayer endon(#"death");
+	self endon("death");
+	toplayer endon("death");
 	self playsoundtoplayer(soundalias, toplayer);
 	n_playbacktime = soundgetplaybacktime(soundalias);
 	if(n_playbacktime > 0)
@@ -414,7 +414,7 @@ function private _missing_dialog(str_script_alias, str_vox_file, uniquenotify)
 */
 function playface_waitfornotify(waitforstring, notifystring, killmestring)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(killmestring);
 	self waittill(waitforstring);
 	self.a.facewaitforresult = "notify";
@@ -432,7 +432,7 @@ function playface_waitfornotify(waitforstring, notifystring, killmestring)
 */
 function playface_waitfortime(time, notifystring, killmestring)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(killmestring);
 	wait(time);
 	self.a.facewaitforresult = "time";

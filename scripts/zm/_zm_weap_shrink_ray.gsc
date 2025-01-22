@@ -128,10 +128,10 @@ function function_ebf92008()
 */
 function function_37ce705e()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		currentweapon = self getcurrentweapon();
 		if(currentweapon == level.w_shrink_ray || currentweapon == level.w_shrink_ray_upgraded)
 		{
@@ -248,7 +248,7 @@ function function_9af5d92d(upgraded, attacker)
 */
 function shrink_zombie(upgraded, attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.shrinked) && self.shrinked)
 	{
 		return;
@@ -455,7 +455,7 @@ function shrink_zombie(upgraded, attacker)
 	{
 		self clientfield::set("fun_size", 0);
 	}
-	self notify(#"unshrink");
+	self notify("unshrink");
 	self.shrinked = 0;
 	self.var_2209ea1b = undefined;
 	self.kill_on_wine_coccon = undefined;
@@ -498,10 +498,10 @@ function function_f23d2379()
 */
 function function_6d284e94()
 {
-	self endon(#"unshrink");
+	self endon("unshrink");
 	self endon(#"hash_b6537d92");
-	self endon(#"kicked");
-	self endon(#"death");
+	self endon("kicked");
+	self endon("death");
 	wait(randomfloatrange(0.2, 0.5));
 	while(true)
 	{
@@ -535,7 +535,7 @@ function function_259d2f7a(fxname, jointname, offset)
 */
 function function_206493fd(alias)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloat(0.5));
 	self zm_utility::play_sound_on_ent(alias);
 }
@@ -551,18 +551,18 @@ function function_206493fd(alias)
 */
 function function_643fa9c8()
 {
-	self endon(#"death");
-	self endon(#"unshrink");
+	self endon("death");
+	self endon("unshrink");
 	self.var_f0dec186 = spawn("trigger_radius", self.origin, 0, 30, 24);
 	self.var_f0dec186 sethintstring("");
 	self.var_f0dec186 setcursorhint("HINT_NOICON");
 	self.var_f0dec186 enablelinkto();
 	self.var_f0dec186 linkto(self);
 	self.var_f0dec186 thread function_2c318bd(self);
-	self.var_f0dec186 endon(#"death");
+	self.var_f0dec186 endon("death");
 	while(true)
 	{
-		self.var_f0dec186 waittill(#"trigger", who);
+		self.var_f0dec186 waittill("trigger", who);
 		if(!isplayer(who))
 		{
 			continue;
@@ -587,7 +587,7 @@ function function_643fa9c8()
 		var_884fd8ec = vectordot(forward_view_angles, toenemy);
 		if(var_884fd8ec > 0.5 && movement[0] > 0)
 		{
-			self notify(#"kicked");
+			self notify("kicked");
 			who notify(#"hash_49423c6f");
 			self function_867ec02b(who);
 		}
@@ -610,8 +610,8 @@ function function_643fa9c8()
 */
 function function_2c318bd(var_34c9bd99)
 {
-	self endon(#"death");
-	var_34c9bd99 waittill(#"death");
+	self endon("death");
+	var_34c9bd99 waittill("death");
 	self delete();
 }
 
@@ -626,10 +626,10 @@ function function_2c318bd(var_34c9bd99)
 */
 function watch_for_death()
 {
-	self endon(#"unshrink");
+	self endon("unshrink");
 	self endon(#"hash_b6537d92");
-	self endon(#"kicked");
-	self waittill(#"death");
+	self endon("kicked");
+	self waittill("death");
 	self function_6140a171();
 }
 
@@ -877,8 +877,8 @@ function function_9ae4cf1b(msg, color)
 */
 function function_8b44a1f8()
 {
-	self endon(#"death");
-	self endon(#"unshrink");
+	self endon("death");
+	self endon("unshrink");
 	while(true)
 	{
 		taunt_anim = array::random(level._zombie_board_taunt["zombie"]);

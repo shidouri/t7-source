@@ -292,7 +292,7 @@ function function_3c8f18a8(a_ents)
 	var_503f61aa linkto(var_c3f519a9);
 	var_503f61aa thread vehicle_rumble(0, 2);
 	wait(20);
-	var_503f61aa notify(#"rumble_stop");
+	var_503f61aa notify("rumble_stop");
 	var_503f61aa delete();
 }
 
@@ -394,7 +394,7 @@ function function_c14f3d0d(var_efa86ccd)
 function function_235019b6(str_spawner_name, n_speed = 35, n_acceleration = 100)
 {
 	var_9a17836d = str_spawner_name + "_end";
-	self endon(#"death");
+	self endon("death");
 	nd_start = getvehiclenode(self.target, "targetname");
 	self attachpath(nd_start);
 	if(isdefined(n_speed))
@@ -410,9 +410,9 @@ function function_235019b6(str_spawner_name, n_speed = 35, n_acceleration = 100)
 	}
 	self startpath();
 	self thread vehicle_rumble();
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	self notify(var_9a17836d);
-	self notify(#"rumble_stop");
+	self notify("rumble_stop");
 	self delete();
 }
 
@@ -427,7 +427,7 @@ function function_235019b6(str_spawner_name, n_speed = 35, n_acceleration = 100)
 */
 function vehicle_rumble(b_wait_for_flag = 1, b_delay = 0)
 {
-	self endon(#"rumble_stop");
+	self endon("rumble_stop");
 	var_8e09e52a = 0;
 	if(isdefined(b_wait_for_flag) && b_wait_for_flag)
 	{
@@ -515,7 +515,7 @@ function function_f9d235ed()
 */
 function function_1ec3c42a()
 {
-	self endon(#"death");
+	self endon("death");
 	while(!isdefined(level.var_d3b40681))
 	{
 		wait(1);
@@ -523,7 +523,7 @@ function function_1ec3c42a()
 	array::add(level.var_d3b40681, self);
 	while(true)
 	{
-		self waittill(#"web_torn");
+		self waittill("web_torn");
 		if(self.var_f83345c7)
 		{
 			level.var_fed21619[self.var_20cd3c71] thread function_4680ee05();
@@ -591,7 +591,7 @@ function function_749646f5(e_player)
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	self.e_destructible notsolid();
 	self.e_destructible hide();
-	self.t_webbing_extra_damage notify(#"web_torn");
+	self.t_webbing_extra_damage notify("web_torn");
 	self.t_webbing_extra_damage.var_f83345c7 = 0;
 	if(zm_utility::is_player_valid(e_player))
 	{
@@ -711,7 +711,7 @@ function function_54db2b79()
 		b_done = 0;
 		while(!(isdefined(b_done) && b_done))
 		{
-			self waittill(#"trigger", e_who);
+			self waittill("trigger", e_who);
 			if(!zm_utility::is_player_valid(e_who))
 			{
 				continue;
@@ -726,7 +726,7 @@ function function_54db2b79()
 			}
 			if(isdefined(self.related_parent))
 			{
-				self.related_parent notify(#"trigger_activated", e_who);
+				self.related_parent notify("trigger_activated", e_who);
 			}
 			if(!isdefined(e_who.usebar))
 			{
@@ -840,7 +840,7 @@ function function_12b8ab88(player, var_41b6c34b = 2)
 	}
 	if(isdefined(self) && player function_afb24eeb(self) && self.var_57d3f07b <= 0 || gettime() >= var_c6160fd4)
 	{
-		self notify(#"webtear_succeed");
+		self notify("webtear_succeed");
 		if(var_1e74f559)
 		{
 			player.var_f795ee17 = 1;
@@ -855,7 +855,7 @@ function function_12b8ab88(player, var_41b6c34b = 2)
 		}
 		if(isdefined(self))
 		{
-			self notify(#"webtear_failed");
+			self notify("webtear_failed");
 		}
 		else if(isdefined(var_a6a648f0.var_160abeb7))
 		{
@@ -909,8 +909,8 @@ function function_afb24eeb(s_unitrigger)
 function function_2f6a6dcd(n_start_time, var_ddb12d5c)
 {
 	self endon(#"entering_last_stand");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_bd5f338b");
 	while(isdefined(self) && (gettime() - n_start_time) < var_ddb12d5c)
 	{
@@ -975,9 +975,9 @@ function function_a0c0f437(start_time, craft_time)
 */
 function function_ed4dd4e3(player)
 {
-	self endon(#"kill_trigger");
-	self endon(#"webtear_succeed");
-	self endon(#"webtear_failed");
+	self endon("kill_trigger");
+	self endon("webtear_succeed");
+	self endon("webtear_failed");
 	self endon(#"hash_bd5f338b");
 	while(true)
 	{
@@ -1436,7 +1436,7 @@ function function_5c8137e6(var_6a2f816c, b_on = 1)
 */
 function function_6753e7bb()
 {
-	level waittill(#"additionalprimaryweapon_on");
+	level waittill("additionalprimaryweapon_on");
 	clientfield::set("perk_light_mule_kick", 1);
 	var_8bcf7b93 = function_f2a3ece3("vending_additionalprimaryweapon");
 	var_8bcf7b93 function_5c8137e6("vending_additionalprimaryweapon", 1);

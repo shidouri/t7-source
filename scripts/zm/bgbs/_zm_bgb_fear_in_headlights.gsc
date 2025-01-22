@@ -53,7 +53,7 @@ function __init__()
 function private function_b13c2f15()
 {
 	self endon(#"hash_4e7f43fc");
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self) && self ispaused())
 	{
 		self setentitypaused(0);
@@ -167,13 +167,13 @@ function validation()
 */
 function activation()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread function_deeb696f();
 	self playsound("zmb_bgb_fearinheadlights_start");
 	self playloopsound("zmb_bgb_fearinheadlights_loop");
 	self thread kill_fear_in_headlights();
 	self bgb::run_timer(120);
-	self notify(#"kill_fear_in_headlights");
+	self notify("kill_fear_in_headlights");
 }
 
 /*
@@ -187,8 +187,8 @@ function activation()
 */
 function function_deeb696f()
 {
-	self endon(#"disconnect");
-	self endon(#"kill_fear_in_headlights");
+	self endon("disconnect");
+	self endon("kill_fear_in_headlights");
 	var_bd6badee = 1200 * 1200;
 	while(true)
 	{

@@ -374,8 +374,8 @@ function function_f98bc462()
 */
 function function_7ef5e890()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.var_5206d4b9 = 0;
 	self.var_f4fa5cef = gettime() + 5000;
 	waittime = 2;
@@ -586,7 +586,7 @@ function function_11600557(zombie, player)
 */
 function function_b039235(time)
 {
-	self endon(#"death");
+	self endon("death");
 	level util::waittill_any_timeout(time, "BZM_kill_active_parasites_meatball_rocket");
 	self kill();
 }
@@ -602,7 +602,7 @@ function function_b039235(time)
 */
 function function_2527b827()
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"hash_cf7497c1");
 	self delete();
 }
@@ -742,7 +742,7 @@ function function_aed40969(var_c3afa726, str_targetname, force_spawn)
 */
 function function_2ffffb72(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	/#
 		assert(isactor(entity));
 	#/
@@ -765,7 +765,7 @@ function function_2ffffb72(entity)
 */
 function function_26a65116(behaviortreeentity)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.05);
 	if(isdefined(self) && isalive(self))
 	{
@@ -784,7 +784,7 @@ function function_26a65116(behaviortreeentity)
 */
 function function_abc05be8()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_abc05be8");
 	if(isdefined(self.var_11f7b644) && (gettime() - self.var_11f7b644) > 2000)
 	{
@@ -811,7 +811,7 @@ function function_abc05be8()
 */
 function function_55e64fc7()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_d94c729a");
 	self endon(#"hash_abc05be8");
 	while(true)
@@ -840,7 +840,7 @@ function function_55e64fc7()
 */
 function function_d94c729a()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_abc05be8");
 	if(isdefined(self.var_be85d412) && self.var_be85d412)
 	{
@@ -906,7 +906,7 @@ function function_c1802d32()
 */
 function function_8347526a()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(4);
 	while(true)
 	{
@@ -1024,7 +1024,7 @@ function function_8347526a()
 */
 function function_48401071()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_2985e88a))
 	{
 		return;
@@ -1098,7 +1098,7 @@ function set_zombie_run_cycle(new_move_speed)
 		self.variant_type = randomint(level.zm_variant_type_max[self.zombie_move_speed][self.zombie_arms_position]);
 	}
 	self.needs_run_update = 1;
-	self notify(#"needs_run_update");
+	self notify("needs_run_update");
 }
 
 /*
@@ -1112,7 +1112,7 @@ function set_zombie_run_cycle(new_move_speed)
 */
 function function_d0d9ed35()
 {
-	self endon(#"death");
+	self endon("death");
 	self set_zombie_run_cycle("walk");
 	rand_num = randomint(100);
 	if(rand_num > (level.var_a9e78bf7["levelonezombies"] + level.var_a9e78bf7["leveltwozombies"]))
@@ -1196,7 +1196,7 @@ function function_d0d9ed35()
 */
 function private function_470f7d28()
 {
-	self endon(#"death");
+	self endon("death");
 	var_8a7e27c8 = self.zombie_move_speed;
 	if(var_8a7e27c8 == "sprint")
 	{
@@ -1301,7 +1301,7 @@ function private function_48cb1ad1(einflictor, eattacker, idamage, idflags, smea
 */
 function private function_f10fd3d1(weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_82253adf) && self.var_82253adf)
 	{
 		return;
@@ -1423,7 +1423,7 @@ function function_9bc25e40()
 		assert(level.var_a9e78bf7[""]);
 	#/
 	var_df4e4d0f = getnavfaceregion(self.origin, 64);
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(!isdefined(self))
 	{
 		return;
@@ -1505,7 +1505,7 @@ function function_7e75b892(var_14e6a7e9, var_5b43e537, var_df4e4d0f)
 */
 function function_cc657250()
 {
-	self waittill(#"death");
+	self waittill("death");
 	level.var_d0e37460++;
 	if(level.var_d0e37460 >= namespace_37cacec1::function_5f2c4513())
 	{
@@ -1524,7 +1524,7 @@ function function_cc657250()
 */
 function function_d82d1ce3(origin, angles)
 {
-	self endon(#"death");
+	self endon("death");
 	self.in_the_ground = 1;
 	var_44459b10 = self setcontents(0);
 	self setcontents(8192);
@@ -1711,7 +1711,7 @@ function function_8421a595(origin, players)
 */
 function function_29e1570d()
 {
-	self endon(#"death");
+	self endon("death");
 	if(level.var_a9e78bf7["startunaware"] && (!(isdefined(level.var_3004e0c8) && level.var_3004e0c8)))
 	{
 		self flag::clear("bzm_zombie_attack");
@@ -1723,7 +1723,7 @@ function function_29e1570d()
 		self thread function_b04fbef3();
 		self thread function_7428c0cf();
 		self thread function_190da7c8();
-		self waittill(#"stop_inert");
+		self waittill("stop_inert");
 		self namespace_37cacec1::function_d68296ac();
 		level.var_3004e0c8 = 1;
 		self thread function_5e4284a5();
@@ -1751,7 +1751,7 @@ function function_29e1570d()
 */
 function function_5e4284a5()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self isplayinganimscripted())
 	{
 		return;
@@ -1792,7 +1792,7 @@ function function_e840531c(origin)
 			wait(level.var_a9e78bf7["alertnessspreaddelay"]);
 			if(isdefined(var_fc70c85a))
 			{
-				var_fc70c85a notify(#"stop_inert");
+				var_fc70c85a notify("stop_inert");
 			}
 		}
 	}
@@ -1809,8 +1809,8 @@ function function_e840531c(origin)
 */
 function function_190da7c8()
 {
-	self endon(#"death");
-	self endon(#"stop_inert");
+	self endon("death");
+	self endon("stop_inert");
 	while(true)
 	{
 		if(isdefined(self.enemy))
@@ -1820,7 +1820,7 @@ function function_190da7c8()
 		wait(1);
 	}
 	level thread function_e840531c(self.origin);
-	self notify(#"stop_inert");
+	self notify("stop_inert");
 }
 
 /*
@@ -1834,11 +1834,11 @@ function function_190da7c8()
 */
 function function_7428c0cf()
 {
-	self endon(#"death");
-	self endon(#"stop_inert");
-	self waittill(#"damage");
+	self endon("death");
+	self endon("stop_inert");
+	self waittill("damage");
 	function_e840531c(self.origin);
-	self notify(#"stop_inert");
+	self notify("stop_inert");
 }
 
 /*
@@ -1852,8 +1852,8 @@ function function_7428c0cf()
 */
 function function_b04fbef3()
 {
-	self endon(#"death");
-	self endon(#"stop_inert");
+	self endon("death");
+	self endon("stop_inert");
 	while(true)
 	{
 		if(!self haspath())
@@ -1885,7 +1885,7 @@ function function_b04fbef3()
 */
 function function_745c9570()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.archetype != "zombie")
 	{
 		return;
@@ -1918,7 +1918,7 @@ function function_745c9570()
 */
 function function_a608d09()
 {
-	self endon(#"death");
+	self endon("death");
 	prevorigin = self.origin;
 	var_7628680f = undefined;
 	level flag::wait_till("all_players_connected");
@@ -1986,7 +1986,7 @@ function function_a608d09()
 */
 function zombie_death_event(zombie)
 {
-	zombie waittill(#"death", attacker);
+	zombie waittill("death", attacker);
 	time_of_death = gettime();
 	if(isdefined(zombie))
 	{
@@ -2069,9 +2069,9 @@ function zombie_death_event(zombie)
 	zombie thread namespace_fdfaa57d::function_b67e03f7();
 	if(isdefined(zombie.attacker) && isplayer(zombie.attacker))
 	{
-		zombie.attacker notify(#"zom_kill", zombie);
+		zombie.attacker notify("zom_kill", zombie);
 	}
-	level notify(#"zom_kill");
+	level notify("zom_kill");
 }
 
 /*
@@ -2499,7 +2499,7 @@ function function_fa34e301()
 {
 	self notify(#"hash_fa34e301");
 	self endon(#"hash_fa34e301");
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	waittillframeend();
 	while(true)
 	{
@@ -2521,11 +2521,11 @@ function function_fa34e301()
 */
 function function_5abd553b()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"cybercom_decoy_released", misdirectionobject);
+		self waittill("cybercom_decoy_released", misdirectionobject);
 		array::add(level.var_9a25f386, misdirectionobject);
 	}
 }
@@ -2637,8 +2637,8 @@ function private bzmloadoutchangecallback()
 */
 function private bzm_waitforstreamerortimeout(player, timeout)
 {
-	player endon(#"disconnect");
-	player endon(#"death");
+	player endon("disconnect");
+	player endon("death");
 	/#
 		assert(isdefined(player) && isplayer(player));
 	#/

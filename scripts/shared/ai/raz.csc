@@ -209,12 +209,12 @@ function private razspawn(localclientnum)
 */
 function private razplayfireemissiveshader(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
-		self waittill(#"lights_on");
+		self waittill("lights_on");
 		self mapshaderconstant(localclientnum, 0, "scriptVector3", 0, 1, 1);
-		self waittill(#"lights_off");
+		self waittill("lights_off");
 		self mapshaderconstant(localclientnum, 0, "scriptVector3", 0, 0, 0);
 	}
 }
@@ -230,10 +230,10 @@ function private razplayfireemissiveshader(localclientnum)
 */
 function private razplayroarsound(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
-		self waittill(#"roar");
+		self waittill("roar");
 		self playsound(localclientnum, "vox_raz_exert_enrage", self gettagorigin("tag_eye"));
 	}
 }
@@ -249,7 +249,7 @@ function private razplayroarsound(localclientnum)
 */
 function private razplaytaunts(localclientnum)
 {
-	self endon(#"death_start");
+	self endon("death_start");
 	self thread razstoptauntsondeath(localclientnum);
 	while(isdefined(self))
 	{
@@ -278,7 +278,7 @@ function private razplaytaunts(localclientnum)
 */
 function private razstoptauntsondeath(localclientnum)
 {
-	self waittill(#"death_start");
+	self waittill("death_start");
 	if(isdefined(self.taunt_id))
 	{
 		stopsound(self.taunt_id);
@@ -561,7 +561,7 @@ function razrightthigharmordetach(localclientnum, oldvalue, newvalue, bnewent, b
 */
 function private applynewfaceanim(localclientnum, animation)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	clearcurrentfacialanim(localclientnum);
 	if(isdefined(animation))
 	{
@@ -569,7 +569,7 @@ function private applynewfaceanim(localclientnum, animation)
 		if(self hasdobj(localclientnum) && self hasanimtree())
 		{
 			self setflaggedanimknob("ai_secondary_facial_anim", animation, 1, 0.1, 1);
-			self waittill(#"death_start");
+			self waittill("death_start");
 			clearcurrentfacialanim(localclientnum);
 		}
 	}

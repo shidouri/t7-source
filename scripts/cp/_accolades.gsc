@@ -637,7 +637,7 @@ function increment(str_accolade, n_val = 1, var_50f65478)
 function private _increment_by_notify(str_accolade, str_notify)
 {
 	self endon(#"hash_115de864");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.var_4fbad7c0))
 	{
 		self.var_4fbad7c0 = [];
@@ -725,8 +725,8 @@ function private function_115de864()
 */
 function function_673a5138()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	var_88d3591a = self function_4f9d8dec(level.var_f8718de3 + "COLLECTIBLE");
 	while(true)
 	{
@@ -751,7 +751,7 @@ function function_673a5138()
 */
 function function_d2380b2()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	accolade = self function_4f9d8dec(level.var_f8718de3 + "UNTOUCHED");
 	if(accolade.current_value == 0)
 	{
@@ -773,8 +773,8 @@ function function_d2380b2()
 */
 function function_39f05ec1()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	last_score = self getdstat("PlayerStatsByMap", getrootmapname(), "currentStats", "SCORE");
 	var_7b12b16 = self function_4f9d8dec(level.var_f8718de3 + "SCORE");
 	var_6962bddd = self function_3a7fd23a(var_7b12b16.index);
@@ -784,7 +784,7 @@ function function_39f05ec1()
 	}
 	while(true)
 	{
-		self waittill(#"score_event");
+		self waittill("score_event");
 		last_score = var_7b12b16.current_value;
 		new_score = self.pers["score"];
 		scorediff = new_score - last_score;
@@ -908,7 +908,7 @@ function on_player_disconnect()
 function function_8082e9f0()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		while(true)
 		{
 			cmd = getdvarstring("");
@@ -949,7 +949,7 @@ function function_8082e9f0()
 function function_7b64a1e0()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		self waittill(#"hash_30b79005");
 		function_7aaf1e5d();
 	#/
@@ -1162,8 +1162,8 @@ function function_2d7075c8()
 */
 function function_3b92459f()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 }
 
 /*
@@ -1177,10 +1177,10 @@ function function_3b92459f()
 */
 function function_4c436dfe()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		level waittill(#"save_restore");
+		level waittill("save_restore");
 		if(function_3c63ee8())
 		{
 			continue;

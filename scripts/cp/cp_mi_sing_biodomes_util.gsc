@@ -163,7 +163,7 @@ function vo_pick_random_line(a_dialogue_lines)
 */
 function player_interact_anim_generic(n_duration = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	weapon_current = self getcurrentweapon();
 	weapon_fake_interact = getweapon("syrette");
 	self giveweapon(weapon_fake_interact);

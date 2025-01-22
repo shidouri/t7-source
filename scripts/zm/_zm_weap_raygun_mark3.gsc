@@ -140,10 +140,10 @@ function raygun_vortex_reposition(v_impact_origin)
 */
 function watch_raygun_impact()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"projectile_impact", w_weapon, v_pos, n_radius, e_projectile, v_normal);
+		self waittill("projectile_impact", w_weapon, v_pos, n_radius, e_projectile, v_normal);
 		v_pos_final = raygun_vortex_reposition(v_pos + (v_normal * 32));
 		if(is_slow_raygun(w_weapon))
 		{
@@ -163,7 +163,7 @@ function watch_raygun_impact()
 */
 function start_slow_vortex(w_weapon, v_pos, v_pos_final, n_radius, e_attacker, v_normal)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	mdl_vortex = spawn("script_model", v_pos);
 	mdl_vortex setmodel("p7_fxanim_zm_stal_ray_gun_ball_mod");
 	playsoundatposition("wpn_mk3_orb_created", mdl_vortex.origin);
@@ -189,7 +189,7 @@ function start_slow_vortex(w_weapon, v_pos, v_pos_final, n_radius, e_attacker, v
 */
 function pulse_damage(e_owner, w_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self.n_damage_type = 1;
 	self.n_end_time = gettime() + 3000;
 	self.e_owner = e_owner;
@@ -277,9 +277,9 @@ function pulse_damage(e_owner, w_weapon)
 */
 function player_vortex_visionset()
 {
-	self notify(#"player_vortex_visionset");
-	self endon(#"player_vortex_visionset");
-	self endon(#"death");
+	self notify("player_vortex_visionset");
+	self endon("player_vortex_visionset");
+	self endon("death");
 	thread visionset_mgr::activate("visionset", "raygun_mark3_vortex_visionset", self, 0.25, 2, 0.25);
 	thread visionset_mgr::activate("overlay", "raygun_mark3_vortex_blur", self, 0.25, 2, 0.25);
 	self.raygun_mark3_vision_on = 1;
@@ -298,11 +298,11 @@ function player_vortex_visionset()
 */
 function wait_for_beam_damage()
 {
-	self endon(#"death");
+	self endon("death");
 	self playloopsound("wpn_mk3_orb_loop");
 	while(true)
 	{
-		self waittill(#"damage", n_damage, e_attacker, v_direction, v_point, str_means_of_death, str_tag_name, str_model_name, str_part_name, w_weapon);
+		self waittill("damage", n_damage, e_attacker, v_direction, v_point, str_means_of_death, str_tag_name, str_model_name, str_part_name, w_weapon);
 		if(is_beam_raygun(w_weapon))
 		{
 			self stoploopsound();
@@ -366,9 +366,9 @@ function raygun_mark3_damage_response(str_mod, str_hit_location, v_hit_origin, e
 */
 function apply_vortex_fx(n_damage_type, n_time)
 {
-	self notify(#"apply_vortex_fx");
-	self endon(#"apply_vortex_fx");
-	self endon(#"death");
+	self notify("apply_vortex_fx");
+	self endon("apply_vortex_fx");
+	self endon("death");
 	if(!(isdefined(self.b_vortex_fx_applied) && self.b_vortex_fx_applied))
 	{
 		self.b_vortex_fx_applied = 1;
@@ -405,7 +405,7 @@ function apply_vortex_fx(n_damage_type, n_time)
 */
 function disintegrate_zombie(e_inflictor, e_attacker, w_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.b_disintegrating) && self.b_disintegrating)
 	{
 		return;

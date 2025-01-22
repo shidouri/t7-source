@@ -110,7 +110,7 @@ function wait_for_teleport_aftereffect()
 {
 	while(true)
 	{
-		level waittill(#"tae", localclientnum);
+		level waittill("tae", localclientnum);
 		if(getdvarstring("genesisAftereffectOverride") == ("-1"))
 		{
 			self thread [[level.teleport_ae_funcs[randomint(level.teleport_ae_funcs.size)]]](localclientnum);
@@ -271,8 +271,8 @@ function teleport_aftereffect_flare_vision(localclientnum)
 */
 function player_shadowman_teleport_hijack_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"player_shadowman_teleport_hijack_fx");
-	self endon(#"player_shadowman_teleport_hijack_fx");
+	self notify("player_shadowman_teleport_hijack_fx");
+	self endon("player_shadowman_teleport_hijack_fx");
 	if(newval)
 	{
 		if(isdemoplaying() && demoisanyfreemovecamera())
@@ -284,7 +284,7 @@ function player_shadowman_teleport_hijack_fx(localclientnum, oldval, newval, bne
 	}
 	else
 	{
-		self notify(#"player_shadowman_teleport_hijack_fx_done");
+		self notify("player_shadowman_teleport_hijack_fx_done");
 	}
 }
 

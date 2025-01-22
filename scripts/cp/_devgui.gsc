@@ -582,10 +582,10 @@ function function_192ef5eb()
 			self closeluimenu(self.var_f0080358);
 		}
 		self.var_f0080358 = self openluimenu("");
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		while(response != "")
 		{
-			self waittill(#"menuresponse", menu, response);
+			self waittill("menuresponse", menu, response);
 		}
 		self closeluimenu(self.var_f0080358);
 	#/
@@ -789,8 +789,8 @@ function devgui_toggle_ammo()
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_toggle_ammo");
-		self endon(#"devgui_toggle_ammo");
+		self notify("devgui_toggle_ammo");
+		self endon("devgui_toggle_ammo");
 		self.ammo4evah = !(isdefined(self.ammo4evah) && self.ammo4evah);
 		while(isdefined(self) && self.ammo4evah)
 		{
@@ -892,7 +892,7 @@ function devgui_revive()
 		self.ignoreme = 0;
 		self disableinvulnerability();
 		self.laststand = undefined;
-		self notify(#"player_revived", self);
+		self notify("player_revived", self);
 	#/
 }
 
@@ -908,8 +908,8 @@ function devgui_revive()
 function maintain_maxhealth(maxhealth)
 {
 	/#
-		self endon(#"disconnect");
-		self endon(#"devgui_give_health");
+		self endon("disconnect");
+		self endon("devgui_give_health");
 		while(true)
 		{
 			wait(1);
@@ -943,7 +943,7 @@ function devgui_give_health()
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_give_health");
+		self notify("devgui_give_health");
 		if(self.maxhealth >= 2000 && isdefined(self.orgmaxhealth))
 		{
 			self.maxhealth = self.orgmaxhealth;
@@ -1305,8 +1305,8 @@ function devgui_give_weapon(weapon_name)
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_give_ammo");
-		self endon(#"devgui_give_ammo");
+		self notify("devgui_give_ammo");
+		self endon("devgui_give_ammo");
 		currentweapon = self getcurrentweapon();
 		split = strtok(weapon_name, "");
 		switch(split.size)
@@ -1381,8 +1381,8 @@ function devgui_give_attachment(attachment_name)
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_give_attachment");
-		self endon(#"devgui_give_attachment");
+		self notify("devgui_give_attachment");
+		self endon("devgui_give_attachment");
 		currentweapon = self getcurrentweapon();
 		attachmentsupported = 0;
 		split = strtok(currentweapon.name, "");

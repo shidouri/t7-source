@@ -114,7 +114,7 @@ function apothiconspawnshader(localclientnum)
 		self mapshaderconstant(localclientnum, 0, "scriptVector2", n_delta_val);
 	}
 	while(n_current_time < n_phase_in);
-	s_timer notify(#"timer_done");
+	s_timer notify("timer_done");
 }
 
 /*
@@ -237,7 +237,7 @@ function apothiconfurydeath(localclientnum, oldval, newval, bnewent, binitialsna
 			self mapshaderconstant(localclientnum, 0, "scriptVector2", n_delta_val);
 		}
 		while(n_current_time < n_phase_in);
-		s_timer notify(#"timer_done");
+		s_timer notify("timer_done");
 		self.removingfireshader = 0;
 	}
 	else if(newval == 2)
@@ -259,7 +259,7 @@ function apothiconfurydeath(localclientnum, oldval, newval, bnewent, binitialsna
 			self mapshaderconstant(localclientnum, 0, "scriptVector0", n_delta_val);
 		}
 		while(n_current_time < n_phase_in && gettime() <= stoptime);
-		s_timer notify(#"timer_done");
+		s_timer notify("timer_done");
 		self mapshaderconstant(localclientnum, 0, "scriptVector0", 0);
 	}
 }
@@ -293,7 +293,7 @@ function apothiconfuriousmodeeffect(localclientnum, oldval, newval, bnewent, bin
 			self mapshaderconstant(localclientnum, 0, "scriptVector2", n_delta_val);
 		}
 		while(n_current_time < n_phase_in);
-		s_timer notify(#"timer_done");
+		s_timer notify("timer_done");
 	}
 }
 
@@ -326,7 +326,7 @@ function new_timer(localclientnum)
 function timer_increment_loop(localclientnum, entity)
 {
 	entity endon(#"entityshutdown");
-	self endon(#"timer_done");
+	self endon("timer_done");
 	while(isdefined(self))
 	{
 		util::server_wait(localclientnum, 0.016);

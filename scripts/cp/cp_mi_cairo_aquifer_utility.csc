@@ -99,7 +99,7 @@ function init_clientfields()
 */
 function on_player_spawned(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!self islocalplayer())
 	{
 		return;
@@ -171,7 +171,7 @@ function function_8f62f317()
 {
 	while(true)
 	{
-		level waittill(#"save_restore");
+		level waittill("save_restore");
 		while(getlocalplayers().size == 0)
 		{
 			wait(0.016);
@@ -199,10 +199,10 @@ function function_8f62f317()
 */
 function watch_player_death()
 {
-	self notify(#"watch_player_death");
-	self endon(#"watch_player_death");
-	self endon(#"disconnect");
-	self waittill(#"death");
+	self notify("watch_player_death");
+	self endon("watch_player_death");
+	self endon("disconnect");
+	self waittill("death");
 	if(isdefined(self) && isdefined(self.var_ae2d4705))
 	{
 		self stoploopsound(self.var_ae2d4705);
@@ -449,7 +449,7 @@ function callback_player_snow_fx_logic(localclientnum, oldval, newval, bnewent, 
 	else
 	{
 		setpbgactivebank(localclientnum, 1);
-		self notify(#"snow_fx_stop");
+		self notify("snow_fx_stop");
 		if(isdefined(self.snow_fx_id))
 		{
 			deletefx(localclientnum, self.snow_fx_id, 1);
@@ -1052,7 +1052,7 @@ function function_efde18b9(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_7946d98(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_72fd2c6a");
 	self notify(#"hash_7946d98");
 	self endon(#"hash_7946d98");
@@ -1137,7 +1137,7 @@ function function_1a818d12(localclientnum)
 {
 	self notify(#"hash_1a818d12");
 	self endon(#"hash_1a818d12");
-	self endon(#"death");
+	self endon("death");
 	self function_3b907fc(localclientnum);
 	self thread function_d2243c73(localclientnum);
 	self thread function_21e63f39(localclientnum);
@@ -1167,7 +1167,7 @@ function function_11381ece(localclientnum)
 	self notify(#"hash_11381ece");
 	self endon(#"hash_11381ece");
 	self endon(#"exit_vehicle");
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self) && isalive(self))
 	{
 		var_d87d3f09 = self gettargetlockentityarray();
@@ -1199,7 +1199,7 @@ function function_d2243c73(localclientnum)
 	self notify(#"hash_d2243c73");
 	self endon(#"hash_d2243c73");
 	self endon(#"exit_vehicle");
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self) && isalive(self))
 	{
 		self waittill(#"hash_6c567715");
@@ -1270,7 +1270,7 @@ function function_21e63f39(localclientnum)
 	self notify(#"hash_29a67729");
 	self endon(#"hash_29a67729");
 	self endon(#"exit_vehicle");
-	self endon(#"death");
+	self endon("death");
 	max_radius = 162.5;
 	locked = 0;
 	var_beb0eb1e = 0.6;
@@ -1397,7 +1397,7 @@ function function_63bf76ee(localclientnum)
 {
 	self notify(#"hash_63bf76ee");
 	self endon(#"hash_63bf76ee");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	num_damage_states = 2;
 	self.var_d7bfa708 = 0;
 	var_614619a5 = [];
@@ -1522,7 +1522,7 @@ function function_38f84ce8(localclientnum)
 */
 function function_4c53e7bf(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(isdefined(self) && isdefined(self.var_14351725) && isalive(self))
 	{
 		if(self.var_14351725 > 0 && self.var_14351725 < 1)
@@ -1581,7 +1581,7 @@ function function_d996daca(localclientnum)
 */
 function function_c0623e13(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	var_a2c58ba3 = "off";
 	var_14386bda = "off";
 	var_80cad4ec = "off";
@@ -1803,7 +1803,7 @@ function function_c0623e13(localclientnum)
 */
 function function_5e259b76(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_58f8ead2) && self.var_58f8ead2)
 	{
 		return;
@@ -2051,7 +2051,7 @@ function fx_play(localclientnum, str_type, str_fx, v_pos, v_forward, v_up, b_kil
 */
 function function_3e82b262()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	smodelanimcmd("boss_tree", "pause", "unloop", "goto_start");
 	smodelanimcmd("boss_hallucinate_glass", "pause", "unloop", "goto_start");
 	smodelanimcmd("boss_room_glass", "pause", "unloop", "goto_start");

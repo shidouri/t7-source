@@ -63,7 +63,7 @@ function init()
 */
 function finishhardpointlocationusage(location, usedcallback)
 {
-	self notify(#"used");
+	self notify("used");
 	wait(0.05);
 	if(isdefined(usedcallback))
 	{
@@ -83,7 +83,7 @@ function finishhardpointlocationusage(location, usedcallback)
 */
 function finishdualhardpointlocationusage(locationstart, locationend, usedcallback)
 {
-	self notify(#"used");
+	self notify("used");
 	wait(0.05);
 	return self [[usedcallback]](locationstart, locationend);
 }
@@ -99,13 +99,13 @@ function finishdualhardpointlocationusage(locationstart, locationend, usedcallba
 */
 function endselectionongameend()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"cancel_location");
-	self endon(#"used");
-	self endon(#"host_migration_begin");
-	level waittill(#"game_ended");
-	self notify(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	self endon("cancel_location");
+	self endon("used");
+	self endon("host_migration_begin");
+	level waittill("game_ended");
+	self notify("game_ended");
 }
 
 /*
@@ -119,13 +119,13 @@ function endselectionongameend()
 */
 function endselectiononhostmigration()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"cancel_location");
-	self endon(#"used");
-	self endon(#"game_ended");
-	level waittill(#"host_migration_begin");
-	self notify(#"cancel_location");
+	self endon("death");
+	self endon("disconnect");
+	self endon("cancel_location");
+	self endon("used");
+	self endon("game_ended");
+	level waittill("host_migration_begin");
+	self notify("cancel_location");
 }
 
 /*
@@ -161,7 +161,7 @@ function endselectionthink()
 	}
 	if(event != "used")
 	{
-		self notify(#"confirm_location", undefined, undefined);
+		self notify("confirm_location", undefined, undefined);
 	}
 }
 
@@ -194,7 +194,7 @@ function clearuplocationselection()
 */
 function stoploopsoundaftertime(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self stoploopsound(2);
 }
@@ -300,7 +300,7 @@ function callstrike(flightplan)
 	/#
 		assert(flytime > bombtime);
 	#/
-	flightplan.owner endon(#"disconnect");
+	flightplan.owner endon("disconnect");
 	requireddeathcount = flightplan.owner.deathcount;
 	side = vectorcross(anglestoforward(direction), (0, 0, 1));
 	plane_seperation = 25;
@@ -337,7 +337,7 @@ function planestrike(owner, requireddeathcount, pathstart, pathend, bombtime, fl
 		plane [[planespawnedfunction]](owner, requireddeathcount, pathstart, pathend, bombtime, bombspeedscale, flytime, flyspeed);
 	}
 	wait(flytime);
-	plane notify(#"delete");
+	plane notify("delete");
 	plane delete();
 }
 
@@ -699,11 +699,11 @@ function followpath(path, donenotify, stopatgoal)
 	{
 		self setvehgoalpos(path[i], 0);
 		thread debug_line(self.origin, path[i], (1, 1, 0));
-		self waittill(#"goal");
+		self waittill("goal");
 	}
 	self setvehgoalpos(path[path.size - 1], stopatgoal);
 	thread debug_line(self.origin, path[i], (1, 1, 0));
-	self waittill(#"goal");
+	self waittill("goal");
 	if(isdefined(donenotify))
 	{
 		self notify(donenotify);
@@ -1127,7 +1127,7 @@ function swayrig()
 */
 function stoprotation(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self stoploopsound();
 }
@@ -1143,7 +1143,7 @@ function stoprotation(time)
 */
 function flattenyaw(goal)
 {
-	self endon(#"death");
+	self endon("death");
 	increment = 3;
 	if(self.angles[1] > goal)
 	{
@@ -1167,7 +1167,7 @@ function flattenyaw(goal)
 */
 function flattenroll()
 {
-	self endon(#"death");
+	self endon("death");
 	while(self.angles[2] < 0)
 	{
 		self.angles = (self.angles[0], self.angles[1], self.angles[2] + 2.5);
@@ -1231,7 +1231,7 @@ function leave(duration)
 	{
 		self moveto(exitpoint, duration, 0, 0);
 	}
-	self notify(#"leaving");
+	self notify("leaving");
 }
 
 /*
@@ -1315,10 +1315,10 @@ function debug_plane_line(flytime, flyspeed, pathstart, pathend)
 */
 function debug_draw_bomb_explosion(prevpos)
 {
-	self notify(#"draw_explosion");
+	self notify("draw_explosion");
 	wait(0.05);
-	self endon(#"draw_explosion");
-	self waittill(#"projectile_impact", weapon, position);
+	self endon("draw_explosion");
+	self waittill("projectile_impact", weapon, position);
 	thread debug_line(prevpos, position, (0.5, 1, 0));
 	thread debug_star(position, (1, 0, 0));
 }
@@ -1335,7 +1335,7 @@ function debug_draw_bomb_explosion(prevpos)
 function debug_draw_bomb_path(projectile, color, time)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		level.airsupport_debug = getdvarint("", 0);
 		if(!isdefined(color))
 		{
@@ -1659,8 +1659,8 @@ function cantargetplayerwithspecialty()
 */
 function monitorspeed(spawnprotectiontime)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(self hasperk("specialty_nottargetedbyairsupport") == 0)
 	{
 		return;

@@ -145,7 +145,7 @@ function function_12bffd86()
 {
 	self notify(#"hash_12bffd86");
 	self endon(#"hash_12bffd86");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		ret = self util::waittill_any_return("cybercom_activation_failed", "cybercom_activation_succeeded");
@@ -270,15 +270,15 @@ function meleeabilitygiven(ability, upgrade)
 	if(isdefined(self.cybercom.activecybercommeleeweapon) && self.cybercom.activecybercommeleeweapon != weapon)
 	{
 		self takeweapon(self.cybercom.activecybercommeleeweapon);
-		self notify(#"weapon_taken", self.cybercom.activecybercommeleeweapon);
-		level notify(#"weapon_taken", self.cybercom.activecybercommeleeweapon, self);
+		self notify("weapon_taken", self.cybercom.activecybercommeleeweapon);
+		level notify("weapon_taken", self.cybercom.activecybercommeleeweapon, self);
 		self.cybercom.activecybercommeleeweapon = undefined;
 	}
 	if(!self hasweapon(weapon))
 	{
 		self giveweapon(weapon);
-		self notify(#"weapon_given", weapon);
-		level notify(#"weapon_given", weapon, self);
+		self notify("weapon_given", weapon);
+		level notify("weapon_given", weapon, self);
 	}
 	self.cybercom.activecybercommeleeweapon = weapon;
 }
@@ -301,8 +301,8 @@ function abilitytaken(ability)
 	if(self hasweapon(ability.weapon))
 	{
 		self takeweapon(ability.weapon);
-		self notify(#"weapon_taken", ability.weapon);
-		level notify(#"weapon_taken", ability.weapon, self);
+		self notify("weapon_taken", ability.weapon);
+		level notify("weapon_taken", ability.weapon, self);
 	}
 	if(isdefined(self.cybercom.activecybercommeleeweapon) && self.cybercom.activecybercommeleeweapon == ability.weapon)
 	{
@@ -315,8 +315,8 @@ function abilitytaken(ability)
 	if(self hasweapon(ability.weaponupgraded))
 	{
 		self takeweapon(ability.weaponupgraded);
-		self notify(#"weapon_taken", ability.weaponupgraded);
-		level notify(#"weapon_taken", ability.weaponupgraded, self);
+		self notify("weapon_taken", ability.weaponupgraded);
+		level notify("weapon_taken", ability.weaponupgraded, self);
 	}
 	if(isdefined(self.cybercom.activecybercommeleeweapon) && self.cybercom.activecybercommeleeweapon == ability.weaponupgraded)
 	{
@@ -415,14 +415,14 @@ function equipability(name, var_a67a6c08 = 0)
 		if(isdefined(self.cybercom.activecybercomweapon) && weapon != self.cybercom.activecybercomweapon)
 		{
 			self takeweapon(self.cybercom.activecybercomweapon);
-			self notify(#"weapon_taken", self.cybercom.activecybercomweapon);
-			level notify(#"weapon_taken", self.cybercom.activecybercomweapon, self);
+			self notify("weapon_taken", self.cybercom.activecybercomweapon);
+			level notify("weapon_taken", self.cybercom.activecybercomweapon, self);
 		}
 		if(!self hasweapon(weapon))
 		{
 			self giveweapon(weapon);
-			self notify(#"weapon_given", weapon);
-			level notify(#"weapon_given", weapon, self);
+			self notify("weapon_given", weapon);
+			level notify("weapon_given", weapon, self);
 		}
 		self.cybercom.activecybercomweapon = weapon;
 		if(!(isdefined(self.cybercom.given_first_ability) && self.cybercom.given_first_ability))
@@ -664,10 +664,10 @@ function getabilitiesfortype(type)
 */
 function function_48868896()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"setcybercomability", var_4ccb808f);
+		self waittill("setcybercomability", var_4ccb808f);
 		self equipability(var_4ccb808f);
 	}
 }

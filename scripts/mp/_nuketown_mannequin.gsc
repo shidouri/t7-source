@@ -111,8 +111,8 @@ function mannequindamage(inflictor, attacker, damage, dflags, mod, weapon, point
 */
 function private watch_game_ended()
 {
-	self endon(#"death");
-	level waittill(#"game_ended");
+	self endon("death");
+	level waittill("game_ended");
 	self setentitypaused(1);
 	level waittill(#"endgame_sequence");
 	self hide();
@@ -129,7 +129,7 @@ function private watch_game_ended()
 */
 function private _mannequin_unfreeze_ragdoll()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self setentitypaused(0);
@@ -174,8 +174,8 @@ function private _mannequin_update_freeze(frozen)
 */
 function watch_player_looking()
 {
-	level endon(#"game_ended");
-	level endon(#"mannequin_force_cleanup");
+	level endon("game_ended");
+	level endon("mannequin_force_cleanup");
 	while(true)
 	{
 		mannequins = getaiarchetypearray("mannequin");

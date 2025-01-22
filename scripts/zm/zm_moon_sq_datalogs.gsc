@@ -51,13 +51,13 @@ function init()
 		}
 		log setmodel("p7_zm_moo_data_reel");
 		log thread zm_sidequests::fake_use("pickedup");
-		log waittill(#"pickedup", who);
+		log waittill("pickedup", who);
 		playsoundatposition("fly_log_pickup", who.origin);
 		who._has_log = 1;
 		log delete();
 		who zm_sidequests::add_sidequest_icon("sq", "datalog");
 		player thread zm_sidequests::fake_use("placed", &log_qualifier);
-		player waittill(#"placed", who);
+		player waittill("placed", who);
 		who._has_log = undefined;
 		who zm_sidequests::remove_sidequest_icon("sq", "datalog");
 		sound_ent = spawn("script_origin", player.origin);

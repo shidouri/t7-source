@@ -166,7 +166,7 @@ function scene_play(scene, var_7b98b639)
 */
 function function_6221b6b9(scene, var_7b98b639)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self scene::play(scene, var_7b98b639);
 }
 

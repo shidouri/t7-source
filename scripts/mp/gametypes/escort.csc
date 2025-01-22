@@ -152,7 +152,7 @@ function wait_team_changed(localclientnum)
 {
 	while(true)
 	{
-		level waittill(#"team_changed");
+		level waittill("team_changed");
 		while(!isdefined(getnonpredictedlocalplayer(localclientnum)))
 		{
 			wait(0.05);

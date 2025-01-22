@@ -91,7 +91,7 @@ function function_51dd865c()
 */
 function apothicon_fury_death()
 {
-	self waittill(#"death", e_attacker);
+	self waittill("death", e_attacker);
 	if(isdefined(e_attacker) && isdefined(e_attacker.var_4d307aef))
 	{
 		e_attacker.var_4d307aef++;
@@ -116,7 +116,7 @@ function function_21bbe70d(v_origin, v_angles, var_8d71b2b8)
 	e_boss = spawnactor("spawner_zm_genesis_apothicon_fury", v_origin, v_angles, undefined, 1, 1);
 	if(isdefined(e_boss))
 	{
-		e_boss endon(#"death");
+		e_boss endon("death");
 		e_boss.spawn_time = gettime();
 		e_boss.var_1cba9ac3 = 1;
 		e_boss.heroweapon_kill_power = 2;
@@ -195,7 +195,7 @@ function private function_7ba80ea7()
 */
 function private function_1be68e3f()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(self.zone_name))
@@ -224,7 +224,7 @@ function private function_1be68e3f()
 */
 function function_ab27e73a()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(level.var_31c836af) && level.var_31c836af > 0)
 	{
 		self.health = level.var_31c836af;
@@ -281,27 +281,27 @@ function function_b55fb314(var_8cc26a7f, var_7ab4c34a, var_535f5919, var_13d4cd8
 	var_22077f2a = var_7ab4c34a + (0, 0, var_7ae4bfa0 * 0.5);
 	var_be9b92b3.angles = vectortoangles(var_22077f2a - var_be9b92b3.origin);
 	var_be9b92b3 moveto(var_22077f2a, var_8cc26a7f / 6);
-	var_be9b92b3 waittill(#"movedone");
+	var_be9b92b3 waittill("movedone");
 	var_22077f2a = (var_be9b92b3.origin + (0, 0, var_7ae4bfa0 * 0.25)) + (var_dfcea895 * 0.25);
 	var_be9b92b3.angles = vectortoangles(var_22077f2a - var_be9b92b3.origin);
 	var_be9b92b3 moveto(var_22077f2a, var_8cc26a7f / 6);
-	var_be9b92b3 waittill(#"movedone");
+	var_be9b92b3 waittill("movedone");
 	var_22077f2a = var_30280c29;
 	var_be9b92b3.angles = vectortoangles(var_22077f2a - var_be9b92b3.origin);
 	var_be9b92b3 moveto(var_30280c29, var_8cc26a7f / 6);
-	var_be9b92b3 waittill(#"movedone");
+	var_be9b92b3 waittill("movedone");
 	var_22077f2a = (var_be9b92b3.origin - (0, 0, var_8a1358c0 * 0.25)) + (var_dfcea895 * 0.25);
 	var_be9b92b3.angles = vectortoangles(var_22077f2a - var_be9b92b3.origin);
 	var_be9b92b3 moveto(var_22077f2a, var_8cc26a7f / 6);
-	var_be9b92b3 waittill(#"movedone");
+	var_be9b92b3 waittill("movedone");
 	var_22077f2a = var_13d4cd83 - (0, 0, var_8a1358c0 * 0.5);
 	var_be9b92b3.angles = vectortoangles(var_22077f2a - var_be9b92b3.origin);
 	var_be9b92b3 moveto(var_22077f2a, var_8cc26a7f / 6);
-	var_be9b92b3 waittill(#"movedone");
+	var_be9b92b3 waittill("movedone");
 	var_22077f2a = var_13d4cd83;
 	var_be9b92b3.angles = vectortoangles(var_22077f2a - var_be9b92b3.origin);
 	var_be9b92b3 moveto(var_13d4cd83, var_8cc26a7f / 6);
-	var_be9b92b3 waittill(#"movedone");
+	var_be9b92b3 waittill("movedone");
 	var_be9b92b3 clientfield::set("apothicon_fury_spawn_meteor", 2);
 	var_be9b92b3 delete();
 }
@@ -331,10 +331,10 @@ function function_2c871f46()
 */
 function function_e5e94978()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isalive(self))
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		if(isplayer(self.attacker))
 		{
 			if(zm_spawner::player_using_hi_score_weapon(self.attacker))
@@ -369,7 +369,7 @@ function function_e5e94978()
 */
 function function_1dcdd145()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isplayer(self.attacker))
 	{
 		if(!(isdefined(self.deathpoints_already_given) && self.deathpoints_already_given))

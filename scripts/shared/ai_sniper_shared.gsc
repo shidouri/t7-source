@@ -125,8 +125,8 @@ function function_b61dfa9e(node)
 	}
 	self notify(#"hash_b61dfa9e");
 	self endon(#"hash_b61dfa9e");
-	self endon(#"death");
-	self endon(#"lase_points");
+	self endon("death");
+	self endon("lase_points");
 	if(isdefined(self.patroller) && self.patroller)
 	{
 		self ai::end_and_clean_patrol_behaviors();
@@ -160,10 +160,10 @@ function function_6a517a0a()
 {
 	self notify(#"hash_6a517a0a");
 	self endon(#"hash_6a517a0a");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"patrol_goal", node);
+		self waittill("patrol_goal", node);
 		self function_b61dfa9e(node);
 	}
 }
@@ -181,13 +181,13 @@ function function_6fb6a6d3()
 {
 	self notify(#"hash_6fb6a6d3");
 	self endon(#"hash_6fb6a6d3");
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.target) && (!(isdefined(self.patroller) && self.patroller)))
 	{
 		node = getnode(self.target, "targetname");
 		if(isdefined(node))
 		{
-			self waittill(#"goal");
+			self waittill("goal");
 			self function_b61dfa9e(node);
 		}
 	}
@@ -204,9 +204,9 @@ function function_6fb6a6d3()
 */
 function patrol_lase_goal_waiter()
 {
-	self notify(#"patrol_lase_goal_waiter");
-	self endon(#"patrol_lase_goal_waiter");
-	self endon(#"death");
+	self notify("patrol_lase_goal_waiter");
+	self endon("patrol_lase_goal_waiter");
+	self endon("death");
 	while(true)
 	{
 		was_stealth = 0;
@@ -227,8 +227,8 @@ function patrol_lase_goal_waiter()
 		if(isdefined(self.currentgoal) && isdefined(self.currentgoal.target) && self.currentgoal.target != "")
 		{
 			self setgoal(node, 1);
-			self waittill(#"lase_points_loop");
-			self notify(#"lase_points");
+			self waittill("lase_points_loop");
+			self notify("lase_points");
 			self laseroff();
 			self.holdfire = 0;
 			self ai::stop_shoot_at_target();
@@ -264,9 +264,9 @@ function patrol_lase_goal_waiter()
 */
 function actor_lase_points_behavior(entity_or_point_array)
 {
-	self notify(#"lase_points");
-	self endon(#"lase_points");
-	self endon(#"death");
+	self notify("lase_points");
+	self endon("lase_points");
+	self endon("death");
 	self.holdfire = 1;
 	self.blindaim = 1;
 	if(!isdefined(self.var_d1ddf246))
@@ -331,7 +331,7 @@ function actor_lase_stop()
 	{
 		return;
 	}
-	self notify(#"lase_points");
+	self notify("lase_points");
 	self.holdfire = 0;
 	self.blindaim = 0;
 	self.lase_ent delete();
@@ -361,7 +361,7 @@ function actor_lase_stop()
 function debug_position()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		lastpos = self.origin;
 		while(true)
 		{
@@ -384,8 +384,8 @@ function debug_position()
 */
 function actor_lase_force_laser_on()
 {
-	self endon(#"death");
-	self endon(#"lase_points");
+	self endon("death");
+	self endon("lase_points");
 	var_bef987c0 = gettime();
 	while(true)
 	{
@@ -413,8 +413,8 @@ function actor_lase_force_laser_on()
 */
 function function_659cb4db()
 {
-	self endon(#"lase_points");
-	self waittill(#"death");
+	self endon("lase_points");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self laseroff();
@@ -459,9 +459,9 @@ function lase_point(entity_or_point)
 */
 function target_lase_points_ally_track(v_eye, entity_or_point_array, a_owner)
 {
-	self notify(#"actor_lase_points_player_track");
-	self endon(#"actor_lase_points_player_track");
-	self endon(#"death");
+	self notify("actor_lase_points_player_track");
+	self endon("actor_lase_points_player_track");
+	self endon("death");
 	if(!isdefined(level.var_b8032721))
 	{
 		level.var_b8032721 = [];
@@ -514,7 +514,7 @@ function target_lase_points_ally_track(v_eye, entity_or_point_array, a_owner)
 				{
 					if(isdefined(a_owner))
 					{
-						a_owner notify(#"alert", "combat", var_633cfa62, ally);
+						a_owner notify("alert", "combat", var_633cfa62, ally);
 					}
 					self function_b77b41d1(v_eye, ally, a_owner);
 					break;
@@ -555,9 +555,9 @@ function function_b77b41d1(v_eye, entity_or_point, a_owner, var_12065f0b = 1)
 */
 function target_lase_points(entity_or_point_array, e_owner)
 {
-	self notify(#"lase_points");
-	self endon(#"lase_points");
-	self endon(#"death");
+	self notify("lase_points");
+	self endon("lase_points");
+	self endon("death");
 	pausetime = randomfloatrange(2, 4);
 	if(isarray(entity_or_point_array) && entity_or_point_array.size <= 0)
 	{
@@ -605,10 +605,10 @@ function target_lase_points(entity_or_point_array, e_owner)
 		}
 		if(looped)
 		{
-			self notify(#"lase_points_loop");
+			self notify("lase_points_loop");
 			if(isdefined(e_owner))
 			{
-				e_owner notify(#"lase_points_loop");
+				e_owner notify("lase_points_loop");
 			}
 		}
 	}
@@ -627,7 +627,7 @@ function function_9c1ac1cb(endposition, totaltime, var_5d61a864)
 {
 	self notify(#"hash_9c1ac1cb");
 	self endon(#"hash_9c1ac1cb");
-	self endon(#"death");
+	self endon("death");
 	startposition = self.origin;
 	var_e651c736 = self.velocity;
 	var_c8240fdb = vectornormalize(self.velocity);
@@ -724,12 +724,12 @@ function target_lase_next(node)
 */
 function target_lase_transition(entity_or_point, owner)
 {
-	self notify(#"target_lase_transition");
-	self endon(#"target_lase_transition");
-	self endon(#"death");
+	self notify("target_lase_transition");
+	self endon("target_lase_transition");
+	self endon("death");
 	if(isentity(entity_or_point))
 	{
-		entity_or_point endon(#"death");
+		entity_or_point endon("death");
 		while(true)
 		{
 			point = lase_point(entity_or_point);
@@ -773,9 +773,9 @@ function target_lase_override(v_eye, entity_or_point, sight_timeout, a_owner, fi
 	{
 		return;
 	}
-	self notify(#"target_lase_override");
-	self endon(#"target_lase_override");
-	self endon(#"death");
+	self notify("target_lase_override");
+	self endon("target_lase_override");
+	self endon("death");
 	self.lase_override = entity_or_point;
 	self thread target_lase_transition(entity_or_point, a_owner);
 	outofsighttime = 0;
@@ -804,7 +804,7 @@ function target_lase_override(v_eye, entity_or_point, sight_timeout, a_owner, fi
 		}
 		if(!isdefined(entity_or_point) || outofsighttime >= sight_timeout)
 		{
-			self notify(#"target_lase_transition");
+			self notify("target_lase_transition");
 			break;
 		}
 		if(!sighttracepassed(v_eye, lase_point(entity_or_point), 0, undefined))

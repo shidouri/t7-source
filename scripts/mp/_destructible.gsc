@@ -305,7 +305,7 @@ function simple_explosion(attacker)
 */
 function simple_timed_explosion(destructible_event, attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	wait_times = [];
 	str = getsubstr(destructible_event, 23);
 	tokens = strtok(str, "_");
@@ -372,7 +372,7 @@ function car_explosion(attacker, physics_explosion)
 	{
 		physics_explosion = 1;
 	}
-	self notify(#"car_dead");
+	self notify("car_dead");
 	self.car_dead = 1;
 	if(isdefined(attacker))
 	{
@@ -410,11 +410,11 @@ function car_explosion(attacker, physics_explosion)
 */
 function tank_grenade_stuck_think()
 {
-	self endon(#"destructible_base_piece_death");
-	self endon(#"death");
+	self endon("destructible_base_piece_death");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"grenade_stuck", missile);
+		self waittill("grenade_stuck", missile);
 		if(!isdefined(missile) || !isdefined(missile.model))
 		{
 			continue;
@@ -437,14 +437,14 @@ function tank_grenade_stuck_think()
 */
 function tank_grenade_stuck_explode(missile)
 {
-	self endon(#"destructible_base_piece_death");
-	self endon(#"death");
+	self endon("destructible_base_piece_death");
+	self endon("death");
 	owner = getmissileowner(missile);
 	if(isdefined(owner) && missile.model == "wpn_t7_c4_world")
 	{
-		owner endon(#"disconnect");
-		owner endon(#"weapon_object_destroyed");
-		missile endon(#"picked_up");
+		owner endon("disconnect");
+		owner endon("weapon_object_destroyed");
+		missile endon("picked_up");
 		missile thread tank_hacked_c4(self);
 	}
 	missile waittill(#"explode");
@@ -469,11 +469,11 @@ function tank_grenade_stuck_explode(missile)
 */
 function tank_hacked_c4(tank)
 {
-	tank endon(#"destructible_base_piece_death");
-	tank endon(#"death");
-	self endon(#"death");
-	self waittill(#"hacked");
-	self notify(#"picked_up");
+	tank endon("destructible_base_piece_death");
+	tank endon("death");
+	self endon("death");
+	self waittill("hacked");
+	self notify("picked_up");
 	tank thread tank_grenade_stuck_explode(self);
 }
 
@@ -488,10 +488,10 @@ function tank_hacked_c4(tank)
 */
 function car_death_think()
 {
-	self endon(#"car_dead");
+	self endon("car_dead");
 	self.car_dead = 0;
 	self thread car_death_notify();
-	self waittill(#"destructible_base_piece_death", attacker);
+	self waittill("destructible_base_piece_death", attacker);
 	if(isdefined(self))
 	{
 		self thread car_explosion(attacker, 0);
@@ -509,12 +509,12 @@ function car_death_think()
 */
 function car_grenade_stuck_think()
 {
-	self endon(#"destructible_base_piece_death");
-	self endon(#"car_dead");
-	self endon(#"death");
+	self endon("destructible_base_piece_death");
+	self endon("car_dead");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"grenade_stuck", missile);
+		self waittill("grenade_stuck", missile);
 		if(!isdefined(missile) || !isdefined(missile.model))
 		{
 			continue;
@@ -537,15 +537,15 @@ function car_grenade_stuck_think()
 */
 function car_grenade_stuck_explode(missile)
 {
-	self endon(#"destructible_base_piece_death");
-	self endon(#"car_dead");
-	self endon(#"death");
+	self endon("destructible_base_piece_death");
+	self endon("car_dead");
+	self endon("death");
 	owner = getmissileowner(missile);
 	if(isdefined(owner) && missile.model == "wpn_t7_c4_world")
 	{
-		owner endon(#"disconnect");
-		owner endon(#"weapon_object_destroyed");
-		missile endon(#"picked_up");
+		owner endon("disconnect");
+		owner endon("weapon_object_destroyed");
+		missile endon("picked_up");
 		missile thread car_hacked_c4(self);
 	}
 	missile waittill(#"explode");
@@ -570,12 +570,12 @@ function car_grenade_stuck_explode(missile)
 */
 function car_hacked_c4(car)
 {
-	car endon(#"destructible_base_piece_death");
-	car endon(#"car_dead");
-	car endon(#"death");
-	self endon(#"death");
-	self waittill(#"hacked");
-	self notify(#"picked_up");
+	car endon("destructible_base_piece_death");
+	car endon("car_dead");
+	car endon("death");
+	self endon("death");
+	self waittill("hacked");
+	self notify("picked_up");
 	car thread car_grenade_stuck_explode(self);
 }
 
@@ -590,9 +590,9 @@ function car_hacked_c4(car)
 */
 function car_death_notify()
 {
-	self endon(#"car_dead");
-	self waittill(#"death", attacker);
-	self notify(#"destructible_base_piece_death", attacker);
+	self endon("car_dead");
+	self waittill("death", attacker);
+	self notify("destructible_base_piece_death", attacker);
 }
 
 /*
@@ -606,7 +606,7 @@ function car_death_notify()
 */
 function car_fire_think(attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomintrange(7, 10));
 	self thread car_explosion(attacker);
 }

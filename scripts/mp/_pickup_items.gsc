@@ -484,7 +484,7 @@ function pickup_item_init()
 */
 function on_touch(player)
 {
-	self endon(#"respawned");
+	self endon("respawned");
 	pickup_item = self.visuals[0];
 	switch(pickup_item.script_noteworthy)
 	{
@@ -538,7 +538,7 @@ function on_touch(player)
 */
 function respawn_pickup()
 {
-	self notify(#"respawned");
+	self notify("respawned");
 	pickup_item = self.visuals[0];
 	pickup_item playsound(pickup_item.sound_respawn);
 	pickup_item cycle_item();
@@ -574,7 +574,7 @@ function respawn_all_pickups()
 */
 function on_touch_ammo(player)
 {
-	self notify(#"scavenger", player);
+	self notify("scavenger", player);
 	player pickupammoevent();
 }
 

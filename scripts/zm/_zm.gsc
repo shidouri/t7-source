@@ -521,7 +521,7 @@ function drive_client_connected_notifies()
 {
 	while(true)
 	{
-		level waittill(#"connected", player);
+		level waittill("connected", player);
 		player demo::reset_actor_bookmark_kill_times();
 		player callback::callback(#"hash_eaffea17");
 	}
@@ -1071,7 +1071,7 @@ function players_reached_rounds_counter_watcher()
 {
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(!isdefined(level.dash_counter_round_reached_5) && level.round_number >= 5)
 		{
 			level.dash_counter_round_reached_5 = 1;
@@ -1134,9 +1134,9 @@ function zombiemode_melee_miss()
 */
 function player_track_ammo_count()
 {
-	self notify(#"stop_ammo_tracking");
-	self endon(#"disconnect");
-	self endon(#"stop_ammo_tracking");
+	self notify("stop_ammo_tracking");
+	self endon("disconnect");
+	self endon("stop_ammo_tracking");
 	ammolowcount = 0;
 	ammooutcount = 0;
 	while(true)
@@ -1213,7 +1213,7 @@ function spawn_vo_player(index, num)
 {
 	sound = ((("plr_" + index) + "_vox_") + num) + "play";
 	self playsoundwithnotify(sound, "sound_done");
-	self waittill(#"sound_done");
+	self waittill("sound_done");
 }
 
 /*
@@ -1535,7 +1535,7 @@ function init_function_overrides()
 */
 function callback_playerlaststand(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	zm_laststand::playerlaststand(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 }
 
@@ -1979,12 +1979,12 @@ function checkforalldead(excluded_player)
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_onplayerspawned");
-	self endon(#"stop_onplayerspawned");
+	self endon("disconnect");
+	self notify("stop_onplayerspawned");
+	self endon("stop_onplayerspawned");
 	for(;;)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		if(!(isdefined(level.host_ended_game) && level.host_ended_game))
 		{
 			self freezecontrols(0);
@@ -2083,7 +2083,7 @@ function onplayerspawned()
 */
 function player_spawn_protection()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self zm_utility::increment_ignoreme();
 	x = 0;
 	while(x < 60)
@@ -2238,9 +2238,9 @@ function get_player_out_of_playable_area_monitor_wait_time()
 */
 function player_out_of_playable_area_monitor()
 {
-	self notify(#"stop_player_out_of_playable_area_monitor");
-	self endon(#"stop_player_out_of_playable_area_monitor");
-	self endon(#"disconnect");
+	self notify("stop_player_out_of_playable_area_monitor");
+	self endon("stop_player_out_of_playable_area_monitor");
+	self endon("disconnect");
 	level endon(#"end_game");
 	while(!isdefined(self.characterindex))
 	{
@@ -2323,7 +2323,7 @@ function get_player_too_many_weapons_monitor_wait_time()
 */
 function player_too_many_weapons_monitor_takeaway_simultaneous(primary_weapons_to_take)
 {
-	self endon(#"player_too_many_weapons_monitor_takeaway_sequence_done");
+	self endon("player_too_many_weapons_monitor_takeaway_sequence_done");
 	self util::waittill_any("player_downed", "replace_weapon_powerup");
 	for(i = 0; i < primary_weapons_to_take.size; i++)
 	{
@@ -2339,7 +2339,7 @@ function player_too_many_weapons_monitor_takeaway_simultaneous(primary_weapons_t
 	{
 		self.score_lost_when_downed = 0;
 	}
-	self notify(#"player_too_many_weapons_monitor_takeaway_sequence_done");
+	self notify("player_too_many_weapons_monitor_takeaway_sequence_done");
 }
 
 /*
@@ -2354,8 +2354,8 @@ function player_too_many_weapons_monitor_takeaway_simultaneous(primary_weapons_t
 function player_too_many_weapons_monitor_takeaway_sequence(primary_weapons_to_take)
 {
 	self thread player_too_many_weapons_monitor_takeaway_simultaneous(primary_weapons_to_take);
-	self endon(#"player_downed");
-	self endon(#"replace_weapon_powerup");
+	self endon("player_downed");
+	self endon("replace_weapon_powerup");
 	self zm_utility::increment_is_drinking();
 	score_decrement = zm_utility::round_up_to_ten(int(self.score / (primary_weapons_to_take.size + 1)));
 	for(i = 0; i < primary_weapons_to_take.size; i++)
@@ -2371,7 +2371,7 @@ function player_too_many_weapons_monitor_takeaway_sequence(primary_weapons_to_ta
 	wait(1);
 	self zm_utility::give_start_weapon(1);
 	self zm_utility::decrement_is_drinking();
-	self notify(#"player_too_many_weapons_monitor_takeaway_sequence_done");
+	self notify("player_too_many_weapons_monitor_takeaway_sequence_done");
 }
 
 /*
@@ -2385,9 +2385,9 @@ function player_too_many_weapons_monitor_takeaway_sequence(primary_weapons_to_ta
 */
 function player_too_many_weapons_monitor()
 {
-	self notify(#"stop_player_too_many_weapons_monitor");
-	self endon(#"stop_player_too_many_weapons_monitor");
-	self endon(#"disconnect");
+	self notify("stop_player_too_many_weapons_monitor");
+	self endon("stop_player_too_many_weapons_monitor");
+	self endon("disconnect");
 	level endon(#"end_game");
 	scalar = self.characterindex;
 	if(!isdefined(scalar))
@@ -2432,7 +2432,7 @@ function player_too_many_weapons_monitor()
 				self zm_stats::increment_client_stat("cheat_too_many_weapons", 0);
 				self zm_stats::increment_client_stat("cheat_total", 0);
 				self thread player_too_many_weapons_monitor_takeaway_sequence(primary_weapons_to_take);
-				self waittill(#"player_too_many_weapons_monitor_takeaway_sequence_done");
+				self waittill("player_too_many_weapons_monitor_takeaway_sequence_done");
 			}
 		}
 		wait(get_player_too_many_weapons_monitor_wait_time());
@@ -2450,9 +2450,9 @@ function player_too_many_weapons_monitor()
 */
 function player_monitor_travel_dist()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_monitor_travel_dist");
-	self endon(#"stop_player_monitor_travel_dist");
+	self endon("disconnect");
+	self notify("stop_player_monitor_travel_dist");
+	self endon("stop_player_monitor_travel_dist");
 	prevpos = self.origin;
 	while(true)
 	{
@@ -2473,9 +2473,9 @@ function player_monitor_travel_dist()
 */
 function player_monitor_time_played()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_monitor_time_played");
-	self endon(#"stop_player_monitor_time_played");
+	self endon("disconnect");
+	self notify("stop_player_monitor_time_played");
+	self endon("stop_player_monitor_time_played");
 	level flag::wait_till("start_zombie_round_logic");
 	for(;;)
 	{
@@ -2495,7 +2495,7 @@ function player_monitor_time_played()
 */
 function player_grenade_multiattack_bookmark_watcher(grenade)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	if(!isdefined(grenade))
 	{
@@ -2558,14 +2558,14 @@ function player_grenade_multiattack_bookmark_watcher(grenade)
 */
 function player_grenade_watcher()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_grenade_watcher");
-	self endon(#"stop_player_grenade_watcher");
+	self endon("disconnect");
+	self notify("stop_player_grenade_watcher");
+	self endon("stop_player_grenade_watcher");
 	self.grenade_multiattack_count = 0;
 	self.grenade_multikill_count = 0;
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(isdefined(grenade) && isalive(grenade))
 		{
 			grenade.team = self.team;
@@ -2621,12 +2621,12 @@ function player_prevent_damage(einflictor, eattacker, idamage, idflags, smeansof
 */
 function player_revive_monitor()
 {
-	self endon(#"disconnect");
-	self notify(#"stop_player_revive_monitor");
-	self endon(#"stop_player_revive_monitor");
+	self endon("disconnect");
+	self notify("stop_player_revive_monitor");
+	self endon("stop_player_revive_monitor");
 	while(true)
 	{
-		self waittill(#"player_revived", reviver);
+		self waittill("player_revived", reviver);
 		self playsoundtoplayer("zmb_character_revived", self);
 		if(isdefined(level.isresetting_grief) && level.isresetting_grief)
 		{
@@ -2711,12 +2711,12 @@ function laststand_giveback_player_perks()
 */
 function remote_revive_watch()
 {
-	self endon(#"death");
-	self endon(#"player_revived");
+	self endon("death");
+	self endon("player_revived");
 	keep_checking = 1;
 	while(keep_checking)
 	{
-		self waittill(#"remote_revive", reviver);
+		self waittill("remote_revive", reviver);
 		if(reviver.team == self.team)
 		{
 			keep_checking = 0;
@@ -2791,7 +2791,7 @@ function player_laststand(einflictor, attacker, idamage, smeansofdeath, weapon, 
 	{
 		wait(0.5);
 		self stopsounds();
-		level waittill(#"forever");
+		level waittill("forever");
 	}
 	if(!b_alt_visionset)
 	{
@@ -2868,9 +2868,9 @@ function set_intermission_point()
 */
 function spawnspectator()
 {
-	self endon(#"disconnect");
-	self endon(#"spawned_spectator");
-	self notify(#"spawned");
+	self endon("disconnect");
+	self endon("spawned_spectator");
+	self notify("spawned");
 	self notify(#"end_respawn");
 	if(level.intermission)
 	{
@@ -2883,7 +2883,7 @@ function spawnspectator()
 	}
 	self.is_zombie = 1;
 	level thread failsafe_revive_give_back_weapons(self);
-	self notify(#"zombified");
+	self notify("zombified");
 	if(isdefined(self.revivetrigger))
 	{
 		self.revivetrigger delete();
@@ -2916,7 +2916,7 @@ function spawnspectator()
 	}
 	self thread spectator_thread();
 	self spawn(self.origin, self.angles);
-	self notify(#"spawned_spectator");
+	self notify("spawned_spectator");
 }
 
 /*
@@ -2947,8 +2947,8 @@ function setspectatepermissions(ison)
 */
 function spectator_thread()
 {
-	self endon(#"disconnect");
-	self endon(#"spawned_player");
+	self endon("disconnect");
+	self endon("spawned_player");
 }
 
 /*
@@ -2962,8 +2962,8 @@ function spectator_thread()
 */
 function spectator_toggle_3rd_person()
 {
-	self endon(#"disconnect");
-	self endon(#"spawned_player");
+	self endon("disconnect");
+	self endon("spawned_player");
 	third_person = 1;
 	self set_third_person(1);
 }
@@ -3398,10 +3398,10 @@ function last_stand_restore_pistol_ammo()
 */
 function last_stand_take_thrown_grenade()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
-	self endon(#"player_revived");
-	self waittill(#"grenade_fire", grenade, weapon);
+	self endon("player_revived");
+	self waittill("grenade_fire", grenade, weapon);
 	if(isdefined(self.lsgsar_lethal) && weapon == self.lsgsar_lethal)
 	{
 		self.lsgsar_lethal_nade_amt--;
@@ -3427,7 +3427,7 @@ function last_stand_grenade_save_and_return()
 	{
 		return;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	self.lsgsar_lethal_nade_amt = 0;
 	self.lsgsar_has_lethal_nade = 0;
@@ -3457,7 +3457,7 @@ function last_stand_grenade_save_and_return()
 		self setweaponammoclip(weapon, 0);
 		self takeweapon(weapon);
 	}
-	self waittill(#"player_revived");
+	self waittill("player_revived");
 	if(self.lsgsar_has_lethal_nade)
 	{
 		self zm_utility::set_player_lethal_grenade(self.lsgsar_lethal);
@@ -3594,7 +3594,7 @@ function spectator_respawn()
 	zm_laststand::set_ignoreme(0);
 	self clientfield::set("zmbLastStand", 0);
 	self reviveplayer();
-	self notify(#"spawned_player");
+	self notify("spawned_player");
 	self callback::callback(#"hash_bc12b61f");
 	if(isdefined(level._zombiemode_post_respawn_callback))
 	{
@@ -3923,11 +3923,11 @@ function get_safe_breadcrumb_pos(player)
 */
 function round_spawning()
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	level endon(#"end_of_round");
-	level endon(#"restart_round");
+	level endon("restart_round");
 	/#
-		level endon(#"kill_round");
+		level endon("kill_round");
 	#/
 	if(level.intermission)
 	{
@@ -3955,7 +3955,7 @@ function round_spawning()
 	{
 		level.zombie_total = get_zombie_count_for_round(level.round_number, level.players.size);
 		level.zombie_respawns = 0;
-		level notify(#"zombie_total_set");
+		level notify("zombie_total_set");
 	}
 	if(isdefined(level.zombie_total_set_func))
 	{
@@ -4200,7 +4200,7 @@ function round_spawning_test()
 		spawn_point = array::random(level.zm_loc_types["zombie_location"]);
 		spawner = array::random(level.zombie_spawners);
 		ai = zombie_utility::spawn_zombie(spawner, spawner.targetname, spawn_point);
-		ai waittill(#"death");
+		ai waittill("death");
 		wait(5);
 	}
 }
@@ -4326,7 +4326,7 @@ function round_start()
 */
 function play_door_dialog()
 {
-	self endon(#"warning_dialog");
+	self endon("warning_dialog");
 	timer = 0;
 	while(true)
 	{
@@ -4350,7 +4350,7 @@ function play_door_dialog()
 				self playsound("door_deny");
 				players[i] zm_audio::create_and_play_dialog("general", "outofmoney");
 				wait(3);
-				self notify(#"warning_dialog");
+				self notify("warning_dialog");
 			}
 		}
 	}
@@ -4370,7 +4370,7 @@ function wait_until_first_player()
 	players = getplayers();
 	if(!isdefined(players[0]))
 	{
-		level waittill(#"first_player_ready");
+		level waittill("first_player_ready");
 	}
 }
 
@@ -4423,7 +4423,7 @@ function round_one_up()
 			return;
 		}
 		wait(6.25);
-		level notify(#"intro_hud_done");
+		level notify("intro_hud_done");
 		wait(2);
 	}
 	else
@@ -4668,7 +4668,7 @@ function round_think(restart = 0)
 			}
 		#/
 		level thread [[level.round_spawn_func]]();
-		level notify(#"start_of_round");
+		level notify("start_of_round");
 		recordzombieroundstart();
 		bb::logroundevent("start_of_round");
 		players = getplayers();
@@ -4860,8 +4860,8 @@ function get_zombie_spawn_delay(n_round)
 function round_spawn_failsafe_debug()
 {
 	/#
-		level notify(#"failsafe_debug_stop");
-		level endon(#"failsafe_debug_stop");
+		level notify("failsafe_debug_stop");
+		level endon("failsafe_debug_stop");
 		start = gettime();
 		level.chunk_time = 0;
 		while(true)
@@ -4925,24 +4925,24 @@ function print_zombie_counts()
 */
 function round_wait()
 {
-	level endon(#"restart_round");
+	level endon("restart_round");
 	/#
-		level endon(#"kill_round");
+		level endon("kill_round");
 	#/
 	/#
 		if(getdvarint(""))
 		{
-			level waittill(#"forever");
+			level waittill("forever");
 		}
 	#/
 	if(cheat_enabled(2))
 	{
-		level waittill(#"forever");
+		level waittill("forever");
 	}
 	/#
 		if(getdvarint("") == 0)
 		{
-			level waittill(#"forever");
+			level waittill("forever");
 		}
 	#/
 	wait(1);
@@ -4979,7 +4979,7 @@ function round_wait()
 function sndmusiconkillround()
 {
 	level endon(#"end_of_round");
-	level waittill(#"kill_round");
+	level waittill("kill_round");
 	level thread zm_audio::sndmusicsystem_playstate("round_end");
 }
 
@@ -5014,7 +5014,7 @@ function zombify_player()
 	self.is_zombie = 1;
 	self.zombification_time = gettime();
 	self.team = level.zombie_team;
-	self notify(#"zombified");
+	self notify("zombified");
 	if(isdefined(self.revivetrigger))
 	{
 		self.revivetrigger delete();
@@ -5041,13 +5041,13 @@ function zombify_player()
 */
 function playerzombie_player_damage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self thread playerzombie_infinite_health();
 	self.zombiehealth = level.zombie_health;
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, directionvec, point, type);
+		self waittill("damage", amount, attacker, directionvec, point, type);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			wait(0.05);
@@ -5057,7 +5057,7 @@ function playerzombie_player_damage()
 		if(self.zombiehealth <= 0)
 		{
 			self thread playerzombie_downed_state();
-			self waittill(#"playerzombie_downed_state_done");
+			self waittill("playerzombie_downed_state_done");
 			self.zombiehealth = level.zombie_health;
 		}
 	}
@@ -5074,8 +5074,8 @@ function playerzombie_player_damage()
 */
 function playerzombie_downed_state()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	downtime = 15;
 	starttime = gettime();
 	endtime = starttime + (downtime * 1000);
@@ -5096,7 +5096,7 @@ function playerzombie_downed_state()
 	self allowstand(1);
 	self allowcrouch(0);
 	self allowprone(0);
-	self notify(#"playerzombie_downed_state_done");
+	self notify("playerzombie_downed_state_done");
 }
 
 /*
@@ -5110,8 +5110,8 @@ function playerzombie_downed_state()
 */
 function playerzombie_downed_hud()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	text = newclienthudelem(self);
 	text.alignx = "center";
 	text.aligny = "middle";
@@ -5130,7 +5130,7 @@ function playerzombie_downed_hud()
 	}
 	text fadeovertime(0.1);
 	text.alpha = 1;
-	self waittill(#"playerzombie_downed_state_done");
+	self waittill("playerzombie_downed_state_done");
 	text fadeovertime(0.1);
 	text.alpha = 0;
 }
@@ -5146,8 +5146,8 @@ function playerzombie_downed_hud()
 */
 function playerzombie_infinite_health()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	bighealth = 100000;
 	while(true)
 	{
@@ -5170,8 +5170,8 @@ function playerzombie_infinite_health()
 */
 function playerzombie_soundboard()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.playerzombie_soundboard_disable = 0;
 	self.buttonpressed_use = 0;
 	self.buttonpressed_attack = 0;
@@ -5358,9 +5358,9 @@ function playerzombie_waitfor_buttonrelease(inputtype)
 */
 function remove_ignore_attacker()
 {
-	self notify(#"new_ignore_attacker");
-	self endon(#"new_ignore_attacker");
-	self endon(#"disconnect");
+	self notify("new_ignore_attacker");
+	self endon("new_ignore_attacker");
+	self endon("disconnect");
 	if(!isdefined(level.ignore_enemy_timer))
 	{
 		level.ignore_enemy_timer = 0.4;
@@ -5450,7 +5450,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 				idamage = eattacker [[eattacker.custom_damage_func]](self);
 			}
 		}
-		eattacker notify(#"hit_player");
+		eattacker notify("hit_player");
 		if(isdefined(eattacker) && isdefined(eattacker.func_mod_damage_override))
 		{
 			smeansofdeath = eattacker [[eattacker.func_mod_damage_override]](einflictor, smeansofdeath, weapon);
@@ -5585,7 +5585,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 	self thread clear_path_timers();
 	if(level.intermission)
 	{
-		level waittill(#"forever");
+		level waittill("forever");
 	}
 	if(level.scr_zm_ui_gametype == "zcleansed" && idamage > 0)
 	{
@@ -5642,7 +5642,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 	non_solo_death = count > 1 || (players.size == 1 && !level flag::get("solo_game"));
 	if(solo_death || non_solo_death && (!(isdefined(level.no_end_game_check) && level.no_end_game_check)))
 	{
-		level notify(#"stop_suicide_trigger");
+		level notify("stop_suicide_trigger");
 		self allowprone(1);
 		self thread zm_laststand::playerlaststand(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime);
 		if(!isdefined(vdir))
@@ -5650,7 +5650,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 			vdir = (1, 0, 0);
 		}
 		self fakedamagefrom(vdir);
-		level notify(#"last_player_died");
+		level notify("last_player_died");
 		if(isdefined(level.custom_player_fake_death))
 		{
 			self thread [[level.custom_player_fake_death]](vdir, smeansofdeath);
@@ -5667,7 +5667,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 			if(self.lives == 0 || !self hasperk("specialty_quickrevive"))
 			{
 				self.lives = 0;
-				level notify(#"pre_end_game");
+				level notify("pre_end_game");
 				util::wait_network_frame();
 				if(level flag::get("dog_round"))
 				{
@@ -5682,7 +5682,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 		}
 		else
 		{
-			level notify(#"pre_end_game");
+			level notify("pre_end_game");
 			util::wait_network_frame();
 			if(level flag::get("dog_round"))
 			{
@@ -5772,7 +5772,7 @@ function register_player_damage_callback(func)
 */
 function wait_and_revive()
 {
-	self endon(#"remote_revive");
+	self endon("remote_revive");
 	level flag::set("wait_and_revive");
 	level.wait_and_revive = 1;
 	if(isdefined(self.waiting_to_revive) && self.waiting_to_revive == 1)
@@ -6399,7 +6399,7 @@ function end_game()
 	{
 		players[i] setclientuivisibilityflag("weapon_hud_visible", 0);
 		players[i] setclientminiscoreboardhide(1);
-		players[i] notify(#"report_bgb_consumption");
+		players[i] notify("report_bgb_consumption");
 		players[i] zm_utility::zm_dash_stats_game_end();
 	}
 	uploadstats();
@@ -6460,7 +6460,7 @@ function end_game()
 			}
 		}
 	}
-	level notify(#"stop_intermission");
+	level notify("stop_intermission");
 	array::thread_all(getplayers(), &player_exit_level);
 	wait(1.5);
 	players = getplayers();
@@ -6602,8 +6602,8 @@ function uploadglobalstatcounters()
 */
 function player_fake_death()
 {
-	level notify(#"fake_death");
-	self notify(#"fake_death");
+	level notify("fake_death");
+	self notify("fake_death");
 	self takeallweapons();
 	self allowstand(0);
 	self allowcrouch(0);
@@ -6641,7 +6641,7 @@ function player_exit_level()
 */
 function player_killed_override(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	level waittill(#"forever");
+	level waittill("forever");
 }
 
 /*
@@ -6655,11 +6655,11 @@ function player_killed_override(einflictor, attacker, idamage, smeansofdeath, we
 */
 function player_zombie_breadcrumb()
 {
-	self notify(#"stop_player_zombie_breadcrumb");
-	self endon(#"stop_player_zombie_breadcrumb");
-	self endon(#"disconnect");
-	self endon(#"spawned_spectator");
-	level endon(#"intermission");
+	self notify("stop_player_zombie_breadcrumb");
+	self endon("stop_player_zombie_breadcrumb");
+	self endon("disconnect");
+	self endon("spawned_spectator");
+	level endon("intermission");
 	self.zombie_breadcrumbs = [];
 	self.zombie_breadcrumb_distance = 576;
 	self.zombie_breadcrumb_area_num = 3;
@@ -6801,7 +6801,7 @@ function to_mins(seconds)
 function intermission()
 {
 	level.intermission = 1;
-	level notify(#"intermission");
+	level notify("intermission");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
@@ -6890,11 +6890,11 @@ function player_intermission()
 {
 	self closeingamemenu();
 	self closemenu("StartMenu_Main");
-	self notify(#"player_intermission");
-	self endon(#"player_intermission");
-	level endon(#"stop_intermission");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self notify("player_intermission");
+	self endon("player_intermission");
+	level endon("stop_intermission");
+	self endon("disconnect");
+	self endon("death");
 	self notify(#"_zombie_game_over");
 	self.score = self.score_total;
 	points = struct::get_array("intermission", "targetname");
@@ -6941,7 +6941,7 @@ function player_intermission()
 			self setorigin(point.origin);
 			self setplayerangles(point.angles);
 			wait(0.15);
-			self notify(#"player_intermission_spawned");
+			self notify("player_intermission_spawned");
 			if(isdefined(nextpoint))
 			{
 				self zm_utility::create_streamer_hint(nextpoint.origin, nextpoint.angles, 0.9);
@@ -7017,7 +7017,7 @@ function default_exit_level()
 */
 function default_delayed_exit()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(!level flag::get("wait_and_revive"))
@@ -7044,7 +7044,7 @@ function default_delayed_exit()
 */
 function default_find_exit_point()
 {
-	self endon(#"death");
+	self endon("death");
 	player = getplayers()[0];
 	dist_zombie = 0;
 	dist_player = 0;
@@ -7069,8 +7069,8 @@ function default_find_exit_point()
 			break;
 		}
 	}
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	if(isdefined(locs[dest]))
 	{
 		self setgoal(locs[dest].origin);
@@ -7170,7 +7170,7 @@ function is_sidequest_previously_completed(id)
 */
 function set_sidequest_completed(id)
 {
-	level notify(#"zombie_sidequest_completed", id);
+	level notify("zombie_sidequest_completed", id);
 	level.zombie_sidequest_previously_completed[id] = 1;
 	if(!level.onlinegame)
 	{
@@ -7306,9 +7306,9 @@ function zm_on_player_disconnect()
 */
 function watchdisconnect()
 {
-	self notify(#"watchdisconnect");
-	self endon(#"watchdisconnect");
-	self waittill(#"disconnect");
+	self notify("watchdisconnect");
+	self endon("watchdisconnect");
+	self waittill("disconnect");
 	zm_on_player_disconnect();
 }
 
@@ -7477,8 +7477,8 @@ function zm_on_player_spawned()
 */
 function update_is_player_valid()
 {
-	self endon(#"death");
-	self endon(#"disconnnect");
+	self endon("death");
+	self endon("disconnnect");
 	self.am_i_valid = 1;
 	while(isdefined(self))
 	{
@@ -7498,8 +7498,8 @@ function update_is_player_valid()
 */
 function update_zone_name()
 {
-	self endon(#"death");
-	self endon(#"disconnnect");
+	self endon("death");
+	self endon("disconnnect");
 	self.zone_name = zm_utility::get_current_zone();
 	if(isdefined(self.zone_name))
 	{

@@ -223,7 +223,7 @@ function quadcollisionservice(behaviortreeentity)
 */
 function function_77876867()
 {
-	self endon(#"death");
+	self endon("death");
 	self setavoidancemask("avoid all");
 	wait(3);
 	self setavoidancemask("avoid none");
@@ -461,7 +461,7 @@ function play_quad_first_sounds()
 {
 	location = struct::get(self.target, "targetname");
 	self playsoundwithnotify("zmb_vocals_quad_spawn", "sounddone");
-	self waittill(#"sounddone");
+	self waittill("sounddone");
 	self playsound("zmb_quad_roof_hit");
 	thread play_wood_land_sound(location.origin);
 }
@@ -522,8 +522,8 @@ function rumble_all_players(high_rumble_string, low_rumble_string, rumble_org, h
 */
 function quad_traverse_death_fx()
 {
-	self endon(#"traverse_anim");
-	self waittill(#"death");
+	self endon("traverse_anim");
+	self waittill("death");
 	playfx(level._effect["quad_grnd_dust_spwnr"], self.origin);
 }
 
@@ -661,7 +661,7 @@ function kill_all_zombies()
 */
 function prevent_round_ending()
 {
-	level endon(#"quad_round_can_end");
+	level endon("quad_round_can_end");
 	while(true)
 	{
 		if(level.zombie_total < 1)
@@ -776,7 +776,7 @@ function intro_quad_spawn()
 	level.round_spawn_func = &zm::round_spawning;
 	level thread [[level.round_spawn_func]]();
 	wait(2);
-	level notify(#"quad_round_can_end");
+	level notify("quad_round_can_end");
 	level.delay_spawners = undefined;
 }
 
@@ -949,7 +949,7 @@ function play_quad_start_vo()
 function function_79dea782()
 {
 	trigger = getent("quad_roof_crumble_fx_origin_10", "target");
-	trigger waittill(#"trigger", who);
+	trigger waittill("trigger", who);
 	level notify(#"hash_e1db2a20");
 	roof_parts = getentarray(trigger.target, "targetname");
 	if(isdefined(roof_parts))

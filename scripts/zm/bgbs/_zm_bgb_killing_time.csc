@@ -74,7 +74,7 @@ function function_cf8c9fce(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_2a30e2ca(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"end_demo_jump_listener");
 	self endon(#"entityshutdown");
 	self notify(#"hash_eb366021");

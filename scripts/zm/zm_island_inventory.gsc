@@ -70,12 +70,12 @@ function main()
 */
 function function_1a9a4375()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_df4182b1 = 0;
 	self.var_4d1c77e5 = 0;
 	while(true)
 	{
-		self waittill(#"player_has_gasmask");
+		self waittill("player_has_gasmask");
 		self thread function_2cc6bcea();
 		self playsoundtoplayer("zmb_gasmask_pickup", self);
 		self thread function_8801a9c5();
@@ -90,7 +90,7 @@ function function_1a9a4375()
 			self thread function_6649823b(var_ba18d83c);
 			wait(1);
 		}
-		self notify(#"player_lost_gasmask");
+		self notify("player_lost_gasmask");
 	}
 }
 
@@ -105,7 +105,7 @@ function function_1a9a4375()
 */
 function function_2cc6bcea()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	mdl_body = self getcharacterbodymodel();
 	switch(mdl_body)
 	{
@@ -155,7 +155,7 @@ function function_2cc6bcea()
 function function_6649823b(var_ba18d83c)
 {
 	self notify(#"hash_cc68cc91");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_cc68cc91");
 	self clientfield::set_player_uimodel("zmInventory.gaskmask_gasmask_active", 1);
 	self clientfield::set_to_player("gaskmask_gasmask_progress", var_ba18d83c);
@@ -174,7 +174,7 @@ function function_6649823b(var_ba18d83c)
 */
 function function_8801a9c5()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_any("death", "player_lost_gasmask");
 	self playsoundtoplayer("zmb_gasmask_break", self);
 	self.var_df4182b1 = 0;

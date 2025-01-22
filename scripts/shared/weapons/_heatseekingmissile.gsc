@@ -41,7 +41,7 @@ function init_shared()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clearirtarget();
 	thread stingertoggleloop();
 	self thread stingerfirednotify();
@@ -58,8 +58,8 @@ function on_player_spawned()
 */
 function clearirtarget()
 {
-	self notify(#"stop_lockon_sound");
-	self notify(#"stop_locked_sound");
+	self notify("stop_lockon_sound");
+	self notify("stop_locked_sound");
 	self.stingerlocksound = undefined;
 	self stoprumble("stinger_lock_rumble");
 	self.stingerlockstarttime = 0;
@@ -68,7 +68,7 @@ function clearirtarget()
 	self.stingerlockdetected = 0;
 	if(isdefined(self.stingertarget))
 	{
-		self.stingertarget notify(#"missile_unlocked");
+		self.stingertarget notify("missile_unlocked");
 		self lockingon(self.stingertarget, 0);
 		self lockedon(self.stingertarget, 0);
 	}
@@ -92,11 +92,11 @@ function clearirtarget()
 */
 function stingerfirednotify()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"missile_fire", missile, weapon);
+		self waittill("missile_fire", missile, weapon);
 		/#
 			thread debug_missile(missile);
 		#/
@@ -104,7 +104,7 @@ function stingerfirednotify()
 		{
 			if(isdefined(self.stingertarget) && self.stingerlockfinalized)
 			{
-				self.stingertarget notify(#"stinger_fired_at_me", missile, weapon, self);
+				self.stingertarget notify("stinger_fired_at_me", missile, weapon, self);
 			}
 		}
 	}
@@ -122,8 +122,8 @@ function stingerfirednotify()
 function debug_missile(missile)
 {
 	/#
-		level notify(#"debug_missile");
-		level endon(#"debug_missile");
+		level notify("debug_missile");
+		level endon("debug_missile");
 		level.debug_missile_dots = [];
 		while(true)
 		{
@@ -192,11 +192,11 @@ function stingerwaitforads()
 */
 function stingertoggleloop()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		while(weapon.lockontype == "Legacy Single")
 		{
 			if(self getweaponammoclip(weapon) == 0)
@@ -214,7 +214,7 @@ function stingertoggleloop()
 			{
 				wait(0.05);
 			}
-			self notify(#"stinger_irt_off");
+			self notify("stinger_irt_off");
 			self clearirtarget();
 			weapon = self getcurrentweapon();
 		}
@@ -232,9 +232,9 @@ function stingertoggleloop()
 */
 function stingerirtloop(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"stinger_irt_off");
+	self endon("disconnect");
+	self endon("death");
+	self endon("stinger_irt_off");
 	locklength = self getlockonspeed();
 	for(;;)
 	{
@@ -258,7 +258,7 @@ function stingerirtloop(weapon)
 			}
 			if(!self.stingertarget.locked_on)
 			{
-				self.stingertarget notify(#"missile_lock", self, self getcurrentweapon());
+				self.stingertarget notify("missile_lock", self, self getcurrentweapon());
 			}
 			self lockingon(self.stingertarget, 0);
 			self lockedon(self.stingertarget, 1);
@@ -301,7 +301,7 @@ function stingerirtloop(weapon)
 			/#
 				assert(isdefined(self.stingertarget));
 			#/
-			self notify(#"stop_lockon_sound");
+			self notify("stop_lockon_sound");
 			self.stingerlockfinalized = 1;
 			self weaponlockfinalize(self.stingertarget);
 			continue;
@@ -702,9 +702,9 @@ function playerstingerads()
 */
 function looplocalseeksound(alias, interval)
 {
-	self endon(#"stop_lockon_sound");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("stop_lockon_sound");
+	self endon("disconnect");
+	self endon("death");
 	for(;;)
 	{
 		self playsoundforlocalplayer(alias);
@@ -749,9 +749,9 @@ function playsoundforlocalplayer(alias)
 */
 function looplocallocksound(alias, interval)
 {
-	self endon(#"stop_locked_sound");
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("stop_locked_sound");
+	self endon("disconnect");
+	self endon("death");
 	if(isdefined(self.stingerlocksound))
 	{
 		return;
@@ -903,7 +903,7 @@ function lockingon(target, lock)
 	}
 	else
 	{
-		self notify(#"locking_on_cleared");
+		self notify("locking_on_cleared");
 		target.locking_on = target.locking_on & (~(1 << clientnum));
 	}
 }
@@ -919,8 +919,8 @@ function lockingon(target, lock)
 */
 function watchclearlockingon(target, clientnum)
 {
-	target endon(#"death");
-	self endon(#"locking_on_cleared");
+	target endon("death");
+	self endon("locking_on_cleared");
 	self util::waittill_any("death", "disconnect");
 	target.locking_on = target.locking_on & (~(1 << clientnum));
 }
@@ -947,7 +947,7 @@ function lockedon(target, lock)
 	}
 	else
 	{
-		self notify(#"locked_on_cleared");
+		self notify("locked_on_cleared");
 		target.locked_on = target.locked_on & (~(1 << clientnum));
 	}
 }
@@ -975,7 +975,7 @@ function targetinghacking(target, lock)
 	}
 	else
 	{
-		self notify(#"locking_on_hacking_cleared");
+		self notify("locking_on_hacking_cleared");
 		target.locking_on_hacking = target.locking_on_hacking & (~(1 << clientnum));
 	}
 }
@@ -991,8 +991,8 @@ function targetinghacking(target, lock)
 */
 function watchclearhacking(target, clientnum)
 {
-	target endon(#"death");
-	self endon(#"locking_on_hacking_cleared");
+	target endon("death");
+	self endon("locking_on_hacking_cleared");
 	self util::waittill_any("death", "disconnect");
 	target.locking_on_hacking = target.locking_on_hacking & (~(1 << clientnum));
 }
@@ -1200,7 +1200,7 @@ function setfriendlytargetlocked(weapon, target)
 */
 function watchclearlockedon(target, clientnum)
 {
-	self endon(#"locked_on_cleared");
+	self endon("locked_on_cleared");
 	self util::waittill_any("death", "disconnect");
 	if(isdefined(target))
 	{
@@ -1219,7 +1219,7 @@ function watchclearlockedon(target, clientnum)
 */
 function missiletarget_lockonmonitor(player, endon1, endon2)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(endon1))
 	{
 		self endon(endon1);
@@ -1307,9 +1307,9 @@ function _incomingmissile(missile, attacker)
 */
 function _incomingmissiletracker(missile, attacker)
 {
-	self endon(#"death");
+	self endon("death");
 	attacker_entnum = attacker.entnum;
-	missile waittill(#"death");
+	missile waittill("death");
 	self.incoming_missile--;
 	self.incoming_missile_owner[attacker_entnum]--;
 	if(self.incoming_missile_owner[attacker_entnum] == 0)
@@ -1384,8 +1384,8 @@ function missiletarget_isotherplayermissileincoming(attacker)
 */
 function missiletarget_handleincomingmissile(responsefunc, endon1, endon2, allowdirectdamage)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("death");
 	if(isdefined(endon1))
 	{
 		self endon(endon1);
@@ -1396,7 +1396,7 @@ function missiletarget_handleincomingmissile(responsefunc, endon1, endon2, allow
 	}
 	for(;;)
 	{
-		self waittill(#"stinger_fired_at_me", missile, weapon, attacker);
+		self waittill("stinger_fired_at_me", missile, weapon, attacker);
 		_incomingmissile(missile, attacker);
 		if(isdefined(responsefunc))
 		{
@@ -1456,8 +1456,8 @@ function _missiledetonate(attacker, weapon, range, mindamage, maxdamage, allowdi
 */
 function missiletarget_proximitydetonate(missile, attacker, weapon, endon1, endon2, allowdirectdamage)
 {
-	level endon(#"game_ended");
-	missile endon(#"death");
+	level endon("game_ended");
+	missile endon("death");
 	if(isdefined(endon1))
 	{
 		self endon(endon1);
@@ -1606,7 +1606,7 @@ function missiletarget_deployflares(origin, angles)
 function debug_tracker(target)
 {
 	/#
-		target endon(#"death");
+		target endon("death");
 		while(true)
 		{
 			dev::debug_sphere(target.origin, 10, (1, 0, 0), 1, 1);

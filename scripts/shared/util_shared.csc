@@ -127,9 +127,9 @@ function waittill_string(msg, ent)
 	{
 		self endon(#"entityshutdown");
 	}
-	ent endon(#"die");
+	ent endon("die");
 	self waittill(msg);
-	ent notify(#"returned", msg);
+	ent notify("returned", msg);
 }
 
 /*
@@ -151,7 +151,7 @@ function waittill_multiple(...)
 	}
 	if(s_tracker._wait_count > 0)
 	{
-		s_tracker waittill(#"waitlogic_finished");
+		s_tracker waittill("waitlogic_finished");
 	}
 }
 
@@ -205,7 +205,7 @@ function waittill_multiple_ents(...)
 	}
 	if(s_tracker._wait_count > 0)
 	{
-		s_tracker waittill(#"waitlogic_finished");
+		s_tracker waittill("waitlogic_finished");
 	}
 }
 
@@ -234,7 +234,7 @@ function _waitlogic(s_tracker, notifies)
 	s_tracker._wait_count--;
 	if(s_tracker._wait_count == 0)
 	{
-		s_tracker notify(#"waitlogic_finished");
+		s_tracker notify("waitlogic_finished");
 	}
 }
 
@@ -282,8 +282,8 @@ function waittill_any_return(string1, string2, string3, string4, string5, string
 	{
 		self thread waittill_string(string7, ent);
 	}
-	ent waittill(#"returned", msg);
-	ent notify(#"die");
+	ent waittill("returned", msg);
+	ent notify("die");
 	return msg;
 }
 
@@ -332,8 +332,8 @@ function waittill_any_ex(...)
 			e_current thread waittill_string(a_params[i], s_common);
 		}
 	}
-	s_common waittill(#"returned", str_notify);
-	s_common notify(#"die");
+	s_common waittill("returned", str_notify);
+	s_common notify("die");
 	return str_notify;
 }
 
@@ -360,8 +360,8 @@ function waittill_any_array_return(a_notifies)
 			self thread waittill_string(str_notify, s_tracker);
 		}
 	}
-	s_tracker waittill(#"returned", msg);
-	s_tracker notify(#"die");
+	s_tracker waittill("returned", msg);
+	s_tracker notify("die");
 	return msg;
 }
 
@@ -443,8 +443,8 @@ function waittill_any_timeout(n_timeout, string1, string2, string3, string4, str
 		self thread waittill_string(string5, ent);
 	}
 	ent thread _timeout(n_timeout);
-	ent waittill(#"returned", msg);
-	ent notify(#"die");
+	ent waittill("returned", msg);
+	ent notify("die");
 	return msg;
 }
 
@@ -459,9 +459,9 @@ function waittill_any_timeout(n_timeout, string1, string2, string3, string4, str
 */
 function _timeout(delay)
 {
-	self endon(#"die");
+	self endon("die");
 	wait(delay);
-	self notify(#"returned", "timeout");
+	self notify("returned", "timeout");
 }
 
 /*
@@ -761,7 +761,7 @@ function timeout(n_time, func, arg1, arg2, arg3, arg4, arg5, arg6)
 	if(isdefined(n_time))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s delay_notify(n_time, "timeout");
 	}
 	single_func(self, func, arg1, arg2, arg3, arg4, arg5, arg6);
@@ -1905,7 +1905,7 @@ function is_safehouse(str_next_map = tolower(getdvarstring("mapname")))
 function button_held_think(which_button)
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		if(!isdefined(self._holding_button))
 		{
 			self._holding_button = [];

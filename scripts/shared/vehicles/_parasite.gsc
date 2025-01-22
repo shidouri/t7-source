@@ -64,12 +64,12 @@ function __init__()
 */
 function parasite_damage()
 {
-	self notify(#"parasite_damage_thread");
-	self endon(#"parasite_damage_thread");
-	self endon(#"death");
+	self notify("parasite_damage_thread");
+	self endon("parasite_damage_thread");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", n_ammount, e_attacker);
+		self waittill("damage", n_ammount, e_attacker);
 		if(isdefined(e_attacker) && (isdefined(e_attacker.is_parasite) && e_attacker.is_parasite) && (!(isdefined(e_attacker.squelch_damage_overlay) && e_attacker.squelch_damage_overlay)))
 		{
 			self clientfield::increment_to_player("parasite_damage");
@@ -205,8 +205,8 @@ function set_parasite_enemy(enemy)
 */
 function private parasite_target_selection()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	for(;;)
 	{
 		if(isdefined(self.ignoreall) && self.ignoreall)
@@ -325,7 +325,7 @@ function getparasitefiringrate()
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	self asmrequestsubstate("death@stationary");
 	if(isdefined(self.parasiteenemy) && isdefined(self.parasiteenemy.hunted_by))
 	{
@@ -370,8 +370,8 @@ function state_combat_enter(params)
 */
 function state_combat_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	lasttimechangeposition = 0;
 	self.shouldgotonewposition = 0;
 	self.lasttimetargetinsight = 0;
@@ -481,7 +481,7 @@ function fire_pod_logic(chosetojuke)
 		self asmrequestsubstate("fire@stationary");
 		self playsound("zmb_vocals_parasite_preattack");
 		self clientfield::set("parasite_tell_fx", 1);
-		self waittill(#"pre_fire");
+		self waittill("pre_fire");
 		if(isdefined(self.parasiteenemy) && self vehcansee(self.parasiteenemy) && distance2dsquared(self.parasiteenemy.origin, self.origin) < ((0.5 * (self.settings.engagementdistmin + self.settings.engagementdistmax)) * 3) * ((0.5 * (self.settings.engagementdistmin + self.settings.engagementdistmax)) * 3))
 		{
 			self setturrettargetent(self.parasiteenemy, self.parasiteenemy getvelocity() * 0.3);
@@ -511,8 +511,8 @@ function fire_pod_logic(chosetojuke)
 */
 function getnextmoveposition_tactical()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	selfdisttotarget = distance2d(self.origin, self.parasiteenemy.origin);
 	gooddist = 0.5 * (self.settings.engagementdistmin + self.settings.engagementdistmax);
 	closedist = 1.2 * gooddist;
@@ -618,8 +618,8 @@ function getnextmoveposition_tactical()
 */
 function getnextmoveposition_forwardjuke()
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	selfdisttotarget = distance2d(self.origin, self.parasiteenemy.origin);
 	gooddist = 0.5 * (self.settings.forwardjukeengagementdistmin + self.settings.forwardjukeengagementdistmax);
 	closedist = 1.2 * gooddist;
@@ -725,10 +725,10 @@ function getnextmoveposition_forwardjuke()
 */
 function path_update_interrupt()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
 	wait(1);
 	while(true)
 	{
@@ -738,7 +738,7 @@ function path_update_interrupt()
 			{
 				wait(0.2);
 				self._override_juke = 1;
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);
@@ -756,7 +756,7 @@ function path_update_interrupt()
 */
 function drone_pain_for_time(time, stablizeparam, restorelookpoint)
 {
-	self endon(#"death");
+	self endon("death");
 	self.painstarttime = gettime();
 	if(!(isdefined(self.inpain) && self.inpain))
 	{

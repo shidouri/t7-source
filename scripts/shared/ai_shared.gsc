@@ -253,7 +253,7 @@ function waittill_dead(guys, num, timeoutlength)
 	ent = spawnstruct();
 	if(isdefined(timeoutlength))
 	{
-		ent endon(#"thread_timed_out");
+		ent endon("thread_timed_out");
 		ent thread waittill_dead_timeout(timeoutlength);
 	}
 	ent.count = guys.size;
@@ -291,7 +291,7 @@ function waittill_dead_or_dying(guys, num, timeoutlength)
 	ent = spawnstruct();
 	if(isdefined(timeoutlength))
 	{
-		ent endon(#"thread_timed_out");
+		ent endon("thread_timed_out");
 		ent thread waittill_dead_timeout(timeoutlength);
 	}
 	ent.count = guys.size;
@@ -302,7 +302,7 @@ function waittill_dead_or_dying(guys, num, timeoutlength)
 	array::thread_all(guys, &waittill_dead_or_dying_thread, ent);
 	while(ent.count > 0)
 	{
-		ent waittill(#"waittill_dead_guy_dead_or_dying");
+		ent waittill("waittill_dead_guy_dead_or_dying");
 	}
 }
 
@@ -317,7 +317,7 @@ function waittill_dead_or_dying(guys, num, timeoutlength)
 */
 function private waittill_dead_thread(ent)
 {
-	self waittill(#"death");
+	self waittill("death");
 	ent.count--;
 	ent notify(#"hash_27bc4415");
 }
@@ -335,7 +335,7 @@ function waittill_dead_or_dying_thread(ent)
 {
 	self util::waittill_either("death", "pain_death");
 	ent.count--;
-	ent notify(#"waittill_dead_guy_dead_or_dying");
+	ent notify("waittill_dead_guy_dead_or_dying");
 }
 
 /*
@@ -350,7 +350,7 @@ function waittill_dead_or_dying_thread(ent)
 function waittill_dead_timeout(timeoutlength)
 {
 	wait(timeoutlength);
-	self notify(#"thread_timed_out");
+	self notify("thread_timed_out");
 }
 
 /*
@@ -364,14 +364,14 @@ function waittill_dead_timeout(timeoutlength)
 */
 function private wait_for_shoot()
 {
-	self endon(#"stop_shoot_at_target");
+	self endon("stop_shoot_at_target");
 	if(isvehicle(self))
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 	}
 	else
 	{
-		self waittill(#"shoot");
+		self waittill("shoot");
 	}
 	self.start_duration_comp = 1;
 }
@@ -387,8 +387,8 @@ function private wait_for_shoot()
 */
 function shoot_at_target(mode, target, tag, duration, sethealth, ignorefirstshotwait)
 {
-	self endon(#"death");
-	self endon(#"stop_shoot_at_target");
+	self endon("death");
+	self endon("stop_shoot_at_target");
 	/#
 		assert(isdefined(target), "");
 	#/
@@ -474,12 +474,12 @@ function shoot_at_target(mode, target, tag, duration, sethealth, ignorefirstshot
 			{
 				self.perfectaim = 1;
 				self.aim_set_by_shoot_at_target = 1;
-				target waittill(#"death");
+				target waittill("death");
 			}
 		}
 		else if(duration == -1)
 		{
-			target waittill(#"death");
+			target waittill("death");
 		}
 	}
 	stop_shoot_at_target();
@@ -503,7 +503,7 @@ function stop_shoot_at_target()
 		self.aim_set_by_shoot_at_target = 0;
 	}
 	self.cansee_override = 0;
-	self notify(#"stop_shoot_at_target");
+	self notify("stop_shoot_at_target");
 }
 
 /*
@@ -517,7 +517,7 @@ function stop_shoot_at_target()
 */
 function wait_until_done_speaking()
 {
-	self endon(#"death");
+	self endon("death");
 	while(self.isspeaking)
 	{
 		wait(0.05);
@@ -570,10 +570,10 @@ function set_goal(value, key = "targetname", b_force = 0)
 */
 function force_goal(goto, n_radius, b_shoot = 1, str_end_on, b_keep_colors = 0, b_should_sprint = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	s_tracker = spawnstruct();
 	self thread _force_goal(s_tracker, goto, n_radius, b_shoot, str_end_on, b_keep_colors, b_should_sprint);
-	s_tracker waittill(#"done");
+	s_tracker waittill("done");
 }
 
 /*
@@ -587,8 +587,8 @@ function force_goal(goto, n_radius, b_shoot = 1, str_end_on, b_keep_colors = 0, 
 */
 function _force_goal(s_tracker, goto, n_radius, b_shoot = 1, str_end_on, b_keep_colors = 0, b_should_sprint = 0)
 {
-	self endon(#"death");
-	self notify(#"new_force_goal");
+	self endon("death");
+	self notify("new_force_goal");
 	flagsys::wait_till_clear("force_goal");
 	flagsys::set("force_goal");
 	goalradius = self.goalradius;
@@ -658,7 +658,7 @@ function _force_goal(s_tracker, goto, n_radius, b_shoot = 1, str_end_on, b_keep_
 	self.ignoresuppression = ignoresuppression;
 	self.grenadeawareness = grenadeawareness;
 	flagsys::clear("force_goal");
-	s_tracker notify(#"done");
+	s_tracker notify("done");
 }
 
 /*
@@ -672,7 +672,7 @@ function _force_goal(s_tracker, goto, n_radius, b_shoot = 1, str_end_on, b_keep_
 */
 function stoppainwaitinterval()
 {
-	self notify(#"painwaitintervalremove");
+	self notify("painwaitintervalremove");
 }
 
 /*
@@ -686,7 +686,7 @@ function stoppainwaitinterval()
 */
 function private _allowpainrestore()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::waittill_any("painWaitIntervalRemove", "painWaitInterval");
 	self.allowpain = 1;
 }
@@ -702,10 +702,10 @@ function private _allowpainrestore()
 */
 function painwaitinterval(msec)
 {
-	self endon(#"death");
-	self notify(#"painwaitinterval");
-	self endon(#"painwaitinterval");
-	self endon(#"painwaitintervalremove");
+	self endon("death");
+	self notify("painwaitinterval");
+	self endon("painwaitinterval");
+	self endon("painwaitintervalremove");
 	self thread _allowpainrestore();
 	if(!isdefined(msec) || msec < 20)
 	{
@@ -713,7 +713,7 @@ function painwaitinterval(msec)
 	}
 	while(isalive(self))
 	{
-		self waittill(#"pain");
+		self waittill("pain");
 		self.allowpain = 0;
 		wait(msec / 1000);
 		self.allowpain = 1;
@@ -731,8 +731,8 @@ function painwaitinterval(msec)
 */
 function patrol(start_path_node)
 {
-	self endon(#"death");
-	self endon(#"stop_patrolling");
+	self endon("death");
+	self endon("stop_patrolling");
 	/#
 		assert(isdefined(start_path_node), self.targetname + "");
 	#/
@@ -748,7 +748,7 @@ function patrol(start_path_node)
 	/#
 		assert(start_path_node.type == "" || isdefined(start_path_node.scriptbundlename), ("" + start_path_node.targetname) + "");
 	#/
-	self notify(#"go_to_spawner_target");
+	self notify("go_to_spawner_target");
 	self.target = undefined;
 	self.old_goal_radius = self.goalradius;
 	self thread end_patrol_on_enemy_targetting();
@@ -763,7 +763,7 @@ function patrol(start_path_node)
 				self set_behavior_attribute("patrol", 1);
 			}
 			self setgoal(self.currentgoal, 1);
-			self waittill(#"goal");
+			self waittill("goal");
 			if(isdefined(self.currentgoal.script_notify))
 			{
 				self notify(self.currentgoal.script_notify);
@@ -793,7 +793,7 @@ function patrol(start_path_node)
 			{
 				wait_variability = self.currentgoal.script_wait_max - self.currentgoal.script_wait_min;
 				wait_time = self.currentgoal.script_wait_min + randomfloat(wait_variability);
-				self notify(#"patrol_goal", self.currentgoal);
+				self notify("patrol_goal", self.currentgoal);
 				wait(wait_time);
 			}
 			else
@@ -855,8 +855,8 @@ function patrol_next_node()
 */
 function end_patrol_on_enemy_targetting()
 {
-	self endon(#"death");
-	self endon(#"stop_patrolling");
+	self endon("death");
+	self endon("stop_patrolling");
 	while(true)
 	{
 		if(isdefined(self.enemy) || self.should_stop_patrolling === 1)
@@ -891,7 +891,7 @@ function end_and_clean_patrol_behaviors()
 		self.goalradius = self.old_goal_radius;
 	}
 	self clearforcedgoal();
-	self notify(#"stop_patrolling");
+	self notify("stop_patrolling");
 	self.patroller = undefined;
 }
 
@@ -906,7 +906,7 @@ function end_and_clean_patrol_behaviors()
 */
 function bloody_death(n_delay, hit_loc)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self))
 	{
 		return;

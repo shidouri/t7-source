@@ -392,9 +392,9 @@ function widows_wine_zombie_death_watch(attacker)
 */
 function powerup_widows_wine_timeout()
 {
-	self endon(#"powerup_grabbed");
-	self endon(#"death");
-	self endon(#"powerup_reset");
+	self endon("powerup_grabbed");
+	self endon("death");
+	self endon("powerup_reset");
 	self zm_powerups::powerup_show(1);
 	wait_time = 1;
 	if(isdefined(level._powerup_timeout_custom_time))
@@ -433,7 +433,7 @@ function powerup_widows_wine_timeout()
 		}
 		wait(0.1);
 	}
-	self notify(#"powerup_timedout");
+	self notify("powerup_timedout");
 	self zm_powerups::powerup_delete();
 }
 
@@ -448,9 +448,9 @@ function powerup_widows_wine_timeout()
 */
 function widows_wine_cocoon_zombie_score(e_player, duration, max_score)
 {
-	self notify(#"widows_wine_cocoon_zombie_score");
-	self endon(#"widows_wine_cocoon_zombie_score");
-	self endon(#"death");
+	self notify("widows_wine_cocoon_zombie_score");
+	self endon("widows_wine_cocoon_zombie_score");
+	self endon("death");
 	if(!isdefined(self.ww_points_given))
 	{
 		self.ww_points_given = 0;
@@ -475,8 +475,8 @@ function widows_wine_cocoon_zombie_score(e_player, duration, max_score)
 */
 function widows_wine_cocoon_zombie(e_player)
 {
-	self notify(#"widows_wine_cocoon");
-	self endon(#"widows_wine_cocoon");
+	self notify("widows_wine_cocoon");
+	self endon("widows_wine_cocoon");
 	if(isdefined(self.kill_on_wine_coccon) && self.kill_on_wine_coccon)
 	{
 		self kill();
@@ -524,8 +524,8 @@ function widows_wine_cocoon_zombie(e_player)
 */
 function widows_wine_slow_zombie(e_player)
 {
-	self notify(#"widows_wine_slow");
-	self endon(#"widows_wine_slow");
+	self notify("widows_wine_slow");
+	self endon("widows_wine_slow");
 	if(isdefined(self.b_widows_wine_cocoon) && self.b_widows_wine_cocoon)
 	{
 		self thread widows_wine_cocoon_zombie(e_player);
@@ -573,8 +573,8 @@ function widows_wine_slow_zombie(e_player)
 */
 function vehicle_stuck_grenade_monitor()
 {
-	self endon(#"death");
-	self waittill(#"grenade_stuck", e_grenade);
+	self endon("death");
+	self waittill("grenade_stuck", e_grenade);
 	e_grenade detonate();
 }
 
@@ -589,11 +589,11 @@ function vehicle_stuck_grenade_monitor()
 */
 function grenade_bounce_monitor()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"stop_widows_wine");
 	while(true)
 	{
-		self waittill(#"grenade_fire", e_grenade);
+		self waittill("grenade_fire", e_grenade);
 		e_grenade thread grenade_bounces();
 	}
 }
@@ -610,7 +610,7 @@ function grenade_bounce_monitor()
 function grenade_bounces()
 {
 	self endon(#"explode");
-	self waittill(#"grenade_bounce", pos, normal, e_target);
+	self waittill("grenade_bounce", pos, normal, e_target);
 	if(isdefined(e_target))
 	{
 		if(e_target.archetype === "parasite" || e_target.archetype === "raps")
@@ -631,7 +631,7 @@ function grenade_bounces()
 */
 function widows_wine_vehicle_behavior(attacker, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self.b_widows_wine_cocoon = 1;
 	if(isdefined(self.archetype))
 	{
@@ -662,10 +662,10 @@ function widows_wine_vehicle_behavior(attacker, weapon)
 function widows_wine_perk_lost(b_pause, str_perk, str_result)
 {
 	self notify(#"stop_widows_wine");
-	self endon(#"death");
+	self endon("death");
 	if(self laststand::player_is_in_laststand())
 	{
-		self waittill(#"player_revived");
+		self waittill("player_revived");
 		if(self hasperk("specialty_widowswine"))
 		{
 			return;

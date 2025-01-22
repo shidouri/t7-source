@@ -59,7 +59,7 @@ class cpoweronswitch
 		m_t_switch sethintstring(&"ZM_ZOD_POWERSWITCH_POWERED");
 		do
 		{
-			m_t_switch waittill(#"trigger", player);
+			m_t_switch waittill("trigger", player);
 		}
 		while(!can_player_use(player));
 		m_t_switch setinvisibletoall();

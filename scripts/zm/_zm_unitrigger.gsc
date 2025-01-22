@@ -263,7 +263,7 @@ function unregister_unitrigger_internal(unitrigger_stub)
 			foreach(key in keys)
 			{
 				trigger = unitrigger_stub.playertrigger[key];
-				trigger notify(#"kill_trigger");
+				trigger notify("kill_trigger");
 				if(isdefined(trigger))
 				{
 					trigger delete();
@@ -275,7 +275,7 @@ function unregister_unitrigger_internal(unitrigger_stub)
 	else if(isdefined(unitrigger_stub.trigger))
 	{
 		trigger = unitrigger_stub.trigger;
-		trigger notify(#"kill_trigger");
+		trigger notify("kill_trigger");
 		trigger.stub.trigger = undefined;
 		trigger delete();
 	}
@@ -483,7 +483,7 @@ function debug_unitriggers()
 */
 function cleanup_trigger(trigger, player)
 {
-	trigger notify(#"kill_trigger");
+	trigger notify("kill_trigger");
 	if(isdefined(trigger.stub.trigger_per_player) && trigger.stub.trigger_per_player)
 	{
 		trigger.stub.playertrigger[player getentitynumber()] = undefined;
@@ -1017,7 +1017,7 @@ function copy_zombie_keys_onto_trigger(trig, stub)
 */
 function trigger_thread(trigger_func)
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	if(isdefined(trigger_func))
 	{
 		self [[trigger_func]]();
@@ -1143,10 +1143,10 @@ function unitrigger_prompt_and_visibility(player)
 */
 function unitrigger_logic()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -1159,7 +1159,7 @@ function unitrigger_logic()
 		{
 			continue;
 		}
-		self.stub.related_parent notify(#"trigger_activated", player);
+		self.stub.related_parent notify("trigger_activated", player);
 	}
 }
 

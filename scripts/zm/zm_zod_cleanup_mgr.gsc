@@ -64,7 +64,7 @@ function __main__()
 */
 function force_check_now()
 {
-	level notify(#"pump_distance_check");
+	level notify("pump_distance_check");
 }
 
 /*
@@ -324,7 +324,7 @@ function private player_ahead_of_me(player)
 */
 function get_escape_position()
 {
-	self endon(#"death");
+	self endon("death");
 	str_zone = self.zone_name;
 	if(!isdefined(str_zone))
 	{
@@ -450,7 +450,7 @@ function private get_wait_locations_in_zone(zone)
 */
 function get_escape_position_in_current_zone()
 {
-	self endon(#"death");
+	self endon("death");
 	str_zone = self.zone_name;
 	if(!isdefined(str_zone))
 	{

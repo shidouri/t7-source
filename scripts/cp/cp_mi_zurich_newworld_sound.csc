@@ -39,7 +39,7 @@ function function_9f9f219()
 	}
 	while(true)
 	{
-		trigger waittill(#"trigger", who);
+		trigger waittill("trigger", who);
 		if(who isplayer())
 		{
 			playsound(0, "amb_security_detector", (-10363, -24283, 9450));
@@ -66,7 +66,7 @@ function function_cfd80c1b()
 	}
 	while(true)
 	{
-		trigger waittill(#"trigger", who);
+		trigger waittill("trigger", who);
 		if(who isplayer())
 		{
 			playsound(0, "amb_train_horn_distant", (21054, -3421, -6031));
@@ -93,7 +93,7 @@ function function_166fca02()
 	}
 	while(true)
 	{
-		trigger waittill(#"trigger", who);
+		trigger waittill("trigger", who);
 		if(who isplayer())
 		{
 			playsound(0, "amb_train_horn_distant", (-13099, -18453, 10228));

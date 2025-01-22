@@ -82,9 +82,9 @@ function hack_doors(targetname = "zombie_door", door_activate_func = &zm_blocker
 */
 function hide_door_buy_when_hacker_active(door_struct)
 {
-	self endon(#"death");
-	self endon(#"door_hacked");
-	self endon(#"door_opened");
+	self endon("death");
+	self endon("door_hacked");
+	self endon("door_opened");
 	zm_equip_hacker::hide_hint_when_hackers_active();
 }
 
@@ -99,8 +99,8 @@ function hide_door_buy_when_hacker_active(door_struct)
 */
 function watch_door_for_open(door_struct)
 {
-	self waittill(#"door_opened");
-	self endon(#"door_hacked");
+	self waittill("door_opened");
+	self endon("door_hacked");
 	remove_all_door_hackables_that_target_door(door_struct.door);
 }
 
@@ -115,8 +115,8 @@ function watch_door_for_open(door_struct)
 */
 function door_hack(hacker)
 {
-	self.door notify(#"door_hacked");
-	self.door notify(#"kill_door_think");
+	self.door notify("door_hacked");
+	self.door notify("kill_door_think");
 	remove_all_door_hackables_that_target_door(self.door);
 	self.door [[self.door_activate_func]]();
 	self.door._door_open = 1;

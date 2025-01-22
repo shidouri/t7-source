@@ -525,7 +525,7 @@ function collision_thread(localclientnum)
 	self endon(#"exit_vehicle");
 	while(true)
 	{
-		self waittill(#"veh_collision", hip, hitn, hit_intensity);
+		self waittill("veh_collision", hip, hitn, hit_intensity);
 		if(self islocalclientdriver(localclientnum))
 		{
 			player = getlocalplayer(localclientnum);
@@ -589,7 +589,7 @@ function jump_landing_thread(localclientnum)
 	self endon(#"exit_vehicle");
 	while(true)
 	{
-		self waittill(#"veh_landed");
+		self waittill("veh_landed");
 		if(self islocalclientdriver(localclientnum))
 		{
 			player = getlocalplayer(localclientnum);
@@ -636,7 +636,7 @@ function suspension_thread(localclientnum)
 	self endon(#"exit_vehicle");
 	while(true)
 	{
-		self waittill(#"veh_suspension_limit_activated");
+		self waittill("veh_suspension_limit_activated");
 		if(self islocalclientdriver(localclientnum))
 		{
 			player = getlocalplayer(localclientnum);

@@ -279,7 +279,7 @@ function menu_input()
 	/#
 		while(true)
 		{
-			level waittill(#"menu_button_pressed", keystring);
+			level waittill("menu_button_pressed", keystring);
 			menu_name = level.menu_sys[""].menu_name;
 			if(keystring == "" || keystring == "")
 			{
@@ -465,7 +465,7 @@ function force_menu_back(waittill_msg)
 				}
 			}
 		}
-		level notify(#"menu_button_pressed", key);
+		level notify("menu_button_pressed", key);
 	#/
 }
 
@@ -542,7 +542,7 @@ function list_menu(list, x, y, scale, func, sort, start_num)
 		}
 		while(true)
 		{
-			level waittill(#"menu_button_pressed", key);
+			level waittill("menu_button_pressed", key);
 			level.menu_list_selected = 1;
 			if(any_button_hit(key, ""))
 			{
@@ -585,7 +585,7 @@ function list_menu(list, x, y, scale, func, sort, start_num)
 					}
 				}
 			}
-			level notify(#"scroll_list");
+			level notify("scroll_list");
 			if(current_num != old_num)
 			{
 				old_num = current_num;
@@ -809,9 +809,9 @@ function selection_error(msg, x, y)
 function hud_font_scaler(mult)
 {
 	/#
-		self notify(#"stop_fontscaler");
-		self endon(#"death");
-		self endon(#"stop_fontscaler");
+		self notify("stop_fontscaler");
+		self endon("death");
+		self endon("stop_fontscaler");
 		og_scale = self.og_scale;
 		if(!isdefined(mult))
 		{
@@ -1128,7 +1128,7 @@ function dialog_text_box_input(cursor_x, cursor_y, word_length)
 		word = "";
 		while(true)
 		{
-			level waittill(#"dialog_box_button_pressed", button);
+			level waittill("dialog_box_button_pressed", button);
 			if(button == "" || button == "")
 			{
 				word = "";
@@ -1166,8 +1166,8 @@ function dialog_text_box_input(cursor_x, cursor_y, word_length)
 			level.dialog_box_cursor.x = x;
 			wait(0.05);
 		}
-		level notify(#"stop_dialog_text_box_cursor");
-		level notify(#"stop_dialog_text_input");
+		level notify("stop_dialog_text_box_cursor");
+		level notify("stop_dialog_text_input");
 		return word;
 	#/
 }
@@ -1248,7 +1248,7 @@ function dialog_text_box_buttons()
 function dialog_text_box_cursor()
 {
 	/#
-		level endon(#"stop_dialog_text_box_cursor");
+		level endon("stop_dialog_text_box_cursor");
 		while(true)
 		{
 			level.dialog_box_cursor.alpha = 0;

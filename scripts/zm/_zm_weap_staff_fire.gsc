@@ -61,7 +61,7 @@ function __init__()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread watch_staff_fire_upgrade_fired();
 	self thread watch_staff_fire_fired();
 	self thread zm_tomb_utility::watch_staff_usage();
@@ -78,12 +78,12 @@ function onplayerspawned()
 */
 function watch_staff_fire_fired()
 {
-	self notify(#"watch_staff_fired");
-	self endon(#"disconnect");
-	self endon(#"watch_staff_fired");
+	self notify("watch_staff_fired");
+	self endon("disconnect");
+	self endon("watch_staff_fired");
 	while(true)
 	{
-		self waittill(#"missile_fire", e_projectile, w_weapon);
+		self waittill("missile_fire", e_projectile, w_weapon);
 		if(isdefined(e_projectile.additional_shot) && e_projectile.additional_shot)
 		{
 			continue;
@@ -106,12 +106,12 @@ function watch_staff_fire_fired()
 */
 function watch_staff_fire_upgrade_fired()
 {
-	self notify(#"watch_staff_upgrade_fired");
-	self endon(#"disconnect");
-	self endon(#"watch_staff_upgrade_fired");
+	self notify("watch_staff_upgrade_fired");
+	self endon("disconnect");
+	self endon("watch_staff_upgrade_fired");
 	while(true)
 	{
-		self waittill(#"grenade_fire", e_projectile, w_weapon);
+		self waittill("grenade_fire", e_projectile, w_weapon);
 		if(isdefined(e_projectile.additional_shot) && e_projectile.additional_shot)
 		{
 			continue;
@@ -222,8 +222,8 @@ function fire_staff_area_of_effect(e_attacker, w_weapon)
 */
 function grenade_waittill_still_or_bounce()
 {
-	self endon(#"death");
-	self endon(#"grenade_bounce");
+	self endon("death");
+	self endon("grenade_bounce");
 	wait(0.5);
 	do
 	{
@@ -245,9 +245,9 @@ function grenade_waittill_still_or_bounce()
 */
 function fire_staff_update_grenade_fuse()
 {
-	self endon(#"death");
+	self endon("death");
 	self grenade_waittill_still_or_bounce();
-	self notify(#"fire_aoe_start", self.origin);
+	self notify("fire_aoe_start", self.origin);
 	self resetmissiledetonationtime(0);
 }
 
@@ -262,8 +262,8 @@ function fire_staff_update_grenade_fuse()
 */
 function fire_additional_shots(w_weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"weapon_change");
+	self endon("disconnect");
+	self endon("weapon_change");
 	n_shots = 1;
 	if(w_weapon.name == "staff_fire_upgraded3")
 	{
@@ -334,7 +334,7 @@ function is_staff_fire_damage(weapon)
 */
 function staff_fire_zombie_hit_response_internal(mod, damageweapon, player, amount)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(!isalive(self))
 	{
 		return;
@@ -383,7 +383,7 @@ function staff_fire_death_event(attacker)
 */
 function on_fire_timeout(n_duration)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(n_duration);
 	self.is_on_fire = 0;
 	self notify(#"stop_flame_damage");
@@ -416,7 +416,7 @@ function flame_damage_fx(damageweapon, e_attacker, pct_damage = 1)
 		}
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	if(!was_on_fire)
 	{
 		self.is_on_fire = 1;
@@ -629,8 +629,8 @@ function get_damage_duration(damageweapon)
 */
 function flame_damage_over_time(e_attacker, damageweapon, pct_damage)
 {
-	e_attacker endon(#"disconnect");
-	self endon(#"death");
+	e_attacker endon("disconnect");
+	self endon("death");
 	self endon(#"stop_flame_damage");
 	n_damage = get_damage_per_second(damageweapon);
 	n_duration = get_damage_duration(damageweapon);
@@ -661,7 +661,7 @@ function flame_damage_over_time(e_attacker, damageweapon, pct_damage)
 */
 function mechz_flame_damage(damageweapon, e_attacker, pct_damage)
 {
-	self endon(#"death");
+	self endon("death");
 	n_initial_dmg = get_impact_damage(damageweapon);
 	if(n_initial_dmg > 0)
 	{
@@ -684,7 +684,7 @@ function stop_zombie()
 	e_linker.origin = self.origin;
 	e_linker.angles = self.angles;
 	self linkto(e_linker);
-	self waittill(#"death");
+	self waittill("death");
 	e_linker delete();
 }
 

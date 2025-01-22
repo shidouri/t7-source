@@ -318,7 +318,7 @@ function function_d75eac4e()
 	self zm_unitrigger::create_unitrigger(undefined, 35);
 	while(true)
 	{
-		self waittill(#"trigger_activated");
+		self waittill("trigger_activated");
 		playsoundatposition(self.script_sound, self.origin);
 		wait(200);
 	}
@@ -340,7 +340,7 @@ function function_44448bcb()
 	var_bc15748 setcursorhint("HINT_NOICON");
 	var_bc15748 triggerignoreteam();
 	var_bc15748 usetriggerrequirelookat();
-	var_bc15748 waittill(#"trigger");
+	var_bc15748 waittill("trigger");
 	var_bc15748 playsound(self.script_sound);
 	wait(120);
 	var_bc15748 delete();
@@ -384,7 +384,7 @@ function function_8554d5da()
 	while(true)
 	{
 		var_99ff4537.health = 1000000;
-		var_99ff4537 waittill(#"damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		var_99ff4537 waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;
@@ -426,7 +426,7 @@ function function_2d4f4459()
 			wait(0.05);
 		}
 		self playsoundwithnotify("zmb_minor_skool_radio_switch", "sounddone");
-		self waittill(#"sounddone");
+		self waittill("sounddone");
 		self thread function_c62f1c37();
 	}
 }
@@ -451,7 +451,7 @@ function function_c62f1c37()
 	{
 		self.tracknum = 0;
 	}
-	self waittill(#"songdone");
+	self waittill("songdone");
 	self notify(#"hash_34d24635");
 }
 
@@ -541,7 +541,7 @@ function function_4b02c768()
 	#/
 	while(!(isdefined(e_origin.b_activated) && e_origin.b_activated))
 	{
-		e_origin waittill(#"trigger_activated");
+		e_origin waittill("trigger_activated");
 		if(isdefined(level.musicsystem.currentplaytype) && level.musicsystem.currentplaytype >= 4 || (isdefined(level.musicsystemoverride) && level.musicsystemoverride))
 		{
 			continue;
@@ -668,7 +668,7 @@ function function_1d3f00e6()
 	var_326ccfe3 = self.bump;
 	for(;;)
 	{
-		var_326ccfe3 waittill(#"trigger", e_player);
+		var_326ccfe3 waittill("trigger", e_player);
 		if(isdefined(e_player) && isplayer(e_player))
 		{
 			if(isdefined(e_player.perks_active) && e_player.perks_active.size == 9 && (isdefined(self.sndjingleactive) && self.sndjingleactive))
@@ -696,9 +696,9 @@ function function_1d3f00e6()
 */
 function function_97997a8c(perk_machine, var_326ccfe3, var_3628045a)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"player_downed");
+	self endon("death");
+	self endon("disconnect");
+	self endon("player_downed");
 	self endon(#"hash_56e16440");
 	while(!self meleebuttonpressed())
 	{

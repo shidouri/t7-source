@@ -119,7 +119,7 @@ function function_38d940ac(var_60532813)
 	var_60532813._trap_type = "flinger";
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		if(e_player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -203,7 +203,7 @@ function trap_move_switches()
 	{
 		self.a_e_switches[i] rotatepitch(160, 0.5);
 	}
-	self.a_e_switches[0] waittill(#"rotatedone");
+	self.a_e_switches[0] waittill("rotatedone");
 	if(isdefined(self.script_int) && !level flag::get("power_on" + self.script_int))
 	{
 		level flag::wait_till("power_on" + self.script_int);
@@ -218,13 +218,13 @@ function trap_move_switches()
 			self.a_e_switches[i] rotatepitch(-160, 0.5);
 			self.a_e_switches[i] playsound("evt_switch_flip_trap");
 		}
-		self.a_e_switches[0] waittill(#"rotatedone");
+		self.a_e_switches[0] waittill("rotatedone");
 		self flag::wait_till("trap_cooldown");
 		for(i = 0; i < self.a_e_switches.size; i++)
 		{
 			self.a_e_switches[i] rotatepitch(160, 0.5);
 		}
-		self.a_e_switches[0] waittill(#"rotatedone");
+		self.a_e_switches[0] waittill("rotatedone");
 		self flag::wait_till_clear("trap_cooldown");
 		self trap_lights_green();
 	}
@@ -279,7 +279,7 @@ function function_c7f4ae43(var_c4f1ee44, e_player)
 {
 	self flag::set("trap_active");
 	self thread function_ef013ee8(var_c4f1ee44, e_player);
-	self waittill(#"trap_done");
+	self waittill("trap_done");
 	self flag::clear("trap_active");
 	self flag::set("trap_cooldown");
 	wait(45);
@@ -299,7 +299,7 @@ function function_ef013ee8(var_c4f1ee44, e_player)
 {
 	n_start_time = gettime();
 	n_total_time = 0;
-	level notify(#"trap_activate", self);
+	level notify("trap_activate", self);
 	while(30 > n_total_time)
 	{
 		playrumbleonposition("zm_stalingrad_interact_rumble", self.origin);
@@ -310,7 +310,7 @@ function function_ef013ee8(var_c4f1ee44, e_player)
 		level function_1ff56fb0("p7_fxanim_zm_stal_flinger_trap_bundle");
 		n_total_time = (gettime() - n_start_time) / 1000;
 	}
-	self notify(#"trap_done");
+	self notify("trap_done");
 }
 
 /*
@@ -344,7 +344,7 @@ function function_e0c7ad1e()
 */
 function function_fce6cca8(e_trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	var_f4df9eab = array::random(e_trigger.var_3ad9e05d);
 	var_848f1155 = spawn("script_model", self.origin);
 	var_848f1155 setmodel("tag_origin");
@@ -442,7 +442,7 @@ function function_d2f913f5(e_trigger)
 function function_f5ad0ae6()
 {
 	level.var_6075220++;
-	self waittill(#"death");
+	self waittill("death");
 	level.var_6075220--;
 }
 

@@ -94,10 +94,10 @@ function function_8f95fde5()
 {
 	self notify(#"hash_8f95fde5");
 	self endon(#"hash_8f95fde5");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_give", weapon);
+		self waittill("weapon_give", weapon);
 		weapon = zm_weapons::get_nonalternate_weapon(weapon);
 		if(weapon == level.w_microwavegundw || weapon == level.w_microwavegundw_upgraded)
 		{
@@ -129,7 +129,7 @@ function function_1402f75f()
 	self notify(#"hash_1402f75f");
 	self endon(#"hash_1402f75f");
 	self endon(#"hash_e3517683");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_db2418ce = 1;
 	while(true)
 	{
@@ -194,7 +194,7 @@ function microwavegun_on_player_connect()
 {
 	for(;;)
 	{
-		level waittill(#"connecting", player);
+		level waittill("connecting", player);
 		player thread wait_for_microwavegun_fired();
 	}
 }
@@ -210,11 +210,11 @@ function microwavegun_on_player_connect()
 */
 function wait_for_microwavegun_fired()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"spawned_player");
 	for(;;)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		currentweapon = self getcurrentweapon();
 		if(currentweapon == level.w_microwavegun || currentweapon == level.w_microwavegun_upgraded)
 		{
@@ -359,7 +359,7 @@ function microwavegun_get_enemies_in_range(upgraded, microwaveable_objects)
 			level.microwavegun_sizzle_vecs[level.microwavegun_sizzle_vecs.size] = sizzle_vec;
 			continue;
 		}
-		zombies[i] notify(#"microwaved", self);
+		zombies[i] notify("microwaved", self);
 	}
 }
 
@@ -510,7 +510,7 @@ function microwavegun_sizzle_death_ending()
 */
 function microwavegun_dw_zombie_hit_response_internal(mod, damageweapon, player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(!isdefined(self) || !isalive(self))
 	{
 		return;
@@ -594,7 +594,7 @@ function microwavegun_zap_get_shock_eyes_fx(weapon)
 */
 function microwavegun_zap_head_gib(weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	zm_net::network_safe_play_fx_on_tag("microwavegun_zap_death_fx", 2, microwavegun_zap_get_shock_eyes_fx(weapon), self, "J_Eyeball_LE");
 }
 
@@ -746,7 +746,7 @@ function enemy_killed_by_microwavegun()
 */
 function microwavegun_sound_thread()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"spawned_player");
 	for(;;)
 	{
@@ -760,7 +760,7 @@ function microwavegun_sound_thread()
 			self playloopsound("tesla_idle", 0.25);
 			continue;
 		}
-		self notify(#"weap_away");
+		self notify("weap_away");
 		self stoploopsound(0.25);
 	}
 }
@@ -776,8 +776,8 @@ function microwavegun_sound_thread()
 */
 function setup_microwavegun_vox(player, waittime)
 {
-	level notify(#"force_end_microwave_vox");
-	level endon(#"force_end_microwave_vox");
+	level notify("force_end_microwave_vox");
+	level endon("force_end_microwave_vox");
 	if(!isdefined(waittime))
 	{
 		waittime = 0.05;

@@ -140,7 +140,7 @@ function watch_for_team_change(localclientnum)
 {
 	level notify(#"end_team_change_watch");
 	level endon(#"end_team_change_watch");
-	level waittill(#"team_changed");
+	level waittill("team_changed");
 	thread setup_fx(localclientnum);
 }
 

@@ -112,9 +112,9 @@ function function_ffa114bb(localclientnum)
 	while(true)
 	{
 		self.var_bc148e61 moveto(toppos, 0.5, 0, 0);
-		self.var_bc148e61 waittill(#"movedone");
+		self.var_bc148e61 waittill("movedone");
 		self.var_bc148e61 moveto(bottompos, 0.5, 0, 0);
-		self.var_bc148e61 waittill(#"movedone");
+		self.var_bc148e61 waittill("movedone");
 	}
 }
 

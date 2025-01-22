@@ -86,10 +86,10 @@ function function_60df3271()
 */
 function sndramperthink(player, target_origin, alias1, min_vol1, max_vol1, min_dist1, max_dist1, alias2, min_vol2, max_vol2, min_dist2, max_dist2, end_alias)
 {
-	level endon(#"save_restore");
-	level endon(#"disconnect");
-	player endon(#"death");
-	player endon(#"disconnect");
+	level endon("save_restore");
+	level endon("disconnect");
+	player endon("death");
+	player endon("disconnect");
 	if(!isdefined(player))
 	{
 		return;
@@ -165,7 +165,7 @@ function sndramperthink(player, target_origin, alias1, min_vol1, max_vol1, min_d
 function function_860d167b(ent1, ent2, var_105ef70b, id2)
 {
 	level endon(#"hash_61477803");
-	level waittill(#"save_restore");
+	level waittill("save_restore");
 	ent1 delete();
 	ent2 delete();
 	var_105ef70b = undefined;
@@ -314,10 +314,10 @@ function function_e675c6f2()
 */
 function function_a89a73f3(player, target_origin, alias1, min_vol1, max_vol1, min_dist1, max_dist1, alias2, min_vol2, max_vol2, min_dist2, max_dist2, end_alias)
 {
-	level endon(#"save_restore");
-	level endon(#"disconnect");
-	player endon(#"death");
-	player endon(#"disconnect");
+	level endon("save_restore");
+	level endon("disconnect");
+	player endon("death");
+	player endon("disconnect");
 	if(!isdefined(player))
 	{
 		return;
@@ -393,7 +393,7 @@ function function_a89a73f3(player, target_origin, alias1, min_vol1, max_vol1, mi
 function function_dc4a5405(ent1, ent2, var_105ef70b, id2)
 {
 	level endon(#"hash_a38d24cd");
-	level waittill(#"save_restore");
+	level waittill("save_restore");
 	ent1 delete();
 	ent2 delete();
 	var_105ef70b = undefined;

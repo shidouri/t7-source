@@ -354,7 +354,7 @@ function on_player_spawned()
 */
 function monitor_player_bleed_out()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"bled_out");
 	self.b_bled_out = 1;
 }
@@ -392,7 +392,7 @@ function function_cef897cf(str_objective, n_squad = 4)
 */
 function trig_waterfall_func()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self trigger::wait_till();
@@ -411,7 +411,7 @@ function trig_waterfall_func()
 */
 function play_waterfall(t_waterfall)
 {
-	self endon(#"death");
+	self endon("death");
 	t_waterfall setinvisibletoplayer(self);
 	self clientfield::set_to_player("player_waterfall_pstfx", 1);
 	while(self istouching(t_waterfall))
@@ -514,7 +514,7 @@ function igc_party(var_f45807af = 0)
 	{
 		wait(0.05);
 	}
-	level notify(#"player_regain_control");
+	level notify("player_regain_control");
 	if(!scene::is_skipping_in_progress())
 	{
 		cp_mi_sing_biodomes_markets::spawn_markets1_enemies();
@@ -688,7 +688,7 @@ function function_df65aec6(a_ents)
 	level thread scene::play("p7_fxanim_cp_biodomes_party_house_drinks_bundle");
 	level thread scene::play("cin_bio_01_01_party_1st_drinks_part2");
 	var_ecc203c7 = a_ents["server"];
-	var_ecc203c7 waittill(#"stab");
+	var_ecc203c7 waittill("stab");
 	var_ecc203c7 clientfield::set("waiter_blood_shader", 1);
 }
 
@@ -777,7 +777,7 @@ function add_turret1_action()
 */
 function remove_turret_task_ondeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		if(isinarray(level.a_robot_tasks, self))

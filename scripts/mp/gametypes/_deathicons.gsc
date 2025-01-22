@@ -101,8 +101,8 @@ function add(entity, dyingplayer, team, timeout)
 		return;
 	}
 	iconorg = entity.origin;
-	dyingplayer endon(#"spawned_player");
-	dyingplayer endon(#"disconnect");
+	dyingplayer endon("spawned_player");
+	dyingplayer endon("disconnect");
 	wait(0.05);
 	util::waittillslowprocessallowed();
 	/#

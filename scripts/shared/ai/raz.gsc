@@ -924,8 +924,8 @@ function private razshootgroundtorpedo(torpedo_target, torpedo_target_offset)
 */
 function private raztorpedodetonateifclosetotarget(torpedo_target, torpedo_target_offset)
 {
-	self endon(#"death");
-	self endon(#"detonated");
+	self endon("death");
+	self endon("detonated");
 	torpedo = self;
 	while(isdefined(torpedo) && isdefined(torpedo_target))
 	{
@@ -949,8 +949,8 @@ function private raztorpedodetonateifclosetotarget(torpedo_target, torpedo_targe
 */
 function private raztorpedomovetotarget(torpedo_target)
 {
-	self endon(#"death");
-	self endon(#"detonated");
+	self endon("death");
+	self endon("detonated");
 	if(!isdefined(self.torpedo_max_yaw_cos))
 	{
 		torpedo_yaw_per_interval = 13.5;
@@ -1031,8 +1031,8 @@ function private raztorpedomovetotarget(torpedo_target)
 */
 function private raztorpedoplaytraileffect()
 {
-	self endon(#"death");
-	self endon(#"detonated");
+	self endon("death");
+	self endon("detonated");
 	surface_check_offset = 26;
 	if(self.torpedo_trail_iterations >= 1)
 	{
@@ -1055,7 +1055,7 @@ function private raztorpedoplaytraileffect()
 */
 function private razknockdownzombies(target)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		if(isdefined(target))
@@ -1173,8 +1173,8 @@ function private razknockdownzombies(target)
 */
 function private raztorpedoknockdownzombies(torpedo_target)
 {
-	self endon(#"death");
-	self endon(#"detonated");
+	self endon("death");
+	self endon("detonated");
 	razknockdownzombies(torpedo_target);
 }
 
@@ -1189,9 +1189,9 @@ function private raztorpedoknockdownzombies(torpedo_target)
 */
 function private razsprintknockdownzombies()
 {
-	self endon(#"death");
-	self notify(#"razsprintknockdownzombies");
-	self endon(#"razsprintknockdownzombies");
+	self endon("death");
+	self notify("razsprintknockdownzombies");
+	self endon("razsprintknockdownzombies");
 	razknockdownzombies();
 }
 
@@ -1206,7 +1206,7 @@ function private razsprintknockdownzombies()
 */
 function private raztorpedodetonate(delay)
 {
-	self notify(#"detonated");
+	self notify("detonated");
 	torpedo = self;
 	raz_torpedo_owner = self.raz_torpedo_owner;
 	if(delay > 0)
@@ -1433,11 +1433,11 @@ function private razspawnsetup()
 */
 function private razgibzombiesonmelee()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"melee_fire");
+		self waittill("melee_fire");
 		a_zombies = getaiarchetypearray("zombie");
 		foreach(zombie in a_zombies)
 		{
@@ -1724,8 +1724,8 @@ function private raztrackgundamage(damage, attacker)
 		self hidepart("j_shouldertwist_ri_attach", "", 1);
 		self hidepart("j_shoulder_ri_attach");
 		razinvalidategibbedarmor();
-		level notify(#"raz_arm_detach", attacker);
-		self notify(#"raz_arm_detach", attacker);
+		level notify("raz_arm_detach", attacker);
+		self notify("raz_arm_detach", attacker);
 	}
 }
 
@@ -1748,7 +1748,7 @@ function private raztrackhelmetdamage(damage, attacker)
 		entity hidepart("j_head_attach", "", 1);
 		entity.razhashelmet = 0;
 		blackboard::setblackboardattribute(entity, "_gib_location", "head");
-		level notify(#"raz_mask_destroyed", attacker);
+		level notify("raz_mask_destroyed", attacker);
 	}
 }
 

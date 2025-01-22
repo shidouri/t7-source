@@ -55,9 +55,9 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
-	self waittill(#"bgb_about_to_take_on_bled_out");
+	self endon("disconnect");
+	self endon("bgb_update");
+	self waittill("bgb_about_to_take_on_bled_out");
 	self thread special_revive();
 }
 
@@ -72,7 +72,7 @@ function event()
 */
 function special_revive()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(1);
 	while(level.zombie_total > 0)
 	{

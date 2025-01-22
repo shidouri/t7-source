@@ -89,7 +89,7 @@ function callback_vehiclespawned(spawner)
 */
 function disabledamagefx()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.05);
 	self clientfield::set_to_player("toggle_dnidamagefx", 0);
 }
@@ -531,7 +531,7 @@ function callback_vehiclekilled(einflictor, eattacker, idamage, smeansofdeath, w
 */
 function vehiclecrush()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(level._effect) && isdefined(level._effect["tanksquish"]))
 	{
 		playfx(level._effect["tanksquish"], self.origin + vectorscale((0, 0, 1), 30));

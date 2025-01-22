@@ -961,9 +961,9 @@ function adjustrecentstats()
 */
 function uploadstatssoon()
 {
-	self notify(#"upload_stats_soon");
-	self endon(#"upload_stats_soon");
-	self endon(#"disconnect");
+	self notify("upload_stats_soon");
+	self endon("upload_stats_soon");
+	self endon("disconnect");
 	wait(1);
 	uploadstats(self);
 }

@@ -52,7 +52,7 @@ function __init__()
 */
 function forceon(local_client_num)
 {
-	self notify(#"kill_gadget_camo_render_doreveal");
+	self notify("kill_gadget_camo_render_doreveal");
 	self duplicate_render::update_dr_flag(local_client_num, "hide_model", 1);
 	self mapshaderconstant(local_client_num, 0, "scriptVector0", 1, 0, 0, 0);
 	self duplicate_render::set_dr_flag("gadget_camo_reveal", 0);
@@ -71,8 +71,8 @@ function forceon(local_client_num)
 */
 function doreveal(local_client_num, direction)
 {
-	self notify(#"kill_gadget_camo_render_doreveal");
-	self endon(#"kill_gadget_camo_render_doreveal");
+	self notify("kill_gadget_camo_render_doreveal");
+	self endon("kill_gadget_camo_render_doreveal");
 	self endon(#"entityshutdown");
 	if(!isdefined(self))
 	{

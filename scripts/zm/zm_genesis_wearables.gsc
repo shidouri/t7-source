@@ -177,7 +177,7 @@ function function_24061b58(e_player)
 */
 function function_7f0ec71c()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self trigger::wait_till();
@@ -209,7 +209,7 @@ function function_a16ce474(str_model, var_475b0a4e, str_tag)
 	self.var_bc5f242a.str_tag = str_tag;
 	self attach(self.var_bc5f242a.str_model, str_tag);
 	self playsound("zmb_craftable_pickup");
-	self notify(#"changed_wearable", var_475b0a4e);
+	self notify("changed_wearable", var_475b0a4e);
 	self thread function_2436f867();
 	switch(var_475b0a4e)
 	{
@@ -378,7 +378,7 @@ function function_e5974b49()
 */
 function function_aa6437f1()
 {
-	level waittill(#"all_players_spawned");
+	level waittill("all_players_spawned");
 	function_f6b20985("s_weasels_hat", "c_zom_dlc4_player_arlington_helmet", "j_head", 0);
 }
 
@@ -444,7 +444,7 @@ function function_9157236c()
 	var_c52419ba = 1;
 	while(var_c52419ba)
 	{
-		var_687cab15 waittill(#"damage", damage, attacker, direction_vec, v_point, type, modelname, tagname, partname, weapon, idflags);
+		var_687cab15 waittill("damage", damage, attacker, direction_vec, v_point, type, modelname, tagname, partname, weapon, idflags);
 		n_closest = 9999999;
 		s_closest = var_7bd91d87[0];
 		for(i = 0; i < var_7bd91d87.size; i++)
@@ -572,7 +572,7 @@ function function_b8449f8c(var_5a533244)
 */
 function function_edd475ab(var_dd087d43, var_33c3e058, var_e7d196cc)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_baf651e0");
 	self.var_adaec269 = 1;
 	n_start_time = undefined;
@@ -649,7 +649,7 @@ function function_8454afd5()
 */
 function function_59c5b722(str_flag)
 {
-	level waittill(#"mechz_gun_detached");
+	level waittill("mechz_gun_detached");
 	level flag::set(str_flag);
 	function_c81a7efa();
 }
@@ -665,7 +665,7 @@ function function_59c5b722(str_flag)
 */
 function function_1a3ef9c4(str_flag)
 {
-	level waittill(#"mechz_faceplate_detached");
+	level waittill("mechz_faceplate_detached");
 	level flag::set(str_flag);
 	function_c81a7efa();
 }
@@ -744,7 +744,7 @@ function function_c489ad78(str_flag)
 	t_damage = spawn("trigger_damage", var_3f709380.origin, 0, 15, 10);
 	while(true)
 	{
-		t_damage waittill(#"damage", amount, attacker, dir, point, mod);
+		t_damage waittill("damage", amount, attacker, dir, point, mod);
 		if(isdefined(mod) && mod == "MOD_GRENADE_SPLASH")
 		{
 			n_dist = distance(point, var_3f709380.origin);
@@ -781,7 +781,7 @@ function function_f4caac35(str_flag)
 		var_affd5bec moveto(s_path.origin, n_time);
 		if(!isdefined(s_path.target))
 		{
-			var_affd5bec waittill(#"movedone");
+			var_affd5bec waittill("movedone");
 			var_affd5bec playsound("zmb_wearable_wolf_skull_land");
 			break;
 		}
@@ -815,7 +815,7 @@ function function_f4caac35(str_flag)
 */
 function function_579caadc()
 {
-	self endon(#"death");
+	self endon("death");
 	v_ground_pos = self.origin;
 	n_move_time = 1.5;
 	var_504ff975 = 1;
@@ -826,7 +826,7 @@ function function_579caadc()
 			self playsound("zmb_wearable_wolf_skull_rise");
 			self playloopsound("zmb_wearable_wolf_skull_lp", 2);
 			self moveto(v_ground_pos + vectorscale((0, 0, 1), 65), n_move_time, n_move_time / 8, n_move_time / 8);
-			self waittill(#"movedone");
+			self waittill("movedone");
 			var_504ff975 = 0;
 		}
 		else
@@ -836,7 +836,7 @@ function function_579caadc()
 				self playsound("zmb_wearable_wolf_skull_lower");
 				self stoploopsound(2);
 				self moveto(v_ground_pos, n_move_time, n_move_time / 8, n_move_time / 8);
-				self waittill(#"movedone");
+				self waittill("movedone");
 				self playsound("zmb_wearable_wolf_skull_land");
 				var_504ff975 = 1;
 			}
@@ -1245,7 +1245,7 @@ function function_f1691f03(var_776628b2)
 	level flag::wait_till_all(array("power_on1", "power_on2", "power_on3", "power_on4"));
 	for(var_fce7f186 = 0; var_fce7f186 < 40; var_fce7f186++)
 	{
-		level waittill(#"fury_head_sniper_kill");
+		level waittill("fury_head_sniper_kill");
 	}
 	level flag::set(var_776628b2);
 	level thread function_716f6548();
@@ -1371,7 +1371,7 @@ function function_9d85b9ce(e_attacker)
 		{
 			if(isdefined(self.damageweapon) && self.damageweapon.isbulletweapon)
 			{
-				level notify(#"fury_head_sniper_kill");
+				level notify("fury_head_sniper_kill");
 			}
 		}
 	}

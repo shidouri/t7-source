@@ -99,7 +99,7 @@ function play_scene(str_objective, e_player)
 	}
 	level thread function_33367f39();
 	function_c7ab7e12(str_movie);
-	level notify(#"root_scene_completed");
+	level notify("root_scene_completed");
 	skipto::objective_completed(str_objective);
 }
 
@@ -127,7 +127,7 @@ function function_c7ab7e12(str_movie)
 			player thread function_4b299142(str_movie);
 		}
 	}
-	level waittill(#"movie_done");
+	level waittill("movie_done");
 	array::thread_all(level.players, &scene::clear_scene_skipping_ui);
 }
 
@@ -146,8 +146,8 @@ function function_4b299142(str_movie)
 	{
 		return;
 	}
-	self endon(#"disconnect");
-	level endon(#"movie_done");
+	self endon("disconnect");
+	level endon("movie_done");
 	b_skip_scene = 0;
 	foreach(player in level.players)
 	{
@@ -229,7 +229,7 @@ function function_4b299142(str_movie)
 		}
 		foreach(player in level.players)
 		{
-			player notify(#"menuresponse", "FullscreenMovie", "finished_movie_playback");
+			player notify("menuresponse", "FullscreenMovie", "finished_movie_playback");
 		}
 	}
 }
@@ -245,8 +245,8 @@ function function_4b299142(str_movie)
 */
 function function_550866c2()
 {
-	level endon(#"root_scene_completed");
-	level endon(#"movie_done");
+	level endon("root_scene_completed");
+	level endon("movie_done");
 	wait(0.2);
 	level thread namespace_67110270::function_38a68128();
 	level dialog::remote("corv_i_was_born_in_the_0", 1, "NO_DNI");
@@ -269,8 +269,8 @@ function function_550866c2()
 */
 function function_7fdd0557()
 {
-	level endon(#"root_scene_completed");
-	level endon(#"movie_done");
+	level endon("root_scene_completed");
+	level endon("movie_done");
 	level thread namespace_67110270::function_67c7b7bc();
 	level dialog::remote("corv_the_darkness_and_iso_0", 0, "NO_DNI");
 	level dialog::remote("corv_suddenly_i_had_new_0", 0, "NO_DNI");
@@ -290,8 +290,8 @@ function function_7fdd0557()
 */
 function function_6cc3b883()
 {
-	level endon(#"root_scene_completed");
-	level endon(#"movie_done");
+	level endon("root_scene_completed");
+	level endon("movie_done");
 	level thread namespace_67110270::function_668ff14b();
 	level dialog::remote("corv_the_harder_we_looked_0", 1, "NO_DNI");
 	level dialog::remote("corv_in_our_search_for_an_0", 0, "NO_DNI");
@@ -320,7 +320,7 @@ function function_33367f39()
 		player playerlinktodelta(player.e_anchor, "tag_origin", 1, 15, 15, 0, 15);
 		player freezecontrols(1);
 	}
-	level waittill(#"root_scene_completed");
+	level waittill("root_scene_completed");
 	level.overrideplayerdamage = undefined;
 	foreach(player in level.players)
 	{
@@ -375,7 +375,7 @@ function function_32b529d8(str_objective, e_player)
 	level scene::init(var_470af250);
 	level thread function_98192f84(var_f9202c4e, var_470af250, str_exploder);
 	level thread scene::play(str_player_scene, e_player);
-	level waittill(#"fade_out");
+	level waittill("fade_out");
 	level thread util::screen_fade_out(1);
 	level waittill(str_player_scene + "_done");
 	level util::teleport_players_igc(str_objective + "_igc_end");

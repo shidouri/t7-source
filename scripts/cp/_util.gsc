@@ -128,7 +128,7 @@ function isbulletimpactmod(smeansofdeath)
 */
 function waitrespawnbutton()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_respawn");
 	while(self usebuttonpressed() != 1)
 	{
@@ -156,7 +156,7 @@ function setlowermessage(text, time, combinemessageandtimer)
 		text = self.lowermessageoverride;
 		time = undefined;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	self.lowermessage settext(text);
 	if(isdefined(time) && time > 0)
 	{
@@ -206,7 +206,7 @@ function setlowermessagevalue(text, value, combinemessage)
 		text = self.lowermessageoverride;
 		time = undefined;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	if(!isdefined(combinemessage) || !combinemessage)
 	{
 		self.lowermessage settext(text);
@@ -257,15 +257,15 @@ function clearlowermessage(fadetime)
 	{
 		return;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	if(!isdefined(fadetime) || fadetime == 0)
 	{
 		setlowermessage(&"");
 	}
 	else
 	{
-		self endon(#"disconnect");
-		self endon(#"lower_message_set");
+		self endon("disconnect");
+		self endon("lower_message_set");
 		self.lowermessage fadeovertime(fadetime);
 		self.lowermessage.alpha = 0;
 		self.lowertimer fadeovertime(fadetime);
@@ -770,7 +770,7 @@ function ent_already_in_trigger(trig)
 */
 function trigger_thread_death_monitor(ent, ender)
 {
-	ent waittill(#"death");
+	ent waittill("death");
 	self endon(ender);
 	self remove_trigger_from_ent(ent);
 }
@@ -787,7 +787,7 @@ function trigger_thread_death_monitor(ent, ender)
 function trigger_thread(ent, on_enter_payload, on_exit_payload)
 {
 	ent endon(#"entityshutdown");
-	ent endon(#"death");
+	ent endon("death");
 	if(ent ent_already_in_trigger(self))
 	{
 		return;
@@ -864,7 +864,7 @@ function setusingremote(remotename)
 	#/
 	self.usingremote = remotename;
 	self disableoffhandweapons();
-	self notify(#"using_remote");
+	self notify("using_remote");
 }
 
 /*
@@ -1214,8 +1214,8 @@ function self_delete()
 */
 function screen_message_create(string_message_1, string_message_2, string_message_3, n_offset_y, n_time)
 {
-	level notify(#"screen_message_create");
-	level endon(#"screen_message_create");
+	level notify("screen_message_create");
+	level endon("screen_message_create");
 	if(isdefined(level.missionfailed) && level.missionfailed)
 	{
 		return;
@@ -1340,9 +1340,9 @@ function screen_message_delete(delay)
 */
 function screen_message_create_client(string_message_1, string_message_2, string_message_3, n_offset_y, n_time)
 {
-	self notify(#"screen_message_create");
-	self endon(#"screen_message_create");
-	self endon(#"death");
+	self notify("screen_message_create");
+	self endon("screen_message_create");
+	self endon("death");
 	if(isdefined(level.missionfailed) && level.missionfailed)
 	{
 		return;
@@ -1438,7 +1438,7 @@ function screen_message_create_client(string_message_1, string_message_2, string
 */
 function screen_message_delete_client(delay)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(delay))
 	{
 		wait(delay);
@@ -1614,8 +1614,8 @@ function missionfailedwrapper_nodeath(fail_reason, fail_hint, shader, iwidth, ih
 */
 function helper_message(message, delay, str_abort_flag)
 {
-	level notify(#"kill_helper_message");
-	level endon(#"kill_helper_message");
+	level notify("kill_helper_message");
+	level endon("kill_helper_message");
 	helper_message_delete();
 	level.helper_message = message;
 	screen_message_create(message);
@@ -1713,11 +1713,11 @@ function init_hero(name, func_init, arg1, arg2, arg3, arg4, arg5, b_show_in_ev =
 				/#
 					assert(isdefined(ai_hero), ("" + name) + "");
 				#/
-				spawner notify(#"hero_spawned", ai_hero);
+				spawner notify("hero_spawned", ai_hero);
 			}
 			else
 			{
-				spawner waittill(#"hero_spawned", ai_hero);
+				spawner waittill("hero_spawned", ai_hero);
 			}
 		}
 	}
@@ -1781,8 +1781,8 @@ function init_heroes(a_hero_names, func, arg1, arg2, arg3, arg4, arg5)
 */
 function _hero_death(str_name)
 {
-	self endon(#"unmake_hero");
-	self waittill(#"death");
+	self endon("unmake_hero");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		/#
@@ -1809,7 +1809,7 @@ function unmake_hero(str_name)
 	{
 		ai_hero settmodeprovider(0);
 		ai_hero stop_magic_bullet_shield();
-		ai_hero notify(#"unmake_hero");
+		ai_hero notify("unmake_hero");
 	}
 }
 
@@ -1917,8 +1917,8 @@ function set_streamer_hint(n_zone, b_clear_previous = 1)
 */
 function _set_streamer_hint(n_zone, b_clear_previous = 1)
 {
-	level notify(#"set_streamer_hint");
-	level endon(#"set_streamer_hint");
+	level notify("set_streamer_hint");
+	level endon("set_streamer_hint");
 	/#
 		assert(n_zone > 0, "");
 	#/
@@ -1970,9 +1970,9 @@ function _set_streamer_hint(n_zone, b_clear_previous = 1)
 */
 function _streamer_hint_wait(n_zone)
 {
-	self endon(#"disconnect");
-	level endon(#"set_streamer_hint");
-	self waittillmatch(#"streamer");
+	self endon("disconnect");
+	level endon("set_streamer_hint");
+	self waittillmatch("streamer");
 	self notify("streamer" + n_zone, n_zone);
 }
 
@@ -2150,7 +2150,7 @@ function player_frost_breath(b_true)
 */
 function ai_frost_breath()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.archetype === "human")
 	{
 		wait(randomfloatrange(1, 3));
@@ -2169,8 +2169,8 @@ function ai_frost_breath()
 */
 function show_hint_text(str_text_to_show, b_should_blink = 0, str_turn_off_notify = "notify_turn_off_hint_text", n_display_time = 4)
 {
-	self endon(#"notify_turn_off_hint_text");
-	self endon(#"hint_text_removed");
+	self endon("notify_turn_off_hint_text");
+	self endon("hint_text_removed");
 	if(isdefined(self.hint_menu_handle))
 	{
 		hide_hint_text(0);
@@ -2203,7 +2203,7 @@ function show_hint_text(str_text_to_show, b_should_blink = 0, str_turn_off_notif
 */
 function hide_hint_text(b_fade_before_hiding = 1)
 {
-	self endon(#"hint_text_removed");
+	self endon("hint_text_removed");
 	if(isdefined(self.hint_menu_handle))
 	{
 		if(b_fade_before_hiding)
@@ -2214,7 +2214,7 @@ function hide_hint_text(b_fade_before_hiding = 1)
 		self closeluimenu(self.hint_menu_handle);
 		self.hint_menu_handle = undefined;
 	}
-	self notify(#"hint_text_removed");
+	self notify("hint_text_removed");
 }
 
 /*
@@ -2228,9 +2228,9 @@ function hide_hint_text(b_fade_before_hiding = 1)
 */
 function fade_hint_text_after_time(n_display_time, str_turn_off_notify)
 {
-	self endon(#"hint_text_removed");
-	self endon(#"death");
-	self endon(#"kill_hint_text");
+	self endon("hint_text_removed");
+	self endon("death");
+	self endon("kill_hint_text");
 	waittill_any_timeout(n_display_time - 0.75, str_turn_off_notify);
 	hide_hint_text(1);
 }
@@ -2246,8 +2246,8 @@ function fade_hint_text_after_time(n_display_time, str_turn_off_notify)
 */
 function hide_hint_text_listener(n_time)
 {
-	self endon(#"hint_text_removed");
-	self endon(#"disconnect");
+	self endon("hint_text_removed");
+	self endon("disconnect");
 	waittill_any_timeout(n_time, "kill_hint_text", "death");
 	hide_hint_text(0);
 }

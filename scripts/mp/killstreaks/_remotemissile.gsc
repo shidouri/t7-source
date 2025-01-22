@@ -59,10 +59,10 @@ function init()
 */
 function remote_missile_game_end_think(rocket, team, killstreak_id)
 {
-	self endon(#"remotemissle_killstreak_done");
-	level waittill(#"game_ended");
+	self endon("remotemissle_killstreak_done");
+	level waittill("game_ended");
 	self thread player_missile_end(rocket, 1, 1, team, killstreak_id);
-	self notify(#"remotemissle_killstreak_done");
+	self notify("remotemissle_killstreak_done");
 }
 
 /*
@@ -277,7 +277,7 @@ function _fire(lifeid, player, team, killstreak_id)
 	player thread sndwatchexplo();
 	rocket spawning::create_entity_enemy_influencer("small_vehicle", rocket.team);
 	player util::freeze_player_controls(0);
-	player waittill(#"remotemissle_killstreak_done");
+	player waittill("remotemissle_killstreak_done");
 	return true;
 }
 
@@ -320,7 +320,7 @@ function hackedpostfunction(hacker)
 */
 function setup_rockect_map_icon()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	self clientfield::set("remote_missile_fired", 1);
 }
@@ -342,8 +342,8 @@ function watch_missile_kill_z()
 	}
 	rocket = self;
 	kill_z = level.remotemissile_kill_z;
-	rocket endon(#"remotemissle_killstreak_done");
-	rocket endon(#"death");
+	rocket endon("remotemissle_killstreak_done");
+	rocket endon("death");
 	while(rocket.origin[2] > kill_z)
 	{
 		wait(0.1);
@@ -362,11 +362,11 @@ function watch_missile_kill_z()
 */
 function watch_missile_death(rocket, team, killstreak_id)
 {
-	self endon(#"remotemissle_killstreak_done");
-	rocket waittill(#"death");
+	self endon("remotemissle_killstreak_done");
+	rocket waittill("death");
 	self thread player_missile_end(rocket, 1, 1, team, killstreak_id);
 	self thread remotemissile_bda_dialog();
-	self notify(#"remotemissle_killstreak_done");
+	self notify("remotemissle_killstreak_done");
 }
 
 /*
@@ -380,15 +380,15 @@ function watch_missile_death(rocket, team, killstreak_id)
 */
 function player_missile_end(rocket, performplayerkillstreakend, unlink, team, killstreak_id)
 {
-	self notify(#"player_missile_end_singleton");
-	self endon(#"player_missile_end_singleton");
+	self notify("player_missile_end_singleton");
+	self endon("player_missile_end_singleton");
 	if(isalive(rocket))
 	{
 		rocket spawning::remove_influencers();
 		rocket clientfield::set("remote_missile_fired", 0);
 		rocket delete();
 	}
-	self notify(#"snd1stpersonexplo");
+	self notify("snd1stpersonexplo");
 	if(isdefined(self))
 	{
 		self thread destroy_missile_hud();
@@ -412,7 +412,7 @@ function player_missile_end(rocket, performplayerkillstreakend, unlink, team, ki
 		{
 			self unlinkfrommissile();
 		}
-		self notify(#"remotemissile_done");
+		self notify("remotemissile_done");
 		self util::freeze_player_controls(0);
 		self killstreaks::clear_using_remote();
 		self enableweaponcycling();
@@ -433,8 +433,8 @@ function missile_brake_timeout_watch()
 {
 	rocket = self;
 	player = rocket.owner;
-	self endon(#"death");
-	self waittill(#"missile_brake");
+	self endon("death");
+	self waittill("missile_brake");
 	rocket playsound("wpn_remote_missile_brake_npc");
 	player playlocalsound("wpn_remote_missile_brake_plr");
 	wait(1.5);
@@ -455,7 +455,7 @@ function missile_brake_timeout_watch()
 */
 function stopondeath(snd)
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(snd))
 	{
 		snd delete();
@@ -473,10 +473,10 @@ function stopondeath(snd)
 */
 function cleanupwaiter(rocket, team, killstreak_id)
 {
-	self endon(#"remotemissle_killstreak_done");
+	self endon("remotemissle_killstreak_done");
 	self util::waittill_any("joined_team", "joined_spectators", "disconnect");
 	self thread player_missile_end(rocket, 0, 0, team, killstreak_id);
-	self notify(#"remotemissle_killstreak_done");
+	self notify("remotemissle_killstreak_done");
 }
 
 /*
@@ -490,13 +490,13 @@ function cleanupwaiter(rocket, team, killstreak_id)
 */
 function handledamage()
 {
-	self endon(#"death");
-	self endon(#"deleted");
+	self endon("death");
+	self endon("deleted");
 	self setcandamage(1);
 	self.health = 99999;
 	for(;;)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, meansofdeath, tagname, modelname, partname, weapon);
+		self waittill("damage", damage, attacker, direction_vec, point, meansofdeath, tagname, modelname, partname, weapon);
 		if(isdefined(attacker) && isdefined(self.owner))
 		{
 			if(self.owner util::isenemyplayer(attacker))
@@ -524,7 +524,7 @@ function handledamage()
 */
 function staticeffect(duration)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	staticbg = newclienthudelem(self);
 	staticbg.horzalign = "fullscreen";
 	staticbg.vertalign = "fullscreen";
@@ -558,7 +558,7 @@ function rocket_cleanupondeath()
 {
 	entitynumber = self getentitynumber();
 	level.rockets[entitynumber] = self;
-	self waittill(#"death");
+	self waittill("death");
 	level.rockets[entitynumber] = undefined;
 }
 
@@ -600,11 +600,11 @@ function missile_sound_play(player)
 */
 function missile_sound_boost(rocket)
 {
-	self endon(#"remotemissile_done");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
-	self endon(#"disconnect");
-	self waittill(#"missile_boost");
+	self endon("remotemissile_done");
+	self endon("joined_team");
+	self endon("joined_spectators");
+	self endon("disconnect");
+	self waittill("missile_boost");
 	rocket playsound("wpn_remote_missile_fire_boost_npc");
 	rocket.snd_third playloopsound("wpn_remote_missile_boost_npc");
 	self playlocalsound("wpn_remote_missile_fire_boost_plr");
@@ -612,7 +612,7 @@ function missile_sound_boost(rocket)
 	self playrumbleonentity("sniper_fire");
 	if((rocket.origin[2] - self.origin[2]) > 4000)
 	{
-		rocket notify(#"stop_impact_sound");
+		rocket notify("stop_impact_sound");
 		rocket thread missile_sound_impact(self, 6250);
 	}
 }
@@ -628,12 +628,12 @@ function missile_sound_boost(rocket)
 */
 function missile_sound_impact(player, distance)
 {
-	self endon(#"death");
-	self endon(#"stop_impact_sound");
-	player endon(#"disconnect");
-	player endon(#"remotemissile_done");
-	player endon(#"joined_team");
-	player endon(#"joined_spectators");
+	self endon("death");
+	self endon("stop_impact_sound");
+	player endon("disconnect");
+	player endon("remotemissile_done");
+	player endon("joined_team");
+	player endon("joined_spectators");
 	for(;;)
 	{
 		if((self.origin[2] - player.origin[2]) < distance)
@@ -656,13 +656,13 @@ function missile_sound_impact(player, distance)
 */
 function sndwatchexplo()
 {
-	self endon(#"remotemissle_killstreak_done");
-	self endon(#"remotemissile_done");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
-	self endon(#"disconnect");
+	self endon("remotemissle_killstreak_done");
+	self endon("remotemissile_done");
+	self endon("joined_team");
+	self endon("joined_spectators");
+	self endon("disconnect");
 	self endon(#"bomblets_deployed");
-	self waittill(#"snd1stpersonexplo");
+	self waittill("snd1stpersonexplo");
 	self playlocalsound("wpn_remote_missile_explode_plr");
 }
 
@@ -902,10 +902,10 @@ function destroy_missile_hud()
 */
 function targeting_hud_think(rocket)
 {
-	self endon(#"disconnect");
-	self endon(#"remotemissile_done");
-	rocket endon(#"death");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("remotemissile_done");
+	rocket endon("death");
+	level endon("game_ended");
 	targets = self getvalidtargets(rocket, 1, 6);
 	framessincetargetscan = 0;
 	while(true)
@@ -970,11 +970,11 @@ function targeting_hud_think(rocket)
 */
 function missile_deploy_watch(rocket)
 {
-	self endon(#"disconnect");
-	self endon(#"remotemissile_done");
-	rocket endon(#"remotemissile_bomblets_launched");
-	rocket endon(#"death");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("remotemissile_done");
+	rocket endon("remotemissile_bomblets_launched");
+	rocket endon("death");
+	level endon("game_ended");
 	wait(0.25);
 	self thread create_missile_hud(rocket);
 	while(true)
@@ -1001,7 +1001,7 @@ function missile_deploy_watch(rocket)
 */
 function missile_deploy(rocket, hacked)
 {
-	rocket notify(#"remotemissile_bomblets_launched");
+	rocket notify("remotemissile_bomblets_launched");
 	waitframes = 2;
 	explosionradius = 0;
 	targets = self getvalidtargets(rocket, 0, 6);
@@ -1015,12 +1015,12 @@ function missile_deploy(rocket, hacked)
 	}
 	if((rocket.origin[2] - self.origin[2]) > 4000)
 	{
-		rocket notify(#"stop_impact_sound");
+		rocket notify("stop_impact_sound");
 	}
 	if(hacked == 1)
 	{
 		rocket.originalowner thread hud::fade_to_black_for_x_sec(0, 0.15, 0, 0, "white");
-		self notify(#"remotemissile_done");
+		self notify("remotemissile_done");
 	}
 	rocket clientfield::set("remote_missile_fired", 2);
 	for(i = targets.size; i < 6; i++)
@@ -1043,7 +1043,7 @@ function missile_deploy(rocket, hacked)
 	self notify(#"bomblets_deployed");
 	if(hacked == 1)
 	{
-		rocket notify(#"death");
+		rocket notify("death");
 	}
 }
 
@@ -1058,15 +1058,15 @@ function missile_deploy(rocket, hacked)
 */
 function bomblet_camera_waiter(rocket)
 {
-	self endon(#"disconnect");
-	self endon(#"remotemissile_done");
-	rocket endon(#"death");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	self endon("remotemissile_done");
+	rocket endon("death");
+	level endon("game_ended");
 	delay = getdvarfloat("scr_rmbomblet_camera_delaytime", 1);
 	self waittill(#"bomblet_exploded");
 	wait(delay);
-	rocket notify(#"death");
-	self notify(#"remotemissile_done");
+	rocket notify("death");
+	self notify("remotemissile_done");
 }
 
 /*
@@ -1080,7 +1080,7 @@ function bomblet_camera_waiter(rocket)
 */
 function setup_bomblet_map_icon()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	self clientfield::set("remote_missile_bomblet_fired", 1);
 	self clientfield::set("enemyvehicle", 1);
@@ -1162,7 +1162,7 @@ function fire_random_bomblet(rocket, explosionradius, quadrant, waitframes)
 function cleanup_bombs(bomb)
 {
 	player = self;
-	bomb endon(#"death");
+	bomb endon("death");
 	player util::waittill_any("joined_team", "joined_spectators", "disconnect");
 	if(isdefined(bomb))
 	{
@@ -1183,11 +1183,11 @@ function cleanup_bombs(bomb)
 function bomblet_explostion_waiter(player)
 {
 	player thread cleanup_bombs(self);
-	player endon(#"disconnect");
-	player endon(#"remotemissile_done");
-	player endon(#"death");
-	level endon(#"game_ended");
-	self waittill(#"death");
+	player endon("disconnect");
+	player endon("remotemissile_done");
+	player endon("death");
+	level endon("game_ended");
+	self waittill("death");
 	player notify(#"bomblet_exploded");
 }
 

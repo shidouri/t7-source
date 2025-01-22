@@ -58,7 +58,7 @@ function function_6ab7f285()
 */
 function function_bf4fd572()
 {
-	level waittill(#"scene_skip_sequence_started");
+	level waittill("scene_skip_sequence_started");
 	util::clientnotify("sndCafeOR");
 }
 
@@ -249,7 +249,7 @@ function function_13172f06()
 	{
 		return;
 	}
-	trigger waittill(#"trigger");
+	trigger waittill("trigger");
 	playsoundatposition("evt_apt_wood_creak", (19421, -5113, 347));
 }
 
@@ -299,9 +299,9 @@ function takedown_scene()
 		thread function_a66aea7e(player);
 		thread function_fe8ea4c4(player);
 	}
-	level.ai_hendricks waittill(#"takedown_start");
+	level.ai_hendricks waittill("takedown_start");
 	thread function_4f84abfa();
-	level.ai_hendricks waittill(#"start_slowmo");
+	level.ai_hendricks waittill("start_slowmo");
 	thread function_a339da70();
 }
 
@@ -316,8 +316,8 @@ function takedown_scene()
 */
 function function_a66aea7e(player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("disconnect");
 	player waittill(#"hash_b8988b75");
 	if(!isdefined(player.anim_debug_name))
 	{
@@ -358,9 +358,9 @@ function function_a66aea7e(player)
 */
 function function_fe8ea4c4(player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	level.ai_hendricks waittill(#"takedown_start");
+	player endon("death");
+	player endon("disconnect");
+	level.ai_hendricks waittill("takedown_start");
 	if(!isdefined(player.anim_debug_name))
 	{
 		return;

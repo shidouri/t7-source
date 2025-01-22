@@ -126,7 +126,7 @@ function function_13d64112()
 	self notify(#"hash_dad9c949");
 	self endon(#"hash_dad9c949");
 	level endon(#"hash_dad9c949");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(isdefined(self))
 	{
 		wait(randomintrange(1, 8));

@@ -154,12 +154,12 @@ function function_11571878()
 	var_218752f9 hidepart("j_glow_purple");
 	var_218752f9 hidepart("j_glow_red");
 	level.var_97c56c3c moveto(v_pos, 0.05);
-	level.var_97c56c3c waittill(#"movedone");
+	level.var_97c56c3c waittill("movedone");
 	level.var_97c56c3c.angles = v_ang;
 	level.var_97c56c3c linkto(var_85b2b1ab, "mirg_cent_gun_tag_jnt");
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(zm_utility::is_player_valid(player))
 		{
 			if(level flag::get("ww1_found") && !level flag::get("wwup1_placed"))
@@ -194,7 +194,7 @@ function function_11571878()
 			}
 			else if(zm_utility::is_player_valid(player))
 			{
-				player notify(#"player_tried_pickup_mirg2000");
+				player notify("player_tried_pickup_mirg2000");
 			}
 		}
 	}
@@ -236,7 +236,7 @@ function function_255b7efb()
 	self.trigger = zm_island_util::spawn_trigger_radius(self.origin, 50, 1, &function_d23a4109);
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(player zm_hero_weapon::is_hero_weapon_in_use())
 		{
 			continue;
@@ -297,14 +297,14 @@ function private function_d23a4109(e_player)
 */
 function function_2578c564(str_flag)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(zm_utility::is_player_valid(player))
 		{
 			level.var_622692a9++;
-			player notify(#"player_got_ww_part");
+			player notify("player_got_ww_part");
 			zm_unitrigger::unregister_unitrigger(self.trigger);
 			level flag::set(str_flag);
 			if(str_flag == "ww3_found")
@@ -357,7 +357,7 @@ function function_9279976b(player)
 	player giveweapon(level.var_5e75629a);
 	player givemaxammo(level.var_5e75629a);
 	player switchtoweapon(level.var_5e75629a);
-	player notify(#"player_got_mirg2000");
+	player notify("player_got_mirg2000");
 	level clientfield::set("add_ww_to_box", 1);
 	player.var_3599826c = 1;
 	level.zombie_weapons[level.var_5e75629a].is_in_box = 1;
@@ -460,7 +460,7 @@ function function_659c2324(a_keys)
 */
 function function_97d5f905()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	var_1f4c3936 = undefined;
 	foreach(var_c3763c58 in level.chests)
@@ -541,7 +541,7 @@ function should_take_weapon()
 function function_6590511d()
 {
 	level flag::wait_till("power_on");
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	wait(randomintrange(5, 8));
 	while(true)
 	{
@@ -645,10 +645,10 @@ function function_f5d430d7()
 */
 function function_d7b19999()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(20);
 	self function_2fe542aa();
-	level notify(#"ww1_timed_out");
+	level notify("ww1_timed_out");
 	zm_unitrigger::unregister_unitrigger(self.trigger);
 	self delete();
 }
@@ -664,7 +664,7 @@ function function_d7b19999()
 */
 function function_2fe542aa()
 {
-	self endon(#"death");
+	self endon("death");
 	for(i = 0; i < 40; i++)
 	{
 		if(i % 2)
@@ -805,7 +805,7 @@ function function_9faff60c()
 	var_c120c3f6 = getent("clip_jungle_door", "targetname");
 	while(true)
 	{
-		self.trigger waittill(#"trigger");
+		self.trigger waittill("trigger");
 		if(!level.var_1dbad94a && !level flag::get("power_on"))
 		{
 			continue;
@@ -875,7 +875,7 @@ function function_9faff60c()
 			{
 				level.var_1a139831 scene::play("p7_fxanim_zm_island_cage_trap_spid_down_open_bundle", level.var_1a139831);
 				var_c120c3f6 movez(-100, 0.05);
-				var_c120c3f6 waittill(#"movedone");
+				var_c120c3f6 waittill("movedone");
 				var_c120c3f6 solid();
 				var_c120c3f6 disconnectpaths();
 			}
@@ -884,7 +884,7 @@ function function_9faff60c()
 		{
 			level.var_1a139831.mdl_clip connectpaths();
 			var_c120c3f6 movez(100, 0.05);
-			var_c120c3f6 waittill(#"movedone");
+			var_c120c3f6 waittill("movedone");
 			var_c120c3f6 connectpaths();
 		}
 		if(isdefined(level.var_90e478e7) && level.var_90e478e7 && (isdefined(level.var_1deeff56) && level.var_1deeff56))
@@ -968,7 +968,7 @@ function function_ebbb27ae()
 	var_799520c1 = struct::get("trap_pos");
 	while(true)
 	{
-		var_60532813 waittill(#"trigger", ai_zombie);
+		var_60532813 waittill("trigger", ai_zombie);
 		if(!ai_zombie.b_is_spider)
 		{
 			continue;
@@ -1011,7 +1011,7 @@ function function_ebbb27ae()
 			ai_zombie.e_mover.targetname = "tag_align";
 			ai_zombie linkto(ai_zombie.e_mover);
 			ai_zombie.e_mover moveto(var_799520c1.origin, 1);
-			ai_zombie.e_mover waittill(#"movedone");
+			ai_zombie.e_mover waittill("movedone");
 			ai_zombie.e_mover linkto(level.var_1a139831);
 			ai_zombie.e_mover thread scene::play("zm_dlc2_spider_trapped_in_cage_loop", ai_zombie);
 			level.var_67359403 = 1;
@@ -1188,7 +1188,7 @@ function function_baa845f4()
 */
 function function_1228bd27()
 {
-	self endon(#"death");
+	self endon("death");
 	v_moveto = undefined;
 	v_org = (-1135, 367, -115);
 	e_linkto = getent("cage_linkto", "targetname");
@@ -1249,7 +1249,7 @@ function function_cc882a46()
 	self.trigger = zm_island_util::spawn_trigger_radius(self.origin, 50, 1, &function_5521d6b5);
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(level flag::get("wwup1_found"))
 		{
 			var_218752f9 showpart("j_glow_red");
@@ -1336,10 +1336,10 @@ function private function_5521d6b5(player)
 */
 function function_9f93c407(player)
 {
-	player endon(#"player_upgraded_ww");
+	player endon("player_upgraded_ww");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(e_who == player && !e_who zm_hero_weapon::is_hero_weapon_in_use())
 		{
 			if(player zm_utility::in_revive_trigger())
@@ -1370,7 +1370,7 @@ function function_9f93c407(player)
 			player switchtoweapon(level.var_a4052592);
 			var_85b2b1ab = getent("wwup_station", "targetname");
 			var_85b2b1ab detach(level.var_7cb81d3c.model, "mirg_cent_gun_tag_jnt");
-			player notify(#"player_upgraded_ww");
+			player notify("player_upgraded_ww");
 		}
 	}
 }
@@ -1386,7 +1386,7 @@ function function_9f93c407(player)
 */
 function function_598781a4()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_5d5bf177");
 	level flag::wait_till("trilogy_released");
 	var_537f25a1 = getent("ww_upgrade_cave_blocker", "targetname");
@@ -1469,7 +1469,7 @@ function function_4ee53d8b(a_ents)
 function hatch_open(a_ents)
 {
 	level thread function_e3f30b83(1);
-	level waittill(#"open_hatch");
+	level waittill("open_hatch");
 	hatch_clip(0);
 	level.mdl_hatch thread scene::play("p7_fxanim_zm_island_cage_trap_hatch_open_bundle", level.mdl_hatch);
 	wait(3);
@@ -1516,7 +1516,7 @@ function hatch_clip(b_connect)
 		n_dist = -100;
 	}
 	level.var_2ba557f2 movez(n_dist, 0.05);
-	level.var_2ba557f2 waittill(#"movedone");
+	level.var_2ba557f2 waittill("movedone");
 	if(b_connect)
 	{
 		level.var_2ba557f2 connectpaths();
@@ -1601,7 +1601,7 @@ function function_961485f0()
 		{
 			util::wait_network_frame();
 		}
-		level.var_e48a6587 waittill(#"trigger", player);
+		level.var_e48a6587 waittill("trigger", player);
 		level notify(#"hash_9d1c8527");
 		if(level.var_f353ae68.is_moving)
 		{
@@ -1663,7 +1663,7 @@ function function_871dbb3a()
 	level.var_9fce15de setvisibletoall();
 	while(true)
 	{
-		level.var_9fce15de waittill(#"trigger", player);
+		level.var_9fce15de waittill("trigger", player);
 		if(level.var_f353ae68.is_moving)
 		{
 			continue;
@@ -1722,7 +1722,7 @@ function function_d452a2ca(player)
 */
 function function_e2cd4141()
 {
-	self waittill(#"charged");
+	self waittill("charged");
 	level.var_e48a6587.is_charged = 1;
 	if(!level.var_f353ae68.is_down && !level.var_326fd87.is_open)
 	{
@@ -1756,7 +1756,7 @@ function function_953bec10(str_state)
 	}
 	self rotateyaw(n_rotate, 2);
 	self playsound("evt_spider_gate_move");
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	if(str_state == "close")
 	{
 		self.is_open = 0;
@@ -1929,7 +1929,7 @@ function function_e3f30b83(b_charged)
 */
 function function_6a47d3d7()
 {
-	self endon(#"death");
+	self endon("death");
 	v_moveto = undefined;
 	v_org = (2671, 851, -687);
 	e_linkto = getent("cage_linkto", "targetname");
@@ -1985,10 +1985,10 @@ function function_72c5554a(str_flag)
 {
 	while(true)
 	{
-		self.var_1da52e7e waittill(#"trigger", player);
+		self.var_1da52e7e waittill("trigger", player);
 		if(zm_utility::is_player_valid(player))
 		{
-			player notify(#"player_got_ww_part");
+			player notify("player_got_ww_part");
 			zm_unitrigger::unregister_unitrigger(self);
 			level flag::set(str_flag);
 			self.var_1da52e7e = undefined;

@@ -168,9 +168,9 @@ function demongate_portal_rumble(localclientnum, oldval, newval, bnewent, biniti
 */
 function function_35e3ef91(localclientnum)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"hash_3e0789ec");
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
 		self playrumbleonentity(localclientnum, "zod_idgun_vortex_interior");

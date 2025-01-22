@@ -71,7 +71,7 @@ function main()
 */
 function function_d17ab8c6()
 {
-	level endon(#"connect_bunker_exterior_to_bunker_interior");
+	level endon("connect_bunker_exterior_to_bunker_interior");
 	level flag::init("power_on" + 3);
 	level thread function_9e6292be();
 	level thread function_bbe228f8();
@@ -103,12 +103,12 @@ function function_d17ab8c6()
 */
 function function_bbe228f8()
 {
-	level endon(#"connect_bunker_exterior_to_bunker_interior");
+	level endon("connect_bunker_exterior_to_bunker_interior");
 	zm_utility::add_zombie_hint("bunker_door_text", &"ZM_ISLAND_BUNKER_DOOR_OPEN");
 	var_25d5f24c = getent("door_bunker_main", "target");
 	while(true)
 	{
-		level waittill(#"override_bunker_door_string");
+		level waittill("override_bunker_door_string");
 		var_25d5f24c zm_utility::set_hint_string(var_25d5f24c, "bunker_door_text");
 	}
 }
@@ -267,7 +267,7 @@ function function_801ffa37()
 	var_ac878678 thread zm_power::electric_switch();
 	exploder::exploder("lgt_penstock");
 	level clientfield::set("penstock_fx_anim", 0);
-	var_ac878678 waittill(#"trigger", user);
+	var_ac878678 waittill("trigger", user);
 	level thread scene::play("p7_fxanim_zm_power_switch_bundle");
 	user zm_audio::create_and_play_dialog("general", "power_on");
 	level thread zm_island_vo::function_3bf2d62a("main_power_on", 1, 1, 1);
@@ -303,7 +303,7 @@ function function_e9f46546()
 	level.var_d3b40681[level.var_d3b40681.size] = var_e08b3d94;
 	var_e08b3d94 zm_ai_spiders::function_f375c6d9(1, 1);
 	var_e08b3d94.var_e084d7bd = 1;
-	var_e08b3d94 waittill(#"web_torn");
+	var_e08b3d94 waittill("web_torn");
 	level util::clientnotify("snd_valve");
 	level thread zm_island_vo::function_3bf2d62a("unblock_penstock", 0, 1, 0);
 	var_e08b3d94 zm_ai_spiders::function_f375c6d9(0);
@@ -386,7 +386,7 @@ function function_156f973e()
 	{
 		self setvisibletoall();
 		self setcursorhint("HINT_NOICON");
-		self waittill(#"trigger", user);
+		self waittill("trigger", user);
 		if(isdefined(user.var_6fd3d65c) && user.var_6fd3d65c && user.var_bb2fd41c === 3)
 		{
 			user thread function_a84a1aec(undefined, 1);
@@ -463,7 +463,7 @@ function function_156f973e()
 		{
 			self sethintstring(&"ZOMBIE_ELECTRIC_SWITCH_OFF");
 			self setvisibletoall();
-			self waittill(#"trigger", user);
+			self waittill("trigger", user);
 			self setinvisibletoall();
 		}
 		if(isdefined(master_switch))
@@ -472,7 +472,7 @@ function function_156f973e()
 		}
 		if(isdefined(master_switch))
 		{
-			master_switch waittill(#"rotatedone");
+			master_switch waittill("rotatedone");
 		}
 		level zm_power::turn_power_off_and_close_doors(power_zone);
 		self notify(#"hash_42c31433");
@@ -545,7 +545,7 @@ function function_e2e52f31()
 	self waittill(#"hash_42c31433");
 	self playsoundwithnotify("zmb_temp_power_off", "sounddone");
 	var_e2e52f31 stoploopsound(2);
-	self waittill(#"sounddone");
+	self waittill("sounddone");
 	var_e2e52f31 delete();
 }
 
@@ -566,7 +566,7 @@ function function_7963db9c(var_fb491867)
 	self waittill(#"hash_42c31433");
 	var_6575d157 stoploopsound(2);
 	var_6575d157 playsoundwithnotify("amb_gen_stop", "snd_done");
-	var_6575d157 waittill(#"snd_done");
+	var_6575d157 waittill("snd_done");
 	var_6575d157 delete();
 }
 
@@ -699,7 +699,7 @@ function function_3d11144a()
 	var_83cb019c = getent("bunker_door_clip_right", "targetname");
 	var_83cb019c linkto(var_1e9b1719, "door_rt_jnt");
 	e_closest_player = arraygetclosest(var_c0abb8f1.origin, level.activeplayers);
-	e_closest_player notify(#"player_opened_bunker");
+	e_closest_player notify("player_opened_bunker");
 	level scene::play("p7_fxanim_zm_island_bunker_door_main_bundle");
 	var_c0abb8f1 delete();
 	var_83cb019c delete();
@@ -724,7 +724,7 @@ function function_5c09306d(a_ai_zombies)
 	{
 		return;
 	}
-	level waittill(#"spawn_bunker_thrasher");
+	level waittill("spawn_bunker_thrasher");
 	var_4703465a = struct::get("spore_bunker_guarantee_convert", "targetname");
 	var_75e02ae0 = arraygetclosest(var_4703465a.origin, a_ai_zombies);
 	var_75e02ae0.var_cbbe29a9 = 0;
@@ -743,7 +743,7 @@ function function_5c09306d(a_ai_zombies)
 function function_83ead54e()
 {
 	/#
-		level waittill(#"open_sesame");
+		level waittill("open_sesame");
 		level.var_1dbad94a = 1;
 		zm_island_ww_quest::function_23d17338(level.var_1dbad94a);
 		level.var_2e16e689 = 1;
@@ -851,7 +851,7 @@ function private function_75656c0a()
 		}
 		while(true)
 		{
-			self.trigger waittill(#"trigger", e_who);
+			self.trigger waittill("trigger", e_who);
 			if(e_who clientfield::get_to_player("bucket_held"))
 			{
 				continue;
@@ -896,7 +896,7 @@ function private function_75656c0a()
 */
 function function_4b057b64()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("bucket_held", 0);
 	self.var_6fd3d65c = 0;
 	self.var_bb2fd41c = 0;
@@ -1095,13 +1095,13 @@ function function_3e519f17()
 	self setcursorhint("HINT_NOICON");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(!e_who clientfield::get_to_player("bucket_held"))
 		{
 			continue;
 		}
 		e_who thread function_a84a1aec(self.script_int);
-		e_who notify(#"player_filled_bucket");
+		e_who notify("player_filled_bucket");
 		/#
 			if(isdefined(e_who.playernum))
 			{
@@ -1125,7 +1125,7 @@ function function_d99ed9ac()
 	self sethintstring(&"");
 	while(true)
 	{
-		self waittill(#"touch", e_who);
+		self waittill("touch", e_who);
 		if(isvehicle(e_who))
 		{
 			e_player = e_who.e_parent;
@@ -1167,8 +1167,8 @@ function function_d99ed9ac()
 */
 function function_a7a30925()
 {
-	self endon(#"death");
-	self endon(#"sewer_over");
+	self endon("death");
+	self endon("sewer_over");
 	var_72b16720 = getent("water_source_ee", "targetname");
 	while(true)
 	{

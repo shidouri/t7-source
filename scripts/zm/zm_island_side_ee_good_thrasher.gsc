@@ -140,8 +140,8 @@ function on_player_connected()
 */
 function function_4aee2763()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level endon(#"hash_9fe92074");
 	var_199cfb62 = getentarray("mdl_good_thrasher_wall", "targetname");
 	var_c047302 = var_199cfb62[0];
@@ -195,7 +195,7 @@ function function_f3ed4502()
 	level.var_564761a3.var_480b39a3 clientfield::set("spore_grows", 3);
 	while(!(isdefined(var_f7ecb00a) && var_f7ecb00a))
 	{
-		self waittill(#"damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
+		self waittill("damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
 		self.health = 10000;
 		if(w_weapon.name === "hero_mirg2000_upgraded")
 		{
@@ -293,12 +293,12 @@ function function_c8310977()
 {
 	self endon(#"hash_593bd276");
 	self endon(#"hash_101ca32e");
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_1fb62748");
 	if(self.origin !== self.var_7117876c)
 	{
 		self moveto(self.var_7117876c, 1);
-		self waittill(#"movedone");
+		self waittill("movedone");
 	}
 	level.var_564761a3.var_480b39a3 clientfield::set("spore_grows", 3);
 	mdl_mushroom_clip = getent("mdl_mushroom_clip", "targetname");
@@ -307,7 +307,7 @@ function function_c8310977()
 	while(true)
 	{
 		mdl_mushroom_clip.health = 10000;
-		mdl_mushroom_clip waittill(#"damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
+		mdl_mushroom_clip waittill("damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
 		if(zm_utility::is_player_valid(e_attacker))
 		{
 			mdl_mushroom_clip setcandamage(0);
@@ -330,7 +330,7 @@ function function_ecaf0cc6()
 {
 	self endon(#"hash_593bd276");
 	self endon(#"hash_101ca32e");
-	self endon(#"death");
+	self endon("death");
 	b_exploded = 0;
 	while(!(isdefined(b_exploded) && b_exploded))
 	{
@@ -380,13 +380,13 @@ function function_784ed421()
 {
 	self endon(#"hash_1fb62748");
 	self endon(#"hash_593bd276");
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_101ca32e");
 	self setcandamage(0);
 	if(self.origin !== self.v_off_pos)
 	{
 		self moveto(self.v_off_pos, 1);
-		self waittill(#"movedone");
+		self waittill("movedone");
 	}
 	var_5cddf7a = level.var_564761a3.var_1cd02afb;
 	if(isdefined(var_5cddf7a))
@@ -399,7 +399,7 @@ function function_784ed421()
 	}
 	for(var_3c249619 = 3; var_3c249619 > 0; var_3c249619--)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 	}
 	level thread function_4724011d("ready");
 }
@@ -536,8 +536,8 @@ function function_cc07e4ad(var_66bbb0c0, s_org)
 */
 function function_c6cec92d(is_enemy, b_hero_weapon, e_attacker)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.var_d07c64b6))
 	{
 		self.var_d07c64b6 = 0;
@@ -586,7 +586,7 @@ function function_c6cec92d(is_enemy, b_hero_weapon, e_attacker)
 					self.var_d07c64b6 = 1;
 					if(isdefined(e_attacker))
 					{
-						e_attacker notify(#"update_challenge_3_1");
+						e_attacker notify("update_challenge_3_1");
 					}
 					if(b_hero_weapon)
 					{
@@ -641,7 +641,7 @@ function function_c6cec92d(is_enemy, b_hero_weapon, e_attacker)
 				{
 					self thread function_36f14fa1();
 					self thread function_7fa4a0dd();
-					self waittill(#"coughing_complete");
+					self waittill("coughing_complete");
 				}
 				else
 				{
@@ -687,7 +687,7 @@ function function_5115d0a7()
 			{
 				level flag::init("side_ee_good_thrasher_seen");
 				level flag::set("side_ee_good_thrasher_seen");
-				var_ab3b4634 notify(#"player_saw_good_thrasher_creation");
+				var_ab3b4634 notify("player_saw_good_thrasher_creation");
 			}
 			level.var_564761a3.var_ff07b157.var_d7bb540a = 0;
 		}
@@ -714,7 +714,7 @@ function function_8870fa6e()
 	var_3cec36e5 = arraygetclosest(self.origin, level.activeplayers);
 	if(zm_utility::is_player_valid(var_3cec36e5))
 	{
-		var_3cec36e5 notify(#"player_saw_good_thrasher_death");
+		var_3cec36e5 notify("player_saw_good_thrasher_death");
 	}
 	if(isalive(self))
 	{
@@ -734,10 +734,10 @@ function function_8870fa6e()
 */
 function function_2b2a9b70()
 {
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till("trigger_gas_hurt", "targetname", self);
 	wait(2);
-	self notify(#"gassed");
+	self notify("gassed");
 }
 
 /*
@@ -751,14 +751,14 @@ function function_2b2a9b70()
 */
 function function_d3e5e5f4()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		str_zone = self zm_utility::get_current_zone();
 		if(str_zone === "zone_bunker_prison" && level.var_5258ba34)
 		{
 			wait(3);
-			self notify(#"gassed");
+			self notify("gassed");
 		}
 		wait(1);
 	}
@@ -775,8 +775,8 @@ function function_d3e5e5f4()
 */
 function function_365b46bb()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self setmovespeedscale(1.3);
 	self setsprintduration(60);
 	self clientfield::set_to_player("speed_burst", 1);
@@ -802,7 +802,7 @@ function function_365b46bb()
 function function_97e9942()
 {
 	self endon(#"hash_dd8e5266");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self clientfield::increment_to_player("postfx_futz_mild");
@@ -821,8 +821,8 @@ function function_97e9942()
 */
 function function_6001fb15()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self disableweapons();
 	self disableusability();
 	self thread function_36f14fa1();
@@ -842,7 +842,7 @@ function function_6001fb15()
 */
 function function_703ef5e8()
 {
-	self notify(#"update_challenge_1_2");
+	self notify("update_challenge_1_2");
 	self.drownstage = 0;
 	self clientfield::set_to_player("drown_stage", 0);
 	self.lastwaterdamagetime = gettime();
@@ -861,7 +861,7 @@ function function_703ef5e8()
 function function_20ca7e14()
 {
 	self endon(#"hash_36dceca1");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self dodamage(self.health / 10, self.origin);
@@ -880,7 +880,7 @@ function function_20ca7e14()
 */
 function function_36f14fa1()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_dd8e5266");
 	if(self isinvehicle())
 	{
@@ -904,7 +904,7 @@ function function_36f14fa1()
 */
 function function_7fa4a0dd()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(self isinvehicle())
 	{
 		return;
@@ -912,7 +912,7 @@ function function_7fa4a0dd()
 	self function_2ce1c95f();
 	self util::waittill_any("fake_death", "death", "player_downed", "weapon_change_complete");
 	self function_909c515f();
-	self notify(#"coughing_complete");
+	self notify("coughing_complete");
 }
 
 /*

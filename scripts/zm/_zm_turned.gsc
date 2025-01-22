@@ -71,8 +71,8 @@ function setup_zombie_exerts()
 */
 function delay_turning_on_eyes()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	util::wait_network_frame();
 	wait(0.1);
 	self clientfield::set("player_has_eyes", 1);
@@ -114,8 +114,8 @@ function turn_to_zombie()
 	self clientfield::set("player_has_eyes", 0);
 	self ghost();
 	self turned_disable_player_weapons();
-	self notify(#"clear_red_flashing_overlay");
-	self notify(#"zombify");
+	self notify("clear_red_flashing_overlay");
+	self notify("zombify");
 	self.is_in_process_of_zombify = 1;
 	self.team = level.zombie_team;
 	self.pers["team"] = level.zombie_team;
@@ -222,10 +222,10 @@ function turn_to_human()
 	playsoundatposition("evt_disappear_3d", self.origin);
 	self clientfield::set("player_has_eyes", 0);
 	self ghost();
-	self notify(#"humanify");
+	self notify("humanify");
 	self.is_in_process_of_humanify = 1;
 	self.is_zombie = 0;
-	self notify(#"clear_red_flashing_overlay");
+	self notify("clear_red_flashing_overlay");
 	self.team = self.prevteam;
 	self.pers["team"] = self.prevteam;
 	self.sessionteam = self.prevteam;
@@ -354,8 +354,8 @@ function turned_give_melee_weapon()
 */
 function turned_player_buttons()
 {
-	self endon(#"disconnect");
-	self endon(#"humanify");
+	self endon("disconnect");
+	self endon("humanify");
 	level endon(#"end_game");
 	while(isdefined(self.is_zombie) && self.is_zombie)
 	{

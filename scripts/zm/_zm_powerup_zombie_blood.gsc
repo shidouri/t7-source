@@ -108,9 +108,9 @@ function function_73234659(player)
 */
 function zombie_blood_powerup(var_bae0d10b, e_player)
 {
-	e_player notify(#"zombie_blood");
-	e_player endon(#"zombie_blood");
-	e_player endon(#"disconnect");
+	e_player notify("zombie_blood");
+	e_player endon("zombie_blood");
+	e_player endon("disconnect");
 	e_player thread zm_powerups::powerup_vo("zombie_blood");
 	e_player._show_solo_hud = 1;
 	if(bgb::is_team_enabled("zm_bgb_temporal_gift"))
@@ -128,7 +128,7 @@ function zombie_blood_powerup(var_bae0d10b, e_player)
 	e_player.zombie_vars["zombie_powerup_zombie_blood_time"] = var_bf0a128b;
 	e_player.zombie_vars["zombie_powerup_zombie_blood_on"] = 1;
 	e_player setcharacterbodystyle(1);
-	level notify(#"player_zombie_blood", e_player);
+	level notify("player_zombie_blood", e_player);
 	visionset_mgr::activate("visionset", "zm_tomb_in_plain_sight", e_player, 0.5, var_bf0a128b, 0.5);
 	visionset_mgr::activate("overlay", "zm_tomb_in_plain_sight", e_player);
 	e_player clientfield::set("player_zombie_blood_fx", 1);
@@ -165,7 +165,7 @@ function zombie_blood_powerup(var_bae0d10b, e_player)
 		e_player.zombie_vars["zombie_powerup_zombie_blood_time"] = e_player.zombie_vars["zombie_powerup_zombie_blood_time"] - 0.05;
 	}
 	e_player setcharacterbodystyle(0);
-	e_player notify(#"zombie_blood_over");
+	e_player notify("zombie_blood_over");
 	if(isdefined(e_player.characterindex))
 	{
 		e_player playsound((("vox_plr_" + e_player.characterindex) + "_exert_grunt_") + randomintrange(0, 3));
@@ -196,8 +196,8 @@ function zombie_blood_powerup(var_bae0d10b, e_player)
 */
 function fx_disconnect_watch(e_player)
 {
-	self endon(#"death");
-	e_player waittill(#"disconnect");
+	self endon("death");
+	e_player waittill("disconnect");
 	self delete();
 }
 
@@ -214,8 +214,8 @@ function watch_zombie_blood_early_exit()
 {
 	self notify(#"early_exit_watch");
 	self endon(#"early_exit_watch");
-	self endon(#"zombie_blood_over");
-	self endon(#"disconnect");
+	self endon("zombie_blood_over");
+	self endon("disconnect");
 	util::waittill_any_ents_two(self, "player_downed", level, "end_game");
 	self.zombie_vars["zombie_powerup_zombie_blood_time"] = -0.05;
 	self.early_exit = 1;

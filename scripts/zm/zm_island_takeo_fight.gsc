@@ -161,7 +161,7 @@ function function_9c58350b()
 	self.var_2340346c = 0;
 	while(!level flag::get("takeo_freed") && (!(isdefined(self.var_2340346c) && self.var_2340346c)))
 	{
-		self waittill(#"damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
+		self waittill("damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
 		if(!self.takedamage)
 		{
 			continue;
@@ -449,7 +449,7 @@ function function_b64005e8(var_3a0318fc, str_state)
 */
 function function_75174ee()
 {
-	level endon(#"flag_play_outro_cutscene");
+	level endon("flag_play_outro_cutscene");
 	var_a175a10b = util::spawn_model("tag_origin", self.origin, self.angles);
 	var_a175a10b thread function_5c1adaf1();
 	self linkto(var_a175a10b);
@@ -457,9 +457,9 @@ function function_75174ee()
 	while(!level flag::get("flag_play_outro_cutscene"))
 	{
 		var_a175a10b rotateroll(-2, 5);
-		var_a175a10b waittill(#"rotatedone");
+		var_a175a10b waittill("rotatedone");
 		var_a175a10b rotateroll(2, 5);
-		var_a175a10b waittill(#"rotatedone");
+		var_a175a10b waittill("rotatedone");
 	}
 }
 
@@ -1217,7 +1217,7 @@ function function_4814eea9()
 	level.var_bbdc1f95.var_e7eb4096 thread function_bf38b3c9(1, 1);
 	while(!level flag::get("takeo_freed"))
 	{
-		var_c5d0d808 waittill(#"damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
+		var_c5d0d808 waittill("damage", n_damage, e_attacker, v_vector, v_point, str_means_of_death, str_string_1, str_string_2, str_string_3, w_weapon);
 		if(zombie_utility::is_player_valid(e_attacker) && w_weapon.name === "hero_mirg2000_upgraded" && function_9f1fd468() == "fight_end_ready")
 		{
 			level flag::set("takeo_freed");

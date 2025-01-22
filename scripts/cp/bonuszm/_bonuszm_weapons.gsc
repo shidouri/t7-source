@@ -344,12 +344,12 @@ function function_7e774306()
 	level.var_3d2f81f1 = getweapon("ar_standard");
 	while(true)
 	{
-		level waittill(#"scene_sequence_started");
+		level waittill("scene_sequence_started");
 		foreach(player in level.activeplayers)
 		{
 			player function_be94c003();
 		}
-		level waittill(#"scene_sequence_ended");
+		level waittill("scene_sequence_ended");
 		foreach(player in level.activeplayers)
 		{
 			player function_d5efb07f();

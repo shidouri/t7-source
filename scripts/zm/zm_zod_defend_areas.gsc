@@ -480,7 +480,7 @@ class careadefend
 			player zm_score::add_to_player_score(500);
 		}
 		[[m_func_succeed]](m_arg1, m_a_players_involved);
-		self notify(#"area_defend_completed");
+		self notify("area_defend_completed");
 	}
 
 	/*
@@ -530,7 +530,7 @@ class careadefend
 	*/
 	function function_877a7365()
 	{
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			var_c7ca004c = [];
@@ -553,7 +553,7 @@ class careadefend
 			while(isalive(e_target_player) && (!(isdefined(e_target_player.beastmode) && e_target_player.beastmode)) && !e_target_player laststand::player_is_in_laststand())
 			{
 				self setgoal(e_target_player);
-				self waittill(#"goal");
+				self waittill("goal");
 			}
 			wait(0.1);
 		}
@@ -570,7 +570,7 @@ class careadefend
 	*/
 	function function_df5ae14e(ai_zombie)
 	{
-		ai_zombie waittill(#"death");
+		ai_zombie waittill("death");
 		ai_zombie clientfield::set("keeper_fx", 0);
 	}
 
@@ -765,10 +765,10 @@ class careadefend
 	*/
 	function usetrigger_think()
 	{
-		self endon(#"area_defend_completed");
+		self endon("area_defend_completed");
 		while(true)
 		{
-			m_t_use waittill(#"trigger", e_triggerer);
+			m_t_use waittill("trigger", e_triggerer);
 			if(e_triggerer zm_utility::in_revive_trigger())
 			{
 				continue;
@@ -826,7 +826,7 @@ class careadefend
 	*/
 	function function_4e035595(player)
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 		if(isdefined(player.var_b999c630) && player.var_b999c630 || !level flag::get("ritual_in_progress"))
 		{
 			return;

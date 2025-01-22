@@ -112,7 +112,7 @@ function on_spawned()
 */
 function round_tracking()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		level waittill(#"end_of_round");
@@ -457,7 +457,7 @@ function earned_points_tracking()
 */
 function challenge_ingame_time_tracking()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"stop_challenge_ingame_time_tracking");
 	self endon(#"stop_challenge_ingame_time_tracking");
 	level flag::wait_till("start_zombie_round_logic");
@@ -514,7 +514,7 @@ function increment_windows_repaired(s_barrier)
 */
 function private rebuild_timer()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.b_dc_rebuild_timer_active = 1;
 	wait(45);
 	if(self.n_dc_barriers_rebuilt >= 5)
@@ -587,10 +587,10 @@ function increment_nuked_zombie()
 */
 function perk_purchase_tracking()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"perk_purchased", str_perk);
+		self waittill("perk_purchased", str_perk);
 		self zm_stats::increment_challenge_stat("ZM_DAILY_PURCHASE_PERKS");
 		/#
 			debug_print("");
@@ -609,10 +609,10 @@ function perk_purchase_tracking()
 */
 function perk_drink_tracking()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"perk_bought");
+		self waittill("perk_bought");
 		self zm_stats::increment_challenge_stat("ZM_DAILY_DRINK_PERKS");
 		/#
 			debug_print("");

@@ -179,12 +179,12 @@ function init_stage()
 		if(getplayers().size == 1 || getdvarint("") == 2)
 		{
 			getplayers()[0] giveweapon(level.w_shrink_ray_upgraded);
-			level notify(#"raise_crystal_1");
-			level notify(#"raise_crystal_2");
-			level notify(#"raise_crystal_3");
-			level notify(#"raise_crystal_4");
-			level notify(#"raise_crystal_5");
-			level notify(#"raise_crystal_6");
+			level notify("raise_crystal_1");
+			level notify("raise_crystal_2");
+			level notify("raise_crystal_3");
+			level notify("raise_crystal_4");
+			level notify("raise_crystal_5");
+			level notify("raise_crystal_6");
 		}
 	#/
 	level flag::clear("given_dynamite");
@@ -223,7 +223,7 @@ function delayed_start_skit()
 function dynamite_debug()
 {
 	/#
-		self endon(#"caught");
+		self endon("caught");
 		while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
 		{
 			print3d(self.origin, "", vectorscale((0, 1, 0), 255), 2);
@@ -243,7 +243,7 @@ function dynamite_debug()
 */
 function fire_in_the_hole()
 {
-	self endon(#"caught");
+	self endon("caught");
 	self.dropped = 1;
 	self unlink();
 	dest = struct::get(self.target, "targetname");
@@ -257,7 +257,7 @@ function fire_in_the_hole()
 	#/
 	self notsolid();
 	self moveto(dest.origin, 1.4, 0.2, 0);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest8", 5);
 	playsoundatposition("evt_sq_bag_dynamite_explosion", dest.origin);
@@ -279,16 +279,16 @@ function fire_in_the_hole()
 function butter_fingers()
 {
 	self endon(#"boom");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isdefined(who) && zombie_utility::is_player_valid(who))
 		{
 			who thread zm_audio::create_and_play_dialog("eggs", "quest8", 6);
 			who playsound("evt_sq_bag_dynamite_catch");
 			who._has_dynamite = 1;
-			self.owner_ent notify(#"caught");
+			self.owner_ent notify("caught");
 			self.owner_ent ghost();
 			who zm_sidequests::add_sidequest_icon("sq", "dynamite");
 			self delete();
@@ -308,7 +308,7 @@ function butter_fingers()
 */
 function give_me_the_boom_stick()
 {
-	level endon(#"sq_bag_over");
+	level endon("sq_bag_over");
 	wall = getent("sq_wall", "targetname");
 	wall solid();
 	level flag::wait_till("meteorite_shrunk");
@@ -338,7 +338,7 @@ function give_me_the_boom_stick()
 	not_given = 1;
 	while(not_given)
 	{
-		level._give_trig waittill(#"trigger", who);
+		level._give_trig waittill("trigger", who);
 		if(isplayer(who) && zombie_utility::is_player_valid(who) && isdefined(who._has_dynamite) && who._has_dynamite)
 		{
 			who._has_dynamite = undefined;
@@ -346,7 +346,7 @@ function give_me_the_boom_stick()
 			not_given = 0;
 		}
 	}
-	level notify(#"suspend_timer");
+	level notify("suspend_timer");
 	level._give_trig delete();
 	level._give_trig = undefined;
 	level function_69e4e9b6();
@@ -463,7 +463,7 @@ function resonate_runner()
 		level._resonate_time = level._resonate_time + 60;
 		return;
 	}
-	level endon(#"wrong_gong");
+	level endon("wrong_gong");
 	level flag::set("gongs_resonating");
 	while(level._resonate_time)
 	{
@@ -484,7 +484,7 @@ function resonate_runner()
 */
 function gong_resonate(player)
 {
-	level endon(#"kill_resonate");
+	level endon("kill_resonate");
 	self.ringing = 1;
 	if(isdefined(self.right_gong) && self.right_gong)
 	{
@@ -518,7 +518,7 @@ function gong_resonate(player)
 	}
 	if(self.right_gong == 0)
 	{
-		level notify(#"wrong_gong");
+		level notify("wrong_gong");
 		level._resonate_time = 0;
 		gongs = getentarray("sq_gong", "targetname");
 		for(i = 0; i < gongs.size; i++)
@@ -536,7 +536,7 @@ function gong_resonate(player)
 			}
 			gongs[i].ringing = 0;
 		}
-		level notify(#"kill_resonate");
+		level notify("kill_resonate");
 	}
 	wait(60);
 	if(self.right_gong && level._num_gongs >= 0)
@@ -576,7 +576,7 @@ function gong_goes_bong(in_stage, player)
 */
 function gong_handler()
 {
-	level endon(#"sq_bag_over");
+	level endon("sq_bag_over");
 	if(!isdefined(self.ringing))
 	{
 		self.ringing = 0;
@@ -584,7 +584,7 @@ function gong_handler()
 	self thread debug_gong();
 	while(true)
 	{
-		self waittill(#"triggered", who);
+		self waittill("triggered", who);
 		if(!self.ringing)
 		{
 			self gong_goes_bong(1, who);
@@ -605,7 +605,7 @@ function debug_gong()
 {
 	/#
 		level endon(#"bag_start");
-		level endon(#"sq_bag_over");
+		level endon("sq_bag_over");
 		while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
 		{
 			if(!self.ringing && self.right_gong)
@@ -636,7 +636,7 @@ function gong_wobble()
 	self useanimtree($generic);
 	while(true)
 	{
-		self waittill(#"triggered");
+		self waittill("triggered");
 		self animation::stop();
 		self thread animation::play("p7_fxanim_zm_sha_gong_anim", self.origin, self.angles);
 	}
@@ -662,7 +662,7 @@ function dud_gong_handler()
 	self thread debug_gong();
 	while(true)
 	{
-		self waittill(#"triggered");
+		self waittill("triggered");
 		if(!self.ringing)
 		{
 			self gong_goes_bong(0);
@@ -681,7 +681,7 @@ function dud_gong_handler()
 */
 function function_43e26f4d(player)
 {
-	level endon(#"sq_std_over");
+	level endon("sq_std_over");
 	struct = struct::get("sq_location_bag", "targetname");
 	if(!isdefined(struct))
 	{
@@ -689,22 +689,22 @@ function function_43e26f4d(player)
 	}
 	level._bag_sound_ent = spawn("script_origin", struct.origin);
 	level._bag_sound_ent playsoundwithnotify("vox_egg_story_5_0", "sounddone");
-	level._bag_sound_ent waittill(#"sounddone");
+	level._bag_sound_ent waittill("sounddone");
 	level._bag_sound_ent playsoundwithnotify("vox_egg_story_5_1", "sounddone");
-	level._bag_sound_ent waittill(#"sounddone");
+	level._bag_sound_ent waittill("sounddone");
 	level._bag_sound_ent playsoundwithnotify("vox_egg_story_5_2", "sounddone");
-	level._bag_sound_ent waittill(#"sounddone");
+	level._bag_sound_ent waittill("sounddone");
 	if(isdefined(player))
 	{
 		level.skit_vox_override = 1;
 		player playsoundwithnotify("vox_egg_story_5_3" + zm_temple_sq::function_26186755(player.characterindex), "vox_egg_sounddone");
-		player waittill(#"vox_egg_sounddone");
+		player waittill("vox_egg_sounddone");
 		level.skit_vox_override = 0;
 	}
 	level._bag_sound_ent playsoundwithnotify("vox_egg_story_5_4", "sounddone");
-	level._bag_sound_ent waittill(#"sounddone");
+	level._bag_sound_ent waittill("sounddone");
 	level._bag_sound_ent playsoundwithnotify("vox_egg_story_5_5", "sounddone");
-	level._bag_sound_ent waittill(#"sounddone");
+	level._bag_sound_ent waittill("sounddone");
 	level._bag_sound_ent delete();
 	level._bag_sound_ent = undefined;
 }
@@ -720,7 +720,7 @@ function function_43e26f4d(player)
 */
 function function_69e4e9b6()
 {
-	level endon(#"sq_std_over");
+	level endon("sq_std_over");
 	struct = struct::get("sq_location_bag", "targetname");
 	if(!isdefined(struct))
 	{
@@ -728,9 +728,9 @@ function function_69e4e9b6()
 	}
 	level._bag_sound_ent = spawn("script_origin", struct.origin);
 	level._bag_sound_ent playsoundwithnotify("vox_egg_story_5_7", "sounddone");
-	level._bag_sound_ent waittill(#"sounddone");
+	level._bag_sound_ent waittill("sounddone");
 	level._bag_sound_ent playsoundwithnotify("vox_egg_story_5_8", "sounddone");
-	level._bag_sound_ent waittill(#"sounddone");
+	level._bag_sound_ent waittill("sounddone");
 	level._bag_sound_ent delete();
 	level._bag_sound_ent = undefined;
 }

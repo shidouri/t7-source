@@ -261,7 +261,7 @@ function function_77ed1bae()
 */
 function private function_7882f69e(trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"hash_7b036079");
 	trigger notify(#"hash_fad6c90b");
 }
@@ -277,7 +277,7 @@ function private function_7882f69e(trigger)
 */
 function private function_524284e0()
 {
-	self endon(#"death");
+	self endon("death");
 	level thread function_7882f69e(self);
 	note = self util::waittill_any_return("trigger_wrong_match", "trigger_right_match", "trigger_fated", "death");
 	self triggerenable(0);
@@ -331,7 +331,7 @@ function private function_271ba816(var_26fc4461 = 0)
 	objective_set3d(self.id, 1, "default", "*");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		objective_state(self.id, "done");
 		if(!isplayer(guy))
 		{
@@ -757,7 +757,7 @@ function awardfate(type, rock)
 */
 function function_17fb777b(player, model, modelscale, fate_cb)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	if(!isdefined(modelscale))
 	{
 		modelscale = 1;
@@ -1054,7 +1054,7 @@ function function_be1e2cfc(guardian, var_526b2f85)
 {
 	msg = level util::waittill_any("graveofJusticeDone", "player_challenge_failure");
 	level clientfield::set("activateBanner", 0);
-	level waittill(#"fade_out_complete");
+	level waittill("fade_out_complete");
 	if(isdefined(level.doa.boss))
 	{
 		level.doa.boss delete();
@@ -1079,11 +1079,11 @@ function function_be1e2cfc(guardian, var_526b2f85)
 */
 function private function_5aaa5a64(shield)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_cb54277d");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(!isalive(guy))
 		{
 			continue;
@@ -1153,7 +1153,7 @@ function private function_d654dcd9()
 function private function_60a14daa(boss)
 {
 	self.boss = boss;
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateto(self.angles + vectorscale((0, 1, 0), 180), 2);
@@ -1188,7 +1188,7 @@ function private function_b1d23a45(boss)
 	while(self.health > 0)
 	{
 		lasthealth = self.health;
-		self waittill(#"damage", damage);
+		self waittill("damage", damage);
 		if(isdefined(self.var_e34a8df9))
 		{
 			self thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
@@ -1429,7 +1429,7 @@ function private function_c492e72d()
 	while(self.health > 0)
 	{
 		lasthealth = self.health;
-		self waittill(#"damage", damage, attacker);
+		self waittill("damage", damage, attacker);
 		data = doa_utility::clamp(self.health / self.maxhealth, 0, 1);
 		level clientfield::set("pumpBannerBar", data);
 		if(isdefined(attacker))
@@ -1496,8 +1496,8 @@ function private function_c492e72d()
 	}
 	self thread namespace_eaa992c::function_285a2999("stoneboss_death");
 	self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_died");
-	self notify(#"defeated");
-	level notify(#"defeated", self);
+	self notify("defeated");
+	level notify("defeated", self);
 	level notify(#"hash_cb54277d");
 }
 
@@ -1658,7 +1658,7 @@ function private function_b6a1fab3()
 */
 function function_3caf8e2(endtime)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	lastposition = self.origin;
 	stepsize = 20;
 	self clientfield::set("fated_boost", 1);
@@ -1712,7 +1712,7 @@ function private function_69ae5d15(loc)
 	{
 		return;
 	}
-	trigger endon(#"death");
+	trigger endon("death");
 	trigger.targetname = "furyhotspot";
 	trigger thread doa_utility::function_a625b5d3(self);
 	variance = randomfloatrange(0, 3);
@@ -1722,7 +1722,7 @@ function private function_69ae5d15(loc)
 	while(gettime() < timeleft)
 	{
 		wait(0.05);
-		trigger waittill(#"trigger", guy);
+		trigger waittill("trigger", guy);
 		if(isplayer(guy))
 		{
 			continue;
@@ -1769,7 +1769,7 @@ function private function_9fc6e261()
 {
 	self notify(#"hash_9fc6e261");
 	self endon(#"hash_9fc6e261");
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	wait(0.05);
 	if(isdefined(corpse))
 	{

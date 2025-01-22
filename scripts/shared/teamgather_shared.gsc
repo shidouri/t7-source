@@ -187,7 +187,7 @@ class cteamgather
 	*/
 	function display_hud_player_team_member(e_player)
 	{
-		e_player endon(#"disconnect");
+		e_player endon("disconnect");
 		y_start = 180;
 		x_off = 0;
 		y_off = y_start;
@@ -235,7 +235,7 @@ class cteamgather
 	*/
 	function display_hud_player_leader(e_player)
 	{
-		e_player endon(#"disconnect");
+		e_player endon("disconnect");
 		y_start = 180;
 		x_off = 0;
 		y_off = y_start;
@@ -676,7 +676,7 @@ class cteamgather
 	function onusegameobject(player)
 	{
 		c_teamgather.m_e_player_leader = player;
-		self notify(#"player_interaction");
+		self notify("player_interaction");
 	}
 
 	/*
@@ -800,7 +800,7 @@ class cteamgather
 		m_v_gather_position = v_gather_pos;
 		e_gameobject = setup_gameobject(v_interact_pos, undefined, &"TEAM_GATHER_HOLD_FOR_TEAM_ENTER", m_e_interact_entity);
 		e_gameobject.c_teamgather = self;
-		e_gameobject waittill(#"player_interaction");
+		e_gameobject waittill("player_interaction");
 		e_gameobject gameobjects::disable_object();
 		spawn_floor_effect();
 		interact_entity_highlight(1);

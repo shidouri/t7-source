@@ -105,7 +105,7 @@ function __init__()
 function on_player_spawned()
 {
 	self zm_perks::perk_set_max_health_if_jugg("health_reboot", 1, 0);
-	self notify(#"nohealthoverlay");
+	self notify("nohealthoverlay");
 	self thread playerhealthregen();
 }
 
@@ -135,11 +135,11 @@ function player_health_visionset()
 */
 function playerhurtcheck()
 {
-	self endon(#"nohealthoverlay");
+	self endon("nohealthoverlay");
 	self.hurtagain = 0;
 	for(;;)
 	{
-		self waittill(#"damage", amount, attacker, dir, point, mod);
+		self waittill("damage", amount, attacker, dir, point, mod);
 		if(isdefined(attacker) && isplayer(attacker) && attacker.team == self.team)
 		{
 			continue;
@@ -161,10 +161,10 @@ function playerhurtcheck()
 */
 function playerhealthregen()
 {
-	self notify(#"playerhealthregen");
-	self endon(#"playerhealthregen");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("playerhealthregen");
+	self endon("playerhealthregen");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.flag))
 	{
 		self.flag = [];
@@ -295,7 +295,7 @@ function playerhealthregen()
 			#/
 		}
 		oldratio = self.health / self.maxhealth;
-		level notify(#"hit_again");
+		level notify("hit_again");
 		health_add = 0;
 		hurttime = gettime();
 		self startfadingblur(3, 0.8);
@@ -311,7 +311,7 @@ function playerhealthregen()
 			continue;
 		}
 		self flag::set("player_is_invulnerable");
-		level notify(#"player_becoming_invulnerable");
+		level notify("player_becoming_invulnerable");
 		if(playerjustgotredflashing)
 		{
 			invultime = level.invultime_onshield;
@@ -348,8 +348,8 @@ function playerhealthregen()
 */
 function playerinvul(timer)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(timer > 0)
 	{
 		/#
@@ -371,8 +371,8 @@ function playerinvul(timer)
 */
 function healthoverlay()
 {
-	self endon(#"disconnect");
-	self endon(#"nohealthoverlay");
+	self endon("disconnect");
+	self endon("nohealthoverlay");
 	if(!isdefined(self._health_overlay))
 	{
 		self._health_overlay = newclienthudelem(self);
@@ -451,15 +451,15 @@ function fadefunc(overlay, severity, mult, hud_scaleonly)
 */
 function watchhideredflashingoverlay(overlay)
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	while(isdefined(overlay))
 	{
-		self waittill(#"clear_red_flashing_overlay");
+		self waittill("clear_red_flashing_overlay");
 		self clientfield::set_to_player("sndZombieHealth", 0);
 		self flag::clear("player_has_red_flashing_overlay");
 		overlay fadeovertime(0.05);
 		overlay.alpha = 0;
-		self notify(#"hit_again");
+		self notify("hit_again");
 	}
 }
 
@@ -474,11 +474,11 @@ function watchhideredflashingoverlay(overlay)
 */
 function redflashingoverlay(overlay)
 {
-	self endon(#"hit_again");
-	self endon(#"damage");
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"clear_red_flashing_overlay");
+	self endon("hit_again");
+	self endon("damage");
+	self endon("death");
+	self endon("disconnect");
+	self endon("clear_red_flashing_overlay");
 	self.stopflashingbadlytime = gettime() + level.longregentime;
 	if(!(isdefined(self.is_in_process_of_zombify) && self.is_in_process_of_zombify) && (!(isdefined(self.is_zombie) && self.is_zombie)))
 	{
@@ -501,7 +501,7 @@ function redflashingoverlay(overlay)
 	self flag::clear("player_has_red_flashing_overlay");
 	self clientfield::set_to_player("sndZombieHealth", 0);
 	wait(0.5);
-	self notify(#"hit_again");
+	self notify("hit_again");
 }
 
 /*
@@ -515,7 +515,7 @@ function redflashingoverlay(overlay)
 */
 function healthoverlay_remove(overlay)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self util::waittill_any("noHealthOverlay", "death");
 	overlay fadeovertime(3.5);
 	overlay.alpha = 0;

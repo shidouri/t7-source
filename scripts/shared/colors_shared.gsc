@@ -414,7 +414,7 @@ function debugcolorfriendlies()
 		level thread debugcolorfriendliestogglewatch();
 		for(;;)
 		{
-			level waittill(#"updated_color_friendlies");
+			level waittill("updated_color_friendlies");
 			draw_color_friendlies();
 		}
 	#/
@@ -489,7 +489,7 @@ function get_script_palette()
 function draw_color_friendlies()
 {
 	/#
-		level endon(#"updated_color_friendlies");
+		level endon("updated_color_friendlies");
 		keys = getarraykeys(level.debug_color_friendlies);
 		colored_friendlies = [];
 		colors = [];
@@ -700,7 +700,7 @@ function get_colorcodes_from_trigger(color_team, team)
 */
 function trigger_issues_orders(color_team, team)
 {
-	self endon(#"death");
+	self endon("death");
 	array = get_colorcodes_from_trigger(color_team, team);
 	colorcodes = array["colorCodes"];
 	colorcodesbycolorindex = array["colorCodesByColorIndex"];
@@ -734,7 +734,7 @@ function trigger_issues_orders(color_team, team)
 	}
 	for(;;)
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		if(isdefined(self.activated_color_trigger))
 		{
 			self.activated_color_trigger = undefined;
@@ -873,9 +873,9 @@ function hero_catch_up_teleport(s_teleport, n_min_dist_from_player = 400, b_disa
 {
 	self notify(#"_hero_catch_up_teleport_");
 	self endon(#"_hero_catch_up_teleport_");
-	self endon(#"stop_hero_catch_up_teleport");
+	self endon("stop_hero_catch_up_teleport");
 	n_min_player_dist_sq = n_min_dist_from_player * n_min_dist_from_player;
-	self endon(#"death");
+	self endon("death");
 	a_teleport = s_teleport;
 	if(!isdefined(a_teleport))
 	{
@@ -947,7 +947,7 @@ function hero_catch_up_teleport(s_teleport, n_min_dist_from_player = 400, b_disa
 					{
 						self pathmode("move allowed");
 						s.teleport_cooldown = gettime() + 2000;
-						self notify(#"hero_catch_up_teleport");
+						self notify("hero_catch_up_teleport");
 						if(b_disable_colors)
 						{
 							disable();
@@ -1290,7 +1290,7 @@ function issue_color_order_to_ai(colorcode, color, team, ai)
 */
 function take_color_node(node, colorcode, trigger, counter)
 {
-	self notify(#"stop_color_move");
+	self notify("stop_color_move");
 	self.script_careful = 1;
 	self.currentcolorcode = colorcode;
 	self thread process_color_order_to_ai(node, trigger, counter);
@@ -1444,7 +1444,7 @@ function occupies_colorcode(colorcode)
 */
 function ai_sets_goal_with_delay(node)
 {
-	self endon(#"death");
+	self endon("death");
 	delay = my_current_node_delays();
 	if(delay)
 	{
@@ -1464,7 +1464,7 @@ function ai_sets_goal_with_delay(node)
 */
 function ai_sets_goal(node)
 {
-	self notify(#"stop_going_to_node");
+	self notify("stop_going_to_node");
 	set_goal_and_volume(node);
 	volume = level.colorcoded_volumes[self.team][self.currentcolorcode];
 }
@@ -1482,7 +1482,7 @@ function set_goal_and_volume(node)
 {
 	if(isdefined(self._colors_go_line))
 	{
-		self notify(#"colors_go_line_done");
+		self notify("colors_go_line_done");
 		self._colors_go_line = undefined;
 	}
 	if(isdefined(node.radius) && node.radius)
@@ -1527,10 +1527,10 @@ function set_goal_and_volume(node)
 */
 function color_force_goal(node)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread ai::force_goal(node, undefined, 1, "stop_color_forcegoal", 1);
 	self util::waittill_either("goal", "stop_color_move");
-	self notify(#"stop_color_forcegoal");
+	self notify("stop_color_forcegoal");
 }
 
 /*
@@ -1544,9 +1544,9 @@ function color_force_goal(node)
 */
 function careful_logic(node, volume)
 {
-	self endon(#"death");
-	self endon(#"stop_being_careful");
-	self endon(#"stop_going_to_node");
+	self endon("death");
+	self endon("stop_being_careful");
+	self endon("stop_going_to_node");
 	thread recover_from_careful_disable(node);
 	for(;;)
 	{
@@ -1567,9 +1567,9 @@ function careful_logic(node, volume)
 */
 function recover_from_careful_disable(node)
 {
-	self endon(#"death");
-	self endon(#"stop_going_to_node");
-	self waittill(#"stop_being_careful");
+	self endon("death");
+	self endon("stop_going_to_node");
+	self waittill("stop_being_careful");
 	set_goal_and_volume(node);
 }
 
@@ -1684,8 +1684,8 @@ function my_current_node_delays()
 function process_color_order_to_ai(node, trigger, counter)
 {
 	thread decrementcolorusers(node);
-	self endon(#"stop_color_move");
-	self endon(#"death");
+	self endon("stop_color_move");
+	self endon("death");
 	if(isdefined(trigger))
 	{
 		trigger util::script_delay();
@@ -1708,7 +1708,7 @@ function process_color_order_to_ai(node, trigger, counter)
 	self.color_ordered_node_assignment = node;
 	for(;;)
 	{
-		self waittill(#"node_taken", taker);
+		self waittill("node_taken", taker);
 		if(taker == self)
 		{
 			wait(0.05);
@@ -1804,8 +1804,8 @@ function get_best_available_new_colored_node()
 */
 function process_stop_short_of_node(node)
 {
-	self endon(#"stopscript");
-	self endon(#"death");
+	self endon("stopscript");
+	self endon("death");
 	if(isdefined(self.node))
 	{
 		return;
@@ -1835,7 +1835,7 @@ function process_stop_short_of_node(node)
 */
 function wait_for_killanimscript_or_time(timer)
 {
-	self endon(#"killanimscript");
+	self endon("killanimscript");
 	wait(timer);
 }
 
@@ -1885,8 +1885,8 @@ function decrementcolorusers(node)
 	/#
 		self.color_node_debug_val = 1;
 	#/
-	self endon(#"stop_color_move");
-	self waittill(#"death");
+	self endon("stop_color_move");
+	self waittill("death");
 	self.color_node.color_user = undefined;
 }
 
@@ -1989,7 +1989,7 @@ function left_color_node()
 		self.color_node.color_user = undefined;
 	}
 	self.color_node = undefined;
-	self notify(#"stop_color_move");
+	self notify("stop_color_move");
 }
 
 /*
@@ -2091,7 +2091,7 @@ function add_path_node(type)
 */
 function colornode_spawn_reinforcement(classname, fromcolor)
 {
-	level endon(#"kill_color_replacements");
+	level endon("kill_color_replacements");
 	friendly_spawners_type = getclasscolorhash(classname, fromcolor);
 	while(level.friendly_spawners_types[friendly_spawners_type] > 0)
 	{
@@ -2126,7 +2126,7 @@ function colornode_spawn_reinforcement(classname, fromcolor)
 				wait(1);
 				continue;
 			}
-			level notify(#"reinforcement_spawned", spawn);
+			level notify("reinforcement_spawned", spawn);
 			break;
 		}
 		for(;;)
@@ -2165,7 +2165,7 @@ function colornode_spawn_reinforcement(classname, fromcolor)
 */
 function colornode_replace_on_death()
 {
-	level endon(#"kill_color_replacements");
+	level endon("kill_color_replacements");
 	/#
 		assert(isalive(self), "");
 	#/
@@ -2187,7 +2187,7 @@ function colornode_replace_on_death()
 	waittillframeend();
 	if(isalive(self))
 	{
-		self waittill(#"death");
+		self waittill("death");
 	}
 	color_order = level.current_color_order;
 	if(!isdefined(self.script_forcecolor))
@@ -2456,7 +2456,7 @@ function player_sees_spawner()
 function kill_color_replacements()
 {
 	level flag::clear("friendly_spawner_locked");
-	level notify(#"kill_color_replacements");
+	level notify("kill_color_replacements");
 	level.friendly_spawners_types = undefined;
 	ai = getaiarray();
 	array::thread_all(ai, &remove_replace_on_death);
@@ -2534,7 +2534,7 @@ function remove_colorforced_ai_when_dead(ai)
 {
 	script_forcecolor = ai.script_forcecolor;
 	team = ai.team;
-	ai waittill(#"death");
+	ai waittill("death");
 	level.arrays_of_colorforced_ai[team][script_forcecolor] = array::remove_undefined(level.arrays_of_colorforced_ai[team][script_forcecolor]);
 }
 
@@ -2581,11 +2581,11 @@ function set_force_color_spawner(color)
 */
 function new_color_being_set(color)
 {
-	self notify(#"new_color_being_set");
+	self notify("new_color_being_set");
 	self.new_force_color_being_set = 1;
 	left_color_node();
-	self endon(#"new_color_being_set");
-	self endon(#"death");
+	self endon("new_color_being_set");
+	self endon("death");
 	waittillframeend();
 	waittillframeend();
 	if(isdefined(self.script_forcecolor))
@@ -2594,7 +2594,7 @@ function new_color_being_set(color)
 		self thread goto_current_colorindex();
 	}
 	self.new_force_color_being_set = undefined;
-	self notify(#"done_setting_new_color");
+	self notify("done_setting_new_color");
 	/#
 		update_debug_friendlycolor();
 	#/
@@ -2611,9 +2611,9 @@ function new_color_being_set(color)
 */
 function update_debug_friendlycolor_on_death()
 {
-	self notify(#"debug_color_update");
-	self endon(#"debug_color_update");
-	self waittill(#"death");
+	self notify("debug_color_update");
+	self endon("debug_color_update");
+	self waittill("death");
 	/#
 		a_keys = getarraykeys(level.debug_color_friendlies);
 		foreach(n_key in a_keys)
@@ -2625,7 +2625,7 @@ function update_debug_friendlycolor_on_death()
 			}
 		}
 	#/
-	level notify(#"updated_color_friendlies");
+	level notify("updated_color_friendlies");
 }
 
 /*
@@ -2648,7 +2648,7 @@ function update_debug_friendlycolor()
 	{
 		level.debug_color_friendlies[self getentitynumber()] = undefined;
 	}
-	level notify(#"updated_color_friendlies");
+	level notify("updated_color_friendlies");
 }
 
 /*
@@ -2751,13 +2751,13 @@ function disable(stop_being_careful)
 {
 	if(isdefined(self.new_force_color_being_set))
 	{
-		self endon(#"death");
-		self waittill(#"done_setting_new_color");
+		self endon("death");
+		self waittill("done_setting_new_color");
 	}
 	if(isdefined(stop_being_careful) && stop_being_careful)
 	{
-		self notify(#"stop_going_to_node");
-		self notify(#"stop_being_careful");
+		self notify("stop_going_to_node");
+		self notify("stop_being_careful");
 	}
 	self clearfixednodesafevolume();
 	if(!isdefined(self.script_forcecolor))

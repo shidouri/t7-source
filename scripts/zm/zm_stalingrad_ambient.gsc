@@ -179,10 +179,10 @@ function function_8c898920()
 */
 function function_20bdb71()
 {
-	level endon(#"nikolai_start");
+	level endon("nikolai_start");
 	for(i = 0; i < 2; i++)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 	}
 }
 

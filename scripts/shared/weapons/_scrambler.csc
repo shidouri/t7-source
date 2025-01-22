@@ -413,7 +413,7 @@ function checkforplayerswitch()
 {
 	while(true)
 	{
-		level waittill(#"player_switch");
+		level waittill("player_switch");
 		waittillframeend();
 		players = level.localplayers;
 		for(localclientnum = 0; localclientnum < players.size; localclientnum++)

@@ -210,7 +210,7 @@ function function_f7d960ba()
 */
 function function_70a7429b(var_25bc1c51)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	a_str_names = array("boxer", "detective", "femme", "magician");
 	s_centerpoint = struct::get("defend_area_" + a_str_names[var_25bc1c51], "targetname");
 	var_33e67e27 = 0;
@@ -381,7 +381,7 @@ function quest_key_trigger_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -642,7 +642,7 @@ function function_58fe842c()
 	b_triggered = 0;
 	while(!b_triggered)
 	{
-		var_eb09d2ff waittill(#"trigger", e_triggerer);
+		var_eb09d2ff waittill("trigger", e_triggerer);
 		if(zm_utility::is_player_valid(e_triggerer) && (!(isdefined(e_triggerer.beastmode) && e_triggerer.beastmode)))
 		{
 			level clientfield::set("keeper_subway_fx", 1);
@@ -752,7 +752,7 @@ function function_411c908f()
 */
 function function_2d0c5aa1(s_spawn_point)
 {
-	self endon(#"death");
+	self endon("death");
 	self.script_string = "find_flesh";
 	self setphysparams(15, 0, 72);
 	self.ignore_enemy_count = 1;
@@ -769,7 +769,7 @@ function function_2d0c5aa1(s_spawn_point)
 		self zombie_utility::set_zombie_run_cycle("run");
 	}
 	find_flesh_struct_string = "find_flesh";
-	self notify(#"zombie_custom_think_done", find_flesh_struct_string);
+	self notify("zombie_custom_think_done", find_flesh_struct_string);
 	self.variant_type = randomint(4);
 	self.nocrawler = 1;
 	self.zm_variant_type_max = [];
@@ -782,7 +782,7 @@ function function_2d0c5aa1(s_spawn_point)
 	self.zm_variant_type_max["run"]["up"] = 4;
 	self.zm_variant_type_max["sprint"]["down"] = 4;
 	self.zm_variant_type_max["sprint"]["up"] = 4;
-	self waittill(#"completed_emerging_into_playable_area");
+	self waittill("completed_emerging_into_playable_area");
 	self.no_powerups = 1;
 }
 
@@ -797,7 +797,7 @@ function function_2d0c5aa1(s_spawn_point)
 */
 function function_efbd4abf(ai_zombie, s_spawn_point)
 {
-	ai_zombie waittill(#"death");
+	ai_zombie waittill("death");
 	if(isdefined(ai_zombie))
 	{
 		ai_zombie clientfield::set("keeper_fx", 0);
@@ -1422,7 +1422,7 @@ function ritual_pap_succeed()
 		mdl_gateworm movez(64, 3);
 		mdl_gateworm rotateyaw(180, 3);
 	}
-	level notify(#"ritual_pap_succeed");
+	level notify("ritual_pap_succeed");
 	level flag::set("ritual_pap_complete");
 	hidemiscmodels("gatestone_unbroken");
 	level clientfield::set("ritual_current", 0);
@@ -1459,7 +1459,7 @@ function ritual_pap_succeed()
 */
 function ritual_pap_fail()
 {
-	level notify(#"ritual_pap_fail");
+	level notify("ritual_pap_fail");
 	level clientfield::set("ritual_current", 0);
 	level.pap_altar_active = 0;
 }
@@ -1577,8 +1577,8 @@ function pap_door_watch_for_ritual(str_name)
 */
 function pap_door_watch_for_explosion()
 {
-	level notify(#"pap_door_watch_for_explosion");
-	level endon(#"pap_door_watch_for_explosion");
+	level notify("pap_door_watch_for_explosion");
+	level endon("pap_door_watch_for_explosion");
 	t_pap_door = getent("pap_door_trigger", "targetname");
 	while(true)
 	{
@@ -1901,7 +1901,7 @@ function basin_trigger_thread()
 	str_gateworm_held = undefined;
 	while(!level flag::get("ritual_pap_complete"))
 	{
-		self waittill(#"trigger", e_triggerer);
+		self waittill("trigger", e_triggerer);
 		if(zombie_utility::is_player_valid(e_triggerer))
 		{
 			str_gateworm_held = function_7839dceb();
@@ -2227,7 +2227,7 @@ function monitor_wallrun_trigger(t_wallrun)
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_triggerer);
+		self waittill("trigger", e_triggerer);
 		if(!(isdefined(e_triggerer.b_wall_run_enabled) && e_triggerer.b_wall_run_enabled))
 		{
 			e_triggerer thread enable_wallrun(self);
@@ -2246,7 +2246,7 @@ function monitor_wallrun_trigger(t_wallrun)
 */
 function enable_wallrun(t_trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.beastmode) && self.beastmode)
 	{
 		return;
@@ -2350,8 +2350,8 @@ function function_c3e5d4f(var_f7225255, b_on)
 */
 function watch_central_traversal(a_flags)
 {
-	self notify(#"watch_central_traversal");
-	self endon(#"watch_central_traversal");
+	self notify("watch_central_traversal");
+	self endon("watch_central_traversal");
 	str_traversal = "pap_mid_jump_72";
 	nd_traversal = getnode(str_traversal, "targetname");
 	e_monster_clip = getent("pap_chamber_middle_island_monster_clip", "targetname");
@@ -2382,7 +2382,7 @@ function pap_chasm_killtrigger()
 	level thread function_64cb1f9b("pap_chasm_side_near", 0);
 	while(true)
 	{
-		t_kill waittill(#"trigger", e_triggerer);
+		t_kill waittill("trigger", e_triggerer);
 		if(isplayer(e_triggerer))
 		{
 			if(!(isdefined(e_triggerer.beastmode) && e_triggerer.beastmode))
@@ -2418,7 +2418,7 @@ function function_64cb1f9b(str_trigger_name, var_f8826470)
 	var_b354bc3b = getent(str_trigger_name, "targetname");
 	while(true)
 	{
-		var_b354bc3b waittill(#"trigger", e_triggerer);
+		var_b354bc3b waittill("trigger", e_triggerer);
 		if(isplayer(e_triggerer))
 		{
 			e_triggerer.var_d9394bfb = var_f8826470;
@@ -2468,8 +2468,8 @@ function player_death_watcher()
 		self thread [[level.player_death_watcher_custom_func]]();
 		return;
 	}
-	self notify(#"player_death_watcher");
-	self endon(#"player_death_watcher");
+	self notify("player_death_watcher");
+	self endon("player_death_watcher");
 	/#
 		iprintlnbold("");
 	#/
@@ -2732,7 +2732,7 @@ function function_a6838c4f()
 		var_eadb7e53.org_angles = var_eadb7e53.angles;
 	}
 	var_eadb7e53 useanimtree($generic);
-	level notify(#"pack_a_punch_on");
+	level notify("pack_a_punch_on");
 }
 
 /*
@@ -2746,8 +2746,8 @@ function function_a6838c4f()
 */
 function function_5630c228(player, trigger, origin_offset, angles_offset)
 {
-	level endon(#"pack_a_punch_off");
-	trigger endon(#"pap_player_disconnected");
+	level endon("pack_a_punch_off");
+	trigger endon("pap_player_disconnected");
 	var_c7c7077b = struct::get("pap_portal_center", "targetname");
 	var_eadb7e53 = getent("pap_tentacle", "targetname");
 	if(!isdefined(var_eadb7e53.org_angles))
@@ -2800,8 +2800,8 @@ function function_5630c228(player, trigger, origin_offset, angles_offset)
 */
 function function_ea272f07(player, t_trigger, origin_offset, interact_offset)
 {
-	level endon(#"pack_a_punch_off");
-	t_trigger endon(#"pap_player_disconnected");
+	level endon("pack_a_punch_off");
+	t_trigger endon("pap_player_disconnected");
 	var_c7c7077b = struct::get("pap_portal_center", "targetname");
 	var_eadb7e53 = getent("pap_tentacle", "targetname");
 	var_eadb7e53.origin = var_c7c7077b.origin;
@@ -2855,8 +2855,8 @@ function function_ea272f07(player, t_trigger, origin_offset, interact_offset)
 */
 function function_f46eb6f9()
 {
-	self endon(#"pap_timeout");
-	self waittill(#"pap_taken");
+	self endon("pap_timeout");
+	self waittill("pap_taken");
 	self playsound("zmb_zod_pap_take");
 }
 
@@ -2871,8 +2871,8 @@ function function_f46eb6f9()
 */
 function function_b99f7d2b()
 {
-	self endon(#"pap_taken");
-	self waittill(#"pap_timeout");
+	self endon("pap_taken");
+	self waittill("pap_timeout");
 	self playsound("zmb_zod_pap_lose");
 }
 
@@ -2887,8 +2887,8 @@ function function_b99f7d2b()
 */
 function function_4de2af97(var_eadb7e53, var_3acfce06)
 {
-	self endon(#"pap_timeout");
-	self endon(#"pap_taken");
+	self endon("pap_timeout");
+	self endon("pap_taken");
 	var_3acfce06 thread animation::play("o_zombie_zod_packapunch_tentacle_worldgun_ejected");
 	self thread function_e94f1c9c(var_eadb7e53);
 	var_eadb7e53 animation::play("o_zombie_zod_packapunch_tentacle_extend");
@@ -2906,8 +2906,8 @@ function function_4de2af97(var_eadb7e53, var_3acfce06)
 */
 function function_e94f1c9c(var_eadb7e53)
 {
-	self endon(#"pap_timeout");
-	self endon(#"pap_taken");
+	self endon("pap_timeout");
+	self endon("pap_taken");
 	wait(0.1);
 	var_eadb7e53 show();
 }
@@ -2923,7 +2923,7 @@ function function_e94f1c9c(var_eadb7e53)
 */
 function function_2934e5d0(t_trigger)
 {
-	t_trigger endon(#"pap_player_disconnected");
+	t_trigger endon("pap_player_disconnected");
 	self animation::play("o_zombie_zod_packapunch_tentacle_retract");
 	self ghost();
 }
@@ -2939,7 +2939,7 @@ function function_2934e5d0(t_trigger)
 */
 function function_c7ea04e6()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_bb7a9d17");
 	self playsound("zmb_zod_pap_finish");
 }

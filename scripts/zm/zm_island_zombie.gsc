@@ -411,7 +411,7 @@ function private island_closest_player(origin, players)
 */
 function private update_closest_player()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		reset_closest_player = 1;
@@ -449,25 +449,25 @@ function private update_closest_player()
 */
 function function_50565360(s_spot)
 {
-	self endon(#"death");
+	self endon("death");
 	self.in_the_ground = 1;
 	mdl_anchor = util::spawn_model("tag_origin", self.origin, self.angles);
 	self linkto(mdl_anchor);
 	self thread function_cd5d6101();
 	mdl_anchor moveto(s_spot.origin, 0.05);
-	mdl_anchor waittill(#"movedone");
+	mdl_anchor waittill("movedone");
 	var_ac82e424 = zombie_utility::get_desired_origin();
 	if(isdefined(var_ac82e424))
 	{
 		var_585cefca = vectortoangles(var_ac82e424 - self.origin);
 		mdl_anchor rotateto((0, var_585cefca[1], 0), 0.05);
-		mdl_anchor waittill(#"rotatedone");
+		mdl_anchor waittill("rotatedone");
 	}
 	self unlink();
 	mdl_anchor thread scene::play("scene_zm_dlc2_zombie_quick_rise_v2", self);
-	self notify(#"risen", s_spot.script_string);
+	self notify("risen", s_spot.script_string);
 	self.in_the_ground = 0;
-	mdl_anchor waittill(#"scene_done");
+	mdl_anchor waittill("scene_done");
 	if(isdefined(mdl_anchor))
 	{
 		mdl_anchor delete();
@@ -485,7 +485,7 @@ function function_50565360(s_spot)
 */
 function function_cd5d6101()
 {
-	self endon(#"death");
+	self endon("death");
 	self ghost();
 	wait(0.4);
 	if(isdefined(self))

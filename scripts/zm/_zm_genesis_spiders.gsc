@@ -122,13 +122,13 @@ function register_clientfields()
 */
 function function_83a70ec3()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"bled_out");
+		self waittill("bled_out");
 		if(level flag::get("spider_round_in_progress"))
 		{
-			self waittill(#"spawned_player");
+			self waittill("spawned_player");
 			level flag::wait_till_clear("spider_round_in_progress");
 			util::wait_network_frame();
 			self clientfield::increment_to_player("spider_end_of_round_reset", 1);
@@ -336,10 +336,10 @@ function spider_init()
 */
 function spider_damage()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", n_amount, e_attacker, v_direction, v_hit_location, str_mod);
+		self waittill("damage", n_amount, e_attacker, v_direction, v_hit_location, str_mod);
 		if(isplayer(e_attacker))
 		{
 			e_attacker.use_weapon_type = str_mod;
@@ -359,7 +359,7 @@ function spider_damage()
 */
 function spider_thundergun_knockdown(e_player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	n_damage = int(self.maxhealth * 0.5);
 	self dodamage(n_damage, self.origin, e_player);
 }
@@ -388,7 +388,7 @@ function spider_think()
 */
 function function_eebdfab2()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(randomfloatrange(3, 6));
 	while(true)
 	{
@@ -408,13 +408,13 @@ function function_eebdfab2()
 */
 function spider_death()
 {
-	self waittill(#"death", e_attacker);
+	self waittill("death", e_attacker);
 	if(get_current_spider_count() == 0 && level.zombie_total == 0)
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
 			level.last_ai_origin = self.origin;
-			level notify(#"last_ai_down", self);
+			level notify("last_ai_down", self);
 		}
 	}
 	if(isplayer(e_attacker))
@@ -431,7 +431,7 @@ function spider_death()
 		{
 			[[level.hero_power_update]](e_attacker, self);
 		}
-		e_attacker notify(#"player_killed_spider");
+		e_attacker notify("player_killed_spider");
 		e_attacker zm_stats::increment_client_stat("zspiders_killed");
 		e_attacker zm_stats::increment_player_stat("zspiders_killed");
 	}
@@ -441,7 +441,7 @@ function spider_death()
 		{
 			level notify(#"hash_9218d45f", e_attacker);
 		}
-		e_attacker notify(#"killed", self);
+		e_attacker notify("killed", self);
 	}
 	if(isdefined(self))
 	{
@@ -481,7 +481,7 @@ function spider_round_tracker()
 	old_wait_func = level.round_wait_func;
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		/#
 			if(getdvarint("") > 0)
 			{
@@ -555,14 +555,14 @@ function function_fad41aec()
 */
 function spider_round_spawning()
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	level endon(#"end_of_round");
-	level endon(#"restart_round");
+	level endon("restart_round");
 	for(i = 0; i < level.players.size; i++)
 	{
 		level.players[i].hunted_by = 0;
 	}
-	level endon(#"kill_round");
+	level endon("kill_round");
 	/#
 		if(getdvarint("") == 2 || getdvarint("") >= 4)
 		{
@@ -736,8 +736,8 @@ function get_current_spider_count()
 */
 function spider_round_wait_func()
 {
-	level endon(#"restart_round");
-	level endon(#"kill_round");
+	level endon("restart_round");
+	level endon("kill_round");
 	if(level flag::get("spider_round"))
 	{
 		level flag::wait_till("spider_round_in_progress");
@@ -794,7 +794,7 @@ function spider_round_stop()
 		level.var_8276ee15 = 0;
 	}
 	level.var_8276ee15 = 0;
-	level notify(#"spider_round_ending");
+	level notify("spider_round_ending");
 	setdvar("ai_meleeRange", level.melee_range_sav);
 	setdvar("ai_meleeWidth", level.melee_width_sav);
 	setdvar("ai_meleeHeight", level.melee_height_sav);
@@ -1004,7 +1004,7 @@ function play_spider_round()
 */
 function spider_round_aftermath()
 {
-	level waittill(#"last_ai_down", e_enemy_ai);
+	level waittill("last_ai_down", e_enemy_ai);
 	level thread zm_audio::sndmusicsystem_playstate("spider_roundend");
 	if(isdefined(level.zm_override_ai_aftermath_powerup_drop))
 	{
@@ -1156,7 +1156,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 */
 function function_82b6256d()
 {
-	self waittill(#"death", e_attacker);
+	self waittill("death", e_attacker);
 	self zm_spawner::check_zombie_death_event_callbacks(e_attacker);
 	if(isplayer(e_attacker) && (isdefined(level.var_26af7b39) && level.var_26af7b39) && (isdefined(level.var_a5d2ba4) && level.var_a5d2ba4))
 	{
@@ -1227,7 +1227,7 @@ function function_5b625d74(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function spider_spawn_fx(ai_spider, ent = self, var_a79b986e = 0)
 {
-	ai_spider endon(#"death");
+	ai_spider endon("death");
 	if(!isdefined(ent.target) || var_a79b986e)
 	{
 		ai_spider ghost();
@@ -1265,7 +1265,7 @@ function spider_spawn_fx(ai_spider, ent = self, var_a79b986e = 0)
 		ai_spider.disablearrivals = 1;
 		ai_spider.disableexits = 1;
 		ai_spider vehicle_ai::set_state("scripted");
-		ai_spider notify(#"visible");
+		ai_spider notify("visible");
 		var_ce7c81e4 = struct::get_array(ent.target, "targetname");
 		var_ed41ff6b = array::random(var_ce7c81e4);
 		if(isdefined(var_ed41ff6b) && isalive(ai_spider))
@@ -1337,7 +1337,7 @@ function spider_custom_player_shellshock(damage, attacker, direction_vec, point,
 */
 function function_81cf36fd()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_7f8ad3ef))
 	{
 		self.var_7f8ad3ef = 0;
@@ -1362,10 +1362,10 @@ function function_81cf36fd()
 */
 function function_d8cfc139(e_dest)
 {
-	self endon(#"death");
+	self endon("death");
 	var_366514d8 = util::spawn_model("tag_origin", self.origin, self.angles);
 	var_366514d8 thread scene::play("scene_zm_dlc2_spider_web_engage", self);
-	self waittill(#"web");
+	self waittill("web");
 	self spit_projectile(e_dest);
 }
 
@@ -1385,7 +1385,7 @@ function spit_projectile(e_dest)
 	var_e9ad0294 = util::spawn_model("tag_origin", v_origin, v_angles);
 	var_e9ad0294 thread fx::play("spider_web_spit_reweb", v_origin, v_angles, "movedone", 1);
 	var_e9ad0294 moveto(e_dest.origin, 0.5);
-	var_e9ad0294 waittill(#"movedone");
+	var_e9ad0294 waittill("movedone");
 	var_e9ad0294 delete();
 }
 

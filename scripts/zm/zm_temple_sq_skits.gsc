@@ -92,7 +92,7 @@ function init_skits()
 */
 function skit_interupt(fail_pos, group)
 {
-	level endon(#"start_skit_done");
+	level endon("start_skit_done");
 	if(!isdefined(level._start_skit_pos))
 	{
 		buttons = getentarray("sq_sundial_button", "targetname");
@@ -152,7 +152,7 @@ function skit_interupt(fail_pos, group)
 		}
 		wait(0.1);
 	}
-	level notify(#"skit_interupt");
+	level notify("skit_interupt");
 	speaker = getplayers()[0];
 	if(isdefined(level._last_skit_line_speaker))
 	{
@@ -184,7 +184,7 @@ function skit_interupt(fail_pos, group)
 		iprintln((character + "") + snd);
 	#/
 	speaker playsoundwithnotify(snd, "line_done");
-	speaker waittill(#"line_done");
+	speaker waittill("line_done");
 	level.skit_vox_override = 0;
 }
 
@@ -228,9 +228,9 @@ function do_skit_line(script_line)
 		iprintln((speaking_player getentitynumber() + "") + script_line.vo);
 	#/
 	speaking_player playsoundwithnotify(script_line.vo, "line_done");
-	speaking_player waittill(#"line_done");
+	speaking_player waittill("line_done");
 	speaking_player.speaking_line = 0;
-	level notify(#"line_spoken");
+	level notify("line_spoken");
 }
 
 /*
@@ -244,7 +244,7 @@ function do_skit_line(script_line)
 */
 function start_skit(skit_name, group)
 {
-	level endon(#"skit_interupt");
+	level endon("skit_interupt");
 	script = level._skit_data[skit_name];
 	level.skit_vox_override = 1;
 	level thread skit_interupt(undefined, group);
@@ -252,10 +252,10 @@ function start_skit(skit_name, group)
 	{
 		if(i == (script.size - 1))
 		{
-			level notify(#"start_skit_done");
+			level notify("start_skit_done");
 		}
 		level thread do_skit_line(script[i]);
-		level waittill(#"line_spoken");
+		level waittill("line_spoken");
 	}
 	level.skit_vox_override = 0;
 }
@@ -313,19 +313,19 @@ function fail_skit(first_time)
 			pos = pos + proposed_group[i].origin;
 		}
 		pos = pos / proposed_group.size;
-		level endon(#"skit_interupt");
+		level endon("skit_interupt");
 		level thread skit_interupt(pos, proposed_group);
 		for(i = 0; i < proposed_group.size; i++)
 		{
 			level thread do_skit_line(skit[proposed_group[i].characterindex]);
-			level waittill(#"line_spoken");
+			level waittill("line_spoken");
 		}
 	}
 	else
 	{
 		player = players[randomintrange(0, players.size)];
 		level thread do_skit_line(skit[player.characterindex]);
-		level waittill(#"line_spoken");
+		level waittill("line_spoken");
 	}
 	level.skit_vox_override = 0;
 }

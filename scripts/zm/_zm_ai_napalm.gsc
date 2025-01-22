@@ -189,7 +189,7 @@ function napalm_spawn_check()
 */
 function function_7cce5d95()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		if(napalm_spawn_check())
@@ -219,7 +219,7 @@ function function_7cce5d95()
 */
 function function_8f86441a()
 {
-	self endon(#"death");
+	self endon("death");
 	spot = self.spawn_point_override;
 	self.spawn_point = spot;
 	if(isdefined(spot.target))
@@ -380,7 +380,7 @@ function napalm_zombie_spawn(animname_set)
 function napalm_zombie_client_flag()
 {
 	self clientfield::set("isnapalm", 1);
-	self waittill(#"death");
+	self waittill("death");
 	self clientfield::set("isnapalm", 0);
 	napalm_clear_radius_fx_all_players();
 }
@@ -458,7 +458,7 @@ function _zombie_runexplosionwindupeffects()
 		effectent = self _zombie_setupfxonjoint(jointname, fxname, offset);
 		watch[i] = effectent;
 	}
-	self waittill(#"stop_fx");
+	self waittill("stop_fx");
 	if(!isdefined(self))
 	{
 		return;
@@ -480,8 +480,8 @@ function _zombie_runexplosionwindupeffects()
 */
 function _zombie_watchstopeffects()
 {
-	self waittill(#"death");
-	self notify(#"stop_fx");
+	self waittill("death");
+	self notify("stop_fx");
 	if(level flag::get("world_is_paused"))
 	{
 		self setignorepauseworld(1);
@@ -618,7 +618,7 @@ function napalm_zombie_death(einflictor, attacker, idamage, smeansofdeath, weapo
 	{
 		self.attacker thread zm_audio::create_and_play_dialog("kill", "napalm");
 	}
-	level notify(#"napalm_death", self.explosive_volume);
+	level notify("napalm_death", self.explosive_volume);
 	self thread napalm_delay_delete();
 	if(!self napalm_standing_in_water(1))
 	{
@@ -653,7 +653,7 @@ function napalm_zombie_death(einflictor, attacker, idamage, smeansofdeath, weapo
 */
 function napalm_delay_delete()
 {
-	self endon(#"death");
+	self endon("death");
 	self setplayercollision(0);
 	self thread zombie_utility::zombie_eye_glow_stop();
 	util::wait_network_frame();
@@ -808,7 +808,7 @@ function _napalm_damage_players()
 	}
 	if(!players_damaged_by_explosion)
 	{
-		level notify(#"zomb_disposal_achieved");
+		level notify("zomb_disposal_achieved");
 	}
 }
 
@@ -888,7 +888,7 @@ function triggerdamage()
 	self endon(#"end_fire_effect");
 	while(true)
 	{
-		self waittill(#"trigger", guy);
+		self waittill("trigger", guy);
 		if(isplayer(guy))
 		{
 			if(zombie_utility::is_player_valid(guy))
@@ -923,7 +923,7 @@ function triggerdamage()
 */
 function kill_with_fire(damagetype)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.marked_for_death))
 	{
 		return;
@@ -965,7 +965,7 @@ function zombie_flame_watch()
 	{
 		return;
 	}
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self stoploopsound();
@@ -1130,7 +1130,7 @@ function napalm_zombie_count_watch()
 	}
 	level.napalmzombiecount++;
 	level.var_4e4c9791[level.var_4e4c9791.size] = self;
-	self waittill(#"death");
+	self waittill("death");
 	level.napalmzombiecount--;
 	arrayremovevalue(level.var_4e4c9791, self, 0);
 	if(isdefined(self.shrinked) && self.shrinked)
@@ -1213,7 +1213,7 @@ function init_clientfields()
 */
 function napalm_enter_water_trigger(trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread napalm_add_wet_time(4);
 }
 
@@ -1228,7 +1228,7 @@ function napalm_enter_water_trigger(trigger)
 */
 function napalm_add_wet_time(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wettime = time * 1000;
 	self.wet_time = gettime() + wettime;
 	if(isdefined(self.wet) && self.wet)
@@ -1256,7 +1256,7 @@ function napalm_add_wet_time(time)
 */
 function napalm_watch_for_sliding()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(self.sliding) && self.sliding)

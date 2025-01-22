@@ -81,8 +81,8 @@ function on_player_spawned(local_client_num)
 */
 function monitorflight()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.flying = 0;
 	while(isdefined(self))
 	{
@@ -107,8 +107,8 @@ function monitorflight()
 */
 function monitorgpsjammer()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	require_perk = 1;
 	/#
 		require_perk = 0;
@@ -210,7 +210,7 @@ function monitorgpsjammer()
 		}
 		if(statechange == 1)
 		{
-			level notify(#"radar_status_change");
+			level notify("radar_status_change");
 		}
 		timesincedistancecheck = timesincedistancecheck + timeperiodsec;
 		wait(timeperiodsec);
@@ -228,8 +228,8 @@ function monitorgpsjammer()
 */
 function monitorsengrenjammer()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	require_perk = 1;
 	/#
 		require_perk = 0;
@@ -331,7 +331,7 @@ function monitorsengrenjammer()
 		}
 		if(statechange == 1)
 		{
-			level notify(#"radar_status_change");
+			level notify("radar_status_change");
 		}
 		timesincedistancecheck = timesincedistancecheck + timeperiodsec;
 		wait(timeperiodsec);

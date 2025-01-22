@@ -102,7 +102,7 @@ function private archetypecloneonanimscriptedcallback(entity)
 function private perfectinfothread()
 {
 	entity = self;
-	entity endon(#"death");
+	entity endon("death");
 	while(true)
 	{
 		if(isdefined(entity.enemy))

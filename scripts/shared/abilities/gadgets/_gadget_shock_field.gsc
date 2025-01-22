@@ -154,7 +154,7 @@ function gadget_shock_field_on(slot, weapon)
 */
 function gadget_shock_field_off(slot, weapon)
 {
-	self notify(#"shock_field_off");
+	self notify("shock_field_off");
 	self clientfield::set("shock_field", 0);
 }
 
@@ -169,9 +169,9 @@ function gadget_shock_field_off(slot, weapon)
 */
 function shock_field_think(slot, weapon)
 {
-	self endon(#"shock_field_off");
-	self notify(#"shock_field_on");
-	self endon(#"shock_field_on");
+	self endon("shock_field_off");
+	self notify("shock_field_on");
+	self endon("shock_field_on");
 	while(true)
 	{
 		wait(0.25);
@@ -250,9 +250,9 @@ function shock_field_zap_sound(weapon)
 */
 function flicker_field_fx()
 {
-	self endon(#"shock_field_off");
-	self notify(#"flicker_field_fx");
-	self endon(#"flicker_field_fx");
+	self endon("shock_field_off");
+	self notify("flicker_field_fx");
+	self endon("flicker_field_fx");
 	self clientfield::set("shock_field", 0);
 	wait(randomfloatrange(0.03, 0.23));
 	if(isdefined(self))

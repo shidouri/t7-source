@@ -554,7 +554,7 @@ function init_weapon_cabinet()
 		var_4e1a2d78 = 0;
 		while(!var_4e1a2d78)
 		{
-			level waittill(#"weapon_bought");
+			level waittill("weapon_bought");
 			if(isdefined(var_68c121fd.trigger_stub.first_time_triggered))
 			{
 				if(isdefined(var_68c121fd.trigger_stub.first_time_triggered) && var_68c121fd.trigger_stub.first_time_triggered)
@@ -671,7 +671,7 @@ function function_9b3e5ee2()
 function function_ab3e14a3()
 {
 	self zm_unitrigger::create_unitrigger();
-	self waittill(#"trigger_activated");
+	self waittill("trigger_activated");
 	playsoundatposition("zmb_sam_egg_button", self.origin);
 	level notify(#"hash_672c1b1a");
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);

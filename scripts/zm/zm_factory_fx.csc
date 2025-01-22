@@ -165,7 +165,7 @@ function perk_wire_fx_client(clientnum, init_targetname, done_notify)
 			break;
 		}
 	}
-	level notify(#"spark_done");
+	level notify("spark_done");
 	mover delete();
 	level notify(done_notify);
 }
@@ -207,7 +207,7 @@ function dog_start_monitor()
 {
 	while(true)
 	{
-		level waittill(#"dog_start");
+		level waittill("dog_start");
 		level thread ramp_fog_in_out();
 		start_dist = 229;
 		half_dist = 200;
@@ -243,7 +243,7 @@ function dog_stop_monitor()
 {
 	while(true)
 	{
-		level waittill(#"dog_stop");
+		level waittill("dog_stop");
 		level thread ramp_fog_in_out();
 		start_dist = 440;
 		half_dist = 3200;
@@ -308,7 +308,7 @@ function level_fog_init()
 */
 function light_model_swap(name, model)
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	players = getlocalplayers();
 	for(p = 0; p < players.size; p++)
 	{
@@ -361,7 +361,7 @@ function get_guide_struct_angles(ent)
 */
 function teleporter_map_light(index, on_msg)
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	exploder::exploder(("map_lgt_" + level.teleport_pad_names[index]) + "_red");
 	level waittill(on_msg);
 	exploder::stop_exploder(("map_lgt_" + level.teleport_pad_names[index]) + "_red");
@@ -382,10 +382,10 @@ function teleporter_map_light(index, on_msg)
 */
 function teleporter_map_light_receiver()
 {
-	level waittill(#"pl1");
+	level waittill("pl1");
 	level thread teleporter_map_light_receiver_flash();
 	exploder::exploder("map_lgt_pap_red");
-	level waittill(#"pap1");
+	level waittill("pap1");
 	wait(1.5);
 	exploder::stop_exploder("map_lgt_pap_red");
 	exploder::stop_exploder("map_lgt_pap_flash");
@@ -403,9 +403,9 @@ function teleporter_map_light_receiver()
 */
 function teleporter_map_light_receiver_flash()
 {
-	level endon(#"pap1");
-	level waittill(#"trf");
-	level endon(#"trs");
+	level endon("pap1");
+	level waittill("trf");
+	level endon("trs");
 	level thread teleporter_map_light_receiver_stop();
 	exploder::stop_exploder("map_lgt_pap_red");
 	exploder::exploder("map_lgt_pap_flash");
@@ -422,8 +422,8 @@ function teleporter_map_light_receiver_flash()
 */
 function teleporter_map_light_receiver_stop()
 {
-	level endon(#"pap1");
-	level waittill(#"trs");
+	level endon("pap1");
+	level waittill("trs");
 	exploder::stop_exploder("map_lgt_pap_flash");
 	exploder::exploder("map_lgt_pap_red");
 	level thread teleporter_map_light_receiver_flash();

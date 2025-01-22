@@ -61,7 +61,7 @@ function zm_aat_fire_works_summon(localclientnum, oldval, newval, bnewent, binit
 	}
 	else if(isdefined(self.aat_fire_works_fx))
 	{
-		self notify(#"kill_fx_on_demo_jump");
+		self notify("kill_fx_on_demo_jump");
 		stopfx(localclientnum, self.aat_fire_works_fx);
 		self.aat_fire_works_fx = undefined;
 	}
@@ -78,9 +78,9 @@ function zm_aat_fire_works_summon(localclientnum, oldval, newval, bnewent, binit
 */
 function kill_fx_on_demo_jump(localclientnum)
 {
-	self notify(#"kill_fx_on_demo_jump");
-	self endon(#"kill_fx_on_demo_jump");
-	level waittill(#"demo_jump");
+	self notify("kill_fx_on_demo_jump");
+	self endon("kill_fx_on_demo_jump");
+	level waittill("demo_jump");
 	if(isdefined(self.aat_fire_works_fx))
 	{
 		stopfx(localclientnum, self.aat_fire_works_fx);

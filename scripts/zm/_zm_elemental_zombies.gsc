@@ -162,10 +162,10 @@ function function_f4defbc2()
 function function_2987b6dc()
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		if(randomint(100) < 50)
 		{
 			self clientfield::increment("sparky_damaged_fx");
@@ -186,10 +186,10 @@ function function_2987b6dc()
 function function_d070bfba()
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		if(randomint(100) < 50)
 		{
 			self clientfield::increment("napalm_damaged_fx");
@@ -210,7 +210,7 @@ function function_d070bfba()
 function function_d9226011()
 {
 	ai_zombie = self;
-	ai_zombie waittill(#"death", attacker);
+	ai_zombie waittill("death", attacker);
 	if(!isdefined(ai_zombie) || ai_zombie.nuked === 1)
 	{
 		return;
@@ -233,7 +233,7 @@ function function_d9226011()
 function napalm_zombie_death()
 {
 	ai_zombie = self;
-	ai_zombie waittill(#"death", attacker);
+	ai_zombie waittill("death", attacker);
 	if(!isdefined(ai_zombie) || ai_zombie.nuked === 1)
 	{
 		return;

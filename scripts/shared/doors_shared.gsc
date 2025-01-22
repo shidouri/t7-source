@@ -384,7 +384,7 @@ class cdoor
 	function open_internal()
 	{
 		self flag::set("animating");
-		m_e_door notify(#"door_opening");
+		m_e_door notify("door_opening");
 		if(isdefined(m_s_bundle.door_start_sound) && m_s_bundle.door_start_sound != "")
 		{
 			m_e_door playsound(m_s_bundle.door_start_sound);
@@ -853,7 +853,7 @@ function door_open_update(c_door)
 	b_manual_close = isdefined(c_door.m_s_bundle.door_use_trigger) && c_door.m_s_bundle.door_use_trigger && (isdefined(c_door.m_s_bundle.door_closes) && c_door.m_s_bundle.door_closes);
 	while(true)
 	{
-		c_door.m_e_trigger waittill(#"trigger", e_who);
+		c_door.m_e_trigger waittill("trigger", e_who);
 		c_door.m_e_trigger_player = e_who;
 		if(!c_door flag::get("open"))
 		{
@@ -942,7 +942,7 @@ function door_update(c_door)
 		c_door flag::wait_till("open");
 		if(c_door.m_door_open_delay_time > 0)
 		{
-			c_door.m_e_door notify(#"door_waiting_to_open", c_door.m_e_trigger_player);
+			c_door.m_e_door notify("door_waiting_to_open", c_door.m_e_trigger_player);
 			wait(c_door.m_door_open_delay_time);
 		}
 		[[ c_door ]]->open_internal();
@@ -973,7 +973,7 @@ function door_update_lock_scripted(c_door)
 	c_door.m_e_trigger.targetname = door_str + "_trig";
 	while(true)
 	{
-		c_door.m_e_trigger waittill(#"unlocked");
+		c_door.m_e_trigger waittill("unlocked");
 		[[ c_door ]]->unlock();
 	}
 }
@@ -1018,7 +1018,7 @@ function player_freeze_in_place(b_do_freeze)
 */
 function trigger_wait_until_clear(c_door)
 {
-	self endon(#"death");
+	self endon("death");
 	last_trigger_time = gettime();
 	self.ents_in_trigger = 1;
 	str_kill_trigger_notify = "trigger_now_clear";
@@ -1114,11 +1114,11 @@ function door_wait_until_clear(c_door, e_triggerer)
 */
 function trigger_check_for_ents_touching(str_kill_trigger_notify)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(str_kill_trigger_notify);
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		self.ents_in_trigger = 1;
 	}
 }
@@ -1134,7 +1134,7 @@ function trigger_check_for_ents_touching(str_kill_trigger_notify)
 */
 function door_debug_line(v_origin)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		v_start = v_origin;
@@ -1203,7 +1203,7 @@ function player_take_key(str_key_type)
 */
 function rotate_key_forever()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateyaw(180, 3);
@@ -1222,7 +1222,7 @@ function rotate_key_forever()
 */
 function key_process_timeout(n_timeout_sec, e_trigger, e_model)
 {
-	e_trigger endon(#"death");
+	e_trigger endon("death");
 	if(n_timeout_sec < 5)
 	{
 		n_timeout_sec = 5 + 1;
@@ -1249,7 +1249,7 @@ function key_process_timeout(n_timeout_sec, e_trigger, e_model)
 		}
 		f = f + n_stepsize;
 	}
-	level notify(#"key_drop_timeout");
+	level notify("key_drop_timeout");
 	e_model delete();
 	e_trigger delete();
 }
@@ -1287,10 +1287,10 @@ function give_ai_key_internal(n_timeout_sec, str_key_type)
 	{
 		level thread key_process_timeout(n_timeout_sec, e_trigger, e_model);
 	}
-	e_trigger endon(#"death");
+	e_trigger endon("death");
 	while(true)
 	{
-		e_trigger waittill(#"trigger", e_who);
+		e_trigger waittill("trigger", e_who);
 		if(isplayer(e_who))
 		{
 			e_who give_player_key(str_key_type);

@@ -182,7 +182,7 @@ function function_4fbc4348(origin, players)
 */
 function update_closest_player()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		reset_closest_player = 1;

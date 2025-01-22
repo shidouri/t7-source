@@ -202,7 +202,7 @@ function function_39dbe45b(name)
 */
 function function_81e169ac()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self) && gettime() < self.var_b2ce38d9)
 	{
 		wait(0.05);
@@ -224,7 +224,7 @@ function function_81e169ac()
 */
 function function_1f8cb1fa()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self) && gettime() < self.var_78c14ec2)
 	{
 		wait(0.05);
@@ -246,7 +246,7 @@ function function_1f8cb1fa()
 */
 function function_64bc2503(&queue, flag, waitfunc, var_a6cc22d4 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!var_a6cc22d4)
 	{
 		self notify("fxProcessQueue_" + flag);
@@ -295,9 +295,9 @@ function turnofffx(name)
 	{
 		return;
 	}
-	self notify(#"turnofffx");
-	self endon(#"turnofffx");
-	self endon(#"death");
+	self notify("turnofffx");
+	self endon("turnofffx");
+	self endon("death");
 	/#
 		assert(!(isplayer(self) && name == ""));
 	#/
@@ -338,7 +338,7 @@ function function_285a2999(name)
 	}
 	self notify(#"hash_285a2999");
 	self endon(#"hash_285a2999");
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(!(isplayer(self) && name == ""));
 	#/
@@ -517,7 +517,7 @@ function function_32bcda58(var_7aac5112, attacker)
 {
 	self notify(#"hash_e32770a3");
 	self endon(#"hash_e32770a3");
-	self endon(#"death");
+	self endon("death");
 	dmg = getdvarint("scr_doa_dot_burn_dmg", 120) * var_7aac5112;
 	if(!isdefined(self.var_a27665f9))
 	{
@@ -548,7 +548,7 @@ function function_32bcda58(var_7aac5112, attacker)
 */
 function private function_9fc6e261(type)
 {
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	wait(0.05);
 	if(isdefined(corpse))
 	{

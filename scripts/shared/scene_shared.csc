@@ -460,7 +460,7 @@ class csceneobject : cscriptbundleobjectbase
 	*/
 	function finish(b_clear = 0)
 	{
-		self notify(#"new_state");
+		self notify("new_state");
 		if(isdefined(_n_clientnum))
 		{
 			finish_per_client(_n_clientnum, b_clear);
@@ -489,7 +489,7 @@ class csceneobject : cscriptbundleobjectbase
 	*/
 	function play_per_client(clientnum)
 	{
-		self endon(#"new_state");
+		self endon("new_state");
 		if(isdefined(_s.mainanim))
 		{
 			_play_anim(clientnum, _s.mainanim, _s.maindelaymin, _s.maindelaymax, 1, _s.mainblend, _s.mainshot);
@@ -530,9 +530,9 @@ class csceneobject : cscriptbundleobjectbase
 		flagsys::clear("ready");
 		flagsys::clear("done");
 		flagsys::clear("main_done");
-		self notify(#"new_state");
-		self endon(#"new_state");
-		self notify(#"play");
+		self notify("new_state");
+		self endon("new_state");
+		self notify("play");
 		waittillframeend();
 		if(isdefined(_n_clientnum))
 		{
@@ -562,7 +562,7 @@ class csceneobject : cscriptbundleobjectbase
 	*/
 	function initialize_per_client(clientnum)
 	{
-		self endon(#"new_state");
+		self endon("new_state");
 		if(isdefined(_s.firstframe) && _s.firstframe)
 		{
 			if(!cscriptbundleobjectbase::error(!isdefined(_s.mainanim), "No animation defined for first frame."))
@@ -636,9 +636,9 @@ class csceneobject : cscriptbundleobjectbase
 		flagsys::clear("ready");
 		flagsys::clear("done");
 		flagsys::clear("main_done");
-		self notify(#"new_state");
-		self endon(#"new_state");
-		self notify(#"init");
+		self notify("new_state");
+		self endon("new_state");
+		self notify("init");
 		waittillframeend();
 		if(isdefined(_n_clientnum))
 		{
@@ -924,7 +924,7 @@ class cscene : cscriptbundlebase
 	*/
 	function _call_state_funcs(str_state)
 	{
-		self endon(#"stopped");
+		self endon("stopped");
 		wait_till_scene_ready();
 		if(str_state == "play")
 		{
@@ -1023,7 +1023,7 @@ class cscene : cscriptbundlebase
 	*/
 	function stop(b_clear = 0, b_finished = 0)
 	{
-		self notify(#"new_state");
+		self notify("new_state");
 		level flagsys::clear(_str_name + "_playing");
 		level flagsys::clear(_str_name + "_initialized");
 		_str_state = "";
@@ -1036,7 +1036,7 @@ class cscene : cscriptbundlebase
 				thread [[ o_obj ]]->finish(b_clear);
 			}
 		}
-		self notify(#"stopped", b_finished);
+		self notify("stopped", b_finished);
 		if(isdefined(level.active_scenes[_str_name]))
 		{
 			arrayremovevalue(level.active_scenes[_str_name], _e_root);
@@ -1052,7 +1052,7 @@ class cscene : cscriptbundlebase
 			{
 				_e_root.scenes = undefined;
 			}
-			_e_root notify(#"scene_done", _str_name);
+			_e_root notify("scene_done", _str_name);
 			_e_root.scene_played = 1;
 		}
 	}
@@ -1070,7 +1070,7 @@ class cscene : cscriptbundlebase
 	{
 		if(isdefined(_s.nextscenebundle) && _s.vmtype != "both")
 		{
-			self waittill(#"stopped", b_finished);
+			self waittill("stopped", b_finished);
 			if(b_finished)
 			{
 				if(_s.scenetype == "fxanim" && _s.nextscenemode === "init")
@@ -1113,9 +1113,9 @@ class cscene : cscriptbundlebase
 	*/
 	function play(b_testing = 0, str_mode = "")
 	{
-		level endon(#"demo_jump");
-		self notify(#"new_state");
-		self endon(#"new_state");
+		level endon("demo_jump");
+		self notify("new_state");
+		self endon("new_state");
 		_testing = b_testing;
 		_str_mode = str_mode;
 		if(get_valid_objects().size > 0)
@@ -1132,7 +1132,7 @@ class cscene : cscriptbundlebase
 			array::flagsys_wait_any_flag(_a_objects, "done", "main_done");
 			if(isdefined(_e_root))
 			{
-				_e_root notify(#"scene_done", _str_name);
+				_e_root notify("scene_done", _str_name);
 				thread _call_state_funcs("done");
 			}
 			array::flagsys_wait(_a_objects, "done");
@@ -1187,8 +1187,8 @@ class cscene : cscriptbundlebase
 	*/
 	function initialize(b_playing = 0)
 	{
-		self notify(#"new_state");
-		self endon(#"new_state");
+		self notify("new_state");
+		self endon("new_state");
 		if(get_valid_objects().size > 0)
 		{
 			level flagsys::set(_str_name + "_initialized");
@@ -1944,7 +1944,7 @@ function __main__()
 function _trigger_init(trig)
 {
 	trig endon(#"entityshutdown");
-	trig waittill(#"trigger");
+	trig waittill("trigger");
 	_init_instance();
 }
 
@@ -1962,7 +1962,7 @@ function _trigger_play(trig)
 	trig endon(#"entityshutdown");
 	do
 	{
-		trig waittill(#"trigger");
+		trig waittill("trigger");
 		_play_instance();
 	}
 	while(isdefined(get_scenedef(self.scriptbundlename).looping) && get_scenedef(self.scriptbundlename).looping);
@@ -1980,7 +1980,7 @@ function _trigger_play(trig)
 function _trigger_stop(trig)
 {
 	trig endon(#"entityshutdown");
-	trig waittill(#"trigger");
+	trig waittill("trigger");
 	_stop_instance();
 }
 
@@ -2340,10 +2340,10 @@ function play(arg1, arg2, arg3, b_test_run = 0, str_mode = "")
 */
 function private waittill_scene_done(s_tracker)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	for(i = 0; i < s_tracker.n_scene_count; i++)
 	{
-		s_tracker waittill(#"scene_done");
+		s_tracker waittill("scene_done");
 	}
 }
 
@@ -2376,7 +2376,7 @@ function _play_instance(s_tracker, str_scenedef = self.scriptbundlename, a_ents,
 			self.scene_played = 0;
 		}
 	}
-	s_tracker notify(#"scene_done");
+	s_tracker notify("scene_done");
 }
 
 /*
@@ -2390,8 +2390,8 @@ function _play_instance(s_tracker, str_scenedef = self.scriptbundlename, a_ents,
 */
 function private waittill_instance_scene_done(str_scenedef)
 {
-	level endon(#"demo_jump");
-	self waittillmatch(#"scene_done");
+	level endon("demo_jump");
+	self waittillmatch("scene_done");
 }
 
 /*

@@ -65,7 +65,7 @@ class cmobilearmory
 	*/
 	function function_71f6269a(var_bd13c94b)
 	{
-		self waittill(#"death");
+		self waittill("death");
 		gameobject gameobjects::destroy_object(1);
 		gameobject delete();
 		if(isdefined(target))
@@ -137,11 +137,11 @@ class cmobilearmory
 	*/
 	function function_e76edd0b(var_ab455203)
 	{
-		self endon(#"death");
-		var_ab455203 endon(#"death");
+		self endon("death");
+		var_ab455203 endon("death");
 		while(true)
 		{
-			self waittill(#"trigger", entity);
+			self waittill("trigger", entity);
 			if(!isdefined(var_ab455203))
 			{
 				break;
@@ -232,7 +232,7 @@ class cmobilearmory
 	*/
 	function function_ecdbdfeb(e_player)
 	{
-		e_player endon(#"death");
+		e_player endon("death");
 		e_player endon(#"entering_last_stand");
 		e_player flagsys::clear("mobile_armory_begin_use");
 		var_9cba4a73 = 1;
@@ -244,7 +244,7 @@ class cmobilearmory
 		e_player clientfield::set_to_player("mobile_armory_cac", var_9cba4a73);
 		e_player flagsys::set("mobile_armory_in_use");
 		var_eb5bcea7 = e_player getloadoutitemref(0, "cybercore");
-		e_player waittill(#"menuresponse", str_menu, response);
+		e_player waittill("menuresponse", str_menu, response);
 		a_weaponlist = e_player getweaponslist();
 		var_5b2a650 = e_player getloadoutweapon(e_player.class_num, "primary");
 		var_95cf88cc = e_player getloadoutweapon(e_player.class_num, "secondary");

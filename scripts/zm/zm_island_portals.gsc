@@ -175,7 +175,7 @@ function function_a90ab0d7()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -268,7 +268,7 @@ function portal_think()
 	self.a_s_port_locs = struct::get_array(self.target, "targetname");
 	while(true)
 	{
-		self waittill(#"trigger", e_portee);
+		self waittill("trigger", e_portee);
 		level clientfield::increment("pulse_" + self.script_noteworthy);
 		if(isdefined(e_portee.teleporting) && e_portee.teleporting)
 		{
@@ -298,7 +298,7 @@ function portal_think()
 */
 function portal_teleport_player(player, show_fx = 1)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	level.var_6fe80781 = gettime();
 	player.teleporting = 1;
 	player.teleport_location = player.origin;
@@ -417,9 +417,9 @@ function ai_delay_cleanup()
 {
 	if(!(isdefined(self.b_ignore_cleanup) && self.b_ignore_cleanup))
 	{
-		self notify(#"delay_cleanup");
-		self endon(#"death");
-		self endon(#"delay_cleanup");
+		self notify("delay_cleanup");
+		self endon("death");
+		self endon("delay_cleanup");
 		self.b_ignore_cleanup = 1;
 		wait(10);
 		self.b_ignore_cleanup = undefined;
@@ -437,7 +437,7 @@ function ai_delay_cleanup()
 */
 function portal_teleport_ai(e_portee)
 {
-	e_portee endon(#"death");
+	e_portee endon("death");
 	e_portee.teleporting = 1;
 	e_portee pathmode("dont move");
 	playfx(level._effect["portal_3p"], e_portee.origin);

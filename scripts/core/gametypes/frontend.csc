@@ -227,7 +227,7 @@ class cmegachewfactory
 		level flag::wait_till_all(m_a_str_megachew_factory_door_flags);
 		if(!m_b_doors_open)
 		{
-			level notify(#"megachew_factory_doors_closed");
+			level notify("megachew_factory_doors_closed");
 		}
 	}
 
@@ -339,7 +339,7 @@ class cmegachewfactory
 			case 5:
 			{
 				mdl_dome animation::play(str_dome_reverse_anim, undefined, undefined, 1);
-				level notify(#"megachew_dome_finished_reverse_anim");
+				level notify("megachew_dome_finished_reverse_anim");
 				break;
 			}
 		}
@@ -358,7 +358,7 @@ class cmegachewfactory
 	{
 		self notify((("swap_spinning_carousel_gumball_on_notify_" + n_vat_index) + "_") + n_ball_index);
 		self endon((("swap_spinning_carousel_gumball_on_notify_" + n_vat_index) + "_") + n_ball_index);
-		self endon(#"megachew_factory_doors_closed");
+		self endon("megachew_factory_doors_closed");
 		mdl_carousel = getent(localclientnum, "gumball_carousel_0" + (n_vat_index + 1), "targetname");
 		while(true)
 		{
@@ -494,7 +494,7 @@ class cmegachewfactory
 			}
 		}
 		exploder::exploder(str_exploder_name + n_vat_index);
-		level waittill(#"megachew_factory_doors_closed");
+		level waittill("megachew_factory_doors_closed");
 		exploder::stop_exploder(str_exploder_name + n_vat_index);
 	}
 
@@ -781,7 +781,7 @@ class cmegachewfactory
 			}
 			case 3:
 			{
-				level notify(#"megachew_factory_doors_closed");
+				level notify("megachew_factory_doors_closed");
 				self thread set_megachew_factory_gears_anim_state(localclientnum, 2);
 				set_megachew_factory_doors_anim_state(localclientnum, 0);
 				for(i = 1; i <= 3; i++)
@@ -1092,7 +1092,7 @@ class cmegachewfactory
 	*/
 	function reset_megachew_factory(localclientnum)
 	{
-		level notify(#"megachew_factory_doors_closed");
+		level notify("megachew_factory_doors_closed");
 		[[ m_o_megachewcounter ]]->set_blinking(localclientnum, 0);
 		update_token_display_counter(localclientnum, 1);
 		set_megachew_factory_anim_state(localclientnum, 0);
@@ -1101,7 +1101,7 @@ class cmegachewfactory
 		{
 			exploder::stop_exploder("zm_gumball_" + n_button_index);
 		}
-		level notify(#"megachew_factory_cycle_complete");
+		level notify("megachew_factory_cycle_complete");
 		level flag::clear("megachew_sequence_active");
 		for(i = 1; i <= 3; i++)
 		{
@@ -1142,7 +1142,7 @@ class cmegachewfactory
 		wait(0.1);
 		set_megachew_factory_anim_state(localclientnum, 1);
 		[[ m_o_megachewbuttons ]]->set_button_glow(localclientnum, 1);
-		level waittill(#"mega_chew_results", success, vat_0, vat_1, vat_2);
+		level waittill("mega_chew_results", success, vat_0, vat_1, vat_2);
 		m_a_vat_contents[0] = vat_0;
 		m_a_vat_contents[1] = vat_1;
 		m_a_vat_contents[2] = vat_2;
@@ -1205,7 +1205,7 @@ class cmegachewfactory
 		set_megachew_factory_anim_state(localclientnum, 0);
 		[[ m_o_megachewbuttons ]]->set_button_glow(localclientnum, 0);
 		exploder::stop_exploder("zm_gumball_" + n_button_index);
-		level notify(#"megachew_factory_cycle_complete");
+		level notify("megachew_factory_cycle_complete");
 		level flag::clear("megachew_sequence_active");
 	}
 
@@ -1584,8 +1584,8 @@ class cmegachewcounter
 	*/
 	function set_blinking(localclientnum, b_on)
 	{
-		self notify(#"stop_blinking_counter");
-		self endon(#"stop_blinking_counter");
+		self notify("stop_blinking_counter");
+		self endon("stop_blinking_counter");
 		if(b_on)
 		{
 			while(true)
@@ -2985,7 +2985,7 @@ function blackscreen_watcher()
 	setuimodelvalue(blackscreenuimodel, 1);
 	while(true)
 	{
-		level waittill(#"streamer_change", data_struct);
+		level waittill("streamer_change", data_struct);
 		setuimodelvalue(blackscreenuimodel, 1);
 		wait(0.1);
 		while(true)
@@ -3025,7 +3025,7 @@ function streamer_change(hint, data_struct)
 	{
 		clearstreamerrequest(0);
 	}
-	level notify(#"streamer_change", data_struct);
+	level notify("streamer_change", data_struct);
 }
 
 /*
@@ -3062,10 +3062,10 @@ function plaympherovignettecam(localclientnum, data_struct, changed)
 */
 function handle_inspect_player(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	while(true)
 	{
-		level waittill(#"inspect_player", xuid);
+		level waittill("inspect_player", xuid);
 		/#
 			assert(isdefined(xuid));
 		#/
@@ -3084,8 +3084,8 @@ function handle_inspect_player(localclientnum)
 */
 function update_inspection_character(localclientnum, xuid)
 {
-	level endon(#"disconnect");
-	level endon(#"inspect_player");
+	level endon("disconnect");
+	level endon("inspect_player");
 	customization = getcharactercustomizationforxuid(localclientnum, xuid);
 	while(!isdefined(customization))
 	{
@@ -3362,8 +3362,8 @@ function close_zm_bgb_factory(localclientnum, menu_data)
 function play_crate_anims(localclientnum, type)
 {
 	level endon(#"blackmarket_crate_reset");
-	level endon(#"wait_for_black_market_notifies");
-	level endon(#"disconnect");
+	level endon("wait_for_black_market_notifies");
+	level endon("disconnect");
 	level endon(#"blackmarket_closed");
 	delay_before_crate_open = 0.5;
 	delay_before_lights_on = 0.01;
@@ -3422,9 +3422,9 @@ function play_crate_anims(localclientnum, type)
 */
 function wait_for_black_market_notifies(localclientnum)
 {
-	level notify(#"wait_for_black_market_notifies");
-	level endon(#"wait_for_black_market_notifies");
-	level endon(#"disconnect");
+	level notify("wait_for_black_market_notifies");
+	level endon("wait_for_black_market_notifies");
+	level endon("disconnect");
 	level endon(#"blackmarket_closed");
 	camera_ent = struct::get("mp_frontend_blackmarket");
 	crate = getent(localclientnum, "mp_frontend_blackmarket_crate", "targetname");
@@ -3570,11 +3570,11 @@ function enablemegachewfactoryinput(localclientnum)
 */
 function wait_for_reset_megachew_factory(localclientnum)
 {
-	level endon(#"wait_for_mega_chew_notifies");
-	level endon(#"disconnect");
+	level endon("wait_for_mega_chew_notifies");
+	level endon("disconnect");
 	while(true)
 	{
-		level waittill(#"resetmegachewfactory");
+		level waittill("resetmegachewfactory");
 		[[ level.o_megachewfactory ]]->reset_megachew_factory(localclientnum);
 	}
 }
@@ -3590,9 +3590,9 @@ function wait_for_reset_megachew_factory(localclientnum)
 */
 function wait_for_remaining_token_notifies(localclientnum)
 {
-	level endon(#"wait_for_mega_chew_notifies");
-	level endon(#"disconnect");
-	level endon(#"megachewfactory_closed");
+	level endon("wait_for_mega_chew_notifies");
+	level endon("disconnect");
+	level endon("megachewfactory_closed");
 	n_vials = getuimodelvalue(createuimodel(getglobaluimodel(), "MegaChewFactoryVialDisplay"));
 	if(isdefined(n_vials))
 	{
@@ -3601,7 +3601,7 @@ function wait_for_remaining_token_notifies(localclientnum)
 	}
 	while(true)
 	{
-		level waittill(#"mega_chew_remaining_tokens", n_tokens);
+		level waittill("mega_chew_remaining_tokens", n_tokens);
 		if(n_tokens > 999)
 		{
 			n_tokens = 999;
@@ -3644,16 +3644,16 @@ function dolootquery(controllerindex, n_tokens)
 */
 function wait_for_mega_chew_notifies(localclientnum, menu_data)
 {
-	level notify(#"wait_for_mega_chew_notifies");
-	level endon(#"wait_for_mega_chew_notifies");
-	level endon(#"disconnect");
-	level endon(#"megachewfactory_closed");
+	level notify("wait_for_mega_chew_notifies");
+	level endon("wait_for_mega_chew_notifies");
+	level endon("disconnect");
+	level endon("megachewfactory_closed");
 	[[ level.o_megachewfactory ]]->set_megachew_factory_anim_state(localclientnum, 0);
 	level thread wait_for_remaining_token_notifies(localclientnum);
 	level thread wait_for_reset_megachew_factory(localclientnum);
 	while(true)
 	{
-		level waittill(#"mega_chew_update", event, index, controllerindex);
+		level waittill("mega_chew_update", event, index, controllerindex);
 		switch(event)
 		{
 			case "focus_changed":
@@ -3905,7 +3905,7 @@ function open_choose_head_menu(localclientnum, menu_data)
 function close_choose_head_menu(localclientnum, menu_data)
 {
 	character_customization::update_show_helmets(localclientnum, menu_data.custom_character, 1);
-	level notify(#"done_personalizing_hero");
+	level notify("done_personalizing_hero");
 }
 
 /*
@@ -3919,7 +3919,7 @@ function close_choose_head_menu(localclientnum, menu_data)
 */
 function personalize_characters_watch(localclientnum, menu_name)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	level endon(menu_name + "_closed");
 	s_cam = struct::get("personalizeHero_camera", "targetname");
 	/#
@@ -3992,7 +3992,7 @@ function choose_taunts_camera_watch(localclientnum, menu_name)
 */
 function cp_lobby_room(localclientnum)
 {
-	level endon(#"new_lobby");
+	level endon("new_lobby");
 	while(true)
 	{
 		str_queued_level = getdvarstring("ui_mapname");
@@ -4863,7 +4863,7 @@ function mp_lobby_room(localclientnum, state)
 */
 function lobby_main(localclientnum, menu_name, state)
 {
-	level notify(#"new_lobby");
+	level notify("new_lobby");
 	setpbgactivebank(localclientnum, 1);
 	if(isdefined(state) && !strstartswith(state, "cpzm") && !strstartswith(state, "doa"))
 	{

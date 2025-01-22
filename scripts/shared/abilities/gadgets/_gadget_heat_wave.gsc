@@ -192,8 +192,8 @@ function gadget_heat_wave_on_player_spawn()
 */
 function watch_entity_shutdown()
 {
-	self endon(#"disconnect");
-	self waittill(#"death");
+	self endon("disconnect");
+	self waittill("death");
 	if(self isremotecontrolling() == 0)
 	{
 		visionset_mgr::deactivate("visionset", "charred", self);
@@ -229,8 +229,8 @@ function gadget_heat_wave_on_activate(slot, weapon)
 */
 function toggle_activate_clientfields()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self clientfield::set_to_player("heatwave_activate", 1);
 	util::wait_network_frame();
 	self clientfield::set_to_player("heatwave_activate", 0);
@@ -421,9 +421,9 @@ function heat_wave_setup(weapon)
 */
 function heat_wave_think(slot, weapon)
 {
-	self endon(#"disconnect");
-	self notify(#"heat_wave_think");
-	self endon(#"heat_wave_think");
+	self endon("disconnect");
+	self notify("heat_wave_think");
+	self endon("heat_wave_think");
 	self.heroabilityactive = 1;
 	heatwave = heat_wave_setup(weapon);
 	glassradiusdamage(heatwave.origin, heatwave.radius, 400, 400, "MOD_BURNED");
@@ -431,7 +431,7 @@ function heat_wave_think(slot, weapon)
 	self thread heat_wave_damage_projectiles(weapon, heatwave);
 	wait(0.25);
 	self.heroabilityactive = 0;
-	self notify(#"heat_wave_think_finished");
+	self notify("heat_wave_think_finished");
 }
 
 /*
@@ -445,8 +445,8 @@ function heat_wave_think(slot, weapon)
 */
 function heat_wave_damage_entities(weapon, heatwave)
 {
-	self endon(#"disconnect");
-	self endon(#"heat_wave_think");
+	self endon("disconnect");
+	self endon("heat_wave_think");
 	starttime = gettime();
 	burnedenemy = 0;
 	while((250 + starttime) > gettime())
@@ -542,8 +542,8 @@ function heat_wave_burn_entities(weapon, entity, heatwave)
 */
 function heat_wave_damage_projectiles(weapon, heatwave)
 {
-	self endon(#"disconnect");
-	self endon(#"heat_wave_think");
+	self endon("disconnect");
+	self endon("heat_wave_think");
 	owner = self;
 	starttime = gettime();
 	while((250 + starttime) > gettime())
@@ -616,7 +616,7 @@ function projectileexplode(projectile, heatwave, weapon)
 {
 	projposition = projectile.origin;
 	playfx(level.trophydetonationfx, projposition);
-	projectile notify(#"trophy_destroyed");
+	projectile notify("trophy_destroyed");
 	self radiusdamage(projposition, 128, 105, 10, self, "MOD_BURNED", weapon);
 	projectile delete();
 }
@@ -662,8 +662,8 @@ function apply_burn(weapon, entity, heatwave)
 */
 function watch_burn_clear()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	util::wait_network_frame();
 	self clientfield::set("heatwave_victim", 0);
 }
@@ -679,8 +679,8 @@ function watch_burn_clear()
 */
 function update_last_burned_by(heatwave)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self._heat_wave_damaged_time = gettime();
 	wait(250);
 }

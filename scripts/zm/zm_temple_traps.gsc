@@ -87,7 +87,7 @@ function spear_trap_think()
 	}
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(!isdefined(who) || !isplayer(who) || who.sessionstate == "spectator")
 		{
 			continue;
@@ -158,9 +158,9 @@ function spear_trap_damage_all_characters(audio_counter, player)
 */
 function delayed_spikes_close_vox()
 {
-	self notify(#"playing_spikes_close_vox");
-	self endon(#"death");
-	self endon(#"playing_spikes_close_vox");
+	self notify("playing_spikes_close_vox");
+	self endon("death");
+	self endon("playing_spikes_close_vox");
 	wait(0.5);
 	if(isdefined(self) && (!isdefined(self.spear_trap_slow) || (isdefined(self.spear_trap_slow) && self.spear_trap_slow == 0)))
 	{
@@ -193,7 +193,7 @@ function spear_damage_character(char)
 */
 function spear_trap_slow()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.spear_trap_slow) && self.spear_trap_slow)
 	{
 		return;
@@ -252,7 +252,7 @@ function spear_choke()
 */
 function _zombie_spear_trap_damage_wait()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(level._spear_choke))
 	{
 		level._spear_choke = 1;
@@ -386,18 +386,18 @@ function temple_trap_move_switch()
 	if(isdefined(trap_switch))
 	{
 		trap_switch playloopsound("zmb_pressure_plate_loop");
-		trap_switch waittill(#"movedone");
+		trap_switch waittill("movedone");
 		trap_switch stoploopsound();
 		trap_switch playsound("zmb_pressure_plate_lock");
 	}
-	self notify(#"switch_activated");
-	self waittill(#"trap_ready");
+	self notify("switch_activated");
+	self waittill("trap_ready");
 	for(i = 0; i < self.trap_switches.size; i++)
 	{
 		trap_switch = self.trap_switches[i];
 		trap_switch movey(5, 0.75);
 		trap_switch playloopsound("zmb_pressure_plate_loop");
-		trap_switch waittill(#"movedone");
+		trap_switch waittill("movedone");
 		trap_switch stoploopsound();
 		trap_switch playsound("zmb_pressure_plate_lock");
 	}
@@ -484,14 +484,14 @@ function waterfall_trap_think()
 {
 	while(true)
 	{
-		self notify(#"trap_ready");
+		self notify("trap_ready");
 		self.usetrigger sethintstring(&"ZM_TEMPLE_USE_WATER_TRAP");
-		self.usetrigger waittill(#"trigger", who);
+		self.usetrigger waittill("trigger", who);
 		if(zombie_utility::is_player_valid(who) && !who zm_utility::in_revive_trigger())
 		{
 			who.used_waterfall = 1;
 			self thread temple_trap_move_switch();
-			self waittill(#"switch_activated");
+			self waittill("switch_activated");
 			self.usetrigger sethintstring("");
 			waterfall_trap_on();
 			wait(0.5);
@@ -501,7 +501,7 @@ function waterfall_trap_think()
 			array::thread_all(self.var_41f396e4, &waterfall_screen_fx, activetime);
 			self thread waterfall_screen_shake(activetime);
 			wait(activetime);
-			self notify(#"trap_off");
+			self notify("trap_off");
 			self.usetrigger sethintstring(&"ZM_TEMPLE_WATER_TRAP_COOL");
 			array::thread_all(self.var_41f396e4, &function_a6e2b85f);
 			waterfall_trap_off();
@@ -523,7 +523,7 @@ function waterfall_trap_think()
 function function_a6e2b85f()
 {
 	self triggerenable(0);
-	self notify(#"waterfall_trap_off");
+	self notify("waterfall_trap_off");
 }
 
 /*
@@ -556,11 +556,11 @@ function waterfall_screen_fx(activetime)
 */
 function function_b68fdf22()
 {
-	self endon(#"waterfall_trap_off");
+	self endon("waterfall_trap_off");
 	self triggerenable(1);
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			self thread function_5e706bd9(who);
@@ -579,7 +579,7 @@ function function_b68fdf22()
 */
 function function_5e706bd9(player)
 {
-	player endon(#"disconnect");
+	player endon("disconnect");
 	self thread zm_temple_triggers::water_drop_trig_entered(player);
 	while(isdefined(player) && player istouching(self) && self istriggerenabled())
 	{
@@ -646,7 +646,7 @@ function waterfall_trap_on()
 	{
 		playsoundatposition("evt_waterfall_trap", soundstruct.origin);
 	}
-	level notify(#"waterfall");
+	level notify("waterfall");
 	level clientfield::set("waterfall_trap", 1);
 	exploder::exploder("fxexp_21");
 	exploder::stop_exploder("fxexp_20");
@@ -678,12 +678,12 @@ function waterfall_trap_off()
 */
 function waterfall_trap_damage()
 {
-	self endon(#"trap_off");
+	self endon("trap_off");
 	fwd = anglestoforward(self.angles);
 	zombies_knocked_down = [];
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			if(isdefined(self.script_string) && self.script_string == "hurt_player")
@@ -1033,7 +1033,7 @@ function maze_mover_active(active)
 		ratio = (abs(goalz - currentz)) / abs(self.movedist);
 		movetime = movetime * ratio;
 	}
-	self notify(#"stop_maze_mover");
+	self notify("stop_maze_mover");
 	self.isactive = active;
 	if(self.cliponly)
 	{
@@ -1067,14 +1067,14 @@ function maze_mover_active(active)
 */
 function _maze_mover_move(goal, time)
 {
-	self endon(#"stop_maze_mover");
+	self endon("stop_maze_mover");
 	self.ismoving = 1;
 	if(time == 0)
 	{
 		time = 0.01;
 	}
 	self moveto(goal, time);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self.ismoving = 0;
 	if(self.isactive)
 	{
@@ -1131,10 +1131,10 @@ function _maze_mover_play_fx(fx_name, offset)
 */
 function maze_cell_watch()
 {
-	level endon(#"fake_death");
+	level endon("fake_death");
 	while(true)
 	{
-		self.trigger waittill(#"trigger", who);
+		self.trigger waittill("trigger", who);
 		if(self.trigger.pathcount > 0)
 		{
 			if(isplayer(who))
@@ -1228,7 +1228,7 @@ function zombie_mud_move_normal()
 */
 function zombie_slow_trigger_exit(zombie)
 {
-	zombie endon(#"death");
+	zombie endon("death");
 	if(isdefined(zombie.mud_triggers))
 	{
 		if(is_in_array(zombie.mud_triggers, self))
@@ -1316,7 +1316,7 @@ function zombie_on_mud()
 */
 function zombie_normal_trigger_exit(zombie)
 {
-	zombie endon(#"death");
+	zombie endon("death");
 	if(isdefined(zombie.path_triggers))
 	{
 		if(is_in_array(zombie.path_triggers, self))
@@ -1432,10 +1432,10 @@ function maze_cell_player_enter(player)
 */
 function path_trigger_wait(player)
 {
-	player endon(#"disconnect");
-	player endon(#"fake_death");
-	player endon(#"death");
-	level endon(#"maze_timer_end");
+	player endon("disconnect");
+	player endon("fake_death");
+	player endon("death");
+	level endon("maze_timer_end");
 	while(self.trigger.pathcount != 0 && player istouching(self.trigger) && player.sessionstate != "spectator")
 	{
 		wait(0.1);
@@ -1497,9 +1497,9 @@ function on_maze_cell_exit()
 */
 function watch_slow_trigger_exit(player)
 {
-	player endon(#"death");
-	player endon(#"fake_death");
-	player endon(#"disconnect");
+	player endon("death");
+	player endon("fake_death");
+	player endon("disconnect");
 	player allowjump(0);
 	if(isdefined(player.mazeslowtrigger))
 	{
@@ -1644,7 +1644,7 @@ function delete_cell_corpses(mazecell)
 */
 function delete_corpse()
 {
-	self endon(#"death");
+	self endon("death");
 	playfx(level._effect["animscript_gib_fx"], self.origin);
 	if(isdefined(self))
 	{
@@ -1746,7 +1746,7 @@ function maze_start_path()
 */
 function maze_end_path()
 {
-	level notify(#"maze_path_end");
+	level notify("maze_path_end");
 	level.pathactive = 0;
 	level thread maze_show_starts_delayed();
 }
@@ -1762,7 +1762,7 @@ function maze_end_path()
 */
 function maze_show_starts_delayed()
 {
-	level endon(#"maze_all_safe");
+	level endon("maze_all_safe");
 	wait(3);
 	maze_show_starts();
 }
@@ -1778,14 +1778,14 @@ function maze_show_starts_delayed()
 */
 function maze_path_timer(time)
 {
-	level endon(#"maze_path_end");
-	level endon(#"maze_all_safe");
+	level endon("maze_path_end");
+	level endon("maze_all_safe");
 	vibratetime = 3;
 	wait(time - vibratetime);
 	level thread maze_vibrate_floor_stop();
 	level thread maze_vibrate_active_floors(vibratetime);
 	wait(vibratetime);
-	level notify(#"maze_timer_end");
+	level notify("maze_timer_end");
 	level thread repath_zombies_in_maze();
 }
 
@@ -1815,8 +1815,8 @@ function repath_zombies_in_maze()
 		}
 		if(zombie zombie_on_path() || zombie zombie_on_mud())
 		{
-			zombie notify(#"stop_find_flesh");
-			zombie notify(#"zombie_acquire_enemy");
+			zombie notify("stop_find_flesh");
+			zombie notify("zombie_acquire_enemy");
 			util::wait_network_frame();
 			zombie.ai_state = "find_flesh";
 		}
@@ -1834,8 +1834,8 @@ function repath_zombies_in_maze()
 */
 function maze_vibrate_active_floors(time)
 {
-	level endon(#"maze_path_end");
-	level endon(#"maze_all_safe");
+	level endon("maze_path_end");
+	level endon("maze_all_safe");
 	endtime = gettime() + (time * 1000);
 	while(endtime > gettime())
 	{
@@ -1890,9 +1890,9 @@ function temple_maze_player_vibrate_on(player, endon_condition)
 */
 function temple_maze_player_vibrate_off(player)
 {
-	player endon(#"frc");
+	player endon("frc");
 	player clientfield::set_to_player("floorrumble", 0);
-	player notify(#"frc");
+	player notify("frc");
 }
 
 /*
@@ -1906,7 +1906,7 @@ function temple_maze_player_vibrate_off(player)
 */
 function temple_inactive_floor_rumble_cancel(ent_player)
 {
-	ent_player endon(#"frc");
+	ent_player endon("frc");
 	floor_piece = undefined;
 	maze_floor_array = getentarray("maze_floor", "targetname");
 	for(i = 0; i < maze_floor_array.size; i++)
@@ -1924,7 +1924,7 @@ function temple_inactive_floor_rumble_cancel(ent_player)
 	{
 		ent_player clientfield::set_to_player("floorrumble", 0);
 	}
-	ent_player notify(#"frc");
+	ent_player notify("frc");
 }
 
 /*
@@ -2109,7 +2109,7 @@ function cell_get_previous()
 */
 function zombie_waterfall_knockdown(entity)
 {
-	self endon(#"death");
+	self endon("death");
 	self.lander_knockdown = 1;
 	wait(1.25);
 	self zombie_utility::setup_zombie_knockdown(entity);

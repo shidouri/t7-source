@@ -88,7 +88,7 @@ function quadrotor_think()
 function follow_ent(e_followee)
 {
 	level endon(#"end_game");
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(e_followee))
 	{
 		if(!self.returning_home)
@@ -161,7 +161,7 @@ function quadrotor_main()
 function quadrotor_fireupdate()
 {
 	level endon(#"end_game");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(self.enemy) && self vehcansee(self.enemy))
@@ -202,7 +202,7 @@ function quadrotor_fireupdate()
 */
 function quadrotor_watch_for_game_end()
 {
-	self endon(#"death");
+	self endon("death");
 	level waittill(#"end_game");
 	if(isdefined(self))
 	{
@@ -310,8 +310,8 @@ function make_sure_goal_is_well_above_ground(pos)
 function waittill_pathing_done()
 {
 	level endon(#"end_game");
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	if(self.vehonpath)
 	{
 		self util::waittill_any("near_goal", "reached_end_node", "force_goal");
@@ -330,8 +330,8 @@ function waittill_pathing_done()
 function quadrotor_movementupdate()
 {
 	level endon(#"end_game");
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	/#
 		assert(isalive(self));
 	#/
@@ -381,7 +381,7 @@ function quadrotor_movementupdate()
 			}
 			if(is_valid_exit_path_found)
 			{
-				self notify(#"attempting_return");
+				self notify("attempting_return");
 				self util::waittill_any("near_goal", "force_goal", "reached_end_node", "return_timeout");
 				continue;
 			}
@@ -415,8 +415,8 @@ function quadrotor_movementupdate()
 				wait(1);
 				if(isdefined(self.revive_target) && self.revive_target laststand::player_is_in_laststand())
 				{
-					self.revive_target notify(#"remote_revive", self.player_owner);
-					self.player_owner notify(#"revived_player_with_quadrotor");
+					self.revive_target notify("remote_revive", self.player_owner);
+					self.player_owner notify("revived_player_with_quadrotor");
 				}
 				self.revive_target = undefined;
 				self setvehgoalpos(origin, 1, 1);
@@ -475,7 +475,7 @@ function quadrotor_movementupdate()
 				playfx(level._effect["staff_charge"], e_special_item.origin);
 				e_special_item hide();
 				level.n_ee_medallions--;
-				level notify(#"quadrotor_medallion_found", self);
+				level notify("quadrotor_medallion_found", self);
 				if(level.n_ee_medallions == 0)
 				{
 					s_mg_spawn = struct::get("mgspawn", "targetname");
@@ -553,18 +553,18 @@ function quadrotor_escape_into_air()
 		/#
 			iprintln("");
 		#/
-		self notify(#"attempting_return");
+		self notify("attempting_return");
 	}
 	else
 	{
 		/#
 			iprintln("");
 		#/
-		self notify(#"attempting_return");
+		self notify("attempting_return");
 		playfx(level._effect["tesla_elec_kill"], self.origin);
 		self playsound("zmb_qrdrone_leave");
 		self delete();
-		level notify(#"drone_available");
+		level notify("drone_available");
 	}
 }
 
@@ -682,10 +682,10 @@ function quadrotor_teleport_to_nearest_node()
 */
 function quadrotor_damage()
 {
-	self endon(#"crash_done");
+	self endon("crash_done");
 	while(isdefined(self))
 	{
-		self waittill(#"damage", damage, $_, dir, point, type);
+		self waittill("damage", damage, $_, dir, point, type);
 		if(isdefined(self.off))
 		{
 			continue;
@@ -745,9 +745,9 @@ function quadrotor_cleanup_fx()
 function quadrotor_death()
 {
 	wait(0.1);
-	self notify(#"nodeath_thread");
-	self waittill(#"death", attacker, damagefromunderneath, weaponname, point, dir);
-	self notify(#"nodeath_thread");
+	self notify("nodeath_thread");
+	self waittill("death", attacker, damagefromunderneath, weaponname, point, dir);
+	self notify("nodeath_thread");
 	if(isdefined(self.goal_node) && isdefined(self.goal_node.quadrotor_claimed))
 	{
 		self.goal_node.quadrotor_claimed = undefined;
@@ -766,14 +766,14 @@ function quadrotor_death()
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self disableaimassist();
 	self death_fx();
 	self thread death_radius_damage();
 	self thread set_death_model(self.deathmodel, self.modelswapdelay);
 	self thread quadrotor_crash_movement(attacker, dir);
 	self quadrotor_cleanup_fx();
-	self waittill(#"crash_done");
+	self waittill("crash_done");
 	self delete();
 	level.maxis_quadrotor = undefined;
 }
@@ -808,8 +808,8 @@ function death_fx()
 function quadrotor_crash_movement(attacker, hitdir)
 {
 	level endon(#"end_game");
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	self cancelaimove();
 	self clearvehgoalpos();
 	self clearlookatent();
@@ -847,7 +847,7 @@ function quadrotor_crash_movement(attacker, hitdir)
 		self thread quadrotor_fire_for_time(randomfloatrange(0.7, 2));
 	}
 	wait(15);
-	self notify(#"crash_done");
+	self notify("crash_done");
 }
 
 /*
@@ -882,9 +882,9 @@ function qrotor_dmg_snd()
 function quadrotor_fire_for_time(totalfiretime)
 {
 	level endon(#"end_game");
-	self endon(#"crash_done");
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("change_state");
+	self endon("death");
 	if(isdefined(self.emped))
 	{
 		return;
@@ -921,8 +921,8 @@ function quadrotor_fire_for_time(totalfiretime)
 function quadrotor_crash_accel()
 {
 	level endon(#"end_game");
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	count = 0;
 	while(true)
 	{
@@ -966,14 +966,14 @@ function quadrotor_crash_accel()
 function quadrotor_predicted_collision()
 {
 	level endon(#"end_game");
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("crash_done");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"veh_predictedcollision", velocity, normal);
+		self waittill("veh_predictedcollision", velocity, normal);
 		if(normal[2] >= 0.6)
 		{
-			self notify(#"veh_collision", velocity, normal);
+			self notify("veh_collision", velocity, normal);
 		}
 	}
 }
@@ -990,12 +990,12 @@ function quadrotor_predicted_collision()
 function quadrotor_collision_player()
 {
 	level endon(#"end_game");
-	self endon(#"change_state");
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("crash_done");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"veh_collision", velocity, normal);
+		self waittill("veh_collision", velocity, normal);
 		driver = self getseatoccupant(0);
 		if(isdefined(driver) && lengthsquared(velocity) > 4900)
 		{
@@ -1017,9 +1017,9 @@ function quadrotor_collision_player()
 function quadrotor_collision()
 {
 	level endon(#"end_game");
-	self endon(#"change_state");
-	self endon(#"crash_done");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("crash_done");
+	self endon("death");
 	if(!isalive(self))
 	{
 		self thread quadrotor_predicted_collision();
@@ -1028,7 +1028,7 @@ function quadrotor_collision()
 	time_of_last_bounce = 0;
 	while(true)
 	{
-		self waittill(#"veh_collision", velocity, normal);
+		self waittill("veh_collision", velocity, normal);
 		ang_vel = self getangularvelocity() * 0.5;
 		self setangularvelocity(ang_vel);
 		if(normal[2] < 0.6 || (isalive(self) && !isdefined(self.emped)))
@@ -1049,7 +1049,7 @@ function quadrotor_collision()
 				self.bounce_count = self.bounce_count + 1;
 				if(self.bounce_count > 2)
 				{
-					self notify(#"force_goal");
+					self notify("force_goal");
 					self.bounce_count = 0;
 				}
 			}
@@ -1091,7 +1091,7 @@ function quadrotor_collision()
 						}
 					}
 					self.bounced = undefined;
-					self notify(#"landed");
+					self notify("landed");
 					return;
 				}
 				self.bounced = 1;
@@ -1112,7 +1112,7 @@ function quadrotor_collision()
 				createdynentandlaunch(self.deathmodel, self.origin, self.angles, self.origin, self.velocity * 0.01);
 				self playsound("veh_qrdrone_explo");
 				self thread death_fire_loop_audio();
-				self notify(#"crash_done");
+				self notify("crash_done");
 			}
 		}
 	}
@@ -1168,7 +1168,7 @@ function quadrotor_set_team(team)
 function quadrotor_blink_lights()
 {
 	level endon(#"end_game");
-	self endon(#"death");
+	self endon("death");
 	self vehicle::lights_off();
 	wait(0.1);
 	self vehicle::lights_on();
@@ -1186,7 +1186,7 @@ function quadrotor_blink_lights()
 function quadrotor_self_destruct()
 {
 	level endon(#"end_game");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	self_destruct = 0;
 	self_destruct_time = 0;
@@ -1235,9 +1235,9 @@ function quadrotor_self_destruct()
 function quadrotor_level_out_for_landing()
 {
 	level endon(#"end_game");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"emped");
-	self endon(#"landed");
+	self endon("landed");
 	while(isdefined(self.emped))
 	{
 		velocity = self.velocity;
@@ -1371,7 +1371,7 @@ function watch_for_fail_revive(quad_rotor)
 	owner = quad_rotor.player_owner;
 	revive_target = quad_rotor.revive_target;
 	revive_target endon(#"bled_out");
-	revive_target endon(#"disconnect");
+	revive_target endon("disconnect");
 	level thread kill_fx_if_target_revive(quadrotor, revive_target);
 	revive_target.revive_hud settext(&"GAME_PLAYER_IS_REVIVING_YOU", owner);
 	revive_target laststand::revive_hud_show_n_fade(1);

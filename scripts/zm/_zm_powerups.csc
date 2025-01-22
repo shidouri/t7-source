@@ -110,7 +110,7 @@ function include_zombie_powerup(powerup_name)
 */
 function powerup_state_callback(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"powerup", fieldname, newval);
+	self notify("powerup", fieldname, newval);
 }
 
 /*

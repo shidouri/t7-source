@@ -48,7 +48,7 @@ function start_timer(time, stop_notify)
 {
 	self notify(#"stop_prev_timer");
 	self endon(#"stop_prev_timer");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.stopwatch_elem))
 	{
 		self.stopwatch_elem = newclienthudelem(self);
@@ -82,7 +82,7 @@ function start_timer(time, stop_notify)
 	self.stopwatch_elem.alpha = 1;
 	self.stopwatch_elem_glass.alpha = 1;
 	wait(time);
-	self notify(#"countdown_finished");
+	self notify("countdown_finished");
 	wait(1);
 	self.stopwatch_elem.alpha = 0;
 	self.stopwatch_elem_glass.alpha = 0;
@@ -100,7 +100,7 @@ function start_timer(time, stop_notify)
 function wait_for_stop_notify(stop_notify)
 {
 	self endon(#"stop_prev_timer");
-	self endon(#"countdown_finished");
+	self endon("countdown_finished");
 	self waittill(stop_notify);
 	self.stopwatch_elem.alpha = 0;
 	self.stopwatch_elem_glass.alpha = 0;
@@ -117,9 +117,9 @@ function wait_for_stop_notify(stop_notify)
 */
 function update_hud_position()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"stop_prev_timer");
-	self endon(#"countdown_finished");
+	self endon("countdown_finished");
 	while(true)
 	{
 		self.stopwatch_elem.y = 20;

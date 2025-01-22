@@ -131,7 +131,7 @@ function driving_enter(params)
 */
 function drone_pain_for_time(time, stablizeparam, restorelookpoint, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self.painstarttime = gettime();
 	if(!(isdefined(self.inpain) && self.inpain) && isdefined(self.health) && self.health > 0)
 	{
@@ -417,7 +417,7 @@ function hackedcallbackpost(hacker)
 {
 	sentinel = self;
 	hacker remote_weapons::useremoteweapon(sentinel, "sentinel", 0);
-	sentinel notify(#"watchremotecontroldeactivate_remoteweapons");
+	sentinel notify("watchremotecontroldeactivate_remoteweapons");
 	sentinel.killstreak_end_time = hacker killstreak_hacking::set_vehicle_drivable_time_starting_now(sentinel);
 }
 
@@ -448,11 +448,11 @@ function configureteampost(owner, ishacked)
 function watchgameended()
 {
 	sentinel = self;
-	sentinel endon(#"death");
-	level waittill(#"game_ended");
+	sentinel endon("death");
+	level waittill("game_ended");
 	sentinel.abandoned = 1;
 	sentinel.selfdestruct = 1;
-	sentinel notify(#"sentinel_shutdown");
+	sentinel notify("sentinel_shutdown");
 }
 
 /*
@@ -552,7 +552,7 @@ function ontimeout()
 			sentinel.owner playrumbleonentity(params.ksexplosionrumble);
 		}
 	}
-	sentinel notify(#"sentinel_shutdown");
+	sentinel notify("sentinel_shutdown");
 }
 
 /*
@@ -566,7 +566,7 @@ function ontimeout()
 */
 function healthmonitor()
 {
-	self endon(#"death");
+	self endon("death");
 	params = level.killstreakbundle["sentinel"];
 	if(isdefined(params.fxlowhealth))
 	{
@@ -594,7 +594,7 @@ function healthmonitor()
 function sentineldistancefailure()
 {
 	sentinel = self;
-	sentinel notify(#"sentinel_shutdown");
+	sentinel notify("sentinel_shutdown");
 }
 
 /*
@@ -609,8 +609,8 @@ function sentineldistancefailure()
 function watchdeath()
 {
 	sentinel = self;
-	sentinel waittill(#"death", attacker, damagefromunderneath, weapon, point, dir, modtype);
-	sentinel notify(#"sentinel_shutdown");
+	sentinel waittill("death", attacker, damagefromunderneath, weapon, point, dir, modtype);
+	sentinel notify("sentinel_shutdown");
 	attacker = self [[level.figure_out_attacker]](attacker);
 	if(isdefined(attacker) && (!isdefined(self.owner) || self.owner util::isenemyplayer(attacker)))
 	{
@@ -644,12 +644,12 @@ function watchdeath()
 */
 function watchteamchange()
 {
-	self notify(#"sentinel_watchteamchange_singleton");
-	self endon(#"sentinel_watchteamchange_singleton");
+	self notify("sentinel_watchteamchange_singleton");
+	self endon("sentinel_watchteamchange_singleton");
 	sentinel = self;
-	sentinel endon(#"sentinel_shutdown");
+	sentinel endon("sentinel_shutdown");
 	sentinel.owner util::waittill_any("joined_team", "disconnect", "joined_spectators");
-	sentinel notify(#"sentinel_shutdown");
+	sentinel notify("sentinel_shutdown");
 }
 
 /*
@@ -664,7 +664,7 @@ function watchteamchange()
 function watchwater()
 {
 	sentinel = self;
-	sentinel endon(#"sentinel_shutdown");
+	sentinel endon("sentinel_shutdown");
 	while(true)
 	{
 		wait(0.1);
@@ -674,7 +674,7 @@ function watchwater()
 			break;
 		}
 	}
-	sentinel notify(#"sentinel_shutdown");
+	sentinel notify("sentinel_shutdown");
 }
 
 /*
@@ -689,7 +689,7 @@ function watchwater()
 function watchshutdown()
 {
 	sentinel = self;
-	sentinel waittill(#"sentinel_shutdown");
+	sentinel waittill("sentinel_shutdown");
 	if(isdefined(sentinel.control_initiated) && sentinel.control_initiated || (isdefined(sentinel.controlled) && sentinel.controlled))
 	{
 		sentinel remote_weapons::endremotecontrolweaponuse(0);

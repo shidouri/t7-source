@@ -312,7 +312,7 @@ function gravity_trap_rumble_callback(localclientnum, oldval, newval, bnewent, b
 	}
 	else
 	{
-		self notify(#"vortex_stop");
+		self notify("vortex_stop");
 	}
 }
 
@@ -327,9 +327,9 @@ function gravity_trap_rumble_callback(localclientnum, oldval, newval, bnewent, b
 */
 function gravity_trap_rumble(localclientnum)
 {
-	level endon(#"demo_jump");
-	self endon(#"vortex_stop");
-	self endon(#"death");
+	level endon("demo_jump");
+	self endon("vortex_stop");
+	self endon("death");
 	while(isdefined(self))
 	{
 		self playrumbleonentity(localclientnum, "zod_idgun_vortex_interior");

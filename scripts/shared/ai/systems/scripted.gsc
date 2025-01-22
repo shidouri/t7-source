@@ -14,13 +14,13 @@
 */
 function main()
 {
-	self endon(#"death");
-	self notify(#"killanimscript");
-	self notify(#"clearsuppressionattack");
+	self endon("death");
+	self notify("killanimscript");
+	self notify("clearsuppressionattack");
 	self.codescripted["root"] = %generic::body;
 	self endon(#"end_sequence");
 	self.a.script = "scripted";
-	self waittill(#"killanimscript");
+	self waittill("killanimscript");
 }
 
 /*

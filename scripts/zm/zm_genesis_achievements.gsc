@@ -109,7 +109,7 @@ function function_902aff55()
 */
 function function_4d2d1f7a()
 {
-	level waittill(#"apotho_pack_freed");
+	level waittill("apotho_pack_freed");
 	self giveachievement("ZM_GENESIS_PACKECTOMY");
 }
 
@@ -125,7 +125,7 @@ function function_4d2d1f7a()
 function function_553e6274()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_71148446 = [];
 	self.var_71148446[0] = "mechz";
 	self.var_71148446[1] = "zombie";
@@ -167,7 +167,7 @@ function function_3c82f182()
 function function_817b1327()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_720f4d71");
 	var_ef6b3d38 = 0;
 	while(true)
@@ -197,7 +197,7 @@ function function_817b1327()
 function function_7d947aff()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.var_88f45a31 = [];
 	self.var_88f45a31[self.var_88f45a31.size] = "start_island";
 	self.var_88f45a31[self.var_88f45a31.size] = "prison_island";
@@ -226,7 +226,7 @@ function function_7d947aff()
 function function_935679b0()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_2bec714");
 	while(!isdefined(self.var_a3d40b8))
 	{
@@ -258,7 +258,7 @@ function function_935679b0()
 function function_f17c9ba1()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_2bec714");
 	var_a43542cc = self.var_a3d40b8;
 	if(isdefined(var_a43542cc) && isinarray(self.var_88f45a31, var_a43542cc))
@@ -289,11 +289,11 @@ function function_f17c9ba1()
 function achievement_wardrobe_change()
 {
 	level endon(#"end_game");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_fc2fd82c = [];
 	while(true)
 	{
-		self waittill(#"changed_wearable", var_475b0a4e);
+		self waittill("changed_wearable", var_475b0a4e);
 		array::add(var_fc2fd82c, var_475b0a4e, 0);
 		if(var_fc2fd82c.size >= 3)
 		{

@@ -82,8 +82,8 @@ function init_clientfields()
 */
 function function_d28f5c87(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"dragon_body_glow");
-	self endon(#"dragon_body_glow");
+	self notify("dragon_body_glow");
+	self endon("dragon_body_glow");
 	self endon(#"entityshutdown");
 	self thread function_9b0f57cf(localclientnum, newval);
 	if(newval)
@@ -221,7 +221,7 @@ function function_2ce58010(n_local_client)
 	level endon(#"hash_a35dee4e");
 	while(true)
 	{
-		self waittill(#"damage", e_attacker, v_impact_pos, var_778fe70f, var_77cbbb1b);
+		self waittill("damage", e_attacker, v_impact_pos, var_778fe70f, var_77cbbb1b);
 		if(level.var_ef6a691 > 0)
 		{
 			foreach(var_61c194b7 in level.var_61699bd7[level.var_ef6a691])

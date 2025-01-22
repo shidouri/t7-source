@@ -232,7 +232,7 @@ function hackedcallbackpost(hacker)
 {
 	turretvehicle = self;
 	hacker remote_weapons::useremoteweapon(turretvehicle, "autoturret", 0);
-	turretvehicle notify(#"watchremotecontroldeactivate_remoteweapons");
+	turretvehicle notify("watchremotecontroldeactivate_remoteweapons");
 	turretvehicle.killstreak_end_time = hacker killstreak_hacking::set_vehicle_drivable_time_starting_now(turretvehicle);
 }
 
@@ -248,7 +248,7 @@ function hackedcallbackpost(hacker)
 function play_deploy_anim_after_wait(wait_time)
 {
 	turret = self;
-	turret endon(#"death");
+	turret endon("death");
 	wait(wait_time);
 	turret play_deploy_anim();
 }
@@ -284,7 +284,7 @@ function play_deploy_anim()
 */
 function oncancelplacement(turret)
 {
-	turret notify(#"sentry_turret_shutdown");
+	turret notify("sentry_turret_shutdown");
 }
 
 /*
@@ -451,7 +451,7 @@ function ondeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, sh
 */
 function onshutdown(turret)
 {
-	turret notify(#"sentry_turret_shutdown");
+	turret notify("sentry_turret_shutdown");
 }
 
 /*
@@ -517,12 +517,12 @@ function endturretremotecontrol(turretvehicle, exitrequestedbyowner)
 */
 function enableturretafterwait(wait_time)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.owner))
 	{
-		self.owner endon(#"joined_team");
-		self.owner endon(#"disconnect");
-		self.owner endon(#"joined_spectators");
+		self.owner endon("joined_team");
+		self.owner endon("disconnect");
+		self.owner endon("joined_spectators");
 	}
 	wait(wait_time);
 	self enable(0, 0);
@@ -560,9 +560,9 @@ function createturretinfluencer(name)
 */
 function turret_watch_owner_events()
 {
-	self notify(#"turret_watch_owner_events_singleton");
-	self endon(#"tturet_watch_owner_events_singleton");
-	self endon(#"death");
+	self notify("turret_watch_owner_events_singleton");
+	self endon("tturet_watch_owner_events_singleton");
+	self endon("death");
 	self.owner util::waittill_any("joined_team", "disconnect", "joined_spectators");
 	self makevehicleusable();
 	self.controlled = 0;
@@ -592,7 +592,7 @@ function turret_watch_owner_events()
 function turret_laser_watch()
 {
 	turretvehicle = self;
-	turretvehicle endon(#"death");
+	turretvehicle endon("death");
 	while(true)
 	{
 		laser_should_be_on = !turretvehicle.controlled && turretvehicle does_have_target(0);
@@ -623,14 +623,14 @@ function turret_laser_watch()
 function setup_death_watch_for_new_targets()
 {
 	turretvehicle = self;
-	turretvehicle endon(#"death");
+	turretvehicle endon("death");
 	old_target = undefined;
 	while(true)
 	{
-		turretvehicle waittill(#"has_new_target", new_target);
+		turretvehicle waittill("has_new_target", new_target);
 		if(isdefined(old_target))
 		{
-			old_target notify(#"abort_death_watch");
+			old_target notify("abort_death_watch");
 		}
 		new_target thread target_death_watch(turretvehicle);
 		old_target = new_target;
@@ -649,8 +649,8 @@ function setup_death_watch_for_new_targets()
 function target_death_watch(turretvehicle)
 {
 	target = self;
-	target endon(#"abort_death_watch");
-	turretvehicle endon(#"death");
+	target endon("abort_death_watch");
+	turretvehicle endon("death");
 	target util::waittill_any("death", "disconnect", "joined_team", "joined_spectators");
 	turretvehicle stop(0, 1);
 }
@@ -667,7 +667,7 @@ function target_death_watch(turretvehicle)
 function turretscanning()
 {
 	turretvehicle = self;
-	turretvehicle endon(#"death");
+	turretvehicle endon("death");
 	turretvehicle endon(#"end_turret_scanning");
 	turret_data = turretvehicle _get_turret_data(0);
 	turretvehicle.do_not_clear_targets_during_think = 1;
@@ -714,7 +714,7 @@ function turretscanning()
 function watchturretshutdown(killstreakid, team)
 {
 	turret = self;
-	turret waittill(#"sentry_turret_shutdown");
+	turret waittill("sentry_turret_shutdown");
 	killstreakrules::killstreakstop("autoturret", team, killstreakid);
 	if(isdefined(turret.vehicle))
 	{

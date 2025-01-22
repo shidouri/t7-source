@@ -68,8 +68,8 @@ function activation()
 */
 function function_b18c3b2d(origin)
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
+	self endon("disconnect");
+	self endon("bled_out");
 	var_93eb638b = zm_powerups::specific_powerup_drop("bonus_points_player", origin, undefined, undefined, 0.1);
 	var_93eb638b.bonus_points_powerup_override = &function_3258dd42;
 	wait(1);

@@ -189,7 +189,7 @@ function function_1b3e50b5(var_50a9e5d9, waittime, rotatetime, rotateangles, var
 */
 function train_think(cars, dividers, notifier, start, gate_a, gate_b, var_9071646e, var_fbb2796a, var_4eb99366, var_5f47c084, var_c4ecec2, trackside)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	foreach(gate in gate_a)
 	{
 		gate.originalangles = gate.angles;
@@ -280,17 +280,17 @@ function train_think(cars, dividers, notifier, start, gate_a, gate_b, var_907164
 		}
 		gate_a[0] stoploopsound(2);
 		gate_b[0] stoploopsound(2);
-		cars[0] waittill(#"reached_end_node");
+		cars[0] waittill("reached_end_node");
 		cars[0] stoploopsound(2);
 		for(i = 1; i < max_cars; i++)
 		{
 			cars[i] ghost();
-			cars[i] notify(#"stop_kill");
+			cars[i] notify("stop_kill");
 			dividers[i] ghost();
-			dividers[i] notify(#"stop_kill");
+			dividers[i] notify("stop_kill");
 			cars[i] stoploopsound(2);
 		}
-		cars[0] notify(#"stop_kill");
+		cars[0] notify("stop_kill");
 		cars[0] ghost();
 	}
 }
@@ -306,7 +306,7 @@ function train_think(cars, dividers, notifier, start, gate_a, gate_b, var_907164
 */
 function record_positions(tracknum)
 {
-	self endon(#"reached_end_node");
+	self endon("reached_end_node");
 	level.train_positions[tracknum] = [];
 	level.train_angles[tracknum] = [];
 	if(tracknum == "left")
@@ -385,7 +385,7 @@ function function_d196b0a5(index, trackside)
 */
 function car_move(tracknum)
 {
-	self endon(#"stop_kill");
+	self endon("stop_kill");
 	if(tracknum == "left")
 	{
 		var_d5a44988 = getdvarint("train_position_start_water_left", 205);
@@ -426,13 +426,13 @@ function car_move(tracknum)
 function watch_player_touch()
 {
 	self endon(#"end_of_track");
-	self endon(#"stop_kill");
-	self endon(#"delete");
-	self endon(#"death");
+	self endon("stop_kill");
+	self endon("delete");
+	self endon("death");
 	self.disablefinalkillcam = 1;
 	for(;;)
 	{
-		self waittill(#"touch", entity);
+		self waittill("touch", entity);
 		if(isplayer(entity))
 		{
 			entity dodamage(entity.health * 2, self.origin + (0, 0, 1), self, self, 0, "MOD_CRUSH");
@@ -503,7 +503,7 @@ function function_a202446a(killplayers, waittime, var_24d445fd)
 			{
 				if(entity.targetname == "talon")
 				{
-					entity notify(#"death");
+					entity notify("death");
 					continue;
 				}
 			}

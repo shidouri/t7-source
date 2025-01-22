@@ -175,10 +175,10 @@ function callback_guys_decay(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function decaymanmaterial(localclientnum)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self notify(#"decaymanmaterial");
-	self endon(#"decaymanmaterial");
+	self endon("disconnect");
+	self endon("death");
+	self notify("decaymanmaterial");
+	self endon("decaymanmaterial");
 	var_9ef7f234 = 1 / 6.5;
 	i = 0;
 	while(i <= 6.5)

@@ -69,7 +69,7 @@ function enable()
 function function_7d6ddd3a()
 {
 	self endon(#"hash_7e8cbf8f");
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	thread disable();
 }
 

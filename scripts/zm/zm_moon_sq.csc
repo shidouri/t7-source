@@ -186,7 +186,7 @@ function ctt_trail_runner(localclientnum, fx_name, dest)
 {
 	playfxontag(localclientnum, level._effect[fx_name], self, "tag_origin");
 	self moveto(dest, 0.5);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	playsound(0, "zmb_squest_soul_impact", dest);
 	self delete();
 }
@@ -333,7 +333,7 @@ function sam_rise_and_bob(struct)
 {
 	endpos = struct::get(struct.target, "targetname");
 	self moveto(endpos.origin, 3);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	start_z = self.origin;
 	amplitude = 7;
 	frequency = 75;
@@ -381,7 +381,7 @@ function sam_init(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 */
 function bob_vg()
 {
-	self endon(#"death");
+	self endon("death");
 	start_z = self.origin;
 	amplitude = 2;
 	frequency = 100;
@@ -566,7 +566,7 @@ function sam_vo_rumble(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function function_9b1295b1(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_306cf2d4");
 	while(true)
 	{

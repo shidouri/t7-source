@@ -510,7 +510,7 @@ function change_melee_weapon(weapon, current_weapon)
 			{
 				ballistic_was_primary = 1;
 			}
-			self notify(#"zmb_lost_knife");
+			self notify("zmb_lost_knife");
 			self takeweapon(primary_weapon);
 			if(zm_weapons::is_weapon_upgraded(primary_weapon))
 			{
@@ -560,7 +560,7 @@ function melee_weapon_think(weapon, cost, flourish_fn, vo_dialog_id, flourish_we
 	self.first_time_triggered = 0;
 	if(isdefined(self.stub))
 	{
-		self endon(#"kill_trigger");
+		self endon("kill_trigger");
 		if(isdefined(self.stub.first_time_triggered))
 		{
 			self.first_time_triggered = self.stub.first_time_triggered;
@@ -586,7 +586,7 @@ function melee_weapon_think(weapon, cost, flourish_fn, vo_dialog_id, flourish_we
 	}
 	for(;;)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!zm_utility::is_player_valid(player))
 		{
 			player thread zm_utility::ignore_triggers(0.5);
@@ -833,7 +833,7 @@ function do_melee_weapon_flourish_end(original_weapon, flourish_weapon, weapon, 
 	{
 		self zm_weapons::switch_back_primary_weapon();
 	}
-	self waittill(#"weapon_change_complete");
+	self waittill("weapon_change_complete");
 	if(!self laststand::player_is_in_laststand() && (!(isdefined(self.intermission) && self.intermission)))
 	{
 		self zm_utility::decrement_is_drinking();

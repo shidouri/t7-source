@@ -17,8 +17,8 @@
 */
 function testmenu()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	for(;;)
 	{
 		wait(10);
@@ -41,8 +41,8 @@ function testmenu()
 */
 function testshock()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	for(;;)
 	{
 		wait(3);
@@ -259,9 +259,9 @@ function isvalidclass(c)
 */
 function playtickingsound(gametype_tick_sound)
 {
-	self endon(#"death");
-	self endon(#"stop_ticking");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("stop_ticking");
+	level endon("game_ended");
 	time = level.bombtimer;
 	while(true)
 	{
@@ -307,7 +307,7 @@ function playtickingsound(gametype_tick_sound)
 */
 function stoptickingsound()
 {
-	self notify(#"stop_ticking");
+	self notify("stop_ticking");
 }
 
 /*
@@ -321,8 +321,8 @@ function stoptickingsound()
 */
 function gametimer()
 {
-	level endon(#"game_ended");
-	level waittill(#"prematch_over");
+	level endon("game_ended");
+	level waittill("prematch_over");
 	level.starttime = gettime();
 	level.discardtime = 0;
 	if(isdefined(game["roundMillisecondsAlreadyPassed"]))
@@ -500,7 +500,7 @@ function getestimatedtimeuntilscorelimit(team)
 */
 function rumbler()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		wait(0.1);

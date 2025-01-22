@@ -75,7 +75,7 @@ function init_kane(str_objective)
 function player_underwater()
 {
 	self notify(#"hash_1fffa65c");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_1fffa65c");
 	while(true)
 	{
@@ -100,7 +100,7 @@ function function_41018429()
 {
 	self notify(#"hash_8f1abd30");
 	self endon(#"hash_8f1abd30");
-	self endon(#"death");
+	self endon("death");
 	self.is_underwater = 1;
 	self hazard::function_459e5eff("o2", 0);
 	var_dd075cd2 = 1;
@@ -129,7 +129,7 @@ function function_41018429()
 */
 function function_c6b38f1e()
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set_to_player("subway_water", 1);
 	while(self isplayerunderwater())
 	{
@@ -164,7 +164,7 @@ function function_8f7c9f3c()
 function player_anchor()
 {
 	self notify(#"end_anchor");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"end_anchor");
 	self.is_anchored = 0;
 	self.is_wet = 0;
@@ -240,7 +240,7 @@ function toggle_player_anchor(b_anchor)
 	{
 		if(!self iswallrunning() && (!(isdefined(self.laststand) && self.laststand)) && !self isplayerunderwater() && !self ismantling())
 		{
-			level notify(#"disable_cybercom", self, 1);
+			level notify("disable_cybercom", self, 1);
 			if(!self isonground())
 			{
 				self.e_anchor = spawn("script_origin", self.origin);
@@ -248,7 +248,7 @@ function toggle_player_anchor(b_anchor)
 				v_ground = groundpos_ignore_water(self.origin);
 				n_speed = distance(v_ground, self.origin) * 0.002;
 				self.e_anchor moveto(v_ground, n_speed);
-				self.e_anchor waittill(#"movedone");
+				self.e_anchor waittill("movedone");
 				self unlink();
 				self.e_anchor delete();
 			}
@@ -283,7 +283,7 @@ function toggle_player_anchor(b_anchor)
 */
 function function_c87bc7e2()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_af6705ff");
 	wait(20);
 	if(self.is_anchored)
@@ -303,7 +303,7 @@ function function_c87bc7e2()
 */
 function function_a81e2f8f()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.e_anchor) && (self.is_wind_affected || self.is_surge_affected))
 	{
 		var_3b8c7376 = distance2dsquared(self.origin, self.e_anchor.origin);
@@ -366,7 +366,7 @@ function function_a81e2f8f()
 */
 function function_12398a8b(a_ents)
 {
-	self endon(#"death");
+	self endon("death");
 	e_anchor = a_ents["spike"];
 	self waittill(#"hash_97a4dd11");
 	if(isdefined(e_anchor))
@@ -461,8 +461,8 @@ function player_wind_trigger_tracker(t_storm)
 {
 	self notify(#"hash_afb0e5d8");
 	self endon(#"hash_afb0e5d8");
-	self endon(#"disconnect");
-	t_storm endon(#"death");
+	self endon("disconnect");
+	t_storm endon("death");
 	self.is_wind_affected = 0;
 	while(!level flag::get("breached"))
 	{
@@ -508,8 +508,8 @@ function player_wind_sound_tracker(t_storm)
 {
 	self notify(#"hash_27db3d49");
 	self endon(#"hash_27db3d49");
-	self endon(#"disconnect");
-	t_storm endon(#"death");
+	self endon("disconnect");
+	t_storm endon("death");
 	self.currentsndwind = 0;
 	while(!level flag::get("breached"))
 	{
@@ -550,7 +550,7 @@ function player_wind_sound_tracker(t_storm)
 */
 function wind_manager()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		level flag::wait_till("allow_wind_gust");
@@ -603,7 +603,7 @@ function wind_manager()
 */
 function function_c86ecb59(n_time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(1);
 	self clientfield::set_to_player("wind_blur", 1);
 	wait(n_time);
@@ -622,10 +622,10 @@ function function_c86ecb59(n_time)
 function create_gust(t_storm)
 {
 	level flag::clear("kill_weather");
-	level endon(#"kill_weather");
-	t_storm endon(#"death");
+	level endon("kill_weather");
+	t_storm endon("death");
 	s_wind = struct::get(t_storm.target);
-	level notify(#"wind_warning");
+	level notify("wind_warning");
 	t_storm.is_high = 1;
 	util::waittill_notify_or_timeout("end_gust_warning", 1);
 	while(true)
@@ -680,13 +680,13 @@ function create_gust(t_storm)
 */
 function debris_at_players()
 {
-	level endon(#"anchor_intro_done");
+	level endon("anchor_intro_done");
 	s_debris = struct::get("debris_junk_fling");
 	s_move = struct::get("debris_junk_move");
 	level thread boat_fly();
 	while(true)
 	{
-		level waittill(#"wind_warning");
+		level waittill("wind_warning");
 		wait(1.5);
 		foreach(player in level.activeplayers)
 		{
@@ -736,10 +736,10 @@ function boat_fly()
 */
 function random_debris()
 {
-	level endon(#"anchor_intro_done");
+	level endon("anchor_intro_done");
 	while(true)
 	{
-		level waittill(#"wind_warning");
+		level waittill("wind_warning");
 		level thread setup_random_debris();
 	}
 }
@@ -805,7 +805,7 @@ function debris_embedded_trigger()
 		e_debris2 thread debris_shake();
 	}
 	trigger::wait_till("trigger_stage_2");
-	level waittill(#"wind_warning");
+	level waittill("wind_warning");
 	wait(1.7);
 	foreach(e_debris2 in a_e_debris2)
 	{
@@ -816,7 +816,7 @@ function debris_embedded_trigger()
 	e_tree = getent("debris_tree", "targetname");
 	e_tree thread debris_shake();
 	trigger::wait_till("trigger_stage_3");
-	level waittill(#"wind_warning");
+	level waittill("wind_warning");
 	wait(1.7);
 	e_tree thread debris_launch();
 	e_tree thread debris_rotate();
@@ -834,16 +834,16 @@ function debris_embedded_trigger()
 */
 function debris_shake()
 {
-	self endon(#"death");
-	self endon(#"launch");
+	self endon("death");
+	self endon("launch");
 	while(true)
 	{
 		self movey(1, 0.05);
 		self rotatepitch(1, 0.05);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		self movey(-1, 0.05);
 		self rotatepitch(-1, 0.05);
-		self waittill(#"movedone");
+		self waittill("movedone");
 	}
 }
 
@@ -858,11 +858,11 @@ function debris_shake()
 */
 function debris_launch()
 {
-	self notify(#"launch");
+	self notify("launch");
 	self moveto(self.origin + vectorscale((0, 1, 0), 200), 0.5);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self moveto(self.origin + (0, 6000, 1200), 8);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self delete();
 }
 
@@ -878,11 +878,11 @@ function debris_launch()
 function fling_random_debris()
 {
 	self movez(240, 0.1);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self thread debris_rotate();
 	self thread check_player_hit();
 	self moveto(self.origin + (0, 6000, randomintrange(20, 60)), 4);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self delete();
 }
 
@@ -897,13 +897,13 @@ function fling_random_debris()
 */
 function fling_player_debris(e_debris)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	e_debris thread debris_rotate();
 	e_debris thread check_player_hit();
 	e_debris movez(240, 0.1);
-	e_debris waittill(#"movedone");
+	e_debris waittill("movedone");
 	e_debris moveto(self.origin + (randomint(100), 1000, randomintrange(80, 100)), 3);
-	e_debris waittill(#"movedone");
+	e_debris waittill("movedone");
 	e_debris delete();
 }
 
@@ -918,7 +918,7 @@ function fling_player_debris(e_debris)
 */
 function debris_rotate()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateroll(-90, 0.3);
@@ -997,7 +997,7 @@ function get_debris_model()
 */
 function shake_debris()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self movez(3, 0.1);
@@ -1018,8 +1018,8 @@ function shake_debris()
 */
 function check_player_hit()
 {
-	self endon(#"death");
-	self endon(#"stop_moving");
+	self endon("death");
+	self endon("stop_moving");
 	n_hit_dist_sq = 1600;
 	while(true)
 	{
@@ -1062,7 +1062,7 @@ function groundpos_ignore_water(origin)
 */
 function weather_menu(str_menu, str_flag, str_notify)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self getluimenu(str_menu)))
 	{
 		warning = self openluimenu(str_menu);
@@ -1094,7 +1094,7 @@ function weather_menu(str_menu, str_flag, str_notify)
 */
 function function_c4626d1d()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_72181299");
 	while(true)
 	{
@@ -1144,7 +1144,7 @@ function hendricks_anchor(str_warning, str_flag, str_endon)
 */
 function hendricks_safe_area_tracker()
 {
-	level endon(#"kill_hendricks_anchor");
+	level endon("kill_hendricks_anchor");
 	t_safe_area = getent(self.targetname + "_hero_safety", "script_noteworthy");
 	if(!isdefined(t_safe_area))
 	{
@@ -1212,7 +1212,7 @@ function is_touching_triggers(a_triggers)
 */
 function surge_manager()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		level flag::set("surging_inward");
@@ -1235,7 +1235,7 @@ function surge_manager()
 */
 function water_manager()
 {
-	level endon(#"tanker_smash");
+	level endon("tanker_smash");
 	level clientfield::set("water_level", 1);
 }
 
@@ -1352,10 +1352,10 @@ function function_1168d325(t_start)
 */
 function surge_warning(player)
 {
-	self endon(#"death");
-	self endon(#"wave_stop");
+	self endon("death");
+	self endon("wave_stop");
 	level endon(#"end_surge");
-	player endon(#"death");
+	player endon("death");
 	while(distance2dsquared(self.origin, player.origin) > 490000)
 	{
 		wait(0.1);
@@ -1411,11 +1411,11 @@ function function_8b5bccf1(str_menu)
 */
 function enemy_surge_tracker()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(self.script_noteworthy);
 	while(true)
 	{
-		self waittill(#"trigger", ai_entity);
+		self waittill("trigger", ai_entity);
 		if(isalive(ai_entity) && ai_entity.team == "axis" && (isdefined(ai_entity.b_swept) && !ai_entity.b_swept))
 		{
 			ai_entity.b_swept = 1;
@@ -1435,7 +1435,7 @@ function enemy_surge_tracker()
 */
 function enemy_surge_hit(t_surge)
 {
-	self endon(#"death");
+	self endon("death");
 	v_dir = vectornormalize(self.origin - t_surge.origin);
 	self startragdoll();
 	self launchragdoll(v_dir * 75);
@@ -1453,8 +1453,8 @@ function enemy_surge_hit(t_surge)
 */
 function function_c1eab89b(t_surge)
 {
-	self endon(#"death");
-	t_surge endon(#"death");
+	self endon("death");
+	t_surge endon("death");
 	n_factor = 0.012;
 	n_offset = 180;
 	if(isdefined(self.target))
@@ -1469,7 +1469,7 @@ function function_c1eab89b(t_surge)
 		self playsound("evt_surge_impact_debris");
 		self moveto(s_goal.origin, n_speed);
 		self rotateto(s_goal.angles, n_speed);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		level flag::wait_till_clear("surging_inward");
 		while(isdefined(s_goal.target))
 		{
@@ -1483,7 +1483,7 @@ function function_c1eab89b(t_surge)
 			self clientfield::increment("water_splash_lrg");
 			self moveto(s_goal.origin, n_speed);
 			self rotateto(s_goal.angles, n_speed);
-			self waittill(#"movedone");
+			self waittill("movedone");
 			if(isdefined(s_goal.target))
 			{
 				level flag::wait_till_clear("surging_inward");
@@ -1505,8 +1505,8 @@ function function_c1eab89b(t_surge)
 */
 function function_43990014(t_surge)
 {
-	self endon(#"death");
-	t_surge endon(#"death");
+	self endon("death");
+	t_surge endon("death");
 	while(true)
 	{
 		level flag::wait_till("surging_inward");
@@ -1530,7 +1530,7 @@ function function_43990014(t_surge)
 */
 function function_d1bc8584()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.script_int))
 	{
 		str_scene = ("p7_fxanim_cp_blackstation_cars_rocking_0" + self.script_int) + "_bundle";
@@ -1566,9 +1566,9 @@ function set_model_scale()
 */
 function hendricks_surge_tracker()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(self.script_noteworthy);
-	level endon(#"tanker_ride_done");
+	level endon("tanker_ride_done");
 	while(true)
 	{
 		while(distance2dsquared(self.origin, level.ai_hendricks.origin) > 722500)
@@ -1591,9 +1591,9 @@ function hendricks_surge_tracker()
 */
 function hendricks_surge_warning()
 {
-	level endon(#"tanker_ride_done");
+	level endon("tanker_ride_done");
 	level flag::clear("kill_surge");
-	level notify(#"surge_warning");
+	level notify("surge_warning");
 	while(isdefined(self) && level.ai_hendricks istouching(self))
 	{
 		wait(0.05);
@@ -1612,13 +1612,13 @@ function hendricks_surge_warning()
 */
 function surge_player_tracker(player)
 {
-	self endon(#"death");
-	self endon(#"wave_stop");
+	self endon("death");
+	self endon("wave_stop");
 	level endon(self.script_noteworthy);
-	player endon(#"death");
+	player endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", e_hit);
+		self waittill("trigger", e_hit);
 		if(e_hit == player && !player.is_surged)
 		{
 			player.is_surged = 1;
@@ -1643,7 +1643,7 @@ function surge_player_tracker(player)
 */
 function function_6b6e7b58(t_surge)
 {
-	self endon(#"death");
+	self endon("death");
 	while(self istouching(t_surge))
 	{
 		util::wait_network_frame();
@@ -1666,7 +1666,7 @@ function function_6b6e7b58(t_surge)
 */
 function surge_trigger_watcher(t_surge)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set_to_player("wave_hit", 1);
 	self clientfield::set_to_player("wind_blur", 1);
 	while(isdefined(t_surge) && self istouching(t_surge))
@@ -1676,7 +1676,7 @@ function surge_trigger_watcher(t_surge)
 	self.is_surged = 0;
 	if(isdefined(t_surge))
 	{
-		t_surge notify(#"wave_stop");
+		t_surge notify("wave_stop");
 	}
 	self clientfield::set_to_player("wave_hit", 0);
 	self clientfield::set_to_player("wind_blur", 0);
@@ -1694,9 +1694,9 @@ function surge_trigger_watcher(t_surge)
 function surge_player_rumble(t_wave)
 {
 	level endon(#"end_surge");
-	self endon(#"death");
-	self endon(#"stop_surge");
-	t_wave endon(#"wave_stop");
+	self endon("death");
+	self endon("stop_surge");
+	t_wave endon("wave_stop");
 	earthquake(0.5, 2, self.origin, 100);
 	while(true)
 	{
@@ -1717,9 +1717,9 @@ function surge_player_rumble(t_wave)
 function surge_player_push(t_wave)
 {
 	level endon(#"end_surge");
-	self endon(#"death");
-	self endon(#"stop_surge");
-	t_wave endon(#"wave_stop");
+	self endon("death");
+	self endon("stop_surge");
+	t_wave endon("wave_stop");
 	n_push_strength = 200;
 	v_dir = anglestoforward(vectorscale((0, 1, 0), 90));
 	while(true)
@@ -1738,7 +1738,7 @@ function surge_player_push(t_wave)
 		}
 		if(!self.is_wet)
 		{
-			self notify(#"stop_surge");
+			self notify("stop_surge");
 			self util::hide_hint_text();
 			break;
 		}
@@ -1758,7 +1758,7 @@ function surge_player_push(t_wave)
 function create_surge(t_storm)
 {
 	level endon(#"end_surge");
-	t_storm endon(#"death");
+	t_storm endon("death");
 	while(true)
 	{
 		foreach(player in level.players)
@@ -1786,9 +1786,9 @@ function player_surge_trigger_tracker()
 {
 	self notify(#"hash_8af17fe2");
 	self endon(#"hash_8af17fe2");
-	self endon(#"death");
+	self endon("death");
 	t_storm = getent("port_assault_low_surge", "targetname");
-	t_storm endon(#"death");
+	t_storm endon("death");
 	self.is_surge_affected = 0;
 	while(true)
 	{
@@ -1864,7 +1864,7 @@ function player_surge_trigger_tracker()
 */
 function function_e7121462()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		while(level.ai_hendricks istouching(self))
@@ -1947,14 +1947,14 @@ function player_safezone_watcher()
 */
 function player_safezone_watcher_trigger()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isplayer(player))
 		{
 			self.b_safezone = 1;
-			player notify(#"safezone_trigger");
+			player notify("safezone_trigger");
 			self thread player_safezone_watcher_trigger_end(player);
 		}
 	}
@@ -1971,8 +1971,8 @@ function player_safezone_watcher_trigger()
 */
 function player_safezone_watcher_trigger_end(player)
 {
-	player endon(#"death");
-	player endon(#"safezone_trigger");
+	player endon("death");
+	player endon("safezone_trigger");
 	while(true)
 	{
 		if(!player istouching(self))
@@ -1995,7 +1995,7 @@ function player_safezone_watcher_trigger_end(player)
 */
 function wave_manager()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		wait(randomfloatrange(3.5, 4.5));
@@ -2016,9 +2016,9 @@ function wave_manager()
 function create_wave(t_storm)
 {
 	level flag::clear("kill_wave");
-	level endon(#"kill_wave");
-	t_storm endon(#"death");
-	level notify(#"wave_warning");
+	level endon("kill_wave");
+	t_storm endon("death");
+	level notify("wave_warning");
 	wait(1);
 	a_waves_left = getentarray("pier_wave_left", "script_noteworthy");
 	a_waves_right = getentarray("pier_wave_right", "script_noteworthy");
@@ -2075,9 +2075,9 @@ function create_wave(t_storm)
 */
 function enemy_wave_tracker(t_wave, s_wave)
 {
-	self endon(#"death");
-	t_wave endon(#"death");
-	level endon(#"kill_wave");
+	self endon("death");
+	t_wave endon("death");
+	level endon("kill_wave");
 	while(true)
 	{
 		if(self istouching(t_wave))
@@ -2115,17 +2115,17 @@ function move_wave(e_wave)
 		n_dist = 450;
 	}
 	e_wave moveto(e_wave.origin + vectorscale((0, 0, 1), 150), 0.1);
-	e_wave waittill(#"movedone");
+	e_wave waittill("movedone");
 	e_wave moveto(e_wave.origin + (n_dist, 0, 150), 2.5);
 	foreach(player in level.players)
 	{
 		e_wave thread player_wave_protect(player);
 	}
 	e_wave thread play_temp_wave_fx();
-	e_wave waittill(#"movedone");
+	e_wave waittill("movedone");
 	e_wave moveto(e_wave.origin + (n_dist, 0, -150), 0.5);
-	e_wave waittill(#"movedone");
-	e_wave notify(#"wave_passed");
+	e_wave waittill("movedone");
+	e_wave notify("wave_passed");
 	level flag::set("kill_wave");
 }
 
@@ -2140,18 +2140,18 @@ function move_wave(e_wave)
 */
 function player_wave_protect(player)
 {
-	player endon(#"death");
-	self endon(#"wave_passed");
+	player endon("death");
+	self endon("wave_passed");
 	player.is_protected = 0;
 	while(true)
 	{
-		self.t_wave waittill(#"trigger", e_hit);
+		self.t_wave waittill("trigger", e_hit);
 		if(e_hit == player && !player.is_protected)
 		{
 			n_attackeraccuracy = player.attackeraccuracy;
 			player.attackeraccuracy = 0;
 			player.is_protected = 1;
-			self waittill(#"movedone");
+			self waittill("movedone");
 			player.attackeraccuracy = n_attackeraccuracy;
 			player.is_protected = 0;
 		}
@@ -2169,9 +2169,9 @@ function player_wave_protect(player)
 */
 function player_wave_trigger_tracker(t_storm)
 {
-	self endon(#"death");
-	t_storm endon(#"death");
-	level endon(#"kill_weather");
+	self endon("death");
+	t_storm endon("death");
+	level endon("kill_weather");
 	self.is_wavy = 0;
 	while(true)
 	{
@@ -2196,11 +2196,11 @@ function player_wave_trigger_tracker(t_storm)
 */
 function ai_wave_trigger_tracker()
 {
-	self endon(#"death");
-	level endon(#"kill_weather");
+	self endon("death");
+	level endon("kill_weather");
 	while(true)
 	{
-		self waittill(#"trigger", ai_entity);
+		self waittill("trigger", ai_entity);
 		if(isalive(ai_entity) && ai_entity.team == "axis" && !isdefined(ai_entity.b_swept))
 		{
 			self function_9cf489b(ai_entity);
@@ -2219,8 +2219,8 @@ function ai_wave_trigger_tracker()
 */
 function function_9cf489b(ai_entity)
 {
-	self endon(#"death");
-	ai_entity endon(#"death");
+	self endon("death");
+	ai_entity endon("death");
 	ai_entity.b_swept = 1;
 	n_face = ai_entity.angles[1];
 	if(n_face >= 0 && n_face <= 180)
@@ -2249,7 +2249,7 @@ function function_9cf489b(ai_entity)
 			ai_entity thread scene::play("cin_bla_06_02_vign_wave_swept_left", ai_entity);
 		}
 	}
-	ai_entity waittill(#"swept_away");
+	ai_entity waittill("swept_away");
 	ai_entity startragdoll();
 	ai_entity launchragdoll((0, 100, 40));
 	ai_entity kill();
@@ -2266,7 +2266,7 @@ function function_9cf489b(ai_entity)
 */
 function truck_gunner_replace(n_gunners = 1, n_delay = 1, str_endon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(str_endon))
 	{
 		level endon(str_endon);
@@ -2277,7 +2277,7 @@ function truck_gunner_replace(n_gunners = 1, n_delay = 1, str_endon)
 		ai_gunner = self vehicle::get_rider("gunner1");
 		if(isalive(ai_gunner))
 		{
-			ai_gunner waittill(#"death");
+			ai_gunner waittill("death");
 		}
 		else
 		{
@@ -2339,7 +2339,7 @@ function truck_unload(str_pos)
 */
 function protect_riders()
 {
-	self endon(#"death");
+	self endon("death");
 	while(!isdefined(self vehicle::get_rider("driver")))
 	{
 		wait(0.1);
@@ -2366,7 +2366,7 @@ function play_temp_wave_fx()
 	self.e_fx = util::spawn_model("tag_origin", self.origin);
 	self.e_fx linkto(self);
 	self.e_fx fx::play("wave_pier", self.e_fx.origin + (vectorscale((0, 0, -1), 32)), undefined, 2, 1);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	if(isdefined(self.e_fx))
 	{
 		self.e_fx delete();
@@ -2565,10 +2565,10 @@ function function_d1dc735f()
 */
 function function_ef275fb3()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"missile_fire", e_proj);
+		self waittill("missile_fire", e_proj);
 		if(isdefined(e_proj))
 		{
 			e_proj thread function_eef51bcb(e_proj, self);
@@ -2588,7 +2588,7 @@ function function_ef275fb3()
 */
 function function_eef51bcb(e_proj, e_shooter)
 {
-	self endon(#"death");
+	self endon("death");
 	e_target = e_shooter.enemy;
 	n_dist = distancesquared(e_shooter.origin, e_target.origin);
 	var_c003c84d = getent("wind_target", "targetname");
@@ -2701,10 +2701,10 @@ function function_30dbc9bf()
 */
 function dynamic_run_speed(var_c047ec73 = 250, var_3b15866b = var_c047ec73 * 0.5)
 {
-	self notify(#"start_dynamic_run_speed");
-	self endon(#"death");
-	self endon(#"start_dynamic_run_speed");
-	self endon(#"stop_dynamic_run_speed");
+	self notify("start_dynamic_run_speed");
+	self endon("death");
+	self endon("start_dynamic_run_speed");
+	self endon("stop_dynamic_run_speed");
 	self thread stop_dynamic_run_speed();
 	while(true)
 	{
@@ -2753,9 +2753,9 @@ function dynamic_run_speed(var_c047ec73 = 250, var_3b15866b = var_c047ec73 * 0.5
 */
 function stop_dynamic_run_speed()
 {
-	self endon(#"start_dynamic_run_speed");
-	self endon(#"death");
-	self waittill(#"stop_dynamic_run_speed");
+	self endon("start_dynamic_run_speed");
+	self endon("death");
+	self waittill("stop_dynamic_run_speed");
 	self ai::set_behavior_attribute("cqb", 0);
 	self ai::set_behavior_attribute("sprint", 0);
 }
@@ -2835,7 +2835,7 @@ function cleanup_ai()
 */
 function missile_launcher_equip_hint()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::show_hint_text(&"COOP_EQUIP_MICROMISSILE");
 	n_timeout = 0;
 	while(self getcurrentweapon() != getweapon("micromissile_launcher") && n_timeout <= 10)
@@ -2861,8 +2861,8 @@ function missile_launcher_equip_hint()
 */
 function launcher_hint_watcher()
 {
-	self endon(#"death");
-	self endon(#"weapon_change");
+	self endon("death");
+	self endon("weapon_change");
 	n_timeout = 0;
 	while(!self adsbuttonpressed() && n_timeout >= 10)
 	{
@@ -2874,7 +2874,7 @@ function launcher_hint_watcher()
 	{
 		self closeluimenu(self getluimenu("MissileLauncherHint"));
 		self.b_launcher_hint = 1;
-		self notify(#"launcher_hint");
+		self notify("launcher_hint");
 	}
 }
 
@@ -2889,9 +2889,9 @@ function launcher_hint_watcher()
 */
 function close_launcher_hint()
 {
-	self endon(#"death");
-	self endon(#"launcher_hint");
-	self waittill(#"weapon_change");
+	self endon("death");
+	self endon("launcher_hint");
+	self waittill("weapon_change");
 	if(isdefined(self getluimenu("MissileLauncherHint")))
 	{
 		self closeluimenu(self getluimenu("MissileLauncherHint"));
@@ -2910,10 +2910,10 @@ function close_launcher_hint()
 function function_76b75dc7(str_endon, var_cca258db = 12, var_ab7d99d = 200)
 {
 	level endon(str_endon);
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		player thread function_ed7faf05();
 		if(!player.var_32939eb7)
 		{
@@ -2934,9 +2934,9 @@ function function_76b75dc7(str_endon, var_cca258db = 12, var_ab7d99d = 200)
 */
 function function_7b145e0b(t_water, str_endon, var_cca258db, var_ab7d99d)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(str_endon);
-	t_water endon(#"death");
+	t_water endon("death");
 	if(self laststand::player_is_in_laststand())
 	{
 		self.var_116f2fb8 = 1;
@@ -2946,15 +2946,15 @@ function function_7b145e0b(t_water, str_endon, var_cca258db, var_ab7d99d)
 	self clientfield::set_to_player("player_water_swept", 1);
 	e_linkto thread scene::play("cin_blackstation_24_01_ride_vign_body_player_flail", self);
 	e_linkto moveto((e_linkto.origin[0], e_linkto.origin[1], var_cca258db), 0.3);
-	e_linkto waittill(#"movedone");
+	e_linkto waittill("movedone");
 	s_pos = struct::get(t_water.target);
 	n_dist = distance(e_linkto.origin, s_pos.origin);
 	n_time = n_dist / var_ab7d99d;
 	e_linkto thread spin_player(3);
 	e_linkto moveto((s_pos.origin[0], s_pos.origin[1], var_cca258db), n_time);
-	e_linkto waittill(#"movedone");
+	e_linkto waittill("movedone");
 	e_linkto moveto(s_pos.origin, 1);
-	e_linkto waittill(#"movedone");
+	e_linkto waittill("movedone");
 	e_linkto scene::stop("cin_blackstation_24_01_ride_vign_body_player_flail");
 	self unlink();
 	self.var_32939eb7 = 0;
@@ -2981,7 +2981,7 @@ function function_7b145e0b(t_water, str_endon, var_cca258db, var_ab7d99d)
 */
 function spin_player(n_rate)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateyaw(-180, n_rate);
@@ -3049,7 +3049,7 @@ function function_4f96504c(ai_target)
 	var_1eba5cf1 = (0, var_1eba5cf1[1], 0);
 	self animscripted("ai_cybercom_anim", self.origin, var_1eba5cf1, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate", "normal", undefined, undefined, 0.3, 0.3);
 	self cybercom::cybercom_armpulse(0);
-	self waittillmatch(#"ai_cybercom_anim");
+	self waittillmatch("ai_cybercom_anim");
 }
 
 /*
@@ -3110,7 +3110,7 @@ function function_dccf6ccc()
 */
 function function_d870e0(str_trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till(str_trigger, "targetname", self);
 	self thread coop::function_e9f7384d();
 }

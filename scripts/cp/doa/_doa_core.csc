@@ -360,7 +360,7 @@ function on_player_shutdown(localclientnum)
 */
 function function_fc05827f(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.5);
 	disablespeedblur(localclientnum);
 	self blood::disable_blood(localclientnum);
@@ -897,7 +897,7 @@ function onground()
 function function_10477d98(localclientnum)
 {
 	self notify(#"hash_f33fde4b");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_7f60c43e");
 	self endon(#"entityshutdown");
 	endtime = gettime() + 600;
@@ -1359,7 +1359,7 @@ function function_f7c0d598(mapping = "zombietron")
 	self notify(#"hash_f7c0d598");
 	self endon(#"hash_f7c0d598");
 	self endon(#"entityshutdown");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		loc_00004FA8:
 		debugmsg((((("" + (isdefined(self.name) ? self.name : "")) + "") + mapping) + "") + (self islocalplayer() ? "" : ""));
@@ -1424,7 +1424,7 @@ function function_f87ff72d(localclientnum, oldval, newval, bnewent, binitialsnap
 	bomb.angles = vectorscale((1, 0, 0), 90);
 	bomb moveto(var_ec8a4984, 0.3, 0, 0);
 	playsound(0, "zmb_nuke_incoming", self.origin);
-	bomb waittill(#"movedone");
+	bomb waittill("movedone");
 	playsound(localclientnum, "zmb_nuke_impact", var_ec8a4984);
 	playfx(localclientnum, level._effect["bomb"], var_ec8a4984);
 	foreach(player in getlocalplayers())
@@ -2211,7 +2211,7 @@ function function_5c2a88d5()
 function drawcylinder(pos, rad, height, frames = 60, color = (0, 0, 0))
 {
 	/#
-		self endon(#"stop_cylinder");
+		self endon("stop_cylinder");
 		self endon(#"entityshutdown");
 		currad = rad;
 		curheight = height;

@@ -201,7 +201,7 @@ function zombie_devgui_player_menu_clear_on_disconnect(player)
 {
 	/#
 		playername = player.name;
-		player waittill(#"disconnect");
+		player waittill("disconnect");
 		zombie_devgui_player_menu_clear(playername);
 	#/
 }
@@ -1227,9 +1227,9 @@ function zombie_devgui_dpad_changeweapon()
 function watch_debug_input(callback)
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"watch_debug_input");
-		self endon(#"watch_debug_input");
+		self endon("disconnect");
+		self notify("watch_debug_input");
+		self endon("watch_debug_input");
 		level.devgui_dpad_watch = 0;
 		if(isdefined(callback))
 		{
@@ -1262,8 +1262,8 @@ function watch_debug_input(callback)
 function zombie_devgui_think()
 {
 	/#
-		level notify(#"zombie_devgui_think");
-		level endon(#"zombie_devgui_think");
+		level notify("zombie_devgui_think");
+		level endon("zombie_devgui_think");
 		for(;;)
 		{
 			cmd = getdvarstring("");
@@ -1860,7 +1860,7 @@ function zombie_devgui_think()
 				{
 					if(isdefined(level.chest_accessed))
 					{
-						level notify(#"devgui_chest_end_monitor");
+						level notify("devgui_chest_end_monitor");
 						level.chest_accessed = 100;
 					}
 					break;
@@ -2119,7 +2119,7 @@ function zombie_devgui_think()
 				}
 				case "":
 				{
-					level notify(#"zombie_failsafe_debug_flush", isdefined(level.zombie_weapons[getweapon(getdvarstring(""))]));
+					level notify("zombie_failsafe_debug_flush", isdefined(level.zombie_weapons[getweapon(getdvarstring(""))]));
 					break;
 				}
 				case "":
@@ -2451,7 +2451,7 @@ function devgui_bot_spawn(team)
 function devgui_bot_spawn_think(origin, yaw)
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		for(;;)
 		{
 			self waittill(#"spawned_player");
@@ -2491,17 +2491,17 @@ function zombie_devgui_open_sesame()
 		zombie_doors = getentarray("", "");
 		for(i = 0; i < zombie_doors.size; i++)
 		{
-			zombie_doors[i] notify(#"trigger", players[0]);
+			zombie_doors[i] notify("trigger", players[0]);
 			if(isdefined(zombie_doors[i].power_door_ignore_flag_wait) && zombie_doors[i].power_door_ignore_flag_wait)
 			{
-				zombie_doors[i] notify(#"power_on");
+				zombie_doors[i] notify("power_on");
 			}
 			wait(0.05);
 		}
 		zombie_airlock_doors = getentarray("", "");
 		for(i = 0; i < zombie_airlock_doors.size; i++)
 		{
-			zombie_airlock_doors[i] notify(#"trigger", players[0]);
+			zombie_airlock_doors[i] notify("trigger", players[0]);
 			wait(0.05);
 		}
 		zombie_debris = getentarray("", "");
@@ -2509,11 +2509,11 @@ function zombie_devgui_open_sesame()
 		{
 			if(isdefined(zombie_debris[i]))
 			{
-				zombie_debris[i] notify(#"trigger", players[0]);
+				zombie_debris[i] notify("trigger", players[0]);
 			}
 			wait(0.05);
 		}
-		level notify(#"open_sesame");
+		level notify("open_sesame");
 		wait(1);
 		setdvar("", 0);
 	#/
@@ -2555,7 +2555,7 @@ function diable_fog_in_noclip()
 {
 	/#
 		level.fog_disabled_in_noclip = 1;
-		level endon(#"allowfoginnoclip");
+		level endon("allowfoginnoclip");
 		level flag::wait_till("");
 		while(true)
 		{
@@ -2597,7 +2597,7 @@ function zombie_devgui_allow_fog()
 	/#
 		if(isdefined(level.fog_disabled_in_noclip) && level.fog_disabled_in_noclip)
 		{
-			level notify(#"allowfoginnoclip");
+			level notify("allowfoginnoclip");
 			level.fog_disabled_in_noclip = 0;
 			setdvar("", "");
 			setdvar("", "");
@@ -2872,9 +2872,9 @@ function zombie_devgui_cool_jetgun()
 function zombie_devgui_preserve_turbines()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"preserve_turbines");
-		self endon(#"preserve_turbines");
+		self endon("disconnect");
+		self notify("preserve_turbines");
+		self endon("preserve_turbines");
 		if(!(isdefined(self.preserving_turbines) && self.preserving_turbines))
 		{
 			self.preserving_turbines = 1;
@@ -2900,9 +2900,9 @@ function zombie_devgui_preserve_turbines()
 function zombie_devgui_equipment_stays_healthy()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"preserve_equipment");
-		self endon(#"preserve_equipment");
+		self endon("disconnect");
+		self notify("preserve_equipment");
+		self endon("preserve_equipment");
 		if(!(isdefined(self.preserving_equipment) && self.preserving_equipment))
 		{
 			self.preserving_equipment = 1;
@@ -2988,9 +2988,9 @@ function zombie_devgui_equipment_give(equipment)
 function zombie_devgui_give_placeable_mine(weapon)
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_planted_grenade_thread");
-		self endon(#"give_planted_grenade_thread");
+		self endon("disconnect");
+		self notify("give_planted_grenade_thread");
+		self endon("give_planted_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3030,9 +3030,9 @@ function zombie_devgui_give_placeable_mine(weapon)
 function zombie_devgui_give_claymores()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_planted_grenade_thread");
-		self endon(#"give_planted_grenade_thread");
+		self endon("disconnect");
+		self notify("give_planted_grenade_thread");
+		self endon("give_planted_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3072,9 +3072,9 @@ function zombie_devgui_give_claymores()
 function zombie_devgui_give_lethal(weapon)
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_lethal_grenade_thread");
-		self endon(#"give_lethal_grenade_thread");
+		self endon("disconnect");
+		self notify("give_lethal_grenade_thread");
+		self endon("give_lethal_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3143,9 +3143,9 @@ function zombie_devgui_give_sticky()
 function zombie_devgui_give_monkey()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_tactical_grenade_thread");
-		self endon(#"give_tactical_grenade_thread");
+		self endon("disconnect");
+		self notify("give_tactical_grenade_thread");
+		self endon("give_tactical_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3184,9 +3184,9 @@ function zombie_devgui_give_monkey()
 function zombie_devgui_give_bhb()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_tactical_grenade_thread");
-		self endon(#"give_tactical_grenade_thread");
+		self endon("disconnect");
+		self notify("give_tactical_grenade_thread");
+		self endon("give_tactical_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3225,9 +3225,9 @@ function zombie_devgui_give_bhb()
 function zombie_devgui_give_qed()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_tactical_grenade_thread");
-		self endon(#"give_tactical_grenade_thread");
+		self endon("disconnect");
+		self notify("give_tactical_grenade_thread");
+		self endon("give_tactical_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3266,9 +3266,9 @@ function zombie_devgui_give_qed()
 function zombie_devgui_give_dolls()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_tactical_grenade_thread");
-		self endon(#"give_tactical_grenade_thread");
+		self endon("disconnect");
+		self notify("give_tactical_grenade_thread");
+		self endon("give_tactical_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3307,9 +3307,9 @@ function zombie_devgui_give_dolls()
 function zombie_devgui_give_emp_bomb()
 {
 	/#
-		self endon(#"disconnect");
-		self notify(#"give_tactical_grenade_thread");
-		self endon(#"give_tactical_grenade_thread");
+		self endon("disconnect");
+		self notify("give_tactical_grenade_thread");
+		self endon("give_tactical_grenade_thread");
 		/#
 			assert(isdefined(self));
 		#/
@@ -3418,8 +3418,8 @@ function zombie_devgui_toggle_ammo()
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_toggle_ammo");
-		self endon(#"devgui_toggle_ammo");
+		self notify("devgui_toggle_ammo");
+		self endon("devgui_toggle_ammo");
 		self.ammo4evah = !(isdefined(self.ammo4evah) && self.ammo4evah);
 		while(isdefined(self) && self.ammo4evah)
 		{
@@ -3521,7 +3521,7 @@ function zombie_devgui_revive()
 		self allowjump(1);
 		self zm_laststand::set_ignoreme(0);
 		self.laststand = undefined;
-		self notify(#"player_revived", self);
+		self notify("player_revived", self);
 	#/
 }
 
@@ -3546,10 +3546,10 @@ function zombie_devgui_give_health()
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_health");
-		self endon(#"devgui_health");
-		self endon(#"disconnect");
-		self endon(#"death");
+		self notify("devgui_health");
+		self endon("devgui_health");
+		self endon("disconnect");
+		self endon("death");
 		level.devcheater = 1;
 		while(true)
 		{
@@ -3582,10 +3582,10 @@ function zombie_devgui_low_health()
 		/#
 			assert(isalive(self));
 		#/
-		self notify(#"devgui_health");
-		self endon(#"devgui_health");
-		self endon(#"disconnect");
-		self endon(#"death");
+		self notify("devgui_health");
+		self endon("devgui_health");
+		self endon("disconnect");
+		self endon("death");
 		level.devcheater = 1;
 		while(true)
 		{
@@ -3621,7 +3621,7 @@ function zombie_devgui_give_perk(perk)
 			{
 				if(vending_triggers[i].script_noteworthy == perk)
 				{
-					vending_triggers[i] notify(#"trigger", player);
+					vending_triggers[i] notify("trigger", player);
 					break;
 				}
 			}
@@ -3915,7 +3915,7 @@ function zombie_devgui_goto_round(target_round)
 		level.zombie_total = 0;
 		zombie_utility::ai_calculate_health(target_round);
 		zm::set_round_number(target_round - 1);
-		level notify(#"kill_round");
+		level notify("kill_round");
 		wait(1);
 		zombies = getaiteamarray(level.zombie_team);
 		if(isdefined(zombies))
@@ -4732,8 +4732,8 @@ function zombie_devgui_director_easy()
 function zombie_devgui_chest_never_move()
 {
 	/#
-		level notify(#"devgui_chest_end_monitor");
-		level endon(#"devgui_chest_end_monitor");
+		level notify("devgui_chest_end_monitor");
+		level endon("devgui_chest_end_monitor");
 		for(;;)
 		{
 			level.chest_accessed = 0;

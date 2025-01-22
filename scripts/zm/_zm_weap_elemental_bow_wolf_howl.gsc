@@ -87,13 +87,13 @@ function __main__()
 */
 function function_b1b2ffc8()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread zm_weap_elemental_bow::function_982419bb("elemental_bow_wolf_howl");
 	self thread zm_weap_elemental_bow::function_ececa597("elemental_bow_wolf_howl", "elemental_bow_wolf_howl4", &function_9b74f1f4);
 	self thread zm_weap_elemental_bow::function_7bc6b9d("elemental_bow_wolf_howl", "elemental_bow_wolf_howl4", &function_dd4f7cba);
 	while(true)
 	{
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(newweapon.name === "elemental_bow_wolf_howl")
 		{
 			break;
@@ -149,7 +149,7 @@ function function_dd4f7cba(weapon, position, radius, attacker, normal)
 */
 function function_f9c890ed()
 {
-	self endon(#"death");
+	self endon("death");
 	util::wait_network_frame();
 	self delete();
 }
@@ -343,8 +343,8 @@ function function_4f87899e(var_307bab92, var_c807e383, v_up, var_5c44718b)
 function function_2abb74b7(e_player, var_8f0f462c, var_c807e383)
 {
 	var_28388a90 = var_8f0f462c[0];
-	var_28388a90 endon(#"movedone");
-	var_28388a90 endon(#"mechz_impact");
+	var_28388a90 endon("movedone");
+	var_28388a90 endon("mechz_impact");
 	var_7839cab3 = 409600;
 	var_a90ad319 = vectortoangles(var_c807e383);
 	var_200ee8c9 = (1920 * 0.1) * 2;
@@ -466,7 +466,7 @@ function function_3af108ec(e_player, ai_enemy, v_launch)
 */
 function function_49dba034()
 {
-	self endon(#"actor_corpse");
+	self endon("actor_corpse");
 	self thread function_7f218268();
 	wait(0.7 + randomfloat(0.5));
 	self notify(#"hash_251ee66c");
@@ -485,7 +485,7 @@ function function_49dba034()
 function function_7f218268()
 {
 	self endon(#"hash_251ee66c");
-	self waittill(#"actor_corpse", e_corpse);
+	self waittill("actor_corpse", e_corpse);
 	e_corpse thread do_zombie_explode();
 }
 
@@ -517,7 +517,7 @@ function do_zombie_explode()
 */
 function function_720f6454(var_63f884ec)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.isdog) && self.isdog)
 	{
 		n_damage = level.zombie_health;
@@ -566,7 +566,7 @@ function function_cd61021a(e_player, ai_mechz, var_28388a90)
 		var_e1664ef3 = ai_mechz getcentroid() - (anglestoforward(var_28388a90.angles) * 96);
 		var_28388a90.origin = var_e1664ef3;
 		wait(0.05);
-		var_28388a90 notify(#"mechz_impact");
+		var_28388a90 notify("mechz_impact");
 		ai_mechz.var_a4557598 = 0;
 	}
 }
@@ -639,8 +639,8 @@ function function_a6220124(var_8f0f462c)
 	var_28388a90 = var_8f0f462c[0];
 	var_9259c91b = var_8f0f462c[1];
 	var_205259e0 = var_8f0f462c[2];
-	var_28388a90 endon(#"movedone");
-	var_28388a90 endon(#"mechz_impact");
+	var_28388a90 endon("movedone");
+	var_28388a90 endon("mechz_impact");
 	var_28388a90 thread function_81703066(var_9259c91b, 1);
 	var_28388a90 thread function_81703066(var_205259e0, -1);
 	while(true)
@@ -661,8 +661,8 @@ function function_a6220124(var_8f0f462c)
 */
 function function_81703066(var_ea1975a2, var_dad28a75)
 {
-	self endon(#"movedone");
-	self endon(#"mechz_impact");
+	self endon("movedone");
+	self endon("mechz_impact");
 	while(true)
 	{
 		v_up = anglestoup(self.angles);
@@ -730,7 +730,7 @@ function function_5fded2aa(mod, hit_location, hit_origin, e_player, amount, weap
 */
 function function_88bf0c4e(e_player, n_damage, v_hit_origin, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_8985bb6f");
 	self clientfield::set("wolf_howl_slow_snow_fx", 1);
 	if(isdefined(level.zombie_vars[e_player.team]["zombie_insta_kill"]) && level.zombie_vars[e_player.team]["zombie_insta_kill"])
@@ -801,7 +801,7 @@ function function_88bf0c4e(e_player, n_damage, v_hit_origin, weapon)
 */
 function function_f4397d8f()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self))
 	{
 		self asmsetanimationrate(1);

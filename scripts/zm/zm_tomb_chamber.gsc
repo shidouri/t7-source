@@ -226,7 +226,7 @@ function chamber_wall_change_randomly()
 {
 	level flag::wait_till("start_zombie_round_logic");
 	a_element_enums = array(1, 2, 3, 4);
-	level endon(#"stop_random_chamber_walls");
+	level endon("stop_random_chamber_walls");
 	n_elem_prev = undefined;
 	while(true)
 	{
@@ -262,7 +262,7 @@ function chamber_wall_change_randomly()
 function move_wall_up()
 {
 	self moveto(self.up_origin, 1);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self connectpaths();
 }
 
@@ -278,7 +278,7 @@ function move_wall_up()
 function move_wall_down()
 {
 	self moveto(self.down_origin, 1);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	zm_tomb_utility::rumble_players_in_chamber(2, 0.1);
 	self clientfield::increment("divider_fx");
 	self disconnectpaths();
@@ -323,7 +323,7 @@ function random_shuffle(a_items, item)
 */
 function tomb_chamber_find_exit_point()
 {
-	self endon(#"death");
+	self endon("death");
 	player = getplayers()[0];
 	dist_zombie = 0;
 	dist_player = 0;
@@ -341,8 +341,8 @@ function tomb_chamber_find_exit_point()
 			break;
 		}
 	}
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	if(isdefined(locs[dest]))
 	{
 		self setgoalpos(locs[dest].origin);

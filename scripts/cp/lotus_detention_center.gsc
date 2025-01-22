@@ -92,7 +92,7 @@ function vtol_hallway_main(str_objective, b_starting)
 	level thread function_bad9594a();
 	t_vtol_hallway_door = getent("vtol_hallway_open_door", "targetname");
 	t_vtol_hallway_door triggerenable(1);
-	t_vtol_hallway_door waittill(#"trigger");
+	t_vtol_hallway_door waittill("trigger");
 	level thread vtol_zipline();
 	level.ai_hendricks thread dialog::say("hend_friendlys_repelling_0", 2.4);
 	level waittill(#"hash_8c18560c");
@@ -144,7 +144,7 @@ function function_ec8c4d64()
 {
 	level endon(#"hash_1e0c171f");
 	level.ai_hendricks ai::set_ignoreall(1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self ai::set_behavior_attribute("coverIdleOnly", 1);
 }
 
@@ -163,7 +163,7 @@ function function_383b165b()
 	mdl_door_right = getent("vtol_hallway_door_right", "targetname");
 	mdl_door_left movey(100, 1);
 	mdl_door_right movey(-100, 1);
-	mdl_door_right waittill(#"movedone");
+	mdl_door_right waittill("movedone");
 	level.ai_hendricks ai::set_ignoreall(0);
 	level notify(#"hash_1e0c171f");
 }
@@ -254,7 +254,7 @@ function vtol_zipline()
 {
 	level thread vtol_zipline_break_glass();
 	level scene::init("cin_lot_07_02_detcenter_vign_zipline");
-	level waittill(#"zipline_ready");
+	level waittill("zipline_ready");
 	spawn_manager::enable("sm_vtol_hallway_innocent_runners");
 	spawn_manager::enable("sm_zipline_victims");
 	level thread kill_enemies_helper();
@@ -268,7 +268,7 @@ function vtol_zipline()
 	e_scene_vtol animation::play("v_lot_07_02_detcenter_vign_zipline_vtol_depart", struct::get("align_event_7_2_zipline"), undefined, undefined, undefined, undefined, undefined, undefined, undefined, 0);
 	e_scene_vtol.angles = v_angles;
 	e_scene_vtol movez(4500, 4);
-	e_scene_vtol waittill(#"movedone");
+	e_scene_vtol waittill("movedone");
 	e_scene_vtol delete();
 }
 
@@ -304,7 +304,7 @@ function function_cba3d0d4()
 function vtol_zipline_break_glass()
 {
 	s_break = struct::get("vtol_zipline_break_glass_struct");
-	level waittill(#"glass_break_zipline_07_02");
+	level waittill("glass_break_zipline_07_02");
 	glassradiusdamage(s_break.origin, 200, 1000, 1000);
 }
 
@@ -585,7 +585,7 @@ function function_76bada8a(b_value)
 */
 function function_f2e34115()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreall(1);
 	self.grenadeammo = 0;
 	level flag::wait_till("zipline_done");
@@ -926,7 +926,7 @@ function function_36957bfb(var_44f2aa45)
 */
 function function_7a2fdad9(var_8c7da3ec)
 {
-	self endon(#"death");
+	self endon("death");
 	while(self.origin[2] < var_8c7da3ec)
 	{
 		self setorigin(self.var_d75e3361);
@@ -1089,7 +1089,7 @@ function remove_gates_for_spawning()
 */
 function auto_delete()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"__auto_delete__");
 	self endon(#"__auto_delete__");
 	level flag::wait_till("all_players_spawned");
@@ -1525,7 +1525,7 @@ function closing_rollunder_door()
 {
 	mdl_door = getent("spawn_door7_5_1", "targetname");
 	mdl_door moveto(mdl_door.origin + (vectorscale((0, 0, -1), 136)), 6);
-	mdl_door waittill(#"movedone");
+	mdl_door waittill("movedone");
 	mdl_door disconnectpaths();
 }
 
@@ -1645,7 +1645,7 @@ function function_aa11d0bb()
 */
 function function_2ff2c34()
 {
-	level endon(#"up_to_detention_center_done");
+	level endon("up_to_detention_center_done");
 	trigger::wait_till("use_up_to_detention_center_triggers");
 	a_triggers = getentarray("up_to_detention_center_triggers", "script_noteworthy");
 	foreach(trigger in a_triggers)
@@ -1692,7 +1692,7 @@ function function_dce6e561()
 	}
 	level.var_922b7c07++;
 	level endon(#"hash_a8d150b1");
-	self waittill(#"death");
+	self waittill("death");
 	level.var_922b7c07--;
 	if(level.var_922b7c07 <= 0)
 	{
@@ -1729,9 +1729,9 @@ function function_1cd5a72e()
 {
 	self thread function_d818b993();
 	self endon(#"hash_e4020782");
-	self waittill(#"cloneandremoveentity");
-	level waittill(#"clonedentity", clone);
-	clone waittill(#"death");
+	self waittill("cloneandremoveentity");
+	level waittill("clonedentity", clone);
+	clone waittill("death");
 	var_d9d5499a = (-8483, -783, 14848);
 	var_3b6d07e9 = 312;
 	if(distancesquared(clone.origin, var_d9d5499a) < (var_3b6d07e9 * var_3b6d07e9))
@@ -1756,8 +1756,8 @@ function function_1cd5a72e()
 */
 function function_d818b993()
 {
-	self endon(#"cloneandremoveentity");
-	self waittill(#"death");
+	self endon("cloneandremoveentity");
+	self waittill("death");
 	self notify(#"hash_e4020782");
 }
 
@@ -1772,7 +1772,7 @@ function function_d818b993()
 */
 function function_cb2b9cbf()
 {
-	level endon(#"up_to_detention_center_done");
+	level endon("up_to_detention_center_done");
 	battlechatter::function_d9f49fba(0);
 	flag::wait_till("start_up_to_detention_center");
 	battlechatter::function_d9f49fba(1);
@@ -1840,7 +1840,7 @@ function function_39a310be()
 */
 function function_5c93563b()
 {
-	self endon(#"death");
+	self endon("death");
 	var_29839a5c = getnode("doomed_rapper_pos", "targetname");
 	self ai::force_goal(var_29839a5c.origin, 5, 1, undefined, undefined, 1);
 	while(distance2d(self.origin, var_29839a5c.origin) > 100)
@@ -1892,7 +1892,7 @@ function function_b80c1b50(ai_raps)
 {
 	if(isdefined(ai_raps) && ai_raps.archetype === "raps")
 	{
-		self waittill(#"death", idamage, smeansofdeath, weapon, shitloc, vdir);
+		self waittill("death", idamage, smeansofdeath, weapon, shitloc, vdir);
 		if(isdefined(ai_raps))
 		{
 			v_dir = anglestoforward(ai_raps.angles) + (anglestoup(ai_raps.angles) * 0.5);
@@ -1964,7 +1964,7 @@ function function_e7a8c6b()
 	util::delay(randomfloatrange(2, 4), undefined, &lotus_util::function_fe64b86b, "falling_nrc", struct::get("wallrun_corpse2"), 0);
 	level thread scene::play("to_security_station_mobile_shop_fall", "targetname");
 	level thread scene::play("cin_lot_07_05_detcenter_vign_wallrun_hendricks");
-	level.ai_hendricks waittill(#"goal");
+	level.ai_hendricks waittill("goal");
 	util::delay(randomfloat(2), undefined, &lotus_util::function_fe64b86b, "falling_nrc", struct::get("wallrun_corpse3"), 0);
 	t_up_to_detention = getent("trig_dc4_hendricks", "targetname");
 	if(isdefined(t_up_to_detention))
@@ -2084,7 +2084,7 @@ function dc4_friendly_damage_override(e_inflictor, e_attacker, n_damage, n_dflag
 */
 function rap_proximity_explosion(ai_friendly)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(ai_friendly))
@@ -2141,10 +2141,10 @@ function dc4_fleeing_enemy()
 {
 	trigger::wait_till("trig_fleeing_enemy");
 	ai_enemy = spawner::simple_spawn_single("dc4_fleeing_enemy");
-	ai_enemy endon(#"death");
+	ai_enemy endon("death");
 	nd_fleeing = getnode("fleeing_enemy_path", "targetname");
 	ai_enemy ai::force_goal(nd_fleeing, 64, 0, undefined, undefined, 1);
-	ai_enemy waittill(#"goal");
+	ai_enemy waittill("goal");
 	nd_fleeing = getnode("fleeing_enemy_node", "targetname");
 	ai_enemy ai::force_goal(nd_fleeing, 64, 0, undefined, undefined, 1);
 }
@@ -2166,12 +2166,12 @@ function function_dcd3f360()
 	level exploder::exploder("fx_interior_sentry_reveal");
 	mdl_door = getent("spawn_door7_5_2", "targetname");
 	mdl_door moveto(mdl_door.origin + (0, 0, 12), 1);
-	mdl_door waittill(#"movedone");
+	mdl_door waittill("movedone");
 	mdl_door playsound("evt_siegebot_door_buzz");
 	wait(1.25);
 	mdl_door playsound("evt_siegebot_door");
 	mdl_door moveto(mdl_door.origin + (0, 0, 144 - 12), 3);
-	mdl_door waittill(#"movedone");
+	mdl_door waittill("movedone");
 	level flag::set("hospital_door_up");
 }
 
@@ -2242,7 +2242,7 @@ function detention_center_main(str_objective, b_starting)
 	level thread function_fefb4f44();
 	wait(1);
 	level thread function_19cafdb6();
-	level notify(#"raining_men");
+	level notify("raining_men");
 	var_c77d7d8e = getent("trig_go_hendricks_after_kick", "targetname");
 	if(isdefined(var_c77d7d8e))
 	{
@@ -2261,7 +2261,7 @@ function detention_center_main(str_objective, b_starting)
 	mdl_door_right moveto(mdl_door_right.origin + vectorscale((0, 1, 0), 54), 1, 0.25, 0.25);
 	mdl_door_right playsound("evt_standdown_door_close");
 	skipto::objective_completed("detention_center");
-	level notify(#"detention_center_done");
+	level notify("detention_center_done");
 	level.ai_hendricks colors::enable();
 }
 
@@ -2276,7 +2276,7 @@ function detention_center_main(str_objective, b_starting)
 */
 function function_14273be5()
 {
-	level endon(#"detention_center_done");
+	level endon("detention_center_done");
 	level flag::wait_till("players_made_it_to_stand_down");
 	level.ai_hendricks colors::disable();
 	level.ai_hendricks ai::set_behavior_attribute("sprint", 1);
@@ -2312,7 +2312,7 @@ function function_3699620f()
 */
 function function_896c40b9()
 {
-	level endon(#"detention_center_done");
+	level endon("detention_center_done");
 	level thread function_ca30eede("aigroup_detention_center");
 	level thread function_c928a4b5("dc_wave_1");
 	level thread function_c928a4b5("dc_wave_2");
@@ -2329,7 +2329,7 @@ function function_896c40b9()
 */
 function function_ca30eede(str_ai_group)
 {
-	level endon(#"detention_center_done");
+	level endon("detention_center_done");
 	spawner::waittill_ai_group_cleared(str_ai_group);
 	savegame::checkpoint_save();
 }
@@ -2371,7 +2371,7 @@ function function_ab3d9328()
 function function_fefb4f44()
 {
 	var_87248a54 = getent("trig_end_enemies", "targetname");
-	var_87248a54 endon(#"trigger");
+	var_87248a54 endon("trigger");
 	spawner::waittill_ai_group_cleared("dc_wave_1");
 	trigger::use("trig_end_enemies");
 }
@@ -2406,7 +2406,7 @@ function detention_center_fallback(str_trigger)
 		return;
 	}
 	t_fallback = getent(str_trigger, "targetname");
-	t_fallback waittill(#"trigger");
+	t_fallback waittill("trigger");
 	e_goal_volume = getent(t_fallback.target, "targetname");
 	a_enemies = getaiarray("dc_bottom", "script_noteworthy");
 	foreach(ai_enemy in a_enemies)
@@ -2487,9 +2487,9 @@ function detention_center_phalanx()
 */
 function detention_center_control_panel_guy()
 {
-	self endon(#"death");
+	self endon("death");
 	self.goalradius = 16;
-	self waittill(#"goal");
+	self waittill("goal");
 	wait(1);
 	e_detention_center_robot_door = getent("detention_security_door_01", "targetname");
 	e_detention_center_robot_door moveto(e_detention_center_robot_door getorigin() - vectorscale((0, 0, 1), 128), 1);

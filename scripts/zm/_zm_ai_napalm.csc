@@ -113,8 +113,8 @@ function napalm_zombie_spawn(localclientnum, oldval, newval, bnewent, binitialsn
 	}
 	else
 	{
-		self notify(#"stop_fx");
-		self notify(#"napalm_killed");
+		self notify("stop_fx");
+		self notify("napalm_killed");
 		if(isdefined(self.steam_fx))
 		{
 			self.steam_fx delete();
@@ -134,7 +134,7 @@ function napalm_zombie_spawn(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function function_dfc155a2(localclientnum)
 {
-	self endon(#"napalm_killed");
+	self endon("napalm_killed");
 	while(isdefined(self))
 	{
 		self mapshaderconstant(localclientnum, 0, "scriptVector2", 1, 0, 0);
@@ -153,8 +153,8 @@ function function_dfc155a2(localclientnum)
 */
 function _napalm_zombie_runsteameffects(client_num)
 {
-	self endon(#"napalm_killed");
-	self endon(#"death");
+	self endon("napalm_killed");
+	self endon("death");
 	self endon(#"entityshutdown");
 	while(true)
 	{
@@ -356,8 +356,8 @@ function function_3753bc33(localclientnum, pos, surface, notetrack, bone)
 */
 function player_napalm_radius_overlay_fade()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	prevfrac = 0;
 	while(true)
@@ -443,7 +443,7 @@ function napalm_zombie_wet_callback(localclientnum, oldval, newval, bnewent, bin
 */
 function napalm_start_wet_fx(client_num)
 {
-	self notify(#"stop_fx");
+	self notify("stop_fx");
 	self thread _napalm_zombie_runweteffects(client_num);
 	self.wet = 1;
 	self thread napalm_glow_wet(client_num);
@@ -461,7 +461,7 @@ function napalm_start_wet_fx(client_num)
 */
 function napalm_end_wet_fx(client_num)
 {
-	self notify(#"stop_fx");
+	self notify("stop_fx");
 	self thread _napalm_zombie_runeffects(client_num);
 	self.wet = 0;
 	self thread napalm_glow_normal(client_num);
@@ -536,9 +536,9 @@ function napalm_glow_wet(client_num)
 */
 function napalm_glow_lerp(client_num, glowval)
 {
-	self notify(#"glow_lerp");
-	self endon(#"glow_lerp");
-	self endon(#"death");
+	self notify("glow_lerp");
+	self endon("glow_lerp");
+	self endon("death");
 	self endon(#"entityshutdown");
 	startval = self.glow_val;
 	endval = glowval;

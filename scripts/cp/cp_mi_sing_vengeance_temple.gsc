@@ -181,7 +181,7 @@ function function_68be9dc2()
 */
 function function_558af5fd(var_7131db57, var_1f486a3b, react_scene, drop_object)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(var_7131db57))
 	{
 		self stealth_vo::function_4970c8b8(var_7131db57);
@@ -195,7 +195,7 @@ function function_558af5fd(var_7131db57, var_1f486a3b, react_scene, drop_object)
 		{
 			if(isalive(guy) && guy != self)
 			{
-				guy notify(#"alert", "combat");
+				guy notify("alert", "combat");
 			}
 		}
 	}
@@ -243,7 +243,7 @@ function function_c2627018(var_1f486a3b, drop_object)
 */
 function function_e0d6af75()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreme(1);
 	self thread function_64cea510();
 	self util::waittill_any("alert", "fake_alert");
@@ -252,7 +252,7 @@ function function_e0d6af75()
 	civ = getent("gunpoint_civilian_ai", "targetname");
 	if(isdefined(civ) && isalive(civ))
 	{
-		civ notify(#"fake_death");
+		civ notify("fake_death");
 	}
 	wait(0.1);
 	self ai::set_ignoreme(0);
@@ -269,11 +269,11 @@ function function_e0d6af75()
 */
 function function_64cea510()
 {
-	self waittill(#"death");
+	self waittill("death");
 	civ = getent("gunpoint_civilian_ai", "targetname");
 	if(isdefined(civ) && isalive(civ))
 	{
-		civ notify(#"fake_death");
+		civ notify("fake_death");
 	}
 	if(isdefined(self))
 	{
@@ -300,7 +300,7 @@ function function_64cea510()
 */
 function function_bddcb39c()
 {
-	self endon(#"death");
+	self endon("death");
 	self.team = "allies";
 	self.civilian = 1;
 	self ai::set_ignoreme(1);
@@ -356,7 +356,7 @@ function function_54c1902c(e_obj)
 */
 function function_8e6475bd()
 {
-	self endon(#"death");
+	self endon("death");
 	self.team = "allies";
 	self.civilian = 1;
 	self ai::set_ignoreme(1);
@@ -427,7 +427,7 @@ function function_a044ee0()
 function setup_temple_hendricks()
 {
 	level endon(#"hash_8a3b89d3");
-	self endon(#"death");
+	self endon("death");
 	self thread function_f6b53854();
 	self ai::set_ignoreall(1);
 	self ai::set_ignoreme(1);
@@ -440,7 +440,7 @@ function setup_temple_hendricks()
 	self.disableexits = 1;
 	node = getnode("temple_hendricks_node_05", "targetname");
 	self setgoal(node, 1);
-	level notify(#"temple_vo");
+	level notify("temple_vo");
 	wait(1);
 	self.disablearrivals = 0;
 	self.disableexits = 0;
@@ -487,7 +487,7 @@ function function_f6b53854()
 	self.goalradius = 32;
 	self setgoalnode(var_d7b9ba9b, 1);
 	level flag::clear("stealth_combat");
-	self waittill(#"goal");
+	self waittill("goal");
 	self.forcegoal = 0;
 	self.fixednode = 0;
 	level flag::set("temple_hendricks_done");
@@ -755,8 +755,8 @@ function function_620fbb8a(var_7cd99f10, e_volume)
 function temple_vo()
 {
 	level endon(#"hash_8a3b89d3");
-	level.ai_hendricks endon(#"death");
-	level waittill(#"temple_vo");
+	level.ai_hendricks endon("death");
+	level waittill("temple_vo");
 	foreach(player in level.activeplayers)
 	{
 		player thread vengeance_util::function_51caee84("temple_end");
@@ -835,10 +835,10 @@ function function_dd797045()
 {
 	level endon(#"hash_29964e40");
 	level endon(#"hash_fecd096c");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		guys = getaiteamarray("axis");
 		guys = array::remove_dead(guys);
 		if(guys.size > 37)
@@ -1030,7 +1030,7 @@ function breakable_garden_window_watcher()
 	self.health = 10;
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker);
+		self waittill("damage", damage, attacker);
 		if(isdefined(attacker) && isplayer(attacker) && isdefined(damage))
 		{
 			self.health = self.health - damage;
@@ -1223,7 +1223,7 @@ function function_863781f2(e_player)
 		var_35a1e4f8 thread scene::play("cin_ven_05_60_officedoor_1st_shared", e_player);
 	}
 	level notify(#"hash_ad75a4f1");
-	var_35a1e4f8 waittill(#"scene_done");
+	var_35a1e4f8 waittill("scene_done");
 	level notify(#"hash_9fb1ff75");
 }
 
@@ -1258,7 +1258,7 @@ function function_37d4d605()
 */
 function function_ca660ef7()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("stealth_discovered");
 	self.goalheight = 512;
 	a_warlord_nodes = getnodearray(self.script_noteworthy, "targetname");
@@ -1316,11 +1316,11 @@ function function_3bb1295b()
 */
 function function_8f9d056c()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_8a3b89d3");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isplayer(player))
 		{
 			self function_a1a65fdc(player);
@@ -1339,7 +1339,7 @@ function function_8f9d056c()
 */
 function function_a1a65fdc(player)
 {
-	player endon(#"death_or_disconnect");
+	player endon("death_or_disconnect");
 	if(isdefined(player.var_15f789fb) && player.var_15f789fb == self)
 	{
 		return;
@@ -1395,8 +1395,8 @@ function function_b321fac9(trigger)
 {
 	self notify(#"hash_b321fac9");
 	self endon(#"hash_b321fac9");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self istouching(trigger))

@@ -76,7 +76,7 @@ function __main__()
 */
 function player_rumble_and_shake(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	switch(newval)
 	{
 		case 5:
@@ -86,7 +86,7 @@ function player_rumble_and_shake(localclientnum, oldval, newval, bnewent, biniti
 		}
 		case 6:
 		{
-			self notify(#"stop_rumble_and_shake");
+			self notify("stop_rumble_and_shake");
 			self earthquake(0.6, 1.5, self.origin, 100);
 			self playrumbleonentity(localclientnum, "artillery_rumble");
 			break;
@@ -121,12 +121,12 @@ function player_rumble_and_shake(localclientnum, oldval, newval, bnewent, biniti
 		}
 		case 0:
 		{
-			self notify(#"stop_rumble_and_shake");
+			self notify("stop_rumble_and_shake");
 			break;
 		}
 		default:
 		{
-			self notify(#"stop_rumble_and_shake");
+			self notify("stop_rumble_and_shake");
 			break;
 		}
 	}
@@ -143,9 +143,9 @@ function player_rumble_and_shake(localclientnum, oldval, newval, bnewent, biniti
 */
 function player_continuous_rumble(localclientnum, n_rumble_level, var_10ba4a4c = 1)
 {
-	self notify(#"stop_rumble_and_shake");
-	self endon(#"disconnect");
-	self endon(#"stop_rumble_and_shake");
+	self notify("stop_rumble_and_shake");
+	self endon("disconnect");
+	self endon("stop_rumble_and_shake");
 	start_time = gettime();
 	while((gettime() - start_time) < 120000)
 	{

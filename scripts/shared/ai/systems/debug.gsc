@@ -170,7 +170,7 @@ function drawdebugcross(atpoint, radius, color, durationframes)
 function updatedebuginfo()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		self.debuginfo = spawnstruct();
 		self.debuginfo.enabled = getdvarint("") > 0;
 		debugclearstate();

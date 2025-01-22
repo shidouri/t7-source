@@ -334,8 +334,8 @@ function function_46d092ff()
 */
 function function_3ae7bd53(minecart)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	level endon(#"hash_76e3734");
 	self.is_on_minecart = 1;
 	self allowsprint(0);
@@ -375,7 +375,7 @@ function function_a676846(minecart)
 	level endon(#"hash_76e3734");
 	self setplayercollision(0);
 	self linkto(self.var_68072c39, "tag_origin", (0, 0, 0), (0, 0, 0));
-	self waittill(#"death");
+	self waittill("death");
 	self unlink();
 }
 
@@ -390,8 +390,8 @@ function function_a676846(minecart)
 */
 function function_3321eefe(activetime)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_aa83d93d");
 	self clientfield::set_to_player("minecart_rumble", 1);
 	while(true)
@@ -662,7 +662,7 @@ function function_4c5d405f(accel)
 */
 function function_7e02ada5()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.var_282f646e))
 	{
 		self.var_282f646e = 1;
@@ -736,7 +736,7 @@ function function_b02072a5(var_2f6d87e4)
 */
 function function_f8358462()
 {
-	level endon(#"fake_death");
+	level endon("fake_death");
 	if(!isdefined(self.zombie_cost))
 	{
 		self.zombie_cost = 250;
@@ -791,7 +791,7 @@ function function_f8358462()
 		self sethintstring(&"ZM_TEMPLE_MINECART_COST", self.zombie_cost);
 		while(true)
 		{
-			self waittill(#"trigger", player);
+			self waittill("trigger", player);
 			if(player zm_score::can_player_purchase(self.zombie_cost))
 			{
 				zm_utility::play_sound_at_pos("purchase", self.origin);
@@ -806,7 +806,7 @@ function function_f8358462()
 		if(isdefined(self.minecart.var_c25552a2))
 		{
 			self.minecart.var_c25552a2 rotateroll(180, 0.3, 0.1, 0.1);
-			self.minecart.var_c25552a2 waittill(#"rotatedone");
+			self.minecart.var_c25552a2 waittill("rotatedone");
 		}
 		var_f60bdab9 = 0.25;
 		self.minecart thread function_31bd47e5(var_f60bdab9);
@@ -834,7 +834,7 @@ function function_f8358462()
 		}
 		wait(1);
 		self triggerenable(1);
-		self.minecart waittill(#"reached_end_node");
+		self.minecart waittill("reached_end_node");
 		self.minecart function_a2aafac6();
 		self.minecart.speaker_left stoploopsound(1);
 		wait(1);
@@ -857,7 +857,7 @@ function function_f8358462()
 			self.minecart.away = 0;
 			self.minecart function_b6cb1d5a("start");
 			var_246ba808 function_4c5d405f(self.minecart.accel);
-			var_246ba808 waittill(#"reached_end_node");
+			var_246ba808 waittill("reached_end_node");
 			var_246ba808 function_f16a275(self.minecart.accel, self.minecart.decel);
 			function_59dcb5d1(var_246ba808, self.minecart);
 			var_246ba808 stoploopsound();
@@ -872,7 +872,7 @@ function function_f8358462()
 		if(isdefined(self.minecart.var_c25552a2))
 		{
 			self.minecart.var_c25552a2 rotateroll(-180, 0.3, 0.1, 0.1);
-			self.minecart.var_c25552a2 waittill(#"rotatedone");
+			self.minecart.var_c25552a2 waittill("rotatedone");
 		}
 	}
 }
@@ -922,7 +922,7 @@ function function_59dcb5d1(var_e48fa956, var_8c9fa61, time)
 	model moveto(var_8c9fa61.origin, 1, 0.1, 0.1);
 	rotateangles = (0 - var_8c9fa61.angles[0], var_8c9fa61.angles[1] - 180, 0);
 	model rotateto(rotateangles, 1, 0.1, 0.1);
-	model waittill(#"movedone");
+	model waittill("movedone");
 	model delete();
 	var_8c9fa61 show();
 }
@@ -1034,7 +1034,7 @@ function function_5724a279()
 */
 function function_b65d8973(minecart)
 {
-	minecart waittill(#"reached_end_node");
+	minecart waittill("reached_end_node");
 	self zm_utility::deactivate_zombie_point_of_interest();
 }
 
@@ -1052,9 +1052,9 @@ function function_131c0ce7()
 	trigger = getent("force_waterfall_active", "script_noteworthy");
 	if(isdefined(trigger))
 	{
-		trigger waittill(#"trigger");
+		trigger waittill("trigger");
 		level.minecart_force_zone_active = 1;
-		self waittill(#"reached_end_node");
+		self waittill("reached_end_node");
 		level.minecart_force_zone_active = 0;
 	}
 }
@@ -1091,7 +1091,7 @@ function function_c379c791(time)
 		{
 			self.door movez(-130, time, 0.1, 0.1);
 			self.door.clip movez(-130, time, 0.1, 0.1);
-			self.door waittill(#"movedone");
+			self.door waittill("movedone");
 			self.door.closed = 0;
 			self.door.clip connectpaths();
 		}
@@ -1115,7 +1115,7 @@ function function_e42c263d()
 		{
 			self.door movez(130, 0.5, 0.1, 0.1);
 			self.door.clip movez(130, 0.1);
-			self.door waittill(#"movedone");
+			self.door waittill("movedone");
 			self.door.closed = 1;
 			self.door.clip disconnectpaths();
 		}
@@ -1143,7 +1143,7 @@ function function_31bd47e5(time)
 		}
 		if(isdefined(door))
 		{
-			door waittill(#"rotatedone");
+			door waittill("rotatedone");
 		}
 		self.var_ab67891f = 0;
 		if(isdefined(self.var_7c850021))
@@ -1178,7 +1178,7 @@ function function_290ed469()
 		}
 		if(isdefined(door))
 		{
-			door waittill(#"rotatedone");
+			door waittill("rotatedone");
 		}
 		self.var_ab67891f = 1;
 	}
@@ -1216,7 +1216,7 @@ function function_5b5fcc02()
 		{
 			wait(0.3);
 			self.pusher movey(166, 2, 0.25, 0.1);
-			self.pusher waittill(#"movedone");
+			self.pusher waittill("movedone");
 			self.pusher.out = 1;
 			level waittill(#"hash_c6b9857c");
 			wait(2.7);
@@ -1241,7 +1241,7 @@ function function_c716b3b7()
 		if(self.pusher.out)
 		{
 			self.pusher movey(-166, 4, 0.25, 0.1);
-			self.pusher waittill(#"movedone");
+			self.pusher waittill("movedone");
 			self.pusher.out = 0;
 		}
 	}
@@ -1306,12 +1306,12 @@ function function_7fec5b68()
 					rise = rise + 1;
 				}
 				scale movez(rise, 0.35, 0.05, 0);
-				scale waittill(#"movedone");
+				scale waittill("movedone");
 			}
 			scale movez(-2, 0.2, 0, 0);
-			scale waittill(#"movedone");
+			scale waittill("movedone");
 			scale movez(1, 0.1, 0, 0);
-			scale waittill(#"movedone");
+			scale waittill("movedone");
 		}
 		else if(height > count)
 		{
@@ -1348,11 +1348,11 @@ function function_7fec5b68()
 				drop = drop + -1;
 			}
 			scale movez(drop, time, 0.1, 0);
-			scale waittill(#"movedone");
+			scale waittill("movedone");
 			scale movez(pop, pop * 0.1, 0, 0);
-			scale waittill(#"movedone");
+			scale waittill("movedone");
 			scale movez(dip, abs(dip * 0.1), 0, 0);
-			scale waittill(#"movedone");
+			scale waittill("movedone");
 		}
 		wait(0.1);
 	}
@@ -1387,7 +1387,7 @@ function function_68c61932()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isdefined(player) && isdefined(player.var_e4bd94c) && player.var_e4bd94c > gettime())
 		{
 			playfx(level._effect["player_water_splash"], player.origin);

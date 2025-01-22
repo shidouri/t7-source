@@ -84,7 +84,7 @@ function function_576e8126()
 {
 	while(true)
 	{
-		level waittill(#"team_changed", localclientnum);
+		level waittill("team_changed", localclientnum);
 		level notify("team_changed" + localclientnum);
 	}
 }
@@ -219,7 +219,7 @@ function function_76519db0(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_e622a96b(localclientnum, var_2300871f)
 {
 	self endon(#"entityshutdown");
-	level endon(#"disconnect");
+	level endon("disconnect");
 	self notify(#"hash_e622a96b");
 	self endon(#"hash_e622a96b");
 	while(true)

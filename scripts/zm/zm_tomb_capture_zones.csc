@@ -1191,7 +1191,7 @@ function emergence_hole_spawn(localclientnumber)
 function function_3a4d4e97()
 {
 	self endon(#"entityshutdown");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	self delete();
 }
 

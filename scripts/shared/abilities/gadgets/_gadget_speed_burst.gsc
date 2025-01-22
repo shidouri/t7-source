@@ -168,7 +168,7 @@ function gadget_speed_burst_on(slot, weapon)
 */
 function gadget_speed_burst_off(slot, weapon)
 {
-	self notify(#"gadget_speed_burst_off");
+	self notify("gadget_speed_burst_off");
 	self flagsys::clear("gadget_speed_burst_on");
 	self clientfield::set_to_player("speed_burst", 0);
 	self.speedburstlastontime = gettime();
@@ -191,7 +191,7 @@ function gadget_speed_burst_off(slot, weapon)
 */
 function gadget_speed_burst_flicker(slot, weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!self gadget_speed_burst_is_inuse(slot))
 	{
 		return;

@@ -60,7 +60,7 @@ function callback_playerconnect()
 {
 	thread notifyconnecting();
 	self.statusicon = "hud_status_connecting";
-	self waittill(#"begin");
+	self waittill("begin");
 	if(isdefined(level.reset_clientdvars))
 	{
 		self [[level.reset_clientdvars]]();
@@ -69,7 +69,7 @@ function callback_playerconnect()
 	self.statusicon = "";
 	self.guid = self getguid();
 	profilelog_begintiming(4, "ship");
-	level notify(#"connected", self);
+	level notify("connected", self);
 	if(self ishost())
 	{
 		self thread globallogic::listenforgameend();
@@ -221,7 +221,7 @@ function callback_playerconnect()
 		profilelog_endtiming(4, (("gs=" + game["state"]) + " zom=") + sessionmodeiszombiesgame());
 		return;
 	}
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(isdefined(level.hostmigrationtimer))
 	{
 		self thread hostmigration::hostmigrationtimerthink();
@@ -316,7 +316,7 @@ function callback_playerconnect()
 */
 function spectate_player_watcher()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.watchingactiveclient = 1;
 	self.waitingforplayerstext = undefined;
 	while(true)
@@ -398,7 +398,7 @@ function callback_playermigrated()
 		/#
 			println("");
 		#/
-		level notify(#"hostmigration_enoughplayers");
+		level notify("hostmigration_enoughplayers");
 	}
 }
 
@@ -413,7 +413,7 @@ function callback_playermigrated()
 */
 function inform_clientvm_of_migration()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(1);
 	self util::clientnotify("hmo");
 }
@@ -828,7 +828,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	friendly = 0;
 	if(self.health != self.maxhealth)
 	{
-		self notify(#"snd_pain_player", smeansofdeath);
+		self notify("snd_pain_player", smeansofdeath);
 	}
 	if(isdefined(einflictor) && isdefined(einflictor.script_noteworthy) && einflictor.script_noteworthy == "ragdoll_now")
 	{
@@ -1116,8 +1116,8 @@ function allowedassistweapon(weapon)
 function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
 	profilelog_begintiming(7, "ship");
-	self endon(#"spawned");
-	self notify(#"killed_player");
+	self endon("spawned");
+	self notify("killed_player");
 	self flagsys::clear("loadout_given");
 	if(self.sessionteam == "spectator")
 	{
@@ -1140,8 +1140,8 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 			self.pers["lives"]--;
 			if(self.pers["lives"] == 0)
 			{
-				level notify(#"player_eliminated");
-				self notify(#"player_eliminated");
+				level notify("player_eliminated");
+				self notify("player_eliminated");
 			}
 		}
 	}
@@ -1292,7 +1292,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	}
 	if(!isplayer(attacker) || self util::isenemyplayer(attacker) == 0)
 	{
-		level notify(#"reset_obituary_count");
+		level notify("reset_obituary_count");
 		level.lastobituaryplayercount = 0;
 		level.lastobituaryplayer = undefined;
 	}
@@ -1304,13 +1304,13 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		}
 		else
 		{
-			level notify(#"reset_obituary_count");
+			level notify("reset_obituary_count");
 			level.lastobituaryplayer = attacker;
 			level.lastobituaryplayercount = 1;
 		}
 		if(level.lastobituaryplayercount >= 4)
 		{
-			level notify(#"reset_obituary_count");
+			level notify("reset_obituary_count");
 			level.lastobituaryplayercount = 0;
 			level.lastobituaryplayer = undefined;
 		}
@@ -1579,7 +1579,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	}
 	else
 	{
-		self notify(#"playerkilledchallengesprocessed");
+		self notify("playerkilledchallengesprocessed");
 	}
 	if(isdefined(self.attackers))
 	{
@@ -1678,7 +1678,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		defaultplayerdeathwatchtime = [[level.overrideplayerdeathwatchtimer]](defaultplayerdeathwatchtime);
 	}
 	globallogic_utils::waitfortimeornotifies(defaultplayerdeathwatchtime);
-	self notify(#"death_delay_finished");
+	self notify("death_delay_finished");
 	/#
 		if(getdvarint("") != 0)
 		{
@@ -1776,7 +1776,7 @@ function waittillkillstreakdone()
 function teamkillkick()
 {
 	self globallogic_score::incpersstat("sessionbans", 1);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	playlistbanquantum = tweakables::gettweakablevalue("team", "teamkillerplaylistbanquantum");
 	playlistbanpenalty = tweakables::gettweakablevalue("team", "teamkillerplaylistbanpenalty");
@@ -1793,7 +1793,7 @@ function teamkillkick()
 	}
 	if(self util::is_bot())
 	{
-		level notify(#"bot_kicked", self.team);
+		level notify("bot_kicked", self.team);
 	}
 	ban(self getentitynumber());
 	globallogic_audio::leaderdialog("kicked");
@@ -2056,7 +2056,7 @@ function notifyconnecting()
 	waittillframeend();
 	if(isdefined(self))
 	{
-		level notify(#"connecting", self);
+		level notify("connecting", self);
 		self callback::callback(#"hash_fefe13f5");
 	}
 }
@@ -2279,12 +2279,12 @@ function updateattacker(attacker, weapon)
 	}
 	if(attacker.classname == "script_vehicle" && isdefined(attacker.owner))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 		attacker = attacker.owner;
 	}
 	if(isai(attacker))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 	}
 	if(isdefined(self.capturinglastflag) && self.capturinglastflag == 1)
 	{
@@ -2314,7 +2314,7 @@ function updateinflictor(einflictor)
 {
 	if(isdefined(einflictor) && einflictor.classname == "script_vehicle")
 	{
-		einflictor notify(#"killed", self);
+		einflictor notify("killed", self);
 		if(isdefined(einflictor.bda))
 		{
 			einflictor.bda++;

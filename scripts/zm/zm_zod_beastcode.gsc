@@ -110,7 +110,7 @@ class cbeastcode
 	{
 		while(true)
 		{
-			self waittill(#"trigger", player);
+			self waittill("trigger", player);
 			if(o_beastcode.var_71f130fa <= 0)
 			{
 				continue;
@@ -138,8 +138,8 @@ class cbeastcode
 	*/
 	function keycode_input_prompt(player)
 	{
-		self endon(#"kill_trigger");
-		player endon(#"death_or_disconnect");
+		self endon("kill_trigger");
+		player endon("death_or_disconnect");
 		str_hint = &"";
 		str_old_hint = &"";
 		a_s_input_button_tags = [[ stub.o_keycode ]]->get_tags_from_input_device();
@@ -252,7 +252,7 @@ class cbeastcode
 		var_43544e59 = var_c929283d.origin;
 		while(true)
 		{
-			t_lookat waittill(#"trigger", player);
+			t_lookat waittill("trigger", player);
 			while(player istouching(t_lookat))
 			{
 				v_eye_origin = player getplayercamerapos();
@@ -442,7 +442,7 @@ class cbeastcode
 	{
 		while(true)
 		{
-			level waittill(#"start_of_round");
+			level waittill("start_of_round");
 			if(0 >= var_71f130fa)
 			{
 				hide_readout(0);

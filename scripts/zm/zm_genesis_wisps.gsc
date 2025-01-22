@@ -74,7 +74,7 @@ function __main__()
 			level thread function_a9d6e3ef();
 		}
 	#/
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level flag::init("funfacts_started");
 	level flag::init("funfacts_activated");
 	level thread function_d1c51308();
@@ -252,7 +252,7 @@ function function_3bcaa1c()
 	self endon(#"hash_d8f13b7d");
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		/#
 			zm_utility::debug_print("");
 		#/
@@ -434,7 +434,7 @@ function function_198aed06()
 	self endon(#"hash_77f5f32b");
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		/#
 			zm_utility::debug_print("");
 		#/
@@ -713,17 +713,17 @@ function function_eaebf31c(n_val)
 	/#
 		if(n_val == 1)
 		{
-			level notify(#"wisps_on_abcd");
+			level notify("wisps_on_abcd");
 		}
 		else
 		{
 			if(n_val == 2)
 			{
-				level notify(#"wisps_on_shad");
+				level notify("wisps_on_shad");
 			}
 			else if(n_val == 0)
 			{
-				level notify(#"wisps_off");
+				level notify("wisps_off");
 			}
 		}
 	#/

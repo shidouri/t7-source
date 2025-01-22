@@ -113,10 +113,10 @@ class csmashable
 		e_clip setcandamage(1);
 		while(true)
 		{
-			e_clip waittill(#"damage", n_amt, e_attacker, v_dir, v_pos, str_type);
+			e_clip waittill("damage", n_amt, e_attacker, v_dir, v_pos, str_type);
 			if(isdefined(e_attacker) && isplayer(e_attacker) && (isdefined(e_attacker.beastmode) && e_attacker.beastmode) && str_type === "MOD_MELEE")
 			{
-				m_e_trigger notify(#"trigger", e_attacker);
+				m_e_trigger notify("trigger", e_attacker);
 				break;
 			}
 		}
@@ -236,10 +236,10 @@ class csmashable
 	*/
 	function private main()
 	{
-		m_e_trigger waittill(#"trigger", who);
+		m_e_trigger waittill("trigger", who);
 		if(isdefined(who))
 		{
-			who notify(#"smashable_smashed");
+			who notify("smashable_smashed");
 		}
 		foreach(model in m_a_e_models)
 		{

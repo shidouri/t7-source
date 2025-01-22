@@ -88,8 +88,8 @@ function function_7309e48()
 	function_7dea397f();
 	function_17303d81();
 	level thread function_74ddcad3();
-	level notify(#"power_on4");
-	level notify(#"power_on1");
+	level notify("power_on4");
+	level notify("power_on1");
 }
 
 /*
@@ -196,7 +196,7 @@ function function_97e8fd81()
 	self moveto(self.var_7117876c, 1);
 	self rotateto(self.var_380861c6, 1);
 	self playsound("evt_propeller_trap_engine_start");
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self.var_efa7240e unlink();
 	self.b_on = 1;
 	self.var_d93f9cb8 triggerenable(1);
@@ -217,11 +217,11 @@ function function_97e8fd81()
 */
 function function_3a8453ed()
 {
-	self notify(#"trap_off");
+	self notify("trap_off");
 	self.b_on = 0;
 	self.var_d93f9cb8 triggerenable(0);
 	exploder::stop_exploder(self.var_e80e0d58);
-	self notify(#"stoploop");
+	self notify("stoploop");
 	self playsound("evt_propeller_trap_engine_stop");
 	wait(0.5);
 	self.var_efa7240e linkto(self);
@@ -281,7 +281,7 @@ function function_d93740e5(e_player, var_edd82165 = 30, var_614a7182 = 30)
 		self.var_6afd6b = e_player;
 		if(isdefined(e_player))
 		{
-			e_player notify(#"player_started_proptrap");
+			e_player notify("player_started_proptrap");
 		}
 		exploder::exploder_stop("ex_prop_switch");
 		self playsound("zmb_trap_activated");
@@ -342,7 +342,7 @@ function proptrap_downdraft_rumble(b_on = 1)
 */
 function function_b0658775()
 {
-	self endon(#"trap_off");
+	self endon("trap_off");
 	while(self.b_on === 1)
 	{
 		self.var_efa7240e rotateroll(1000, 0.5);
@@ -361,7 +361,7 @@ function function_b0658775()
 */
 function function_bc1706ea()
 {
-	self endon(#"trap_off");
+	self endon("trap_off");
 	while(self.b_on === 1)
 	{
 		self.var_efa7240e rotateroll(1000, 0.5);
@@ -380,13 +380,13 @@ function function_bc1706ea()
 */
 function function_74e1faeb()
 {
-	self endon(#"trap_off");
+	self endon("trap_off");
 	self._trap_type = "rotating";
 	self.activated_by_player = self.var_6afd6b;
 	self thread function_b3390115();
 	while(self.b_on === 1)
 	{
-		self.var_d93f9cb8 waittill(#"trigger", ent);
+		self.var_d93f9cb8 waittill("trigger", ent);
 		if(zombie_utility::is_player_valid(ent))
 		{
 			ent thread function_de0d7531(self);
@@ -410,10 +410,10 @@ function function_74e1faeb()
 */
 function function_b3390115()
 {
-	self endon(#"trap_off");
+	self endon("trap_off");
 	while(self.b_on === 1)
 	{
-		self.var_2a4af70 waittill(#"trigger", ent);
+		self.var_2a4af70 waittill("trigger", ent);
 		if(ent.archetype === "spider" && isalive(ent) && (!(isdefined(ent.var_b6e7a15) && ent.var_b6e7a15)))
 		{
 			ent.var_b6e7a15 = 1;
@@ -433,7 +433,7 @@ function function_b3390115()
 */
 function function_2319463d(var_68fe148c)
 {
-	self endon(#"death");
+	self endon("death");
 	var_1ee590e5 = var_68fe148c.var_efa7240e.origin;
 	var_4ed4eec0 = util::spawn_model("tag_origin", self.origin, self.angles);
 	self linkto(var_4ed4eec0);
@@ -443,7 +443,7 @@ function function_2319463d(var_68fe148c)
 	{
 		self playsound("evt_wall_trap_suck");
 		self thread scene::play("scene_zm_dlc2_spider_death_vacuum_sucked_upward", self);
-		self waittill(#"scene_done");
+		self waittill("scene_done");
 		self playsound("evt_wall_trap_grind");
 		self thread function_12a70fc8(var_68fe148c, var_1ee590e5);
 	}
@@ -460,7 +460,7 @@ function function_2319463d(var_68fe148c)
 */
 function function_e4b540d1(var_4ed4eec0)
 {
-	self waittill(#"death");
+	self waittill("death");
 	var_4ed4eec0 delete();
 }
 
@@ -618,7 +618,7 @@ function function_d6b07530()
 {
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		var_df549564 = 0;
 		if(level.var_dd5501c7[self.stub.target].b_on !== 1 && level.var_dd5501c7[self.stub.target].var_b44dbcd2 !== 1)
 		{
@@ -677,7 +677,7 @@ function function_5245e8c3()
 {
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(level.var_e938db57.b_on !== 1 && level.var_e938db57.var_b44dbcd2 !== 1)
 		{
 			if(zm_utility::is_player_valid(ent) && self.stub.n_cost <= ent.score)
@@ -797,7 +797,7 @@ function walltrap_off()
 	self.var_d93f9cb8 triggerenable(0);
 	self function_4778351d(0);
 	playsoundatposition("evt_wall_trap_end", self.origin + (20, 100, 0));
-	self notify(#"walltrap_off");
+	self notify("walltrap_off");
 }
 
 /*
@@ -860,7 +860,7 @@ function function_4ed6e5ec(e_player, var_de0db1fd = 30, var_614a7182 = 30)
 		self.var_6afd6b = e_player;
 		if(isdefined(e_player))
 		{
-			e_player notify(#"player_started_walltrap");
+			e_player notify("player_started_walltrap");
 		}
 		level clientfield::set("walltrap_draft_rumble", 1);
 		foreach(player in level.activeplayers)
@@ -918,7 +918,7 @@ function function_fde9856()
 */
 function function_c801c84a()
 {
-	self endon(#"walltrap_off");
+	self endon("walltrap_off");
 	self._trap_type = "rotating";
 	self.activated_by_player = self.var_6afd6b;
 	self function_4778351d(1);
@@ -926,7 +926,7 @@ function function_c801c84a()
 	self.var_d93f9cb8 triggerenable(1);
 	while(self.b_on)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(!ent laststand::player_is_in_laststand() && isalive(ent) && ent.var_96ff34d0 !== 1)
 		{
 			ent thread function_55a15733(self);
@@ -946,7 +946,7 @@ function function_c801c84a()
 function function_55a15733(var_a464d35b)
 {
 	self endon(#"hash_5798c1b0");
-	var_a464d35b endon(#"walltrap_off");
+	var_a464d35b endon("walltrap_off");
 	self.var_96ff34d0 = 1;
 	if(isplayer(self))
 	{
@@ -985,7 +985,7 @@ function function_55a15733(var_a464d35b)
 		var_1ee590e5 = (var_a464d35b.var_d93f9cb8.origin[0], var_a464d35b.var_d93f9cb8.origin[1], self.origin[2]);
 		level thread function_a569a27d(var_a464d35b, var_4ed4eec0, self);
 		var_4ed4eec0 moveto(var_1ee590e5, n_time);
-		var_4ed4eec0 waittill(#"movedone");
+		var_4ed4eec0 waittill("movedone");
 		self unlink();
 		self playsound("evt_wall_trap_grind");
 		self.var_96ff34d0 = 0;
@@ -1124,7 +1124,7 @@ function function_12a70fc8(e_trap, v_pos)
 */
 function function_df83b6d1(v_pos, str_kill_notify)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!level flag::get("witnessed_trapkill_dialog"))
 	{
 		level flag::set("witnessed_trapkill_dialog");
@@ -1215,7 +1215,7 @@ function function_74ddcad3()
 	t_penstock_flow = getent("t_penstock_flow", "targetname");
 	while(true)
 	{
-		t_penstock_flow waittill(#"trigger", ent);
+		t_penstock_flow waittill("trigger", ent);
 		if(zm_utility::is_player_valid(ent) && (!(isdefined(ent.var_c73f00e0) && ent.var_c73f00e0)))
 		{
 			ent.var_c73f00e0 = 1;
@@ -1235,7 +1235,7 @@ function function_74ddcad3()
 */
 function function_b90ebe4e(t_penstock_flow)
 {
-	self endon(#"death");
+	self endon("death");
 	var_b14e6934 = vectorscale((0, -1, 0), 20);
 	while(zm_utility::is_player_valid(self) && self istouching(t_penstock_flow))
 	{

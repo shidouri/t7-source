@@ -289,7 +289,7 @@ function triggerweaponslockerthink()
 	self.parent_player thread triggerweaponslockerweaponchangethink(self);
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		retrievingweapon = player wl_has_stored_weapondata();
 		if(!retrievingweapon)
 		{
@@ -371,7 +371,7 @@ function triggerweaponslockerthink()
 				player switchtoweapon(weapondata["weapon"]);
 				self triggerweaponslockerisvalidweaponpromptupdate(player, player getcurrentweapon());
 			}
-			level notify(#"weapon_locker_grab");
+			level notify("weapon_locker_grab");
 			player playsoundtoplayer("evt_fridge_locker_open", player);
 		}
 		wait(0.5);
@@ -389,12 +389,12 @@ function triggerweaponslockerthink()
 */
 function triggerweaponslockerweaponchangethink(trigger)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	trigger endon(#"kill_trigger");
+	self endon("disconnect");
+	self endon("death");
+	trigger endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		trigger triggerweaponslockerisvalidweaponpromptupdate(self, newweapon);
 	}
 }

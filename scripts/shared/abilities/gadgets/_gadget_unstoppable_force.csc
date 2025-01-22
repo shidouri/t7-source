@@ -161,10 +161,10 @@ function boost_fx_interrupt_handler(localclientnum)
 */
 function boost_fx_on_velocity(localclientnum)
 {
-	self endon(#"disable_cybercom");
-	self endon(#"death");
+	self endon("disable_cybercom");
+	self endon("death");
 	self endon(#"end_unstoppableforce_boost_fx");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread boost_fx_interrupt_handler(localclientnum);
 	while(isdefined(self))
 	{

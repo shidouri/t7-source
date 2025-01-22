@@ -256,7 +256,7 @@ function initialize(animscript)
 		if(animscript != "pain")
 		{
 			self.longdeathstarting = undefined;
-			self notify(#"kill_long_death");
+			self notify("kill_long_death");
 		}
 	}
 	if(isdefined(self.a.mayonlydie) && animscript != "death")
@@ -905,7 +905,7 @@ function isinset(input, set)
 */
 function notifyaftertime(notifystring, killmestring, time)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(killmestring);
 	wait(time);
 	self notify(notifystring);
@@ -946,7 +946,7 @@ function showlastenemysightpos(string)
 	/#
 		self notify(#"hash_a5fb63c6");
 		self endon(#"hash_a5fb63c6");
-		self endon(#"death");
+		self endon("death");
 		if(!isvalidenemy(self.enemy))
 		{
 			return;
@@ -983,7 +983,7 @@ function showlastenemysightpos(string)
 function debugtimeout()
 {
 	wait(5);
-	self notify(#"timeout");
+	self notify("timeout");
 }
 
 /*
@@ -998,12 +998,12 @@ function debugtimeout()
 function debugposinternal(org, string, size)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		self notify("" + org);
 		self endon("" + org);
 		ent = spawnstruct();
 		ent thread debugtimeout();
-		ent endon(#"timeout");
+		ent endon("timeout");
 		if(self.enemy.team == "")
 		{
 			color = (0.4, 0.7, 1);
@@ -1060,7 +1060,7 @@ function debugpossize(org, string, size)
 function showdebugproc(frompoint, topoint, color, printtime)
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		timer = printtime * 20;
 		i = 0;
 		while(i < timer)
@@ -1489,9 +1489,9 @@ function setfootstepeffect(name, fx)
 function persistentdebugline(start, end)
 {
 	/#
-		self endon(#"death");
-		level notify(#"newdebugline");
-		level endon(#"newdebugline");
+		self endon("death");
+		level notify("newdebugline");
+		level endon("newdebugline");
 		for(;;)
 		{
 			line(start, end, (0.3, 1, 0), 1);
@@ -1817,7 +1817,7 @@ function damagelocationisany(a, b, c, d, e, f, g, h, i, j, k, ovr)
 */
 function ragdolldeath(moveanim)
 {
-	self endon(#"killanimscript");
+	self endon("killanimscript");
 	lastorg = self.origin;
 	movevec = (0, 0, 0);
 	for(;;)
@@ -1831,7 +1831,7 @@ function ragdolldeath(moveanim)
 			self startragdoll();
 			wait(0.05);
 			physicsexplosionsphere(lastorg, 600, 0, force * 0.1);
-			self notify(#"killanimscript");
+			self notify("killanimscript");
 			return;
 		}
 	}
@@ -2300,7 +2300,7 @@ function get_desired_origin()
 */
 function hide_pop()
 {
-	self endon(#"death");
+	self endon("death");
 	self ghost();
 	wait(0.5);
 	if(isdefined(self))
@@ -2342,9 +2342,9 @@ function finish_rise_notetracks(note, spot)
 	if(note == "deathout" || note == "deathhigh")
 	{
 		self.zombie_rise_death_out = 1;
-		self notify(#"zombie_rise_death_out");
+		self notify("zombie_rise_death_out");
 		wait(2);
-		spot notify(#"stop_zombie_rise_fx");
+		spot notify("stop_zombie_rise_fx");
 	}
 }
 
@@ -2360,14 +2360,14 @@ function finish_rise_notetracks(note, spot)
 function zombie_rise_death(zombie, spot)
 {
 	zombie.zombie_rise_death_out = 0;
-	zombie endon(#"rise_anim_finished");
+	zombie endon("rise_anim_finished");
 	while(isdefined(zombie) && isdefined(zombie.health) && zombie.health > 1)
 	{
-		zombie waittill(#"damage", amount);
+		zombie waittill("damage", amount);
 	}
 	if(isdefined(spot))
 	{
-		spot notify(#"stop_zombie_rise_fx");
+		spot notify("stop_zombie_rise_fx");
 	}
 	if(isdefined(zombie))
 	{
@@ -2443,8 +2443,8 @@ function zombie_gut_explosion()
 */
 function delayed_zombie_eye_glow()
 {
-	self endon(#"zombie_delete");
-	self endon(#"death");
+	self endon("zombie_delete");
+	self endon("death");
 	if(isdefined(self.in_the_ground) && self.in_the_ground || (isdefined(self.in_the_ceiling) && self.in_the_ceiling))
 	{
 		while(!isdefined(self.create_eyes))
@@ -2512,7 +2512,7 @@ function zombie_eye_glow_stop()
 */
 function round_spawn_failsafe_debug_draw()
 {
-	self endon(#"death");
+	self endon("death");
 	prevorigin = self.origin;
 	while(true)
 	{
@@ -2553,7 +2553,7 @@ function round_spawn_failsafe_debug_draw()
 */
 function round_spawn_failsafe()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(level.debug_keyline_zombies) && level.debug_keyline_zombies)
 	{
 		self thread round_spawn_failsafe_debug_draw();
@@ -2719,10 +2719,10 @@ function zombie_speed_up()
 	{
 		return;
 	}
-	level endon(#"intermission");
+	level endon("intermission");
 	level endon(#"end_of_round");
-	level endon(#"restart_round");
-	level endon(#"kill_round");
+	level endon("restart_round");
+	level endon("kill_round");
 	while(level.zombie_total > 4)
 	{
 		wait(3);
@@ -2940,7 +2940,7 @@ function set_zombie_run_cycle(new_move_speed)
 		}
 	}
 	self.needs_run_update = 1;
-	self notify(#"needs_run_update");
+	self notify("needs_run_update");
 	self.deathanim = self append_missing_legs_suffix("zm_death");
 }
 
@@ -3134,7 +3134,7 @@ function zombie_gib_on_damage()
 {
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
 		if(!isdefined(self))
 		{
 			return;
@@ -3577,7 +3577,7 @@ function head_should_gib(attacker, type, point)
 */
 function zombie_hat_gib(attacker, means_of_death)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.hat_gibbed) && self.hat_gibbed)
 	{
 		return;
@@ -3611,7 +3611,7 @@ function zombie_hat_gib(attacker, means_of_death)
 */
 function head_gib_damage_over_time(dmg, delay, attacker, means_of_death)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exploding");
 	if(!isalive(self))
 	{
@@ -3878,7 +3878,7 @@ function makezombiecrawler(b_both_legs)
 */
 function zombie_head_gib(attacker, means_of_death)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.head_gibbed) && self.head_gibbed)
 	{
 		return;

@@ -140,7 +140,7 @@ function function_8824774d(target_round)
 	level.zombie_total = 0;
 	zombie_utility::ai_calculate_health(target_round);
 	level.round_number = target_round - 1;
-	level notify(#"kill_round");
+	level notify("kill_round");
 	playsoundatposition("zmb_bgb_round_robbin", (0, 0, 0));
 	wait(0.1);
 	zombies = getaiteamarray(level.zombie_team);
@@ -164,7 +164,7 @@ function function_8824774d(target_round)
 		if(isdefined(e_last))
 		{
 			level.last_ai_origin = e_last.origin;
-			level notify(#"last_ai_down", e_last);
+			level notify("last_ai_down", e_last);
 		}
 	}
 	util::wait_network_frame();

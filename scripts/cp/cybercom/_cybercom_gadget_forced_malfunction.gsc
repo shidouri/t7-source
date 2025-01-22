@@ -314,7 +314,7 @@ function private _activate_forced_malfunction(slot, weapon)
 */
 function private function_586fec95(attacker, disablefor, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::set("forced_malfunction", 1);
 	self.is_disabled = 1;
 	self dodamage(5, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
@@ -334,7 +334,7 @@ function private function_586fec95(attacker, disablefor, weapon)
 */
 function private function_609fcb0a(attacker, disablefor, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!cybercom::function_76e3026d(self))
 	{
 		self kill(self.origin, (isdefined(attacker) ? attacker : undefined));
@@ -372,7 +372,7 @@ function private function_609fcb0a(attacker, disablefor, weapon)
 */
 function private _force_malfunction(attacker, disabletimemsec)
 {
-	self endon(#"death");
+	self endon("death");
 	weapon = getweapon("gadget_forced_malfunction");
 	self notify(#"hash_f8c5dd60", weapon, attacker);
 	if(isdefined(disabletimemsec))
@@ -427,7 +427,7 @@ function private _force_malfunction(attacker, disabletimemsec)
 		self animscripted("malfunction_intro_anim", self.origin, self.angles, (((("ai_" + base) + "_") + type) + "_exposed_rifle_malfunction") + variant);
 		self thread cybercom::stopanimscriptedonnotify("damage_pain", "malfunction_intro_anim", 1, attacker, weapon);
 		self thread cybercom::stopanimscriptedonnotify("notify_melee_damage", "malfunction_intro_anim", 1, attacker, weapon);
-		self waittillmatch(#"malfunction_intro_anim");
+		self waittillmatch("malfunction_intro_anim");
 	}
 	var_ac712236 = 0;
 	while(isalive(self) && gettime() < disablefor)
@@ -496,7 +496,7 @@ function ai_activateforcedmalfuncton(target, var_9bc2efcb = 1)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	weapon = getweapon("gadget_forced_malfunction");
 	foreach(guy in validtargets)

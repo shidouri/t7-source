@@ -60,8 +60,8 @@ function createscramblerwatcher()
 */
 function onspawnscrambler(watcher, player)
 {
-	player endon(#"disconnect");
-	self endon(#"death");
+	player endon("disconnect");
+	self endon("death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, player);
 	player.scrambler = self;
 	self setowner(player);
@@ -73,7 +73,7 @@ function onspawnscrambler(watcher, player)
 		player addweaponstat(self.weapon, "used", 1);
 	}
 	self thread watchshutdown(player);
-	level notify(#"scrambler_spawn");
+	level notify("scrambler_spawn");
 }
 
 /*
@@ -111,7 +111,7 @@ function scramblerdetonate(attacker, weapon, target)
 function watchshutdown(player)
 {
 	self util::waittill_any("death", "hacked");
-	level notify(#"scrambler_death");
+	level notify("scrambler_death");
 	if(isdefined(player))
 	{
 		player.scrambler = undefined;
@@ -143,8 +143,8 @@ function destroyent()
 */
 function watchscramblerdamage(watcher)
 {
-	self endon(#"death");
-	self endon(#"hacked");
+	self endon("death");
+	self endon("hacked");
 	self setcandamage(1);
 	damagemax = 100;
 	if(!self util::ishacked())
@@ -155,7 +155,7 @@ function watchscramblerdamage(watcher)
 	{
 		self.maxhealth = 100000;
 		self.health = self.maxhealth;
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, idflags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;

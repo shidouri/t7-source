@@ -347,8 +347,8 @@ function function_5f63b2f1(n_state)
 */
 function function_78e8c8b4(n_state)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self notify(#"hash_6ae1015d");
 	if(n_state == 1)
 	{
@@ -423,8 +423,8 @@ function function_d0e3bb4(b_on)
 */
 function function_d6b3e7b5()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level endon(#"hash_bdee213c");
 	while(true)
 	{
@@ -462,7 +462,7 @@ function falling_death_think()
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who) && (!(isdefined(who.is_falling_to_death) && who.is_falling_to_death)))
 		{
 			who thread player_falls_to_death();
@@ -531,8 +531,8 @@ function move_player_to_respawn_point()
 */
 function function_39af75ef(str_endon, str_exploder)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level endon(str_endon);
 	if(!isdefined(str_exploder))
 	{
@@ -569,7 +569,7 @@ function function_39af75ef(str_endon, str_exploder)
 */
 function ai_surreal_spawn_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	n_min_dist = 256;
 	if(self should_use_surreal_fx())
 	{
@@ -630,7 +630,7 @@ function ai_surreal_spawn_fx()
 				}
 			}
 		}
-		self notify(#"spawned");
+		self notify("spawned");
 		if(self.archetype === "robot")
 		{
 			self ai::set_behavior_attribute("robot_lights", 3);
@@ -701,10 +701,10 @@ function function_c90e23b6(str_objective, str_end)
 function function_53fd6e96(str_objective)
 {
 	level endon(str_objective + "_done");
-	level endon(#"root_scene_completed");
+	level endon("root_scene_completed");
 	level endon(str_objective + "enter_vortex");
 	level endon(#"hash_8b1e8360");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		e_player = arraygetclosest(self.origin, level.activeplayers);
@@ -800,7 +800,7 @@ function function_f7f909b0(str_objective)
 */
 function function_f5f0fcce(str_objective, str_end)
 {
-	level endon(#"root_scene_completed");
+	level endon("root_scene_completed");
 	if(issubstr(str_objective, "_start"))
 	{
 		level waittill(str_objective + "enter_vortex");
@@ -852,7 +852,7 @@ function function_f5f0fcce(str_objective, str_end)
 */
 function function_11726ad(str_objective)
 {
-	level waittill(#"root_scene_completed");
+	level waittill("root_scene_completed");
 	self util::unmake_hero("taylor_hero");
 	self util::self_delete();
 }
@@ -959,9 +959,9 @@ function function_843d0ed6(e_player)
 */
 function function_47f5a8d2(e_player)
 {
-	level.ai_taylor endon(#"death");
-	e_player endon(#"disconnect");
-	e_player endon(#"death");
+	level.ai_taylor endon("death");
+	e_player endon("disconnect");
+	e_player endon("death");
 	n_timepassed = 0;
 	n_starttime = gettime();
 	while(distance(e_player.origin, self.origin) < 256 && distance(e_player.origin, self.origin) > 64 && isalive(e_player) && n_timepassed < 15)
@@ -983,9 +983,9 @@ function function_47f5a8d2(e_player)
 */
 function function_d93e481f()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level.ai_taylor endon(#"death");
+	self endon("death");
+	self endon("disconnect");
+	level.ai_taylor endon("death");
 	self.var_df6d1c12 = self.origin;
 	while(true)
 	{
@@ -1152,8 +1152,8 @@ function enable_surreal_ai_fx(b_enabled = 1, n_delay_time = 0)
 */
 function explode_on_ragdoll_start()
 {
-	self endon(#"ai_explosion_death");
-	self waittill(#"start_ragdoll");
+	self endon("ai_explosion_death");
+	self waittill("start_ragdoll");
 	if(isdefined(self))
 	{
 		self clientfield::set("raven_ai_rez", 0);
@@ -1168,7 +1168,7 @@ function explode_on_ragdoll_start()
 	if(isdefined(self))
 	{
 		self delete();
-		self notify(#"ai_explosion_death");
+		self notify("ai_explosion_death");
 	}
 }
 
@@ -1183,8 +1183,8 @@ function explode_on_ragdoll_start()
 */
 function explode_when_actor_becomes_corpse()
 {
-	self endon(#"ai_explosion_death");
-	self waittill(#"actor_corpse", e_corpse);
+	self endon("ai_explosion_death");
+	self waittill("actor_corpse", e_corpse);
 	death_explode_delay();
 	if(isdefined(e_corpse))
 	{
@@ -1197,7 +1197,7 @@ function explode_when_actor_becomes_corpse()
 	}
 	if(isdefined(self))
 	{
-		self notify(#"ai_explosion_death");
+		self notify("ai_explosion_death");
 	}
 }
 
@@ -1229,14 +1229,14 @@ function death_explode_delay()
 */
 function function_b1d28dc8()
 {
-	self endon(#"death");
-	self waittill(#"spawned");
+	self endon("death");
+	self waittill("spawned");
 	if(isdefined(self.type) && self.type == "human")
 	{
 		while(true)
 		{
 			self ai::disable_pain();
-			self waittill(#"damage");
+			self waittill("damage");
 			if(randomint(10) > 2 || (self.var_5e7a3967 === 1 && (!(isdefined(self.var_de36196f) && self.var_de36196f))))
 			{
 				if(self isatcovernodestrict())
@@ -1375,7 +1375,7 @@ function function_f5b7f741(var_f19447c4)
 		self linkto(self.e_anchor);
 		self thread function_c9e8f95a(self.e_anchor);
 		self.e_anchor moveto(var_f19447c4 + vectorscale((0, 0, 1), 25), n_time);
-		self.e_anchor waittill(#"movedone");
+		self.e_anchor waittill("movedone");
 		self unlink();
 		self forceteleport(var_f19447c4, var_fb20f2e1, 1, 0);
 		self setgoalpos(var_f19447c4, 1);
@@ -1389,7 +1389,7 @@ function function_f5b7f741(var_f19447c4)
 		util::stop_magic_bullet_shield(self);
 		self show();
 		self.holdfire = 0;
-		self notify(#"teleport_done");
+		self notify("teleport_done");
 		wait(2);
 		self clearforcedgoal();
 	}
@@ -1406,7 +1406,7 @@ function function_f5b7f741(var_f19447c4)
 */
 function function_8f40ede()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_de36196f = 1;
 	wait(6);
 	self.var_de36196f = undefined;
@@ -1423,8 +1423,8 @@ function function_8f40ede()
 */
 function function_90de3a76()
 {
-	self endon(#"death");
-	self waittill(#"spawned");
+	self endon("death");
+	self waittill("spawned");
 	wait(1);
 	if(isdefined(self.type) && self.type == "human")
 	{
@@ -1434,7 +1434,7 @@ function function_90de3a76()
 			n_move_time = 3;
 			while(true)
 			{
-				self waittill(#"new_cover");
+				self waittill("new_cover");
 				nd_cover = self.node;
 				while(!isdefined(nd_cover))
 				{
@@ -1475,7 +1475,7 @@ function function_90de3a76()
 */
 function function_bfc7e6a6(v_pos)
 {
-	self endon(#"death");
+	self endon("death");
 	n_distance = distance(self.origin, v_pos);
 	n_time = n_distance / 400;
 	self thread function_8f40ede();
@@ -1510,7 +1510,7 @@ function function_bfc7e6a6(v_pos)
 	self linkto(self.e_anchor);
 	self thread function_c9e8f95a(self.e_anchor);
 	self.e_anchor moveto(v_pos + vectorscale((0, 0, 1), 25), n_time);
-	self.e_anchor waittill(#"movedone");
+	self.e_anchor waittill("movedone");
 	self unlink();
 	self forceteleport(v_pos, var_fb20f2e1, 0, 0);
 	self setgoalpos(v_pos, 1);
@@ -1524,7 +1524,7 @@ function function_bfc7e6a6(v_pos)
 	util::stop_magic_bullet_shield(self);
 	self show();
 	self.holdfire = 0;
-	self notify(#"teleport_done");
+	self notify("teleport_done");
 	wait(2);
 	self clearforcedgoal();
 }
@@ -1563,7 +1563,7 @@ function function_c9e8f95a(e_anchor)
 */
 function function_3287bea1()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.target) && self.script_parameters === "raven_spawn_teleport")
 	{
 		var_f5cd6771 = getnode(self.target, "targetname");
@@ -1575,7 +1575,7 @@ function function_3287bea1()
 		{
 			return;
 		}
-		self waittill(#"spawned");
+		self waittill("spawned");
 		wait(0.5);
 		n_distance = distance(self.origin, var_f5cd6771.origin);
 		n_move_time = n_distance / 400;
@@ -1609,7 +1609,7 @@ function function_3287bea1()
 		self linkto(self.e_anchor);
 		self thread function_c9e8f95a(self.e_anchor);
 		self.e_anchor moveto(var_f5cd6771.origin + vectorscale((0, 0, 1), 25), n_move_time);
-		self.e_anchor waittill(#"movedone");
+		self.e_anchor waittill("movedone");
 		self unlink();
 		self forceteleport(var_f5cd6771.origin, var_fb20f2e1, 1, 0);
 		self setgoalpos(var_f5cd6771.origin, 1);
@@ -1621,7 +1621,7 @@ function function_3287bea1()
 		util::stop_magic_bullet_shield(self);
 		self enableaimassist();
 		self show();
-		self notify(#"teleport_done");
+		self notify("teleport_done");
 	}
 }
 
@@ -1636,7 +1636,7 @@ function function_3287bea1()
 */
 function function_ff6b67ed(target)
 {
-	self endon(#"death");
+	self endon("death");
 	n_distance = distance(self.origin, target.origin);
 	n_move_time = n_distance / 400;
 	if(n_move_time > 0.6)
@@ -1669,7 +1669,7 @@ function function_ff6b67ed(target)
 	self linkto(self.e_anchor);
 	self thread function_c9e8f95a(self.e_anchor);
 	self.e_anchor moveto(target.origin + vectorscale((0, 0, 1), 25), n_move_time);
-	self.e_anchor waittill(#"movedone");
+	self.e_anchor waittill("movedone");
 	self unlink();
 	self forceteleport(target.origin, var_fb20f2e1, 1, 0);
 	self setgoalpos(target.origin, 1);
@@ -1681,7 +1681,7 @@ function function_ff6b67ed(target)
 	util::stop_magic_bullet_shield(self);
 	self enableaimassist();
 	self show();
-	self notify(#"teleport_done");
+	self notify("teleport_done");
 }
 
 /*
@@ -1695,7 +1695,7 @@ function function_ff6b67ed(target)
 */
 function function_d8c91e6b(n_dist)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(n_dist))
 	{
 		n_dist = 4000;
@@ -1776,8 +1776,8 @@ function function_48463818()
 */
 function function_289902e8()
 {
-	self endon(#"death");
-	self waittill(#"spawned");
+	self endon("death");
+	self waittill("spawned");
 	self thread function_d8c91e6b(4000);
 	while(true)
 	{
@@ -1960,10 +1960,10 @@ function function_6a0676d9(a_ents)
 */
 function function_16f4964d()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self))
 	{
-		self waittill(#"damage", n_damage, e_attacker);
+		self waittill("damage", n_damage, e_attacker);
 		if(isplayer(e_attacker))
 		{
 			level.var_71aac273++;
@@ -2022,7 +2022,7 @@ function t_skipto()
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			str_objective = self.script_objective;
@@ -2168,7 +2168,7 @@ function function_dd842585(str_objective, var_ed1d0e16, str_trig)
 	var_50f524fe = getent(str_trig, "targetname");
 	while(true)
 	{
-		var_50f524fe waittill(#"trigger", who);
+		var_50f524fe waittill("trigger", who);
 		if(isplayer(who) && (!(isdefined(who.teleporting) && who.teleporting)))
 		{
 			who thread function_c51939f4(str_objective, var_ed1d0e16);
@@ -2601,7 +2601,7 @@ function function_deebcec2(var_51d0e2ea)
 		{
 			case "quadtank":
 			{
-				self waittill(#"shoot");
+				self waittill("shoot");
 				if(var_51d0e2ea function_51590606())
 				{
 				}
@@ -2630,7 +2630,7 @@ function function_deebcec2(var_51d0e2ea)
 function function_c000269f(var_51d0e2ea)
 {
 	self endon(#"hash_65af34bc");
-	var_51d0e2ea waittill(#"death", e_attacker);
+	var_51d0e2ea waittill("death", e_attacker);
 	if(self === e_attacker)
 	{
 		if(isdefined(var_51d0e2ea.scriptvehicletype))
@@ -2687,7 +2687,7 @@ function function_2a6e38e()
 {
 	self notify(#"hash_e2457c05");
 	self endon(#"hash_e2457c05");
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		while(self haspath() || self function_f8645b6(128, self geteye(), 0.65))
@@ -2787,7 +2787,7 @@ function function_51590606()
 */
 function move_model(n_multiplier = 1, str_start, var_bd62ea22)
 {
-	self endon(#"death");
+	self endon("death");
 	s_start = self;
 	if(isdefined(str_start))
 	{
@@ -2874,10 +2874,10 @@ function function_3adbd846(str_val, str_key = "targetname", var_34b81fdb = 0)
 	t_trig = getent(str_val, str_key);
 	if(isdefined(t_trig))
 	{
-		t_trig endon(#"death");
+		t_trig endon("death");
 		while(true)
 		{
-			t_trig waittill(#"trigger", e_triggerer);
+			t_trig waittill("trigger", e_triggerer);
 			var_ccf2685a = isdefined(e_triggerer.owner) && isplayer(e_triggerer.owner);
 			if(isplayer(e_triggerer) || var_ccf2685a)
 			{
@@ -2907,7 +2907,7 @@ function function_1b3dfa61(str_name, str_type = "trigger_radius", n_width = 128,
 	{
 		t_trig = function_3789d4db(str_name, str_type, n_width, n_height, n_length, str_objective);
 	}
-	t_trig waittill(#"trigger");
+	t_trig waittill("trigger");
 	if(isdefined(t_trig))
 	{
 		t_trig delete();
@@ -3005,7 +3005,7 @@ function function_b0dd51f4(str_spawner, str_key = "targetname", var_a3e7056a = 0
 function function_33ec653f(str_val, str_key = "targetname", var_a3e7056a = 0.05, spawn_func, param1, param2, param3, param4, param5)
 {
 	s_spawn_manager = struct::get(str_val, str_key);
-	s_spawn_manager endon(#"stop");
+	s_spawn_manager endon("stop");
 	s_spawn_manager.a_ai = [];
 	s_spawn_manager.n_spawned = 0;
 	/#
@@ -3102,7 +3102,7 @@ function function_a569867c(nd_point = self, spawn_func, i = 0, param1, param2, p
 */
 function function_dea7f09f()
 {
-	self endon(#"death");
+	self endon("death");
 	target = self.var_cdb0be8;
 	if(!isdefined(target.target))
 	{
@@ -3156,7 +3156,7 @@ function function_dea7f09f()
 */
 function function_e8d7d9()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.scriptvehicletype))
 	{
 		self ai::set_ignoreme(1);
@@ -3202,8 +3202,8 @@ function function_3ee4a3b3(var_5f69ad96, str_objective)
 */
 function function_1fb1b1c4()
 {
-	self endon(#"death");
-	self waittill(#"trigger");
+	self endon("death");
+	self waittill("trigger");
 	function_33ec653f(self.target, undefined, undefined, &function_d065a580);
 }
 
@@ -3218,7 +3218,7 @@ function function_1fb1b1c4()
 */
 function function_d065a580()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.05);
 	var_5f2b7673 = self.var_cdb0be8;
 	while(isdefined(var_5f2b7673))
@@ -3435,7 +3435,7 @@ function function_b0f0dd1f(is_on, str_effect)
 function function_7be427b1(n_damage = 5)
 {
 	self endon(#"hash_17344cca");
-	self endon(#"death");
+	self endon("death");
 	var_dd075cd2 = 1;
 	self hazard::function_459e5eff("biohazard", 0);
 	level.overrideplayerdamage = &player_callback_damage;
@@ -3692,7 +3692,7 @@ function function_b6a9fc24(e_player)
 */
 function function_aceff870()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_48772f67 = 1;
 	while(true)
 	{
@@ -3809,8 +3809,8 @@ function function_27904cd4(str_station, str_objective, n_count = 0, var_31561fde
 	str_scenedef = "cin_zur_02_01_climb_aie_charging_station";
 	var_18dfedfa = array("sec_assault_ar", "sec_suppressor_ar", "sec_cqb_shotgun", "sec_rpg_rocket", "sec_suppressor_mg", "sec_sniper", "sec_rusher", "sec_exploder");
 	var_ce83537c = getent(str_station, "targetname");
-	var_ce83537c endon(#"death");
-	var_ce83537c endon(#"disable");
+	var_ce83537c endon("death");
+	var_ce83537c endon("disable");
 	if(!isdefined(var_ce83537c.mdl_origin))
 	{
 		var_ce83537c.mdl_origin = util::spawn_model("tag_origin", var_ce83537c.s_scene.origin, var_ce83537c.s_scene.angles);
@@ -3858,7 +3858,7 @@ function function_27904cd4(str_station, str_objective, n_count = 0, var_31561fde
 				var_ce83537c.ai_spawned linkto(var_ce83537c.mdl_origin);
 				var_ce83537c.mdl_origin scene::init(str_scenedef, var_ce83537c.ai_spawned);
 				var_ce83537c rotateyaw(180, randomfloatrange(0.89, 1.4));
-				var_ce83537c waittill(#"rotatedone");
+				var_ce83537c waittill("rotatedone");
 				if(!isalive(var_ce83537c.ai_spawned))
 				{
 					var_ce83537c.mdl_origin unlink();
@@ -3908,7 +3908,7 @@ function function_5b0d9c63(str_station)
 		#/
 		return;
 	}
-	var_ce83537c notify(#"disable");
+	var_ce83537c notify("disable");
 	var_ce83537c.b_active = 0;
 	if(isalive(var_ce83537c.ai_spawned))
 	{
@@ -3928,10 +3928,10 @@ function function_5b0d9c63(str_station)
 */
 function function_6d571441()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", n_damage, e_attacker, $_, $_, str_damage_type);
+		self waittill("damage", n_damage, e_attacker, $_, $_, str_damage_type);
 		self.health = self.health + n_damage;
 		var_a4a673a9 = str_damage_type == "MOD_PROJECTILE" || str_damage_type === "MOD_EXPLOSIVE";
 		if(isplayer(e_attacker) && var_a4a673a9)
@@ -3945,7 +3945,7 @@ function function_6d571441()
 			self vehicle::get_off_path();
 			self setspeed(42, 18, 12);
 			self setvehgoalpos(s_crash_point.origin);
-			self waittill(#"goal");
+			self waittill("goal");
 			self vehicle::god_off();
 			array::run_all(self.riders, &kill);
 			self dodamage(self.health + 100, self.origin, e_attacker);
@@ -3964,7 +3964,7 @@ function function_6d571441()
 */
 function function_fe5160df(b_true)
 {
-	self endon(#"death");
+	self endon("death");
 	if(b_true)
 	{
 		wait(randomfloatrange(1, 3));
@@ -4017,7 +4017,7 @@ function function_3f6f483d(a_ents)
 */
 function function_86b1cd8a(a_ents)
 {
-	a_ents["raven"] endon(#"death");
+	a_ents["raven"] endon("death");
 	a_ents["raven"] hide();
 	a_ents["raven"] waittill(#"hash_db8335ba");
 	a_ents["raven"] show();
@@ -4390,7 +4390,7 @@ function function_ff016910(str_text, v_color, e_owner)
 function debug_player_damage()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 	#/
 }
 
@@ -4406,10 +4406,10 @@ function debug_player_damage()
 function function_c118d07d()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
-			self waittill(#"damage", n_damage, e_attacker, v_direction, v_point, str_type, str_tagname, str_modelname, str_partname, w_weapon);
+			self waittill("damage", n_damage, e_attacker, v_direction, v_point, str_type, str_tagname, str_modelname, str_partname, w_weapon);
 			str_class = "";
 			if(!isdefined(str_type))
 			{
@@ -4443,8 +4443,8 @@ function function_c118d07d()
 function function_4363773d(e_attacker, v_hit, n_damage, str_class, str_type)
 {
 	/#
-		self endon(#"damage");
-		self endon(#"death");
+		self endon("damage");
+		self endon("death");
 		var_7cc4d7ae = e_attacker.origin;
 		v_player_pos = self.origin;
 		var_ba43239b = e_attacker gettagorigin("");

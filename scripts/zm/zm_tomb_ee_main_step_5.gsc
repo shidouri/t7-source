@@ -125,7 +125,7 @@ function spawn_zombie_blood_plane()
 	linker setmodel("tag_origin");
 	ai_pilot linkto(linker);
 	linker moveto(a_start_pos[0].origin, 3);
-	linker waittill(#"movedone");
+	linker waittill("movedone");
 	linker delete();
 	ai_pilot util::stop_magic_bullet_shield();
 	level thread zombie_pilot_sound(ai_pilot);
@@ -134,7 +134,7 @@ function spawn_zombie_blood_plane()
 	ai_pilot zombie_utility::set_zombie_run_cycle("sprint");
 	ai_pilot.zombie_think_done = 1;
 	ai_pilot thread pilot_loop_logic(a_start_pos[0]);
-	ai_pilot waittill(#"death");
+	ai_pilot waittill("death");
 	level thread spawn_quadrotor_pickup(ai_pilot.origin, ai_pilot.angles);
 }
 
@@ -170,12 +170,12 @@ function zombie_pilot_sound(ai_pilot)
 */
 function pilot_loop_logic(s_start)
 {
-	self endon(#"death");
+	self endon("death");
 	s_goal = s_start;
 	while(isalive(self))
 	{
 		self setgoalpos(s_goal.origin);
-		self waittill(#"goal");
+		self waittill("goal");
 		s_goal = struct::get(s_goal.target, "targetname");
 	}
 }
@@ -241,11 +241,11 @@ function spawn_quadrotor_pickup(v_origin, v_angles)
 */
 function quadrotor_pickup_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	m_quadrotor = getent("quadrotor_pickup", "targetname");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		player playsound("vox_maxi_drone_upgraded_0");
 		level flag::clear("ee_quadrotor_disabled");
 		level flag::set("ee_maxis_drone_retrieved");

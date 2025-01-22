@@ -96,13 +96,13 @@ function state_off_enter(params)
 */
 function state_off_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	while(!isdefined(self.parent))
 	{
 		wait(0.1);
 	}
-	self.parent endon(#"death");
+	self.parent endon("death");
 	while(true)
 	{
 		self setspeed(400);
@@ -237,8 +237,8 @@ function state_combat_enter(params)
 function state_combat_update(params)
 {
 	drone = self;
-	drone endon(#"change_state");
-	drone endon(#"death");
+	drone endon("change_state");
+	drone endon("death");
 	drone thread spawnflakrocket(drone.incoming_missile, drone.origin, drone.parent);
 	drone ghost();
 }
@@ -255,7 +255,7 @@ function state_combat_update(params)
 function spawnflakrocket(missile, spawnpos, parent)
 {
 	drone = self;
-	missile endon(#"death");
+	missile endon("death");
 	missile missile_settarget(parent);
 	rocket = magicbullet(getweapon("flak_drone_rocket"), spawnpos, missile.origin, parent, missile);
 	rocket.team = parent.team;
@@ -337,7 +337,7 @@ function spawnflakrocket(missile, spawnpos, parent)
 function cleanupaftermissiledeath(rocket, flak_drone)
 {
 	missile = self;
-	missile waittill(#"death");
+	missile waittill("death");
 	wait(0.5);
 	if(isdefined(rocket))
 	{
@@ -360,7 +360,7 @@ function cleanupaftermissiledeath(rocket, flak_drone)
 */
 function state_death_update(params)
 {
-	self endon(#"death");
+	self endon("death");
 	dogibbeddeath = 0;
 	if(isdefined(self.death_info))
 	{
@@ -409,7 +409,7 @@ function state_death_update(params)
 */
 function drone_pain_for_time(time, stablizeparam, restorelookpoint)
 {
-	self endon(#"death");
+	self endon("death");
 	self.painstarttime = gettime();
 	if(!(isdefined(self.inpain) && self.inpain))
 	{
@@ -545,7 +545,7 @@ function configureteam(parent, ishacked)
 function watchgameevents()
 {
 	drone = self;
-	drone endon(#"death");
+	drone endon("death");
 	drone.parent.owner util::waittill_any("game_ended", "emp_jammed", "disconnect", "joined_team");
 	drone shutdown(1);
 }
@@ -562,8 +562,8 @@ function watchgameevents()
 function watchdeath()
 {
 	drone = self;
-	drone.parent endon(#"death");
-	drone waittill(#"death");
+	drone.parent endon("death");
+	drone waittill("death");
 	drone shutdown(1);
 }
 
@@ -579,8 +579,8 @@ function watchdeath()
 function watchparentdeath()
 {
 	drone = self;
-	drone endon(#"death");
-	drone.parent waittill(#"death");
+	drone endon("death");
+	drone.parent waittill("death");
 	drone shutdown(1);
 }
 
@@ -596,9 +596,9 @@ function watchparentdeath()
 function watchparentmissiles()
 {
 	drone = self;
-	drone endon(#"death");
-	drone.parent endon(#"death");
-	drone.parent waittill(#"stinger_fired_at_me", missile, weapon, attacker);
+	drone endon("death");
+	drone.parent endon("death");
+	drone.parent waittill("stinger_fired_at_me", missile, weapon, attacker);
 	drone.incoming_missile = missile;
 	drone.incoming_missile.target_weapon = weapon;
 	drone.incoming_missile.target_attacker = attacker;

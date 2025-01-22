@@ -68,7 +68,7 @@ function onplayerconnect()
 {
 	for(;;)
 	{
-		level waittill(#"connecting", player);
+		level waittill("connecting", player);
 		player thread onplayerspawned();
 	}
 }
@@ -84,7 +84,7 @@ function onplayerconnect()
 */
 function onplayerspawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
 		self waittill(#"spawned_player");
@@ -106,10 +106,10 @@ function onplayerspawned()
 function watchforgrenadeduds()
 {
 	self endon(#"spawned_player");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(!zm_equipment::is_equipment(weapon) && !zm_utility::is_placeable_mine(weapon))
 		{
 			grenade thread checkgrenadefordud(weapon, 1, self);
@@ -130,10 +130,10 @@ function watchforgrenadeduds()
 function watchforgrenadelauncherduds()
 {
 	self endon(#"spawned_player");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"grenade_launcher_fire", grenade, weapon);
+		self waittill("grenade_launcher_fire", grenade, weapon);
 		grenade thread checkgrenadefordud(weapon, 0, self);
 		grenade thread watchforscriptexplosion(weapon, 0, self);
 	}
@@ -186,8 +186,8 @@ function grenade_safe_to_bounce(player, weapon)
 */
 function makegrenadedudanddestroy()
 {
-	self endon(#"death");
-	self notify(#"grenade_dud");
+	self endon("death");
+	self notify("grenade_dud");
 	self makegrenadedud();
 	wait(3);
 	if(isdefined(self))
@@ -207,8 +207,8 @@ function makegrenadedudanddestroy()
 */
 function checkgrenadefordud(weapon, isthrowngrenade, player)
 {
-	self endon(#"death");
-	player endon(#"zombify");
+	self endon("death");
+	player endon("zombify");
 	if(!isdefined(self))
 	{
 		return;
@@ -240,12 +240,12 @@ function checkgrenadefordud(weapon, isthrowngrenade, player)
 */
 function wait_explode()
 {
-	self endon(#"grenade_dud");
-	self endon(#"done");
+	self endon("grenade_dud");
+	self endon("done");
 	self waittill(#"explode", position);
 	level.explode_position = position;
 	level.explode_position_valid = 1;
-	self notify(#"done");
+	self notify("done");
 }
 
 /*
@@ -259,13 +259,13 @@ function wait_explode()
 */
 function wait_timeout(time)
 {
-	self endon(#"grenade_dud");
-	self endon(#"done");
+	self endon("grenade_dud");
+	self endon("done");
 	self endon(#"explode");
 	wait(time);
 	if(isdefined(self))
 	{
-		self notify(#"done");
+		self notify("done");
 	}
 }
 
@@ -284,8 +284,8 @@ function wait_for_explosion(time)
 	level.explode_position_valid = 0;
 	self thread wait_explode();
 	self thread wait_timeout(time);
-	self waittill(#"done");
-	self notify(#"death_or_explode", level.explode_position_valid, level.explode_position);
+	self waittill("done");
+	self notify("death_or_explode", level.explode_position_valid, level.explode_position);
 }
 
 /*
@@ -299,14 +299,14 @@ function wait_for_explosion(time)
 */
 function watchforscriptexplosion(weapon, isthrowngrenade, player)
 {
-	self endon(#"grenade_dud");
+	self endon("grenade_dud");
 	if(zm_utility::is_lethal_grenade(weapon) || weapon.islauncher)
 	{
 		self thread wait_for_explosion(20);
-		self waittill(#"death_or_explode", exploded, position);
+		self waittill("death_or_explode", exploded, position);
 		if(exploded)
 		{
-			level notify(#"grenade_exploded", position, 256, 300, 75);
+			level notify("grenade_exploded", position, 256, 300, 75);
 		}
 	}
 }
@@ -484,12 +484,12 @@ function add_retrievable_knife_init_name(name)
 */
 function watchweaponusagezm()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	for(;;)
 	{
-		self waittill(#"weapon_fired", curweapon);
+		self waittill("weapon_fired", curweapon);
 		self.lastfiretime = gettime();
 		self.hasdonecombat = 1;
 		switch(curweapon.weapclass)
@@ -620,15 +620,15 @@ function updateweapontimingszm(newtime)
 */
 function watchweaponchangezm()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.lastdroppableweapon = self getcurrentweapon();
 	self.hitsthismag = [];
 	weapon = self getcurrentweapon();
 	while(true)
 	{
 		previous_weapon = self getcurrentweapon();
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(weapons::maydropweapon(newweapon))
 		{
 			self.lastdroppableweapon = newweapon;
@@ -666,7 +666,7 @@ function weaponobjects_on_player_connect_override_internal()
 	self thread weapons::watchmissileusage();
 	self thread watchweaponchangezm();
 	self thread trackweaponzm();
-	self notify(#"weapon_watchers_created");
+	self notify("weapon_watchers_created");
 }
 
 /*
@@ -2365,7 +2365,7 @@ function weapon_spawn_think()
 	shared_ammo_weapon = undefined;
 	if(isdefined(self.parent_player) && !is_grenade)
 	{
-		self.parent_player notify(#"zm_bgb_secret_shopper", self);
+		self.parent_player notify("zm_bgb_secret_shopper", self);
 	}
 	second_endon = undefined;
 	if(isdefined(self.stub))
@@ -2410,7 +2410,7 @@ function weapon_spawn_think()
 	}
 	for(;;)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!zm_utility::is_player_valid(player))
 		{
 			player thread zm_utility::ignore_triggers(0.5);
@@ -2470,7 +2470,7 @@ function weapon_spawn_think()
 					self show_all_weapon_buys(player, cost, ammo_cost, is_grenade);
 				}
 				player zm_score::minus_to_player_score(cost);
-				level notify(#"weapon_bought", player, self.weapon);
+				level notify("weapon_bought", player, self.weapon);
 				player zm_stats::increment_challenge_stat("SURVIVALIST_BUY_WALLBUY");
 				if(self.weapon.isriotshield)
 				{
@@ -2497,7 +2497,7 @@ function weapon_spawn_think()
 						if(player can_upgrade_weapon(weapon))
 						{
 							weapon = get_upgrade_weapon(weapon);
-							player notify(#"zm_bgb_wall_power_used");
+							player notify("zm_bgb_wall_power_used");
 						}
 					}
 					weapon = player weapon_give(weapon);
@@ -2964,14 +2964,14 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 	{
 		if(weapon.isballisticknife)
 		{
-			self notify(#"zmb_lost_knife");
+			self notify("zmb_lost_knife");
 		}
 		self givestartammo(weapon);
 		if(!zm_utility::is_offhand_weapon(weapon))
 		{
 			self switchtoweapon(weapon);
 		}
-		self notify(#"weapon_give", weapon);
+		self notify("weapon_give", weapon);
 		return weapon;
 	}
 	if(weapon.name == "ray_gun" || weapon.name == "raygun_mark2")
@@ -2986,7 +2986,7 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 					break;
 				}
 			}
-			self notify(#"weapon_give", weapon);
+			self notify("weapon_give", weapon);
 			return weapon;
 		}
 		if(self has_weapon_or_upgrade(getweapon("ray_gun")) && weapon.name == "raygun_mark2")
@@ -3000,7 +3000,7 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 				}
 			}
 			weapon = self give_build_kit_weapon(weapon);
-			self notify(#"weapon_give", weapon);
+			self notify("weapon_give", weapon);
 			self givestartammo(weapon);
 			self switchtoweapon(weapon);
 			return weapon;
@@ -3071,7 +3071,7 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 			{
 				if(current_weapon.isballisticknife)
 				{
-					self notify(#"zmb_lost_knife");
+					self notify("zmb_lost_knife");
 				}
 				self weapon_take(current_weapon);
 				if(isdefined(initial_current_weapon) && issubstr(initial_current_weapon.name, "dualoptic"))
@@ -3085,7 +3085,7 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 	{
 		if(self [[level.zombiemode_offhand_weapon_give_override]](weapon))
 		{
-			self notify(#"weapon_give", weapon);
+			self notify("weapon_give", weapon);
 			self zm_utility::play_sound_on_ent("purchase");
 			return weapon;
 		}
@@ -3098,14 +3098,14 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 	{
 		self thread zm_placeable_mine::setup_for_player(weapon);
 		self play_weapon_vo(weapon, magic_box);
-		self notify(#"weapon_give", weapon);
+		self notify("weapon_give", weapon);
 		return weapon;
 	}
 	if(isdefined(level.zombie_weapons_callbacks) && isdefined(level.zombie_weapons_callbacks[weapon]))
 	{
 		self thread [[level.zombie_weapons_callbacks[weapon]]]();
 		play_weapon_vo(weapon, magic_box);
-		self notify(#"weapon_give", weapon);
+		self notify("weapon_give", weapon);
 		return weapon;
 	}
 	if(!(isdefined(nosound) && nosound))
@@ -3113,7 +3113,7 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 		self zm_utility::play_sound_on_ent("purchase");
 	}
 	weapon = self give_build_kit_weapon(weapon);
-	self notify(#"weapon_give", weapon);
+	self notify("weapon_give", weapon);
 	self givestartammo(weapon);
 	if(b_switch_weapon && !zm_utility::is_offhand_weapon(weapon))
 	{
@@ -3144,7 +3144,7 @@ function weapon_give(weapon, is_upgrade = 0, magic_box = 0, nosound = 0, b_switc
 */
 function weapon_take(weapon)
 {
-	self notify(#"weapon_take", weapon);
+	self notify("weapon_take", weapon);
 	if(self hasweapon(weapon))
 	{
 		self takeweapon(weapon);

@@ -110,7 +110,7 @@ function explodable_barrel_think()
 	self setcandamage(1);
 	for(;;)
 	{
-		self waittill(#"damage", amount, attacker, direction_vec, p, type);
+		self waittill("damage", amount, attacker, direction_vec, p, type);
 		/#
 			println("" + type);
 		#/
@@ -191,7 +191,7 @@ function explodable_barrel_burn()
 function explodable_barrel_explode()
 {
 	self notify(#"exploding");
-	self notify(#"death");
+	self notify("death");
 	up = anglestoup(self.angles);
 	worldup = anglestoup(vectorscale((0, 1, 0), 90));
 	dot = vectordot(up, worldup);

@@ -70,7 +70,7 @@ function sndvehiclehijackwatcher()
 {
 	while(true)
 	{
-		level waittill(#"clonedentity", clone, vehentnum);
+		level waittill("clonedentity", clone, vehentnum);
 		if(isdefined(clone) && isdefined(clone.archetype))
 		{
 			vehiclename = clone.archetype;
@@ -116,7 +116,7 @@ function sndvehiclehijackwatcher()
 */
 function on_joined_ai()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(level.deadops) && level.deadops)
 	{
 		return;
@@ -187,9 +187,9 @@ function on_joined_ai()
 */
 function function_c8397d24()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
 		wait(randomintrange(6, 14));
@@ -213,9 +213,9 @@ function function_c8397d24()
 */
 function bc_ainotifyconvert()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
 		self waittill(#"bhtn_action_notify", notify_string);
@@ -536,12 +536,12 @@ function bc_ainotifyconvert()
 */
 function bc_scriptedline()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"scriptedbc", alias_suffix);
+		self waittill("scriptedbc", alias_suffix);
 		level thread bc_makeline(self, alias_suffix);
 	}
 }
@@ -557,8 +557,8 @@ function bc_scriptedline()
 */
 function bc_enemycontact()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(randomintrange(0, 100) <= 35)
 	{
 		if(!(isdefined(level.bc_enemycontact) && level.bc_enemycontact))
@@ -596,11 +596,11 @@ function bc_enemycontact_wait()
 */
 function bc_grenadewatcher()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(weapon.name == "frag_grenade" || weapon.name == "frag_grenade_invisible")
 		{
 			if(randomintrange(0, 100) <= 80 && !isplayer(self))
@@ -654,12 +654,12 @@ function bc_incominggrenadewatcher(thrower, grenade)
 */
 function bc_stickygrenadewatcher()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"sticky_explode");
+	self endon("death");
+	self endon("disconnect");
+	self endon("sticky_explode");
 	while(true)
 	{
-		self waittill(#"grenade_stuck", grenade);
+		self waittill("grenade_stuck", grenade);
 		if(isdefined(grenade))
 		{
 			grenade.stucktoplayer = self;
@@ -683,8 +683,8 @@ function bc_stickygrenadewatcher()
 */
 function function_897d1130()
 {
-	self endon(#"disconnect");
-	self waittill(#"death", attacker, meansofdeath);
+	self endon("disconnect");
+	self waittill("death", attacker, meansofdeath);
 	if(isdefined(attacker) && !isplayer(attacker))
 	{
 		if(meansofdeath == "MOD_MELEE")
@@ -709,8 +709,8 @@ function function_897d1130()
 */
 function bc_death()
 {
-	self endon(#"disconnect");
-	self waittill(#"death", attacker, meansofdeath);
+	self endon("disconnect");
+	self waittill("death", attacker, meansofdeath);
 	if(isdefined(self))
 	{
 		meleeassassinate = isdefined(meansofdeath) && meansofdeath == "MOD_MELEE_ASSASSINATE";
@@ -810,8 +810,8 @@ function bc_ainearexplodable(object, type)
 */
 function bc_robotbehindvox()
 {
-	level endon(#"unloaded");
-	self endon(#"death_or_disconnect");
+	level endon("unloaded");
+	self endon("death_or_disconnect");
 	self endon(#"hash_f8c5dd60");
 	if(!isdefined(level._bc_robotbehindvoxtime))
 	{
@@ -933,8 +933,8 @@ function bc_makeline(ai, line, causeresponse, category, alwaysplay)
 	{
 		return;
 	}
-	ai endon(#"death");
-	ai endon(#"disconnect");
+	ai endon("death");
+	ai endon("disconnect");
 	response = undefined;
 	if(isdefined(causeresponse))
 	{
@@ -1094,7 +1094,7 @@ function bc_allowed(str_category = "bc")
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.soundmod = "player";
 	self.voxshouldgasp = 0;
 	self.voxshouldgasploop = 1;
@@ -1117,9 +1117,9 @@ function on_player_spawned()
 */
 function bc_plrnotifyconvert()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
 		self waittill(#"bhtn_action_notify", notify_string);
@@ -1171,11 +1171,11 @@ function bc_doplayervox(suffix)
 */
 function pain_vox()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"snd_pain_player", meansofdeath);
+		self waittill("snd_pain_player", meansofdeath);
 		if(randomintrange(0, 100) <= 100)
 		{
 			if(isalive(self))
@@ -1208,10 +1208,10 @@ function pain_vox()
 */
 function water_gasp()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"snd_gasp");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	self endon("snd_gasp");
+	level endon("game_ended");
 	self.voxshouldgasploop = 0;
 	while(true)
 	{
@@ -1220,7 +1220,7 @@ function water_gasp()
 			self.voxshouldgasp = 0;
 			self.voxshouldgasploop = 1;
 			self thread do_sound("vox_pm1_gas_gasp", 1);
-			self notify(#"snd_gasp");
+			self notify("snd_gasp");
 		}
 		wait(0.5);
 	}
@@ -1237,12 +1237,12 @@ function water_gasp()
 */
 function cybercoremeleewatcher()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"melee_cybercom");
+		self waittill("melee_cybercom");
 		self thread sndcybercoremeleeresponse();
 	}
 }
@@ -1258,7 +1258,7 @@ function cybercoremeleewatcher()
 */
 function sndcybercoremeleeresponse()
 {
-	self endon(#"melee_cybercom");
+	self endon("melee_cybercom");
 	wait(2);
 	if(isdefined(self))
 	{
@@ -1281,8 +1281,8 @@ function sndcybercoremeleeresponse()
 */
 function wait_playback_time(soundalias, timeout)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	playbacktime = soundgetplaybacktime(soundalias);
 	self.isspeaking = 1;
 	if(playbacktime >= 0)

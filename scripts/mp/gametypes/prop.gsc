@@ -380,7 +380,7 @@ function onscoreclosemusic()
 		scoredif = topscore - runnerupscore;
 		if(topscore >= (scorelimit * 0.5))
 		{
-			level notify(#"sndmusichalfway");
+			level notify("sndmusichalfway");
 			return;
 		}
 		wait(1);
@@ -400,7 +400,7 @@ function onplayerconnect()
 {
 	while(true)
 	{
-		level waittill(#"connected", player);
+		level waittill("connected", player);
 		player.var_d1d70226 = 1;
 		if(isdefined(level.allow_teamchange) && level.allow_teamchange == "0")
 		{
@@ -424,7 +424,7 @@ function onplayerconnect()
 */
 function hidehudintermission()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	if(useprophudserver())
 	{
 		level.elim_hud.alpha = 0;
@@ -852,7 +852,7 @@ function setuproundstarthud()
 */
 function eliminatedhudmonitor()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
 		props = get_alive_nonspecating_players(game["defenders"]);
@@ -897,7 +897,7 @@ function get_alive_nonspecating_players(team)
 */
 function onplayerdisconnect()
 {
-	level notify(#"playerdisconnected");
+	level notify("playerdisconnected");
 	if(function_503c9413())
 	{
 		thread function_c021720c(0.05);
@@ -1014,7 +1014,7 @@ function onspawnplayer(predictedspawn)
 */
 function monitortimers()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	function_45c842e9();
 	level.allow_teamchange = "0";
 	foreach(player in level.players)
@@ -1062,13 +1062,13 @@ function monitortimers()
 */
 function function_cdee7177()
 {
-	level endon(#"game_ended");
-	level endon(#"props_hide_over");
+	level endon("game_ended");
+	level endon("props_hide_over");
 	var_8cbf9eb6 = int(level.phsettings.prophidetime + (gettime() / 1000));
 	totaltimepassed = 0;
 	while(true)
 	{
-		level waittill(#"host_migration_begin");
+		level waittill("host_migration_begin");
 		level.phcountdowntimer.alpha = 0;
 		if(useprophudserver() && level.phsettings.propwhistletime > 0)
 		{
@@ -1103,9 +1103,9 @@ function function_cdee7177()
 */
 function handleprop()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
 	self waittill(#"hash_5ca37875");
 	self allowprone(0);
 	self allowcrouch(0);
@@ -1275,7 +1275,7 @@ function applyanglesoffset()
 */
 function propwhistle()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	function_45c842e9();
 	time = gettime();
 	var_33840fb2 = level.phsettings.propwhistletime * 1000;
@@ -1389,9 +1389,9 @@ function getlivingplayersonteam(team)
 */
 function setupdamage()
 {
-	level endon(#"game_ended");
-	self endon(#"death");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("death");
+	self endon("disconnect");
 	hostmigration::waitlongdurationwithhostmigrationpause(0.5);
 	self.prop.health = 99999;
 	self.prop.maxhealth = 99999;
@@ -1409,11 +1409,11 @@ function setupdamage()
 */
 function function_500dc7d9(damagecallback)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, meansofdeath, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, meansofdeath, modelname, tagname, partname, weapon, idflags);
 		self thread [[damagecallback]](damage, attacker, direction_vec, point, meansofdeath, modelname, tagname, partname, weapon, idflags);
 	}
 }
@@ -1508,9 +1508,9 @@ function propcleanupdelayed(propents)
 */
 function propwatchdeath()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self waittill(#"death");
+	level endon("game_ended");
+	self endon("disconnect");
+	self waittill("death");
 	corpse = self.body;
 	playsoundatposition("wpn_flash_grenade_explode", self.prop.origin + vectorscale((0, 0, 1), 4));
 	playfx(fx::get("propDeathFX"), self.prop.origin + vectorscale((0, 0, 1), 4));
@@ -1532,10 +1532,10 @@ function propwatchdeath()
 */
 function propwatchcleanupondisconnect()
 {
-	self notify(#"propwatchcleanupondisconnect");
-	self endon(#"propwatchcleanupondisconnect");
-	level endon(#"game_ended");
-	self waittill(#"disconnect");
+	self notify("propwatchcleanupondisconnect");
+	self endon("propwatchcleanupondisconnect");
+	level endon("game_ended");
+	self waittill("disconnect");
 	self propcleanup();
 	self propclonecleanup();
 }
@@ -1553,8 +1553,8 @@ function propwatchcleanuponroundend()
 {
 	self notify(#"hash_739978c9");
 	self endon(#"hash_739978c9");
-	self endon(#"disconnect");
-	level waittill(#"round_end_done");
+	self endon("disconnect");
+	level waittill("round_end_done");
 	self propcleanup();
 	self propclonecleanup();
 }
@@ -1593,10 +1593,10 @@ function propclonecleanup()
 */
 function propwatchprematchsettings()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
+	self endon("death");
+	self endon("disconnect");
+	self endon("joined_team");
+	self endon("joined_spectators");
 	function_45c842e9();
 	self allowprone(0);
 	self allowcrouch(0);
@@ -2053,7 +2053,7 @@ function ph_setfinalkillcamwinner(winningteam)
 */
 function givephteamscore(team)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	var_a307eca2 = 0;
 	if(isdefined(game["roundswon"]))
 	{
@@ -2073,7 +2073,7 @@ function givephteamscore(team)
 */
 function setphteamscores()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	var_aa6bd9ef = 0;
 	var_c586b70f = 0;
 	if(isdefined(game["roundswon"]))
@@ -2139,8 +2139,8 @@ function ononeleftevent(team)
 */
 function waittillrecoveredhealth(time, interval)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	fullhealthtime = 0;
 	if(!isdefined(interval))
 	{
@@ -2179,9 +2179,9 @@ function waittillrecoveredhealth(time, interval)
 */
 function givelastonteamwarning()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	self waittillrecoveredhealth(3);
 	level thread function_435d5169(&"SCORE_LAST_ALIVE", self);
 	if(self util::isprop())
@@ -2189,7 +2189,7 @@ function givelastonteamwarning()
 		level notify(#"hash_2cd007a4");
 		level.nopropsspectate = 1;
 	}
-	level notify(#"last_alive", self);
+	level notify("last_alive", self);
 }
 
 /*
@@ -2379,8 +2379,8 @@ function function_945f1c41(team, setclientfield)
 */
 function function_c2dcc15d(team)
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	self endon(#"hash_fe365ac1");
 	wait(0.05);
 	var_1c61204d = 1;
@@ -2402,12 +2402,12 @@ function function_c2dcc15d(team)
 */
 function function_a8e0199(team)
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	self endon(#"hash_fe365ac1");
 	while(true)
 	{
-		level waittill(#"connected", player);
+		level waittill("connected", player);
 		self thread function_cb3d2d31(player, team);
 	}
 }
@@ -2423,10 +2423,10 @@ function function_a8e0199(team)
 */
 function function_cb3d2d31(player, team)
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	self endon(#"hash_fe365ac1");
-	player endon(#"disconnect");
+	player endon("disconnect");
 	while(true)
 	{
 		if(isdefined(player.hasspawned) && player.hasspawned && player.team != team)
@@ -2437,7 +2437,7 @@ function function_cb3d2d31(player, team)
 				self ghost();
 			}
 		}
-		player waittill(#"spawned");
+		player waittill("spawned");
 	}
 }
 
@@ -2482,9 +2482,9 @@ function function_346bdc3b()
 */
 function stillalivexp()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level.var_3c96f157["kill"]["value"] = 300;
-	level waittill(#"props_hide_over");
+	level waittill("props_hide_over");
 	while(true)
 	{
 		hostmigration::waitlongdurationwithhostmigrationpause(10);
@@ -2550,7 +2550,7 @@ function stillalivexp()
 */
 function tracktimealive()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	function_45c842e9();
 	while(true)
 	{
@@ -2638,8 +2638,8 @@ function function_dc6b46ed(idflags, shitloc, weapon, friendlyfire, attackerishit
 */
 function attackerswaittime()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	function_45c842e9();
 	if(self.team == game["defenders"])
 	{
@@ -2775,9 +2775,9 @@ function function_1edf732a()
 	level.var_f2aa1432 = 0;
 	while(true)
 	{
-		level waittill(#"host_migration_begin");
+		level waittill("host_migration_begin");
 		starttime = gettime();
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_end");
 		var_1827a38e = gettime() - starttime;
 		level.var_f2aa1432 = level.var_f2aa1432 + var_1827a38e;
 	}
@@ -2885,7 +2885,7 @@ function function_e999d()
 */
 function function_320928f9()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self freezecontrolsallowlook(1);
 	function_45c842e9();
 	self freezecontrolsallowlook(0);
@@ -2937,14 +2937,14 @@ function attackerinitammo()
 */
 function attackerregenammo()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"attackerregenammo");
-	self endon(#"attackerregenammo");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	self notify("attackerregenammo");
+	self endon("attackerregenammo");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"reload");
+		self waittill("reload");
 		primaryweapon = self getcurrentweapon();
 		self givemaxammo(primaryweapon);
 	}
@@ -2961,15 +2961,15 @@ function attackerregenammo()
 */
 function checkkillrespawn()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	hostmigration::waitlongdurationwithhostmigrationpause(0.1);
 	if(self.pers["lives"] == 1)
 	{
 		self.pers["lives"]--;
 		level.livescount[self.team]--;
 		globallogic::updategameevents();
-		level notify(#"propcountchanged");
+		level notify("propcountchanged");
 		return;
 	}
 }
@@ -3069,7 +3069,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, sweapon, v
 {
 	victim = self;
 	killedbyenemy = 0;
-	level notify(#"playercountchanged");
+	level notify("playercountchanged");
 	if(victim.team == game["attackers"])
 	{
 		self thread respawnplayer();
@@ -3144,9 +3144,9 @@ function respawnplayer()
 */
 function waittillcanspawnclient()
 {
-	self endon(#"started_spawnplayer");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("started_spawnplayer");
+	self endon("disconnect");
+	level endon("game_ended");
 	for(;;)
 	{
 		wait(0.05);
@@ -3525,8 +3525,8 @@ function function_9bb11de9(eattacker, einflictor, weapon, smeansofdeath, idamage
 */
 function function_b37cf698(eattacker, einflictor, weapon, meansofdeath, damage, point)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(isdefined(level._custom_weapon_damage_func))
 	{
 		is_weapon_registered = self [[level._custom_weapon_damage_func]](eattacker, einflictor, weapon, meansofdeath, damage);
@@ -3610,7 +3610,7 @@ function function_b37cf698(eattacker, einflictor, weapon, meansofdeath, damage, 
 */
 function function_7010fe7f()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	wait(0.05);
 	while(!isdefined(level.mannequins))
 	{
@@ -3620,7 +3620,7 @@ function function_7010fe7f()
 	{
 		mannequin notsolid();
 	}
-	level waittill(#"props_hide_over");
+	level waittill("props_hide_over");
 	foreach(mannequin in level.mannequins)
 	{
 		mannequin solid();
@@ -3739,7 +3739,7 @@ function function_b408af2c(time)
 */
 function propminigameupdateshowwinner(hud, winyoffset, winfontscale)
 {
-	hud endon(#"death");
+	hud endon("death");
 	movetime = 0.5;
 	showtime = 2.5;
 	fadetime = 0.5;
@@ -3855,8 +3855,8 @@ function function_543b1a75(isvisible)
 */
 function function_471ff19e(player)
 {
-	player endon(#"disconnect");
-	level endon(#"game_ended");
+	player endon("disconnect");
+	level endon("game_ended");
 	if(!isdefined(player.var_c83b06b4))
 	{
 		function_45c842e9();
@@ -3887,8 +3887,8 @@ function function_471ff19e(player)
 function function_84edfab0(player, clone)
 {
 	clone endon(#"entityshutdown");
-	clone endon(#"death");
-	player waittill(#"disconnect");
+	clone endon("death");
+	player waittill("disconnect");
 	if(isdefined(clone))
 	{
 		clone delete();
@@ -4321,7 +4321,7 @@ function function_9b0f77c4(titlelabel)
 */
 function function_e14e11c4()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	wait(5.5);
 	level.var_e5ad813f.var_d410e6e5 moveovertime(1);
 	level.var_e5ad813f.var_d410e6e5 hud::setpoint("CENTER", undefined, 0, -100);
@@ -4363,7 +4363,7 @@ function function_a88142c8(player)
 */
 function function_c021720c(delaytime)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(isdefined(delaytime))
 	{
 		wait(delaytime);
@@ -4616,7 +4616,7 @@ function function_41d2c44e()
 */
 function _updateclonepathing()
 {
-	self endon(#"death");
+	self endon("death");
 	clone_not_moving_dist_sq = 576;
 	clone_not_moving_poll_time = 2000;
 	var_38da5046 = 1500;

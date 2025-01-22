@@ -97,9 +97,9 @@ function function_23a5b653(powered_on)
 	for(;;)
 	{
 		self.zbarrier set_pap_zbarrier_state("power_on");
-		level waittill(#"pack_a_punch_off");
+		level waittill("pack_a_punch_off");
 		self.zbarrier set_pap_zbarrier_state("power_off");
-		level waittill(#"pack_a_punch_on");
+		level waittill("pack_a_punch_on");
 	}
 }
 
@@ -118,7 +118,7 @@ function set_pap_zbarrier_state(state)
 	{
 		self hidezbarrierpiece(i);
 	}
-	self notify(#"zbarrier_state_change");
+	self notify("zbarrier_state_change");
 	self [[level.pap_zbarrier_state_func]](state);
 }
 
@@ -154,7 +154,7 @@ function function_21d887cd()
 	s_stub = level zm_genesis_util::spawn_trigger_radius(self.origin, 256, undefined, &function_f8c1234b);
 	while(true)
 	{
-		s_stub waittill(#"trigger", e_player);
+		s_stub waittill("trigger", e_player);
 		e_player thread function_4ab898f4(self);
 		level.var_6fe80781 = gettime();
 	}
@@ -220,7 +220,7 @@ function function_e8ef758e()
 */
 function function_4ab898f4(nd_start)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.is_flung) && self.is_flung)
 	{
 		return;
@@ -318,8 +318,8 @@ function cleanup_vehicle(var_413ea50f)
 */
 function function_10171438()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(3);
 	self.var_a393601c = 0;
 }
@@ -386,7 +386,7 @@ function function_3298b25f()
 function function_e488a6a8()
 {
 	level flag::set("pap_power_on");
-	level notify(#"pack_a_punch_on");
+	level notify("pack_a_punch_on");
 	self.origin = self.origin + vectorscale((0, 0, 1), 500);
 	self.clip.origin = self.clip.origin + vectorscale((0, 0, 1), 500);
 	self.pap_machine.origin = self.pap_machine.origin - vectorscale((0, 0, 1), 500);
@@ -418,7 +418,7 @@ function function_9278bc8a(var_181e2689)
 	self.n_damage = 0;
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		playfx(level._effect["pap_cord_impact"], point, (0, 0, -1));
 		self.n_damage = self.n_damage - damage;
 		self.health = self.health + damage;
@@ -484,7 +484,7 @@ function function_d2b266ee(a_ents)
 function function_dc681bed(a_ents)
 {
 	var_de243c38 = a_ents["pap_sac_vending"];
-	level waittill(#"apotho_pack_freed");
+	level waittill("apotho_pack_freed");
 	wait(0.2);
 	var_de243c38 delete();
 }

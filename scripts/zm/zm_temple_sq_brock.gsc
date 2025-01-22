@@ -72,11 +72,11 @@ function delete_radio()
 */
 function trig_thread()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger");
-		self.owner_ent notify(#"triggered");
+		self waittill("trigger");
+		self.owner_ent notify("triggered");
 	}
 }
 
@@ -91,8 +91,8 @@ function trig_thread()
 */
 function radio_debug()
 {
-	self endon(#"death");
-	level endon(#"radio_7_played");
+	self endon("death");
+	level endon("radio_7_played");
 	/#
 		while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
 		{
@@ -113,8 +113,8 @@ function radio_debug()
 */
 function radio9_override(struct)
 {
-	self notify(#"overridden");
-	self endon(#"death");
+	self notify("overridden");
+	self endon("death");
 	self.trigger delete();
 	self ghost();
 	sidequest = level._zombie_sidequests["sq"];
@@ -122,8 +122,8 @@ function radio9_override(struct)
 	{
 		return;
 	}
-	level waittill(#"picked_up");
-	level waittill(#"flush_done");
+	level waittill("picked_up");
+	level waittill("flush_done");
 	self show();
 	target = struct.target;
 	while(isdefined(target))
@@ -135,7 +135,7 @@ function radio9_override(struct)
 			time = 1;
 		}
 		self moveto(struct.origin, time, time / 10);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		target = struct.target;
 	}
 	self.trigger = spawn("trigger_radius_use", self.origin + vectorscale((0, 0, 1), 12), 0, 64, 72);
@@ -145,7 +145,7 @@ function radio9_override(struct)
 	self.trigger setcursorhint("HINT_NOICON");
 	self.trigger.owner_ent = self;
 	self.trigger thread trig_thread();
-	self waittill(#"triggered");
+	self waittill("triggered");
 	snd = "vox_radio_egg_" + (self.script_int - 1);
 	self playsound(snd);
 	self playloopsound("vox_radio_egg_snapshot", 1);
@@ -165,8 +165,8 @@ function radio9_override(struct)
 */
 function radio7_override(struct)
 {
-	self endon(#"death");
-	self waittill(#"triggered");
+	self endon("death");
+	self waittill("triggered");
 	level flag::set("radio_7_played");
 }
 
@@ -181,8 +181,8 @@ function radio7_override(struct)
 */
 function radio4_override(struct)
 {
-	self endon(#"death");
-	self waittill(#"triggered");
+	self endon("death");
+	self waittill("triggered");
 	level flag::set("radio_4_played");
 }
 
@@ -197,9 +197,9 @@ function radio4_override(struct)
 */
 function radio2_override(struct)
 {
-	self endon(#"death");
-	self notify(#"overridden");
-	self waittill(#"triggered");
+	self endon("death");
+	self notify("overridden");
+	self waittill("triggered");
 	var_8e0fe378 = level._player_who_pressed_the_switch.characterindex;
 	if(!isdefined(var_8e0fe378))
 	{
@@ -232,7 +232,7 @@ function radio2_override(struct)
 	snd = (("vox_radio_egg_" + (self.script_int - 1)) + "") + var_bc7547cb;
 	self playsoundwithnotify(snd, "radiodone");
 	self playloopsound("vox_radio_egg_snapshot", 1);
-	self waittill(#"radiodone");
+	self waittill("radiodone");
 	self stoploopsound(1);
 }
 
@@ -247,10 +247,10 @@ function radio2_override(struct)
 */
 function radio_thread()
 {
-	self endon(#"death");
-	self endon(#"overridden");
+	self endon("death");
+	self endon("overridden");
 	self thread radio_debug();
-	self waittill(#"triggered");
+	self waittill("triggered");
 	snd = "vox_radio_egg_" + (self.script_int - 1);
 	self playsound(snd);
 	self playloopsound("vox_radio_egg_snapshot", 1);

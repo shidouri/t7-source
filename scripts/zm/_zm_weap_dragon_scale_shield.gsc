@@ -141,16 +141,16 @@ function on_player_connect()
 */
 function watchfirstuse()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(isdefined(self))
 	{
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(newweapon.isriotshield)
 		{
 			break;
 		}
 	}
-	self notify(#"hide_equipment_hint_text");
+	self notify("hide_equipment_hint_text");
 	level flag::set("dragon_shield_used");
 	util::wait_network_frame();
 	self.rocket_shield_hint_shown = 1;
@@ -188,7 +188,7 @@ function function_98962bde()
 {
 	self notify(#"hash_34db92fa");
 	self endon(#"hash_34db92fa");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(isdefined(self))
 	{
 		level waittill(#"start_of_round");
@@ -211,8 +211,8 @@ function function_98962bde()
 */
 function player_watch_ammo_change()
 {
-	self notify(#"player_watch_ammo_change");
-	self endon(#"player_watch_ammo_change");
+	self notify("player_watch_ammo_change");
+	self endon("player_watch_ammo_change");
 	for(;;)
 	{
 		self waittill(#"equipment_ammo_changed", equipment);
@@ -238,11 +238,11 @@ function player_watch_ammo_change()
 */
 function player_watch_max_ammo()
 {
-	self notify(#"player_watch_max_ammo");
-	self endon(#"player_watch_max_ammo");
+	self notify("player_watch_max_ammo");
+	self endon("player_watch_max_ammo");
 	for(;;)
 	{
-		self waittill(#"zmb_max_ammo");
+		self waittill("zmb_max_ammo");
 		wait(0.05);
 		if(isdefined(self.hasriotshield) && self.hasriotshield)
 		{
@@ -751,8 +751,8 @@ function zombie_knockdown(player, gib)
 function function_2d1a5562()
 {
 	self notify(#"hash_21776edb");
-	self endon(#"killanimscript");
-	self endon(#"death");
+	self endon("killanimscript");
+	self endon("death");
 	self endon(#"hash_21776edb");
 	if(isdefined(self.marked_for_death) && self.marked_for_death)
 	{
@@ -819,7 +819,7 @@ function function_2d1a5562()
 */
 function function_c25e3d4b(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	self clientfield::increment("dragonshield_snd_projectile_impact");
 	if(!isdefined(self) || !isalive(self))
 	{

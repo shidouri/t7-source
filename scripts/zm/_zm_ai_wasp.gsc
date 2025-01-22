@@ -154,15 +154,15 @@ function get_current_wasp_count()
 */
 function wasp_round_spawning()
 {
-	level endon(#"intermission");
-	level endon(#"wasp_round");
+	level endon("intermission");
+	level endon("wasp_round");
 	level.wasp_targets = level.players;
 	for(i = 0; i < level.wasp_targets.size; i++)
 	{
 		level.wasp_targets[i].hunted_by = 0;
 	}
-	level endon(#"restart_round");
-	level endon(#"kill_round");
+	level endon("restart_round");
+	level endon("kill_round");
 	/#
 		if(getdvarint("") == 2 || getdvarint("") >= 4)
 		{
@@ -196,7 +196,7 @@ function wasp_round_spawning()
 	wait(6);
 	n_wasps_alive = 0;
 	level flag::set("wasp_round_in_progress");
-	level endon(#"last_ai_down");
+	level endon("last_ai_down");
 	level thread wasp_round_aftermath();
 	while(true)
 	{
@@ -412,7 +412,7 @@ function ready_to_spawn_wasp()
 */
 function wasp_round_aftermath()
 {
-	level waittill(#"last_ai_down", e_wasp);
+	level waittill("last_ai_down", e_wasp);
 	level thread zm_audio::sndmusicsystem_playstate("parasite_over");
 	if(isdefined(level.zm_override_ai_aftermath_powerup_drop))
 	{
@@ -510,7 +510,7 @@ function parasite_drop_item(v_parasite_origin)
 */
 function wasp_spawn_init(ai, origin, should_spawn_fx = 1)
 {
-	ai endon(#"death");
+	ai endon("death");
 	ai setinvisibletoall();
 	if(isdefined(origin))
 	{
@@ -550,7 +550,7 @@ function wasp_spawn_init(ai, origin, should_spawn_fx = 1)
 	}
 	ai setvisibletoall();
 	ai.ignoreme = 0;
-	ai notify(#"visible");
+	ai notify("visible");
 }
 
 /*
@@ -748,8 +748,8 @@ function wasp_health_increase()
 */
 function wasp_round_wait_func()
 {
-	level endon(#"restart_round");
-	level endon(#"kill_round");
+	level endon("restart_round");
+	level endon("kill_round");
 	if(level flag::get("wasp_round"))
 	{
 		level flag::wait_till("wasp_round_in_progress");
@@ -774,7 +774,7 @@ function wasp_round_tracker()
 	old_wait_func = level.round_wait_func;
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		/#
 			if(getdvarint("") > 0)
 			{
@@ -829,7 +829,7 @@ function wasp_round_start()
 		level.waspround_nomusic = 0;
 	}
 	level.waspround_nomusic = 1;
-	level notify(#"wasp_round_starting");
+	level notify("wasp_round_starting");
 	level thread zm_audio::sndmusicsystem_playstate("parasite_start");
 	if(isdefined(level.wasp_melee_range))
 	{
@@ -859,7 +859,7 @@ function wasp_round_stop()
 		level.waspround_nomusic = 0;
 	}
 	level.waspround_nomusic = 0;
-	level notify(#"wasp_round_ending");
+	level notify("wasp_round_ending");
 	setdvar("ai_meleeRange", level.melee_range_sav);
 	setdvar("ai_meleeWidth", level.melee_width_sav);
 	setdvar("ai_meleeHeight", level.melee_height_sav);
@@ -969,7 +969,7 @@ function wasp_init()
 */
 function wasp_thundergun_knockdown(e_player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	n_damage = int(self.maxhealth * 0.5);
 	self dodamage(n_damage, self.origin, e_player);
 }
@@ -985,7 +985,7 @@ function wasp_thundergun_knockdown(e_player, gib)
 */
 function wasp_cleanup_failsafe()
 {
-	self endon(#"death");
+	self endon("death");
 	n_wasp_created_time = gettime();
 	n_check_time = n_wasp_created_time;
 	v_check_position = self.origin;
@@ -1033,20 +1033,20 @@ function wasp_cleanup_failsafe()
 */
 function wasp_death()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(get_current_wasp_count() == 0 && level.zombie_total == 0)
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
 			level.last_ai_origin = self.origin;
-			level notify(#"last_ai_down", self);
+			level notify("last_ai_down", self);
 		}
 	}
 	if(isplayer(attacker))
 	{
 		if(isdefined(attacker.on_train) && attacker.on_train)
 		{
-			attacker notify(#"wasp_train_kill");
+			attacker notify("wasp_train_kill");
 		}
 		attacker zm_score::player_add_points("death_wasp", 70);
 		if(isdefined(level.hero_power_update))
@@ -1062,7 +1062,7 @@ function wasp_death()
 	}
 	if(isdefined(attacker) && isai(attacker))
 	{
-		attacker notify(#"killed", self);
+		attacker notify("killed", self);
 	}
 	self stoploopsound();
 }
@@ -1105,7 +1105,7 @@ function zombie_setup_attack_properties_wasp()
 */
 function stop_wasp_sound_on_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self stopsounds();
 }
 
@@ -1121,7 +1121,7 @@ function stop_wasp_sound_on_death()
 function wasp_behind_audio()
 {
 	self thread stop_wasp_sound_on_death();
-	self endon(#"death");
+	self endon("death");
 	self util::waittill_any("wasp_running", "wasp_combat");
 	wait(3);
 	while(true)
@@ -1224,8 +1224,8 @@ function special_wasp_spawn(n_to_spawn = 1, spawn_point, n_radius = 32, n_half_h
 */
 function wasp_run_think()
 {
-	self endon(#"death");
-	self waittill(#"visible");
+	self endon("death");
+	self waittill("visible");
 	if(self.health > level.wasp_health)
 	{
 		self.maxhealth = level.wasp_health;
@@ -1248,11 +1248,11 @@ function wasp_run_think()
 */
 function watch_player_melee()
 {
-	self endon(#"death");
-	self waittill(#"visible");
+	self endon("death");
+	self waittill("visible");
 	while(isdefined(self))
 	{
-		level waittill(#"player_melee", player, weapon);
+		level waittill("player_melee", player, weapon);
 		peye = player geteye();
 		dist2 = distance2dsquared(peye, self.origin);
 		if(dist2 > 5184)
@@ -1291,11 +1291,11 @@ function watch_player_melee()
 */
 function watch_player_melee_events()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"weapon_melee", weapon);
-		level notify(#"player_melee", self, weapon);
+		self waittill("weapon_melee", weapon);
+		level notify("player_melee", self, weapon);
 	}
 }
 
@@ -1310,9 +1310,9 @@ function watch_player_melee_events()
 */
 function wasp_stalk_audio()
 {
-	self endon(#"death");
-	self endon(#"wasp_running");
-	self endon(#"wasp_combat");
+	self endon("death");
+	self endon("wasp_running");
+	self endon("wasp_combat");
 	while(true)
 	{
 		wait(randomfloatrange(3, 6));

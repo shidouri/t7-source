@@ -70,14 +70,14 @@ function on_localplayer_spawned(local_client_num)
 */
 function watch_killstreak_tap_activation(local_client_num)
 {
-	self notify(#"watch_killstreak_tap_activation");
-	self endon(#"watch_killstreak_tap_activation");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("watch_killstreak_tap_activation");
+	self endon("watch_killstreak_tap_activation");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	while(isdefined(self))
 	{
-		self waittill(#"notetrack", note);
+		self waittill("notetrack", note);
 		if(note == "activate_datapad")
 		{
 			uimodel = createuimodel(getuimodelforcontroller(local_client_num), "hudItems.killstreakActivated");
@@ -293,10 +293,10 @@ function equipmentdr(local_client_num)
 */
 function watch_perks_changed(local_client_num)
 {
-	self notify(#"watch_perks_changed");
-	self endon(#"watch_perks_changed");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("watch_perks_changed");
+	self endon("watch_perks_changed");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	while(isdefined(self))
 	{
@@ -305,7 +305,7 @@ function watch_perks_changed(local_client_num)
 		util::clean_deleted(level.enemyequip);
 		array::thread_all(level.retrievable, &updateretrievable, local_client_num, 1);
 		array::thread_all(level.enemyequip, &updateenemyequipment, local_client_num, 1);
-		self waittill(#"perks_changed");
+		self waittill("perks_changed");
 	}
 }
 
@@ -342,7 +342,7 @@ function checkteamequipment(localclientnum)
 		self.equipmentoldteam = self.team;
 		self.equipmentoldownerteam = self.owner.team;
 		self.equipmentoldwatcherteam = watcher.team;
-		self notify(#"team_changed");
+		self notify("team_changed");
 	}
 }
 
@@ -382,7 +382,7 @@ function equipmentteamobject(localclientnum)
 function playflarefx(localclientnum)
 {
 	self endon(#"entityshutdown");
-	level endon(#"player_switch");
+	level endon("player_switch");
 	if(!isdefined(self.equipmenttagfx))
 	{
 		self.equipmenttagfx = "tag_origin";
@@ -441,16 +441,16 @@ function equipmentwatchteamfx(localclientnum, fxhandle)
 function equipmentwatchplayerteamchanged(localclientnum, fxhandle)
 {
 	self endon(#"entityshutdown");
-	self notify(#"team_changed_watcher");
-	self endon(#"team_changed_watcher");
+	self notify("team_changed_watcher");
+	self endon("team_changed_watcher");
 	watcherplayer = getlocalplayer(localclientnum);
 	while(true)
 	{
-		level waittill(#"team_changed", clientnum);
+		level waittill("team_changed", clientnum);
 		player = getlocalplayer(clientnum);
 		if(watcherplayer == player)
 		{
-			self notify(#"team_changed");
+			self notify("team_changed");
 		}
 	}
 }

@@ -79,12 +79,12 @@ function devgui_metro()
 				}
 				case "":
 				{
-					level notify(#"train_start_1");
+					level notify("train_start_1");
 					break;
 				}
 				case "":
 				{
-					level notify(#"train_start_2");
+					level notify("train_start_2");
 					break;
 				}
 				default:

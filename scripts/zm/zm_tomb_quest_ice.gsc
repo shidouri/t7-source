@@ -134,7 +134,7 @@ function ice_tiles_randomize()
 		e_tile = array::random(a_unused_tiles);
 		arrayremovevalue(a_unused_tiles, e_tile, 0);
 		e_tile moveto(v_pos, 0.5);
-		e_tile waittill(#"movedone");
+		e_tile waittill("movedone");
 		str_model_name = "ice_ceiling_tile_model_" + n_index;
 		var_fa4117e3 = getent(str_model_name, "targetname");
 		var_fa4117e3 linkto(e_tile);
@@ -176,10 +176,10 @@ function reset_tiles()
 function update_ternary_display()
 {
 	a_ice_ternary_digit_brushes = getentarray("ice_chamber_digit", "targetname");
-	level endon(#"ice_puzzle_1_complete");
+	level endon("ice_puzzle_1_complete");
 	while(true)
 	{
-		level waittill(#"update_ice_chamber_digits", newval);
+		level waittill("update_ice_chamber_digits", newval);
 		foreach(digit in a_ice_ternary_digit_brushes)
 		{
 			digit ghost();
@@ -213,11 +213,11 @@ function change_ice_gem_value()
 	{
 		correct_tile = array::random(level.unsolved_tiles);
 		ice_gem.value = correct_tile.value;
-		level notify(#"update_ice_chamber_digits", ice_gem.value);
+		level notify("update_ice_chamber_digits", ice_gem.value);
 	}
 	else
 	{
-		level notify(#"update_ice_chamber_digits", -1);
+		level notify("update_ice_chamber_digits", -1);
 	}
 }
 
@@ -232,14 +232,14 @@ function change_ice_gem_value()
 */
 function process_gem_shooting()
 {
-	level endon(#"ice_puzzle_1_complete");
+	level endon("ice_puzzle_1_complete");
 	ice_gem = getent("ice_chamber_gem", "targetname");
 	ice_gem.value = -1;
 	ice_gem setcandamage(1);
 	var_83560def = level.a_elemental_staffs["staff_water"].w_weapon;
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weapon);
+		self waittill("damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weapon);
 		if(weapon.name == var_83560def)
 		{
 			change_ice_gem_value();
@@ -293,7 +293,7 @@ function ceiling_tile_flip(b_flip_to_tile_side = !self.showing_tile_side)
 		self thread zm_tomb_vo::say_puzzle_completion_line(4);
 		level flag::set("ice_puzzle_1_complete");
 	}
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 }
 
 /*
@@ -307,30 +307,30 @@ function ceiling_tile_flip(b_flip_to_tile_side = !self.showing_tile_side)
 */
 function ceiling_tile_process_damage()
 {
-	level endon(#"ice_puzzle_1_complete");
+	level endon("ice_puzzle_1_complete");
 	ice_gem = getent("ice_chamber_gem", "targetname");
 	self setcandamage(1);
 	ice_gem setcandamage(1);
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weaponname);
+		self waittill("damage", damage, attacker, direction_vec, point, mod, tagname, modelname, partname, weaponname);
 		var_f1415f17 = arraygetclosest(point, level.unsolved_tiles);
 		if(issubstr(weaponname.name, "water") && self.showing_tile_side && var_f1415f17 == self)
 		{
 			if(!level flag::get("ice_tile_flipping"))
 			{
-				level notify(#"vo_try_puzzle_water1", attacker);
+				level notify("vo_try_puzzle_water1", attacker);
 				level flag::set("ice_tile_flipping");
 				if(ice_gem.value == self.value)
 				{
-					level notify(#"vo_puzzle_good", attacker);
+					level notify("vo_puzzle_good", attacker);
 					self ceiling_tile_flip(0);
 					zm_tomb_utility::rumble_nearby_players(self.origin, 1500, 2);
 					wait(0.2);
 				}
 				else
 				{
-					level notify(#"vo_puzzle_bad", attacker);
+					level notify("vo_puzzle_bad", attacker);
 					reset_tiles();
 					zm_tomb_utility::rumble_nearby_players(self.origin, 1500, 2);
 					wait(2);
@@ -340,7 +340,7 @@ function ceiling_tile_process_damage()
 			}
 			else
 			{
-				level notify(#"vo_puzzle_confused", attacker);
+				level notify("vo_puzzle_confused", attacker);
 			}
 		}
 	}
@@ -402,16 +402,16 @@ function ice_stone_run()
 	has_tried = 0;
 	while(!level flag::get("ice_puzzle_2_complete"))
 	{
-		self.e_model waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
-		level notify(#"vo_try_puzzle_water2", inflictor);
+		self.e_model waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
+		level notify("vo_try_puzzle_water2", inflictor);
 		if(issubstr(weaponname.name, "water"))
 		{
-			level notify(#"vo_puzzle_good", inflictor);
+			level notify("vo_puzzle_good", inflictor);
 			break;
 		}
 		else if(has_tried)
 		{
-			level notify(#"vo_puzzle_bad", inflictor);
+			level notify("vo_puzzle_bad", inflictor);
 		}
 		has_tried = 1;
 	}
@@ -420,15 +420,15 @@ function ice_stone_run()
 	playsoundatposition("zmb_squest_ice_stone_freeze", self.origin);
 	while(!level flag::get("ice_puzzle_2_complete"))
 	{
-		self.e_model waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
+		self.e_model waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
 		if(!issubstr(weaponname.name, "staff") && issubstr(type, "BULLET"))
 		{
-			level notify(#"vo_puzzle_good", inflictor);
+			level notify("vo_puzzle_good", inflictor);
 			break;
 		}
 		else
 		{
-			level notify(#"vo_puzzle_confused", inflictor);
+			level notify("vo_puzzle_confused", inflictor);
 		}
 	}
 	self.e_model delete();

@@ -55,7 +55,7 @@ function turret_microwave_sounds(localclientnum, oldval, newval, bnewent, biniti
 	}
 	else if(newval == 0)
 	{
-		self notify(#"sound_stop");
+		self notify("sound_stop");
 	}
 }
 
@@ -71,7 +71,7 @@ function turret_microwave_sounds(localclientnum, oldval, newval, bnewent, biniti
 function turret_microwave_sound_start(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self endon(#"sound_stop");
+	self endon("sound_stop");
 	if(isdefined(self.sound_loop_enabled) && self.sound_loop_enabled)
 	{
 		return;
@@ -188,7 +188,7 @@ function microwave_open(localclientnum, oldval, newval, bnewent, binitialsnap, f
 		self setanim(%mp_microwaveturret::o_turret_guardian_open, 0);
 		self setanimrestart(%mp_microwaveturret::o_turret_guardian_close, 1, 0, 1);
 		self notify(#"beam_stop");
-		self notify(#"sound_stop");
+		self notify("sound_stop");
 		return;
 	}
 	self useanimtree($mp_microwaveturret);

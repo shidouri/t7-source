@@ -176,7 +176,7 @@ function sndmusictrig()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			if(self.script_sound == "spider_lair")
@@ -261,7 +261,7 @@ function function_51d7bc7c(var_6d9d81aa)
 */
 function function_ab8dfbdf()
 {
-	level waittill(#"sndlair");
+	level waittill("sndlair");
 	level.var_65d981dd = "spider_lair_inactive";
 	if(level.var_b6342abd == "mus_island_underscore_spider_lair_active")
 	{
@@ -280,8 +280,8 @@ function function_ab8dfbdf()
 */
 function function_17e798e9()
 {
-	level endon(#"sndtakeoend");
-	level waittill(#"sndtakeo");
+	level endon("sndtakeoend");
+	level waittill("sndtakeo");
 	level.var_2d9f200e = "takeo_battle_active";
 	if(level.var_b6342abd == "mus_island_underscore_takeo_battle_inactive")
 	{
@@ -300,7 +300,7 @@ function function_17e798e9()
 */
 function function_7a83b09a()
 {
-	level waittill(#"sndtakeoend");
+	level waittill("sndtakeoend");
 	level.var_2d9f200e = "takeo_battle_over";
 	if(level.var_b6342abd == "mus_island_underscore_takeo_battle_active")
 	{
@@ -321,7 +321,7 @@ function function_610a705b()
 {
 	while(true)
 	{
-		level waittill(#"sndfbm");
+		level waittill("sndfbm");
 		level notify(#"hash_51d7bc7c", level.var_2d9f200e);
 	}
 }

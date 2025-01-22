@@ -162,7 +162,7 @@ function stage_logic()
 		if(all_tanks_full())
 		{
 			sound::play_in_space("zmb_squest_all_souls_full", (0, 0, 0));
-			level notify(#"ctt_aud_note");
+			level notify("ctt_aud_note");
 			break;
 		}
 		wait(0.1);
@@ -257,7 +257,7 @@ function percent_full()
 */
 function hit_sam()
 {
-	level endon(#"tanks_ctt2_over");
+	level endon("tanks_ctt2_over");
 	stages = array(build_sam_stage(0.1, "vox_plr_4_quest_step6_1"), build_sam_stage(0.2, "vox_plr_4_quest_step6_1a"), build_sam_stage(0.3, "vox_plr_4_quest_step6_2"), build_sam_stage(0.4, "vox_plr_4_quest_step6_2a"), build_sam_stage(0.5, "vox_plr_4_quest_step6_3"), build_sam_stage(0.6, "vox_plr_4_quest_step6_3a"), build_sam_stage(0.7, "vox_plr_4_quest_step6_4"), build_sam_stage(0.9, "vox_plr_4_quest_step6_5"));
 	index = 0;
 	targ = struct::get("sq_sam", "targetname");
@@ -473,7 +473,7 @@ function do_tank_fill(actor, tank)
 	wait(0.5);
 	if(tank.fill <= 0)
 	{
-		level notify(#"ctt_first_kill");
+		level notify("ctt_first_kill");
 	}
 	if(isdefined(tank) && tank.fill < tank.max_fill)
 	{
@@ -499,7 +499,7 @@ function do_tank_fill(actor, tank)
 */
 function tank_volume_death_check()
 {
-	self waittill(#"death", attacker);
+	self waittill("death", attacker);
 	if(!isplayer(attacker))
 	{
 		return;
@@ -549,7 +549,7 @@ function setup_and_play_ctt1_vox()
 */
 function ctt1_first_kill_vox()
 {
-	level waittill(#"ctt_first_kill");
+	level waittill("ctt_first_kill");
 	for(i = 0; i < level._active_tanks.size; i++)
 	{
 		player = zm_utility::get_closest_player(level._active_tanks[i].origin);
@@ -591,7 +591,7 @@ function ctt1_fifty_percent_vox()
 */
 function ctt1_full_vox()
 {
-	level waittill(#"ctt_aud_note");
+	level waittill("ctt_aud_note");
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest4", 2);
 }
@@ -651,7 +651,7 @@ function setup_and_play_ctt2_vox()
 */
 function ctt2_full_vox()
 {
-	level waittill(#"ctt_aud_note");
+	level waittill("ctt_aud_note");
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest6", 6);
 }

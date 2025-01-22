@@ -96,13 +96,13 @@ function intro_main(str_objective)
 */
 function function_773ef6a0()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	level endon(#"hash_ec8fe31d");
 	trigger = getent("apartment_light_fire_trigger", "targetname");
 	while(true)
 	{
-		trigger waittill(#"trigger", e_other);
+		trigger waittill("trigger", e_other);
 		if(e_other == self && isplayer(self))
 		{
 			while(isdefined(self) && self istouching(trigger))
@@ -191,7 +191,7 @@ function intro_screen(str_objective)
 	}
 	level thread namespace_9fd035::function_7dc66faa();
 	intro_anim_struct scene::play("cin_ven_01_intro_3rd_sh010");
-	level waittill(#"intro_igc_done");
+	level waittill("intro_igc_done");
 	util::clear_streamer_hint();
 }
 
@@ -255,7 +255,7 @@ function function_a1d4e729(endon_flag, wait_flag, breadcrumb)
 */
 function intro_street_ambient_vehicles()
 {
-	level endon(#"takedown_begin");
+	level endon("takedown_begin");
 	vehicle::add_spawn_function("intro_street_technical", &give_riders);
 	vehicle::add_spawn_function("intro_street_technical2", &give_riders);
 	level flag::wait_till("send_hendricks_to_apartment_entrance");
@@ -279,7 +279,7 @@ function intro_street_ambient_vehicles()
 */
 function function_3b2e29a()
 {
-	level endon(#"takedown_begin");
+	level endon("takedown_begin");
 	count = 0;
 	vehicle::add_spawn_function("intro_street_technical", &give_riders);
 	vehicle::add_spawn_function("intro_street_technical2", &give_riders);
@@ -340,8 +340,8 @@ function give_riders()
 */
 function function_b36ddcbc()
 {
-	self endon(#"death");
-	level endon(#"takedown_begin");
+	self endon("death");
+	level endon("takedown_begin");
 	self turret::set_burst_parameters(1, 2, 0.25, 0.75, 1);
 	ai_gunner = self vehicle::get_rider("gunner1");
 	if(isdefined(ai_gunner))
@@ -356,7 +356,7 @@ function function_b36ddcbc()
 			fake_target.ent thread function_352b4f2e();
 		}
 		self thread turret::shoot_at_target(fake_target.ent, -1, undefined, 1, 0);
-		ai_gunner waittill(#"death");
+		ai_gunner waittill("death");
 		self notify(#"_stop_turret1");
 	}
 }
@@ -677,7 +677,7 @@ function function_5274de79()
 	level thread function_dcf3d41b();
 	node = getnode("hendricks_bedroom_door_node", "targetname");
 	level.ai_hendricks setgoal(node);
-	level.ai_hendricks waittill(#"goal");
+	level.ai_hendricks waittill("goal");
 	level thread util::set_streamer_hint(2);
 	level thread takedown_scene_setup();
 	level.var_5bc00cbb thread scene::play("cin_ven_02_30_masterbedroom_vign");
@@ -697,7 +697,7 @@ function function_5274de79()
 	}
 	wait(2);
 	level thread function_caf96976();
-	level.var_5bc00cbb waittill(#"scene_done");
+	level.var_5bc00cbb waittill("scene_done");
 	level notify(#"hash_cf441b58");
 	level flag::set("bedroom_scene_complete");
 	level flag::wait_till("player_on_takedown_rooftop");
@@ -780,9 +780,9 @@ function function_5ef7fdc2()
 */
 function function_4e050c10(trigger, endon_flag)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"player_looking");
+	self endon("death");
+	self endon("disconnect");
+	level endon("player_looking");
 	if(isdefined(endon_flag))
 	{
 		level endon(endon_flag);
@@ -817,7 +817,7 @@ function function_7f6de599()
 	level.var_5bc00cbb thread scene::play("cin_ven_02_20_synckill_vign");
 	thread cp_mi_sing_vengeance_sound::function_57ec1ad7();
 	wait(0.25);
-	level.var_5bc00cbb waittill(#"scene_done");
+	level.var_5bc00cbb waittill("scene_done");
 	level flag::set("synckill_scene_complete");
 }
 
@@ -832,7 +832,7 @@ function function_7f6de599()
 */
 function function_1f707d1e()
 {
-	self endon(#"death");
+	self endon("death");
 	array::add(level.var_1dca7888, self);
 	self.goalradius = 32;
 	if(isdefined(self.targetname))
@@ -873,7 +873,7 @@ function function_1f707d1e()
 */
 function function_3a005b50()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreme(1);
 	self util::waittill_any("damage", "alert", "killable_now");
 	self ai::set_ignoreme(0);
@@ -906,7 +906,7 @@ function function_a645cfd9()
 */
 function function_fb5e09cf()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(!level flag::get("apartment_enemy_dead"))
 	{
 		level flag::set("apartment_enemy_dead");
@@ -929,9 +929,9 @@ function function_fb5e09cf()
 */
 function function_5a4b0113()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_fca941a1");
-	self waittill(#"alert", state);
+	self waittill("alert", state);
 	if(!level flag::get("apartment_enemies_alerted"))
 	{
 		level flag::set("apartment_enemies_alerted");
@@ -949,13 +949,13 @@ function function_5a4b0113()
 */
 function function_1d07a130()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till_any(array("apartment_enemies_alerted", "synckill_scene_complete", "syncshot_lookat_failsafe"));
 	if(level flag::get("syncshot_lookat_failsafe"))
 	{
 		wait(0.25);
 	}
-	self notify(#"alert");
+	self notify("alert");
 	if(level flag::get("apartment_enemies_alerted") || level flag::get("syncshot_lookat_failsafe"))
 	{
 		self stopanimscripted();
@@ -1024,8 +1024,8 @@ function function_c55b72a5()
 	var_ba1e1975 = getent("bedroom_audio_origin", "targetname");
 	level thread function_a5bf9c17(var_ba1e1975);
 	level flag::wait_till_any(array("apartment_enemies_alerted", "syncshot_lookat_failsafe"));
-	level notify(#"kill_pending_dialog");
-	var_ba1e1975 notify(#"kill_pending_dialog");
+	level notify("kill_pending_dialog");
+	var_ba1e1975 notify("kill_pending_dialog");
 }
 
 /*
@@ -1423,7 +1423,7 @@ function function_caf96976()
 function function_c6be5e1d()
 {
 	var_e022aef3 = getent("takedown_igc_trigger", "targetname");
-	var_e022aef3 endon(#"death");
+	var_e022aef3 endon("death");
 	var_e022aef3 trigger::wait_till();
 	return var_e022aef3.who;
 }
@@ -1468,7 +1468,7 @@ function takedown_scene()
 		level.var_3d63f698 thread scene::play("cin_ven_03_10_takedown_intro_1st_props");
 		level.var_3d63f698 thread scene::play("cin_ven_01_02_rooftop_1st_overlook");
 		level thread function_ca15fd13();
-		level.ai_hendricks waittill(#"takedown_start");
+		level.ai_hendricks waittill("takedown_start");
 		level.ai_hendricks cybercom::cybercom_armpulse(1);
 	}
 	util::clear_streamer_hint();
@@ -1485,7 +1485,7 @@ function takedown_scene()
 			enemy ai::set_ignoreme(0);
 		}
 	}
-	level.ai_hendricks waittill(#"start_slowmo");
+	level.ai_hendricks waittill("start_slowmo");
 	level.var_6e0b32d8 = level.var_d9f6d6.size;
 	namespace_523da15d::function_b510823b();
 	setslowmotion(1, 0.3, 0.3);
@@ -1493,7 +1493,7 @@ function takedown_scene()
 	{
 		player setmovespeedscale(0.3);
 	}
-	level.ai_hendricks waittill(#"stop_slowmo");
+	level.ai_hendricks waittill("stop_slowmo");
 	thread cp_mi_sing_vengeance_sound::function_69fc18eb();
 	setslowmotion(0.3, 1);
 	foreach(player in level.activeplayers)
@@ -1514,7 +1514,7 @@ function takedown_scene()
 			{
 				magicbullet(level.ai_hendricks.weapon, level.ai_hendricks gettagorigin("tag_flash"), enemy gettagorigin("j_head"), level.ai_hendricks, enemy);
 				level.ai_hendricks thread ai::shoot_at_target("kill_within_time", enemy, "j_head", 0.1);
-				enemy waittill(#"death");
+				enemy waittill("death");
 			}
 		}
 	}
@@ -1545,7 +1545,7 @@ function takedown_scene()
 	level.ai_hendricks setgoal(node, 1, 16);
 	wait(15);
 	level notify(#"hash_bfaac156");
-	level.var_3d63f698 waittill(#"scene_done");
+	level.var_3d63f698 waittill("scene_done");
 	level flag::set("takedown_complete");
 }
 
@@ -1604,7 +1604,7 @@ function function_ca15fd13()
 */
 function function_b5ab443b()
 {
-	self endon(#"death");
+	self endon("death");
 	level.var_3d63f698 scene::play(self.var_efe0572d, self);
 	level.var_3d63f698 scene::play(self.var_ac3f2f23, self);
 }
@@ -1638,7 +1638,7 @@ function function_497db06c()
 */
 function function_94b3c083()
 {
-	level.ai_hendricks waittill(#"stop_slowmo");
+	level.ai_hendricks waittill("stop_slowmo");
 	level vengeance_util::function_a084a58f();
 }
 
@@ -1750,7 +1750,7 @@ function function_9c3eb25d()
 */
 function function_52c5929b()
 {
-	self waittill(#"goal");
+	self waittill("goal");
 	self ai::set_ignoreall(0);
 	self ai::set_ignoreme(0);
 }
@@ -1766,7 +1766,7 @@ function function_52c5929b()
 */
 function function_296cfddf()
 {
-	self endon(#"death");
+	self endon("death");
 	self thread takedown_cleanup();
 	var_ae407c5 = [];
 	var_5ee71f72 = array("driver", "passenger1", "gunner1");
@@ -1797,7 +1797,7 @@ function function_296cfddf()
 */
 function function_8fb2d768()
 {
-	self endon(#"death");
+	self endon("death");
 	self flag::init("gunner_position_occupied");
 	self turret::set_burst_parameters(1, 2, 0.25, 0.75, 1);
 	ai_gunner = self vehicle::get_rider("gunner1");
@@ -1805,7 +1805,7 @@ function function_8fb2d768()
 	{
 		self turret::enable(1, 1);
 		self flag::set("gunner_position_occupied");
-		ai_gunner waittill(#"death");
+		ai_gunner waittill("death");
 	}
 	self turret::disable(1);
 	self flag::clear("gunner_position_occupied");
@@ -1822,7 +1822,7 @@ function function_8fb2d768()
 */
 function function_4d5e399c()
 {
-	self endon(#"death");
+	self endon("death");
 	array::add(level.var_e7c1ffa, self);
 	if(isdefined(self.targetname) && self.targetname == "takedown_backup_right_ai_ai")
 	{
@@ -1844,7 +1844,7 @@ function function_4d5e399c()
 			wait(randomfloatrange(0.3, 0.75));
 		}
 		self setgoalvolume(volume);
-		self waittill(#"goal");
+		self waittill("goal");
 		self ai::set_ignoreall(0);
 		self ai::set_ignoreme(0);
 	}
@@ -1864,7 +1864,7 @@ function function_4d5e399c()
 			wait(randomfloatrange(0.3, 0.5));
 		}
 		self setgoalvolume(volume);
-		self waittill(#"goal");
+		self waittill("goal");
 		self ai::set_ignoreall(0);
 		self ai::set_ignoreme(0);
 		if(level.var_e7c1ffa.size > 3)
@@ -2034,7 +2034,7 @@ function takedown_scene_setup()
 		spawner spawner::add_spawn_function(&takedown_ai_setup);
 		spawner spawner::spawn();
 	}
-	level notify(#"takedown_scene_setup");
+	level notify("takedown_scene_setup");
 	if(isdefined(level.var_b7e68311))
 	{
 		level waittill(#"hash_63d9e6f4");
@@ -2061,7 +2061,7 @@ function takedown_scene_setup()
 */
 function function_9d478f6a()
 {
-	self endon(#"death");
+	self endon("death");
 	thread cp_mi_sing_vengeance_sound::takedown_siegebot(self);
 	self waittill(#"hash_77e3a76");
 	var_26993771 = getent("takedown_siegebot_death_clip", "targetname");
@@ -2291,7 +2291,7 @@ function function_81f84c9c(str_objective, b_starting)
 		objectives::set("", struct::get(""));
 		level flag::set("");
 		level thread takedown_main();
-		level waittill(#"takedown_scene_setup");
+		level waittill("takedown_scene_setup");
 		level function_6fa5f384();
 		level notify(#"hash_63d9e6f4");
 	#/
@@ -2327,7 +2327,7 @@ function function_616e9ab6(str_objective, b_starting)
 		}
 		wait(1);
 		level thread takedown_main();
-		level waittill(#"takedown_scene_setup");
+		level waittill("takedown_scene_setup");
 		if(level.activeplayers.size == 2)
 		{
 			level function_6fa5f384();
@@ -2366,7 +2366,7 @@ function function_8771151f(str_objective, b_starting)
 			wait(1);
 		}
 		level thread takedown_main();
-		level waittill(#"takedown_scene_setup");
+		level waittill("takedown_scene_setup");
 		if(level.activeplayers.size == 3)
 		{
 			level function_6fa5f384();
@@ -2405,7 +2405,7 @@ function function_7d5fbc40(str_objective, b_starting)
 			wait(1);
 		}
 		level thread takedown_main();
-		level waittill(#"takedown_scene_setup");
+		level waittill("takedown_scene_setup");
 		if(level.activeplayers.size == 4)
 		{
 			level function_6fa5f384();

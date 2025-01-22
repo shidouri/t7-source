@@ -46,7 +46,7 @@ function init_shared()
 */
 function watchsmokegrenadedetonation(owner, statweapon, grenadeweaponname, duration, totaltime)
 {
-	self endon(#"trophy_destroyed");
+	self endon("trophy_destroyed");
 	owner addweaponstat(statweapon, "used", 1);
 	self waittill(#"explode", position, surface);
 	onefoot = vectorscale((0, 0, 1), 12);
@@ -112,7 +112,7 @@ function damageeffectarea(owner, position, radius, height, killcament)
 */
 function smokeblocksight(radius)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		fxblocksight(self, radius);
@@ -185,7 +185,7 @@ function isinsmokegrenade()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread begin_other_grenade_tracking();
 }
 
@@ -200,14 +200,14 @@ function on_player_spawned()
 */
 function begin_other_grenade_tracking()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"smoketrackingstart");
-	self endon(#"smoketrackingstart");
+	self endon("death");
+	self endon("disconnect");
+	self notify("smoketrackingstart");
+	self endon("smoketrackingstart");
 	weapon_smoke = getweapon("willy_pete");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon, cooktime);
+		self waittill("grenade_fire", grenade, weapon, cooktime);
 		if(grenade util::ishacked())
 		{
 			continue;

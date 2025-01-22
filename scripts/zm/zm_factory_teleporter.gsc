@@ -209,7 +209,7 @@ function teleport_pad_think(index)
 	{
 		while(!active)
 		{
-			trigger waittill(#"trigger");
+			trigger waittill("trigger");
 			if(level.active_links < 3)
 			{
 				trigger_core = getent("trigger_teleport_core", "targetname");
@@ -267,7 +267,7 @@ function teleport_pad_think(index)
 */
 function teleport_pad_countdown(index, time)
 {
-	self endon(#"stop_countdown");
+	self endon("stop_countdown");
 	if(level.active_timer < 0)
 	{
 		level.active_timer = index;
@@ -301,7 +301,7 @@ function teleport_pad_countdown(index, time)
 */
 function sndcountdown()
 {
-	self endon(#"stop_countdown");
+	self endon("stop_countdown");
 	clock_sound = spawn("script_origin", (0, 0, 0));
 	clock_sound thread clock_timer();
 	level thread zm_factory::sndpa_dovox("vox_maxis_teleporter_ultimatum_0");
@@ -318,7 +318,7 @@ function sndcountdown()
 		wait(1);
 		count--;
 	}
-	level notify(#"stop_countdown");
+	level notify("stop_countdown");
 	level thread zm_factory::sndpa_dovox("vox_maxis_teleporter_expired_0");
 }
 
@@ -335,7 +335,7 @@ function clock_timer()
 {
 	level util::delay(0, undefined, &zm_audio::sndmusicsystem_playstate, "timer");
 	self playloopsound("evt_clock_tick_1sec");
-	level waittill(#"stop_countdown");
+	level waittill("stop_countdown");
 	if(isdefined(level.musicsystem.currentstate) && level.musicsystem.currentstate == "timer")
 	{
 		level thread zm_audio::sndmusicsystem_stopandflush();
@@ -361,7 +361,7 @@ function teleport_pad_active_think(index)
 	user = undefined;
 	while(true)
 	{
-		self waittill(#"trigger", user);
+		self waittill("trigger", user);
 		if(zm_utility::is_player_valid(user) && user zm_score::can_player_purchase(level.teleport_cost) && !level.is_cooldown)
 		{
 			for(i = 0; i < level.teleporter_pad_trig.size; i++)
@@ -394,7 +394,7 @@ function player_teleporting(index)
 	self thread teleport_2d_audio();
 	self thread teleport_nuke(20, 300);
 	wait(level.teleport_delay);
-	self notify(#"fx_done");
+	self notify("fx_done");
 	self thread zm_factory::function_c7b37638();
 	self teleport_players();
 	if(level.is_cooldown == 0)
@@ -695,7 +695,7 @@ function teleport_core_think()
 				#/
 				if(!cheat)
 				{
-					trigger waittill(#"trigger");
+					trigger waittill("trigger");
 				}
 				for(i = 0; i < level.teleport.size; i++)
 				{
@@ -744,12 +744,12 @@ function teleport_core_think()
 */
 function stop_countdown()
 {
-	self notify(#"stop_countdown");
-	level notify(#"stop_countdown");
+	self notify("stop_countdown");
+	level notify("stop_countdown");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
-		players[i] notify(#"stop_countdown");
+		players[i] notify("stop_countdown");
 	}
 }
 
@@ -791,7 +791,7 @@ function teleport_pads_are_active()
 */
 function teleport_2d_audio()
 {
-	self endon(#"fx_done");
+	self endon("fx_done");
 	while(true)
 	{
 		players = getplayers();
@@ -907,14 +907,14 @@ function teleporter_vo_play(vox_type, pre_wait = 0)
 */
 function play_tele_help_vox()
 {
-	level endon(#"tele_help_end");
+	level endon("tele_help_end");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(level flag::get("power_on"))
 		{
 			who thread teleporter_vo_play("tele_help");
-			level notify(#"tele_help_end");
+			level notify("tele_help_end");
 		}
 		while(isdefined(who) && who istouching(self))
 		{
@@ -937,7 +937,7 @@ function play_packa_see_vox()
 	wait(10);
 	if(!level flag::get("teleporter_pad_link_3"))
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		who thread teleporter_vo_play("perk_packa_see");
 	}
 }

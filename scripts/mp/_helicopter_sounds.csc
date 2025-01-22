@@ -1271,7 +1271,7 @@ function qr_ent_cleanup(veh_ent)
 function drone_rotate_angle(heli_type, heli_part)
 {
 	self endon(#"entityshutdown");
-	level endon(#"save_restore");
+	level endon("save_restore");
 	volumerate = 2.5;
 	qr_ent_angle = spawn(0, self.origin, "script_origin");
 	qr_ent_angle thread qr_ent_cleanup(self);

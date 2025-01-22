@@ -104,7 +104,7 @@ function spider_init(localclientnum)
 */
 function spider_round_fx(n_local_client, n_val_old, n_val_new, b_ent_new, b_initial_snap, str_field, b_demo_jump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	setworldfogactivebank(n_local_client, 8);
 	if(isspectating(n_local_client))
 	{
@@ -146,7 +146,7 @@ function spider_end_of_round_reset(localclientnum, oldval, newval, bnewent, bini
 */
 function spider_round_ring_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isspectating(localclientnum))
 	{
 		return;

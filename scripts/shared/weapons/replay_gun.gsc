@@ -50,13 +50,13 @@ function __init__()
 */
 function watch_for_replay_gun()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"spawned_player");
-	self endon(#"killreplaygunmonitor");
+	self endon("disconnect");
+	self endon("death");
+	self endon("spawned_player");
+	self endon("killreplaygunmonitor");
 	while(true)
 	{
-		self waittill(#"weapon_change_complete", weapon);
+		self waittill("weapon_change_complete", weapon);
 		self weaponlockfree();
 		if(isdefined(weapon.usespivottargeting) && weapon.usespivottargeting)
 		{
@@ -76,10 +76,10 @@ function watch_for_replay_gun()
 */
 function watch_lockon(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"spawned_player");
-	self endon(#"weapon_change_complete");
+	self endon("disconnect");
+	self endon("death");
+	self endon("spawned_player");
+	self endon("weapon_change_complete");
 	while(true)
 	{
 		wait(0.05);

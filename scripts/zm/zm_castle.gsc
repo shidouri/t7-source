@@ -376,7 +376,7 @@ function function_e0836624()
 	level endon(#"hash_a3369c1f");
 	while(true)
 	{
-		level waittill(#"host_migration_end");
+		level waittill("host_migration_end");
 		setdvar("doublejump_enabled", 1);
 		setdvar("playerEnergy_enabled", 1);
 		setdvar("wallrun_enabled", 1);
@@ -558,7 +558,7 @@ function offhand_weapon_overrride()
 */
 function offhand_weapon_give_override(str_weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(zm_utility::is_tactical_grenade(str_weapon) && isdefined(self zm_utility::get_player_tactical_grenade()) && !self zm_utility::is_player_tactical_grenade(str_weapon))
 	{
 		self setweaponammoclip(self zm_utility::get_player_tactical_grenade(), 0);
@@ -709,7 +709,7 @@ function function_44dc3fb4()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(isplayer(trigplayer))
 		{
 			if(self.script_sound == "richtofen")
@@ -860,7 +860,7 @@ function enemy_location_override(ai_zombie, ai_enemy)
 */
 function function_d578bf1a()
 {
-	self endon(#"death");
+	self endon("death");
 	while(self zm_zonemgr::entity_in_zone("zone_undercroft") && (self iswallrunning() || !self isonground()))
 	{
 		var_24ab58cb = groundtrace(self.origin, self.origin + (vectorscale((0, 0, -1), 10000)), 0, undefined)["position"];
@@ -1278,9 +1278,9 @@ function private function_eadbcbdb()
 */
 function private function_dc683d01(var_b52b26b9)
 {
-	self endon(#"death");
-	self notify(#"stop_find_flesh");
-	self notify(#"zombie_acquire_enemy");
+	self endon("death");
+	self notify("stop_find_flesh");
+	self notify("zombie_acquire_enemy");
 	self.ignoreall = 1;
 	self.b_zombie_path_bad = 1;
 	self thread check_player_available();
@@ -1302,14 +1302,14 @@ function private function_dc683d01(var_b52b26b9)
 */
 function private check_player_available()
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(self.b_zombie_path_bad) && self.b_zombie_path_bad)
 	{
 		wait(randomfloatrange(0.2, 0.5));
 		if(self can_zombie_see_any_player())
 		{
 			self.b_zombie_path_bad = undefined;
-			self notify(#"reaquire_player");
+			self notify("reaquire_player");
 			return;
 		}
 	}
@@ -1416,7 +1416,7 @@ function function_f7046db2(a_ents)
 		var_9be38c79 setcandamage(1);
 		var_9be38c79.health = 100000;
 		var_9be38c79 thread function_a8aef7fe();
-		var_9be38c79 waittill(#"damage", n_amount, e_attacker, v_direction, v_point, str_type);
+		var_9be38c79 waittill("damage", n_amount, e_attacker, v_direction, v_point, str_type);
 		var_9be38c79 playsound("amb_castle_raven_death");
 		playfxontag(level._effect["raven_death_fx"], var_9be38c79, "j_pelvis");
 		playfxontag(level._effect["raven_feather_fx"], var_9be38c79, "j_pelvis");
@@ -1436,8 +1436,8 @@ function function_f7046db2(a_ents)
 */
 function function_a8aef7fe()
 {
-	self endon(#"damage");
-	self endon(#"death");
+	self endon("damage");
+	self endon("death");
 	wait(randomintrange(3, 9));
 	while(true)
 	{
@@ -1486,7 +1486,7 @@ function function_a691b3f6()
 	level scene::add_scene_func("p7_fxanim_zm_castle_rocket_01_bundle", &function_7aae0fb2, "play");
 	level waittill(#"hash_59e5a3dd");
 	level thread scene::play("p7_fxanim_zm_castle_rocket_01_bundle");
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	var_d16e2136 = struct::get_array("initial_spawn_points");
 	foreach(player in level.players)
 	{
@@ -1532,7 +1532,7 @@ function power_electric_switch()
 	user = undefined;
 	if(cheat != 1)
 	{
-		trig waittill(#"trigger", user);
+		trig waittill("trigger", user);
 		if(isdefined(user))
 		{
 			user zm_audio::create_and_play_dialog("general", "power_on");
@@ -1629,7 +1629,7 @@ function function_30cebef9()
 */
 function function_a6477691()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	sndent = spawn("script_origin", (611, 3496, 699));
 	sndent playloopsound("zmb_projector_hum", 0.25);
 	while(true)
@@ -1824,7 +1824,7 @@ function function_13fc99fa()
 	level flag::wait_till("start_zombie_round_logic");
 	while(level.round_number < 10)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 	zombie_utility::set_zombie_var("zombie_powerup_drop_max_per_round", 4);
 }
@@ -1936,7 +1936,7 @@ function super_sesame()
 		{
 			var_3b9a12e0 delete();
 		}
-		level notify(#"pressure_pads_activated");
+		level notify("pressure_pads_activated");
 		var_a6e47643 = struct::get_array("", "");
 		array::thread_all(var_a6e47643, &function_e9162f72);
 	#/

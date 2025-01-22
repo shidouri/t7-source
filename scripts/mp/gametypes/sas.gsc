@@ -147,7 +147,7 @@ function main()
 */
 function givecustomloadout()
 {
-	self notify(#"sas_spectator_hud");
+	self notify("sas_spectator_hud");
 	defaultweapon = level.weapon_sas_primary_weapon;
 	loadout::setclassnum(self.curclass);
 	self wager::setup_blank_random_player(1, 1, defaultweapon);
@@ -383,10 +383,10 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 */
 function function_238fd5eb()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self addplayerstatwithgametype("HUMILIATE_VICTIM", 1);
-	self waittill(#"spawned_player");
+	self waittill("spawned_player");
 	self playlocalsound("mpl_assassination_sting");
 	var_a40af05c = self hud::createfontstring("default", 2.5);
 	var_a40af05c hud::setpoint("CENTER", undefined, 0, -100);

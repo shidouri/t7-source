@@ -252,7 +252,7 @@ function get_vending_machine(start_location)
 */
 function activate_vending_machine(machine, origin, entity)
 {
-	level notify(#"master_switch_activated");
+	level notify("master_switch_activated");
 	switch(machine)
 	{
 		case "p7_zm_vending_jugg":
@@ -292,7 +292,7 @@ function activate_vending_machine(machine, origin, entity)
 		e_trigger = getent(var_da5a8677, "script_label");
 		e_trigger triggerenable(1);
 	}
-	level notify(#"revive_on");
+	level notify("revive_on");
 	play_vending_vo(machine, origin);
 }
 

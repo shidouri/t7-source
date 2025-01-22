@@ -241,9 +241,9 @@ function opentacmenu(localclientnum)
 */
 function freetacmenuhandle(localclientnum, menu)
 {
-	self endon(#"disconnect");
-	self notify(#"freetacmenuhandle");
-	self endon(#"freetacmenuhandle");
+	self endon("disconnect");
+	self notify("freetacmenuhandle");
+	self endon("freetacmenuhandle");
 	audio::stoploopat("gdt_tac_menu_snapshot_loop", (0, 0, 0));
 	wait(0.25);
 	closeluimenu(localclientnum, menu);
@@ -295,9 +295,9 @@ function closetacmenu(localclientnum)
 */
 function watchmenuclose(localclientnum)
 {
-	self endon(#"disconnect");
-	self notify(#"watchmenuclosestart");
-	self endon(#"watchmenuclosestart");
+	self endon("disconnect");
+	self notify("watchmenuclosestart");
+	self endon("watchmenuclosestart");
 	for(;;)
 	{
 		self util::waittill_any("tactical_menu_close", "death");
@@ -316,10 +316,10 @@ function watchmenuclose(localclientnum)
 */
 function function_524667f7(localclientnum)
 {
-	self endon(#"tactical_menu_open");
-	self endon(#"tactical_menu_close");
-	self endon(#"watchmenuopenstart");
-	self endon(#"death");
+	self endon("tactical_menu_open");
+	self endon("tactical_menu_close");
+	self endon("watchmenuopenstart");
+	self endon("death");
 	self.var_5208f863 = 1;
 	wait(0.15);
 	self opentacmenu(localclientnum);
@@ -336,11 +336,11 @@ function function_524667f7(localclientnum)
 */
 function watchmenuopen(localclientnum)
 {
-	self notify(#"watchmenuopenstart");
-	self endon(#"watchmenuopenstart");
+	self notify("watchmenuopenstart");
+	self endon("watchmenuopenstart");
 	for(;;)
 	{
-		self waittill(#"tactical_menu_open");
+		self waittill("tactical_menu_open");
 		if(level.cybercom_status == 0 && (!(isdefined(self.cybercomdisabled) && self.cybercomdisabled)) && !isigcactive(localclientnum))
 		{
 			self thread function_524667f7(localclientnum);
@@ -363,7 +363,7 @@ function function_820cd75b(localclientnum)
 	self endon(#"hash_820cd75b");
 	for(;;)
 	{
-		self waittill(#"tactical_menu_toggle");
+		self waittill("tactical_menu_toggle");
 		if(isdefined(self.tacticalmenu))
 		{
 			self closetacmenu(localclientnum);
@@ -408,7 +408,7 @@ function cybercomdisabled(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(newval == 1)
 	{
-		self notify(#"tactical_menu_close");
+		self notify("tactical_menu_close");
 		self.cybercomdisabled = 1;
 	}
 	else
@@ -434,7 +434,7 @@ function cybercomdisabledall(localclientnum, oldval, newval, bnewent, binitialsn
 	{
 		foreach(player in players)
 		{
-			player notify(#"tactical_menu_close");
+			player notify("tactical_menu_close");
 			player.cybercomdisabled = 1;
 		}
 	}
@@ -442,7 +442,7 @@ function cybercomdisabledall(localclientnum, oldval, newval, bnewent, binitialsn
 	{
 		foreach(player in players)
 		{
-			player notify(#"tactical_menu_close");
+			player notify("tactical_menu_close");
 			player.cybercomdisabled = undefined;
 		}
 	}
@@ -513,14 +513,14 @@ function repulsorarmorrecharging(localclientnum, oldval, newval, bnewent, biniti
 */
 function castinganimationwatcher(localclientnum)
 {
-	self notify(#"castinganimationwatcher");
-	self endon(#"castinganimationwatcher");
-	self endon(#"disconnect");
+	self notify("castinganimationwatcher");
+	self endon("castinganimationwatcher");
+	self endon("disconnect");
 	self endon(#"entityshutdown");
 	self.cybercom.lastcastat = 0;
 	while(true)
 	{
-		self waittill(#"gadget_casting_anim");
+		self waittill("gadget_casting_anim");
 		curtime = gettime();
 		if((self.cybercom.lastcastat + 1000) < curtime)
 		{
@@ -1123,7 +1123,7 @@ function cyber_arm_pulse(localclientnum, oldval, newval, bnewent, binitialsnap, 
 function function_38e32940()
 {
 	self endon(#"entityshutdown");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_2f142d63");
 	var_f13af102 = 0;
 	var_b608e411 = 0;

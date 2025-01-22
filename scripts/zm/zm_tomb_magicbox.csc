@@ -86,7 +86,7 @@ function magicbox_open_fx(localclientnum, oldval, newval, bnewent, binitialsnap,
 	{
 		stopfx(localclientnum, self.fx_obj.curr_open_fx);
 		self.fx_obj_2 stoploopsound(1);
-		self notify(#"magicbox_portal_finished");
+		self notify("magicbox_portal_finished");
 	}
 	else if(newval == 1)
 	{
@@ -109,7 +109,7 @@ function fx_magicbox_portal(localclientnum)
 {
 	wait(0.5);
 	self.fx_obj_2.curr_portal_fx = playfxontag(localclientnum, level._effect["box_portal"], self.fx_obj_2, "tag_origin");
-	self waittill(#"magicbox_portal_finished");
+	self waittill("magicbox_portal_finished");
 	stopfx(localclientnum, self.fx_obj_2.curr_portal_fx);
 }
 

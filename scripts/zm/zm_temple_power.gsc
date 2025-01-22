@@ -73,7 +73,7 @@ function power_switch(trigger_name, var_1e1fc126)
 	switch_trigger setcursorhint("HINT_NOICON");
 	while(true)
 	{
-		switch_trigger waittill(#"trigger", player);
+		switch_trigger waittill("trigger", player);
 		if(isplayer(player))
 		{
 			level flag::set(var_1e1fc126);
@@ -187,21 +187,21 @@ function function_7ea2ce8()
 */
 function function_f8d52bb6()
 {
-	level notify(#"juggernog_on");
+	level notify("juggernog_on");
 	util::wait_network_frame();
-	level notify(#"sleight_on");
+	level notify("sleight_on");
 	util::wait_network_frame();
-	level notify(#"revive_on");
+	level notify("revive_on");
 	util::wait_network_frame();
-	level notify(#"marathon_on");
+	level notify("marathon_on");
 	util::wait_network_frame();
-	level notify(#"divetonuke_on");
+	level notify("divetonuke_on");
 	util::wait_network_frame();
-	level notify(#"deadshot_on");
+	level notify("deadshot_on");
 	util::wait_network_frame();
-	level notify(#"doubletap_on");
+	level notify("doubletap_on");
 	util::wait_network_frame();
-	level notify(#"pack_a_punch_on");
+	level notify("pack_a_punch_on");
 }
 
 /*

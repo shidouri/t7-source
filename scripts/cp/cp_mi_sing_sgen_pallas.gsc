@@ -131,7 +131,7 @@ function skipto_pallas_start_init(str_objective, b_starting)
 	level flag::wait_till("core_two_destroyed");
 	level thread do_attack_on_hendricks();
 	level flag::wait_till("pallas_death");
-	level notify(#"deleting_corpse");
+	level notify("deleting_corpse");
 	a_pallas_bot = getaiteamarray("team3");
 	foreach(bot in a_pallas_bot)
 	{
@@ -445,15 +445,15 @@ function handle_pallas_animation()
 	e_pallas_spawner2 spawner::add_spawn_function(&pallas_init, 1);
 	level thread scene::play("cin_sgen_18_01_pallasfight_vign_crucifix_pallas_loop");
 	videostart("cp_sgen_env_diazserver", 1);
-	level waittill(#"pallas_attacked");
+	level waittill("pallas_attacked");
 	videostop("cp_sgen_env_diazserver");
 	videostart("cp_sgen_env_diazserver", 1);
 	level thread scene::play("cin_sgen_18_01_pallasfight_vign_crucifix_pallas_stage2");
-	level waittill(#"pallas_attacked");
+	level waittill("pallas_attacked");
 	videostop("cp_sgen_env_diazserver");
 	videostart("cp_sgen_env_diazserver", 1);
 	level thread scene::play("cin_sgen_18_01_pallasfight_vign_crucifix_pallas_stage3");
-	level waittill(#"pallas_death");
+	level waittill("pallas_death");
 	videostop("cp_sgen_env_diazserver");
 }
 
@@ -513,7 +513,7 @@ function do_hendricks_hacking()
 	level.ai_hendricks.ignoreme = 1;
 	st_align = struct::get("hendrick_console_hack", "targetname");
 	level thread scene::play("cin_sgen_18_01_pallasfight_vign_controls_hendricks_active", level.ai_hendricks);
-	level waittill(#"pallas_start_terminate");
+	level waittill("pallas_start_terminate");
 	st_align thread scene::stop("cin_sgen_18_01_pallasfight_vign_controls_hendricks_active");
 }
 
@@ -575,7 +575,7 @@ function function_8470b8c(b_starting)
 */
 function cleanup_area_arrays()
 {
-	level endon(#"pallas_death");
+	level endon("pallas_death");
 	while(!level flag::get("pallas_death"))
 	{
 		level.pallas_center_guards = array::remove_dead(level.pallas_center_guards);
@@ -599,7 +599,7 @@ function cleanup_area_arrays()
 */
 function function_a7dc2319()
 {
-	self endon(#"death");
+	self endon("death");
 	self ai::set_ignoreall(1);
 	level flag::wait_till("pallas_ambush_over");
 	self ai::set_ignoreall(0);
@@ -616,7 +616,7 @@ function function_a7dc2319()
 */
 function robot_mindcontrol()
 {
-	self endon(#"death");
+	self endon("death");
 	self.accuracy = 0.25;
 	self ai::set_behavior_attribute("rogue_control_speed", "sprint");
 	switch(level.var_e16e585d)
@@ -668,7 +668,7 @@ function robot_mindcontrol()
 */
 function robot_mindcontrol_center_guard()
 {
-	self endon(#"death");
+	self endon("death");
 	self.accuracy = 0.25;
 	self ai::set_behavior_attribute("rogue_control", "forced_level_1");
 	self ai::set_behavior_attribute("can_become_rusher", 0);
@@ -714,7 +714,7 @@ function robot_mindcontrol_center_guard()
 */
 function robot_mindcontrol_core_guard()
 {
-	self endon(#"death");
+	self endon("death");
 	self.accuracy = 0.25;
 	self ai::set_behavior_attribute("rogue_control", "forced_level_1");
 	self ai::set_behavior_attribute("force_cover", 1);
@@ -762,7 +762,7 @@ function function_969fe47()
 */
 function function_39072821()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("tower_three_destroyed");
 	self ai::set_behavior_attribute("rogue_control", "forced_level_3");
 	if(gettime() < level.var_94d58561)
@@ -828,7 +828,7 @@ function elevator_set_door_state(str_side, str_state)
 		{
 			e_lift.a_e_doors[str_side] playsound("veh_lift_doors_close");
 		}
-		e_lift.a_e_doors[str_side] waittill(#"movedone");
+		e_lift.a_e_doors[str_side] waittill("movedone");
 		e_lift.a_e_doors[str_side] linkto(e_lift);
 		if(str_state == "open")
 		{
@@ -896,7 +896,7 @@ function elevator_set_move_direction(str_direction)
 	loop_snd_ent = spawn("script_origin", e_lift.origin);
 	loop_snd_ent linkto(e_lift);
 	loop_snd_ent playloopsound("veh_lift_loop", 0.5);
-	e_lift waittill(#"movedone");
+	e_lift waittill("movedone");
 	loop_snd_ent stoploopsound(0.5);
 	e_lift playsound("veh_lift_stop");
 	loop_snd_ent delete();
@@ -940,7 +940,7 @@ function elevator_lift_intro()
 	elevator_set_opaque(3);
 	level thread namespace_d40478f6::function_874f01d();
 	level notify(#"elevator_vo");
-	level notify(#"pallas_elevator_starting");
+	level notify("pallas_elevator_starting");
 	a_ai = getaiteamarray("team3");
 	foreach(ai in a_ai)
 	{
@@ -994,7 +994,7 @@ function elevator_lift_outro(b_starting)
 */
 function watch_for_damage()
 {
-	level endon(#"pallas_ambush_over");
+	level endon("pallas_ambush_over");
 	self util::waittill_either("damage", "death");
 	level flag::set("pallas_ambush_over");
 }
@@ -1010,7 +1010,7 @@ function watch_for_damage()
 */
 function function_87d6b629()
 {
-	level endon(#"pallas_ambush_over");
+	level endon("pallas_ambush_over");
 	array::wait_any(level.players, "weapon_fired");
 	level flag::set("pallas_ambush_over");
 }
@@ -1045,7 +1045,7 @@ function pallas_greeting_event(b_starting)
 	level dialog::remote("hend_kane_i_m_currently_0");
 	level dialog::remote("kane_access_the_primary_s_0");
 	level dialog::remote("hend_you_re_the_boss_lad_0");
-	level notify(#"pallas_objective_start");
+	level notify("pallas_objective_start");
 	wait(2);
 	level dialog::remote("kane_got_it_focus_fire_o_0", 2);
 	level flag::set("pallas_intro_completed");
@@ -1062,10 +1062,10 @@ function pallas_greeting_event(b_starting)
 */
 function function_ab0e4cbe()
 {
-	level endon(#"pallas_end");
+	level endon("pallas_end");
 	while(true)
 	{
-		level waittill(#"save_restore");
+		level waittill("save_restore");
 		for(i = 1; i <= 3; i++)
 		{
 			mdl_ball = getent("diaz_ball_" + i, "targetname");
@@ -1085,8 +1085,8 @@ function function_ab0e4cbe()
 */
 function handle_pallas_pillar_weakspot()
 {
-	level endon(#"pallas_start");
-	level waittill(#"pallas_objective_start");
+	level endon("pallas_start");
+	level waittill("pallas_objective_start");
 	a_t_coolants = getentarray("pallas_coolant_control", "targetname");
 	foreach(trigger in a_t_coolants)
 	{
@@ -1123,13 +1123,13 @@ function handle_pallas_pillar_weakspot()
 			}
 		}
 		level thread cooling_tower_nag();
-		e_pallas_pillar waittill(#"movedone");
+		e_pallas_pillar waittill("movedone");
 		level thread weakspot_damage(e_pallas_pillar.script_float);
 		a_t_coolant = getentarray("pallas_coolant_control", "targetname");
 		a_t_coolant = arraysortclosest(a_t_coolant, e_pallas_pillar.origin);
 		t_coolant = a_t_coolant[0];
 		level thread activate_flood_spawn();
-		level waittill(#"pillar_destroyed");
+		level waittill("pillar_destroyed");
 		array::thread_all(level.players, &clientfield::set_to_player, "pallas_monitors_state", 2);
 		objectives::complete("cp_level_sgen_destroy_tower");
 		level.var_e16e585d++;
@@ -1151,14 +1151,14 @@ function handle_pallas_pillar_weakspot()
 		b_player_valid = 0;
 		while(!b_player_valid)
 		{
-			t_coolant waittill(#"trigger", e_player);
+			t_coolant waittill("trigger", e_player);
 			if(!e_player laststand::player_is_in_laststand())
 			{
 				b_player_valid = 1;
 				e_player enableinvulnerability();
 			}
 		}
-		level notify(#"stage_completed");
+		level notify("stage_completed");
 		switch(level.var_e16e585d)
 		{
 			case 1:
@@ -1224,7 +1224,7 @@ function handle_pallas_pillar_weakspot()
 		{
 			case 1:
 			{
-				level notify(#"pallas_attacked");
+				level notify("pallas_attacked");
 				level dialog::player_say("plyr_grenade_detonated_0");
 				level dialog::remote("kane_it_worked_central_0");
 				if(isdefined(level.bzm_overridelocomotion))
@@ -1243,7 +1243,7 @@ function handle_pallas_pillar_weakspot()
 			}
 			case 2:
 			{
-				level notify(#"pallas_attacked");
+				level notify("pallas_attacked");
 				level dialog::player_say("plyr_successful_detonatio_0");
 				level dialog::remote("kane_central_core_down_to_0");
 				exploder::exploder("light_sgen_palas_em");
@@ -1381,7 +1381,7 @@ function function_75946123(str_sm_name, n_ai_count, n_timeout)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	spawn_manager::wait_till_ai_remaining(str_sm_name, n_ai_count);
@@ -1401,7 +1401,7 @@ function function_864a9c57(str_sm_name, n_spawn_count, n_timeout)
 	if(isdefined(n_timeout))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_timeout, "timeout");
 	}
 	spawn_manager::wait_till_spawned_count(str_sm_name, n_spawn_count);
@@ -1418,7 +1418,7 @@ function function_864a9c57(str_sm_name, n_spawn_count, n_timeout)
 */
 function activate_flood_spawn()
 {
-	level endon(#"stage_completed");
+	level endon("stage_completed");
 	switch(level.var_e16e585d)
 	{
 		case 0:
@@ -1435,7 +1435,7 @@ function activate_flood_spawn()
 		}
 		case 2:
 		{
-			level waittill(#"pillar_destroyed");
+			level waittill("pillar_destroyed");
 			spawn_manager::kill("sm_stage3");
 			spawn_manager::enable("sm_stage3_flood");
 			break;
@@ -1463,14 +1463,14 @@ function weakspot_damage(n_tower)
 	exploder::exploder("pallas_fight_coolant_tower_" + n_tower);
 	while(e_core.health >= (n_total_health / 2))
 	{
-		e_core waittill(#"damage");
+		e_core waittill("damage");
 	}
 	exploder::exploder("pallas_fight_dmg_1_tower_" + n_tower);
 	mdl_fx = util::spawn_model("tag_origin", e_core.origin, e_core.angles);
 	playfxontag(level._effect["coolant_tower_damage_minor"], mdl_fx, "tag_origin");
 	if(e_core.health > 0)
 	{
-		e_core waittill(#"death");
+		e_core waittill("death");
 	}
 	e_core disableaimassist();
 	e_core globallogic_ui::destroyweakpointwidget(&"tag_weakpoint");
@@ -1498,7 +1498,7 @@ function weakspot_damage(n_tower)
 	level sgen_util::quake(0.5, 1, e_core.origin, 5000, 4, 7);
 	exploder::exploder("pallas_fight_exp_tower_" + n_tower);
 	mdl_fx delete();
-	level notify(#"pillar_destroyed");
+	level notify("pillar_destroyed");
 	mdl_fx = util::spawn_model("tag_origin", e_core.origin, e_core.angles);
 	playfxontag(level._effect["coolant_tower_damage_major"], mdl_fx, "tag_origin");
 }
@@ -1522,7 +1522,7 @@ function do_damage_react()
 	objectives::set("cp_level_sgen_destroy_tower", self.origin + vectorscale((0, 0, 1), 18));
 	while(self.health > 0)
 	{
-		self waittill(#"damage", damage, attacker, direction, point);
+		self waittill("damage", damage, attacker, direction, point);
 		playfx(level._effect["weakspot_impact"], point, direction * -1);
 		attacker damagefeedback::update();
 	}
@@ -1544,7 +1544,7 @@ function do_damage_react()
 */
 function do_attack_on_hendricks()
 {
-	level endon(#"pallas_death");
+	level endon("pallas_death");
 	level endon(#"hash_265b1313");
 	level.a_assault_bot = [];
 	level.var_2d3af18b = 0;
@@ -1587,7 +1587,7 @@ function function_e8ee435e()
 	{
 		if(isalive(ai_bot))
 		{
-			ai_bot waittill(#"death");
+			ai_bot waittill("death");
 		}
 	}
 	wait(0.1);
@@ -1605,7 +1605,7 @@ function function_e8ee435e()
 */
 function explode_robot(n_scene)
 {
-	self endon(#"death");
+	self endon("death");
 	if(sessionmodeiscampaignzombiesgame())
 	{
 		return;
@@ -1614,7 +1614,7 @@ function explode_robot(n_scene)
 	self ai::set_ignoreall(1);
 	self flag::wait_till("in_playable_space");
 	level thread scene::play("cin_sgen_18_01_pallasfight_vign_takedown_explode0" + n_scene, self);
-	self waittill(#"start_timer");
+	self waittill("start_timer");
 	level thread check_wall_climb_vo();
 	switch(level.players.size)
 	{
@@ -1716,7 +1716,7 @@ function function_c79b403e()
 */
 function track_intro_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	level.var_9945a95d++;
 	if(level.var_9945a95d == 8)
 	{
@@ -1735,7 +1735,7 @@ function track_intro_death()
 */
 function cooling_tower_nag()
 {
-	level endon(#"pillar_destroyed");
+	level endon("pillar_destroyed");
 	wait(randomfloatrange(10, 15));
 	switch(level.var_e16e585d)
 	{
@@ -1770,7 +1770,7 @@ function cooling_tower_nag()
 */
 function core_nag()
 {
-	level endon(#"stage_completed");
+	level endon("stage_completed");
 	wait(randomfloatrange(7, 10));
 	switch(level.var_e16e585d)
 	{
@@ -1815,7 +1815,7 @@ function core_nag()
 */
 function function_6030416()
 {
-	level endon(#"stage_completed");
+	level endon("stage_completed");
 	wait(randomfloatrange(3, 5));
 	switch(level.var_e16e585d)
 	{
@@ -1941,7 +1941,7 @@ function init_fxanim_hoses()
 */
 function all_hoses_break()
 {
-	level waittill(#"all_hoses_break");
+	level waittill("all_hoses_break");
 	level thread scene::play("coolant_hose_02", "targetname");
 	level thread scene::play("coolant_hose_04", "targetname");
 	level thread scene::play("coolant_hose_06", "targetname");
@@ -2008,7 +2008,7 @@ function show_cracked_glass(n_crack)
 */
 function delete_model_on_death(robot)
 {
-	robot waittill(#"death");
+	robot waittill("death");
 	self delete();
 }
 
@@ -2023,14 +2023,14 @@ function delete_model_on_death(robot)
 */
 function check_for_nearby_players()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		foreach(player in level.players)
 		{
 			if(distancesquared(self.origin, player.origin) < 250000)
 			{
-				self notify(#"nearby_enemy");
+				self notify("nearby_enemy");
 			}
 		}
 		wait(0.1);
@@ -2048,7 +2048,7 @@ function check_for_nearby_players()
 */
 function handle_robot_sm(str_triggername, str_sm)
 {
-	level endon(#"pallas_death");
+	level endon("pallas_death");
 	trigger = getent(str_triggername, "targetname");
 	while(true)
 	{

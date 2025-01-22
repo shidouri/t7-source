@@ -102,8 +102,8 @@ function function_a21082e5()
 		if(player laststand::player_is_in_laststand())
 		{
 			player reviveplayer();
-			player notify(#"player_revived");
-			player notify(#"stop_revive_trigger");
+			player notify("player_revived");
+			player notify("stop_revive_trigger");
 			if(isdefined(player.revivetrigger))
 			{
 				player.revivetrigger delete();
@@ -148,7 +148,7 @@ function function_a21082e5()
 */
 function function_885ea49f()
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	var_77857680 = getentarray("dragon_boss_blocker", "targetname");
 	var_3e7d18ce = getentarray("dragon_boss_blocker_clip", "targetname");
 	foreach(var_9c1f0837 in var_3e7d18ce)
@@ -372,8 +372,8 @@ function function_6afa5293()
 */
 function function_f8190c14()
 {
-	level endon(#"nikolai_complete");
-	level waittill(#"intermission");
+	level endon("nikolai_complete");
+	level waittill("intermission");
 	if(isdefined(level.var_cf6e9729))
 	{
 		level.var_cf6e9729.overridevehicledamage = undefined;
@@ -391,9 +391,9 @@ function function_f8190c14()
 */
 function function_d9ffbd23()
 {
-	level endon(#"nikolai_complete");
-	level endon(#"intermission");
-	self endon(#"death");
+	level endon("nikolai_complete");
+	level endon("intermission");
+	self endon("death");
 	n_wait = 0.25;
 	var_15518756 = 3;
 	self.var_7231744c = 0;
@@ -539,7 +539,7 @@ function function_c291114d()
 */
 function function_57b59893()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_5eb926b6");
 	if(!isdefined(self.var_8d725883))
 	{
@@ -572,7 +572,7 @@ function function_57b59893()
 */
 function function_b8f2ff49()
 {
-	self endon(#"death");
+	self endon("death");
 	self waittill(#"hash_ae5c218");
 	if(!isdefined(self.var_8d725883))
 	{
@@ -596,7 +596,7 @@ function function_b8f2ff49()
 */
 function function_f56920ff(var_d4d0fbf9)
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	if(!isdefined(self.favoriteenemy) || !isalive(self.favoriteenemy) || self.favoriteenemy laststand::player_is_in_laststand())
 	{
 		self function_1d0e6184();
@@ -747,8 +747,8 @@ function function_8b21fdfe()
 */
 function function_39d2d4b6()
 {
-	self notify(#"reselect_goal");
-	self endon(#"death");
+	self notify("reselect_goal");
+	self endon("death");
 	/#
 		if(getdvarint("") > 0)
 		{
@@ -834,9 +834,9 @@ function function_f75d4706(s_pos, str_pos)
 */
 function function_3c68f919(var_74557a8b)
 {
-	self notify(#"reselect_goal");
-	level endon(#"nikolai_complete");
-	self endon(#"death");
+	self notify("reselect_goal");
+	level endon("nikolai_complete");
+	self endon("death");
 	/#
 		if(getdvarint("") > 0)
 		{
@@ -935,7 +935,7 @@ function function_3c68f919(var_74557a8b)
 	var_b06830e5 = self siegebot_nikolai::jump_to(s_point.origin);
 	if(var_b06830e5)
 	{
-		self waittill(#"jump_finished");
+		self waittill("jump_finished");
 		self.var_64627ad6 = s_point.script_string;
 	}
 	else
@@ -955,7 +955,7 @@ function function_3c68f919(var_74557a8b)
 */
 function function_1d0e6184()
 {
-	level endon(#"nikolai_complete");
+	level endon("nikolai_complete");
 	var_3a73aa84 = undefined;
 	while(!isdefined(var_3a73aa84))
 	{
@@ -993,7 +993,7 @@ function function_1d0e6184()
 */
 function function_211641b9()
 {
-	level endon(#"nikolai_complete");
+	level endon("nikolai_complete");
 	foreach(e_player in level.players)
 	{
 		e_player.var_b3a9099 = 0;
@@ -1011,8 +1011,8 @@ function function_211641b9()
 */
 function function_1679e5f0()
 {
-	self endon(#"death");
-	level endon(#"intermission");
+	self endon("death");
+	level endon("intermission");
 	level.var_6d27427c = 0;
 	level.var_b9c4d468 = 0;
 	level.var_9ddab511 = &function_6e418eff;
@@ -1104,9 +1104,9 @@ function function_830cf1ca()
 {
 	var_1cee535f = struct::get("s_nikolai_full_ammo", "targetname");
 	var_93eb638b = zm_powerups::specific_powerup_drop("full_ammo", var_1cee535f.origin);
-	var_93eb638b notify(#"powerup_reset");
-	var_93eb638b endon(#"powerup_grabbed");
-	level waittill(#"nikolai_complete");
+	var_93eb638b notify("powerup_reset");
+	var_93eb638b endon("powerup_grabbed");
+	level waittill("nikolai_complete");
 	if(isdefined(var_93eb638b))
 	{
 		var_93eb638b thread zm_powerups::powerup_timeout();
@@ -1124,8 +1124,8 @@ function function_830cf1ca()
 */
 function function_b79713c()
 {
-	level endon(#"intermission");
-	level endon(#"nikolai_complete");
+	level endon("intermission");
+	level endon("nikolai_complete");
 	while(self siegebot_nikolai::function_86cc3c11() < 2)
 	{
 		wait(5);
@@ -1165,7 +1165,7 @@ function function_dc342bfa(s_point)
 */
 function function_cb725ad1()
 {
-	level endon(#"nikolai_complete");
+	level endon("nikolai_complete");
 	while(true)
 	{
 		if(!(isdefined(self.var_88e5f77d) && self.var_88e5f77d))
@@ -1209,9 +1209,9 @@ function function_cb725ad1()
 */
 function function_ec910337(ai_sentinel)
 {
-	level endon(#"nikolai_complete");
+	level endon("nikolai_complete");
 	self.var_88e5f77d = 1;
-	ai_sentinel waittill(#"death");
+	ai_sentinel waittill("death");
 	level.var_b9c4d468--;
 	wait(10);
 	self.var_88e5f77d = 0;
@@ -1228,10 +1228,10 @@ function function_ec910337(ai_sentinel)
 */
 function function_4fd3f4f9(var_8087702e)
 {
-	self endon(#"death");
+	self endon("death");
 	var_6be58df = struct::get_array(var_8087702e, "targetname");
 	var_6be58df = array::sort_by_script_int(var_6be58df, 1);
-	self waittill(#"completed_spawning");
+	self waittill("completed_spawning");
 	self setspeed(10);
 	while(true)
 	{
@@ -1241,7 +1241,7 @@ function function_4fd3f4f9(var_8087702e)
 		{
 			self sentinel_drone::sentinel_forcegoandstayinposition(1, var_6be58df[i].origin);
 			wait(0.5);
-			self waittill(#"near_goal");
+			self waittill("near_goal");
 			self function_716d82f6();
 		}
 		wait(3);
@@ -1249,7 +1249,7 @@ function function_4fd3f4f9(var_8087702e)
 		{
 			self sentinel_drone::sentinel_forcegoandstayinposition(1, var_6be58df[i].origin);
 			wait(0.5);
-			self waittill(#"near_goal");
+			self waittill("near_goal");
 			self function_716d82f6();
 		}
 		wait(0.05);
@@ -1267,7 +1267,7 @@ function function_4fd3f4f9(var_8087702e)
 */
 function function_716d82f6()
 {
-	self endon(#"death");
+	self endon("death");
 	a_players = arraycopy(level.activeplayers);
 	a_players = array::randomize(a_players);
 	foreach(player in a_players)

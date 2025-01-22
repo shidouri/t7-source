@@ -401,7 +401,7 @@ function skipto_interview_dr_nasser_done(str_objective, b_starting, b_direct, pl
 */
 function set_sound_igc()
 {
-	level waittill(#"cin_ram_01_01_enterstation_1st_ride_complete");
+	level waittill("cin_ram_01_01_enterstation_1st_ride_complete");
 	level util::clientnotify("sndIGC");
 }
 

@@ -84,7 +84,7 @@ function __main__()
 */
 function start()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	if(getdvarint("splitscreen_playerCount") > 2)
 	{
 		return;
@@ -176,7 +176,7 @@ function function_ed25d0f2()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_triggerer);
+		self waittill("trigger", e_triggerer);
 		if(e_triggerer zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -221,10 +221,10 @@ function function_b38baf01(e_triggerer)
 */
 function function_ba9b0148()
 {
-	level endon(#"hope_done");
+	level endon("hope_done");
 	self clientfield::set_to_player("hope_spark", 1);
 	self clientfield::set_player_uimodel("zmInventory.super_ee", 1);
-	self waittill(#"damage");
+	self waittill("damage");
 	self clientfield::set_to_player("hope_spark", 0);
 	self clientfield::set_player_uimodel("zmInventory.super_ee", 0);
 	self playsound("zmb_overachiever_spark_lose");
@@ -276,7 +276,7 @@ function function_46cfcb01()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_triggerer);
+		self waittill("trigger", e_triggerer);
 		if(e_triggerer zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -323,7 +323,7 @@ function function_6143b210(e_triggerer)
 	wait(3);
 	s_target = struct::get(s_target.target);
 	var_8ccfc8c3 moveto(s_target.origin, 2);
-	var_8ccfc8c3 waittill(#"movedone");
+	var_8ccfc8c3 waittill("movedone");
 	level clientfield::set("hope_state", 3);
 	level flag::set("hope_done");
 	playsoundatposition("zmb_overachiever_spark_success", (0, 0, 0));

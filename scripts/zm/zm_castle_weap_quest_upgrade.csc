@@ -374,7 +374,7 @@ function function_24d9d4f5(localclientnum, str_fx_name)
 	self notify(#"hash_24d9d4f5");
 	self endon(#"hash_24d9d4f5");
 	level endon(#"hash_24d9d4f5");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	self scene::stop(1);
 }
 
@@ -1550,7 +1550,7 @@ function function_60ae2cd0(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_a783453f(localclientnum, var_3a9e6062)
 {
-	var_3a9e6062 endon(#"death");
+	var_3a9e6062 endon("death");
 	var_3a9e6062 endon(#"entityshutdown");
 	var_3a9e6062 endon(#"hash_5ad4a160");
 	b_left_side = 1;

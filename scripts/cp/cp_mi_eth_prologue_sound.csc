@@ -183,7 +183,7 @@ function function_ab91e7b9(location)
 */
 function function_c943c5e5()
 {
-	level waittill(#"saw");
+	level waittill("saw");
 	wait(5);
 	level notify(#"hash_f8c8ddf6");
 	audio::playloopat("amb_base_distant_walla", (12187, -167, 1183));

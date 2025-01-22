@@ -135,12 +135,12 @@ function callback_player_snow_fx(localclientnum, oldval, newval, bnewent, biniti
 			{
 				if(newval == 4)
 				{
-					player notify(#"stop_snow_fx");
+					player notify("stop_snow_fx");
 					player function_5677f0fa(localclientnum);
 				}
 				else
 				{
-					player notify(#"stop_snow_fx");
+					player notify("stop_snow_fx");
 					player function_97cc38a5(localclientnum);
 				}
 			}
@@ -204,8 +204,8 @@ function function_97cc38a5(localclientnum)
 */
 function function_7683b584(player)
 {
-	self endon(#"death");
-	player waittill(#"death");
+	self endon("death");
+	player waittill("death");
 	self delete();
 }
 
@@ -220,8 +220,8 @@ function function_7683b584(player)
 */
 function function_120f324e(localclientnum, n_delay)
 {
-	self notify(#"stop_snow_fx");
-	self endon(#"stop_snow_fx");
+	self notify("stop_snow_fx");
+	self endon("stop_snow_fx");
 	self function_97cc38a5(localclientnum);
 	while(isdefined(self))
 	{
@@ -723,7 +723,7 @@ function function_b45c2459(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_dd551c54(localclientnum)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	self endon(#"hash_2608c3ca");
 	while(true)
@@ -778,13 +778,13 @@ function function_dd551c54(localclientnum)
 */
 function function_bfff202d(localclientnum, n_duration)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	self endon(#"hash_2608c3ca");
 	if(isdefined(n_duration))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(n_duration, "timeout");
 	}
 	while(true)
@@ -974,7 +974,7 @@ function function_65012f08()
 	while(true)
 	{
 		self rotateyaw(180, rotate_time);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 

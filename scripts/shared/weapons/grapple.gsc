@@ -69,9 +69,9 @@ function __main__()
 */
 function translate_notify_1(from_notify, to_notify)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"spawned_player");
+	self endon("disconnect");
+	self endon("death");
+	self endon("spawned_player");
 	while(isdefined(self))
 	{
 		self waittill(from_notify, param1, param2, param3);
@@ -90,22 +90,22 @@ function translate_notify_1(from_notify, to_notify)
 */
 function watch_for_grapple()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"spawned_player");
-	self endon(#"killreplaygunmonitor");
+	self endon("disconnect");
+	self endon("death");
+	self endon("spawned_player");
+	self endon("killreplaygunmonitor");
 	self thread translate_notify_1("weapon_switch_started", "grapple_weapon_change");
 	self thread translate_notify_1("weapon_change_complete", "grapple_weapon_change");
 	while(true)
 	{
-		self waittill(#"grapple_weapon_change", event, weapon);
+		self waittill("grapple_weapon_change", event, weapon);
 		if(isdefined(weapon.grappleweapon) && weapon.grappleweapon)
 		{
 			self thread watch_lockon(weapon);
 		}
 		else
 		{
-			self notify(#"grapple_unwield");
+			self notify("grapple_unwield");
 		}
 	}
 }
@@ -121,12 +121,12 @@ function watch_for_grapple()
 */
 function watch_lockon(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"spawned_player");
-	self endon(#"grapple_unwield");
-	self notify(#"watch_lockon");
-	self endon(#"watch_lockon");
+	self endon("disconnect");
+	self endon("death");
+	self endon("spawned_player");
+	self endon("grapple_unwield");
+	self notify("watch_lockon");
+	self endon("watch_lockon");
 	self thread watch_lockon_angles(weapon);
 	self thread clear_lockon_after_grapple(weapon);
 	self.use_expensive_targeting = 1;
@@ -157,12 +157,12 @@ function watch_lockon(weapon)
 */
 function clear_lockon_after_grapple(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"spawned_player");
-	self endon(#"grapple_unwield");
-	self notify(#"clear_lockon_after_grapple");
-	self endon(#"clear_lockon_after_grapple");
+	self endon("disconnect");
+	self endon("death");
+	self endon("spawned_player");
+	self endon("grapple_unwield");
+	self notify("clear_lockon_after_grapple");
+	self endon("clear_lockon_after_grapple");
 	while(true)
 	{
 		self util::waittill_any("grapple_pulled", "grapple_landed");
@@ -185,12 +185,12 @@ function clear_lockon_after_grapple(weapon)
 */
 function watch_lockon_angles(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"spawned_player");
-	self endon(#"grapple_unwield");
-	self notify(#"watch_lockon_angles");
-	self endon(#"watch_lockon_angles");
+	self endon("disconnect");
+	self endon("death");
+	self endon("spawned_player");
+	self endon("grapple_unwield");
+	self notify("watch_lockon_angles");
+	self endon("watch_lockon_angles");
 	while(true)
 	{
 		wait(0.05);

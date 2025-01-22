@@ -906,8 +906,8 @@ function displayteammessagewaiter()
 	{
 		return;
 	}
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	self.teammessagequeue = [];
 	for(;;)
 	{
@@ -944,7 +944,7 @@ function displayteammessagewaiter()
 */
 function displaypopupswaiter()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.ranknotifyqueue = [];
 	if(!isdefined(self.pers["challengeNotifyQueue"]))
 	{

@@ -422,12 +422,12 @@ function function_7c315d3a()
 {
 	while(true)
 	{
-		level waittill(#"scene_sequence_started");
+		level waittill("scene_sequence_started");
 		if(isdefined(level.bonuszm_musicoverride) && level.bonuszm_musicoverride)
 		{
 			level clientfield::set("cpzm_song_suppression", 1);
 		}
-		level waittill(#"scene_sequence_ended");
+		level waittill("scene_sequence_ended");
 		level clientfield::set("cpzm_song_suppression", 0);
 	}
 }

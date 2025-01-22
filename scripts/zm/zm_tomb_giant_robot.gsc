@@ -252,7 +252,7 @@ function robot_cycling()
 	three_robot_round = 0;
 	last_robot = -1;
 	level thread giant_robot_intro_walk(1);
-	level waittill(#"giant_robot_intro_complete");
+	level waittill("giant_robot_intro_complete");
 	while(true)
 	{
 		if(!level.round_number % 4 && three_robot_round != level.round_number)
@@ -299,9 +299,9 @@ function robot_cycling()
 			{
 				level thread giant_robot_start_walk(1, 0);
 			}
-			level waittill(#"giant_robot_walk_cycle_complete");
-			level waittill(#"giant_robot_walk_cycle_complete");
-			level waittill(#"giant_robot_walk_cycle_complete");
+			level waittill("giant_robot_walk_cycle_complete");
+			level waittill("giant_robot_walk_cycle_complete");
+			level waittill("giant_robot_walk_cycle_complete");
 			wait(5);
 			level.zombie_ai_limit = 24;
 			three_robot_round = level.round_number;
@@ -323,7 +323,7 @@ function robot_cycling()
 			#/
 			last_robot = random_number;
 			level thread giant_robot_start_walk(random_number);
-			level waittill(#"giant_robot_walk_cycle_complete");
+			level waittill("giant_robot_walk_cycle_complete");
 			wait(5);
 		}
 	}
@@ -353,8 +353,8 @@ function giant_robot_intro_walk(n_robot_id)
 		player clientfield::set_to_player("giant_robot_rumble_and_shake", 3);
 		player thread turn_clientside_rumble_off();
 	}
-	level waittill(#"giant_robot_walk_cycle_complete");
-	level notify(#"giant_robot_intro_complete");
+	level waittill("giant_robot_walk_cycle_complete");
+	level notify("giant_robot_intro_complete");
 }
 
 /*
@@ -509,7 +509,7 @@ function giant_robot_think(trig_stomp_kill_right, trig_stomp_kill_left, clip_foo
 			player thread shoot_at_giant_robot_vo(self);
 		}
 	}
-	self waittill(#"giant_robot_stop");
+	self waittill("giant_robot_stop");
 	self.is_walking = 0;
 	self stopanimscripted();
 	self.origin = self.v_start_origin;
@@ -517,7 +517,7 @@ function giant_robot_think(trig_stomp_kill_right, trig_stomp_kill_left, clip_foo
 	self clientfield::set("light_foot_fx_robot", 0);
 	self ghost();
 	self detachall();
-	level notify(#"giant_robot_walk_cycle_complete");
+	level notify("giant_robot_walk_cycle_complete");
 }
 
 /*
@@ -531,8 +531,8 @@ function giant_robot_think(trig_stomp_kill_right, trig_stomp_kill_left, clip_foo
 */
 function sole_cleanup(m_sole)
 {
-	self endon(#"death");
-	self endon(#"giant_robot_stop");
+	self endon("death");
+	self endon("giant_robot_stop");
 	util::wait_network_frame();
 	m_sole clearanim(%generic::root, 0);
 	util::wait_network_frame();
@@ -550,8 +550,8 @@ function sole_cleanup(m_sole)
 */
 function giant_robot_foot_waittill_sole_shot(m_sole)
 {
-	self endon(#"death");
-	self endon(#"giant_robot_stop");
+	self endon("death");
+	self endon("giant_robot_stop");
 	if(isdefined(self.hatch_foot) && self.hatch_foot == "left")
 	{
 		str_tag = "TAG_ATTACH_HATCH_LE";
@@ -562,9 +562,9 @@ function giant_robot_foot_waittill_sole_shot(m_sole)
 		str_tag = "TAG_ATTACH_HATCH_RI";
 		n_foot = 1;
 	}
-	self waittill(#"kill_zombies_leftfoot_1");
+	self waittill("kill_zombies_leftfoot_1");
 	wait(1);
-	m_sole waittill(#"damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
+	m_sole waittill("damage", amount, inflictor, direction, point, type, tagname, modelname, partname, weaponname, idflags);
 	m_sole.health = 99999;
 	level.gr_foot_hatch_closed[self.giant_robot_id] = 0;
 	level clientfield::set("play_foot_open_fx_robot_" + self.giant_robot_id, n_foot);
@@ -585,7 +585,7 @@ function giant_robot_foot_waittill_sole_shot(m_sole)
 */
 function giant_robot_close_head_entrance(foot_side)
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	wait(5);
 	level.gr_foot_hatch_closed[self.giant_robot_id] = 1;
 	level clientfield::set("play_foot_open_fx_robot_" + self.giant_robot_id, 0);
@@ -618,7 +618,7 @@ function robot_walk_animation(n_robot_id)
 		level scene::play("cin_tomb_giant_robot_walk_nml_intro", self);
 		level scene::play("cin_tomb_giant_robot_walk_nml", self);
 		level scene::play("cin_tomb_giant_robot_walk_nml_outtro", self);
-		self notify(#"giant_robot_stop");
+		self notify("giant_robot_stop");
 	}
 	else
 	{
@@ -627,7 +627,7 @@ function robot_walk_animation(n_robot_id)
 			level scene::play("cin_tomb_giant_robot_walk_trenches_intro", self);
 			level scene::play("cin_tomb_giant_robot_walk_trenches", self);
 			level scene::play("cin_tomb_giant_robot_walk_trenches_outtro", self);
-			self notify(#"giant_robot_stop");
+			self notify("giant_robot_stop");
 		}
 		else
 		{
@@ -636,12 +636,12 @@ function robot_walk_animation(n_robot_id)
 				level scene::play("cin_tomb_giant_robot_walk_village_intro", self);
 				level scene::play("cin_tomb_giant_robot_walk_village", self);
 				level scene::play("cin_tomb_giant_robot_walk_village_outtro", self);
-				self notify(#"giant_robot_stop");
+				self notify("giant_robot_stop");
 			}
 			else if(n_robot_id == 3)
 			{
 				level scene::play("cin_tomb_giant_robot_bunker_intro", self);
-				self notify(#"giant_robot_stop");
+				self notify("giant_robot_stop");
 			}
 		}
 	}
@@ -677,7 +677,7 @@ function sndgrthreads(side)
 */
 function sndrobot(notetrack, alias, side)
 {
-	self endon(#"giant_robot_stop");
+	self endon("giant_robot_stop");
 	if(side == "right")
 	{
 		str_tag = "TAG_ATTACH_HATCH_RI";
@@ -743,8 +743,8 @@ function function_2124e9c6(startmove, str_tag, side)
 */
 function monitor_footsteps(trig_stomp_kill, foot_side)
 {
-	self endon(#"death");
-	self endon(#"giant_robot_stop");
+	self endon("death");
+	self endon("giant_robot_stop");
 	str_start_stomp = ("kill_zombies_" + foot_side) + "foot_1";
 	str_end_stomp = ("footstep_" + foot_side) + "_large";
 	while(true)
@@ -776,8 +776,8 @@ function monitor_footsteps(trig_stomp_kill, foot_side)
 */
 function monitor_footsteps_fx(trig_stomp_kill, foot_side)
 {
-	self endon(#"death");
-	self endon(#"giant_robot_stop");
+	self endon("death");
+	self endon("giant_robot_stop");
 	str_end_stomp = ("footstep_" + foot_side) + "_large";
 	while(true)
 	{
@@ -815,8 +815,8 @@ function monitor_footsteps_fx(trig_stomp_kill, foot_side)
 */
 function monitor_shadow_notetracks(foot_side)
 {
-	self endon(#"death");
-	self endon(#"giant_robot_stop");
+	self endon("death");
+	self endon("giant_robot_stop");
 	while(true)
 	{
 		self waittillmatch("shadow_" + foot_side);
@@ -862,7 +862,7 @@ function rumble_and_shake(robot)
 				if(dist < 1500)
 				{
 					player clientfield::set_to_player("giant_robot_rumble_and_shake", 3);
-					level notify(#"sam_clue_giant", player);
+					level notify("sam_clue_giant", player);
 				}
 				else
 				{
@@ -907,7 +907,7 @@ function toggle_kill_trigger_flag(trig_stomp, b_flag, foot_side = undefined)
 	else
 	{
 		self flag::clear("kill_trigger_active");
-		level notify(#"stop_kill_trig_think");
+		level notify("stop_kill_trig_think");
 		if(self flag::get("robot_head_entered"))
 		{
 			self flag::clear("robot_head_entered");
@@ -928,7 +928,7 @@ function toggle_kill_trigger_flag(trig_stomp, b_flag, foot_side = undefined)
 */
 function activate_kill_trigger(robot, foot_side)
 {
-	level endon(#"stop_kill_trig_think");
+	level endon("stop_kill_trig_think");
 	if(foot_side == "left")
 	{
 		str_foot_tag = "TAG_ATTACH_HATCH_LE";
@@ -1000,7 +1000,7 @@ function activate_kill_trigger(robot, foot_side)
 		{
 			if(m_box istouching(self))
 			{
-				m_box notify(#"robot_foot_stomp");
+				m_box notify("robot_foot_stomp");
 			}
 		}
 		players = getplayers();
@@ -1122,8 +1122,8 @@ function is_in_giant_robot_footstep_safe_spot()
 */
 function player_stomp_death(robot)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.is_stomped = 1;
 	self playsound("zmb_zombie_arc");
 	self freezecontrols(1);
@@ -1155,8 +1155,8 @@ function player_stomp_death(robot)
 */
 function player_stomp_fake_death(robot)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.is_stomped = 1;
 	self notify(#"hash_e2be4752");
 	self playsound("zmb_zombie_arc");
@@ -1240,7 +1240,7 @@ function zombie_stomp_death(robot, a_zombies_to_kill)
 */
 function quadrotor_stomp_death()
 {
-	self endon(#"death");
+	self endon("death");
 	self delete();
 }
 
@@ -1259,9 +1259,9 @@ function toggle_wind_bunker_collision()
 	v_foot = self gettagorigin("TAG_ATTACH_HATCH_LE");
 	if(distance2dsquared(s_org.origin, v_foot) < 57600)
 	{
-		level notify(#"wind_bunker_collision_on");
+		level notify("wind_bunker_collision_on");
 		wait(5);
-		level notify(#"wind_bunker_collision_off");
+		level notify("wind_bunker_collision_off");
 	}
 }
 
@@ -1280,9 +1280,9 @@ function toggle_tank_bunker_collision()
 	v_foot = self gettagorigin("TAG_ATTACH_HATCH_LE");
 	if(distance2dsquared(s_org.origin, v_foot) < 57600)
 	{
-		level notify(#"tank_bunker_collision_on");
+		level notify("tank_bunker_collision_on");
 		wait(5);
-		level notify(#"tank_bunker_collision_off");
+		level notify("tank_bunker_collision_off");
 	}
 }
 
@@ -1302,11 +1302,11 @@ function handle_wind_tunnel_bunker_collision()
 	e_collision connectpaths();
 	while(true)
 	{
-		level waittill(#"wind_bunker_collision_on");
+		level waittill("wind_bunker_collision_on");
 		wait(0.1);
 		e_collision solid();
 		e_collision disconnectpaths();
-		level waittill(#"wind_bunker_collision_off");
+		level waittill("wind_bunker_collision_off");
 		e_collision notsolid();
 		e_collision connectpaths();
 	}
@@ -1328,11 +1328,11 @@ function handle_tank_bunker_collision()
 	e_collision connectpaths();
 	while(true)
 	{
-		level waittill(#"tank_bunker_collision_on");
+		level waittill("tank_bunker_collision_on");
 		wait(0.1);
 		e_collision solid();
 		e_collision disconnectpaths();
-		level waittill(#"tank_bunker_collision_off");
+		level waittill("tank_bunker_collision_off");
 		e_collision notsolid();
 		e_collision connectpaths();
 	}
@@ -1406,8 +1406,8 @@ function play_pap_shake_fxanim(foot_side)
 */
 function player_transition_into_robot_head_start(n_start_time)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.giant_robot_transition = 1;
 	self.dontspeak = 1;
 	self clientfield::set_to_player("giant_robot_rumble_and_shake", 3);
@@ -1426,8 +1426,8 @@ function player_transition_into_robot_head_start(n_start_time)
 */
 function player_transition_into_robot_head_finish(n_transition_time)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	wait(n_transition_time);
 	self clientfield::set_to_player("player_rumble_and_shake", 0);
 	self clientfield::set_to_player("giant_robot_rumble_and_shake", 0);
@@ -1519,10 +1519,10 @@ function reset_gr_head_unitriggers()
 */
 function player_exits_giant_robot_head_trigger_think()
 {
-	self endon(#"tube_used_for_timeout");
+	self endon("tube_used_for_timeout");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(!(isdefined(self.stub.is_available) && self.stub.is_available))
 		{
 			continue;
@@ -1569,7 +1569,7 @@ function init_player_eject_logic(s_unitrigger, player, b_timeout = 0)
 	tube_clone setvisibletoall();
 	tube_clone setinvisibletoplayer(player);
 	tube_clone thread tube_clone_falls_to_earth(m_linkpoint);
-	m_linkpoint waittill(#"movedone");
+	m_linkpoint waittill("movedone");
 	wait(6);
 	s_unitrigger.is_available = 1;
 }
@@ -1585,8 +1585,8 @@ function init_player_eject_logic(s_unitrigger, player, b_timeout = 0)
 */
 function giant_robot_head_player_eject_thread(m_linkpoint, str_tube, b_timeout = 0)
 {
-	level endon(#"intermission");
-	self endon(#"death_or_disconnect");
+	level endon("intermission");
+	self endon("death_or_disconnect");
 	w_current_weapon = self getcurrentweapon();
 	self disableweapons();
 	self disableoffhandweapons();
@@ -1599,7 +1599,7 @@ function giant_robot_head_player_eject_thread(m_linkpoint, str_tube, b_timeout =
 	self setplayerangles(m_linkpoint.angles);
 	self.dontspeak = 1;
 	self clientfield::set_to_player("isspeaking", 1);
-	self notify(#"teleport");
+	self notify("teleport");
 	self.giant_robot_transition = 1;
 	self playsoundtoplayer("zmb_bot_timeout_alarm", self);
 	self.old_angles = self.angles;
@@ -1626,11 +1626,11 @@ function giant_robot_head_player_eject_thread(m_linkpoint, str_tube, b_timeout =
 	self playerlinktodelta(m_linkpoint, "tag_origin", 1, 180, 180, 20, 20);
 	m_linkpoint moveto(self.teleport_initial_origin, 3, 1);
 	m_linkpoint thread play_gr_eject_impact_player_fx(self);
-	m_linkpoint notify(#"start_gr_eject_fall_to_earth");
+	m_linkpoint notify("start_gr_eject_fall_to_earth");
 	self thread player_screams_while_falling();
 	wait(2.85);
 	self thread hud::fade_to_black_for_x_sec(0, 1, 0, 0.5, "black");
-	self waittill(#"gr_eject_fall_complete");
+	self waittill("gr_eject_fall_complete");
 	self setvisibletoall();
 	self enableweapons();
 	if(isdefined(w_current_weapon) && w_current_weapon != level.weaponnone)
@@ -1661,7 +1661,7 @@ function giant_robot_head_player_eject_thread(m_linkpoint, str_tube, b_timeout =
 	self setstance("prone");
 	self shellshock("explosion", n_post_eject_time);
 	self.giant_robot_transition = 0;
-	self notify(#"gr_eject_sequence_complete");
+	self notify("gr_eject_sequence_complete");
 	if(!level flag::get("story_vo_playing"))
 	{
 		self util::delay(3, undefined, &zm_audio::create_and_play_dialog, "general", "air_chute_landing");
@@ -1688,7 +1688,7 @@ function giant_robot_head_player_eject_thread(m_linkpoint, str_tube, b_timeout =
 */
 function player_screams_while_falling()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self stopsounds();
 	util::wait_network_frame();
 	self playsoundtoplayer(("vox_plr_" + self.characterindex) + "_exit_robot_0", self);
@@ -1705,9 +1705,9 @@ function player_screams_while_falling()
 */
 function tube_clone_falls_to_earth(m_linkpoint)
 {
-	m_linkpoint waittill(#"start_gr_eject_fall_to_earth");
+	m_linkpoint waittill("start_gr_eject_fall_to_earth");
 	self thread scene::play("cin_zm_dlc1_jump_pad_air_loop", self);
-	m_linkpoint waittill(#"movedone");
+	m_linkpoint waittill("movedone");
 	self thread scene::stop("cin_zm_dlc1_jump_pad_air_loop");
 	self delete();
 }
@@ -1724,8 +1724,8 @@ function tube_clone_falls_to_earth(m_linkpoint)
 function in_tube_manual_looping_rumble()
 {
 	self endon(#"end_in_tube_rumble");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		self clientfield::set_to_player("giant_robot_rumble_and_shake", 1);
@@ -1748,8 +1748,8 @@ function in_tube_manual_looping_rumble()
 function exit_gr_manual_looping_rumble()
 {
 	self endon(#"end_exit_gr_rumble");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		self clientfield::set_to_player("giant_robot_rumble_and_shake", 1);
@@ -1771,8 +1771,8 @@ function exit_gr_manual_looping_rumble()
 */
 function gr_eject_landing_rumble()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self notify(#"end_exit_gr_rumble");
 	util::wait_network_frame();
 	self clientfield::set_to_player("giant_robot_rumble_and_shake", 0);
@@ -1793,8 +1793,8 @@ function gr_eject_landing_rumble()
 */
 function gr_eject_landing_rumble_on_position()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	a_players = getplayers();
 	foreach(player in a_players)
 	{
@@ -1824,8 +1824,8 @@ function gr_eject_landing_rumble_on_position()
 */
 function teleport_player_to_gr_footprint_safe_spot()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(isdefined(self.entered_foot_from_tank_bunker) && self.entered_foot_from_tank_bunker)
 	{
 		a_s_orgs = struct::get_array("tank_platform_safe_spots", "targetname");
@@ -1877,7 +1877,7 @@ function teleport_player_to_gr_footprint_safe_spot()
 */
 function giant_robot_head_teleport_timeout(n_robot_id)
 {
-	level endon(#"intermission");
+	level endon("intermission");
 	wait(15);
 	n_players_in_robot = count_players_in_gr_head(n_robot_id);
 	if(n_players_in_robot == 0)
@@ -1937,13 +1937,13 @@ function giant_robot_head_teleport_timeout(n_robot_id)
 							player.var_df0decf1 = undefined;
 							player.var_25b88da = 0;
 							player thread zm_laststand::bleed_out();
-							player notify(#"gr_head_forced_bleed_out");
+							player notify("gr_head_forced_bleed_out");
 							continue;
 						}
 						else
 						{
 							player thread zm_laststand::bleed_out();
-							player notify(#"gr_head_forced_bleed_out");
+							player notify("gr_head_forced_bleed_out");
 							continue;
 						}
 					}
@@ -1993,8 +1993,8 @@ function giant_robot_head_teleport_timeout(n_robot_id)
 */
 function start_drag_player_to_eject_tube(n_robot_id, m_linkspot)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	a_gr_head_triggers = struct::get_array("giant_robot_head_exit_trigger", "script_noteworthy");
 	a_gr_head_triggers = util::get_array_of_closest(self.origin, a_gr_head_triggers);
 	foreach(trigger in a_gr_head_triggers)
@@ -2025,14 +2025,14 @@ function start_drag_player_to_eject_tube(n_robot_id, m_linkspot)
 */
 function move_player_to_eject_tube(m_linkspot, s_tube, trigger)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.giant_robot_transition = 1;
 	n_speed = 500;
 	n_dist = distance(m_linkspot.origin, s_tube.origin);
 	n_time = n_dist / n_speed;
 	m_linkspot moveto(s_tube.origin, n_time);
-	m_linkspot waittill(#"movedone");
+	m_linkspot waittill("movedone");
 	m_linkspot delete();
 	level thread init_player_eject_logic(trigger.unitrigger_stub, self, 1);
 }
@@ -2048,8 +2048,8 @@ function move_player_to_eject_tube(m_linkspot, s_tube, trigger)
 */
 function sndalarmtimeout()
 {
-	self endon(#"teleport");
-	self endon(#"disconnect");
+	self endon("teleport");
+	self endon("disconnect");
 	self playsoundtoplayer("zmb_bot_timeout_alarm", self);
 	wait(2.5);
 	self playsoundtoplayer("zmb_bot_timeout_alarm", self);
@@ -2066,12 +2066,12 @@ function sndalarmtimeout()
 */
 function play_gr_eject_impact_player_fx(player)
 {
-	player endon(#"death");
-	player endon(#"disconnect");
-	self waittill(#"movedone");
+	player endon("death");
+	player endon("disconnect");
+	self waittill("movedone");
 	player clientfield::set("gr_eject_player_impact_fx", 1);
 	util::wait_network_frame();
-	player notify(#"gr_eject_fall_complete");
+	player notify("gr_eject_fall_complete");
 	wait(1);
 	player clientfield::set("gr_eject_player_impact_fx", 0);
 }
@@ -2087,8 +2087,8 @@ function play_gr_eject_impact_player_fx(player)
 */
 function player_death_watch_on_giant_robot()
 {
-	self endon(#"disconnect");
-	self endon(#"gr_eject_sequence_complete");
+	self endon("disconnect");
+	self endon("gr_eject_sequence_complete");
 	self util::waittill_either("bled_out", "gr_head_forced_bleed_out");
 	self.entered_foot_from_tank_bunker = undefined;
 	self.giant_robot_transition = undefined;
@@ -2108,8 +2108,8 @@ function player_death_watch_on_giant_robot()
 */
 function giant_robot_eject_disconnect_watcher(m_linkpoint, tube_clone)
 {
-	self endon(#"gr_eject_sequence_complete");
-	self waittill(#"disconnect");
+	self endon("gr_eject_sequence_complete");
+	self waittill("disconnect");
 	if(isdefined(m_linkpoint))
 	{
 		m_linkpoint delete();
@@ -2131,8 +2131,8 @@ function giant_robot_eject_disconnect_watcher(m_linkpoint, tube_clone)
 */
 function turn_clientside_rumble_off()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	util::wait_network_frame();
 	self clientfield::set_to_player("giant_robot_rumble_and_shake", 0);
 }
@@ -2191,7 +2191,7 @@ function count_players_in_gr_head(n_robot_id)
 */
 function setup_giant_robots_intermission()
 {
-	level waittill(#"intermission");
+	level waittill("intermission");
 	for(i = 0; i < 3; i++)
 	{
 		ai_giant_robot = getent("giant_robot_" + i, "targetname");
@@ -2201,7 +2201,7 @@ function setup_giant_robots_intermission()
 		}
 		ai_giant_robot ghost();
 		ai_giant_robot stopanimscripted(0.05);
-		ai_giant_robot notify(#"giant_robot_stop");
+		ai_giant_robot notify("giant_robot_stop");
 		if(i == 2)
 		{
 			util::wait_network_frame();
@@ -2222,9 +2222,9 @@ function setup_giant_robots_intermission()
 */
 function giant_robot_discovered_vo(ai_giant_robot)
 {
-	ai_giant_robot endon(#"giant_robot_stop");
-	self endon(#"disconnect");
-	level endon(#"giant_robot_discovered");
+	ai_giant_robot endon("giant_robot_stop");
+	self endon("disconnect");
+	level endon("giant_robot_discovered");
 	while(true)
 	{
 		if(distance2dsquared(self.origin, ai_giant_robot.origin) < 16000000)
@@ -2235,7 +2235,7 @@ function giant_robot_discovered_vo(ai_giant_robot)
 				{
 					self zm_audio::create_and_play_dialog("general", "discover_robot");
 					level.giant_robot_discovered = 1;
-					level notify(#"giant_robot_discovered");
+					level notify("giant_robot_discovered");
 					break;
 				}
 			}
@@ -2255,9 +2255,9 @@ function giant_robot_discovered_vo(ai_giant_robot)
 */
 function three_robot_round_vo(ai_giant_robot)
 {
-	ai_giant_robot endon(#"giant_robot_stop");
-	self endon(#"disconnect");
-	level endon(#"three_robot_round_vo");
+	ai_giant_robot endon("giant_robot_stop");
+	self endon("disconnect");
+	level endon("three_robot_round_vo");
 	while(true)
 	{
 		if(distance2dsquared(self.origin, ai_giant_robot.origin) < 16000000)
@@ -2268,7 +2268,7 @@ function three_robot_round_vo(ai_giant_robot)
 				{
 					self zm_audio::create_and_play_dialog("general", "see_robots");
 					level.three_robot_round_vo = 1;
-					level notify(#"three_robot_round_vo");
+					level notify("three_robot_round_vo");
 					break;
 				}
 			}
@@ -2288,21 +2288,21 @@ function three_robot_round_vo(ai_giant_robot)
 */
 function shoot_at_giant_robot_vo(ai_giant_robot)
 {
-	ai_giant_robot endon(#"giant_robot_stop");
-	self endon(#"disconnect");
-	level endon(#"shoot_robot_vo");
+	ai_giant_robot endon("giant_robot_stop");
+	self endon("disconnect");
+	level endon("shoot_robot_vo");
 	while(true)
 	{
 		while(distance2dsquared(self.origin, ai_giant_robot.origin) < 16000000 && self zm_utility::is_player_looking_at(ai_giant_robot.origin + vectorscale((0, 0, 1), 2000), 0.7))
 		{
-			self waittill(#"weapon_fired");
+			self waittill("weapon_fired");
 			if(distance2dsquared(self.origin, ai_giant_robot.origin) < 16000000 && self zm_utility::is_player_looking_at(ai_giant_robot.origin + vectorscale((0, 0, 1), 2000), 0.7))
 			{
 				if(!(isdefined(self.dontspeak) && self.dontspeak))
 				{
 					self zm_audio::create_and_play_dialog("general", "shoot_robot");
 					level.shoot_robot_vo = 1;
-					level notify(#"shoot_robot_vo");
+					level notify("shoot_robot_vo");
 					return;
 				}
 			}
@@ -2407,7 +2407,7 @@ function play_robot_stomp_warning_vo()
 */
 function zombie_stomped_by_gr_vo(foot_side)
 {
-	self endon(#"giant_robot_stop");
+	self endon("giant_robot_stop");
 	if(foot_side == "right")
 	{
 		str_tag = "TAG_ATTACH_HATCH_RI";
@@ -2445,7 +2445,7 @@ function zombie_stomped_by_gr_vo(foot_side)
 */
 function play_robot_crush_player_vo()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(self laststand::player_is_in_laststand())
 	{
 		if(math::cointoss())
@@ -2475,7 +2475,7 @@ function play_timeout_warning_vo(n_robot_id)
 	s_origin = struct::get("eject_warning_fx_robot_" + n_robot_id, "targetname");
 	e_vo_origin = spawn_model("tag_origin", s_origin.origin);
 	e_vo_origin playsoundwithnotify("vox_maxi_purge_robot_0", "vox_maxi_purge_robot_0_done");
-	e_vo_origin waittill(#"vox_maxi_purge_robot_0_done");
+	e_vo_origin waittill("vox_maxi_purge_robot_0_done");
 	a_players = getplayers();
 	foreach(player in a_players)
 	{
@@ -2497,11 +2497,11 @@ function play_timeout_warning_vo(n_robot_id)
 	}
 	wait(1);
 	e_vo_origin playsoundwithnotify("vox_maxi_purge_countdown_0", "vox_maxi_purge_countdown_0_done");
-	e_vo_origin waittill(#"vox_maxi_purge_countdown_0_done");
+	e_vo_origin waittill("vox_maxi_purge_countdown_0_done");
 	wait(1);
 	level notify("timeout_warning_vo_complete_" + n_robot_id);
 	e_vo_origin playsoundwithnotify("vox_maxi_purge_now_0", "vox_maxi_purge_now_0_done");
-	e_vo_origin waittill(#"vox_maxi_purge_now_0_done");
+	e_vo_origin waittill("vox_maxi_purge_now_0_done");
 	e_vo_origin delete();
 	level flag::clear("timeout_vo_robot_" + n_robot_id);
 }
@@ -2539,8 +2539,8 @@ function start_footprint_warning_vo(n_robot_id)
 */
 function footprint_check_for_nearby_players(ai_giant_robot)
 {
-	level endon(#"footprint_warning_vo");
-	ai_giant_robot endon(#"giant_robot_stop");
+	level endon("footprint_warning_vo");
+	ai_giant_robot endon("giant_robot_stop");
 	while(true)
 	{
 		a_players = getplayers();
@@ -2556,7 +2556,7 @@ function footprint_check_for_nearby_players(ai_giant_robot)
 						{
 							player zm_utility::do_player_general_vox("general", "warn_robot");
 							level.footprint_warning_vo = 1;
-							level notify(#"footprint_warning_vo");
+							level notify("footprint_warning_vo");
 							return;
 						}
 					}

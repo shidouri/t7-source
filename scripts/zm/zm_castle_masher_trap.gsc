@@ -33,7 +33,7 @@
 function main()
 {
 	register_clientfields();
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level flag::init("masher_on");
 	level flag::init("masher_unlocked");
 	level flag::init("masher_cooldown");
@@ -75,7 +75,7 @@ function function_a61df505()
 	var_fb9e67a8 = getent("masher_buy_door", "script_noteworthy");
 	if(isdefined(var_fb9e67a8))
 	{
-		var_fb9e67a8 waittill(#"door_opened");
+		var_fb9e67a8 waittill("door_opened");
 	}
 	level flag::set("masher_unlocked");
 }
@@ -238,13 +238,13 @@ function function_aaf2ece7()
 {
 	while(true)
 	{
-		self waittill(#"trap_activate");
+		self waittill("trap_activate");
 		if(isdefined(self.activated_by_player))
 		{
 			self.activated_by_player playrumbleonentity("zm_castle_interact_rumble");
 		}
 		exploder::exploder("fxexp_116");
-		self waittill(#"trap_done");
+		self waittill("trap_done");
 		exploder::stop_exploder("fxexp_116");
 	}
 }
@@ -276,7 +276,7 @@ function function_81b05f08()
 */
 function function_5054a970()
 {
-	level waittill(#"power_on");
+	level waittill("power_on");
 	for(i = 0; i < self._trap_lights.size; i++)
 	{
 		self function_81b05f08();
@@ -340,7 +340,7 @@ function function_b776b443()
 		{
 			level flag::wait_till_clear("masher_cooldown");
 		}
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(!level flag::get("masher_on") && !level flag::get("masher_cooldown"))
 		{
 			if(!e_who zm_score::can_player_purchase(1500))
@@ -385,7 +385,7 @@ function function_aaf7f74d()
 		{
 			self._trap_switches[i] rotatepitch(-180, 0.5);
 		}
-		self._trap_switches[0] waittill(#"rotatedone");
+		self._trap_switches[0] waittill("rotatedone");
 		self function_13fd863b(self._trap_light_model_green);
 		exploder::stop_exploder("masher_trap_red");
 		exploder::exploder("masher_trap_green");
@@ -463,11 +463,11 @@ function function_8123d15a()
 	{
 		self movez(-116, 0.25);
 		self playsound("zmb_mashertrap_descend");
-		self waittill(#"movedone");
+		self waittill("movedone");
 		playrumbleonposition("zm_castle_gate_mash", self.origin);
 		array::run_all(self.var_beb932f1, &hide);
 		self movez(116, 0.25);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		wait(0.25);
 		array::run_all(self.var_beb932f1, &show);
 		n_total_time = (gettime() - n_start_time) / 1000;
@@ -528,7 +528,7 @@ function trigger_damage(var_6ac4e9cb)
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		self.activated_by_player = var_6ac4e9cb.activated_by_player;
 		if(level flag::get("masher_on"))
 		{
@@ -609,7 +609,7 @@ function function_9087381a()
 {
 	/#
 		wait(0.05);
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(0.05);
 		setdvar("", 0);
 		adddebugcommand("");

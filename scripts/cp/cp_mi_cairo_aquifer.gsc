@@ -296,7 +296,7 @@ function function_c2c4ea75()
 {
 	while(true)
 	{
-		level waittill(#"save_restore");
+		level waittill("save_restore");
 		foreach(player in level.players)
 		{
 			player clearplayergravity();
@@ -347,7 +347,7 @@ function function_8f9628e0()
 */
 function on_player_connected()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.player_num = self getentitynumber() + 1;
 	level flag::wait_till("start_coop_logic");
 	self flagsys::wait_till("loadout_given");
@@ -470,8 +470,8 @@ function on_player_spawned()
 */
 function on_player_loadout()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	self.my_heightmap = "none";
 	level flag::set("player_active_in_level");
 	self notify(#"hash_a4d83d61");

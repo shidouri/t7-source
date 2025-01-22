@@ -126,7 +126,7 @@ function missile_fire(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 */
 function update_hud(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.016);
 	vehicle = getplayervehicle(self);
 	if(isdefined(vehicle))
@@ -182,10 +182,10 @@ function update_ui_model_ammo_count(localclientnum, missiles_loaded)
 function tank_stun(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	if(newval)
 	{
-		self notify(#"light_disable");
+		self notify("light_disable");
 		self stop_stun_fx(localclientnum);
 		self start_stun_fx(localclientnum);
 	}
@@ -218,7 +218,7 @@ function death(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname,
 	if(newval)
 	{
 		self stop_stun_fx(localclientnum);
-		self notify(#"light_disable");
+		self notify("light_disable");
 	}
 }
 
@@ -266,10 +266,10 @@ function stop_stun_fx(localclientnum)
 */
 function play_driving_rumble(localclientnum)
 {
-	self notify(#"driving_rumble");
+	self notify("driving_rumble");
 	self endon(#"entityshutdown");
-	self endon(#"death");
-	self endon(#"driving_rumble");
+	self endon("death");
+	self endon("driving_rumble");
 	for(;;)
 	{
 		if(isinvehicle(localclientnum, self))

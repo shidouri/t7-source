@@ -155,7 +155,7 @@ function challengekills(data, time)
 			return;
 		}
 	}
-	attacker notify(#"killed_enemy_player", time, weapon);
+	attacker notify("killed_enemy_player", time, weapon);
 	if(isdefined(player.primaryloadoutweapon) && weapon == player.primaryloadoutweapon || (isdefined(player.primaryloadoutaltweapon) && weapon == player.primaryloadoutaltweapon))
 	{
 		if(player isbonuscardactive(0, player.class_num))
@@ -523,14 +523,14 @@ function challengekills(data, time)
 		case "bouncingbetty":
 		{
 			lethalgrenadekill = 1;
-			player notify(#"lethalgrenadekill");
+			player notify("lethalgrenadekill");
 			break;
 		}
 		case "hatchet":
 		{
 			player bladekill();
 			lethalgrenadekill = 1;
-			player notify(#"lethalgrenadekill");
+			player notify("lethalgrenadekill");
 			if(isdefined(lastweaponbeforetoss))
 			{
 				if(lastweaponbeforetoss.isriotshield)
@@ -544,7 +544,7 @@ function challengekills(data, time)
 		case "claymore":
 		{
 			lethalgrenadekill = 1;
-			player notify(#"lethalgrenadekill");
+			player notify("lethalgrenadekill");
 			player addplayerstat("kill_with_claymore", 1);
 			if(data.washacked)
 			{
@@ -555,7 +555,7 @@ function challengekills(data, time)
 		case "satchel_charge":
 		{
 			lethalgrenadekill = 1;
-			player notify(#"lethalgrenadekill");
+			player notify("lethalgrenadekill");
 			player addplayerstat("kill_with_c4", 1);
 			break;
 		}
@@ -571,7 +571,7 @@ function challengekills(data, time)
 		case "sticky_grenade":
 		{
 			lethalgrenadekill = 1;
-			player notify(#"lethalgrenadekill");
+			player notify("lethalgrenadekill");
 			if(isdefined(victim.explosiveinfo["stuckToPlayer"]) && victim.explosiveinfo["stuckToPlayer"] == victim)
 			{
 				attacker.pers["stickExplosiveKill"]++;
@@ -586,7 +586,7 @@ function challengekills(data, time)
 		case "frag_grenade":
 		{
 			lethalgrenadekill = 1;
-			player notify(#"lethalgrenadekill");
+			player notify("lethalgrenadekill");
 			if(isdefined(data.victim.explosiveinfo["cookedKill"]) && data.victim.explosiveinfo["cookedKill"] == 1)
 			{
 				player addplayerstat("kill_with_cooked_grenade", 1);

@@ -72,7 +72,7 @@ function register_clientfields()
 */
 function function_5ecbd7cb()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	var_845e036a = getent(self.target, "targetname");
 	vol_fling = getent(var_845e036a.target, "targetname");
 	var_845e036a setmodel("p7_zm_ctl_jumpsphere_combined_snow");
@@ -97,7 +97,7 @@ function function_5ecbd7cb()
 	{
 		var_845e036a setmodel("p7_zm_ctl_jumpsphere_combined_snow_blue");
 		var_845e036a thread function_cc3a384b(1);
-		s_unitrigger_stub waittill(#"trigger", e_who);
+		s_unitrigger_stub waittill("trigger", e_who);
 		if(level flag::get("rocket_firing") && s_unitrigger_stub.in_zone === "zone_rooftop")
 		{
 			continue;
@@ -241,12 +241,12 @@ function function_e2ae5aa6(str_message, param1)
 */
 function unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread unitrigger_refresh_message();
 	while(true)
 	{
-		self waittill(#"trigger", var_4161ad80);
-		self.stub notify(#"trigger", var_4161ad80);
+		self waittill("trigger", var_4161ad80);
+		self.stub notify("trigger", var_4161ad80);
 	}
 }
 
@@ -461,7 +461,7 @@ function function_149a5187()
 */
 function function_e9d3c391(var_ca34f349, v_fling, nd_start, var_173065cc, var_df826fd8)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isplayer(self))
 	{
 		self thread function_149a5187();
@@ -514,7 +514,7 @@ function function_e9d3c391(var_ca34f349, v_fling, nd_start, var_173065cc, var_df
 		var_413ea50f setignorepauseworld(1);
 		var_413ea50f attachpath(nd_start);
 		var_413ea50f startpath();
-		var_413ea50f waittill(#"reached_end_node");
+		var_413ea50f waittill("reached_end_node");
 		self thread function_3298b25f(nd_start);
 		self thread function_29c06608();
 		self playrumbleonentity("zm_castle_flinger_land");
@@ -563,7 +563,7 @@ function function_e9d3c391(var_ca34f349, v_fling, nd_start, var_173065cc, var_df
 			n_distance = distance(nd_start.origin, nd_next.origin);
 			n_time = n_distance / 600;
 			self.mdl_anchor moveto(nd_next.origin, n_time);
-			self.mdl_anchor waittill(#"movedone");
+			self.mdl_anchor waittill("movedone");
 			self unlink();
 			self startragdoll();
 			self launchragdoll(v_fling * randomfloatrange(0.17, 0.21));
@@ -660,12 +660,12 @@ function function_cbac68fe(e_player)
 */
 function function_74d2bb99(nd_start)
 {
-	self endon(#"death");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("reached_end_node");
 	var_5f7e3f41 = nd_start;
 	while(isdefined(var_5f7e3f41))
 	{
-		self waittill(#"reached_node", var_5f7e3f41);
+		self waittill("reached_node", var_5f7e3f41);
 		nd_last = var_5f7e3f41;
 		var_5f7e3f41 = undefined;
 		var_5f7e3f41 = getvehiclenode(nd_last.target, "targetname");
@@ -827,7 +827,7 @@ function function_44659337(nd_target, var_ca34f349, v_fling)
 */
 function function_1a4837ab(nd_target, e_target, var_ca34f349, v_fling)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!(isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
 	{
 		return;
@@ -1014,12 +1014,12 @@ function function_485001bf()
 */
 function function_4029cf56()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	self.stub thread zm_unitrigger::run_visibility_function_for_all_triggers();
 	while(true)
 	{
-		self waittill(#"trigger", var_4161ad80);
-		self.stub notify(#"trigger", var_4161ad80);
+		self waittill("trigger", var_4161ad80);
+		self.stub notify("trigger", var_4161ad80);
 	}
 }
 
@@ -1047,7 +1047,7 @@ function function_cc8f94df()
 	s_unitrigger_stub.prompt_and_visibility_func = &function_485001bf;
 	zm_unitrigger::register_static_unitrigger(s_unitrigger_stub, &function_4029cf56);
 	s_unitrigger_stub function_e2ae5aa6(&"ZM_CASTLE_ENABLE_LANDING_PAD");
-	s_unitrigger_stub waittill(#"trigger", e_who);
+	s_unitrigger_stub waittill("trigger", e_who);
 	var_1143aa58 playsound("evt_launchpad_on");
 	if(level zm_utility::is_player_valid(e_who))
 	{
@@ -1070,11 +1070,11 @@ function function_cc8f94df()
 */
 function function_979004a()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	var_7d3b9ef4 = getent("trig_115_lift", "targetname");
 	while(true)
 	{
-		var_7d3b9ef4 waittill(#"trigger", e_player);
+		var_7d3b9ef4 waittill("trigger", e_player);
 		if(zm_utility::is_player_valid(e_player))
 		{
 			e_player thread function_ab3112dc(var_7d3b9ef4);
@@ -1131,7 +1131,7 @@ function function_ab3112dc(var_16a4e32)
 */
 function function_894853cb(var_16a4e32)
 {
-	self endon(#"death");
+	self endon("death");
 	nd_start = getvehiclenode(var_16a4e32.target, "targetname");
 	self.is_flung = 1;
 	self enableinvulnerability();
@@ -1179,7 +1179,7 @@ function function_894853cb(var_16a4e32)
 	var_413ea50f setignorepauseworld(1);
 	var_413ea50f attachpath(nd_start);
 	var_413ea50f startpath();
-	var_413ea50f waittill(#"reached_end_node");
+	var_413ea50f waittill("reached_end_node");
 	self unlink();
 	self function_121c6c1e();
 	self thread function_29c06608();

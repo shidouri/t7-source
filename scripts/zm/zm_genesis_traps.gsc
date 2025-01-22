@@ -177,7 +177,7 @@ function function_38d940ac(var_60532813)
 	var_60532813._trap_type = "flogger";
 	while(true)
 	{
-		self waittill(#"trigger_activated", e_player);
+		self waittill("trigger_activated", e_player);
 		if(e_player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -261,7 +261,7 @@ function trap_move_switches()
 	{
 		self.a_e_switches[i] rotatepitch(-170, 0.5);
 	}
-	self.a_e_switches[0] waittill(#"rotatedone");
+	self.a_e_switches[0] waittill("rotatedone");
 	if(isdefined(self.script_int) && !level flag::get("power_on" + self.script_int))
 	{
 		level flag::wait_till("power_on" + self.script_int);
@@ -276,13 +276,13 @@ function trap_move_switches()
 			self.a_e_switches[i] rotatepitch(170, 0.5);
 			self.a_e_switches[i] playsound("evt_switch_flip_trap");
 		}
-		self.a_e_switches[0] waittill(#"rotatedone");
+		self.a_e_switches[0] waittill("rotatedone");
 		self flag::wait_till("trap_cooldown");
 		for(i = 0; i < self.a_e_switches.size; i++)
 		{
 			self.a_e_switches[i] rotatepitch(-170, 0.5);
 		}
-		self.a_e_switches[0] waittill(#"rotatedone");
+		self.a_e_switches[0] waittill("rotatedone");
 		self flag::wait_till_clear("trap_cooldown");
 		self trap_lights_green();
 	}
@@ -341,7 +341,7 @@ function function_157a698(var_c4f1ee44, e_player)
 	playsoundatposition("zmb_flogger_motor_start_r", self.var_736c69e7.origin);
 	wait(0.5);
 	self thread function_bb59d4d9(var_c4f1ee44, e_player);
-	self waittill(#"trap_done");
+	self waittill("trap_done");
 	self flag::clear("trap_active");
 	self flag::set("trap_cooldown");
 	self triggerenable(0);
@@ -363,7 +363,7 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 	var_ffd9e7a0 = util::spawn_model("tag_origin", self.var_f1693315.origin);
 	var_94be4c8f = util::spawn_model("tag_origin", self.var_736c69e7.origin);
 	util::wait_network_frame();
-	level notify(#"trap_activate", self);
+	level notify("trap_activate", self);
 	var_ffd9e7a0 playloopsound("zmb_flogger_motor_lp_l");
 	var_94be4c8f playloopsound("zmb_flogger_motor_lp_r");
 	self.var_4b6ad173 notsolid();
@@ -380,9 +380,9 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 	self.var_4b6ad173 rotatepitch(n_rotations, 30, 6, 6);
 	level thread function_ec80dc42(self.var_4b6ad173);
 	level thread function_e5b7e8b0(var_ffd9e7a0, var_94be4c8f);
-	self.var_4b6ad173 waittill(#"rotatedone");
+	self.var_4b6ad173 waittill("rotatedone");
 	self.var_4b6ad173 solid();
-	self notify(#"trap_done");
+	self notify("trap_done");
 }
 
 /*
@@ -396,7 +396,7 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 */
 function function_ec80dc42(var_4b6ad173)
 {
-	var_4b6ad173 endon(#"rotatedone");
+	var_4b6ad173 endon("rotatedone");
 	var_feed8b5b = var_4b6ad173.angles[0];
 	var_dea46db3 = var_4b6ad173.angles[0];
 	firsttime = 1;
@@ -468,10 +468,10 @@ function function_e5b7e8b0(var_ffd9e7a0, var_94be4c8f)
 */
 function function_1f2a0da5(var_c4f1ee44, e_player)
 {
-	self endon(#"trap_done");
+	self endon("trap_done");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(isplayer(e_who))
 		{
 			e_who thread do_player_damage();
@@ -494,8 +494,8 @@ function function_1f2a0da5(var_c4f1ee44, e_player)
 */
 function do_player_damage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(level.activeplayers.size == 1)
 	{
 		if(!(isdefined(self.b_no_trap_damage) && self.b_no_trap_damage))
@@ -524,14 +524,14 @@ function do_player_damage()
 */
 function function_af6b7901(var_c4f1ee44, e_player)
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.archetype === "parasite")
 	{
 		self kill();
 	}
 	else if(self.archetype === "zombie")
 	{
-		level notify(#"flogger_killed_zombie", self, e_player);
+		level notify("flogger_killed_zombie", self, e_player);
 		if(!isdefined(self.var_b07a0f56))
 		{
 			self thread do_launch(var_c4f1ee44);
@@ -593,7 +593,7 @@ function do_launch(var_c4f1ee44)
 function function_f5ad0ae6()
 {
 	level.var_1183e023++;
-	self waittill(#"death");
+	self waittill("death");
 	level.var_1183e023--;
 }
 

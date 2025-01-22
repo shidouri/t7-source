@@ -87,7 +87,7 @@ function white_infinite_igc()
 	setpauseworld(0);
 	level flag::set("train_terrain_resume");
 	exploder::exploder_stop("ex_white_inf_light");
-	level notify(#"white_infinite_igc_terminate");
+	level notify("white_infinite_igc_terminate");
 	level util::clear_streamer_hint();
 }
 
@@ -149,7 +149,7 @@ function function_7b872728(a_ents)
 	level thread function_b7ef38e9();
 	a_ents["train_car"] thread function_63d2d91e();
 	level thread function_bb60f445(a_ents);
-	a_ents["player 1"] waittill(#"freeze");
+	a_ents["player 1"] waittill("freeze");
 	if(!scene::is_skipping_in_progress())
 	{
 		setpauseworld(1);
@@ -349,9 +349,9 @@ function taylor_inbound_igc(a_ents)
 {
 	ai_taylor = a_ents["taylor"];
 	ai_taylor ghost();
-	level waittill(#"rez_taylor");
+	level waittill("rez_taylor");
 	ai_taylor thread newworld_util::function_c949a8ed(1);
-	level waittill(#"derez_taylor");
+	level waittill("derez_taylor");
 	ai_taylor thread newworld_util::function_4943984c(1);
 }
 
@@ -659,7 +659,7 @@ function function_7710c097()
 */
 function function_c19bd331()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::waittill_any("goal", "near_goal");
 	self ai::set_behavior_attribute("move_mode", "rusher");
 	self ai::set_behavior_attribute("sprint", 1);
@@ -1071,7 +1071,7 @@ function function_382c53b4()
 */
 function function_54bd9482()
 {
-	self endon(#"death");
+	self endon("death");
 	trigger::wait_till("concussive_wave_use_ability_tutorial", "targetname", self);
 	self flag::set("concussive_wave_show_use_ability_tutorial");
 }
@@ -1149,7 +1149,7 @@ function train_civilians(str_objective)
 */
 function train_civilian_logic(a_ents)
 {
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	var_f11c18b5 = a_ents["train_civilian_model"];
 	if(!isdefined(var_f11c18b5))
 	{
@@ -1161,7 +1161,7 @@ function train_civilian_logic(a_ents)
 	var_f11c18b5.script_objective = "train_detach_bomb_igc";
 	while(true)
 	{
-		var_f11c18b5 waittill(#"damage", n_damage, attacker);
+		var_f11c18b5 waittill("damage", n_damage, attacker);
 		if(n_damage > 1)
 		{
 			break;
@@ -1205,7 +1205,7 @@ function train_civilian_logic(a_ents)
 */
 function function_ffaa48a3(a_ents)
 {
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	var_f11c18b5 = a_ents["train_civilian_model"];
 	if(!isdefined(var_f11c18b5))
 	{
@@ -1250,7 +1250,7 @@ function function_ffaa48a3(a_ents)
 */
 function function_4a8e782e()
 {
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	self endon(#"hash_ddb95805");
 	self endon(#"hash_bf294add");
 	foreach(player in level.activeplayers)
@@ -1405,7 +1405,7 @@ function train_lockdown()
 	scene::add_scene_func("cin_new_15_02_train_aie_smash", &train_lockdown_glass_break_right, "play");
 	scene::add_scene_func("cin_new_15_02_train_aie_smash", &function_84631064, "done");
 	level thread scene::play("cin_new_15_02_train_aie_smash");
-	level waittill(#"train_lockdown_glass_break_right");
+	level waittill("train_lockdown_glass_break_right");
 	array::run_all(getentarray("train_lockdown_glass", "targetname"), &delete);
 }
 
@@ -1454,9 +1454,9 @@ function function_f1aa562d(a_ents)
 */
 function function_b8f52cb2(a_ents)
 {
-	level waittill(#"train_lockdown_glass_break_left");
+	level waittill("train_lockdown_glass_break_left");
 	a_ents["lockdown_roof_robot_left"] util::stop_magic_bullet_shield();
-	level waittill(#"train_lockdown_glass_break_right");
+	level waittill("train_lockdown_glass_break_right");
 	a_ents["lockdown_roof_robot_right"] util::stop_magic_bullet_shield();
 }
 
@@ -1564,7 +1564,7 @@ function start_sequential_train_door_lockdown()
 	clientfield::set("train_lockdown_shutters_2", 1);
 	var_dee3d10a = getent("train_rooftop_regroup_zone", "targetname");
 	var_dee3d10a.var_3367c99d = 1000;
-	var_dee3d10a waittill(#"trigger");
+	var_dee3d10a waittill("trigger");
 	e_trigger = getent("train_car_lockdown_01", "targetname");
 	e_trigger wait_for_train_car_to_be_empty();
 	trigger::use("enable_car_0_respawns");
@@ -1667,7 +1667,7 @@ function train_car_door_lock(n_index)
 	var_265e12e8 movey(-64, 0.2);
 	var_3a80c4a6 movey(64, 0.2);
 	var_3a80c4a6 playsound("evt_train_door_close");
-	var_265e12e8 waittill(#"movedone");
+	var_265e12e8 waittill("movedone");
 	var_265e12e8 disconnectpaths(0, 0);
 	var_3a80c4a6 disconnectpaths(0, 0);
 	e_gate = getent("train_umbra_gate_0" + n_index, "targetname");
@@ -1697,7 +1697,7 @@ function function_42e02b4(n_index)
 	var_265e12e8 movey(64, 0.2);
 	var_3a80c4a6 movey(-64, 0.2);
 	var_3a80c4a6 playsound("evt_train_door_open");
-	var_265e12e8 waittill(#"movedone");
+	var_265e12e8 waittill("movedone");
 	var_265e12e8 connectpaths();
 	var_3a80c4a6 connectpaths();
 	trigger::use(("enable_car_" + n_index) + "_respawns");
@@ -1872,7 +1872,7 @@ function function_33267d4e()
 */
 function train_wind_resistance()
 {
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	level thread player_on_top_of_train_watcher();
 	e_volume = getent("train_rooftop_volume", "targetname");
 	while(isdefined(e_volume))
@@ -1900,7 +1900,7 @@ function train_wind_resistance()
 function player_on_top_of_train_watcher()
 {
 	e_trigger = getent("player_enters_train_rooftop", "targetname");
-	e_trigger waittill(#"trigger");
+	e_trigger waittill("trigger");
 	altered_gravity_enable();
 	level.player_on_top_of_train = 1;
 	level flag::set("player_on_top_of_train");
@@ -1934,7 +1934,7 @@ function player_inside_train_watcher()
 */
 function train_wind_resistance_player(e_player)
 {
-	e_player endon(#"death");
+	e_player endon("death");
 	e_player.is_on_train_roof = 1;
 	e_player clientfield::set_to_player("train_rumble_loop", 1);
 	e_player util::set_lighting_state(1);
@@ -1969,7 +1969,7 @@ function train_wind_resistance_player(e_player)
 */
 function player_is_ignored_when_climbing_to_roof()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!(isdefined(self.climbed_to_roof) && self.climbed_to_roof))
 	{
 		self.climbed_to_roof = 1;
@@ -2131,7 +2131,7 @@ function skipto_train_rooftop_init(str_objective, b_starting)
 */
 function function_376cc585()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("cull_penultimate_stragglers");
 	newworld_util::function_c1c980d8("t_vol_cull_stragglers_train_main");
 }
@@ -2176,7 +2176,7 @@ function train_spawn_functions()
 */
 function train_robot_rushers()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.classname === "actor_spawner_enemy_sec_robot_cqb_shotgun")
 	{
 		self ai::set_behavior_attribute("move_mode", "rusher");
@@ -2195,7 +2195,7 @@ function train_robot_rushers()
 */
 function function_422fbc49()
 {
-	self endon(#"death");
+	self endon("death");
 	self.script_accuracy = 0.1;
 	self ai::set_behavior_attribute("sprint", 1);
 	e_goalvolume = getent(self.target, "targetname");
@@ -2220,7 +2220,7 @@ function function_422fbc49()
 */
 function function_ca6ecfb3()
 {
-	self endon(#"death");
+	self endon("death");
 	self.script_accuracy = 0.1;
 	while(true)
 	{
@@ -2467,7 +2467,7 @@ function skipto_detach_bomb_igc_init(str_objective, b_starting)
 	detach_bomb_igc(e_player);
 	level waittill(#"hash_132422b6");
 	level util::clear_streamer_hint();
-	level notify(#"detach_bomb_igc_terminate");
+	level notify("detach_bomb_igc_terminate");
 	util::clientnotify("newworld_train_complete");
 	objectives::complete("cp_level_newworld_train_disarm");
 	skipto::objective_completed(str_objective);
@@ -2693,7 +2693,7 @@ function function_7db3194d(a_ents)
 */
 function function_778d22d7(a_ents)
 {
-	a_ents["player 1"] waittill(#"train_explosion");
+	a_ents["player 1"] waittill("train_explosion");
 	exploder::exploder("ex_bomb_igc");
 	var_3ebf068e = getent("newworld_train_end", "targetname");
 	var_3ebf068e clientfield::set("train_explosion_fx", 1);
@@ -3065,8 +3065,8 @@ function environment_init(e_environment_1, e_environment_2, e_environment_3, b_i
 */
 function environment_move(e_environment_1, e_environment_2, e_environment_3)
 {
-	level endon(#"white_infinite_igc_terminate");
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("white_infinite_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	level endon(#"hash_f49d815e");
 	level.var_2982cbda = array(e_environment_1, e_environment_2, e_environment_3);
 	while(!level flag::get("train_terrain_transition"))
@@ -3124,8 +3124,8 @@ function environment_move(e_environment_1, e_environment_2, e_environment_3)
 */
 function environment_transition(e_old_environment_1, e_old_environment_2, e_old_environment_3, e_new_environment_1, e_new_environment_2, e_new_environment_3)
 {
-	level endon(#"white_infinite_igc_terminate");
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("white_infinite_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	level endon(#"hash_f49d815e");
 	level flag::set("train_terrain_transition");
 	level flag::wait_till("train_terrain_move_complete");
@@ -3256,7 +3256,7 @@ function function_f0cad19e()
 */
 function train_player_checkpoints()
 {
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	level thread train_robot_fell_off();
 	a_e_triggers = getentarray("train_bad_area", "targetname");
 	foreach(e_trigger in a_e_triggers)
@@ -3280,7 +3280,7 @@ function train_player_fell_off()
 	a_s_teleports = struct::get_array(self.target, "targetname");
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(isplayer(e_who) && (!(isdefined(e_who.var_511157e8) && e_who.var_511157e8)))
 		{
 			e_who playsoundtoplayer("evt_plr_derez", e_who);
@@ -3300,7 +3300,7 @@ function train_player_fell_off()
 */
 function function_c24ce0f9(a_s_teleports)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		s_spot = array::random(a_s_teleports);
@@ -3340,11 +3340,11 @@ function function_c24ce0f9(a_s_teleports)
 */
 function train_robot_fell_off()
 {
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	e_trigger = getent("train_bad_area_robots", "targetname");
 	while(true)
 	{
-		e_trigger waittill(#"trigger", e_who);
+		e_trigger waittill("trigger", e_who);
 		if(!isplayer(e_who))
 		{
 			e_who kill();
@@ -3363,7 +3363,7 @@ function train_robot_fell_off()
 */
 function function_f9012fc()
 {
-	level endon(#"detach_bomb_igc_terminate");
+	level endon("detach_bomb_igc_terminate");
 	var_32400ae0 = getent("train_grenades_make_duds", "targetname");
 	foreach(player in level.players)
 	{
@@ -3383,11 +3383,11 @@ function function_f9012fc()
 */
 function grenade_toss(var_32400ae0)
 {
-	level endon(#"detach_bomb_igc_terminate");
-	self endon(#"death");
+	level endon("detach_bomb_igc_terminate");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"grenade_fire", e_grenade);
+		self waittill("grenade_fire", e_grenade);
 		e_grenade thread function_337c8c84(var_32400ae0);
 	}
 }
@@ -3403,11 +3403,11 @@ function grenade_toss(var_32400ae0)
 */
 function function_337c8c84(var_32400ae0)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(10))
 	{
 		__s = spawnstruct();
-		__s endon(#"timeout");
+		__s endon("timeout");
 		__s util::delay_notify(10, "timeout");
 	}
 	while(true)
@@ -3450,7 +3450,7 @@ function function_9ee5007a(params)
 */
 function function_be50cfd5()
 {
-	self waittill(#"start_ragdoll");
+	self waittill("start_ragdoll");
 	if(isdefined(self))
 	{
 		self clientfield::set("train_throw_robot_corpses", 1);
@@ -3468,7 +3468,7 @@ function function_be50cfd5()
 */
 function function_50171558()
 {
-	self waittill(#"actor_corpse", e_corpse);
+	self waittill("actor_corpse", e_corpse);
 	if(isdefined(e_corpse))
 	{
 		e_corpse clientfield::set("train_throw_robot_corpses", 1);
@@ -3488,7 +3488,7 @@ function function_19b91013()
 {
 	s_org = struct::get("intro_igc_train_vo", "targetname");
 	e_org = spawn("script_origin", s_org.origin);
-	level waittill(#"chyron_menu_open");
+	level waittill("chyron_menu_open");
 	e_org dialog::say("trai_downtown_zurich_fin_0", 7, 1);
 	e_org delete();
 }
@@ -3565,7 +3565,7 @@ function function_1563ec28(var_a2cc98e)
 {
 	level endon(#"hash_e6f4684e");
 	self endon(var_a2cc98e);
-	self endon(#"death");
+	self endon("death");
 	if(!self flag::exists(var_a2cc98e))
 	{
 		return;
@@ -3607,7 +3607,7 @@ function function_1563ec28(var_a2cc98e)
 */
 function function_152eb171(var_12b288c7)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_e6f4684e");
 	self thread function_e5b6ecf2(var_12b288c7, 1);
 	self waittill(var_12b288c7);
@@ -3645,7 +3645,7 @@ function function_152eb171(var_12b288c7)
 */
 function function_e5b6ecf2(var_12b288c7, var_a74dbb8c)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_70ca9767");
 	if(isdefined(var_a74dbb8c))
 	{
@@ -3752,7 +3752,7 @@ function function_8e9219f()
 */
 function function_999e5485()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(30);
 	self.var_470b117b = 0;
 }
@@ -3827,7 +3827,7 @@ function function_32b93f59(var_b41e8e5c, var_a2cc98e)
 {
 	level endon(#"hash_70ca9767");
 	self endon(var_a2cc98e);
-	self endon(#"death");
+	self endon("death");
 	if(!self flag::exists(var_b41e8e5c))
 	{
 		return;
@@ -3875,7 +3875,7 @@ function function_32b93f59(var_b41e8e5c, var_a2cc98e)
 */
 function function_3fbeb972(var_12b288c7)
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_70ca9767");
 	self waittill(#"hash_f045e164");
 	wait(0.75);
@@ -3912,7 +3912,7 @@ function function_3fbeb972(var_12b288c7)
 */
 function function_7bece35e()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_70ca9767");
 	while(true)
 	{
@@ -4029,7 +4029,7 @@ function function_13b3e595()
 */
 function function_f26eff53()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_cd9625d0) && self.var_cd9625d0)
 	{
 		return;
@@ -4059,7 +4059,7 @@ function function_f26eff53()
 */
 function function_d9c04d31()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_cd9625d0 = 1;
 	wait(30);
 	self.var_cd9625d0 = 0;

@@ -77,7 +77,7 @@ function track_points_spent()
 {
 	while(true)
 	{
-		level waittill(#"spent_points", player, points);
+		level waittill("spent_points", player, points);
 		player zm_challenges_tomb::increment_stat("zc_points_spent", points);
 	}
 }
@@ -127,7 +127,7 @@ function box_footprint_think()
 	self clientfield::set("foot_print_box_glow", 0);
 	while(self.n_souls_absorbed < n_souls_required)
 	{
-		self waittill(#"soul_absorbed", player);
+		self waittill("soul_absorbed", player);
 		self.n_souls_absorbed++;
 		if(self.n_souls_absorbed == 1)
 		{
@@ -177,16 +177,16 @@ function box_footprint_think()
 		v_rotate_angles = v_start_angles + (randomfloatrange(-10, 10), randomfloatrange(-10, 10), randomfloatrange(-10, 10));
 		n_rotate_time = randomfloatrange(0.2, 0.4);
 		self rotateto(v_rotate_angles, n_rotate_time);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 	self rotateto(v_start_angles, 0.3);
 	self movez(-60, 0.5, 0.5);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	trace_start = self.origin + vectorscale((0, 0, 1), 200);
 	trace_end = self.origin;
 	fx_trace = bullettrace(trace_start, trace_end, 0, self);
 	playfx(level._effect["mech_booster_landing"], fx_trace["position"], anglestoforward(self.angles), anglestoup(self.angles));
-	self waittill(#"movedone");
+	self waittill("movedone");
 	level zm_challenges_tomb::increment_stat("zc_boxes_filled");
 	if(isdefined(player))
 	{
@@ -217,7 +217,7 @@ function watch_for_foot_stomp()
 	self endon(#"box_finished");
 	while(true)
 	{
-		self waittill(#"robot_foot_stomp");
+		self waittill("robot_foot_stomp");
 		self scene::play("p7_fxanim_zm_ori_challenge_box_close_bundle", self);
 		self clientfield::set("foot_print_box_glow", 0);
 		self.n_souls_absorbed = 0;
@@ -244,7 +244,7 @@ function footprint_zombie_killed(attacker)
 		{
 			self clientfield::set("foot_print_box_fx", 1);
 			m_box = getent(e_volume.target, "targetname");
-			m_box notify(#"soul_absorbed", attacker);
+			m_box notify("soul_absorbed", attacker);
 			return true;
 		}
 	}
@@ -494,7 +494,7 @@ function reward_one_inch_punch(player, s_stat)
 */
 function one_inch_punch_watch_for_death(s_stat)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"bled_out");
 	if(s_stat.b_reward_claimed)
 	{

@@ -523,7 +523,7 @@ function robottraverseend(entity)
 	robottraverseragdollondeath(entity);
 	entity.skipdeath = 0;
 	entity.traversal = undefined;
-	entity notify(#"traverse_end");
+	entity notify("traverse_end");
 	return 4;
 }
 
@@ -4054,7 +4054,7 @@ function private robotgivewasp(entity)
 */
 function private robotdeploywasp(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	wait(randomfloatrange(7, 10));
 	if(isdefined(entity) && isdefined(entity.wasp))
 	{
@@ -4081,7 +4081,7 @@ function private robotdeploywasp(entity)
 */
 function private rapsdetonatecountdown(entity)
 {
-	entity endon(#"death");
+	entity endon("death");
 	wait(randomfloatrange(20, 30));
 	raps::detonate();
 }
@@ -4114,7 +4114,7 @@ function private becomecrawler(entity)
 */
 function private cleanupequipment(entity)
 {
-	entity waittill(#"death");
+	entity waittill("death");
 	if(!isdefined(entity))
 	{
 		return;

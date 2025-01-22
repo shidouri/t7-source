@@ -284,7 +284,7 @@ function electric_cherry_laststand()
 */
 function electric_cherry_death_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	self playsound("zmb_elec_jib_zombie");
 	if(!(isdefined(self.head_gibbed) && self.head_gibbed))
 	{
@@ -321,7 +321,7 @@ function electric_cherry_death_fx()
 */
 function electric_cherry_shock_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isvehicle(self))
 	{
 		self clientfield::set("tesla_shock_eyes_fx_veh", 1);
@@ -353,7 +353,7 @@ function electric_cherry_shock_fx()
 */
 function electric_cherry_stun()
 {
-	self endon(#"death");
+	self endon("death");
 	self notify(#"stun_zombie");
 	self endon(#"stun_zombie");
 	if(self.health <= 0)
@@ -389,14 +389,14 @@ function electric_cherry_stun()
 */
 function electric_cherry_reload_attack()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon("specialty_electriccherry" + "_stop");
 	self.wait_on_reload = [];
 	self.consecutive_electric_cherry_attacks = 0;
 	while(true)
 	{
-		self waittill(#"reload_start");
+		self waittill("reload_start");
 		current_weapon = self getcurrentweapon();
 		if(isinarray(self.wait_on_reload, current_weapon))
 		{
@@ -508,8 +508,8 @@ function electric_cherry_cooldown_timer(current_weapon)
 {
 	self notify(#"electric_cherry_cooldown_started");
 	self endon(#"electric_cherry_cooldown_started");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	n_reload_time = 0.25;
 	if(self hasperk("specialty_fastreload"))
 	{
@@ -531,13 +531,13 @@ function electric_cherry_cooldown_timer(current_weapon)
 */
 function check_for_reload_complete(weapon)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon("player_lost_weapon_" + weapon.name);
 	self thread weapon_replaced_monitor(weapon);
 	while(true)
 	{
-		self waittill(#"reload");
+		self waittill("reload");
 		current_weapon = self getcurrentweapon();
 		if(current_weapon == weapon)
 		{
@@ -559,12 +559,12 @@ function check_for_reload_complete(weapon)
 */
 function weapon_replaced_monitor(weapon)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon("weapon_reload_complete_" + weapon.name);
 	while(true)
 	{
-		self waittill(#"weapon_change");
+		self waittill("weapon_change");
 		primaryweapons = self getweaponslistprimaries();
 		if(!isinarray(primaryweapons, weapon))
 		{

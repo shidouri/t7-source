@@ -70,14 +70,14 @@ function missile_fired(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 		{
 			if(isdefined(self.hellfireobjid))
 			{
-				self notify(#"hellfire_detonated");
+				self notify("hellfire_detonated");
 				objective_delete(localclientnum, self.hellfireobjid);
 				util::releaseobjid(localclientnum, self.hellfireobjid);
 			}
 		}
 		else
 		{
-			self notify(#"cleanup_objectives");
+			self notify("cleanup_objectives");
 		}
 	}
 	ammo_ui_data_model = getuimodel(getuimodelforcontroller(localclientnum), "vehicle.ammo");
@@ -118,7 +118,7 @@ function bomblets_deployed(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		self notify(#"cleanup_objectives");
+		self notify("cleanup_objectives");
 	}
 	ammo_ui_data_model = getuimodel(getuimodelforcontroller(localclientnum), "vehicle.ammo");
 	if(isdefined(ammo_ui_data_model))
@@ -159,8 +159,8 @@ function destruction_watcher(localclientnum, clientobjid)
 function hud_update(localclientnum)
 {
 	self endon(#"entityshutdown");
-	self notify(#"remote_missile_singeton");
-	self endon(#"remote_missile_singeton");
+	self notify("remote_missile_singeton");
+	self endon("remote_missile_singeton");
 	missile = self;
 	altitude_ui_data_model = getuimodel(getuimodelforcontroller(localclientnum), "vehicle.altitude");
 	speed_ui_data_model = getuimodel(getuimodelforcontroller(localclientnum), "vehicle.speed");

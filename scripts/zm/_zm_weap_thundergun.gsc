@@ -138,11 +138,11 @@ function thundergun_on_player_connect()
 */
 function wait_for_thundergun_fired()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"spawned_player");
 	for(;;)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		currentweapon = self getcurrentweapon();
 		if(currentweapon == level.weaponzmthundergun || currentweapon == level.weaponzmthundergunupgraded)
 		{
@@ -424,8 +424,8 @@ function zombie_knockdown(player, gib)
 function playthundergunpainanim()
 {
 	self notify(#"end_play_thundergun_pain_anim");
-	self endon(#"killanimscript");
-	self endon(#"death");
+	self endon("killanimscript");
+	self endon("death");
 	self endon(#"end_play_thundergun_pain_anim");
 	if(isdefined(self.marked_for_death) && self.marked_for_death)
 	{
@@ -492,7 +492,7 @@ function playthundergunpainanim()
 */
 function thundergun_knockdown_zombie(player, gib)
 {
-	self endon(#"death");
+	self endon("death");
 	playsoundatposition("wpn_thundergun_proj_impact", self.origin);
 	if(!isdefined(self) || !isalive(self))
 	{
@@ -561,7 +561,7 @@ function enemy_killed_by_thundergun()
 */
 function thundergun_sound_thread()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self waittill(#"spawned_player");
 	for(;;)
 	{
@@ -575,7 +575,7 @@ function thundergun_sound_thread()
 			self playloopsound("tesla_idle", 0.25);
 			continue;
 		}
-		self notify(#"weap_away");
+		self notify("weap_away");
 		self stoploopsound(0.25);
 	}
 }

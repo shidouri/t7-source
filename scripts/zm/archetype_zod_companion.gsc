@@ -592,7 +592,7 @@ function private zodcompaniontryreacquireservice(entity)
 */
 function private manage_companion_movement(entity)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(level.var_bfd9ed83) && level.var_bfd9ed83.eligible_leader)
 	{
 		self.leader = level.var_bfd9ed83;
@@ -760,7 +760,7 @@ function private zodcompanioncollisionservice(entity)
 */
 function private function_d04291cf()
 {
-	self endon(#"death");
+	self endon("death");
 	self pushactors(0);
 	wait(2);
 	self pushactors(1);
@@ -810,7 +810,7 @@ function private function_34117adf(var_5935e1b9)
 {
 	self.var_53ce2a4e = 1;
 	self setgoal(var_5935e1b9, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	wait(1);
 	self.var_53ce2a4e = 0;
 }
@@ -830,7 +830,7 @@ function private function_3463b8c2(var_ee6ad78e)
 	var_c9277d64 = getnodearray("flinger_traversal", "script_noteworthy");
 	var_292fba5b = arraygetclosest(var_ee6ad78e, var_c9277d64);
 	self setgoal(var_292fba5b.origin, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	wait(1);
 	self.var_c0e8df41 = 0;
 }
@@ -918,7 +918,7 @@ function private zodcompanionsetdesiredstancetostand(behaviortreeentity)
 */
 function zod_companion_revive_player(player)
 {
-	self endon(#"revive_terminated");
+	self endon("revive_terminated");
 	self endon(#"end_game");
 	if(!(isdefined(self.reviving_a_player) && self.reviving_a_player))
 	{
@@ -934,7 +934,7 @@ function zod_companion_revive_player(player)
 		self.companion_destination = point.origin;
 	}
 	self setgoal(self.companion_destination, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	level.var_46040f3e = 1;
 	player.revivetrigger.beingrevived = 1;
 	player.being_revived_by_robot = 1;
@@ -944,7 +944,7 @@ function zod_companion_revive_player(player)
 	self thread animation::play("ai_robot_base_stn_exposed_revive", self, angles, 1.5);
 	wait(0.67);
 	player clientfield::set("being_robot_revived", 1);
-	self waittill(#"robot_revive_complete");
+	self waittill("robot_revive_complete");
 	if(level.players.size == 1 && level flag::get("solo_game"))
 	{
 		self.var_57e708f6 = gettime() + 10000;
@@ -953,7 +953,7 @@ function zod_companion_revive_player(player)
 	{
 		self.var_57e708f6 = gettime() + 5000;
 	}
-	player notify(#"stop_revive_trigger");
+	player notify("stop_revive_trigger");
 	if(isplayer(player))
 	{
 		player allowjump(1);
@@ -981,7 +981,7 @@ function zod_companion_revive_player(player)
 */
 function zod_companion_monitor_revive_attempt(player)
 {
-	self endon(#"revive_terminated");
+	self endon("revive_terminated");
 	while(true)
 	{
 		if(isdefined(player.revivetrigger) && player.revivetrigger.beingrevived === 1 && player.being_revived_by_robot !== 1)
@@ -1017,7 +1017,7 @@ function zod_companion_revive_cleanup(player)
 		}
 		player clientfield::set("being_robot_revived", 0);
 	}
-	self notify(#"revive_terminated");
+	self notify("revive_terminated");
 }
 
 /*
@@ -1378,7 +1378,7 @@ function private zodcompanionsoldierspawnsetup()
 */
 function manage_companion()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(!self.reviving_a_player)

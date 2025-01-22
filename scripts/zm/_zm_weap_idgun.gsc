@@ -151,10 +151,10 @@ function function_6fbe2b2c(v_vortex_origin)
 */
 function function_2bd571b9()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"projectile_impact", weapon, position, radius, attacker, normal);
+		self waittill("projectile_impact", weapon, position, radius, attacker, normal);
 		position = function_6fbe2b2c(position + (normal * 20));
 		if(is_idgun_damage(weapon))
 		{

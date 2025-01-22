@@ -87,7 +87,7 @@ function _setup_weapon_cache()
 */
 function _ammo_refill_think()
 {
-	self endon(#"disable_ammo_cache");
+	self endon("disable_ammo_cache");
 	t_ammo_cache = self _get_closest_ammo_trigger();
 	if(isdefined(t_ammo_cache.script_string) && t_ammo_cache.script_string == "no_grenade")
 	{
@@ -97,7 +97,7 @@ function _ammo_refill_think()
 	t_ammo_cache setcursorhint("HINT_NOICON");
 	while(true)
 	{
-		t_ammo_cache waittill(#"trigger", e_player);
+		t_ammo_cache waittill("trigger", e_player);
 		e_player disableweapons();
 		e_player playsound("fly_ammo_crate_refill");
 		wait(2);
@@ -113,7 +113,7 @@ function _ammo_refill_think()
 			e_player setweaponammoclip(weapon, weapon.clipsize);
 		}
 		e_player enableweapons();
-		e_player notify(#"ammo_refilled");
+		e_player notify("ammo_refilled");
 	}
 }
 
@@ -310,7 +310,7 @@ function disable_ammo_cache(str_ammo_cache_id)
 			assertmsg(("" + str_ammo_cache_id) + "");
 		#/
 	}
-	a_ammo_cache[0] notify(#"disable_ammo_cache");
+	a_ammo_cache[0] notify("disable_ammo_cache");
 	t_ammo_cache = a_ammo_cache[0] _get_closest_ammo_trigger();
 	t_ammo_cache triggerenable(0);
 }
@@ -402,7 +402,7 @@ function cleanup_cache()
 	}
 	else
 	{
-		self notify(#"disable_ammo_cache");
+		self notify("disable_ammo_cache");
 		t_ammo_trigger = _get_closest_ammo_trigger();
 		if(isdefined(t_ammo_trigger))
 		{

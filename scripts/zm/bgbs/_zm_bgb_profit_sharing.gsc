@@ -57,9 +57,9 @@ function __init__()
 */
 function enable()
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bled_out");
+	self endon("bgb_update");
 	self thread bgb::function_4ed517b9(720, &function_ff41ae2d, &function_3c1690be);
 	self thread function_677e212b();
 }
@@ -88,11 +88,11 @@ function disable()
 */
 function function_677e212b()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set("zm_bgb_profit_sharing_3p_fx", 1);
 	self util::waittill_either("bled_out", "bgb_update");
 	self clientfield::set("zm_bgb_profit_sharing_3p_fx", 0);
-	self notify(#"profit_sharing_complete");
+	self notify("profit_sharing_complete");
 }
 
 /*

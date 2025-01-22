@@ -339,7 +339,7 @@ function crystal_trail_runner(localclientnum, fx_name, dest)
 	playfxontag(localclientnum, level._effect[fx_name], self, "tag_origin");
 	self playloopsound("evt_sq_bag_crystal_bounce_loop", 0.05);
 	self moveto(dest, 0.5);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self delete();
 }
 
@@ -385,7 +385,7 @@ function crystal_sauce_monitor()
 function power_watch()
 {
 	level.power = 0;
-	level waittill(#"zpo");
+	level waittill("zpo");
 	level.power = 1;
 	level thread start_generator_movement();
 }
@@ -403,12 +403,12 @@ function timetravel_watcher(localclientnum, oldval, newval, bnewent, binitialsna
 {
 	if(newval)
 	{
-		level notify(#"db");
+		level notify("db");
 		level thread zm_temple_amb::function_e3a6a660(bnewent, binitialsnap, bwasdemojump);
 		var_4796f90 = isdefined(level._in_eclipse) && level._in_eclipse;
 		level._in_eclipse = 0;
 		visionset_mgr::fog_vol_to_visionset_set_suffix("");
-		level notify(#"time_travel", level._in_eclipse);
+		level notify("time_travel", level._in_eclipse);
 		exploder::exploder("fxexp_401");
 		if(var_4796f90)
 		{
@@ -430,7 +430,7 @@ function timetravel_watcher(localclientnum, oldval, newval, bnewent, binitialsna
 	{
 		level thread zm_temple_amb::function_418a175a();
 		level._in_eclipse = 1;
-		level notify(#"time_travel", level._in_eclipse);
+		level notify("time_travel", level._in_eclipse);
 		visionset_mgr::fog_vol_to_visionset_set_suffix("_eclipse");
 		exploder::exploder("eclipse");
 		exploder::exploder("fxexp_402");
@@ -552,9 +552,9 @@ function generator_move()
 	self rotateroll(0 - offsetangle, rottime);
 	while(true)
 	{
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 		self rotateroll(offsetangle * 2, rottime);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 		self rotateroll(0 - (offsetangle * 2), rottime);
 	}
 }
@@ -631,11 +631,11 @@ function rotatewheel(rotate, time)
 {
 	spinuptime = time - 0.5;
 	self rotatepitch(rotate, time, spinuptime, 0.1);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	while(true)
 	{
 		self rotatepitch(rotate, time, 0, 0);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -731,7 +731,7 @@ function sq_std_watcher()
 	/#
 		println("");
 	#/
-	level waittill(#"sr");
+	level waittill("sr");
 	players = getlocalplayers();
 	/#
 		println("");
@@ -757,7 +757,7 @@ function sq_std_watcher()
 */
 function sq_std_watch_for_restart(num_local_players)
 {
-	level waittill(#"sr");
+	level waittill("sr");
 	if(isdefined(level._sq_std_array[self.script_int - 1]))
 	{
 		for(i = 0; i < (level._sq_std_array[self.script_int - 1].size); i++)
@@ -785,8 +785,8 @@ function sq_std_watch_for_restart(num_local_players)
 function sq_struct_debug()
 {
 	/#
-		level endon(#"sr");
-		level endon(#"ksd");
+		level endon("sr");
+		level endon("ksd");
 		while(true)
 		{
 			print3d(self.origin, "", vectorscale((1, 0, 0), 255), 1);
@@ -815,7 +815,7 @@ function sq_std_struct_watcher(num_local_players)
 			level._sq_std_status[i] = 0;
 		}
 	}
-	level endon(#"sr");
+	level endon("sr");
 	self thread sq_std_watch_for_restart(num_local_players);
 	while(true)
 	{
@@ -1413,10 +1413,10 @@ function board_bob()
 	{
 		toz = minz - self.origin[2];
 		self movez(toz, movetime);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		toz = maxz - self.origin[2];
 		self movez(toz, movetime);
-		self waittill(#"movedone");
+		self waittill("movedone");
 	}
 }
 
@@ -1435,7 +1435,7 @@ function board_rotate()
 	{
 		yaw = randomfloatrange(-360, 360);
 		self rotateyaw(yaw, randomfloatrange(60, 90));
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -1536,17 +1536,17 @@ function spin_forever()
 	}
 	self.spin_forever = 1;
 	self.spin_to_start = 0;
-	self notify(#"stop_spinning");
-	self endon(#"death");
-	self endon(#"stop_spinning");
+	self notify("stop_spinning");
+	self endon("death");
+	self endon("stop_spinning");
 	spintime = self spinner_get_spin_time();
 	self start_spinner_sound();
 	self rotateyaw(360, spintime, 0.25);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	while(true)
 	{
 		self rotateyaw(360, spintime);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -1601,9 +1601,9 @@ function spin_to_start()
 	}
 	self.spin_forever = 0;
 	self.spin_to_start = 1;
-	self notify(#"stop_spinning");
-	self endon(#"death");
-	self endon(#"stop_spinning");
+	self notify("stop_spinning");
+	self endon("death");
+	self endon("stop_spinning");
 	endyaw = self.startangles[1];
 	currentyaw = self.angles[1];
 	deltayaw = endyaw - currentyaw;
@@ -1616,7 +1616,7 @@ function spin_to_start()
 	if(spintime > 0)
 	{
 		self rotateyaw(deltayaw, spintime, 0);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 	self stop_spinner_sound();
 	self.angles = self.startangles;
@@ -1667,10 +1667,10 @@ function temple_light_model_swap_init()
 {
 	if(!level clientfield::get("zombie_power_on"))
 	{
-		level waittill(#"zpo");
+		level waittill("zpo");
 	}
 	wait(4.5);
-	level notify(#"pl1");
+	level notify("pl1");
 	players = getlocalplayers();
 	for(i = 0; i < players.size; i++)
 	{
@@ -1795,7 +1795,7 @@ function maze_floor_controller_rumble(localclientnum, oldval, newval, bnewent, b
 	}
 	else
 	{
-		self notify(#"stop_maze_rumble");
+		self notify("stop_maze_rumble");
 		self stoprumble(localclientnum, "slide_rumble");
 	}
 }
@@ -1811,7 +1811,7 @@ function maze_floor_controller_rumble(localclientnum, oldval, newval, bnewent, b
 */
 function maze_rumble_while_floor_shakes(int_client_num)
 {
-	self endon(#"stop_maze_rumble");
+	self endon("stop_maze_rumble");
 	while(isdefined(self))
 	{
 		self playrumbleonentity(int_client_num, "slide_rumble");

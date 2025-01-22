@@ -300,8 +300,8 @@ function oldnotifymessage(titletext, notifytext, iconname, glowcolor, sound, dur
 */
 function notifymessage(notifydata)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(self.messagenotifyqueue))
 	{
 		self.messagenotifyqueue = [];
@@ -343,10 +343,10 @@ function playnotifyloop(duration)
 */
 function shownotifymessage(notifydata, duration)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.doingnotify = 1;
 	waitrequirevisibility(0);
-	self notify(#"notifymessagebegin", duration);
+	self notify("notifymessagebegin", duration);
 	self thread resetoncancel();
 	if(isdefined(notifydata.sound))
 	{
@@ -484,7 +484,7 @@ function shownotifymessage(notifydata, duration)
 	{
 		waitrequirevisibility(duration);
 	}
-	self notify(#"notifymessagedone");
+	self notify("notifymessagedone");
 	self.doingnotify = 0;
 }
 
@@ -543,10 +543,10 @@ function canreadtext()
 */
 function resetondeath()
 {
-	self endon(#"notifymessagedone");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self waittill(#"death");
+	self endon("notifymessagedone");
+	self endon("disconnect");
+	level endon("game_ended");
+	self waittill("death");
 	resetnotify();
 }
 
@@ -561,11 +561,11 @@ function resetondeath()
 */
 function resetoncancel()
 {
-	self notify(#"resetoncancel");
-	self endon(#"resetoncancel");
-	self endon(#"notifymessagedone");
-	self endon(#"disconnect");
-	level waittill(#"cancel_notify");
+	self notify("resetoncancel");
+	self endon("resetoncancel");
+	self endon("notifymessagedone");
+	self endon("disconnect");
+	level waittill("cancel_notify");
 	resetnotify();
 }
 
@@ -598,10 +598,10 @@ function resetnotify()
 */
 function hintmessagedeaththink()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"death");
+		self waittill("death");
 		if(isdefined(self.hintmessage))
 		{
 			self.hintmessage hud::destroyelem();
@@ -620,7 +620,7 @@ function hintmessagedeaththink()
 */
 function lowermessagethink()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	messagetexty = level.lowertexty;
 	if(self issplitscreen())
 	{

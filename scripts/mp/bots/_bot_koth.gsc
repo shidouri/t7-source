@@ -51,11 +51,11 @@ function on_bot_spawned()
 */
 function wait_zone_moved()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
-		level waittill(#"zone_moved");
+		level waittill("zone_moved");
 		if(!self bot_combat::has_threat() && self botgoalset())
 		{
 			self botsetgoal(self.origin);

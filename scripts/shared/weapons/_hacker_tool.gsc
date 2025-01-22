@@ -50,7 +50,7 @@ function init_shared()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clearhackertarget(undefined, 0, 1);
 	self thread watchhackertooluse();
 	self thread watchhackertoolfired();
@@ -67,9 +67,9 @@ function on_player_spawned()
 */
 function clearhackertarget(weapon, successfulhack, spawned)
 {
-	self notify(#"stop_lockon_sound");
-	self notify(#"stop_locked_sound");
-	self notify(#"clearhackertarget");
+	self notify("stop_lockon_sound");
+	self notify("stop_locked_sound");
+	self notify("clearhackertarget");
 	self.stingerlocksound = undefined;
 	self stoprumble("stinger_lock_rumble");
 	self.hackertoollockstarttime = 0;
@@ -123,18 +123,18 @@ function clearhackertarget(weapon, successfulhack, spawned)
 */
 function watchhackertoolfired()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"killhackermonitor");
+	self endon("disconnect");
+	self endon("death");
+	self endon("killhackermonitor");
 	while(true)
 	{
-		self waittill(#"hacker_tool_fired", hackertooltarget, weapon);
+		self waittill("hacker_tool_fired", hackertooltarget, weapon);
 		if(isdefined(hackertooltarget))
 		{
 			if(isentityhackablecarepackage(hackertooltarget))
 			{
 				scoreevents::givecratecapturemedal(hackertooltarget, self);
-				hackertooltarget notify(#"captured", self, 1);
+				hackertooltarget notify("captured", self, 1);
 				if(isdefined(hackertooltarget.owner) && isplayer(hackertooltarget.owner) && hackertooltarget.owner.team != self.team && isdefined(level.play_killstreak_hacked_dialog))
 				{
 					hackertooltarget.owner [[level.play_killstreak_hacked_dialog]](hackertooltarget.killstreaktype, hackertooltarget.killstreakid, self);
@@ -144,7 +144,7 @@ function watchhackertoolfired()
 			{
 				if(isentityhackableweaponobject(hackertooltarget) && isdefined(hackertooltarget.hackertrigger))
 				{
-					hackertooltarget.hackertrigger notify(#"trigger", self, 1);
+					hackertooltarget.hackertrigger notify("trigger", self, 1);
 					hackertooltarget.previouslyhacked = 1;
 					self.throwinggrenade = 0;
 				}
@@ -162,7 +162,7 @@ function watchhackertoolfired()
 								}
 							}
 							self playsoundtoplayer("evt_hacker_fw_success", self);
-							hackertooltarget notify(#"killstreak_hacked", self);
+							hackertooltarget notify("killstreak_hacked", self);
 							hackertooltarget.previouslyhacked = 1;
 							hackertooltarget [[hackertooltarget.killstreak_hackedcallback]](self);
 							if(self util::has_blind_eye_perk_purchased_and_equipped() || self util::has_hacker_perk_purchased_and_equipped())
@@ -252,11 +252,11 @@ function watchhackertoolfired()
 */
 function watchhackertooluse()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	for(;;)
 	{
-		self waittill(#"grenade_pullback", weapon);
+		self waittill("grenade_pullback", weapon);
 		if(weapon.rootweapon == level.weaponhackertool)
 		{
 			wait(0.05);
@@ -283,14 +283,14 @@ function watchhackertooluse()
 */
 function watchhackertoolinterrupt(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"hacker_tool_fired");
-	self endon(#"death");
-	self endon(#"weapon_change");
-	self endon(#"grenade_fire");
+	self endon("disconnect");
+	self endon("hacker_tool_fired");
+	self endon("death");
+	self endon("weapon_change");
+	self endon("grenade_fire");
 	while(true)
 	{
-		level waittill(#"use_interrupt", interrupttarget);
+		level waittill("use_interrupt", interrupttarget);
 		if(self.hackertooltarget == interrupttarget)
 		{
 			clearhackertarget(weapon, 0, 0);
@@ -310,8 +310,8 @@ function watchhackertoolinterrupt(weapon)
 */
 function watchhackertoolend(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"hacker_tool_fired");
+	self endon("disconnect");
+	self endon("hacker_tool_fired");
 	msg = self util::waittill_any_return("weapon_change", "death", "hacker_tool_fired", "disconnect");
 	clearhackertarget(weapon, 0, 0);
 	self clientfield::set_to_player("hacker_tool", 0);
@@ -329,13 +329,13 @@ function watchhackertoolend(weapon)
 */
 function watchforgrenadefire(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"hacker_tool_fired");
-	self endon(#"weapon_change");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("hacker_tool_fired");
+	self endon("weapon_change");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade_instance, grenade_weapon, respawnfromhack);
+		self waittill("grenade_fire", grenade_instance, grenade_weapon, respawnfromhack);
 		if(isdefined(respawnfromhack) && respawnfromhack)
 		{
 			continue;
@@ -398,10 +398,10 @@ function stophackertoolsoundloop()
 */
 function hackertooltargetloop(weapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"weapon_change");
-	self endon(#"grenade_fire");
+	self endon("disconnect");
+	self endon("death");
+	self endon("weapon_change");
+	self endon("grenade_fire");
 	self clientfield::set_to_player("hacker_tool", 1);
 	self playhackertoolsoundloop();
 	while(true)
@@ -425,7 +425,7 @@ function hackertooltargetloop(weapon)
 			heatseekingmissile::targetinghacking(self.hackertooltarget, 0);
 			heatseekingmissile::setfriendlyflags(weapon, self.hackertooltarget);
 			thread heatseekingmissile::looplocallocksound(game["locked_on_sound"], 0.75);
-			self notify(#"hacker_tool_fired", self.hackertooltarget, weapon);
+			self notify("hacker_tool_fired", self.hackertooltarget, weapon);
 			return;
 		}
 		if(self.hackertoollockstarted)
@@ -506,7 +506,7 @@ function hackertooltargetloop(weapon)
 			/#
 				assert(isdefined(self.hackertooltarget));
 			#/
-			self notify(#"stop_lockon_sound");
+			self notify("stop_lockon_sound");
 			self.hackertoollockfinalized = 1;
 			self weaponlockfinalize(self.hackertooltarget);
 			continue;
@@ -576,13 +576,13 @@ function hackertooltargetloop(weapon)
 */
 function watchtargetentityupdate(besttarget)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"watchtargetentityupdate");
-	self endon(#"watchtargetentityupdate");
-	self endon(#"clearhackertarget");
-	besttarget endon(#"death");
-	besttarget waittill(#"hackertool_update_ent", newentity);
+	self endon("death");
+	self endon("disconnect");
+	self notify("watchtargetentityupdate");
+	self endon("watchtargetentityupdate");
+	self endon("clearhackertarget");
+	besttarget endon("death");
+	besttarget waittill("hackertool_update_ent", newentity);
 	heatseekingmissile::initlockfield(newentity);
 	self.hackertooltarget = newentity;
 }
@@ -1019,7 +1019,7 @@ function hackersoftsighttest(weapon)
 */
 function registerwithhackertool(radius, hacktimems)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(radius))
 	{
 		self.hackertoolradius = radius;
@@ -1051,7 +1051,7 @@ function registerwithhackertool(radius, hacktimems)
 */
 function watchhackableentitydeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	arrayremovevalue(level.hackertooltargets, self);
 }
 

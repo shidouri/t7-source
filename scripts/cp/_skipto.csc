@@ -516,7 +516,7 @@ function handle()
 	set_level_objective(skiptos, 1);
 	while(true)
 	{
-		level waittill(#"skiptos_changed");
+		level waittill("skiptos_changed");
 		skiptos = get_current_skiptos();
 		set_level_objective(skiptos, 0);
 	}
@@ -705,7 +705,7 @@ function set_level_objective(objectives, starting)
 	}
 	start_objective_logic(objectives, starting);
 	level.skipto_point = level.skipto_current_objective[0];
-	level notify(#"objective_changed", level.skipto_current_objective);
+	level notify("objective_changed", level.skipto_current_objective);
 	level.skipto_current_objective = objectives;
 }
 
@@ -913,7 +913,7 @@ function catch_up_transition(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function function_91c7f6af()
 {
-	level waittill(#"aar");
+	level waittill("aar");
 	audio::snd_set_snapshot("cmn_aar_screen");
 }
 

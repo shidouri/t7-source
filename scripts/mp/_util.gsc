@@ -105,7 +105,7 @@ function isbulletimpactmod(smeansofdeath)
 */
 function waitrespawnbutton()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"end_respawn");
 	while(self usebuttonpressed() != 1)
 	{
@@ -133,7 +133,7 @@ function setlowermessage(text, time, combinemessageandtimer)
 		text = self.lowermessageoverride;
 		time = undefined;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	self.lowermessage settext(text);
 	if(isdefined(time) && time > 0)
 	{
@@ -183,7 +183,7 @@ function setlowermessagevalue(text, value, combinemessage)
 		text = self.lowermessageoverride;
 		time = undefined;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	if(!isdefined(combinemessage) || !combinemessage)
 	{
 		self.lowermessage settext(text);
@@ -234,15 +234,15 @@ function clearlowermessage(fadetime)
 	{
 		return;
 	}
-	self notify(#"lower_message_set");
+	self notify("lower_message_set");
 	if(!isdefined(fadetime) || fadetime == 0)
 	{
 		setlowermessage(&"");
 	}
 	else
 	{
-		self endon(#"disconnect");
-		self endon(#"lower_message_set");
+		self endon("disconnect");
+		self endon("lower_message_set");
 		self.lowermessage fadeovertime(fadetime);
 		self.lowermessage.alpha = 0;
 		self.lowertimer fadeovertime(fadetime);
@@ -790,7 +790,7 @@ function ent_already_in_trigger(trig)
 */
 function trigger_thread_death_monitor(ent, ender)
 {
-	ent waittill(#"death");
+	ent waittill("death");
 	self endon(ender);
 	self remove_trigger_from_ent(ent);
 }
@@ -807,7 +807,7 @@ function trigger_thread_death_monitor(ent, ender)
 function trigger_thread(ent, on_enter_payload, on_exit_payload)
 {
 	ent endon(#"entityshutdown");
-	ent endon(#"death");
+	ent endon("death");
 	if(ent ent_already_in_trigger(self))
 	{
 		return;
@@ -889,7 +889,7 @@ function setusingremote(remotename, set_killstreak_delay_killcam = 1)
 	}
 	self disableoffhandweapons();
 	self clientfield::set_player_uimodel("hudItems.remoteKillstreakActivated", 1);
-	self notify(#"using_remote");
+	self notify("using_remote");
 }
 
 /*
@@ -1206,8 +1206,8 @@ function self_delete()
 */
 function screen_message_create(string_message_1, string_message_2, string_message_3, n_offset_y, n_time)
 {
-	level notify(#"screen_message_create");
-	level endon(#"screen_message_create");
+	level notify("screen_message_create");
+	level endon("screen_message_create");
 	if(isdefined(level.missionfailed) && level.missionfailed)
 	{
 		return;
@@ -1332,7 +1332,7 @@ function screen_message_delete(delay)
 */
 function ghost_wait_show(wait_time = 0.1)
 {
-	self endon(#"death");
+	self endon("death");
 	self ghost();
 	wait(wait_time);
 	self show();
@@ -1353,14 +1353,14 @@ function ghost_wait_show_to_player(player, wait_time = 0.1, self_endon_string1)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self.abort_ghost_wait_show_to_player = undefined;
 	if(isdefined(player))
 	{
-		player endon(#"death");
-		player endon(#"disconnect");
-		player endon(#"joined_team");
-		player endon(#"joined_spectators");
+		player endon("death");
+		player endon("disconnect");
+		player endon("joined_team");
+		player endon("joined_spectators");
 	}
 	if(isdefined(self_endon_string1))
 	{
@@ -1391,14 +1391,14 @@ function ghost_wait_show_to_others(player, wait_time = 0.1, self_endon_string1)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self.abort_ghost_wait_show_to_others = undefined;
 	if(isdefined(player))
 	{
-		player endon(#"death");
-		player endon(#"disconnect");
-		player endon(#"joined_team");
-		player endon(#"joined_spectators");
+		player endon("death");
+		player endon("disconnect");
+		player endon("joined_team");
+		player endon("joined_spectators");
 	}
 	if(isdefined(self_endon_string1))
 	{
@@ -1459,8 +1459,8 @@ function waittill_use_button_pressed()
 */
 function show_hint_text(str_text_to_show, b_should_blink = 0, str_turn_off_notify = "notify_turn_off_hint_text", n_display_time = 4)
 {
-	self endon(#"notify_turn_off_hint_text");
-	self endon(#"hint_text_removed");
+	self endon("notify_turn_off_hint_text");
+	self endon("hint_text_removed");
 	if(isdefined(self.hint_menu_handle))
 	{
 		hide_hint_text(0);
@@ -1493,7 +1493,7 @@ function show_hint_text(str_text_to_show, b_should_blink = 0, str_turn_off_notif
 */
 function hide_hint_text(b_fade_before_hiding = 1)
 {
-	self endon(#"hint_text_removed");
+	self endon("hint_text_removed");
 	if(isdefined(self.hint_menu_handle))
 	{
 		if(b_fade_before_hiding)
@@ -1504,7 +1504,7 @@ function hide_hint_text(b_fade_before_hiding = 1)
 		self closeluimenu(self.hint_menu_handle);
 		self.hint_menu_handle = undefined;
 	}
-	self notify(#"hint_text_removed");
+	self notify("hint_text_removed");
 }
 
 /*
@@ -1518,9 +1518,9 @@ function hide_hint_text(b_fade_before_hiding = 1)
 */
 function fade_hint_text_after_time(n_display_time, str_turn_off_notify)
 {
-	self endon(#"hint_text_removed");
-	self endon(#"death");
-	self endon(#"kill_hint_text");
+	self endon("hint_text_removed");
+	self endon("death");
+	self endon("kill_hint_text");
 	waittill_any_timeout(n_display_time - 0.75, str_turn_off_notify, "hint_text_removed", "kill_hint_text");
 	hide_hint_text(1);
 }
@@ -1536,8 +1536,8 @@ function fade_hint_text_after_time(n_display_time, str_turn_off_notify)
 */
 function hide_hint_text_listener(n_time)
 {
-	self endon(#"hint_text_removed");
-	self endon(#"disconnect");
+	self endon("hint_text_removed");
+	self endon("disconnect");
 	waittill_any_timeout(n_time, "kill_hint_text", "death", "hint_text_removed", "disconnect");
 	hide_hint_text(0);
 }

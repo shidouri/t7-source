@@ -89,7 +89,7 @@ function onplayerconnect()
 */
 function rapshelicopterdynamicavoidance()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	index_to_update = 0;
 	while(true)
 	{
@@ -423,7 +423,7 @@ function watchrapskillstreakend(killstreakid, ownerentnum, team)
 */
 function updatekillstreakonhelicopterdeath(helicopter, ownerentenum)
 {
-	helicopter waittill(#"death");
+	helicopter waittill("death");
 	level notify("raps_updated_" + ownerentenum);
 }
 
@@ -467,7 +467,7 @@ function onemp(attacker, ownerentnum)
 */
 function novehiclefacethread(mapcenter, radius)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	wait(3);
 	marknovehiclenavmeshfaces(mapcenter, radius, 21);
 }
@@ -860,7 +860,7 @@ function spawnrapshelicopter(killstreakid)
 function waitforhelicoptershutdown()
 {
 	helicopter = self;
-	helicopter waittill(#"raps_helicopter_shutdown", killed);
+	helicopter waittill("raps_helicopter_shutdown", killed);
 	level notify("raps_updated_" + helicopter.ownerentnum);
 	if(target_istarget(helicopter))
 	{
@@ -887,7 +887,7 @@ function waitforhelicoptershutdown()
 		helicopter finalhelideathexplode();
 		wait(0.1);
 		helicopter ghost();
-		self notify(#"stop_death_spin");
+		self notify("stop_death_spin");
 		wait(0.5);
 	}
 	else
@@ -908,12 +908,12 @@ function waitforhelicoptershutdown()
 */
 function watchownerdisconnect(owner)
 {
-	self notify(#"watchownerdisconnect_singleton");
-	self endon(#"watchownerdisconnect_singleton");
+	self notify("watchownerdisconnect_singleton");
+	self endon("watchownerdisconnect_singleton");
 	helicopter = self;
-	helicopter endon(#"raps_helicopter_shutdown");
+	helicopter endon("raps_helicopter_shutdown");
 	owner util::waittill_any("joined_team", "disconnect", "joined_spectators");
-	helicopter notify(#"raps_helicopter_shutdown", 0);
+	helicopter notify("raps_helicopter_shutdown", 0);
 }
 
 /*
@@ -928,10 +928,10 @@ function watchownerdisconnect(owner)
 function watchgameended()
 {
 	helicopter = self;
-	helicopter endon(#"raps_helicopter_shutdown");
-	helicopter endon(#"death");
-	level waittill(#"game_ended");
-	helicopter notify(#"raps_helicopter_shutdown", 0);
+	helicopter endon("raps_helicopter_shutdown");
+	helicopter endon("death");
+	level waittill("game_ended");
+	helicopter notify("raps_helicopter_shutdown", 0);
 }
 
 /*
@@ -956,7 +956,7 @@ function ondeath(attacker, weapon)
 			attacker addplayerstat("destroy_raps_before_drop", 1);
 		}
 		luinotifyevent(&"player_callout", 2, &"KILLSTREAK_DESTROYED_RAPS_DEPLOY_SHIP", attacker.entnum);
-		helicopter notify(#"raps_helicopter_shutdown", 1);
+		helicopter notify("raps_helicopter_shutdown", 1);
 	}
 	if(helicopter.isleaving !== 1)
 	{
@@ -1155,7 +1155,7 @@ function helicopterthink()
 			return;
 		}
 	#/
-	self endon(#"raps_helicopter_shutdown");
+	self endon("raps_helicopter_shutdown");
 	for(i = 0; i < 3; i++)
 	{
 		self.targetdroplocation = picknextdroplocation(self, i, self.firstdropreferencepoint, self.assigned_fly_height, self.lastdroplocation);
@@ -1164,7 +1164,7 @@ function helicopterthink()
 			self waitforstoppingmovetoexpire();
 			self updatehelicopterspeed();
 			self setvehgoalpos(self.targetdroplocation, 1);
-			self waittill(#"goal");
+			self waittill("goal");
 		}
 		if(isdefined(self.owner))
 		{
@@ -1186,7 +1186,7 @@ function helicopterthink()
 		self dropraps();
 		wait(((i + 1) >= 3 ? 2 + (randomfloatrange(1 * -1, 1)) : 2 + (randomfloatrange(2 * -1, 2))));
 	}
-	self notify(#"raps_helicopter_shutdown", 0);
+	self notify("raps_helicopter_shutdown", 0);
 }
 
 /*
@@ -1201,7 +1201,7 @@ function helicopterthink()
 function helicopterthinkdebugvisitall()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		if(getdvarint("") == 0)
 		{
 			return;
@@ -1216,7 +1216,7 @@ function helicopterthinkdebugvisitall()
 					self waitforstoppingmovetoexpire();
 					self updatehelicopterspeed();
 					self setvehgoalpos(self.targetdroplocation, 1);
-					self waittill(#"goal");
+					self waittill("goal");
 				}
 				self dropraps();
 				wait(1);
@@ -1230,13 +1230,13 @@ function helicopterthinkdebugvisitall()
 							self waitforstoppingmovetoexpire();
 							self updatehelicopterspeed();
 							self setvehgoalpos(self.targetdroplocation, 1);
-							self waittill(#"goal");
+							self waittill("goal");
 						}
 					}
 				}
 			}
 		}
-		self notify(#"raps_helicopter_shutdown", 0);
+		self notify("raps_helicopter_shutdown", 0);
 	#/
 }
 
@@ -1251,15 +1251,15 @@ function helicopterthinkdebugvisitall()
 */
 function dropraps()
 {
-	level endon(#"game_ended");
-	self endon(#"death");
+	level endon("game_ended");
+	self endon("death");
 	self.droppingraps = 1;
 	self.lastdroplocation = self.origin;
 	precisedroplocation = 0.5 * (self gettagorigin(level.raps_helicopter_drop_tag_names[0]) + self gettagorigin(level.raps_helicopter_drop_tag_names[1]));
 	precisegoallocation = self.targetdroplocation + (self.targetdroplocation - precisedroplocation);
 	precisegoallocation = (precisegoallocation[0], precisegoallocation[1], self.targetdroplocation[2]);
 	self setvehgoalpos(precisegoallocation, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self.droppedraps = 1;
 	for(i = 0; i < level.raps_settings.spawn_count; i++)
 	{
@@ -1289,7 +1289,7 @@ function dropraps()
 */
 function spin()
 {
-	self endon(#"stop_death_spin");
+	self endon("stop_death_spin");
 	speed = randomintrange(180, 220);
 	self setyawspeed(speed, speed * 0.25, speed);
 	if(randomintrange(0, 2) > 0)
@@ -1394,7 +1394,7 @@ function helicopterleave()
 	{
 		self updatehelicopterspeed();
 		self setvehgoalpos(self.leavelocation, 0);
-		self waittill(#"goal");
+		self waittill("goal");
 	}
 }
 
@@ -1530,7 +1530,7 @@ function configureteampost(owner, ishacked)
 */
 function autosetvisibletoall()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.05);
 	wait(0.05);
 	self setvisibletoall();
@@ -1576,15 +1576,15 @@ function selfdestruct(attacker)
 */
 function watchrapskills(originalowner)
 {
-	originalowner endon(#"raps_complete");
-	self endon(#"death");
+	originalowner endon("raps_complete");
+	self endon("death");
 	if(self.settings.max_kill_count == 0)
 	{
 		return;
 	}
 	while(true)
 	{
-		self waittill(#"killed", victim);
+		self waittill("killed", victim);
 		if(isdefined(victim) && isplayer(victim))
 		{
 			if(!isdefined(self.killcount))
@@ -1611,8 +1611,8 @@ function watchrapskills(originalowner)
 */
 function watchrapstippedover(owner)
 {
-	owner endon(#"disconnect");
-	self endon(#"death");
+	owner endon("disconnect");
+	self endon("death");
 	while(true)
 	{
 		wait(3.5);
@@ -1635,7 +1635,7 @@ function watchrapstippedover(owner)
 function watchrapsdeath(originalowner)
 {
 	originalownerentnum = originalowner.entnum;
-	self waittill(#"death", attacker, damagefromunderneath, weapon);
+	self waittill("death", attacker, damagefromunderneath, weapon);
 	attacker = self [[level.figure_out_attacker]](attacker);
 	if(isdefined(attacker) && isplayer(attacker))
 	{
@@ -1670,9 +1670,9 @@ function watchrapsdeath(originalowner)
 */
 function initenemyselection(owner)
 {
-	owner endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"hacked");
+	owner endon("disconnect");
+	self endon("death");
+	self endon("hacked");
 	self vehicle_ai::set_state("off");
 	util::wait_network_frame();
 	util::wait_network_frame();
@@ -1788,7 +1788,7 @@ function forcegetenemies()
 */
 function createrapshelicopterinfluencer()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	helicopter = self;
 	if(isdefined(helicopter.influencerent))
 	{
@@ -1805,7 +1805,7 @@ function createrapshelicopterinfluencer()
 	}
 	enemy_team_mask = helicopter spawning::get_enemy_team_mask(helicopter.team);
 	helicopter.influencerent spawning::create_entity_influencer("helicopter", enemy_team_mask);
-	helicopter waittill(#"death");
+	helicopter waittill("death");
 	if(isdefined(influencerent))
 	{
 		influencerent delete();

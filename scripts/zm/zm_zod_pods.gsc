@@ -211,13 +211,13 @@ function fungus_pods_devgui()
 				{
 					case "":
 					{
-						level notify(#"debug_pod_spawn");
+						level notify("debug_pod_spawn");
 						break;
 					}
 					case "":
 					{
 						level.debug_pod_spawn_all = 1;
-						level notify(#"debug_pod_spawn");
+						level notify("debug_pod_spawn");
 						util::wait_network_frame();
 						level.debug_pod_spawn_all = 0;
 						break;
@@ -268,7 +268,7 @@ function function_bcc1a076()
 */
 function function_77d7e068()
 {
-	level waittill(#"shield_built");
+	level waittill("shield_built");
 	foreach(var_3c1def9d in level.fungus_pods.rewards)
 	{
 		foreach(s_reward in var_3c1def9d)
@@ -317,7 +317,7 @@ function private pod_sprayer_think()
 		self.trigger = zm_zod_util::spawn_trigger_radius(self.origin, 50, 1, &pod_sprayer_pickup_msg);
 		while(true)
 		{
-			self.trigger waittill(#"trigger", e_who);
+			self.trigger waittill("trigger", e_who);
 			if(e_who clientfield::get_to_player("pod_sprayer_held"))
 			{
 				continue;
@@ -334,7 +334,7 @@ function private pod_sprayer_think()
 			level flag::set("any_player_has_pod_sprayer");
 			break;
 		}
-		e_who waittill(#"disconnect");
+		e_who waittill("disconnect");
 	}
 }
 
@@ -356,7 +356,7 @@ function private fungus_pod_think()
 	{
 		for(;;)
 		{
-			self.trigger waittill(#"trigger", e_who);
+			self.trigger waittill("trigger", e_who);
 			assert(self.n_pod_level > 0);
 		}
 		for(;;)
@@ -491,7 +491,7 @@ function function_be2abe()
 */
 function private fungus_pod_upgrade_think()
 {
-	self endon(#"harvested");
+	self endon("harvested");
 	rounds_since_upgrade = 0;
 	if(isdefined(self.zone))
 	{
@@ -544,11 +544,11 @@ function private fungus_pod_upgrade_think()
 */
 function private function_42bd572d()
 {
-	self endon(#"harvested");
+	self endon("harvested");
 	level flag::wait_till("all_players_spawned");
 	while(true)
 	{
-		level waittill(#"kill_round");
+		level waittill("kill_round");
 		if(self.n_pod_level == 3)
 		{
 			self.model clientfield::increment("pod_harvest");
@@ -564,7 +564,7 @@ function private function_42bd572d()
 				level.fungus_pods.a_e_unspawned = array(level.fungus_pods.a_e_unspawned);
 			}
 			level.fungus_pods.a_e_unspawned[level.fungus_pods.a_e_unspawned.size] = self;
-			self notify(#"harvested");
+			self notify("harvested");
 			level notify(("pod_" + self.script_int) + "_harvested");
 		}
 	}
@@ -629,7 +629,7 @@ function harvest_fungus_pod(e_harvester)
 	self.harvested_in_round = level.round_number;
 	zm_unitrigger::unregister_unitrigger(self.trigger);
 	self.trigger = undefined;
-	self notify(#"harvested", e_harvester);
+	self notify("harvested", e_harvester);
 	var_785a5f87 = self.n_pod_level;
 	self.n_pod_level = 0;
 	self.model clientfield::set("update_fungus_pod_level", self.n_pod_level);
@@ -882,7 +882,7 @@ function pod_player_msg(e_player)
 */
 function function_3f5779c4()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self clientfield::set_to_player("pod_sprayer_hint_range", 1);
 	wait(1);
 	self clientfield::set_to_player("pod_sprayer_hint_range", 0);
@@ -1057,12 +1057,12 @@ function dig_up_weapon(e_digger, wpn_to_spawn)
 	m_weapon = zm_utility::spawn_buildkit_weapon_model(e_digger, wpn_to_spawn, undefined, v_spawnpt, v_angles);
 	m_weapon.angles = v_angles;
 	m_weapon thread timer_til_despawn(v_spawnpt, 40 * -1);
-	m_weapon endon(#"dig_up_weapon_timed_out");
+	m_weapon endon("dig_up_weapon_timed_out");
 	m_weapon.trigger = zm_zod_util::spawn_trigger_radius(v_spawnpt, 100, 1);
 	m_weapon.trigger.wpn = wpn_to_spawn;
 	m_weapon.trigger.prompt_and_visibility_func = &weapon_trigger_update_prompt;
-	m_weapon.trigger waittill(#"trigger", player);
-	m_weapon.trigger notify(#"weapon_grabbed");
+	m_weapon.trigger waittill("trigger", player);
+	m_weapon.trigger notify("weapon_grabbed");
 	m_weapon.trigger thread swap_weapon(wpn_to_spawn, player);
 	if(isdefined(m_weapon.trigger))
 	{
@@ -1075,7 +1075,7 @@ function dig_up_weapon(e_digger, wpn_to_spawn)
 	}
 	if(player != e_digger)
 	{
-		e_digger notify(#"dig_up_weapon_shared");
+		e_digger notify("dig_up_weapon_shared");
 	}
 }
 
@@ -1145,11 +1145,11 @@ function take_old_weapon_and_give_new(current_weapon, weapon)
 */
 function timer_til_despawn(v_float, n_dist)
 {
-	self endon(#"weapon_grabbed");
+	self endon("weapon_grabbed");
 	putbacktime = 12;
 	self movez(n_dist, putbacktime, putbacktime * 0.5);
-	self waittill(#"movedone");
-	self notify(#"dig_up_weapon_timed_out");
+	self waittill("movedone");
+	self notify("dig_up_weapon_timed_out");
 	if(isdefined(self.trigger))
 	{
 		zm_unitrigger::unregister_unitrigger(self.trigger);

@@ -79,7 +79,7 @@ function init()
 */
 function on_player_killed()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.headicon = "";
 }
 
@@ -94,7 +94,7 @@ function on_player_killed()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self thread showfriendicon();
 }
 

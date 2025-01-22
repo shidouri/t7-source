@@ -129,7 +129,7 @@ function postfxbundledebuglisten()
 function playpostfxbundle(playbundlename)
 {
 	self endon(#"entityshutdown");
-	self endon(#"death");
+	self endon("death");
 	init_postfx_bundles();
 	stopplayingpostfxbundle();
 	bundle = struct::get_script_bundle("postfxbundle", playbundlename);
@@ -329,7 +329,7 @@ function finishplayingpostfxbundle(localclientnum, msg, filterid)
 	#/
 	if(isdefined(self))
 	{
-		self notify(#"finished_playing_postfx_bundle");
+		self notify("finished_playing_postfx_bundle");
 		self.forcestoppostfxbundle = 0;
 		self.exitpostfxbundle = 0;
 		self.playingpostfxbundle = "";
@@ -373,8 +373,8 @@ function stopplayingpostfxbundle()
 */
 function stoppostfxbundle()
 {
-	self notify(#"stoppostfxbundle_singleton");
-	self endon(#"stoppostfxbundle_singleton");
+	self notify("stoppostfxbundle_singleton");
+	self endon("stoppostfxbundle_singleton");
 	if(isdefined(self.playingpostfxbundle) && self.playingpostfxbundle != "")
 	{
 		self.forcestoppostfxbundle = 1;

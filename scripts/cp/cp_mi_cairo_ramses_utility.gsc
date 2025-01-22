@@ -272,9 +272,9 @@ function rotate_fan(var_5dbde88f)
 function function_f81a38c8()
 {
 	t_damage = getent(self.target, "targetname");
-	t_damage waittill(#"trigger");
+	t_damage waittill("trigger");
 	self notify(#"hash_fb28e86c");
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	self rotateto(self.angles + vectorscale((0, 1, 0), 15), 1.25, 0.05, 0.75);
 }
 
@@ -392,7 +392,7 @@ function init_dead_turrets(b_fake_rs_turrets = 0)
 */
 function delete_all_dead_turrets()
 {
-	level notify(#"stop_rs_dead_turret_vignettes");
+	level notify("stop_rs_dead_turret_vignettes");
 	if(isdefined(level.a_e_all_dead_turrets))
 	{
 		foreach(e_turret in level.a_e_all_dead_turrets)
@@ -644,7 +644,7 @@ function give_spike_launcher(b_force_switch = 1, b_hint = 1)
 */
 function spike_launcher_tutorial_hint(w_spike_launcher)
 {
-	self endon(#"death");
+	self endon("death");
 	w_current = self getcurrentweapon();
 	while(!self flag::get("spike_launcher_tutorial_complete"))
 	{
@@ -654,7 +654,7 @@ function spike_launcher_tutorial_hint(w_spike_launcher)
 		}
 		else
 		{
-			self waittill(#"weapon_change_complete", w_current);
+			self waittill("weapon_change_complete", w_current);
 		}
 	}
 }
@@ -670,10 +670,10 @@ function spike_launcher_tutorial_hint(w_spike_launcher)
 */
 function _wait_till_tutorial_complete(w_spike_launcher)
 {
-	self endon(#"death");
-	self endon(#"detonate");
+	self endon("death");
+	self endon("detonate");
 	self endon(#"hash_f4dfb01b");
-	self waittill(#"weapon_fired", w_current);
+	self waittill("weapon_fired", w_current);
 	if(w_current == w_spike_launcher)
 	{
 		wait(2);
@@ -693,9 +693,9 @@ function _wait_till_tutorial_complete(w_spike_launcher)
 */
 function wait_till_detonate_button_pressed()
 {
-	self endon(#"death");
-	self notify(#"wait_till_detonate_button_pressed");
-	self endon(#"wait_till_detonate_button_pressed");
+	self endon("death");
+	self notify("wait_till_detonate_button_pressed");
+	self endon("wait_till_detonate_button_pressed");
 	if(isdefined(self.var_f30613a1))
 	{
 		self util::hide_hint_text();
@@ -720,15 +720,15 @@ function wait_till_detonate_button_pressed()
 */
 function function_780e57a1()
 {
-	level endon(#"all_weak_points_destroyed");
-	self endon(#"detonate");
+	level endon("all_weak_points_destroyed");
+	self endon("detonate");
 	self endon(#"hash_f4dfb01b");
-	self endon(#"death");
+	self endon("death");
 	w_current = self getcurrentweapon();
 	w_spike_launcher = getweapon("spike_launcher");
 	while(!self flag::get("spike_launcher_tutorial_complete"))
 	{
-		self waittill(#"weapon_change_complete", w_current);
+		self waittill("weapon_change_complete", w_current);
 		if(w_current != w_spike_launcher)
 		{
 			self util::hide_hint_text();
@@ -877,7 +877,7 @@ function kill_players(str_notify)
 	level endon(str_notify);
 	while(true)
 	{
-		self waittill(#"trigger", e_toucher);
+		self waittill("trigger", e_toucher);
 		for(i = 0; i < level.players.size; i++)
 		{
 			if(e_toucher == level.players[i] && !e_toucher laststand::player_is_in_laststand())
@@ -929,7 +929,7 @@ function wait_till_no_players_looking_at()
 */
 function track_player(str_endon, n_radius = 256)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(str_endon))
 	{
 		level endon(str_endon);
@@ -1012,7 +1012,7 @@ function ambient_spawns_cleanup(str_endon)
 	level endon(str_endon);
 	while(true)
 	{
-		self waittill(#"trigger", e_ambient);
+		self waittill("trigger", e_ambient);
 		if(isdefined(e_ambient))
 		{
 			if(isai(e_ambient))
@@ -1022,7 +1022,7 @@ function ambient_spawns_cleanup(str_endon)
 			else
 			{
 				e_ambient.delete_on_death = 1;
-				e_ambient notify(#"death");
+				e_ambient notify("death");
 				if(!isalive(e_ambient))
 				{
 					e_ambient delete();
@@ -1290,7 +1290,7 @@ function link_traversals(str_key, str_val, b_link = 1)
 function function_508a129e(str_notify, n_time, var_45778f27 = 1)
 {
 	self notify(#"hash_5a334c0f");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_5a334c0f");
 	level flag::wait_till("intro_igc_done");
 	w_spike_launcher = getweapon("spike_launcher");
@@ -1362,8 +1362,8 @@ function is_using_weapon(str_weapon)
 function debug_linked(e)
 {
 	/#
-		self endon(#"death");
-		e endon(#"death");
+		self endon("death");
+		e endon("death");
 		while(true)
 		{
 			line(e.origin, self.origin, (1, 0, 0), 0.1);
@@ -1385,8 +1385,8 @@ function debug_linked(e)
 function draw_line_to_target(target, n_timer, str_start_tag)
 {
 	/#
-		self endon(#"death");
-		target endon(#"death");
+		self endon("death");
+		target endon("death");
 		n_timer = gettime() + (n_timer * 1000);
 		while(gettime() < n_timer)
 		{
@@ -1638,7 +1638,7 @@ function light_shift_think(str_trigger_targetname, str_level_endon, func_on_trig
 	#/
 	while(true)
 	{
-		t_light_shift waittill(#"trigger", e_player);
+		t_light_shift waittill("trigger", e_player);
 		if(isdefined(e_player) && isplayer(e_player))
 		{
 			e_player [[func_on_trigger]]();
@@ -1682,7 +1682,7 @@ function function_eabc6e2f()
 */
 function turret_pickup_think(s_obj)
 {
-	self endon(#"death");
+	self endon("death");
 	waittillframeend();
 	w_hero = getweapon("lmg_light");
 	t_pickup = spawn("trigger_radius", self.origin + vectorscale((0, 0, 1), 24), 0, s_obj.radius, 128);
@@ -1692,7 +1692,7 @@ function turret_pickup_think(s_obj)
 	self thread turret_pickup_hint(t_pickup, w_hero);
 	while(true)
 	{
-		t_pickup waittill(#"trigger", e_player);
+		t_pickup waittill("trigger", e_player);
 		if(isalive(e_player))
 		{
 			if(e_player turret_pickup_button_pressed() && !e_player has_weapon(w_hero))
@@ -1711,13 +1711,13 @@ function turret_pickup_think(s_obj)
 				}
 				e_player giveweapon(w_hero);
 				e_player switchtoweapon(w_hero);
-				level notify(#"turret_picked_up");
+				level notify("turret_picked_up");
 				break;
 			}
 		}
 	}
 	self.delete_on_death = 1;
-	self notify(#"death");
+	self notify("death");
 	if(!isalive(self))
 	{
 		self delete();
@@ -1736,10 +1736,10 @@ function turret_pickup_think(s_obj)
 */
 function turret_pickup_hint(t_pickup, w_hero)
 {
-	t_pickup endon(#"death");
+	t_pickup endon("death");
 	while(true)
 	{
-		t_pickup waittill(#"trigger", e_player);
+		t_pickup waittill("trigger", e_player);
 		if(!isalive(self))
 		{
 			return;
@@ -1818,7 +1818,7 @@ function remove_inventory_turret()
 */
 function magic_bullet_shield_till_notify(str_kill_mbs, b_disable_w_player_shot, str_phalanx_scatter_notify)
 {
-	self endon(#"death");
+	self endon("death");
 	self.cybercomtargetstatusoverride = 1;
 	util::magic_bullet_shield(self);
 	if(b_disable_w_player_shot)
@@ -1841,12 +1841,12 @@ function magic_bullet_shield_till_notify(str_kill_mbs, b_disable_w_player_shot, 
 */
 function stop_magic_bullet_shield_on_player_damage(str_kill_mbs, str_phalanx_scatter_notify)
 {
-	self endon(#"ram_kill_mb");
+	self endon("ram_kill_mb");
 	self endon(str_kill_mbs);
 	level endon(str_kill_mbs);
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker);
+		self waittill("damage", amount, attacker);
 		if(isplayer(attacker))
 		{
 			if(isdefined(str_phalanx_scatter_notify))
@@ -1871,7 +1871,7 @@ function stop_magic_bullet_shield_on_player_damage(str_kill_mbs, str_phalanx_sca
 */
 function function_f08afb37(b_on = 1, var_eebad467 = 0.1)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isalive(self) && issentient(self))
 	{
 		if(b_on)
@@ -2002,8 +2002,8 @@ function player_walk_speed_adjustment(e_rubber_band_to, str_endon, n_dist_min, n
 		assert(isdefined(n_dist_max), "");
 	#/
 	self endon(str_endon);
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self thread _player_walk_speed_reset(str_endon);
 	if(!isarray(e_rubber_band_to))
 	{

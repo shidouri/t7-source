@@ -80,7 +80,7 @@ function disable()
 */
 function function_7b627622()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"bled_out");
 	self endon(#"bgb_update");
 	while(true)
@@ -157,7 +157,7 @@ function function_d5ed5165(s_window)
 	}
 	carp_ent stoploopsound(1);
 	carp_ent playsoundwithnotify("evt_carpenter_end", "sound_done");
-	carp_ent waittill(#"sound_done");
+	carp_ent waittill("sound_done");
 	carp_ent delete();
 }
 

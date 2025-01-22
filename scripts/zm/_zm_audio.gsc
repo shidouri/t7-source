@@ -108,7 +108,7 @@ function playerexert(exert, notifywait = 0)
 		if(notifywait)
 		{
 			self playsoundwithnotify(id, "done_exerting");
-			self waittill(#"done_exerting");
+			self waittill("done_exerting");
 			self.isexerting = 0;
 		}
 		else
@@ -130,7 +130,7 @@ function playerexert(exert, notifywait = 0)
 */
 function exert_timer()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(randomfloatrange(1.5, 3));
 	self.isexerting = 0;
 }
@@ -201,8 +201,8 @@ function init_audio_functions()
 */
 function zombie_behind_vox()
 {
-	level endon(#"unloaded");
-	self endon(#"death_or_disconnect");
+	level endon("unloaded");
+	self endon("death_or_disconnect");
 	if(!isdefined(level._zbv_vox_last_update_time))
 	{
 		level._zbv_vox_last_update_time = 0;
@@ -283,7 +283,7 @@ function zombie_behind_vox()
 */
 function oh_shit_vox()
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	while(true)
 	{
 		wait(1);
@@ -322,8 +322,8 @@ function oh_shit_vox()
 */
 function player_killstreak_timer()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(getdvarstring("zombie_kills") == "")
 	{
 		setdvar("zombie_kills", "7");
@@ -341,7 +341,7 @@ function player_killstreak_timer()
 	}
 	while(true)
 	{
-		self waittill(#"zom_kill", zomb);
+		self waittill("zom_kill", zomb);
 		if(isdefined(zomb._black_hole_bomb_collapse_death) && zomb._black_hole_bomb_collapse_death == 1)
 		{
 			continue;
@@ -520,8 +520,8 @@ function get_mod_type(impact, mod, weapon, zombie, instakill, dist, player)
 */
 function timer_actual(kills, time)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	timer = gettime() + (time * 1000);
 	while(gettime() < timer)
 	{
@@ -587,9 +587,9 @@ function zmbvoxinitspeaker(speaker, prefix, ent)
 */
 function custom_kill_damaged_vo(player)
 {
-	self notify(#"sound_damage_player_updated");
-	self endon(#"death");
-	self endon(#"sound_damage_player_updated");
+	self notify("sound_damage_player_updated");
+	self endon("death");
+	self endon("sound_damage_player_updated");
 	self.sound_damage_player = player;
 	wait(2);
 	self.sound_damage_player = undefined;
@@ -809,7 +809,7 @@ function create_and_play_dialog(category, subcategory, force_variant)
 */
 function do_player_or_npc_playvox(sound_to_play, category, subcategory)
 {
-	self endon(#"death_or_disconnect");
+	self endon("death_or_disconnect");
 	if(self flag::exists("in_beastmode") && self flag::get("in_beastmode"))
 	{
 		return;
@@ -1330,7 +1330,7 @@ function sndmusicsystem_playstate(state)
 */
 function playstate(state)
 {
-	level endon(#"sndstatestop");
+	level endon("sndstatestop");
 	m = level.musicsystem;
 	musarray = level.musicsystem.states[state].musarray;
 	if(musarray.size <= 0)
@@ -1379,7 +1379,7 @@ function playstate(state)
 */
 function sndmusicsystem_queuestate(state)
 {
-	level endon(#"sndqueueflush");
+	level endon("sndqueueflush");
 	m = level.musicsystem;
 	count = 0;
 	if(isdefined(m.queue) && m.queue)
@@ -1412,9 +1412,9 @@ function sndmusicsystem_queuestate(state)
 */
 function sndmusicsystem_stopandflush()
 {
-	level notify(#"sndqueueflush");
+	level notify("sndqueueflush");
 	level.musicsystem.queue = 0;
-	level notify(#"sndstatestop");
+	level notify("sndstatestop");
 	level.musicsystem.currentplaytype = 0;
 	level.musicsystem.currentstate = undefined;
 }
@@ -1480,7 +1480,7 @@ function sndmusicsystem_locations(locationarray)
 	m = level.musicsystem;
 	while(true)
 	{
-		level waittill(#"newzoneactive", activezone);
+		level waittill("newzoneactive", activezone);
 		wait(0.1);
 		if(!sndlocationshouldplay(locationarray, activezone))
 		{
@@ -1577,12 +1577,12 @@ function sndcurrentlocationarray(current_array, activezone, numcut, num)
 */
 function sndlocationqueue(zone)
 {
-	level endon(#"newzoneactive");
+	level endon("newzoneactive");
 	while(level.musicsystem.currentplaytype >= 3)
 	{
 		wait(0.5);
 	}
-	level notify(#"newzoneactive", zone);
+	level notify("newzoneactive", zone);
 }
 
 /*
@@ -1682,7 +1682,7 @@ function sndmusicsystem_eewait(origin, state)
 	temp_ent = spawn("script_origin", origin);
 	temp_ent playloopsound("zmb_meteor_loop");
 	temp_ent thread secretuse("main_music_egg_hit", vectorscale((0, 1, 0), 255), &sndmusicsystem_eeoverride);
-	temp_ent waittill(#"main_music_egg_hit", player);
+	temp_ent waittill("main_music_egg_hit", player);
 	temp_ent stoploopsound(1);
 	player playsound("zmb_meteor_activate");
 	level.sndeecount++;
@@ -1848,9 +1848,9 @@ function sndannouncerplayvox(type, player)
 */
 function zmbaivox_notifyconvert()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	self thread zmbaivox_playdeath();
 	self thread zmbaivox_playelectrocution();
 	while(true)
@@ -1938,7 +1938,7 @@ function zmbaivox_notifyconvert()
 */
 function zmbaivox_playvox(zombie, type, override, priority, delayambientvox = 0)
 {
-	zombie endon(#"death");
+	zombie endon("death");
 	if(!isdefined(zombie))
 	{
 		return;
@@ -2026,8 +2026,8 @@ function zmbaivox_playvox(zombie, type, override, priority, delayambientvox = 0)
 */
 function zmbaivox_playdeath()
 {
-	self endon(#"disconnect");
-	self waittill(#"death", attacker, meansofdeath);
+	self endon("disconnect");
+	self waittill("death", attacker, meansofdeath);
 	if(isdefined(self))
 	{
 		if(isdefined(self.bgb_tone_death) && self.bgb_tone_death)
@@ -2052,11 +2052,11 @@ function zmbaivox_playdeath()
 */
 function zmbaivox_playelectrocution()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
+		self waittill("damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
 		if(weapon.name == "zombie_beast_lightning_dwl" || weapon.name == "zombie_beast_lightning_dwl2" || weapon.name == "zombie_beast_lightning_dwl3")
 		{
 			self notify(#"bhtn_action_notify", "electrocute");
@@ -2075,10 +2075,10 @@ function zmbaivox_playelectrocution()
 */
 function zmbaivox_ambientdelay()
 {
-	self notify(#"sndambientdelay");
-	self endon(#"sndambientdelay");
-	self endon(#"death");
-	self endon(#"disconnect");
+	self notify("sndambientdelay");
+	self endon("sndambientdelay");
+	self endon("death");
+	self endon("disconnect");
 	wait(2);
 	self.delayambientvox = 0;
 }
@@ -2240,7 +2240,7 @@ function sndradiowait(origin, radio, is_sequential, num)
 {
 	temp_ent = spawn("script_origin", origin);
 	temp_ent thread secretuse("sndRadioHit", vectorscale((0, 0, 1), 255), &sndradio_override, radio);
-	temp_ent waittill(#"sndradiohit", player);
+	temp_ent waittill("sndradiohit", player);
 	if(!(isdefined(is_sequential) && is_sequential))
 	{
 		radionum = num;
@@ -2307,7 +2307,7 @@ function sndradio_override(arg1, arg2)
 */
 function sndperksjingles_timer()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.sndjinglecooldown))
 	{
 		self.sndjinglecooldown = 0;
@@ -2333,7 +2333,7 @@ function sndperksjingles_timer()
 */
 function sndperksjingles_player(type)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.sndjingleactive))
 	{
 		self.sndjingleactive = 0;
@@ -2382,7 +2382,7 @@ function sndperksjingles_player(type)
 */
 function sndperksjingles_cooldown()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_1afc1154))
 	{
 		while(isdefined(self.var_1afc1154) && self.var_1afc1154)
@@ -2478,7 +2478,7 @@ function sndconversation_addline(name, line, player_or_random, ignoreplayer = 5)
 function sndconversation_play(name)
 {
 	thisconvo = level.sndconversations[name];
-	level endon(#"sndconvointerrupt");
+	level endon("sndconvointerrupt");
 	if(isdefined(thisconvo.specialendon))
 	{
 		level endon(thisconvo.specialendon);
@@ -2520,11 +2520,11 @@ function sndconversation_play(name)
 			}
 			speaker playsoundontag(level.currentconvoline, "J_Head");
 			waitplaybacktime(level.currentconvoline);
-			level notify(#"sndconvolinedone");
+			level notify("sndconvolinedone");
 		}
 	}
 	level.sndvoxoverride = 0;
-	level notify(#"sndconversationdone");
+	level notify("sndconversationdone");
 	level.currentconvoline = undefined;
 	level.currentconvoplayer = undefined;
 }
@@ -2540,8 +2540,8 @@ function sndconversation_play(name)
 */
 function sndconvostopcurrentconversation()
 {
-	level notify(#"sndconvointerrupt");
-	level notify(#"sndconversationdone");
+	level notify("sndconvointerrupt");
+	level notify("sndconversationdone");
 	level.sndvoxoverride = 0;
 	if(isdefined(level.currentconvoplayer) && isdefined(level.currentconvoline))
 	{
@@ -2681,7 +2681,7 @@ function isanyonetalking()
 */
 function sndconvointerrupt()
 {
-	level endon(#"sndconvolinedone");
+	level endon("sndconvolinedone");
 	while(true)
 	{
 		if(!isdefined(self))
@@ -2722,8 +2722,8 @@ function sndconvointerrupt()
 */
 function water_vox()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	level endon(#"end_game");
 	self.voxunderwatertime = 0;
 	self.voxemergebreath = 0;
@@ -2794,7 +2794,7 @@ function vo_clear_underwater()
 		}
 	}
 	self stopsounds();
-	self notify(#"stop_vo_convo");
+	self notify("stop_vo_convo");
 	self.str_vo_being_spoken = "";
 	self.n_vo_priority = 0;
 	self.isspeaking = 0;
@@ -2860,7 +2860,7 @@ function sndplayerhitalert(e_victim, str_meansofdeath, e_inflictor, weapon)
 */
 function sndplayerhitalert_playsound(str_alias)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(self.hitsoundtracker)
 	{
 		self.hitsoundtracker = 0;

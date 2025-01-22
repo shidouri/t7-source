@@ -78,7 +78,7 @@ function private on_entity_shutdown(localclientnum)
 {
 	if(isdefined(self))
 	{
-		self notify(#"stopfacialthread");
+		self notify("stopfacialthread");
 		if(isdefined(self.facialdeathanimstarted) && self.facialdeathanimstarted)
 		{
 			return;
@@ -185,7 +185,7 @@ function private secondaryfacialanimationthink(localclientnum)
 		assert(isdefined(self.archetype) && (self.archetype == "" || self.archetype == ""));
 	#/
 	self endon(#"entityshutdown");
-	self endon(#"stopfacialthread");
+	self endon("stopfacialthread");
 	self._currentfacestate = "inactive";
 	while(true)
 	{

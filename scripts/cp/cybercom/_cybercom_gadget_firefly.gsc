@@ -196,7 +196,7 @@ function _is_primed(slot, weapon)
 */
 function ai_activatefireflyswarm(target, var_9bc2efcb = 1, upgraded = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.archetype != "human")
 	{
 		return;
@@ -207,7 +207,7 @@ function ai_activatefireflyswarm(target, var_9bc2efcb = 1, upgraded = 1)
 		self orientmode("face default");
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");
 		self playsound("gdt_firefly_activate_npc");
-		self waittillmatch(#"ai_cybercom_anim");
+		self waittillmatch("ai_cybercom_anim");
 	}
 	if(isarray(target))
 	{
@@ -244,7 +244,7 @@ function ai_activatefireflyswarm(target, var_9bc2efcb = 1, upgraded = 1)
 function on_scene_firefly_launch(a_ents)
 {
 	anim_model = a_ents["ability_firefly_launch"];
-	anim_model waittill(#"firefly_launch_vehicle");
+	anim_model waittill("firefly_launch_vehicle");
 	if(isdefined(anim_model))
 	{
 		origin = anim_model gettagorigin("tag_fx_01_end_jnt");
@@ -261,7 +261,7 @@ function on_scene_firefly_launch(a_ents)
 		{
 			angles = self.owner.angles;
 		}
-		self.owner notify(#"firefly_intro_done", origin, angles);
+		self.owner notify("firefly_intro_done", origin, angles);
 	}
 }
 
@@ -301,7 +301,7 @@ function initthreatbias()
 */
 function spawn_firefly_swarm(upgraded, targetent, swarms = getdvarint("scr_firefly_swarm_count", 3), swarmsplits = getdvarint("scr_firefly_swarm_split_count", 0))
 {
-	self endon(#"death");
+	self endon("death");
 	lifetime = getdvarint("scr_firefly_swarm_lifetime", 14);
 	splitsleft = swarmsplits;
 	offspring = 0;
@@ -339,7 +339,7 @@ function spawn_firefly_swarm(upgraded, targetent, swarms = getdvarint("scr_firef
 				else
 				{
 					s_anim_pos thread scene::play("p7_fxanim_gp_ability_firebug_launch_bundle");
-					self waittill(#"firefly_intro_done", origin, angles);
+					self waittill("firefly_intro_done", origin, angles);
 				}
 			}
 			else
@@ -350,7 +350,7 @@ function spawn_firefly_swarm(upgraded, targetent, swarms = getdvarint("scr_firef
 				else
 				{
 					s_anim_pos thread scene::play("p7_fxanim_gp_ability_firefly_launch_bundle");
-					self waittill(#"firefly_intro_done", origin, angles);
+					self waittill("firefly_intro_done", origin, angles);
 				}
 			}
 		}
@@ -423,7 +423,7 @@ function spawn_firefly_swarm(upgraded, targetent, swarms = getdvarint("scr_firef
 			swarm.state_machine statemachine::set_state("init");
 			targetent = undefined;
 		}
-		level notify(#"cybercom_swarm_released", swarm);
+		level notify("cybercom_swarm_released", swarm);
 		level.cybercom.swarms_released = level.cybercom.swarms_released + 1;
 		level.cybercom.var_12f85dec++;
 	}
@@ -440,7 +440,7 @@ function spawn_firefly_swarm(upgraded, targetent, swarms = getdvarint("scr_firef
 */
 function function_54bc061f()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.1);
 	for(;;)
 	{
@@ -474,9 +474,9 @@ function function_54bc061f()
 */
 function path_update_interrupt()
 {
-	self endon(#"death");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("near_goal");
+	self endon("reached_end_node");
 	wait(1);
 	while(true)
 	{
@@ -485,7 +485,7 @@ function path_update_interrupt()
 			if(distance2dsquared(self.current_pathto_pos, self.goalpos) > (self.goalradius * self.goalradius))
 			{
 				wait(0.2);
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);
@@ -714,8 +714,8 @@ function swarm_init(params)
 */
 function swarm_split_monitor()
 {
-	self endon(#"swarm_is_dead");
-	self endon(#"death");
+	self endon("swarm_is_dead");
+	self endon("death");
 	wait(3);
 	while(self.splitsleft > 0)
 	{
@@ -785,7 +785,7 @@ function swarm_attackhumantarget(target)
 		target thread _reacttoswarm(self, reactionanims, getweapon("gadget_firefly_swarm"));
 		target notify(#"bhtn_action_notify", "fireflyAttack");
 	}
-	self waittill(#"attack_stopped");
+	self waittill("attack_stopped");
 }
 
 /*
@@ -866,7 +866,7 @@ function function_cb5f9a2(target)
 		target thread _reacttoswarm(self, reactionanims, getweapon("gadget_firefly_swarm"));
 		target notify(#"bhtn_action_notify", "fireflyAttack");
 	}
-	self waittill(#"attack_stopped");
+	self waittill("attack_stopped");
 }
 
 /*
@@ -903,8 +903,8 @@ function swarm_attackplayertarget(target)
 */
 function swarm_attack_think(params)
 {
-	self endon(#"swarm_is_dead");
-	self endon(#"death");
+	self endon("swarm_is_dead");
+	self endon("death");
 	self.debug.attack++;
 	self clientfield::set("firefly_state", 1);
 	target = self.targetent;
@@ -967,10 +967,10 @@ function swarm_attack_think(params)
 */
 function swarm_monitortargetdeath(target)
 {
-	self endon(#"death");
-	self endon(#"attack_stopped");
-	target waittill(#"death");
-	self notify(#"attack_stopped");
+	self endon("death");
+	self endon("attack_stopped");
+	target waittill("death");
+	self notify("attack_stopped");
 }
 
 /*
@@ -984,7 +984,7 @@ function swarm_monitortargetdeath(target)
 */
 function private _firebombtargetpain(swarm, reactionanims, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(swarm))
 	{
 		self dodamage(5, self.origin, swarm.owner, swarm, "none", "MOD_BURNED", 0, weapon, -1, 1);
@@ -993,7 +993,7 @@ function private _firebombtargetpain(swarm, reactionanims, weapon)
 	{
 		self waittillmatch(#"bhtn_action_terminate");
 	}
-	self notify(#"firebug_time_to_die", "specialpain");
+	self notify("firebug_time_to_die", "specialpain");
 }
 
 /*
@@ -1007,7 +1007,7 @@ function private _firebombtargetpain(swarm, reactionanims, weapon)
 */
 function private _firebombtargetcorpselistener()
 {
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 	corpse clientfield::set("arch_actor_fire_fx", 2);
 }
 
@@ -1022,7 +1022,7 @@ function private _firebombtargetcorpselistener()
 */
 function private _firebombtarget(swarm, reactionanims, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self.ignoreall = 1;
 	self.is_disabled = 1;
 	var_c318824b = 0;
@@ -1036,7 +1036,7 @@ function private _firebombtarget(swarm, reactionanims, weapon)
 	if(!(isdefined(var_c318824b) && var_c318824b) && isdefined(reactionanims["intro"]))
 	{
 		self animscripted("swarm_intro_anim", self.origin, self.angles, reactionanims["intro"]);
-		self waittillmatch(#"swarm_intro_anim");
+		self waittillmatch("swarm_intro_anim");
 	}
 	self clientfield::set("arch_actor_fire_fx", 1);
 	self thread _firebombtargetcorpselistener();
@@ -1048,7 +1048,7 @@ function private _firebombtarget(swarm, reactionanims, weapon)
 	self clientfield::set("firefly_state", 10);
 	if(isdefined(swarm))
 	{
-		swarm notify(#"attack_stopped", "end");
+		swarm notify("attack_stopped", "end");
 		if(isdefined(self.voiceprefix) && isdefined(self.bcvoicenumber))
 		{
 			self thread battlechatter::do_sound((self.voiceprefix + self.bcvoicenumber) + "_exert_firefly_burning", 1);
@@ -1099,8 +1099,8 @@ function private _deathlistener(swarm)
 */
 function private _corpsewatcher(swarm)
 {
-	swarm endon(#"death");
-	self waittill(#"actor_corpse", corpse);
+	swarm endon("death");
+	self waittill("actor_corpse", corpse);
 	corpse clientfield::set("firefly_state", 10);
 }
 
@@ -1115,7 +1115,7 @@ function private _corpsewatcher(swarm)
 */
 function function_963f8ef6(match, note, var_1ccbc268, end)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(end))
 	{
 		self endon(end);
@@ -1157,7 +1157,7 @@ function function_963f8ef6(match, note, var_1ccbc268, end)
 */
 function private _reacttoswarm(swarm, reactionanims, weapon)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread _corpsewatcher(swarm);
 	oldaware = self.badplaceawareness;
 	self.badplaceawareness = 0.1;
@@ -1170,7 +1170,7 @@ function private _reacttoswarm(swarm, reactionanims, weapon)
 		self kill(self.origin, (isdefined(swarm.owner) ? swarm.owner : undefined));
 		if(isdefined(swarm))
 		{
-			swarm notify(#"attack_stopped");
+			swarm notify("attack_stopped");
 		}
 		return;
 	}
@@ -1182,7 +1182,7 @@ function private _reacttoswarm(swarm, reactionanims, weapon)
 	{
 		self animscripted("swarm_intro_anim", self.origin, self.angles, reactionanims["intro"]);
 		self thread cybercom::stopanimscriptedonnotify("damage", "swarm_intro_anim");
-		self waittillmatch(#"swarm_intro_anim");
+		self waittillmatch("swarm_intro_anim");
 	}
 	attack = 1;
 	while(attack && isdefined(swarm))
@@ -1192,7 +1192,7 @@ function private _reacttoswarm(swarm, reactionanims, weapon)
 		self waittillmatch(#"bhtn_action_terminate");
 		attack = isdefined(swarm) && (!(isdefined(swarm.dying_out) && swarm.dying_out)) && (distancesquared(self.origin + vectorscale((0, 0, 1), 48), swarm.origin)) < (getdvarint("scr_firefly_swarm_attack_radius", 110) * getdvarint("scr_firefly_swarm_attack_radius", 110)) && isalive(self);
 	}
-	self notify(#"attack_stopped", "specialpain", "end");
+	self notify("attack_stopped", "specialpain", "end");
 	if(isalive(self) && !self isragdoll())
 	{
 		self clientfield::set("firefly_state", 5);
@@ -1203,13 +1203,13 @@ function private _reacttoswarm(swarm, reactionanims, weapon)
 		{
 			self animscripted("swarm_outro_anim", self.origin, self.angles, reactionanims["outro"]);
 			self thread cybercom::stopanimscriptedonnotify("damage", "swarm_outro_anim");
-			self waittillmatch(#"swarm_outro_anim");
+			self waittillmatch("swarm_outro_anim");
 		}
 		self.is_disabled = undefined;
 	}
 	if(isdefined(swarm))
 	{
-		swarm notify(#"attack_stopped", "end");
+		swarm notify("attack_stopped", "end");
 	}
 }
 
@@ -1226,7 +1226,7 @@ function swarm_delete()
 {
 	if(isdefined(self))
 	{
-		self notify(#"swarm_is_dead");
+		self notify("swarm_is_dead");
 		if(isdefined(self.targetent) && !isplayer(self.targetent))
 		{
 			self.targetent clientfield::set("firefly_state", 5);
@@ -1251,7 +1251,7 @@ function swarm_delete()
 */
 function swarm_death_wait()
 {
-	self endon(#"death");
+	self endon("death");
 	while(gettime() < self.lifetime)
 	{
 		wait(1);
@@ -1272,8 +1272,8 @@ function swarm_death_wait()
 */
 function swarm_dead_think(params)
 {
-	self notify(#"swarm_is_dead");
-	self endon(#"death");
+	self notify("swarm_is_dead");
+	self endon("death");
 	self clearforcedgoal();
 	if(!self.firebugcount)
 	{
@@ -1309,8 +1309,8 @@ function swarm_dead_think(params)
 */
 function swarm_main_think(params)
 {
-	self endon(#"swarm_is_dead");
-	self endon(#"death");
+	self endon("swarm_is_dead");
+	self endon("death");
 	if(isdefined(self.dying_out) && self.dying_out)
 	{
 		self.state_machine statemachine::set_state("dead");
@@ -1436,8 +1436,8 @@ function get_swarm_targetswithinfov(origin, angles, var_10a84c6e = getdvarint("s
 */
 function swarm_find_good_target(var_10a84c6e = getdvarint("scr_firefly_swarm_hunt_radius", 1536))
 {
-	self endon(#"swarm_is_dead");
-	self endon(#"death");
+	self endon("swarm_is_dead");
+	self endon("death");
 	enemies = self _get_valid_targets();
 	closetargets = arraysortclosest(enemies, self.origin, enemies.size, 0, var_10a84c6e);
 	closest = undefined;
@@ -1484,8 +1484,8 @@ function swarm_find_good_target(var_10a84c6e = getdvarint("scr_firefly_swarm_hun
 */
 function swarm_hunt_think(params)
 {
-	self endon(#"swarm_is_dead");
-	self endon(#"death");
+	self endon("swarm_is_dead");
+	self endon("death");
 	self.debug.hunt++;
 	self util::waittill_any_timeout(3, "near_goal");
 	self clearforcedgoal();
@@ -1521,8 +1521,8 @@ function swarm_hunt_think(params)
 */
 function swarm_move_think(params)
 {
-	self endon(#"swarm_is_dead");
-	self endon(#"death");
+	self endon("swarm_is_dead");
+	self endon("death");
 	self.debug.move++;
 	if(!self.firebugcount)
 	{
@@ -1564,7 +1564,7 @@ function swarm_move_think(params)
 */
 function fireflyplayereffect(player)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	player shellshock("proximity_grenade", 2, 0);
 }
 

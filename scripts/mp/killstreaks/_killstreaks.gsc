@@ -494,7 +494,7 @@ function register_dev_debug_dvar(killstreaktype)
 function register_devgui(killstreaktype)
 {
 	/#
-		level endon(#"game_ended");
+		level endon("game_ended");
 		wait(randomintrange(2, 20) * 0.05);
 		give_type_all = "";
 		give_type_enemy = "";
@@ -882,8 +882,8 @@ function is_an_a_killstreak()
 function give(killstreaktype, streak, suppressnotification, noxp, tobottom)
 {
 	pixbeginevent("giveKillstreak");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	had_to_delay = 0;
 	killstreakgiven = 0;
 	if(isdefined(noxp))
@@ -919,7 +919,7 @@ function give(killstreaktype, streak, suppressnotification, noxp, tobottom)
 */
 function take(killstreak)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	killstreak_weapon = get_killstreak_weapon(killstreak);
 	remove_used_killstreak(killstreak);
 	if(self getinventoryweapon() == killstreak_weapon)
@@ -958,7 +958,7 @@ function remove_oldest()
 				self switchtoweapon(primaries[0]);
 			}
 		}
-		self notify(#"oldest_killstreak_removed", self.pers["killstreaks"][0], self.pers["killstreak_unique_id"][0]);
+		self notify("oldest_killstreak_removed", self.pers["killstreaks"][0], self.pers["killstreak_unique_id"][0]);
 		self remove_used_killstreak(self.pers["killstreaks"][0], self.pers["killstreak_unique_id"][0], 0);
 	}
 }
@@ -1508,11 +1508,11 @@ function recordkillstreakbegindirect(recordstreakindex)
 */
 function remove_when_done(killstreak, haskillstreakbeenused, isfrominventory)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	continue_wait = 1;
 	while(continue_wait)
 	{
-		self waittill(#"killstreak_done", successful, killstreaktype);
+		self waittill("killstreak_done", successful, killstreaktype);
 		if(killstreaktype == killstreak)
 		{
 			continue_wait = 0;
@@ -1694,11 +1694,11 @@ function remove_used_killstreak(killstreak, killstreakid, take_weapon_after_use 
 */
 function take_weapon_after_use(killstreakweapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
-	self waittill(#"weapon_change");
+	self endon("disconnect");
+	self endon("death");
+	self endon("joined_team");
+	self endon("joined_spectators");
+	self waittill("weapon_change");
 	inventoryweapon = self getinventoryweapon();
 	if(inventoryweapon != killstreakweapon)
 	{
@@ -1930,9 +1930,9 @@ function should_override_entity_camera_in_demo(player, weapon)
 */
 function wait_till_hero_weapon_is_fully_on(weapon)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"weapon_change");
+	self endon("death");
+	self endon("disconnect");
+	self endon("weapon_change");
 	slot = self gadgetgetslot(weapon);
 	while(true)
 	{
@@ -1956,8 +1956,8 @@ function wait_till_hero_weapon_is_fully_on(weapon)
 */
 function track_weapon_usage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.lastnonkillstreakweapon = self getcurrentweapon();
 	lastvalidpimary = self getcurrentweapon();
 	if(self.lastnonkillstreakweapon == level.weaponnone)
@@ -1978,7 +1978,7 @@ function track_weapon_usage()
 	for(;;)
 	{
 		currentweapon = self getcurrentweapon();
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		if(weapons::is_primary_weapon(weapon))
 		{
 			lastvalidpimary = weapon;
@@ -2035,14 +2035,14 @@ function track_weapon_usage()
 */
 function killstreak_waiter()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	self thread track_weapon_usage();
 	self give_owned();
 	for(;;)
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 		if(!is_killstreak_weapon(weapon))
 		{
 			continue;
@@ -2265,8 +2265,8 @@ function trigger_killstreak(killstreaktype, isfrominventory)
 				self.pers[level.killstreaks[killstreaktype].usagekey] = 0;
 			}
 			self.pers[level.killstreaks[killstreaktype].usagekey]++;
-			self notify(#"killstreak_used", killstreaktype);
-			self notify(#"killstreak_done", 1, killstreaktype);
+			self notify("killstreak_used", killstreaktype);
+			self notify("killstreak_done", 1, killstreaktype);
 		}
 		self.usingkillstreakfrominventory = undefined;
 		return true;
@@ -2274,7 +2274,7 @@ function trigger_killstreak(killstreaktype, isfrominventory)
 	self.usingkillstreakfrominventory = undefined;
 	if(isdefined(self))
 	{
-		self notify(#"killstreak_done", 0, killstreaktype);
+		self notify("killstreak_done", 0, killstreaktype);
 	}
 	return false;
 }
@@ -2569,10 +2569,10 @@ function play_killstreak_ready_sfx(killstreaktype)
 function play_killstreak_ready_dialog(killstreaktype, taacomwaittime)
 {
 	self notify("killstreak_ready_" + killstreaktype);
-	self endon(#"death");
+	self endon("death");
 	self endon("killstreak_start_" + killstreaktype);
 	self endon("killstreak_ready_" + killstreaktype);
-	level endon(#"game_ended");
+	level endon("game_ended");
 	if(isdefined(level.gameended) && level.gameended)
 	{
 		return;
@@ -2751,10 +2751,10 @@ function player_killstreak_threat_tracking(killstreaktype)
 	/#
 		assert(isdefined(killstreaktype));
 	#/
-	self endon(#"death");
-	self endon(#"delete");
-	self endon(#"leaving");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("delete");
+	self endon("leaving");
+	level endon("game_ended");
 	while(true)
 	{
 		if(!isdefined(self.owner))
@@ -2861,7 +2861,7 @@ function get_killstreak_usage(usagekey)
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	pixbeginevent("_killstreaks.gsc/onPlayerSpawned");
 	give_owned();
 	if(!isdefined(self.pers["killstreaks"]))
@@ -2900,7 +2900,7 @@ function on_player_spawned()
 */
 function on_joined_team()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self setinventoryweapon(level.weaponnone);
 	self.pers["cur_kill_streak"] = 0;
 	self.pers["cur_total_kill_streak"] = 0;
@@ -2952,7 +2952,7 @@ function watch_for_remove_remote_weapon()
 	self endon(#"endwatchforremoveremoteweapon");
 	for(;;)
 	{
-		self waittill(#"remove_remote_weapon");
+		self waittill("remove_remote_weapon");
 		self switch_to_last_non_killstreak_weapon();
 		self enableusability();
 	}
@@ -3065,7 +3065,7 @@ function init_ride_killstreak_internal(streak, always_allow)
 */
 function clear_ride_intro(delay)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(delay))
 	{
 		wait(delay);
@@ -3235,7 +3235,7 @@ function clear_using_remote(immediate, skipnotify)
 	}
 	if(!(isdefined(skipnotify) && skipnotify))
 	{
-		self notify(#"stopped_using_remote");
+		self notify("stopped_using_remote");
 	}
 	thread hide_tablet();
 }
@@ -3251,7 +3251,7 @@ function clear_using_remote(immediate, skipnotify)
 */
 function hide_tablet()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(0.2);
 	self clientfield::set_player_uimodel("hudItems.remoteKillstreakActivated", 0);
 }
@@ -3358,8 +3358,8 @@ function setup_health(killstreak_ref, max_health, low_health)
 */
 function monitordamage(killstreak_ref, max_health, destroyed_callback, low_health, low_health_callback, emp_damage, emp_callback, allow_bullet_damage)
 {
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("death");
+	self endon("delete");
 	self.health = 9999999;
 	self.damagetaken = 0;
 	self setup_health(killstreak_ref, max_health, low_health);
@@ -3369,7 +3369,7 @@ function monitordamage(killstreak_ref, max_health, destroyed_callback, low_healt
 	while(true)
 	{
 		weapon_damage = undefined;
-		self waittill(#"damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, flags, inflictor, chargelevel);
+		self waittill("damage", damage, attacker, direction, point, type, tagname, modelname, partname, weapon, flags, inflictor, chargelevel);
 		if(isdefined(self.invulnerable) && self.invulnerable)
 		{
 			continue;
@@ -3676,7 +3676,7 @@ function configure_team(killstreaktype, killstreakid, owner, influencertype, con
 */
 function trackactivekillstreak(killstreak)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	killstreakindex = killstreak.killstreakid;
 	if(isdefined(killstreakindex))
 	{
@@ -3785,7 +3785,7 @@ function watchteamchange(teamchangenotify)
 	self notify(teamchangenotify + "_Singleton");
 	self endon(teamchangenotify + "_Singleton");
 	killstreak = self;
-	killstreak endon(#"death");
+	killstreak endon("death");
 	killstreak endon(teamchangenotify);
 	killstreak.owner util::waittill_any("joined_team", "disconnect", "joined_spectators", "emp_jammed");
 	killstreak notify(teamchangenotify);
@@ -3834,7 +3834,7 @@ function waitfortimeout(killstreak, duration, callback, endcondition1, endcondit
 			return;
 		}
 	#/
-	self endon(#"killstreak_hacked");
+	self endon("killstreak_hacked");
 	if(isdefined(endcondition1))
 	{
 		self endon(endcondition1);
@@ -3858,10 +3858,10 @@ function waitfortimeout(killstreak, duration, callback, endcondition1, endcondit
 	{
 		hostmigration::migrationawarewait(duration);
 	}
-	self notify(#"kill_waitfortimeouthacked_thread");
+	self notify("kill_waitfortimeouthacked_thread");
 	self.killstreaktimedout = 1;
 	self.killstreakendtime = 0;
-	self notify(#"timed_out");
+	self notify("timed_out");
 	self [[callback]]();
 }
 
@@ -3876,7 +3876,7 @@ function waitfortimeout(killstreak, duration, callback, endcondition1, endcondit
 */
 function waitfortimeoutbeep(killstreakbundle, duration)
 {
-	self endon(#"death");
+	self endon("death");
 	beepduration = killstreakbundle.kstimeoutbeepduration * 1000;
 	hostmigration::migrationawarewait(max(duration - beepduration, 0));
 	if(isvehicle(self))
@@ -3910,7 +3910,7 @@ function waitfortimeoutbeep(killstreakbundle, duration)
 */
 function waitfortimeouthacked(killstreak, callback, endcondition1, endcondition2, endcondition3)
 {
-	self endon(#"kill_waitfortimeouthacked_thread");
+	self endon("kill_waitfortimeouthacked_thread");
 	if(isdefined(endcondition1))
 	{
 		self endon(endcondition1);
@@ -3923,12 +3923,12 @@ function waitfortimeouthacked(killstreak, callback, endcondition1, endcondition2
 	{
 		self endon(endcondition3);
 	}
-	self waittill(#"killstreak_hacked");
+	self waittill("killstreak_hacked");
 	hackedduration = self killstreak_hacking::get_hacked_timeout_duration_ms();
 	self.killstreakendtime = gettime() + hackedduration;
 	hostmigration::migrationawarewait(hackedduration);
 	self.killstreakendtime = 0;
-	self notify(#"timed_out");
+	self notify("timed_out");
 	self [[callback]]();
 }
 

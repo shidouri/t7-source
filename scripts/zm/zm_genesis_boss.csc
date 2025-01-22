@@ -114,8 +114,8 @@ function boss_clone_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function sophia_state(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level notify(#"sophia_state");
-	level endon(#"sophia_state");
+	level notify("sophia_state");
+	level endon("sophia_state");
 	function_eec997a(localclientnum);
 	level.var_f0444f1b[localclientnum] util::waittill_dobj(localclientnum);
 	var_b19b9bc4 = struct::get("boss_sophia_hover", "targetname");

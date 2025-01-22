@@ -115,7 +115,7 @@ function shield_charge_powerup(item, player)
 */
 function shield_on_hud(drop_item, player_team)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	hudelem = hud::createserverfontstring("objective", 2, player_team);
 	hudelem hud::setpoint("TOP", undefined, 0, level.zombie_vars["zombie_timer_offset"] - (level.zombie_vars["zombie_timer_offset_interval"] * 2));
 	hudelem.sort = 0.5;

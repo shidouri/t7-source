@@ -140,7 +140,7 @@ function function_e4486a45()
 {
 	level scene::init("cin_pro_02_01_knocking_vign_nrc_breach_soldiers");
 	level thread scene::play("cin_pro_02_01_knocking_vign_approach_opendoor", level.ai_hendricks);
-	level.ai_hendricks waittill(#"open_door");
+	level.ai_hendricks waittill("open_door");
 	level.ai_hendricks setgoal(getnode("nd_nrc_knocking_hendrics_retreat", "targetname"), 1);
 	level.ai_hendricks thread dialog::say("hend_let_s_get_this_done_0");
 	level thread namespace_21b2c1f2::function_e245d17f();
@@ -273,8 +273,8 @@ function blend_in_main()
 */
 function function_e2ed5f34()
 {
-	self endon(#"death");
-	self endon(#"objective_blend_in_done");
+	self endon("death");
+	self endon("objective_blend_in_done");
 	level waittill(#"explosion_blast");
 	wait(1.5);
 	level thread objectives::breadcrumb("blending_in_breadcrumb_3");
@@ -347,12 +347,12 @@ function function_5b8bdfba()
 */
 function function_e5670bf5()
 {
-	self endon(#"death");
-	self notify(#"scriptedbc", "get_to_control_tower");
+	self endon("death");
+	self notify("scriptedbc", "get_to_control_tower");
 	wait(2);
-	self notify(#"scriptedbc", "move_move");
+	self notify("scriptedbc", "move_move");
 	wait(1.5);
-	self notify(#"scriptedbc", "more_men");
+	self notify("scriptedbc", "more_men");
 	wait(2);
 	self notify(#"hash_c80e029a", "put_out_fire_men");
 }
@@ -368,9 +368,9 @@ function function_e5670bf5()
 */
 function function_bf532adb()
 {
-	level endon(#"objective_take_out_guards_done");
+	level endon("objective_take_out_guards_done");
 	var_46100e43 = getent("t_tarmac_vo_firetruck", "targetname");
-	var_46100e43 endon(#"death");
+	var_46100e43 endon("death");
 	var_46100e43 trigger::wait_till();
 	var_46100e43 playsound("nrcm0_put_out_that_fire_w_0");
 }
@@ -386,8 +386,8 @@ function function_bf532adb()
 */
 function function_bafd79f6(str_triggername, a_vo_lines, var_61ae76d5, var_9e3b0b67)
 {
-	self endon(#"death");
-	level endon(#"objective_take_out_guards_done");
+	self endon("death");
+	level endon("objective_take_out_guards_done");
 	var_46100e43 = getent(str_triggername, "targetname");
 	var_a939b0c9 = var_46100e43.origin;
 	level trigger::wait_till(str_triggername, "targetname", undefined, 0);
@@ -405,7 +405,7 @@ function function_bafd79f6(str_triggername, a_vo_lines, var_61ae76d5, var_9e3b0b
 */
 function function_f9be6553(var_97fbbd0a, a_vo_lines, var_61ae76d5, var_9e3b0b67)
 {
-	level endon(#"objective_take_out_guards_done");
+	level endon("objective_take_out_guards_done");
 	for(i = 0; i < a_vo_lines.size; i++)
 	{
 		var_79cf4848 = getentarray(var_61ae76d5[i], "targetname");
@@ -413,7 +413,7 @@ function function_f9be6553(var_97fbbd0a, a_vo_lines, var_61ae76d5, var_9e3b0b67)
 		{
 			var_58c5eb41 = arraygetclosest(var_97fbbd0a, var_79cf4848);
 			wait(var_9e3b0b67[i]);
-			var_58c5eb41 notify(#"scriptedbc", a_vo_lines[i]);
+			var_58c5eb41 notify("scriptedbc", a_vo_lines[i]);
 		}
 	}
 }
@@ -587,7 +587,7 @@ function function_9b773ab2(a_ents)
 	var_5d7f4f0f ai::set_ignoreme(1);
 	var_5d7f4f0f setgoal(getnode("tarmac_help_goal", "targetname"), 1);
 	var_5d7f4f0f thread function_e5670bf5();
-	var_5d7f4f0f waittill(#"goal");
+	var_5d7f4f0f waittill("goal");
 	var_5d7f4f0f delete();
 }
 
@@ -826,10 +826,10 @@ function function_28d9b6cd(a_ents)
 */
 function function_c4ada726(var_417ec882, var_a972c5dd)
 {
-	self endon(#"death");
-	level endon(#"objective_blend_in_done");
+	self endon("death");
+	level endon("objective_blend_in_done");
 	self function_92e75cce(var_a972c5dd);
-	self notify(#"scriptedbc", var_417ec882);
+	self notify("scriptedbc", var_417ec882);
 }
 
 /*
@@ -843,7 +843,7 @@ function function_c4ada726(var_417ec882, var_a972c5dd)
 */
 function function_92e75cce(n_range, var_b0ecff80 = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	var_a972c5dd = n_range * n_range;
 	do
 	{
@@ -880,7 +880,7 @@ function blend_in_tsa_guard(str_scene)
 	ai_victim thread function_b79bfbce();
 	level thread scene::play(str_scene, ai_victim);
 	ai_victim util::delay(0.5, undefined, &kill);
-	ai_victim waittill(#"death");
+	ai_victim waittill("death");
 	if(isdefined(ai_victim))
 	{
 		ai_victim startragdoll(1);
@@ -898,8 +898,8 @@ function blend_in_tsa_guard(str_scene)
 */
 function function_b79bfbce()
 {
-	self endon(#"death");
-	level waittill(#"tower_doors_open");
+	self endon("death");
+	level waittill("tower_doors_open");
 	self kill();
 }
 
@@ -997,7 +997,7 @@ function tunneltruck(str_node, var_5e550f5 = 1)
 	self.drivepath = var_5e550f5;
 	self.angles = nd_truck_start.angles;
 	self thread vehicle::get_on_and_go_path(nd_truck_start);
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	self delete();
 }
 
@@ -1106,7 +1106,7 @@ function function_63075f1d()
 */
 function function_3f3cae8c()
 {
-	self endon(#"death");
+	self endon("death");
 	var_1dd38210 = getent("info_crouch_tutorial", "targetname");
 	self flag::wait_till("tutorial_allowed");
 	self flag::set_val("tutorial_allowed", 0);
@@ -1461,7 +1461,7 @@ function tunnel_vignettes()
 */
 function snddeletesndent(sndent)
 {
-	self waittill(#"death");
+	self waittill("death");
 	sndent delete();
 }
 
@@ -1476,7 +1476,7 @@ function snddeletesndent(sndent)
 */
 function forklift_anim()
 {
-	level notify(#"siren");
+	level notify("siren");
 	level scene::init("forkilft_anim");
 	trigger::wait_till("trigger_obj_enter_tunnels_end");
 	level thread scene::skipto_end("forkilft_anim", undefined, undefined, 0.33);
@@ -1520,7 +1520,7 @@ function function_927f3ae0(delete_delay)
 	}
 	level.ai_hendricks.ignoreme = 1;
 	level thread function_3d9b2dbc();
-	level waittill(#"minister_located");
+	level waittill("minister_located");
 	a_players = getplayers();
 	for(i = 0; i < a_players.size; i++)
 	{
@@ -1542,7 +1542,7 @@ function function_927f3ae0(delete_delay)
 */
 function function_3d9b2dbc()
 {
-	level endon(#"objective_take_out_guards_done");
+	level endon("objective_take_out_guards_done");
 	while(true)
 	{
 		level waittill(#"hash_25ea191a");
@@ -1614,12 +1614,12 @@ function function_790e40ec()
 	var_ecbf6327 = var_b8823447[0];
 	var_ecbf6327 playsound("evt_tunnel_truck_trafficarm");
 	var_ecbf6327 rotateroll(60, 1.5, 0.5, 0.3);
-	var_ecbf6327 waittill(#"rotatedone");
+	var_ecbf6327 waittill("rotatedone");
 	level notify(#"hash_236f4ebe");
 	level waittill(#"hash_a4ce8e72");
 	var_ecbf6327 playsound("evt_tunnel_truck_trafficarm");
 	var_ecbf6327 rotateroll(60 * -1, 1.5, 0.5, 0.3);
-	var_ecbf6327 waittill(#"rotatedone");
+	var_ecbf6327 waittill("rotatedone");
 }
 
 /*
@@ -1666,7 +1666,7 @@ function function_173d3769(str_state, b_instant = 0)
 			var_280d5f68 rotateyaw(90, 6, 1, 1);
 		}
 	}
-	var_3c301126 waittill(#"rotatedone");
+	var_3c301126 waittill("rotatedone");
 	var_3c301126 stoploopsound(0.5);
 	var_3c301126 playsound("evt_tunnel_door_stop");
 }

@@ -422,7 +422,7 @@ function function_f581d585(point, facepoint)
 */
 function function_fe0946ac(spawn_origin, var_97887a95 = 1)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(!isdefined(self.doa))
 	{
 		wait(0.05);
@@ -455,7 +455,7 @@ function function_fe0946ac(spawn_origin, var_97887a95 = 1)
 	}
 	angles = vectortoangles(var_60de7d19 - self.origin);
 	self setplayerangles((0, angles[1], 0));
-	self notify(#"move_to_start");
+	self notify("move_to_start");
 	if(var_97887a95)
 	{
 		self thread namespace_831a4a7c::function_b5843d4f(level.doa.arena_round_number == 3);
@@ -620,7 +620,7 @@ function function_87703158(var_372a8daa = 0)
 	level notify(#"hash_50be1db3");
 	level endon(#"hash_50be1db3");
 	flag::set("doa_round_spawning");
-	level notify(#"round_spawning_starting");
+	level notify("round_spawning_starting");
 	level lui::screen_close_menu();
 	level.doa.round_start_time = gettime();
 	level.doa.round_end_time = undefined;

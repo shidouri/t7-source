@@ -164,11 +164,11 @@ function spawnkilltrigger()
 */
 function watchkilltrigger()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	trigger = self;
 	while(true)
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		player dodamage(1000, trigger.origin + (0, 0, 0), trigger, trigger, "none", "MOD_SUICIDE", 0);
 	}
 }

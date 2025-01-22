@@ -255,7 +255,7 @@ function start_carpenter_new(origin)
 		players[i] zm_score::player_add_points("carpenter_powerup", 200);
 	}
 	carp_ent delete();
-	level notify(#"carpenter_finished");
+	level notify("carpenter_finished");
 	level.carpenter_powerup_active = undefined;
 }
 

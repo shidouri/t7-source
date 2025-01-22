@@ -476,14 +476,14 @@ function spin_fan()
 		if(!do_wobble)
 		{
 			self rotateyaw(180, self.speed);
-			self waittill(#"rotatedone");
+			self waittill("rotatedone");
 		}
 		else
 		{
 			self rotateyaw(340, self.speed);
-			self waittill(#"rotatedone");
+			self waittill("rotatedone");
 			self rotateyaw(20, self.wobble_speed);
-			self waittill(#"rotatedone");
+			self waittill("rotatedone");
 		}
 	}
 }
@@ -654,11 +654,11 @@ function clock_run(time_values)
 		time_values["hand_time"] = hour;
 	}
 	self rotatepitch(time_values["hand_time"] * time_values["rotate"], 0.05);
-	self waittill(#"rotatedone");
+	self waittill("rotatedone");
 	if(isdefined(time_values["first_rotate"]))
 	{
 		self rotatepitch(time_values["first_rotate"], 0.05);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 	prev_time = getsystemtime();
 	while(true)
@@ -726,7 +726,7 @@ function spoon_spin_func()
 	{
 		speed = randomfloatrange(model_speed * 0.6, model_speed);
 		self rotateyaw(1200, speed);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
@@ -763,9 +763,9 @@ function arrow_spin_func()
 		direction_change = model_direction_change + (randomintrange(-11, 11));
 		speed_change = randomfloatrange(model_speed * 0.3, model_speed);
 		self rotateyaw(direction_change, speed_change);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 		self rotateyaw(direction_change * -1, speed_change);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 

@@ -141,7 +141,7 @@ function soul_catcher_state_manager()
 {
 	wait(1);
 	level clientfield::set(self.script_parameters, 7);
-	self waittill(#"first_zombie_killed_in_zone", e_player);
+	self waittill("first_zombie_killed_in_zone", e_player);
 	level clientfield::set(self.script_parameters, 1);
 	anim_length = getanimlength(%zm_castle::rtrg_o_zm_dlc1_dragonhead_intro);
 	e_player thread zm_castle_vo::function_ad27f488(anim_length);
@@ -258,7 +258,7 @@ function zombie_soul_catcher_death(einflictor, attacker, idamage, smeansofdeath,
 	if(var_56269cbf.var_98730ffa == 0)
 	{
 		var_56269cbf.var_98730ffa = var_56269cbf.var_98730ffa + 1;
-		var_56269cbf notify(#"first_zombie_killed_in_zone", self.attacker);
+		var_56269cbf notify("first_zombie_killed_in_zone", self.attacker);
 		var_56269cbf.is_eating = 1;
 		var_56269cbf thread function_edf4b761();
 		return false;
@@ -295,7 +295,7 @@ function zombie_soul_catcher_death(einflictor, attacker, idamage, smeansofdeath,
 	wait(var_a8b20b82 - 0.5);
 	var_56269cbf.var_98730ffa++;
 	wait(0.5);
-	var_56269cbf notify(#"finished_eating");
+	var_56269cbf notify("finished_eating");
 	var_56269cbf.is_eating = 0;
 	if(isdefined(self))
 	{
@@ -399,7 +399,7 @@ function soul_catcher_check()
 		{
 			level.n_soul_catchers_charged++;
 			self.is_charged = 1;
-			self notify(#"fully_charged");
+			self notify("fully_charged");
 			break;
 		}
 		wait(0.05);
@@ -428,7 +428,7 @@ function soul_catcher_check()
 */
 function function_e775e6a4(var_63530679)
 {
-	self waittill(#"fully_charged");
+	self waittill("fully_charged");
 	if(self.script_label == "dragonhead_1")
 	{
 		m_collision = getent("uc_dragoncollision", "targetname");
@@ -530,7 +530,7 @@ function function_a01a53de()
 */
 function function_9376cff9()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_1deaef05");
 	self clientfield::set_to_player("bow_pickup_fx", 1);
 	var_14ea0734 = struct::get("base_bow_pickup_struct", "targetname");
@@ -587,7 +587,7 @@ function function_e464049a()
 function function_fb853e2c()
 {
 	self notify(#"hash_99ff6d52");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_99ff6d52");
 	level endon(#"hash_1deaef05");
 	var_890bca07 = getweapon("elemental_bow");
@@ -614,7 +614,7 @@ function function_fb853e2c()
 function function_71d4f620()
 {
 	self notify(#"hash_a1f46392");
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_a1f46392");
 	level endon(#"hash_1deaef05");
 	var_890bca07 = getweapon("elemental_bow");
@@ -696,12 +696,12 @@ function function_65fb1c47(e_player)
 */
 function function_26e22a99()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	level endon(#"hash_1deaef05");
 	self.stub thread zm_unitrigger::run_visibility_function_for_all_triggers();
 	while(true)
 	{
-		self waittill(#"trigger", e_who);
+		self waittill("trigger", e_who);
 		if(e_who function_e464049a() || e_who function_9dfa159b())
 		{
 			continue;

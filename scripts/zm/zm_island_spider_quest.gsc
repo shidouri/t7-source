@@ -178,10 +178,10 @@ function spider_lair_entrance_webs()
 */
 function function_83953ff7()
 {
-	level endon(#"spider_lair_webs_destroyed");
+	level endon("spider_lair_webs_destroyed");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		if(mirg2000::is_wonder_weapon(weapon))
 		{
 			if(mirg2000::is_wonder_weapon(weapon, "upgraded"))
@@ -665,7 +665,7 @@ function function_5a50e7f()
 	self setcandamage(1);
 	while(true)
 	{
-		self waittill(#"damage", n_damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", n_damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		if(partname == "tag_mouth_hit")
 		{
 			if(level flag::get("spider_queen_weak_spot_exposed"))
@@ -1115,8 +1115,8 @@ function function_9a7e7358()
 */
 function function_dd902934()
 {
-	level endon(#"spider_baby_round_timeout");
-	level endon(#"spider_baby_round_done");
+	level endon("spider_baby_round_timeout");
+	level endon("spider_baby_round_done");
 	while(true)
 	{
 		level waittill(#"hash_7e0a837a");
@@ -1141,7 +1141,7 @@ function function_dd902934()
 */
 function function_fb907799(n_count)
 {
-	level endon(#"spider_baby_round_timeout");
+	level endon("spider_baby_round_timeout");
 	level endon(#"hash_c69c8ddc");
 	var_d67f0d95 = 0;
 	while(var_d67f0d95 != n_count)
@@ -1163,7 +1163,7 @@ function function_fb907799(n_count)
 */
 function spider_baby_round_timeout(n_count)
 {
-	level endon(#"spider_baby_round_done");
+	level endon("spider_baby_round_done");
 	if(n_count > 5)
 	{
 		wait(15);
@@ -1208,7 +1208,7 @@ function function_3d4c345d()
 function function_5d1bd65f()
 {
 	level endon(#"hash_2dc546da");
-	self waittill(#"death");
+	self waittill("death");
 	level notify(#"hash_7e0a837a");
 }
 
@@ -1223,7 +1223,7 @@ function function_5d1bd65f()
 */
 function function_46c109d1()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(!isdefined(level.var_ce29fb51))
 	{
 		level.var_ce29fb51 = 0;
@@ -1275,7 +1275,7 @@ function function_2ff7183()
 	}
 	while(true)
 	{
-		trigger waittill(#"trigger", who);
+		trigger waittill("trigger", who);
 		if(isdefined(who) && isplayer(who))
 		{
 			if(zm_audio::sndmusicsystem_isabletoplay())
@@ -1662,7 +1662,7 @@ function upgrade_weapon()
 function function_f77f0da9()
 {
 	/#
-		self endon(#"disconnect");
+		self endon("disconnect");
 		var_6c9b76cd = self zm_perks::perk_give_bottle_begin("");
 		str_notify = self util::waittill_any_return("", "", "", "", "");
 		if(str_notify == "")
@@ -1728,12 +1728,12 @@ function function_3039a61d()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(zm_utility::is_player_valid(player))
 		{
 			player thread function_25762e4();
 			player notify(#"hash_6c020c33");
-			player notify(#"perk_purchased", "specialty_widowswine");
+			player notify("perk_purchased", "specialty_widowswine");
 		}
 		wait(60);
 	}
@@ -1750,7 +1750,7 @@ function function_3039a61d()
 */
 function function_25762e4()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!(isdefined(self.var_9b95533e) && self.var_9b95533e))
 	{
 		self.var_9b95533e = 1;

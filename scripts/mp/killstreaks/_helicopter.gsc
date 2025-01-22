@@ -477,11 +477,11 @@ function onflakdronedestroyed()
 */
 function explodeoncontact(hardpointtype)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(10);
 	for(;;)
 	{
-		self waittill(#"touch");
+		self waittill("touch");
 		self thread heli_explode();
 	}
 }
@@ -765,8 +765,8 @@ function heli_think(owner, startnode, heli_team, missilesenabled, protectlocatio
 */
 function autostopsound()
 {
-	self endon(#"death");
-	level waittill(#"game_ended");
+	self endon("death");
+	level waittill("game_ended");
 	self stoploopsound();
 }
 
@@ -781,7 +781,7 @@ function autostopsound()
 */
 function heli_existance()
 {
-	self waittill(#"leaving");
+	self waittill("leaving");
 	self spawning::remove_influencers();
 }
 
@@ -812,9 +812,9 @@ function create_flare_ent(offset)
 */
 function heli_missile_regen()
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	for(;;)
 	{
 		airsupport::debug_print3d("Missile Ammo: " + self.missile_ammo, (0.5, 0.5, 1), self, vectorscale((0, 0, -1), 100), 0);
@@ -858,9 +858,9 @@ function heli_missile_regen()
 */
 function heli_targeting(missilesenabled, hardpointtype)
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	for(;;)
 	{
 		targets = [];
@@ -1447,8 +1447,8 @@ function heli_reset()
 */
 function heli_wait(waittime)
 {
-	self endon(#"death");
-	self endon(#"crashing");
+	self endon("death");
+	self endon("crashing");
 	self endon(#"evasive");
 	self thread heli_hover();
 	wait(waittime);
@@ -1467,11 +1467,11 @@ function heli_wait(waittime)
 */
 function heli_hover()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_38f853e7");
 	self endon(#"evasive");
-	self endon(#"leaving");
-	self endon(#"crashing");
+	self endon("leaving");
+	self endon("crashing");
 	randint = randomint(360);
 	self setgoalyaw(self.angles[1] + randint);
 }
@@ -1487,13 +1487,13 @@ function heli_hover()
 */
 function wait_for_killed()
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	self.bda = 0;
 	while(true)
 	{
-		self waittill(#"killed", victim);
+		self waittill("killed", victim);
 		if(!isdefined(self.owner) || !isdefined(victim))
 		{
 			continue;
@@ -1521,7 +1521,7 @@ function wait_for_killed()
 */
 function wait_for_bda_timeout()
 {
-	self endon(#"killed");
+	self endon("killed");
 	wait(2.5);
 	if(!isdefined(self))
 	{
@@ -1602,8 +1602,8 @@ function heli_hacked_health_update(hacker)
 function heli_damage_monitor(hardpointtype)
 {
 	helicopter = self;
-	self endon(#"death");
-	self endon(#"crashing");
+	self endon("death");
+	self endon("crashing");
 	self.damagetaken = 0;
 	last_hit_vo = 0;
 	hit_vo_spacing = 6000;
@@ -1623,7 +1623,7 @@ function heli_damage_monitor(hardpointtype)
 	}
 	for(;;)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, type, modelname, tagname, partname, weapon, flags, inflictor, chargelevel);
+		self waittill("damage", damage, attacker, direction, point, type, modelname, tagname, partname, weapon, flags, inflictor, chargelevel);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;
@@ -1868,7 +1868,7 @@ function heli_damage_monitor(hardpointtype)
 				}
 				self.attackers = [];
 			}
-			attacker notify(#"destroyed_helicopter");
+			attacker notify("destroyed_helicopter");
 			if(target_istarget(self))
 			{
 				target_remove(self);
@@ -1991,8 +1991,8 @@ function heli_set_active_camo_state(state)
 */
 function heli_active_camo_damage_update(damage)
 {
-	self endon(#"death");
-	self endon(#"crashing");
+	self endon("death");
+	self endon("crashing");
 	heli = self;
 	heli.active_camo_damage = heli.active_camo_damage + damage;
 	if(heli.active_camo_damage > 100)
@@ -2019,11 +2019,11 @@ function heli_active_camo_damage_update(damage)
 */
 function heli_active_camo_damage_disable()
 {
-	self endon(#"death");
-	self endon(#"crashing");
+	self endon("death");
+	self endon("crashing");
 	heli = self;
-	heli notify(#"heli_active_camo_damage_disable");
-	heli endon(#"heli_active_camo_damage_disable");
+	heli notify("heli_active_camo_damage_disable");
+	heli endon("heli_active_camo_damage_disable");
 	heli heli_set_active_camo_state(0);
 	wait(10);
 	heli.active_camo_damage = 0;
@@ -2042,8 +2042,8 @@ function heli_active_camo_damage_disable()
 */
 function heli_health(hardpointtype, playernotify)
 {
-	self endon(#"death");
-	self endon(#"crashing");
+	self endon("death");
+	self endon("crashing");
 	self.currentstate = "ok";
 	self.laststate = "ok";
 	self setdamagestage(3);
@@ -2055,7 +2055,7 @@ function heli_health(hardpointtype, playernotify)
 	}
 	for(;;)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, type, modelname, tagname, partname, weapon);
+		self waittill("damage", damage, attacker, direction, point, type, modelname, tagname, partname, weapon);
 		wait(0.05);
 		if(self.damagetaken > self.maxhealth)
 		{
@@ -2164,7 +2164,7 @@ function notify_player(player, playernotify, delay)
 	{
 		return;
 	}
-	player endon(#"disconnect");
+	player endon("disconnect");
 	player endon(playernotify);
 	wait(delay);
 	player notify(playernotify);
@@ -2181,8 +2181,8 @@ function notify_player(player, playernotify, delay)
 */
 function play_going_down_vo(delay)
 {
-	self.owner endon(#"disconnect");
-	self endon(#"death");
+	self.owner endon("disconnect");
+	self endon("death");
 	wait(delay);
 }
 
@@ -2197,8 +2197,8 @@ function play_going_down_vo(delay)
 */
 function heli_crash(hardpointtype, player, playernotify)
 {
-	self endon(#"death");
-	self notify(#"crashing");
+	self endon("death");
+	self notify("crashing");
 	self spawning::remove_influencers();
 	self stoploopsound(0);
 	if(isdefined(self.minigun_snd_ent))
@@ -2304,7 +2304,7 @@ function heli_crash(hardpointtype, player, playernotify)
 */
 function damagedrotorfx()
 {
-	self endon(#"death");
+	self endon("death");
 	self setrotorspeed(0.6);
 }
 
@@ -2319,7 +2319,7 @@ function damagedrotorfx()
 */
 function waitthenexplode(time)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self thread heli_explode();
 }
@@ -2408,7 +2408,7 @@ function checkhelicoptertag(tagname)
 */
 function heli_secondary_explosions()
 {
-	self endon(#"death");
+	self endon("death");
 	playfxontag(level.chopper_fx["explode"]["large"], self, self checkhelicoptertag("tag_engine_left"));
 	self playsound(level.heli_sound["hit"]);
 	if(isdefined(self.vehicletype) && self.vehicletype == "heli_player_gunner_mp")
@@ -2441,7 +2441,7 @@ function heli_secondary_explosions()
 */
 function heli_spin(speed)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread spinsoundshortly();
 	self setyawspeed(speed, speed / 3, speed / 3);
 	while(isdefined(self))
@@ -2462,7 +2462,7 @@ function heli_spin(speed)
 */
 function spinsoundshortly()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(0.25);
 	self stoploopsound();
 	wait(0.05);
@@ -2538,7 +2538,7 @@ function destroyhelicopter()
 */
 function heli_explode()
 {
-	self endon(#"death");
+	self endon("death");
 	forward = (self.origin + vectorscale((0, 0, 1), 100)) - self.origin;
 	if(isdefined(self.helitype) && self.helitype == "littlebird")
 	{
@@ -2591,7 +2591,7 @@ function clear_client_flags()
 function heli_leave()
 {
 	self notify(#"hash_df1f87c9");
-	self notify(#"leaving");
+	self notify("leaving");
 	hardpointtype = self.hardpointtype;
 	self.leaving = 1;
 	if(!(isdefined(self.detroyscoreeventgiven) && self.detroyscoreeventgiven))
@@ -2614,11 +2614,11 @@ function heli_leave()
 		self util::debug_slow_heli_speed();
 	#/
 	self set_goal_pos((self.origin + ((leavenode.origin - self.origin) / 2)) + vectorscale((0, 0, 1), 1000), 0);
-	self waittill(#"near_goal");
+	self waittill("near_goal");
 	if(isdefined(self))
 	{
 		self set_goal_pos(leavenode.origin, 1);
-		self waittillmatch(#"goal");
+		self waittillmatch("goal");
 		if(isdefined(self))
 		{
 			self stoploopsound(1);
@@ -2648,11 +2648,11 @@ function heli_leave()
 */
 function heli_fly(currentnode, startwait, hardpointtype)
 {
-	self endon(#"death");
-	self endon(#"leaving");
-	self notify(#"flying");
-	self endon(#"flying");
-	self endon(#"abandoned");
+	self endon("death");
+	self endon("leaving");
+	self notify("flying");
+	self endon("flying");
+	self endon("abandoned");
 	self.reached_dest = 0;
 	heli_reset();
 	pos = self.origin;
@@ -2692,7 +2692,7 @@ function heli_fly(currentnode, startwait, hardpointtype)
 		{
 			self setspeed(heli_speed, heli_accel);
 			self set_goal_pos(pos, stop);
-			self waittill(#"near_goal");
+			self waittill("near_goal");
 			self notify(#"hash_df5908ac");
 		}
 		else
@@ -2705,13 +2705,13 @@ function heli_fly(currentnode, startwait, hardpointtype)
 			self set_goal_pos(pos, stop);
 			if(!isdefined(nextnode.script_delay) || isdefined(self.donotstop))
 			{
-				self waittill(#"near_goal");
+				self waittill("near_goal");
 				self notify(#"hash_df5908ac");
 			}
 			else
 			{
 				self setgoalyaw(nextnode.angles[1]);
-				self waittillmatch(#"goal");
+				self waittillmatch("goal");
 				heli_wait(nextnode.script_delay);
 			}
 		}
@@ -2894,17 +2894,17 @@ function is_targeted()
 */
 function heli_mobilespawn(protectdest)
 {
-	self endon(#"death");
-	self notify(#"flying");
-	self endon(#"flying");
-	self endon(#"abandoned");
+	self endon("death");
+	self notify("flying");
+	self endon("flying");
+	self endon("abandoned");
 	iprintlnbold(((((("PROTECT ORIGIN: (" + protectdest[0]) + ",") + protectdest[1]) + ",") + protectdest[2]) + ")\n");
 	heli_reset();
 	self sethoverparams(50, 100, 50);
 	wait(2);
 	set_heli_speed_normal();
 	self set_goal_pos(protectdest, 1);
-	self waittill(#"near_goal");
+	self waittill("near_goal");
 	set_heli_speed_hover();
 }
 
@@ -2919,10 +2919,10 @@ function heli_mobilespawn(protectdest)
 */
 function heli_protect(startnode, protectdest, hardpointtype, heli_team)
 {
-	self endon(#"death");
-	self notify(#"flying");
-	self endon(#"flying");
-	self endon(#"abandoned");
+	self endon("death");
+	self notify("flying");
+	self endon("flying");
+	self endon("abandoned");
 	self.reached_dest = 0;
 	heli_reset();
 	self sethoverparams(50, 100, 50);
@@ -2947,7 +2947,7 @@ function heli_protect(startnode, protectdest, hardpointtype, heli_team)
 		self util::debug_slow_heli_speed();
 	#/
 	self set_goal_pos((self.origin + ((currentdest - self.origin) / 3)) + vectorscale((0, 0, 1), 1000), 0);
-	self waittill(#"near_goal");
+	self waittill("near_goal");
 	heli_speed = 30 + randomint(20);
 	heli_accel = 10 + randomint(5);
 	self thread updatetargetyaw();
@@ -3008,9 +3008,9 @@ function heli_protect(startnode, protectdest, hardpointtype, heli_team)
 */
 function updatespeedonlock()
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	self util::waittill_any("near_goal", "locking on", "locking on hacking");
 	self updatespeed();
 }
@@ -3048,9 +3048,9 @@ function updatespeed()
 function updatetargetyaw()
 {
 	self notify(#"endtargetyawupdate");
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	self endon(#"endtargetyawupdate");
 	for(;;)
 	{
@@ -3138,7 +3138,7 @@ function check_owner(hardpointtype)
 {
 	if(!isdefined(self.owner) || !isdefined(self.owner.team) || self.owner.team != self.team)
 	{
-		self notify(#"abandoned");
+		self notify("abandoned");
 		self thread heli_leave();
 	}
 }
@@ -3172,9 +3172,9 @@ function attack_targets(missilesenabled, hardpointtype)
 */
 function attack_secondary(hardpointtype)
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	for(;;)
 	{
 		if(isdefined(self.secondarytarget))
@@ -3278,9 +3278,9 @@ function target_cone_check(target, conecosine)
 */
 function missile_support(target_player, rof, instantfire, endon_notify)
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	if(isdefined(endon_notify))
 	{
 		self endon(endon_notify);
@@ -3346,10 +3346,10 @@ function missile_support(target_player, rof, instantfire, endon_notify)
 */
 function attack_primary(hardpointtype)
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
+	level endon("game_ended");
 	for(;;)
 	{
 		if(isdefined(self.primarytarget))
@@ -3374,9 +3374,9 @@ function attack_primary(hardpointtype)
 					break;
 				}
 				self setturrettargetent(self.turrettarget, vectorscale((0, 0, 1), 50));
-				self waittill(#"turret_on_target");
+				self waittill("turret_on_target");
 				hostmigration::waittillhostmigrationdone();
-				self notify(#"turret_on_target");
+				self notify("turret_on_target");
 				self thread turret_target_flag(self.turrettarget);
 				wait(1);
 				self heli_set_active_camo_state(0);
@@ -3450,14 +3450,14 @@ function turret_target_flag(turrettarget)
 {
 	self notify(#"hash_4008e0d0");
 	self endon(#"hash_4008e0d0");
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
 	self endon(#"hash_849f87ba");
 	if(isdefined(turrettarget))
 	{
-		turrettarget endon(#"death");
-		turrettarget endon(#"disconnect");
+		turrettarget endon("death");
+		turrettarget endon("disconnect");
 	}
 	self.targetlost = 0;
 	self.turret_last_pos = undefined;
@@ -3560,7 +3560,7 @@ function waittill_confirm_location()
 {
 	self endon(#"emp_jammed");
 	self endon(#"emp_grenaded");
-	self waittill(#"confirm_location", location);
+	self waittill("confirm_location", location);
 	return location;
 }
 
@@ -3602,8 +3602,8 @@ function selecthelicopterlocation(hardpointtype)
 */
 function processcopterassist(destroyedcopter, damagedone)
 {
-	self endon(#"disconnect");
-	destroyedcopter endon(#"disconnect");
+	self endon("disconnect");
+	destroyedcopter endon("disconnect");
 	wait(0.05);
 	if(!isdefined(level.teams[self.team]))
 	{
@@ -3637,10 +3637,10 @@ function processcopterassist(destroyedcopter, damagedone)
 */
 function samturretwatcher()
 {
-	self endon(#"death");
-	self endon(#"crashing");
-	self endon(#"leaving");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("crashing");
+	self endon("leaving");
+	level endon("game_ended");
 	self util::waittill_any("turret_on_target", "path start", "near_goal");
 	target_setturretaquire(self, 1);
 }
@@ -3656,8 +3656,8 @@ function samturretwatcher()
 */
 function playpilotdialog(dialog, time, voice, shouldwait)
 {
-	self endon(#"death");
-	level endon(#"remote_end");
+	self endon("death");
+	level endon("remote_end");
 	if(isdefined(time))
 	{
 		wait(time);
@@ -3692,9 +3692,9 @@ function playpilotdialog(dialog, time, voice, shouldwait)
 */
 function playpilottalking(shouldwait, soundalias)
 {
-	self endon(#"disconnect");
-	self endon(#"joined_team");
-	self endon(#"joined_spectators");
+	self endon("disconnect");
+	self endon("joined_team");
+	self endon("joined_spectators");
 	for(trycounter = 0; isdefined(self.pilottalking) && self.pilottalking && trycounter < 10; trycounter++)
 	{
 		if(isdefined(shouldwait) && !shouldwait)
@@ -3720,10 +3720,10 @@ function playpilottalking(shouldwait, soundalias)
 */
 function watchforearlyleave(chopper)
 {
-	chopper notify(#"watchforearlyleave_helicopter");
-	chopper endon(#"watchforearlyleave_helicopter");
-	chopper endon(#"death");
-	self endon(#"heli_timeup");
+	chopper notify("watchforearlyleave_helicopter");
+	chopper endon("watchforearlyleave_helicopter");
+	chopper endon("death");
+	self endon("heli_timeup");
 	self util::waittill_any("joined_team", "disconnect");
 	if(isdefined(chopper))
 	{
@@ -3731,7 +3731,7 @@ function watchforearlyleave(chopper)
 	}
 	if(isdefined(self))
 	{
-		self notify(#"heli_timeup");
+		self notify("heli_timeup");
 	}
 }
 
@@ -3747,8 +3747,8 @@ function watchforearlyleave(chopper)
 function watchforemp()
 {
 	heli = self;
-	heli endon(#"death");
-	heli endon(#"heli_timeup");
+	heli endon("death");
+	heli endon("heli_timeup");
 	heli.owner waittill(#"emp_jammed");
 	heli thread heli_explode();
 }

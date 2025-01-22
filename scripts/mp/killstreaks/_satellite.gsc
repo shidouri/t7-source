@@ -206,7 +206,7 @@ function configureteampost(owner, ishacked)
 */
 function rotate(duration)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self rotateyaw(-360, duration);
@@ -301,7 +301,7 @@ function destroysatellite(attacker = undefined, weapon = undefined)
 			self killstreaks::play_destroyed_dialog_on_owner("satellite", self.killstreak_id);
 		}
 	}
-	self notify(#"crashing");
+	self notify("crashing");
 	params = level.killstreakbundle["satellite"];
 	if(isdefined(params.ksexplosionfx))
 	{
@@ -354,7 +354,7 @@ function addactivesatellite()
 		level.activesatellites[self.ownerentnum]++;
 	}
 	level.activeplayersatellites[self.ownerentnum]++;
-	level notify(#"satellite_update");
+	level notify("satellite_update");
 }
 
 /*
@@ -412,7 +412,7 @@ function resetactivesatellite()
 	/#
 		assert(level.activeplayersatellites[self.ownerentnum] >= 0);
 	#/
-	level notify(#"satellite_update");
+	level notify("satellite_update");
 }
 
 /*
@@ -426,10 +426,10 @@ function resetactivesatellite()
 */
 function satellitetracker()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
-		level waittill(#"satellite_update");
+		level waittill("satellite_update");
 		if(level.teambased)
 		{
 			foreach(team in level.teams)

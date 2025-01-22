@@ -37,8 +37,8 @@ function hitwithincendiary(attacker, inflictor, mod)
 		return;
 	}
 	self thread waitthenstoptanning(level.flameburntime);
-	self endon(#"disconnect");
-	attacker endon(#"disconnect");
+	self endon("disconnect");
+	attacker endon("disconnect");
 	waittillframeend();
 	self.burning = 1;
 	self thread burn_blocker();
@@ -111,9 +111,9 @@ function hitwithnapalmstrike(attacker, inflictor, mod)
 		return;
 	}
 	self thread waitthenstoptanning(level.flameburntime);
-	self endon(#"disconnect");
-	attacker endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	attacker endon("disconnect");
+	self endon("death");
 	if(isdefined(self.burning))
 	{
 		return;
@@ -188,7 +188,7 @@ function walkedthroughflames(attacker, inflictor, weapon)
 		return;
 	}
 	self thread waitthenstoptanning(level.flameburntime);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	self.burning = 1;
 	self thread burn_blocker();
@@ -246,7 +246,7 @@ function burnedwithflamethrower(attacker, inflictor, weapon)
 		return;
 	}
 	self thread waitthenstoptanning(level.flameburntime);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	self.burning = 1;
 	self thread burn_blocker();
@@ -300,7 +300,7 @@ function burnedwithdragonsbreath(attacker, inflictor, weapon)
 		return;
 	}
 	self thread waitthenstoptanning(level.flameburntime);
-	self endon(#"disconnect");
+	self endon("disconnect");
 	waittillframeend();
 	self.burning = 1;
 	self thread burn_blocker();
@@ -368,10 +368,10 @@ function burnedtodeath()
 */
 function watchfordeath()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_abaf0a23");
 	self endon(#"hash_abaf0a23");
-	self waittill(#"death");
+	self waittill("death");
 	if(isplayer(self))
 	{
 		self _stopburning();
@@ -390,7 +390,7 @@ function watchfordeath()
 */
 function watchforwater(time)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self notify(#"hash_bbb80fa");
 	self endon(#"hash_bbb80fa");
 	wait(0.1);
@@ -453,9 +453,9 @@ function donapalmstrikedamage(attacker, inflictor, mod)
 		dodognapalmstrikedamage(attacker, inflictor, mod);
 		return;
 	}
-	self endon(#"death");
-	self endon(#"disconnect");
-	attacker endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
+	attacker endon("disconnect");
 	self endon(#"hash_3e41273b");
 	while(isdefined(level.napalmstrikedamage) && isdefined(self) && self depthofplayerinwater() < 1)
 	{
@@ -496,9 +496,9 @@ function donapalmgrounddamage(attacker, inflictor, mod)
 		return;
 	}
 	self thread burn_blocker();
-	self endon(#"death");
-	self endon(#"disconnect");
-	attacker endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
+	attacker endon("disconnect");
 	self endon(#"hash_3e41273b");
 	if(isdefined(level.groundburntime))
 	{
@@ -552,8 +552,8 @@ function donapalmgrounddamage(attacker, inflictor, mod)
 */
 function dodognapalmstrikedamage(attacker, inflictor, mod)
 {
-	attacker endon(#"disconnect");
-	self endon(#"death");
+	attacker endon("disconnect");
+	self endon("death");
 	self endon(#"hash_3e41273b");
 	while(isdefined(level.napalmstrikedamage) && isdefined(self))
 	{
@@ -573,8 +573,8 @@ function dodognapalmstrikedamage(attacker, inflictor, mod)
 */
 function dodognapalmgrounddamage(attacker, inflictor, mod)
 {
-	attacker endon(#"disconnect");
-	self endon(#"death");
+	attacker endon("disconnect");
+	self endon("death");
 	self endon(#"hash_3e41273b");
 	while(isdefined(level.napalmgrounddamage) && isdefined(self))
 	{
@@ -594,8 +594,8 @@ function dodognapalmgrounddamage(attacker, inflictor, mod)
 */
 function burn_blocker()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	wait(3);
 	self.burning = undefined;
 }
@@ -618,13 +618,13 @@ function doflamedamage(attacker, inflictor, weapon, time)
 	}
 	if(isdefined(attacker))
 	{
-		attacker endon(#"disconnect");
+		attacker endon("disconnect");
 	}
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_3e41273b");
 	self thread doburningsound();
-	self notify(#"snd_burn_scream");
+	self notify("snd_burn_scream");
 	wait_time = 1;
 	while(isdefined(level.flamedamage) && isdefined(self) && self depthofplayerinwater() < 1 && time > 0)
 	{
@@ -661,8 +661,8 @@ function dodogflamedamage(attacker, inflictor, weapon, time)
 	{
 		return;
 	}
-	attacker endon(#"disconnect");
-	self endon(#"death");
+	attacker endon("disconnect");
+	self endon("death");
 	self endon(#"hash_3e41273b");
 	self thread doburningsound();
 	wait_time = 1;
@@ -685,8 +685,8 @@ function dodogflamedamage(attacker, inflictor, weapon, time)
 */
 function waitthenstoptanning(time)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	wait(time);
 	self _stopburning();
 }
@@ -702,13 +702,13 @@ function waitthenstoptanning(time)
 */
 function doburningsound()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	fire_sound_ent = spawn("script_origin", self.origin);
 	fire_sound_ent linkto(self, "tag_origin", (0, 0, 0), (0, 0, 0));
 	fire_sound_ent playloopsound("mpl_player_burn_loop");
 	self thread firesounddeath(fire_sound_ent);
-	self waittill(#"stopburnsound");
+	self waittill("stopburnsound");
 	if(isdefined(fire_sound_ent))
 	{
 		fire_sound_ent stoploopsound(0.5);
@@ -734,8 +734,8 @@ function doburningsound()
 */
 function _stopburning()
 {
-	self endon(#"disconnect");
-	self notify(#"stopburnsound");
+	self endon("disconnect");
+	self notify("stopburnsound");
 }
 
 /*
@@ -749,7 +749,7 @@ function _stopburning()
 */
 function firesounddeath(ent)
 {
-	ent endon(#"death");
+	ent endon("death");
 	self util::waittill_any("death", "disconnect");
 	ent delete();
 	/#

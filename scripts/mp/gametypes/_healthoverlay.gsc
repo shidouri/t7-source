@@ -121,7 +121,7 @@ function player_health_regen()
 			veryhurt = 0;
 			if(isdefined(self.atbrinkofdeath) && self.atbrinkofdeath == 1)
 			{
-				self notify(#"challenge_survived_from_death");
+				self notify("challenge_survived_from_death");
 			}
 			self.atbrinkofdeath = 0;
 			continue;
@@ -168,7 +168,7 @@ function player_health_regen()
 			if((gettime() - lastsoundtime_recover) > regentime)
 			{
 				lastsoundtime_recover = gettime();
-				self notify(#"snd_breathing_better");
+				self notify("snd_breathing_better");
 			}
 			if(veryhurt)
 			{
@@ -281,7 +281,7 @@ function player_breathing_sound(healthcap)
 		{
 			continue;
 		}
-		player notify(#"snd_breathing_hurt");
+		player notify("snd_breathing_hurt");
 		wait(0.784);
 		wait(0.1 + randomfloat(0.8));
 	}

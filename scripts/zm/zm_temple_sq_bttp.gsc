@@ -78,10 +78,10 @@ function trap_trigger()
 	level endon(#"hash_20531487");
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
+		self waittill("damage", amount, attacker, direction, point, dmg_type, modelname, tagname);
 		if(isplayer(attacker) && (dmg_type == "MOD_EXPLOSIVE" || dmg_type == "MOD_EXPLOSIVE_SPLASH" || dmg_type == "MOD_GRENADE" || dmg_type == "MOD_GRENADE_SPLASH"))
 		{
-			self.owner_ent notify(#"triggered", attacker);
+			self.owner_ent notify("triggered", attacker);
 			return;
 		}
 	}
@@ -104,7 +104,7 @@ function function_d0295ce3()
 	self.trigger.radius = 32;
 	self.trigger.owner_ent = self;
 	self.trigger thread trap_trigger();
-	self waittill(#"triggered", who);
+	self waittill("triggered", who);
 	who thread zm_audio::create_and_play_dialog("eggs", "quest1", 7);
 	self.trigger playsound("evt_sq_bttp_wood_explo");
 	self ghost();
@@ -123,8 +123,8 @@ function function_d0295ce3()
 function function_e3bf4adb()
 {
 	/#
-		self endon(#"death");
-		self endon(#"done");
+		self endon("death");
+		self endon("done");
 		level endon(#"hash_20531487");
 		while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
 		{
@@ -149,7 +149,7 @@ function function_8feeec3c()
 	self thread function_e3bf4adb();
 	while(true)
 	{
-		self waittill(#"damage", amount, attacker, dir, point, type);
+		self waittill("damage", amount, attacker, dir, point, type);
 		self playsound("evt_sq_bttp_carve");
 		if(type == "MOD_MELEE")
 		{
@@ -161,7 +161,7 @@ function function_8feeec3c()
 		}
 	}
 	self setmodel(self.tile);
-	self notify(#"done");
+	self notify("done");
 	level.var_5f315f0b++;
 	if(isdefined(attacker) && isplayer(attacker))
 	{
@@ -287,7 +287,7 @@ function stage_logic()
 		wait(0.1);
 	}
 	level flag::wait_till("trap_destroyed");
-	level notify(#"suspend_timer");
+	level notify("suspend_timer");
 	wait(5);
 	zm_sidequests::stage_completed("sq", "bttp");
 }

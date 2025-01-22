@@ -31,8 +31,8 @@
 function ss_debug()
 {
 	/#
-		level endon(#"sq_ss1_over");
-		level endon(#"sq_ss2_over");
+		level endon("sq_ss1_over");
+		level endon("sq_ss2_over");
 		if(!isdefined(level._debug_ss))
 		{
 			level._debug_ss = 1;
@@ -247,13 +247,13 @@ function do_ss2_logic()
 	level.ss_comp_vox_count = 0;
 	ss_logic(6, 3);
 	wait(2);
-	level notify(#"rl");
+	level notify("rl");
 	ss_logic(7, 4);
 	wait(2);
-	level notify(#"rl");
+	level notify("rl");
 	ss_logic(8, 5);
 	wait(2);
-	level notify(#"rl");
+	level notify("rl");
 }
 
 /*
@@ -382,7 +382,7 @@ function exit_stage_2(success)
 */
 function sq_ss_button_dud_thread()
 {
-	self endon(#"ss_kill_button_thread");
+	self endon("ss_kill_button_thread");
 	self thread sq_ss_button_thread(1);
 }
 
@@ -397,9 +397,9 @@ function sq_ss_button_dud_thread()
 */
 function sq_ss_button_debug()
 {
-	level endon(#"ss_kill_button_thread");
-	level endon(#"sq_ss1_over");
-	level endon(#"sq_ss2_over");
+	level endon("ss_kill_button_thread");
+	level endon("sq_ss1_over");
+	level endon("sq_ss2_over");
 	while(true)
 	{
 		/#
@@ -483,18 +483,18 @@ function do_attract()
 */
 function sq_ss_button_thread(dud)
 {
-	level endon(#"sq_ss1_over");
-	level endon(#"sq_ss2_over");
+	level endon("sq_ss1_over");
+	level endon("sq_ss2_over");
 	if(!isdefined(dud))
 	{
-		self notify(#"ss_kill_button_thread");
+		self notify("ss_kill_button_thread");
 	}
 	pos = self.origin;
 	pressed = self.origin - (anglestoright(self.angles) * 0.25);
 	targ_model = self.terminal_model;
 	while(true)
 	{
-		self waittill(#"trigger");
+		self waittill("trigger");
 		if(!level flag::get("displays_active"))
 		{
 			if(!isdefined(dud))
@@ -599,8 +599,8 @@ function ss_logic(seq_length, seq_start_length)
 */
 function ss_logic_internal(seq, seq_length, seq_start_length)
 {
-	self endon(#"ss_won");
-	self endon(#"ss_failed");
+	self endon("ss_won");
+	self endon("ss_failed");
 	do_attract();
 	pos = seq_start_length;
 	buttons = level._ss_buttons;
@@ -613,7 +613,7 @@ function ss_logic_internal(seq, seq_length, seq_start_length)
 		wait(1);
 	}
 	level._ss_sequence_matched = 1;
-	self notify(#"ss_won");
+	self notify("ss_won");
 }
 
 /*
@@ -627,11 +627,11 @@ function ss_logic_internal(seq, seq_length, seq_start_length)
 */
 function user_input_timeout(len)
 {
-	self endon(#"correct_input");
-	self endon(#"ss_failed");
-	self endon(#"ss_won");
+	self endon("correct_input");
+	self endon("ss_failed");
+	self endon("ss_won");
 	wait(len * 4);
-	self notify(#"ss_failed");
+	self notify("ss_failed");
 }
 
 /*
@@ -652,7 +652,7 @@ function validate_input(sequence, len)
 		{
 			if(level._ss_user_seq[i] != sequence[i])
 			{
-				self notify(#"ss_failed");
+				self notify("ss_failed");
 			}
 		}
 		wait(0.05);
@@ -661,11 +661,11 @@ function validate_input(sequence, len)
 	{
 		if(level._ss_user_seq[i] != sequence[i])
 		{
-			self notify(#"ss_failed");
+			self notify("ss_failed");
 		}
 	}
 	level._ss_user_seq = [];
-	self notify(#"correct_input");
+	self notify("correct_input");
 }
 
 /*
@@ -871,7 +871,7 @@ function do_ss_start_vox(stage)
 		if(isdefined(player))
 		{
 			playon playsoundwithnotify("vox_mcomp_quest_step1_0", "mcomp_done0");
-			playon waittill(#"mcomp_done0");
+			playon waittill("mcomp_done0");
 			if(isdefined(player))
 			{
 				player thread zm_audio::create_and_play_dialog("eggs", "quest1", 0);
@@ -902,7 +902,7 @@ function do_ss_failure_vox(stage)
 		if(isdefined(player))
 		{
 			playon playsoundwithnotify("vox_mcomp_quest_step1_1", "mcomp_done2");
-			playon waittill(#"mcomp_done2");
+			playon waittill("mcomp_done2");
 			if(isdefined(player))
 			{
 				player thread zm_audio::create_and_play_dialog("eggs", "quest1", 1);
@@ -954,7 +954,7 @@ function do_ss_success_vox(stage)
 		if(isdefined(player))
 		{
 			playon playsoundwithnotify("vox_mcomp_quest_step1_2", "mcomp_done3");
-			playon waittill(#"mcomp_done3");
+			playon waittill("mcomp_done3");
 			if(isdefined(player))
 			{
 				player thread zm_audio::create_and_play_dialog("eggs", "quest1", 2);
@@ -980,7 +980,7 @@ function do_ss_success_vox(stage)
 			case 2:
 			{
 				playon playsoundwithnotify("vox_mcomp_quest_step7_4", "mcomp_done6");
-				playon waittill(#"mcomp_done6");
+				playon waittill("mcomp_done6");
 				if(!level flag::get("be2"))
 				{
 					playon playsoundwithnotify("vox_xcomp_quest_step7_5", "xcomp_done7");

@@ -155,7 +155,7 @@ function function_aeaa2ee6()
 	self thread fire_beam();
 	while(true)
 	{
-		s_trigger waittill(#"trigger_activated", e_player);
+		s_trigger waittill("trigger_activated", e_player);
 		if(e_player zm_hero_weapon::is_hero_weapon_in_use())
 		{
 			continue;
@@ -234,7 +234,7 @@ function function_4b8fea3(e_player)
 	{
 		str_return = self util::waittill_any("turret_locked", "turret_timeout_changed");
 	}
-	self notify(#"turret_timeout");
+	self notify("turret_timeout");
 	self.var_5015d1a3 = undefined;
 	self flag::set("turret_cooldown");
 	function_677988();
@@ -267,7 +267,7 @@ function function_d4781758(e_player)
 	}
 	else
 	{
-		e_player notify(#"gen_pos");
+		e_player notify("gen_pos");
 	}
 	v_start_origin = e_player.origin;
 	v_start_angles = e_player.angles;
@@ -420,7 +420,7 @@ function function_f8f61ccb(d, n)
 */
 function function_f2c7fc31()
 {
-	self endon(#"stop_damage");
+	self endon("stop_damage");
 	while(true)
 	{
 		e_player = self getvehicleowner();
@@ -571,7 +571,7 @@ function fire_beam()
 {
 	while(true)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		self function_3d36386();
 		self clientfield::set("skull_turret_beam_fire", 1);
 		e_player = self getvehicleowner();
@@ -583,7 +583,7 @@ function fire_beam()
 		while(zm_utility::is_player_valid(e_player) && e_player attackbuttonpressed() && e_player === self getvehicleowner());
 		self clientfield::set("skull_turret_beam_fire", 0);
 		self function_d54746f0();
-		self notify(#"stop_damage");
+		self notify("stop_damage");
 	}
 }
 
@@ -805,8 +805,8 @@ function function_c4a9de44()
 function function_b52693fa()
 {
 	/#
-		level endon(#"sophia_activated");
-		level waittill(#"sophia_beam_locked");
+		level endon("sophia_activated");
+		level waittill("sophia_beam_locked");
 		if(!(isdefined(self.var_827db0f2) && self.var_827db0f2))
 		{
 			a_vehicles = getvehiclearray(self.script_string, "");
@@ -841,7 +841,7 @@ function sophia_beam_locked(w_weapon, e_player)
 		level flag::set("sophia_beam_locked");
 	}
 	w_weapon clientfield::set("turret_beam_fire_crystal", 1);
-	w_weapon notify(#"turret_locked");
+	w_weapon notify("turret_locked");
 	w_weapon setturrettargetent(self);
 	e_player thread function_13705ce6(self);
 	level flag::wait_till("sophia_activated");
@@ -909,7 +909,7 @@ function function_1d6baeec(var_618c7145)
 */
 function function_67cc41d(vh_turret)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.var_26a94458) && self.var_26a94458)
 	{
 		return;
@@ -978,7 +978,7 @@ function function_67cc41d(vh_turret)
 */
 function function_218cc1b()
 {
-	self notify(#"death");
+	self notify("death");
 	self ghost();
 	self util::delay(0.25, undefined, &zm_utility::self_delete);
 }
@@ -994,7 +994,7 @@ function function_218cc1b()
 */
 function function_41ecbdf9()
 {
-	self endon(#"death");
+	self endon("death");
 	self.zombie_tesla_hit = 1;
 	self.ignoreall = 1;
 	self setgoal(self.origin);
@@ -1042,7 +1042,7 @@ function function_881d11a1(a_vh_turrets)
 function devgui_skull_turret_skip_timeout(n_val)
 {
 	/#
-		level notify(#"devgui_skull_turret_skip_timeout");
+		level notify("devgui_skull_turret_skip_timeout");
 	#/
 }
 
@@ -1061,7 +1061,7 @@ function function_1f8c58a1(n_val)
 		level.var_dc188362 = !(isdefined(level.var_dc188362) && level.var_dc188362);
 		foreach(turret in level.var_81e4859)
 		{
-			turret notify(#"turret_timeout_changed");
+			turret notify("turret_timeout_changed");
 		}
 	#/
 }

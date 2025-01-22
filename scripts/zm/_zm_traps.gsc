@@ -320,7 +320,7 @@ function trap_use_think(trap)
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(who zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -357,7 +357,7 @@ function trap_use_think(trap)
 			}
 			trap triggerenable(1);
 			trap thread [[trap._trap_activate_func]]();
-			trap waittill(#"trap_done");
+			trap waittill("trap_done");
 			trap triggerenable(0);
 			trap._trap_cooling_down = 1;
 			trap trap_set_string(&"ZOMBIE_TRAP_COOLDOWN");
@@ -374,7 +374,7 @@ function trap_use_think(trap)
 			{
 				level thread [[level.sndtrapfunc]](trap, 0);
 			}
-			trap notify(#"available");
+			trap notify("available");
 			trap._trap_in_use = 0;
 			trap trap_set_string(&"ZOMBIE_BUTTON_BUY_TRAP", trap.zombie_cost);
 		}
@@ -392,7 +392,7 @@ function trap_use_think(trap)
 */
 function private update_trigger_visibility()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		for(i = 0; i < level.players.size; i++)
@@ -506,14 +506,14 @@ function trap_move_switches()
 		}
 		self._trap_switches[i] playsound("evt_switch_flip_trap");
 	}
-	self._trap_switches[0] waittill(#"rotatedone");
+	self._trap_switches[0] waittill("rotatedone");
 	self notify(#"switch_activated");
-	self waittill(#"available");
+	self waittill("available");
 	for(i = 0; i < self._trap_switches.size; i++)
 	{
 		self._trap_switches[i] rotatepitch(-180, 0.5);
 	}
-	self._trap_switches[0] waittill(#"rotatedone");
+	self._trap_switches[0] waittill("rotatedone");
 	self trap_lights_green();
 }
 
@@ -538,7 +538,7 @@ function trap_activate_fire()
 	}
 	self thread trap_damage();
 	wait(self._trap_duration);
-	self notify(#"trap_done");
+	self notify("trap_done");
 }
 
 /*
@@ -552,7 +552,7 @@ function trap_activate_fire()
 */
 function trap_activate_rotating()
 {
-	self endon(#"trap_done");
+	self endon("trap_done");
 	self._trap_duration = 30;
 	self._trap_cooldown_time = 60;
 	self thread trap_damage();
@@ -583,7 +583,7 @@ function trap_activate_rotating()
 	{
 		self._trap_movers[i].angles = old_angles;
 	}
-	self notify(#"trap_done");
+	self notify("trap_done");
 }
 
 /*
@@ -639,10 +639,10 @@ function trap_audio_fx(trap)
 */
 function trap_damage()
 {
-	self endon(#"trap_done");
+	self endon("trap_done");
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(isplayer(ent))
 		{
 			if(isdefined(level._custom_traps) && isdefined(level._custom_traps[self._trap_type]) && isdefined(level._custom_traps[self._trap_type].player_damage))
@@ -714,7 +714,7 @@ function trap_damage()
 */
 function trig_update(parent)
 {
-	self endon(#"trap_done");
+	self endon("trap_done");
 	start_angles = self.angles;
 	while(true)
 	{
@@ -734,8 +734,8 @@ function trig_update(parent)
 */
 function player_elec_damage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!isdefined(level.elec_loop))
 	{
 		level.elec_loop = 0;
@@ -792,8 +792,8 @@ function player_elec_damage()
 */
 function player_fire_damage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(!(isdefined(self.is_burning) && self.is_burning) && !self laststand::player_is_in_laststand())
 	{
 		self.is_burning = 1;
@@ -831,7 +831,7 @@ function player_fire_damage()
 */
 function zombie_trap_death(trap, param)
 {
-	self endon(#"death");
+	self endon("death");
 	self.marked_for_death = 1;
 	switch(trap._trap_type)
 	{
@@ -869,7 +869,7 @@ function zombie_trap_death(trap, param)
 			}
 			else
 			{
-				level notify(#"trap_kill", self, trap);
+				level notify("trap_kill", self, trap);
 				self dodamage(self.health + 666, self.origin, trap);
 			}
 			break;
@@ -883,7 +883,7 @@ function zombie_trap_death(trap, param)
 			{
 				self [[self.trap_reaction_func]](trap);
 			}
-			level notify(#"trap_kill", self, trap);
+			level notify("trap_kill", self, trap);
 			self startragdoll();
 			self launchragdoll(direction_vec);
 			util::wait_network_frame();
@@ -909,7 +909,7 @@ function zombie_trap_death(trap, param)
 */
 function zombie_flame_watch()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self stoploopsound();
 	arrayremovevalue(level.burning_zombies, self);
 }
@@ -946,7 +946,7 @@ function play_elec_vocals()
 */
 function electroctute_death_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(self.is_electrocuted) && self.is_electrocuted)
 	{
 		return;
@@ -1003,7 +1003,7 @@ function electroctute_death_fx()
 */
 function electrocute_timeout()
 {
-	self endon(#"death");
+	self endon("death");
 	self playloopsound("amb_fire_manager_0");
 	wait(12);
 	self stoploopsound();
@@ -1025,7 +1025,7 @@ function electrocute_timeout()
 */
 function trap_dialog()
 {
-	self endon(#"warning_dialog");
+	self endon("warning_dialog");
 	level endon(#"switch_flipped");
 	timer = 0;
 	while(true)
@@ -1054,7 +1054,7 @@ function trap_dialog()
 				index = zm_utility::get_player_index(players[i]);
 				plr = ("plr_" + index) + "_";
 				wait(3);
-				self notify(#"warning_dialog");
+				self notify("warning_dialog");
 			}
 		}
 	}
@@ -1097,9 +1097,9 @@ function trap_disable()
 	cooldown = self._trap_cooldown_time;
 	if(self._trap_in_use)
 	{
-		self notify(#"trap_done");
+		self notify("trap_done");
 		self._trap_cooldown_time = 0.05;
-		self waittill(#"available");
+		self waittill("available");
 	}
 	array::thread_all(self._trap_use_trigs, &triggerenable, 0);
 	self trap_lights_red();

@@ -224,11 +224,11 @@ function callback_stunned(localclientnum, oldval, newval, bnewent, binitialsnap,
 	#/
 	if(newval)
 	{
-		self notify(#"stunned");
+		self notify("stunned");
 	}
 	else
 	{
-		self notify(#"not_stunned");
+		self notify("not_stunned");
 	}
 }
 
@@ -253,7 +253,7 @@ function callback_emp(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	}
 	else
 	{
-		self notify(#"not_emp");
+		self notify("not_emp");
 	}
 }
 

@@ -78,7 +78,7 @@ function function_6a2c832a(localclientnum, oldval, newval, bnewent, binitialsnap
 		ent = spawn(0, self.origin, "script_origin");
 		ent linkto(self);
 		self thread function_80209369(localclientnum, ent);
-		level notify(#"lightning_ball_created");
+		level notify("lightning_ball_created");
 	}
 }
 
@@ -113,7 +113,7 @@ function function_749acb79(localclientnum)
 	self endon(#"hash_7a8f9f49");
 	if(!isdefined(level.var_1d5f245c[localclientnum]))
 	{
-		level waittill(#"lightning_ball_created");
+		level waittill("lightning_ball_created");
 	}
 	var_46352a82 = level.var_1d5f245c[localclientnum];
 	var_46352a82 endon(#"entityshutdown");

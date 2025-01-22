@@ -137,11 +137,11 @@ function function_1f7e5210()
 */
 function function_4fef5e4()
 {
-	self endon(#"death");
-	level endon(#"chem_door_open");
+	self endon("death");
+	level endon("chem_door_open");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isplayer(who))
 		{
 			who kill();
@@ -578,12 +578,12 @@ function pull_out_last_weapon()
 */
 function function_5dd1ccff(b_enable, b_use_trig = 1, e_player)
 {
-	level endon(#"descent");
+	level endon("descent");
 	while(true)
 	{
 		if(b_use_trig)
 		{
-			self waittill(#"trigger", e_player);
+			self waittill("trigger", e_player);
 		}
 		if(!isdefined(e_player.b_tactical_mode_enabled))
 		{
@@ -686,7 +686,7 @@ function water_movement()
 {
 	while(true)
 	{
-		self waittill(#"trigger", e_player);
+		self waittill("trigger", e_player);
 		if(!(isdefined(e_player.is_in_water) && e_player.is_in_water))
 		{
 			self thread water_movement_player(e_player);
@@ -705,8 +705,8 @@ function water_movement()
 */
 function water_movement_player(e_player)
 {
-	e_player endon(#"death");
-	self endon(#"death");
+	e_player endon("death");
+	self endon("death");
 	e_player.is_in_water = 1;
 	e_player setmovespeedscale(0.7);
 	e_player allowprone(0);

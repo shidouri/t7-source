@@ -91,7 +91,7 @@ function function_7772592b(localclientnum)
 {
 	self notify(#"hash_51adc559");
 	self endon(#"hash_51adc559");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	self function_51adc559(localclientnum);
 }
 

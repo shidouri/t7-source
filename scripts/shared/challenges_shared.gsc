@@ -307,11 +307,11 @@ function on_player_connect()
 */
 function monitorreloads()
 {
-	self endon(#"disconnect");
-	self endon(#"killmonitorreloads");
+	self endon("disconnect");
+	self endon("killmonitorreloads");
 	while(true)
 	{
-		self waittill(#"reload");
+		self waittill("reload");
 		currentweapon = self getcurrentweapon();
 		if(currentweapon == level.weaponnone)
 		{
@@ -337,15 +337,15 @@ function monitorreloads()
 */
 function reloadthenkill(reloadweapon)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"reloadthenkilltimedout");
-	self notify(#"reloadthenkillstart");
-	self endon(#"reloadthenkillstart");
+	self endon("disconnect");
+	self endon("death");
+	self endon("reloadthenkilltimedout");
+	self notify("reloadthenkillstart");
+	self endon("reloadthenkillstart");
 	self thread reloadthenkilltimeout(5);
 	for(;;)
 	{
-		self waittill(#"killed_enemy_player", time, weapon);
+		self waittill("killed_enemy_player", time, weapon);
 		if(reloadweapon == weapon)
 		{
 			self addplayerstat("reload_then_kill_dualclip", 1);
@@ -364,11 +364,11 @@ function reloadthenkill(reloadweapon)
 */
 function reloadthenkilltimeout(time)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"reloadthenkillstart");
+	self endon("disconnect");
+	self endon("death");
+	self endon("reloadthenkillstart");
 	wait(time);
-	self notify(#"reloadthenkilltimedout");
+	self notify("reloadthenkilltimedout");
 }
 
 /*
@@ -732,15 +732,15 @@ function ishighestscoringplayer(player)
 */
 function spawnwatcher()
 {
-	self endon(#"disconnect");
-	self endon(#"killspawnmonitor");
+	self endon("disconnect");
+	self endon("killspawnmonitor");
 	self.pers["stickExplosiveKill"] = 0;
 	self.pers["pistolHeadshot"] = 0;
 	self.pers["assaultRifleHeadshot"] = 0;
 	self.pers["killNemesis"] = 0;
 	while(true)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		self.pers["longshotsPerLife"] = 0;
 		self.flakjacketclaymore = [];
 		self.weaponkills = [];
@@ -765,13 +765,13 @@ function spawnwatcher()
 */
 function watchfordtp()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"killdtpmonitor");
+	self endon("disconnect");
+	self endon("death");
+	self endon("killdtpmonitor");
 	self.dtptime = 0;
 	while(true)
 	{
-		self waittill(#"dtp_end");
+		self waittill("dtp_end");
 		self.dtptime = gettime() + 4000;
 	}
 }
@@ -787,13 +787,13 @@ function watchfordtp()
 */
 function watchformantle()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"killmantlemonitor");
+	self endon("disconnect");
+	self endon("death");
+	self endon("killmantlemonitor");
 	self.mantletime = 0;
 	while(true)
 	{
-		self waittill(#"mantle_start", mantleendtime);
+		self waittill("mantle_start", mantleendtime);
 		self.mantletime = mantleendtime;
 	}
 }
@@ -1191,7 +1191,7 @@ function destroyscorestreak(weapon, playercontrolled, groundbased, countaskillst
 */
 function watchforrapiddestroy(weapon)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(!isdefined(self.challenge_previousdestroyweapon) || self.challenge_previousdestroyweapon != weapon)
 	{
 		self.challenge_previousdestroyweapon = weapon;
@@ -1858,10 +1858,10 @@ function killeddog()
 */
 function updatezonemultikills()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	self notify(#"updaterecentzonekills");
-	self endon(#"updaterecentzonekills");
+	self endon("disconnect");
+	level endon("game_ended");
+	self notify("updaterecentzonekills");
+	self endon("updaterecentzonekills");
 	if(!isdefined(self.recentzonekillcount))
 	{
 		self.recentzonekillcount = 0;
@@ -2142,14 +2142,14 @@ function killstreakten()
 */
 function scavengedgrenade()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
-	self notify(#"scavengedgrenade");
-	self endon(#"scavengedgrenade");
-	self notify(#"scavenged_primary_grenade");
+	self endon("disconnect");
+	self endon("death");
+	self notify("scavengedgrenade");
+	self endon("scavengedgrenade");
+	self notify("scavenged_primary_grenade");
 	for(;;)
 	{
-		self waittill(#"lethalgrenadekill");
+		self waittill("lethalgrenadekill");
 		self addplayerstat("kill_with_resupplied_lethal_grenade", 1);
 	}
 }
@@ -2191,7 +2191,7 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 	{
 		weapon = level.weaponnone;
 	}
-	self endon(#"disconnect");
+	self endon("disconnect");
 	data = spawnstruct();
 	data.victim = self;
 	data.victimorigin = self.origin;
@@ -2453,7 +2453,7 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 		data.inflictorplayerhasengineerperk = 0;
 	}
 	waitandprocessplayerkilledcallback(data);
-	data.attacker notify(#"playerkilledchallengesprocessed");
+	data.attacker notify("playerkilledchallengesprocessed");
 }
 
 /*
@@ -2504,7 +2504,7 @@ function waitandprocessplayerkilledcallback(data)
 {
 	if(isdefined(data.attacker))
 	{
-		data.attacker endon(#"disconnect");
+		data.attacker endon("disconnect");
 	}
 	wait(0.05);
 	util::waittillslowprocessallowed();
@@ -2541,7 +2541,7 @@ function weaponisknife(weapon)
 */
 function eventreceived(eventname)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	util::waittillslowprocessallowed();
 	switch(level.gametype)
 	{
@@ -2679,14 +2679,14 @@ function eventreceived(eventname)
 */
 function monitor_player_sprint()
 {
-	self endon(#"disconnect");
-	self endon(#"killplayersprintmonitor");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("killplayersprintmonitor");
+	self endon("death");
 	self.lastsprinttime = undefined;
 	while(true)
 	{
-		self waittill(#"sprint_begin");
-		self waittill(#"sprint_end");
+		self waittill("sprint_begin");
+		self waittill("sprint_end");
 		self.lastsprinttime = gettime();
 	}
 }
@@ -2755,7 +2755,7 @@ function trophy_defense(origin, radius)
 */
 function waittilltimeoutordeath(timeout)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(timeout);
 }
 

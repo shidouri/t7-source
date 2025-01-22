@@ -165,8 +165,8 @@ function defaultrole()
 */
 function state_death_update(params)
 {
-	self endon(#"death");
-	self endon(#"nodeath_thread");
+	self endon("death");
+	self endon("nodeath_thread");
 	streamermodelhint(self.deathmodel, 6);
 	death_type = vehicle_ai::get_death_type(params);
 	if(!isdefined(death_type))
@@ -188,7 +188,7 @@ function state_death_update(params)
 	self setturrettargetrelativeangles((0, 0, 0), 1);
 	self setturrettargetrelativeangles((0, 0, 0), 2);
 	self asmrequestsubstate("death@stationary");
-	self waittill(#"model_swap");
+	self waittill("model_swap");
 	self vehicle_death::set_death_model(self.deathmodel, self.modelswapdelay);
 	self vehicle::do_death_dynents();
 	self vehicle_death::death_radius_damage();
@@ -228,7 +228,7 @@ function siegebot_driving(params)
 */
 function siegebot_kill_on_tilting()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	tilecount = 0;
 	while(true)
@@ -263,7 +263,7 @@ function siegebot_kill_on_tilting()
 */
 function siegebot_player_fireupdate()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	weapon = self seatgetweapon(2);
 	firetime = weapon.firetime;
@@ -294,7 +294,7 @@ function siegebot_player_fireupdate()
 */
 function siegebot_player_aimupdate()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"exit_vehicle");
 	while(true)
 	{
@@ -335,8 +335,8 @@ function emped_enter(params)
 */
 function emped_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self stopmovementandsetbrake();
 	if(self.vehicletype === "spawner_enemy_boss_siegebot_zombietron")
 	{
@@ -401,8 +401,8 @@ function pain_toggle(enabled)
 */
 function pain_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self stopmovementandsetbrake();
 	if(self.vehicletype === "spawner_enemy_boss_siegebot_zombietron")
 	{
@@ -433,8 +433,8 @@ function pain_update(params)
 */
 function state_unaware_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self setturrettargetrelativeangles(vectorscale((0, 1, 0), 90), 1);
 	self setturrettargetrelativeangles(vectorscale((0, 1, 0), 90), 2);
 	self thread movement_thread_unaware();
@@ -456,8 +456,8 @@ function state_unaware_update(params)
 */
 function movement_thread_unaware()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self notify(#"end_movement_thread");
 	self endon(#"end_movement_thread");
 	while(true)
@@ -469,7 +469,7 @@ function movement_thread_unaware()
 			locomotion_start();
 			self thread path_update_interrupt();
 			self vehicle_ai::waittill_pathing_done();
-			self notify(#"near_goal");
+			self notify("near_goal");
 			self cancelaimove();
 			self clearvehgoalpos();
 			scan();
@@ -599,8 +599,8 @@ function clean_up_spawned()
 */
 function clean_up_spawnedondeath(enttowatch)
 {
-	self endon(#"death");
-	enttowatch waittill(#"death");
+	self endon("death");
+	enttowatch waittill("death");
 	self delete();
 }
 
@@ -696,8 +696,8 @@ function state_jump_enter(params)
 */
 function state_jump_update(params)
 {
-	self endon(#"change_state");
-	self endon(#"death");
+	self endon("change_state");
+	self endon("death");
 	goal = self.jump.goal;
 	self face_target(goal);
 	self.jump.linkent.origin = self.origin;
@@ -731,7 +731,7 @@ function state_jump_update(params)
 	self asmrequestsubstate("inair@jump");
 	self waittill(#"engine_startup");
 	self vehicle::impact_fx(self.settings.startupfx1);
-	self waittill(#"leave_ground");
+	self waittill("leave_ground");
 	self vehicle::impact_fx(self.settings.takeofffx1);
 	while(true)
 	{
@@ -769,7 +769,7 @@ function state_jump_update(params)
 		self.jump.linkent.origin = self.jump.linkent.origin + velocity;
 		if(self.jump.linkent.origin[2] < heightthreshold && (oldheight > heightthreshold || (oldverticlespeed > 0 && velocity[2] < 0)))
 		{
-			self notify(#"start_landing");
+			self notify("start_landing");
 			self asmrequestsubstate(params.coptermodel);
 		}
 		if(0)
@@ -781,7 +781,7 @@ function state_jump_update(params)
 		wait(0.05);
 	}
 	self.jump.linkent.origin = (self.jump.linkent.origin[0], self.jump.linkent.origin[1], 0) + (0, 0, goal[2]);
-	self notify(#"land_crush");
+	self notify("land_crush");
 	foreach(player in level.players)
 	{
 		player._takedamage_old = player.takedamage;
@@ -814,7 +814,7 @@ function state_jump_update(params)
 	self unlink();
 	wait(0.05);
 	self.jump.in_air = 0;
-	self notify(#"jump_finished");
+	self notify("jump_finished");
 	vehicle_ai::cooldown("jump", 7);
 	self vehicle_ai::waittill_asm_complete(params.coptermodel, 3);
 	self vehicle_ai::evaluate_connections();
@@ -844,8 +844,8 @@ function state_jump_exit(params)
 */
 function state_combat_update(params)
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self thread movement_thread();
 	self thread attack_thread_machinegun();
 	self thread attack_thread_rocket();
@@ -975,10 +975,10 @@ function getnextmoveposition_tactical()
 */
 function path_update_interrupt()
 {
-	self endon(#"death");
-	self endon(#"change_state");
-	self endon(#"near_goal");
-	self endon(#"reached_end_node");
+	self endon("death");
+	self endon("change_state");
+	self endon("near_goal");
+	self endon("reached_end_node");
 	canseeenemycount = 0;
 	old_enemy = self.enemy;
 	startpath = gettime();
@@ -1004,7 +1004,7 @@ function path_update_interrupt()
 					canseeenemycount++;
 					if(canseeenemycount > 3 && (vehicle_ai::timesince(startpath) > 5 || distance2dsquared(old_origin, self.origin) > (move_dist * move_dist)))
 					{
-						self notify(#"near_goal");
+						self notify("near_goal");
 					}
 				}
 				else
@@ -1029,15 +1029,15 @@ function path_update_interrupt()
 		{
 			if(!isdefined(old_enemy))
 			{
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			else if(self.enemy != old_enemy)
 			{
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 			if(self vehcansee(self.enemy) && distance2dsquared(self.origin, self.enemy.origin) < (150 * 150) && distance2dsquared(old_origin, self.enemy.origin) > (151 * 151))
 			{
-				self notify(#"near_goal");
+				self notify("near_goal");
 			}
 		}
 		wait(0.2);
@@ -1055,9 +1055,9 @@ function path_update_interrupt()
 */
 function weapon_doors_state(isopen, waittime = 0)
 {
-	self endon(#"death");
-	self notify(#"weapon_doors_state");
-	self endon(#"weapon_doors_state");
+	self endon("death");
+	self notify("weapon_doors_state");
+	self endon("weapon_doors_state");
 	if(isdefined(waittime) && waittime > 0)
 	{
 		wait(waittime);
@@ -1076,8 +1076,8 @@ function weapon_doors_state(isopen, waittime = 0)
 */
 function movement_thread()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self notify(#"end_movement_thread");
 	self endon(#"end_movement_thread");
 	while(true)
@@ -1106,7 +1106,7 @@ function movement_thread()
 			locomotion_start();
 			self thread path_update_interrupt();
 			self vehicle_ai::waittill_pathing_done();
-			self notify(#"near_goal");
+			self notify("near_goal");
 			self cancelaimove();
 			self clearvehgoalpos();
 			if(isdefined(self.enemy) && self vehseenrecently(self.enemy, 2))
@@ -1135,7 +1135,7 @@ function movement_thread()
 function stopmovementandsetbrake()
 {
 	self notify(#"end_movement_thread");
-	self notify(#"near_goal");
+	self notify("near_goal");
 	self cancelaimove();
 	self clearvehgoalpos();
 	self clearturrettarget();
@@ -1226,8 +1226,8 @@ function scan()
 */
 function attack_thread_machinegun()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self endon(#"end_attack_thread");
 	self notify(#"end_machinegun_attack_thread");
 	self endon(#"end_machinegun_attack_thread");
@@ -1301,8 +1301,8 @@ function attack_rocket(target)
 */
 function attack_thread_rocket()
 {
-	self endon(#"death");
-	self endon(#"change_state");
+	self endon("death");
+	self endon("change_state");
 	self endon(#"end_attack_thread");
 	self notify(#"end_rocket_attack_thread");
 	self endon(#"end_rocket_attack_thread");
@@ -1379,7 +1379,7 @@ function siegebot_callback_damage(einflictor, eattacker, idamage, idflags, smean
 		driver = self getseatoccupant(0);
 		if(!isdefined(driver))
 		{
-			self notify(#"pain");
+			self notify("pain");
 		}
 		vehicle::set_damage_fx_level(self.damagelevel);
 	}

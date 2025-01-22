@@ -173,8 +173,8 @@ function init_clientfields()
 */
 function customhudreveal()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	level flag::wait_till("intro_finished");
 	self zm::showhudandplaypromo();
 }
@@ -606,7 +606,7 @@ function chair_useage()
 		players = getplayers();
 		while(true)
 		{
-			chair_trig waittill(#"trigger", players);
+			chair_trig waittill("trigger", players);
 			playsoundatposition("evt_chair", chair_trig.origin);
 			wait(3);
 		}
@@ -633,7 +633,7 @@ function function_a67a7819()
 	var_7d2efc67 = 0;
 	while(var_7d2efc67 < 3)
 	{
-		var_769dd606 waittill(#"trigger_activated");
+		var_769dd606 waittill("trigger_activated");
 		if(isdefined(level.musicsystem.currentplaytype) && level.musicsystem.currentplaytype >= 4 || (isdefined(level.musicsystemoverride) && level.musicsystemoverride))
 		{
 			continue;
@@ -884,11 +884,11 @@ function master_electric_switch()
 	level clientfield::set("asylum_generator_state", 1);
 	if(cheat != 1)
 	{
-		trig waittill(#"trigger", user);
+		trig waittill("trigger", user);
 	}
 	playsoundatposition("zmb_switch_flip", var_cf413835.origin);
 	zm_power::turn_power_on_and_open_doors();
-	level notify(#"switch_flipped");
+	level notify("switch_flipped");
 	disable_bump_trigger("switch_door_trig");
 	level thread function_463cb1c6();
 	util::setclientsysstate("levelNotify", "start_lights");
@@ -903,20 +903,20 @@ function master_electric_switch()
 	}
 	var_cf413835 scene::play("p7_fxanim_zmhd_power_switch_bundle");
 	playfx(level._effect["switch_sparks"], struct::get("switch_fx", "targetname").origin);
-	level notify(#"master_switch_activated");
+	level notify("master_switch_activated");
 	fx_org delete();
 	fx_org = spawn("script_model", (-675.021, -300.906, 283.724));
 	fx_org setmodel("tag_origin");
 	fx_org.angles = vectorscale((0, 1, 0), 90);
 	wait(6);
 	fx_org stoploopsound();
-	level notify(#"sleight_on");
+	level notify("sleight_on");
 	util::wait_network_frame();
-	level notify(#"revive_on");
+	level notify("revive_on");
 	util::wait_network_frame();
-	level notify(#"doubletap_on");
+	level notify("doubletap_on");
 	util::wait_network_frame();
-	level notify(#"juggernog_on");
+	level notify("juggernog_on");
 	exploder::exploder("lgt_exploder_power_on");
 }
 
@@ -981,7 +981,7 @@ function electric_trap_wire_sparks(side)
 		{
 			self.fx_org moveto(targ.origin, 0.15);
 			self.fx_org playloopsound("zmb_elec_current_loop", 0.1);
-			self.fx_org waittill(#"movedone");
+			self.fx_org waittill("movedone");
 			self.fx_org stoploopsound(0.1);
 			if(isdefined(targ.target))
 			{
@@ -1021,7 +1021,7 @@ function electric_current_open_middle_door()
 			playfxontag(level._effect["electric_short_oneshot"], fx_org, "tag_origin");
 		}
 		fx_org playloopsound("zmb_elec_current_loop", 0.1);
-		fx_org waittill(#"movedone");
+		fx_org waittill("movedone");
 		fx_org stoploopsound(0.1);
 		if(isdefined(targ.target))
 		{
@@ -1165,7 +1165,7 @@ function watersheet_on_trigger()
 {
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		if(isdefined(who) && isplayer(who) && isalive(who) && who.sessionstate != "spectator")
 		{
 			if(!who laststand::player_is_in_laststand())
@@ -1393,14 +1393,14 @@ function function_aeabaa98(zbarrier)
 */
 function function_ee8a2035(piece_index, zbarrier)
 {
-	self endon(#"damage");
+	self endon("damage");
 	var_31410ef7 = "closed";
 	while(var_31410ef7 != "open" && var_31410ef7 != "opening")
 	{
 		wait(0.05);
 		var_31410ef7 = zbarrier getzbarrierpiecestate(piece_index);
 	}
-	self notify(#"torn_down");
+	self notify("torn_down");
 	e_piece = zbarrier.dynents[piece_index];
 	if(isdefined(e_piece))
 	{
@@ -1540,7 +1540,7 @@ function function_db379af2()
 	}
 	while(true)
 	{
-		self waittill(#"trigger_activated");
+		self waittill("trigger_activated");
 		self.var_46907f23++;
 		if(self.var_46907f23 > 9)
 		{

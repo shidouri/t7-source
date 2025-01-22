@@ -1153,11 +1153,11 @@ function get_lethal_grenade()
 */
 function wait_damage_loop()
 {
-	self endon(#"death");
-	level endon(#"game_ended");
+	self endon("death");
+	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction, point, mod, unused1, unused2, unused3, weapon, flags, inflictor);
+		self waittill("damage", damage, attacker, direction, point, mod, unused1, unused2, unused3, weapon, flags, inflictor);
 		self.bot.damage.entity = attacker;
 		self.bot.damage.amount = damage;
 		self.bot.damage.attackdir = vectornormalize(attacker.origin - self.origin);

@@ -91,7 +91,7 @@ function function_92c929ab(val)
 */
 function function_676edeb7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(isdefined(self.doa))
 	{
 		if(isdefined(self.doa.respawning) && self.doa.respawning)

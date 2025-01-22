@@ -66,7 +66,7 @@ function power_on_all()
 	wait(0.016);
 	if(!level clientfield::get("zombie_power_on"))
 	{
-		level waittill(#"zpo");
+		level waittill("zpo");
 	}
 	level thread telepad_loop();
 	level thread teleport_2d();
@@ -106,7 +106,7 @@ function teleportation_audio()
 	teleport_delay = 2;
 	while(true)
 	{
-		level waittill(#"tpa");
+		level waittill("tpa");
 		if(isdefined(self.script_sound))
 		{
 			playsound(0, ("evt_" + self.script_sound) + "_warmup", self.origin);
@@ -129,7 +129,7 @@ function teleport_2d()
 {
 	while(true)
 	{
-		level waittill(#"t2d");
+		level waittill("t2d");
 		playsound(0, "evt_teleport_2d_fnt", (0, 0, 0));
 		playsound(0, "evt_teleport_2d_rear", (0, 0, 0));
 	}
@@ -148,7 +148,7 @@ function teleport_2d_nopad()
 {
 	while(true)
 	{
-		level waittill(#"t2dn");
+		level waittill("t2dn");
 		playsound(0, "evt_pad_warmup_2d", (0, 0, 0));
 		wait(1.3);
 		playsound(0, "evt_teleport_2d_fnt", (0, 0, 0));
@@ -169,7 +169,7 @@ function teleport_beam_fx_2d()
 {
 	while(true)
 	{
-		level waittill(#"t2bfx");
+		level waittill("t2bfx");
 		playsound(0, "evt_beam_fx_2d", (0, 0, 0));
 	}
 }
@@ -187,7 +187,7 @@ function teleport_specialroom_start()
 {
 	while(true)
 	{
-		level waittill(#"tss");
+		level waittill("tss");
 		playsound(0, "evt_pad_warmup_2d", (0, 0, 0));
 	}
 }
@@ -205,7 +205,7 @@ function teleport_specialroom_go()
 {
 	while(true)
 	{
-		level waittill(#"tsg");
+		level waittill("tsg");
 		playsound(0, "evt_teleport_2d_fnt", (0, 0, 0));
 		playsound(0, "evt_teleport_2d_rear", (0, 0, 0));
 	}
@@ -241,7 +241,7 @@ function function_60a32834()
 {
 	while(true)
 	{
-		self waittill(#"trigger", trigplayer);
+		self waittill("trigger", trigplayer);
 		if(trigplayer islocalplayer())
 		{
 			level notify(#"hash_51d7bc7c", self.script_sound);

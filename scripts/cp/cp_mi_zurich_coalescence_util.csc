@@ -932,7 +932,7 @@ function function_33714f9b(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		self notify(#"disable_breath_fx");
+		self notify("disable_breath_fx");
 	}
 }
 
@@ -947,7 +947,7 @@ function function_33714f9b(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_1cb0f58c(localclientnum)
 {
-	self endon(#"disable_breath_fx");
+	self endon("disable_breath_fx");
 	self endon(#"entityshutdown");
 	while(true)
 	{

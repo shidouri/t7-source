@@ -100,7 +100,7 @@ function move_maze_wall(active)
 		ratio = (abs(goalz - currentz)) / abs(self.movedist);
 		movetime = movetime * ratio;
 	}
-	self notify(#"stop_maze_mover", !active && isdefined(self.movedownsound), active && isdefined(self.moveupsound));
+	self notify("stop_maze_mover", !active && isdefined(self.movedownsound), active && isdefined(self.moveupsound));
 	self.isactive = active;
 	self thread _maze_mover_move(goalpos, movetime);
 }
@@ -151,7 +151,7 @@ function set_maze_trap_wall(localclientnum)
 */
 function _maze_mover_move(goal, time)
 {
-	self endon(#"stop_maze_mover");
+	self endon("stop_maze_mover");
 	self.ismoving = 1;
 	if(time == 0)
 	{
@@ -162,7 +162,7 @@ function _maze_mover_move(goal, time)
 		_maze_mover_play_fx(self.var_f88b106c, self.var_2f5c5654);
 	}
 	self moveto(goal, time);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self.ismoving = 0;
 	if(self.isactive === 1)
 	{

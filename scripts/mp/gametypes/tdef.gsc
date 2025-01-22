@@ -192,7 +192,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 			scoreevents::processscoreevent("kill_flag_carrier", attacker);
 			attacker recordgameevent("kill_carrier");
 			attacker addplayerstat("FLAGCARRIERKILLS", 1);
-			attacker notify(#"objective", "kill_carrier");
+			attacker notify("objective", "kill_carrier");
 			score = score + killcarrierbonus;
 		}
 	}
@@ -232,7 +232,7 @@ function ondrop(player)
 		}
 		player addplayerstatwithgametype("DESTRUCTIONS", flagminutes);
 		player.tdef_flagtime = undefined;
-		player notify(#"dropped_flag");
+		player notify("dropped_flag");
 	}
 	team = self gameobjects::get_owner_team();
 	otherteam = util::getotherteam(team);
@@ -272,7 +272,7 @@ function ondrop(player)
 */
 function onpickup(player)
 {
-	self notify(#"picked_up");
+	self notify("picked_up");
 	player.tdef_flagtime = gettime();
 	player thread watchforendgame();
 	score = rank::getscoreinfovalue("capture");
@@ -303,7 +303,7 @@ function onpickup(player)
 	scoreevents::processscoreevent("flag_capture", player);
 	player recordgameevent("pickup");
 	player addplayerstatwithgametype("CAPTURES", 1);
-	player notify(#"objective", "captured");
+	player notify("objective", "captured");
 	util::printandsoundoneveryone(team, undefined, &"MP_NEUTRAL_FLAG_CAPTURED_BY", &"MP_NEUTRAL_FLAG_CAPTURED_BY", "mp_obj_captured", "mp_enemy_obj_captured", player);
 	if(self.currentteam == otherteam)
 	{
@@ -327,12 +327,12 @@ function onpickup(player)
 */
 function applyflagcarrierclass()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	if(isdefined(self.iscarrying) && self.iscarrying == 1)
 	{
-		self notify(#"force_cancel_placement");
+		self notify("force_cancel_placement");
 		wait(0.05);
 	}
 	self.pers["gamemodeLoadout"] = level.tdef_loadouts[self.team];
@@ -360,10 +360,10 @@ function applyflagcarrierclass()
 */
 function waitattachflag()
 {
-	level endon(#"game_ende");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self waittill(#"spawned_player");
+	level endon("game_ende");
+	self endon("disconnect");
+	self endon("death");
+	self waittill("spawned_player");
 	self attachflag();
 }
 
@@ -378,9 +378,9 @@ function waitattachflag()
 */
 function watchforendgame()
 {
-	self endon(#"dropped_flag");
-	self endon(#"disconnect");
-	level waittill(#"game_ended");
+	self endon("dropped_flag");
+	self endon("disconnect");
+	level waittill("game_ended");
 	if(isdefined(self))
 	{
 		if(isdefined(self.tdef_flagtime))
@@ -484,7 +484,7 @@ function createflag(victim)
 */
 function updatebaseposition()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	while(true)
 	{
 		if(isdefined(self.safeorigin))
@@ -540,8 +540,8 @@ function detachflag()
 */
 function flagattachradar(team)
 {
-	level endon(#"game_ended");
-	self endon(#"dropped");
+	level endon("game_ended");
+	self endon("dropped");
 }
 
 /*
@@ -555,8 +555,8 @@ function flagattachradar(team)
 */
 function getflagradarowner(team)
 {
-	level endon(#"game_ended");
-	self endon(#"dropped");
+	level endon("game_ended");
+	self endon("dropped");
 	while(true)
 	{
 		foreach(player in level.players)
@@ -581,9 +581,9 @@ function getflagradarowner(team)
 */
 function flagradarmover()
 {
-	level endon(#"game_ended");
-	self endon(#"dropped");
-	self.portable_radar endon(#"death");
+	level endon("game_ended");
+	self endon("dropped");
+	self.portable_radar endon("death");
 	for(;;)
 	{
 		self.portable_radar moveto(self.currentcarrier.origin, 0.05);
@@ -602,8 +602,8 @@ function flagradarmover()
 */
 function flagwatchradarownerlost()
 {
-	level endon(#"game_ended");
-	self endon(#"dropped");
+	level endon("game_ended");
+	self endon("dropped");
 	radarteam = self.portable_radar.team;
 	self.portable_radar.owner util::waittill_any("disconnect", "joined_team", "joined_spectators");
 	flagattachradar(radarteam);

@@ -154,12 +154,12 @@ function function_db4d091()
 function function_52ac3a61()
 {
 	level endon(#"hash_73b00182");
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_a71a53c4");
 	self notify(#"hash_52ac3a61");
 	self endon(#"hash_52ac3a61");
 	var_4d85762b = self getentitynumber();
-	self waittill(#"death");
+	self waittill("death");
 	wait(0.5);
 	if(isdefined(self.currentspectatingclient) && self.currentspectatingclient >= 0 && var_4d85762b != self.currentspectatingclient)
 	{
@@ -491,7 +491,7 @@ function function_eb271a4b(str_objective)
 			return;
 		}
 		objectives::set("cp_waypoint_breadcrumb", var_f6e695c0);
-		var_b1fe230f waittill(#"trigger");
+		var_b1fe230f waittill("trigger");
 		level notify(#"hash_431e9a83");
 		savegame::checkpoint_save();
 		if(var_b1cdbf1d == 2)
@@ -564,7 +564,7 @@ function function_258afdfc()
 			}
 		}
 	}
-	self waittill(#"trigger");
+	self waittill("trigger");
 	foreach(var_19966f24 in var_482d5204)
 	{
 		var_19966f24 thread function_375f158a();
@@ -613,7 +613,7 @@ function function_14bb726e()
 	n_move_time = randomfloatrange(0.5, 1.25);
 	self moveto(self.var_1069f2d4.origin, n_move_time);
 	self rotateto(self.var_1069f2d4.angles, n_move_time);
-	self waittill(#"movedone");
+	self waittill("movedone");
 	self solid();
 	self playrumbleonentity("damage_heavy");
 	playsoundatposition("evt_floor_debris_big", self.origin);
@@ -639,7 +639,7 @@ function function_14bb726e()
 function function_e8047245()
 {
 	a_nd_cover = getnodearray(self.script_string, "targetname");
-	self waittill(#"movedone");
+	self waittill("movedone");
 	foreach(nd_cover in a_nd_cover)
 	{
 		setenablenode(nd_cover, 1);
@@ -657,7 +657,7 @@ function function_e8047245()
 */
 function function_1bf4af4f()
 {
-	self endon(#"delete");
+	self endon("delete");
 	level waittill(#"hash_4bb2007e");
 	if(isdefined(self))
 	{
@@ -697,11 +697,11 @@ function function_514e0b2e()
 		self hide();
 		self.t_radius = spawn("trigger_radius", self.origin, 0, 1024, 128);
 		self movez(1024, 0.05);
-		self.t_radius waittill(#"trigger");
+		self.t_radius waittill("trigger");
 		self.t_radius delete();
 		self show();
 		self movez(-1024, n_move_time);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		self playrumbleonentity("damage_heavy");
 		playsoundatposition("evt_floor_debris_big", self.origin);
 		playfxontag(level._effect["dirt_impact_md"], self, "tag_origin");
@@ -775,7 +775,7 @@ function function_8fbe0681(a_ents)
 	e_wave clientfield::set("water_disturbance", 1);
 	level waittill(#"hash_99c4740a");
 	e_wave clientfield::set("water_disturbance", 0);
-	level notify(#"wave_done");
+	level notify("wave_done");
 	t_start delete();
 }
 
@@ -790,12 +790,12 @@ function function_8fbe0681(a_ents)
 */
 function surge_player_tracker(player)
 {
-	self endon(#"death");
-	self endon(#"wave_stop");
-	player endon(#"death");
+	self endon("death");
+	self endon("wave_stop");
+	player endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", e_hit);
+		self waittill("trigger", e_hit);
 		if(e_hit == player && (!(isdefined(player.is_surged) && player.is_surged)))
 		{
 			player.is_surged = 1;
@@ -822,7 +822,7 @@ function surge_player_tracker(player)
 */
 function surge_trigger_watcher(t_surge)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(t_surge) && self istouching(t_surge))
 	{
 		wait(0.05);
@@ -830,7 +830,7 @@ function surge_trigger_watcher(t_surge)
 	self.is_surged = 0;
 	if(isdefined(t_surge))
 	{
-		t_surge notify(#"wave_stop");
+		t_surge notify("wave_stop");
 	}
 }
 
@@ -845,8 +845,8 @@ function surge_trigger_watcher(t_surge)
 */
 function surge_player_rumble(t_wave)
 {
-	self endon(#"death");
-	t_wave endon(#"wave_stop");
+	self endon("death");
+	t_wave endon("wave_stop");
 	while(true)
 	{
 		self playrumbleonentity("damage_heavy");
@@ -865,8 +865,8 @@ function surge_player_rumble(t_wave)
 */
 function surge_player_push(t_wave)
 {
-	self endon(#"death");
-	t_wave endon(#"wave_stop");
+	self endon("death");
+	t_wave endon("wave_stop");
 	while(true)
 	{
 		if(!(isdefined(self.laststand) && self.laststand))
@@ -888,11 +888,11 @@ function surge_player_push(t_wave)
 */
 function enemy_surge_tracker()
 {
-	self endon(#"death");
-	self endon(#"wave_stop");
+	self endon("death");
+	self endon("wave_stop");
 	while(true)
 	{
-		self waittill(#"trigger", ai_entity);
+		self waittill("trigger", ai_entity);
 		if(isalive(ai_entity) && ai_entity.team == "axis" && (!(isdefined(ai_entity.b_swept) && ai_entity.b_swept)))
 		{
 			ai_entity.b_swept = 1;
@@ -912,7 +912,7 @@ function enemy_surge_tracker()
 */
 function enemy_surge_hit(t_surge)
 {
-	self endon(#"death");
+	self endon("death");
 	v_dir = vectornormalize(self.origin - t_surge.origin);
 	self startragdoll();
 	self launchragdoll(v_dir * 75);
@@ -932,7 +932,7 @@ function function_95353712()
 {
 	var_c44abb6a = getent("t_singroot_car1", "targetname");
 	level thread scene::init("p7_fxanim_cp_zurich_car_slide_bundle");
-	var_c44abb6a waittill(#"trigger");
+	var_c44abb6a waittill("trigger");
 	level thread scene::play("p7_fxanim_cp_zurich_car_slide_bundle");
 }
 
@@ -1074,13 +1074,13 @@ function create_depth_charge_model()
 */
 function handle_movement(s_target, should_ignore_player)
 {
-	self endon(#"death");
+	self endon("death");
 	while(isdefined(s_target))
 	{
 		n_distance = distance(self.origin, s_target.origin);
 		n_time = n_distance / 100;
 		self moveto(s_target.origin, n_time);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		if(isdefined(s_target.target))
 		{
 			s_target = struct::get(s_target.target, "targetname");
@@ -1105,8 +1105,8 @@ function handle_movement(s_target, should_ignore_player)
 */
 function handle_damage()
 {
-	self endon(#"death");
-	self waittill(#"damage", damage, e_attacker);
+	self endon("death");
+	self waittill("damage", damage, e_attacker);
 	self detonate_depth_charge(isdefined(e_attacker) && isplayer(e_attacker));
 }
 
@@ -1121,7 +1121,7 @@ function handle_damage()
 */
 function early_explosion()
 {
-	self endon(#"death");
+	self endon("death");
 	n_fuse_time = randomfloatrange(12, 32);
 	wait(n_fuse_time);
 	level.var_e83d53e9 = 1;
@@ -1176,7 +1176,7 @@ function detonate_depth_charge(should_chain = 0)
 */
 function detect_nearby_player(n_update_range = 200)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		foreach(e_player in level.activeplayers)

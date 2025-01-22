@@ -653,7 +653,7 @@ function function_3209ead3(behaviortreeentity)
 */
 function private function_f5ef629b()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_d96c599c");
 	while(level flag::get("doa_round_spawning"))
 	{
@@ -840,7 +840,7 @@ function function_f31da0d1(behaviortreeentity)
 */
 function function_2241fc21(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, timeoffset, boneindex, modelindex, surfacetype, surfacenormal)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(eattacker) && isdefined(eattacker.meleedamage))
 	{
 		idamage = eattacker.meleedamage;
@@ -1102,7 +1102,7 @@ function function_90772ac6(einflictor, eattacker, idamage, smeansofdeath, weapon
 function function_e77599c()
 {
 	level.doa.var_b351e5fb++;
-	self waittill(#"death");
+	self waittill("death");
 	level.doa.var_b351e5fb--;
 	if(level.doa.var_b351e5fb < 0)
 	{
@@ -1121,7 +1121,7 @@ function function_e77599c()
 */
 function function_7c435737()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_10fd80ee");
 	while(isalive(self))
 	{
@@ -1232,7 +1232,7 @@ function function_a4e16560(sp_enemy, s_spawn_loc, force = 0)
 */
 function function_71a4f1d5()
 {
-	self waittill(#"actor_corpse", corpse);
+	self waittill("actor_corpse", corpse);
 }
 
 /*
@@ -1267,7 +1267,7 @@ function zombie_eye_glow()
 */
 function function_462594a2()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self))
 	{
 		return;
@@ -1397,7 +1397,7 @@ function zombie_eye_glow_stop()
 */
 function private function_8abf3753(time = 1)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(time);
 	self.doa.original_origin = self.origin;
 }
@@ -1417,7 +1417,7 @@ function function_8a4222de(time)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_67a97d62");
 	self setavoidancemask("avoid none");
 	var_e0bc9b4c = self pushactors(0);
@@ -1440,7 +1440,7 @@ function function_8a4222de(time)
 */
 function function_155957e9()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_67a97d62");
 	if(isdefined(self.boss))
 	{
@@ -1490,7 +1490,7 @@ function function_155957e9()
 */
 function function_755b8a2e()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_6dcbb83e");
 	wait(1);
 	while(level flag::get("doa_round_spawning"))
@@ -1515,7 +1515,7 @@ function function_755b8a2e()
 */
 function function_53055b45()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_6e8326fc");
 	if(isdefined(self.boss))
 	{
@@ -1596,7 +1596,7 @@ function function_53055b45()
 function function_ab6f6263()
 {
 	var_2c143867 = array(%generic::ai_zombie_base_idle_ad_v1, %generic::ai_zombie_base_idle_au_v1, %generic::bo3_ai_zombie_attack_v1, %generic::bo3_ai_zombie_attack_v2, %generic::bo3_ai_zombie_attack_v3, %generic::bo3_ai_zombie_attack_v4, %generic::bo3_ai_zombie_attack_v6);
-	self endon(#"death");
+	self endon("death");
 	self notify(#"hash_ab6f6263");
 	self endon(#"hash_ab6f6263");
 	self.var_58acb0e3 = undefined;

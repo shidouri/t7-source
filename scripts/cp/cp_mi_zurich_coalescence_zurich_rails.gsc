@@ -175,7 +175,7 @@ function function_5ea42950()
 	}
 	ai_hunter = nd_spline zurich_util::function_a569867c();
 	ai_hunter vehicle::god_on();
-	ai_hunter waittill(#"reached_end_node");
+	ai_hunter waittill("reached_end_node");
 	ai_hunter delete();
 }
 

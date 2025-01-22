@@ -368,11 +368,11 @@ function can_buy_perk()
 */
 function perk_random_unitrigger_think(player)
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", player);
-		self.stub.trigger_target notify(#"trigger", player);
+		self waittill("trigger", player);
+		self.stub.trigger_target notify("trigger", player);
 	}
 }
 
@@ -387,14 +387,14 @@ function perk_random_unitrigger_think(player)
 */
 function machine_think()
 {
-	level notify(#"machine_think");
-	level endon(#"machine_think");
+	level notify("machine_think");
+	level endon("machine_think");
 	self.num_time_used = 0;
 	self.num_til_moved = randomintrange(3, 7);
 	if(self.state !== "initial" || "idle")
 	{
 		self thread set_perk_random_machine_state("arrive");
-		self waittill(#"arrived");
+		self waittill("arrived");
 		self thread set_perk_random_machine_state("initial");
 		wait(1);
 	}
@@ -420,7 +420,7 @@ function machine_think()
 	level.bottle_spawn_location.origin = level.bottle_spawn_location.origin + vectorscale((0, 0, 1), 65);
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		level flag::clear("machine_can_reset");
 		if(!player zm_score::can_player_purchase(level._random_zombie_perk_cost))
 		{
@@ -448,7 +448,7 @@ function machine_think()
 			self thread perk_bottle_motion();
 			model = get_perk_weapon_model(random_perk);
 			wait(3);
-			self notify(#"done_cycling");
+			self notify("done_cycling");
 			if(self.num_time_used >= self.num_til_moved && level.perk_random_machine_count > 1)
 			{
 				level.bottle_spawn_location setmodel("wpn_t7_zmb_perk_bottle_bear_world");
@@ -494,11 +494,11 @@ function machine_think()
 */
 function grab_check(player, random_perk)
 {
-	self endon(#"time_out_check");
+	self endon("time_out_check");
 	perk_is_bought = 0;
 	while(!perk_is_bought)
 	{
-		self waittill(#"trigger", e_triggerer);
+		self waittill("trigger", e_triggerer);
 		if(e_triggerer == player)
 		{
 			if(isdefined(player.is_drinking) && player.is_drinking > 0)
@@ -513,7 +513,7 @@ function grab_check(player, random_perk)
 			else
 			{
 				self playsound("evt_perk_deny");
-				self notify(#"time_out_or_perk_grab");
+				self notify("time_out_or_perk_grab");
 				return;
 			}
 		}
@@ -521,9 +521,9 @@ function grab_check(player, random_perk)
 	player zm_stats::increment_client_stat("grabbed_from_perk_random");
 	player zm_stats::increment_player_stat("grabbed_from_perk_random");
 	player thread monitor_when_player_acquires_perk();
-	self notify(#"grab_check");
-	self notify(#"time_out_or_perk_grab");
-	player notify(#"perk_purchased", random_perk);
+	self notify("grab_check");
+	self notify("time_out_or_perk_grab");
+	player notify("perk_purchased", random_perk);
 	gun = player zm_perks::perk_give_bottle_begin(random_perk);
 	evt = player util::waittill_any_ex("fake_death", "death", "player_downed", "weapon_change_complete", self, "time_out_check");
 	if(evt == "weapon_change_complete")
@@ -563,9 +563,9 @@ function monitor_when_player_acquires_perk()
 */
 function time_out_check()
 {
-	self endon(#"grab_check");
+	self endon("grab_check");
 	wait(10);
-	self notify(#"time_out_check");
+	self notify("time_out_check");
 	level flag::set("machine_can_reset");
 }
 
@@ -710,7 +710,7 @@ function perk_bottle_motion()
 	level.bottle_spawn_location moveto(level.bottle_spawn_location.origin + v_float, putouttime, putouttime * 0.5);
 	level.bottle_spawn_location.angles = level.bottle_spawn_location.angles + (0, 0, 10);
 	level.bottle_spawn_location rotateyaw(720, putouttime, putouttime * 0.5);
-	self waittill(#"done_cycling");
+	self waittill("done_cycling");
 	level.bottle_spawn_location.angles = self.angles;
 	level.bottle_spawn_location moveto(level.bottle_spawn_location.origin - v_float, putbacktime, putbacktime * 0.5);
 	level.bottle_spawn_location rotateyaw(90, putbacktime, putbacktime * 0.5);
@@ -727,7 +727,7 @@ function perk_bottle_motion()
 */
 function start_perk_bottle_cycling()
 {
-	self endon(#"done_cycling");
+	self endon("done_cycling");
 	array_key = getarraykeys(level.perk_bottle_weapon_array);
 	timer = 0;
 	while(true)
@@ -782,7 +782,7 @@ function perk_random_vending()
 	self thread perk_random_loop_anim(5, "opening", "opening");
 	self thread perk_random_loop_anim(3, "closing", "closing");
 	self thread perk_random_vend_sfx();
-	self notify(#"vending");
+	self notify("vending");
 	self waittill(#"bottle_spawned");
 	self setzbarrierpiecestate(4, "opening");
 }
@@ -798,7 +798,7 @@ function perk_random_vending()
 */
 function perk_random_loop_anim(n_piece, s_anim_1, s_anim_2)
 {
-	self endon(#"zbarrier_state_change");
+	self endon("zbarrier_state_change");
 	current_state = self.state;
 	while(self.state == current_state)
 	{
@@ -828,7 +828,7 @@ function perk_random_vend_sfx()
 {
 	self playloopsound("zmb_rand_perk_sparks");
 	level.bottle_spawn_location playloopsound("zmb_rand_perk_vortex");
-	self waittill(#"zbarrier_state_change");
+	self waittill("zbarrier_state_change");
 	self stoploopsound();
 	level.bottle_spawn_location stoploopsound();
 }
@@ -889,7 +889,7 @@ function perk_random_arrive()
 	{
 		wait(0.05);
 	}
-	self notify(#"arrived");
+	self notify("arrived");
 }
 
 /*
@@ -927,7 +927,7 @@ function set_perk_random_machine_state(state)
 	{
 		self hidezbarrierpiece(i);
 	}
-	self notify(#"zbarrier_state_change");
+	self notify("zbarrier_state_change");
 	self [[level.perk_random_machine_state_func]](state);
 }
 
@@ -1033,10 +1033,10 @@ function process_perk_random_machine_state(state)
 */
 function machine_sounds()
 {
-	level endon(#"machine_think");
+	level endon("machine_think");
 	while(true)
 	{
-		level waittill(#"pmstrt");
+		level waittill("pmstrt");
 		rndprk_ent = spawn("script_origin", self.origin);
 		rndprk_ent stopsounds();
 		state_switch = level util::waittill_any_return("pmstop", "pmmove", "machine_think");

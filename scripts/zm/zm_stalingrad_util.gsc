@@ -68,7 +68,7 @@ function flag_init()
 */
 function function_828240c9()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	if(isdefined(level._custom_powerups["shield_charge"]))
 	{
 		arrayremoveindex(level._custom_powerups, "shield_charge", 1);
@@ -139,10 +139,10 @@ function function_3fbe7d5f()
 */
 function function_acd04dc9()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!(isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
 	{
-		self waittill(#"completed_emerging_into_playable_area");
+		self waittill("completed_emerging_into_playable_area");
 	}
 	self.no_powerups = 1;
 }
@@ -256,8 +256,8 @@ function function_f8043960(var_57216c49, e_volume = undefined, var_50efb072 = 1,
 */
 function function_7fbdcc5f(var_57216c49)
 {
-	self endon(#"death");
-	self.var_4bd1ce6b endon(#"death");
+	self endon("death");
+	self.var_4bd1ce6b endon("death");
 	self.var_9d9ac25d = 1;
 	self.var_4bd1ce6b vehicle_ai::start_scripted();
 	var_5572b89 = self [[var_57216c49]]();
@@ -614,7 +614,7 @@ function function_f0610596(val)
 */
 function function_ff194e31(var_d965b1c7)
 {
-	self endon(#"death");
+	self endon("death");
 	self thread function_b74ff7d4();
 	self setphysparams(15, 0, 72);
 	self.ignore_enemy_count = 1;
@@ -644,7 +644,7 @@ function function_ff194e31(var_d965b1c7)
 function function_b74ff7d4()
 {
 	ai_zombie = self;
-	ai_zombie waittill(#"death", e_attacker);
+	ai_zombie waittill("death", e_attacker);
 	if(isplayer(e_attacker))
 	{
 		[[level.hero_power_update]](e_attacker, ai_zombie);
@@ -663,7 +663,7 @@ function function_b74ff7d4()
 function function_d182335a(ai_zombie)
 {
 	level.var_b1d4e9a1++;
-	ai_zombie waittill(#"death");
+	ai_zombie waittill("death");
 	level.var_258441ba++;
 }
 
@@ -715,8 +715,8 @@ function get_unused_spawn_point(a_s_spawnpoints)
 */
 function function_b55ebb81(a_spawnpoints, var_2b71b5b4, var_15eb9a52, var_f92c3865, var_b4fcee85, str_notify_end, var_ee8c6a82 = 0)
 {
-	level notify(#"turbine_idle");
-	level endon(#"turbine_idle");
+	level notify("turbine_idle");
+	level endon("turbine_idle");
 	if(isdefined(str_notify_end))
 	{
 		level endon(str_notify_end);
@@ -817,7 +817,7 @@ function function_b55ebb81(a_spawnpoints, var_2b71b5b4, var_15eb9a52, var_f92c38
 		wait(0.05);
 	}
 	level flag::clear("wave_event_raz_spawning_active");
-	level notify(#"wave_event_raz_complete");
+	level notify("wave_event_raz_complete");
 }
 
 /*
@@ -1060,7 +1060,7 @@ function function_923f7f72(var_af22dd13, var_ed448d3b, var_e25e1ccc, var_b4fcee8
 		wait(0.05);
 	}
 	level flag::clear("wave_event_sentinel_spawning_active");
-	level notify(#"wave_event_sentinels_complete");
+	level notify("wave_event_sentinels_complete");
 }
 
 /*
@@ -1289,7 +1289,7 @@ function function_5eeabbe0(var_47ee7db6, nd_path_start, var_f08b56c6, str_notify
 	self playsound("evt_zipline_attach");
 	self thread function_6efec755(var_f08b56c6);
 	self util::magic_bullet_shield();
-	self.var_13f86a82 waittill(#"rail_over");
+	self.var_13f86a82 waittill("rail_over");
 	self.var_fa6d2a24 = 0;
 	self zm_utility::decrement_ignoreme();
 	self.var_4222bc21 = 0;
@@ -1316,8 +1316,8 @@ function function_5eeabbe0(var_47ee7db6, nd_path_start, var_f08b56c6, str_notify
 */
 function function_6efec755(var_f08b56c6)
 {
-	self endon(#"disconnect");
-	self endon(#"switch_rail");
+	self endon("disconnect");
+	self endon("switch_rail");
 	self.var_13f86a82 thread play_current_fx();
 	self clientfield::set_to_player("tp_water_sheeting", 1);
 	self.var_13f86a82 vehicle::go_path();
@@ -1329,7 +1329,7 @@ function function_6efec755(var_f08b56c6)
 		self.var_13f86a82 vehicle::get_on_path(var_f08b56c6);
 		self.var_13f86a82 vehicle::go_path();
 	}
-	self.var_13f86a82 notify(#"rail_over");
+	self.var_13f86a82 notify("rail_over");
 	self clientfield::increment_to_player("sewer_landing_rumble");
 	self playsound("zmb_stalingrad_sewer_air_land");
 	self stoploopsound(0.4);
@@ -1351,8 +1351,8 @@ function function_6efec755(var_f08b56c6)
 */
 function function_ab2df0ca()
 {
-	self endon(#"rail_over");
-	self endon(#"disconnect");
+	self endon("rail_over");
+	self endon("disconnect");
 	self waittill(#"hash_94217b77");
 	self.var_13f86a82 waittill(#"hash_c4eac163");
 	self clientfield::set_to_player("drown_stage", 4);
@@ -1374,7 +1374,7 @@ function function_ab2df0ca()
 */
 function play_current_fx()
 {
-	self endon(#"rail_over");
+	self endon("rail_over");
 	while(true)
 	{
 		playfxontag(level._effect["current_effect"], self, "tag_origin");

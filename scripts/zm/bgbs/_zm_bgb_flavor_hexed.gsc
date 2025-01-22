@@ -57,8 +57,8 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
+	self endon("disconnect");
+	self endon("bled_out");
 	self.var_c3a5a8 = [];
 	var_2cf032a6 = self.bgb_pack;
 	foreach(str_bgb, var_410edbc8 in level.bgb)
@@ -115,12 +115,12 @@ function function_9a45adfb(var_50f0f8bb)
 */
 function function_655e0571(var_50f0f8bb)
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_gumball_anim_give");
+	self endon("disconnect");
+	self endon("bled_out");
+	self endon("bgb_gumball_anim_give");
 	self waittill("bgb_update_give_" + var_50f0f8bb);
 	self notify("bgb_flavor_hexed_give_" + var_50f0f8bb);
-	self waittill(#"bgb_update", var_1531e8c4, var_9a4acf7);
+	self waittill("bgb_update", var_1531e8c4, var_9a4acf7);
 	if(var_9a4acf7 === var_50f0f8bb && self.var_c3a5a8.size)
 	{
 		var_df8558a0 = array::random(self.var_c3a5a8);
@@ -141,8 +141,8 @@ function function_655e0571(var_50f0f8bb)
 */
 function function_21f6c6f5(var_50f0f8bb)
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
+	self endon("disconnect");
+	self endon("bled_out");
 	self waittill("bgb_update_give_" + var_50f0f8bb);
 	self notify("bgb_flavor_hexed_give_" + var_50f0f8bb);
 }

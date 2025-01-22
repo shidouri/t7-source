@@ -230,7 +230,7 @@ function boss_weak_point_shader(localclientnum, oldval, newval, bnewent, binitia
 */
 function boss_zombie_rise_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	if(newval)
 	{
@@ -258,7 +258,7 @@ function boss_zombie_rise_fx(localclientnum, oldval, newval, bnewent, binitialsn
 function function_200d4bd2(localclientnum, var_ee65ea53, var_7bc37da8)
 {
 	self endon(#"entityshutdown");
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	playfx(localclientnum, var_7bc37da8, self.origin + (0, 0, randomintrange(5, 10)));
 	wait(0.25);
 	playfx(localclientnum, var_ee65ea53, self.origin + (randomintrange(-10, 10), randomintrange(-10, 10), randomintrange(5, 10)));

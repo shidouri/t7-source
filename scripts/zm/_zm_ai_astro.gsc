@@ -319,7 +319,7 @@ function astro_prespawn()
 	self.zombie_think_done = 1;
 	self thread zm_spawner::play_ambient_zombie_vocals();
 	self thread zm_audio::zmbaivox_notifyconvert();
-	self notify(#"zombie_init_done");
+	self notify("zombie_init_done");
 }
 
 /*
@@ -397,7 +397,7 @@ function astro_zombie_total_update()
 */
 function astro_zombie_think()
 {
-	self endon(#"death");
+	self endon("death");
 	self.entered_level = 0;
 	self.ignoreall = 0;
 	self.maxhealth = (level.zombie_health * getplayers().size) * level.astro_zombie_health_mult;
@@ -424,7 +424,7 @@ function astro_zombie_think()
 */
 function astro_zombie_headbutt_think()
 {
-	self endon(#"death");
+	self endon("death");
 	self.is_headbutt = 0;
 	self.next_headbutt_time = gettime() + level.astro_headbutt_delay;
 	while(true)
@@ -480,7 +480,7 @@ function astro_zombie_headbutt_think()
 */
 function astro_restore_move_speed(time)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	wait(time);
 	self allowjump(1);
 	self allowprone(1);
@@ -531,7 +531,7 @@ function astrotraverseend(entity, asmstatename)
 */
 function astro_turn_player()
 {
-	self endon(#"death");
+	self endon("death");
 	self.player_to_headbutt = self.enemy;
 	player = self.player_to_headbutt;
 	up = player.origin + vectorscale((0, 0, 1), 10);
@@ -552,7 +552,7 @@ function astro_turn_player()
 	player allowprone(0);
 	player allowcrouch(0);
 	player setmovespeedscale(0.1);
-	player notify(#"released");
+	player notify("released");
 	dist = distance(self.origin, player.origin);
 	_debug_astro_print("grab dist = " + dist);
 }
@@ -570,7 +570,7 @@ function lerp_player_view_to_position(origin, angles, lerptime, fraction, right_
 {
 	if(isplayer(self))
 	{
-		self endon(#"disconnect");
+		self endon("disconnect");
 	}
 	linker = spawn("script_origin", (0, 0, 0));
 	linker.origin = self.origin;
@@ -599,7 +599,7 @@ function lerp_player_view_to_position(origin, angles, lerptime, fraction, right_
 	}
 	linker moveto(origin, lerptime, lerptime * 0.25);
 	linker rotateto(angles, lerptime, lerptime * 0.25);
-	linker waittill(#"movedone");
+	linker waittill("movedone");
 	linker delete();
 }
 
@@ -614,8 +614,8 @@ function lerp_player_view_to_position(origin, angles, lerptime, fraction, right_
 */
 function astro_watch_controls(astro)
 {
-	self endon(#"released");
-	self endon(#"disconnect");
+	self endon("released");
+	self endon("disconnect");
 	animlen = astro getanimlengthfromasd("zm_headbutt", 0);
 	time = 0.5 + animlen;
 	astro util::waittill_notify_or_timeout("death", time);
@@ -682,7 +682,7 @@ function astro_zombie_headbutt_release(entity)
 */
 function astro_zombie_attack()
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.player_to_headbutt))
 	{
 		return;
@@ -730,8 +730,8 @@ function astro_zombie_attack()
 */
 function astro_headbutt_damage(astro, org)
 {
-	self endon(#"disconnect");
-	self waittill(#"perk_lost");
+	self endon("disconnect");
+	self waittill("perk_lost");
 	damage = self.health - 1;
 	if(isdefined(astro))
 	{
@@ -754,7 +754,7 @@ function astro_headbutt_damage(astro, org)
 */
 function astro_zombie_teleport_enemy()
 {
-	self endon(#"death");
+	self endon("death");
 	player = self.player_to_headbutt;
 	black_hole_teleport_structs = struct::get_array("struct_black_hole_teleport", "targetname");
 	chosen_spot = undefined;
@@ -807,7 +807,7 @@ function astro_zombie_teleport_enemy()
 */
 function astro_zombie_teleport(struct_dest)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(struct_dest))
 	{
 		return;
@@ -882,7 +882,7 @@ function astro_zombie_die(einflictor, attacker, idamage, smeansofdeath, weapon, 
 */
 function astro_delay_delete()
 {
-	self endon(#"death");
+	self endon("death");
 	self setplayercollision(0);
 	self thread zombie_utility::zombie_eye_glow_stop();
 	wait(0.05);
@@ -974,7 +974,7 @@ function astro_player_pulse()
 */
 function astro_actor_damage(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex)
 {
-	self endon(#"death");
+	self endon("death");
 	switch(weapon.name)
 	{
 		case "microwavegundw_upgraded_zm":
@@ -998,7 +998,7 @@ function astro_actor_damage(inflictor, attacker, damage, flags, meansofdeath, we
 */
 function astro_nuke_damage()
 {
-	self endon(#"death");
+	self endon("death");
 }
 
 /*
@@ -1082,7 +1082,7 @@ function astro_damage_callback(mod, hit_location, hit_origin, player, amount, we
 */
 function _debug_astro_health_watch()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		/#

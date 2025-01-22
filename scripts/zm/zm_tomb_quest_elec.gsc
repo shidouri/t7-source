@@ -71,12 +71,12 @@ function onplayerconnect()
 */
 function electric_puzzle_watch_staff()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	a_piano_keys = struct::get_array("piano_key", "script_noteworthy");
 	var_dc8ace48 = level.a_elemental_staffs["staff_lightning"].w_weapon;
 	while(true)
 	{
-		self waittill(#"projectile_impact", w_weapon, v_explode_point, n_radius, e_projectile, n_impact);
+		self waittill("projectile_impact", w_weapon, v_explode_point, n_radius, e_projectile, n_impact);
 		if(w_weapon == var_dc8ace48)
 		{
 			if(!level flag::get("electric_puzzle_1_complete") && zm_tomb_chamber::is_chamber_occupied())
@@ -84,13 +84,13 @@ function electric_puzzle_watch_staff()
 				n_index = zm_utility::get_closest_index(v_explode_point, a_piano_keys, 20);
 				if(isdefined(n_index))
 				{
-					a_piano_keys[n_index] notify(#"piano_key_shot");
+					a_piano_keys[n_index] notify("piano_key_shot");
 					a_players = getplayers();
 					foreach(e_player in a_players)
 					{
 						if(e_player hasweapon(var_dc8ace48))
 						{
-							level notify(#"vo_try_puzzle_lightning1", e_player);
+							level notify("vo_try_puzzle_lightning1", e_player);
 						}
 					}
 				}
@@ -141,7 +141,7 @@ function electric_puzzle_1_run()
 */
 function piano_keys_stop()
 {
-	level notify(#"piano_keys_stop");
+	level notify("piano_keys_stop");
 	level.a_piano_keys_playing = [];
 }
 
@@ -164,7 +164,7 @@ function show_chord_debug(a_chord_notes)
 		a_piano_keys = struct::get_array("", "");
 		foreach(e_key in a_piano_keys)
 		{
-			e_key notify(#"stop_debug_position");
+			e_key notify("stop_debug_position");
 			foreach(note in a_chord_notes)
 			{
 				if(note == e_key.script_string)
@@ -207,7 +207,7 @@ function piano_run_chords()
 		chord_solved = 0;
 		while(!chord_solved)
 		{
-			level waittill(#"piano_key_played");
+			level waittill("piano_key_played");
 			if(level.a_piano_keys_playing.size == 3)
 			{
 				correct_notes_playing = 0;
@@ -232,7 +232,7 @@ function piano_run_chords()
 					{
 						if(e_player hasweapon(var_dc8ace48))
 						{
-							level notify(#"vo_puzzle_bad", e_player);
+							level notify("vo_puzzle_bad", e_player);
 						}
 					}
 				}
@@ -243,7 +243,7 @@ function piano_run_chords()
 		{
 			if(e_player hasweapon(var_dc8ace48))
 			{
-				level notify(#"vo_puzzle_good", e_player);
+				level notify("vo_puzzle_good", e_player);
 			}
 		}
 		level flag::set("piano_chord_ringing");
@@ -274,7 +274,7 @@ function piano_key_run()
 	piano_key_note = self.script_string;
 	while(true)
 	{
-		self waittill(#"piano_key_shot");
+		self waittill("piano_key_shot");
 		if(!level flag::get("piano_chord_ringing"))
 		{
 			if(level.a_piano_keys_playing.size >= 3)
@@ -287,8 +287,8 @@ function piano_key_run()
 			self.e_fx setmodel("tag_origin");
 			playfxontag(level._effect["elec_piano_glow"], self.e_fx, "tag_origin");
 			level.a_piano_keys_playing[level.a_piano_keys_playing.size] = piano_key_note;
-			level notify(#"piano_key_played", self, piano_key_note);
-			level waittill(#"piano_keys_stop");
+			level notify("piano_key_played", self, piano_key_note);
+			level waittill("piano_keys_stop");
 			self.e_fx delete();
 		}
 	}
@@ -500,7 +500,7 @@ function update_relay_rotation()
 {
 	self.e_switch rotateto((self.position * 90, self.e_switch.angles[1], self.e_switch.angles[2]), 0.1, 0, 0);
 	self.e_switch playsound("zmb_squest_elec_switch");
-	self.e_switch waittill(#"rotatedone");
+	self.e_switch waittill("rotatedone");
 }
 
 /*
@@ -545,27 +545,27 @@ function relay_switch_run()
 	n_tries = 0;
 	while(true)
 	{
-		self.trigger_stub waittill(#"trigger", e_user);
+		self.trigger_stub waittill("trigger", e_user);
 		n_tries++;
-		level notify(#"vo_try_puzzle_lightning2", e_user);
+		level notify("vo_try_puzzle_lightning2", e_user);
 		self.position = (self.position + 1) % 4;
 		str_target_relay = self.connections[self.position];
 		if(isdefined(str_target_relay))
 		{
 			if(str_target_relay == "village" || str_target_relay == "ruins")
 			{
-				level notify(#"vo_puzzle_good", e_user);
+				level notify("vo_puzzle_good", e_user);
 			}
 		}
 		else
 		{
 			if((n_tries % 8) == 0)
 			{
-				level notify(#"vo_puzzle_confused", e_user);
+				level notify("vo_puzzle_confused", e_user);
 			}
 			else if((n_tries % 4) == 0)
 			{
-				level notify(#"vo_puzzle_bad", e_user);
+				level notify("vo_puzzle_bad", e_user);
 			}
 		}
 		self update_relay_rotation();
@@ -584,11 +584,11 @@ function relay_switch_run()
 */
 function relay_unitrigger_think()
 {
-	self endon(#"kill_trigger");
+	self endon("kill_trigger");
 	while(true)
 	{
-		self waittill(#"trigger", player);
-		self.stub notify(#"trigger", player);
+		self waittill("trigger", player);
+		self.stub notify("trigger", player);
 	}
 }
 

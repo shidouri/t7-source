@@ -223,7 +223,7 @@ function function_affecb53(var_405e4f24)
 */
 function function_48cfc7df(spot)
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_2be9fa75 = 1;
 	if(isdefined(self.mdl_anchor))
 	{
@@ -238,7 +238,7 @@ function function_48cfc7df(spot)
 	self thread anchor_delete_watcher();
 	self.mdl_anchor moveto(spot.origin, 0.05);
 	self.mdl_anchor rotateto(spot.angles, 0.05);
-	self.mdl_anchor waittill(#"movedone");
+	self.mdl_anchor waittill("movedone");
 	wait(0.05);
 	if(!isdefined(self) || !isdefined(self.mdl_anchor))
 	{
@@ -259,7 +259,7 @@ function function_48cfc7df(spot)
 	}
 	self.var_2be9fa75 = 0;
 	self thread function_27a6dd5f();
-	self notify(#"risen", spot.script_string);
+	self notify("risen", spot.script_string);
 }
 
 /*
@@ -273,7 +273,7 @@ function function_48cfc7df(spot)
 */
 function function_27a6dd5f()
 {
-	self endon(#"death");
+	self endon("death");
 	util::wait_network_frame();
 	if(isdefined(self.mdl_anchor))
 	{
@@ -292,7 +292,7 @@ function function_27a6dd5f()
 */
 function anchor_delete_watcher()
 {
-	self waittill(#"death");
+	self waittill("death");
 	if(isdefined(self.mdl_anchor))
 	{
 		wait(0.05);

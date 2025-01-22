@@ -52,13 +52,13 @@ function __init__()
 */
 function enable()
 {
-	self endon(#"disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bled_out");
+	self endon("bgb_update");
 	level.powerup_drop_count = 0;
 	while(true)
 	{
-		level waittill(#"powerup_dropped");
+		level waittill("powerup_dropped");
 		self bgb::do_one_shot_use();
 		level.powerup_drop_count = 0;
 	}

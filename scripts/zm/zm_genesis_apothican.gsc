@@ -147,8 +147,8 @@ function private function_ceb45430()
 */
 function private function_b67eab19(var_1d640f59, str_widget_clientuimodel, var_18bfcc38)
 {
-	level notify(#"widget_ui_override");
-	self endon(#"disconnect");
+	level notify("widget_ui_override");
+	self endon("disconnect");
 	if(var_18bfcc38)
 	{
 		if(isdefined(var_1d640f59))
@@ -211,7 +211,7 @@ function function_ea9e816a()
 	}
 	while(true)
 	{
-		self waittill(#"trigger", e_portee);
+		self waittill("trigger", e_portee);
 		if(isdefined(e_portee.var_5aef0317) && e_portee.var_5aef0317)
 		{
 			continue;
@@ -234,8 +234,8 @@ function function_ea9e816a()
 */
 function function_657f1d1(s_stub, str_zone, var_6d359b2e, var_db6533 = 0)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	if(isdefined(self.var_5aef0317) && self.var_5aef0317)
 	{
 		return;
@@ -282,7 +282,7 @@ function function_657f1d1(s_stub, str_zone, var_6d359b2e, var_db6533 = 0)
 	self.var_5aef0317 = undefined;
 	util::wait_network_frame();
 	var_413ea50f.delete_on_death = 1;
-	var_413ea50f notify(#"death");
+	var_413ea50f notify("death");
 	if(!isalive(var_413ea50f))
 	{
 		var_413ea50f delete();
@@ -358,7 +358,7 @@ function function_538e24a(var_413ea50f, s_stub)
 */
 function private function_3298b25f(s_stub)
 {
-	self endon(#"death");
+	self endon("death");
 	a_s_spots = struct::get_array(("apothican_exit_" + s_stub.name) + "_pos", "targetname");
 	var_a05a47c7 = s_stub function_fbd80603(self);
 	while(positionwouldtelefrag(var_a05a47c7.origin))
@@ -493,7 +493,7 @@ function function_bb3f566()
 */
 function function_6e5d600d()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	while(true)
 	{
 		a_players = level.activeplayers;
@@ -538,7 +538,7 @@ function function_6e5d600d()
 */
 function function_dd6ccbfc()
 {
-	level endon(#"apothicon_trapped");
+	level endon("apothicon_trapped");
 	level flag::wait_till_all(array("power_on1", "power_on2", "power_on3", "power_on4"));
 	while(true)
 	{
@@ -830,7 +830,7 @@ function function_6119f23(e_attacker)
 */
 function function_e45363e3()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(level.var_b8b48a73.size == 0)
@@ -1331,7 +1331,7 @@ function function_c73dbcf0(var_21e43ff6)
 	var_1436760b delete();
 	var_21e43ff6.origin = var_21e43ff6.origin + vectorscale((0, 0, 1), 16);
 	s_unitrigger = var_21e43ff6 zm_unitrigger::create_unitrigger("", 64, &function_e3dd263c);
-	var_21e43ff6 waittill(#"trigger_activated", e_player);
+	var_21e43ff6 waittill("trigger_activated", e_player);
 	if(!e_player flag::get("holding_egg"))
 	{
 		e_player thread zm_genesis_vo::function_2a22bd54();
@@ -1402,7 +1402,7 @@ function function_ff65120e()
 	var_87302b25 = strtok(self.script_string, "_");
 	var_b2f4a489 = "lgt_apoth_int_eggworm_" + var_87302b25[1];
 	s_unitrigger = self zm_unitrigger::create_unitrigger(&"ZM_GENESIS_PICKUP_EGG", 64, &function_5bd5869a);
-	self waittill(#"trigger_activated", e_player);
+	self waittill("trigger_activated", e_player);
 	level thread function_88893a6c(var_b2f4a489);
 	v_pos = self.var_3e51eb2c gettagorigin("tag_origin");
 	var_165d49f6 = util::spawn_model("p7_fxanim_zm_gen_gateworm_egg_mod", v_pos, var_3e51eb2c.angles);
@@ -1473,7 +1473,7 @@ function function_5c65688b(mdl_gateworm)
 function function_7fd5874f(mdl_gateworm)
 {
 	s_unitrigger = self zm_unitrigger::create_unitrigger("", 64, &function_4661867f);
-	self waittill(#"trigger_activated", e_player);
+	self waittill("trigger_activated", e_player);
 	self.var_56390601 = mdl_gateworm.origin;
 	self.var_5a5b5ecf = mdl_gateworm.angles;
 	e_player function_42781615(self);
@@ -1552,8 +1552,8 @@ function function_4d6562d8(var_21e43ff6)
 */
 function function_9b3d1bca(var_21e43ff6)
 {
-	self endon(#"holding_egg");
-	self waittill(#"disconnect");
+	self endon("holding_egg");
+	self waittill("disconnect");
 	var_21e43ff6 thread function_79912fdc();
 }
 
@@ -1604,8 +1604,8 @@ function function_42781615(s_pod)
 */
 function function_ed0fe018(e_player)
 {
-	e_player endon(#"holding_gateworm");
-	e_player waittill(#"disconnect");
+	e_player endon("holding_gateworm");
+	e_player waittill("disconnect");
 	mdl_gateworm = util::spawn_model("p7_zm_dlc4_gateworm", self.var_56390601, self.var_5a5b5ecf);
 	self thread function_7fd5874f(mdl_gateworm);
 }

@@ -122,27 +122,27 @@ function sidequest_logic()
 	level.n_ee_step++;
 	level thread zombie_blood_hint_watch();
 	zm_sidequests::stage_start("little_girl_lost", "step_1");
-	level waittill(#"little_girl_lost_step_1_over");
+	level waittill("little_girl_lost_step_1_over");
 	zm_sidequests::stage_start("little_girl_lost", "step_2");
-	level waittill(#"little_girl_lost_step_2_over");
+	level waittill("little_girl_lost_step_2_over");
 	level thread zm_tomb_amb::sndplaystingerwithoverride("ee_main_1");
 	zm_sidequests::stage_start("little_girl_lost", "step_3");
-	level waittill(#"little_girl_lost_step_3_over");
+	level waittill("little_girl_lost_step_3_over");
 	level thread zm_tomb_amb::sndplaystingerwithoverride("ee_main_2");
 	zm_sidequests::stage_start("little_girl_lost", "step_4");
-	level waittill(#"little_girl_lost_step_4_over");
+	level waittill("little_girl_lost_step_4_over");
 	level thread zm_tomb_amb::sndplaystingerwithoverride("ee_main_3");
 	zm_sidequests::stage_start("little_girl_lost", "step_5");
-	level waittill(#"little_girl_lost_step_5_over");
+	level waittill("little_girl_lost_step_5_over");
 	level thread zm_tomb_amb::sndplaystingerwithoverride("ee_main_4");
 	zm_sidequests::stage_start("little_girl_lost", "step_6");
-	level waittill(#"little_girl_lost_step_6_over");
+	level waittill("little_girl_lost_step_6_over");
 	level thread zm_tomb_amb::sndplaystingerwithoverride("ee_main_5");
 	zm_sidequests::stage_start("little_girl_lost", "step_7");
-	level waittill(#"little_girl_lost_step_7_over");
+	level waittill("little_girl_lost_step_7_over");
 	level thread zm_tomb_amb::sndplaystingerwithoverride("ee_main_6");
 	zm_sidequests::stage_start("little_girl_lost", "step_8");
-	level waittill(#"little_girl_lost_step_8_over");
+	level waittill("little_girl_lost_step_8_over");
 }
 
 /*
@@ -163,7 +163,7 @@ function zombie_blood_hint_watch()
 	a_player_hint[3] = 0;
 	while(!level flag::get("ee_samantha_released"))
 	{
-		level waittill(#"player_zombie_blood", e_player);
+		level waittill("player_zombie_blood", e_player);
 		if(n_curr_step != level.n_ee_step)
 		{
 			n_curr_step = level.n_ee_step;
@@ -347,7 +347,7 @@ function complete_sidequest()
 	util::delay(0.5, undefined, &remove_portal_beam);
 	level thread lui::play_movie("zm_outro_tomb", "fullscreen", 0, 0, "");
 	level lui::screen_fade_out(0, "black", "starting_ee_screen");
-	level waittill(#"movie_done");
+	level waittill("movie_done");
 	level.custom_intermission = &player_intermission_ee;
 	level notify(#"end_game");
 	level thread lui::screen_fade_in(2, "black", "starting_ee_screen");
@@ -486,9 +486,9 @@ function ee_samantha_say(str_vox)
 function player_intermission_ee()
 {
 	self closeingamemenu();
-	level endon(#"stop_intermission");
-	self endon(#"disconnect");
-	self endon(#"death");
+	level endon("stop_intermission");
+	self endon("disconnect");
+	self endon("death");
 	self notify(#"_zombie_game_over");
 	self.score = self.score_total;
 	self.sessionstate = "intermission";
@@ -642,13 +642,13 @@ function watch_devgui_ee_main()
 					case "":
 					{
 						level flag::set("");
-						level waittill(#"little_girl_lost_step_1_over");
+						level waittill("little_girl_lost_step_1_over");
 						break;
 					}
 					case "":
 					{
 						level flag::set("");
-						level waittill(#"little_girl_lost_step_2_over");
+						level waittill("little_girl_lost_step_2_over");
 						break;
 					}
 					case "":
@@ -659,39 +659,39 @@ function watch_devgui_ee_main()
 						{
 							m_floor delete();
 						}
-						level waittill(#"little_girl_lost_step_3_over");
+						level waittill("little_girl_lost_step_3_over");
 						break;
 					}
 					case "":
 					{
 						level flag::set("");
 						level flag::set("");
-						level waittill(#"little_girl_lost_step_4_over");
+						level waittill("little_girl_lost_step_4_over");
 						break;
 					}
 					case "":
 					{
 						level flag::set("");
 						level flag::clear("");
-						level waittill(#"little_girl_lost_step_5_over");
+						level waittill("little_girl_lost_step_5_over");
 						break;
 					}
 					case "":
 					{
 						level flag::set("");
-						level waittill(#"little_girl_lost_step_6_over");
+						level waittill("little_girl_lost_step_6_over");
 						break;
 					}
 					case "":
 					{
 						level flag::set("");
-						level waittill(#"little_girl_lost_step_7_over");
+						level waittill("little_girl_lost_step_7_over");
 						break;
 					}
 					case "":
 					{
 						level flag::set("");
-						level waittill(#"little_girl_lost_step_8_over");
+						level waittill("little_girl_lost_step_8_over");
 						break;
 					}
 					default:

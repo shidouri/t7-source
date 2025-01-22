@@ -243,8 +243,8 @@ function filter_script_vehicles_from_vehicle_descriptors(allowed_game_modes)
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("disconnect");
+	level endon("game_ended");
 	self thread on_death();
 	self.touchtriggers = [];
 	self.packobject = [];
@@ -267,9 +267,9 @@ function on_player_spawned()
 */
 function on_death()
 {
-	level endon(#"game_ended");
-	self endon(#"killondeathmonitor");
-	self waittill(#"death");
+	level endon("game_ended");
+	self endon("killondeathmonitor");
+	self waittill("death");
 	self thread gameobjects_dropped();
 }
 
@@ -284,7 +284,7 @@ function on_death()
 */
 function on_disconnect()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	self thread gameobjects_dropped();
 }
 
@@ -491,11 +491,11 @@ function create_carry_object(ownerteam, trigger, visuals, offset, objectivename,
 */
 function carry_object_use_think()
 {
-	level endon(#"game_ended");
-	self.trigger endon(#"destroyed");
+	level endon("game_ended");
+	self.trigger endon("destroyed");
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(self.isresetting)
 		{
 			continue;
@@ -559,11 +559,11 @@ function carry_object_use_think()
 */
 function carry_object_prox_think()
 {
-	level endon(#"game_ended");
-	self.trigger endon(#"destroyed");
+	level endon("game_ended");
+	self.trigger endon("destroyed");
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(self.isresetting)
 		{
 			continue;
@@ -627,9 +627,9 @@ function carry_object_prox_think()
 */
 function pickup_object_delay(origin)
 {
-	level endon(#"game_ended");
-	self endon(#"death");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("death");
+	self endon("disconnect");
 	self.canpickupobject = 0;
 	for(;;)
 	{
@@ -691,7 +691,7 @@ function set_picked_up(player)
 	self set_carrier(player);
 	self ghost_visuals();
 	self.trigger.origin = self.trigger.origin + vectorscale((0, 0, 1), 10000);
-	self notify(#"pickup_object");
+	self notify("pickup_object");
 	if(isdefined(self.onpickup))
 	{
 		self [[self.onpickup]](player);
@@ -764,8 +764,8 @@ function ghost_visuals()
 */
 function update_carry_object_origin()
 {
-	level endon(#"game_ended");
-	self.trigger endon(#"destroyed");
+	level endon("game_ended");
+	self.trigger endon("destroyed");
 	if(self.newstyle)
 	{
 		return;
@@ -846,8 +846,8 @@ function update_carry_object_origin()
 */
 function update_carry_object_objective_origin()
 {
-	level endon(#"game_ended");
-	self.trigger endon(#"destroyed");
+	level endon("game_ended");
+	self.trigger endon("destroyed");
 	if(!self.newstyle)
 	{
 		return;
@@ -981,7 +981,7 @@ function return_home()
 {
 	self.isresetting = 1;
 	prev_origin = self.trigger.origin;
-	self notify(#"reset");
+	self notify("reset");
 	self move_visuals_to_base();
 	self.trigger.origin = self.trigger.baseorigin;
 	self.curorigin = self.trigger.origin;
@@ -1079,7 +1079,7 @@ function set_dropped()
 		}
 	}
 	self.isresetting = 1;
-	self notify(#"dropped");
+	self notify("dropped");
 	startorigin = (0, 0, 0);
 	endorigin = (0, 0, 0);
 	body = undefined;
@@ -1236,7 +1236,7 @@ function clear_carrier()
 	self.carrier take_object(self);
 	objective_clearplayerusing(self.objectiveid, self.carrier);
 	self.carrier = undefined;
-	self notify(#"carrier_cleared");
+	self notify("carrier_cleared");
 }
 
 /*
@@ -1322,8 +1322,8 @@ function should_be_reset(minz, maxz, testhurttriggers)
 */
 function pickup_timeout(minz, maxz)
 {
-	self endon(#"pickup_object");
-	self endon(#"reset");
+	self endon("pickup_object");
+	self endon("reset");
 	wait(0.05);
 	if(self should_be_reset(minz, maxz, 1))
 	{
@@ -1397,7 +1397,7 @@ function take_object(object)
 	{
 		return;
 	}
-	self notify(#"drop_object");
+	self notify("drop_object");
 	self.disallowvehicleusage = 0;
 	if(object.triggertype == "proximity")
 	{
@@ -1440,8 +1440,8 @@ function wait_take_carry_weapon(weapon)
 */
 function take_carry_weapon_on_death(weapon)
 {
-	self endon(#"take_carry_weapon");
-	self waittill(#"death");
+	self endon("take_carry_weapon");
+	self waittill("death");
 	self take_carry_weapon(weapon);
 }
 
@@ -1456,7 +1456,7 @@ function take_carry_weapon_on_death(weapon)
 */
 function take_carry_weapon(weapon)
 {
-	self notify(#"take_carry_weapon");
+	self notify("take_carry_weapon");
 	if(self hasweapon(weapon, 1))
 	{
 		ballweapon = getweapon("ball");
@@ -1486,10 +1486,10 @@ function take_carry_weapon(weapon)
 */
 function track_carrier(object)
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"drop_object");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
+	self endon("drop_object");
 	wait(0.05);
 	while(isdefined(object.carrier) && object.carrier == self && isalive(self))
 	{
@@ -1516,10 +1516,10 @@ function track_carrier(object)
 */
 function manual_drop_think()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self endon(#"drop_object");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
+	self endon("drop_object");
 	for(;;)
 	{
 		while(self attackbuttonpressed() || self fragbuttonpressed() || self secondaryoffhandbuttonpressed() || self meleebuttonpressed())
@@ -1753,14 +1753,14 @@ function has_key_object(use)
 */
 function use_object_use_think(disableinitialholddelay, disableweaponcyclingduringhold)
 {
-	self.trigger endon(#"destroyed");
+	self.trigger endon("destroyed");
 	if(self.usetime > 0 && disableinitialholddelay)
 	{
 		self.trigger usetriggerignoreuseholdtime();
 	}
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(level.gameended)
 		{
 			continue;
@@ -1843,8 +1843,8 @@ function use_object_use_think(disableinitialholddelay, disableweaponcyclingdurin
 */
 function use_object_onuse(player)
 {
-	level endon(#"game_ended");
-	self.trigger endon(#"destroyed");
+	level endon("game_ended");
+	self.trigger endon("destroyed");
 	if(isdefined(self.classobj))
 	{
 		[[ self.classobj ]]->onuse(player);
@@ -1899,8 +1899,8 @@ function get_earliest_claim_player()
 */
 function use_object_prox_think()
 {
-	level endon(#"game_ended");
-	self.trigger endon(#"destroyed");
+	level endon("game_ended");
+	self.trigger endon("destroyed");
 	self thread prox_trigger_think();
 	while(true)
 	{
@@ -2124,8 +2124,8 @@ function can_claim(player)
 */
 function prox_trigger_think()
 {
-	level endon(#"game_ended");
-	self.trigger endon(#"destroyed");
+	level endon("game_ended");
+	self.trigger endon("destroyed");
 	entitynumber = self.entnum;
 	if(!isdefined(self.trigger.remote_control_player_can_trigger))
 	{
@@ -2133,7 +2133,7 @@ function prox_trigger_think()
 	}
 	while(true)
 	{
-		self.trigger waittill(#"trigger", player);
+		self.trigger waittill("trigger", player);
 		if(!isplayer(player))
 		{
 			continue;
@@ -2621,7 +2621,7 @@ function update_use_rate()
 */
 function use_hold_think(player, disableweaponcyclingduringhold)
 {
-	player notify(#"use_hold");
+	player notify("use_hold");
 	if(!(isdefined(self.dontlinkplayertotrigger) && self.dontlinkplayertotrigger))
 	{
 		if(!sessionmodeismultiplayergame())
@@ -2674,7 +2674,7 @@ function use_hold_think(player, disableweaponcyclingduringhold)
 			player detach(player.attachedusemodel, "tag_inhand");
 			player.attachedusemodel = undefined;
 		}
-		player notify(#"done_using");
+		player notify("done_using");
 		if(isdefined(useweapon))
 		{
 			player thread take_use_weapon(useweapon);
@@ -2739,10 +2739,10 @@ function waitthenfreezeplayercontrolsifgameendedstill(wait_time = 1)
 */
 function take_use_weapon(useweapon)
 {
-	self endon(#"use_hold");
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("use_hold");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	while(self getcurrentweapon() == useweapon && !self.throwinggrenade)
 	{
 		wait(0.05);
@@ -2860,7 +2860,7 @@ function update_current_progress()
 */
 function use_hold_think_loop(player)
 {
-	self endon(#"disabled");
+	self endon("disabled");
 	useweapon = self.useweapon;
 	waitforweapon = 1;
 	timedout = 0;
@@ -2912,7 +2912,7 @@ function use_hold_think_loop(player)
 */
 function personal_use_bar(object)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	if(object.newstyle)
 	{
 		return;
@@ -3155,7 +3155,7 @@ function update_world_icon(relativeteam, showicon)
 		}
 		opname = (("objpoint_" + updateteams[index]) + "_") + self.entnum;
 		objpoint = objpoints::get_by_name(opname);
-		objpoint notify(#"stop_flashing_thread");
+		objpoint notify("stop_flashing_thread");
 		objpoint thread objpoints::stop_flashing();
 		if(showicon)
 		{
@@ -3455,11 +3455,11 @@ function should_show_compass_due_to_radar(team)
 */
 function update_visibility_according_to_radar()
 {
-	self endon(#"death");
-	self endon(#"carrier_cleared");
+	self endon("death");
+	self endon("carrier_cleared");
 	while(true)
 	{
-		level waittill(#"radar_status_change");
+		level waittill("radar_status_change");
 		self update_compass_icons();
 	}
 }
@@ -3677,7 +3677,7 @@ function set_model_visibility(visibility)
 			self.visuals[index] ghost();
 			if(self.visuals[index].classname == "script_brushmodel" || self.visuals[index].classname == "script_model")
 			{
-				self.visuals[index] notify(#"changing_solidness");
+				self.visuals[index] notify("changing_solidness");
 				self.visuals[index] notsolid();
 			}
 		}
@@ -3695,9 +3695,9 @@ function set_model_visibility(visibility)
 */
 function make_solid()
 {
-	self endon(#"death");
-	self notify(#"changing_solidness");
-	self endon(#"changing_solidness");
+	self endon("death");
+	self notify("changing_solidness");
+	self endon("changing_solidness");
 	while(true)
 	{
 		for(i = 0; i < level.players.size; i++)
@@ -3939,8 +3939,8 @@ function get_objective_ids(str_team)
 */
 function hide_icon_distance_and_los(v_color, hide_distance, los_check, ignore_ent)
 {
-	self endon(#"disabled");
-	self endon(#"destroyed_complete");
+	self endon("disabled");
+	self endon("destroyed_complete");
 	while(true)
 	{
 		hide = 0;
@@ -4198,7 +4198,7 @@ function destroy_object(deletetrigger, forcehide = 1, b_connect_paths = 0)
 			visual delete();
 		}
 	}
-	self.trigger notify(#"destroyed");
+	self.trigger notify("destroyed");
 	if(isdefined(deletetrigger) && deletetrigger)
 	{
 		self.trigger delete();
@@ -4207,7 +4207,7 @@ function destroy_object(deletetrigger, forcehide = 1, b_connect_paths = 0)
 	{
 		self.trigger triggerenable(1);
 	}
-	self notify(#"destroyed_complete");
+	self notify("destroyed_complete");
 }
 
 /*
@@ -4221,7 +4221,7 @@ function destroy_object(deletetrigger, forcehide = 1, b_connect_paths = 0)
 */
 function disable_object(forcehide)
 {
-	self notify(#"disabled");
+	self notify("disabled");
 	if(self.type == "carryObject" || self.type == "packObject" || (isdefined(forcehide) && forcehide))
 	{
 		if(isdefined(self.carrier))

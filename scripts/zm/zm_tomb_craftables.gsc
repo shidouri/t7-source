@@ -193,7 +193,7 @@ function autocraft_staffs()
 	}
 	for(i = 1; i <= 4; i++)
 	{
-		level notify(#"player_teleported", a_players[0], i);
+		level notify("player_teleported", a_players[0], i);
 		util::wait_network_frame();
 		piece_spawn = level.cheat_craftables["" + i].piecespawn;
 		if(isdefined(piece_spawn))
@@ -513,10 +513,10 @@ function craftable_add_glow_fx()
 */
 function craftable_model_attach_glow(n_elem, do_glow_now)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!do_glow_now)
 	{
-		self waittill(#"staff_piece_glow");
+		self waittill("staff_piece_glow");
 	}
 	self clientfield::set("element_glow_fx", n_elem);
 }
@@ -862,19 +862,19 @@ function piece_pickup_conversation(player)
 	}
 	if(isdefined(self.piecestub.vo_line_notify))
 	{
-		level notify(#"quest_progressed", player, 0);
+		level notify("quest_progressed", player, 0);
 		level notify(self.piecestub.vo_line_notify, player);
 	}
 	else
 	{
 		if(isdefined(self.piecestub.sam_line))
 		{
-			level notify(#"quest_progressed", player, 0);
+			level notify("quest_progressed", player, 0);
 			level notify(self.piecestub.sam_line, player);
 		}
 		else
 		{
-			level notify(#"quest_progressed", player, 1);
+			level notify("quest_progressed", player, 1);
 		}
 	}
 }
@@ -896,7 +896,7 @@ function onpickup_common(player)
 	/#
 		foreach(spawn in self.spawns)
 		{
-			spawn notify(#"stop_debug_position");
+			spawn notify("stop_debug_position");
 		}
 	#/
 }
@@ -1132,7 +1132,7 @@ function vinyl_add_pickup(str_craftable_name, str_piece_name, str_model_name, st
 function watch_part_pickup(str_quest_clientfield, n_clientfield_val, var_e46422e8)
 {
 	self craftable_waittill_spawned();
-	self.piecespawn waittill(#"pickup");
+	self.piecespawn waittill("pickup");
 	level notify(((self.craftablename + "_") + self.piecename) + "_picked_up");
 	if(isdefined(str_quest_clientfield) && isdefined(n_clientfield_val))
 	{
@@ -1202,7 +1202,7 @@ function craftable_waittill_spawned()
 function watch_staff_pickup()
 {
 	self craftable_waittill_spawned();
-	self.piecespawn waittill(#"pickup");
+	self.piecespawn waittill("pickup");
 	level.staff_part_count[self.craftablename]--;
 }
 
@@ -1224,7 +1224,7 @@ function onfullycrafted_quadrotor(player)
 	level.quadrotor_status.str_zone = zm_zonemgr::get_zone_from_position(pickup_trig.origin, 1);
 	pickup_trig.model setmodel("veh_t7_dlc_zm_quadrotor");
 	pickup_trig.model setscale(0.7);
-	level notify(#"quest_progressed", player, 1);
+	level notify("quest_progressed", player, 1);
 	return true;
 }
 
@@ -1307,7 +1307,7 @@ function staff_fullycrafted(modelname, elementenum)
 			break;
 		}
 	}
-	level notify(#"quest_progressed", player, 0);
+	level notify("quest_progressed", player, 0);
 	if(!isdefined(staff_model.inused))
 	{
 		staff_model.origin = staff_model.origin - vectorscale((0, 0, 1), 30);
@@ -1428,7 +1428,7 @@ function quadrotor_watcher(player)
 	quadrotor_set_unavailable();
 	player thread quadrotor_return_condition_watcher();
 	player thread quadrotor_control_thread();
-	level waittill(#"drone_available");
+	level waittill("drone_available");
 	level.maxis_quadrotor = undefined;
 	if(level flag::get("ee_quadrotor_disabled"))
 	{
@@ -1448,17 +1448,17 @@ function quadrotor_watcher(player)
 */
 function quadrotor_return_condition_watcher()
 {
-	self notify(#"quadrotor_return_condition_watcher");
-	self endon(#"quadrotor_return_condition_watcher");
-	self endon(#"new_placeable_mine");
+	self notify("quadrotor_return_condition_watcher");
+	self endon("quadrotor_return_condition_watcher");
+	self endon("new_placeable_mine");
 	self util::waittill_any("bled_out", "disconnect");
 	if(isdefined(level.maxis_quadrotor))
 	{
-		level notify(#"drone_should_return");
+		level notify("drone_should_return");
 	}
 	else
 	{
-		level notify(#"drone_available");
+		level notify("drone_available");
 	}
 }
 
@@ -1473,11 +1473,11 @@ function quadrotor_return_condition_watcher()
 */
 function quadrotor_control_thread()
 {
-	self notify(#"quadrotor_control_thread");
-	self endon(#"quadrotor_control_thread");
+	self notify("quadrotor_control_thread");
+	self endon("quadrotor_control_thread");
 	self endon(#"bled_out");
-	self endon(#"disconnect");
-	self endon(#"new_placeable_mine");
+	self endon("disconnect");
+	self endon("new_placeable_mine");
 	while(true)
 	{
 		var_703e6a13 = getweapon("equip_dieseldrone");
@@ -1515,8 +1515,8 @@ function quadrotor_control_thread()
 */
 function quadrotor_debug_send_home(player_owner)
 {
-	self endon(#"drone_should_return");
-	level endon(#"drone_available");
+	self endon("drone_should_return");
+	level endon("drone_available");
 	while(true)
 	{
 		if(player_owner actionslotfourbuttonpressed())
@@ -1538,7 +1538,7 @@ function quadrotor_debug_send_home(player_owner)
 */
 function quadrotor_instance_watcher(player_owner)
 {
-	self endon(#"death");
+	self endon("death");
 	self.player_owner = player_owner;
 	self.health = 200;
 	level.maxis_quadrotor = self;
@@ -1546,7 +1546,7 @@ function quadrotor_instance_watcher(player_owner)
 	self thread zm_ai_quadrotor::follow_ent(player_owner);
 	self thread quadrotor_timer();
 	self thread function_e8aad972(player_owner);
-	level waittill(#"drone_should_return");
+	level waittill("drone_should_return");
 	self quadrotor_fly_back_to_table();
 }
 
@@ -1561,9 +1561,9 @@ function quadrotor_instance_watcher(player_owner)
 */
 function quadrotor_death_watcher(quadrotor)
 {
-	level endon(#"drone_available");
-	quadrotor waittill(#"death");
-	level notify(#"drone_available");
+	level endon("drone_available");
+	quadrotor waittill("death");
+	level notify("drone_available");
 }
 
 /*
@@ -1577,8 +1577,8 @@ function quadrotor_death_watcher(quadrotor)
 */
 function quadrotor_fly_back_to_table()
 {
-	self endon(#"death");
-	level endon(#"drone_available");
+	self endon("death");
+	level endon("drone_available");
 	if(isdefined(self))
 	{
 		/#
@@ -1601,7 +1601,7 @@ function quadrotor_fly_back_to_table()
 			iprintln("");
 		#/
 	}
-	level notify(#"drone_available");
+	level notify("drone_available");
 }
 
 /*
@@ -1630,8 +1630,8 @@ function report_notify(str_notify)
 */
 function quadrotor_fly_back_to_table_timeout()
 {
-	self endon(#"death");
-	level endon(#"drone_available");
+	self endon("death");
+	level endon("drone_available");
 	wait(30);
 	if(isdefined(self))
 	{
@@ -1640,7 +1640,7 @@ function quadrotor_fly_back_to_table_timeout()
 			iprintln("");
 		#/
 	}
-	self notify(#"return_timeout");
+	self notify("return_timeout");
 }
 
 /*
@@ -1654,15 +1654,15 @@ function quadrotor_fly_back_to_table_timeout()
 */
 function quadrotor_timer()
 {
-	self endon(#"death");
-	level endon(#"drone_available");
+	self endon("death");
+	level endon("drone_available");
 	wait(80);
 	vox_line = "vox_maxi_drone_cool_down_" + randomintrange(0, 2);
 	self thread zm_tomb_vo::maxissay(vox_line, self);
 	wait(10);
 	vox_line = "vox_maxi_drone_cool_down_2";
 	self thread zm_tomb_vo::maxissay(vox_line, self);
-	level notify(#"drone_should_return");
+	level notify("drone_should_return");
 }
 
 /*
@@ -1746,8 +1746,8 @@ function quadrotor_set_unavailable()
 */
 function function_e8aad972(var_7ee6d8e6)
 {
-	self endon(#"death");
-	level endon(#"drone_available");
+	self endon("death");
+	level endon("drone_available");
 	while(true)
 	{
 		var_7ee6d8e6 util::waittill_any("teleport_finished", "gr_eject_sequence_complete");
@@ -2095,8 +2095,8 @@ function track_crafted_staff_trigger()
 */
 function track_staff_weapon_respawn(player)
 {
-	self notify(#"kill_track_staff_weapon_respawn");
-	self endon(#"kill_track_staff_weapon_respawn");
+	self notify("kill_track_staff_weapon_respawn");
+	self endon("kill_track_staff_weapon_respawn");
 	s_elemental_staff = undefined;
 	if(issubstr(self.targetname, "prop_"))
 	{

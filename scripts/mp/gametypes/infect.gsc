@@ -695,7 +695,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 */
 function function_e523aca(victim, wassuicide)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	waittillframeend();
 	if(isdefined(victim.laststand))
 	{
@@ -755,8 +755,8 @@ function function_e523aca(victim, wassuicide)
 */
 function function_a27aff1a()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
+	level endon("game_ended");
+	self endon("disconnect");
 	return self util::waittill_any_return("player_input_revive", "death");
 }
 
@@ -829,10 +829,10 @@ function function_d24c1b2e()
 */
 function finalsurvivoruav(var_53fb74fd)
 {
-	level endon(#"game_ended");
-	var_53fb74fd endon(#"disconnect");
-	var_53fb74fd endon(#"death");
-	level endon(#"infect_latejoiner");
+	level endon("game_ended");
+	var_53fb74fd endon("disconnect");
+	var_53fb74fd endon("death");
+	level endon("infect_latejoiner");
 	level thread enduavonlatejoiner(var_53fb74fd);
 	setteamspyplane(game["attackers"], 1);
 	util::set_team_radar(game["attackers"], 1);
@@ -872,15 +872,15 @@ function finalsurvivoruav(var_53fb74fd)
 */
 function enduavonlatejoiner(var_53fb74fd)
 {
-	level endon(#"game_ended");
-	var_53fb74fd endon(#"disconnect");
-	var_53fb74fd endon(#"death");
+	level endon("game_ended");
+	var_53fb74fd endon("disconnect");
+	var_53fb74fd endon("death");
 	while(true)
 	{
 		var_7dc99dab = [[level._getteamscore]](game["defenders"]);
 		if(var_7dc99dab > 1)
 		{
-			level notify(#"infect_latejoiner");
+			level notify("infect_latejoiner");
 			wait(0.05);
 			setteamspyplane(game["attackers"], 1);
 			util::set_team_radar(game["attackers"], 1);
@@ -1024,7 +1024,7 @@ function function_ca9945d6()
 		var_c2df8eb5 = function_d418a8fd(game["defenders"]);
 		if(var_c2df8eb5.size < 1)
 		{
-			level notify(#"infect_stopcountdown");
+			level notify("infect_stopcountdown");
 		}
 	}
 }
@@ -1220,13 +1220,13 @@ function function_39be730b()
 */
 function choosefirstinfected()
 {
-	level endon(#"game_ended");
-	level endon(#"infect_stopcountdown");
+	level endon("game_ended");
+	level endon("infect_stopcountdown");
 	level.infect_allowsuicide = 0;
 	level.var_93e2155b = undefined;
 	if(level.inprematchperiod)
 	{
-		level waittill(#"prematch_over");
+		level waittill("prematch_over");
 	}
 	level.var_796fada2.label = &"MP_DRAFT_STARTS_IN";
 	level.var_796fada2 settimer(8);
@@ -1282,8 +1282,8 @@ function function_d07961fd()
 function function_34c8bd01()
 {
 	level notify(#"hash_14015a9");
-	level endon(#"game_ended");
-	level endon(#"infect_stoptimeextended");
+	level endon("game_ended");
+	level endon("infect_stoptimeextended");
 	level endon(#"hash_14015a9");
 	timeout = 0;
 	while(isdefined(level.var_796fada2) && level.var_796fada2.alpha > 0)
@@ -1369,7 +1369,7 @@ function function_d418a8fd(team)
 */
 function setfirstinfected()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self.infect_isbeingchosen = 1;
 	while(!isalive(self) || self util::isusingremote())
 	{
@@ -1377,7 +1377,7 @@ function setfirstinfected()
 	}
 	if(isdefined(self.iscarrying) && self.iscarrying)
 	{
-		self notify(#"force_cancel_placement");
+		self notify("force_cancel_placement");
 		wait(0.05);
 	}
 	while(self ismantling())
@@ -1443,10 +1443,10 @@ function forcespawnteam(team)
 */
 function playerforcespawn()
 {
-	level endon(#"game_ended");
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"spawned");
+	level endon("game_ended");
+	self endon("death");
+	self endon("disconnect");
+	self endon("spawned");
 	if(self.hasspawned)
 	{
 		return;
@@ -1492,10 +1492,10 @@ function function_f65059ce(player)
 */
 function function_4c6fd26d()
 {
-	level endon(#"game_ended");
-	self endon(#"disconnect");
-	self endon(#"death");
-	self waittill(#"weapon_change");
+	level endon("game_ended");
+	self endon("disconnect");
+	self endon("death");
+	self waittill("weapon_change");
 	self enableoffhandspecial();
 }
 
@@ -1778,7 +1778,7 @@ function function_fb693482(player)
 		{
 			continue;
 		}
-		item notify(#"detonating");
+		item notify("detonating");
 		if(isdefined(item))
 		{
 			item delete();
@@ -1872,7 +1872,7 @@ function function_7ce7fbed(player)
 */
 function function_93f386c5()
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	level notify(#"hash_10030d46");
 	level endon(#"hash_10030d46");
 	wait(30);

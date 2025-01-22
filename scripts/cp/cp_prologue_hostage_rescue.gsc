@@ -398,7 +398,7 @@ function function_672c874()
 	wait(1);
 	trigger::use("t_script_color_allies_r550");
 	wait(1);
-	self waittill(#"goal");
+	self waittill("goal");
 	self.goalradius = 256;
 	cp_prologue_util::function_d1f1caad("t_script_color_allies_r560");
 	function_7a05bbf();
@@ -420,7 +420,7 @@ function function_672c874()
 */
 function function_5dc67e92()
 {
-	self endon(#"hero_catch_up_teleport");
+	self endon("hero_catch_up_teleport");
 	e_volume = getent("info_fuel_tunnel_fallback_end", "targetname");
 	while(true)
 	{
@@ -446,7 +446,7 @@ function function_5dc67e92()
 	self setgoal(nd_node.origin);
 	self.goalradius = 64;
 	self util::waittill_notify_or_timeout("goal", 15);
-	self notify(#"stop_hero_catch_up_teleport");
+	self notify("stop_hero_catch_up_teleport");
 	self thread function_c9d7d48a();
 }
 
@@ -465,7 +465,7 @@ function function_386e6074()
 	var_72634645.origin = (5742, -1122, -328);
 	var_72634645.angles = vectorscale((0, 1, 0), 270);
 	var_f3ec8a31 = spawn("trigger_box", (5728, -1308, -276), 0, 300, 300, 300);
-	var_f3ec8a31 waittill(#"trigger");
+	var_f3ec8a31 waittill("trigger");
 	self colors::hero_catch_up_teleport(var_72634645, 350, 1, &function_bbaa282a);
 }
 
@@ -537,7 +537,7 @@ function function_1ddfda41()
 	nd_node = getnode("nd_fueling_tunnel_top_stairs", "targetname");
 	self setgoal(nd_node.origin);
 	self.goalradius = 64;
-	self waittill(#"goal");
+	self waittill("goal");
 	while(true)
 	{
 		a_enemy = cp_prologue_util::function_68b8f4af(e_volume);
@@ -719,8 +719,8 @@ function function_6ae70954(open_door)
 */
 function watch_player_fire()
 {
-	self endon(#"death");
-	self waittill(#"weapon_fired");
+	self endon("death");
+	self waittill("weapon_fired");
 	level flag::set("fuel_tunnel_alerted");
 }
 
@@ -769,7 +769,7 @@ function spawn_machine_gunner()
 function function_d9bab593(str_trigger, str_door, str_spawners, var_137809d6, var_343b0267, var_bfba634f = 1)
 {
 	e_trigger = getent(str_trigger, "targetname");
-	e_trigger waittill(#"trigger");
+	e_trigger waittill("trigger");
 	e_door = getent(str_door, "targetname");
 	e_door rotateto(e_door.angles + (vectorscale((0, -1, 0), 110)), 0.5);
 	e_door playsound("evt_spawner_door_open");
@@ -948,7 +948,7 @@ function function_771ca4c3()
 	level waittill(#"hash_a859aef4");
 	objectives::complete("cp_level_prologue_free_the_minister");
 	savegame::checkpoint_save();
-	level waittill(#"khalil_available");
+	level waittill("khalil_available");
 	trigger::use("t_prison_respawns_enable", "targetname", undefined, 0);
 	s_pos = struct::get("s_objective_khalil_cell", "targetname");
 	objectives::set("cp_level_prologue_goto_khalil_door", s_pos);
@@ -958,7 +958,7 @@ function function_771ca4c3()
 	objectives::complete("cp_level_prologue_free_khalil");
 	callback::remove_on_ai_killed(&namespace_61c634f2::function_c58a9e36);
 	objectives::set("cp_level_prologue_get_to_the_surface");
-	level waittill(#"hendricks_by_weapon_room");
+	level waittill("hendricks_by_weapon_room");
 	level thread objectives::breadcrumb("post_prison_breadcrumb_start");
 }
 
@@ -975,7 +975,7 @@ function hendricks_update()
 {
 	nd_node = getnode("nd_hendricks_jail_setup", "targetname");
 	self setgoal(nd_node, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 	level flag::wait_till("post_up_minister_breach");
 	level thread function_a1ad4aa7();
 	self sethighdetail(1);
@@ -1040,7 +1040,7 @@ function function_a859aef4()
 	level thread scene::play("cin_pro_06_03_hostage_vign_breach_hend_min");
 	level notify(#"hash_a859aef4");
 	level.ai_minister.overrideactordamage = undefined;
-	level waittill(#"khalil_available");
+	level waittill("khalil_available");
 	trig_khalil_door triggerenable(1);
 	var_d86e08d0 = util::init_interactive_gameobject(trig_khalil_door, &"cp_prompt_enteralt_prologue_khalil_breach", &"CP_MI_ETH_PROLOGUE_DOOR_BREACH", &function_28af2208);
 	var_d86e08d0 thread gameobjects::hide_icon_distance_and_los((1, 1, 1), 800, 0);
@@ -1058,10 +1058,10 @@ function function_a859aef4()
 */
 function function_db5cf0d5()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_a59a51");
 	level endon(#"hash_bedc2f57");
-	self waittill(#"weapon_fired");
+	self waittill("weapon_fired");
 	level flag::set("player_breached_early");
 }
 
@@ -1101,7 +1101,7 @@ function function_28af2208(e_player)
 	level.ai_khalil sethighdetail(1);
 	level thread function_22b149da();
 	level thread function_f48bd4a7();
-	level waittill(#"hendricks_by_weapon_room");
+	level waittill("hendricks_by_weapon_room");
 	level.ai_khalil sethighdetail(0);
 	level notify(#"hash_29445f62");
 	skipto::objective_completed("skipto_prison");
@@ -1282,7 +1282,7 @@ function function_b8d7b823(a_ents)
 {
 	a_ents["interrogator"].cybercomtargetstatusoverride = 0;
 	a_ents["interrogator"] cybercom::cybercom_aioptout("cybercom_fireflyswarm");
-	level waittill(#"ready_to_breach");
+	level waittill("ready_to_breach");
 	level.ai_hendricks dialog::say("hend_on_my_mark_0");
 	wait(1);
 	level.ai_hendricks thread dialog::say("hend_three_two_go_0");
@@ -1634,7 +1634,7 @@ function function_473b7de8()
 	nd_node = getnode("nd_khalil_armory_battle", "targetname");
 	level.ai_khalil.goalradius = 64;
 	level.ai_khalil setgoal(nd_node.origin);
-	level.ai_khalil waittill(#"goal");
+	level.ai_khalil waittill("goal");
 	level.ai_khalil.goalradius = 512;
 }
 
@@ -1649,10 +1649,10 @@ function function_473b7de8()
 */
 function function_d4401b52(a_ents)
 {
-	level endon(#"security_desk_done");
+	level endon("security_desk_done");
 	level.ai_minister ai::gun_remove();
 	level.ai_khalil ai::gun_remove();
-	level.ai_minister waittill(#"weapon_swap");
+	level.ai_minister waittill("weapon_swap");
 	a_ents["arak_m"] hide();
 	level.ai_minister ai::gun_recall();
 	level.ai_khalil waittill(#"hash_2dc522e9");
@@ -2127,7 +2127,7 @@ function function_8a1821e(str_trigger, var_fc9c675e, var_62ec3b42)
 	e_trigger = getent(str_trigger, "targetname");
 	if(isdefined(e_trigger))
 	{
-		e_trigger waittill(#"trigger");
+		e_trigger waittill("trigger");
 	}
 	var_cc6832b6 = getent(var_fc9c675e, "targetname");
 	var_97e01c0a = getent(var_62ec3b42, "targetname");
@@ -2182,7 +2182,7 @@ function function_a3dbf6a2()
 	level.ai_khalil.goalradius = 16;
 	level.ai_khalil.goalheight = 1600;
 	level.ai_khalil setgoal(level.ai_khalil.origin);
-	level notify(#"lift_is_moving");
+	level notify("lift_is_moving");
 	level thread function_45ed0d4b(0, 1.5);
 	level waittill(#"hash_9e4059e6");
 	level.e_lift = getent("freight_lift", "targetname");
@@ -2213,8 +2213,8 @@ function function_a3dbf6a2()
 */
 function function_5bd223b0()
 {
-	self endon(#"death");
-	self waittill(#"movedone");
+	self endon("death");
+	self waittill("movedone");
 	var_18f37a5b = getent("t_lift_interior", "targetname");
 	a_s_spots = struct::get_array("lift_left_behind", "targetname");
 	for(i = 0; i < level.activeplayers.size; i++)
@@ -2391,7 +2391,7 @@ function get_to_lift_wait(str_s_target)
 	self.at_lift = undefined;
 	self.goalradius = 128;
 	self setgoalpos(s_target.origin);
-	self waittill(#"goal");
+	self waittill("goal");
 	self.at_lift = 1;
 }
 
@@ -2510,7 +2510,7 @@ function function_8949fadf()
 	e_trigger = getent("t_lift_player_advances", "targetname");
 	if(isdefined(e_trigger))
 	{
-		e_trigger waittill(#"trigger");
+		e_trigger waittill("trigger");
 	}
 	level thread cp_prologue_util::function_a7eac508("sp_lift_player_advances", 64, 64, undefined);
 	level.var_1f5f8798 = 1;
@@ -2550,7 +2550,7 @@ function function_51da5fc6()
 	snd_lift = spawn("script_origin", level.e_lift.origin);
 	snd_lift linkto(level.e_lift);
 	snd_lift playloopsound("evt_freight_lift_loop");
-	level.var_3dce3f88 waittill(#"movedone");
+	level.var_3dce3f88 waittill("movedone");
 	level.var_3dce3f88 scene::init("cin_pro_08_01_liftescape_vign_lift_doorsopen", level.e_lift);
 	snd_lift stoploopsound(0.1);
 	setdvar("grenadeAllowRigidBodyPhysics", "0");
@@ -2581,11 +2581,11 @@ function function_51da5fc6()
 */
 function function_c6db42e4(nd_node)
 {
-	self endon(#"death");
+	self endon("death");
 	self util::stop_magic_bullet_shield();
 	self.goalradius = 64;
 	self setgoal(nd_node.origin);
-	self waittill(#"goal");
+	self waittill("goal");
 	self.goalradius = 1024;
 }
 
@@ -2800,7 +2800,7 @@ function function_5517d018()
 	level waittill(#"hash_231a1398");
 	level flag::set("crane_in_position");
 	e_trigger triggerenable(1);
-	e_trigger waittill(#"trigger", e_who);
+	e_trigger waittill("trigger", e_who);
 	e_trigger delete();
 	level thread scene::play("p7_fxanim_cp_prologue_ceiling_underground_crane_shot_bundle");
 	level waittill(#"hash_1cda5581");
@@ -2845,7 +2845,7 @@ function function_6fabe3da()
 	level.ai_hendricks dialog::say("hend_that_s_our_exit_car_0");
 	cp_prologue_util::function_520255e3("t_lift_reinforcements", 60);
 	level.ai_hendricks dialog::say("hend_elevator_s_right_the_0");
-	level waittill(#"lift_is_moving");
+	level waittill("lift_is_moving");
 	level thread namespace_21b2c1f2::function_9f50ebc2();
 	level thread namespace_21b2c1f2::function_c4c71c7();
 }
@@ -2861,7 +2861,7 @@ function function_6fabe3da()
 */
 function function_6f04ae03()
 {
-	level endon(#"lift_is_moving");
+	level endon("lift_is_moving");
 	level.ai_hendricks dialog::say("hend_let_s_move_get_to_t_0");
 	wait(15);
 	level.ai_hendricks dialog::say("hend_keep_pushing_forward_0");

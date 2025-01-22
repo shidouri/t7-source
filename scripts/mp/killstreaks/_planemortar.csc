@@ -45,7 +45,7 @@ function __init__()
 */
 function planemortar_contrail(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"entityshutdown");
 	if(newval)
 	{

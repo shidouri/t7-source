@@ -56,8 +56,8 @@ function moveleverdown()
 	self.lever rotatepitch(180, 0.5);
 	soundent_left playsound("zmb_switch_on");
 	soundent_right playsound("zmb_switch_on");
-	self.lever waittill(#"rotatedone");
-	self notify(#"leverdown");
+	self.lever waittill("rotatedone");
+	self notify("leverdown");
 }
 
 /*
@@ -76,8 +76,8 @@ function moveleverup()
 	self.lever rotatepitch(-180, 0.5);
 	soundent_left playsound("zmb_switch_off");
 	soundent_right playsound("zmb_switch_off");
-	self.lever waittill(#"rotatedone");
-	self notify(#"leverup");
+	self.lever waittill("rotatedone");
+	self notify("leverup");
 }
 
 /*
@@ -127,7 +127,7 @@ function penthink()
 	array::thread_all(triggers, &hint_string, &"ZOMBIE_BUTTON_BUY_TRAP");
 	while(true)
 	{
-		self waittill(#"trigger", who);
+		self waittill("trigger", who);
 		self.used_by = who;
 		if(who zm_utility::in_revive_trigger() || level.var_99432870)
 		{
@@ -146,17 +146,17 @@ function penthink()
 					who thread zm_audio::create_and_play_dialog("level", "trap_log");
 					who zm_score::minus_to_player_score(self.zombie_cost);
 					self thread moveleverdown();
-					self waittill(#"leverdown");
+					self waittill("leverdown");
 					motor_left = getent("engine_loop_left", "targetname");
 					motor_right = getent("engine_loop_right", "targetname");
 					playsoundatposition("zmb_motor_start_left", motor_left.origin);
 					playsoundatposition("zmb_motor_start_right", motor_right.origin);
 					wait(0.5);
 					self thread activatepen(motor_left, motor_right, who);
-					self waittill(#"pendown");
+					self waittill("pendown");
 					array::thread_all(triggers, &hint_string, &"ZOMBIE_TRAP_COOLDOWN");
 					self thread moveleverup();
-					self waittill(#"leverup");
+					self waittill("leverup");
 					wait(45);
 					pa_system playsound("zmb_warning");
 					level thread zm_sumpf::turnlightgreen("pendulum_light");
@@ -187,7 +187,7 @@ function activatepen(motor_left, motor_right, who)
 	util::wait_network_frame();
 	wheel_left playloopsound("zmb_wheel_loop");
 	wheel_right playloopsound("zmb_belt_loop");
-	self.pen notify(#"stopmonitorsolid");
+	self.pen notify("stopmonitorsolid");
 	self.pen notsolid();
 	self.pendamagetrig triggerenable(1);
 	self.pendamagetrig thread pendamage(self, who);
@@ -204,12 +204,12 @@ function activatepen(motor_left, motor_right, who)
 	}
 	level thread trap_sounds(motor_left, motor_right, wheel_left, wheel_right);
 	self.pen thread blade_sounds();
-	self.pen waittill(#"rotatedone");
+	self.pen waittill("rotatedone");
 	self.pendamagetrig triggerenable(0);
 	self.penactive = 0;
 	self.pen thread zm_sumpf_zipline::objectsolid();
-	self notify(#"pendown");
-	level notify(#"stop_blade_sounds");
+	self notify("pendown");
+	level notify("stop_blade_sounds");
 	wait(3);
 	wheel_left delete();
 	wheel_right delete();
@@ -226,7 +226,7 @@ function activatepen(motor_left, motor_right, who)
 */
 function blade_sounds()
 {
-	self endon(#"rotatedone");
+	self endon("rotatedone");
 	blade_left = getent("blade_left", "targetname");
 	blade_right = getent("blade_right", "targetname");
 	lastangle = self.angles[0];
@@ -292,7 +292,7 @@ function pendamage(parent, who)
 	level thread customtimer();
 	while(true)
 	{
-		self waittill(#"trigger", ent);
+		self waittill("trigger", ent);
 		if(parent.penactive == 1)
 		{
 			if(isplayer(ent))
@@ -337,8 +337,8 @@ function customtimer()
 */
 function playerpendamage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	players = getplayers();
 	if(players.size == 1)
 	{
@@ -362,7 +362,7 @@ function playerpendamage()
 */
 function zombiependamage(parent, who)
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_9a9a0f55 = parent;
 	self.var_aa99de67 = who;
 	parent.activated_by_player = who;

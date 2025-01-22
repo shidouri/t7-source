@@ -41,7 +41,7 @@ function init()
 */
 function on_player_spawned()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self assignremotecontroltrigger();
 }
 
@@ -151,8 +151,8 @@ function useremoteweapon(weapon, weaponname, immediate, allowmanualdeactivation 
 function watchforhack()
 {
 	weapon = self;
-	weapon endon(#"death");
-	weapon waittill(#"killstreak_hacked", hacker);
+	weapon endon("death");
+	weapon waittill("killstreak_hacked", hacker);
 	if(isdefined(weapon.remoteweaponallowmanualdeactivation) && weapon.remoteweaponallowmanualdeactivation == 1)
 	{
 		weapon thread watchremotecontroldeactivate();
@@ -172,7 +172,7 @@ function watchforhack()
 function watchremoveremotecontrolledweapon()
 {
 	weapon = self;
-	weapon endon(#"remote_weapon_end");
+	weapon endon("remote_weapon_end");
 	weapon util::waittill_any("death", "remote_weapon_shutdown");
 	weapon endremotecontrolweaponuse(0);
 	while(isdefined(weapon))
@@ -228,7 +228,7 @@ function createremoteweapontrigger()
 function watchweapondeath()
 {
 	weapon = self;
-	weapon.usetrigger endon(#"death");
+	weapon.usetrigger endon("death");
 	weapon util::waittill_any("death", "remote_weapon_end");
 	if(isdefined(weapon.remoteowner))
 	{
@@ -249,11 +249,11 @@ function watchweapondeath()
 function watchownerdisconnect()
 {
 	weapon = self;
-	weapon endon(#"remote_weapon_end");
-	weapon endon(#"remote_weapon_shutdown");
+	weapon endon("remote_weapon_end");
+	weapon endon("remote_weapon_shutdown");
 	if(isdefined(weapon.usetrigger))
 	{
-		weapon.usetrigger endon(#"death");
+		weapon.usetrigger endon("death");
 	}
 	weapon.remoteowner util::waittill_any("joined_team", "disconnect", "joined_spectators");
 	endremotecontrolweaponuse(0);
@@ -275,9 +275,9 @@ function watchownerdisconnect()
 function watchremotetriggerdisable()
 {
 	weapon = self;
-	weapon endon(#"remote_weapon_end");
-	weapon endon(#"remote_weapon_shutdown");
-	weapon.usetrigger endon(#"death");
+	weapon endon("remote_weapon_end");
+	weapon endon("remote_weapon_shutdown");
+	weapon.usetrigger endon("death");
 	while(true)
 	{
 		weapon.usetrigger triggerenable(!weapon.remoteowner iswallrunning());
@@ -316,15 +316,15 @@ function allowremotestart()
 function watchremotetriggeruse()
 {
 	weapon = self;
-	weapon endon(#"death");
-	weapon endon(#"remote_weapon_end");
+	weapon endon("death");
+	weapon endon("remote_weapon_end");
 	if(weapon.remoteowner util::is_bot())
 	{
 		return;
 	}
 	while(true)
 	{
-		weapon.usetrigger waittill(#"trigger", player);
+		weapon.usetrigger waittill("trigger", player);
 		if(weapon.remoteowner isusingoffhand() || weapon.remoteowner iswallrunning())
 		{
 			continue;
@@ -355,15 +355,15 @@ function watchremotetriggeruse()
 */
 function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	weapon = self;
 	/#
 		assert(isdefined(weapon.remoteowner));
 	#/
 	weapon.control_initiated = 1;
 	weapon.endremotecontrolweapon = 0;
-	weapon.remoteowner endon(#"disconnect");
-	weapon.remoteowner endon(#"joined_team");
+	weapon.remoteowner endon("disconnect");
+	weapon.remoteowner endon("joined_team");
 	weapon.remoteowner disableoffhandweapons();
 	weapon.remoteowner disableweaponcycling();
 	weapon.remoteowner.dofutz = 0;
@@ -378,7 +378,7 @@ function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride =
 		}
 		else
 		{
-			weapon.remoteowner waittill(#"weapon_change", newweapon);
+			weapon.remoteowner waittill("weapon_change", newweapon);
 		}
 	}
 	if(isdefined(newweapon))
@@ -405,7 +405,7 @@ function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride =
 	{
 		weapon.controlled = 1;
 		weapon.killcament = self;
-		weapon notify(#"remote_start");
+		weapon notify("remote_start");
 		if(allowmanualdeactivation)
 		{
 			weapon thread watchremotecontroldeactivate();
@@ -430,8 +430,8 @@ function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride =
 */
 function resetcontrolinitiateduponownerrespawn()
 {
-	self endon(#"death");
-	self.remoteowner waittill(#"spawned");
+	self endon("death");
+	self.remoteowner waittill("spawned");
 	self.control_initiated = 0;
 }
 
@@ -446,12 +446,12 @@ function resetcontrolinitiateduponownerrespawn()
 */
 function watchremotecontroldeactivate()
 {
-	self notify(#"watchremotecontroldeactivate_remoteweapons");
-	self endon(#"watchremotecontroldeactivate_remoteweapons");
+	self notify("watchremotecontroldeactivate_remoteweapons");
+	self endon("watchremotecontroldeactivate_remoteweapons");
 	weapon = self;
-	weapon endon(#"remote_weapon_end");
-	weapon endon(#"death");
-	weapon.remoteowner endon(#"disconnect");
+	weapon endon("remote_weapon_end");
+	weapon endon("death");
+	weapon.remoteowner endon("disconnect");
 	while(true)
 	{
 		timeused = 0;
@@ -520,7 +520,7 @@ function endremotecontrolweaponuse(exitrequestedbyowner)
 		if(isdefined(player))
 		{
 			player thread fadetoblackandbackin();
-			player waittill(#"fade2black");
+			player waittill("fade2black");
 			if(remote_controlled)
 			{
 				player unlink();
@@ -564,7 +564,7 @@ function endremotecontrolweaponuse(exitrequestedbyowner)
 		}
 		if(!exitrequestedbyowner || (isdefined(weapon.one_remote_use) && weapon.one_remote_use))
 		{
-			weapon notify(#"remote_weapon_end");
+			weapon notify("remote_weapon_end");
 		}
 	}
 }
@@ -580,11 +580,11 @@ function endremotecontrolweaponuse(exitrequestedbyowner)
 */
 function fadetoblackandbackin()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	lui::screen_fade_out(0.1);
 	self qrdrone::destroyhud();
 	wait(0.05);
-	self notify(#"fade2black");
+	self notify("fade2black");
 	lui::screen_fade_in(0.2);
 }
 
@@ -599,7 +599,7 @@ function fadetoblackandbackin()
 */
 function stunstaticfx(duration)
 {
-	self endon(#"remove_remote_weapon");
+	self endon("remove_remote_weapon");
 	self.fullscreen_static.alpha = 0.65;
 	wait(duration - 0.5);
 	time = duration - 0.5;
@@ -664,10 +664,10 @@ function set_static(val)
 */
 function do_static_fx()
 {
-	self endon(#"death");
+	self endon("death");
 	self set_static(1);
 	wait(2);
 	self set_static(0);
-	self notify(#"static_fx_done");
+	self notify("static_fx_done");
 }
 

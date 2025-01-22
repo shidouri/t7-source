@@ -215,10 +215,10 @@ function function_7bf2f7ba()
 */
 function stealth_shadow_volumes()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"trigger", other);
+		self waittill("trigger", other);
 		if(!isalive(other))
 		{
 			continue;
@@ -242,7 +242,7 @@ function stealth_shadow_volumes()
 */
 function function_9f3c4fa(volume)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.stealth))
 	{
 		return;
@@ -269,7 +269,7 @@ function update_thread()
 	/#
 		assert(self enabled());
 	#/
-	self endon(#"stop_stealth");
+	self endon("stop_stealth");
 	while(true)
 	{
 		self update_arrays();
@@ -414,7 +414,7 @@ function update_arrays()
 */
 function function_a3cf57bf()
 {
-	self endon(#"stop_stealth");
+	self endon("stop_stealth");
 	grace_period = 6;
 	while(true)
 	{
@@ -453,7 +453,7 @@ function function_f8b0594a()
 {
 	self notify(#"hash_f8b0594a");
 	self endon(#"hash_f8b0594a");
-	self endon(#"stop_stealth");
+	self endon("stop_stealth");
 	while(true)
 	{
 		level flag::wait_till("stealth_alert");
@@ -508,7 +508,7 @@ function function_959a64c9()
 			if(isdefined(enemy.stealth))
 			{
 				enemy notify(#"hash_959a64c9");
-				enemy notify(#"alert", "combat", enemy.origin, undefined, "wake_all");
+				enemy notify("alert", "combat", enemy.origin, undefined, "wake_all");
 				enemy stealth::stop();
 			}
 			foreach(player in level.activeplayers)
@@ -541,7 +541,7 @@ function function_959a64c9()
 */
 function stealth_music_thread()
 {
-	self endon(#"stop_stealth");
+	self endon("stop_stealth");
 	stealth::function_862e861f();
 	while(true)
 	{

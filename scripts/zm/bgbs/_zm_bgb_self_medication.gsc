@@ -58,9 +58,9 @@ function __init__()
 */
 function event()
 {
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
-	self endon(#"bgb_self_medication_complete");
+	self endon("disconnect");
+	self endon("bgb_update");
+	self endon("bgb_self_medication_complete");
 	self.var_25b88da = 3;
 	self.w_min_last_stand_pistol_override = getweapon("ray_gun");
 	level zm_utility::increment_no_end_game_check();
@@ -68,7 +68,7 @@ function event()
 	self thread function_cfc2c8d5();
 	while(true)
 	{
-		self waittill(#"player_downed");
+		self waittill("player_downed");
 		self thread function_a8fd61f4();
 	}
 }
@@ -140,8 +140,8 @@ function actor_death_override(e_attacker)
 */
 function function_cfc2c8d5()
 {
-	self endon(#"disconnect");
-	self endon(#"bgb_update");
+	self endon("disconnect");
+	self endon("bgb_update");
 	while(true)
 	{
 		self waittill(#"hash_935cc366");
@@ -165,7 +165,7 @@ function function_cfc2c8d5()
 		self bgb::set_timer(self.var_25b88da, 3);
 		if(self.var_25b88da == 0)
 		{
-			self notify(#"bgb_self_medication_complete");
+			self notify("bgb_self_medication_complete");
 			return;
 		}
 	}
@@ -182,10 +182,10 @@ function function_cfc2c8d5()
 */
 function function_a8fd61f4()
 {
-	self endon(#"player_revived");
-	self endon(#"disconnect");
-	self endon(#"bled_out");
-	self waittill(#"player_eaten_by_thrasher");
+	self endon("player_revived");
+	self endon("disconnect");
+	self endon("bled_out");
+	self waittill("player_eaten_by_thrasher");
 	self.thrasher kill(self.thrasher.origin, self);
 }
 

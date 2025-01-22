@@ -74,7 +74,7 @@ function kill(ent_1, str_tag1, ent_2, str_tag2, str_beam_type)
 	}
 	else if(isdefined(s_beam))
 	{
-		s_beam notify(#"kill");
+		s_beam notify("kill");
 		beamkill(self.localclientnum, s_beam.beam_id);
 	}
 }
@@ -146,8 +146,8 @@ function private _get_beam(ent_1, str_tag1, ent_2, str_tag2, str_beam_type)
 */
 function private _kill_on_ent_death(s_beam, ent_1, ent_2)
 {
-	s_beam endon(#"kill");
-	self endon(#"death");
+	s_beam endon("kill");
+	self endon("death");
 	util::waittill_any_ents(ent_1, "entityshutdown", ent_2, "entityshutdown", s_beam, "kill", self, "death");
 	if(isdefined(self))
 	{

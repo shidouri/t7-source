@@ -1815,7 +1815,7 @@ function apothiconbamfin(entity)
 		entity forceteleport(entity.traverseendnode.origin, entity.angles);
 		entity unlink();
 		entity.istraveling = 0;
-		entity notify(#"travel_complete");
+		entity notify("travel_complete");
 		entity setrepairpaths(1);
 		entity.blockingpain = 0;
 		entity.usegoalanimweight = 0;

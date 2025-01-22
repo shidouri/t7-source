@@ -241,7 +241,7 @@ function onstartgametype()
 */
 function watch_for_game_end()
 {
-	level waittill(#"game_ended");
+	level waittill("game_ended");
 	if(!end_game_state())
 	{
 		level clientfield::set("freerun_finishTime", 0);
@@ -275,10 +275,10 @@ function on_player_connect()
 */
 function on_menu_response()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		if(response == "fr_restart")
 		{
 			self playsoundtoplayer("uin_freerun_reset", self);
@@ -352,7 +352,7 @@ function on_player_damage(einflictor, eattacker, idamage, idflags, smeansofdeath
 */
 function trackplayerorigin()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self.prev_origin = self.origin;
@@ -403,7 +403,7 @@ function updatehighscores()
 */
 function activatetrack(trackindex)
 {
-	level notify(#"activate_track");
+	level notify("activate_track");
 	/#
 		if(level.frgame.tracks.size > 1)
 		{
@@ -543,7 +543,7 @@ function get_current_track_time(player)
 */
 function watchcheckpointtrigger()
 {
-	self waittill(#"trigger", player);
+	self waittill("trigger", player);
 	if(isplayer(player))
 	{
 		if(level.frgame.activespawnpoint != self)
@@ -597,7 +597,7 @@ function watchdeathtrigger()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isplayer(player))
 		{
 			player faultdeath();
@@ -667,9 +667,9 @@ function add_current_run_to_high_scores(player)
 */
 function watchgoaltrigger()
 {
-	level notify(#"watch_goal_trigger");
-	level endon(#"watch_goal_trigger");
-	self waittill(#"trigger", player);
+	level notify("watch_goal_trigger");
+	level endon("watch_goal_trigger");
+	self waittill("trigger", player);
 	if(isplayer(player))
 	{
 		player playsoundtoplayer("uin_freerun_finish", player);
@@ -687,10 +687,10 @@ function watchgoaltrigger()
 		player updatehighscores();
 		level clientfield::set("freerun_finishTime", get_current_track_time(player));
 		level clientfield::set("freerun_state", 2);
-		level notify(#"finished_track");
+		level notify("finished_track");
 		if(player ishost())
 		{
-			level notify(#"stop_tutorials");
+			level notify("stop_tutorials");
 			take_players_out_of_tutorial_mode();
 			level.frgame.tutorials = 0;
 			setlocalprofilevar("com_firsttime_freerun", 1);
@@ -809,10 +809,10 @@ function setup_weapon_targets()
 */
 function watch_target_trigger_thread(weaponobject)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
+		self waittill("damage", damage, attacker, direction_vec, point, type, modelname, tagname, partname, weapon, idflags);
 		if(level.frgame.activespawnpoint != self.checkpoint)
 		{
 			continue;
@@ -1152,8 +1152,8 @@ function watchtrackswitch()
 */
 function watchuserrespawn()
 {
-	level endon(#"activate_track");
-	level endon(#"finished_track");
+	level endon("activate_track");
+	level endon("finished_track");
 	/#
 		wasinnoclip = 0;
 	#/
@@ -1240,10 +1240,10 @@ function ignorebulletsfired(weapon)
 */
 function watchweaponfire()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"weapon_fired", weapon);
+		self waittill("weapon_fired", weapon);
 		if(weapon == level.weaponbasemeleeheld)
 		{
 			continue;
@@ -1283,8 +1283,8 @@ function getgroundpointfororigin(position)
 */
 function watchstartrun(player)
 {
-	level endon(#"activate_track");
-	self waittill(#"trigger", trigger_ent);
+	level endon("activate_track");
+	self waittill("trigger", trigger_ent);
 	if(trigger_ent == player)
 	{
 		player startrun();
@@ -1525,8 +1525,8 @@ function get_top_scores_stats()
 */
 function take_all_player_weapons(only_default, immediate)
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	keep_weapon = level.weaponnone;
 	if(isdefined(level.frgame.activespawnpoint.weapon) && !only_default)
 	{
@@ -1711,10 +1711,10 @@ function setup_tutorial()
 */
 function watchtutorialtrigger()
 {
-	level endon(#"stop_tutorials");
+	level endon("stop_tutorials");
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(isplayer(player))
 		{
 			player thread start_tutorial(self.script_noteworthy);
@@ -1734,9 +1734,9 @@ function watchtutorialtrigger()
 */
 function stop_tutorial_when_restarting_track()
 {
-	self notify(#"stop_tutorial_when_restarting_track");
-	self waittill(#"stop_tutorial_when_restarting_track");
-	level waittill(#"activate_track");
+	self notify("stop_tutorial_when_restarting_track");
+	self waittill("stop_tutorial_when_restarting_track");
+	level waittill("activate_track");
 	take_players_out_of_tutorial_mode();
 	self util::hide_hint_text(0);
 	self stop_tutorial_vo();
@@ -1754,16 +1754,16 @@ function stop_tutorial_when_restarting_track()
 */
 function start_tutorial(tutorial)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
-	level endon(#"activate_track");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
+	level endon("activate_track");
 	if(!isdefined(level.frgame.tutorialfunctions[tutorial]))
 	{
 		return;
 	}
-	level notify(#"playing_tutorial");
-	level endon(#"playing_tutorial");
+	level notify("playing_tutorial");
+	level endon("playing_tutorial");
 	self thread stop_tutorial_when_restarting_track();
 	put_players_in_tutorial_mode();
 	wait(0.5);
@@ -1803,7 +1803,7 @@ function play_tutorial_vo(aliasstring)
 	self stop_tutorial_vo();
 	self.lasttutorialvoplayed = aliasstring;
 	self playsoundwithnotify(aliasstring, "sounddone");
-	self waittill(#"sounddone");
+	self waittill("sounddone");
 	wait(1);
 }
 
@@ -1822,7 +1822,7 @@ function play_tutorial_vo_with_hint(aliasstring, text)
 	self thread _show_tutorial_hint_with_vo(text);
 	self.lasttutorialvoplayed = aliasstring;
 	self playsoundwithnotify(aliasstring, "sounddone");
-	self waittill(#"sounddone");
+	self waittill("sounddone");
 	wait(1);
 }
 

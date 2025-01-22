@@ -1939,7 +1939,7 @@ function on_player_spawn()
 */
 function function_f2b024f8()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self function_a5a105e8();
@@ -2266,7 +2266,7 @@ function private function_52904bc9()
 */
 function private function_87fe8621()
 {
-	self endon(#"death");
+	self endon("death");
 	level flag::wait_till("all_players_spawned");
 	var_717810f = function_659bb22b(self.var_22c28736);
 	/#
@@ -2274,7 +2274,7 @@ function private function_87fe8621()
 	#/
 	while(true)
 	{
-		self waittill(#"trigger", lead_player);
+		self waittill("trigger", lead_player);
 		if(isplayer(lead_player))
 		{
 			self notify(#"hash_c0b9931e");
@@ -2348,7 +2348,7 @@ function function_659bb22b(var_3a36166b)
 */
 function private function_61843b91(var_717810f, n_player_dist)
 {
-	self endon(#"death");
+	self endon("death");
 	if(self isinvehicle())
 	{
 		vh_occupied = self getvehicleoccupied();
@@ -2356,7 +2356,7 @@ function private function_61843b91(var_717810f, n_player_dist)
 		vh_occupied usevehicle(self, n_seat);
 		if(isdefined(self.hijacked_vehicle_entity))
 		{
-			self waittill(#"transition_done");
+			self waittill("transition_done");
 		}
 	}
 	if(isdefined(self.hijacked_vehicle_entity))
@@ -2370,7 +2370,7 @@ function private function_61843b91(var_717810f, n_player_dist)
 	}
 	else if(self laststand::player_is_in_laststand())
 	{
-		self notify(#"auto_revive");
+		self notify("auto_revive");
 	}
 	if(self isplayinganimscripted())
 	{
@@ -2481,7 +2481,7 @@ function set_level_objective(objectives, starting, player)
 	{
 		set_current_skiptos(level.skipto_current_objective);
 	}
-	level notify(#"objective_changed", level.skipto_current_objective);
+	level notify("objective_changed", level.skipto_current_objective);
 	if(isdefined(level.var_26b4fb80))
 	{
 		[[level.var_26b4fb80]](level.skipto_current_objective);
@@ -2512,9 +2512,9 @@ function set_level_objective(objectives, starting, player)
 */
 function update_spawn_points(starting)
 {
-	level notify(#"update_spawn_points");
-	level endon(#"update_spawn_points");
-	level endon(#"objective_changed");
+	level notify("update_spawn_points");
+	level endon("update_spawn_points");
+	level endon("objective_changed");
 	level flag::wait_till("first_player_spawned");
 	spawnlogic::clear_spawn_points();
 	spawnlogic::add_spawn_points("allies", "cp_coop_spawn");
@@ -2855,7 +2855,7 @@ function function_2711019f()
 */
 function function_f380969b()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_33722592");
 	var_67bda5a5 = self getdstat("currentRankXP");
 	var_72c4032 = self rank::getrankxpstat();
@@ -2869,10 +2869,10 @@ function function_f380969b()
 	{
 		self.var_a4c14d95 = self openluimenu("RewardsOverlayCP");
 	}
-	self waittill(#"menuresponse", menu, response);
+	self waittill("menuresponse", menu, response);
 	while(response != "closed")
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 	}
 	foreach(player in getplayers())
 	{
@@ -2948,7 +2948,7 @@ function function_ab286e9e(stat_name)
 */
 function function_61688376()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	/#
 		assert(isdefined(level.var_a7c3eb6f));
 	#/
@@ -3370,7 +3370,7 @@ function level_completed(skipto, starting)
 		}
 		else
 		{
-			level notify(#"sndstopcreditsmusic");
+			level notify("sndstopcreditsmusic");
 			music::setmusicstate("death");
 			wait(1);
 			if(sessionmodeiscampaignzombiesgame())
@@ -3403,7 +3403,7 @@ function level_completed(skipto, starting)
 */
 function function_3d23f76a()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	while(true)
 	{
 		self freezecontrols(1);
@@ -3422,7 +3422,7 @@ function function_3d23f76a()
 */
 function function_3fbee503()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level.var_897126b5++;
 	self util::set_low_ready(1);
 	self thread function_3d23f76a();
@@ -3442,13 +3442,13 @@ function function_3fbee503()
 */
 function function_4aa085d7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	self endon(#"hash_88bd85cc");
 	if(isdefined(self))
 	{
 		self.var_40ac72fa = self openluimenu("Credit_Fullscreen", 1);
 		self freezecontrols(1);
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		self closeluimenu(self.var_40ac72fa);
 		self freezecontrols(0);
 		self.var_40ac72fa = undefined;
@@ -3476,7 +3476,7 @@ function function_4aa085d7()
 */
 function sndcreditsmusic()
 {
-	level endon(#"sndstopcreditsmusic");
+	level endon("sndstopcreditsmusic");
 	wait(59);
 	music::setmusicstate("unstoppable_credits");
 	wait(148);
@@ -3731,7 +3731,7 @@ function private standard_objective_init(skipto, starting)
 	level flag::set(skipto);
 	level thread watch_completion(skipto);
 	level.current_skipto = skipto;
-	level notify(#"update_billboard");
+	level notify("update_billboard");
 }
 
 /*
@@ -3788,7 +3788,7 @@ function private standard_objective_done(skipto, starting, direct, player)
 			if(isvehicle(entity))
 			{
 				entity.delete_on_death = 1;
-				entity notify(#"death");
+				entity notify("death");
 				if(!isalive(entity))
 				{
 					entity delete();
@@ -3866,19 +3866,19 @@ function all_players_touching(trigger)
 */
 function trigger_wait_completion(trigger, name)
 {
-	trigger endon(#"death");
+	trigger endon("death");
 	level endon(name + "_terminate");
 	if(trigger.script_noteworthy === "allplayers")
 	{
 		do
 		{
-			trigger waittill(#"trigger", player);
+			trigger waittill("trigger", player);
 		}
 		while(!all_players_touching(trigger));
 	}
 	else
 	{
-		trigger waittill(#"trigger", player);
+		trigger waittill("trigger", player);
 		if(trigger.script_noteworthy === "warpplayers")
 		{
 			foreach(other_player in level.players)
@@ -3905,9 +3905,9 @@ function trigger_wait_completion(trigger, name)
 */
 function trigger_watch_completion(trigger, name)
 {
-	self endon(#"trigger_watch_completion");
+	self endon("trigger_watch_completion");
 	player = trigger_wait_completion(trigger, name);
-	self notify(#"trigger_watch_completion");
+	self notify("trigger_watch_completion");
 }
 
 /*
@@ -3930,10 +3930,10 @@ function catch_up_teleport()
 	}
 	if(self laststand::player_is_in_laststand())
 	{
-		self notify(#"auto_revive");
+		self notify("auto_revive");
 		waittillframeend();
 	}
-	self notify(#"death");
+	self notify("death");
 	self thread [[level.spawnclient]](timepassed);
 	self.respawntimerstarttime = undefined;
 }
@@ -3971,7 +3971,7 @@ function entity_mover_main()
 	}
 	for(;;)
 	{
-		level waittill(#"objective_changed", objectives);
+		level waittill("objective_changed", objectives);
 		entity_mover_use_objectives(objectives);
 	}
 }
@@ -4053,7 +4053,7 @@ function apply_mover(mover)
 		util::wait_network_frame();
 		script_mover moveto(mover.origin, speed);
 		script_mover rotateto(mover.angles, speed);
-		script_mover waittill(#"movedone");
+		script_mover waittill("movedone");
 		foreach(target in targets)
 		{
 			target.last_mover = mover;
@@ -4167,7 +4167,7 @@ function function_27c2dde4()
 function update_billboard()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			if(isdefined(level.billboards) && isdefined(level.billboards[level.current_skipto]))
@@ -4182,7 +4182,7 @@ function update_billboard()
 					level.billboard_event_state = level.billboards[level.current_skipto][3];
 					foreach(player in level.players)
 					{
-						player notify(#"update_billboard");
+						player notify("update_billboard");
 					}
 				}
 				else
@@ -4198,7 +4198,7 @@ function update_billboard()
 					#/
 				}
 			}
-			level waittill(#"update_billboard");
+			level waittill("update_billboard");
 		}
 	#/
 }
@@ -4215,7 +4215,7 @@ function update_billboard()
 function update_player_billboard()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		lui_menu = undefined;
 		while(true)
 		{
@@ -4248,7 +4248,7 @@ function update_player_billboard()
 					self setluimenudata(lui_menu, "", level.billboard_event_size);
 				}
 			}
-			self waittill(#"update_billboard");
+			self waittill("update_billboard");
 		}
 	#/
 }

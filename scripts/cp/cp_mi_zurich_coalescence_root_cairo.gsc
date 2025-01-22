@@ -293,9 +293,9 @@ function function_4cca3b70()
 	scene::add_scene_func("p7_fxanim_cp_zurich_wall_drop_bundle", &function_e3c9dd29, "play");
 	level thread function_ef1ee0c7();
 	var_15ecae1 = getent("trigger_vtol_arrival", "targetname");
-	var_15ecae1 waittill(#"trigger");
+	var_15ecae1 waittill("trigger");
 	level thread scene::play("p7_fxanim_cp_zurich_wall_drop_bundle");
-	level waittill(#"rocket_hits_vtol");
+	level waittill("rocket_hits_vtol");
 	wait(3);
 	level notify(#"hash_4dbdcce4");
 	level flag::wait_till("flag_cairo_start_wall_spawn");
@@ -336,7 +336,7 @@ function function_fe87d3eb(a_ents)
 function function_ef1ee0c7()
 {
 	var_abef87dc = getent("open_wall_doors", "script_noteworthy");
-	var_abef87dc waittill(#"trigger");
+	var_abef87dc waittill("trigger");
 	level flag::set("vtol_dropped_wall");
 }
 
@@ -516,7 +516,7 @@ function function_54b0174d()
 function function_1a9fae41()
 {
 	var_70cf920f = getent("t_lotus_sink", "script_noteworthy");
-	var_70cf920f waittill(#"trigger");
+	var_70cf920f waittill("trigger");
 	s_start = self;
 	playfx(level._effect["explosion_large"], self.origin);
 	s_next = struct::get(self.target, "targetname");
@@ -526,7 +526,7 @@ function function_1a9fae41()
 		n_time = n_distance / 20;
 		self moveto(s_next.origin, n_time);
 		self rotateto(s_next.angles, n_time);
-		self waittill(#"movedone");
+		self waittill("movedone");
 		s_start = s_next;
 		s_next = undefined;
 		if(isdefined(s_start.target))
@@ -586,7 +586,7 @@ function function_c3dca267()
 */
 function function_24c08a2f()
 {
-	self waittill(#"trigger");
+	self waittill("trigger");
 	var_66b68fff = getentarray(self.target, "targetname");
 	self delete();
 	for(i = 0; i < var_66b68fff.size; i++)
@@ -614,10 +614,10 @@ function function_24c08a2f()
 */
 function function_54c51e5b()
 {
-	self endon(#"death");
+	self endon("death");
 	nd_start = getvehiclenode(self.script_noteworthy + "_start", "targetname");
 	self thread vehicle::get_on_and_go_path(nd_start);
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	self raps::detonate();
 }
 
@@ -632,7 +632,7 @@ function function_54c51e5b()
 */
 function function_20541efa()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		e_player = arraygetclosest(self.origin, level.activeplayers);

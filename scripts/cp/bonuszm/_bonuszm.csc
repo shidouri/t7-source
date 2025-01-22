@@ -260,7 +260,7 @@ function init_fx()
 */
 function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	self endon(#"entityshutdown");
 	if(newval)
 	{
@@ -293,7 +293,7 @@ function rise_dust_fx(localclientnum, type, billow_fx, burst_fx)
 {
 	dust_tag = "J_SpineUpper";
 	self endon(#"entityshutdown");
-	level endon(#"demo_jump");
+	level endon("demo_jump");
 	if(isdefined(burst_fx))
 	{
 		fx = playfx(localclientnum, burst_fx, self.origin + (0, 0, randomintrange(5, 10)));
@@ -1193,7 +1193,7 @@ function magicbox_open_glow_callback(localclientnum, oldval, newval, bnewent, bi
 function open_glow_obj_demo_jump_listener(localclientnum)
 {
 	self endon(#"end_demo_jump_listener");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	self open_glow_obj_cleanup(localclientnum);
 }
 
@@ -1263,7 +1263,7 @@ function magicbox_closed_glow_callback(localclientnum, oldval, newval, bnewent, 
 function closed_glow_obj_demo_jump_listener(localclientnum)
 {
 	self endon(#"end_demo_jump_listener");
-	level waittill(#"demo_jump");
+	level waittill("demo_jump");
 	self closed_glow_obj_cleanup(localclientnum);
 }
 

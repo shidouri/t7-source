@@ -209,11 +209,11 @@ function turn_revive_on()
 		array::thread_all(machine_triggers, &zm_perks::set_power_on, 0);
 		if(isdefined(level.initial_quick_revive_power_off) && level.initial_quick_revive_power_off)
 		{
-			level waittill(#"revive_on");
+			level waittill("revive_on");
 		}
 		else if(!solo_mode)
 		{
-			level waittill(#"revive_on");
+			level waittill("revive_on");
 		}
 		for(i = 0; i < machine.size; i++)
 		{
@@ -327,7 +327,7 @@ function reenable_quickrevive(machine_clip, solo_mode)
 		update_quickrevive_power_state(1);
 		unhide_quickrevive();
 		restart_quickrevive();
-		level notify(#"revive_off");
+		level notify("revive_off");
 		wait(0.1);
 		level notify(#"stop_quickrevive_logic");
 	}
@@ -336,10 +336,10 @@ function reenable_quickrevive(machine_clip, solo_mode)
 		if(!(isdefined(level._dont_unhide_quickervive_on_hotjoin) && level._dont_unhide_quickervive_on_hotjoin))
 		{
 			unhide_quickrevive();
-			level notify(#"revive_off");
+			level notify("revive_off");
 			wait(0.1);
 		}
-		level notify(#"revive_hide");
+		level notify("revive_hide");
 		level notify(#"stop_quickrevive_logic");
 		restart_quickrevive();
 		triggers = getentarray("zombie_vending", "targetname");
@@ -371,7 +371,7 @@ function reenable_quickrevive(machine_clip, solo_mode)
 	if(power_state)
 	{
 		zm_perks::perk_unpause("specialty_quickrevive");
-		level notify(#"revive_on");
+		level notify("revive_on");
 		wait(0.1);
 		level notify(#"specialty_quickrevive_power_on");
 	}
@@ -452,8 +452,8 @@ function update_quick_revive(solo_mode = 0)
 */
 function check_quickrevive_for_hotjoin()
 {
-	level notify(#"notify_check_quickrevive_for_hotjoin");
-	level endon(#"notify_check_quickrevive_for_hotjoin");
+	level notify("notify_check_quickrevive_for_hotjoin");
+	level endon("notify_check_quickrevive_for_hotjoin");
 	solo_mode = 0;
 	should_update = 0;
 	wait(0.05);
@@ -503,9 +503,9 @@ function revive_solo_fx(machine_clip, blocker_model)
 	{
 		level.quick_revive_machine_clip = machine_clip;
 	}
-	level notify(#"revive_solo_fx");
-	level endon(#"revive_solo_fx");
-	self endon(#"death");
+	level notify("revive_solo_fx");
+	level endon("revive_solo_fx");
+	self endon("death");
 	level flag::wait_till("solo_revive");
 	if(isdefined(level.revive_solo_fx_func))
 	{
@@ -537,7 +537,7 @@ function revive_solo_fx(machine_clip, blocker_model)
 		}
 		self vibrate(direction, 10, 0.5, 5);
 	}
-	self waittill(#"movedone");
+	self waittill("movedone");
 	playfx(level._effect["poltergeist"], self.origin);
 	playsoundatposition("zmb_box_poof", self.origin);
 	if(isdefined(self.fx))
@@ -554,7 +554,7 @@ function revive_solo_fx(machine_clip, blocker_model)
 	{
 		blocker_model show();
 	}
-	level notify(#"revive_hide");
+	level notify("revive_hide");
 }
 
 /*
@@ -617,7 +617,7 @@ function disable_quickrevive(machine_clip)
 			direction = (direction[0] * -1, direction[1], 0);
 		}
 		level.quick_revive_machine vibrate(direction, 10, 0.5, 4);
-		level.quick_revive_machine waittill(#"movedone");
+		level.quick_revive_machine waittill("movedone");
 		level.quick_revive_machine hide();
 		level.quick_revive_machine.ishidden = 1;
 		if(isdefined(level.quick_revive_machine_clip))
@@ -630,7 +630,7 @@ function disable_quickrevive(machine_clip)
 		{
 			level.quick_revive_trigger.blocker_model show();
 		}
-		level notify(#"revive_hide");
+		level notify("revive_hide");
 	}
 }
 
@@ -693,7 +693,7 @@ function unhide_quickrevive()
 	{
 		level.quick_revive_machine moveto(org, 3);
 		level.quick_revive_machine vibrate(direction, 10, 0.5, 2.9);
-		level.quick_revive_machine waittill(#"movedone");
+		level.quick_revive_machine waittill("movedone");
 		level.quick_revive_machine.angles = level.quick_revive_default_angles;
 	}
 	else
@@ -797,7 +797,7 @@ function update_quickrevive_power_state(poweron)
 */
 function solo_revive_buy_trigger_move(revive_trigger_noteworthy)
 {
-	self endon(#"death");
+	self endon("death");
 	revive_perk_triggers = getentarray(revive_trigger_noteworthy, "script_noteworthy");
 	foreach(revive_perk_trigger in revive_perk_triggers)
 	{
@@ -816,7 +816,7 @@ function solo_revive_buy_trigger_move(revive_trigger_noteworthy)
 */
 function solo_revive_buy_trigger_move_trigger(revive_perk_trigger)
 {
-	self endon(#"death");
+	self endon("death");
 	revive_perk_trigger setinvisibletoplayer(self);
 	if(level.solo_lives_given >= 3)
 	{

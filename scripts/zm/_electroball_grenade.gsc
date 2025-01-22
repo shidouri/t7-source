@@ -149,7 +149,7 @@ function function_f424c33d(watcher, owner)
 */
 function setupkillcament()
 {
-	self endon(#"death");
+	self endon("death");
 	self util::waittillnotmoving();
 	self.killcament = spawn("script_model", self.origin + vectorscale((0, 0, 1), 8));
 	self thread cleanupkillcamentondeath();
@@ -166,7 +166,7 @@ function setupkillcament()
 */
 function cleanupkillcamentondeath()
 {
-	self waittill(#"death");
+	self waittill("death");
 	self.killcament util::deleteaftertime(4 + (level.proximitygrenadedotdamagetime * level.proximitygrenadedotdamageinstances));
 }
 
@@ -195,11 +195,11 @@ function proximitydetonate(attacker, weapon, target)
 */
 function watchproximitygrenadehitplayer(owner)
 {
-	self endon(#"death");
+	self endon("death");
 	self setteam(owner.team);
 	while(true)
 	{
-		self waittill(#"grenade_bounce", pos, normal, ent, surface);
+		self waittill("grenade_bounce", pos, normal, ent, surface);
 		if(isdefined(ent) && isplayer(ent) && surface != "riotshield")
 		{
 			if(level.teambased && ent.team == self.owner.team)
@@ -243,11 +243,11 @@ function performhudeffects(position, distancetogrenade)
 */
 function function_62ffcc2c()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"damage", damage, eattacker, dir, point, type, model, tag, part, weapon, flags);
+		self waittill("damage", damage, eattacker, dir, point, type, model, tag, part, weapon, flags);
 		if(weapon.name == "electroball_grenade")
 		{
 			self damageplayerinradius(eattacker);
@@ -267,11 +267,11 @@ function function_62ffcc2c()
 */
 function damageplayerinradius(eattacker)
 {
-	self notify(#"proximitygrenadedamagestart");
-	self endon(#"proximitygrenadedamagestart");
-	self endon(#"disconnect");
-	self endon(#"death");
-	eattacker endon(#"disconnect");
+	self notify("proximitygrenadedamagestart");
+	self endon("proximitygrenadedamagestart");
+	self endon("disconnect");
+	self endon("death");
+	eattacker endon("disconnect");
 	self clientfield::set("electroball_shock", 1);
 	g_time = gettime();
 	if(self util::mayapplyscreeneffect())
@@ -311,8 +311,8 @@ function damageplayerinradius(eattacker)
 */
 function proximitydeathwait(owner)
 {
-	self waittill(#"death");
-	self notify(#"deletesound");
+	self waittill("death");
+	self notify("deletesound");
 }
 
 /*
@@ -328,9 +328,9 @@ function deleteentonownerdeath(owner)
 {
 	self thread deleteentontimeout();
 	self thread deleteentaftertime();
-	self endon(#"delete");
-	owner waittill(#"death");
-	self notify(#"deletesound");
+	self endon("delete");
+	owner waittill("death");
+	self notify("deletesound");
 }
 
 /*
@@ -344,9 +344,9 @@ function deleteentonownerdeath(owner)
 */
 function deleteentaftertime()
 {
-	self endon(#"delete");
+	self endon("delete");
 	wait(10);
-	self notify(#"deletesound");
+	self notify("deletesound");
 }
 
 /*
@@ -360,8 +360,8 @@ function deleteentaftertime()
 */
 function deleteentontimeout()
 {
-	self endon(#"delete");
-	self waittill(#"deletesound");
+	self endon("delete");
+	self waittill("deletesound");
 	self delete();
 }
 
@@ -376,10 +376,10 @@ function deleteentontimeout()
 */
 function watch_death()
 {
-	self endon(#"disconnect");
-	self notify(#"proximity_cleanup");
-	self endon(#"proximity_cleanup");
-	self waittill(#"death");
+	self endon("disconnect");
+	self notify("proximity_cleanup");
+	self endon("proximity_cleanup");
+	self waittill("death");
 	self stoprumble("proximity_grenade");
 	self setblur(0, 0);
 	self util::show_hud(1);
@@ -434,13 +434,13 @@ function on_ai_spawned()
 */
 function begin_other_grenade_tracking()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self notify(#"proximitytrackingstart");
-	self endon(#"proximitytrackingstart");
+	self endon("death");
+	self endon("disconnect");
+	self notify("proximitytrackingstart");
+	self endon("proximitytrackingstart");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon, cooktime);
+		self waittill("grenade_fire", grenade, weapon, cooktime);
 		if(weapon.rootweapon.name == "electroball_grenade")
 		{
 			grenade thread watchproximitygrenadehitplayer(self);
@@ -459,10 +459,10 @@ function begin_other_grenade_tracking()
 */
 function function_cb55123a()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"delete");
-	self waittill(#"grenade_bounce");
+	self endon("death");
+	self endon("disconnect");
+	self endon("delete");
+	self waittill("grenade_bounce");
 	while(true)
 	{
 		var_82aacc64 = zm_elemental_zombie::function_d41418b8();
@@ -500,10 +500,10 @@ function function_cb55123a()
 */
 function function_658aacad()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"delete");
-	self waittill(#"grenade_bounce");
+	self endon("death");
+	self endon("disconnect");
+	self endon("delete");
+	self waittill("grenade_bounce");
 	self clientfield::set("electroball_stop_trail", 1);
 	self setmodel("tag_origin");
 	self clientfield::set("electroball_play_landed_fx", 1);

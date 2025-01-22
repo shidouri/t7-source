@@ -87,10 +87,10 @@ function on_player_connect()
 */
 function on_menu_response()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"menuresponse", menu, response);
+		self waittill("menuresponse", menu, response);
 		if(response == "back")
 		{
 			self closeingamemenu();

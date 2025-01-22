@@ -127,7 +127,7 @@ function function_83f44f5(ai_enemy, var_289e02fc)
 */
 function function_7fba300(e_player, var_289e02fc)
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.archetype === "mechz")
 	{
 		return;
@@ -174,11 +174,11 @@ function function_7fba300(e_player, var_289e02fc)
 */
 function function_982419bb(var_6ab83514)
 {
-	self endon(#"death");
+	self endon("death");
 	var_e1041201 = getweapon(var_6ab83514);
 	while(true)
 	{
-		self waittill(#"weapon_change", wpn_new, var_6de65145);
+		self waittill("weapon_change", wpn_new, var_6de65145);
 		if(wpn_new === var_e1041201)
 		{
 			if(!(isdefined(self.var_8b65be8c) && self.var_8b65be8c))
@@ -224,14 +224,14 @@ function function_982419bb(var_6ab83514)
 */
 function function_ececa597(var_6ab83514, var_8f9bdf29, var_5759faa5 = undefined)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(var_5759faa5))
 	{
 		return;
 	}
 	while(true)
 	{
-		self waittill(#"missile_fire", projectile, weapon);
+		self waittill("missile_fire", projectile, weapon);
 		if(issubstr(weapon.name, var_6ab83514))
 		{
 			self thread [[var_5759faa5]](projectile, weapon);
@@ -384,10 +384,10 @@ function function_ea37b2fe(str_weapon_name)
 */
 function function_7bc6b9d(var_6ab83514, var_8f9bdf29, var_332bb697 = undefined)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"projectile_impact", weapon, v_position, radius, e_projectile, normal);
+		self waittill("projectile_impact", weapon, v_position, radius, e_projectile, normal);
 		var_48369d98 = function_1796e73(weapon.name);
 		if(var_48369d98 == var_6ab83514 || var_48369d98 == var_8f9bdf29)
 		{
@@ -579,7 +579,7 @@ function function_5aec3adc(ai_enemy)
 */
 function function_d1e69389(var_63f884ec)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!(isdefined(self.knockdown) && self.knockdown) && (!(isdefined(self.missinglegs) && self.missinglegs)))
 	{
 		self.knockdown = 1;

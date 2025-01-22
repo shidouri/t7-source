@@ -120,7 +120,7 @@ function stopempeffects(localplayer, oldval, bwastimejump = 0)
 */
 function on_player_spawned(localclientnum)
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	localplayer = getlocalplayer(localclientnum);
 	if(localplayer != self)
 	{
@@ -178,7 +178,7 @@ function monitordistance(localclientnum)
 	localplayer = self;
 	localplayer endon(#"entityshutdown");
 	localplayer endon(#"end_emp_monitor_distance");
-	localplayer endon(#"team_changed");
+	localplayer endon("team_changed");
 	if(localplayer isempjammed() == 0)
 	{
 		return;

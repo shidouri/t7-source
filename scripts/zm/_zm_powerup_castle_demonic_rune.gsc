@@ -107,7 +107,7 @@ function __init__()
 function function_b11a0932(player)
 {
 	level flag::clear("demonic_rune_dropped");
-	level notify(#"demonic_rune_grabbed");
+	level notify("demonic_rune_grabbed");
 	player thread zm_powerups::powerup_vo("bonus_points_solo");
 }
 
@@ -122,9 +122,9 @@ function function_b11a0932(player)
 */
 function function_5b767c2()
 {
-	self endon(#"powerup_grabbed");
-	self endon(#"death");
-	self endon(#"powerup_reset");
+	self endon("powerup_grabbed");
+	self endon("death");
+	self endon("powerup_reset");
 	self zm_powerups::powerup_show(1);
 	wait_time = 1;
 	if(isdefined(level._powerup_timeout_custom_time))
@@ -165,8 +165,8 @@ function function_5b767c2()
 	}
 	level.var_923a3c95 = undefined;
 	level flag::clear("demonic_rune_dropped");
-	level notify(#"demonic_rune_timed_out");
-	self notify(#"powerup_timedout");
+	level notify("demonic_rune_timed_out");
+	self notify("powerup_timedout");
 	self zm_powerups::powerup_delete();
 }
 

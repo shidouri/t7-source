@@ -68,7 +68,7 @@ function wc_icon_setup(localclientnum)
 */
 function update_wc_icon_extracam(localclientnum)
 {
-	level endon(#"disconnect");
+	level endon("disconnect");
 	while(true)
 	{
 		level waittill("process_wc_icon_extracam_" + localclientnum, extracam_data_struct);

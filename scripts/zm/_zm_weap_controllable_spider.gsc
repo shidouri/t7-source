@@ -119,12 +119,12 @@ function function_160ff11f()
 */
 function function_b2a01f79()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	var_97cffdb4 = "zone_bunker_interior_elevator";
 	var_be85f81a = "zone_bunker_prison_entrance";
 	while(true)
 	{
-		self waittill(#"weapon_change", w_current, w_previous);
+		self waittill("weapon_change", w_current, w_previous);
 		if(w_current === level.w_controllable_spider)
 		{
 			if(!ispointonnavmesh(self.origin) || (isdefined(self.var_b0329be9) && self.var_b0329be9) || !self isonground())
@@ -167,7 +167,7 @@ function function_b2a01f79()
 */
 function function_40296c9b(w_previous)
 {
-	self notify(#"player_used_controllable_spider");
+	self notify("player_used_controllable_spider");
 	var_cbe49ee = util::spawn_model("p7_zm_isl_cocoon_standing", self.origin, self.angles);
 	var_cbe49ee clientfield::set("player_cocooned_fx", 1);
 	self.var_cbe49ee = var_cbe49ee;
@@ -209,8 +209,8 @@ function function_40296c9b(w_previous)
 */
 function function_5ce6002e(e_player, w_previous)
 {
-	e_player endon(#"disconnect");
-	self waittill(#"death");
+	e_player endon("disconnect");
+	self waittill("death");
 	var_cbe49ee = e_player.var_cbe49ee;
 	e_player freezecontrols(1);
 	e_player.ignoreme = 1;
@@ -236,13 +236,13 @@ function function_5ce6002e(e_player, w_previous)
 	e_player.ignoreme = 0;
 	while(true)
 	{
-		e_player waittill(#"weapon_change", w_current);
+		e_player waittill("weapon_change", w_current);
 		if(w_current == w_previous)
 		{
 			break;
 		}
 	}
-	e_player waittill(#"weapon_change_complete");
+	e_player waittill("weapon_change_complete");
 	e_player notify(#"hash_6181e737");
 	e_player.dontspeak = 0;
 	e_player clientfield::set_to_player("isspeaking", 0);
@@ -275,7 +275,7 @@ function function_5a1c08d0()
 */
 function function_4e8bb77d()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(60);
 	self dodamage(self.health + 1000, self.origin);
 }
@@ -291,7 +291,7 @@ function function_4e8bb77d()
 */
 function function_cb196021()
 {
-	self endon(#"death");
+	self endon("death");
 	if(level.round_number <= 30)
 	{
 		self.health = 200 * level.round_number;
@@ -313,8 +313,8 @@ function function_cb196021()
 */
 function function_a21f0b74()
 {
-	self.e_spider endon(#"death");
-	self endon(#"disconnect");
+	self.e_spider endon("death");
+	self endon("disconnect");
 	while(true)
 	{
 		if(self util::use_button_held())
@@ -340,7 +340,7 @@ function function_a21f0b74()
 */
 function function_e889b7()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level waittill(#"between_round_over");
 	n_ammo = self getammocount(level.w_controllable_spider);
 	if(n_ammo <= 0)

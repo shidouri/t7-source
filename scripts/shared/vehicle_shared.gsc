@@ -191,7 +191,7 @@ function trigger_process(trigger)
 			}
 			if(isdefined(other))
 			{
-				other notify(#"vehicle_flag_arrived", trigger.script_flag_set);
+				other notify("vehicle_flag_arrived", trigger.script_flag_set);
 			}
 			level flag::set(trigger.script_flag_set);
 		}
@@ -350,9 +350,9 @@ function path_detour(node)
 	}
 	if(crash_detour_check(detourpath))
 	{
-		self notify(#"crashpath", detourpath);
+		self notify("crashpath", detourpath);
 		detourpath.derailed = 1;
-		self notify(#"newpath");
+		self notify("newpath");
 		self setswitchnode(node, detourpath);
 		return;
 	}
@@ -605,11 +605,11 @@ function islastnode(node)
 */
 function paths(node)
 {
-	self endon(#"death");
+	self endon("death");
 	/#
 		assert(isdefined(node) || isdefined(self.attachedpath), "");
 	#/
-	self notify(#"newpath");
+	self notify("newpath");
 	if(isdefined(node))
 	{
 		self.attachedpath = node;
@@ -623,11 +623,11 @@ function paths(node)
 	/#
 		self thread debug_vehicle_paths();
 	#/
-	self endon(#"newpath");
+	self endon("newpath");
 	currentpoint = pathstart;
 	while(isdefined(currentpoint))
 	{
-		self waittill(#"reached_node", currentpoint);
+		self waittill("reached_node", currentpoint);
 		currentpoint enable_turrets(self);
 		if(!isdefined(self))
 		{
@@ -639,7 +639,7 @@ function paths(node)
 		{
 			self thread path_gate_wait_till_open(currentpoint);
 		}
-		currentpoint notify(#"trigger", self);
+		currentpoint notify("trigger", self);
 		if(isdefined(currentpoint.script_dropbombs) && currentpoint.script_dropbombs > 0)
 		{
 			amount = currentpoint.script_dropbombs;
@@ -653,12 +653,12 @@ function paths(node)
 			{
 				delaytrace = currentpoint.script_dropbombs_delaytrace;
 			}
-			self notify(#"drop_bombs", amount, delay, delaytrace);
+			self notify("drop_bombs", amount, delay, delaytrace);
 		}
 		if(isdefined(currentpoint.script_noteworthy))
 		{
 			self notify(currentpoint.script_noteworthy);
-			self notify(#"noteworthy", currentpoint.script_noteworthy);
+			self notify("noteworthy", currentpoint.script_noteworthy);
 		}
 		if(isdefined(currentpoint.script_notify))
 		{
@@ -677,7 +677,7 @@ function paths(node)
 				array::delete_all(self.riders);
 			}
 			self.delete_on_death = 1;
-			self notify(#"death");
+			self notify("death");
 			if(!isalive(self))
 			{
 				self delete();
@@ -750,7 +750,7 @@ function paths(node)
 		}
 		if(isdefined(currentpoint.script_turningdir))
 		{
-			self notify(#"turning", currentpoint.script_turningdir);
+			self notify("turning", currentpoint.script_turningdir);
 		}
 		if(isdefined(currentpoint.script_deathroll))
 		{
@@ -773,7 +773,7 @@ function paths(node)
 			{
 				self.vehicle_flags[currentpoint.script_flag_set] = 1;
 			}
-			self notify(#"vehicle_flag_arrived", currentpoint.script_flag_set);
+			self notify("vehicle_flag_arrived", currentpoint.script_flag_set);
 			level flag::set(currentpoint.script_flag_set);
 		}
 		if(isdefined(currentpoint.script_flag_clear))
@@ -814,7 +814,7 @@ function paths(node)
 				self.vehicle_flags = [];
 			}
 			self.vehicle_flags[currentpoint.script_flag_wait] = 1;
-			self notify(#"vehicle_flag_arrived", currentpoint.script_flag_wait);
+			self notify("vehicle_flag_arrived", currentpoint.script_flag_wait);
 			self flag::set("waiting_for_flag");
 			if(!level flag::get(currentpoint.script_flag_wait))
 			{
@@ -856,7 +856,7 @@ function paths(node)
 		}
 		resume_path();
 	}
-	self notify(#"reached_dynamic_path_end");
+	self notify("reached_dynamic_path_end");
 	if(isdefined(self.script_delete))
 	{
 		self delete();
@@ -1045,7 +1045,7 @@ function get_on_and_go_path(path_start)
 */
 function go_path()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_117fe2f2");
 	if(self.isphysicsvehicle)
 	{
@@ -1064,7 +1064,7 @@ function go_path()
 	}
 	self.hasstarted = 1;
 	self util::script_delay();
-	self notify(#"start_vehiclepath");
+	self notify("start_vehiclepath");
 	if(isdefined(self.drivepath) && self.drivepath)
 	{
 		self drivepath(self.attachedpath);
@@ -1075,7 +1075,7 @@ function go_path()
 	}
 	wait(0.05);
 	self connect_paths();
-	self waittill(#"reached_end_node");
+	self waittill("reached_end_node");
 	if(self.disconnectpathonstop === 1 && !issentient(self))
 	{
 		self disconnect_paths(self.disconnectpathdetail);
@@ -1112,7 +1112,7 @@ function path_gate_open(node)
 */
 function path_gate_wait_till_open(pathspot)
 {
-	self endon(#"death");
+	self endon("death");
 	self.waitingforgate = 1;
 	self set_speed(0, 15, "path gate closed");
 	pathspot waittill(#"hash_91ff5153");
@@ -1499,7 +1499,7 @@ function enable_turrets(veh = self)
 */
 function enable_auto_disconnect_path()
 {
-	self notify(#"kill_disconnect_paths_forever");
+	self notify("kill_disconnect_paths_forever");
 	self.disconnectpathonstop = 0;
 	self thread _disconnect_paths_when_stopped();
 }
@@ -1525,8 +1525,8 @@ function _disconnect_paths_when_stopped()
 		self.disconnectpathonstop = 0;
 		return;
 	}
-	self endon(#"death");
-	self endon(#"kill_disconnect_paths_forever");
+	self endon("death");
+	self endon("kill_disconnect_paths_forever");
 	wait(1);
 	threshold = 3;
 	while(isdefined(self))
@@ -1536,7 +1536,7 @@ function _disconnect_paths_when_stopped()
 			if(self.disconnectpathonstop === 1)
 			{
 				self disconnect_paths(self.disconnectpathdetail);
-				self notify(#"speed_zero_path_disconnect");
+				self notify("speed_zero_path_disconnect");
 			}
 			while(lengthsquared(self.velocity) < (threshold * threshold))
 			{
@@ -1587,7 +1587,7 @@ function debug_set_speed(speed, rate, msg)
 		self notify(#"hash_3790d3c8");
 		self endon(#"hash_3790d3c8");
 		self endon(#"hash_eeaec2a0");
-		self endon(#"death");
+		self endon("death");
 		while(true)
 		{
 			while(getdvarstring("") != "")
@@ -1611,7 +1611,7 @@ function debug_set_speed(speed, rate, msg)
 */
 function script_resume_speed(msg, rate)
 {
-	self endon(#"death");
+	self endon("death");
 	fsetspeed = 0;
 	type = "resumespeed";
 	if(!isdefined(self.resumemsgs))
@@ -1662,7 +1662,7 @@ function debug_resume(msg)
 		{
 			return;
 		}
-		self endon(#"death");
+		self endon("death");
 		number = self.resumemsgs.size;
 		self.resumemsgs[number] = msg;
 		self thread print_resume_speed(gettime() + (3 * 1000));
@@ -1690,9 +1690,9 @@ function debug_resume(msg)
 */
 function print_resume_speed(timer)
 {
-	self notify(#"newresumespeedmsag");
-	self endon(#"newresumespeedmsag");
-	self endon(#"death");
+	self notify("newresumespeedmsag");
+	self endon("newresumespeedmsag");
+	self endon("death");
 	while(gettime() < timer && isdefined(self.resumemsgs))
 	{
 		if(self.resumemsgs.size > 6)
@@ -2117,7 +2117,7 @@ function play_looped_fx_on_tag(effect, durration, tag)
 {
 	emodel = get_dummy();
 	effectorigin = sys::spawn("script_origin", emodel.origin);
-	self endon(#"fire_extinguish");
+	self endon("fire_extinguish");
 	thread _play_looped_fx_on_tag_origin_update(tag, effectorigin);
 	while(true)
 	{
@@ -2391,9 +2391,9 @@ function friendly_fire_shield_callback(attacker, amount, type)
 */
 function _vehicle_bad_place()
 {
-	self endon(#"kill_badplace_forever");
-	self endon(#"death");
-	self endon(#"delete");
+	self endon("kill_badplace_forever");
+	self endon("death");
+	self endon("delete");
 	if(isdefined(level.custombadplacethread))
 	{
 		self thread [[level.custombadplacethread]]();
@@ -2518,7 +2518,7 @@ function land()
 	self cleargoalyaw();
 	self settargetyaw((0, self.angles[1], 0)[1]);
 	self set_goal_pos(bullettrace(self.origin, self.origin + (vectorscale((0, 0, -1), 100000)), 0, self)["position"], 1);
-	self waittill(#"goal");
+	self waittill("goal");
 }
 
 /*
@@ -2557,7 +2557,7 @@ function liftoff(height = 512)
 	dest = self.origin + (0, 0, height);
 	self setneargoalnotifydist(10);
 	self set_goal_pos(dest, 1);
-	self waittill(#"goal");
+	self waittill("goal");
 }
 
 /*
@@ -2668,9 +2668,9 @@ function unload_node_helicopter(node)
 	drop_offset = self gettagorigin("tag_origin") - self gettagorigin(drop_offset_tag);
 	goal = goal + (drop_offset[0], drop_offset[1], 0);
 	self setvehgoalpos(goal, 1);
-	self waittill(#"goal");
-	self notify(#"unload", self.nextnode.script_unload);
-	self waittill(#"unloaded");
+	self waittill("goal");
+	self notify("unload", self.nextnode.script_unload);
+	self waittill("unloaded");
 }
 
 /*
@@ -2685,7 +2685,7 @@ function unload_node_helicopter(node)
 function detach_path()
 {
 	self.attachedpath = undefined;
-	self notify(#"newpath");
+	self notify("newpath");
 	self setgoalyaw((0, self.angles[1], 0)[1]);
 	self setvehgoalpos(self.origin + vectorscale((0, 0, 1), 4), 1);
 }
@@ -2861,9 +2861,9 @@ function spawn(modelname, targetname, vehicletype, origin, angles, destructibled
 */
 function aircraft_dust_kickup(model)
 {
-	self endon(#"death");
-	self endon(#"death_finished");
-	self endon(#"stop_kicking_up_dust");
+	self endon("death");
+	self endon("death_finished");
+	self endon("stop_kicking_up_dust");
 	/#
 		assert(isdefined(self.vehicletype));
 	#/
@@ -2978,10 +2978,10 @@ function maingun_fx()
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
-		self waittill(#"weapon_fired");
+		self waittill("weapon_fired");
 		playfxontag(level.vehicle_deckdust[self.model], self, "tag_engine_exhaust");
 		barrel_origin = self gettagorigin("tag_flash");
 		ground = physicstrace(barrel_origin, barrel_origin + (vectorscale((0, 0, -1), 128)));
@@ -3420,7 +3420,7 @@ function is_destructible()
 */
 function attack_group_think()
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"hash_11675b4c");
 	self endon(#"hash_9696a8ad");
 	if(isdefined(self.script_vehicleattackgroupwait))
@@ -3534,7 +3534,7 @@ function get_nearest_target(valid_targets)
 function debug_vehicle()
 {
 	/#
-		self endon(#"death");
+		self endon("death");
 		if(getdvarstring("") == "")
 		{
 			setdvar("", "");
@@ -3562,9 +3562,9 @@ function debug_vehicle()
 function debug_vehicle_paths()
 {
 	/#
-		self endon(#"death");
-		self endon(#"newpath");
-		self endon(#"reached_dynamic_path_end");
+		self endon("death");
+		self endon("newpath");
+		self endon("reached_dynamic_path_end");
 		nextnode = self.currentnode;
 		while(true)
 		{
@@ -3879,7 +3879,7 @@ function private _watch_for_hijacked_vehicles()
 {
 	while(true)
 	{
-		level waittill(#"clonedentity", clone);
+		level waittill("clonedentity", clone);
 		str_targetname = clone.targetname;
 		if(isdefined(str_targetname) && strendswith(str_targetname, "_ai"))
 		{
@@ -3994,13 +3994,13 @@ function remove_from_target_group(target_ent)
 function monitor_missiles_locked_on_to_me(player, wait_time = 0.1)
 {
 	monitored_entity = self;
-	monitored_entity endon(#"death");
+	monitored_entity endon("death");
 	/#
 		assert(isdefined(monitored_entity.target_group), "");
 	#/
-	player endon(#"stop_monitor_missile_locked_on_to_me");
-	player endon(#"disconnect");
-	player endon(#"joined_team");
+	player endon("stop_monitor_missile_locked_on_to_me");
+	player endon("disconnect");
+	player endon("joined_team");
 	while(true)
 	{
 		closest_attacker = player get_closest_attacker_with_missile_locked_on_to_me(monitored_entity);
@@ -4020,7 +4020,7 @@ function monitor_missiles_locked_on_to_me(player, wait_time = 0.1)
 */
 function stop_monitor_missiles_locked_on_to_me()
 {
-	self notify(#"stop_monitor_missile_locked_on_to_me");
+	self notify("stop_monitor_missile_locked_on_to_me");
 }
 
 /*
@@ -4129,7 +4129,7 @@ function update_damage_as_occupant(damage_taken, max_health)
 */
 function stop_monitor_damage_as_occupant()
 {
-	self notify(#"stop_monitor_damage_as_occupant");
+	self notify("stop_monitor_damage_as_occupant");
 }
 
 /*
@@ -4143,10 +4143,10 @@ function stop_monitor_damage_as_occupant()
 */
 function monitor_damage_as_occupant(player)
 {
-	player endon(#"disconnect");
-	player notify(#"stop_monitor_damage_as_occupant");
-	player endon(#"stop_monitor_damage_as_occupant");
-	self endon(#"death");
+	player endon("disconnect");
+	player notify("stop_monitor_damage_as_occupant");
+	player endon("stop_monitor_damage_as_occupant");
+	self endon("death");
 	if(!isdefined(self.maxhealth))
 	{
 		self.maxhealth = self.healthdefault;
@@ -4155,7 +4155,7 @@ function monitor_damage_as_occupant(player)
 	player update_damage_as_occupant(self.maxhealth - self.health, self.maxhealth);
 	while(true)
 	{
-		self waittill(#"damage");
+		self waittill("damage");
 		waittillframeend();
 		player update_damage_as_occupant(self.maxhealth - self.health, self.maxhealth);
 	}

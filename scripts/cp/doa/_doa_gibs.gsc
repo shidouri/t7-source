@@ -126,7 +126,7 @@ function function_45dffa6b(launchvector)
 */
 function function_deb7df37()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.animname == "quad_zombie")
 	{
 		return;
@@ -323,7 +323,7 @@ function function_15a268a6(attacker, damage, meansofdeath, weapon, hitloc, vdir)
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	isexplosive = isinarray(level.doa.var_1a7175b1, meansofdeath);
 	trygibbinglimb(self, damage, hitloc, isexplosive);
 	trygibbinglegs(self, damage, hitloc, isexplosive, attacker);

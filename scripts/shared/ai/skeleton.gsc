@@ -321,7 +321,7 @@ function is_within_fov(start_origin, start_angles, end_origin, fov)
 */
 function skeletoncanseeplayer(player)
 {
-	self endon(#"death");
+	self endon("death");
 	if(!isdefined(self.players_viscache))
 	{
 		self.players_viscache = [];
@@ -521,7 +521,7 @@ function skeletonsetgoal(goal)
 */
 function skeletontargetservice(behaviortreeentity)
 {
-	self endon(#"death");
+	self endon("death");
 	if(isdefined(behaviortreeentity.ignoreall) && behaviortreeentity.ignoreall)
 	{
 		return false;

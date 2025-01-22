@@ -30,7 +30,7 @@ function function_cdfa9ce8(bird)
 {
 	bird notify(#"hash_cf62504");
 	bird endon(#"hash_cf62504");
-	bird endon(#"death");
+	bird endon("death");
 	bird useanimtree($critter);
 	curanim = %critter::a_chicken_react_up_down;
 	lastanim = %critter::a_chicken_idle_peck;
@@ -161,7 +161,7 @@ function add_a_chicken(model, scale, fated, var_5c667593)
 		{
 			if(!(isdefined(chicken.special) && chicken.special))
 			{
-				chicken notify(#"spin_out");
+				chicken notify("spin_out");
 				break;
 			}
 		}
@@ -201,7 +201,7 @@ function function_8397461e()
 		{
 			continue;
 		}
-		bird notify(#"spin_out", 1);
+		bird notify("spin_out", 1);
 	}
 }
 
@@ -216,8 +216,8 @@ function function_8397461e()
 */
 function function_d7142cd(player)
 {
-	self endon(#"death");
-	player waittill(#"disconnect");
+	self endon("death");
+	player waittill("disconnect");
 	if(isdefined(self.special) && self.special)
 	{
 		if(isdefined(self.bird))
@@ -228,7 +228,7 @@ function function_d7142cd(player)
 	}
 	else
 	{
-		self notify(#"spin_out");
+		self notify("spin_out");
 	}
 }
 
@@ -249,10 +249,10 @@ function function_3118ca4d(player)
 	}
 	self notify(#"hash_3118ca4d");
 	self endon(#"hash_3118ca4d");
-	self endon(#"death");
-	self waittill(#"spin_out", immediate);
+	self endon("death");
+	self waittill("spin_out", immediate);
 	waittillframeend();
-	self notify(#"spinning_out");
+	self notify("spinning_out");
 	arrayremovevalue(player.doa.var_3cdd8203, self);
 	if(!(isdefined(immediate) && immediate))
 	{
@@ -318,8 +318,8 @@ function function_4dd46e10(&follow_points, num_follow_points)
 */
 function function_e636d9c5(player)
 {
-	self endon(#"death");
-	player endon(#"disconnect");
+	self endon("death");
+	player endon("disconnect");
 	while(true)
 	{
 		level waittill(#"hash_31680c6");
@@ -350,8 +350,8 @@ function function_e636d9c5(player)
 */
 function function_44ff9baa(player)
 {
-	self endon(#"death");
-	self endon(#"spinning_out");
+	self endon("death");
+	self endon("spinning_out");
 	follow_index = 0;
 	next_index = follow_index + 1;
 	num_follow_points = getdvarint("scr_doa_max_chicken_points", 5);
@@ -426,8 +426,8 @@ function function_44ff9baa(player)
 */
 function function_8b81d592(player)
 {
-	self endon(#"spinning_out");
-	self endon(#"death");
+	self endon("spinning_out");
+	self endon("death");
 	time = level.doa.rules.var_da7e08a6 * 1000;
 	if(player.doa.fate == 3 || player.doa.fate == 12)
 	{
@@ -439,11 +439,11 @@ function function_8b81d592(player)
 	{
 		if(!isdefined(player))
 		{
-			self notify(#"spin_out");
+			self notify("spin_out");
 		}
 		if(level flag::get("doa_game_is_over"))
 		{
-			self notify(#"spin_out");
+			self notify("spin_out");
 		}
 		wait(0.05);
 	}
@@ -451,7 +451,7 @@ function function_8b81d592(player)
 	{
 		wait(1);
 	}
-	self notify(#"spin_out");
+	self notify("spin_out");
 }
 
 /*
@@ -562,8 +562,8 @@ function function_be58e20c(player)
 */
 function function_8fb467a7(player)
 {
-	self endon(#"death");
-	self endon(#"spinning_out");
+	self endon("death");
+	self endon("spinning_out");
 	self thread function_be58e20c(player);
 	while(true)
 	{
@@ -622,8 +622,8 @@ function private function_cea0c915(player, weapon)
 */
 function function_da8e9c9b()
 {
-	self endon(#"spinning_out");
-	self endon(#"death");
+	self endon("spinning_out");
+	self endon("death");
 	while(isdefined(self))
 	{
 		rand = randomintrange(0, 100);
@@ -650,8 +650,8 @@ function function_da8e9c9b()
 */
 function function_4ef3ec52()
 {
-	self endon(#"death");
-	self waittill(#"spinning_out");
+	self endon("death");
+	self waittill("spinning_out");
 	while(isdefined(self))
 	{
 		self thread namespace_1a381543::function_90118d8c("zmb_dblshot_wingflap");
@@ -678,7 +678,7 @@ function function_9d2031fa()
 	{
 		if(msg == "disconnect" || (!(isdefined(chicken.special) && chicken.special)))
 		{
-			chicken notify(#"spin_out");
+			chicken notify("spin_out");
 		}
 	}
 }
@@ -763,11 +763,11 @@ function function_bd97e9ba(player)
 */
 function function_c397fab3(player)
 {
-	self endon(#"death");
-	self endon(#"spinning_out");
+	self endon("death");
+	self endon("spinning_out");
 	while(true)
 	{
-		player waittill(#"player_died");
+		player waittill("player_died");
 		/#
 			doa_utility::debugmsg("");
 		#/
@@ -801,8 +801,8 @@ function function_c397fab3(player)
 */
 function function_cff32183(player)
 {
-	self endon(#"death");
-	self endon(#"spinning_out");
+	self endon("death");
+	self endon("spinning_out");
 	self.var_fe6ede28 = 0;
 	self.var_5c667593 = 1;
 	self thread function_c397fab3(player);
@@ -880,8 +880,8 @@ function function_cff32183(player)
 */
 function function_2d0f96ef(player)
 {
-	self endon(#"death");
-	self endon(#"spinning_out");
+	self endon("death");
+	self endon("spinning_out");
 	/#
 		doa_utility::debugmsg("" + self getentitynumber());
 	#/
@@ -956,8 +956,8 @@ function function_2d0f96ef(player)
 */
 function private function_5af02c44(target, num, offset)
 {
-	self endon(#"death");
-	self endon(#"spinning_out");
+	self endon("death");
+	self endon("spinning_out");
 	self.var_efa2b784 = 1;
 	self.var_18845184 = 1;
 	anim_ang = vectortoangles(target.origin - self.origin);
@@ -1067,7 +1067,7 @@ function function_d63bdb9(hop)
 */
 function function_4c41e6af()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		var_9c9d6a5c = doa_utility::getarrayitemswithin(self.origin, getaiteamarray("axis"), 2304);
@@ -1109,7 +1109,7 @@ function function_4c41e6af()
 */
 function function_7b8c015c()
 {
-	self endon(#"death");
+	self endon("death");
 	if(self.def.type == 36)
 	{
 		self.prize = level.doa.extra_life_model;
@@ -1127,7 +1127,7 @@ function function_7b8c015c()
 	self.threatbias = 0;
 	doa_utility::function_5fd5c3ea(self);
 	self.var_b2290d2d = 1;
-	self waittill(#"pickup_timeout");
+	self waittill("pickup_timeout");
 	wait(1);
 	self thread namespace_1a381543::function_90118d8c("zmb_egg_hatch");
 	self thread namespace_eaa992c::function_285a2999("egg_hatch");

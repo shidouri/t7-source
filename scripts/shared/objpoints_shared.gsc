@@ -229,7 +229,7 @@ function get_by_index(index)
 */
 function start_flashing()
 {
-	self endon(#"stop_flashing_thread");
+	self endon("stop_flashing_thread");
 	if(self.isflashing)
 	{
 		return;

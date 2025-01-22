@@ -68,7 +68,7 @@ function main()
 */
 function run_door_fxanim(str_flag, str_scene, str_exploder)
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	level flag::wait_till(str_flag);
 	if(isdefined(str_scene))
 	{

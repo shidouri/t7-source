@@ -62,8 +62,8 @@ function on_player_spawned()
 */
 function armblade_sound_thread()
 {
-	self endon(#"disconnect");
-	self endon(#"death");
+	self endon("disconnect");
+	self endon("death");
 	for(;;)
 	{
 		result = self util::waittill_any_return("weapon_change", "disconnect");

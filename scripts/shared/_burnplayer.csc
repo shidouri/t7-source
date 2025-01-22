@@ -218,7 +218,7 @@ function burn_on_postfx()
 {
 	self endon(#"entityshutdown");
 	self endon(#"burn_off");
-	self endon(#"death");
+	self endon("death");
 	self notify(#"burn_on_postfx");
 	self endon(#"burn_on_postfx");
 	self thread postfx::playpostfxbundle("pstfx_burn_loop");

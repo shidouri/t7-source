@@ -117,7 +117,7 @@ function private function_7854f310()
 */
 function private function_72fad482()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		if(isdefined(self.zone_name))
@@ -419,7 +419,7 @@ function private stalingrad_closest_player(origin, players)
 */
 function private update_closest_player()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		reset_closest_player = 1;
@@ -457,8 +457,8 @@ function private update_closest_player()
 */
 function function_b10a912a()
 {
-	self endon(#"death");
-	self waittill(#"completed_spawning");
+	self endon("death");
+	self waittill("completed_spawning");
 	if(isdefined(self.s_spawn_loc) && issubstr(self.s_spawn_loc.targetname, "pavlov"))
 	{
 		self.should_buff_zombies = 1;
@@ -495,7 +495,7 @@ function function_ec1b37df()
 */
 function function_cec23cbf()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	n_current_time = gettime();
 	var_36eeba73 = 0;
 	var_c48f3f8a = 0;
@@ -543,7 +543,7 @@ function function_cec23cbf()
 		}
 		if(!level flag::get("spawn_zombies"))
 		{
-			level waittill(#"spawn_zombies");
+			level waittill("spawn_zombies");
 		}
 		n_current_time = gettime();
 		var_a62c1873 = 0;
@@ -699,7 +699,7 @@ function function_3de9d297()
 */
 function function_9b4d9341()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	while(true)
 	{
 		if(flag::exists("world_is_paused"))
@@ -808,10 +808,10 @@ function function_a442e988(e_player)
 	{
 		level.var_dc87592f = 1;
 		var_d7b33d0c thread function_f05eb36e();
-		var_d7b33d0c endon(#"death");
+		var_d7b33d0c endon("death");
 		ai_sentinel flag::wait_till("completed_spawning");
 		var_d7b33d0c sentinel_drone::sentinel_forcegoandstayinposition(1, level.var_44d3a45c.origin);
-		var_d7b33d0c waittill(#"goal");
+		var_d7b33d0c waittill("goal");
 		var_d7b33d0c.origin = level.var_ca793258.origin;
 		var_d7b33d0c sentinel_drone::sentinel_forcegoandstayinposition(0);
 		var_d7b33d0c.should_buff_zombies = 0;
@@ -834,7 +834,7 @@ function function_a442e988(e_player)
 */
 function function_f05eb36e()
 {
-	self waittill(#"death");
+	self waittill("death");
 	level.var_dc87592f = 0;
 }
 

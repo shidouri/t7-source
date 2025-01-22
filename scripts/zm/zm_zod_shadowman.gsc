@@ -376,7 +376,7 @@ function function_b6c7fd80()
 	while(true)
 	{
 		self.var_93dad597.health = 1000000;
-		self.var_93dad597 waittill(#"damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
+		self.var_93dad597 waittill("damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
 		playfx(level._effect["shadowman_impact_fx"], point);
 		var_90530d3 = var_90530d3 + amount;
 		var_6b401aad = 0;
@@ -1103,7 +1103,7 @@ function function_4ef376eb(s_spawnpoint)
 */
 function function_33ddc9ed(n_location_index)
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		s_pod = undefined;
@@ -1117,7 +1117,7 @@ function function_33ddc9ed(n_location_index)
 		self vehicle_ai::set_state("scripted");
 		goal = self getclosestpointonnavvolume(s_pod.origin + vectorscale((0, 0, 1), 32), 50);
 		self setvehgoalpos(goal, 0, 1);
-		self waittill(#"goal");
+		self waittill("goal");
 		if(isdefined(s_pod.var_9a8117f3) && s_pod.var_9a8117f3)
 		{
 			s_pod.buff = 1;
@@ -1243,7 +1243,7 @@ function function_7a4cf63(s_spawnpoint, var_8388cfbb)
 */
 function function_4a3d00d6(goal)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(5);
 	self vehicle_ai::set_state("scripted");
 	goal = getclosestpointonnavmesh(goal, 50);
@@ -1262,7 +1262,7 @@ function function_4a3d00d6(goal)
 */
 function function_75c9aad2(var_8388cfbb, n_radius, var_9c795730 = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	var_699d80d5 = n_radius * n_radius;
 	while(true)
 	{
@@ -1310,7 +1310,7 @@ function function_82fc1cb2(e_fx_origin)
 */
 function function_27bb9b3b()
 {
-	self endon(#"death");
+	self endon("death");
 	self.script_string = "find_flesh";
 	self setphysparams(15, 0, 72);
 	self.ignore_enemy_count = 1;
@@ -1321,7 +1321,7 @@ function function_27bb9b3b()
 	util::wait_network_frame();
 	self clientfield::set("status_fx", 1);
 	find_flesh_struct_string = "find_flesh";
-	self notify(#"zombie_custom_think_done", find_flesh_struct_string);
+	self notify("zombie_custom_think_done", find_flesh_struct_string);
 }
 
 /*
@@ -1335,7 +1335,7 @@ function function_27bb9b3b()
 */
 function function_827ad6f()
 {
-	self waittill(#"death", attacker, mod, weapon, point);
+	self waittill("death", attacker, mod, weapon, point);
 	if(!isdefined(self))
 	{
 		return;
@@ -1632,7 +1632,7 @@ function private function_48fccb59(var_7478a6b4 = undefined)
 	}
 	while(isdefined(self))
 	{
-		self.trigger waittill(#"trigger", guy);
+		self.trigger waittill("trigger", guy);
 		if(isdefined(self))
 		{
 			playfx(level._effect["cursetrap_explosion"], self.origin);
@@ -1666,7 +1666,7 @@ function private function_9cfe9b22(v_origin, v_target)
 	e_fx = zm_zod_util::tag_origin_allocate(v_origin, (0, 0, 0));
 	e_fx clientfield::set("zod_egg_soul", 1);
 	e_fx moveto(v_target, 1);
-	e_fx waittill(#"movedone");
+	e_fx waittill("movedone");
 	wait(0.25);
 	e_fx clientfield::set("zod_egg_soul", 0);
 	e_fx zm_zod_util::tag_origin_free();

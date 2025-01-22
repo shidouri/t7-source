@@ -86,9 +86,9 @@ function play(animation, v_origin_or_ent, v_angles_or_tag, n_rate = 1, n_blend_i
 	{
 		return;
 	}
-	self endon(#"death");
+	self endon("death");
 	self thread _play(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp, n_start_time, b_show_player_firstperson_weapon, b_unlink_after_completed);
-	self waittill(#"scriptedanim");
+	self waittill("scriptedanim");
 }
 
 /*
@@ -152,9 +152,9 @@ function debug_print(str_animation, str_msg)
 */
 function _play(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp, n_start_time, b_show_player_firstperson_weapon, b_unlink_after_completed)
 {
-	self endon(#"death");
-	self notify(#"new_scripted_anim");
-	self endon(#"new_scripted_anim");
+	self endon("death");
+	self notify("new_scripted_anim");
+	self endon("new_scripted_anim");
 	/#
 		debug_print(animation, "");
 	#/
@@ -271,10 +271,10 @@ function _play(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, 
 */
 function _blend_out(animation, n_blend, n_rate, n_start_time)
 {
-	self endon(#"death");
+	self endon("death");
 	self endon(#"end");
-	self endon(#"scriptedanim");
-	self endon(#"new_scripted_anim");
+	self endon("scriptedanim");
+	self endon("new_scripted_anim");
 	n_server_length = (floor(getanimlength(animation) / 0.05)) * 0.05;
 	while(true)
 	{
@@ -389,10 +389,10 @@ function teleport(animation, v_origin_or_ent, v_angles_or_tag, time = 0)
 */
 function reach(animation, v_origin_or_ent, v_angles_or_tag, b_disable_arrivals = 0)
 {
-	self endon(#"death");
+	self endon("death");
 	s_tracker = spawnstruct();
 	self thread _reach(s_tracker, animation, v_origin_or_ent, v_angles_or_tag, b_disable_arrivals);
-	s_tracker waittill(#"done");
+	s_tracker waittill("done");
 }
 
 /*
@@ -406,9 +406,9 @@ function reach(animation, v_origin_or_ent, v_angles_or_tag, b_disable_arrivals =
 */
 function _reach(s_tracker, animation, v_origin_or_ent, v_angles_or_tag, b_disable_arrivals = 0)
 {
-	self endon(#"death");
-	self notify(#"stop_going_to_node");
-	self notify(#"new_anim_reach");
+	self endon("death");
+	self notify("stop_going_to_node");
+	self notify("new_anim_reach");
 	flagsys::wait_till_clear("anim_reach");
 	flagsys::set("anim_reach");
 	s = _get_align_pos(v_origin_or_ent, v_angles_or_tag);
@@ -453,8 +453,8 @@ function _reach(s_tracker, animation, v_origin_or_ent, v_angles_or_tag, b_disabl
 		ai::set_behavior_attribute("vignette_mode", "off");
 	}
 	flagsys::clear("anim_reach");
-	s_tracker notify(#"done");
-	self notify(#"reach_done");
+	s_tracker notify("done");
+	self notify("reach_done");
 }
 
 /*
@@ -469,11 +469,11 @@ function _reach(s_tracker, animation, v_origin_or_ent, v_angles_or_tag, b_disabl
 function debug_anim_reach()
 {
 	/#
-		self endon(#"death");
-		self endon(#"goal");
-		self endon(#"new_anim_reach");
-		self endon(#"new_scripted_anim");
-		self endon(#"stop_scripted_anim");
+		self endon("death");
+		self endon("goal");
+		self endon("new_anim_reach");
+		self endon("new_scripted_anim");
+		self endon("stop_scripted_anim");
 		while(true)
 		{
 			level flagsys::wait_till("");
@@ -494,7 +494,7 @@ function debug_anim_reach()
 */
 function set_death_anim(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp)
 {
-	self notify(#"new_death_anim");
+	self notify("new_death_anim");
 	if(isdefined(animation))
 	{
 		self.skipdeath = 1;
@@ -517,8 +517,8 @@ function set_death_anim(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_b
 */
 function _do_death_anim(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp)
 {
-	self endon(#"new_death_anim");
-	self waittill(#"death");
+	self endon("new_death_anim");
+	self waittill("death");
 	if(isdefined(self) && !self isragdoll())
 	{
 		self play(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp);
@@ -708,8 +708,8 @@ function setup_notetracks()
 */
 function handle_notetracks(animation)
 {
-	self endon(#"death");
-	self endon(#"new_scripted_anim");
+	self endon("death");
+	self endon("new_scripted_anim");
 	while(true)
 	{
 		self waittill(animation, str_note, param1, param2);

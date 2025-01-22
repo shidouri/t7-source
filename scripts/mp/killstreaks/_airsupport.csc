@@ -18,7 +18,7 @@
 */
 function planesounds(localclientnum, spawnsound, flybysound, flybysoundloop)
 {
-	self endon(#"delete");
+	self endon("delete");
 	playsound(0, spawnsound, (0, 0, 0));
 	if(isdefined(flybysound))
 	{
@@ -81,7 +81,7 @@ function planeturnleft(localclientnum, plane, yaw, halflife, starttime)
 */
 function planeturn(localclientnum, plane, yaw, halflife, starttime, isturningright)
 {
-	plane endon(#"delete");
+	plane endon("delete");
 	plane endon(#"entityshutdown");
 	level endon("demo_jump" + localclientnum);
 	leftturn = -1;
@@ -137,7 +137,7 @@ function planeturn(localclientnum, plane, yaw, halflife, starttime, isturningrig
 		endpoint = (origx + rotatedx, origy + rotatedy, plane.origin[2]);
 		if(waitformovedone)
 		{
-			plane waittill(#"movedone");
+			plane waittill("movedone");
 		}
 		waitformovedone = plane rewindobjects::servertimedmoveto(localclientnum, plane.origin, endpoint, starttime, waitamount);
 		plane rewindobjects::servertimedrotateto(localclientnum, angles, starttime, waitamount);
@@ -179,7 +179,7 @@ function planeturn(localclientnum, plane, yaw, halflife, starttime, isturningrig
 		endpoint = (origx + rotatedx, origy + rotatedy, plane.origin[2]);
 		if(waitformovedone)
 		{
-			plane waittill(#"movedone");
+			plane waittill("movedone");
 		}
 		waitformovedone = plane rewindobjects::servertimedmoveto(localclientnum, plane.origin, endpoint, starttime, waitamount);
 		plane rewindobjects::servertimedrotateto(localclientnum, angles, starttime, waitamount);
@@ -200,8 +200,8 @@ function planeturn(localclientnum, plane, yaw, halflife, starttime, isturningrig
 function doabarrelroll(localclientnum, plane, endpoint, flytime, starttime)
 {
 	plane endon(#"entityshutdown");
-	plane endon(#"delete");
-	level endon(#"demo_jump");
+	plane endon("delete");
+	level endon("demo_jump");
 	origin = plane.origin;
 	originalheight = origin[2];
 	loopwaittime = getdvarfloat("scr_loopwaittime", 0.5);
@@ -242,7 +242,7 @@ function doabarrelroll(localclientnum, plane, endpoint, flytime, starttime)
 		nextpoint = (nextpoint[0], nextpoint[1], nextheight);
 		if(waitformovedone)
 		{
-			plane waittill(#"movedone");
+			plane waittill("movedone");
 		}
 		waitformovedone = plane rewindobjects::servertimedmoveto(localclientnum, plane.origin, nextpoint, starttime, waitamount);
 		plane rewindobjects::servertimedrotateto(localclientnum, angles, starttime, waitamount);
@@ -261,13 +261,13 @@ function doabarrelroll(localclientnum, plane, endpoint, flytime, starttime)
 */
 function planegostraight(localclientnum, plane, startpoint, endpoint, movetime, starttime)
 {
-	plane endon(#"delete");
-	level endon(#"demo_jump");
+	plane endon("delete");
+	level endon("demo_jump");
 	distanceincreaseratio = 2;
 	destpoint = rewindobjects::getpointonline(startpoint, endpoint, distanceincreaseratio);
 	if(plane rewindobjects::servertimedmoveto(localclientnum, startpoint, destpoint, starttime, movetime))
 	{
-		plane waittill(#"movedone");
+		plane waittill("movedone");
 	}
 }
 

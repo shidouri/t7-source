@@ -153,7 +153,7 @@ function function_74395f6a(localclientnum, str_fx_name)
 {
 	self notify(#"hash_74395f6a");
 	self endon(#"hash_74395f6a");
-	level waittill(#"demo_plplayer_change", lcn, var_fcf6978f, newplayer);
+	level waittill("demo_plplayer_change", lcn, var_fcf6978f, newplayer);
 	var_fcf6978f function_e5c5e30(localclientnum, str_fx_name);
 }
 

@@ -140,7 +140,7 @@ function function_f29a5d3a()
 */
 function function_bcac2659()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	var_5d7a99d0 = getentarray("power_grid_display", "targetname");
 	array::thread_all(var_5d7a99d0, &function_11da2524);
 	level thread function_28753fd1();
@@ -493,7 +493,7 @@ function function_d46b0523(e_player, var_f5f4e9cc)
 */
 function function_fec7f142()
 {
-	self endon(#"death");
+	self endon("death");
 	level endon(#"hash_fb60eed2");
 	self thread function_7b3cac15();
 	str_flag = "power_on" + self.script_int;
@@ -702,8 +702,8 @@ function function_8a3885f2()
 */
 function function_59bcf901(n_cost, var_f5f4e9cc)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self endon(#"hash_6a24d908");
 	self zm_score::minus_to_player_score(n_cost);
 	self waittill(#"hash_e95dda8e");
@@ -775,7 +775,7 @@ function function_b016efbe()
 	level thread function_fbb9459a(self);
 	if(self.var_a7dffe09)
 	{
-		level notify(#"power_ritual_aborted");
+		level notify("power_ritual_aborted");
 		return;
 	}
 	level.var_7b91fc17 = undefined;
@@ -785,7 +785,7 @@ function function_b016efbe()
 	level.var_eada0345++;
 	self notify(self.str_kill_notify);
 	self.var_98e1d15 = 1;
-	level notify(#"power_ritual_completed");
+	level notify("power_ritual_completed");
 	level thread function_de2cddfc();
 	if(getdvarint("splitscreen_playerCount") < 3)
 	{
@@ -1204,7 +1204,7 @@ function zombie_blood_soul_streak_fx(v_origin, v_angles, v_endpos, time)
 	e_model = util::spawn_model("tag_origin", v_origin, v_angles);
 	e_model clientfield::set("power_zombie_soul", 1);
 	e_model moveto(v_endpos, time);
-	e_model waittill(#"movedone");
+	e_model waittill("movedone");
 	e_model playsound("zmb_ee_soul_impact");
 	e_model delete();
 }
@@ -1220,7 +1220,7 @@ function zombie_blood_soul_streak_fx(v_origin, v_angles, v_endpos, time)
 */
 function function_6301de9e(v_pos, v_angles)
 {
-	self waittill(#"death", e_attacker);
+	self waittill("death", e_attacker);
 	if(isplayer(e_attacker))
 	{
 		if(isdefined(level.var_7b91fc17))
@@ -1246,7 +1246,7 @@ function function_6301de9e(v_pos, v_angles)
 */
 function function_7b3cac15()
 {
-	self endon(#"death");
+	self endon("death");
 	self.var_3f80e7e8 = 0;
 	while(true)
 	{
@@ -1266,7 +1266,7 @@ function function_7b3cac15()
 */
 function function_e467fa8d(s_spawn_pos)
 {
-	self endon(#"death");
+	self endon("death");
 	str_name = "power_soul" + self.script_int;
 	s_struct = struct::get(str_name, "targetname");
 	var_bb194a8c = 1;
@@ -1345,7 +1345,7 @@ function function_779c1a49(s_spawn_pos, var_d24a63df)
 	var_ecb2c615.deathpoints_already_given = 1;
 	if(isdefined(var_ecb2c615))
 	{
-		var_ecb2c615 endon(#"death");
+		var_ecb2c615 endon("death");
 		var_ecb2c615 function_da370997(var_d24a63df);
 		wait(0.5);
 		var_ecb2c615.zombie_think_done = 1;
@@ -1382,10 +1382,10 @@ function spawn_zombie(s_spawn_pos, var_d24a63df, var_eb452fee)
 	ai_zombie = zombie_utility::spawn_zombie(level.zombie_spawners[0], "power_zombie", s_spawn_pos);
 	if(isdefined(ai_zombie))
 	{
-		ai_zombie endon(#"death");
+		ai_zombie endon("death");
 		ai_zombie function_da370997(var_d24a63df);
 		ai_zombie.script_string = "find_flesh";
-		ai_zombie waittill(#"completed_emerging_into_playable_area");
+		ai_zombie waittill("completed_emerging_into_playable_area");
 		ai_zombie.no_powerups = 1;
 		ai_zombie zombie_utility::set_zombie_run_cycle("sprint");
 		if(var_eb452fee)
@@ -1426,7 +1426,7 @@ function function_f55d851b(s_spawn_pos, var_d24a63df)
 	if(isdefined(var_d88e6f5f))
 	{
 		var_d88e6f5f function_da370997(var_d24a63df);
-		var_d88e6f5f endon(#"death");
+		var_d88e6f5f endon("death");
 		var_d88e6f5f.spawn_time = gettime();
 		var_d88e6f5f.health = level.zombie_health;
 		var_d88e6f5f.heroweapon_kill_power = 2;
@@ -1638,7 +1638,7 @@ function function_d5b54fdc()
 */
 function function_d93bc7dc(var_64e27e68)
 {
-	self endon(#"death");
+	self endon("death");
 	switch(self.script_int)
 	{
 		case 1:

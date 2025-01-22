@@ -131,14 +131,14 @@ function on_player_spawned()
 */
 function watch_weapon_change()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.lastdroppableweapon = self getcurrentweapon();
 	self.lastweaponchange = 0;
 	while(true)
 	{
 		previous_weapon = self getcurrentweapon();
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(may_drop(newweapon))
 		{
 			self.lastdroppableweapon = newweapon;
@@ -478,7 +478,7 @@ function drop_for_death(attacker, sweapon, smeansofdeath)
 */
 function delete_pickup_after_awhile()
 {
-	self endon(#"death");
+	self endon("death");
 	wait(60);
 	if(!isdefined(self))
 	{
@@ -498,9 +498,9 @@ function delete_pickup_after_awhile()
 */
 function watch_pickup()
 {
-	self endon(#"death");
+	self endon("death");
 	weapon = self.item;
-	self waittill(#"trigger", player, droppeditem, pickedupontouch);
+	self waittill("trigger", player, droppeditem, pickedupontouch);
 	if(1)
 	{
 		if(isdefined(player) && isplayer(player))
@@ -580,12 +580,12 @@ function watch_pickup()
 */
 function watch_usage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	for(;;)
 	{
-		self waittill(#"weapon_fired", curweapon);
+		self waittill("weapon_fired", curweapon);
 		self.lastfiretime = gettime();
 		self.hasdonecombat = 1;
 		switch(curweapon.weapclass)
@@ -681,8 +681,8 @@ function track_fire(curweapon)
 */
 function watch_grenade_usage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	self.throwinggrenade = 0;
 	self.gotpullbacknotify = 0;
 	self thread begin_other_grenade_tracking();
@@ -691,7 +691,7 @@ function watch_grenade_usage()
 	self thread watch_for_grenade_launcher_duds();
 	for(;;)
 	{
-		self waittill(#"grenade_pullback", weapon);
+		self waittill("grenade_pullback", weapon);
 		self addweaponstat(weapon, "shots", 1, self.class_num);
 		self.hasdonecombat = 1;
 		self.throwinggrenade = 1;
@@ -716,12 +716,12 @@ function watch_grenade_usage()
 */
 function watch_missile_usage()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	level endon(#"game_ended");
+	self endon("death");
+	self endon("disconnect");
+	level endon("game_ended");
 	for(;;)
 	{
-		self waittill(#"missile_fire", missile, weapon);
+		self waittill("missile_fire", missile, weapon);
 		self.hasdonecombat = 1;
 		/#
 			/#
@@ -745,7 +745,7 @@ function watch_missile_usage()
 */
 function watch_missile_death()
 {
-	self waittill(#"death");
+	self waittill("death");
 	arrayremovevalue(level.missileentities, self);
 }
 
@@ -803,18 +803,18 @@ function drop_grenades_to_ground(origin, radius)
 */
 function watch_grenade_cancel()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"grenade_fire");
+	self endon("death");
+	self endon("disconnect");
+	self endon("grenade_fire");
 	waittillframeend();
 	weapon = level.weaponnone;
 	while(self isthrowinggrenade() && weapon == level.weaponnone)
 	{
-		self waittill(#"weapon_change", weapon);
+		self waittill("weapon_change", weapon);
 	}
 	self.throwinggrenade = 0;
 	self.gotpullbacknotify = 0;
-	self notify(#"grenade_throw_cancelled");
+	self notify("grenade_throw_cancelled");
 }
 
 /*
@@ -828,8 +828,8 @@ function watch_grenade_cancel()
 */
 function watch_offhand_end()
 {
-	self notify(#"watchoffhandend");
-	self endon(#"watchoffhandend");
+	self notify("watchoffhandend");
+	self endon("watchoffhandend");
 	while(self is_using_offhand_equipment())
 	{
 		msg = self util::waittill_any_return("death", "disconnect", "grenade_fire", "weapon_change", "watchOffhandEnd");
@@ -877,12 +877,12 @@ function is_using_offhand_equipment()
 */
 function begin_grenade_tracking()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
-	self endon(#"grenade_throw_cancelled");
+	self endon("death");
+	self endon("disconnect");
+	self endon("grenade_throw_cancelled");
 	starttime = gettime();
 	self thread watch_grenade_cancel();
-	self waittill(#"grenade_fire", grenade, weapon, cooktime);
+	self waittill("grenade_fire", grenade, weapon, cooktime);
 	/#
 		/#
 			assert(isdefined(grenade));
@@ -969,12 +969,12 @@ function begin_grenade_tracking()
 */
 function begin_other_grenade_tracking()
 {
-	self notify(#"othergrenadetrackingstart");
-	self endon(#"othergrenadetrackingstart");
-	self endon(#"disconnect");
+	self notify("othergrenadetrackingstart");
+	self endon("othergrenadetrackingstart");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(grenade util::ishacked())
 		{
 			continue;
@@ -1025,8 +1025,8 @@ function begin_other_grenade_tracking()
 */
 function check_stuck_to_player(deleteonteamchange, awardscoreevent, weapon)
 {
-	self endon(#"death");
-	self waittill(#"stuck_to_player", player);
+	self endon("death");
+	self waittill("stuck_to_player", player);
 	if(isdefined(player))
 	{
 		if(deleteonteamchange)
@@ -1055,9 +1055,9 @@ function check_stuck_to_player(deleteonteamchange, awardscoreevent, weapon)
 */
 function check_hatchet_bounce()
 {
-	self endon(#"stuck_to_player");
-	self endon(#"death");
-	self waittill(#"grenade_bounce");
+	self endon("stuck_to_player");
+	self endon("death");
+	self waittill("grenade_bounce");
 	self.bounced = 1;
 }
 
@@ -1072,12 +1072,12 @@ function check_hatchet_bounce()
 */
 function stuck_to_player_team_change(player)
 {
-	self endon(#"death");
-	player endon(#"disconnect");
+	self endon("death");
+	player endon("disconnect");
 	originalteam = player.pers["team"];
 	while(true)
 	{
-		player waittill(#"joined_team");
+		player waittill("joined_team");
 		if(player.pers["team"] != originalteam)
 		{
 			self detonate();
@@ -1097,11 +1097,11 @@ function stuck_to_player_team_change(player)
 */
 function watch_for_throwbacks()
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		if(self.gotpullbacknotify)
 		{
 			self.gotpullbacknotify = 0;
@@ -1127,7 +1127,7 @@ function watch_for_throwbacks()
 */
 function wait_and_delete_dud(waittime)
 {
-	self endon(#"death");
+	self endon("death");
 	wait(waittime);
 	if(isdefined(self))
 	{
@@ -1198,11 +1198,11 @@ function turn_grenade_into_a_dud(weapon, isthrowngrenade, player)
 */
 function watch_for_grenade_duds()
 {
-	self endon(#"spawned_player");
-	self endon(#"disconnect");
+	self endon("spawned_player");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"grenade_fire", grenade, weapon);
+		self waittill("grenade_fire", grenade, weapon);
 		grenade turn_grenade_into_a_dud(weapon, 1, self);
 	}
 }
@@ -1218,11 +1218,11 @@ function watch_for_grenade_duds()
 */
 function watch_for_grenade_launcher_duds()
 {
-	self endon(#"spawned_player");
-	self endon(#"disconnect");
+	self endon("spawned_player");
+	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"grenade_launcher_fire", grenade, weapon);
+		self waittill("grenade_launcher_fire", grenade, weapon);
 		grenade turn_grenade_into_a_dud(weapon, 0, self);
 		/#
 			/#
@@ -1473,8 +1473,8 @@ function debugline(a, b, color)
 */
 function on_damage(eattacker, einflictor, weapon, meansofdeath, damage)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	if(isdefined(level._custom_weapon_damage_func))
 	{
 		is_weapon_registered = self [[level._custom_weapon_damage_func]](eattacker, einflictor, weapon, meansofdeath, damage);
@@ -1541,8 +1541,8 @@ function on_damage(eattacker, einflictor, weapon, meansofdeath, damage)
 */
 function play_concussion_sound(duration)
 {
-	self endon(#"death");
-	self endon(#"disconnect");
+	self endon("death");
+	self endon("disconnect");
 	concussionsound = spawn("script_origin", (0, 0, 1));
 	concussionsound.origin = self.origin;
 	concussionsound linkto(self);
@@ -1556,7 +1556,7 @@ function play_concussion_sound(duration)
 	concussionsound playsound("");
 	concussionsound stoploopsound(0.5);
 	wait(0.5);
-	concussionsound notify(#"delete");
+	concussionsound notify("delete");
 	concussionsound delete();
 }
 
@@ -1571,8 +1571,8 @@ function play_concussion_sound(duration)
 */
 function delete_ent_on_owner_death(owner)
 {
-	self endon(#"delete");
-	owner waittill(#"death");
+	self endon("delete");
+	owner waittill("death");
 	self delete();
 }
 
@@ -1587,16 +1587,16 @@ function delete_ent_on_owner_death(owner)
 */
 function update_stowed_weapon()
 {
-	self endon(#"spawned");
-	self endon(#"killed_player");
-	self endon(#"disconnect");
+	self endon("spawned");
+	self endon("killed_player");
+	self endon("disconnect");
 	self.tag_stowed_back = undefined;
 	self.tag_stowed_hip = undefined;
 	team = self.pers["team"];
 	playerclass = self.pers["class"];
 	while(true)
 	{
-		self waittill(#"weapon_change", newweapon);
+		self waittill("weapon_change", newweapon);
 		if(self ismantling())
 		{
 			continue;
@@ -1743,8 +1743,8 @@ function flash_scavenger_icon()
 */
 function scavenger_think()
 {
-	self endon(#"death");
-	self waittill(#"scavenger", player);
+	self endon("death");
+	self waittill("scavenger", player);
 	primary_weapons = player getweaponslistprimaries();
 	offhand_weapons_and_alts = array::exclude(player getweaponslist(1), primary_weapons);
 	arrayremovevalue(offhand_weapons_and_alts, level.weaponbasemelee);
@@ -1841,7 +1841,7 @@ function scavenger_think()
 */
 function scavenger_hud_destroyondisconnect()
 {
-	self waittill(#"disconnect");
+	self waittill("disconnect");
 	if(isdefined(self.scavenger_icon))
 	{
 		self.scavenger_icon destroy();
@@ -2008,8 +2008,8 @@ function drop_limited_weapon(weapon, owner, item)
 */
 function limited_pickup(limited_info)
 {
-	self endon(#"death");
-	self waittill(#"trigger", player, item);
+	self endon("death");
+	self waittill("trigger", player, item);
 	if(!isdefined(item))
 	{
 		return;
@@ -2028,7 +2028,7 @@ function limited_pickup(limited_info)
 */
 function track_cooked_detonation(attacker, weapon, cooktime)
 {
-	self endon(#"trophy_destroyed");
+	self endon("trophy_destroyed");
 	self waittill(#"explode", origin, surface);
 	if(weapon.rootweapon == level.weaponflashgrenade)
 	{
@@ -2047,7 +2047,7 @@ function track_cooked_detonation(attacker, weapon, cooktime)
 */
 function ninebang_doninebang(attacker, weapon, pos, cooktime)
 {
-	level endon(#"game_ended");
+	level endon("game_ended");
 	maxstages = 4;
 	maxradius = 20;
 	mindelay = 0.15;
@@ -2114,7 +2114,7 @@ function ninebang_doninebang(attacker, weapon, pos, cooktime)
 			toblast = pos - vieworigin;
 			toblast = vectornormalize(toblast);
 			percent_angle = 0.5 * (1 + vectordot(forward, toblast));
-			player notify(#"flashbang", percent_distance, percent_angle, attacker);
+			player notify("flashbang", percent_distance, percent_angle, attacker);
 		}
 		wait(randomfloatrange(mindelay, maxdelay));
 	}
@@ -2191,7 +2191,7 @@ function ninebang_empcandamage(ent, pos, radiussq, dolos, startradius)
 */
 function track_multi_detonation(ownerent, weapon, cooktime)
 {
-	self endon(#"trophy_destroyed");
+	self endon("trophy_destroyed");
 	self waittill(#"explode", origin, surface);
 	if(weapon.rootweapon == getweapon("frag_grenade_grenade"))
 	{

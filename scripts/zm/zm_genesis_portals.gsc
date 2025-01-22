@@ -183,7 +183,7 @@ function function_a90ab0d7()
 {
 	while(true)
 	{
-		self waittill(#"trigger", player);
+		self waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
@@ -383,7 +383,7 @@ function portal_think(b_show_fx)
 	}
 	while(true)
 	{
-		self waittill(#"trigger", e_portee);
+		self waittill("trigger", e_portee);
 		if(isdefined(level.var_ccae6720) && level.var_ccae6720)
 		{
 			continue;
@@ -416,8 +416,8 @@ function portal_think(b_show_fx)
 */
 function portal_teleport_player(show_fx = 1, a_s_port_locs, str_zone, var_6d359b2e, var_759fb311)
 {
-	self endon(#"disconnect");
-	self notify(#"gravityspikes_attack_watchers_end");
+	self endon("disconnect");
+	self notify("gravityspikes_attack_watchers_end");
 	self.b_teleporting = 1;
 	self.teleport_location = self.origin;
 	self.a_s_port_locs = a_s_port_locs;
@@ -684,9 +684,9 @@ function ai_delay_cleanup()
 {
 	if(!(isdefined(self.b_ignore_cleanup) && self.b_ignore_cleanup))
 	{
-		self notify(#"delay_cleanup");
-		self endon(#"death");
-		self endon(#"delay_cleanup");
+		self notify("delay_cleanup");
+		self endon("death");
+		self endon("delay_cleanup");
 		self.b_ignore_cleanup = 1;
 		self.var_b6b1080c = 1;
 		wait(10);
@@ -706,7 +706,7 @@ function ai_delay_cleanup()
 */
 function portal_teleport_ai(e_portee)
 {
-	e_portee endon(#"death");
+	e_portee endon("death");
 	e_portee.b_teleporting = 1;
 	e_portee pathmode("dont move");
 	playfx(level._effect["portal_3p"], e_portee.origin);
@@ -753,7 +753,7 @@ function portal_teleport_ai(e_portee)
 */
 function function_cfc89ca()
 {
-	self endon(#"disconnect");
+	self endon("disconnect");
 	level endon(#"hash_c9cb5160");
 	level flag::wait_till("start_zombie_round_logic");
 	self.var_fe12a779 = [];
@@ -856,7 +856,7 @@ function function_eec1f014(str_name, n_value, b_toggle)
 */
 function function_b64d33a7()
 {
-	level waittill(#"start_zombie_round_logic");
+	level waittill("start_zombie_round_logic");
 	wait(120);
 	while(true)
 	{

@@ -156,9 +156,9 @@ function function_6d9e2e34()
 		n_degree = randomfloatrange(0.25, 1);
 		n_time = randomfloatrange(3, 6);
 		level.var_ea4a62a rotateroll(n_degree, n_time, n_time / 2, n_time / 2);
-		level.var_ea4a62a waittill(#"rotatedone");
+		level.var_ea4a62a waittill("rotatedone");
 		level.var_ea4a62a rotateroll(n_degree * -1, n_time, n_time / 2, n_time / 2);
-		level.var_ea4a62a waittill(#"rotatedone");
+		level.var_ea4a62a waittill("rotatedone");
 	}
 }
 
@@ -173,7 +173,7 @@ function function_6d9e2e34()
 */
 function function_eb7433ac()
 {
-	self endon(#"death");
+	self endon("death");
 	while(true)
 	{
 		self playersetgroundreferenceent(level.var_ea4a62a);
@@ -199,9 +199,9 @@ function function_9ca26ba0()
 		n_degree = randomfloatrange(0.25, 1);
 		n_time = randomfloatrange(3, 6);
 		self rotateroll(n_degree, n_time, n_time / 2, n_time / 2);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 		self rotateroll(n_degree * -1, n_time, n_time / 2, n_time / 2);
-		self waittill(#"rotatedone");
+		self waittill("rotatedone");
 	}
 }
 
