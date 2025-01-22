@@ -224,16 +224,16 @@ function spider_clip_monitor()
 			level.spider_clips[i] disconnectpaths();
 			util::wait_network_frame();
 		}
-		var_26b8af54 = 1;
-		while(var_26b8af54 || level flag::get("spider_round"))
+		b_spider_is_alive = 1;
+		while(b_spider_is_alive || level flag::get("spider_round"))
 		{
-			var_26b8af54 = 0;
+			b_spider_is_alive = 0;
 			a_spiders = getvehiclearray("zombie_spider", "targetname");
 			for(i = 0; i < a_spiders.size; i++)
 			{
 				if(isalive(a_spiders[i]))
 				{
-					var_26b8af54 = 1;
+					b_spider_is_alive = 1;
 				}
 			}
 			wait(1);
