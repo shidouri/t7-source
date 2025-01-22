@@ -653,7 +653,7 @@ function spawn_spiders()
 	}
 	else
 	{
-		s_spawn_loc = function_570247b9(e_favorite_enemy);
+		s_spawn_loc = spider_spawn_logic(e_favorite_enemy);
 	}
 	if(!isdefined(s_spawn_loc))
 	{
@@ -886,7 +886,7 @@ function function_6e19aa86()
 }
 
 /*
-	Name: function_570247b9
+	Name: spider_spawn_logic
 	Namespace: zm_ai_spiders
 	Checksum: 0x4D0EB201
 	Offset: 0x2448
@@ -894,7 +894,7 @@ function function_6e19aa86()
 	Parameters: 1
 	Flags: Linked
 */
-function function_570247b9(e_favorite_enemy)
+function spider_spawn_logic(e_favorite_enemy)
 {
 	switch(level.players.size)
 	{
@@ -1125,7 +1125,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 		{
 			if(!isdefined(s_spawn_point))
 			{
-				s_spawn_point = function_570247b9(e_favorite_enemy);
+				s_spawn_point = spider_spawn_logic(e_favorite_enemy);
 			}
 			ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 			if(isdefined(ai))
@@ -1448,7 +1448,7 @@ function function_8457e10f(cmd)
 			case "":
 			{
 				e_favorite_enemy = get_favorite_enemy();
-				s_spawn_point = function_570247b9(e_favorite_enemy);
+				s_spawn_point = spider_spawn_logic(e_favorite_enemy);
 				ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
@@ -1459,7 +1459,7 @@ function function_8457e10f(cmd)
 			case "":
 			{
 				e_favorite_enemy = get_favorite_enemy();
-				s_spawn_point = function_570247b9(e_favorite_enemy);
+				s_spawn_point = spider_spawn_logic(e_favorite_enemy);
 				ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
