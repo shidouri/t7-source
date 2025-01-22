@@ -1214,22 +1214,22 @@ function function_3653ea22(var_51d4ce0d, var_e7a36389)
 			}
 		}
 	}
-	var_4ee51f42 = self array::get_touching(getaiteamarray("axis"));
+	a_e_zombies = self array::get_touching(getaiteamarray("axis"));
 	a_e_players = self array::get_touching(level.activeplayers);
 	var_e7a36389 thread fx::play("drop_pod_go_boom", var_e7a36389.origin);
 	playrumbleonposition("zm_stalingrad_drop_pod_explosion", var_e7a36389.origin);
 	playsoundatposition("zmb_pod_explode", var_e7a36389.origin);
-	for(i = 0; i < var_4ee51f42.size; i++)
+	for(i = 0; i < a_e_zombies.size; i++)
 	{
-		if(isdefined(var_4ee51f42[i]))
+		if(isdefined(a_e_zombies[i]))
 		{
-			var_4ee51f42[i] dodamage(var_4ee51f42[i].health, self.origin);
+			a_e_zombies[i] dodamage(a_e_zombies[i].health, self.origin);
 			if(i < 3)
 			{
 				n_random_x = randomfloatrange(-3, 3);
 				n_random_y = randomfloatrange(-3, 3);
-				var_4ee51f42[i] startragdoll(1);
-				var_4ee51f42[i] launchragdoll(300 * (vectornormalize((var_4ee51f42[i].origin - var_e7a36389.origin) + (n_random_x, n_random_y, 30))), "torso_lower");
+				a_e_zombies[i] startragdoll(1);
+				a_e_zombies[i] launchragdoll(300 * (vectornormalize((a_e_zombies[i].origin - var_e7a36389.origin) + (n_random_x, n_random_y, 30))), "torso_lower");
 			}
 		}
 	}
