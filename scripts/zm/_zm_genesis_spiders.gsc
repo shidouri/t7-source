@@ -670,7 +670,7 @@ function spawn_spiders()
 	}
 	if(isdefined(ai))
 	{
-		s_spawn_loc thread function_49e57a3b(ai, s_spawn_loc);
+		s_spawn_loc thread spider_spawn_fx(ai, s_spawn_loc);
 		level.zombie_total--;
 		level thread zm_spawner::zombie_death_event(ai);
 		if(isdefined(level.var_2aacffb1))
@@ -1115,7 +1115,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 			ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 			if(isdefined(ai))
 			{
-				s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
+				s_spawn_point thread spider_spawn_fx(ai, s_spawn_point);
 				level.zombie_total--;
 				n_spider_count++;
 				level flag::set("spider_clips");
@@ -1130,7 +1130,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 			ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 			if(isdefined(ai))
 			{
-				s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
+				s_spawn_point thread spider_spawn_fx(ai, s_spawn_point);
 				level.zombie_total--;
 				n_spider_count++;
 				level flag::set("spider_clips");
@@ -1217,7 +1217,7 @@ function function_5b625d74(einflictor, eattacker, idamage, idflags, smeansofdeat
 }
 
 /*
-	Name: function_49e57a3b
+	Name: spider_spawn_fx
 	Namespace: zm_ai_spiders
 	Checksum: 0xD35E0191
 	Offset: 0x3028
@@ -1225,7 +1225,7 @@ function function_5b625d74(einflictor, eattacker, idamage, idflags, smeansofdeat
 	Parameters: 3
 	Flags: Linked
 */
-function function_49e57a3b(ai_spider, ent = self, var_a79b986e = 0)
+function spider_spawn_fx(ai_spider, ent = self, var_a79b986e = 0)
 {
 	ai_spider endon(#"death");
 	if(!isdefined(ent.target) || var_a79b986e)
@@ -1452,7 +1452,7 @@ function function_8457e10f(cmd)
 				ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
-					s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
+					s_spawn_point thread spider_spawn_fx(ai, s_spawn_point);
 				}
 				break;
 			}
@@ -1463,7 +1463,7 @@ function function_8457e10f(cmd)
 				ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
-					s_spawn_point thread function_49e57a3b(ai, s_spawn_point, 1);
+					s_spawn_point thread spider_spawn_fx(ai, s_spawn_point, 1);
 				}
 				break;
 			}

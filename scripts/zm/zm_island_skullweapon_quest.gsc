@@ -1136,7 +1136,7 @@ function function_ff1550bd()
 					case "zombie_spider_spawner":
 					{
 						ai_attacker.favoriteenemy = zm_ai_spiders::get_favorite_enemy();
-						self.a_s_spawnpts[i] thread zm_ai_spiders::function_49e57a3b(ai_attacker, self.a_s_spawnpts[i]);
+						self.a_s_spawnpts[i] thread zm_ai_spiders::spider_spawn_fx(ai_attacker, self.a_s_spawnpts[i]);
 						break;
 					}
 				}

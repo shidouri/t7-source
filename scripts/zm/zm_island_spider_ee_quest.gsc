@@ -620,7 +620,7 @@ function function_acbe4aed(cmd)
 					ai_spider = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 					if(isdefined(ai_spider))
 					{
-						s_spawn_point thread zm_ai_spiders::function_49e57a3b(ai_spider, s_spawn_point);
+						s_spawn_point thread zm_ai_spiders::spider_spawn_fx(ai_spider, s_spawn_point);
 					}
 				}
 				ai_spider clientfield::set("", 1);
@@ -641,7 +641,7 @@ function function_acbe4aed(cmd)
 					ai_spider = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 					if(isdefined(ai_spider))
 					{
-						s_spawn_point thread zm_ai_spiders::function_49e57a3b(ai_spider, s_spawn_point);
+						s_spawn_point thread zm_ai_spiders::spider_spawn_fx(ai_spider, s_spawn_point);
 					}
 				}
 				ai_spider clientfield::set("", 1);
