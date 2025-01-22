@@ -448,7 +448,7 @@ function function_eebdfab2()
 function spider_death()
 {
 	self waittill(#"death", e_attacker);
-	if(function_c9adb887() == 0 && level.zombie_total == 0)
+	if(get_current_spider_count() == 0 && level.zombie_total == 0)
 	{
 		if(!isdefined(level.zm_ai_round_over) || [[level.zm_ai_round_over]]())
 		{
@@ -724,7 +724,7 @@ function spawn_spiders()
 */
 function function_c1730af7()
 {
-	var_621b3c65 = function_c9adb887();
+	var_621b3c65 = get_current_spider_count();
 	var_8817ee62 = var_621b3c65 >= 13;
 	var_72a71294 = var_621b3c65 >= (level.players.size * 4);
 	if(var_8817ee62 || var_72a71294 || !level flag::get("spawn_zombies"))
@@ -735,7 +735,7 @@ function function_c1730af7()
 }
 
 /*
-	Name: function_c9adb887
+	Name: get_current_spider_count
 	Namespace: zm_ai_spiders
 	Checksum: 0xA2ED59FD
 	Offset: 0x26B0
@@ -743,7 +743,7 @@ function function_c1730af7()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c9adb887()
+function get_current_spider_count()
 {
 	a_ai_spiders = getentarray("zombie_spider", "targetname");
 	var_aa45da74 = a_ai_spiders.size;
