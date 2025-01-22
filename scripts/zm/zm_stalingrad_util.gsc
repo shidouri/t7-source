@@ -1440,11 +1440,11 @@ function function_903f6b36(b_turn_on, str_identifier = undefined)
 	if(!isdefined(str_identifier))
 	{
 		str_identifier = self.script_noteworthy;
-		var_144a9df9 = getentarray(str_identifier, "targetname");
+		a_e_switch = getentarray(str_identifier, "targetname");
 	}
 	else
 	{
-		var_144a9df9 = getentarray(str_identifier + "_switch", "targetname");
+		a_e_switch = getentarray(str_identifier + "_switch", "targetname");
 	}
 	if(b_turn_on)
 	{
@@ -1456,7 +1456,7 @@ function function_903f6b36(b_turn_on, str_identifier = undefined)
 	{
 		str_scene = "p7_fxanim_zm_stal_power_switch_reset_bundle";
 	}
-	foreach(e_switch in var_144a9df9)
+	foreach(e_switch in a_e_switch)
 	{
 		e_switch thread scene::play(str_scene, e_switch);
 	}
