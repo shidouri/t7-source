@@ -45,7 +45,7 @@ function __init__()
 	level._effect["spider_web_doorbuy_tear_complete"] = "dlc2/island/fx_web_barrier_reveal";
 	level._effect["spider_web_tear_explosive"] = "dlc2/island/fx_web_impact_rocket";
 	register_clientfields();
-	vehicle::add_vehicletype_callback("spider", &function_7c1ef59b);
+	vehicle::add_vehicletype_callback("spider", &spider_init);
 	visionset_mgr::register_visionset_info("zm_isl_parasite_spider_visionset", 9000, 16, undefined, "zm_isl_parasite_spider");
 }
 
@@ -84,7 +84,7 @@ function register_clientfields()
 }
 
 /*
-	Name: function_7c1ef59b
+	Name: spider_init
 	Namespace: zm_ai_spiders
 	Checksum: 0x5FC1C07B
 	Offset: 0x9B8
@@ -92,7 +92,7 @@ function register_clientfields()
 	Parameters: 1
 	Flags: Linked
 */
-function function_7c1ef59b(localclientnum)
+function spider_init(localclientnum)
 {
 	self.str_tag_tesla_death_fx = "J_SpineUpper";
 	self.str_tag_tesla_shock_eyes_fx = "J_SpineUpper";

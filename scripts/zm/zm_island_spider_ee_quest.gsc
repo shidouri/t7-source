@@ -472,7 +472,7 @@ function function_7855f232()
 	/#
 		assert(level.var_39b24700.size > 0);
 	#/
-	array::thread_all(level.var_39b24700, &spawner::add_spawn_function, &zm_ai_spiders::function_7c1ef59b);
+	array::thread_all(level.var_39b24700, &spawner::add_spawn_function, &zm_ai_spiders::spider_init);
 }
 
 /*

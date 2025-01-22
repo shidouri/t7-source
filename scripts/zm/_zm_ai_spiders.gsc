@@ -330,11 +330,11 @@ function function_7a544164()
 	/#
 		assert(level.spider_spawners.size > 0);
 	#/
-	array::thread_all(level.spider_spawners, &spawner::add_spawn_function, &function_7c1ef59b);
+	array::thread_all(level.spider_spawners, &spawner::add_spawn_function, &spider_init);
 }
 
 /*
-	Name: function_7c1ef59b
+	Name: spider_init
 	Namespace: zm_ai_spiders
 	Checksum: 0x7F1EB21E
 	Offset: 0x1910
@@ -342,7 +342,7 @@ function function_7a544164()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7c1ef59b()
+function spider_init()
 {
 	self.targetname = "zombie_spider";
 	self.b_is_spider = 1;
