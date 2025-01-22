@@ -404,7 +404,7 @@ function spider_thundergun_knockdown(e_player, gib)
 }
 
 /*
-	Name: function_a3f4adb
+	Name: spider_think
 	Namespace: zm_ai_spiders
 	Checksum: 0x99EC1590
 	Offset: 0x1BA0
@@ -412,7 +412,7 @@ function spider_thundergun_knockdown(e_player, gib)
 	Parameters: 0
 	Flags: None
 */
-function function_a3f4adb()
+function spider_think()
 {
 }
 
