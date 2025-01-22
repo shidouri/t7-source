@@ -320,7 +320,7 @@ function spider_init()
 	self.thundergun_knockdown_func = &spider_thundergun_knockdown;
 	self.lightning_chain_immune = 1;
 	self thread function_747a2fea();
-	self thread function_7609fd9();
+	self thread spider_death();
 	self playsound("zmb_spider_spawn");
 	self thread function_eebdfab2();
 }
@@ -398,7 +398,7 @@ function function_eebdfab2()
 }
 
 /*
-	Name: function_7609fd9
+	Name: spider_death
 	Namespace: zm_ai_spiders
 	Checksum: 0x8E406D16
 	Offset: 0x1488
@@ -406,7 +406,7 @@ function function_eebdfab2()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7609fd9()
+function spider_death()
 {
 	self waittill(#"death", e_attacker);
 	if(function_c9adb887() == 0 && level.zombie_total == 0)
