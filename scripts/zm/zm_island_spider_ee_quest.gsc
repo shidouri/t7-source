@@ -617,7 +617,7 @@ function function_acbe4aed(cmd)
 				{
 					e_favorite_enemy = zm_ai_spiders::get_favorite_enemy();
 					s_spawn_point = zm_ai_spiders::function_570247b9(e_favorite_enemy);
-					ai_spider = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
+					ai_spider = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 					if(isdefined(ai_spider))
 					{
 						s_spawn_point thread zm_ai_spiders::function_49e57a3b(ai_spider, s_spawn_point);
@@ -638,7 +638,7 @@ function function_acbe4aed(cmd)
 				{
 					e_favorite_enemy = zm_ai_spiders::get_favorite_enemy();
 					s_spawn_point = zm_ai_spiders::function_570247b9(e_favorite_enemy);
-					ai_spider = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
+					ai_spider = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 					if(isdefined(ai_spider))
 					{
 						s_spawn_point thread zm_ai_spiders::function_49e57a3b(ai_spider, s_spawn_point);

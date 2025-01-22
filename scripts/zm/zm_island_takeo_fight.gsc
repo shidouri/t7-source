@@ -970,7 +970,7 @@ function function_4ea8a87a()
 		a_spawners = [];
 		var_89f44116 = level.zombie_spawners;
 		var_64cc2fa5 = level.var_feebf312;
-		var_6469b451 = level.var_c38a4fee;
+		var_6469b451 = level.spider_spawners;
 		var_62813733 = 0;
 		a_spawners = array(var_64cc2fa5[0], var_6469b451[0], var_89f44116[0]);
 		self function_2e25785c();

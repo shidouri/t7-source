@@ -150,7 +150,7 @@ function init()
 	level.var_173ca157 = 1;
 	level.var_347e707c = 0;
 	level.var_7f2af1cf = 1;
-	level.var_c38a4fee = [];
+	level.spider_spawners = [];
 	level flag::init("spider_clips");
 	level flag::init("spider_round_in_progress");
 	level.aat["zm_aat_turned"].immune_trigger["spider"] = 1;
@@ -273,27 +273,27 @@ function function_d2716ad8()
 */
 function function_7a544164()
 {
-	level.var_c38a4fee = getentarray("zombie_spider_spawner", "script_noteworthy");
+	level.spider_spawners = getentarray("zombie_spider_spawner", "script_noteworthy");
 	var_c84b3c65 = getentarray("later_round_spider_spawners", "script_noteworthy");
-	level.var_c7f0b45b = arraycombine(level.var_c38a4fee, var_c84b3c65, 1, 0);
-	if(level.var_c38a4fee.size == 0)
+	level.var_c7f0b45b = arraycombine(level.spider_spawners, var_c84b3c65, 1, 0);
+	if(level.spider_spawners.size == 0)
 	{
 		return;
 	}
-	for(i = 0; i < level.var_c38a4fee.size; i++)
+	for(i = 0; i < level.spider_spawners.size; i++)
 	{
-		if(zm_spawner::is_spawner_targeted_by_blocker(level.var_c38a4fee[i]))
+		if(zm_spawner::is_spawner_targeted_by_blocker(level.spider_spawners[i]))
 		{
-			level.var_c38a4fee[i].is_enabled = 0;
+			level.spider_spawners[i].is_enabled = 0;
 			continue;
 		}
-		level.var_c38a4fee[i].is_enabled = 1;
-		level.var_c38a4fee[i].script_forcespawn = 1;
+		level.spider_spawners[i].is_enabled = 1;
+		level.spider_spawners[i].script_forcespawn = 1;
 	}
 	/#
-		assert(level.var_c38a4fee.size > 0);
+		assert(level.spider_spawners.size > 0);
 	#/
-	array::thread_all(level.var_c38a4fee, &spawner::add_spawn_function, &function_7c1ef59b);
+	array::thread_all(level.spider_spawners, &spawner::add_spawn_function, &function_7c1ef59b);
 }
 
 /*
@@ -666,7 +666,7 @@ function function_45237f11()
 	}
 	else
 	{
-		ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
+		ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 	}
 	if(isdefined(ai))
 	{
@@ -1110,9 +1110,9 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 		{
 			if(!isdefined(s_spawn_point))
 			{
-				s_spawn_point = [[level.spider_spawn_func]](level.var_c38a4fee, e_favorite_enemy);
+				s_spawn_point = [[level.spider_spawn_func]](level.spider_spawners, e_favorite_enemy);
 			}
-			ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
+			ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 			if(isdefined(ai))
 			{
 				s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
@@ -1127,7 +1127,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 			{
 				s_spawn_point = function_570247b9(e_favorite_enemy);
 			}
-			ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
+			ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 			if(isdefined(ai))
 			{
 				s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
@@ -1449,7 +1449,7 @@ function function_8457e10f(cmd)
 			{
 				e_favorite_enemy = get_favorite_enemy();
 				s_spawn_point = function_570247b9(e_favorite_enemy);
-				ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
+				ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
 					s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
@@ -1460,7 +1460,7 @@ function function_8457e10f(cmd)
 			{
 				e_favorite_enemy = get_favorite_enemy();
 				s_spawn_point = function_570247b9(e_favorite_enemy);
-				ai = zombie_utility::spawn_zombie(level.var_c38a4fee[0]);
+				ai = zombie_utility::spawn_zombie(level.spider_spawners[0]);
 				if(isdefined(ai) && isdefined(s_spawn_point))
 				{
 					s_spawn_point thread function_49e57a3b(ai, s_spawn_point, 1);
