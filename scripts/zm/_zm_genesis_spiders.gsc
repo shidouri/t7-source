@@ -319,14 +319,14 @@ function spider_init()
 	self.missinglegs = 0;
 	self.thundergun_knockdown_func = &spider_thundergun_knockdown;
 	self.lightning_chain_immune = 1;
-	self thread function_747a2fea();
+	self thread spider_damage();
 	self thread spider_death();
 	self playsound("zmb_spider_spawn");
 	self thread function_eebdfab2();
 }
 
 /*
-	Name: function_747a2fea
+	Name: spider_damage
 	Namespace: zm_ai_spiders
 	Checksum: 0xF0A6064E
 	Offset: 0x12C0
@@ -334,7 +334,7 @@ function spider_init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_747a2fea()
+function spider_damage()
 {
 	self endon(#"death");
 	while(true)

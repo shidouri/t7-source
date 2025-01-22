@@ -358,14 +358,14 @@ function spider_init()
 	self.lightning_chain_immune = 1;
 	self.heroweapon_kill_power = 1;
 	self thread zombie_utility::round_spawn_failsafe();
-	self thread function_747a2fea();
+	self thread spider_damage();
 	self thread spider_death();
 	self playsound("zmb_spider_spawn");
 	self thread function_eebdfab2();
 }
 
 /*
-	Name: function_747a2fea
+	Name: spider_damage
 	Namespace: zm_ai_spiders
 	Checksum: 0x97F15482
 	Offset: 0x1A68
@@ -373,7 +373,7 @@ function spider_init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_747a2fea()
+function spider_damage()
 {
 	self endon(#"death");
 	while(true)
