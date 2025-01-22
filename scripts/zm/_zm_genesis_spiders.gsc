@@ -148,7 +148,7 @@ function function_83a70ec3()
 function init()
 {
 	level.spiders_enabled = 1;
-	level.var_347e707c = 0;
+	level.spider_rounds_enabled = 0;
 	level.var_7f2af1cf = 1;
 	level.spider_spawners = [];
 	level flag::init("spider_clips");
@@ -254,7 +254,7 @@ function function_fd32a77c()
 */
 function function_d2716ad8()
 {
-	level.var_347e707c = 1;
+	level.spider_rounds_enabled = 1;
 	if(!isdefined(level.spider_round_track_override))
 	{
 		level.spider_round_track_override = &spider_round_tracker;
