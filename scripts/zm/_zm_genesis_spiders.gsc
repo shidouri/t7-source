@@ -215,7 +215,7 @@ function spider_clip_monitor()
 			level.spider_clips[i] connectpaths();
 		}
 		level flag::wait_till("spider_clips");
-		if(isdefined(level.var_e564e9cd) && level.var_e564e9cd == 1)
+		if(isdefined(level.no_spider_clip) && level.no_spider_clip == 1)
 		{
 			return;
 		}
