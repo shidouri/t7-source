@@ -628,7 +628,7 @@ function function_a2a299a1()
 				util::wait_network_frame();
 				continue;
 			}
-			function_45237f11();
+			spawn_spiders();
 			util::wait_network_frame();
 		}
 		util::wait_network_frame();
@@ -658,7 +658,7 @@ function function_67c1c842()
 }
 
 /*
-	Name: function_45237f11
+	Name: spawn_spiders
 	Namespace: zm_ai_spiders
 	Checksum: 0xAC6E2734
 	Offset: 0x2400
@@ -666,7 +666,7 @@ function function_67c1c842()
 	Parameters: 0
 	Flags: Linked
 */
-function function_45237f11()
+function spawn_spiders()
 {
 	while(!function_c1730af7())
 	{
