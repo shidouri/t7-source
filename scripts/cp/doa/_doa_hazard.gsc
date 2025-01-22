@@ -326,9 +326,9 @@ function function_1cb931df(def, var_3d19d2b1 = getdvarint("scr_doa_eggcount", 6)
 {
 	if(isdefined(level.doa.var_d0cde02c))
 	{
-		if(isdefined(level.doa.var_d0cde02c.var_75f2c952))
+		if(isdefined(level.doa.var_d0cde02c.spider_count))
 		{
-			var_3d19d2b1 = level.doa.var_d0cde02c.var_75f2c952;
+			var_3d19d2b1 = level.doa.var_d0cde02c.spider_count;
 		}
 		else
 		{
@@ -337,7 +337,7 @@ function function_1cb931df(def, var_3d19d2b1 = getdvarint("scr_doa_eggcount", 6)
 	}
 	else if(def.round == level.doa.round_number)
 	{
-		var_3d19d2b1 = def.var_75f2c952;
+		var_3d19d2b1 = def.spider_count;
 	}
 	spot = doa_utility::function_ada6d90();
 	while(isdefined(spot) && var_3d19d2b1)

@@ -880,7 +880,7 @@ function function_957373c6(def)
 			def.cooldown = 0;
 			def.var_759562f7 = 5000;
 			def.var_474e643b = 20;
-			def.var_75f2c952 = 24;
+			def.spider_count = 24;
 			def.var_9cf005d1 = 0;
 			def.var_bb9ff15b = 2;
 			level.doa.var_afdb45da = def;
@@ -909,10 +909,10 @@ function function_7ea6d638(def)
 {
 	def.round = def.round + 64;
 	def.var_474e643b = def.var_474e643b + 4;
-	def.var_75f2c952 = def.var_75f2c952 + 12;
-	if(def.var_75f2c952 > 64)
+	def.spider_count = def.spider_count + 12;
+	if(def.spider_count > 64)
 	{
-		def.var_75f2c952 = 64;
+		def.spider_count = 64;
 	}
 	def.var_9cf005d1++;
 	def.title = def.var_7f46fadf[def.var_9cf005d1 % def.var_7f46fadf.size];
