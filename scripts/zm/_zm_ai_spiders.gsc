@@ -187,7 +187,7 @@ function init()
 	level.melee_range_sav = getdvarstring("ai_meleeRange");
 	level.melee_width_sav = getdvarstring("ai_meleeWidth");
 	level.melee_height_sav = getdvarstring("ai_meleeHeight");
-	function_7a544164();
+	spider_spawner_init();
 	level thread function_fd32a77c();
 	scene::add_scene_func("scene_zm_dlc2_spider_web_engage", &function_1c624caf, "done");
 	scene::add_scene_func("scene_zm_dlc2_spider_burrow_out_of_ground", &function_1c624caf, "done");
@@ -300,7 +300,7 @@ function function_d2716ad8()
 }
 
 /*
-	Name: function_7a544164
+	Name: spider_spawner_init
 	Namespace: zm_ai_spiders
 	Checksum: 0x3124A896
 	Offset: 0x1768
@@ -308,7 +308,7 @@ function function_d2716ad8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7a544164()
+function spider_spawner_init()
 {
 	level.spider_spawners = getentarray("zombie_spider_spawner", "script_noteworthy");
 	var_c84b3c65 = getentarray("later_round_spider_spawners", "script_noteworthy");
