@@ -276,7 +276,7 @@ function main()
 	level.no_target_override = &no_target_override;
 	level.player_intersection_tracker_override = &function_4fc0dcb3;
 	level.fn_custom_round_ai_spawn = &zm_island_spiders::function_33aa4940;
-	level thread zm_ai_spiders::function_d2716ad8();
+	level thread zm_ai_spiders::enable_spider_rounds();
 	level.var_5f1b87ca = &zm_island_vo::function_5f161c52;
 	level function_1b14c4b0();
 	level thread zm_ai_thrasher::function_5e5433d8();

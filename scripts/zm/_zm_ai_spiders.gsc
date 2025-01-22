@@ -281,7 +281,7 @@ function function_fd32a77c()
 }
 
 /*
-	Name: function_d2716ad8
+	Name: enable_spider_rounds
 	Namespace: zm_ai_spiders
 	Checksum: 0xE9035D38
 	Offset: 0x1718
@@ -289,7 +289,7 @@ function function_fd32a77c()
 	Parameters: 0
 	Flags: Linked
 */
-function function_d2716ad8()
+function enable_spider_rounds()
 {
 	level.spider_rounds_enabled = 1;
 	if(!isdefined(level.spider_round_track_override))
