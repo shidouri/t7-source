@@ -534,7 +534,7 @@ function spider_round_tracker()
 		}
 		else if(level flag::get("spider_round"))
 		{
-			function_123b370a();
+			spider_round_stop();
 			level.round_spawn_func = old_spawn_func;
 			level.round_wait_func = old_wait_func;
 			level.var_6ea0fe2e = level.var_6ea0fe2e + 1;
@@ -812,7 +812,7 @@ function spider_round_start()
 }
 
 /*
-	Name: function_123b370a
+	Name: spider_round_stop
 	Namespace: zm_ai_spiders
 	Checksum: 0x8924403C
 	Offset: 0x2930
@@ -820,7 +820,7 @@ function spider_round_start()
 	Parameters: 0
 	Flags: Linked
 */
-function function_123b370a()
+function spider_round_stop()
 {
 	level flag::clear("spider_round");
 	level flag::clear("special_round");
