@@ -99,7 +99,7 @@ function function_835fd6d8()
 	self flag::init("trap_cooldown");
 	self.zombie_cost = 1000;
 	level.var_1183e023 = 0;
-	self.var_ad39b789 = [];
+	self.a_e_switches = [];
 	self.a_s_triggers = [];
 	a_e_parts = getentarray(self.target, "targetname");
 	for(i = 0; i < a_e_parts.size; i++)
@@ -122,7 +122,7 @@ function function_835fd6d8()
 				}
 				case "switch":
 				{
-					self.var_ad39b789[self.var_ad39b789.size] = a_e_parts[i];
+					self.a_e_switches[self.a_e_switches.size] = a_e_parts[i];
 					break;
 				}
 			}
@@ -257,11 +257,11 @@ function function_dc9dafb8(e_player)
 */
 function trap_move_switches()
 {
-	for(i = 0; i < self.var_ad39b789.size; i++)
+	for(i = 0; i < self.a_e_switches.size; i++)
 	{
-		self.var_ad39b789[i] rotatepitch(-170, 0.5);
+		self.a_e_switches[i] rotatepitch(-170, 0.5);
 	}
-	self.var_ad39b789[0] waittill(#"rotatedone");
+	self.a_e_switches[0] waittill(#"rotatedone");
 	if(isdefined(self.script_int) && !level flag::get("power_on" + self.script_int))
 	{
 		level flag::wait_till("power_on" + self.script_int);
@@ -271,18 +271,18 @@ function trap_move_switches()
 	{
 		self flag::wait_till("trap_active");
 		self trap_lights_red();
-		for(i = 0; i < self.var_ad39b789.size; i++)
+		for(i = 0; i < self.a_e_switches.size; i++)
 		{
-			self.var_ad39b789[i] rotatepitch(170, 0.5);
-			self.var_ad39b789[i] playsound("evt_switch_flip_trap");
+			self.a_e_switches[i] rotatepitch(170, 0.5);
+			self.a_e_switches[i] playsound("evt_switch_flip_trap");
 		}
-		self.var_ad39b789[0] waittill(#"rotatedone");
+		self.a_e_switches[0] waittill(#"rotatedone");
 		self flag::wait_till("trap_cooldown");
-		for(i = 0; i < self.var_ad39b789.size; i++)
+		for(i = 0; i < self.a_e_switches.size; i++)
 		{
-			self.var_ad39b789[i] rotatepitch(-170, 0.5);
+			self.a_e_switches[i] rotatepitch(-170, 0.5);
 		}
-		self.var_ad39b789[0] waittill(#"rotatedone");
+		self.a_e_switches[0] waittill(#"rotatedone");
 		self flag::wait_till_clear("trap_cooldown");
 		self trap_lights_green();
 	}
