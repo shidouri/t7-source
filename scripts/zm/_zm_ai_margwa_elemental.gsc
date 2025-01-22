@@ -428,7 +428,7 @@ function private function_8d578a58()
 			scoreevents::processscoreevent("kill_margwa", player, undefined, undefined);
 		}
 	}
-	level notify(#"hash_1a2d33d7");
+	level notify("margwa_died");
 	if(isdefined(function_6bbd2a18(self)) && function_6bbd2a18(self))
 	{
 		function_396590c8(self.origin, 128);

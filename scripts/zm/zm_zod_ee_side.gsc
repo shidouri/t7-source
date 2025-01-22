@@ -1095,7 +1095,7 @@ function function_523509c2()
 	{
 		for(var_8d01bd08 = 0; var_8d01bd08 != 6; var_8d01bd08++)
 		{
-			level waittill(#"hash_1a2d33d7");
+			level waittill("margwa_died");
 		}
 	}
 	var_4a7285b7 = 0;
