@@ -2295,7 +2295,7 @@ function function_bfbc53f4(einflictor, eattacker, idamage, idflags, smeansofdeat
 				self.doa.ignoreattacker = eattacker;
 				self thread function_fdf74b3();
 			}
-			if(isdefined(eattacker.var_f4795bf) && eattacker.var_f4795bf && smeansofdeath == "MOD_PROJECTILE")
+			if(isdefined(eattacker.is_spider) && eattacker.is_spider && smeansofdeath == "MOD_PROJECTILE")
 			{
 				self notify(#"hash_89b28ec", eattacker);
 				idamage = 0;
