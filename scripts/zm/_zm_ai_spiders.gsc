@@ -174,7 +174,7 @@ function function_83a70ec3()
 */
 function init()
 {
-	level.var_173ca157 = 1;
+	level.spiders_enabled = 1;
 	level.var_347e707c = 0;
 	level.var_7f2af1cf = 1;
 	level.var_42034f6a = 30;
