@@ -845,8 +845,8 @@ function function_1d9b9b7b()
 	self endon(self.var_3c42ad63);
 	ai_index = 0;
 	var_c00049d4 = "power_spawn" + self.script_int;
-	var_8ef573c1 = struct::get_array(var_c00049d4, "targetname");
-	var_8ef573c1 = array::randomize(var_8ef573c1);
+	a_s_locations = struct::get_array(var_c00049d4, "targetname");
+	a_s_locations = array::randomize(a_s_locations);
 	self.var_b7d540e6 = gettime();
 	self.var_9437e3b6 = 0;
 	var_f2882ed8 = 0;
@@ -873,9 +873,9 @@ function function_1d9b9b7b()
 		}
 		else if(gettime() >= var_13b0b925)
 		{
-			s_spawn_pos = var_8ef573c1[var_f2882ed8];
+			s_spawn_pos = a_s_locations[var_f2882ed8];
 			var_f2882ed8++;
-			if(var_f2882ed8 >= var_8ef573c1.size)
+			if(var_f2882ed8 >= a_s_locations.size)
 			{
 				var_f2882ed8 = 0;
 			}
