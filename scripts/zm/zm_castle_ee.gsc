@@ -3052,12 +3052,12 @@ function function_fb090902(var_f3afc16d)
 */
 function function_dd1b044(var_f3afc16d)
 {
-	var_d695363e = 1;
+	b_can_spawn = 1;
 	if(isdefined(var_f3afc16d) && var_f3afc16d && level flag::get("solo_game"))
 	{
-		var_d695363e = 0;
+		b_can_spawn = 0;
 	}
-	return var_d695363e;
+	return b_can_spawn;
 }
 
 /*

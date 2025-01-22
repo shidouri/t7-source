@@ -1132,21 +1132,21 @@ function function_26da4beb(n_stage)
 */
 function function_a6e114bc(s_pos)
 {
-	var_d695363e = 1;
+	b_can_spawn = 1;
 	n_current_time = gettime();
 	if(isdefined(level.var_f77d7372))
 	{
 		var_47768568 = (n_current_time - level.var_f77d7372) / 1000;
 		if(var_47768568 < 300)
 		{
-			var_d695363e = 0;
+			b_can_spawn = 0;
 		}
 	}
 	if(level.var_2306bf38 >= 1 || level.var_638dde56 >= 1)
 	{
-		var_d695363e = 0;
+		b_can_spawn = 0;
 	}
-	if(!var_d695363e)
+	if(!b_can_spawn)
 	{
 		return false;
 	}
