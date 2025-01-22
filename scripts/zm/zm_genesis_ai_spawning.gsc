@@ -590,27 +590,27 @@ function function_f55d851b()
 			str_zone = zm_zonemgr::get_zone_from_position(v_origin, 1);
 			if(isdefined(str_zone) && level.zones[str_zone].is_active)
 			{
-				var_d88e6f5f = spawnactor("spawner_zm_genesis_keeper", v_origin, v_angles, undefined, 1, 1);
-				if(isdefined(var_d88e6f5f))
+				e_keeper = spawnactor("spawner_zm_genesis_keeper", v_origin, v_angles, undefined, 1, 1);
+				if(isdefined(e_keeper))
 				{
 					level.zombie_total--;
 					level.var_c4336559["keeper"]--;
-					var_d88e6f5f endon("death");
-					var_d88e6f5f.spawn_time = gettime();
-					var_d88e6f5f.var_b8385ee5 = 1;
-					var_d88e6f5f.health = level.zombie_health;
-					var_d88e6f5f.heroweapon_kill_power = 2;
-					level thread zm_spawner::zombie_death_event(var_d88e6f5f);
-					level thread function_6cc52664(var_d88e6f5f.origin);
-					var_d88e6f5f.voiceprefix = "keeper";
-					var_d88e6f5f.animname = "keeper";
-					var_d88e6f5f thread zm_spawner::play_ambient_zombie_vocals();
-					var_d88e6f5f thread zm_audio::zmbaivox_notifyconvert();
+					e_keeper endon("death");
+					e_keeper.spawn_time = gettime();
+					e_keeper.var_b8385ee5 = 1;
+					e_keeper.health = level.zombie_health;
+					e_keeper.heroweapon_kill_power = 2;
+					level thread zm_spawner::zombie_death_event(e_keeper);
+					level thread function_6cc52664(e_keeper.origin);
+					e_keeper.voiceprefix = "keeper";
+					e_keeper.animname = "keeper";
+					e_keeper thread zm_spawner::play_ambient_zombie_vocals();
+					e_keeper thread zm_audio::zmbaivox_notifyconvert();
 					wait(1.3);
-					var_d88e6f5f.zombie_think_done = 1;
-					var_d88e6f5f thread zombie_utility::round_spawn_failsafe();
-					var_d88e6f5f thread function_77d3a18d();
-					return var_d88e6f5f;
+					e_keeper.zombie_think_done = 1;
+					e_keeper thread zombie_utility::round_spawn_failsafe();
+					e_keeper thread function_77d3a18d();
+					return e_keeper;
 				}
 			}
 		}
