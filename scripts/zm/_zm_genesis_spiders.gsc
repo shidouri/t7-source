@@ -307,7 +307,7 @@ function spider_spawner_init()
 */
 function spider_init()
 {
-	function_6e19aa86();
+	spider_health_increase();
 	self.targetname = "zombie_spider";
 	self.maxhealth = level.var_fda270a4;
 	self.health = self.maxhealth;
@@ -838,7 +838,7 @@ function function_1abf8192()
 }
 
 /*
-	Name: function_6e19aa86
+	Name: spider_health_increase
 	Namespace: zm_ai_spiders
 	Checksum: 0x6842D65
 	Offset: 0x2320
@@ -846,7 +846,7 @@ function function_1abf8192()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6e19aa86()
+function spider_health_increase()
 {
 	if(isdefined(level.var_718361fb))
 	{
