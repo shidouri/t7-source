@@ -138,23 +138,23 @@ function function_33aa4940()
 		if(var_622d2c20)
 		{
 			var_a5f01313 = struct::get_array("zone_spider_lair_spawners", "targetname");
-			var_901f5ace = [];
+			a_spider_spawners = [];
 			foreach(s_spawner in var_a5f01313)
 			{
 				if(s_spawner.script_noteworthy == "spider_location")
 				{
-					if(!isdefined(var_901f5ace))
+					if(!isdefined(a_spider_spawners))
 					{
-						var_901f5ace = [];
+						a_spider_spawners = [];
 					}
-					else if(!isarray(var_901f5ace))
+					else if(!isarray(a_spider_spawners))
 					{
-						var_901f5ace = array(var_901f5ace);
+						a_spider_spawners = array(a_spider_spawners);
 					}
-					var_901f5ace[var_901f5ace.size] = s_spawner;
+					a_spider_spawners[a_spider_spawners.size] = s_spawner;
 				}
 			}
-			zm_ai_spiders::special_spider_spawn(1, array::random(var_901f5ace));
+			zm_ai_spiders::special_spider_spawn(1, array::random(a_spider_spawners));
 			level.var_ab7eb3d4++;
 		}
 		else
