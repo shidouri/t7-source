@@ -850,9 +850,9 @@ function spawn_margwa(s_location)
 		ai.team = level.zombie_team;
 		ai.canstun = 1;
 		ai.thundergun_fling_func = &function_7292417a;
-		ai.thundergun_knockdown_func = &function_94fd1710;
+		ai.thundergun_knockdown_func = &margwa_thundergun_knockdown;
 		ai.var_23340a5d = &function_7292417a;
-		ai.var_e1dbd63 = &function_94fd1710;
+		ai.var_e1dbd63 = &margwa_thundergun_knockdown;
 		e_player = zm_utility::get_closest_player(s_location.origin);
 		v_dir = e_player.origin - s_location.origin;
 		v_dir = vectornormalize(v_dir);
@@ -895,7 +895,7 @@ function function_7292417a(e_player, gib)
 }
 
 /*
-	Name: function_94fd1710
+	Name: margwa_thundergun_knockdown
 	Namespace: zm_ai_margwa
 	Checksum: 0x2D78488D
 	Offset: 0x28B8
@@ -903,7 +903,7 @@ function function_7292417a(e_player, gib)
 	Parameters: 2
 	Flags: Linked
 */
-function function_94fd1710(e_player, gib)
+function margwa_thundergun_knockdown(e_player, gib)
 {
 	self endon(#"death");
 	self function_5ffc5a7b(e_player, 1);

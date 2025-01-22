@@ -217,9 +217,9 @@ function function_eb5051f4(spawner, targetname, var_f9ebd43e, s_location)
 		ai.team = level.zombie_team;
 		ai.canstun = 1;
 		ai.thundergun_fling_func = &zm_ai_margwa::function_7292417a;
-		ai.thundergun_knockdown_func = &zm_ai_margwa::function_94fd1710;
+		ai.thundergun_knockdown_func = &zm_ai_margwa::margwa_thundergun_knockdown;
 		ai.var_23340a5d = &zm_ai_margwa::function_7292417a;
-		ai.var_e1dbd63 = &zm_ai_margwa::function_94fd1710;
+		ai.var_e1dbd63 = &zm_ai_margwa::margwa_thundergun_knockdown;
 		e_player = zm_utility::get_closest_player(s_location.origin);
 		v_dir = e_player.origin - s_location.origin;
 		v_dir = vectornormalize(v_dir);
