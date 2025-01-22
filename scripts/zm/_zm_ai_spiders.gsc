@@ -525,7 +525,7 @@ function spider_round_tracker()
 			old_spawn_func = level.round_spawn_func;
 			old_wait_func = level.round_wait_func;
 			function_9f7a20d2();
-			level.round_spawn_func = &function_a2a299a1;
+			level.round_spawn_func = &spider_round_spawning;
 			level.round_wait_func = &function_872e306e;
 			level.var_3013498 = level.round_number + randomintrange(4, 6);
 			/#
@@ -576,7 +576,7 @@ function function_fad41aec()
 }
 
 /*
-	Name: function_a2a299a1
+	Name: spider_round_spawning
 	Namespace: zm_ai_spiders
 	Checksum: 0x661016B7
 	Offset: 0x2150
@@ -584,7 +584,7 @@ function function_fad41aec()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a2a299a1()
+function spider_round_spawning()
 {
 	level endon(#"intermission");
 	level endon(#"end_of_round");

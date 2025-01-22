@@ -85,7 +85,7 @@ function __init__()
 	level thread function_21a5cf5e();
 	zm_spawner::register_zombie_death_event_callback(&function_bfaac59);
 	zm_spawner::register_zombie_death_event_callback(&function_6119f23);
-	level thread function_a2a299a1();
+	level thread spider_round_spawning();
 	level thread function_72e88a5f();
 	level thread function_411feb6a();
 	level thread function_dd6ccbfc();
@@ -843,7 +843,7 @@ function function_e45363e3()
 }
 
 /*
-	Name: function_a2a299a1
+	Name: spider_round_spawning
 	Namespace: zm_genesis_apothican
 	Checksum: 0x81C1AEC6
 	Offset: 0x30B0
@@ -851,7 +851,7 @@ function function_e45363e3()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a2a299a1()
+function spider_round_spawning()
 {
 	level.var_a3ad836b = 8;
 	level flag::wait_till_all(array("power_on1", "power_on2", "power_on3", "power_on4"));
