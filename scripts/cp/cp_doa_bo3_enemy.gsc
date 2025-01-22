@@ -1011,7 +1011,7 @@ function function_1631202b(spawner, loc, def)
 	Parameters: 3
 	Flags: Linked
 */
-function function_ee2c4b95(spawner = level.doa.var_4720602e, loc, def)
+function function_ee2c4b95(spawner = level.doa.spiderspawner, loc, def)
 {
 	ai = doa_enemy::function_a4e16560(spawner, loc, (isdefined(def) ? def.forcespawn : 0));
 	if(isdefined(ai))
@@ -1042,9 +1042,9 @@ function function_ee2c4b95(spawner = level.doa.var_4720602e, loc, def)
 */
 function function_e59bd7c5(carrier)
 {
-	if(!isdefined(level.doa.var_4720602e))
+	if(!isdefined(level.doa.spiderspawner))
 	{
-		level.doa.var_4720602e = getent("doa_spider", "targetname");
+		level.doa.spiderspawner = getent("doa_spider", "targetname");
 	}
 	loc = spawnstruct();
 	loc.origin = carrier.origin;
