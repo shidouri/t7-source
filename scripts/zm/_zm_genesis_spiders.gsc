@@ -149,7 +149,7 @@ function init()
 {
 	level.spiders_enabled = 1;
 	level.spider_rounds_enabled = 0;
-	level.var_7f2af1cf = 1;
+	level.spider_round_count = 1;
 	level.spider_spawners = [];
 	level flag::init("spider_clips");
 	level flag::init("spider_round_in_progress");
