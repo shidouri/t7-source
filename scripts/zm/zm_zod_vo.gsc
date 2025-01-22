@@ -1962,11 +1962,11 @@ function function_43b03c7f(var_f30428a8)
 	var_e1b29e02 = undefined;
 	while(!var_d8dc8b3c)
 	{
-		var_60852196 = getaiarchetypearray("margwa");
+		a_e_margwa = getaiarchetypearray("margwa");
 		var_9f338373 = [];
 		a_e_players = getplayers();
 		i = 0;
-		foreach(e_margwa in var_60852196)
+		foreach(e_margwa in a_e_margwa)
 		{
 			var_9f338373[i] = arraysortclosest(a_e_players, e_margwa.origin, a_e_players.size, 0, var_f30428a8);
 			i++;
@@ -1986,7 +1986,7 @@ function function_43b03c7f(var_f30428a8)
 		}
 		if(var_9f338373.size > 0)
 		{
-			foreach(e_margwa in var_60852196)
+			foreach(e_margwa in a_e_margwa)
 			{
 				if(isdefined(var_e1b29e02) && var_e1b29e02 function_2d942575(e_margwa, var_f30428a8) && !var_e1b29e02 flag::get("in_beastmode"))
 				{
