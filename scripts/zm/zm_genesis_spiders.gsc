@@ -127,26 +127,26 @@ function function_3f180afe()
 {
 	if(level.round_number < 5)
 	{
-		var_fda270a4 = 400;
+		n_spider_health = 400;
 	}
 	else
 	{
 		if(level.round_number < 10)
 		{
-			var_fda270a4 = 900;
+			n_spider_health = 900;
 		}
 		else
 		{
 			if(level.round_number < 15)
 			{
-				var_fda270a4 = 1300;
+				n_spider_health = 1300;
 			}
 			else
 			{
-				var_fda270a4 = 1600;
+				n_spider_health = 1600;
 			}
 		}
 	}
-	return int(var_fda270a4 * 0.35);
+	return int(n_spider_health * 0.35);
 }
 

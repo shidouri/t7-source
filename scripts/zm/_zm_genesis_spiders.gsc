@@ -309,7 +309,7 @@ function spider_init()
 {
 	spider_health_increase();
 	self.targetname = "zombie_spider";
-	self.maxhealth = level.var_fda270a4;
+	self.maxhealth = level.n_spider_health;
 	self.health = self.maxhealth;
 	self.no_gib = 1;
 	self.b_is_spider = 1;
@@ -850,7 +850,7 @@ function spider_health_increase()
 {
 	if(isdefined(level.var_718361fb))
 	{
-		level.var_fda270a4 = level.var_718361fb;
+		level.n_spider_health = level.var_718361fb;
 	}
 	else
 	{
@@ -858,29 +858,29 @@ function spider_health_increase()
 		{
 			case 1:
 			{
-				level.var_fda270a4 = 400;
+				level.n_spider_health = 400;
 				break;
 			}
 			case 2:
 			{
-				level.var_fda270a4 = 900;
+				level.n_spider_health = 900;
 				break;
 			}
 			case 3:
 			{
-				level.var_fda270a4 = 1300;
+				level.n_spider_health = 1300;
 				break;
 			}
 			default:
 			{
-				level.var_fda270a4 = 1600;
+				level.n_spider_health = 1600;
 				break;
 			}
 		}
-		level.var_fda270a4 = int(level.var_fda270a4 * 0.5);
+		level.n_spider_health = int(level.n_spider_health * 0.5);
 		if(level flag::exists("spiders_from_mars_round") && level flag::get("spiders_from_mars_round"))
 		{
-			level.var_fda270a4 = level.var_fda270a4 * 2;
+			level.n_spider_health = level.n_spider_health * 2;
 		}
 	}
 }
