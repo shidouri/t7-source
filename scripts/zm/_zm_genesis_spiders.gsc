@@ -677,7 +677,7 @@ function spawn_spiders()
 		{
 			ai thread [[level.var_2aacffb1]]();
 		}
-		function_1abf8192();
+		waiting_for_next_spider_spawn();
 	}
 }
 
@@ -801,7 +801,7 @@ function spider_round_stop()
 }
 
 /*
-	Name: function_1abf8192
+	Name: waiting_for_next_spider_spawn
 	Namespace: zm_ai_spiders
 	Checksum: 0x78D3E2DE
 	Offset: 0x2290
@@ -809,7 +809,7 @@ function spider_round_stop()
 	Parameters: 0
 	Flags: Linked
 */
-function function_1abf8192()
+function waiting_for_next_spider_spawn()
 {
 	switch(level.players.size)
 	{
@@ -1136,7 +1136,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 				level flag::set("spider_clips");
 			}
 		}
-		function_1abf8192();
+		waiting_for_next_spider_spawn();
 	}
 	if(isdefined(ai))
 	{
