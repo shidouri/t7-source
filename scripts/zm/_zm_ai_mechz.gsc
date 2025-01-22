@@ -357,7 +357,7 @@ function spawn_mechz(s_location, flyin = 0)
 				ai thread function_75a79bb5();
 			#/
 			ai.actor_damage_func = &mechzserverutils::mechzdamagecallback;
-			ai.damage_scoring_function = &function_b03abc02;
+			ai.damage_scoring_function = &mechz_damage_scoring;
 			ai.mechz_melee_knockdown_function = &function_55483494;
 			ai.health = level.mechz_health;
 			ai.faceplate_health = level.mechz_faceplate_health;
@@ -734,7 +734,7 @@ function function_949a3fdf()
 }
 
 /*
-	Name: function_b03abc02
+	Name: mechz_damage_scoring
 	Namespace: zm_ai_mechz
 	Checksum: 0xD98EAD1A
 	Offset: 0x2500
@@ -742,7 +742,7 @@ function function_949a3fdf()
 	Parameters: 12
 	Flags: Linked
 */
-function function_b03abc02(inflictor, attacker, damage, dflags, mod, weapon, point, dir, hitloc, offsettime, boneindex, modelindex)
+function mechz_damage_scoring(inflictor, attacker, damage, dflags, mod, weapon, point, dir, hitloc, offsettime, boneindex, modelindex)
 {
 	if(isdefined(attacker) && isplayer(attacker))
 	{

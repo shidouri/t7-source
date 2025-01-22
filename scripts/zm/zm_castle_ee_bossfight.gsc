@@ -3055,7 +3055,7 @@ function spawn_mech()
 			ai thread zm_ai_mechz::function_75a79bb5();
 		#/
 		ai.actor_damage_func = &mechzserverutils::mechzdamagecallback;
-		ai.damage_scoring_function = &zm_ai_mechz::function_b03abc02;
+		ai.damage_scoring_function = &zm_ai_mechz::mechz_damage_scoring;
 		ai.mechz_melee_knockdown_function = &zm_ai_mechz::function_55483494;
 		ai.health = self.mechz_health;
 		ai.faceplate_health = self.mechz_faceplate_health;
