@@ -334,7 +334,7 @@ function raz_round_spawning()
 		return;
 	}
 	array::thread_all(level.players, &play_raz_round);
-	n_wave_count = function_852019c2();
+	n_wave_count = get_raz_spawn_total();
 	function_a67ada8();
 	level.zombie_total = int(n_wave_count);
 	/#
@@ -465,7 +465,7 @@ function spawn_raz()
 }
 
 /*
-	Name: function_852019c2
+	Name: get_raz_spawn_total
 	Namespace: zm_ai_raz
 	Checksum: 0x9A8FF8B
 	Offset: 0x1418
@@ -473,7 +473,7 @@ function spawn_raz()
 	Parameters: 0
 	Flags: Linked
 */
-function function_852019c2()
+function get_raz_spawn_total()
 {
 	switch(level.players.size)
 	{
