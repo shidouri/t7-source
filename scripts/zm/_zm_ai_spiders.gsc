@@ -524,7 +524,7 @@ function spider_round_tracker()
 			level.sndmusicspecialround = 1;
 			old_spawn_func = level.round_spawn_func;
 			old_wait_func = level.round_wait_func;
-			function_9f7a20d2();
+			spider_round_start();
 			level.round_spawn_func = &spider_round_spawning;
 			level.round_wait_func = &spider_round_wait_func;
 			level.var_3013498 = level.round_number + randomintrange(4, 6);
@@ -781,7 +781,7 @@ function spider_round_wait_func()
 }
 
 /*
-	Name: function_9f7a20d2
+	Name: spider_round_start
 	Namespace: zm_ai_spiders
 	Checksum: 0xD4F9849B
 	Offset: 0x2820
@@ -789,7 +789,7 @@ function spider_round_wait_func()
 	Parameters: 0
 	Flags: Linked
 */
-function function_9f7a20d2()
+function spider_round_start()
 {
 	level flag::set("spider_round");
 	level flag::set("special_round");
