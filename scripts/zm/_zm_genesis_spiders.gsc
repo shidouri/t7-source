@@ -475,8 +475,8 @@ function spider_explode_fx(v_pos)
 */
 function spider_round_tracker()
 {
-	level.var_3013498 = level.round_number + randomintrange(4, 7);
-	level.var_5ccd3661 = level.var_3013498;
+	level.n_next_spider_round = level.round_number + randomintrange(4, 7);
+	level.var_5ccd3661 = level.n_next_spider_round;
 	old_spawn_func = level.round_spawn_func;
 	old_wait_func = level.round_wait_func;
 	while(true)
@@ -485,10 +485,10 @@ function spider_round_tracker()
 		/#
 			if(getdvarint("") > 0)
 			{
-				level.var_3013498 = level.round_number;
+				level.n_next_spider_round = level.round_number;
 			}
 		#/
-		if(level.round_number == level.var_3013498)
+		if(level.round_number == level.n_next_spider_round)
 		{
 			level.sndmusicspecialround = 1;
 			old_spawn_func = level.round_spawn_func;
@@ -496,9 +496,9 @@ function spider_round_tracker()
 			spider_round_start();
 			level.round_spawn_func = &spider_round_spawning;
 			level.round_wait_func = &spider_round_wait_func;
-			level.var_3013498 = level.round_number + randomintrange(4, 6);
+			level.n_next_spider_round = level.round_number + randomintrange(4, 6);
 			/#
-				getplayers()[0] iprintln("" + level.var_3013498);
+				getplayers()[0] iprintln("" + level.n_next_spider_round);
 			#/
 		}
 		else if(level flag::get("spider_round"))
@@ -1484,8 +1484,8 @@ function function_8457e10f(cmd)
 			}
 			case "":
 			{
-				level.var_3013498 = level.round_number + 1;
-				zm_devgui::zombie_devgui_goto_round(level.var_3013498);
+				level.n_next_spider_round = level.round_number + 1;
+				zm_devgui::zombie_devgui_goto_round(level.n_next_spider_round);
 				break;
 			}
 			case "":

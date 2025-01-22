@@ -856,12 +856,12 @@ function spider_round_spawning()
 	level.var_a3ad836b = 8;
 	level flag::wait_till_all(array("power_on1", "power_on2", "power_on3", "power_on4"));
 	function_9ccb8410(120);
-	level.var_3013498 = level.round_number + 2;
+	level.n_next_spider_round = level.round_number + 2;
 	while(true)
 	{
 		level waittill(#"between_round_over");
 		var_8a82d706 = 0;
-		if(level.var_3013498 <= level.round_number)
+		if(level.n_next_spider_round <= level.round_number)
 		{
 			if(level.var_b8b48a73.size > 0)
 			{
@@ -873,7 +873,7 @@ function spider_round_spawning()
 		if(var_8a82d706)
 		{
 			level waittill(#"end_of_round");
-			level.var_3013498 = level.round_number + randomintrange(4, 6);
+			level.n_next_spider_round = level.round_number + randomintrange(4, 6);
 		}
 	}
 }

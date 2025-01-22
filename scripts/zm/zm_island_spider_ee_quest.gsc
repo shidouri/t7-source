@@ -423,11 +423,11 @@ function spiders_from_mars_round()
 	if(level flag::get("spider_round_in_progress"))
 	{
 		level flag::wait_till_clear("spider_round_in_progress");
-		level.var_3013498 = level.round_number + 2;
+		level.n_next_spider_round = level.round_number + 2;
 	}
 	else
 	{
-		level.var_3013498 = level.round_number + 1;
+		level.n_next_spider_round = level.round_number + 1;
 	}
 	while(true)
 	{

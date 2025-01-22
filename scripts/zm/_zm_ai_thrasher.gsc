@@ -221,7 +221,7 @@ function function_8aac3fe()
 	{
 		level waittill(#"between_round_over");
 		level.var_e51f5b82 = 0;
-		if(isdefined(level.var_3013498) && level.round_number == level.var_3013498)
+		if(isdefined(level.n_next_spider_round) && level.round_number == level.n_next_spider_round)
 		{
 			level.var_ebc4830 = level.var_ebc4830 + 1;
 			continue;
