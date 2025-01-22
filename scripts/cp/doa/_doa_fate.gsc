@@ -199,7 +199,7 @@ function function_77ed1bae()
 	}
 	else
 	{
-		namespace_cdb9a8fe::function_55762a85(namespace_3ca3c537::function_61d60e0b());
+		namespace_cdb9a8fe::function_55762a85(doa_arena::function_61d60e0b());
 	}
 	level thread doa_utility::set_lighting_state(3);
 	for(i = 0; i < level.doa.var_b1698a42.types.size; i++)
@@ -236,7 +236,7 @@ function function_77ed1bae()
 		players[i] freezecontrols(0);
 	}
 	level thread function_6162a853();
-	level thread namespace_3ca3c537::function_a50a72db();
+	level thread doa_arena::function_a50a72db();
 	level notify(#"hash_3b6e1e2");
 	level waittill(#"hash_7b036079");
 	wait(1);
@@ -942,7 +942,7 @@ function function_833dad0d()
 	wait(3);
 	level clientfield::set("activateBanner", 1);
 	wait(4);
-	level thread namespace_3ca3c537::function_a50a72db();
+	level thread doa_arena::function_a50a72db();
 	level notify(#"hash_3b6e1e2");
 	/#
 		doa_utility::debugmsg("");
@@ -1002,7 +1002,7 @@ function function_833dad0d()
 	}
 	else
 	{
-		namespace_cdb9a8fe::function_55762a85(namespace_3ca3c537::function_61d60e0b());
+		namespace_cdb9a8fe::function_55762a85(doa_arena::function_61d60e0b());
 	}
 	level thread doa_utility::set_lighting_state(3);
 	namespace_831a4a7c::function_82e3b1cb();
@@ -1065,7 +1065,7 @@ function function_be1e2cfc(guardian, var_526b2f85)
 	guardian.origin = guardian.origin + vectorscale((0, 0, 1), 1000);
 	var_526b2f85.origin = var_526b2f85.origin + vectorscale((0, 0, 1), 1000);
 	level.doa.var_b1698a42.var_1bcf76cc = 0;
-	level.doa.rules.max_enemy_count = namespace_3ca3c537::function_b0e9983(namespace_3ca3c537::function_d2d75f5d());
+	level.doa.rules.max_enemy_count = doa_arena::function_b0e9983(doa_arena::function_d2d75f5d());
 }
 
 /*
@@ -1576,7 +1576,7 @@ function private function_b6a1fab3()
 {
 	level endon(#"hash_d1f5acf7");
 	level.doa.var_d0cde02c = undefined;
-	var_60de7d19 = namespace_3ca3c537::function_61d60e0b();
+	var_60de7d19 = doa_arena::function_61d60e0b();
 	var_9a550361 = var_60de7d19;
 	boss = spawn("script_model", var_9a550361);
 	boss.targetname = "stoneguardian";

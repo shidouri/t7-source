@@ -191,7 +191,7 @@ function function_dbb56674()
 {
 	if(getplayers().size > 1)
 	{
-		mapname = namespace_3ca3c537::function_d2d75f5d();
+		mapname = doa_arena::function_d2d75f5d();
 		if(mapname == "vengeance")
 		{
 			return 8;
@@ -519,13 +519,13 @@ function function_cef7f9fd()
 */
 function function_165c9bd0()
 {
-	var_e6171788 = namespace_3ca3c537::function_d2d75f5d();
+	var_e6171788 = doa_arena::function_d2d75f5d();
 	if(var_e6171788 == "boss" && level.doa.arena_round_number == 3 || (isdefined(level.doa.var_602737ab) && level.doa.var_602737ab))
 	{
 		if(isdefined(level.doa.var_602737ab) && level.doa.var_602737ab)
 		{
-			namespace_3ca3c537::function_5af67667(namespace_3ca3c537::function_5835533a("boss"), 1);
-			namespace_3ca3c537::function_ba9c838e();
+			doa_arena::function_5af67667(doa_arena::function_5835533a("boss"), 1);
+			doa_arena::function_ba9c838e();
 			level thread util::set_lighting_state(3);
 			namespace_cdb9a8fe::function_55762a85();
 			namespace_831a4a7c::function_82e3b1cb();
@@ -538,8 +538,8 @@ function function_165c9bd0()
 	{
 		if(isdefined(level.doa.var_bae65231) && level.doa.var_bae65231)
 		{
-			namespace_3ca3c537::function_5af67667(namespace_3ca3c537::function_5835533a("cave"), 1);
-			namespace_3ca3c537::function_ba9c838e();
+			doa_arena::function_5af67667(doa_arena::function_5835533a("cave"), 1);
+			doa_arena::function_ba9c838e();
 			namespace_cdb9a8fe::function_55762a85();
 			namespace_831a4a7c::function_82e3b1cb();
 		}

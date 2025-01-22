@@ -267,7 +267,7 @@ function function_d207ecc1(localclientnum, delta_time)
 	}
 	dims = maxs - mins;
 	var_733be899 = (mins + maxs) * 0.5;
-	arena_center = namespace_3ca3c537::function_61d60e0b();
+	arena_center = doa_arena::function_61d60e0b();
 	mins = function_44a2ae85(arena_center, mins);
 	maxs = function_b72ba417(arena_center, maxs);
 	center = mins + maxs;
@@ -275,7 +275,7 @@ function function_d207ecc1(localclientnum, delta_time)
 	cam_pos = center;
 	if(players.size == 1)
 	{
-		var_4d44f2a6 = namespace_3ca3c537::function_be152c54();
+		var_4d44f2a6 = doa_arena::function_be152c54();
 		if(var_4d44f2a6 == 99)
 		{
 			cam_pos = (players[0].origin[0], players[0].origin[1], arena_center[2]);

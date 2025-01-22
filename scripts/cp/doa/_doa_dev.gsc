@@ -728,7 +728,7 @@ function devguithink()
 			}
 			case "arena":
 			{
-				world.var_e5cf1b41 = namespace_3ca3c537::function_5835533a(getdvarstring("scr_spawn_room_name"));
+				world.var_e5cf1b41 = doa_arena::function_5835533a(getdvarstring("scr_spawn_room_name"));
 				doa_utility::debugmsg((("Advance To Arena =" + getdvarstring("scr_spawn_room_name")) + " idx=") + world.var_e5cf1b41);
 				setdvar("scr_spawn_room_name", "");
 				adddebugcommand("map_restart");
@@ -737,7 +737,7 @@ function devguithink()
 			case "warp":
 			{
 				flag::clear("doa_round_active");
-				level.doa.var_b5c260bb = namespace_3ca3c537::function_5835533a(getdvarstring("scr_spawn_room_name"));
+				level.doa.var_b5c260bb = doa_arena::function_5835533a(getdvarstring("scr_spawn_room_name"));
 				level.doa.arena_round_number = level.doa.rules.var_88c0b67b - 1;
 				round_number = level.doa.var_b5c260bb * level.doa.rules.var_88c0b67b;
 				foreach(room in level.doa.var_ec2bff7b)

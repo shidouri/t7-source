@@ -169,7 +169,7 @@ function function_fc48f9f3()
 	if(getdvarint("scr_boss_silverback_mech_enabled", 0))
 	{
 		level clientfield::set("cameraHeight", 2);
-		var_60de7d19 = namespace_3ca3c537::function_61d60e0b();
+		var_60de7d19 = doa_arena::function_61d60e0b();
 		loc = spawnstruct();
 		loc.angles = (0, 0, 0);
 		loc.origin = var_60de7d19 + vectorscale((0, 0, 1), 3000);
@@ -254,7 +254,7 @@ function function_fc48f9f3()
 	{
 		level.doa.var_6fb37836 delete();
 	}
-	egg = spawn("script_model", namespace_3ca3c537::function_61d60e0b() + vectorscale((0, 0, 1), 48));
+	egg = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 48));
 	egg.targetname = "fido";
 	egg setmodel("zombietron_eggxl");
 	level thread doa_pickups::spawnmoneyglob(0, 10, 0.1);
@@ -276,7 +276,7 @@ function function_fc48f9f3()
 	level thread doa_utility::function_37fb5c23(&"CP_DOA_BO3_FIDO_SAVED2", undefined, 5, (1, 1, 0));
 	wait(6.5);
 	level.var_de693c3 = 0;
-	namespace_3ca3c537::function_4586479a(0);
+	doa_arena::function_4586479a(0);
 	function_d8e6314c();
 	level thread function_14ba3248();
 	foreach(player in getplayers())
@@ -290,7 +290,7 @@ function function_fc48f9f3()
 	level.doa.arena_round_number = 0;
 	level clientfield::set("arenaRound", level.doa.arena_round_number);
 	level thread util::set_lighting_state(level.doa.arena_round_number);
-	namespace_3ca3c537::function_5af67667(level.doa.current_arena + 1);
+	doa_arena::function_5af67667(level.doa.current_arena + 1);
 	level.doa.var_bc9b7c71 = var_e5c8b9e7;
 	level.var_de693c3 = 1;
 }
@@ -739,7 +739,7 @@ function function_6441ddee(ent)
 	{
 		return false;
 	}
-	safezone = namespace_3ca3c537::function_dc34896f();
+	safezone = doa_arena::function_dc34896f();
 	if(!ent istouching(safezone))
 	{
 		return false;
@@ -759,7 +759,7 @@ function function_6441ddee(ent)
 function function_3cc9ed44()
 {
 	self endon("death");
-	safezone = namespace_3ca3c537::function_dc34896f();
+	safezone = doa_arena::function_dc34896f();
 	failures = 0;
 	while(true)
 	{
@@ -1140,7 +1140,7 @@ function function_b3eb3a0b(params)
 		if(isdefined(self.oob) && self.oob)
 		{
 			self.oob = undefined;
-			spot = namespace_3ca3c537::function_2a9d778d();
+			spot = doa_arena::function_2a9d778d();
 			spots = doa_utility::function_308fa126();
 			if(isdefined(spots) && spots.size)
 			{

@@ -69,7 +69,7 @@ function private function_d95d34bd(spawner)
 			level.doa.var_4714c375 = level.doa.rules.var_ca8dc008;
 			if(isdefined(level.doa.var_c03fe5f1))
 			{
-				if(!namespace_3ca3c537::function_85c94f67(level.doa.var_c03fe5f1))
+				if(!doa_arena::function_85c94f67(level.doa.var_c03fe5f1))
 				{
 					continue;
 				}

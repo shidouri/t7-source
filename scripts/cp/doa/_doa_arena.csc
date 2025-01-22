@@ -13,11 +13,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_3ca3c537;
+#namespace doa_arena;
 
 /*
 	Name: function_a55a134f
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xA3EA456E
 	Offset: 0x3C0
 	Size: 0x19C
@@ -48,7 +48,7 @@ function private function_a55a134f()
 
 /*
 	Name: function_bd3519f2
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x48FA5778
 	Offset: 0x568
 	Size: 0x5E
@@ -81,7 +81,7 @@ function function_bd3519f2(name)
 
 /*
 	Name: function_61e2e743
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xAEB9EEDD
 	Offset: 0x5D0
 	Size: 0xAE
@@ -120,7 +120,7 @@ function function_61e2e743()
 
 /*
 	Name: function_382c20a3
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x9C963EC
 	Offset: 0x688
 	Size: 0x2E
@@ -134,7 +134,7 @@ function function_382c20a3()
 
 /*
 	Name: init
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x6DB052AC
 	Offset: 0x6C0
 	Size: 0xF84
@@ -323,7 +323,7 @@ function init()
 
 /*
 	Name: function_d6bfcb75
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xDA9815D
 	Offset: 0x1650
 	Size: 0x200
@@ -364,7 +364,7 @@ function function_d6bfcb75(keywords)
 
 /*
 	Name: function_a5b9b9b9
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xB627411B
 	Offset: 0x1858
 	Size: 0xFA
@@ -391,7 +391,7 @@ function function_a5b9b9b9(var_92804e37, var_b092b293, struct)
 
 /*
 	Name: restart
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xB4E26B98
 	Offset: 0x1960
 	Size: 0x202
@@ -424,7 +424,7 @@ function restart()
 
 /*
 	Name: function_a83dfb2c
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xE91CA488
 	Offset: 0x1B70
 	Size: 0x176
@@ -450,7 +450,7 @@ function function_a83dfb2c()
 
 /*
 	Name: flipcamera
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x32AEE30D
 	Offset: 0x1CF0
 	Size: 0x384
@@ -498,7 +498,7 @@ function flipcamera(localclientnum, oldval, newval, bnewent, binitialsnap, field
 
 /*
 	Name: function_c530afc5
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x3ADAB3B6
 	Offset: 0x2080
 	Size: 0x78
@@ -520,7 +520,7 @@ function function_c530afc5(angles)
 
 /*
 	Name: function_be152c54
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x4FD50D38
 	Offset: 0x2100
 	Size: 0x4E
@@ -538,7 +538,7 @@ function function_be152c54()
 
 /*
 	Name: function_9f1a0b26
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x52345715
 	Offset: 0x2158
 	Size: 0x10A
@@ -569,7 +569,7 @@ function function_9f1a0b26(var_c3479584)
 
 /*
 	Name: function_61d60e0b
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x87B50EE1
 	Offset: 0x2270
 	Size: 0x60
@@ -587,7 +587,7 @@ function function_61d60e0b()
 
 /*
 	Name: function_d2d75f5d
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xA1309FCF
 	Offset: 0x22D8
 	Size: 0x2E
@@ -601,7 +601,7 @@ function function_d2d75f5d()
 
 /*
 	Name: function_22f2039b
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x24E95917
 	Offset: 0x2310
 	Size: 0x8E
@@ -619,7 +619,7 @@ function function_22f2039b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9977953
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xD86CD486
 	Offset: 0x23A8
 	Size: 0x54
@@ -633,7 +633,7 @@ function function_9977953(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_836d1e22
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x146D6662
 	Offset: 0x2408
 	Size: 0x3A4
@@ -695,7 +695,7 @@ function function_836d1e22(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_43141563
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x402DF781
 	Offset: 0x27B8
 	Size: 0x68
@@ -712,7 +712,7 @@ function function_43141563(localclientnum)
 
 /*
 	Name: setarena
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x69176B69
 	Offset: 0x2828
 	Size: 0x2EC
@@ -758,7 +758,7 @@ function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 
 /*
 	Name: function_986ae2b3
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xF75AA969
 	Offset: 0x2B20
 	Size: 0xA4

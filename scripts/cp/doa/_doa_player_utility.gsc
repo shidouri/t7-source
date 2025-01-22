@@ -1541,7 +1541,7 @@ function function_4eabae51()
 				util::wait_network_frame();
 				level notify(#"hash_8817f58");
 				enemies = doa_utility::function_fb2ad2fb();
-				camerapos = namespace_3ca3c537::function_5147636f();
+				camerapos = doa_arena::function_5147636f();
 				var_307c0d3 = vectornormalize(camerapos - player_org);
 				var_adc420e5 = 0.3;
 				foreach(guy in enemies)

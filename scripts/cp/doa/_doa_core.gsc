@@ -551,7 +551,7 @@ function init()
 	namespace_3f3eaecb::init();
 	namespace_4973e019::init();
 	doa_enemy::init();
-	namespace_3ca3c537::init();
+	doa_arena::init();
 	namespace_aa4730ec::init();
 	namespace_d88e3a06::init();
 	namespace_2848f8c2::init();
@@ -588,7 +588,7 @@ function function_c7f824a()
 	level.doa.var_2836c8ee = undefined;
 	level.doa.in_intermission = 0;
 	level.doa.flipped = 0;
-	namespace_3ca3c537::function_ba9c838e(1);
+	doa_arena::function_ba9c838e(1);
 	level.doa.var_2d09b979 = 1;
 	level.doa.exits_open = 0;
 	level.doa.lastmagical_exit_taken = 0;
@@ -871,13 +871,13 @@ function function_3e351f83(firsttime)
 	level thread function_dc4ffe5c();
 	doa_utility::killallenemy();
 	function_c7f824a();
-	namespace_3ca3c537::init();
+	doa_arena::init();
 	doa_pickups::init();
-	namespace_3ca3c537::function_5af67667(level.doa.current_arena);
+	doa_arena::function_5af67667(level.doa.current_arena);
 	namespace_831a4a7c::function_4db260cb();
 	namespace_cdb9a8fe::function_55762a85();
 	namespace_d88e3a06::function_7a8a936b();
-	namespace_3ca3c537::function_1c812a03();
+	doa_arena::function_1c812a03();
 	level clientfield::set("activateBanner", 0);
 	level clientfield::increment("restart_doa");
 	level thread doa_utility::function_390adefe();

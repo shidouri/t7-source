@@ -95,25 +95,25 @@ function function_31c377e(room)
 	room.vox = "vox_doaa_temple_fortress";
 	room.var_e5c8b9e7 = level.doa.var_bc9b7c71;
 	level.doa.var_bc9b7c71 = &function_4c171b8e;
-	level thread namespace_3ca3c537::function_4586479a(0);
+	level thread doa_arena::function_4586479a(0);
 	level thread function_bb59f698();
 	room.glow = [];
-	glow = spawn("script_model", namespace_3ca3c537::function_61d60e0b() + vectorscale((0, 0, 1), 36));
+	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 36));
 	glow.targetname = "spiralglow1";
 	glow setmodel("tag_origin");
 	glow thread namespace_eaa992c::function_285a2999("glow_blue");
 	room.glow[room.glow.size] = glow;
-	glow = spawn("script_model", namespace_3ca3c537::function_61d60e0b() + vectorscale((0, 0, 1), 72));
+	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 72));
 	glow.targetname = "spiralglow2";
 	glow setmodel("tag_origin");
 	glow thread namespace_eaa992c::function_285a2999("glow_blue");
 	room.glow[room.glow.size] = glow;
-	glow = spawn("script_model", namespace_3ca3c537::function_61d60e0b() + vectorscale((0, 0, 1), 128));
+	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 128));
 	glow.targetname = "spiralglow3";
 	glow setmodel("tag_origin");
 	glow thread namespace_eaa992c::function_285a2999("glow_blue");
 	room.glow[room.glow.size] = glow;
-	glow = spawn("script_model", namespace_3ca3c537::function_61d60e0b() + vectorscale((0, 0, 1), 160));
+	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 160));
 	glow.targetname = "spiralglow4";
 	glow setmodel("tag_origin");
 	glow thread namespace_eaa992c::function_285a2999("glow_blue");
@@ -301,8 +301,8 @@ function function_eee6e911(room)
 			glow delete();
 		}
 	}
-	level.doa.lastarena = namespace_3ca3c537::function_5835533a("temple");
-	namespace_3ca3c537::function_5af67667(level.doa.lastarena, 1);
+	level.doa.lastarena = doa_arena::function_5835533a("temple");
+	doa_arena::function_5af67667(level.doa.lastarena, 1);
 	doa_fate::function_77ed1bae();
 }
 
@@ -498,7 +498,7 @@ function function_246d3adb(room)
 {
 	total = room.var_4f002f93.size;
 	var_82361971 = int(ceil(total / 80));
-	arena = level.doa.arenas[namespace_3ca3c537::function_5835533a(room.name)];
+	arena = level.doa.arenas[doa_arena::function_5835533a(room.name)];
 	var_86a35fbd = struct::get(arena.entity.target, "targetname");
 	while(isdefined(var_86a35fbd) && total > 0)
 	{
@@ -1733,7 +1733,7 @@ function function_c7e4d911(room)
 	room.vox = "vox_doaa_chicken_bowl";
 	room.var_7daa1c03 = struct::get("truck_soccer_ball", "targetname");
 	room.var_14ee1a58 = getent("doa_mork_veh", "targetname");
-	room.safezone = namespace_3ca3c537::function_dc34896f();
+	room.safezone = doa_arena::function_dc34896f();
 	room.host_migration = &function_c2b99e74;
 	room.var_677f63c8 = [];
 	room.var_efbfafed = 0;

@@ -36,7 +36,7 @@ function main()
 {
 	level.doa = spawnstruct();
 	callback::on_spawned(&on_player_spawned);
-	namespace_3ca3c537::init();
+	doa_arena::init();
 	namespace_eaa992c::init();
 	namespace_1a381543::init();
 	namespace_64c6b720::init();
@@ -88,11 +88,11 @@ function main()
 	clientfield::register("toplayer", "goFPS", 1, 1, "counter", &function_ca593121, 0, 0);
 	clientfield::register("toplayer", "exitFPS", 1, 1, "counter", &function_9e1eca0b, 0, 0);
 	clientfield::register("world", "cleanUpGibs", 1, 1, "counter", &function_efeeaa92, 0, 0);
-	clientfield::register("world", "killweather", 1, 1, "counter", &namespace_3ca3c537::function_22f2039b, 0, 0);
-	clientfield::register("world", "killfog", 1, 1, "counter", &namespace_3ca3c537::function_9977953, 0, 0);
-	clientfield::register("world", "flipCamera", 1, 2, "int", &namespace_3ca3c537::flipcamera, 0, 0);
-	clientfield::register("world", "arenaUpdate", 1, 8, "int", &namespace_3ca3c537::setarena, 0, 0);
-	clientfield::register("world", "arenaRound", 1, 3, "int", &namespace_3ca3c537::function_836d1e22, 0, 0);
+	clientfield::register("world", "killweather", 1, 1, "counter", &doa_arena::function_22f2039b, 0, 0);
+	clientfield::register("world", "killfog", 1, 1, "counter", &doa_arena::function_9977953, 0, 0);
+	clientfield::register("world", "flipCamera", 1, 2, "int", &doa_arena::flipcamera, 0, 0);
+	clientfield::register("world", "arenaUpdate", 1, 8, "int", &doa_arena::setarena, 0, 0);
+	clientfield::register("world", "arenaRound", 1, 3, "int", &doa_arena::function_836d1e22, 0, 0);
 	clientfield::register("actor", "enemy_ragdoll_explode", 1, 1, "int", &zombie_ragdoll_explode_cb, 0, 0);
 	clientfield::register("actor", "zombie_gut_explosion", 1, 1, "int", &zombie_gut_explosion_cb, 0, 0);
 	clientfield::register("actor", "zombie_chunk", 1, 1, "counter", &function_3a1ccea7, 0, 0);
@@ -955,7 +955,7 @@ function function_b868b40f(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		level.doa.var_708cc739 = newval;
 	}
-	namespace_3ca3c537::function_986ae2b3(localclientnum);
+	doa_arena::function_986ae2b3(localclientnum);
 }
 
 /*
@@ -1329,7 +1329,7 @@ function function_d8d20160(localclientnum, value)
 */
 function function_4ac9a8ba(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	namespace_3ca3c537::restart();
+	doa_arena::restart();
 	namespace_64c6b720::function_6fa6dee2();
 	namespace_ad544aeb::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
 	cleanupspawneddynents();
@@ -1863,7 +1863,7 @@ function changecamera(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	if(self.var_44509e49 == 4)
 	{
 		level.doa.var_708cc739 = 1;
-		namespace_3ca3c537::function_986ae2b3(localclientnum);
+		doa_arena::function_986ae2b3(localclientnum);
 	}
 	if(self.var_44509e49 == 3)
 	{
@@ -1874,7 +1874,7 @@ function changecamera(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 		if(isdefined(level.doa.var_708cc739) && level.doa.var_708cc739 == 1)
 		{
 			level.doa.var_708cc739 = undefined;
-			namespace_3ca3c537::function_986ae2b3(localclientnum);
+			doa_arena::function_986ae2b3(localclientnum);
 		}
 	}
 	/#
@@ -2059,7 +2059,7 @@ function function_12c2fbcb()
 		setfriendlynamedraw(0);
 		if(self islocalplayer())
 		{
-			self.var_44509e49 = namespace_3ca3c537::function_9f1a0b26(0);
+			self.var_44509e49 = doa_arena::function_9f1a0b26(0);
 		}
 		level notify(#"hash_aae01d5a", self.doa.player.entnum, self.doa.var_c88a6593);
 		if(self islocalplayer())

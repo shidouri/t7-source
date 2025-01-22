@@ -84,14 +84,14 @@ function init()
 */
 function function_116bb43()
 {
-	deathtriggers = getentarray(namespace_3ca3c537::function_d2d75f5d() + "_trigger_death", "targetname");
+	deathtriggers = getentarray(doa_arena::function_d2d75f5d() + "_trigger_death", "targetname");
 	for(i = 0; i < deathtriggers.size; i++)
 	{
 		trigger = deathtriggers[i];
 		trigger triggerenable(0);
 		trigger notify(#"hash_3c011e06");
 	}
-	var_825ea03d = getentarray(namespace_3ca3c537::function_d2d75f5d() + "_water_volume", "targetname");
+	var_825ea03d = getentarray(doa_arena::function_d2d75f5d() + "_water_volume", "targetname");
 	for(i = 0; i < var_825ea03d.size; i++)
 	{
 		trigger = var_825ea03d[i];
@@ -272,21 +272,21 @@ function function_7a8a936b()
 			#/
 		}
 	}
-	deathtriggers = getentarray(namespace_3ca3c537::function_d2d75f5d() + "_trigger_death", "targetname");
+	deathtriggers = getentarray(doa_arena::function_d2d75f5d() + "_trigger_death", "targetname");
 	for(i = 0; i < deathtriggers.size; i++)
 	{
 		trigger = deathtriggers[i];
 		trigger triggerenable(1);
 		trigger thread function_6ec8176a();
 	}
-	var_825ea03d = getentarray(namespace_3ca3c537::function_d2d75f5d() + "_water_volume", "targetname");
+	var_825ea03d = getentarray(doa_arena::function_d2d75f5d() + "_water_volume", "targetname");
 	for(i = 0; i < var_825ea03d.size; i++)
 	{
 		trigger = var_825ea03d[i];
 		trigger triggerenable(1);
 		trigger thread function_323a3e31();
 	}
-	var_88bc4fa4 = getentarray(namespace_3ca3c537::function_d2d75f5d() + "_trigger_warp", "targetname");
+	var_88bc4fa4 = getentarray(doa_arena::function_d2d75f5d() + "_trigger_warp", "targetname");
 	for(i = 0; i < var_88bc4fa4.size; i++)
 	{
 		trigger = var_88bc4fa4[i];
@@ -549,7 +549,7 @@ function private function_70dbf276()
 function private function_a4d53f1f(type)
 {
 	spawn_locations = [];
-	hazardtarget = namespace_3ca3c537::function_d2d75f5d() + "_doa_hazard";
+	hazardtarget = doa_arena::function_d2d75f5d() + "_doa_hazard";
 	spawn_locations = struct::get_array(hazardtarget);
 	if(spawn_locations.size == 0)
 	{
@@ -578,7 +578,7 @@ function private function_a4d53f1f(type)
 function private function_40c555dc(type)
 {
 	spawn_locations = [];
-	hazardtarget = namespace_3ca3c537::function_d2d75f5d() + "_doa_hazard";
+	hazardtarget = doa_arena::function_d2d75f5d() + "_doa_hazard";
 	spawn_locations = struct::get_array(hazardtarget);
 	if(spawn_locations.size == 0)
 	{

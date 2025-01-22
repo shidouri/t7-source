@@ -1450,7 +1450,7 @@ function function_155957e9()
 	while(!level flag::get("doa_game_is_over"))
 	{
 		wait(1);
-		safezone = namespace_3ca3c537::function_dc34896f();
+		safezone = doa_arena::function_dc34896f();
 		if(!self istouching(safezone))
 		{
 			var_2f36e0eb++;

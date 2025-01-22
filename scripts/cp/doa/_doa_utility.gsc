@@ -1781,7 +1781,7 @@ function function_5bca1086()
 {
 	if(!isdefined(self))
 	{
-		return namespace_3ca3c537::function_61d60e0b();
+		return doa_arena::function_61d60e0b();
 	}
 	if(isdefined(level.doa.arenas[level.doa.current_arena].var_1d2ed40) && level.doa.arenas[level.doa.current_arena].var_1d2ed40.size)
 	{

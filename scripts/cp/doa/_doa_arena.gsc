@@ -20,11 +20,11 @@
 #using scripts\shared\math_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_3ca3c537;
+#namespace doa_arena;
 
 /*
 	Name: function_a55a134f
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x4C598588
 	Offset: 0x818
 	Size: 0x1FC
@@ -56,7 +56,7 @@ function private function_a55a134f()
 
 /*
 	Name: init
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xF565B438
 	Offset: 0xA20
 	Size: 0x42C
@@ -97,7 +97,7 @@ function init()
 
 /*
 	Name: function_abd3b624
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xF0A5D45C
 	Offset: 0xE58
 	Size: 0x26C
@@ -144,7 +144,7 @@ function private function_abd3b624(name, var_5281efe5, type, text, var_cbad0e8f,
 
 /*
 	Name: function_8b90b6a7
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x59C952EB
 	Offset: 0x10D0
 	Size: 0x128
@@ -181,7 +181,7 @@ function function_8b90b6a7()
 
 /*
 	Name: function_63bc3226
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x69AACFC0
 	Offset: 0x1200
 	Size: 0xFC
@@ -209,7 +209,7 @@ function function_63bc3226(type, var_436ba068)
 
 /*
 	Name: function_46b3be09
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xB3D96C9E
 	Offset: 0x1308
 	Size: 0x1BC
@@ -244,7 +244,7 @@ function function_46b3be09()
 
 /*
 	Name: function_6b351e04
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x2B745C96
 	Offset: 0x14D0
 	Size: 0x3C2
@@ -334,7 +334,7 @@ function private function_6b351e04(type = 0, var_436ba068)
 
 /*
 	Name: function_85c94f67
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xA025189
 	Offset: 0x18A0
 	Size: 0x38
@@ -348,7 +348,7 @@ function function_85c94f67(room)
 
 /*
 	Name: function_35f13fc4
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x180B68D0
 	Offset: 0x18E0
 	Size: 0x38
@@ -362,7 +362,7 @@ function function_35f13fc4(room)
 
 /*
 	Name: function_b9e4794c
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x40E1BC0A
 	Offset: 0x1920
 	Size: 0x20
@@ -376,7 +376,7 @@ function function_b9e4794c(room)
 
 /*
 	Name: function_e88371e5
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x134F4E28
 	Offset: 0x1948
 	Size: 0x16A
@@ -403,7 +403,7 @@ function function_e88371e5()
 
 /*
 	Name: function_1c54aa82
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x2F1E4221
 	Offset: 0x1AC0
 	Size: 0xD70
@@ -586,7 +586,7 @@ function private function_1c54aa82(room)
 
 /*
 	Name: function_b0e9983
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xFC08676F
 	Offset: 0x2838
 	Size: 0x18C
@@ -655,7 +655,7 @@ function function_b0e9983(name)
 
 /*
 	Name: function_9b67513c
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x7DC3981A
 	Offset: 0x29D0
 	Size: 0x10A
@@ -739,7 +739,7 @@ function private function_9b67513c(name)
 
 /*
 	Name: function_b7dafa0c
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xA8B851CC
 	Offset: 0x2AE8
 	Size: 0x942
@@ -862,7 +862,7 @@ function private function_b7dafa0c(name, center, valid)
 
 /*
 	Name: function_5295ea97
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x9B3E9ADD
 	Offset: 0x3438
 	Size: 0x2E
@@ -876,7 +876,7 @@ function function_5295ea97()
 
 /*
 	Name: function_dc34896f
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x258A26E9
 	Offset: 0x3470
 	Size: 0x2E
@@ -890,7 +890,7 @@ function function_dc34896f()
 
 /*
 	Name: function_61d60e0b
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xD6C726C4
 	Offset: 0x34A8
 	Size: 0x12A
@@ -917,7 +917,7 @@ function function_61d60e0b()
 
 /*
 	Name: function_d2d75f5d
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x2ECCCC96
 	Offset: 0x35E0
 	Size: 0x4E
@@ -935,7 +935,7 @@ function function_d2d75f5d()
 
 /*
 	Name: function_5835533a
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x19C108D8
 	Offset: 0x3638
 	Size: 0x70
@@ -955,7 +955,7 @@ function function_5835533a(name)
 
 /*
 	Name: function_5147636f
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x205C40A0
 	Offset: 0x36B0
 	Size: 0x72
@@ -973,7 +973,7 @@ function function_5147636f()
 
 /*
 	Name: function_a8f91d6f
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x27F58862
 	Offset: 0x3730
 	Size: 0x2E
@@ -987,7 +987,7 @@ function function_a8f91d6f()
 
 /*
 	Name: function_ba9c838e
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x51F5039F
 	Offset: 0x3768
 	Size: 0x7C
@@ -1003,7 +1003,7 @@ function function_ba9c838e(var_c56d15c4 = 0)
 
 /*
 	Name: function_8274c029
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x2B6528BC
 	Offset: 0x37F0
 	Size: 0x54
@@ -1019,7 +1019,7 @@ function function_8274c029()
 
 /*
 	Name: function_78c7b56e
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xA0671406
 	Offset: 0x3850
 	Size: 0x410
@@ -1093,7 +1093,7 @@ function function_78c7b56e(cheat = 0)
 
 /*
 	Name: function_a6c926fc
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xF15759EE
 	Offset: 0x3C68
 	Size: 0x70
@@ -1111,7 +1111,7 @@ function function_a6c926fc(holdtime)
 
 /*
 	Name: function_5af67667
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x19C20796
 	Offset: 0x3CE0
 	Size: 0x2BC
@@ -1154,7 +1154,7 @@ function function_5af67667(var_7dd30d23, var_b4ca654f = 0)
 
 /*
 	Name: function_fd84aa1f
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xD95E3B1D
 	Offset: 0x3FA8
 	Size: 0x30
@@ -1171,7 +1171,7 @@ function function_fd84aa1f()
 
 /*
 	Name: function_a50a72db
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xED32F78C
 	Offset: 0x3FE0
 	Size: 0x1F8
@@ -1207,7 +1207,7 @@ function function_a50a72db()
 
 /*
 	Name: function_1c812a03
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x2716E4B4
 	Offset: 0x41E0
 	Size: 0xAE
@@ -1226,7 +1226,7 @@ function function_1c812a03()
 
 /*
 	Name: function_573ad24e
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xAD42C605
 	Offset: 0x4298
 	Size: 0x2B2
@@ -1282,7 +1282,7 @@ function function_573ad24e()
 
 /*
 	Name: function_852998f1
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x1E648ED8
 	Offset: 0x4558
 	Size: 0x344
@@ -1331,7 +1331,7 @@ function function_852998f1(trigger)
 
 /*
 	Name: function_7d65367c
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xA4C02F11
 	Offset: 0x48A8
 	Size: 0x18A
@@ -1359,7 +1359,7 @@ function function_7d65367c()
 
 /*
 	Name: function_47f8f274
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x2F4C56E6
 	Offset: 0x4A40
 	Size: 0x4A
@@ -1376,7 +1376,7 @@ function private function_47f8f274()
 
 /*
 	Name: function_17665174
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x938A7459
 	Offset: 0x4A98
 	Size: 0xA8
@@ -1397,7 +1397,7 @@ function private function_17665174(trigger)
 
 /*
 	Name: function_f64e4b70
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x733FF9C3
 	Offset: 0x4B48
 	Size: 0x5BC
@@ -1501,7 +1501,7 @@ function function_f64e4b70(specific)
 
 /*
 	Name: function_a8b0c139
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x3F744B63
 	Offset: 0x5110
 	Size: 0x34A
@@ -1547,7 +1547,7 @@ function function_a8b0c139(trigger, objective_id)
 
 /*
 	Name: rotate
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x51C3CD3
 	Offset: 0x5468
 	Size: 0x4E
@@ -1566,7 +1566,7 @@ function rotate()
 
 /*
 	Name: function_2a9d778d
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0x3A47301F
 	Offset: 0x54C0
 	Size: 0x84
@@ -1589,7 +1589,7 @@ function function_2a9d778d()
 
 /*
 	Name: function_4586479a
-	Namespace: namespace_3ca3c537
+	Namespace: doa_arena
 	Checksum: 0xDA3CDF23
 	Offset: 0x5550
 	Size: 0x6CA

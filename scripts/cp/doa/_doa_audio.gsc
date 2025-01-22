@@ -45,7 +45,7 @@ function musicsystem()
 		level waittill(#"hash_ba37290e", type);
 		if(!isdefined(type))
 		{
-			type = namespace_3ca3c537::function_d2d75f5d();
+			type = doa_arena::function_d2d75f5d();
 			level thread function_1a5a0c78();
 		}
 		if(!isdefined(level.var_d068d66e[type]))

@@ -215,7 +215,7 @@ function main()
 		/#
 			doa_utility::debugmsg((("" + level.doa.round_number) + "") + gettime());
 		#/
-		level.doa.rules.max_enemy_count = namespace_3ca3c537::function_b0e9983(namespace_3ca3c537::function_d2d75f5d());
+		level.doa.rules.max_enemy_count = doa_arena::function_b0e9983(doa_arena::function_d2d75f5d());
 		level.doa.var_a3a11449 = 0;
 		level.doa.var_2f019708 = 1;
 		level.doa.var_677d1262 = 0;
@@ -275,7 +275,7 @@ function main()
 				continue;
 			}
 			level thread doa_pickups::spawnmoneyglob(0, 3);
-			var_d2d5db8a = namespace_3ca3c537::function_78c7b56e();
+			var_d2d5db8a = doa_arena::function_78c7b56e();
 		}
 		else
 		{
@@ -296,7 +296,7 @@ function main()
 		namespace_d88e3a06::function_7a8a936b();
 		if(isdefined(var_d2d5db8a) && var_d2d5db8a)
 		{
-			level thread namespace_3ca3c537::function_e88371e5();
+			level thread doa_arena::function_e88371e5();
 		}
 		namespace_831a4a7c::function_82e3b1cb();
 		level notify(#"hash_31680c6");
@@ -431,7 +431,7 @@ function function_fe0946ac(spawn_origin, var_97887a95 = 1)
 	{
 		spawn_origin = function_40bfe842(self.entnum);
 	}
-	var_60de7d19 = namespace_3ca3c537::function_61d60e0b();
+	var_60de7d19 = doa_arena::function_61d60e0b();
 	self thread namespace_831a4a7c::function_7d7a7fde();
 	foreach(guardian in self.doa.var_af875fb7)
 	{
@@ -495,7 +495,7 @@ function private function_ff7f941a(def)
 	{
 		return false;
 	}
-	if(isdefined(def.var_a0b2e897) && namespace_3ca3c537::function_d2d75f5d() != def.var_a0b2e897)
+	if(isdefined(def.var_a0b2e897) && doa_arena::function_d2d75f5d() != def.var_a0b2e897)
 	{
 		return false;
 	}
@@ -624,7 +624,7 @@ function function_87703158(var_372a8daa = 0)
 	level lui::screen_close_menu();
 	level.doa.round_start_time = gettime();
 	level.doa.round_end_time = undefined;
-	level.doa.var_e0d67a74 = struct::get_array(namespace_3ca3c537::function_d2d75f5d() + "_rise_spot");
+	level.doa.var_e0d67a74 = struct::get_array(doa_arena::function_d2d75f5d() + "_rise_spot");
 	spawn_set = level.doa.arenas[level.doa.current_arena].name + "_enemy_spawn";
 	level.doa.current_spawners = level.doa.spawners[spawn_set];
 	level.doa.var_3706f843 = [];

@@ -943,7 +943,7 @@ function function_307cc86e()
 {
 	self endon("death");
 	self waittill("goal");
-	self setgoal(namespace_3ca3c537::function_2a9d778d() + vectorscale((0, 0, 1), 42), 0);
+	self setgoal(doa_arena::function_2a9d778d() + vectorscale((0, 0, 1), 42), 0);
 }
 
 /*
@@ -987,7 +987,7 @@ function function_1631202b(spawner, loc, def)
 		ai.meleedamage = 0;
 		ai.squelch_damage_overlay = 1;
 		ai.goalradius = 512;
-		goal = namespace_3ca3c537::function_2a9d778d();
+		goal = doa_arena::function_2a9d778d();
 		spots = doa_utility::function_308fa126();
 		if(isdefined(spots) && spots.size)
 		{
@@ -1025,7 +1025,7 @@ function function_ee2c4b95(spawner = level.doa.spiderspawner, loc, def)
 		ai.updatesight = 1;
 		ai.team = "axis";
 		ai.health = 2000 + (150 * level.doa.round_number);
-		goal = namespace_3ca3c537::function_2a9d778d();
+		goal = doa_arena::function_2a9d778d();
 		ai setgoal(goal);
 	}
 	return ai;
@@ -1378,7 +1378,7 @@ function function_33525e11(spawner, loc, def)
 		ai.meleedamage = 0;
 		ai.squelch_damage_overlay = 1;
 		ai.goalradius = 512;
-		goal = namespace_3ca3c537::function_2a9d778d();
+		goal = doa_arena::function_2a9d778d();
 		spots = doa_utility::function_308fa126();
 		if(isdefined(spots) && spots.size)
 		{
@@ -2279,7 +2279,7 @@ function function_4ce6d0ea()
 	level notify(#"hash_ba37290e", "bossbattle");
 	wait(1);
 	level thread doa_utility::function_37fb5c23(&"CP_DOA_BO3_MARGWA_LAIR", undefined, 5, (1, 0, 0));
-	var_60de7d19 = namespace_3ca3c537::function_61d60e0b();
+	var_60de7d19 = doa_arena::function_61d60e0b();
 	loc = spawnstruct();
 	loc.angles = (0, 0, 0);
 	loc.origin = var_60de7d19 + vectorscale((0, 0, 1), 3000);
