@@ -63,7 +63,7 @@ function autoexec __init__sytem__()
 function __init__()
 {
 	level.var_9d7b5e00 = 200;
-	level.var_6ea0fe2e = 1;
+	level.n_spider_round_count = 1;
 	level flag::init("spider_round");
 	/#
 		adddebugcommand("");
@@ -537,7 +537,7 @@ function spider_round_tracker()
 			spider_round_stop();
 			level.round_spawn_func = old_spawn_func;
 			level.round_wait_func = old_wait_func;
-			level.var_6ea0fe2e = level.var_6ea0fe2e + 1;
+			level.n_spider_round_count = level.n_spider_round_count + 1;
 		}
 	}
 }
@@ -646,7 +646,7 @@ function spider_round_spawning()
 */
 function function_67c1c842()
 {
-	if(level.var_6ea0fe2e < 3)
+	if(level.n_spider_round_count < 3)
 	{
 		n_wave_count = level.players.size * 6;
 	}
@@ -890,7 +890,7 @@ function spider_health_increase()
 	}
 	else
 	{
-		switch(level.var_6ea0fe2e)
+		switch(level.n_spider_round_count)
 		{
 			case 1:
 			{
