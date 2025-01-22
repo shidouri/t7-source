@@ -77,7 +77,7 @@ function __init__()
 	init();
 	callback::on_spawned(&function_83a70ec3);
 	spawner::add_archetype_spawn_function("spider", &function_82b6256d);
-	spawner::add_archetype_spawn_function("spider", &function_df94945b);
+	spawner::add_archetype_spawn_function("spider", &spider_spawn_init);
 	zm::register_vehicle_damage_callback(&function_5b625d74);
 }
 
@@ -1169,7 +1169,7 @@ function function_82b6256d()
 }
 
 /*
-	Name: function_df94945b
+	Name: spider_spawn_init
 	Namespace: zm_ai_spiders
 	Checksum: 0xC90B97BB
 	Offset: 0x2ED0
@@ -1177,7 +1177,7 @@ function function_82b6256d()
 	Parameters: 0
 	Flags: Linked
 */
-function function_df94945b()
+function spider_spawn_init()
 {
 	self thread zm_spawner::enemy_death_detection();
 	self.completed_emerging_into_playable_area = 1;
