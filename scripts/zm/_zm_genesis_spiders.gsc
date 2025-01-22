@@ -314,7 +314,7 @@ function spider_init()
 	self.no_gib = 1;
 	self.b_is_spider = 1;
 	self.no_eye_glow = 1;
-	self.custom_player_shellshock = &function_c685a92b;
+	self.custom_player_shellshock = &spider_custom_player_shellshock;
 	self.team = level.zombie_team;
 	self.missinglegs = 0;
 	self.thundergun_knockdown_func = &spider_thundergun_knockdown;
@@ -1310,7 +1310,7 @@ function spider_spawn_fx(ai_spider, ent = self, var_a79b986e = 0)
 }
 
 /*
-	Name: function_c685a92b
+	Name: spider_custom_player_shellshock
 	Namespace: zm_ai_spiders
 	Checksum: 0x74A5E5E4
 	Offset: 0x3720
@@ -1318,7 +1318,7 @@ function spider_spawn_fx(ai_spider, ent = self, var_a79b986e = 0)
 	Parameters: 5
 	Flags: Linked
 */
-function function_c685a92b(damage, attacker, direction_vec, point, mod)
+function spider_custom_player_shellshock(damage, attacker, direction_vec, point, mod)
 {
 	if(mod == "MOD_EXPLOSIVE")
 	{
