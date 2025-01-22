@@ -3056,7 +3056,7 @@ function spawn_mech()
 		#/
 		ai.actor_damage_func = &mechzserverutils::mechzdamagecallback;
 		ai.damage_scoring_function = &zm_ai_mechz::mechz_damage_scoring;
-		ai.mechz_melee_knockdown_function = &zm_ai_mechz::function_55483494;
+		ai.mechz_melee_knockdown_function = &zm_ai_mechz::mechz_melee_knockdown;
 		ai.health = self.mechz_health;
 		ai.faceplate_health = self.mechz_faceplate_health;
 		ai.powercap_cover_health = self.mechz_powercap_cover_health;

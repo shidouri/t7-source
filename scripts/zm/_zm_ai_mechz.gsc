@@ -358,7 +358,7 @@ function spawn_mechz(s_location, flyin = 0)
 			#/
 			ai.actor_damage_func = &mechzserverutils::mechzdamagecallback;
 			ai.damage_scoring_function = &mechz_damage_scoring;
-			ai.mechz_melee_knockdown_function = &function_55483494;
+			ai.mechz_melee_knockdown_function = &mechz_melee_knockdown;
 			ai.health = level.mechz_health;
 			ai.faceplate_health = level.mechz_faceplate_health;
 			ai.powercap_cover_health = level.mechz_powercap_cover_health;
@@ -818,7 +818,7 @@ function function_3efae612(zombie)
 }
 
 /*
-	Name: function_55483494
+	Name: mechz_melee_knockdown
 	Namespace: zm_ai_mechz
 	Checksum: 0x8DDC6FC8
 	Offset: 0x28C8
@@ -826,7 +826,7 @@ function function_3efae612(zombie)
 	Parameters: 0
 	Flags: Linked
 */
-function function_55483494()
+function mechz_melee_knockdown()
 {
 	a_zombies = getaiarchetypearray("zombie");
 	foreach(zombie in a_zombies)
