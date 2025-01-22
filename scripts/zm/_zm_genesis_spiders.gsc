@@ -160,7 +160,7 @@ function init()
 	level.melee_width_sav = getdvarstring("ai_meleeWidth");
 	level.melee_height_sav = getdvarstring("ai_meleeHeight");
 	spider_spawner_init();
-	level thread function_fd32a77c();
+	level thread spider_clip_monitor();
 	visionset_mgr::register_info("visionset", "zm_isl_parasite_spider_visionset", 9000, 33, 16, 0, &visionset_mgr::ramp_in_out_thread, 0);
 }
 
@@ -196,7 +196,7 @@ function function_5c48d276()
 }
 
 /*
-	Name: function_fd32a77c
+	Name: spider_clip_monitor
 	Namespace: zm_ai_spiders
 	Checksum: 0xE23B7AF0
 	Offset: 0xD90
@@ -204,7 +204,7 @@ function function_5c48d276()
 	Parameters: 0
 	Flags: Linked
 */
-function function_fd32a77c()
+function spider_clip_monitor()
 {
 	clips_on = 0;
 	level.spider_clips = getentarray("spider_clips", "targetname");
