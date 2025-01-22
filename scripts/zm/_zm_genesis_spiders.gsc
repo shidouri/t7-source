@@ -228,10 +228,10 @@ function function_fd32a77c()
 		while(var_26b8af54 || level flag::get("spider_round"))
 		{
 			var_26b8af54 = 0;
-			var_4b55c671 = getvehiclearray("zombie_spider", "targetname");
-			for(i = 0; i < var_4b55c671.size; i++)
+			var_a_spiders = getvehiclearray("zombie_spider", "targetname");
+			for(i = 0; i < var_a_spiders.size; i++)
 			{
-				if(isalive(var_4b55c671[i]))
+				if(isalive(var_a_spiders[i]))
 				{
 					var_26b8af54 = 1;
 				}
@@ -1093,8 +1093,8 @@ function get_favorite_enemy()
 */
 function special_spider_spawn(n_to_spawn, s_spawn_point)
 {
-	var_4b55c671 = getvehiclearray("zombie_spider", "targetname");
-	if(isdefined(var_4b55c671) && var_4b55c671.size >= 9)
+	var_a_spiders = getvehiclearray("zombie_spider", "targetname");
+	if(isdefined(var_a_spiders) && var_a_spiders.size >= 9)
 	{
 		return 0;
 	}
