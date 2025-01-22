@@ -1102,8 +1102,8 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 	{
 		n_to_spawn = 1;
 	}
-	var_c46ed637 = 0;
-	while(var_c46ed637 < n_to_spawn)
+	n_spider_count = 0;
+	while(n_spider_count < n_to_spawn)
 	{
 		e_favorite_enemy = get_favorite_enemy();
 		if(isdefined(level.spider_spawn_func))
@@ -1117,7 +1117,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 			{
 				s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
 				level.zombie_total--;
-				var_c46ed637++;
+				n_spider_count++;
 				level flag::set("spider_clips");
 			}
 		}
@@ -1132,7 +1132,7 @@ function special_spider_spawn(n_to_spawn, s_spawn_point)
 			{
 				s_spawn_point thread function_49e57a3b(ai, s_spawn_point);
 				level.zombie_total--;
-				var_c46ed637++;
+				n_spider_count++;
 				level flag::set("spider_clips");
 			}
 		}
