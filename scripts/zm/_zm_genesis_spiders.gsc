@@ -495,7 +495,7 @@ function spider_round_tracker()
 			old_wait_func = level.round_wait_func;
 			function_9f7a20d2();
 			level.round_spawn_func = &spider_round_spawning;
-			level.round_wait_func = &function_872e306e;
+			level.round_wait_func = &spider_round_wait_func;
 			level.var_3013498 = level.round_number + randomintrange(4, 6);
 			/#
 				getplayers()[0] iprintln("" + level.var_3013498);
@@ -726,7 +726,7 @@ function get_current_spider_count()
 }
 
 /*
-	Name: function_872e306e
+	Name: spider_round_wait_func
 	Namespace: zm_ai_spiders
 	Checksum: 0xC842299F
 	Offset: 0x2038
@@ -734,7 +734,7 @@ function get_current_spider_count()
 	Parameters: 0
 	Flags: Linked
 */
-function function_872e306e()
+function spider_round_wait_func()
 {
 	level endon(#"restart_round");
 	level endon(#"kill_round");
