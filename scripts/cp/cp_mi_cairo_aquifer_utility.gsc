@@ -4409,10 +4409,10 @@ function function_c11cfb53(var_1f5ba763)
 	{
 		wait(0.1);
 	}
-	var_3770a3b5 = getent(var_1f5ba763, "targetname");
+	avol = getent(var_1f5ba763, "targetname");
 	wait(1);
 	self util::stop_magic_bullet_shield();
-	self function_ab5de970(var_3770a3b5);
+	self function_ab5de970(avol);
 }
 
 /*
