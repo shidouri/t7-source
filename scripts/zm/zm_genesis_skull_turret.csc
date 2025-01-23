@@ -72,13 +72,13 @@ function function_aeaa2ee6(localclientnum, oldval, newval, bnewent, binitialsnap
 	function_6818044b(localclientnum, newval);
 	if(newval)
 	{
-		var_fcb37269 = 1;
+		hdr = 1;
 		tint = 0;
 		if(newval > 1)
 		{
 			tint = 1;
 		}
-		self thread function_6e443da4(localclientnum, var_fcb37269, tint);
+		self thread function_6e443da4(localclientnum, hdr, tint);
 	}
 	else
 	{
@@ -95,7 +95,7 @@ function function_aeaa2ee6(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 3
 	Flags: Linked
 */
-function function_6e443da4(localclientnum, var_fcb37269, tint)
+function function_6e443da4(localclientnum, hdr, tint)
 {
 	self notify(#"hash_6e443da4");
 	self endon(#"hash_6e443da4");
@@ -103,22 +103,22 @@ function function_6e443da4(localclientnum, var_fcb37269, tint)
 	{
 		self.var_392865b9 = 0;
 	}
-	while(self.var_392865b9 != var_fcb37269)
+	while(self.var_392865b9 != hdr)
 	{
-		if(self.var_392865b9 < var_fcb37269)
+		if(self.var_392865b9 < hdr)
 		{
 			self.var_392865b9 = self.var_392865b9 + 0.033;
-			if(self.var_392865b9 > var_fcb37269)
+			if(self.var_392865b9 > hdr)
 			{
-				self.var_392865b9 = var_fcb37269;
+				self.var_392865b9 = hdr;
 			}
 		}
 		else
 		{
 			self.var_392865b9 = self.var_392865b9 - 0.033;
-			if(self.var_392865b9 < var_fcb37269)
+			if(self.var_392865b9 < hdr)
 			{
-				self.var_392865b9 = var_fcb37269;
+				self.var_392865b9 = hdr;
 			}
 		}
 		self mapshaderconstant(localclientnum, 0, "scriptVector2", 0, self.var_392865b9, tint, 0);
