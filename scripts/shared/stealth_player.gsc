@@ -192,41 +192,41 @@ function function_ff057a95()
 			if(isdefined(level.stealth.var_581c13ae))
 			{
 				var_2680d17d = [];
-				foreach(var_daf22616 in level.stealth.var_581c13ae)
+				foreach(tgt in level.stealth.var_581c13ae)
 				{
-					if(!isdefined(var_daf22616))
+					if(!isdefined(tgt))
 					{
 						continue;
 					}
-					targets[targets.size] = var_daf22616;
-					var_2680d17d[var_2680d17d.size] = var_daf22616;
+					targets[targets.size] = tgt;
+					var_2680d17d[var_2680d17d.size] = tgt;
 				}
 				if(var_2680d17d.size != level.stealth.var_581c13ae.size)
 				{
 					level.stealth.var_581c13ae = var_2680d17d;
 				}
 			}
-			foreach(var_daf22616 in targets)
+			foreach(tgt in targets)
 			{
 				warnmsg = "careful";
-				var_bbf94a49 = var_daf22616.origin;
-				if(issentient(var_daf22616))
+				var_bbf94a49 = tgt.origin;
+				if(issentient(tgt))
 				{
-					var_bbf94a49 = var_daf22616 geteye();
+					var_bbf94a49 = tgt geteye();
 				}
-				if(isdefined(var_daf22616.var_3bee9acf))
+				if(isdefined(tgt.var_3bee9acf))
 				{
-					warnmsg = var_daf22616.var_3bee9acf;
+					warnmsg = tgt.var_3bee9acf;
 				}
-				else if(isvehicle(var_daf22616))
+				else if(isvehicle(tgt))
 				{
-					if(var_bd8fb968 && var_daf22616 isremotecontrol())
+					if(var_bd8fb968 && tgt isremotecontrol())
 					{
 						warnmsg = "careful_hack";
 					}
 					else
 					{
-						warnmsg = "careful_" + var_daf22616.archetype;
+						warnmsg = "careful_" + tgt.archetype;
 					}
 				}
 				if(isdefined(self.stealth.var_9f4ce919[warnmsg]))

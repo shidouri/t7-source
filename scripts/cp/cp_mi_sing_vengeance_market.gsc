@@ -1749,34 +1749,34 @@ function function_29587c78()
 		eye = self geteye();
 		var_fd26df34 = anglestoforward(self getplayerangles());
 		targets = getaiteamarray("axis");
-		foreach(var_daf22616 in targets)
+		foreach(tgt in targets)
 		{
-			if(!isdefined(var_daf22616))
+			if(!isdefined(tgt))
 			{
 				continue;
 			}
-			if(distance2dsquared(self.origin, var_daf22616.origin) > 1048576)
+			if(distance2dsquared(self.origin, tgt.origin) > 1048576)
 			{
 				continue;
 			}
-			var_bbf94a49 = var_daf22616.origin;
-			if(issentient(var_daf22616))
+			var_bbf94a49 = tgt.origin;
+			if(issentient(tgt))
 			{
-				var_bbf94a49 = var_daf22616 geteye();
+				var_bbf94a49 = tgt geteye();
 			}
 			dir = vectornormalize(var_bbf94a49 - eye);
 			if(vectordot(var_fd26df34, dir) > 0.99)
 			{
 				if(sighttracepassed(var_bbf94a49, eye, 0, undefined))
 				{
-					if(isalive(var_daf22616))
+					if(isalive(tgt))
 					{
-						if(issubstr(var_daf22616.classname, "warlord"))
+						if(issubstr(tgt.classname, "warlord"))
 						{
 							wait(7);
 							continue;
 						}
-						if(issubstr(var_daf22616.classname, "rpg"))
+						if(issubstr(tgt.classname, "rpg"))
 						{
 							if(math::cointoss())
 							{
@@ -1789,14 +1789,14 @@ function function_29587c78()
 								continue;
 							}
 						}
-						if(isdefined(var_daf22616.script_vehicleride) && var_daf22616.script_startingposition == "gunner1")
+						if(isdefined(tgt.script_vehicleride) && tgt.script_startingposition == "gunner1")
 						{
 							wait(7);
 							continue;
 						}
-						if(isvehicle(var_daf22616))
+						if(isvehicle(tgt))
 						{
-							if(issubstr(var_daf22616.vehicletype, "wasp"))
+							if(issubstr(tgt.vehicletype, "wasp"))
 							{
 								level.ai_hendricks vengeance_util::function_5fbec645("hend_watch_the_skies_for_0", 0, 0, self);
 								wait(7);
