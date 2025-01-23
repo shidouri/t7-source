@@ -231,7 +231,7 @@ function function_798b0fec()
 	level dialog::remote("tayr_you_don_t_understand_1", 0, "no_dni");
 	level thread namespace_9fd035::function_862430bd();
 	util::clientnotify("sndLRstop");
-	level notify(#"hash_15e32f84");
+	level notify("kas");
 	level.ai_hendricks waittill(#"hash_a89f76ac");
 	level.ai_hendricks vengeance_util::function_5fbec645("hend_you_sold_us_out_you_0");
 	level dialog::remote("tayr_i_told_the_truth_0", 0, "no_dni");
