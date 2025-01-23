@@ -130,18 +130,18 @@ function function_2a8862aa()
 			array::add(var_3c48f56, ai);
 		}
 	}
-	var_e4760c66 = [];
+	farai = [];
 	var_e37fbbbd = [];
 	foreach(ai in var_3c48f56)
 	{
 		if(distance2dsquared(ai.origin, self.origin) >= var_bd6badee)
 		{
-			var_e4760c66[var_e4760c66.size] = ai;
+			farai[farai.size] = ai;
 			continue;
 		}
 		var_e37fbbbd[var_e37fbbbd.size] = ai;
 	}
-	function_2ca71d8b(var_e4760c66, 1);
+	function_2ca71d8b(farai, 1);
 	function_2ca71d8b(var_e37fbbbd, 0, 75);
 }
 

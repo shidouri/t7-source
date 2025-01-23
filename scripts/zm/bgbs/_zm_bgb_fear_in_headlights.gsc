@@ -204,7 +204,7 @@ function function_deeb696f()
 				function_b8eb33c5(ai);
 			}
 		}
-		var_e4760c66 = [];
+		farai = [];
 		var_e37fbbbd = [];
 		foreach(ai in allai)
 		{
@@ -215,12 +215,12 @@ function function_deeb696f()
 			}
 			if(distance2dsquared(ai.origin, self.origin) >= var_bd6badee)
 			{
-				var_e4760c66[var_e4760c66.size] = ai;
+				farai[farai.size] = ai;
 				continue;
 			}
 			var_e37fbbbd[var_e37fbbbd.size] = ai;
 		}
-		function_723d94f5(var_e4760c66, 1);
+		function_723d94f5(farai, 1);
 		function_723d94f5(var_e37fbbbd, 0, 75);
 		wait(0.05);
 	}
