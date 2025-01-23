@@ -1783,7 +1783,7 @@ function garkm2()
 }
 
 /*
-	Name: function_636b3844
+	Name: garkm3
 	Namespace: zm_genesis_challenges
 	Checksum: 0x9B34EBFE
 	Offset: 0x5098
@@ -1791,7 +1791,7 @@ function garkm2()
 	Parameters: 0
 	Flags: None
 */
-function function_636b3844()
+function garkm3()
 {
 	self endon("flag_player_completed_challenge_3");
 	self endon("disconnect");
