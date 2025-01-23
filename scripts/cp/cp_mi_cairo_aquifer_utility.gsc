@@ -4570,7 +4570,7 @@ function function_5a160fe7()
 function function_7d76ae16(current_vol, var_29f8e61c)
 {
 	vol1 = getent(current_vol, "targetname");
-	var_a77639b2 = getent(var_29f8e61c, "targetname");
+	vol2 = getent(var_29f8e61c, "targetname");
 	guys = getaiteamarray("axis");
 	foreach(guy in guys)
 	{
@@ -4578,7 +4578,7 @@ function function_7d76ae16(current_vol, var_29f8e61c)
 		{
 			if(guy istouching(vol1))
 			{
-				guy thread function_ef807253(var_a77639b2);
+				guy thread function_ef807253(vol2);
 				wait(randomfloatrange(0.2, 0.8));
 			}
 		}
