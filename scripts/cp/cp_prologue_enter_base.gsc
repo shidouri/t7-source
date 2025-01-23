@@ -389,9 +389,9 @@ function function_bafd79f6(str_triggername, a_vo_lines, var_61ae76d5, var_9e3b0b
 	self endon("death");
 	level endon("objective_take_out_guards_done");
 	var_46100e43 = getent(str_triggername, "targetname");
-	var_a939b0c9 = var_46100e43.origin;
+	v_vo = var_46100e43.origin;
 	level trigger::wait_till(str_triggername, "targetname", undefined, 0);
-	function_f9be6553(var_a939b0c9, a_vo_lines, var_61ae76d5, var_9e3b0b67);
+	function_f9be6553(v_vo, a_vo_lines, var_61ae76d5, var_9e3b0b67);
 }
 
 /*
