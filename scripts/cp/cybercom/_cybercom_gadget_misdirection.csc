@@ -79,8 +79,8 @@ function function_2c16a75b(localclientnum)
 		{
 			z = int(z) % 360;
 		}
-		var_50413d99 = sin(z);
-		shift = amplitude * var_50413d99;
+		sinz = sin(z);
+		shift = amplitude * sinz;
 		self.origin = var_76dfdc9 + (0, 0, shift);
 		wait(0.016);
 	}
