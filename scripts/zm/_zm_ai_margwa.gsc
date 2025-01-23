@@ -676,7 +676,7 @@ function private function_271a21d6()
 */
 function private function_17627e34()
 {
-	self.destroyheadcb = &function_1f53b1a2;
+	self.destroyheadcb = &margwa_destroy_head;
 	self.bodyfallcb = &margwa_bodyfall;
 	self.var_16ec9b37 = &function_a89905c6;
 	self.chop_actor_cb = &function_89e37c9b;
@@ -692,7 +692,7 @@ function private function_17627e34()
 }
 
 /*
-	Name: function_1f53b1a2
+	Name: margwa_destroy_head
 	Namespace: zm_ai_margwa
 	Checksum: 0x7D5B50EE
 	Offset: 0x1ED8
@@ -700,7 +700,7 @@ function private function_17627e34()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_1f53b1a2(modelhit, attacker)
+function private margwa_destroy_head(modelhit, attacker)
 {
 	if(isplayer(attacker) && (!(isdefined(self.deathpoints_already_given) && self.deathpoints_already_given)) && (!(isdefined(level.var_1f6ca9c8) && level.var_1f6ca9c8)))
 	{
