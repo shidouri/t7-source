@@ -142,7 +142,7 @@ function function_d3f117f9(doa, idx)
 	#/
 	doa.score = 0;
 	doa.var_db3637c0 = 0;
-	doa.var_c4c3767e = 0;
+	doa.xbar = 0;
 	doa.lives = 3;
 	doa.bombs = 1;
 	doa.boosters = 2;
@@ -176,7 +176,7 @@ function function_e06716c7(doa, idx)
 		setuimodelvalue(getuimodel(doa.ui_model, "boosts"), doa.boosters);
 		setuimodelvalue(getuimodel(doa.ui_model, "score"), "" + doa.score);
 		setuimodelvalue(getuimodel(doa.ui_model, "multiplier"), doa.multiplier);
-		setuimodelvalue(getuimodel(doa.ui_model, "xbar"), doa.var_c4c3767e);
+		setuimodelvalue(getuimodel(doa.ui_model, "xbar"), doa.xbar);
 		setuimodelvalue(getuimodel(doa.ui_model, "bulletbar"), doa.var_4d5a5848);
 		setuimodelvalue(getuimodel(doa.ui_model, "bulletbar_rgb"), "255 208 0");
 		setuimodelvalue(getuimodel(doa.ui_model, "ribbon"), 0);
@@ -307,7 +307,7 @@ function function_2c9a6a47()
 				if(isdefined(doa.var_c86225b5) && doa.var_c86225b5)
 				{
 					setuimodelvalue(createuimodel(doa.ui_model, "name"), istring("DOA_RESPAWNING"));
-					val = "" + (int(ceil(doa.var_c4c3767e * 60)));
+					val = "" + (int(ceil(doa.xbar * 60)));
 					setuimodelvalue(getuimodel(doa.ui_model, "respawn"), val);
 				}
 			}
@@ -317,7 +317,7 @@ function function_2c9a6a47()
 				doa.bombs = (doa.player.headshots & 3840) >> 8;
 				doa.boosters = (doa.player.headshots & 240) >> 4;
 				doa.multiplier = doa.player.headshots & 15;
-				doa.var_c4c3767e = (doa.player.downs >> 2) / 255;
+				doa.xbar = (doa.player.downs >> 2) / 255;
 				doa.var_4d5a5848 = (doa.player.revives >> 2) / 255;
 				doa.var_4f0e30c = doa.player.downs & 3;
 				doa.var_c86225b5 = doa.player.assists & 1;
@@ -332,7 +332,7 @@ function function_2c9a6a47()
 			setuimodelvalue(getuimodel(doa.ui_model, "boosts"), doa.boosters);
 			setuimodelvalue(getuimodel(doa.ui_model, "lives"), doa.lives);
 			setuimodelvalue(getuimodel(doa.ui_model, "multiplier"), doa.multiplier);
-			setuimodelvalue(getuimodel(doa.ui_model, "xbar"), doa.var_c4c3767e);
+			setuimodelvalue(getuimodel(doa.ui_model, "xbar"), doa.xbar);
 			setuimodelvalue(getuimodel(doa.ui_model, "bulletbar"), doa.var_4d5a5848);
 			setuimodelvalue(getuimodel(doa.ui_model, "weaplevel1"), 0);
 			setuimodelvalue(getuimodel(doa.ui_model, "weaplevel2"), 0);
