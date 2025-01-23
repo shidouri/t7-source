@@ -895,7 +895,7 @@ function function_5e6b8376(origin, radius, time, color = (0, 1, 0))
 	Parameters: 3
 	Flags: Linked
 */
-function plotpoints(plotpoints, var_c75b4e78, server_frames = 1)
+function plotpoints(plotpoints, rbg, server_frames = 1)
 {
 	/#
 		if(plotpoints.size == 0)
@@ -907,13 +907,14 @@ function plotpoints(plotpoints, var_c75b4e78, server_frames = 1)
 		{
 			for(i = 1; i < plotpoints.size; i++)
 			{
-				line(lastpoint, plotpoints[i], var_c75b4e78, 1, server_frames);
+				line(lastpoint, plotpoints[i], rbg, 1, server_frames);
 				lastpoint = plotpoints[i];
 			}
 			wait(0.05);
 		}
 	#/
 }
+
 
 /*
 	Name: drawcylinder
