@@ -1131,7 +1131,7 @@ function function_2d565c0(localclientnum, charge)
 {
 	time = 0.85;
 	var_c6eef0d = 0;
-	var_49d2fa23 = 1;
+	pmax = 1;
 	switch(charge)
 	{
 		default:
@@ -1155,7 +1155,7 @@ function function_2d565c0(localclientnum, charge)
 			break;
 		}
 	}
-	self thread function_892cc334(localclientnum, time, var_c6eef0d, var_49d2fa23, charge);
+	self thread function_892cc334(localclientnum, time, var_c6eef0d, pmax, charge);
 }
 
 /*
@@ -1167,7 +1167,7 @@ function function_2d565c0(localclientnum, charge)
 	Parameters: 5
 	Flags: Linked
 */
-function function_892cc334(localclientnum, time, var_c6eef0d, var_49d2fa23, charge)
+function function_892cc334(localclientnum, time, var_c6eef0d, pmax, charge)
 {
 	self notify(#"hash_892cc334");
 	self endon(#"hash_892cc334");
@@ -1183,7 +1183,7 @@ function function_892cc334(localclientnum, time, var_c6eef0d, var_49d2fa23, char
 		{
 			self.var_652e98 = self.var_652e98 - time;
 		}
-		val = lerpfloat(var_c6eef0d, var_49d2fa23, self.var_652e98 / time);
+		val = lerpfloat(var_c6eef0d, pmax, self.var_652e98 / time);
 		self setarmpulseposition(val);
 		if(charge != getweaponchargelevel(localclientnum))
 		{
@@ -1245,13 +1245,13 @@ function function_ac7706bc()
 						self notify(#"hash_892cc334");
 						time = getdvarfloat("");
 						var_c6eef0d = getdvarfloat("");
-						var_49d2fa23 = getdvarfloat("");
+						pmax = getdvarfloat("");
 						self.var_652e98 = self.var_652e98 + 0.016;
 						if(self.var_652e98 > time)
 						{
 							self.var_652e98 = self.var_652e98 - time;
 						}
-						val = lerpfloat(var_c6eef0d, var_49d2fa23, self.var_652e98 / time);
+						val = lerpfloat(var_c6eef0d, pmax, self.var_652e98 / time);
 						self setarmpulseposition(val);
 						wait(0.016);
 					}
