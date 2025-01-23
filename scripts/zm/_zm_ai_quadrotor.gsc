@@ -87,7 +87,7 @@ function quadrotor_think()
 */
 function follow_ent(e_followee)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
 	while(isdefined(e_followee))
 	{
@@ -160,7 +160,7 @@ function quadrotor_main()
 */
 function quadrotor_fireupdate()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
 	while(true)
 	{
@@ -203,7 +203,7 @@ function quadrotor_fireupdate()
 function quadrotor_watch_for_game_end()
 {
 	self endon("death");
-	level waittill(#"end_game");
+	level waittill("end_game");
 	if(isdefined(self))
 	{
 		playfx(level._effect["tesla_elec_kill"], self.origin);
@@ -309,7 +309,7 @@ function make_sure_goal_is_well_above_ground(pos)
 */
 function waittill_pathing_done()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
 	self endon("change_state");
 	if(self.vehonpath)
@@ -329,7 +329,7 @@ function waittill_pathing_done()
 */
 function quadrotor_movementupdate()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
 	self endon("change_state");
 	/#
@@ -807,7 +807,7 @@ function death_fx()
 */
 function quadrotor_crash_movement(attacker, hitdir)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("crash_done");
 	self endon("death");
 	self cancelaimove();
@@ -881,7 +881,7 @@ function qrotor_dmg_snd()
 */
 function quadrotor_fire_for_time(totalfiretime)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("crash_done");
 	self endon("change_state");
 	self endon("death");
@@ -920,7 +920,7 @@ function quadrotor_fire_for_time(totalfiretime)
 */
 function quadrotor_crash_accel()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("crash_done");
 	self endon("death");
 	count = 0;
@@ -965,7 +965,7 @@ function quadrotor_crash_accel()
 */
 function quadrotor_predicted_collision()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("crash_done");
 	self endon("death");
 	while(true)
@@ -989,7 +989,7 @@ function quadrotor_predicted_collision()
 */
 function quadrotor_collision_player()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("change_state");
 	self endon("crash_done");
 	self endon("death");
@@ -1016,7 +1016,7 @@ function quadrotor_collision_player()
 */
 function quadrotor_collision()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("change_state");
 	self endon("crash_done");
 	self endon("death");
@@ -1167,7 +1167,7 @@ function quadrotor_set_team(team)
 */
 function quadrotor_blink_lights()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
 	self vehicle::lights_off();
 	wait(0.1);
@@ -1185,9 +1185,9 @@ function quadrotor_blink_lights()
 */
 function quadrotor_self_destruct()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	self_destruct = 0;
 	self_destruct_time = 0;
 	while(true)
@@ -1234,9 +1234,9 @@ function quadrotor_self_destruct()
 */
 function quadrotor_level_out_for_landing()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
-	self endon(#"emped");
+	self endon("emped");
 	self endon("landed");
 	while(isdefined(self.emped))
 	{

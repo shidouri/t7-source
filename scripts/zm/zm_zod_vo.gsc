@@ -949,7 +949,7 @@ function function_7884e6b8()
 				var_4d029563 = array(0, 0.5);
 				function_7aa5324a(var_308b02ed, var_4d029563, 1);
 				function_218256bd(0);
-				level waittill(#"end_of_round");
+				level waittill("end_of_round");
 				if(!level flag::get("ritual_in_progress"))
 				{
 					var_e09cb16 = level.round_number - 1;
@@ -1018,7 +1018,7 @@ function function_7884e6b8()
 					e_speaker.var_796f13cd = var_26378eb;
 					e_speaker function_7b697614(var_9f08831f, 1.5);
 				}
-				level waittill(#"end_of_round");
+				level waittill("end_of_round");
 				if(level.activeplayers.size > 1 && !level flag::get("ritual_in_progress"))
 				{
 					n_player_index = randomint(level.activeplayers.size);
@@ -1206,7 +1206,7 @@ function function_5a3465d8()
 	}
 	wait(5.5);
 	function_218256bd(0);
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 }
 
 /*
@@ -1222,7 +1222,7 @@ function vo_beastmode_hint()
 {
 	self endon(#"_zombie_game_over");
 	level endon(#"hash_571c8e3c");
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	level flag::set("vo_beastmode_hint");
 }
 

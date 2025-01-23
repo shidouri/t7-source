@@ -371,7 +371,7 @@ function change(team)
 	self spectating::set_permissions();
 	self setclientscriptmainmenu(game["menu_start_menu"]);
 	self openmenu(game["menu_start_menu"]);
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 }
 
 /*

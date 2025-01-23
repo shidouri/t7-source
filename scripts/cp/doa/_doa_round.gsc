@@ -815,6 +815,6 @@ function private function_d9345c74()
 	level.doa.var_d0cde02c = undefined;
 	level.doa.var_9a1cbf58 = 1;
 	level flag::clear("doa_round_abort");
-	level notify(#"exit_taken");
+	level notify("exit_taken");
 }
 

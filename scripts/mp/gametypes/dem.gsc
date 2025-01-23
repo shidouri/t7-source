@@ -1006,7 +1006,7 @@ function onenduse(team, player, result)
 	}
 	player.isdefusing = 0;
 	player.isplanting = 0;
-	player notify(#"event_ended");
+	player notify("event_ended");
 	if(self gameobjects::is_friendly_team(player.pers["team"]))
 	{
 		if(isdefined(player.defusing) && !result)
@@ -1137,7 +1137,7 @@ function ondrop(player)
 			}
 		#/
 	}
-	player notify(#"event_ended");
+	player notify("event_ended");
 	self gameobjects::set_3d_icon("friendly", "waypoint_bomb");
 	sound::play_on_players(game["bomb_dropped_sound"], game["attackers"]);
 }

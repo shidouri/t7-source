@@ -86,7 +86,7 @@ function watchforstationary(owner)
 {
 	self endon("death");
 	self endon("hacked");
-	self endon(#"explode");
+	self endon("explode");
 	owner endon("death");
 	owner endon("disconnect");
 	self waittill("stationary");
@@ -108,7 +108,7 @@ function watchforexplode(owner)
 	self endon("delete");
 	owner endon("death");
 	owner endon("disconnect");
-	self waittill(#"explode", origin);
+	self waittill("explode", origin);
 	checkfortracking(origin + (0, 0, 1));
 }
 

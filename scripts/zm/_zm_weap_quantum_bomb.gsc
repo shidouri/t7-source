@@ -348,7 +348,7 @@ function player_handle_quantum_bomb()
 	self notify(#"starting_quantum_bomb");
 	self endon("disconnect");
 	self endon(#"starting_quantum_bomb");
-	level endon(#"end_game");
+	level endon("end_game");
 	while(true)
 	{
 		grenade = self get_thrown_quantum_bomb();
@@ -359,7 +359,7 @@ function player_handle_quantum_bomb()
 				grenade delete();
 				continue;
 			}
-			grenade waittill(#"explode", position);
+			grenade waittill("explode", position);
 			playsoundatposition("wpn_quantum_exp", position);
 			result = self quantum_bomb_select_result(position);
 			self thread [[result.result_func]](position);

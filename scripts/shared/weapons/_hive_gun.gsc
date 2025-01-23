@@ -555,7 +555,7 @@ function firefly_damage_target(target)
 	self endon("death");
 	target endon("disconnect");
 	target endon("death");
-	target endon(#"entering_last_stand");
+	target endon("entering_last_stand");
 	damage = 25;
 	damage_delay = 0.1;
 	weapon = self.weapon;
@@ -726,7 +726,7 @@ function firefly_attack(target, state)
 {
 	level endon("game_ended");
 	self endon("death");
-	target endon(#"entering_last_stand");
+	target endon("entering_last_stand");
 	self thread firefly_killcam_stop();
 	self clientfield::set("firefly_state", state);
 	if(isplayer(target))
@@ -915,7 +915,7 @@ function firefly_chase(target)
 	level endon("game_ended");
 	self endon("death");
 	target endon("death");
-	target endon(#"entering_last_stand");
+	target endon("entering_last_stand");
 	self clientfield::set("firefly_state", 2);
 	if(isplayer(target))
 	{

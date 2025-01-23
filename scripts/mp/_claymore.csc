@@ -47,7 +47,7 @@ function __init__(localclientnum)
 */
 function spawned(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	while(true)
 	{

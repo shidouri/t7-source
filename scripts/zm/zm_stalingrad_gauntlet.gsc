@@ -314,7 +314,7 @@ function function_d0ba871e()
 	level flag::wait_till("egg_bathed_in_flame");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 1);
 	level waittill("start_of_round");
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 0);
 	level flag::set("egg_cooled_hazard");
 }
@@ -745,7 +745,7 @@ function function_77c54581()
 	level notify(#"hash_8c192d5a");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 1);
 	level waittill("start_of_round");
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 0);
 	level flag::set("egg_cooled_incubator");
 	var_21e43ff6 thread function_d29c33e();

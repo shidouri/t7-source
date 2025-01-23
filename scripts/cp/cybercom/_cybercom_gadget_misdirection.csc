@@ -66,7 +66,7 @@ function function_ec87e5c5(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_2c16a75b(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	wait(0.016);
 	var_76dfdc9 = self.origin;
 	amplitude = randomfloatrange(4, 12);
@@ -146,7 +146,7 @@ function function_ac2a831d(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_4fbb807c(sndorigin)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	playsound(0, "gdt_cybercore_decoy_delete", sndorigin);
 }
 

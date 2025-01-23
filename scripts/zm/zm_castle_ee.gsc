@@ -769,7 +769,7 @@ function function_2d0c5aa1(s_spawn_point)
 function function_d1963bbd()
 {
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self.knockdown = 0;
@@ -1265,7 +1265,7 @@ function function_6bfbde41()
 	while(true)
 	{
 		level.var_f91118d9 = undefined;
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		level.var_f91118d9 = 1;
 		level waittill("start_of_round");
 	}
@@ -1653,7 +1653,7 @@ function function_b404c31d(a_ents)
 function function_35c1d14d()
 {
 	self endon("death");
-	level endon(#"ee_outro");
+	level endon("ee_outro");
 	var_6326f93a = getent("cryo_chamber_shock_volume", "targetname");
 	while(true)
 	{

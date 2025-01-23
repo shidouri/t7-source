@@ -161,7 +161,7 @@ function function_f4defbc2()
 */
 function function_2987b6dc()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	while(true)
 	{
@@ -185,7 +185,7 @@ function function_2987b6dc()
 */
 function function_d070bfba()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	while(true)
 	{

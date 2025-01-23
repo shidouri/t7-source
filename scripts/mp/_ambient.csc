@@ -454,7 +454,7 @@ function ceiling_fans_init(clientnum)
 */
 function spin_fan()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.speed))
 	{
 		self.speed = randomintrange(1, 100);
@@ -569,7 +569,7 @@ function clocks_init(clientnum)
 */
 function clock_run(time_values)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.script_noteworthy))
 	{
 		hour = time_values["hand_time"];
@@ -717,7 +717,7 @@ function spin_anemometers(clientnum)
 */
 function spoon_spin_func()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.script_float))
 	{
 		model_speed = self.script_float;
@@ -745,7 +745,7 @@ function spoon_spin_func()
 */
 function arrow_spin_func()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.script_int))
 	{
 		model_direction_change = self.script_int;

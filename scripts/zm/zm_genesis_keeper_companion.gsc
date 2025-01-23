@@ -842,7 +842,7 @@ function function_1ee7eabb(var_747532f4)
 	{
 		if(!isalive(level.players[0]) || (level.players[0] laststand::player_is_in_laststand() && !level.players[0].lives))
 		{
-			level notify(#"end_game");
+			level notify("end_game");
 		}
 	}
 }

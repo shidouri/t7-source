@@ -1221,7 +1221,7 @@ function moon_round_think_func(restart = 0)
 	/#
 		println("");
 	#/
-	level endon(#"end_round_think");
+	level endon("end_round_think");
 	if(!(isdefined(restart) && restart))
 	{
 		if(isdefined(level.initial_round_wait_func))
@@ -1332,7 +1332,7 @@ function moon_round_think_func(restart = 0)
 			zm_powerups::powerup_round_start();
 		}
 		level.first_round = 0;
-		level notify(#"end_of_round");
+		level notify("end_of_round");
 		level flag::set("between_rounds");
 		bb::logroundevent("end_of_round");
 		uploadstats();
@@ -1914,7 +1914,7 @@ function wait_for_power()
 	var_cf413835 = struct::get("power_switch", "targetname");
 	level flag::wait_till("power_on");
 	playsoundatposition("zmb_switch_flip", var_cf413835.origin);
-	level notify(#"electric_door");
+	level notify("electric_door");
 	level scene::play("power_switch", "targetname");
 	playfx(level._effect["switch_sparks"], struct::get("elec_switch_fx", "targetname").origin);
 }

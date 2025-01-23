@@ -134,7 +134,7 @@ function main()
 */
 function function_9de15a4d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		n_start_time = gettime();
@@ -190,7 +190,7 @@ function function_9de15a4d(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_fc150bb9(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	b_show = 0;
 	var_ad3c7eb7 = 1;
 	if(newval == 1)
@@ -349,7 +349,7 @@ function function_b2c9069f(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_60670dd4(localclientnum, str_scene)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level.var_f91a2b6a[localclientnum][level.var_f91a2b6a[localclientnum].size] = self;
 	self.var_89028fd1 = util::spawn_model(localclientnum, "c_zom_chomper_demongate", self.origin, self.angles);
 	self thread scene::play(str_scene, self.var_89028fd1);
@@ -837,7 +837,7 @@ function function_475de8c4(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_6103d0f7(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_a1e4f5f1");
 	self endon(#"hash_a1e4f5f1");
 	if(!isdefined(self.n_shader_value))
@@ -1068,7 +1068,7 @@ function function_9db8b2b2(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_64bc7af0(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	var_82acb0d9 = 8.5;
 	if(newval == 1)
 	{
@@ -1126,7 +1126,7 @@ function function_64bc7af0(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_febf0bf4(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	var_82acb0d9 = 8.5;
 	if(newval == 1)
 	{
@@ -1166,7 +1166,7 @@ function function_febf0bf4(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_5063c4f7(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		self mapshaderconstant(localclientnum, 0, "scriptVector0", 0, 0, 0);
@@ -1205,7 +1205,7 @@ function function_5063c4f7(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_f32932c3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		n_start_time = gettime();
@@ -1347,7 +1347,7 @@ function function_2514cb86(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_46f52afa(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		n_start_time = gettime();
@@ -1403,7 +1403,7 @@ function function_46f52afa(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_6f66f54d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_start_time = gettime();
 	n_end_time = n_start_time + (0.5 * 1000);
 	b_is_updating = 1;
@@ -1551,7 +1551,7 @@ function function_60ae2cd0(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_a783453f(localclientnum, var_3a9e6062)
 {
 	var_3a9e6062 endon("death");
-	var_3a9e6062 endon(#"entityshutdown");
+	var_3a9e6062 endon("entityshutdown");
 	var_3a9e6062 endon(#"hash_5ad4a160");
 	b_left_side = 1;
 	var_cc9030a = var_3a9e6062.origin;
@@ -1592,7 +1592,7 @@ function function_a783453f(localclientnum, var_3a9e6062)
 */
 function function_ccf12771(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		n_start_time = gettime();

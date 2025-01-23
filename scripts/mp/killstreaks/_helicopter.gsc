@@ -1449,7 +1449,7 @@ function heli_wait(waittime)
 {
 	self endon("death");
 	self endon("crashing");
-	self endon(#"evasive");
+	self endon("evasive");
 	self thread heli_hover();
 	wait(waittime);
 	heli_reset();
@@ -1469,7 +1469,7 @@ function heli_hover()
 {
 	self endon("death");
 	self endon(#"hash_38f853e7");
-	self endon(#"evasive");
+	self endon("evasive");
 	self endon("leaving");
 	self endon("crashing");
 	randint = randomint(360);
@@ -2117,7 +2117,7 @@ function heli_health(hardpointtype, playernotify)
 */
 function heli_evasive(hardpointtype)
 {
-	self notify(#"evasive");
+	self notify("evasive");
 	self.evasive = 1;
 	loop_startnode = level.heli_loop_paths[0];
 	gunnerpathfound = 1;
@@ -3047,11 +3047,11 @@ function updatespeed()
 */
 function updatetargetyaw()
 {
-	self notify(#"endtargetyawupdate");
+	self notify("endtargetyawupdate");
 	self endon("death");
 	self endon("crashing");
 	self endon("leaving");
-	self endon(#"endtargetyawupdate");
+	self endon("endtargetyawupdate");
 	for(;;)
 	{
 		if(isdefined(self.primarytarget))
@@ -3558,8 +3558,8 @@ function debug_print_target()
 */
 function waittill_confirm_location()
 {
-	self endon(#"emp_jammed");
-	self endon(#"emp_grenaded");
+	self endon("emp_jammed");
+	self endon("emp_grenaded");
 	self waittill("confirm_location", location);
 	return location;
 }
@@ -3749,7 +3749,7 @@ function watchforemp()
 	heli = self;
 	heli endon("death");
 	heli endon("heli_timeup");
-	heli.owner waittill(#"emp_jammed");
+	heli.owner waittill("emp_jammed");
 	heli thread heli_explode();
 }
 

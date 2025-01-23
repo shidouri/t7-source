@@ -72,7 +72,7 @@ function function_d4b7774a()
 */
 function endgame_vox()
 {
-	level waittill(#"end_game");
+	level waittill("end_game");
 	wait(2);
 	winner = undefined;
 	players = getplayers();

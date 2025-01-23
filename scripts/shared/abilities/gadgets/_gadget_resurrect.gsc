@@ -639,11 +639,11 @@ function resurrect_watch_for_death(slot, weapon)
 	if(self flagsys::get("gadget_resurrect_activated"))
 	{
 		self thread do_resurrected_on_dead_body_fx();
-		self notify(#"end_death_delay");
-		self notify(#"end_killcam");
+		self notify("end_death_delay");
+		self notify("end_killcam");
 		self.cancelkillcam = 1;
 		self.usedresurrect = 1;
-		self notify(#"end_death_delay");
+		self notify("end_death_delay");
 		self notify("force_spawn");
 		if(!(isdefined(1) && 1))
 		{

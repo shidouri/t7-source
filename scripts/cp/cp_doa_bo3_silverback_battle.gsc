@@ -1380,7 +1380,7 @@ function private function_a3a6c6d0()
 */
 function function_f61639be(dist = 72)
 {
-	level endon(#"exit_taken");
+	level endon("exit_taken");
 	level endon("ape_exited");
 	self endon("death");
 	distsq = dist * dist;

@@ -171,7 +171,7 @@ function pineapplegun_effect_cb(localclientnum, oldval, newval, bnewent, binitia
 */
 function watch_plant_sound(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill("start_plant_sound");
@@ -192,7 +192,7 @@ function play_plant_sound(localclientnum)
 {
 	self notify("play_plant_sound");
 	self endon("play_plant_sound");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("stop_plant_sound");
 	player = getlocalplayer(localclientnum);
 	plantweapon = getweapon("briefcase_bomb");

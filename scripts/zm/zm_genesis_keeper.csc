@@ -71,7 +71,7 @@ function function_6ded398b(localclientnum)
 */
 function function_ea48e71e(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -119,7 +119,7 @@ function new_timer(localclientnum)
 */
 function timer_increment_loop(localclientnum, entity)
 {
-	entity endon(#"entityshutdown");
+	entity endon("entityshutdown");
 	self endon("timer_done");
 	while(isdefined(self))
 	{
@@ -181,7 +181,7 @@ function reset_timer()
 */
 function function_6e8422e9(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{

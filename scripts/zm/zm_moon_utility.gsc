@@ -904,7 +904,7 @@ function glass_gets_destroyed()
 function wait_for_grenade_explode(player)
 {
 	player endon("projectile_impact");
-	self waittill(#"explode", grenade_origin);
+	self waittill("explode", grenade_origin);
 	self thread check_for_grenade_damage_on_window(grenade_origin);
 }
 
@@ -919,7 +919,7 @@ function wait_for_grenade_explode(player)
 */
 function wait_for_projectile_impact(grenade)
 {
-	grenade endon(#"explode");
+	grenade endon("explode");
 	self waittill("projectile_impact", weapon_name, position);
 	self thread check_for_grenade_damage_on_window(position);
 }

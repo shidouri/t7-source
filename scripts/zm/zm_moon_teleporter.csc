@@ -186,7 +186,7 @@ function cool_down_timer()
 function pack_cooldown_listener()
 {
 	self endon("cool_down_over");
-	level waittill(#"end_cool_downs");
+	level waittill("end_cool_downs");
 	self.defcon_active = 1;
 }
 

@@ -148,7 +148,7 @@ function function_73cc64f1(localclientnum)
 */
 function function_c06d0a4e(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	while(isdefined(self) && !isdefined(self.player_exert_id))
 	{

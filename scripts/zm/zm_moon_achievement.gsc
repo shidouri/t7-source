@@ -84,7 +84,7 @@ function achievement_set_interim_sidequest_stat_for_all_players(stat_name)
 */
 function achievement_moon_sidequest()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level waittill("moon_sidequest_reveal_achieved");
 	level achievement_set_interim_sidequest_stat_for_all_players("ZOMBIE_MOON_SIDEQUEST");
 	level zm_utility::giveachievement_wrapper("DLC5_ZOM_CRYOGENIC_PARTY", 1);
@@ -108,7 +108,7 @@ function achievement_moon_sidequest()
 */
 function achievement_ground_control()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level flag::wait_till("teleporter_digger_hacked_before_breached");
 	level flag::wait_till("hangar_digger_hacked_before_breached");
 	level flag::wait_till("biodome_digger_hacked_before_breached");
@@ -128,7 +128,7 @@ function achievement_ground_control()
 */
 function achievement_one_small_hack()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill("successful_hack");
 	/#
@@ -146,7 +146,7 @@ function achievement_one_small_hack()
 */
 function achievement_one_giant_leap()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill("one_giant_leap");
 	/#
@@ -169,7 +169,7 @@ function achievement_one_giant_leap()
 */
 function achievement_perks_in_space()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.perks_in_space_list = [];
 	vending_triggers = getentarray("zombie_vending", "targetname");
@@ -209,7 +209,7 @@ function achievement_perks_in_space()
 */
 function achievement_fully_armed()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	while(true)
 	{

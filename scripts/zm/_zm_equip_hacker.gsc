@@ -96,7 +96,7 @@ function hacker_round_reward()
 {
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(!isdefined(level._from_nml))
 		{
 			players = getplayers();

@@ -75,7 +75,7 @@ function on_player_spawned(localclientnum)
 */
 function delay_set_exert_id(newval)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("sndendexertoverride");
 	wait(0.5);
 	self.player_exert_id = newval;

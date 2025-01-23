@@ -190,7 +190,7 @@ function wait_for_game_end()
 	{
 		return;
 	}
-	level waittill(#"end_game");
+	level waittill("end_game");
 	players = getplayers();
 	for(player_index = 0; player_index < players.size; player_index++)
 	{

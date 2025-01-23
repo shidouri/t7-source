@@ -174,8 +174,8 @@ function private function_98817801(localclientnum, thrasher, player)
 */
 function private function_4cf5760d(localclientnum, thrasher, player)
 {
-	thrasher endon(#"entityshutdown");
-	player endon(#"entityshutdown");
+	thrasher endon("entityshutdown");
+	player endon("entityshutdown");
 	player endon(#"hash_d53b1d6d");
 	thrasher endon(#"hash_d53b1d6d");
 	eyeposition = player gettagorigin("tag_eye");
@@ -226,8 +226,8 @@ function private function_4cf5760d(localclientnum, thrasher, player)
 */
 function private function_785afcbe(localclientnum, thrasher, player)
 {
-	thrasher endon(#"entityshutdown");
-	player endon(#"entityshutdown");
+	thrasher endon("entityshutdown");
+	player endon("entityshutdown");
 	player endon(#"hash_d53b1d6d");
 	thrasher endon(#"hash_d53b1d6d");
 	interpolate = 0.016;

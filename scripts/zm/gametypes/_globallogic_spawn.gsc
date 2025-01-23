@@ -205,7 +205,7 @@ function stoppoisoningandflareonspawn()
 function spawnplayerprediction()
 {
 	self endon("disconnect");
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	self endon("game_ended");
 	self endon("joined_spectators");
 	self endon("spawned");
@@ -281,7 +281,7 @@ function spawnplayer()
 	self endon("joined_spectators");
 	self notify("spawned");
 	level notify("player_spawned");
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 	self setspawnvariables();
 	self luinotifyevent(&"player_spawned", 0);
 	if(!self.hasspawned)
@@ -540,7 +540,7 @@ function spawnplayer()
 function spawnspectator(origin, angles)
 {
 	self notify("spawned");
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 	in_spawnspectator(origin, angles);
 }
 
@@ -750,7 +750,7 @@ function kickwait(waittime)
 function spawninterroundintermission()
 {
 	self notify("spawned");
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 	self setspawnvariables();
 	self util::clearlowermessage();
 	self util::freeze_player_controls(0);
@@ -778,7 +778,7 @@ function spawninterroundintermission()
 function spawnintermission(usedefaultcallback)
 {
 	self notify("spawned");
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 	self endon("disconnect");
 	self setspawnvariables();
 	self util::clearlowermessage();
@@ -1039,7 +1039,7 @@ function spawnclient(timealreadypassed)
 function waitandspawnclient(timealreadypassed)
 {
 	self endon("disconnect");
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	level endon("game_ended");
 	if(!isdefined(timealreadypassed))
 	{
@@ -1150,7 +1150,7 @@ function waitandspawnclient(timealreadypassed)
 function waitrespawnorsafespawnbutton()
 {
 	self endon("disconnect");
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	while(true)
 	{
 		if(self usebuttonpressed())
@@ -1173,7 +1173,7 @@ function waitrespawnorsafespawnbutton()
 function waitinspawnqueue()
 {
 	self endon("disconnect");
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	if(!level.ingraceperiod && !level.usestartspawns)
 	{
 		currentorigin = self.origin;

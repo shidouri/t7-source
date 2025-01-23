@@ -144,7 +144,7 @@ function waitthenspawn()
 function onspawnplayer(predictedspawn)
 {
 	self endon("disconnect");
-	level endon(#"end_game");
+	level endon("end_game");
 	self.usingobj = undefined;
 	self initplayerhud();
 	self waitthenspawn();
@@ -426,7 +426,7 @@ function initplayerhud()
 function updateplayerhud()
 {
 	self endon("disconnect");
-	level endon(#"end_game");
+	level endon("end_game");
 	while(true)
 	{
 		if(self.team != "spectator")

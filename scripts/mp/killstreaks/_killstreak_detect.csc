@@ -326,7 +326,7 @@ function watch_killstreak_detect_perks_changed(local_client_num)
 	self endon("watch_killstreak_detect_perks_changed");
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(self))
 	{
 		wait(0.016);

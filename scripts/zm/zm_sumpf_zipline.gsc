@@ -252,7 +252,7 @@ function function_3c93cd15()
 */
 function function_73a6adde()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	foreach(player in level.players)
 	{
 		self setinvisibletoplayer(player);
@@ -282,7 +282,7 @@ function function_73a6adde()
 */
 function function_d3655c8e(e_trigger)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	while(self istouching(e_trigger))
 	{

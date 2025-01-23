@@ -354,7 +354,7 @@ function private margwaheadrightcallback(localclientnum, oldvalue, newvalue, bne
 */
 function private margwastopsmashfx(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	wait(0.6);
 	if(isdefined(self.leftglowfx))
 	{
@@ -472,7 +472,7 @@ function private margwatraveltellupdate(localclientnum)
 {
 	self notify("stop_margwatraveltell");
 	self endon("stop_margwatraveltell");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	player = getlocalplayer(localclientnum);
 	while(true)
 	{

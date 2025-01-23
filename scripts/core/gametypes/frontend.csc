@@ -2929,7 +2929,7 @@ function deletezombieeyes(localclientnum)
 */
 function createzombieeyesinternal(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self._eyearray))
 	{
@@ -4970,7 +4970,7 @@ function lobby_main(localclientnum, menu_name, state)
 	if(!isdefined(state) || state != "room1")
 	{
 		setallcontrollerslightbarcolor();
-		level notify(#"end_controller_pulse");
+		level notify("end_controller_pulse");
 	}
 }
 
@@ -5024,7 +5024,7 @@ function update_mp_lobby_room_devgui(localclientnum, state)
 */
 function pulse_controller_color()
 {
-	level endon(#"end_controller_pulse");
+	level endon("end_controller_pulse");
 	delta_t = -0.01;
 	t = 1;
 	while(true)

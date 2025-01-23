@@ -1612,7 +1612,7 @@ function giant_robot_head_player_eject_thread(m_linkpoint, str_tube, b_timeout =
 	self stopsounds();
 	util::wait_network_frame();
 	self playsoundtoplayer("zmb_giantrobot_exit", self);
-	self notify(#"end_in_tube_rumble");
+	self notify("end_in_tube_rumble");
 	self thread exit_gr_manual_looping_rumble();
 	m_linkpoint moveto(m_linkpoint.origin + vectorscale((0, 0, 1), 2000), 2.5);
 	self thread hud::fade_to_black_for_x_sec(0, 2, 0.5, 0, "white");
@@ -1723,7 +1723,7 @@ function tube_clone_falls_to_earth(m_linkpoint)
 */
 function in_tube_manual_looping_rumble()
 {
-	self endon(#"end_in_tube_rumble");
+	self endon("end_in_tube_rumble");
 	self endon("death");
 	self endon("disconnect");
 	while(true)
@@ -1747,7 +1747,7 @@ function in_tube_manual_looping_rumble()
 */
 function exit_gr_manual_looping_rumble()
 {
-	self endon(#"end_exit_gr_rumble");
+	self endon("end_exit_gr_rumble");
 	self endon("death");
 	self endon("disconnect");
 	while(true)
@@ -1773,7 +1773,7 @@ function gr_eject_landing_rumble()
 {
 	self endon("death");
 	self endon("disconnect");
-	self notify(#"end_exit_gr_rumble");
+	self notify("end_exit_gr_rumble");
 	util::wait_network_frame();
 	self clientfield::set_to_player("giant_robot_rumble_and_shake", 0);
 	util::wait_network_frame();

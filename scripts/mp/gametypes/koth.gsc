@@ -667,7 +667,7 @@ function onbeginuse(player)
 */
 function onenduse(team, player, success)
 {
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*
@@ -746,7 +746,7 @@ function onzonecapture(player)
 	player recordgameevent("hardpoint_captured");
 	level notify("zone_captured");
 	level notify("zone_captured" + capture_team);
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*
@@ -874,7 +874,7 @@ function onzonedestroy(player)
 	{
 		level thread awardcapturepoints(destroyed_team);
 	}
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*

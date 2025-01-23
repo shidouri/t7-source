@@ -225,7 +225,7 @@ function private robotlightsflicker(entity, asmstatename)
 {
 	entity ai::set_behavior_attribute("robot_lights", 1);
 	clientfield::set("robot_EMP", 1);
-	entity notify(#"emp_fx_start");
+	entity notify("emp_fx_start");
 	return 4;
 }
 
@@ -272,7 +272,7 @@ function private robotempidleinitialize(entity, asmstatename)
 {
 	entity.empstoptime = gettime() + entity.empshutdowntime;
 	animationstatenetworkutility::requeststate(entity, asmstatename);
-	entity notify(#"emp_shutdown_start");
+	entity notify("emp_shutdown_start");
 	return 5;
 }
 
@@ -309,7 +309,7 @@ function private robotempidleupdate(entity, asmstatename)
 */
 function private robotempidleterminate(entity, asmstatename)
 {
-	entity notify(#"emp_shutdown_end");
+	entity notify("emp_shutdown_end");
 	return 4;
 }
 

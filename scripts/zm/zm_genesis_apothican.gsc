@@ -872,7 +872,7 @@ function spider_round_spawning()
 		}
 		if(var_8a82d706)
 		{
-			level waittill(#"end_of_round");
+			level waittill("end_of_round");
 			level.n_next_spider_round = level.round_number + randomintrange(4, 6);
 		}
 	}

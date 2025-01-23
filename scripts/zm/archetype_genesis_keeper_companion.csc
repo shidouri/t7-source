@@ -110,7 +110,7 @@ function function_bfd27b96(localclientnum)
 */
 function function_8aaa4093(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_6f5d947d");
 	self endon(#"hash_6f5d947d");
 	self util::waittill_dobj(localclientnum);
@@ -142,7 +142,7 @@ function function_8aaa4093(localclientnum)
 */
 function function_55296393(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_6f5d947d");
 	self endon(#"hash_6f5d947d");
 	self util::waittill_dobj(localclientnum);
@@ -252,7 +252,7 @@ function private function_802744a7(localclientnum, oldval, newval, bnewent, bini
 */
 function keeper_thunderwall(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -275,7 +275,7 @@ function keeper_thunderwall(localclientnum, oldval, newval, bnewent, binitialsna
 */
 function keeper_thunderwall_360(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self))
 	{
 		return;
@@ -297,7 +297,7 @@ function keeper_thunderwall_360(localclientnum, oldval, newval, bnewent, binitia
 */
 function function_2935ac4d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -334,7 +334,7 @@ function function_2935ac4d(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_fa8bf98f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self))
 	{
 		return;
@@ -378,7 +378,7 @@ function new_timer(localclientnum)
 */
 function timer_increment_loop(localclientnum, entity)
 {
-	entity endon(#"entityshutdown");
+	entity endon("entityshutdown");
 	self endon("timer_done");
 	while(isdefined(self))
 	{

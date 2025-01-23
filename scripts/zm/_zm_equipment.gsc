@@ -853,7 +853,7 @@ function start_ammo(equipment)
 			maxammo = level.zombie_equipment[equipment].start_ammo;
 		}
 		self setweaponammoclip(equipment, maxammo);
-		self notify(#"equipment_ammo_changed", equipment);
+		self notify("equipment_ammo_changed", equipment);
 		return maxammo;
 	}
 	return 0;
@@ -880,7 +880,7 @@ function change_ammo(equipment, change)
 		}
 		newammo = int(min(maxammo, max(0, oldammo + change)));
 		self setweaponammoclip(equipment, newammo);
-		self notify(#"equipment_ammo_changed", equipment);
+		self notify("equipment_ammo_changed", equipment);
 		return newammo;
 	}
 	return 0;

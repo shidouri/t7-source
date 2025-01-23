@@ -201,7 +201,7 @@ function gasmask_activation_watcher_thread()
 			{
 				self zm_utility::decrement_is_drinking();
 				self setactionslot(2, "weapon", level.var_f486078e);
-				self notify(#"equipment_select_response_done");
+				self notify("equipment_select_response_done");
 				continue;
 			}
 			else
@@ -214,7 +214,7 @@ function gasmask_activation_watcher_thread()
 		{
 			self zm_utility::decrement_is_drinking();
 		}
-		self notify(#"equipment_select_response_done");
+		self notify("equipment_select_response_done");
 	}
 }
 
@@ -356,7 +356,7 @@ function function_7cb416b(var_226f0a45, var_4bbe5bcf, var_d79c9dc0, str_notify)
 			self notify(str_notify.activate);
 			self.current_equipment_active[var_226f0a45] = 1;
 		}
-		self waittill(#"equipment_select_response_done");
+		self waittill("equipment_select_response_done");
 	}
 }
 

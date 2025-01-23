@@ -2029,7 +2029,7 @@ function limited_pickup(limited_info)
 function track_cooked_detonation(attacker, weapon, cooktime)
 {
 	self endon("trophy_destroyed");
-	self waittill(#"explode", origin, surface);
+	self waittill("explode", origin, surface);
 	if(weapon.rootweapon == level.weaponflashgrenade)
 	{
 		level thread ninebang_doninebang(attacker, weapon, origin, cooktime);
@@ -2159,7 +2159,7 @@ function ninebang_doempdamage(player, weapon, position)
 	{
 		if(ninebang_empcandamage(targetent, position, radiussq, 0, 0))
 		{
-			targetent notify(#"emp_grenaded", player);
+			targetent notify("emp_grenaded", player);
 		}
 	}
 }
@@ -2192,7 +2192,7 @@ function ninebang_empcandamage(ent, pos, radiussq, dolos, startradius)
 function track_multi_detonation(ownerent, weapon, cooktime)
 {
 	self endon("trophy_destroyed");
-	self waittill(#"explode", origin, surface);
+	self waittill("explode", origin, surface);
 	if(weapon.rootweapon == getweapon("frag_grenade_grenade"))
 	{
 		for(i = 0; i < weapon.multidetonation; i++)

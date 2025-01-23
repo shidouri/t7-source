@@ -482,7 +482,7 @@ function _immolatehuman(attacker, upgraded, immediate = 0)
 		playfxontag("light/fx_ability_light_chest_immolation", self.grenade_prop, "tag_origin");
 		self waittillmatch("immo_anim");
 		self stopsound("gdt_immolation_human_countdown");
-		self notify(#"explode", "explode", "grenade_right");
+		self notify("explode", "explode", "grenade_right");
 	}
 	else
 	{
@@ -508,7 +508,7 @@ function function_f8956516()
 	self endon("death");
 	self waittillmatch(#"bhtn_action_terminate");
 	self stopsound("gdt_immolation_human_countdown");
-	self notify(#"explode", "specialpain");
+	self notify("explode", "specialpain");
 }
 
 /*

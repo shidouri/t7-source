@@ -813,7 +813,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	}
 	if(weapon.isemp)
 	{
-		self notify(#"emp_grenaded", eattacker);
+		self notify("emp_grenaded", eattacker);
 	}
 	idamage = custom_gamemodes_modified_damage(self, eattacker, idamage, smeansofdeath, weapon, einflictor, shitloc);
 	idamage = int(idamage);

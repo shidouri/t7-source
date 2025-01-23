@@ -35,7 +35,7 @@ function init_shared()
 */
 function shield_state_change(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	switch(newval)
 	{
 		case 1:
@@ -63,7 +63,7 @@ function shield_state_change(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function riotshield_deploy_anim(localclientnum, instant)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self thread watch_riotshield_damage();
 	self util::waittill_dobj(localclientnum);
 	self useanimtree($mp_riotshield);
@@ -94,7 +94,7 @@ function riotshield_deploy_anim(localclientnum, instant)
 */
 function watch_riotshield_damage()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill("damage", damage_loc, damage_type);
@@ -121,7 +121,7 @@ function watch_riotshield_damage()
 */
 function riotshield_destroy_anim(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.shieldlightfx))
 	{
 		stopfx(localclientnum, self.shieldlightfx);

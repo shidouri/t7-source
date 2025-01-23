@@ -95,7 +95,7 @@ function private on_player_shutdown(localclientnum)
 */
 function private on_player_death(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self waittill("death");
 	if(self isplayer())
 	{
@@ -224,7 +224,7 @@ function private facialanimationthink_getwaittime(localclientnum)
 */
 function private facialanimationthink(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("stopfacialthread");
 	self endon("stopfacialthread");
 	if(isdefined(self.__clientfacialanimationsthinkstarted))

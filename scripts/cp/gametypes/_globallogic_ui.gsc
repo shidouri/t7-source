@@ -357,7 +357,7 @@ function menuautoassign(comingfrommenu)
 	self notify("joined_team");
 	level notify("joined_team");
 	callback::callback(#"hash_95a6c4c0");
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 	self beginclasschoice();
 	self setclientscriptmainmenu(game["menu_start_menu"]);
 }
@@ -754,7 +754,7 @@ function menuteam(team)
 		self notify("joined_team");
 		level notify("joined_team");
 		callback::callback(#"hash_95a6c4c0");
-		self notify(#"end_respawn");
+		self notify("end_respawn");
 	}
 	self beginclasschoice();
 }
@@ -950,7 +950,7 @@ function removespawnmessageshortly(delay)
 {
 	self endon("disconnect");
 	waittillframeend();
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	wait(delay);
 	self util::clearlowermessage(2);
 }

@@ -1618,7 +1618,7 @@ function do_no_game()
 	}
 	level thread load::all_players_spawned();
 	array::thread_all(getentarray("water", "targetname"), &load::water_think);
-	level waittill(#"eternity");
+	level waittill("eternity");
 }
 
 /*

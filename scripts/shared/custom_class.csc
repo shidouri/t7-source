@@ -848,7 +848,7 @@ function update_weapon_script_model(localclientnum, newweaponstring, should_upda
 */
 function transition_camera(localclientnum, weapontype, camera, subxcam, initialdelay, lerpduration, notetrack, newweaponstring, should_update_weapon_options = 0)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("xcammoved");
 	self endon("xcammoved");
 	level endon("cam_customization_closed");

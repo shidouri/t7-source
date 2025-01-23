@@ -146,7 +146,7 @@ function watch_for_emp(model, actor)
 	}
 	while(true)
 	{
-		level waittill(#"emp_detonate", origin, radius);
+		level waittill("emp_detonate", origin, radius);
 		if(distancesquared(origin, self.origin) < (radius * radius))
 		{
 			break;
@@ -242,7 +242,7 @@ function show_owner_on_attack(owner)
 {
 	owner endon("hide_owner");
 	owner endon(#"show_owner");
-	self endon(#"explode");
+	self endon("explode");
 	self endon("death");
 	self endon("grenade_dud");
 	owner.show_for_time = undefined;
@@ -697,7 +697,7 @@ function get_thrown_beacon()
 function wait_and_explode(grenade)
 {
 	self endon(#"beacon_missile_launch");
-	grenade waittill(#"explode", position);
+	grenade waittill("explode", position);
 	self notify("weapon_beacon_timeout");
 	if(isdefined(grenade))
 	{

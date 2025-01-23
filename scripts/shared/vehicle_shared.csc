@@ -144,7 +144,7 @@ function spawned_callback(localclientnum)
 */
 function rumble(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.rumbletype) || self.rumbleradius == 0)
 	{
 		return;
@@ -237,7 +237,7 @@ function play_exhaust(localclientnum)
 			/#
 				assert(isdefined(self.exhaustfxtag1), self.vehicletype + "");
 			#/
-			self endon(#"entityshutdown");
+			self endon("entityshutdown");
 			self wait_for_dobj(localclientnum);
 			self.exhaust_id_left = playfxontag(localclientnum, self.exhaust_fx, self, self.exhaustfxtag1);
 			if(!isdefined(self.exhaust_id_right) && isdefined(self.exhaustfxtag2))
@@ -300,7 +300,7 @@ function aircraft_dustkick()
 {
 	waittillframeend();
 	self endon("kill_treads_forever");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self))
 	{
 		return;
@@ -378,7 +378,7 @@ function aircraft_dustkick()
 */
 function weapon_fired()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill("weapon_fired");
@@ -446,7 +446,7 @@ function wait_for_dobj(localclientnum)
 */
 function lights_on(localclientnum, team)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	lights_off(localclientnum);
 	wait_for_dobj(localclientnum);
 	if(isdefined(self.lightfxnamearray))
@@ -518,7 +518,7 @@ function addanimtolist(animitem, &liston, &listoff, playwhenoff, id, maxid)
 */
 function ambient_anim_toggle(localclientnum, groupid, ison)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.scriptbundlesettings))
 	{
 		return;
@@ -653,7 +653,7 @@ function field_toggle_ambient_anim_handler4(localclientnum, oldval, newval, bnew
 */
 function lights_group_toggle(localclientnum, id, ison)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.scriptbundlesettings))
 	{
 		return;
@@ -892,7 +892,7 @@ function toggle_fx_bundle(localclientnum, name, turnon)
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("end_toggle_field_fx_" + name);
 	self endon("end_toggle_field_fx_" + name);
 	wait_for_dobj(localclientnum);
@@ -944,7 +944,7 @@ function toggle_fx_bundle(localclientnum, name, turnon)
 */
 function delayed_fx_thread(localclientnum, name, fx, tag, delay)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("end_toggle_field_fx_" + name);
 	if(!isdefined(tag))
 	{
@@ -1260,7 +1260,7 @@ function field_use_engine_damage_sounds(localclientnum, oldval, newval, bnewent,
 */
 function field_do_deathfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 2)
 	{
 		self field_do_empdeathfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump);

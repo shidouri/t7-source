@@ -132,7 +132,7 @@ function player_init(localclientnum)
 */
 function snddoublejump_watcher()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill("doublejump_start");
@@ -162,7 +162,7 @@ function snddoublejump_watcher()
 */
 function clientvoicesetup(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(level.clientvoicesetup))
 	{
 		[[level.clientvoicesetup]](localclientnum);
@@ -185,7 +185,7 @@ function clientvoicesetup(localclientnum)
 */
 function sndvonotify(notifystring, dialog)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	for(;;)
 	{
 		self waittill(notifystring);
@@ -1235,7 +1235,7 @@ function soundwait(id)
 function snd_underwater(localclientnum)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("killcam_begin" + localclientnum);
 	level endon("killcam_end" + localclientnum);
 	self endon("sndenduwwatcher");
@@ -1445,7 +1445,7 @@ function setcurrentambientstate(ambientroom, ambientpackage, roomcollidercent, p
 */
 function isplayerinfected()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	mapname = getdvarstring("mapname");
 	if(!isdefined(mapname))
 	{
@@ -1710,7 +1710,7 @@ function sndrattle_grenade_client()
 {
 	while(true)
 	{
-		level waittill(#"explode", localclientnum, position, mod, weapon, owner_cent);
+		level waittill("explode", localclientnum, position, mod, weapon, owner_cent);
 		level thread dorattle(position, weapon.soundrattlerangemin, weapon.soundrattlerangemax);
 	}
 }

@@ -364,7 +364,7 @@ function trigger_slow_touched_wait()
 	while(true)
 	{
 		self waittill("trigger", player);
-		player notify(#"enter_slowtrigger");
+		player notify("enter_slowtrigger");
 		self trigger::function_d1278be0(player, &trigger_slow_ent, &trigger_unslow_ent);
 		wait(0.1);
 	}
@@ -412,7 +412,7 @@ function trigger_slow_ent(player, endon_condition)
 */
 function trigger_unslow_ent(player)
 {
-	player endon(#"enter_slowtrigger");
+	player endon("enter_slowtrigger");
 	if(isdefined(player))
 	{
 		prevtime = gettime();
@@ -750,7 +750,7 @@ function structs_code()
 				if(isdefined(player))
 				{
 					playersinradius = array_remove(playersinradius, player);
-					self notify(#"end_code_struct");
+					self notify("end_code_struct");
 				}
 				else
 				{
@@ -783,7 +783,7 @@ function structs_code()
 */
 function code_entry(player)
 {
-	self endon(#"end_code_struct");
+	self endon("end_code_struct");
 	player endon("death");
 	player endon("disconnect");
 	while(true)

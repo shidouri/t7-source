@@ -1009,7 +1009,7 @@ function crystal_fx(localclientnum, oldval, newval, bnewent, binitialsnap, field
 */
 function function_eb515bc3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		self mapshaderconstant(localclientnum, 0, "ScriptVector3");
@@ -1036,7 +1036,7 @@ function function_5abafae8(localclientnum, fade_in, fade_time)
 {
 	self notify(#"hash_35d6955f");
 	self endon(#"hash_35d6955f");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	start_val = 0;
 	end_val = 1;
 	if(fade_in)
@@ -1539,7 +1539,7 @@ function _rain_thread(n_level, localclientnum)
 	level endon("_snow_begin" + localclientnum);
 	level endon("_rain_thread" + localclientnum);
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_wait = 0.35 / n_level;
 	if(n_wait < 0.15)
 	{
@@ -1573,7 +1573,7 @@ function _snow_thread(n_level, localclientnum)
 	level endon("_rain_begin" + localclientnum);
 	level endon("_snow_thread" + localclientnum);
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_wait = 0.5 / n_level;
 	self.b_lightning = 0;
 	while(true)
@@ -1604,7 +1604,7 @@ function _snow_thread(n_level, localclientnum)
 function _lightning_thread(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.b_lightning = 1;
 	if(localclientnum != 0)
 	{
@@ -1803,7 +1803,7 @@ function foot_print_box_glow(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function function_3a4d4e97()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level waittill("demo_jump");
 	self delete();
 }
@@ -1819,7 +1819,7 @@ function function_3a4d4e97()
 */
 function function_91953add(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self mapshaderconstant(localclientnum, 0, "ScriptVector1");
 	s_timer = new_timer(localclientnum);
 	n_phase_in = 1;
@@ -1844,7 +1844,7 @@ function function_91953add(localclientnum)
 */
 function function_526683dc(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self mapshaderconstant(localclientnum, 0, "ScriptVector1");
 	s_timer = new_timer(localclientnum);
 	n_phase_in = 1;

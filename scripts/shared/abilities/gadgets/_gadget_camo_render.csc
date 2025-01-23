@@ -73,7 +73,7 @@ function doreveal(local_client_num, direction)
 {
 	self notify("kill_gadget_camo_render_doreveal");
 	self endon("kill_gadget_camo_render_doreveal");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self))
 	{
 		return;

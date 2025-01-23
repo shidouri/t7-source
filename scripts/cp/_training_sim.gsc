@@ -715,7 +715,7 @@ function function_cce02c2e()
 	self.var_2328b30c = function_4041981f();
 	self.s_beacon = function_d2614e32();
 	music::setmusicstate("ts_underscore", self);
-	self notify(#"enable_cybercom");
+	self notify("enable_cybercom");
 	wait(2.5);
 	lui::screen_fade_out(0.1, "white");
 	function_cc13d7aa();

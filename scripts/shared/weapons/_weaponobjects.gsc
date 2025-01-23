@@ -2173,7 +2173,7 @@ function showcone(angle, range, color)
 */
 function weaponobjectdetectionmovable(ownerteam)
 {
-	self endon(#"end_detection");
+	self endon("end_detection");
 	level endon("game_ended");
 	self endon("death");
 	self endon("hacked");
@@ -2233,7 +2233,7 @@ function weaponobjectdetectiontrigger(ownerteam)
 	trigger.detectid = ("trigger" + gettime()) + randomint(1000000);
 	trigger sethintlowpriority(1);
 	self util::waittill_any("death", "hacked", "detonating");
-	trigger notify(#"end_detection");
+	trigger notify("end_detection");
 	if(isdefined(trigger.bombsquadicon))
 	{
 		trigger.bombsquadicon destroy();

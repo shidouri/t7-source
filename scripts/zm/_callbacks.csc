@@ -94,7 +94,7 @@ function localclientconnect(localclientnum)
 */
 function playerspawned(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(level._playerspawned_override))
 	{
 		self thread [[level._playerspawned_override]](localclientnum);
@@ -122,7 +122,7 @@ function playerspawned(localclientnum)
 */
 function entityspawned(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(self isplayer())
 	{
 		if(isdefined(level._clientfaceanimonplayerspawned))

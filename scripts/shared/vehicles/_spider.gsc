@@ -724,8 +724,8 @@ function prevent_stuck()
 {
 	self endon("change_state");
 	self endon("death");
-	self notify(#"end_prevent_stuck");
-	self endon(#"end_prevent_stuck");
+	self notify("end_prevent_stuck");
+	self endon("end_prevent_stuck");
 	wait(2);
 	count = 0;
 	previous_origin = undefined;
@@ -913,8 +913,8 @@ function nudge_collision()
 {
 	self endon("death");
 	self endon("change_state");
-	self notify(#"end_nudge_collision");
-	self endon(#"end_nudge_collision");
+	self notify("end_nudge_collision");
+	self endon("end_nudge_collision");
 	while(true)
 	{
 		self waittill("veh_collision", velocity, normal);

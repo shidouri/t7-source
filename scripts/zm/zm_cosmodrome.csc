@@ -1089,7 +1089,7 @@ function lander_engine_fx(localclientnum, oldval, newval, bnewent, binitialsnap,
 */
 function start_ground_sounds()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("save_restore");
 	self notify("start_ground_sounds");
 	self.stop_ground_sounds = 0;
@@ -1139,7 +1139,7 @@ function start_ground_sounds()
 */
 function function_fb377b79()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level waittill("demo_jump");
 	self delete();
 }
@@ -1650,7 +1650,7 @@ function do_lander_rumble_quake(localclientnum)
 {
 	level endon("stop_lander_rumble");
 	player = getlocalplayers()[localclientnum];
-	player endon(#"entityshutdown");
+	player endon("entityshutdown");
 	player endon("disconnect");
 	while(true)
 	{
@@ -1978,7 +1978,7 @@ function centrifuge_warning_lights_on(client_num)
 */
 function centrifuge_steam_warning(client_num)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	wait(1);
 	for(i = 0; i < self._centrifuge_steams_[client_num].size; i++)
 	{

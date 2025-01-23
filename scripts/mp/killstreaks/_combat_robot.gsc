@@ -1025,7 +1025,7 @@ function sndwatchexit()
 	combatrobot = self;
 	combatrobot endon("combat_robot_shutdown");
 	combatrobot endon("death");
-	combatrobot waittill(#"exiting_vehicle");
+	combatrobot waittill("exiting_vehicle");
 	combatrobot playsound("veh_vtol_supply_robot_launch");
 }
 

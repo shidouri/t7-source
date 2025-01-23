@@ -181,7 +181,7 @@ function trigger_process(trigger)
 		other = trigger.who;
 		if(isdefined(trigger.enabled) && !trigger.enabled)
 		{
-			trigger waittill(#"enable");
+			trigger waittill("enable");
 		}
 		if(isdefined(trigger.script_flag_set))
 		{

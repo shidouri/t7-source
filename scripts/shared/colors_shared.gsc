@@ -1861,9 +1861,9 @@ function reached_node_but_could_not_claim_it(node)
 		{
 			continue;
 		}
-		ai[i] notify(#"eject_from_my_node");
+		ai[i] notify("eject_from_my_node");
 		wait(1);
-		self notify(#"eject_from_my_node");
+		self notify("eject_from_my_node");
 		return true;
 	}
 	return false;

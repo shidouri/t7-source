@@ -415,7 +415,7 @@ function killcam(attackernum, targetnum, killcam_entity_info, weapon, meansofdea
 		self.archivetime = 0;
 		self.psoffsettime = 0;
 		self.spectatekillcam = 0;
-		self notify(#"end_killcam");
+		self notify("end_killcam");
 		return;
 	}
 	self thread check_for_abrupt_end();
@@ -431,7 +431,7 @@ function killcam(attackernum, targetnum, killcam_entity_info, weapon, meansofdea
 	self thread wait_team_change_end_killcam();
 	self thread wait_killcam_time();
 	self thread tacticalinsertion::cancel_button_think();
-	self waittill(#"end_killcam");
+	self waittill("end_killcam");
 	self end(0);
 	if(isdefined(keep_deathcam) && keep_deathcam)
 	{
@@ -457,7 +457,7 @@ function killcam(attackernum, targetnum, killcam_entity_info, weapon, meansofdea
 function set_entity(killcamentityindex, delayms)
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	self endon("spawned");
 	if(delayms > 0)
 	{
@@ -500,9 +500,9 @@ function set_killcam_entities(entity_info, killcamstarttime)
 function wait_killcam_time()
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	wait(self.killcamlength - 0.05);
-	self notify(#"end_killcam");
+	self notify("end_killcam");
 }
 
 /*
@@ -517,7 +517,7 @@ function wait_killcam_time()
 function wait_final_killcam_slowdown(deathtime, starttime)
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	if(isdefined(level.var_fb8e299e) && level.var_fb8e299e)
 	{
 		return;
@@ -545,7 +545,7 @@ function wait_final_killcam_slowdown(deathtime, starttime)
 function wait_skip_killcam_button()
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	while(self usebuttonpressed())
 	{
 		wait(0.05);
@@ -562,7 +562,7 @@ function wait_skip_killcam_button()
 	{
 		self.killcamsskipped = 1;
 	}
-	self notify(#"end_killcam");
+	self notify("end_killcam");
 	self util::clientnotify("fkce");
 }
 
@@ -578,7 +578,7 @@ function wait_skip_killcam_button()
 function wait_team_change_end_killcam()
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	self waittill("changed_class");
 	end(0);
 }
@@ -595,7 +595,7 @@ function wait_team_change_end_killcam()
 function wait_skip_killcam_safe_spawn_button()
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	while(self fragbuttonpressed())
 	{
 		wait(0.05);
@@ -605,7 +605,7 @@ function wait_skip_killcam_safe_spawn_button()
 		wait(0.05);
 	}
 	self.wantsafespawn = 1;
-	self notify(#"end_killcam");
+	self notify("end_killcam");
 }
 
 /*
@@ -643,7 +643,7 @@ function end(final)
 function check_for_abrupt_end()
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	while(true)
 	{
 		if(self.archivetime <= 0)
@@ -652,7 +652,7 @@ function check_for_abrupt_end()
 		}
 		wait(0.05);
 	}
-	self notify(#"end_killcam");
+	self notify("end_killcam");
 }
 
 /*
@@ -666,7 +666,7 @@ function check_for_abrupt_end()
 */
 function spawned_killcam_cleanup()
 {
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	self endon("disconnect");
 	self waittill("spawned");
 	self end(0);
@@ -683,7 +683,7 @@ function spawned_killcam_cleanup()
 */
 function spectator_killcam_cleanup(attacker)
 {
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	self endon("disconnect");
 	attacker endon("disconnect");
 	attacker waittill(#"begin_killcam", attackerkcstarttime);
@@ -703,7 +703,7 @@ function spectator_killcam_cleanup(attacker)
 */
 function ended_killcam_cleanup()
 {
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	self endon("disconnect");
 	level waittill("game_ended");
 	self end(0);
@@ -721,7 +721,7 @@ function ended_killcam_cleanup()
 */
 function ended_final_killcam_cleanup()
 {
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	self endon("disconnect");
 	level waittill("game_ended");
 	self end(1);
@@ -892,7 +892,7 @@ function final_killcam_internal(winner)
 		self.archivetime = 0;
 		self.psoffsettime = 0;
 		self.spectatekillcam = 0;
-		self notify(#"end_killcam");
+		self notify("end_killcam");
 		return;
 	}
 	self thread check_for_abrupt_end();
@@ -903,7 +903,7 @@ function final_killcam_internal(winner)
 	}
 	self thread wait_killcam_time();
 	self thread wait_final_killcam_slowdown(level.finalkillcamsettings[winning_team].deathtime, killcamstarttime);
-	self waittill(#"end_killcam");
+	self waittill("end_killcam");
 }
 
 /*

@@ -158,7 +158,7 @@ function destruction_watcher(localclientnum, clientobjid)
 */
 function hud_update(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("remote_missile_singeton");
 	self endon("remote_missile_singeton");
 	missile = self;

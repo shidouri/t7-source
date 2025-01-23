@@ -82,7 +82,7 @@ function planeturnleft(localclientnum, plane, yaw, halflife, starttime)
 function planeturn(localclientnum, plane, yaw, halflife, starttime, isturningright)
 {
 	plane endon("delete");
-	plane endon(#"entityshutdown");
+	plane endon("entityshutdown");
 	level endon("demo_jump" + localclientnum);
 	leftturn = -1;
 	rightturn = 1;
@@ -199,7 +199,7 @@ function planeturn(localclientnum, plane, yaw, halflife, starttime, isturningrig
 */
 function doabarrelroll(localclientnum, plane, endpoint, flytime, starttime)
 {
-	plane endon(#"entityshutdown");
+	plane endon("entityshutdown");
 	plane endon("delete");
 	level endon("demo_jump");
 	origin = plane.origin;

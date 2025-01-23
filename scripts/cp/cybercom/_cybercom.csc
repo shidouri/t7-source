@@ -516,7 +516,7 @@ function castinganimationwatcher(localclientnum)
 	self notify("castinganimationwatcher");
 	self endon("castinganimationwatcher");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.cybercom.lastcastat = 0;
 	while(true)
 	{
@@ -990,7 +990,7 @@ function setiffname(localclientnum, oldval, newval, bnewent, binitialsnap, field
 */
 function private function_13f09a6b()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_e0f9c098");
 	self endon(#"hash_e0f9c098");
 	while(true)
@@ -1122,7 +1122,7 @@ function cyber_arm_pulse(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function function_38e32940()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("disconnect");
 	self endon(#"hash_2f142d63");
 	var_f13af102 = 0;

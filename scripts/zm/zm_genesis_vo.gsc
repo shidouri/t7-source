@@ -491,7 +491,7 @@ function function_7884e6b8()
 	function_6b96bf38();
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		wait(1.5);
 		if(level.round_number == 2)
 		{
@@ -2422,7 +2422,7 @@ function function_a800aae9()
 {
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		level flag::set("area_visit_new_round");
 	}
 }
@@ -3534,7 +3534,7 @@ function function_57f3d77()
 		if(b_success)
 		{
 			level flag::set("pap_artery_destroyed");
-			level waittill(#"end_of_round");
+			level waittill("end_of_round");
 			level flag::clear("pap_artery_destroyed");
 		}
 	}

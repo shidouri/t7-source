@@ -110,8 +110,8 @@ function selectdronestrikepath()
 */
 function waitforlocationselection()
 {
-	self endon(#"emp_jammed");
-	self endon(#"emp_grenaded");
+	self endon("emp_jammed");
+	self endon("emp_grenaded");
 	self waittill("confirm_location", location, yaw);
 	locationinfo = spawnstruct();
 	locationinfo.origin = location;
@@ -170,7 +170,7 @@ function watchforkillstreakend(team, influencer, killstreak_id)
 */
 function startdronestrike(position, yaw, team, killstreak_id)
 {
-	self endon(#"emp_jammed");
+	self endon("emp_jammed");
 	self endon("joined_team");
 	self endon("joined_spectators");
 	self endon("disconnect");
@@ -343,7 +343,7 @@ function watchforemp(owner)
 {
 	self endon("delete");
 	self endon("death");
-	self waittill(#"emp_deployed", attacker);
+	self waittill("emp_deployed", attacker);
 	thread dronestrikeawardempscoreevent(attacker, self);
 	self blowupdronestrike();
 }

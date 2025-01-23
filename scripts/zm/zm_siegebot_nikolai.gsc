@@ -708,8 +708,8 @@ function movement_thread()
 {
 	self endon("death");
 	self endon("change_state");
-	self notify(#"end_movement_thread");
-	self endon(#"end_movement_thread");
+	self notify("end_movement_thread");
+	self endon("end_movement_thread");
 	self.current_pathto_pos = self.origin;
 	while(true)
 	{
@@ -749,8 +749,8 @@ function movement_thread()
 */
 function state_groundcombat_exit(params)
 {
-	self notify(#"end_attack_thread");
-	self notify(#"end_movement_thread");
+	self notify("end_attack_thread");
+	self notify("end_movement_thread");
 	self clearturrettarget();
 }
 
@@ -767,9 +767,9 @@ function attack_thread_gun()
 {
 	self endon("death");
 	self endon("change_state");
-	self endon(#"end_attack_thread");
-	self notify(#"end_attack_thread_gun");
-	self endon(#"end_attack_thread_gun");
+	self endon("end_attack_thread");
+	self notify("end_attack_thread_gun");
+	self endon("end_attack_thread_gun");
 	while(true)
 	{
 		e_enemy = self.enemy;
@@ -864,7 +864,7 @@ function _sort_by_distance2d(left, right, point)
 */
 function stopmovementandsetbrake()
 {
-	self notify(#"end_movement_thread");
+	self notify("end_movement_thread");
 	self notify("near_goal");
 	self cancelaimove();
 	self clearvehgoalpos();

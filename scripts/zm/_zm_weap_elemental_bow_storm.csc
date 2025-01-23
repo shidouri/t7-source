@@ -115,7 +115,7 @@ function function_c50a03db(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function elem_storm_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		self.var_53f7dac0 = playfxontag(localclientnum, level._effect["elem_storm_whirlwind_loop"], self, "tag_origin");

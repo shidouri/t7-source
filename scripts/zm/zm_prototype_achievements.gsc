@@ -94,13 +94,13 @@ function onplayerconnect()
 */
 function function_dab290f5()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level endon("i_said_were_closed_failed");
 	level waittill("start_zombie_round_logic");
 	level thread function_2d04250a();
 	while(level.round_number < 3)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 	}
 	/#
 	#/
@@ -163,12 +163,12 @@ function function_c97e69a9()
 */
 function function_94bb4bfb()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level endon("door_opened");
 	level waittill("start_of_round");
 	while(level.round_number <= 10)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 	}
 	/#
 	#/
@@ -185,7 +185,7 @@ function function_94bb4bfb()
 */
 function function_405cf907()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.var_dc48525e = 0;
 	while(self.var_dc48525e < 5)
@@ -209,8 +209,8 @@ function function_405cf907()
 */
 function function_7ea87222()
 {
-	level endon(#"end_game");
-	level endon(#"end_of_round");
+	level endon("end_game");
+	level endon("end_of_round");
 	self endon("disconnect");
 	while(self.var_dc48525e < 5)
 	{
@@ -230,10 +230,10 @@ function function_7ea87222()
 */
 function function_b32b243f()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self endon(#"hash_7227b667");
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	self.var_dc48525e = 0;
 }
 

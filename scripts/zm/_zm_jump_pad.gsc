@@ -152,7 +152,7 @@ function delayed_jump_pad_start(who)
 */
 function jump_pad_start(ent_player, endon_condition)
 {
-	self endon(#"endon_condition");
+	self endon("endon_condition");
 	ent_player endon("left_jump_pad");
 	ent_player endon("death");
 	ent_player endon("disconnect");

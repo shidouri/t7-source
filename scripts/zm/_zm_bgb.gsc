@@ -571,7 +571,7 @@ function private function_c3e0b2ba(bgb, activating)
 function bgb_gumball_anim(bgb, activating)
 {
 	self endon("disconnect");
-	level endon(#"end_game");
+	level endon("end_game");
 	unlocked = __protected__getbgbunlocked();
 	if(activating)
 	{
@@ -830,7 +830,7 @@ function private bgb_limit_monitor()
 			for(i = 0; i < count; i++)
 			{
 				self set_timer(count - i, count);
-				level waittill(#"end_of_round");
+				level waittill("end_of_round");
 				self playsoundtoplayer("zmb_bgb_power_decrement", self);
 			}
 			self playsoundtoplayer("zmb_bgb_power_done_delayed", self);

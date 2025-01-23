@@ -223,7 +223,7 @@ function function_3dc43cc5()
 	self.var_f9f788a6 = 0;
 	while(self.var_4448f463 > 0)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		self.var_4448f463 = self.var_4448f463 - 1;
 		if(self.var_4448f463 < 3)
 		{

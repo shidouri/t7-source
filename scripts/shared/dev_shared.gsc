@@ -59,7 +59,7 @@ function updateminimapsetting()
 			{
 				util::gethostplayer() cameraactivate(0);
 				level.minimapheight = minimapheight;
-				level notify(#"end_draw_map_bounds");
+				level notify("end_draw_map_bounds");
 			}
 			if(minimapheight > 0)
 			{
@@ -231,8 +231,8 @@ function vecscale(vec, scalar)
 function drawminimapbounds(viewpos, mincorner, maxcorner)
 {
 	/#
-		level notify(#"end_draw_map_bounds");
-		level endon(#"end_draw_map_bounds");
+		level notify("end_draw_map_bounds");
+		level endon("end_draw_map_bounds");
 		viewheight = viewpos[2] - maxcorner[2];
 		north = (cos(getnorthyaw()), sin(getnorthyaw()), 0);
 		diaglen = length(mincorner - maxcorner);

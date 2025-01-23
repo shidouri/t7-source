@@ -99,7 +99,7 @@ function function_9127e2f8(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_ad4789b4(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{

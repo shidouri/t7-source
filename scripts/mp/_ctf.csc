@@ -60,7 +60,7 @@ function setctfaway(localclientnum, oldval, newval, bnewent, binitialsnap, field
 */
 function clearctfaway(localclientnum, team)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	setflagasaway(localclientnum, team, 0);
 }
 

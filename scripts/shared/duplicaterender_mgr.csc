@@ -441,7 +441,7 @@ function _update_dr_filters(localclientnum)
 {
 	self notify("update_dr_filters");
 	self endon("update_dr_filters");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	waittillframeend();
 	foreach(key, filterset in level.drfilters)
 	{
@@ -603,7 +603,7 @@ function apply_filter(localclientnum, filter, filterset = "framebuffer")
 */
 function disable_all_filters_on_game_ended()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("disable_all_filters_on_game_ended");
 	self endon("disable_all_filters_on_game_ended");
 	level waittill("post_game");

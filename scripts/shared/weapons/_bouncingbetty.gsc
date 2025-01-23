@@ -189,8 +189,8 @@ function trackusedstatondeath()
 	{
 		self.owner trackbouncingbettyasused();
 	}
-	self notify(#"end_donotrackusedonpickup");
-	self notify(#"end_donotrackusedonhacked");
+	self notify("end_donotrackusedonpickup");
+	self notify("end_donotrackusedonhacked");
 }
 
 /*
@@ -204,7 +204,7 @@ function trackusedstatondeath()
 */
 function donotrackusedstatonpickup()
 {
-	self endon(#"end_donotrackusedonpickup");
+	self endon("end_donotrackusedonpickup");
 	self waittill("picked_up");
 	self notify("do_not_track_used");
 }
@@ -220,7 +220,7 @@ function donotrackusedstatonpickup()
 */
 function trackusedonhack()
 {
-	self endon(#"end_donotrackusedonhacked");
+	self endon("end_donotrackusedonhacked");
 	self waittill("hacked");
 	self.originalowner trackbouncingbettyasused();
 	self notify("do_not_track_used");

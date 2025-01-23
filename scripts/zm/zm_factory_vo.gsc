@@ -112,7 +112,7 @@ function function_7884e6b8()
 	{
 		if(level.round_number > 4)
 		{
-			level waittill(#"end_of_round");
+			level waittill("end_of_round");
 			if(level.activeplayers.size > 1 && !level flag::get("flytrap"))
 			{
 				n_player_index = randomint(level.activeplayers.size);

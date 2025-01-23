@@ -68,7 +68,7 @@ function spawned(localclientnum)
 */
 function handle_lod_display_for_driver(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self))
 	{
 		if(self islocalclientdriver(localclientnum))

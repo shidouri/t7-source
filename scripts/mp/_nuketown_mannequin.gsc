@@ -114,7 +114,7 @@ function private watch_game_ended()
 	self endon("death");
 	level waittill("game_ended");
 	self setentitypaused(1);
-	level waittill(#"endgame_sequence");
+	level waittill("endgame_sequence");
 	self hide();
 }
 

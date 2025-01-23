@@ -587,7 +587,7 @@ function function_fad41aec()
 function spider_round_spawning()
 {
 	level endon("intermission");
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level endon("restart_round");
 	for(i = 0; i < level.players.size; i++)
 	{
@@ -2679,7 +2679,7 @@ function function_d717ef02()
 	self.var_255c77dc = 0;
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		self.var_255c77dc = 0;
 	}
 }
@@ -2829,7 +2829,7 @@ function function_8457e10f(cmd)
 			{
 				level.var_f618f3e1 = 1;
 				level.var_42034f6a = 100;
-				level notify(#"enable_all_webs");
+				level notify("enable_all_webs");
 				util::wait_network_frame();
 				foreach(trigger in level.var_d3b40681)
 				{

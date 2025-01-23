@@ -632,7 +632,7 @@ function function_7ba58f31(a_ents)
 */
 function function_d2059ba7(a_ents)
 {
-	level waittill(#"eject");
+	level waittill("eject");
 	level thread function_3f0f5f61();
 }
 
@@ -2232,7 +2232,7 @@ function player_progress_bar(start_time, craft_time)
 */
 function player_progress_bar_update(start_time, craft_time)
 {
-	self endon(#"entering_last_stand");
+	self endon("entering_last_stand");
 	self endon("death");
 	self endon("disconnect");
 	self endon("craftable_progress_end");
@@ -3123,7 +3123,7 @@ function function_109151c2(a_ents)
 */
 function function_bd0972bc(a_ents)
 {
-	level.var_ef9c43d7 notify(#"end_attack_thread_gun");
+	level.var_ef9c43d7 notify("end_attack_thread_gun");
 	level.var_ef9c43d7 thread function_32faa6e1();
 	level notify(#"hash_2425bb5b");
 	level.var_ef9c43d7 thread siegebot_nikolai::function_f7035c2f(level.var_ef9c43d7.var_fa4643fb);
@@ -4539,9 +4539,9 @@ function attack_thread_gun()
 {
 	self endon("death");
 	self endon("change_state");
-	self endon(#"end_attack_thread");
-	self notify(#"end_attack_thread_gun");
-	self endon(#"end_attack_thread_gun");
+	self endon("end_attack_thread");
+	self notify("end_attack_thread_gun");
+	self endon("end_attack_thread_gun");
 	self endon("stop_dragon_nikolai_think");
 	count = 0;
 	while(true)

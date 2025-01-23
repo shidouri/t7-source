@@ -197,8 +197,8 @@ function player_update_angles(vehicle)
 	self endon("player_spectate");
 	self endon("disconnect");
 	self endon("spawn");
-	self endon(#"entityshutdown");
-	vehicle endon(#"entityshutdown");
+	self endon("entityshutdown");
+	vehicle endon("entityshutdown");
 	while(isalive(vehicle))
 	{
 		self.vehicle_camera_pos = self getcampos();

@@ -69,7 +69,7 @@ function init()
 */
 function end_health_regen()
 {
-	self notify(#"end_healthregen");
+	self notify("end_healthregen");
 }
 
 /*
@@ -83,7 +83,7 @@ function end_health_regen()
 */
 function player_health_regen()
 {
-	self endon(#"end_healthregen");
+	self endon("end_healthregen");
 	if(self.health <= 0)
 	{
 		/#
@@ -259,7 +259,7 @@ function decay_player_damages(decay)
 */
 function player_breathing_sound(healthcap)
 {
-	self endon(#"end_healthregen");
+	self endon("end_healthregen");
 	wait(2);
 	player = self;
 	for(;;)
@@ -298,7 +298,7 @@ function player_breathing_sound(healthcap)
 */
 function player_heartbeat_sound(healthcap)
 {
-	self endon(#"end_healthregen");
+	self endon("end_healthregen");
 	self.hearbeatwait = 0.2;
 	wait(2);
 	player = self;

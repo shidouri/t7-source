@@ -175,7 +175,7 @@ function digger_digging_earthquake_rumble(localclientnum, oldval, newval, bnewen
 function do_digger_moving_earthquake_rumble(localclientnum, quake_ent)
 {
 	quake_ent util::waittill_dobj(localclientnum);
-	quake_ent endon(#"entityshutdown");
+	quake_ent endon("entityshutdown");
 	quake_ent endon("stop_moving_rumble");
 	dist_sqd = 6250000;
 	quake_ent.tread_fx = playfxontag(localclientnum, level._effect["digger_treadfx_fwd"], quake_ent, "tag_origin");
@@ -211,7 +211,7 @@ function do_digger_moving_earthquake_rumble(localclientnum, quake_ent)
 */
 function do_digger_digging_earthquake_rumble(localclientnum, quake_ent)
 {
-	quake_ent endon(#"entityshutdown");
+	quake_ent endon("entityshutdown");
 	quake_ent endon("stop_digging_rumble");
 	player = getlocalplayers()[localclientnum];
 	if(!isdefined(player))
@@ -288,7 +288,7 @@ function digger_arm_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function do_digger_arm_fx(localclientnum, ent)
 {
-	ent endon(#"entityshutdown");
+	ent endon("entityshutdown");
 	player = getlocalplayers()[localclientnum];
 	if(!isdefined(player))
 	{

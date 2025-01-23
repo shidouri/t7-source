@@ -973,7 +973,7 @@ function time_limited_stage(sidequest)
 	#/
 	level endon(((sidequest.name + "_") + self.name) + "_over");
 	level endon(#"suspend_timer");
-	level endon(#"end_game");
+	level endon("end_game");
 	time_limit = undefined;
 	if(isdefined(self.time_limit_func))
 	{

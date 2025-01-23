@@ -1273,7 +1273,7 @@ function function_869c4353(str_name)
 */
 function function_6f772f30()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level notify(#"hash_a3369c1f");
 	level endon(#"hash_a3369c1f");
 	while(true)
@@ -2995,7 +2995,7 @@ function function_c0d6adb6()
 {
 	level endon(#"hash_c0d6adb6");
 	level endon("arena_challenge_ended");
-	level endon(#"electricity_challenge_ended");
+	level endon("electricity_challenge_ended");
 	var_4054c946 = 4;
 	var_665743af = 4;
 	var_5c856d1f = randomintrange(0, 4);
@@ -3095,7 +3095,7 @@ function function_c0d6adb6()
 function function_e2a11bad()
 {
 	level endon("arena_challenge_ended");
-	level endon(#"electricity_challenge_ended");
+	level endon("electricity_challenge_ended");
 	var_bcc7a104 = 0;
 	var_d5c2ef73 = 6;
 	while(true)
@@ -3130,7 +3130,7 @@ function function_e2a11bad()
 function function_ffce63a9()
 {
 	level endon("arena_challenge_ended");
-	level endon(#"electricity_challenge_ended");
+	level endon("electricity_challenge_ended");
 	a_indexes = array(0, 1, 2, 3, 4, 5);
 	while(true)
 	{
@@ -3371,7 +3371,7 @@ function function_cc9c82c8(var_44622ece, n_duration, v_offset, b_reverse_dir, va
 function function_48791cb7()
 {
 	level endon("arena_challenge_ended");
-	level endon(#"electricity_challenge_ended");
+	level endon("electricity_challenge_ended");
 	self notify(#"hash_48791cb7");
 	self endon(#"hash_48791cb7");
 	self endon("delete");
@@ -4741,7 +4741,7 @@ function function_47c38473()
 function function_d3b47fbf()
 {
 	level endon("final_boss_vulnerable");
-	level endon(#"ending_room");
+	level endon("ending_room");
 	self animation::play("ai_zm_dlc4_shadowman_captured_intro", undefined, undefined, 1);
 	if(isdefined(self))
 	{

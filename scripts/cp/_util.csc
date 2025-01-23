@@ -99,7 +99,7 @@ function function_9d577661(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_5556b03d(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	while(isdefined(level.cold_breath[localclientnum]) && level.cold_breath[localclientnum])
 	{
@@ -119,7 +119,7 @@ function function_5556b03d(localclientnum)
 */
 function function_ddc76be5(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	while(isalive(self))
 	{

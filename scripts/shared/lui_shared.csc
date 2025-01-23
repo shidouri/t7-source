@@ -611,7 +611,7 @@ function private _screen_fade(n_time, n_target_alpha, n_start_alpha, v_color, b_
 	self notify(#"_screen_fade");
 	self endon(#"_screen_fade");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.screen_fade_menus))
 	{
 		self.screen_fade_menus = [];

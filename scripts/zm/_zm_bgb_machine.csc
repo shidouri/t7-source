@@ -839,7 +839,7 @@ function private function_763ef0fd(localclientnum)
 {
 	self notify(#"hash_763ef0fd");
 	self endon(#"hash_763ef0fd");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		rounds = getroundsplayed(localclientnum);
@@ -865,7 +865,7 @@ function private function_5d9d13da(localclientnum)
 {
 	self notify(#"hash_5d9d13da");
 	self endon(#"hash_5d9d13da");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill("powerup", powerup, state);
@@ -888,7 +888,7 @@ function private function_5d9d13da(localclientnum)
 */
 function private function_fda54943(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	var_89caac36 = 160000;
 	while(true)
 	{

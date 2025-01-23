@@ -452,7 +452,7 @@ function handle_fire_sale()
 */
 function custom_magicbox_host_migration()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level notify("mb_hostmigration");
 	level endon("mb_hostmigration");
 	while(true)

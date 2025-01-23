@@ -218,7 +218,7 @@ function function_76519db0(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_e622a96b(localclientnum, var_2300871f)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("disconnect");
 	self notify(#"hash_e622a96b");
 	self endon(#"hash_e622a96b");
@@ -275,7 +275,7 @@ function function_c87d7938(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_b001ad83(localclientnum, var_2300871f)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_b001ad83");
 	self endon(#"hash_b001ad83");
 	while(true)
@@ -377,7 +377,7 @@ function function_4ff87091(localclientnum)
 */
 function function_4bf4d3e1(localclientnum, var_1c61204d)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_8819b68d");
 	self endon(#"hash_8819b68d");
 	/#

@@ -1481,8 +1481,8 @@ function waittill_crash_done_or_stopped()
 function vehicle_damage_filter_damage_watcher(driver, heavy_damage_threshold)
 {
 	self endon("death");
-	self endon(#"exit_vehicle");
-	self endon(#"end_damage_filter");
+	self endon("exit_vehicle");
+	self endon("end_damage_filter");
 	if(!isdefined(heavy_damage_threshold))
 	{
 		heavy_damage_threshold = 100;
@@ -1535,8 +1535,8 @@ function vehicle_damage_filter_exit_watcher(driver)
 function vehicle_damage_filter(vision_set, heavy_damage_threshold, filterid = 0, b_use_player_damage = 0)
 {
 	self endon("death");
-	self endon(#"exit_vehicle");
-	self endon(#"end_damage_filter");
+	self endon("exit_vehicle");
+	self endon("end_damage_filter");
 	driver = self getseatoccupant(0);
 	if(!isdefined(self.damage_filter_init))
 	{

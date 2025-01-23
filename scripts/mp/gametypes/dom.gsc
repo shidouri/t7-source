@@ -901,7 +901,7 @@ function totaldomination(team)
 function watchforbflagcap()
 {
 	level endon("game_ended");
-	level endon(#"endwatchforbflagcapaftertime");
+	level endon("endwatchforbflagcapaftertime");
 	level thread endwatchforbflagcapaftertime(60);
 	for(;;)
 	{
@@ -923,7 +923,7 @@ function endwatchforbflagcapaftertime(time)
 {
 	level endon("game_ended");
 	wait(60);
-	level notify(#"endwatchforbflagcapaftertime");
+	level notify("endwatchforbflagcapaftertime");
 }
 
 /*

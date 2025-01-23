@@ -12,7 +12,7 @@
 */
 function animate_crack(localclientnum, vectorname, delay, duration, start, end)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	delayseconds = delay / 60;
 	wait(delayseconds);
 	direction = 1;

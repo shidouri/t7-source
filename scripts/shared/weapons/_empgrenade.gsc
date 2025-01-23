@@ -71,7 +71,7 @@ function monitorempgrenade()
 	self.empendtime = 0;
 	while(true)
 	{
-		self waittill(#"emp_grenaded", attacker, explosionpoint);
+		self waittill("emp_grenaded", attacker, explosionpoint);
 		if(!isalive(self) || self hasperk("specialty_immuneemp"))
 		{
 			continue;
@@ -187,7 +187,7 @@ function applyemp(attacker, explosionpoint)
 	}
 	if(isdefined(self))
 	{
-		self notify(#"empgrenadetimedout");
+		self notify("empgrenadetimedout");
 		self checktoturnoffemp();
 	}
 }
@@ -203,9 +203,9 @@ function applyemp(attacker, explosionpoint)
 */
 function empgrenadedeathwaiter()
 {
-	self notify(#"empgrenadedeathwaiter");
-	self endon(#"empgrenadedeathwaiter");
-	self endon(#"empgrenadetimedout");
+	self notify("empgrenadedeathwaiter");
+	self endon("empgrenadedeathwaiter");
+	self endon("empgrenadetimedout");
 	self waittill("death");
 	if(isdefined(self))
 	{
@@ -224,9 +224,9 @@ function empgrenadedeathwaiter()
 */
 function empgrenadecleansewaiter()
 {
-	self notify(#"empgrenadecleansewaiter");
-	self endon(#"empgrenadecleansewaiter");
-	self endon(#"empgrenadetimedout");
+	self notify("empgrenadecleansewaiter");
+	self endon("empgrenadecleansewaiter");
+	self endon("empgrenadetimedout");
 	self waittill("gadget_cleanse_on");
 	if(isdefined(self))
 	{
@@ -287,8 +287,8 @@ function shutdownemprebootindicatormenu()
 */
 function emprumbleloop(duration)
 {
-	self endon(#"emp_rumble_loop");
-	self notify(#"emp_rumble_loop");
+	self endon("emp_rumble_loop");
+	self notify("emp_rumble_loop");
 	goaltime = gettime() + (duration * 1000);
 	while(gettime() < goaltime)
 	{
@@ -312,7 +312,7 @@ function watchempexplosion(owner, weapon)
 	owner endon("team_changed");
 	self endon("trophy_destroyed");
 	owner addweaponstat(weapon, "used", 1);
-	self waittill(#"explode", origin, surface);
+	self waittill("explode", origin, surface);
 	level empexplosiondamageents(owner, weapon, origin, 425, 1);
 }
 
@@ -355,8 +355,8 @@ function begin_other_grenade_tracking()
 {
 	self endon("death");
 	self endon("disconnect");
-	self notify(#"emptrackingstart");
-	self endon(#"emptrackingstart");
+	self notify("emptrackingstart");
+	self endon("emptrackingstart");
 	for(;;)
 	{
 		self waittill("grenade_fire", grenade, weapon, cooktime);

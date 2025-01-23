@@ -878,7 +878,7 @@ function function_a85b6c52()
 	self endon("death");
 	while(true)
 	{
-		self waittill(#"enemy");
+		self waittill("enemy");
 		while(isdefined(self.enemy) && isalive(self.enemy))
 		{
 			if(isdefined(self.enemy.civilian) && self.enemy.civilian || (isdefined(self.enemy.lase_override) && (isdefined(self.enemy.lase_override.civilian) && self.enemy.lase_override.civilian)))

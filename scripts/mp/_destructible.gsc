@@ -447,7 +447,7 @@ function tank_grenade_stuck_explode(missile)
 		missile endon("picked_up");
 		missile thread tank_hacked_c4(self);
 	}
-	missile waittill(#"explode");
+	missile waittill("explode");
 	if(isdefined(owner))
 	{
 		self dodamage(self.health + 10000, self.origin + (0, 0, 1), owner);
@@ -548,7 +548,7 @@ function car_grenade_stuck_explode(missile)
 		missile endon("picked_up");
 		missile thread car_hacked_c4(self);
 	}
-	missile waittill(#"explode");
+	missile waittill("explode");
 	if(isdefined(owner))
 	{
 		self dodamage(self.health + 10000, self.origin + (0, 0, 1), owner);

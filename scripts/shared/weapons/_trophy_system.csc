@@ -36,7 +36,7 @@ function init_shared(localclientnum)
 */
 function trophy_state_change(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -76,7 +76,7 @@ function trophy_state_change(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function trophy_state_change_recon(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -116,7 +116,7 @@ function trophy_state_change_recon(localclientnum, oldval, newval, bnewent, bini
 */
 function trophy_rolling_anim(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self useanimtree($mp_trophy_system);
 	self setanim(%mp_trophy_system::o_trophy_deploy, 1);
 }
@@ -132,7 +132,7 @@ function trophy_rolling_anim(localclientnum)
 */
 function trophy_stationary_anim(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self useanimtree($mp_trophy_system);
 	self setanim(%mp_trophy_system::o_trophy_deploy, 0);
 	self setanim(%mp_trophy_system::o_trophy_spin, 1);

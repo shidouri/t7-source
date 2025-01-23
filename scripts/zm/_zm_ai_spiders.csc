@@ -172,7 +172,7 @@ function spider_round_ring_fx(localclientnum, oldval, newval, bnewent, binitials
 */
 function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_alpha = 1, b_instant = 0, var_c0ce8db2 = 0)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(self.b_on === b_on)
 	{
 		return;

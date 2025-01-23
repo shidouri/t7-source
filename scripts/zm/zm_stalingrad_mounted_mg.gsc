@@ -151,7 +151,7 @@ function function_f8b87a4e(e_player)
 	level.var_ffcc580a makevehicleunusable();
 	wait(0.5);
 	level.var_ffcc580a makevehicleusable();
-	e_player waittill(#"exit_vehicle");
+	e_player waittill("exit_vehicle");
 	level.var_ffcc580a makevehicleunusable();
 	level.var_ffcc580a clearturrettarget();
 	var_8de107a thread function_711e7f22();
@@ -171,7 +171,7 @@ function function_f8b87a4e(e_player)
 */
 function function_8e896de5(e_player)
 {
-	e_player endon(#"exit_vehicle");
+	e_player endon("exit_vehicle");
 	e_player endon("death");
 	level.var_ffcc580a.n_start_time = gettime();
 	wait(30);

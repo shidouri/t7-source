@@ -107,7 +107,7 @@ function microwavegun_delete_hit_response_fx(localclientnum, tag)
 */
 function microwavegun_bloat(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	durationmsec = 2500;
 	tag_pos = self gettagorigin("J_SpineLower");
 	bloat_max_fraction = 1;

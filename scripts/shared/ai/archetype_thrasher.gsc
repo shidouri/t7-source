@@ -913,7 +913,7 @@ function private thrasherinvulnerability(n_time)
 {
 	entity = self;
 	entity endon("death");
-	entity notify(#"end_invulnerability");
+	entity notify("end_invulnerability");
 	entity.b_thrasher_temp_invulnerable = 1;
 	entity util::waittill_notify_or_timeout("end_invulnerability", n_time);
 	entity.b_thrasher_temp_invulnerable = 0;

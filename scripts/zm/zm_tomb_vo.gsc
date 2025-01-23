@@ -1317,7 +1317,7 @@ function start_narrative_vo()
 	{
 		game_start_vo();
 	}
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	level thread round_two_end_narrative_vo();
 	if(is_game_solo())
 	{
@@ -1597,7 +1597,7 @@ function get_player_character_if_present(character_name)
 */
 function round_two_end_narrative_vo()
 {
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	level flag::wait_till("round_one_narrative_vo_complete");
 	if(level flag::get("generator_find_vo_playing"))
 	{
@@ -2991,7 +2991,7 @@ function samantha_encourage_think()
 */
 function samantha_discourage_think()
 {
-	level endon(#"ee_all_staffs_upgraded");
+	level endon("ee_all_staffs_upgraded");
 	original_list = array("vox_sam_generic_chastise_0", "vox_sam_generic_chastise_1", "vox_sam_generic_chastise_2", "vox_sam_generic_chastise_3", "vox_sam_generic_chastise_4", "vox_sam_generic_chastise_5", "vox_sam_generic_chastise_6");
 	available_list = [];
 	level flag::wait_till("samantha_intro_done");
@@ -3034,7 +3034,7 @@ function samantha_discourage_think()
 */
 function samanthasay(vox_line, e_source, b_wait_for_nearby_speakers = 0, intro_line = 0)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	if(!intro_line && !level flag::get("samantha_intro_done"))
 	{
 		return false;
@@ -3095,7 +3095,7 @@ function samanthasayvoplay(e_source, vox_line)
 */
 function maxissay(vox_line, m_spot_override, b_wait_for_nearby_speakers)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level endon("intermission");
 	if(isdefined(level.intermission) && level.intermission)
 	{
@@ -3464,7 +3464,7 @@ function sam_promises_cooldown()
 {
 	self endon("disconnect");
 	self.b_promise_cooldown = 1;
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	self.b_promise_cooldown = undefined;
 }
 

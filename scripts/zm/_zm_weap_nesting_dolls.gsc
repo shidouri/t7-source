@@ -248,7 +248,7 @@ function doll_spawner_cluster(start_grenade)
 */
 function doll_do_damage(origin, owner, id, index)
 {
-	self waittill(#"explode");
+	self waittill("explode");
 	zombies = zombie_utility::get_round_enemy_array();
 	if(zombies.size == 0)
 	{
@@ -577,7 +577,7 @@ function do_nesting_dolls_sound(model, info)
 		monk_scream_vox = 0;
 		self playsound("zmb_monkey_song");
 	}
-	self waittill(#"explode", position);
+	self waittill("explode", position);
 }
 
 /*

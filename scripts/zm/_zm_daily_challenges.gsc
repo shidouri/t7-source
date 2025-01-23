@@ -115,7 +115,7 @@ function round_tracking()
 	self endon("disconnect");
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		self.a_daily_challenges[3]++;
 		switch(self.a_daily_challenges[3])
 		{
@@ -407,7 +407,7 @@ function death_check_for_challenge_updates(e_attacker)
 */
 function spent_points_tracking()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	while(true)
 	{
 		level waittill(#"spent_points", player, n_points);
@@ -431,10 +431,10 @@ function spent_points_tracking()
 */
 function earned_points_tracking()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	while(true)
 	{
-		level waittill(#"earned_points", player, n_points);
+		level waittill("earned_points", player, n_points);
 		if(level.zombie_vars[player.team]["zombie_point_scalar"] == 2)
 		{
 			player.a_daily_challenges[2] = player.a_daily_challenges[2] + n_points;

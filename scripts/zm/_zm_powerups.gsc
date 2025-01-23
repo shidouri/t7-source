@@ -1866,7 +1866,7 @@ function powerup_emp()
 	}
 	while(true)
 	{
-		level waittill(#"emp_detonate", origin, radius);
+		level waittill("emp_detonate", origin, radius);
 		if(distancesquared(origin, self.origin) < (radius * radius))
 		{
 			playfx(level._effect["powerup_off"], self.origin);

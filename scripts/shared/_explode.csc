@@ -108,7 +108,7 @@ function localplayer_spawned(localclientnum)
 */
 function watchforplayerfalldamage(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	seed = 0;
 	xdir = 0;
 	ydir = 270;
@@ -130,7 +130,7 @@ function watchforplayerfalldamage(localclientnum)
 */
 function watchforplayerslide(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	seed = 0;
 	self.wasplayersliding = 0;
 	xdir = 0;
@@ -142,7 +142,7 @@ function watchforplayerslide(localclientnum)
 		{
 			if(!self.wasplayersliding)
 			{
-				self notify(#"endthedirty");
+				self notify("endthedirty");
 				seed = randomfloatrange(0, 1);
 			}
 			filter::set_filter_sprite_dirt_opacity(self, 5, 1);
@@ -171,10 +171,10 @@ function watchforplayerslide(localclientnum)
 */
 function dothedirty(localclientnum, right, up, distance, dirtduration, dirtfadetime)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("dothedirty");
 	self endon("dothedirty");
-	self endon(#"endthedirty");
+	self endon("endthedirty");
 	filter::enable_filter_sprite_dirt(self, 5);
 	filter::set_filter_sprite_dirt_seed_offset(self, 5, randomfloatrange(0, 1));
 	starttime = getservertime(localclientnum);
@@ -210,10 +210,10 @@ function dothedirty(localclientnum, right, up, distance, dirtduration, dirtfadet
 */
 function watchforexplosion(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
-		level waittill(#"explode", localclientnum, position, mod, weapon, owner_cent);
+		level waittill("explode", localclientnum, position, mod, weapon, owner_cent);
 		explosiondistance = distance(self.origin, position);
 		if(mod == "MOD_GRENADE_SPLASH" || mod == "MOD_PROJECTILE_SPLASH" && explosiondistance < 600 && !getinkillcam(localclientnum) && !isthirdperson(localclientnum))
 		{

@@ -2255,7 +2255,7 @@ function function_3e37f48b(b_enabled)
 			{
 				continue;
 			}
-			level notify(#"enable_cybercom", e_player);
+			level notify("enable_cybercom", e_player);
 		}
 		callback::remove_on_spawned(&function_d17cfcf8);
 	}

@@ -71,7 +71,7 @@ function function_b84c3341(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_19082f83()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self function_2d89f1a7(7.5, 0.5);
 	self function_2d89f1a7(2.5, 0.25);
 	self function_2d89f1a7(1.5, 0.1);
@@ -88,7 +88,7 @@ function function_19082f83()
 */
 function function_2d89f1a7(var_e2026f3a, n_blink_rate)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_counter = 0;
 	n_timer = 0;
 	while(n_timer < var_e2026f3a)

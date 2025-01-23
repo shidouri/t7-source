@@ -2970,7 +2970,7 @@ function player_continue_crafting(craftablespawn, slot)
 */
 function player_progress_bar_update(start_time, craft_time)
 {
-	self endon(#"entering_last_stand");
+	self endon("entering_last_stand");
 	self endon("death");
 	self endon("disconnect");
 	self endon("craftable_progress_end");
@@ -3815,7 +3815,7 @@ function ondroputs(player)
 			println("" + player.name);
 		}
 	#/
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*
@@ -3876,7 +3876,7 @@ function onenduseuts(team, player, result)
 	{
 		self [[self.craftablestub.onenduse]](team, player, result);
 	}
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*

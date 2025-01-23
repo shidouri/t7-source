@@ -459,8 +459,8 @@ function function_26031755()
 */
 function emprumbleloop(duration)
 {
-	self endon(#"emp_rumble_loop");
-	self notify(#"emp_rumble_loop");
+	self endon("emp_rumble_loop");
+	self notify("emp_rumble_loop");
 	goaltime = gettime() + (duration * 1000);
 	while(gettime() < goaltime)
 	{
@@ -534,7 +534,7 @@ function function_4f725f0b()
 	wait(7);
 	if(isdefined(self))
 	{
-		self notify(#"empgrenadetimedout");
+		self notify("empgrenadetimedout");
 		self checktoturnoffemp();
 	}
 	self disableinvulnerability();

@@ -884,7 +884,7 @@ function watch_for_emp_close()
 	}
 	while(true)
 	{
-		level waittill(#"emp_detonate", origin, radius);
+		level waittill("emp_detonate", origin, radius);
 		if(distancesquared(origin, self.origin) < (radius * radius))
 		{
 			break;
@@ -2322,7 +2322,7 @@ function process_magic_box_zbarrier_state(state)
 */
 function magicbox_host_migration()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level notify("mb_hostmigration");
 	level endon("mb_hostmigration");
 	while(true)

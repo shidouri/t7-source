@@ -532,7 +532,7 @@ function onbeginuse(player)
 */
 function onenduse(team, player, success)
 {
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*
@@ -574,7 +574,7 @@ function onradiocapture(player)
 	}
 	level thread awardhqpoints(capture_team);
 	level notify("hq_captured");
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*
@@ -696,7 +696,7 @@ function onradiodestroy(firstplayer)
 	{
 		level thread awardhqpoints(destroyed_team);
 	}
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*

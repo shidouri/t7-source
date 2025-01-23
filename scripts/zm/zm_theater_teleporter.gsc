@@ -1198,7 +1198,7 @@ function function_2cdd3a26()
 */
 function function_edc40283(var_4e54c41)
 {
-	self endon(#"exit_trigger");
+	self endon("exit_trigger");
 	self endon("death");
 	var_4e54c41 endon("death");
 	while(self._moon_jumps < 5)
@@ -1234,7 +1234,7 @@ function function_bc057378(var_4e54c41)
 	{
 		self._moon_jumps = 0;
 	}
-	self notify(#"exit_trigger");
+	self notify("exit_trigger");
 	arrayremovevalue(var_4e54c41.a_e_players, self);
 }
 

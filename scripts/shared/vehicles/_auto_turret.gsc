@@ -149,7 +149,7 @@ function state_death_update(params)
 	owner = self getvehicleowner();
 	if(isdefined(owner))
 	{
-		self waittill(#"exit_vehicle");
+		self waittill("exit_vehicle");
 	}
 	self setturretspinning(0);
 	self turret::toggle_lensflare(0);

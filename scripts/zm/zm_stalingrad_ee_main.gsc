@@ -211,7 +211,7 @@ function function_b81d4eec()
 		level endon(#"hash_7f7ecb53");
 		level endon(#"hash_dae10c73");
 	#/
-	level endon(#"ee_cylinder_acquired");
+	level endon("ee_cylinder_acquired");
 	level function_fa7fbd4c(1);
 	var_2200eb08 = struct::get("ee_sophia_struct", "targetname");
 	e_player = var_2200eb08 function_6e3a6092(100, "", 0);
@@ -2075,11 +2075,11 @@ function function_7e6865e3(var_9f36fb00)
 */
 function function_61210287()
 {
-	level endon(#"ee_cargo_retrieved");
+	level endon("ee_cargo_retrieved");
 	wait(30);
 	level flag::clear("ee_cargo_available");
 	self delete();
-	level notify(#"ee_defend_failed");
+	level notify("ee_defend_failed");
 	/#
 		iprintlnbold("");
 	#/
@@ -2096,7 +2096,7 @@ function function_61210287()
 */
 function function_3f7226c0()
 {
-	level endon(#"ee_defend_failed");
+	level endon("ee_defend_failed");
 	var_852a7c46 = self.var_4bd1ce6b getclosestpointonnavvolume(level.var_79fa326a.origin, 30);
 	self.var_4bd1ce6b setvehgoalpos(var_852a7c46, 1, 1);
 	if(self.var_4bd1ce6b vehicle_ai::waittill_pathresult())
@@ -2105,7 +2105,7 @@ function function_3f7226c0()
 	}
 	level.var_79fa326a.origin = self.var_4bd1ce6b gettagorigin("j_ankle_2_ri_anim");
 	level.var_79fa326a linkto(self.var_4bd1ce6b, "j_ankle_2_ri_anim");
-	level notify(#"ee_cargo_retrieved");
+	level notify("ee_cargo_retrieved");
 	self.var_4bd1ce6b thread function_948b1459();
 	var_14b6e49e = struct::get("cargo_drop_" + level.var_79fa326a.str_location);
 	var_1c1045d9 = self.var_4bd1ce6b getclosestpointonnavvolume(var_14b6e49e.origin, 30);
@@ -2138,7 +2138,7 @@ function function_948b1459()
 	util::wait_network_frame();
 	level flag::clear("ee_cargo_available");
 	level.var_79fa326a delete();
-	level notify(#"ee_defend_failed");
+	level notify("ee_defend_failed");
 	/#
 		iprintlnbold("");
 	#/
@@ -2190,7 +2190,7 @@ function function_e085d31()
 	level.var_79fa326a function_6e3a6092(100, &"ZM_STALINGRAD_DEFEND_CARGO");
 	level.var_79fa326a delete();
 	level function_d9d36a17("p7_conduit_metal_1_outlet_box", &"ZM_STALINGRAD_CARGO_DEPOSIT", vectorscale((0, 0, 1), 90), vectorscale((0, 0, 1), 1.5));
-	level notify(#"ee_defend_complete");
+	level notify("ee_defend_complete");
 }
 
 /*
@@ -2354,7 +2354,7 @@ function function_a6093653()
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_escort_failed");
+	level endon("ee_escort_failed");
 	var_fe8b6de3 = getvehiclenode("ee_escort_entrance", "targetname");
 	while(!zm_zonemgr::any_player_in_zone("start_A_zone") && !zm_zonemgr::any_player_in_zone("start_B_zone") && !zm_zonemgr::any_player_in_zone("start_C_zone"))
 	{
@@ -2393,7 +2393,7 @@ function function_a6093653()
 	self function_cd8abf88("command");
 	level notify(#"hash_611549c5");
 	level function_694a61ea(self);
-	level notify(#"ee_escort_complete");
+	level notify("ee_escort_complete");
 }
 
 /*
@@ -2459,7 +2459,7 @@ function function_8981cfc()
 {
 	level endon(#"hash_611549c5");
 	self waittill("death");
-	level notify(#"ee_escort_failed");
+	level notify("ee_escort_failed");
 }
 
 /*
@@ -2582,8 +2582,8 @@ function function_4d790672()
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_kite_complete");
-	level endon(#"ee_kite_failed");
+	level endon("ee_kite_complete");
+	level endon("ee_kite_failed");
 	/#
 		level.var_9f752812 = self;
 	#/
@@ -2611,11 +2611,11 @@ function function_4d790672()
 */
 function function_4f067ff7()
 {
-	level endon(#"ee_kite_complete");
-	level endon(#"ee_kite_failed");
+	level endon("ee_kite_complete");
+	level endon("ee_kite_failed");
 	level endon(#"hash_e4034552");
 	self waittill("death");
-	level notify(#"ee_kite_failed");
+	level notify("ee_kite_failed");
 }
 
 /*
@@ -2632,8 +2632,8 @@ function function_c54a2f4c(var_6f4b86fb)
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_kite_complete");
-	level endon(#"ee_kite_failed");
+	level endon("ee_kite_complete");
+	level endon("ee_kite_failed");
 	self thread function_ceeaf112();
 	var_4cdb4f77 = undefined;
 	while(true)
@@ -2672,11 +2672,11 @@ function function_96970289()
 	#/
 	self endon("death");
 	self endon(#"hash_f1860bb1");
-	level endon(#"ee_kite_complete");
+	level endon("ee_kite_complete");
 	var_713bb408 = struct::get("ee_raz_escape", "targetname");
 	self setgoal(var_713bb408.origin);
 	self waittill("goal");
-	level notify(#"ee_kite_failed");
+	level notify("ee_kite_failed");
 	self ai::set_ignoreall(1);
 	var_aa6f12ec = struct::get("ee_raz_delete", "targetname");
 	self setgoal(var_aa6f12ec.origin);
@@ -2698,7 +2698,7 @@ function function_ceeaf112()
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_kite_failed");
+	level endon("ee_kite_failed");
 	var_f80d6608 = getent("ee_raz_capture", "targetname");
 	while(true)
 	{
@@ -2719,7 +2719,7 @@ function function_ceeaf112()
 			level notify(#"hash_e4034552");
 			level function_694a61ea(self);
 			var_c1fbdc10 delete();
-			level notify(#"ee_kite_complete");
+			level notify("ee_kite_complete");
 			return;
 		}
 	}
@@ -2896,8 +2896,8 @@ function function_df3d4b2f()
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_timed_complete");
-	level endon(#"ee_timed_failed");
+	level endon("ee_timed_complete");
+	level endon("ee_timed_failed");
 	level.var_f0d11538 playloopsound("zmb_finalcountdown_timer_tick", 0.1);
 	if(level.players.size == 1)
 	{
@@ -2926,7 +2926,7 @@ function function_df3d4b2f()
 	level thread function_845d9fe9();
 	level waittill(#"hash_78a07bbf");
 	level.var_f0d11538 stoploopsound(0.1);
-	level notify(#"ee_timed_failed");
+	level notify("ee_timed_failed");
 }
 
 /*
@@ -2970,7 +2970,7 @@ function function_82d88307(var_4af7b97)
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_timed_failed");
+	level endon("ee_timed_failed");
 	self scene::play("p7_fxanim_zm_stal_rigged_button_extend_bundle", array(self));
 	self playloopsound("zmb_rigged_button_alarm_lp", 3);
 	self function_6e3a6092();
@@ -2981,7 +2981,7 @@ function function_82d88307(var_4af7b97)
 		self playsound("zmb_rigged_button_press_bad");
 		self stoploopsound(2);
 		level.var_f0d11538 stoploopsound(0.1);
-		level notify(#"ee_timed_failed");
+		level notify("ee_timed_failed");
 		return;
 	}
 	self playsound("zmb_rigged_button_press_good");
@@ -2990,7 +2990,7 @@ function function_82d88307(var_4af7b97)
 	if(level.var_178c3c6b == 5)
 	{
 		level.var_e5f51155 = 1;
-		level notify(#"ee_timed_complete");
+		level notify("ee_timed_complete");
 		level.var_f0d11538 stoploopsound(0.1);
 		return;
 	}
@@ -3150,7 +3150,7 @@ function function_cfa09312(var_cffe61ab = 0)
 		level endon(#"hash_9546144d");
 	#/
 	self endon("step_complete");
-	level endon(#"ee_pursue_failed");
+	level endon("ee_pursue_failed");
 	var_2e4b6485 = 0;
 	self thread function_77e01bd0();
 	while(true)
@@ -3286,7 +3286,7 @@ function function_44084295(s_destination)
 */
 function function_5e9a73bf(var_43a6be37)
 {
-	level endon(#"ee_pursue_failed");
+	level endon("ee_pursue_failed");
 	self endon("step_complete");
 	var_430ccf88 = struct::get("ee_pursue_arrival_" + self.var_92198510.script_string, "targetname");
 	self playsound("zmb_anomoly_takeoff");
@@ -3334,7 +3334,7 @@ function function_54457756()
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_pursue_failed");
+	level endon("ee_pursue_failed");
 	self endon("pap_damage");
 	var_9add3f18 = randomfloatrange(20, 30);
 	wait(var_9add3f18);
@@ -3352,7 +3352,7 @@ function function_54457756()
 */
 function function_77e01bd0()
 {
-	level endon(#"ee_pursue_failed");
+	level endon("ee_pursue_failed");
 	self endon("step_complete");
 	if(self zm_stalingrad_util::function_1af75b1b(750))
 	{
@@ -3388,7 +3388,7 @@ function function_27541a6d()
 	/#
 		level endon(#"hash_9546144d");
 	#/
-	level endon(#"ee_pursue_failed");
+	level endon("ee_pursue_failed");
 	n_damage_threshold = 6500 + (1000 * zm_utility::get_number_of_valid_players());
 	/#
 		if(isdefined(level.var_f9c3fe97) && level.var_f9c3fe97)
@@ -3422,7 +3422,7 @@ function function_27541a6d()
 				if(n_step == 3)
 				{
 					self function_48dcad89();
-					level notify(#"ee_pursue_complete");
+					level notify("ee_pursue_complete");
 					return;
 				}
 				self thread function_cfa09312(1);
@@ -3486,8 +3486,8 @@ function function_182fe200()
 	{
 		return;
 	}
-	level notify(#"ee_pursue_failed");
-	self notify(#"ee_pursue_failed");
+	level notify("ee_pursue_failed");
+	self notify("ee_pursue_failed");
 	self clientfield::set("ee_anomaly_loop", 0);
 	util::wait_network_frame();
 	self delete();
@@ -3761,7 +3761,7 @@ function function_3f204480(s_unitrigger)
 */
 function function_1a5b6f26()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	for(i = 1; i <= 4; i++)
 	{
 		self clientfield::set("ee_koth_light_" + i, 1);
@@ -3964,8 +3964,8 @@ function function_7ef0d0cc(n_start_time, var_2cd0f4a0)
 function function_6199ca7e()
 {
 	self endon("death");
-	level endon(#"ee_lockdown_complete");
-	level endon(#"end_game");
+	level endon("ee_lockdown_complete");
+	level endon("end_game");
 	while(true)
 	{
 		n_progress = level.var_cd867f7a / level.var_2cd0f4a0;

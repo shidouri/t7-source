@@ -404,10 +404,10 @@ function function_6b964717()
 */
 function function_855f59cb()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		level flag::set("between_rounds");
 		level thread function_a3d6f85c();
 		level waittill("start_of_round");
@@ -1155,7 +1155,7 @@ function function_94bb84a1(var_e7a36389, var_51d4ce0d)
 		if(isdefined(var_e7a36389.var_c5718719) && var_e7a36389.var_c5718719)
 		{
 			var_e7a36389 thread function_78a4f940();
-			level notify(#"ee_defend_failed");
+			level notify("ee_defend_failed");
 		}
 		else
 		{

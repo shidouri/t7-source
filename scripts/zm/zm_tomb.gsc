@@ -2162,7 +2162,7 @@ function tomb_custom_electric_cherry_laststand()
 	{
 		playfx(level._effect["electric_cherry_explode"], self.origin);
 		self playsound("zmb_cherry_explode");
-		self notify(#"electric_cherry_start");
+		self notify("electric_cherry_start");
 		wait(0.05);
 		a_zombies = getaispeciesarray("axis", "all");
 		a_zombies = util::get_array_of_closest(self.origin, a_zombies, undefined, undefined, 500);
@@ -2188,7 +2188,7 @@ function tomb_custom_electric_cherry_laststand()
 				a_zombies[i] dodamage(1000, self.origin, self, self, "none");
 			}
 		}
-		self notify(#"electric_cherry_end");
+		self notify("electric_cherry_end");
 	}
 }
 
@@ -2260,7 +2260,7 @@ function tomb_custom_electric_cherry_reload_attack()
 				continue;
 			}
 			self thread zm_perk_electric_cherry::electric_cherry_reload_fx(n_fraction);
-			self notify(#"electric_cherry_start");
+			self notify("electric_cherry_start");
 			self playsound("zmb_cherry_explode");
 			a_zombies = getaispeciesarray("axis", "all");
 			a_zombies = util::get_array_of_closest(self.origin, a_zombies, undefined, undefined, perk_radius);
@@ -2304,7 +2304,7 @@ function tomb_custom_electric_cherry_reload_attack()
 					}
 				}
 			}
-			self notify(#"electric_cherry_end");
+			self notify("electric_cherry_end");
 		}
 	}
 }

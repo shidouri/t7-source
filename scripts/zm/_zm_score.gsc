@@ -98,7 +98,7 @@ function doublexp_timer()
 	self notify("doublexp_timer");
 	self endon("doublexp_timer");
 	self endon("reset_doublexp_timer");
-	self endon(#"end_game");
+	self endon("end_game");
 	level flagsys::wait_till("start_zombie_round_logic");
 	if(!level.onlinegame)
 	{
@@ -630,7 +630,7 @@ function add_to_player_score(points, b_add_to_total = 1, str_awarded_by = "")
 	self.score = self.score + n_points_to_add_to_currency;
 	self.pers["score"] = self.score;
 	self incrementplayerstat("scoreEarned", n_points_to_add_to_currency);
-	level notify(#"earned_points", self, points);
+	level notify("earned_points", self, points);
 	if(b_add_to_total)
 	{
 		self.score_total = self.score_total + points;

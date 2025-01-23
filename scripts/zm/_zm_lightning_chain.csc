@@ -54,7 +54,7 @@ function init()
 */
 function lc_shock_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(newval)
 	{
@@ -92,7 +92,7 @@ function lc_shock_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 */
 function lc_play_death_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	str_tag = "J_SpineUpper";
 	if(isdefined(self.isdog) && self.isdog)

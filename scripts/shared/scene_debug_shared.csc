@@ -670,7 +670,7 @@ function test_play(arg1, str_mode)
 function debug_display()
 {
 	/#
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		self notify(#"hash_87671d41");
 		self endon(#"hash_87671d41");
 		level endon("kill_anim_debug");

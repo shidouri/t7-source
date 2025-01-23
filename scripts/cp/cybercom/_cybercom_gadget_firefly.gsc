@@ -615,7 +615,7 @@ function swarm_init(params)
 	self notsolid();
 	self.notsolid = 1;
 	self.vehaircraftcollisionenabled = 0;
-	self notify(#"end_nudge_collision");
+	self notify("end_nudge_collision");
 	self.ignoreall = 1;
 	self.takedamage = 0;
 	self.goalradius = 36;

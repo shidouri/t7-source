@@ -3964,10 +3964,10 @@ function print3d_ent(text, color, scale, offset, end_msg, overwrite)
 	self endon("death");
 	if(isdefined(overwrite) && overwrite && isdefined(self._debug_print3d_msg))
 	{
-		self notify(#"end_print3d");
+		self notify("end_print3d");
 		wait(0.05);
 	}
-	self endon(#"end_print3d");
+	self endon("end_print3d");
 	if(!isdefined(color))
 	{
 		color = (1, 1, 1);
@@ -5718,7 +5718,7 @@ function track_players_intersection_tracker()
 {
 	self endon("disconnect");
 	self endon("death");
-	level endon(#"end_game");
+	level endon("end_game");
 	wait(5);
 	while(true)
 	{
@@ -6212,7 +6212,7 @@ function do_player_general_vox(category, type, timer, chance)
 */
 function general_vox_timer(timer, type)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	/#
 		println(((("" + type) + "") + timer) + "");
 	#/

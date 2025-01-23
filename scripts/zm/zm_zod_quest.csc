@@ -406,7 +406,7 @@ function set_subway_wall_dissolve(localclientnum, oldval, newval, bnewent, binit
 function function_6d34f463(localclientnum, n_total_time)
 {
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	var_1baf89ac = n_total_time / 0.016;
 	exploder::exploder("lgt_sword_altar_underground");
 	for(i = 0; i <= var_1baf89ac; i++)

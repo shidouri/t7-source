@@ -74,7 +74,7 @@ function on_spawned(localclientnum)
 */
 function function_48c3fc7d(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_48c3fc7d");
 	self endon(#"hash_48c3fc7d");
 	nikolai = undefined;
@@ -150,7 +150,7 @@ function function_97181777(bottle)
 function function_89d7e567(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill("gunner_weapon_fired");
@@ -337,7 +337,7 @@ function harpoon_impact(localclientnum, oldval, newval, bnewent, binitialsnap, f
 function function_66f3947f(n_local_client, n_val_old, n_val_new, b_ent_new, b_initial_snap, str_field, b_demo_jump)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(n_val_new)
 	{
 		self.fx_trail = playfxontag(n_local_client, level._effect["nikolai_raps_trail"], self, "tag_body");

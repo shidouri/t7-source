@@ -121,7 +121,7 @@ function play_radio_eastereggs()
 		break;
 	}
 	/#
-		self notify(#"end_print3d");
+		self notify("end_print3d");
 	#/
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	playsoundatposition("vox_story_1_log_" + self.script_int, self.origin);
@@ -207,7 +207,7 @@ function waitfor_eightbit_use()
 		wait(1);
 	}
 	/#
-		self notify(#"end_print3d");
+		self notify("end_print3d");
 	#/
 	level thread zm_audio::sndmusicsystem_playstate(self.script_string);
 }
@@ -722,7 +722,7 @@ function play_delayed_first_time_vox()
 {
 	self endon("death");
 	self endon("disconnect");
-	self waittill(#"equip_gasmask_activate");
+	self waittill("equip_gasmask_activate");
 	self waittill("weapon_change_complete");
 	self playsoundtoplayer("vox_mcomp_suit_on", self);
 	wait(1.5);
@@ -763,7 +763,7 @@ function play_maskon_vox()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"equip_gasmask_activate");
+		self waittill("equip_gasmask_activate");
 		self waittill("weapon_change_complete");
 		self stopsounds();
 		wait(0.05);

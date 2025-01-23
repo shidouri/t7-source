@@ -939,7 +939,7 @@ function watch_robot_damaged()
 function delete_on_endgame_sequence()
 {
 	self endon("death");
-	level waittill(#"endgame_sequence");
+	level waittill("endgame_sequence");
 	self delete();
 }
 
@@ -1430,8 +1430,8 @@ function check_if_goal_is_blocked(previousgoal, goal)
 */
 function watch_goal_becoming_blocked(goal)
 {
-	self notify(#"end_watch_goal_becoming_blocked_singleton");
-	self endon(#"end_watch_goal_becoming_blocked_singleton");
+	self notify("end_watch_goal_becoming_blocked_singleton");
+	self endon("end_watch_goal_becoming_blocked_singleton");
 	self endon("robot_stopped");
 	self endon("goal");
 	level endon("game_ended");
@@ -1476,8 +1476,8 @@ function watch_goal_becoming_blocked(goal)
 */
 function watch_becoming_blocked_at_goal()
 {
-	self notify(#"end_watch_becoming_blocked_at_goal");
-	self endon(#"end_watch_becoming_blocked_at_goal");
+	self notify("end_watch_becoming_blocked_at_goal");
+	self endon("end_watch_becoming_blocked_at_goal");
 	self endon("robot_stop");
 	level endon("game_ended");
 	while(isdefined(self.traversestartnode))
@@ -2045,7 +2045,7 @@ function player_stop_escort()
 	}
 	self.escortingrobot = 0;
 	self recordgameevent("player_escort_stop");
-	self notify(#"escorting_stopped");
+	self notify("escorting_stopped");
 }
 
 /*
@@ -2060,7 +2060,7 @@ function player_stop_escort()
 function wait_escort_death(player)
 {
 	level endon("game_ended");
-	player endon(#"escorting_stopped");
+	player endon("escorting_stopped");
 	player endon("disconnect");
 	player waittill("death");
 	player thread player_stop_escort();
@@ -2078,7 +2078,7 @@ function wait_escort_death(player)
 function wait_escort_shutdown(player)
 {
 	level endon("game_ended");
-	player endon(#"escorting_stopped");
+	player endon("escorting_stopped");
 	player endon("disconnect");
 	self.robot waittill("robot_shutdown");
 	player thread player_stop_escort();
@@ -2202,7 +2202,7 @@ function explode_robot_after_wait(wait_time)
 */
 function kill_anything_blocking_goal(goal)
 {
-	self endon(#"end_kill_anything");
+	self endon("end_kill_anything");
 	self.disablefinalkillcam = 1;
 	dirtogoal = vectornormalize(goal - self.origin);
 	atleastonedestroyed = 0;

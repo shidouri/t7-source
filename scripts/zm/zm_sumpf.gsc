@@ -222,7 +222,7 @@ function function_b87f949f(a_ents)
 */
 function function_5b94e922()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	var_6c4e714 = struct::get_array("hanging_dead_guy_force", "targetname");
 	n_index = 0;
 	while(true)

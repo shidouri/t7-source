@@ -81,13 +81,13 @@ function on_localplayer_spawned(localclientnum)
 */
 function watch_emped(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		if(self isempjammed())
 		{
 			self thread disableshader(localclientnum, 0);
-			self notify(#"emp_jammed_vp");
+			self notify("emp_jammed_vp");
 			break;
 		}
 		wait(0.016);
@@ -107,7 +107,7 @@ function disableshader(localclientnum, duration)
 {
 	self endon("startvpshader");
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("disablevpshader");
 	self endon("disablevpshader");
 	wait(duration);
@@ -142,7 +142,7 @@ function watch_world_pulse_end(localclientnum)
 */
 function do_vision_world_pulse(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self notify("startvpshader");
 	self thread watch_world_pulse_end(localclientnum);
@@ -215,7 +215,7 @@ function vision_pulse_owner_valid(owner)
 */
 function watch_vision_pulse_owner_death(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self endon("finished_local_pulse");
 	self notify("watch_vision_pulse_owner_death");
@@ -242,7 +242,7 @@ function watch_vision_pulse_owner_death(localclientnum)
 */
 function do_vision_local_pulse(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self endon("vision_pulse_owner_death");
 	self notify("startvpshader");
@@ -307,7 +307,7 @@ function vision_pulse_changed(localclientnum, oldval, newval, bnewent, binitials
 */
 function do_reveal_enemy_pulse(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self notify("startenemypulse");
 	self endon("startenemypulse");

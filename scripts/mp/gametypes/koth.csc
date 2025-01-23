@@ -256,8 +256,8 @@ function hardpoint_state(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function watch_for_team_change(localclientnum)
 {
-	level notify(#"end_team_change_watch");
-	level endon(#"end_team_change_watch");
+	level notify("end_team_change_watch");
+	level endon("end_team_change_watch");
 	level waittill("team_changed");
 	wait(0.05);
 	thread setup_hardpoint_fx(localclientnum, level.current_zone[localclientnum], level.current_state[localclientnum]);

@@ -379,7 +379,7 @@ function watchrespin(weapon)
 */
 function failsafe_reenable_offhand_special()
 {
-	self endon(#"end_failsafe_reenable_offhand_special");
+	self endon("end_failsafe_reenable_offhand_special");
 	wait(3);
 	if(isdefined(self))
 	{

@@ -2845,7 +2845,7 @@ function setgestureclientfield(fieldname, gesturetype)
 */
 function doendgamesequence()
 {
-	level notify(#"endgame_sequence");
+	level notify("endgame_sequence");
 	preloadingenabled = getdvarint("sv_mapSwitchPreloadFrontend", 0);
 	if(level.dotopscorers && isdefined(struct::get("endgame_top_players_struct", "targetname")))
 	{

@@ -349,7 +349,7 @@ function complete_sidequest()
 	level lui::screen_fade_out(0, "black", "starting_ee_screen");
 	level waittill("movie_done");
 	level.custom_intermission = &player_intermission_ee;
-	level notify(#"end_game");
+	level notify("end_game");
 	level thread lui::screen_fade_in(2, "black", "starting_ee_screen");
 	wait(1.5);
 	foreach(player in a_players)
@@ -370,7 +370,7 @@ function complete_sidequest()
 */
 function function_202bf99e(var_87423d00)
 {
-	self endon(#"end_game");
+	self endon("end_game");
 	self lui::screen_fade_in(var_87423d00);
 }
 

@@ -162,7 +162,7 @@ function player_watch_ammo_change()
 	self endon("player_watch_ammo_change");
 	for(;;)
 	{
-		self waittill(#"equipment_ammo_changed", equipment);
+		self waittill("equipment_ammo_changed", equipment);
 		if(isstring(equipment))
 		{
 			equipment = getweapon(equipment);

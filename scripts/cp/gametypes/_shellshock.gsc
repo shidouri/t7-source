@@ -112,7 +112,7 @@ function end_on_death()
 {
 	self waittill("death");
 	waittillframeend();
-	self notify(#"end_explode");
+	self notify("end_explode");
 }
 
 /*
@@ -128,7 +128,7 @@ function end_on_timer(timer)
 {
 	self endon("disconnect");
 	wait(timer);
-	self notify(#"end_on_timer");
+	self notify("end_on_timer");
 }
 
 /*

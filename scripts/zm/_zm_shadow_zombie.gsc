@@ -114,7 +114,7 @@ function function_1b2b62b()
 */
 function shadow_zombie_damage_fx()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	while(true)
 	{

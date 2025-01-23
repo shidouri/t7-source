@@ -2932,7 +2932,7 @@ function function_6a1f4649(landing_zone, var_e8e0644c = 1, var_fe173168 = 0)
 	self.pvtol vehicle::god_off();
 	self.b_tactical_mode_enabled = 1;
 	self.var_32218fc7 = 0;
-	level notify(#"enable_cybercom", self);
+	level notify("enable_cybercom", self);
 	self gadgetpowerset(0, 100);
 	self gadgetpowerset(1, 100);
 	self gadgetpowerset(2, 100);
@@ -5404,7 +5404,7 @@ function function_6e0553f9()
 function function_a330eeec()
 {
 	self endon("death");
-	self endon(#"end_attack_thread");
+	self endon("end_attack_thread");
 	self endon("change_state");
 	self notify(#"hash_97c91db2");
 	self endon(#"hash_97c91db2");
@@ -5445,7 +5445,7 @@ function function_a330eeec()
 function function_9ab6fc55(var_5fe70955, max_missiles)
 {
 	self endon("death");
-	self endon(#"end_attack_thread");
+	self endon("end_attack_thread");
 	self vehicle::toggle_ambient_anim_group(2, 0);
 	self thread function_a330eeec();
 	fired = 0;
@@ -5546,7 +5546,7 @@ function function_9ab6fc55(var_5fe70955, max_missiles)
 */
 function function_b7aaca29(projectile)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self waittill("weapon_fired", projectile);
 	wait(0.75);

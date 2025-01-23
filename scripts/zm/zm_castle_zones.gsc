@@ -138,7 +138,7 @@ function function_e9579b3e()
 	}
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(level.round_number >= 5)
 		{
 			break;

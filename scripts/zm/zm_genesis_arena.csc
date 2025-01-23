@@ -146,7 +146,7 @@ function elec_wall_tell(localclientnum, oldval, newval, bnewent, binitialsnap, f
 		if(isdefined(self))
 		{
 			fx = playfx(localclientnum, level._effect["elec_wall_arc"], v_origin, anglestoforward(self.angles));
-			self waittill(#"entityshutdown");
+			self waittill("entityshutdown");
 			stopfx(localclientnum, fx);
 		}
 	}
@@ -199,7 +199,7 @@ function runeprison_rock_fx(localclientnum, oldval, newval, bnewent, binitialsna
 */
 function function_79854312(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_start_time = gettime();
 	n_end_time = n_start_time + 1633;
 	b_is_updating = 1;

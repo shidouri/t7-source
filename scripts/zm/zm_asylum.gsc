@@ -970,7 +970,7 @@ function function_463cb1c6()
 */
 function electric_trap_wire_sparks(side)
 {
-	self endon(#"elec_done");
+	self endon("elec_done");
 	while(true)
 	{
 		sparks = struct::get("trap_wire_sparks_" + side, "targetname");
@@ -1032,7 +1032,7 @@ function electric_current_open_middle_door()
 			targ = undefined;
 		}
 	}
-	level notify(#"electric_on_middle_door");
+	level notify("electric_on_middle_door");
 	playfxontag(level._effect["electric_short_oneshot"], fx_org, "tag_origin");
 	wait(randomintrange(3, 9));
 	fx_org delete();

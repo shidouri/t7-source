@@ -57,7 +57,7 @@ function active_camo_changed(localclientnum, oldval, newval, bnewent, binitialsn
 	{
 		self duplicate_render::update_dr_filters(localclientnum);
 	}
-	self notify(#"endtest");
+	self notify("endtest");
 	self thread doreveal(localclientnum, newval != 0);
 }
 
@@ -72,9 +72,9 @@ function active_camo_changed(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function doreveal(localclientnum, direction)
 {
-	self notify(#"endtest");
-	self endon(#"endtest");
-	self endon(#"entityshutdown");
+	self notify("endtest");
+	self endon("endtest");
+	self endon("entityshutdown");
 	if(direction)
 	{
 		startval = 1;

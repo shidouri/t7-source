@@ -17,7 +17,7 @@ function move_ring(ring)
 {
 	positions = struct::get_array(ring.target, "targetname");
 	positions = array::randomize(positions);
-	level endon(#"end_game");
+	level endon("end_game");
 	while(true)
 	{
 		foreach(position in positions)
@@ -39,7 +39,7 @@ function move_ring(ring)
 */
 function rotate_ring(forward)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	dir = -360;
 	if(forward)
 	{

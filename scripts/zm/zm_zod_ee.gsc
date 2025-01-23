@@ -438,7 +438,7 @@ function function_db49b939()
 */
 function function_7f4562e9()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level.musicsystemoverride = 1;
 	music::setmusicstate("zod_ee_shadfight");
 	level flag::wait_till("ee_boss_defeated");
@@ -545,7 +545,7 @@ function function_db8d1f6e()
 */
 function function_43750b40()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level.musicsystemoverride = 1;
 	music::setmusicstate("zod_ee_apothifight");
 	level flag::wait_till("ee_final_boss_defeated");
@@ -607,7 +607,7 @@ function function_4778e04()
 */
 function function_224a2f3e()
 {
-	level endon(#"ee_final_boss_staggered");
+	level endon("ee_final_boss_staggered");
 	if(level flag::get("ee_final_boss_beam_active"))
 	{
 		return;
@@ -654,7 +654,7 @@ function function_5334c072(player)
 	player endon("death");
 	player endon("disconnect");
 	player endon(#"bled_out");
-	level endon(#"ee_final_boss_staggered");
+	level endon("ee_final_boss_staggered");
 	player.var_884d1375 = 1;
 	player clientfield::set_to_player("ee_final_boss_attack_tell", 1);
 	var_dcd4f61a = struct::get_array("final_boss_safepoint", "targetname");
@@ -724,7 +724,7 @@ function function_3fe90552()
 */
 function function_9b59ab6()
 {
-	level endon(#"ee_final_boss_defeated");
+	level endon("ee_final_boss_defeated");
 	while(true)
 	{
 		while(!function_c7c3f7b5(level.var_a6e16eb2))
@@ -753,7 +753,7 @@ function function_9b59ab6()
 */
 function function_91c4dc69()
 {
-	level endon(#"ee_final_boss_defeated");
+	level endon("ee_final_boss_defeated");
 	zombie_utility::ai_calculate_health(level.round_number);
 	wait(3);
 	while(true)
@@ -826,7 +826,7 @@ function function_91c4dc69()
 */
 function function_91b5dbe8(ai_margwa)
 {
-	level endon(#"ee_final_boss_defeated");
+	level endon("ee_final_boss_defeated");
 	ai_margwa waittill("death");
 	v_origin = ai_margwa.origin;
 	zm_altbody_beast::function_f6014f2c(v_origin, 3);
@@ -904,8 +904,8 @@ function function_821065e6()
 */
 function function_3bd22f9e(var_9a8bfa33)
 {
-	level endon(#"ee_final_boss_defeated");
-	level endon(#"ee_final_boss_staggered");
+	level endon("ee_final_boss_defeated");
+	level endon("ee_final_boss_staggered");
 	var_5dab4912 = "ee_district_rail_electrified_" + var_9a8bfa33;
 	var_9440a97c = getent(var_5dab4912, "targetname");
 	var_a5fd6c97 = getent(var_9440a97c.target, "targetname");
@@ -1046,7 +1046,7 @@ function function_378c2b96()
 */
 function function_729859d0()
 {
-	level endon(#"ee_final_boss_defeated");
+	level endon("ee_final_boss_defeated");
 	level flag::set("ee_superworm_present");
 	while(true)
 	{
@@ -1096,7 +1096,7 @@ function function_f30f87e4(n_index)
 {
 	level notify("ee_final_boss_keeper_electricity_watcher_" + n_index);
 	level endon("ee_final_boss_keeper_electricity_watcher_" + n_index);
-	level endon(#"ee_final_boss_defeated");
+	level endon("ee_final_boss_defeated");
 	var_da3dbbdf = level.var_76c101df[n_index];
 	var_da3dbbdf endon("delete");
 	var_da3dbbdf solid();
@@ -1882,7 +1882,7 @@ function function_3089f820(var_ee1ff130)
 	{
 		return;
 	}
-	level notify(#"ee_keeper_resurrection_failed");
+	level notify("ee_keeper_resurrection_failed");
 	level.var_dc1b8d40 = [];
 	level function_6f0edfa1();
 	if(isdefined(var_ee1ff130))
@@ -1913,7 +1913,7 @@ function function_3089f820(var_ee1ff130)
 */
 function function_5d546ced(var_ee1ff130)
 {
-	level notify(#"ee_keeper_resurrection_failed");
+	level notify("ee_keeper_resurrection_failed");
 	level.var_dc1b8d40 = [];
 	level function_6f0edfa1();
 	if(isdefined(var_ee1ff130))
@@ -1937,7 +1937,7 @@ function function_5d546ced(var_ee1ff130)
 function function_8f4b6b20(var_ee1ff130, var_dcdf1cd5 = 0)
 {
 	level function_6f0edfa1();
-	level notify(#"ee_keeper_resurrected");
+	level notify("ee_keeper_resurrected");
 	str_charname = function_d93f551b(var_ee1ff130);
 	level clientfield::set(("ee_keeper_" + str_charname) + "_state", 3);
 	level flag::set(("ee_keeper_" + str_charname) + "_resurrected");
@@ -2101,7 +2101,7 @@ function function_5eae8cbb()
 */
 function function_4bcb6826()
 {
-	level endon(#"ee_boss_defeated");
+	level endon("ee_boss_defeated");
 	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
 	level.var_df5409ea = 9;
 	while(true)
@@ -2196,7 +2196,7 @@ function function_e59c5246(var_e6fb7eb3)
 */
 function function_e49d016d()
 {
-	level endon(#"ee_boss_defeated");
+	level endon("ee_boss_defeated");
 	level flag::wait_till("ee_boss_vulnerable");
 	level flag::wait_till_clear("ee_boss_vulnerable");
 	level thread function_877ea350();
@@ -2393,8 +2393,8 @@ function function_4cc29f4f(player)
 {
 	level notify(#"hash_4cc29f4f");
 	level endon(#"hash_4cc29f4f");
-	level endon(#"ee_keeper_resurrected");
-	level endon(#"ee_keeper_resurrection_failed");
+	level endon("ee_keeper_resurrected");
+	level endon("ee_keeper_resurrection_failed");
 	player endon(#"hash_f764159c");
 	player util::waittill_any("death", "disconnect", "player_downed");
 	if(isdefined(player.var_11104075))
@@ -2561,7 +2561,7 @@ function function_943c90e6()
 */
 function function_f016ad0d(trig_stub, player)
 {
-	level endon(#"ee_keeper_resurrection_failed");
+	level endon("ee_keeper_resurrection_failed");
 	if(isdefined(trig_stub.b_completed) && trig_stub.b_completed)
 	{
 		if(!level flag::get("totem_placed"))
@@ -2722,7 +2722,7 @@ function function_224eb2ac()
 */
 function function_353871a(var_ee1ff130, owner)
 {
-	level endon(#"ee_keeper_resurrection_failed");
+	level endon("ee_keeper_resurrection_failed");
 	level endon(#"hash_26f14b55");
 	self.health = 1000000;
 	self.team = "allies";
@@ -2786,7 +2786,7 @@ function function_353871a(var_ee1ff130, owner)
 */
 function function_ac3c8848(var_ee1ff130)
 {
-	level endon(#"ee_keeper_resurrection_failed");
+	level endon("ee_keeper_resurrection_failed");
 	level endon(#"hash_26f14b55");
 	var_cabf2f4c = 0;
 	var_3efd73a6 = 5;
@@ -2822,9 +2822,9 @@ function function_ac3c8848(var_ee1ff130)
 */
 function function_877ea350()
 {
-	level endon(#"ee_keeper_resurrected");
-	level endon(#"ee_keeper_resurrection_failed");
-	level endon(#"ee_boss_defeated");
+	level endon("ee_keeper_resurrected");
+	level endon("ee_keeper_resurrection_failed");
+	level endon("ee_boss_defeated");
 	zombie_utility::ai_calculate_health(level.round_number);
 	while(true)
 	{
@@ -2897,9 +2897,9 @@ function function_877ea350()
 */
 function function_737ebab()
 {
-	level endon(#"ee_keeper_resurrected");
-	level endon(#"ee_keeper_resurrection_failed");
-	level endon(#"ee_boss_defeated");
+	level endon("ee_keeper_resurrected");
+	level endon("ee_keeper_resurrection_failed");
+	level endon("ee_boss_defeated");
 	level.wasp_targets = getplayers();
 	for(i = 0; i < level.wasp_targets.size; i++)
 	{
@@ -3008,9 +3008,9 @@ function function_737ebab()
 */
 function function_83bdd16b()
 {
-	level endon(#"ee_keeper_resurrected");
-	level endon(#"ee_keeper_resurrection_failed");
-	level endon(#"ee_boss_defeated");
+	level endon("ee_keeper_resurrected");
+	level endon("ee_keeper_resurrection_failed");
+	level endon("ee_boss_defeated");
 	level.raps_targets = getplayers();
 	for(i = 0; i < level.raps_targets.size; i++)
 	{
@@ -3269,8 +3269,8 @@ function function_904cb175(var_e6fb7eb3)
 */
 function function_22d6774c(player, var_e6fb7eb3)
 {
-	level endon(#"ee_keeper_resurrected");
-	level endon(#"ee_keeper_resurrection_failed");
+	level endon("ee_keeper_resurrected");
+	level endon("ee_keeper_resurrection_failed");
 	player util::waittill_any("death", "bled_out", "disconnect");
 	if(isdefined(var_e6fb7eb3))
 	{

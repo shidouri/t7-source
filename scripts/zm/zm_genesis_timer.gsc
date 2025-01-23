@@ -106,7 +106,7 @@ function function_86419da()
 {
 	do
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		n_current_time = (gettime() - level.n_gameplay_start_time) / 1000;
 		var_99870abd = zm::get_round_number() - 1;
 		var_ec31aba8 = undefined;

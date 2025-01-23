@@ -110,7 +110,7 @@ function function_56ad3a27(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_16467cb6(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -220,7 +220,7 @@ function function_d0886efe(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_86aaed61(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(newval))
 	{

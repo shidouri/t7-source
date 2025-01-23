@@ -53,7 +53,7 @@ function __init__()
 */
 function thief_clientfield_cb(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	playfxoncamera(localclientnum, level._effect["fx_hero_blackjack_beam_target"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 	playfx(localclientnum, level._effect["fx_hero_blackjack_beam_source"], self.origin);
 }

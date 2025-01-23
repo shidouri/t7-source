@@ -642,7 +642,7 @@ function function_787f2b69(localclientnum)
 */
 function function_a8eb710()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self useanimtree($critter);
 	self.animation = (randomint(2) ? %critter::a_water_buffalo_run_a : %critter::a_water_buffalo_run_b);
 	self setanim(self.animation, 1, 0, 1);
@@ -676,7 +676,7 @@ function function_caf96f2d(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_27542390(localclientnum, state)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("animstate");
 	self endon("animstate");
 	self.animstate = state;

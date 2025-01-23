@@ -177,7 +177,7 @@ function function_33aa4940()
 */
 function function_419bf2ad()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	while(true)
 	{
 		level waittill(#"between_round_over");

@@ -296,7 +296,7 @@ function exit_stage_1(success)
 */
 function moon_be_start_capture()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	while(!level flag::get(level._be_complete[0]))
 	{
 		if(level flag::get("teleporter_breached") && !level flag::get("teleporter_blocked"))

@@ -505,7 +505,7 @@ function function_7584d453()
 */
 function function_f1ce2a9a(state = 0)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	switch(state)
 	{
 		case 1:
@@ -637,7 +637,7 @@ function function_9fa22cf7()
 function function_d0e8b85d()
 {
 	level endon(#"hash_787a404e");
-	level endon(#"end_game");
+	level endon("end_game");
 	wait(170);
 	music::setmusicstate("nikolai_fight");
 }
@@ -751,7 +751,7 @@ function function_dc391fc3()
 	#/
 	self util::waittill_any("ballerina_destroyed", "ballerina_timeout");
 	/#
-		self.var_ac086ffb notify(#"end_print3d");
+		self.var_ac086ffb notify("end_print3d");
 	#/
 	self.var_ac086ffb clientfield::set("ee_ballerina", 0);
 	util::wait_network_frame();

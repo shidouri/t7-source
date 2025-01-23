@@ -98,7 +98,7 @@ function function_50d69c96(var_7f004376 = 12)
 {
 	self notify(#"hash_9e31d48f");
 	self endon(#"hash_9e31d48f");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	var_4286d30 = self.origin[2];
 	self function_5ffdcb9d(var_7f004376);
 	while(true)
@@ -305,7 +305,7 @@ function function_b33fd8cd(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_38ad4ef0(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 }
 
 /*
@@ -342,7 +342,7 @@ function falling_debris(localclientnum)
 {
 	self notify(#"hash_626c7e3a");
 	self endon(#"hash_626c7e3a");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	wait(1);
 	var_3bd3acaa = struct::get_array("debris_spawn_point", "targetname");
 	a_models = array("p7_ac_unit_large", "p7_barrel_keg_beer_metal_rusty", "p7_barrel_metal_55gal_blue_lt", "p7_barrel_plastic", "p7_barstool_modern_01", "p7_bed_frame_barrack", "p7_box_case_metal_02_large", "p7_bucket_plastic_5_gal_blue", "p7_cabinet_metal_large", "p7_cai_planter_01", "p7_cai_trashcan_metal", "p7_cargo_pallet_02", "p7_copier_plastic_med", "p7_dolly", "p7_sink_ceramic_old_01", "p7_vending_machine_food", "p7_water_heater_tank");
@@ -507,7 +507,7 @@ function postfx_futz(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 */
 function function_16e0096d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		wait(0.5);
@@ -551,7 +551,7 @@ function function_d823aea7(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_344d4c76(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		self thread postfx::playpostfxbundle("pstfx_dni_screen_futz_short");
@@ -601,7 +601,7 @@ function player_frost_breath(localclientnum, oldval, newval, bnewent, binitialsn
 		self notify(#"hash_aac931c8");
 		self endon(#"hash_aac931c8");
 		self endon("disconnect");
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		while(true)
 		{
 			if(self islocalplayer() && self getlocalclientnumber() === localclientnum)
@@ -637,7 +637,7 @@ function function_b8a4442e(localclientnum, oldval, newval, bnewent, binitialsnap
 		self notify(#"hash_dbbbf53a");
 		self endon(#"hash_dbbbf53a");
 		self endon("disconnect");
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		while(true)
 		{
 			playfxontag(localclientnum, level._effect["breath_third_person"], self, "j_head");

@@ -1833,7 +1833,7 @@ function setup_quadrotor_purchase(player)
 			player setactionslot(4, "weapon", var_703e6a13);
 		}
 		player clientfield::set_player_uimodel("hudItems.showDpadRight_Drone", 1);
-		player notify(#"equip_dieseldrone_zm_given");
+		player notify("equip_dieseldrone_zm_given");
 		level thread quadrotor_watcher(player);
 		player thread zm_audio::create_and_play_dialog("general", "build_dd_plc");
 		return true;

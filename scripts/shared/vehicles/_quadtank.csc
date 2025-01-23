@@ -133,7 +133,7 @@ function update_trophy_system_state(localclientnum, oldval, newval, bnewent, bin
 */
 function set_trophy_state(localclientnum, ison)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("stop_set_trophy_state");
 	self endon("stop_set_trophy_state");
 	if(isdefined(self.trophydestroy_fx_handle))
@@ -213,7 +213,7 @@ function set_trophy_state(localclientnum, ison)
 */
 function wait_for_bullet_impact(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.scriptbundlesettings))
 	{
 		settings = struct::get_script_bundle("vehiclecustomsettings", self.scriptbundlesettings);

@@ -2421,7 +2421,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	{
 		if(!self hasperk("specialty_immuneemp"))
 		{
-			self notify(#"emp_grenaded", eattacker, vpoint);
+			self notify("emp_grenaded", eattacker, vpoint);
 		}
 	}
 	if(isdefined(eattacker) && eattacker != self && !friendlyfire)

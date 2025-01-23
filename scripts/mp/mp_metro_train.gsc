@@ -425,7 +425,7 @@ function car_move(tracknum)
 */
 function watch_player_touch()
 {
-	self endon(#"end_of_track");
+	self endon("end_of_track");
 	self endon("stop_kill");
 	self endon("delete");
 	self endon("death");

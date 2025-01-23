@@ -158,7 +158,7 @@ function sun_flame(n_local_client)
 {
 	self endon("disconnect");
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	var_c2a0c80a = getent(n_local_client, "sun_flame", "targetname");
 	var_c2a0c80a setscale(6);
 	player = getlocalplayer(n_local_client);

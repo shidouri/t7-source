@@ -186,7 +186,7 @@ function on_player_spawned(localclientnum)
 function player_snow_thread(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(1 == getdvarint("movie_intro"))
 	{
 		return;

@@ -122,7 +122,7 @@ function elemental_round_ring_fx(localclientnum, oldval, newval, bnewent, biniti
 */
 function wait_for_bullet_impact(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.scriptbundlesettings))
 	{
 		settings = struct::get_script_bundle("vehiclecustomsettings", self.scriptbundlesettings);

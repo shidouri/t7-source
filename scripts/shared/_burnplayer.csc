@@ -216,7 +216,7 @@ function burn_on(localclientnum)
 */
 function burn_on_postfx()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon(#"burn_off");
 	self endon("death");
 	self notify(#"burn_on_postfx");
@@ -260,7 +260,7 @@ function private _burntagson(localclientnum, tags)
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon(#"burn_off");
 	self notify(#"burn_tags_on");
 	self endon(#"burn_tags_on");
@@ -285,7 +285,7 @@ function private _burntagson(localclientnum, tags)
 */
 function private _burnbody(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self thread _burntagson(localclientnum, level.burntags);
 }
 
@@ -300,7 +300,7 @@ function private _burnbody(localclientnum)
 */
 function private _burntagswatchend(localclientnum, fxarray, burnsound)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self waittill(#"burn_off");
 	if(isdefined(burnsound))
 	{
@@ -327,7 +327,7 @@ function private _burntagswatchend(localclientnum, fxarray, burnsound)
 function private _burntagswatchclear(localclientnum, fxarray, burnsound)
 {
 	self endon(#"burn_off");
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	if(isdefined(burnsound))
 	{
 		stopsound(burnsound);

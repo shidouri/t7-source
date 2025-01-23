@@ -885,8 +885,8 @@ function function_95adf61c(player)
 {
 	self endon("outro");
 	self endon("revive_terminated");
-	self endon(#"end_game");
-	player endon(#"end_game");
+	self endon("end_game");
+	player endon("end_game");
 	if(!(isdefined(self.reviving_a_player) && self.reviving_a_player))
 	{
 		self.reviving_a_player = 1;

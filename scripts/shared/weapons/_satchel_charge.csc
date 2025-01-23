@@ -34,7 +34,7 @@ function init_shared(localclientnum)
 */
 function satchel_spawned(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(self isgrenadedud())
 	{
 		return;

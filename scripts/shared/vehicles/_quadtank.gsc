@@ -442,8 +442,8 @@ function state_combat_update(params)
 */
 function state_combat_exit(params)
 {
-	self notify(#"end_attack_thread");
-	self notify(#"end_movement_thread");
+	self notify("end_attack_thread");
+	self notify("end_movement_thread");
 	self clearturrettarget();
 	self clearlookatent();
 }
@@ -474,7 +474,7 @@ function quadtank_death(params)
 		self playsound("veh_quadtank_power_down");
 		self playsound("veh_quadtank_sparks");
 		self asmrequestsubstate("death@stationary");
-		self waittill(#"explosion_c");
+		self waittill("explosion_c");
 	}
 	else
 	{
@@ -509,7 +509,7 @@ function quadtank_emped(params)
 {
 	self endon("death");
 	self endon("change_state");
-	self endon(#"emped");
+	self endon("emped");
 	if(isdefined(self.emped))
 	{
 		return;
@@ -1025,7 +1025,7 @@ function quadtank_weapon_think_cannon()
 function attack_thread_rocket()
 {
 	self endon("death");
-	self endon(#"end_attack_thread");
+	self endon("end_attack_thread");
 	self vehicle::toggle_ambient_anim_group(2, 0);
 	while(true)
 	{
@@ -1189,8 +1189,8 @@ function movement_thread_wander()
 {
 	self endon("death");
 	self endon("change_state");
-	self notify(#"end_movement_thread");
-	self endon(#"end_movement_thread");
+	self notify("end_movement_thread");
+	self endon("end_movement_thread");
 	if(self.goalforced)
 	{
 		return self.goalpos;
@@ -1336,7 +1336,7 @@ function quadtank_movementupdate()
 function quadtank_player_fireupdate()
 {
 	self endon("death");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	weapon = self seatgetweapon(1);
 	firetime = weapon.firetime;
 	while(true)
@@ -1602,7 +1602,7 @@ function remove_repulsor()
 		missile_deleteattractor(self.missile_repulsor);
 		self.missile_repulsor = undefined;
 	}
-	self notify(#"end_repulsor_fx");
+	self notify("end_repulsor_fx");
 }
 
 /*
@@ -1616,8 +1616,8 @@ function remove_repulsor()
 */
 function repulsor_fx()
 {
-	self notify(#"end_repulsor_fx");
-	self endon(#"end_repulsor_fx");
+	self notify("end_repulsor_fx");
+	self endon("end_repulsor_fx");
 	self endon("death");
 	self endon("change_state");
 	while(true)
@@ -1851,7 +1851,7 @@ function quadtank_weakpoint_display(state)
 function footstep_handler()
 {
 	self endon("death");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	while(true)
 	{
 		note = self util::waittill_any_return("footstep_front_left", "footstep_front_right", "footstep_rear_left", "footstep_rear_right");
@@ -1894,7 +1894,7 @@ function footstep_handler()
 */
 function javeline_incoming(projectile)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self waittill("weapon_fired", projectile);
 	distance = 1400;
@@ -1930,7 +1930,7 @@ function javeline_incoming(projectile)
 */
 function railgun_sound(projectile)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self waittill("weapon_fired", projectile);
 	distance = 900;

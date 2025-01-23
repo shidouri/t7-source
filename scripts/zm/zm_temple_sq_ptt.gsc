@@ -71,7 +71,7 @@ function debug_jet()
 */
 function ignite_jet()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self playsound("evt_sq_ptt_gas_ignite");
 	str_exploder = "fxexp_" + (self.script_int + 10);
 	exploder::exploder(str_exploder);

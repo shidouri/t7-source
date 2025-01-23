@@ -726,7 +726,7 @@ function menu_onmenuresponse()
 					self zm_pers_upgrades_functions::pers_upgrade_jugg_player_death_stat();
 					level.host_ended_game = 1;
 					zm_game_module::freeze_players(1);
-					level notify(#"end_game");
+					level notify("end_game");
 				}
 			}
 			continue;
@@ -753,7 +753,7 @@ function menu_onmenuresponse()
 				self closeingamemenu();
 				level.host_ended_game = 1;
 				zm_game_module::freeze_players(1);
-				level notify(#"end_game");
+				level notify("end_game");
 			}
 			else
 			{
@@ -839,7 +839,7 @@ function menuallieszombies()
 		self notify("joined_team");
 		level notify("joined_team");
 		self callback::callback(#"hash_95a6c4c0");
-		self notify(#"end_respawn");
+		self notify("end_respawn");
 	}
 }
 
@@ -907,7 +907,7 @@ function onplayerconnect()
 */
 function onplayerspawned()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	for(;;)
 	{

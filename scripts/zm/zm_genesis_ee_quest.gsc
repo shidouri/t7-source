@@ -2411,7 +2411,7 @@ function function_ec27cd4b(n_val)
 	level lui::play_movie("zm_genesis_outro", "fullscreen", 0, 0, "TDCIWGg1ckRAkdSa3Bip7lMzQhTp+sjnC8dDCTB0cSAAAAAAAAAAAA==");
 	level.custom_intermission = &function_43af724a;
 	level clientfield::set("GenesisEndGameEEScreen", 1);
-	level notify(#"end_game");
+	level notify("end_game");
 	level thread function_ac21a82d(1, 2);
 	wait(10);
 	function_64e4c3ee(0);

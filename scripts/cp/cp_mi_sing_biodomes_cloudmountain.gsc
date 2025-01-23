@@ -1360,7 +1360,7 @@ function look_down_hallway()
 	self waittill("goal");
 	v_look = struct::get("hallway_look_target").origin;
 	self orientmode("face direction", self.origin - v_look);
-	self waittill(#"enemy");
+	self waittill("enemy");
 	self orientmode("face enemy");
 }
 

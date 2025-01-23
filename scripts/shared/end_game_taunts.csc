@@ -1200,7 +1200,7 @@ function spawncameraglass(param)
 */
 function updateglassposition()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		camangles = getcamanglesbylocalclientnum(self.localclientnum);

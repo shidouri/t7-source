@@ -1541,7 +1541,7 @@ function changeteam(team)
 	self.sessionteam = self.pers["team"];
 	self globallogic_ui::updateobjectivetext();
 	self spectating::set_permissions();
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 }
 
 /*

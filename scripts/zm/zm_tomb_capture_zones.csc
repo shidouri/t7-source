@@ -266,7 +266,7 @@ function function_d56a2c4b(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_d66ac605(localclientnumber)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.var_c4cb7bc3 = 1;
 	while(isdefined(self.var_c4cb7bc3) && self.var_c4cb7bc3)
 	{
@@ -1190,7 +1190,7 @@ function emergence_hole_spawn(localclientnumber)
 */
 function function_3a4d4e97()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level waittill("demo_jump");
 	self delete();
 }

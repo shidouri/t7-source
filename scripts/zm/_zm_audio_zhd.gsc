@@ -195,7 +195,7 @@ function function_3cf3ba48()
 	#/
 	self util::waittill_any("ballerina_destroyed", "ballerina_timeout");
 	/#
-		self.var_ac086ffb notify(#"end_print3d");
+		self.var_ac086ffb notify("end_print3d");
 	#/
 	self.var_ac086ffb clientfield::set("snd_zhdegg", 0);
 	util::wait_network_frame();
@@ -389,7 +389,7 @@ function function_929c4dba()
 		e_origin function_bd90259b(who);
 	}
 	/#
-		e_origin notify(#"end_print3d");
+		e_origin notify("end_print3d");
 	#/
 	zm_unitrigger::unregister_unitrigger(e_origin.s_unitrigger);
 	e_origin delete();

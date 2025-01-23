@@ -89,7 +89,7 @@ function checkdvarupdates()
 function watchtabungrenadedetonation(owner)
 {
 	self endon("trophy_destroyed");
-	self waittill(#"explode", position, surface);
+	self waittill("explode", position, surface);
 	if(!isdefined(level.water_duds) || level.water_duds == 1)
 	{
 		if(isdefined(surface) && surface == "water")

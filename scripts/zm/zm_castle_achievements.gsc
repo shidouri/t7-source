@@ -115,7 +115,7 @@ function function_a7a00809()
 */
 function function_a54c1d45()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	var_16939907 = [];
 	var_16939907["lower_courtyard_flinger"] = 0;
@@ -145,7 +145,7 @@ function function_a54c1d45()
 */
 function function_abd6b408()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_f00d390e");
 	self giveachievement("ZM_CASTLE_WUNDER_SNIPER");
@@ -162,7 +162,7 @@ function function_abd6b408()
 */
 function function_2ac65a0e()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	while(true)
 	{
@@ -186,7 +186,7 @@ function function_2ac65a0e()
 */
 function function_2aca0270()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.zapped_zombies = 0;
 	while(self.zapped_zombies < 121)
@@ -207,7 +207,7 @@ function function_2aca0270()
 */
 function function_763e50f3()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_a72ebab5");
 	self giveachievement("ZM_CASTLE_MECH_TRAPPER");
@@ -224,7 +224,7 @@ function function_763e50f3()
 */
 function function_ed9679c1()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_ea0c887b");
 	self giveachievement("ZM_CASTLE_UPGRADED_BOW");
@@ -241,7 +241,7 @@ function function_ed9679c1()
 */
 function function_fd055c44()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	var_8a655363 = 0;
 	while(true)
@@ -278,7 +278,7 @@ function function_fd055c44()
 */
 function function_2ec19399()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.var_544cf8c7 = [];
 	self.var_544cf8c7[0] = "mechz";

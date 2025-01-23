@@ -791,7 +791,7 @@ function quad_wave_init()
 	level thread time_for_quad_wave("theater_zone");
 	level thread time_for_quad_wave("stage_zone");
 	level thread time_for_quad_wave("dining_zone");
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	level flag::clear("special_quad_round");
 }
 

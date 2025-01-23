@@ -431,7 +431,7 @@ function function_7e35ccbc()
 function function_23ad043b()
 {
 	self endon("death");
-	self.var_fc30fc22 waittill(#"explode");
+	self.var_fc30fc22 waittill("explode");
 	self.var_fc30fc22 = undefined;
 	wait(0.5);
 	self.var_c6c262e8 = 0;
@@ -539,9 +539,9 @@ function function_deb99e6()
 	while(true)
 	{
 		self.b_disabled = 0;
-		self waittill(#"emp_fx_start");
+		self waittill("emp_fx_start");
 		self.b_disabled = 1;
-		self waittill(#"emp_shutdown_end");
+		self waittill("emp_shutdown_end");
 		self.b_disabled = 0;
 	}
 }

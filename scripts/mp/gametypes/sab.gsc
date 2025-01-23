@@ -497,7 +497,7 @@ function onenduse(team, player, result)
 	}
 	player.isplanting = 0;
 	player.isdefusing = 0;
-	player notify(#"event_ended");
+	player notify("event_ended");
 }
 
 /*
@@ -596,7 +596,7 @@ function ondrop(player)
 			}
 		#/
 		globallogic_audio::leader_dialog("bomb_lost", self gameobjects::get_owner_team());
-		player notify(#"event_ended");
+		player notify("event_ended");
 		level.bombzones["axis"].trigger setinvisibletoall();
 		level.bombzones["allies"].trigger setinvisibletoall();
 		thread abandonmentthink(0);

@@ -899,7 +899,7 @@ function function_10477d98(localclientnum)
 	self notify(#"hash_f33fde4b");
 	self endon("disconnect");
 	self endon(#"hash_7f60c43e");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	endtime = gettime() + 600;
 	self playsound(0, "zmb_fated_boost_activate");
 	lastposition = self.origin;
@@ -993,7 +993,7 @@ function function_409fa9ce(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_cb806a9b(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!oldval && newval)
 	{
 		localplayers = level.localplayers;
@@ -1021,7 +1021,7 @@ function function_cb806a9b(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!oldval && newval)
 	{
 		localplayers = level.localplayers;
@@ -1050,7 +1050,7 @@ function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitials
 function rise_dust_fx(localclientnum, type, billow_fx, burst_fx, var_cf929ddb)
 {
 	dust_tag = "J_SpineUpper";
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(burst_fx))
 	{
 		playfx(localclientnum, burst_fx, self.origin + (0, 0, randomintrange(5, 10)));
@@ -1140,7 +1140,7 @@ function private function_38452435(localclientnum)
 {
 	self notify(#"hash_38452435");
 	self endon(#"hash_38452435");
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	if(isdefined(self.fx))
 	{
 		deletefx(localclientnum, self.fx);
@@ -1358,7 +1358,7 @@ function function_f7c0d598(mapping = "zombietron")
 {
 	self notify(#"hash_f7c0d598");
 	self endon(#"hash_f7c0d598");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("disconnect");
 	/#
 		loc_00004FA8:
@@ -1647,7 +1647,7 @@ function zombie_wait_explode(localclientnum)
 */
 function function_36c61ba6(localclientnum, var_4faf5231 = 1, var_ad5de66e = 1)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	currentscale = var_ad5de66e;
 	var_c316c8b8 = var_ad5de66e * 1.25;
 	var_711842d8 = 0.002;
@@ -1708,7 +1708,7 @@ function function_36c61ba6(localclientnum, var_4faf5231 = 1, var_ad5de66e = 1)
 */
 function function_455fa2fe(localclientnum, owner, fx)
 {
-	owner waittill(#"entityshutdown");
+	owner waittill("entityshutdown");
 	playfx(localclientnum, level._effect[fx], self.origin);
 	self delete();
 }
@@ -2212,7 +2212,7 @@ function drawcylinder(pos, rad, height, frames = 60, color = (0, 0, 0))
 {
 	/#
 		self endon("stop_cylinder");
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		currad = rad;
 		curheight = height;
 		for(frames = int(frames); frames; frames--)

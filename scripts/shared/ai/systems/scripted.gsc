@@ -18,7 +18,7 @@ function main()
 	self notify("killanimscript");
 	self notify("clearsuppressionattack");
 	self.codescripted["root"] = %generic::body;
-	self endon(#"end_sequence");
+	self endon("end_sequence");
 	self.a.script = "scripted";
 	self waittill("killanimscript");
 }

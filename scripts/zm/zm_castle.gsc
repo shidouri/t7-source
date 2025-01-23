@@ -371,7 +371,7 @@ function function_1ba33179(zone_name)
 */
 function function_e0836624()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level notify(#"hash_a3369c1f");
 	level endon(#"hash_a3369c1f");
 	while(true)

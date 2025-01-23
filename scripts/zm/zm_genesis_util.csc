@@ -266,7 +266,7 @@ function function_ed6c6bcf(localclientnum, str_fx_name, var_bec640ba)
 */
 function fire_trap(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	switch(newval)
 	{
 		case 0:
@@ -305,7 +305,7 @@ function fire_trap(localclientnum, oldval, newval, bnewent, binitialsnap, fieldn
 */
 function function_379d49e8(localclientnum, n_delay = 0)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	wait(n_delay);
 	if(isdefined(self.var_39d354b5))
 	{
@@ -408,7 +408,7 @@ function rq_gateworm_magic(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function rq_gateworm_dissolve(localclientnum, var_9304bb31)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_start_time = gettime();
 	n_end_time = n_start_time + (2 * 1000);
 	b_is_updating = 1;

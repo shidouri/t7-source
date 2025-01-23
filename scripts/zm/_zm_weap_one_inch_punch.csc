@@ -62,7 +62,7 @@ function oneinchpunch_impact(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function oneinchpunch_physics_launchragdoll(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"entity_shutdown");
+	self endon("entity_shutdown");
 	if(newval == 1)
 	{
 		var_70efc576 = undefined;

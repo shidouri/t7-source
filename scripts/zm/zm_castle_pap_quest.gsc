@@ -112,7 +112,7 @@ function function_c4641d12(is_powered)
 	var_3c7c9ebd = undefined;
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(isdefined(var_94e7d6ca))
 		{
 			var_94e7d6ca delete();

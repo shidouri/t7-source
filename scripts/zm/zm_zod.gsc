@@ -3204,7 +3204,7 @@ function function_35c958af()
 */
 function function_4df9f4ad()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level notify(#"hash_a3369c1f");
 	level endon(#"hash_a3369c1f");
 	while(true)

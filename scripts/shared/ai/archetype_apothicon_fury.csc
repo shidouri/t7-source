@@ -98,7 +98,7 @@ function apothiconstoploopingeffects(localclientnum)
 */
 function apothiconspawnshader(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -128,7 +128,7 @@ function apothiconspawnshader(localclientnum)
 */
 function apothiconjukeactive(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -157,7 +157,7 @@ function apothiconjukeactive(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function apothiconfiredamageeffect(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -218,7 +218,7 @@ function apothiconfiredamageeffect(localclientnum, oldval, newval, bnewent, bini
 */
 function apothiconfurydeath(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -275,7 +275,7 @@ function apothiconfurydeath(localclientnum, oldval, newval, bnewent, binitialsna
 */
 function apothiconfuriousmodeeffect(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -325,7 +325,7 @@ function new_timer(localclientnum)
 */
 function timer_increment_loop(localclientnum, entity)
 {
-	entity endon(#"entityshutdown");
+	entity endon("entityshutdown");
 	self endon("timer_done");
 	while(isdefined(self))
 	{
@@ -387,7 +387,7 @@ function reset_timer()
 */
 function apothiconbamflandeffect(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{

@@ -261,7 +261,7 @@ function init_fx()
 function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		sound = "zmb_zombie_spawn";
@@ -292,7 +292,7 @@ function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitials
 function rise_dust_fx(localclientnum, type, billow_fx, burst_fx)
 {
 	dust_tag = "J_SpineUpper";
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("demo_jump");
 	if(isdefined(burst_fx))
 	{
@@ -362,7 +362,7 @@ function zombie_eyes_clientfield_cb(localclientnum, oldval, newval, bnewent, bin
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -395,7 +395,7 @@ function zombie_eyes_clientfield_cb(localclientnum, oldval, newval, bnewent, bin
 */
 function createzombieeyesinternal(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self._eyearray))
 	{
@@ -548,7 +548,7 @@ function callback_powerup_on_fx(localclientnum, oldval, newval, bnewent, binitia
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -629,7 +629,7 @@ function function_f83377d6(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -665,7 +665,7 @@ function function_f83377d6(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_780c0a4(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -698,7 +698,7 @@ function function_4b335db(localclientnum, oldval, newval, bnewent, binitialsnap,
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -736,7 +736,7 @@ function function_225fae17(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -772,7 +772,7 @@ function function_1f4cd60d(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -893,7 +893,7 @@ function function_69f683e7(localclientnum, onoff)
 */
 function function_d8c8d819(localclientnum, var_d6ae4487)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.var_13f5905e = 1;
 	self duplicate_render::set_dr_flag("armor_on", 1);
 	self duplicate_render::update_dr_filters(localclientnum);
@@ -938,7 +938,7 @@ function function_e4d833e(localclientnum, oldval, newval, bnewent, binitialsnap,
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -1015,7 +1015,7 @@ function private function_10dcbf51(localclientnum, fxobj)
 */
 function zombie_gut_explosion_cb(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -1046,7 +1046,7 @@ function zombie_gut_explosion_cb(localclientnum, oldval, newval, bnewent, biniti
 */
 function function_ab68bae5(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -1074,7 +1074,7 @@ function function_ab68bae5(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_14312cfd(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -1101,7 +1101,7 @@ function function_14312cfd(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_97590d4(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -1131,7 +1131,7 @@ function function_97590d4(localclientnum, oldval, newval, bnewent, binitialsnap,
 */
 function function_42f6f16e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -1192,7 +1192,7 @@ function magicbox_open_glow_callback(localclientnum, oldval, newval, bnewent, bi
 */
 function open_glow_obj_demo_jump_listener(localclientnum)
 {
-	self endon(#"end_demo_jump_listener");
+	self endon("end_demo_jump_listener");
 	level waittill("demo_jump");
 	self open_glow_obj_cleanup(localclientnum);
 }
@@ -1210,7 +1210,7 @@ function open_glow_obj_cleanup(localclientnum)
 {
 	self.open_glow_obj_array[localclientnum] delete();
 	self.open_glow_obj_array[localclientnum] = undefined;
-	self notify(#"end_demo_jump_listener");
+	self notify("end_demo_jump_listener");
 }
 
 /*
@@ -1224,7 +1224,7 @@ function open_glow_obj_cleanup(localclientnum)
 */
 function magicbox_closed_glow_callback(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -1262,7 +1262,7 @@ function magicbox_closed_glow_callback(localclientnum, oldval, newval, bnewent, 
 */
 function closed_glow_obj_demo_jump_listener(localclientnum)
 {
-	self endon(#"end_demo_jump_listener");
+	self endon("end_demo_jump_listener");
 	level waittill("demo_jump");
 	self closed_glow_obj_cleanup(localclientnum);
 }
@@ -1280,7 +1280,7 @@ function closed_glow_obj_cleanup(localclientnum)
 {
 	self.closed_glow_obj_array[localclientnum] delete();
 	self.closed_glow_obj_array[localclientnum] = undefined;
-	self notify(#"end_demo_jump_listener");
+	self notify("end_demo_jump_listener");
 }
 
 /*
@@ -1350,7 +1350,7 @@ function function_8cf4b0ee(localclientnum)
 */
 function function_7fc0e06(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{

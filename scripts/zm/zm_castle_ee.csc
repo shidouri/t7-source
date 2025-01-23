@@ -119,7 +119,7 @@ function function_2a1f20f9(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function channeling_stone_glow(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_a1e4f5f1");
 	self endon(#"hash_a1e4f5f1");
 	if(newval == 1)

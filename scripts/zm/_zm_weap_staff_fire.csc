@@ -74,7 +74,7 @@ function fire_muzzle_fx(localclientnum, oldval, newval, bnewent, binitialsnap, f
 */
 function function_657b61e3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	rate = randomfloatrange(0.01, 0.015);
 	if(isdefined(self.var_a90ff836))
 	{
@@ -145,7 +145,7 @@ function function_657b61e3(localclientnum, oldval, newval, bnewent, binitialsnap
 function snddeleteent(zomb)
 {
 	self endon(#"snddeleting");
-	zomb waittill(#"entityshutdown");
+	zomb waittill("entityshutdown");
 	self delete();
 }
 

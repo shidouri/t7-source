@@ -348,7 +348,7 @@ function clear_hud(localclientnum)
 function watch_for_death(localclientnum)
 {
 	level endon("watch_for_death");
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 }
 
 /*
@@ -443,8 +443,8 @@ function resetondemojump(localclientnum, goal, effects)
 */
 function watch_for_team_change(localclientnum)
 {
-	level notify(#"end_team_change_watch");
-	level endon(#"end_team_change_watch");
+	level notify("end_team_change_watch");
+	level endon("end_team_change_watch");
 	level waittill("team_changed");
 	thread setup_fx(localclientnum);
 }

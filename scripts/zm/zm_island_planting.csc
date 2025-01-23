@@ -256,7 +256,7 @@ function planter_model_watered(localclientnum, oldval, newval, bnewent, binitial
 */
 function function_b8ba462e(localclientnum, b_on = 1)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"hash_67a9e087");
 	self endon(#"hash_67a9e087");
 	level endon("demo_jump");

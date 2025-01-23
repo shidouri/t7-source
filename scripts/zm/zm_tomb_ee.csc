@@ -246,7 +246,7 @@ function function_aff1c5b2(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_19452a40(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	while(true)
 	{
@@ -330,7 +330,7 @@ function function_b628a101(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_17bc361f(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self util::waittill_dobj(localclientnum);
 	playfxontag(localclientnum, level._effect["staff_soul"], self, "tag_origin");

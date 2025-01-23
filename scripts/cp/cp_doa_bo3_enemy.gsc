@@ -501,7 +501,7 @@ function function_d4107a2a()
 */
 function function_7517e6b7(origin)
 {
-	level endon(#"exit_taken");
+	level endon("exit_taken");
 	if(!mayspawnentity())
 	{
 		return;
@@ -1850,7 +1850,7 @@ function private function_b6d31d3a(spot, hold = 0, fx = "zombie_riser_fx", var_3
 	self clientfield::set(fx, 1);
 	self orientmode("face default");
 	self animscripted("rise_anim", self.origin, self.angles, var_3d98e879);
-	self waittill(#"end");
+	self waittill("end");
 	self solid();
 	self notify("rise_anim_finished");
 	self.rising = undefined;

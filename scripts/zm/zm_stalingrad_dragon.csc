@@ -84,7 +84,7 @@ function function_d28f5c87(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	self notify("dragon_body_glow");
 	self endon("dragon_body_glow");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self thread function_9b0f57cf(localclientnum, newval);
 	if(newval)
 	{
@@ -217,7 +217,7 @@ function function_d6856592(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_2ce58010(n_local_client)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon(#"hash_a35dee4e");
 	while(true)
 	{
@@ -307,7 +307,7 @@ function function_bd038ea4(n_local_client, var_2c17cb9d, var_116b515b)
 {
 	self notify(#"hash_bd038ea4");
 	self endon(#"hash_bd038ea4");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	var_4361a688 = undefined;
 	switch(var_2c17cb9d)
 	{

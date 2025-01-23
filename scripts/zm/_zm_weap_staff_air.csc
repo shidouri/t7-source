@@ -65,7 +65,7 @@ function function_869adfb(localclientnum, oldval, newval, bnewent, binitialsnap,
 */
 function ragdoll_impact_watch(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	wait(0.1);
 	waittime = 0.016;
 	gibspeed = 500;
@@ -144,7 +144,7 @@ function air_staff_launch(localclientnum, oldval, newval, bnewent, binitialsnap,
 */
 function function_c6b66912(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		self.is_active = 1;
@@ -186,7 +186,7 @@ function function_c6b66912(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_3a4d4e97()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level waittill("demo_jump");
 	self delete();
 }

@@ -573,7 +573,7 @@ function vehicle_wait_player_enter_t()
 	self endon("delete");
 	while(true)
 	{
-		self waittill(#"enter_vehicle", player);
+		self waittill("enter_vehicle", player);
 		player thread player_wait_exit_vehicle_t();
 		player player_update_vehicle_hud(1, self);
 	}
@@ -591,7 +591,7 @@ function vehicle_wait_player_enter_t()
 function player_wait_exit_vehicle_t()
 {
 	self endon("disconnect");
-	self waittill(#"exit_vehicle", vehicle);
+	self waittill("exit_vehicle", vehicle);
 	self player_update_vehicle_hud(0, vehicle);
 }
 
@@ -845,7 +845,7 @@ function cleanup_debug_print_clearmsg_t()
 	/#
 		while(true)
 		{
-			self waittill(#"enter_vehicle");
+			self waittill("enter_vehicle");
 			self.debug_message = undefined;
 		}
 	#/
@@ -912,7 +912,7 @@ function vehicle_abandoned_by_occupants_timeout_t()
 */
 function wait_then_cleanup_vehicle(test_name, cleanup_dvar_name)
 {
-	self endon(#"enter_vehicle");
+	self endon("enter_vehicle");
 	self wait_until_severely_damaged();
 	self do_alive_cleanup_wait(test_name);
 	self wait_for_vehicle_to_stop_outside_min_radius();
@@ -1163,7 +1163,7 @@ function vehicle_abandoned_by_occupants_t()
 	self endon("delete");
 	while(true)
 	{
-		self waittill(#"exit_vehicle");
+		self waittill("exit_vehicle");
 		occupants = self getvehoccupants();
 		if(occupants.size == 0)
 		{
@@ -1207,7 +1207,7 @@ function vehicle_ghost_entering_occupants_t()
 	}
 	while(true)
 	{
-		self waittill(#"enter_vehicle", player, seat);
+		self waittill("enter_vehicle", player, seat);
 		isdriver = seat == 0;
 		if(getdvarint("scr_veh_driversarehidden") != 0 && isdriver)
 		{
@@ -1289,7 +1289,7 @@ function player_is_driver()
 function player_change_seat_handler_t(vehicle)
 {
 	self endon("disconnect");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	while(true)
 	{
 		self waittill("change_seat", vehicle, oldseat, newseat);
@@ -1320,7 +1320,7 @@ function player_change_seat_handler_t(vehicle)
 function player_leave_vehicle_cleanup_t(vehicle)
 {
 	self endon("disconnect");
-	self waittill(#"exit_vehicle");
+	self waittill("exit_vehicle");
 	currentweapon = self getcurrentweapon();
 	if(isdefined(self.lastweapon) && self.lastweapon != currentweapon && self.lastweapon != level.weaponnone)
 	{
@@ -2525,7 +2525,7 @@ function vehicleteamthread()
 		{
 			target_remove(vehicle);
 		}
-		vehicle waittill(#"enter_vehicle", player);
+		vehicle waittill("enter_vehicle", player);
 		player clearandcacheperks();
 		vehicle setteam(player.team);
 		vehicle.ignoreme = 0;
@@ -2544,7 +2544,7 @@ function vehicleteamthread()
 			}
 		}
 		vehicle thread watchplayerexitrequestthread(player);
-		vehicle waittill(#"exit_vehicle", player);
+		vehicle waittill("exit_vehicle", player);
 		if(isdefined(player))
 		{
 			player setcachedperks();

@@ -173,7 +173,7 @@ function fire_spread_shots(w_weapon)
 */
 function fire_staff_area_of_effect(e_attacker, w_weapon)
 {
-	self waittill(#"explode", v_pos);
+	self waittill("explode", v_pos);
 	ent = spawn("script_origin", v_pos);
 	ent playloopsound("wpn_firestaff_grenade_loop", 1);
 	/#

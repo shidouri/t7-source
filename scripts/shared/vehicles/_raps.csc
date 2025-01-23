@@ -57,7 +57,7 @@ function adjust_side_death_dir_if_trace_fail(origin, side_dir, fxlength, up_dir)
 */
 function do_side_death_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	vehicle::wait_for_dobj(localclientnum);
 	radius = 1;
 	fxlength = 40;

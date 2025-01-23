@@ -82,7 +82,7 @@ function spawnedthreatdetector(localclientnum, oldval, newval, bnewent, binitial
 */
 function sensorgrenadethink(sensorent, sensorhandle, localclientnum)
 {
-	sensorent endon(#"entityshutdown");
+	sensorent endon("entityshutdown");
 	if(isdefined(sensorent.owner) == 0)
 	{
 		return;
@@ -124,7 +124,7 @@ function sensorgrenadethink(sensorent, sensorhandle, localclientnum)
 */
 function clearthreatdetectorondelete(sensorent, sensorhandle, localclientnum)
 {
-	sensorent waittill(#"entityshutdown");
+	sensorent waittill("entityshutdown");
 	entindex = 0;
 	for(i = 0; i < level.sensors.size; i++)
 	{

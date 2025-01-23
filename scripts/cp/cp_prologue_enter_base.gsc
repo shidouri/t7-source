@@ -275,7 +275,7 @@ function function_e2ed5f34()
 {
 	self endon("death");
 	self endon("objective_blend_in_done");
-	level waittill(#"explosion_blast");
+	level waittill("explosion_blast");
 	wait(1.5);
 	level thread objectives::breadcrumb("blending_in_breadcrumb_3");
 }
@@ -311,7 +311,7 @@ function function_bc06f066()
 	level thread function_bafd79f6(str_trig, a_vo_lines, var_61ae76d5, var_9e3b0b67);
 	level thread function_bf532adb();
 	level thread function_3eb38d8d();
-	level waittill(#"explosion_blast");
+	level waittill("explosion_blast");
 	level.ai_hendricks dialog::say("hend_shit_keep_your_hea_0");
 	var_49b32118 = getent("pa_vox_tarmac", "targetname");
 	var_49b32118 thread dialog::say("nrcp_all_available_person_0", 2);
@@ -1224,7 +1224,7 @@ function function_4febd2da()
 */
 function function_6bad1a34()
 {
-	level waittill(#"explosion_blast");
+	level waittill("explosion_blast");
 	level thread scene::play("plane_cockpit_explosion", "targetname");
 	exploder::exploder("fx_exploder_plane_exp");
 	level thread cp_prologue_util::function_2a0bc326(level.ai_hendricks.origin, 0.5, 1.2, 10000, 4);

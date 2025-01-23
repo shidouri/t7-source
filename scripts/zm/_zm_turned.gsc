@@ -356,7 +356,7 @@ function turned_player_buttons()
 {
 	self endon("disconnect");
 	self endon("humanify");
-	level endon(#"end_game");
+	level endon("end_game");
 	while(isdefined(self.is_zombie) && self.is_zombie)
 	{
 		if(self attackbuttonpressed() || self adsbuttonpressed() || self meleebuttonpressed())

@@ -317,7 +317,7 @@ function function_ae64b39a(var_9636d237, var_f40460f5, var_895cb900 = 0)
 		}
 		else if(!isdefined(var_9636d237))
 		{
-			level waittill(#"end_of_round");
+			level waittill("end_of_round");
 		}
 		self scene::play("p7_fxanim_zm_island_plant_dead_bundle", self.s_plant.model);
 		self.s_plant.model ghost();
@@ -409,7 +409,7 @@ function function_447658c7(var_9636d237, var_f40460f5)
 				continue;
 				continue;
 			}
-			level waittill(#"end_of_round");
+			level waittill("end_of_round");
 			if(isdefined(self.s_plant.var_8d8becb0) && self.s_plant.var_8d8becb0)
 			{
 				self.s_plant.var_8d8becb0 = 0;
@@ -576,7 +576,7 @@ function function_ffa65395(var_f40460f5)
 		self.s_plant.var_8d8becb0 = 1;
 		self.s_plant.model clientfield::set("plant_watered_fx", 1);
 		self.model clientfield::set("planter_model_watered", 1);
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		self.s_plant.model clientfield::set("plant_watered_fx", 0);
 		self.model clientfield::set("planter_model_watered", 0);
 	}
@@ -605,7 +605,7 @@ function function_5026698c(var_f40460f5)
 		{
 			return;
 		}
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		self.s_plant.model clientfield::set("plant_hit_with_ww_fx", 0);
 	}
 }
@@ -1883,7 +1883,7 @@ function function_813b723b()
 	n_damage_amount = self.s_plant.var_b454101b.health / 5;
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		self.s_plant.var_b454101b zm_attackables::do_damage(n_damage_amount);
 	}
 }

@@ -926,7 +926,7 @@ function function_772aa229()
 		{
 			level thread function_cc4d4a7c();
 		}
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(level.activeplayers.size == 1)
 		{
 			level thread function_340dc03();
@@ -2625,7 +2625,7 @@ function function_13ea746c()
 	level endon(#"_zombie_game_over");
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(level.round_number >= 14)
 		{
 			if(isdefined(level.var_49d419a3) && level.var_49d419a3)
@@ -2659,7 +2659,7 @@ function function_d5f6780()
 	level endon(#"_zombie_game_over");
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(isdefined(level.var_49d419a3) && level.var_49d419a3)
 		{
 			wait(10);

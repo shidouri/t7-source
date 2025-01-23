@@ -225,7 +225,7 @@ function function_7884e6b8()
 	function_6b96bf38();
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(level.round_number == 2)
 		{
 			function_ef84a69b();

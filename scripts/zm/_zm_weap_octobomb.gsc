@@ -198,7 +198,7 @@ function show_owner_on_attack(owner)
 {
 	owner endon("hide_owner");
 	owner endon(#"show_owner");
-	self endon(#"explode");
+	self endon("explode");
 	self endon("death");
 	self endon("grenade_dud");
 	owner.show_for_time = undefined;
@@ -624,7 +624,7 @@ function octobomb_cleanup()
 */
 function do_octobomb_sound()
 {
-	self waittill(#"explode", position);
+	self waittill("explode", position);
 	level notify("grenade_exploded", position, 100, 5000, 450);
 	octobomb_index = -1;
 	for(i = 0; i < level.octobombs.size; i++)
@@ -652,7 +652,7 @@ function do_octobomb_sound()
 */
 function do_tentacle_burst(e_player, is_upgraded)
 {
-	self endon(#"explode");
+	self endon("explode");
 	n_time_started = gettime() / 1000;
 	while(true)
 	{
@@ -1140,7 +1140,7 @@ function parasite_attractor_grab(e_grenade)
 */
 function sndattackvox()
 {
-	self endon(#"explode");
+	self endon("explode");
 	while(true)
 	{
 		self waittill(#"sndkillvox");

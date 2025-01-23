@@ -917,8 +917,8 @@ function function_f08ad3e6()
 function function_791c1a61()
 {
 	self endon("death");
-	self notify(#"emped");
-	self endon(#"emped");
+	self notify("emped");
+	self endon("emped");
 	self.emped = 1;
 	playsoundatposition("veh_sentry_turret_emp_down", self.origin);
 	self.turretrotscale = 0.2;
@@ -976,7 +976,7 @@ function cicturretcallback_vehicledamage(einflictor, eattacker, idamage, idflags
 */
 function cic_overheat_hud(turret)
 {
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	turret endon("turret_exited");
 	level endon("player_using_turret");
 	heat = 0;

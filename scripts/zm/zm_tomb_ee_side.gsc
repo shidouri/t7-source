@@ -225,11 +225,11 @@ function wagon_fire_challenge()
 		else
 		{
 			zm_powerups::specific_powerup_drop("zombie_blood", s_powerup.origin);
-			level waittill(#"end_of_round");
+			level waittill("end_of_round");
 			waittillframeend();
 			while(level.weather_rain > 0)
 			{
-				level waittill(#"end_of_round");
+				level waittill("end_of_round");
 				waittillframeend();
 			}
 			wagon_fire_start();

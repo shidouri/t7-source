@@ -281,7 +281,7 @@ function private function_e89cc6dd()
 			level.a_zombie_respawn_health[self.archetype][level.a_zombie_respawn_health[self.archetype].size] = self.health;
 		}
 	}
-	self notify(#"enemy_cleaned_up");
+	self notify("enemy_cleaned_up");
 	util::wait_network_frame();
 	if(isalive(self))
 	{

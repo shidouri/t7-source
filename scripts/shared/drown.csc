@@ -182,7 +182,7 @@ function disable_drown(localclientnum)
 function player_drown_fx(localclientnum, stage)
 {
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("player_fade_out_drown_fx");
 	self notify("player_drown_fx");
 	self endon("player_drown_fx");
@@ -220,7 +220,7 @@ function player_drown_fx(localclientnum, stage)
 function player_fade_out_drown_fx(localclientnum)
 {
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("player_drown_fx");
 	self notify("player_fade_out_drown_fx");
 	self endon("player_fade_out_drown_fx");

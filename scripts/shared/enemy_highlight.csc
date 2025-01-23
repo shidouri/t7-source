@@ -17,7 +17,7 @@
 */
 function enemy_highlight_display(localclientnum, materialname, size, fovpercent, tracetimecheck, actorsonly, allymaterialname)
 {
-	self notify(#"enemy_highlight_display");
+	self notify("enemy_highlight_display");
 	self.enemy_highlight_display = 1;
 	self thread enemy_highlight_display_pulse(localclientnum, actorsonly, allymaterialname);
 	self thread enemy_highlight_display_frame(localclientnum, materialname, size, fovpercent, tracetimecheck, allymaterialname);
@@ -34,7 +34,7 @@ function enemy_highlight_display(localclientnum, materialname, size, fovpercent,
 */
 function enemy_highlight_display_pulse(localclientnum, actorsonly, allymaterialname)
 {
-	self endon(#"enemy_highlight_display");
+	self endon("enemy_highlight_display");
 	if(!isdefined(actorsonly))
 	{
 		actorsonly = 0;
@@ -95,7 +95,7 @@ function enemy_highlight_display_pulse(localclientnum, actorsonly, allymaterialn
 */
 function enemy_highlight_display_frame(localclientnum, materialname, size, fovpercent, tracetimecheck, allymaterialname)
 {
-	self endon(#"enemy_highlight_display");
+	self endon("enemy_highlight_display");
 	if(!isdefined(self.enemy_highlight_elems))
 	{
 		self.enemy_highlight_elems = [];
@@ -231,8 +231,8 @@ function enemy_highlight_display_frame(localclientnum, materialname, size, fovpe
 */
 function enemy_highlight_display_stop(localclientnum)
 {
-	self notify(#"enemy_highlight_display");
-	self endon(#"enemy_highlight_display");
+	self notify("enemy_highlight_display");
+	self endon("enemy_highlight_display");
 	wait(0.016);
 	if(isdefined(self.enemy_highlight_elems))
 	{

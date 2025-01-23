@@ -1964,7 +1964,7 @@ function checkforalldead(excluded_player)
 	}
 	if(count == 0 && (!(isdefined(level.no_end_game_check) && level.no_end_game_check)))
 	{
-		level notify(#"end_game");
+		level notify("end_game");
 	}
 }
 
@@ -2241,7 +2241,7 @@ function player_out_of_playable_area_monitor()
 	self notify("stop_player_out_of_playable_area_monitor");
 	self endon("stop_player_out_of_playable_area_monitor");
 	self endon("disconnect");
-	level endon(#"end_game");
+	level endon("end_game");
 	while(!isdefined(self.characterindex))
 	{
 		wait(0.05);
@@ -2283,7 +2283,7 @@ function player_out_of_playable_area_monitor()
 				wait(0.5);
 				if(getplayers().size == 1 && level flag::get("solo_game") && (isdefined(self.waiting_to_revive) && self.waiting_to_revive))
 				{
-					level notify(#"end_game");
+					level notify("end_game");
 				}
 				else
 				{
@@ -2388,7 +2388,7 @@ function player_too_many_weapons_monitor()
 	self notify("stop_player_too_many_weapons_monitor");
 	self endon("stop_player_too_many_weapons_monitor");
 	self endon("disconnect");
-	level endon(#"end_game");
+	level endon("end_game");
 	scalar = self.characterindex;
 	if(!isdefined(scalar))
 	{
@@ -2871,7 +2871,7 @@ function spawnspectator()
 	self endon("disconnect");
 	self endon("spawned_spectator");
 	self notify("spawned");
-	self notify(#"end_respawn");
+	self notify("end_respawn");
 	if(level.intermission)
 	{
 		return;
@@ -3924,7 +3924,7 @@ function get_safe_breadcrumb_pos(player)
 function round_spawning()
 {
 	level endon("intermission");
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level endon("restart_round");
 	/#
 		level endon("kill_round");
@@ -4385,7 +4385,7 @@ function wait_until_first_player()
 */
 function round_one_up()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	if(isdefined(level.noroundnumber) && level.noroundnumber == 1)
 	{
 		return;
@@ -4577,7 +4577,7 @@ function round_think(restart = 0)
 	/#
 		println("");
 	#/
-	level endon(#"end_round_think");
+	level endon("end_round_think");
 	if(!(isdefined(restart) && restart))
 	{
 		if(isdefined(level.initial_round_wait_func))
@@ -4682,7 +4682,7 @@ function round_think(restart = 0)
 		}
 		[[level.round_wait_func]]();
 		level.first_round = 0;
-		level notify(#"end_of_round");
+		level notify("end_of_round");
 		bb::logroundevent("end_of_round");
 		uploadstats();
 		if(isdefined(level.round_end_custom_logic))
@@ -4978,7 +4978,7 @@ function round_wait()
 */
 function sndmusiconkillround()
 {
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level waittill("kill_round");
 	level thread zm_audio::sndmusicsystem_playstate("round_end");
 }
@@ -5673,7 +5673,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 				{
 					increment_dog_round_stat("lost");
 				}
-				level notify(#"end_game");
+				level notify("end_game");
 			}
 			else
 			{
@@ -5688,7 +5688,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 			{
 				increment_dog_round_stat("lost");
 			}
-			level notify(#"end_game");
+			level notify("end_game");
 		}
 		return 0;
 	}
@@ -6212,7 +6212,7 @@ function round_end_monitor()
 {
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		demo::bookmark("zm_round_end", gettime(), undefined, undefined, 1);
 		bbpostdemostreamstatsforround(level.round_number);
 		zm_utility::upload_zm_dash_counters();
@@ -6268,7 +6268,7 @@ function updateendofmatchcounters()
 */
 function end_game()
 {
-	level waittill(#"end_game");
+	level waittill("end_game");
 	check_end_game_intermission_delay();
 	/#
 		println("");
@@ -7426,7 +7426,7 @@ function player_too_many_players_check()
 	if(getplayers().size > max_players)
 	{
 		zm_game_module::freeze_players(1);
-		level notify(#"end_game");
+		level notify("end_game");
 	}
 }
 

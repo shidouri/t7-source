@@ -178,7 +178,7 @@ function function_5858bdaf(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_ca87037d(localclientnum)
 {
-	self endon(#"entity_shutdown");
+	self endon("entity_shutdown");
 	while(isdefined(self))
 	{
 		self playrumbleonentity(localclientnum, "zm_stalingrad_drop_pod_ambient");

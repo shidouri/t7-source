@@ -106,7 +106,7 @@ function localclientconnect(localclientnum)
 */
 function playerspawned(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("playerspawned_callback");
 	self endon("playerspawned_callback");
 	player = getlocalplayer(localclientnum);
@@ -140,7 +140,7 @@ function playerspawned(localclientnum)
 */
 function entityspawned(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(self isplayer())
 	{
 		if(isdefined(level._clientfaceanimonplayerspawned))
@@ -389,7 +389,7 @@ function callback_emp(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	#/
 	if(newval)
 	{
-		self notify(#"emp");
+		self notify("emp");
 	}
 	else
 	{

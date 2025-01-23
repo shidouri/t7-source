@@ -765,7 +765,7 @@ function watch_for_death()
 function monkey_round_spawning()
 {
 	level endon("intermission");
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level endon("restart_round");
 	/#
 		level endon("kill_round");

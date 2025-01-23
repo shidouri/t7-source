@@ -153,7 +153,7 @@ function on_player_spawned(localclientnum)
 */
 function force_update_player_clientfields(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(!clienthassnapshot(localclientnum))
 	{
 		wait(0.25);

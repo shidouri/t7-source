@@ -77,7 +77,7 @@ function achievement_temple_sidequest()
 */
 function achievement_zomb_disposal()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level waittill("zomb_disposal_achieved");
 }
 
@@ -106,7 +106,7 @@ function achievement_monkey_see_monkey_dont()
 */
 function achievement_blinded_by_the_fright()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"blinded_by_the_fright_achieved");
 }
@@ -122,7 +122,7 @@ function achievement_blinded_by_the_fright()
 */
 function achievement_small_consolation()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	while(true)
 	{

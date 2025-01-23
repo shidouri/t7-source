@@ -95,7 +95,7 @@ function lightning_bolt_fx_toggle(localclientnum, oldval, newval, bnewent, binit
 	self notify("lightning_bolt_fx_toggle" + localclientnum);
 	self endon("lightning_bolt_fx_toggle" + localclientnum);
 	player = getlocalplayer(localclientnum);
-	player endon(#"entityshutdown");
+	player endon("entityshutdown");
 	if(!isdefined(self._location_indicator))
 	{
 		self._location_indicator = [];
@@ -374,7 +374,7 @@ function start_bottle_cycling(localclientnum, oldval, newval, bnewent, binitials
 function start_vortex_fx(localclientnum)
 {
 	self endon("activation_electricity_finished");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.glow_location))
 	{
 		self.glow_location = spawn(localclientnum, self.origin, "script_model");
@@ -398,7 +398,7 @@ function start_vortex_fx(localclientnum)
 */
 function stop_vortex_fx(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify(#"bottle_cycling_finished");
 	wait(0.5);
 	if(!isdefined(self))
@@ -427,7 +427,7 @@ function stop_vortex_fx(localclientnum)
 function fx_artifact_pulse_thread(localclientnum)
 {
 	self endon("activation_electricity_finished");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(self))
 	{
 		shader_amount = sin(getrealtime() * 0.2);
@@ -455,7 +455,7 @@ function fx_artifact_pulse_thread(localclientnum)
 function fx_activation_electric_loop(localclientnum)
 {
 	self endon("activation_electricity_finished");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		wait(0.1);

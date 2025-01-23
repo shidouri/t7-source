@@ -658,7 +658,7 @@ function function_772aa229()
 				level thread function_cc4d4a7c();
 			}
 		}
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		if(function_70e6e39e() == 0)
 		{
 			if(level.activeplayers.size == 1)

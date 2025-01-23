@@ -404,7 +404,7 @@ function function_979d2797(localclientnum)
 */
 function function_90c151e6(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!self hasdobj(localclientnum))
 	{
 		self util::waittill_dobj(localclientnum);

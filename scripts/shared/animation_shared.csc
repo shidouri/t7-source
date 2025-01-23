@@ -64,7 +64,7 @@ function first_frame(animation, v_origin_or_ent, v_angles_or_tag)
 */
 function play(animation, v_origin_or_ent, v_angles_or_tag, n_rate = 1, n_blend_in = 0.2, n_blend_out = 0.2, n_lerp, b_link = 0)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self thread _play(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, n_blend_out, n_lerp, b_link);
 	self waittill("scriptedanim");
 }
@@ -80,7 +80,7 @@ function play(animation, v_origin_or_ent, v_angles_or_tag, n_rate = 1, n_blend_i
 */
 function _play(animation, v_origin_or_ent = self, v_angles_or_tag, n_rate = 1, n_blend_in = 0.2, n_blend_out = 0.2, n_lerp, b_link = 0)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("new_scripted_anim");
 	self endon("new_scripted_anim");
 	flagsys::set_val("firstframe", n_rate == 0);
@@ -220,7 +220,7 @@ function _get_align_pos(v_origin_or_ent = self.origin, v_angles_or_tag = (isdefi
 function play_siege(str_anim, str_shot = "default", n_rate = 1, b_loop = 0)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(n_rate == 0)
 	{
 		self siegecmd("set_anim", str_anim, "set_shot", str_shot, "pause", "goto_start");
@@ -229,7 +229,7 @@ function play_siege(str_anim, str_shot = "default", n_rate = 1, b_loop = 0)
 	{
 		self siegecmd("set_anim", str_anim, "set_shot", str_shot, "unpause", "set_playback_speed", n_rate, "send_end_events", 1, (b_loop ? "loop" : "unloop"));
 	}
-	self waittill(#"end");
+	self waittill("end");
 }
 
 /*
@@ -385,7 +385,7 @@ function setup_notetracks()
 function handle_notetracks()
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill(#"_anim_notify_", str_note);

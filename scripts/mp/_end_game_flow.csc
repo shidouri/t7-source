@@ -138,7 +138,7 @@ function loadcharacteronmodel(localclientnum, charactermodel, topplayerindex)
 */
 function setupmodelandanimation(localclientnum, charactermodel, topplayerindex)
 {
-	charactermodel endon(#"entityshutdown");
+	charactermodel endon("entityshutdown");
 	loadcharacteronmodel(localclientnum, charactermodel, topplayerindex);
 	setanimationonmodel(localclientnum, charactermodel, topplayerindex);
 }

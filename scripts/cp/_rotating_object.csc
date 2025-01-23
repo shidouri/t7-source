@@ -61,7 +61,7 @@ function main(localclientnum)
 */
 function rotating_object_think()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	util::waitforallclients();
 	axis = "yaw";
 	direction = 360;

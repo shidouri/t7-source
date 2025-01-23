@@ -307,7 +307,7 @@ function onpickupturret(turret)
 	turret.othermodel clientfield::set("auto_turret_close", 1);
 	if(isdefined(turret.vehicle))
 	{
-		turret.vehicle notify(#"end_turret_scanning");
+		turret.vehicle notify("end_turret_scanning");
 		turret.vehicle setturrettargetrelativeangles((0, 0, 0));
 		turret.vehicle clientfield::set("auto_turret_open", 0);
 		if(isdefined(turret.vehicle.usetrigger))
@@ -668,7 +668,7 @@ function turretscanning()
 {
 	turretvehicle = self;
 	turretvehicle endon("death");
-	turretvehicle endon(#"end_turret_scanning");
+	turretvehicle endon("end_turret_scanning");
 	turret_data = turretvehicle _get_turret_data(0);
 	turretvehicle.do_not_clear_targets_during_think = 1;
 	wait(0.8);

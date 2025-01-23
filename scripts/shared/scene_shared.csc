@@ -170,7 +170,7 @@ class csceneobject : cscriptbundleobjectbase
 			_e_array[clientnum] show();
 			if(isdefined(_s.issiege) && _s.issiege)
 			{
-				_e_array[clientnum] notify(#"end");
+				_e_array[clientnum] notify("end");
 				_e_array[clientnum] animation::play_siege(animation, str_siege_shot, n_rate, loop);
 			}
 			else
@@ -1494,7 +1494,7 @@ function private on_localplayer_shutdown(localclientnum)
 */
 function postfx_igc(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.postfx_igc_on) && self.postfx_igc_on)
 	{
 		return;
@@ -1731,7 +1731,7 @@ function postfx_igc_zombies(localclientnum)
 */
 function postfx_igc_short(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.postfx_igc_on = 1;
 	codeimagename = "postfx_igc_image" + localclientnum;
 	createscenecodeimage(localclientnum, codeimagename);
@@ -1943,7 +1943,7 @@ function __main__()
 */
 function _trigger_init(trig)
 {
-	trig endon(#"entityshutdown");
+	trig endon("entityshutdown");
 	trig waittill("trigger");
 	_init_instance();
 }
@@ -1959,7 +1959,7 @@ function _trigger_init(trig)
 */
 function _trigger_play(trig)
 {
-	trig endon(#"entityshutdown");
+	trig endon("entityshutdown");
 	do
 	{
 		trig waittill("trigger");
@@ -1979,7 +1979,7 @@ function _trigger_play(trig)
 */
 function _trigger_stop(trig)
 {
-	trig endon(#"entityshutdown");
+	trig endon("entityshutdown");
 	trig waittill("trigger");
 	_stop_instance();
 }

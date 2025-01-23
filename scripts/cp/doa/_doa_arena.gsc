@@ -1385,7 +1385,7 @@ function private function_47f8f274()
 */
 function private function_17665174(trigger)
 {
-	level endon(#"exit_taken");
+	level endon("exit_taken");
 	level endon("doa_game_is_over");
 	trigger waittill("trigger");
 	level.doa.var_c03fe5f1 = function_6b351e04(level.doa.forced_magical_room, level.doa.var_94073ca5);
@@ -1482,7 +1482,7 @@ function function_f64e4b70(specific)
 		assert(level.doa.exits_open.size != 0, "");
 	#/
 	level clientfield::set("numexits", level.doa.exits_open.size);
-	level waittill(#"exit_taken", exit_trigger);
+	level waittill("exit_taken", exit_trigger);
 	level.doa.forced_magical_room = undefined;
 	level.doa.var_94073ca5 = undefined;
 	level notify(#"hash_b96c96ac", level.doa.exits_open.size > 1);
@@ -1538,10 +1538,10 @@ function function_a8b0c139(trigger, objective_id)
 	}
 	objective_delete(objective_id);
 	wait(0.1);
-	level notify(#"exit_taken", trigger);
+	level notify("exit_taken", trigger);
 	foreach(player in getplayers())
 	{
-		player notify(#"exit_taken");
+		player notify("exit_taken");
 	}
 }
 

@@ -100,7 +100,7 @@ function update_victim(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 {
 	if(newval)
 	{
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		self util::waittill_dobj(localclientnum);
 		self playrumbleonentity(localclientnum, "heat_wave_damage");
 		playtagfxset(localclientnum, "ability_hero_heat_wave_player_impact", self);
@@ -158,7 +158,7 @@ function clear_heat_wave_fx(localclientnum)
 */
 function aoe_fx(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	center = self.origin + vectorscale((0, 0, 1), 30);
 	startpitch = -90;
 	yaw_count = [];

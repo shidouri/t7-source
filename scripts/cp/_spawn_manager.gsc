@@ -734,7 +734,7 @@ function spawn_manager_enable_think()
 {
 	while(isdefined(self))
 	{
-		self waittill(#"enable");
+		self waittill("enable");
 		self.enable = 1;
 		self spawn_manager_flag_enabled();
 		self waittill("disable");
@@ -755,10 +755,10 @@ function spawn_manager_enable_think()
 function spawn_manager_enable_trigger_think(spawn_manager)
 {
 	spawn_manager endon("death");
-	spawn_manager endon(#"enable");
+	spawn_manager endon("enable");
 	self endon("death");
 	self waittill("trigger");
-	spawn_manager notify(#"enable");
+	spawn_manager notify("enable");
 }
 
 /*
@@ -1317,7 +1317,7 @@ function enable(spawn_manager_targetname, no_assert)
 		{
 			if(isdefined(sm) && sm.sm_id == spawn_manager_targetname)
 			{
-				sm notify(#"enable");
+				sm notify("enable");
 				return;
 			}
 		}

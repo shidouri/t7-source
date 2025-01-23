@@ -961,8 +961,8 @@ function function_67cc41d(vh_turret)
 	self clientfield::increment("skull_turret_explode_fx");
 	self.allowdeath = 1;
 	self.magic_bullet_shield = 0;
-	self notify(#"exploding");
-	self notify(#"end_melee");
+	self notify("exploding");
+	self notify("end_melee");
 	self playsound("zmb_deathray_zombie_poof");
 	self thread function_218cc1b();
 }

@@ -1643,7 +1643,7 @@ function endondeath()
 {
 	self waittill("death");
 	waittillframeend();
-	self notify(#"end_explode");
+	self notify("end_explode");
 }
 
 /*
@@ -1660,8 +1660,8 @@ function flashtheprops(var_e967d644)
 	level endon("game_ended");
 	var_e967d644 endon("disconnect");
 	self thread endondeath();
-	self endon(#"end_explode");
-	self waittill(#"explode", position);
+	self endon("end_explode");
+	self waittill("explode", position);
 	if(!isdefined(var_e967d644))
 	{
 		return;
@@ -2069,7 +2069,7 @@ function function_899a39ec(grenade)
 	level endon("game_ended");
 	self endon("disconnect");
 	weapon = grenade.weapon;
-	grenade waittill(#"explode", damageorigin);
+	grenade waittill("explode", damageorigin);
 	if(!isdefined(level.var_56d3e86e))
 	{
 		level.var_56d3e86e = [];

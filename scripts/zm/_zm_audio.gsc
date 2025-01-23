@@ -2724,7 +2724,7 @@ function water_vox()
 {
 	self endon("death");
 	self endon("disconnect");
-	level endon(#"end_game");
+	level endon("end_game");
 	self.voxunderwatertime = 0;
 	self.voxemergebreath = 0;
 	self.voxdrowning = 0;

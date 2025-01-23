@@ -49,7 +49,7 @@ function __init__()
 */
 function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("disconnect");
 	if(!isdefined(newval) || newval == 0)
 	{

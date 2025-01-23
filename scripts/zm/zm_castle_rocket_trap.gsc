@@ -619,7 +619,7 @@ function function_343a73a4()
 function function_ff1f70cd(e_grenade, var_412615f9)
 {
 	e_grenade endon("death");
-	e_grenade endon(#"explode");
+	e_grenade endon("explode");
 	if(e_grenade.weapon.name === "cymbal_monkey" && (e_grenade zm_zonemgr::entity_in_zone("zone_v10_pad_door") || e_grenade zm_zonemgr::entity_in_zone("zone_v10_pad_exterior")))
 	{
 		while(isdefined(level.zones["zone_v10_pad_door"].is_spawning_allowed) && level.zones["zone_v10_pad_door"].is_spawning_allowed)

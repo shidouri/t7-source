@@ -196,7 +196,7 @@ function private _burnstage(localclientnum, tagarray, shouldwait)
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	tags = array::randomize(tagarray);
 	for(i = 1; i < tags.size; i++)
 	{
@@ -231,7 +231,7 @@ function private _burnstage(localclientnum, tagarray, shouldwait)
 */
 function private _burnbody(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.burn_loop_sound_handle = self playloopsound("chr_burn_npc_loop1", 0.2);
 	timer = 10;
 	bonemodifier = "";
@@ -310,7 +310,7 @@ function sndstopburnloop(timer)
 */
 function private _burncorpse(localclientnum, burningduration)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	timer = 10;
 	bonemodifier = "";
 	if(self.archetype == "robot")
@@ -363,7 +363,7 @@ function private _burncorpse(localclientnum, burningduration)
 */
 function private _smoldercorpse(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	bonemodifier = "";
 	if(self.archetype == "robot")
 	{
@@ -500,7 +500,7 @@ function actor_char(localclientnum, oldval, newval, bnewent, binitialsnap, field
 */
 function actorcharrampto(localclientnum, chardesired)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.curcharlevel))
 	{
 		self.curcharlevel = 0;

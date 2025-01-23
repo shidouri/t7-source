@@ -431,7 +431,7 @@ function function_4adc7dc8(&potentialtargets)
 	}
 	decoy notsolid();
 	decoy.notsolid = 1;
-	decoy notify(#"end_nudge_collision");
+	decoy notify("end_nudge_collision");
 	decoy.ignoreall = 1;
 	decoy.takedamage = 0;
 	decoy.health = 10000;

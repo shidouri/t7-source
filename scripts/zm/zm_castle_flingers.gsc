@@ -446,7 +446,7 @@ function function_f7842163(var_ca34f349, v_fling, nd_start, var_173065cc, var_df
 function function_149a5187()
 {
 	self endon(#"hash_13bf4db7");
-	level waittill(#"end_game");
+	level waittill("end_game");
 	self.var_3048ac6d = 1;
 }
 

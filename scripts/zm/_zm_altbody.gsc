@@ -115,7 +115,7 @@ function init(name, kiosk_name, trigger_hint, visionset_name, visionset_priority
 */
 function function_a2c7acf5()
 {
-	level waittill(#"end_game");
+	level waittill("end_game");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{

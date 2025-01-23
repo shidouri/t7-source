@@ -2444,7 +2444,7 @@ function ball_physics_out_of_level()
 	self endon("reset");
 	self endon("pickup_object");
 	ball = self.visuals[0];
-	self waittill(#"entity_oob");
+	self waittill("entity_oob");
 	self reset_ball();
 }
 

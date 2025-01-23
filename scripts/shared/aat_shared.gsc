@@ -785,7 +785,7 @@ function remove(weapon)
 function watch_weapon_changes()
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(self))
 	{
 		self waittill("weapon_change", weapon);

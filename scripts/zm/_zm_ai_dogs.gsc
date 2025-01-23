@@ -175,7 +175,7 @@ function dog_spawner_init()
 function dog_round_spawning()
 {
 	level endon("intermission");
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level endon("restart_round");
 	level.dog_targets = getplayers();
 	for(i = 0; i < level.dog_targets.size; i++)

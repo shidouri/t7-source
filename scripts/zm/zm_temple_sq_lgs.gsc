@@ -311,7 +311,7 @@ function water_trail(ent)
 function function_c7e74d12()
 {
 	self endon("triggered");
-	level endon(#"end_game");
+	level endon("end_game");
 	exploder::exploder("fxexp_602");
 	level util::waittill_any("sq_lgs_over", "sq_lgs_failed");
 	exploder::stop_exploder("fxexp_602");

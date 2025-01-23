@@ -205,7 +205,7 @@ function wolf_howl_slow_snow_fx(localclientnum, oldval, newval, bnewent, binitia
 */
 function zombie_hit_by_wolf_howl_charge(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		playfxontag(localclientnum, level._effect["zombie_trail_wolf_howl_hit"], self, "j_spine4");
@@ -225,7 +225,7 @@ function zombie_hit_by_wolf_howl_charge(localclientnum, oldval, newval, bnewent,
 */
 function wolf_howl_zombie_explode_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	playfxontag(localclientnum, level._effect["zombie_wolf_howl_hit_explode"], self, "j_spine4");
 }

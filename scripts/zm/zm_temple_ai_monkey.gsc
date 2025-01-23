@@ -887,7 +887,7 @@ function _monkey_getspawnlocation(var_93eb638b)
 function _monkey_stealpowerup()
 {
 	self endon("death");
-	self endon(#"end_monkey_steal");
+	self endon("end_monkey_steal");
 	self _monkey_grabpowerup();
 	if(!isdefined(self.powerup) && (!(isdefined(self.attack_player) && self.attack_player)))
 	{
@@ -908,12 +908,12 @@ function _monkey_stealpowerup()
 */
 function _monkey_pathcheck()
 {
-	self notify(#"end_pathcheck");
-	self endon(#"end_pathcheck");
-	self endon(#"escape_goal");
+	self notify("end_pathcheck");
+	self endon("end_pathcheck");
+	self endon("escape_goal");
 	self endon("death");
 	self waittill(#"bad_path");
-	self notify(#"end_monkey_steal");
+	self notify("end_monkey_steal");
 	self.melee_count = 0;
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
@@ -1038,7 +1038,7 @@ function powerup_red(monkey)
 function _monkey_escape()
 {
 	self endon("death");
-	self endon(#"end_monkey_steal");
+	self endon("end_monkey_steal");
 	self notify("stop_find_flesh");
 	self.escaping = 1;
 	self _monkey_add_time();
@@ -1072,7 +1072,7 @@ function _monkey_escape()
 	location = getclosestpointonnavmesh(location, 200);
 	self setgoalpos(location);
 	self waittill("goal");
-	self notify(#"escape_goal");
+	self notify("escape_goal");
 	if(playexitanim)
 	{
 		if(!isdefined(angles))
@@ -1577,7 +1577,7 @@ function _monkey_templesliding(slide_node)
 	{
 		return;
 	}
-	self notify(#"end_monkey_steal");
+	self notify("end_monkey_steal");
 	self.is_traversing = 1;
 	self notify("zombie_start_traverse");
 	self.sliding = 1;
@@ -2169,7 +2169,7 @@ function _monkey_zombie_grenade_watcher()
 function monkey_zombie_grenade_response()
 {
 	self endon("death");
-	self notify(#"end_monkey_steal");
+	self notify("end_monkey_steal");
 	self monkey_zombie_grenade_pickup();
 	self thread _monkey_stealpowerup();
 }
@@ -2286,7 +2286,7 @@ function monkey_attack_player()
 		self _monkey_add_time();
 		self thread monkey_pathing();
 		self thread monkey_attack_player_wait_wrapper(self.favoriteenemy);
-		self waittill(#"end_monkey_attacks");
+		self waittill("end_monkey_attacks");
 	}
 }
 
@@ -2317,7 +2317,7 @@ function monkey_attack_player_wait_wrapper(player)
 function monkey_attack_player_wait(player)
 {
 	self endon("death");
-	self endon(#"end_monkey_steal");
+	self endon("end_monkey_steal");
 	attacktimeend = gettime() + 20000;
 	while(attacktimeend > gettime())
 	{
@@ -2344,7 +2344,7 @@ function monkey_attack_player_wait(player)
 */
 function monkey_stop_attck_player()
 {
-	self notify(#"end_monkey_attacks");
+	self notify("end_monkey_attacks");
 	self.ignoreall = 1;
 	if(isalive(self))
 	{
@@ -2365,7 +2365,7 @@ function monkey_stop_attck_player()
 function monkey_pathing()
 {
 	self endon("death");
-	self endon(#"end_monkey_attacks");
+	self endon("end_monkey_attacks");
 	self.ignoreall = 0;
 	self.meleeattackdist = 64;
 	while(isdefined(self.favoriteenemy))
@@ -2415,7 +2415,7 @@ function monkey_temple_custom_damage(player)
 function monkey_obvious_vox()
 {
 	self endon("death");
-	self endon(#"end_monkey_attacks");
+	self endon("end_monkey_attacks");
 	while(true)
 	{
 		self playsound("zmb_stealer_attack");

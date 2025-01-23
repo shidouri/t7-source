@@ -92,7 +92,7 @@ function onplayerconnect()
 */
 function achievement_ive_seen_some_things()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.var_3ac4b03d = [];
 	for(i = 0; i <= 3; i++)
@@ -125,7 +125,7 @@ function achievement_ive_seen_some_things()
 */
 function function_24b05d89()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.var_597e831d = [];
 	for(i = 1; i <= 3; i++)
@@ -156,7 +156,7 @@ function function_24b05d89()
 */
 function function_6c831509()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.var_386853b6 = [];
 	self.var_386853b6["zombie"] = 40;

@@ -67,7 +67,7 @@ function ent_camo_material_callback(local_client_num, oldval, newval, bnewent, b
 	{
 		self duplicate_render::update_dr_filters(local_client_num);
 	}
-	self notify(#"endtest");
+	self notify("endtest");
 	if(newval && (bwastimejump || bnewent))
 	{
 		self thread gadget_camo_render::forceon(local_client_num);

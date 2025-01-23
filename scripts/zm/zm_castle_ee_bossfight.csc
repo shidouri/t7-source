@@ -231,7 +231,7 @@ function boss_weak_point_shader(localclientnum, oldval, newval, bnewent, binitia
 function boss_zombie_rise_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		localplayers = level.localplayers;
@@ -257,7 +257,7 @@ function boss_zombie_rise_fx(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function function_200d4bd2(localclientnum, var_ee65ea53, var_7bc37da8)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("demo_jump");
 	playfx(localclientnum, var_7bc37da8, self.origin + (0, 0, randomintrange(5, 10)));
 	wait(0.25);
@@ -466,7 +466,7 @@ function boss_demongate_cast_fx(localclientnum, oldval, newval, bnewent, binitia
 */
 function boss_demongate_chomper_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		if(isdefined(self.var_a581816a))
@@ -548,7 +548,7 @@ function boss_rune_prison_erupt_fx(localclientnum, oldval, newval, bnewent, bini
 function function_92f90eb7(localclientnum)
 {
 	self endon(#"hash_f40e20dc");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self.var_b1fe1ee = playfx(localclientnum, level._effect["boss_rune_prison_erupt"], self.origin);

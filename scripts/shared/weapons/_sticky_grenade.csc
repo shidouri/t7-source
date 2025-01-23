@@ -65,7 +65,7 @@ function spawned(localclientnum)
 */
 function stop_sound_on_ent_shutdown(handle)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	stopsound(handle);
 }
 
@@ -82,7 +82,7 @@ function fx_think(localclientnum)
 {
 	self notify("light_disable");
 	self endon("light_disable");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	handle = self playsound(localclientnum, "wpn_semtex_countdown");
 	self thread stop_sound_on_ent_shutdown(handle);
@@ -170,7 +170,7 @@ function sticky_indicator(player, localclientnum)
 function stick_indicator_watch_early_shutdown(stickyimagemodel)
 {
 	self endon("sticky_shutdown");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self waittill("player_flashback");
 	setuimodelvalue(stickyimagemodel, "blacktransparent");
 }

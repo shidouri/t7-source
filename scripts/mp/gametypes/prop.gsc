@@ -3886,7 +3886,7 @@ function function_471ff19e(player)
 */
 function function_84edfab0(player, clone)
 {
-	clone endon(#"entityshutdown");
+	clone endon("entityshutdown");
 	clone endon("death");
 	player waittill("disconnect");
 	if(isdefined(clone))

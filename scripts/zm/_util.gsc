@@ -230,7 +230,7 @@ function isbulletimpactmod(smeansofdeath)
 function waitrespawnbutton()
 {
 	self endon("disconnect");
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	while(self usebuttonpressed() != 1)
 	{
 		wait(0.05);

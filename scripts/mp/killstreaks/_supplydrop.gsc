@@ -1084,7 +1084,7 @@ function checkforemp()
 	self endon("weapon_change");
 	self endon("death");
 	self endon("trigger_weapon_shutdown");
-	self waittill(#"emp_jammed");
+	self waittill("emp_jammed");
 	self killstreaks::switch_to_last_non_killstreak_weapon();
 }
 
@@ -1902,7 +1902,7 @@ function cratecontrolleddrop(killstreak, v_target_location)
 */
 function play_impact_sound()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("stationary");
 	self endon("death");
 	wait(0.5);
@@ -1924,7 +1924,7 @@ function play_impact_sound()
 */
 function update_crate_velocity()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("stationary");
 	self.velocity = (0, 0, 0);
 	self.old_origin = self.origin;
@@ -1998,7 +1998,7 @@ function do_supply_drop_detonation(weapon, owner)
 */
 function dosupplydrop(weapon_instance, weapon, owner, killstreak_id, package_contents_id, context)
 {
-	weapon endon(#"explode");
+	weapon endon("explode");
 	weapon endon("grenade_timeout");
 	self endon("disconnect");
 	team = owner.team;
@@ -2021,7 +2021,7 @@ function watchexplode(weapon, owner, killstreak_id, package_contents_id)
 {
 	self endon("stoppedmoving");
 	team = owner.team;
-	self waittill(#"explode", position);
+	self waittill("explode", position);
 	owner thread helidelivercrate(position, weapon, owner, team, killstreak_id, package_contents_id);
 }
 
@@ -2158,7 +2158,7 @@ function unlinkonrotation(crate)
 {
 	self endon("delete");
 	crate endon("death");
-	crate endon(#"entityshutdown");
+	crate endon("entityshutdown");
 	crate endon("stationary");
 	waitbeforerotationcheck = getdvarfloat("scr_supplydrop_killcam_rot_wait", 0.5);
 	wait(waitbeforerotationcheck);
@@ -3820,7 +3820,7 @@ function lbexplode()
 	forward = (self.origin + (0, 0, 1)) - self.origin;
 	playfx(level.chopper_fx["explode"]["death"], self.origin, forward);
 	self playsound(level.heli_sound["crash"]);
-	self notify(#"explode");
+	self notify("explode");
 	if(isdefined(self.delete_after_destruction_wait_time))
 	{
 		self hide();
@@ -3843,7 +3843,7 @@ function lbexplode()
 */
 function lbspin(speed)
 {
-	self endon(#"explode");
+	self endon("explode");
 	playfxontag(level.chopper_fx["explode"]["large"], self, "tail_rotor_jnt");
 	playfxontag(level.chopper_fx["fire"]["trail"]["large"], self, "tail_rotor_jnt");
 	self setyawspeed(speed, speed, speed);

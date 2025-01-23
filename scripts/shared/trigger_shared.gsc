@@ -1719,7 +1719,7 @@ function trigger_group_remove()
 */
 function function_d1278be0(ent, on_enter_payload, on_exit_payload)
 {
-	ent endon(#"entityshutdown");
+	ent endon("entityshutdown");
 	if(ent ent_already_in(self))
 	{
 		return;

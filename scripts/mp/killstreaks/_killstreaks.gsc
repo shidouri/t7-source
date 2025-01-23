@@ -2949,7 +2949,7 @@ function init_ride_killstreak(streak, always_allow = 0)
 */
 function watch_for_remove_remote_weapon()
 {
-	self endon(#"endwatchforremoveremoteweapon");
+	self endon("endwatchforremoveremoteweapon");
 	for(;;)
 	{
 		self waittill("remove_remote_weapon");
@@ -3009,7 +3009,7 @@ function init_ride_killstreak_internal(streak, always_allow)
 	self thread hud::fade_to_black_for_x_sec(0, 0.2, 0.4, 0.25);
 	self thread watch_for_remove_remote_weapon();
 	blackoutwait = self util::waittill_any_timeout(0.6, "disconnect", "death");
-	self notify(#"endwatchforremoveremoteweapon");
+	self notify("endwatchforremoveremoteweapon");
 	hostmigration::waittillhostmigrationdone();
 	if(blackoutwait != "disconnect")
 	{

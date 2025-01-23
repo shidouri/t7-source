@@ -200,7 +200,7 @@ function watch_for_emp(model, actor)
 	}
 	while(true)
 	{
-		level waittill(#"emp_detonate", origin, radius);
+		level waittill("emp_detonate", origin, radius);
 		if(distancesquared(origin, self.origin) < (radius * radius))
 		{
 			break;
@@ -297,7 +297,7 @@ function show_owner_on_attack(owner)
 {
 	owner endon("hide_owner");
 	owner endon(#"show_owner");
-	self endon(#"explode");
+	self endon("explode");
 	self endon("death");
 	self endon("grenade_dud");
 	owner.show_for_time = undefined;
@@ -679,7 +679,7 @@ function monkey_cleanup(parent)
 */
 function pulse_damage(e_owner, model)
 {
-	self endon(#"explode");
+	self endon("explode");
 	util::wait_network_frame();
 	playfxontag(level._effect["monkey_bass"], model, "tag_origin_animate");
 	n_damage_origin = self.origin + vectorscale((0, 0, 1), 12);
@@ -753,7 +753,7 @@ function do_monkey_sound(model, info)
 	{
 		self thread play_delayed_explode_vox();
 	}
-	self waittill(#"explode", position);
+	self waittill("explode", position);
 	level notify("grenade_exploded", position, 100, 5000, 450);
 	monkey_index = -1;
 	for(i = 0; i < level.cymbal_monkeys.size; i++)
@@ -844,7 +844,7 @@ function get_thrown_monkey()
 */
 function monitor_zombie_groans(info)
 {
-	self endon(#"explode");
+	self endon("explode");
 	while(true)
 	{
 		if(!isdefined(self))

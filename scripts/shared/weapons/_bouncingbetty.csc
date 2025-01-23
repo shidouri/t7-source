@@ -44,7 +44,7 @@ function init_shared(localclientnum)
 */
 function bouncingbetty_state_change(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -76,7 +76,7 @@ function bouncingbetty_state_change(localclientnum, oldval, newval, bnewent, bin
 */
 function bouncingbetty_deploying(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self useanimtree($bouncing_betty);
 	self setanim(%bouncing_betty::o_spider_mine_deploy, 1, 0, 1);
 }
@@ -92,7 +92,7 @@ function bouncingbetty_deploying(localclientnum)
 */
 function bouncingbetty_detonating(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	up = anglestoup(self.angles);
 	forward = anglestoforward(self.angles);
 	playfx(localclientnum, level._effect["fx_betty_launch_dust"], self.origin, up, forward);
@@ -113,7 +113,7 @@ function bouncingbetty_detonating(localclientnum)
 */
 function watchforexplosionnotetracks(localclientnum, up, forward)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		notetrack = self util::waittill_any_return("explode_1st", "explode_2nd", "explode_main", "entityshutdown");

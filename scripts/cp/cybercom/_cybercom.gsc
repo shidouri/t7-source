@@ -551,7 +551,7 @@ function _cybercom_notify_toggle_on()
 	level endon(#"_cybercom_notify_toggle_on");
 	while(true)
 	{
-		level waittill(#"enable_cybercom", player);
+		level waittill("enable_cybercom", player);
 		if(isdefined(player))
 		{
 			player enablecybercom();

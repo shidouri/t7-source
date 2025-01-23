@@ -176,8 +176,8 @@ function watch_for_flash_and_stun(n_index)
 */
 function emp_watcher(n_index)
 {
-	self notify(#"emp_thread_stop");
-	self endon(#"emp_thread_stop");
+	self notify("emp_thread_stop");
+	self endon("emp_thread_stop");
 	self endon("death");
 	while(true)
 	{
@@ -224,7 +224,7 @@ function enable_emp(b_enable, n_index)
 	else
 	{
 		_get_turret_data(n_index).can_emp = undefined;
-		self notify(#"emp_thread_stop");
+		self notify("emp_thread_stop");
 	}
 }
 
@@ -1312,7 +1312,7 @@ function _listen_for_damage_on_actor(ai_user, n_index)
 	ai_user endon("death");
 	self endon("turret_disabled" + _index(n_index));
 	self endon("_turret_think" + _index(n_index));
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	while(true)
 	{
 		ai_user waittill("damage", n_amount, e_attacker, v_org, v_dir, str_mod);

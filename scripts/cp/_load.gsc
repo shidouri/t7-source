@@ -369,7 +369,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 				self.lives = 0;
 				level notify("pre_end_game");
 				util::wait_network_frame();
-				level notify(#"end_game");
+				level notify("end_game");
 			}
 			else
 			{
@@ -380,7 +380,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 		{
 			level notify("pre_end_game");
 			util::wait_network_frame();
-			level notify(#"end_game");
+			level notify("end_game");
 		}
 		return 0;
 	}
@@ -556,7 +556,7 @@ function load_next_mission()
 */
 function end_game()
 {
-	level waittill(#"end_game");
+	level waittill("end_game");
 	check_end_game_intermission_delay();
 	/#
 		println("");

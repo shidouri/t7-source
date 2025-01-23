@@ -261,7 +261,7 @@ function ragdoll_impact_watch_start(localclientnum, oldval, newval, bnewent, bin
 */
 function ragdoll_impact_watch(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.v_start_pos = self.origin;
 	n_wait_time = 0.05;
 	n_gib_speed = 20;
@@ -437,7 +437,7 @@ function sparky_zombie_trail_fx_cb(localclientnum, oldval, newval, bnewent, bini
 */
 function gravity_spike_zombie_explode(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	playfxontag(localclientnum, level._effect["gravity_spike_zombie_explode"], self, "j_spine4");
 }

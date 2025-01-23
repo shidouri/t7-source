@@ -210,7 +210,7 @@ function gadget_vision_pulse_watch_emp()
 		if(self isempjammed())
 		{
 			visionset_mgr::deactivate("visionset", "vision_pulse", self);
-			self notify(#"emp_vp_jammed");
+			self notify("emp_vp_jammed");
 			break;
 		}
 		wait(0.05);
@@ -272,7 +272,7 @@ function gadget_vision_pulse_start(slot, weapon)
 {
 	self endon("disconnect");
 	self endon("death");
-	self endon(#"emp_vp_jammed");
+	self endon("emp_vp_jammed");
 	wait(0.1);
 	if(isdefined(self._pulse_ent))
 	{

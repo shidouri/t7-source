@@ -498,8 +498,8 @@ function function_bf1b3728(n_val, n_time)
 */
 function function_7b0ba395(localclientnum)
 {
-	level endon(#"end_rumble");
-	level endon(#"end_game");
+	level endon("end_rumble");
+	level endon("end_game");
 	player = getlocalplayers()[localclientnum];
 	var_efeac590 = 0;
 	n_end_time = 2;
@@ -1724,7 +1724,7 @@ function ragdoll_impact_watch_start(localclientnum, oldval, newval, bnewent, bin
 */
 function ragdoll_impact_watch(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	waittime = 0.016;
 	gibspeed = 500;
 	prevorigin = self.origin;

@@ -421,7 +421,7 @@ function get_in(vh, str_pos = vh find_next_open_position(self), b_teleport = 0)
 */
 function handle_rider_death()
 {
-	self endon(#"exiting_vehicle");
+	self endon("exiting_vehicle");
 	self.vehicle endon("death");
 	if(isdefined(self.rider_info.ridedeathanim))
 	{
@@ -581,7 +581,7 @@ function get_out(str_mode)
 {
 	ai = self;
 	self endon("death");
-	self notify(#"exiting_vehicle");
+	self notify("exiting_vehicle");
 	/#
 		assert(isalive(self), "");
 	#/
@@ -649,7 +649,7 @@ function get_out(str_mode)
 	self.rider_info = undefined;
 	self animation::set_death_anim(undefined);
 	set_goal();
-	self notify(#"exited_vehicle");
+	self notify("exited_vehicle");
 }
 
 /*
@@ -749,7 +749,7 @@ function remove_riders_after_wait(wait_time, a_riders_to_remove)
 */
 function ragdoll_dead_exit_rider()
 {
-	self endon(#"exited_vehicle");
+	self endon("exited_vehicle");
 	self waittill("death");
 	if(isactor(self) && !self isragdoll())
 	{
@@ -872,7 +872,7 @@ function exit_variable()
 {
 	ai = self;
 	self endon("death");
-	self notify(#"exiting_vehicle");
+	self notify("exiting_vehicle");
 	self thread handle_falling_death();
 	self animation::set_death_anim(self.rider_info.exithighdeathanim);
 	/#

@@ -69,8 +69,8 @@ function usekillstreakplanemortar(hardpointtype)
 */
 function waittill_confirm_location()
 {
-	self endon(#"emp_jammed");
-	self endon(#"emp_grenaded");
+	self endon("emp_jammed");
+	self endon("emp_grenaded");
 	self waittill("confirm_location", location);
 	return location;
 }
@@ -229,7 +229,7 @@ function useplanemortar(positions)
 */
 function doplanemortar(positions, team, killstreak_id)
 {
-	self endon(#"emp_jammed");
+	self endon("emp_jammed");
 	self endon("disconnect");
 	yaw = randomintrange(0, 360);
 	odd = 0;
@@ -347,7 +347,7 @@ function planemortar_killstreakstop(team, killstreak_id)
 */
 function dobombrun(position, yaw, team)
 {
-	self endon(#"emp_jammed");
+	self endon("emp_jammed");
 	player = self;
 	angles = (0, yaw, 0);
 	direction = anglestoforward(angles);
@@ -402,7 +402,7 @@ function dobombrun(position, yaw, team)
 */
 function followbomb(plane, position, direction, impact, player)
 {
-	player endon(#"emp_jammed");
+	player endon("emp_jammed");
 	wait((2 * 5) / 12);
 	plane.killcament unlink();
 	plane.killcament moveto((impact["position"] + vectorscale((0, 0, 1), 1000)) + (vectorscale(direction, -600)), 0.8, 0, 0.2);
@@ -440,7 +440,7 @@ function planewatchforemp(owner)
 {
 	self endon("delete");
 	self endon("death");
-	self waittill(#"emp_deployed", attacker);
+	self waittill("emp_deployed", attacker);
 	thread planeawardscoreevent(attacker, self);
 	self plane_cleanupondeath();
 }

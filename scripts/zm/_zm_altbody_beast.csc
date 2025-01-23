@@ -415,7 +415,7 @@ function function_70f7f4d2(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_4685bc0f(localclientnum, var_2646032, var_72af98b3)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self))
 	{
 		filter::enable_filter_blood_spatter(self, 5);
@@ -443,7 +443,7 @@ function function_ef4c8536(localclientnum, var_2646032, var_72af98b3)
 	self endon(#"hash_ef4c8536");
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.var_90b6339d))
 	{
 		self.var_90b6339d = 0;
@@ -1005,7 +1005,7 @@ function sndbeastmode(activate)
 function sndbeastmode_manastart()
 {
 	level endon(#"sndmanastop");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(level.sndbeastmodeent))
 	{
 		level.sndbeastmodeent = spawn(0, (0, 0, 0), "script_origin");

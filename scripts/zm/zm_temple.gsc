@@ -1366,7 +1366,7 @@ function temple_death_screen_cleanup()
 */
 function spikemore_delete_all_on_end_game()
 {
-	level waittill(#"end_game");
+	level waittill("end_game");
 	if(!isdefined(level.spikemores))
 	{
 		return;

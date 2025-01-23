@@ -233,7 +233,7 @@ function blood_out(localclientnum)
 function player_watch_blood(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self endon("killbloodoverlay");
 	self.stage2amount = 0;

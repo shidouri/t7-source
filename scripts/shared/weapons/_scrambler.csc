@@ -350,7 +350,7 @@ function scramblerupdate(localclientnum)
 */
 function cleanupscramblerondelete(scramblerent, scramblerhandle, islocalized, localclientnum)
 {
-	scramblerent waittill(#"entityshutdown");
+	scramblerent waittill("entityshutdown");
 	players = level.localplayers;
 	for(j = 0; j < level.scramblers.size; j++)
 	{

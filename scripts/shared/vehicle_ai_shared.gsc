@@ -452,8 +452,8 @@ function waittill_pathresult(maxtime = 0.5)
 function waittill_asm_terminated()
 {
 	self endon("death");
-	self notify(#"end_asm_terminated_thread");
-	self endon(#"end_asm_terminated_thread");
+	self notify("end_asm_terminated_thread");
+	self endon("end_asm_terminated_thread");
 	self waittill("asm_terminated");
 	self notify("asm_complete", "__terminated__");
 }
@@ -470,8 +470,8 @@ function waittill_asm_terminated()
 function waittill_asm_timeout(timeout)
 {
 	self endon("death");
-	self notify(#"end_asm_timeout_thread");
-	self endon(#"end_asm_timeout_thread");
+	self notify("end_asm_timeout_thread");
+	self endon("end_asm_timeout_thread");
 	wait(timeout);
 	self notify("asm_complete", "__timeout__");
 }
@@ -495,8 +495,8 @@ function waittill_asm_complete(substate_to_wait, timeout = 10)
 	{
 		self waittill("asm_complete", substate);
 	}
-	self notify(#"end_asm_terminated_thread");
-	self notify(#"end_asm_timeout_thread");
+	self notify("end_asm_terminated_thread");
+	self notify("end_asm_timeout_thread");
 }
 
 /*
@@ -580,8 +580,8 @@ function nudge_collision()
 	self endon("crash_done");
 	self endon("power_off_done");
 	self endon("death");
-	self notify(#"end_nudge_collision");
-	self endon(#"end_nudge_collision");
+	self notify("end_nudge_collision");
+	self endon("end_nudge_collision");
 	if(self.notsolid === 1)
 	{
 		return;
@@ -688,8 +688,8 @@ function immolate(attacker)
 function burning_thread(attacker, inflictor)
 {
 	self endon("death");
-	self notify(#"end_immolating_thread");
-	self endon(#"end_immolating_thread");
+	self notify("end_immolating_thread");
+	self endon("end_immolating_thread");
 	damagepersecond = self.settings.burn_damagepersecond;
 	if(!isdefined(damagepersecond) || damagepersecond <= 0)
 	{
@@ -960,7 +960,7 @@ function shared_callback_damage(einflictor, eattacker, idamage, idflags, smeanso
 	{
 		minempdowntime = 0.8 * self.settings.empdowntime;
 		maxempdowntime = 1.2 * self.settings.empdowntime;
-		self notify(#"emped", randomfloatrange(minempdowntime, maxempdowntime), eattacker, einflictor);
+		self notify("emped", randomfloatrange(minempdowntime, maxempdowntime), eattacker, einflictor);
 	}
 	if(should_burn(self, weapon, smeansofdeath, einflictor, eattacker))
 	{

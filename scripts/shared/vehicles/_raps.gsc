@@ -434,8 +434,8 @@ function prevent_stuck()
 {
 	self endon("change_state");
 	self endon("death");
-	self notify(#"end_prevent_stuck");
-	self endon(#"end_prevent_stuck");
+	self notify("end_prevent_stuck");
+	self endon("end_prevent_stuck");
 	wait(2);
 	count = 0;
 	previous_origin = undefined;
@@ -928,8 +928,8 @@ function nudge_collision()
 {
 	self endon("death");
 	self endon("change_state");
-	self notify(#"end_nudge_collision");
-	self endon(#"end_nudge_collision");
+	self notify("end_nudge_collision");
+	self endon("end_nudge_collision");
 	while(true)
 	{
 		self waittill("veh_collision", velocity, normal);
@@ -1014,7 +1014,7 @@ function raps_callback_damage(einflictor, eattacker, idamage, idflags, smeansofd
 	{
 		minempdowntime = 0.8 * self.settings.empdowntime;
 		maxempdowntime = 1.2 * self.settings.empdowntime;
-		self notify(#"emped", randomfloatrange(minempdowntime, maxempdowntime), eattacker, einflictor);
+		self notify("emped", randomfloatrange(minempdowntime, maxempdowntime), eattacker, einflictor);
 	}
 	if(vehicle_ai::should_burn(self, weapon, smeansofdeath, einflictor, eattacker))
 	{

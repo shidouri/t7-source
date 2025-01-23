@@ -802,7 +802,7 @@ function objective_igc(str_objective, b_starting)
 	cp_mi_sing_biodomes_util::init_hendricks(str_objective);
 	level thread cp_mi_sing_biodomes_util::function_753a859(str_objective);
 	level thread igc_party();
-	level waittill(#"end_igc");
+	level waittill("end_igc");
 	level skipto::objective_completed("objective_igc");
 }
 

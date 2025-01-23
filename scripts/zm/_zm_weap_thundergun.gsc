@@ -423,10 +423,10 @@ function zombie_knockdown(player, gib)
 */
 function playthundergunpainanim()
 {
-	self notify(#"end_play_thundergun_pain_anim");
+	self notify("end_play_thundergun_pain_anim");
 	self endon("killanimscript");
 	self endon("death");
-	self endon(#"end_play_thundergun_pain_anim");
+	self endon("end_play_thundergun_pain_anim");
 	if(isdefined(self.marked_for_death) && self.marked_for_death)
 	{
 		return;

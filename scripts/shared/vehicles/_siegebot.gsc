@@ -229,7 +229,7 @@ function siegebot_driving(params)
 function siegebot_kill_on_tilting()
 {
 	self endon("death");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	tilecount = 0;
 	while(true)
 	{
@@ -264,7 +264,7 @@ function siegebot_kill_on_tilting()
 function siegebot_player_fireupdate()
 {
 	self endon("death");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	weapon = self seatgetweapon(2);
 	firetime = weapon.firetime;
 	driver = self getseatoccupant(0);
@@ -295,7 +295,7 @@ function siegebot_player_fireupdate()
 function siegebot_player_aimupdate()
 {
 	self endon("death");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	while(true)
 	{
 		self setgunnertargetvec(self getgunnertargetvec(0), 1);
@@ -458,8 +458,8 @@ function movement_thread_unaware()
 {
 	self endon("death");
 	self endon("change_state");
-	self notify(#"end_movement_thread");
-	self endon(#"end_movement_thread");
+	self notify("end_movement_thread");
+	self endon("end_movement_thread");
 	while(true)
 	{
 		self.current_pathto_pos = self getnextmoveposition_unaware();
@@ -729,7 +729,7 @@ function state_jump_update(params)
 		self asmsetanimationrate(1);
 	}
 	self asmrequestsubstate("inair@jump");
-	self waittill(#"engine_startup");
+	self waittill("engine_startup");
 	self vehicle::impact_fx(self.settings.startupfx1);
 	self waittill("leave_ground");
 	self vehicle::impact_fx(self.settings.takeofffx1);
@@ -1078,8 +1078,8 @@ function movement_thread()
 {
 	self endon("death");
 	self endon("change_state");
-	self notify(#"end_movement_thread");
-	self endon(#"end_movement_thread");
+	self notify("end_movement_thread");
+	self endon("end_movement_thread");
 	while(true)
 	{
 		self.current_pathto_pos = self getnextmoveposition_tactical();
@@ -1134,7 +1134,7 @@ function movement_thread()
 */
 function stopmovementandsetbrake()
 {
-	self notify(#"end_movement_thread");
+	self notify("end_movement_thread");
 	self notify("near_goal");
 	self cancelaimove();
 	self clearvehgoalpos();
@@ -1228,9 +1228,9 @@ function attack_thread_machinegun()
 {
 	self endon("death");
 	self endon("change_state");
-	self endon(#"end_attack_thread");
-	self notify(#"end_machinegun_attack_thread");
-	self endon(#"end_machinegun_attack_thread");
+	self endon("end_attack_thread");
+	self notify("end_machinegun_attack_thread");
+	self endon("end_machinegun_attack_thread");
 	self.turretrotscale = 1 * self.difficulty_scale_up;
 	spinning = 0;
 	while(true)
@@ -1303,9 +1303,9 @@ function attack_thread_rocket()
 {
 	self endon("death");
 	self endon("change_state");
-	self endon(#"end_attack_thread");
-	self notify(#"end_rocket_attack_thread");
-	self endon(#"end_rocket_attack_thread");
+	self endon("end_attack_thread");
+	self notify("end_rocket_attack_thread");
+	self endon("end_rocket_attack_thread");
 	vehicle_ai::cooldown("rocket", 3);
 	while(true)
 	{
@@ -1361,7 +1361,7 @@ function siegebot_callback_damage(einflictor, eattacker, idamage, idflags, smean
 	{
 		minempdowntime = 0.8 * self.settings.empdowntime;
 		maxempdowntime = 1.2 * self.settings.empdowntime;
-		self notify(#"emped", randomfloatrange(minempdowntime, maxempdowntime), eattacker, einflictor);
+		self notify("emped", randomfloatrange(minempdowntime, maxempdowntime), eattacker, einflictor);
 	}
 	if(!isdefined(self.damagelevel))
 	{

@@ -634,7 +634,7 @@ function squad_control_final_orders()
 {
 	foreach(player in level.players)
 	{
-		player notify(#"end_squad_control");
+		player notify("end_squad_control");
 	}
 	foreach(ai_robot in level.a_ai_squad)
 	{
@@ -1094,7 +1094,7 @@ function back_door_ai_side()
 function wait_for_sight_to_engage()
 {
 	self endon("death");
-	self waittill(#"enemy");
+	self waittill("enemy");
 	wait(0.05);
 	while(isdefined(self.enemy) && !self cansee(self.enemy))
 	{

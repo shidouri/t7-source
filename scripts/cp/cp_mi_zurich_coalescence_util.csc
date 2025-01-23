@@ -948,7 +948,7 @@ function function_33714f9b(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_1cb0f58c(localclientnum)
 {
 	self endon("disable_breath_fx");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		playfxontag(localclientnum, level._effect["hero_cold_breath"], self, "j_head");
@@ -967,7 +967,7 @@ function function_1cb0f58c(localclientnum)
 */
 function function_6ec9825e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval == 1)
 	{
 		self playsound(0, "evt_dni_interrupt");
@@ -993,7 +993,7 @@ function function_6ec9825e(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_8f5cd506(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		self thread function_b5adc0ad(localclientnum);
@@ -1022,7 +1022,7 @@ function function_8f5cd506(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_b5adc0ad(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon(#"hash_5ca6609a");
 	while(true)
 	{
@@ -1042,7 +1042,7 @@ function function_b5adc0ad(localclientnum)
 */
 function function_629bf9a7(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		playfxontag(localclientnum, level._effect["raven_fade_out_fx"], self, "j_spine_2");

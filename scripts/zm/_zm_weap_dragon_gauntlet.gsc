@@ -885,7 +885,7 @@ function function_1692b405()
 {
 	self notify(#"hash_22d7caeb");
 	self endon(#"hash_22d7caeb");
-	self waittill(#"entering_last_stand");
+	self waittill("entering_last_stand");
 	self thread function_22d7caeb();
 }
 

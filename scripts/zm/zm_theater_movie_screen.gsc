@@ -271,7 +271,7 @@ function movie_reels()
 */
 function function_63d5f7f2(e_player)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	e_player waittill("disconnect");
 	self.reel_model show();
 	self triggerenable(1);

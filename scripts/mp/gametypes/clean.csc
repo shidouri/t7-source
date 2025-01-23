@@ -70,7 +70,7 @@ function function_3fdcaa92(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_8eab3bb6(localclientnum)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	self function_21017588(localclientnum);
 	self.var_bc148e61 delete();
 	self.var_bc148e61 = undefined;
@@ -106,7 +106,7 @@ function function_21017588(localclientnum)
 function function_ffa114bb(localclientnum)
 {
 	self endon(#"hash_c329133d");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	toppos = self.origin + vectorscale((0, 0, 1), 12);
 	bottompos = self.origin;
 	while(true)
@@ -159,7 +159,7 @@ function function_87660047(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_842b9892(localclientnum)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	self function_d5c5a3f2(localclientnum);
 	self.var_bc148e61 delete();
 	self.var_bc148e61 = undefined;

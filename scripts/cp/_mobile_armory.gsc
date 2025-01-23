@@ -233,7 +233,7 @@ class cmobilearmory
 	function function_ecdbdfeb(e_player)
 	{
 		e_player endon("death");
-		e_player endon(#"entering_last_stand");
+		e_player endon("entering_last_stand");
 		e_player flagsys::clear("mobile_armory_begin_use");
 		var_9cba4a73 = 1;
 		if(isdefined(var_ab455203.script_int))

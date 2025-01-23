@@ -279,8 +279,8 @@ function aielectrostatickillmonitor(statusoverride)
 	{
 		self endon("death");
 	}
-	self notify(#"electro_static_monitor_kill");
-	self endon(#"electro_static_monitor_kill");
+	self notify("electro_static_monitor_kill");
+	self endon("electro_static_monitor_kill");
 	while(true)
 	{
 		level waittill(#"hash_63acb616", target, attacker, damage, weapon, hitorigin);

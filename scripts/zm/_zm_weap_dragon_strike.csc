@@ -108,7 +108,7 @@ function dragon_strike_marker_on(localclientnum, oldval, newval, bnewent, biniti
 function function_778495b0(localclientnum)
 {
 	self endon(#"hash_e98f7ec4");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(self))
 	{
 		self dragonstrike_setposition(self.origin);
@@ -289,7 +289,7 @@ function dragon_strike_zombie_fire(localclientnum, oldval, newval, bnewent, bini
 */
 function function_3cc1555d(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	wait(12);
 	if(isdefined(self) && isalive(self))
 	{

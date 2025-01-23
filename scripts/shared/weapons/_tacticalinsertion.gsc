@@ -469,7 +469,7 @@ function canceltackinsertionbutton()
 function cancel_button_press()
 {
 	self endon("disconnect");
-	self endon(#"end_killcam");
+	self endon("end_killcam");
 	self endon("abort_killcam");
 	while(true)
 	{

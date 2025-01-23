@@ -899,7 +899,7 @@ function player_throw_grenade()
 function watch_grenade_gravity()
 {
 	self endon("death");
-	self endon(#"explode");
+	self endon("explode");
 	player_zones = getentarray("player_volume", "script_noteworthy");
 	while(true)
 	{

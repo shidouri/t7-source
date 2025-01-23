@@ -95,7 +95,7 @@ function function_d84ed3d1()
 	self notify(#"hash_d84ed3d1");
 	self endon(#"hash_d84ed3d1");
 	self endon(#"hash_450e1742");
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	if(isdefined(self))
 	{
 		self stopallloopsounds();

@@ -413,7 +413,7 @@ function startqrdrone(lifeid, streakname, origin, angles)
 	if(isdefined(qrdrone))
 	{
 		self thread qrdrone_ride(lifeid, qrdrone, streakname);
-		qrdrone waittill(#"end_remote");
+		qrdrone waittill("end_remote");
 		killstreakrules::killstreakstop("qrdrone", team, killstreak_id);
 		return true;
 	}
@@ -554,8 +554,8 @@ function qrdrone_delaylaunchdialog(qrdrone)
 	level endon("game_ended");
 	self endon("disconnect");
 	qrdrone endon("death");
-	qrdrone endon(#"end_remote");
-	qrdrone endon(#"end_launch_dialog");
+	qrdrone endon("end_remote");
+	qrdrone endon("end_launch_dialog");
 	wait(3);
 	self qrdrone_dialog("launch");
 }
@@ -599,7 +599,7 @@ function qrdrone_endride(qrdrone)
 {
 	if(isdefined(qrdrone))
 	{
-		qrdrone notify(#"end_remote");
+		qrdrone notify("end_remote");
 		self killstreaks::clear_using_remote();
 		self setplayerangles(self.restoreangles);
 		if(isalive(self))
@@ -627,7 +627,7 @@ function play_lockon_sounds(player)
 	self endon(#"blowup");
 	self endon("crashing");
 	level endon("game_ended");
-	self endon(#"end_remote");
+	self endon("end_remote");
 	self.locksounds = spawn("script_model", self.origin);
 	wait(0.1);
 	self.locksounds linkto(self, "tag_player");
@@ -724,7 +724,7 @@ function qrdrone_playerexit(qrdrone)
 	level endon("game_ended");
 	self endon("disconnect");
 	qrdrone endon("death");
-	qrdrone endon(#"end_remote");
+	qrdrone endon("end_remote");
 	wait(2);
 	while(true)
 	{
@@ -1383,7 +1383,7 @@ function qrdrone_rangecountdown()
 function qrdrone_explode_on_notify(killstreak_id)
 {
 	self endon("death");
-	self endon(#"end_ride");
+	self endon("end_ride");
 	self.owner util::waittill_any("disconnect", "joined_team", "joined_spectators");
 	if(isdefined(self.owner))
 	{
@@ -1645,7 +1645,7 @@ function qrdrone_watchheliproximity()
 {
 	level endon("game_ended");
 	self endon("death");
-	self endon(#"end_remote");
+	self endon("end_remote");
 	while(true)
 	{
 		inheliproximity = 0;
@@ -1705,7 +1705,7 @@ function qrdrone_fireguns(qrdrone)
 	qrdrone endon(#"blowup");
 	qrdrone endon("crashing");
 	level endon("game_ended");
-	qrdrone endon(#"end_remote");
+	qrdrone endon("end_remote");
 	wait(1);
 	while(true)
 	{
@@ -1794,7 +1794,7 @@ function setvisionsetwaiter()
 	self endon("disconnect");
 	self useservervisionset(1);
 	self setvisionsetforplayer(level.qrdrone_vision, 1);
-	self.qrdrone waittill(#"end_remote");
+	self.qrdrone waittill("end_remote");
 	self useservervisionset(0);
 }
 

@@ -181,7 +181,7 @@ function function_6221b6b9(scene, var_7b98b639)
 */
 function function_79854312(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_start_time = gettime();
 	n_end_time = n_start_time + 1633;
 	b_is_updating = 1;
@@ -269,7 +269,7 @@ function runeprison_lava_geyser_dot_fx(localclientnum, oldval, newval, bnewent, 
 */
 function runeprison_zombie_charring(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		n_cur_time = gettime();

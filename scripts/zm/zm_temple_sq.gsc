@@ -297,7 +297,7 @@ function watch_for_gongs_gone_bad()
 */
 function force_eclipse_watcher()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	setdvar("scr_force_eclipse", 0);
 	level waittill("start_zombie_round_logic");
 	while(true)
@@ -471,7 +471,7 @@ function short_dial_spin()
 function sundial_monitor()
 {
 	level endon("reset_sundial");
-	level endon(#"end_game");
+	level endon("end_game");
 	self.dont_rethread = 1;
 	self thread restart_sundial_monitor();
 	if(!isdefined(self.original_pos))
@@ -1050,7 +1050,7 @@ function back_to_the_future()
 */
 function function_5fdf6353()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	visionset_mgr::activate("overlay", "zm_temple_eclipse", self);
 	wait(3);

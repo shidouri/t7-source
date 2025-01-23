@@ -97,9 +97,9 @@ function init()
 */
 function function_f7726690(parent)
 {
-	parent endon(#"entityshutdown");
+	parent endon("entityshutdown");
 	parent endon(#"hash_4c187db8");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self.origin = parent.origin;
@@ -119,7 +119,7 @@ function function_f7726690(parent)
 function function_6cb8e053()
 {
 	self endon(#"hash_cfadee1b");
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	if(isdefined(self.fakemodel))
 	{
 		self.fakemodel delete();
@@ -139,7 +139,7 @@ function function_ee036ce4()
 {
 	self notify(#"hash_b14b3cac");
 	self endon(#"hash_b14b3cac");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(self))
 	{
 		waittime = randomfloatrange(2.5, 5);
@@ -197,7 +197,7 @@ function function_6093755a()
 {
 	self notify(#"hash_398ca74c");
 	self endon(#"hash_398ca74c");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	dir = 180;
 	if(randomint(100) > 50)
 	{
@@ -296,7 +296,7 @@ function function_b3289e6d(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_6b4a5f81(player)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self show();
 	if(isdefined(player))
 	{

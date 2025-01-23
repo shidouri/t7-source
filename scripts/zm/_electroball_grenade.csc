@@ -87,7 +87,7 @@ function watchforproximityexplosion()
 	weapon_proximity = getweapon("electroball_grenade");
 	while(true)
 	{
-		level waittill(#"explode", localclientnum, position, mod, weapon, owner_cent);
+		level waittill("explode", localclientnum, position, mod, weapon, owner_cent);
 		if(weapon.rootweapon != weapon_proximity)
 		{
 			continue;
@@ -199,7 +199,7 @@ function function_bd1f6a88(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_1d823abf()
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	level.a_electroball_grenades = array::remove_undefined(level.a_electroball_grenades);
 }
 

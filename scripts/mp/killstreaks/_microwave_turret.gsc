@@ -587,7 +587,7 @@ function turretthink()
 function microwaveentitypostshutdowncleanup(entity)
 {
 	entity endon("disconnect");
-	entity endon(#"end_microwaveentitypostshutdowncleanup");
+	entity endon("end_microwaveentitypostshutdowncleanup");
 	turret = self;
 	turret_vehicle_entnum = turret.turret_vehicle_entnum;
 	turret waittill("microwave_turret_shutdown");
@@ -647,7 +647,7 @@ function microwaveentity(entity)
 			{
 				entity.microwavepoisoning = 0;
 			}
-			entity notify(#"end_microwaveentitypostshutdowncleanup");
+			entity notify("end_microwaveentitypostshutdowncleanup");
 			return;
 		}
 		damage = 15 * damagescalar;

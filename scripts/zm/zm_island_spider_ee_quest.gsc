@@ -436,7 +436,7 @@ function spiders_from_mars_round()
 		{
 			level flag::set("spiders_from_mars_round");
 			callback::on_ai_spawned(&function_49fac1ac);
-			level waittill(#"end_of_round");
+			level waittill("end_of_round");
 			level thread function_2176e192();
 			break;
 		}

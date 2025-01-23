@@ -2720,7 +2720,7 @@ function zombie_speed_up()
 		return;
 	}
 	level endon("intermission");
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level endon("restart_round");
 	level endon("kill_round");
 	while(level.zombie_total > 4)
@@ -3612,7 +3612,7 @@ function zombie_hat_gib(attacker, means_of_death)
 function head_gib_damage_over_time(dmg, delay, attacker, means_of_death)
 {
 	self endon("death");
-	self endon(#"exploding");
+	self endon("exploding");
 	if(!isalive(self))
 	{
 		return;

@@ -45,7 +45,7 @@ function spawned(localclientnum)
 */
 function watch_for_fake_fire(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self waittill("fake_fire");

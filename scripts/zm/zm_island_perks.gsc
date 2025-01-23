@@ -189,7 +189,7 @@ function function_3bccea41()
 {
 	while(level.round_number <= 6)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		wait(6);
 		if(level.round_number == 2)
 		{
@@ -908,7 +908,7 @@ function function_afb24eeb(s_unitrigger)
 */
 function function_2f6a6dcd(n_start_time, var_ddb12d5c)
 {
-	self endon(#"entering_last_stand");
+	self endon("entering_last_stand");
 	self endon("death");
 	self endon("disconnect");
 	self endon(#"hash_bd5f338b");

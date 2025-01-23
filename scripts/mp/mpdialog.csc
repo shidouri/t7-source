@@ -76,7 +76,7 @@ function client_voice_setup(localclientnum)
 */
 function snipervonotify(localclientnum, notifystring, dialogkey)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	for(;;)
 	{
 		self waittill(notifystring);
@@ -146,7 +146,7 @@ function play_boost_vox(localclientnum, oldval, newval, bnewent, binitialsnap, f
 */
 function play_boost_start_vox(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	wait(2);
 	playbackid = self play_dialog("boostStart" + level.boostnumber, localclientnum);
@@ -180,7 +180,7 @@ function play_boost_start_vox(localclientnum)
 */
 function play_boost_start_response_vox(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	if(!isdefined(level.booststartresponse) || self.team != getlocalplayerteam(localclientnum))
 	{

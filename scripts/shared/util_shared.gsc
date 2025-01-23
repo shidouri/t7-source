@@ -1293,7 +1293,7 @@ function damage_notify_wrapper(damage, attacker, direction_vec, point, type, mod
 function explode_notify_wrapper()
 {
 	level notify("face", "explode", self);
-	self notify(#"explode");
+	self notify("explode");
 }
 
 /*
@@ -1550,7 +1550,7 @@ function delay_network_frames(n_frames, str_endon, func, arg1, arg2, arg3, arg4,
 */
 function _delay_network_frames(n_frames, str_endon, func, arg1, arg2, arg3, arg4, arg5, arg6)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(str_endon))
 	{
 		self endon(str_endon);
@@ -5090,7 +5090,7 @@ function player_unlock_control()
 		{
 			e_player freeze_player_controls(0);
 			e_player scene::set_igc_active(0);
-			level notify(#"enable_cybercom", e_player);
+			level notify("enable_cybercom", e_player);
 			e_player show_hud(1);
 		}
 	}
@@ -5098,7 +5098,7 @@ function player_unlock_control()
 	{
 		self freeze_player_controls(0);
 		self scene::set_igc_active(0);
-		level notify(#"enable_cybercom", e_player);
+		level notify("enable_cybercom", e_player);
 		self show_hud(1);
 	}
 }

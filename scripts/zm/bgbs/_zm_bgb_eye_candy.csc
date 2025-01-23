@@ -136,7 +136,7 @@ function function_c1a20a24(localclientnum)
 */
 function function_697cc62(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level flagsys::wait_till("duplicaterender_registry_ready");
 	/#
 		assert(isdefined(self), "");

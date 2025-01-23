@@ -124,7 +124,7 @@ function spawned(localclientnum)
 */
 function spawnedperclient(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self thread fx::blinky_light(localclientnum, "tag_light", level._effect["acousticsensor_friendly_light"], level._effect["acousticsensor_enemy_light"]);
 }
 
@@ -139,7 +139,7 @@ function spawnedperclient(localclientnum)
 */
 function watchshutdown(handle)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	removeacousticsensor(handle);
 }
 
@@ -154,7 +154,7 @@ function watchshutdown(handle)
 */
 function updateacousticsensors()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	localradarenabled = [];
 	previousacousticsensorcount = -1;
 	util::waitforclient(0);

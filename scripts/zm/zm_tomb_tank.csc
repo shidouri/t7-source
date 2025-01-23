@@ -151,7 +151,7 @@ function function_de8b2ce1(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_a2fe7f71(localclientnum, var_2bc319f0)
 {
 	self notify("stop_exhaust_fx");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("stop_exhaust_fx");
 	fx_id = level._effect["tank_exhaust"];
 	if(var_2bc319f0)

@@ -429,7 +429,7 @@ function create_trigger(clientnum)
 */
 function blinky_light(localclientnum, tagname, friendlyfx, enemyfx)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("stop_blinky_light");
 	self.lighttagname = tagname;
 	self util::waittill_dobj(localclientnum);
@@ -487,9 +487,9 @@ function stop_blinky_light(localclientnum)
 */
 function blinky_emp_wait(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("stop_blinky_light");
-	self waittill(#"emp");
+	self waittill("emp");
 	self stop_blinky_light(localclientnum);
 }
 

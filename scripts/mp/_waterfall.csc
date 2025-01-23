@@ -184,7 +184,7 @@ function trig_leave_waterfall(localplayer)
 */
 function trig_enter_waterfall_mist(localplayer)
 {
-	localplayer endon(#"entityshutdown");
+	localplayer endon("entityshutdown");
 	trigger = self;
 	if(!isdefined(localplayer.rainopacity))
 	{
@@ -229,7 +229,7 @@ function trig_enter_waterfall_mist(localplayer)
 */
 function trig_leave_waterfall_mist(localplayer)
 {
-	localplayer endon(#"entityshutdown");
+	localplayer endon("entityshutdown");
 	trigger = self;
 	if(isdefined(localplayer.rainopacity))
 	{

@@ -220,7 +220,7 @@ function sndstingerroundwait()
 	level.sndroundwait = 0;
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		level thread sndstingerroundwait_start();
 	}
 }
@@ -252,7 +252,7 @@ function sndstingerroundwait_start()
 */
 function sndstingerroundwait_end()
 {
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level waittill(#"between_round_over");
 	wait(28);
 	level.sndroundwait = 0;

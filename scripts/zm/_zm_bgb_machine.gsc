@@ -1355,7 +1355,7 @@ function process_bgb_machine_state(state)
 */
 function bgb_machine_host_migration()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level notify(#"bgb_machine_host_migration");
 	level endon(#"bgb_machine_host_migration");
 	while(true)

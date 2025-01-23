@@ -351,7 +351,7 @@ function dig_spots_respawn(a_dig_spots)
 {
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		wait(2);
 		a_dig_spots = array::randomize(level.a_dig_spots);
 		n_respawned = 0;
@@ -919,7 +919,7 @@ function ee_zombie_blood_dig()
 		s_z_spot.n_player = self getentitynumber();
 		s_z_spot create_zombie_blood_dig_spot(self);
 		n_z_spots_found++;
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 	}
 	self.t_zombie_blood_dig delete();
 }
@@ -1089,7 +1089,7 @@ function bonus_points_powerup_override()
 */
 function dig_powerups_tracking()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level.dig_powerups_tracking = [];
 	level.dig_magic_box_moved = 0;
 	level.dig_last_prize_rare = 0;
@@ -1097,7 +1097,7 @@ function dig_powerups_tracking()
 	level.dig_n_powerups_spawned = 0;
 	while(true)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		foreach(str_powerup, value in level.dig_powerups_tracking)
 		{
 			level.dig_powerups_tracking[str_powerup] = 0;

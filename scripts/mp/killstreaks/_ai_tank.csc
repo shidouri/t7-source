@@ -80,7 +80,7 @@ function spawned(localclientnum, killstreak_duration)
 */
 function missile_fire(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(self hasanimtree() == 0)
 	{
@@ -181,7 +181,7 @@ function update_ui_model_ammo_count(localclientnum, missiles_loaded)
 */
 function tank_stun(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	if(newval)
 	{
@@ -267,7 +267,7 @@ function stop_stun_fx(localclientnum)
 function play_driving_rumble(localclientnum)
 {
 	self notify("driving_rumble");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	self endon("driving_rumble");
 	for(;;)

@@ -48,7 +48,7 @@ function watchsmokegrenadedetonation(owner, statweapon, grenadeweaponname, durat
 {
 	self endon("trophy_destroyed");
 	owner addweaponstat(statweapon, "used", 1);
-	self waittill(#"explode", position, surface);
+	self waittill("explode", position, surface);
 	onefoot = vectorscale((0, 0, 1), 12);
 	startpos = position + onefoot;
 	smokeweapon = getweapon(grenadeweaponname);

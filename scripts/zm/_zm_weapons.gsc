@@ -242,7 +242,7 @@ function wait_explode()
 {
 	self endon("grenade_dud");
 	self endon("done");
-	self waittill(#"explode", position);
+	self waittill("explode", position);
 	level.explode_position = position;
 	level.explode_position_valid = 1;
 	self notify("done");
@@ -261,7 +261,7 @@ function wait_timeout(time)
 {
 	self endon("grenade_dud");
 	self endon("done");
-	self endon(#"explode");
+	self endon("explode");
 	wait(time);
 	if(isdefined(self))
 	{

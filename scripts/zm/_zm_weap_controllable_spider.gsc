@@ -217,7 +217,7 @@ function function_5ce6002e(e_player, w_previous)
 	wait(1);
 	e_player lui::screen_fade_out(0.25);
 	self notify(#"stop_last_valid_position");
-	self notify(#"exit_vehicle");
+	self notify("exit_vehicle");
 	e_player clientfield::set("player_cocooned_fx", 1);
 	var_cbe49ee hide();
 	e_player lui::screen_fade_in(0.25);

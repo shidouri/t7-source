@@ -181,7 +181,7 @@ function function_424e31ac(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_81199318(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_start_time = gettime();
 	b_is_updating = 1;
 	while(b_is_updating)

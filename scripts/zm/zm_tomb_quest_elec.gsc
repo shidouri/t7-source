@@ -540,7 +540,7 @@ function relay_switch_run()
 	self.trigger_stub.script_unitrigger_type = "unitrigger_radius_use";
 	self.trigger_stub.require_look_at = 1;
 	zm_unitrigger::register_unitrigger(self.trigger_stub, &relay_unitrigger_think);
-	level endon(#"electric_puzzle_2_complete");
+	level endon("electric_puzzle_2_complete");
 	self thread update_relay_rotation();
 	n_tries = 0;
 	while(true)

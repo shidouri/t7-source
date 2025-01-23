@@ -615,7 +615,7 @@ function vending_trigger_think()
 function vending_trigger_post_think(player, perk)
 {
 	player endon("disconnect");
-	player endon(#"end_game");
+	player endon("end_game");
 	player endon("perk_abort_drinking");
 	gun = player perk_give_bottle_begin(perk);
 	evt = player util::waittill_any_return("fake_death", "death", "player_downed", "weapon_change_complete", "perk_abort_drinking", "disconnect");
@@ -662,7 +662,7 @@ function wait_give_perk(perk, bought)
 {
 	self endon("player_downed");
 	self endon("disconnect");
-	self endon(#"end_game");
+	self endon("end_game");
 	self endon("perk_abort_drinking");
 	self util::waittill_any_timeout(0.5, "burp", "player_downed", "disconnect", "end_game", "perk_abort_drinking");
 	self give_perk(perk, bought);
@@ -705,7 +705,7 @@ function give_perk_presentation(perk)
 {
 	self endon("player_downed");
 	self endon("disconnect");
-	self endon(#"end_game");
+	self endon("end_game");
 	self endon("perk_abort_drinking");
 	self zm_audio::playerexert("burp");
 	if(isdefined(level.remove_perk_vo_delay) && level.remove_perk_vo_delay)
@@ -1790,7 +1790,7 @@ function players_are_in_perk_area(perk_machine)
 */
 function perk_hostmigration()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level notify("perk_hostmigration");
 	level endon("perk_hostmigration");
 	while(true)

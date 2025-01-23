@@ -119,7 +119,7 @@ function on_player_spawned(localclientnum)
 		if(!isdefined(veh))
 		{
 			level thread function_256950b0(localclientnum);
-			self waittill(#"enter_vehicle", veh);
+			self waittill("enter_vehicle", veh);
 			if(!isdefined(veh))
 			{
 				continue;
@@ -131,7 +131,7 @@ function on_player_spawned(localclientnum)
 		umbra_setdistancescale(localclientnum, 6);
 		umbra_setminimumcontributionthreshold(localclientnum, 8);
 		setsoundcontext("aquifer_cockpit", "active");
-		self waittill(#"exit_vehicle");
+		self waittill("exit_vehicle");
 		self.vehicle = undefined;
 		level thread function_256950b0(localclientnum);
 		setsoundcontext("aquifer_cockpit", "");
@@ -1166,7 +1166,7 @@ function function_11381ece(localclientnum)
 {
 	self notify(#"hash_11381ece");
 	self endon(#"hash_11381ece");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	self endon("death");
 	while(isdefined(self) && isalive(self))
 	{
@@ -1198,7 +1198,7 @@ function function_d2243c73(localclientnum)
 {
 	self notify(#"hash_d2243c73");
 	self endon(#"hash_d2243c73");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	self endon("death");
 	while(isdefined(self) && isalive(self))
 	{
@@ -1269,7 +1269,7 @@ function function_21e63f39(localclientnum)
 {
 	self notify(#"hash_29a67729");
 	self endon(#"hash_29a67729");
-	self endon(#"exit_vehicle");
+	self endon("exit_vehicle");
 	self endon("death");
 	max_radius = 162.5;
 	locked = 0;

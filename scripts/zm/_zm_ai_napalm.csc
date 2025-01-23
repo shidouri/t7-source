@@ -155,7 +155,7 @@ function _napalm_zombie_runsteameffects(client_num)
 {
 	self endon("napalm_killed");
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		waterheight = -15000;
@@ -358,7 +358,7 @@ function player_napalm_radius_overlay_fade()
 {
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	prevfrac = 0;
 	while(true)
 	{
@@ -539,7 +539,7 @@ function napalm_glow_lerp(client_num, glowval)
 	self notify("glow_lerp");
 	self endon("glow_lerp");
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	startval = self.glow_val;
 	endval = glowval;
 	if(isdefined(startval))

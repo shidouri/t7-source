@@ -5522,7 +5522,7 @@ function function_cce911bb()
 			return;
 		}
 	#/
-	level endon(#"elemental_storm_wallrun");
+	level endon("elemental_storm_wallrun");
 	var_93e50579 = getent(self.target, "targetname");
 	var_e9dd177b = getent(var_93e50579.target, "targetname");
 	var_93e50579 clientfield::set("wallrun_fx", 1);
@@ -5617,7 +5617,7 @@ function function_ba8e8ad8(e_who)
 	#/
 	e_who endon("death");
 	e_who endon("quest_swap");
-	level endon(#"elemental_storm_wallrun");
+	level endon("elemental_storm_wallrun");
 	e_who playrumbleonentity("damage_heavy");
 	var_968c3922 = 0;
 	while(var_968c3922 < 4)

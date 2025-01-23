@@ -988,7 +988,7 @@ function create_depth_charge()
 			e_depth_charge.targetname = "depth_charger_dive";
 			e_depth_charge thread early_explosion();
 			e_depth_charge thread detect_nearby_player(200);
-			e_depth_charge waittill(#"exploded");
+			e_depth_charge waittill("exploded");
 			wait(randomfloatrange(1.5, 3));
 		}
 		else
@@ -1146,7 +1146,7 @@ function detonate_depth_charge(should_chain = 0)
 	v_origin = self.origin;
 	self radiusdamage(v_origin, 200, 80, 40, self);
 	playrumbleonposition("depth_charge_rumble", v_origin);
-	self notify(#"exploded");
+	self notify("exploded");
 	if(self.classname === "script_model")
 	{
 		playfx(level._effect["depth_charge_explosion"], v_origin);

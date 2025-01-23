@@ -448,10 +448,10 @@ function one_inch_punch_take_think()
 */
 function knockdown_zombie_animate()
 {
-	self notify(#"end_play_punch_pain_anim");
+	self notify("end_play_punch_pain_anim");
 	self endon("killanimscript");
 	self endon("death");
-	self endon(#"end_play_punch_pain_anim");
+	self endon("end_play_punch_pain_anim");
 	if(isdefined(self.marked_for_death) && self.marked_for_death)
 	{
 		return;

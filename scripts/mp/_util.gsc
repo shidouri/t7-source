@@ -106,7 +106,7 @@ function isbulletimpactmod(smeansofdeath)
 function waitrespawnbutton()
 {
 	self endon("disconnect");
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	while(self usebuttonpressed() != 1)
 	{
 		wait(0.05);
@@ -806,7 +806,7 @@ function trigger_thread_death_monitor(ent, ender)
 */
 function trigger_thread(ent, on_enter_payload, on_exit_payload)
 {
-	ent endon(#"entityshutdown");
+	ent endon("entityshutdown");
 	ent endon("death");
 	if(ent ent_already_in_trigger(self))
 	{

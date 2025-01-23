@@ -74,7 +74,7 @@ function watch_killstreak_tap_activation(local_client_num)
 	self endon("watch_killstreak_tap_activation");
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(self))
 	{
 		self waittill("notetrack", note);
@@ -297,7 +297,7 @@ function watch_perks_changed(local_client_num)
 	self endon("watch_perks_changed");
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(self))
 	{
 		wait(0.016);
@@ -361,7 +361,7 @@ function equipmentteamobject(localclientnum)
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	wait(0.05);
 	fx_handle = self thread playflarefx(localclientnum);
@@ -381,7 +381,7 @@ function equipmentteamobject(localclientnum)
 */
 function playflarefx(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("player_switch");
 	if(!isdefined(self.equipmenttagfx))
 	{
@@ -440,7 +440,7 @@ function equipmentwatchteamfx(localclientnum, fxhandle)
 */
 function equipmentwatchplayerteamchanged(localclientnum, fxhandle)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self notify("team_changed_watcher");
 	self endon("team_changed_watcher");
 	watcherplayer = getlocalplayer(localclientnum);

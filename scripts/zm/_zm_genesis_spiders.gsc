@@ -556,7 +556,7 @@ function function_fad41aec()
 function spider_round_spawning()
 {
 	level endon("intermission");
-	level endon(#"end_of_round");
+	level endon("end_of_round");
 	level endon("restart_round");
 	for(i = 0; i < level.players.size; i++)
 	{

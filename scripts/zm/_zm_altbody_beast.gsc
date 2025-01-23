@@ -1048,7 +1048,7 @@ function player_stance_hold_think_internal()
 	wait(0.05);
 	if(!isdefined(self))
 	{
-		self notify(#"exit_failed");
+		self notify("exit_failed");
 		return;
 	}
 	self.beast_cancel_timer = gettime();
@@ -1060,11 +1060,11 @@ function player_stance_hold_think_internal()
 	}
 	if(isdefined(self) && self player_continue_cancel() && (gettime() - self.beast_cancel_timer) >= build_time)
 	{
-		self notify(#"exit_succeed");
+		self notify("exit_succeed");
 	}
 	else
 	{
-		self notify(#"exit_failed");
+		self notify("exit_failed");
 	}
 }
 
@@ -1101,7 +1101,7 @@ function player_progress_bar_update(start_time, build_time)
 	self endon("death");
 	self endon("disconnect");
 	self endon("player_exit_beastmode");
-	self endon(#"exit_failed");
+	self endon("exit_failed");
 	while(isdefined(self) && (gettime() - start_time) < build_time)
 	{
 		progress = (gettime() - start_time) / build_time;

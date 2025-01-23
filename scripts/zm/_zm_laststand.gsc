@@ -190,7 +190,7 @@ function increment_downed_stat()
 */
 function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	self notify(#"entering_last_stand");
+	self notify("entering_last_stand");
 	self disableweaponcycling();
 	if(isdefined(level._game_module_player_laststand_callback))
 	{
@@ -721,7 +721,7 @@ function suicide_trigger_think()
 	self endon("player_revived");
 	self endon(#"bled_out");
 	self endon("fake_death");
-	level endon(#"end_game");
+	level endon("end_game");
 	level endon(#"stop_suicide_trigger");
 	self thread laststand::clean_up_suicide_hud_on_end_game();
 	self thread laststand::clean_up_suicide_hud_on_bled_out();
@@ -776,7 +776,7 @@ function suicide_trigger_think()
 */
 function suicide_do_suicide(duration)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level endon(#"stop_suicide_trigger");
 	suicidetime = duration;
 	timer = 0;
@@ -926,7 +926,7 @@ function revive_trigger_think(t_secondary)
 	self endon("disconnect");
 	self endon("zombified");
 	self endon(#"stop_revive_trigger");
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("death");
 	while(true)
 	{
@@ -1030,7 +1030,7 @@ function revive_give_back_weapons_wait(e_reviver, e_revivee)
 	e_revivee endon("disconnect");
 	e_revivee endon("zombified");
 	e_revivee endon(#"stop_revive_trigger");
-	level endon(#"end_game");
+	level endon("end_game");
 	e_revivee endon("death");
 	e_reviver waittill("revive_done");
 }

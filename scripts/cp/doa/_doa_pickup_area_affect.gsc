@@ -415,7 +415,7 @@ function function_2271edf2(player)
 function function_254f3480(monkey)
 {
 	monkey endon("death");
-	level waittill(#"exit_taken", exit_trigger);
+	level waittill("exit_taken", exit_trigger);
 	monkey notify(#"hash_2271edf2");
 }
 

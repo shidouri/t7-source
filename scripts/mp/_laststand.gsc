@@ -97,7 +97,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 		return;
 	}
 	self globallogic_player::callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, 0, 1);
-	self notify(#"entering_last_stand");
+	self notify("entering_last_stand");
 	if(isdefined(level._game_module_player_laststand_callback))
 	{
 		self [[level._game_module_player_laststand_callback]](einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, delayoverride);

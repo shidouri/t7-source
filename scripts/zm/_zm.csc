@@ -399,7 +399,7 @@ function basic_player_connect(localclientnum)
 */
 function force_update_player_clientfields(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(!clienthassnapshot(localclientnum))
 	{
 		wait(0.25);
@@ -685,7 +685,7 @@ function game_start_time(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function createzombieeyesinternal(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self._eyearray))
 	{
@@ -836,7 +836,7 @@ function player_eye_color_clientfield_cb(localclientnum, oldval, newval, bnewent
 */
 function zombie_eyes_handle_demo_jump(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death_or_disconnect");
 	self endon("new_zombie_eye_cb");
 	while(true)
@@ -859,7 +859,7 @@ function zombie_eyes_handle_demo_jump(localclientnum)
 */
 function zombie_eyes_demo_watcher(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death_or_disconnect");
 	self endon("new_zombie_eye_cb");
 	self thread zombie_eyes_handle_demo_jump(localclientnum);
@@ -1628,7 +1628,7 @@ function zombie_highest_vision_set_apply()
 function handle_zombie_risers_foliage(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!oldval && newval)
 	{
 		localplayers = level.localplayers;
@@ -1655,7 +1655,7 @@ function handle_zombie_risers_foliage(localclientnum, oldval, newval, bnewent, b
 function handle_zombie_risers_water(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!oldval && newval)
 	{
 		localplayers = level.localplayers;
@@ -1682,7 +1682,7 @@ function handle_zombie_risers_water(localclientnum, oldval, newval, bnewent, bin
 function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!oldval && newval)
 	{
 		localplayers = level.localplayers;
@@ -1717,7 +1717,7 @@ function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitials
 function handle_zombie_risers_lowg(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level endon("demo_jump");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!oldval && newval)
 	{
 		localplayers = level.localplayers;
@@ -1752,7 +1752,7 @@ function handle_zombie_risers_lowg(localclientnum, oldval, newval, bnewent, bini
 function rise_dust_fx(clientnum, type, billow_fx, burst_fx)
 {
 	dust_tag = "J_SpineUpper";
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("demo_jump");
 	if(isdefined(level.zombie_custom_riser_fx_handler))
 	{

@@ -864,7 +864,7 @@ function napalm_fire_trigger(ai, radius, time, spawnfire)
 	}
 	trigger thread triggerdamage();
 	wait(time);
-	trigger notify(#"end_fire_effect");
+	trigger notify("end_fire_effect");
 	trigger delete();
 	if(isdefined(sound_ent))
 	{
@@ -885,7 +885,7 @@ function napalm_fire_trigger(ai, radius, time, spawnfire)
 */
 function triggerdamage()
 {
-	self endon(#"end_fire_effect");
+	self endon("end_fire_effect");
 	while(true)
 	{
 		self waittill("trigger", guy);

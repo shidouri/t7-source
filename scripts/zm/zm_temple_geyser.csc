@@ -90,7 +90,7 @@ function geyser_player_setup_prone(localclientnum, oldval, newval, bnewent, bini
 		}
 		str_notify = "player_geyser" + localclientnum;
 		self notify(str_notify);
-		self notify(#"end_geyser");
+		self notify("end_geyser");
 		if(isdefined(self.fake_player[localclientnum].fake_weapon))
 		{
 			self.fake_player[localclientnum].fake_weapon delete();
@@ -171,7 +171,7 @@ function geyser_player_setup_stand(localclientnum, oldval, newval, bnewent, bini
 		}
 		str_notify = "player_geyser" + localclientnum;
 		self notify(str_notify);
-		self notify(#"end_geyser");
+		self notify("end_geyser");
 		if(isdefined(self.fake_player[localclientnum].fake_weapon))
 		{
 			self.fake_player[localclientnum].fake_weapon delete();
@@ -193,7 +193,7 @@ function geyser_player_setup_stand(localclientnum, oldval, newval, bnewent, bini
 */
 function geyser_weapon_monitor(fake_weapon)
 {
-	self endon(#"end_geyser");
+	self endon("end_geyser");
 	self endon("disconnect");
 	while(self.weapon == "none")
 	{

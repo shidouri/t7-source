@@ -2445,7 +2445,7 @@ function function_e619ee5(vehicle)
 */
 function function_c0485deb(def)
 {
-	level endon(#"exit_taken");
+	level endon("exit_taken");
 	wait(7);
 	level thread function_c35db0c1();
 	var_a558424 = struct::get_array("farm_cow_spawn", "script_noteworthy");
@@ -2485,7 +2485,7 @@ function function_c0485deb(def)
 */
 function function_dfbad276(number, startside)
 {
-	level endon(#"exit_taken");
+	level endon("exit_taken");
 	spawn_locations = level.doa.var_99f9e71a[startside];
 	while(number > 0)
 	{
@@ -2561,7 +2561,7 @@ function function_caf96f2d()
 function function_c9a224d9()
 {
 	self endon("death");
-	level waittill(#"exit_taken");
+	level waittill("exit_taken");
 	self notify("medium_rare");
 }
 
@@ -2732,7 +2732,7 @@ function cow_damage_watch()
 */
 function random_cow_stampede()
 {
-	level endon(#"exit_taken");
+	level endon("exit_taken");
 	while(level flag::get("doa_round_active") && !level flag::get("doa_game_is_over"))
 	{
 		side = doa_utility::function_5b4fbaef();

@@ -101,7 +101,7 @@ function thundergun_fx_power_cell(localclientnum, w_weapon)
 {
 	self endon("disconnect");
 	self endon("weapon_change");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	n_old_ammo = -1;
 	n_shader_val = 0;
 	while(true)

@@ -153,7 +153,7 @@ function zm_aat_blast_furnace_burn_think(localclientnum, e_zombie, tag)
 {
 	e_zombie.fx_aat_blast_furnace_burn = playfxontag(localclientnum, "zombie/fx_bgb_burned_out_fire_torso_zmb", e_zombie, tag);
 	e_zombie playloopsound("chr_burn_npc_loop1", 0.5);
-	e_zombie waittill(#"entityshutdown");
+	e_zombie waittill("entityshutdown");
 	if(isdefined(e_zombie))
 	{
 		e_zombie stopallloopsounds(1.5);

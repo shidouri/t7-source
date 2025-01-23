@@ -155,7 +155,7 @@ function octobomb_spores_fx(localclientnum, oldval, newval, bnewent, binitialsna
 */
 function octobomb_spore_fx_on(localclientnum, n_fx_type)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(n_fx_type == 2)
 	{
 		fx_spine = level._effect["octobomb_ug_spores_spine"];

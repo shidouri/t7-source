@@ -125,7 +125,7 @@ function function_cb744db7()
 */
 function function_68da949()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	while(true)
 	{

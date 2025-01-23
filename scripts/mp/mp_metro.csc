@@ -43,7 +43,7 @@ function main()
 */
 function train_countdown(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	angles = (self.angles[0], self.angles[1] * -1, 0);
 	minutesorigin = self.origin + (cos(self.angles[1]) * 37, sin(self.angles[1]) * 37, 0);
 	numbermodelminutes = util::spawn_model(localclientnum, "p7_3d_txt_antiqua_bold_00_brushed_aluminum", minutesorigin, angles);

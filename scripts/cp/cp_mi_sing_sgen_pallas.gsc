@@ -393,7 +393,7 @@ function pallas_end_igc_complete(a_ents)
 */
 function descent_vo()
 {
-	level waittill(#"elevator_vo");
+	level waittill("elevator_vo");
 	if(isdefined(level.bzm_sgendialogue7callback))
 	{
 		level thread [[level.bzm_sgendialogue7callback]]();
@@ -939,7 +939,7 @@ function elevator_lift_intro()
 	elevator_set_door_state("front", "close");
 	elevator_set_opaque(3);
 	level thread namespace_d40478f6::function_874f01d();
-	level notify(#"elevator_vo");
+	level notify("elevator_vo");
 	level notify("pallas_elevator_starting");
 	a_ai = getaiteamarray("team3");
 	foreach(ai in a_ai)
@@ -955,7 +955,7 @@ function elevator_lift_intro()
 	array::thread_all(level.players, &clientfield::set_to_player, "pallas_monitors_state", 2);
 	elevator_set_move_direction("down");
 	elevator_set_door_state("back", "open");
-	level notify(#"enter_server");
+	level notify("enter_server");
 	a_nd_traverse = getnodearray("pallas_elevator_start", "script_noteworthy");
 	foreach(node in a_nd_traverse)
 	{
@@ -1030,7 +1030,7 @@ function pallas_greeting_event(b_starting)
 	{
 		var_34a8e0f = getent("pallas_turret_enable_trigger", "targetname");
 		var_34a8e0f.origin = var_34a8e0f.origin + (vectorscale((0, -1, 0), 38));
-		level waittill(#"enter_server");
+		level waittill("enter_server");
 		trigger::wait_or_timeout(30, "pallas_turret_enable_trigger");
 	}
 	level thread namespace_d40478f6::function_973b77f9();

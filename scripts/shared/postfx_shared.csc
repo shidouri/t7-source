@@ -88,7 +88,7 @@ function init_postfx_bundles()
 function postfxbundledebuglisten()
 {
 	/#
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		setdvar("", "");
 		setdvar("", "");
 		setdvar("", "");
@@ -128,7 +128,7 @@ function postfxbundledebuglisten()
 */
 function playpostfxbundle(playbundlename)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("death");
 	init_postfx_bundles();
 	stopplayingpostfxbundle();

@@ -1499,7 +1499,7 @@ function function_57e1c276()
 {
 	while(level.round_number < 6)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 	}
 	difficulty = 1;
 	column = int(difficulty) + 1;

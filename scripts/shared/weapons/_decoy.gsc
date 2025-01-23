@@ -443,7 +443,7 @@ function watch_for_explosion(owner, weapon)
 	self thread watch_for_death_before_explosion();
 	owner endon("disconnect");
 	self endon("death_before_explode");
-	self waittill(#"explode", pos);
+	self waittill("explode", pos);
 	level thread do_explosion(owner, pos, weapon, randomintrange(5, 10));
 }
 

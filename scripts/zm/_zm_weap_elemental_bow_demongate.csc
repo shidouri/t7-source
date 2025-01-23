@@ -231,7 +231,7 @@ function demongate_attack_locomotion_anim(localclientnum, oldval, newval, bnewen
 */
 function demongate_chomper_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		if(isdefined(self.var_a581816a))
@@ -265,7 +265,7 @@ function demongate_chomper_fx(localclientnum, oldval, newval, bnewent, binitials
 */
 function demongate_chomper_bite_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(isdefined(self.var_64b4f506))
 	{
 		stopfx(localclientnum, self.var_64b4f506);

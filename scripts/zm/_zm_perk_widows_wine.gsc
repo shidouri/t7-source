@@ -609,7 +609,7 @@ function grenade_bounce_monitor()
 */
 function grenade_bounces()
 {
-	self endon(#"explode");
+	self endon("explode");
 	self waittill("grenade_bounce", pos, normal, e_target);
 	if(isdefined(e_target))
 	{

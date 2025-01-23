@@ -6160,7 +6160,7 @@ function scene_enable_player_stuff(b_hide_hud = 1)
 	if(b_hide_hud)
 	{
 		set_igc_active(0);
-		level notify(#"enable_cybercom", self);
+		level notify("enable_cybercom", self);
 		self notify("scene_enable_cybercom");
 		self util::show_hud(1);
 	}

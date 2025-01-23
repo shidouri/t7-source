@@ -189,7 +189,7 @@ function electric_cherry_perk_machine_think()
 		}
 		level thread zm_perks::do_initial_power_off_callback(machine, "electriccherry");
 		array::thread_all(machine_triggers, &zm_perks::set_power_on, 0);
-		level waittill(#"electric_cherry_on");
+		level waittill("electric_cherry_on");
 		for(i = 0; i < machine.size; i++)
 		{
 			machine[i] setmodel("p7_zm_vending_nuke");
@@ -200,7 +200,7 @@ function electric_cherry_perk_machine_think()
 		}
 		level notify(#"specialty_grenadepulldeath_power_on");
 		array::thread_all(machine_triggers, &zm_perks::set_power_on, 1);
-		level waittill(#"electric_cherry_off");
+		level waittill("electric_cherry_off");
 		array::thread_all(machine_triggers, &zm_perks::turn_perk_off);
 	}
 }
@@ -243,7 +243,7 @@ function electric_cherry_laststand()
 	{
 		playfx(level._effect["electric_cherry_explode"], self.origin);
 		self playsound("zmb_cherry_explode");
-		self notify(#"electric_cherry_start");
+		self notify("electric_cherry_start");
 		wait(0.05);
 		a_zombies = zombie_utility::get_round_enemy_array();
 		a_zombies = util::get_array_of_closest(self.origin, a_zombies, undefined, undefined, 500);
@@ -269,7 +269,7 @@ function electric_cherry_laststand()
 				a_zombies[i] dodamage(1000, self.origin, self, self, "none");
 			}
 		}
-		self notify(#"electric_cherry_end");
+		self notify("electric_cherry_end");
 	}
 }
 
@@ -446,7 +446,7 @@ function electric_cherry_reload_attack()
 				continue;
 			}
 			self thread electric_cherry_reload_fx(n_fraction);
-			self notify(#"electric_cherry_start");
+			self notify("electric_cherry_start");
 			self playsound("zmb_cherry_explode");
 			a_zombies = zombie_utility::get_round_enemy_array();
 			a_zombies = util::get_array_of_closest(self.origin, a_zombies, undefined, undefined, perk_radius);
@@ -490,7 +490,7 @@ function electric_cherry_reload_attack()
 					}
 				}
 			}
-			self notify(#"electric_cherry_end");
+			self notify("electric_cherry_end");
 		}
 	}
 }
@@ -506,8 +506,8 @@ function electric_cherry_reload_attack()
 */
 function electric_cherry_cooldown_timer(current_weapon)
 {
-	self notify(#"electric_cherry_cooldown_started");
-	self endon(#"electric_cherry_cooldown_started");
+	self notify("electric_cherry_cooldown_started");
+	self endon("electric_cherry_cooldown_started");
 	self endon("death");
 	self endon("disconnect");
 	n_reload_time = 0.25;

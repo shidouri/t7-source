@@ -398,7 +398,7 @@ function moon_exterior_fog_change(ent_player)
 	{
 		return;
 	}
-	ent_player endon(#"entityshutdown");
+	ent_player endon("entityshutdown");
 	start_dist = 2098.71;
 	half_dist = 1740.12;
 	half_height = 1332.23;
@@ -435,7 +435,7 @@ function moon_interior_fog_change(ent_player)
 	{
 		return;
 	}
-	ent_player endon(#"entityshutdown");
+	ent_player endon("entityshutdown");
 	start_dist = 2098.71;
 	half_dist = 1740.12;
 	half_height = 1332.23;
@@ -472,7 +472,7 @@ function moon_biodome_fog_change(ent_player)
 	{
 		return;
 	}
-	ent_player endon(#"entityshutdown");
+	ent_player endon("entityshutdown");
 	start_dist = 65.3744;
 	half_dist = 860.241;
 	half_height = 35.1158;
@@ -509,7 +509,7 @@ function moon_tunnels_fog_change(ent_player)
 	{
 		return;
 	}
-	ent_player endon(#"entityshutdown");
+	ent_player endon("entityshutdown");
 	start_dist = 1413.46;
 	half_dist = 4300.81;
 	half_height = 32.2476;
@@ -546,7 +546,7 @@ function moon_nml_fog_change(ent_player)
 	{
 		return;
 	}
-	ent_player endon(#"entityshutdown");
+	ent_player endon("entityshutdown");
 	start_dist = 1662.13;
 	half_dist = 18604.1;
 	half_height = 2618.86;

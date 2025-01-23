@@ -1784,7 +1784,7 @@ function sndconvo2()
 */
 function sndconvo3()
 {
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	wait(randomintrange(4, 7));
 	level zm_audio::sndconversation_play("round1end");
 }
@@ -1849,7 +1849,7 @@ function sndfieldreport1()
 */
 function sndfieldreport2()
 {
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	wait(randomintrange(1, 3));
 	while(isdefined(level.players[0].isspeaking) && level.players[0].isspeaking)
 	{
@@ -1872,7 +1872,7 @@ function sndfieldreport2()
 */
 function sndfieldreport3()
 {
-	level waittill(#"end_of_round");
+	level waittill("end_of_round");
 	wait(randomintrange(1, 3));
 	while(isdefined(level.players[0].isspeaking) && level.players[0].isspeaking)
 	{
@@ -2152,7 +2152,7 @@ function sndradiowait(origin, radio, num)
 function function_6ea54e62(grenade, model)
 {
 	grenade endon("death");
-	grenade endon(#"explode");
+	grenade endon("explode");
 	if(grenade.weapon.name === "cymbal_monkey")
 	{
 		if(grenade istouching(level.monk_scream_trig))

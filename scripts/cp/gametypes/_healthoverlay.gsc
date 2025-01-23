@@ -71,7 +71,7 @@ function end_health_regen()
 {
 	self.lastregendelayprogress = 1;
 	self setcontrolleruimodelvalue("hudItems.regenDelayProgress", 1);
-	self notify(#"end_healthregen");
+	self notify("end_healthregen");
 }
 
 /*
@@ -112,7 +112,7 @@ function update_regen_delay_progress(duration)
 */
 function player_health_regen()
 {
-	self endon(#"end_healthregen");
+	self endon("end_healthregen");
 	self endon("removehealthregen");
 	if(self.health <= 0)
 	{
@@ -297,7 +297,7 @@ function decay_player_damages(decay)
 */
 function player_breathing_sound(healthcap)
 {
-	self endon(#"end_healthregen");
+	self endon("end_healthregen");
 	wait(2);
 	player = self;
 	for(;;)
@@ -332,7 +332,7 @@ function player_breathing_sound(healthcap)
 */
 function sndhealthlow(healthcap)
 {
-	self endon(#"end_healthregen");
+	self endon("end_healthregen");
 	self endon("removehealthregen");
 	self.sndhealthlow = 0;
 	while(true)

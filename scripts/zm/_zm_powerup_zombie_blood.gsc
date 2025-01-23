@@ -212,8 +212,8 @@ function fx_disconnect_watch(e_player)
 */
 function watch_zombie_blood_early_exit()
 {
-	self notify(#"early_exit_watch");
-	self endon(#"early_exit_watch");
+	self notify("early_exit_watch");
+	self endon("early_exit_watch");
 	self endon("zombie_blood_over");
 	self endon("disconnect");
 	util::waittill_any_ents_two(self, "player_downed", level, "end_game");

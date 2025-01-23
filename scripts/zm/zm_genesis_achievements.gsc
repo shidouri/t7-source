@@ -124,7 +124,7 @@ function function_4d2d1f7a()
 */
 function function_553e6274()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.var_71148446 = [];
 	self.var_71148446[0] = "mechz";
@@ -166,7 +166,7 @@ function function_3c82f182()
 */
 function function_817b1327()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self endon(#"hash_720f4d71");
 	var_ef6b3d38 = 0;
@@ -196,7 +196,7 @@ function function_817b1327()
 */
 function function_7d947aff()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self.var_88f45a31 = [];
 	self.var_88f45a31[self.var_88f45a31.size] = "start_island";
@@ -225,7 +225,7 @@ function function_7d947aff()
 */
 function function_935679b0()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self endon(#"hash_2bec714");
 	while(!isdefined(self.var_a3d40b8))
@@ -257,7 +257,7 @@ function function_935679b0()
 */
 function function_f17c9ba1()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self endon(#"hash_2bec714");
 	var_a43542cc = self.var_a3d40b8;
@@ -288,7 +288,7 @@ function function_f17c9ba1()
 */
 function achievement_wardrobe_change()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	var_fc2fd82c = [];
 	while(true)

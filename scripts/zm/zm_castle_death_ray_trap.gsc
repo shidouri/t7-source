@@ -566,8 +566,8 @@ function function_67cc41d(attacker, e_panel)
 {
 	self zombie_utility::zombie_eye_glow_stop();
 	self clientfield::increment("death_ray_explode_fx");
-	self notify(#"exploding");
-	self notify(#"end_melee");
+	self notify("exploding");
+	self notify("end_melee");
 	self playsound("zmb_deathray_zombie_poof");
 	if(isdefined(attacker))
 	{

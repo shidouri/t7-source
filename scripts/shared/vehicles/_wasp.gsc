@@ -225,7 +225,7 @@ function state_emped_update(params)
 	self endon("change_state");
 	wait(0.05);
 	gravity = 400;
-	self notify(#"end_nudge_collision");
+	self notify("end_nudge_collision");
 	empdowntime = params.notify_param[0];
 	/#
 		assert(isdefined(empdowntime));

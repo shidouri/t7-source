@@ -395,7 +395,7 @@ function function_7664cc94(type)
 */
 function function_e68e3c0d(localclientnum, name, off, tag, kill = 0)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(!clienthassnapshot(localclientnum))
 	{
 		wait(0.016);
@@ -497,7 +497,7 @@ function function_e68e3c0d(localclientnum, name, off, tag, kill = 0)
 */
 function function_b71a778a(localclientnum, name, off, tag)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.var_6f5948cb))
 	{
 		self.var_6f5948cb = [];
@@ -555,7 +555,7 @@ function function_b71a778a(localclientnum, name, off, tag)
 */
 function createzombieeyesinternal(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self._eyearray))
 	{
@@ -597,7 +597,7 @@ function createzombieeyesinternal(localclientnum)
 */
 function function_1c0d0290(parent)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(isdefined(parent))
 	{
 		self.origin = parent.origin;

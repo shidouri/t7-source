@@ -105,7 +105,7 @@ function explodable_barrel_think()
 	{
 		return;
 	}
-	self endon(#"exploding");
+	self endon("exploding");
 	self.damagetaken = 0;
 	self setcandamage(1);
 	for(;;)
@@ -190,7 +190,7 @@ function explodable_barrel_burn()
 */
 function explodable_barrel_explode()
 {
-	self notify(#"exploding");
+	self notify("exploding");
 	self notify("death");
 	up = anglestoup(self.angles);
 	worldup = anglestoup(vectorscale((0, 1, 0), 90));

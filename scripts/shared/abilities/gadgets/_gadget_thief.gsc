@@ -627,7 +627,7 @@ function disable_hero_gadget_activation(duration)
 */
 function failsafe_reenable_offhand_special()
 {
-	self endon(#"end_failsafe_reenable_offhand_special");
+	self endon("end_failsafe_reenable_offhand_special");
 	wait(3);
 	if(isdefined(self))
 	{
@@ -882,7 +882,7 @@ function watchforoptionuse(slot, victimbodyindex, justspawned)
 	{
 		wait(0.85);
 		self enableoffhandspecial();
-		self notify(#"end_failsafe_reenable_offhand_special");
+		self notify("end_failsafe_reenable_offhand_special");
 	}
 	while(true)
 	{

@@ -373,7 +373,7 @@ function function_be66c05b(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_1c2b3dda(localclientnum, var_21082827 = 1)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	start_time = gettime();
 	if(!var_21082827)
 	{
@@ -724,7 +724,7 @@ function function_b45c2459(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_dd551c54(localclientnum)
 {
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon(#"hash_2608c3ca");
 	while(true)
 	{
@@ -779,7 +779,7 @@ function function_dd551c54(localclientnum)
 function function_bfff202d(localclientnum, n_duration)
 {
 	self endon("death");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon(#"hash_2608c3ca");
 	if(isdefined(n_duration))
 	{

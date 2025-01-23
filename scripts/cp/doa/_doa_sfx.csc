@@ -224,7 +224,7 @@ function function_1f085aea(localclientnum, type, off)
 	{
 		return;
 	}
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(!clienthassnapshot(localclientnum))
 	{
 		wait(0.016);

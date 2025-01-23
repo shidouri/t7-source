@@ -108,7 +108,7 @@ function private function_d95d34bd(spawner)
 			level.doa.boss thread function_2ca4656();
 			level.doa.boss thread function_66efd1eb();
 		}
-		level waittill(#"exit_taken");
+		level waittill("exit_taken");
 	}
 }
 
@@ -371,7 +371,7 @@ function private function_66efd1eb()
 function private function_5bd24aae()
 {
 	self endon("death");
-	level waittill(#"exit_taken");
+	level waittill("exit_taken");
 	level notify(#"hash_48b870e4");
 	level.doa.boss = undefined;
 	level doa_utility::function_d0e32ad0(1);

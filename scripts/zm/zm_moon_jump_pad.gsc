@@ -317,7 +317,7 @@ function moon_biodome_temptation_init()
 */
 function moon_biodome_random_pad_temptation()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	structs = struct::get_array("struct_biodome_temptation", "script_noteworthy");
 	while(true)
 	{
@@ -449,7 +449,7 @@ function moon_biodome_temptation_active(ent_powerup)
 */
 function moon_jump_pads_low_gravity()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	biodome_pads = getentarray("biodome_pads", "script_noteworthy");
 	biodome_compromised = 0;
 	while(!biodome_compromised)
@@ -477,7 +477,7 @@ function moon_jump_pads_low_gravity()
 */
 function moon_jump_pads_malfunctions()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	jump_pad_triggers = getentarray("trig_jump_pad", "targetname");
 	level flag::wait_till("start_zombie_round_logic");
 	wait(2);
@@ -528,7 +528,7 @@ function moon_jump_pads_malfunctions()
 */
 function moon_pad_malfunction_think()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	pad_hook = spawn("script_model", self.origin);
 	pad_hook setmodel("tag_origin");
 	while(isdefined(self))

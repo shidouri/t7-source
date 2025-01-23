@@ -73,7 +73,7 @@ function getotherteam(team)
 */
 function fireflies_attacking(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -105,7 +105,7 @@ function fireflies_attacking(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function fireflies_chasing(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -165,7 +165,7 @@ function watch_player_fx_finished(localclientnum, fx, sound)
 */
 function firefly_state_change(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self util::waittill_dobj(localclientnum);
 	if(!isdefined(self))
 	{
@@ -348,7 +348,7 @@ function gib_fx(localclientnum, fxfilename, gibflag)
 */
 function gib_corpse(localclientnum, value)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self thread watch_for_gib_notetracks(localclientnum);
 }
 
@@ -363,7 +363,7 @@ function gib_corpse(localclientnum, value)
 */
 function watch_for_gib_notetracks(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!util::is_mature() || util::is_gib_restricted_build())
 	{
 		return;

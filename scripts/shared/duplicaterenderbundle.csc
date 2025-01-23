@@ -87,7 +87,7 @@ function init_duplicate_render_bundles()
 function duprenderbundledebuglisten()
 {
 	/#
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		setdvar("", "");
 		setdvar("", "");
 		setdvar("", "");
@@ -127,7 +127,7 @@ function duprenderbundledebuglisten()
 */
 function playduprenderbundle(playbundlename)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	init_duplicate_render_bundles();
 	stopplayingduprenderbundle();
 	bundle = struct::get_script_bundle("duprenderbundle", playbundlename);

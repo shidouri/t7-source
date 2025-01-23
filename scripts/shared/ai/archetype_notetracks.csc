@@ -69,7 +69,7 @@ function private addsurfacenotetrackfxhandler(localclientnum, notetrack, surface
 function private handlesurfacenotetrackfx(localclientnum, notetrack, surfacetable)
 {
 	entity = self;
-	entity endon(#"entityshutdown");
+	entity endon("entityshutdown");
 	while(true)
 	{
 		entity waittill(notetrack);

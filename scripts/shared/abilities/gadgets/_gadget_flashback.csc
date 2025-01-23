@@ -66,7 +66,7 @@ function flashback_activated(localclientnum, oldval, newval, bnewent, binitialsn
 		}
 		else
 		{
-			self endon(#"entityshutdown");
+			self endon("entityshutdown");
 			self util::waittill_dobj(localclientnum);
 			self playsound(localclientnum, "mpl_flashback_reappear_npc");
 			playtagfxset(localclientnum, "gadget_flashback_3p_off", self);
@@ -95,7 +95,7 @@ function set_flashback_trail_fx(localclientnum, oldval, newval, bnewent, binitia
 		}
 		else
 		{
-			self endon(#"entityshutdown");
+			self endon("entityshutdown");
 			self util::waittill_dobj(localclientnum);
 			self playsound(localclientnum, "mpl_flashback_disappear_npc");
 			playfxontag(localclientnum, "player/fx_plyr_flashback_demat", self, "tag_origin");
@@ -132,7 +132,7 @@ function clone_flashback_changed(localclientnum, oldval, newval, bnewent, biniti
 */
 function clone_fade(localclientnum)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	starttime = getservertime(localclientnum);
 	while(true)
 	{

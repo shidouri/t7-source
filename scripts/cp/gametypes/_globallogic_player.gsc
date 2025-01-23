@@ -1144,7 +1144,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 		{
 			return;
 		}
-		self notify(#"emp_grenaded", eattacker);
+		self notify("emp_grenaded", eattacker);
 	}
 	if(isdefined(self.overrideplayerdamage))
 	{

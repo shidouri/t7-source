@@ -243,7 +243,7 @@ function function_a235a040()
 	while(true)
 	{
 		self function_2983de0c();
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 	}
 }
 

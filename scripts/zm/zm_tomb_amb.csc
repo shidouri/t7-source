@@ -560,7 +560,7 @@ function sndmudslow(localclientnum, oldval, newval, bnewent, binitialsnap, field
 function function_c85630a7()
 {
 	self endon(#"hash_ed11651a");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(!isdefined(self.var_29fe0572))
 	{
 		self.var_29fe0572 = spawn(0, self.origin, "script_origin");
@@ -895,7 +895,7 @@ function start_helicopter_sounds(localclientnum)
 */
 function heli_loop_sound_delete(real_ent)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	real_ent unlink();
 	real_ent stoploopsound(4);
 	real_ent delete();
@@ -912,7 +912,7 @@ function heli_loop_sound_delete(real_ent)
 */
 function heli_linkto_sound_ents_delete(localclientnum, entity)
 {
-	entity notify(#"entityshutdown");
+	entity notify("entityshutdown");
 }
 
 /*
@@ -975,7 +975,7 @@ function play_player_drone_sounds()
 */
 function heli_idle_run_transition(heli_type, heli_part, wait_time, updown)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	heli_bone = self.heli[heli_part];
 	run_id = heli_bone.run playloopsound(heli_bone.run.alias, 0.5);
 	if(!isdefined(wait_time))
@@ -1093,7 +1093,7 @@ function get_leaving_sound_ent()
 */
 function heli_sound_ent_delete(real_ent)
 {
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	real_ent stoploopsound(0.1);
 	real_ent delete();
 }
@@ -1109,7 +1109,7 @@ function heli_sound_ent_delete(real_ent)
 */
 function drone_up_down_transition()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	volumerate = 1;
 	qr_ent_up = spawn(0, self.origin, "script_origin");
 	qr_ent_down = spawn(0, self.origin, "script_origin");
@@ -1168,7 +1168,7 @@ function drone_up_down_transition()
 */
 function qr_ent_cleanup(veh_ent)
 {
-	veh_ent waittill(#"entityshutdown");
+	veh_ent waittill("entityshutdown");
 	self delete();
 }
 
@@ -1183,7 +1183,7 @@ function qr_ent_cleanup(veh_ent)
 */
 function drone_rotate_angle(heli_type, heli_part)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	level endon("save_restore");
 	volumerate = 2.5;
 	qr_ent_angle = spawn(0, self.origin, "script_origin");
@@ -1215,7 +1215,7 @@ function drone_rotate_angle(heli_type, heli_part)
 */
 function drone_button_watch()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	player = getlocalplayers()[0];
 	return_to_zero = 1;
 	while(true)

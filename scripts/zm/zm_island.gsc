@@ -736,7 +736,7 @@ function function_94ed46a2()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"entering_last_stand");
+		self waittill("entering_last_stand");
 		self.laststandstarttime = gettime();
 	}
 }

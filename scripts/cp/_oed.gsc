@@ -355,11 +355,11 @@ function ev_activate_on_player(b_enabled = 1)
 	}
 	if(self.ev_state)
 	{
-		self notify(#"enhanced_vision_activated");
+		self notify("enhanced_vision_activated");
 	}
 	else
 	{
-		self notify(#"enhanced_vision_deactivated");
+		self notify("enhanced_vision_deactivated");
 	}
 	self clientfield::set_to_player("ev_toggle", self.ev_state);
 	if(!self.ev_state)

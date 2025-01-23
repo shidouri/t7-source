@@ -506,7 +506,7 @@ function turnplayershieldon(short_shield = 1)
 		return;
 	}
 	self endon("disconnect");
-	self endon(#"enter_vehicle");
+	self endon("enter_vehicle");
 	self notify("turnplayershieldon");
 	self endon("turnplayershieldon");
 	if(!isdefined(self.doa) || isdefined(self.doa.vehicle))
@@ -2930,7 +2930,7 @@ function private function_2f150493(source, dest)
 	pickup thread namespace_1a381543::function_90118d8c("zmb_pickup_life_shimmer");
 	pickup thread doa_utility::function_1bd67aef(3);
 	pickup util::waittill_any_timeout(2, "movedone");
-	source notify(#"end_life_link");
+	source notify("end_life_link");
 	pickup delete();
 	if(!(isdefined(dest.doa.respawning) && dest.doa.respawning) || dest.doa.lives > 0)
 	{
@@ -3106,14 +3106,14 @@ function function_60123d1c()
 	self notify("new_cover_on_death_thread");
 	self notify(#"bolttrackingstart");
 	self notify("smoketrackingstart");
-	self notify(#"emptrackingstart");
+	self notify("emptrackingstart");
 	self notify("proximitytrackingstart");
 	self notify("insertiontrackingstart");
 	self notify("grenadetrackingstart");
 	self notify(#"hash_5c6cd2a");
 	self notify("killonpainmonitor");
 	self notify("killondeathmonitor");
-	self notify(#"end_healthregen");
+	self notify("end_healthregen");
 	level notify("stop_spawn_weight_debug");
 }
 

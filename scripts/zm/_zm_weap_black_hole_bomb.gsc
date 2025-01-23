@@ -250,7 +250,7 @@ function function_1ff5cae1()
 	{
 		visionset_mgr::activate("visionset", "zombie_cosmodrome_blackhole", player);
 	}
-	self waittill(#"explode");
+	self waittill("explode");
 	arrayremovevalue(level.var_4af7fb42, self);
 	foreach(player in level.players)
 	{
@@ -444,7 +444,7 @@ function get_thrown_black_hole_bomb()
 */
 function monitor_zombie_groans(info)
 {
-	self endon(#"explode");
+	self endon("explode");
 	while(true)
 	{
 		if(!isdefined(self))
@@ -674,7 +674,7 @@ function black_hole_bomb_teleport_init(ent_grenade)
 	}
 	teleport_trigger = spawn("trigger_radius", ent_grenade.origin, 0, 64, 70);
 	ent_grenade thread black_hole_bomb_trigger_monitor(teleport_trigger);
-	ent_grenade waittill(#"explode");
+	ent_grenade waittill("explode");
 	teleport_trigger notify(#"black_hole_complete");
 	wait(0.1);
 	teleport_trigger delete();

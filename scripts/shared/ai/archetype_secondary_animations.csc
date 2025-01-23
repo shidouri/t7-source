@@ -184,7 +184,7 @@ function private secondaryfacialanimationthink(localclientnum)
 	/#
 		assert(isdefined(self.archetype) && (self.archetype == "" || self.archetype == ""));
 	#/
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self endon("stopfacialthread");
 	self._currentfacestate = "inactive";
 	while(true)

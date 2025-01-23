@@ -1792,7 +1792,7 @@ function weather_manager()
 				player set_weather_to_player();
 			}
 		}
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 	}
 }
 

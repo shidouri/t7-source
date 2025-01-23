@@ -163,9 +163,9 @@ function function_8f7c9f3c()
 */
 function player_anchor()
 {
-	self notify(#"end_anchor");
+	self notify("end_anchor");
 	self endon("death");
-	self endon(#"end_anchor");
+	self endon("end_anchor");
 	self.is_anchored = 0;
 	self.is_wet = 0;
 	while(true)
@@ -202,7 +202,7 @@ function player_anchor()
 */
 function function_ed7faf05()
 {
-	self notify(#"end_anchor");
+	self notify("end_anchor");
 	self toggle_player_anchor(0);
 }
 
@@ -232,7 +232,7 @@ function toggle_player_anchor(b_anchor)
 			self closeluimenu(self getluimenu("AnchorDeployed"));
 		}
 		self.is_anchored = 0;
-		level notify(#"enable_cybercom", self, 1);
+		level notify("enable_cybercom", self, 1);
 		self util::hide_hint_text();
 		self notify(#"hash_af6705ff");
 	}
@@ -1354,7 +1354,7 @@ function surge_warning(player)
 {
 	self endon("death");
 	self endon("wave_stop");
-	level endon(#"end_surge");
+	level endon("end_surge");
 	player endon("death");
 	while(distance2dsquared(self.origin, player.origin) > 490000)
 	{
@@ -1693,7 +1693,7 @@ function surge_trigger_watcher(t_surge)
 */
 function surge_player_rumble(t_wave)
 {
-	level endon(#"end_surge");
+	level endon("end_surge");
 	self endon("death");
 	self endon("stop_surge");
 	t_wave endon("wave_stop");
@@ -1716,7 +1716,7 @@ function surge_player_rumble(t_wave)
 */
 function surge_player_push(t_wave)
 {
-	level endon(#"end_surge");
+	level endon("end_surge");
 	self endon("death");
 	self endon("stop_surge");
 	t_wave endon("wave_stop");
@@ -1757,7 +1757,7 @@ function surge_player_push(t_wave)
 */
 function create_surge(t_storm)
 {
-	level endon(#"end_surge");
+	level endon("end_surge");
 	t_storm endon("death");
 	while(true)
 	{

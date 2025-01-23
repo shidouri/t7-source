@@ -1527,7 +1527,7 @@ function function_638f34fd()
 	level waittill(#"between_round_over");
 	while(var_3275089e < 4)
 	{
-		level waittill(#"end_of_round");
+		level waittill("end_of_round");
 		var_3275089e++;
 	}
 	self notify("update_challenge_3_1");

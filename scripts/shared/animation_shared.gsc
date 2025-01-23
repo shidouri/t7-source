@@ -272,7 +272,7 @@ function _play(animation, v_origin_or_ent, v_angles_or_tag, n_rate, n_blend_in, 
 function _blend_out(animation, n_blend, n_rate, n_start_time)
 {
 	self endon("death");
-	self endon(#"end");
+	self endon("end");
 	self endon("scriptedanim");
 	self endon("new_scripted_anim");
 	n_server_length = (floor(getanimlength(animation) / 0.05)) * 0.05;

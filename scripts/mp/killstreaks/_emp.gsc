@@ -469,7 +469,7 @@ function stopempeffect(team, ownerentnum)
 {
 	level.activeemps[team] = 0;
 	level.activeplayeremps[ownerentnum] = 0;
-	level notify(#"emp_updated");
+	level notify("emp_updated");
 }
 
 /*
@@ -597,8 +597,8 @@ function emp_jamenemies(empent, hacked)
 		level.activeplayeremps[empent.originalownerentnum] = 0;
 	}
 	level.activeplayeremps[self.entnum] = 1;
-	level notify(#"emp_updated");
-	level notify(#"emp_deployed");
+	level notify("emp_updated");
+	level notify("emp_deployed");
 	visionsetnaked("flash_grenade", 1.5);
 	wait(0.1);
 	visionsetnaked("flash_grenade", 0);
@@ -624,7 +624,7 @@ function emptracker()
 	level endon("game_ended");
 	while(true)
 	{
-		level waittill(#"emp_updated");
+		level waittill("emp_updated");
 		foreach(player in level.players)
 		{
 			player updateemp();
@@ -650,7 +650,7 @@ function updateemp()
 	player clientfield::set_to_player("empd_monitor_distance", emped);
 	if(emped)
 	{
-		player notify(#"emp_jammed");
+		player notify("emp_jammed");
 	}
 }
 

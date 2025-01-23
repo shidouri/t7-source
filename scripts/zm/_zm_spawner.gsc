@@ -1822,8 +1822,8 @@ function zombie_ragdoll_then_explode(launchvector, attacker)
 	}
 	self zombie_utility::zombie_eye_glow_stop();
 	self clientfield::set("zombie_ragdoll_explode", 1);
-	self notify(#"exploding");
-	self notify(#"end_melee");
+	self notify("exploding");
+	self notify("end_melee");
 	self notify("death", attacker);
 	self.dont_die_on_me = 1;
 	self.exploding = 1;

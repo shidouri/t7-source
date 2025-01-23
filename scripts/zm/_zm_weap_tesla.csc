@@ -72,7 +72,7 @@ function player_init()
 function tesla_fx_rail(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	for(;;)
 	{
 		waitrealtime(randomfloatrange(8, 12));
@@ -119,7 +119,7 @@ function tesla_fx_rail(localclientnum)
 function tesla_fx_tube(localclientnum)
 {
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	for(;;)
 	{
 		waitrealtime(0.1);

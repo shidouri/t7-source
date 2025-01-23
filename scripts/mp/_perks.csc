@@ -70,7 +70,7 @@ function __init__()
 */
 function updatesitrepscan()
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	while(true)
 	{
 		self oed_sitrepscan_enable(level.sitrepscan1_enable);
@@ -243,7 +243,7 @@ function watch_perks_change(local_client_num)
 {
 	/#
 		self notify("watch_perks_change");
-		self endon(#"entityshutdown");
+		self endon("entityshutdown");
 		self endon("watch_perks_change");
 		self endon("death");
 		self endon("disconnect");
@@ -325,7 +325,7 @@ function monitor_tracker_perk_killcam(local_client_num)
 {
 	self notify("monitor_tracker_perk_killcam" + local_client_num);
 	self endon("monitor_tracker_perk_killcam" + local_client_num);
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	predictedlocalplayer = getlocalplayer(local_client_num);
 	if(!isdefined(level.trackerspecialtyself))
 	{
@@ -387,7 +387,7 @@ function monitor_tracker_perk(local_client_num)
 	self endon("monitor_tracker_perk");
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self.flying = 0;
 	self.tracker_flying = 0;
 	self.tracker_last_pos = self.origin;
@@ -502,7 +502,7 @@ function killtrackerfx_on_death(local_client_num)
 	killtrackerfx.array = [];
 	killtrackerfx.index = 0;
 	self.killtrackerfx = killtrackerfx;
-	self waittill(#"entityshutdown");
+	self waittill("entityshutdown");
 	servertime = getservertime(local_client_num);
 	foreach(killfxstruct in killtrackerfx.array)
 	{
@@ -649,7 +649,7 @@ function gettrackerfxposition(local_client_num)
 */
 function monitor_detectnearbyenemies(local_client_num)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	controllermodel = getuimodelforcontroller(local_client_num);
 	sixthsensemodel = createuimodel(controllermodel, "hudItems.sixthsense");
 	enemynearbytime = 0;

@@ -512,7 +512,7 @@ function endondeath()
 {
 	self waittill("death");
 	waittillframeend();
-	self notify(#"end_explode");
+	self notify("end_explode");
 }
 
 /*
@@ -527,8 +527,8 @@ function endondeath()
 function grenade_earthquake()
 {
 	self thread endondeath();
-	self endon(#"end_explode");
-	self waittill(#"explode", position);
+	self endon("end_explode");
+	self waittill("explode", position);
 	playrumbleonposition("grenade_rumble", position);
 	earthquake(0.3, 0.5, position, 400);
 }

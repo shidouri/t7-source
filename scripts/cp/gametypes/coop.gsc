@@ -663,7 +663,7 @@ function function_44e35f1a()
 {
 	self endon("disconnect");
 	self endon(#"hash_1528244e");
-	self endon(#"end_respawn");
+	self endon("end_respawn");
 	level endon("game_ended");
 	self function_e82a1210();
 	/#

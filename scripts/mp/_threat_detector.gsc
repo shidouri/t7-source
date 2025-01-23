@@ -97,7 +97,7 @@ function watchforstationary(owner)
 {
 	self endon("death");
 	self endon("hacked");
-	self endon(#"explode");
+	self endon("explode");
 	owner endon("death");
 	owner endon("disconnect");
 	self waittill("stationary");

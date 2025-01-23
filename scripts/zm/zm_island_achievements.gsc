@@ -79,7 +79,7 @@ function on_player_connect()
 */
 function function_5efc5a29()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_6c52e305");
 	self giveachievement("ZM_ISLAND_CLONE_REVIVE");
@@ -96,7 +96,7 @@ function function_5efc5a29()
 */
 function function_47538b42()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_aacf862e");
 	self giveachievement("ZM_ISLAND_ELECTRIC_SHIELD");
@@ -113,7 +113,7 @@ function function_47538b42()
 */
 function function_cdd905fd()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill("achievement_zm_island_thrasher_rescue");
 	self giveachievement("ZM_ISLAND_THRASHER_RESCUE");
@@ -130,7 +130,7 @@ function function_cdd905fd()
 */
 function function_ed8c7d0f()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_6c020c33");
 	self giveachievement("ZM_ISLAND_DRINK_WINE");
@@ -147,7 +147,7 @@ function function_ed8c7d0f()
 */
 function function_53f54d29()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	b_done = 0;
 	while(!b_done)
@@ -178,7 +178,7 @@ function function_53f54d29()
 */
 function function_4a12afed()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_1327d1d5");
 	self giveachievement("ZM_ISLAND_DESTROY_WEBS");
@@ -195,7 +195,7 @@ function function_4a12afed()
 */
 function function_d6e0957d()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	self endon("disconnect");
 	self waittill(#"hash_cf72c127");
 	self giveachievement("ZM_ISLAND_WONDER_KILL");

@@ -218,7 +218,7 @@ function init_stage()
 */
 function moon_rb_dist_think()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level endon(level._osc_flags[1]);
 	level endon("stop_dist_think");
 	level._lid_close_sound = 0;
@@ -638,7 +638,7 @@ function moon_open_access()
 */
 function moon_access_granted(int_hits)
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level flag::wait_till(level._osc_flags[1]);
 	while(!level flag::get(level._osc_flags[9]))
 	{
@@ -670,7 +670,7 @@ function moon_access_granted(int_hits)
 */
 function moon_hit_reaction()
 {
-	level endon(#"end_game");
+	level endon("end_game");
 	level endon(level._osc_flags[9]);
 	while(!level flag::get(level._osc_flags[9]))
 	{

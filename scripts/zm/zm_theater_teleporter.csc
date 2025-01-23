@@ -132,7 +132,7 @@ function pack_clock_init()
 */
 function pack_clock_run(time_values)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	self rotatepitch((time_values["hand_time"] * time_values["rotate"]) * -1, 0.05);
 	self waittill("rotatedone");
 	if(isdefined(time_values["first_rotate"]))
@@ -210,7 +210,7 @@ function function_667aa0b4(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_a8255fab(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self endon(#"entityshutdown");
+	self endon("entityshutdown");
 	if(newval)
 	{
 		n_fx_id = playfxontag(localclientnum, level._effect["teleport_player_kino"], self, "tag_fx_wormhole");
