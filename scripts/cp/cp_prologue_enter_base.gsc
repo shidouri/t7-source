@@ -330,10 +330,10 @@ function function_bc06f066()
 function function_5b8bdfba()
 {
 	wait(3);
-	var_216b2dcb = spawn("script_origin", (-1001, -1422, 215));
-	var_216b2dcb dialog::say("nrcp_all_available_person_0");
+	var_paent = spawn("script_origin", (-1001, -1422, 215));
+	var_paent dialog::say("nrcp_all_available_person_0");
 	wait(1);
-	var_216b2dcb delete();
+	var_paent delete();
 }
 
 /*
