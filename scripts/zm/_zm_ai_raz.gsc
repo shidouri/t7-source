@@ -377,14 +377,14 @@ function raz_round_spawning()
 */
 function function_665a13cd(spawner, s_spot)
 {
-	var_a09c80cd = zombie_utility::spawn_zombie(level.var_6bca5baa[0], "raz", s_spot);
-	if(isdefined(var_a09c80cd))
+	raz_ai = zombie_utility::spawn_zombie(level.var_6bca5baa[0], "raz", s_spot);
+	if(isdefined(raz_ai))
 	{
-		var_a09c80cd.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
-		var_a09c80cd thread zombie_utility::round_spawn_failsafe();
-		var_a09c80cd thread function_b8671cc0(s_spot);
+		raz_ai.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
+		raz_ai thread zombie_utility::round_spawn_failsafe();
+		raz_ai thread function_b8671cc0(s_spot);
 	}
-	return var_a09c80cd;
+	return raz_ai;
 }
 
 /*
