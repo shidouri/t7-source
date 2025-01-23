@@ -376,43 +376,43 @@ function function_1e663abe(player, origin)
 	player.doa.var_52cb4fb9 = 1;
 	player namespace_831a4a7c::function_4519b17(1);
 	player function_d460de4b();
-	var_e34a8df9 = level.doa.var_95dee038 spawner::spawn(1);
-	var_e34a8df9 thread doa_utility::function_24245456(player, "disconnect");
+	rapps = level.doa.var_95dee038 spawner::spawn(1);
+	rapps thread doa_utility::function_24245456(player, "disconnect");
 	player.doa.var_52cb4fb9 = undefined;
-	player.doa.vehicle = var_e34a8df9;
-	var_e34a8df9.origin = origin;
-	var_e34a8df9.angles = player.angles;
-	var_e34a8df9.team = player.team;
-	var_e34a8df9.playercontrolled = 1;
-	var_e34a8df9 setmodel("veh_t7_drone_raps_zombietron_" + namespace_831a4a7c::function_ee495f41(player.entnum));
-	var_e34a8df9.owner = player;
-	var_e34a8df9 usevehicle(player, 0);
-	var_e34a8df9 makeunusable();
-	var_e34a8df9.health = 9999999;
+	player.doa.vehicle = rapps;
+	rapps.origin = origin;
+	rapps.angles = player.angles;
+	rapps.team = player.team;
+	rapps.playercontrolled = 1;
+	rapps setmodel("veh_t7_drone_raps_zombietron_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+	rapps.owner = player;
+	rapps usevehicle(player, 0);
+	rapps makeunusable();
+	rapps.health = 9999999;
 	player notify(#"hash_e8bfbd2b");
-	var_e34a8df9 thread function_254eefd6(player, int(player doa_utility::function_1ded48e6(level.doa.rules.var_7196fe3d)));
+	rapps thread function_254eefd6(player, int(player doa_utility::function_1ded48e6(level.doa.rules.var_7196fe3d)));
 	player waittill(#"hash_d28ba89d");
-	if(isdefined(var_e34a8df9))
+	if(isdefined(rapps))
 	{
-		var_85f85940 = var_e34a8df9.origin;
+		var_85f85940 = rapps.origin;
 		if(isdefined(player))
 		{
-			origin = var_e34a8df9.origin;
-			var_e34a8df9 makeusable();
+			origin = rapps.origin;
+			rapps makeusable();
 			if(isdefined(player))
 			{
-				var_e34a8df9 usevehicle(player, 0);
+				rapps usevehicle(player, 0);
 			}
-			var_e34a8df9 makeunusable();
+			rapps makeunusable();
 		}
 	}
 	if(isdefined(player))
 	{
-		player thread function_3b1b644d(var_85f85940, var_e34a8df9);
+		player thread function_3b1b644d(var_85f85940, rapps);
 	}
 	else
 	{
-		var_e34a8df9 delete();
+		rapps delete();
 	}
 }
 

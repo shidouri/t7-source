@@ -1189,7 +1189,7 @@ function private function_b1d23a45(boss)
 	{
 		lasthealth = self.health;
 		self waittill("damage", damage);
-		if(isdefined(self.var_e34a8df9))
+		if(isdefined(self.rapps))
 		{
 			self thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
 			loc = spawnstruct();
@@ -1200,10 +1200,10 @@ function private function_b1d23a45(boss)
 				doa_utility::function_fe180f6f(3);
 				wait(0.05);
 			}
-			ai = namespace_51bd792::function_fb051310(self.var_e34a8df9, loc, undefined, 0, 1);
+			ai = namespace_51bd792::function_fb051310(self.rapps, loc, undefined, 0, 1);
 			if(isdefined(ai))
 			{
-				ai.spawner = self.var_e34a8df9;
+				ai.spawner = self.rapps;
 				ai.team = "axis";
 				ai.health = 5000;
 				ai.maxhealth = ai.health;
@@ -1259,7 +1259,7 @@ function private function_4d69c061(org)
 		return;
 	}
 	org.regenerated++;
-	if(isdefined(org.var_e34a8df9) && org.regenerated > 4)
+	if(isdefined(org.rapps) && org.regenerated > 4)
 	{
 		org.regenerated = 4;
 	}
@@ -1281,10 +1281,10 @@ function private function_4d69c061(org)
 		org.shield delete();
 	}
 	org.shield = shield;
-	if(isdefined(org.var_e34a8df9))
+	if(isdefined(org.rapps))
 	{
 		shield setmodel("veh_t7_drone_insanity_elemental");
-		shield.var_e34a8df9 = org.var_e34a8df9;
+		shield.rapps = org.rapps;
 		shield linkto(shield.org, "tag_origin", (0, 164 - (org.regenerated * 8), 60), vectorscale((0, 0, 1), 180));
 	}
 	else
@@ -1345,8 +1345,8 @@ function private function_51f0dd2c()
 		else
 		{
 			shield setmodel("veh_t7_drone_insanity_elemental");
-			org.var_e34a8df9 = getent("spawner_meatball", "targetname");
-			shield.var_e34a8df9 = org.var_e34a8df9;
+			org.rapps = getent("spawner_meatball", "targetname");
+			shield.rapps = org.rapps;
 			shield linkto(shield.org, "tag_origin", (0, 164, 60), vectorscale((0, 0, 1), 180));
 		}
 		shield thread function_b1d23a45(self);
