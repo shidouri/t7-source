@@ -121,19 +121,19 @@ function setupdevgui()
 		rootmenu = "";
 		index = 1;
 		var_9ba2319f = index;
-		var_9c0bafd1 = level.doa.rules.var_88c0b67b;
+		maxlvl = level.doa.rules.var_88c0b67b;
 		foreach(arena in level.doa.arenas)
 		{
 			if(isdefined(arena.var_63b4dab3) && arena.var_63b4dab3)
 			{
 				continue;
 			}
-			name = (((((arena.name + "") + var_9ba2319f) + "") + var_9c0bafd1) + "") + index;
+			name = (((((arena.name + "") + var_9ba2319f) + "") + maxlvl) + "") + index;
 			index++;
 			cmd = (((rootmenu + name) + "") + arena.name) + "";
 			adddebugcommand(cmd);
 			var_9ba2319f = var_9ba2319f + level.doa.rules.var_88c0b67b;
-			var_9c0bafd1 = var_9c0bafd1 + level.doa.rules.var_88c0b67b;
+			maxlvl = maxlvl + level.doa.rules.var_88c0b67b;
 		}
 		if(isdefined(world.var_e5cf1b41))
 		{
