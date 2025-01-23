@@ -1551,11 +1551,11 @@ function function_17fea3ed(slot, weapon, maxtargets)
 		}
 		var_ab2554ab = [];
 		playerforward = anglestoforward(self getplayerangles());
-		var_6f14dd02 = self gettagorigin("tag_aim");
+		tagaim = self gettagorigin("tag_aim");
 		foreach(enemy in enemies)
 		{
 			center = enemy getcentroid();
-			dirtotarget = vectornormalize(center - var_6f14dd02);
+			dirtotarget = vectornormalize(center - tagaim);
 			enemy.var_4ddba9ea = vectordot(dirtotarget, playerforward);
 			if(isdefined(enemy.var_fb7ce72a))
 			{
