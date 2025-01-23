@@ -85,15 +85,15 @@ function amb_0_zombie()
 {
 	level endon(#"hash_993b920d");
 	wait(50);
-	var_64ab0444 = getent("amb_0_zombie", "targetname");
-	var_64ab0444 playloopsound(var_64ab0444.script_label);
+	zent = getent("amb_0_zombie", "targetname");
+	zent playloopsound(zent.script_label);
 	wait(35);
 	while(true)
 	{
 		int = randomintrange(0, 40);
 		if(int == 10)
 		{
-			var_64ab0444 thread function_ae3642b4();
+			zent thread function_ae3642b4();
 			level notify(#"hash_993b920d");
 		}
 		wait(10);
