@@ -323,7 +323,7 @@ function function_eaa27407()
 }
 
 /*
-	Name: function_3c3eadc2
+	Name: uav2az
 	Namespace: cp_mi_zurich_newworld
 	Checksum: 0xAEE63E4
 	Offset: 0x2558
@@ -331,7 +331,7 @@ function function_eaa27407()
 	Parameters: 7
 	Flags: None
 */
-function function_3c3eadc2()
+function uav2az()
 {
 	// Unsupported VM revision (1B).
 }
