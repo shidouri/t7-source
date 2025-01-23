@@ -993,7 +993,7 @@ function function_a0e51d80(point, timesec, size, color)
 	halfwidth = int(size / 2);
 	l1 = point + (halfwidth * -1, 0, 0);
 	l2 = point + (halfwidth, 0, 0);
-	var_5e2b69e1 = point + (0, halfwidth * -1, 0);
+	w1 = point + (0, halfwidth * -1, 0);
 	var_842de44a = point + (0, halfwidth, 0);
 	h1 = point + (0, 0, halfwidth * -1);
 	h2 = point + (0, 0, halfwidth);
@@ -1001,7 +1001,7 @@ function function_a0e51d80(point, timesec, size, color)
 	{
 		/#
 			line(l1, l2, color, 1, 0, 1);
-			line(var_5e2b69e1, var_842de44a, color, 1, 0, 1);
+			line(w1, var_842de44a, color, 1, 0, 1);
 			line(h1, h2, color, 1, 0, 1);
 		#/
 		wait(0.05);
