@@ -209,7 +209,7 @@ function function_77ed1bae()
 		rock = spawn("script_model", loc.origin + vectorscale((0, 0, 1), 2000));
 		rock.targetname = "fate_rock";
 		rock.var_103432a2 = rock.origin;
-		rock.var_e35d13 = loc.origin;
+		rock.dloc = loc.origin;
 		rock setmodel(level.doa.var_b1698a42.var_f485e213);
 		rock.angles = (0, type * 90, 0);
 		rock setscale(0.9 + (type * 0.05));
@@ -322,7 +322,7 @@ function private function_271ba816(var_26fc4461 = 0)
 	self.rock thread namespace_eaa992c::function_285a2999("glow_blue");
 	level waittill(#"hash_4213cffb");
 	wait(randomfloatrange(1, 2.5));
-	self.rock thread doa_utility::function_a98c85b2(self.rock.var_e35d13, 1.5);
+	self.rock thread doa_utility::function_a98c85b2(self.rock.dloc, 1.5);
 	self.rock thread namespace_1a381543::function_90118d8c("zmb_fate_rock_spawn");
 	wait(1.5);
 	self.rock thread namespace_eaa992c::function_285a2999("fate_impact");
@@ -976,7 +976,7 @@ function function_833dad0d()
 		loc = level.doa.var_b1698a42.var_70a33a0b[i];
 		rock = spawn("script_model", loc.origin + vectorscale((0, 0, 1), 2000));
 		rock.targetname = "doRoomOfJudgement";
-		rock.var_e35d13 = loc.origin;
+		rock.dloc = loc.origin;
 		rock.var_103432a2 = rock.origin;
 		rock.angles = loc.angles + vectorscale((0, 1, 0), 90);
 		rock setmodel(level.doa.var_b1698a42.var_f485e213);
