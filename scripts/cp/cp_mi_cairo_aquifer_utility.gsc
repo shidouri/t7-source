@@ -4569,14 +4569,14 @@ function function_5a160fe7()
 */
 function function_7d76ae16(current_vol, var_29f8e61c)
 {
-	var_8173bf49 = getent(current_vol, "targetname");
+	vol1 = getent(current_vol, "targetname");
 	var_a77639b2 = getent(var_29f8e61c, "targetname");
 	guys = getaiteamarray("axis");
 	foreach(guy in guys)
 	{
 		if(isdefined(guy) || isalive(guy))
 		{
-			if(guy istouching(var_8173bf49))
+			if(guy istouching(vol1))
 			{
 				guy thread function_ef807253(var_a77639b2);
 				wait(randomfloatrange(0.2, 0.8));
