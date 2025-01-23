@@ -208,7 +208,7 @@ function function_77ed1bae()
 		loc = level.doa.var_b1698a42.locations[i];
 		rock = spawn("script_model", loc.origin + vectorscale((0, 0, 1), 2000));
 		rock.targetname = "fate_rock";
-		rock.var_103432a2 = rock.origin;
+		rock.oloc = rock.origin;
 		rock.dloc = loc.origin;
 		rock setmodel(level.doa.var_b1698a42.var_f485e213);
 		rock.angles = (0, type * 90, 0);
@@ -302,7 +302,7 @@ function private function_524284e0()
 			break;
 		}
 	}
-	self.rock thread doa_utility::function_a98c85b2(self.rock.var_103432a2, 1.5);
+	self.rock thread doa_utility::function_a98c85b2(self.rock.oloc, 1.5);
 }
 
 /*
@@ -977,7 +977,7 @@ function function_833dad0d()
 		rock = spawn("script_model", loc.origin + vectorscale((0, 0, 1), 2000));
 		rock.targetname = "doRoomOfJudgement";
 		rock.dloc = loc.origin;
-		rock.var_103432a2 = rock.origin;
+		rock.oloc = rock.origin;
 		rock.angles = loc.angles + vectorscale((0, 1, 0), 90);
 		rock setmodel(level.doa.var_b1698a42.var_f485e213);
 		trigger = spawn("trigger_radius", rock.origin, 0, loc.radius, 128);
