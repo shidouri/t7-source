@@ -105,7 +105,7 @@ function main()
 		array::add(level.s_challenges.a_challenge_2, init_challenges(2, &"ZM_GENESIS_CHALLENGE_1_9", 10, "update_challenge_1_9", &function_4cfc587c));
 		array::add(level.s_challenges.a_challenge_2, init_challenges(2, &"ZM_GENESIS_CHALLENGE_2_10", 10, "update_challenge_2_10", &function_748fccd9));
 		array::add(level.s_challenges.a_challenge_2, init_challenges(2, &"ZM_GENESIS_CHALLENGE_2_11", 1, "update_challenge_2_11", &function_4e8d5270));
-		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_1", 5, "update_challenge_3_1", &function_17664372));
+		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_1", 5, "update_challenge_3_1", &garkm5));
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_2", 1, "update_challenge_3_2", &function_f163c909));
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_3", 1, "update_challenge_3_3", &function_cb614ea0));
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_4", 1, "update_challenge_3_4", &garkm0));
@@ -1603,7 +1603,7 @@ function function_4e8d5270()
 }
 
 /*
-	Name: function_17664372
+	Name: garkm5
 	Namespace: zm_genesis_challenges
 	Checksum: 0xC6B0234
 	Offset: 0x4C48
@@ -1611,7 +1611,7 @@ function function_4e8d5270()
 	Parameters: 0
 	Flags: Linked
 */
-function function_17664372()
+function garkm5()
 {
 	self endon("flag_player_completed_challenge_3");
 	self endon("disconnect");
