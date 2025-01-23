@@ -108,7 +108,7 @@ function main()
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_1", 5, "update_challenge_3_1", &function_17664372));
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_2", 1, "update_challenge_3_2", &function_f163c909));
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_3", 1, "update_challenge_3_3", &function_cb614ea0));
-		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_4", 1, "update_challenge_3_4", &function_d572a77f));
+		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_4", 1, "update_challenge_3_4", &garkm0));
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_3_9", 3, "update_challenge_3_9", &function_477a16ba));
 		array::add(level.s_challenges.a_challenge_3, init_challenges(3, &"ZM_GENESIS_CHALLENGE_2_9", 1, "update_challenge_2_9", &function_26a28c8b));
 		zm_spawner::register_zombie_death_event_callback(&function_905d9544);
@@ -1706,7 +1706,7 @@ function function_cb614ea0()
 }
 
 /*
-	Name: function_d572a77f
+	Name: garkm0
 	Namespace: zm_genesis_challenges
 	Checksum: 0x15E8B718
 	Offset: 0x4E98
@@ -1714,7 +1714,7 @@ function function_cb614ea0()
 	Parameters: 0
 	Flags: Linked
 */
-function function_d572a77f()
+function garkm0()
 {
 	self endon("flag_player_completed_challenge_3");
 	self endon("disconnect");
