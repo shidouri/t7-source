@@ -2655,7 +2655,7 @@ function private function_5441452b(maxdistsq)
 			continue;
 		}
 		var_af22fa93 = (isdefined(self.var_af22fa93) ? self.var_af22fa93 : 10);
-		var_119472f5 = (isdefined(maxdistsq) ? maxdistsq : level.doa.rules.var_eb81beeb);
+		maxsq = (isdefined(maxdistsq) ? maxdistsq : level.doa.rules.var_eb81beeb);
 		foreach(force in self.attractors)
 		{
 			if(!isdefined(force))
@@ -2663,7 +2663,7 @@ function private function_5441452b(maxdistsq)
 				continue;
 			}
 			distsq = distancesquared(self.origin, force.origin);
-			if(distsq > var_119472f5)
+			if(distsq > maxsq)
 			{
 				continue;
 			}
@@ -2676,7 +2676,7 @@ function private function_5441452b(maxdistsq)
 				origin = force.origin;
 			}
 			var_ad2b0f07 = vectornormalize(origin - self.origin);
-			scale = (var_119472f5 - distsq) / var_119472f5;
+			scale = (maxsq - distsq) / maxsq;
 			movevec = vectorscale(var_ad2b0f07, var_af22fa93 * scale);
 			self.origin = self.origin + movevec;
 			self.var_3033320e = 1;

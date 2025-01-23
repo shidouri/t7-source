@@ -389,11 +389,11 @@ function function_c0ba5acc(player, attacker, radius)
 	enemies = arraycombine(getaiteamarray("axis"), getaiteamarray("team3"), 0, 0);
 	if(!isdefined(radius))
 	{
-		var_119472f5 = getdvarint("scr_proximity_stun_discharge_radius", 144) * getdvarint("scr_proximity_stun_discharge_radius", 144);
+		maxsq = getdvarint("scr_proximity_stun_discharge_radius", 144) * getdvarint("scr_proximity_stun_discharge_radius", 144);
 	}
 	else
 	{
-		var_119472f5 = radius * radius;
+		maxsq = radius * radius;
 	}
 	var_4c0d9ab5 = [];
 	foreach(guy in enemies)
@@ -419,7 +419,7 @@ function function_c0ba5acc(player, attacker, radius)
 			continue;
 		}
 		distsq = distancesquared(player.origin, guy.origin);
-		if(distsq > var_119472f5)
+		if(distsq > maxsq)
 		{
 			continue;
 		}
