@@ -55,7 +55,7 @@ function main()
 	Parameters: 3
 	Flags: Linked
 */
-function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
+function function_4eb73a5(localclientnum, mapname, maptod)
 {
 	if(isdefined(level.weatherfx) && isdefined(level.weatherfx[localclientnum]))
 	{
@@ -70,7 +70,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "dock":
 		{
-			if(var_5fb1dd3e == "night")
+			if(maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_rainfall_" + randomintrange(1, 4)], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -78,7 +78,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "farm":
 		{
-			if(var_5fb1dd3e == "dusk" || var_5fb1dd3e == "night")
+			if(maptod == "dusk" || maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_snowfall_1"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -86,11 +86,11 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "graveyard":
 		{
-			if(var_5fb1dd3e == "noon")
+			if(maptod == "noon")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_snowfall_1"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
-			else if(var_5fb1dd3e == "night")
+			else if(maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_rainfall_" + randomintrange(1, 4)], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -98,7 +98,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "temple":
 		{
-			if(var_5fb1dd3e == "night")
+			if(maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_rainfall_" + randomintrange(1, 4)], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -110,7 +110,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "blood":
 		{
-			if(var_5fb1dd3e != "dusk")
+			if(maptod != "dusk")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_snowfall_1"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -122,7 +122,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "vengeance":
 		{
-			if(var_5fb1dd3e == "night")
+			if(maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_rainfall_" + randomintrange(1, 4)], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -134,7 +134,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "apartments":
 		{
-			if(var_5fb1dd3e == "night")
+			if(maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_rainfall_" + randomintrange(1, 4)], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -146,7 +146,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "metro":
 		{
-			if(var_5fb1dd3e == "night")
+			if(maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_snowfall_1"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -154,7 +154,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "clearing":
 		{
-			if(var_5fb1dd3e != "night")
+			if(maptod != "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_snowfall_1"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -162,7 +162,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "newworld":
 		{
-			if(var_5fb1dd3e == "dusk" || var_5fb1dd3e == "night")
+			if(maptod == "dusk" || maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_snowfall_1"], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
@@ -170,7 +170,7 @@ function function_4eb73a5(localclientnum, mapname, var_5fb1dd3e)
 		}
 		case "boss":
 		{
-			if(var_5fb1dd3e == "night")
+			if(maptod == "night")
 			{
 				level.weatherfx[localclientnum] = playfxoncamera(localclientnum, level._effect["ambient_rainfall_" + randomintrange(1, 4)], (0, 0, 0), (1, 0, 0), (0, 0, 1));
 			}
