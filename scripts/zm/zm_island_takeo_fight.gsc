@@ -791,9 +791,9 @@ function function_9f1fd468()
 function function_87949ac6()
 {
 	level endon(#"hash_ec7f92f6");
-	foreach(var_9c458cf5 in level.var_bbdc1f95.var_69943735)
+	foreach(var_vine in level.var_bbdc1f95.var_69943735)
 	{
-		var_9c458cf5 thread function_bf38b3c9(0);
+		var_vine thread function_bf38b3c9(0);
 	}
 	if(self.var_fbe5299e <= 1)
 	{
@@ -918,9 +918,9 @@ function function_b96762d3()
 function function_628b98fd(var_db18d39e = 1)
 {
 	level endon(#"hash_ec7f92f6");
-	foreach(var_9c458cf5 in level.var_bbdc1f95.var_69943735)
+	foreach(var_vine in level.var_bbdc1f95.var_69943735)
 	{
-		var_9c458cf5 thread function_bf38b3c9(0);
+		var_vine thread function_bf38b3c9(0);
 	}
 	wait(1.5);
 	level thread function_279705f();
@@ -1634,10 +1634,10 @@ function function_c8af550a()
 			level flag::set("");
 			wait(1);
 		}
-		foreach(var_9c458cf5 in level.var_bbdc1f95.var_69943735)
+		foreach(var_vine in level.var_bbdc1f95.var_69943735)
 		{
-			var_9c458cf5 function_54d91dfb();
-			var_9c458cf5 hide();
+			var_vine function_54d91dfb();
+			var_vine hide();
 		}
 		level.var_bbdc1f95.var_e7eb4096 function_54d91dfb();
 		level.var_bbdc1f95.var_e7eb4096 hide();
@@ -1665,25 +1665,25 @@ function function_5ff8dc0c()
 			level.var_bbdc1f95.var_9326c958 = !level.var_bbdc1f95.var_9326c958;
 			if(isdefined(level.var_bbdc1f95.var_9326c958) && level.var_bbdc1f95.var_9326c958)
 			{
-				foreach(var_9c458cf5 in level.var_bbdc1f95.var_69943735)
+				foreach(var_vine in level.var_bbdc1f95.var_69943735)
 				{
-					foreach(var_fb97f73d in var_9c458cf5.var_7168c71c)
+					foreach(var_fb97f73d in var_vine.var_7168c71c)
 					{
 						var_fb97f73d show();
 					}
-					var_9c458cf5 show();
+					var_vine show();
 				}
 				getent("", "") show();
 			}
 			else
 			{
-				foreach(var_9c458cf5 in level.var_bbdc1f95.var_69943735)
+				foreach(var_vine in level.var_bbdc1f95.var_69943735)
 				{
-					foreach(var_fb97f73d in var_9c458cf5.var_7168c71c)
+					foreach(var_fb97f73d in var_vine.var_7168c71c)
 					{
 						var_fb97f73d hide();
 					}
-					var_9c458cf5 hide();
+					var_vine hide();
 				}
 				getent("", "") hide();
 			}
