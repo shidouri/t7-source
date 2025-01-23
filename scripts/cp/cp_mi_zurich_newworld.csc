@@ -337,7 +337,7 @@ function function_3c3eadc2()
 }
 
 /*
-	Name: function_163c3359
+	Name: uav2ay
 	Namespace: cp_mi_zurich_newworld
 	Checksum: 0x3496F8E8
 	Offset: 0x2668
@@ -345,7 +345,7 @@ function function_3c3eadc2()
 	Parameters: 7
 	Flags: None
 */
-function function_163c3359()
+function uav2ay()
 {
 	// Unsupported VM revision (1B).
 }
