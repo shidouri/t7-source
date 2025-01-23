@@ -483,9 +483,9 @@ function function_9cbb849c(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		var_a923fad3 = newval & 15;
+		laps = newval & 15;
 		seconds = newval >> 4;
-		text = sprintf(&"CP_DOA_BO3_REDINS_INSTRUCTION", var_a923fad3, seconds);
+		text = sprintf(&"CP_DOA_BO3_REDINS_INSTRUCTION", laps, seconds);
 		setuimodelvalue(createuimodel(level.var_7e2a814c, "instruct"), text);
 	}
 	else
