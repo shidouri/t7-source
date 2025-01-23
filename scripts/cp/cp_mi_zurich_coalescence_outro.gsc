@@ -1481,13 +1481,13 @@ function adjust_angles_to_player(var_cb29ad00)
 {
 	self endon("disconnect");
 	self endon("death");
-	var_ba8b2edd = var_cb29ad00[0];
+	v_pa = var_cb29ad00[0];
 	v_ra = var_cb29ad00[2];
 	var_7d94cf0c = anglestoright(self.angles);
 	v_fv = anglestoforward(self.angles);
 	var_22f51d2d = (var_7d94cf0c[0], 0, var_7d94cf0c[1] * -1);
 	var_67abfb41 = (v_fv[0], 0, v_fv[1] * -1);
-	v_angles = var_22f51d2d * var_ba8b2edd;
+	v_angles = var_22f51d2d * v_pa;
 	v_angles = v_angles + (var_67abfb41 * v_ra);
 	return v_angles + (0, var_cb29ad00[1], 0);
 }
