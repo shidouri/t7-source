@@ -736,12 +736,12 @@ function function_38a2773c(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		return;
 	}
-	var_8c15cb32 = struct::get("sd_bowl", "targetname");
+	s_sd = struct::get("sd_bowl", "targetname");
 	e_origin = util::spawn_model(localclientnum, "tag_origin", self.origin + vectorscale((0, 0, 1), 24));
 	if(localclientnum == 0)
 	{
 		e_origin playsound(localclientnum, "zmb_squest_soul_leave");
 	}
-	e_origin thread ctt_trail_runner(localclientnum, "fx_weak_sauce_trail", var_8c15cb32.origin - vectorscale((0, 0, 1), 12));
+	e_origin thread ctt_trail_runner(localclientnum, "fx_weak_sauce_trail", s_sd.origin - vectorscale((0, 0, 1), 12));
 }
 

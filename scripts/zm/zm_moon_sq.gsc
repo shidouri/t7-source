@@ -847,12 +847,12 @@ function function_4ee03f50()
 		return;
 	}
 	level flag::wait_till_all(a_flags);
-	var_8c15cb32 = struct::get("sd_bowl", "targetname");
-	var_8c15cb32.radius = 65;
-	var_8c15cb32.height = 72;
-	var_8c15cb32.script_float = 7;
-	var_8c15cb32.custom_string = &"ZM_MOON_HACK_SILENT";
-	zm_equip_hacker::register_pooled_hackable_struct(var_8c15cb32, &function_9391498d);
+	s_sd = struct::get("sd_bowl", "targetname");
+	s_sd.radius = 65;
+	s_sd.height = 72;
+	s_sd.script_float = 7;
+	s_sd.custom_string = &"ZM_MOON_HACK_SILENT";
+	zm_equip_hacker::register_pooled_hackable_struct(s_sd, &function_9391498d);
 }
 
 /*
