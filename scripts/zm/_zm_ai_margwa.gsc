@@ -679,7 +679,7 @@ function private function_17627e34()
 	self.destroyheadcb = &margwa_destroy_head;
 	self.bodyfallcb = &margwa_bodyfall;
 	self.var_16ec9b37 = &function_a89905c6;
-	self.chop_actor_cb = &function_89e37c9b;
+	self.chop_actor_cb = &margwa_chop_actor;
 	self.var_a3b60c68 = &function_dbd9ba44;
 	self.var_de36fc8 = &function_2aa0209c;
 	self.smashattackcb = &margwa_smash_attack;
@@ -936,7 +936,7 @@ function private function_8d578a58()
 }
 
 /*
-	Name: function_89e37c9b
+	Name: margwa_chop_actor
 	Namespace: zm_ai_margwa
 	Checksum: 0x54D0CBF8
 	Offset: 0x2980
@@ -944,7 +944,7 @@ function private function_8d578a58()
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_89e37c9b(entity, inflictor, weapon)
+function private margwa_chop_actor(entity, inflictor, weapon)
 {
 	if(!(isdefined(entity.candamage) && entity.candamage))
 	{
