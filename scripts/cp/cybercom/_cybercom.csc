@@ -1030,8 +1030,8 @@ function private function_66be631b()
 	alpha = array("A", "B", "C", "D", "E", "F");
 	digit = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
 	nib1 = (randomint(100) < 50 ? alpha[randomint(alpha.size)] : digit[randomint(digit.size)]);
-	var_160c1266 = (randomint(100) < 50 ? alpha[randomint(alpha.size)] : digit[randomint(digit.size)]);
-	return nib1 + var_160c1266;
+	nib2 = (randomint(100) < 50 ? alpha[randomint(alpha.size)] : digit[randomint(digit.size)]);
+	return nib1 + nib2;
 }
 
 /*
