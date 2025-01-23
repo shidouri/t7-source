@@ -1029,9 +1029,9 @@ function private function_66be631b()
 {
 	alpha = array("A", "B", "C", "D", "E", "F");
 	digit = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
-	var_f00997fd = (randomint(100) < 50 ? alpha[randomint(alpha.size)] : digit[randomint(digit.size)]);
+	nib1 = (randomint(100) < 50 ? alpha[randomint(alpha.size)] : digit[randomint(digit.size)]);
 	var_160c1266 = (randomint(100) < 50 ? alpha[randomint(alpha.size)] : digit[randomint(digit.size)]);
-	return var_f00997fd + var_160c1266;
+	return nib1 + var_160c1266;
 }
 
 /*
