@@ -1739,7 +1739,7 @@ function garkm0()
 }
 
 /*
-	Name: function_af702d16
+	Name: garkm1
 	Namespace: zm_genesis_challenges
 	Checksum: 0x38E997FD
 	Offset: 0x4F80
@@ -1747,7 +1747,7 @@ function garkm0()
 	Parameters: 0
 	Flags: None
 */
-function function_af702d16()
+function garkm1()
 {
 	level flagsys::wait_till("start_zombie_round_logic");
 	self endon("flag_player_completed_challenge_3");
