@@ -452,7 +452,7 @@ function function_6592b947()
 	wait(5);
 	while(var_b29defde > 0)
 	{
-		while(!function_b1a145c4())
+		while(!ready_to_spawn_mechz())
 		{
 			wait(1);
 		}
@@ -473,7 +473,7 @@ function function_6592b947()
 }
 
 /*
-	Name: function_b1a145c4
+	Name: ready_to_spawn_mechz
 	Namespace: zm_castle_mechz
 	Checksum: 0x283E7125
 	Offset: 0x14A8
@@ -481,7 +481,7 @@ function function_6592b947()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b1a145c4()
+function ready_to_spawn_mechz()
 {
 	var_f52ee0b1 = zombie_utility::get_current_zombie_count() >= level.zombie_ai_limit;
 	if(var_f52ee0b1 || !level flag::get("spawn_zombies") || !level flag::get("can_spawn_mechz"))
