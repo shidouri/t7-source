@@ -162,13 +162,13 @@ function sndramperthink(player, target_origin, alias1, min_vol1, max_vol1, min_d
 	Parameters: 4
 	Flags: Linked
 */
-function function_860d167b(ent1, ent2, var_105ef70b, id2)
+function function_860d167b(ent1, ent2, id1, id2)
 {
 	level endon(#"hash_61477803");
 	level waittill("save_restore");
 	ent1 delete();
 	ent2 delete();
-	var_105ef70b = undefined;
+	id1 = undefined;
 	id2 = undefined;
 	target_origin = (-5922, 186, 1813);
 	wait(2);
@@ -390,13 +390,13 @@ function function_a89a73f3(player, target_origin, alias1, min_vol1, max_vol1, mi
 	Parameters: 4
 	Flags: Linked
 */
-function function_dc4a5405(ent1, ent2, var_105ef70b, id2)
+function function_dc4a5405(ent1, ent2, id1, id2)
 {
 	level endon(#"hash_a38d24cd");
 	level waittill("save_restore");
 	ent1 delete();
 	ent2 delete();
-	var_105ef70b = undefined;
+	id1 = undefined;
 	id2 = undefined;
 	target_origin = (-8944, 1407, 4186);
 	wait(2);

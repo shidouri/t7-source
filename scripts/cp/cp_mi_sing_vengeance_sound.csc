@@ -264,13 +264,13 @@ function sndramperthink(player, target_origin, alias1, min_vol1, max_vol1, min_d
 	Parameters: 4
 	Flags: Linked
 */
-function function_860d167b(ent1, ent2, var_105ef70b, id2)
+function function_860d167b(ent1, ent2, id1, id2)
 {
 	level endon(#"hash_61477803");
 	level waittill("save_restore");
 	ent1 delete();
 	ent2 delete();
-	var_105ef70b = undefined;
+	id1 = undefined;
 	id2 = undefined;
 	target_origin = (21636, -1368, 228);
 	wait(2);
