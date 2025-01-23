@@ -25,14 +25,14 @@ function function_a0e51d80(point, timesec, size, color)
 	l1 = point + (halfwidth * -1, 0, 0);
 	l2 = point + (halfwidth, 0, 0);
 	w1 = point + (0, halfwidth * -1, 0);
-	var_842de44a = point + (0, halfwidth, 0);
+	w2 = point + (0, halfwidth, 0);
 	h1 = point + (0, 0, halfwidth * -1);
 	h2 = point + (0, 0, halfwidth);
 	while(end > gettime())
 	{
 		/#
 			line(l1, l2, color, 1, 0, 1);
-			line(w1, var_842de44a, color, 1, 0, 1);
+			line(w1, w2, color, 1, 0, 1);
 			line(h1, h2, color, 1, 0, 1);
 		#/
 		wait(0.05);
