@@ -170,7 +170,7 @@ function spider_round_ring_fx(localclientnum, oldval, newval, bnewent, binitials
 	Parameters: 7
 	Flags: Linked
 */
-function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_alpha = 1, b_instant = 0, var_c0ce8db2 = 0)
+function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_alpha = 1, b_instant = 0, b_sqrt = 0)
 {
 	self endon("entityshutdown");
 	if(self.b_on === b_on)
@@ -197,7 +197,7 @@ function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_a
 		while(n_eval <= n_alpha)
 		{
 			self transition_shader(localclientnum, n_eval, var_afc7cc94);
-			if(var_c0ce8db2)
+			if(b_sqrt)
 			{
 				n_eval = sqrt(i);
 			}
@@ -226,7 +226,7 @@ function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_a
 		while(n_eval >= 0)
 		{
 			self transition_shader(localclientnum, n_eval, var_afc7cc94);
-			if(var_c0ce8db2)
+			if(b_sqrt)
 			{
 				n_eval = sqrt(i);
 			}

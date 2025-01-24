@@ -281,7 +281,7 @@ function function_60f1115e(localclientnum, n_current_ritual, n_state, b_instant 
 	Parameters: 6
 	Flags: Linked
 */
-function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, b_instant = 0, var_c0ce8db2 = 0)
+function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, b_instant = 0, b_sqrt = 0)
 {
 	self notify(#"hash_ae5b7493");
 	self endon(#"hash_ae5b7493");
@@ -309,7 +309,7 @@ function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, b_i
 		while(n_eval <= 1)
 		{
 			self function_487ce26(localclientnum, n_eval, var_afc7cc94);
-			if(var_c0ce8db2)
+			if(b_sqrt)
 			{
 				n_eval = sqrt(i);
 			}
@@ -329,7 +329,7 @@ function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, b_i
 		while(n_eval >= 0)
 		{
 			self function_487ce26(localclientnum, n_eval, var_afc7cc94);
-			if(var_c0ce8db2)
+			if(b_sqrt)
 			{
 				n_eval = sqrt(i);
 			}
