@@ -1282,19 +1282,19 @@ function function_6bfbde41()
 */
 function function_1f8ca830()
 {
-	var_7ec3e0eb = 0;
+	b_next = 0;
 	if(level.var_8bdb0713 >= function_4400f882())
 	{
 		if(isdefined(level.var_f91118d9) && level.var_f91118d9)
 		{
-			var_7ec3e0eb = 1;
+			b_next = 1;
 		}
 		else if(level.var_8bdb0713 >= function_f507c094())
 		{
-			var_7ec3e0eb = 1;
+			b_next = 1;
 		}
 	}
-	return var_7ec3e0eb;
+	return b_next;
 }
 
 /*
