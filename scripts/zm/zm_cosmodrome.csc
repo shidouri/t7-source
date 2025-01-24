@@ -906,8 +906,8 @@ function function_18769931(localclientnum, n_state, door_name)
 	doors = getentarray(localclientnum, door_name, "targetname");
 	for(i = 0; i < doors.size; i++)
 	{
-		var_1f9cab23 = doors[i] function_b2c64ce4(n_state);
-		v_move_pos = doors[i] function_b27e98c0(var_1f9cab23);
+		b_seal = doors[i] function_b2c64ce4(n_state);
+		v_move_pos = doors[i] function_b27e98c0(b_seal);
 		b_move = doors[i] function_53c16d30(v_move_pos);
 		if(b_move)
 		{
