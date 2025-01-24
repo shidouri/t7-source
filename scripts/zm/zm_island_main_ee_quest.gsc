@@ -148,8 +148,8 @@ function register_clientfields()
 function function_85773a07()
 {
 	self endon("death");
-	var_af4d7f99 = getent("mdl_main_ee_map", "targetname");
-	self zm_island_util::function_7448e472(var_af4d7f99);
+	e_map = getent("mdl_main_ee_map", "targetname");
+	self zm_island_util::function_7448e472(e_map);
 	level thread function_85b23415();
 }
 
@@ -164,8 +164,8 @@ function function_85773a07()
 */
 function function_85b23415()
 {
-	var_af4d7f99 = getent("mdl_main_ee_map", "targetname");
-	var_af4d7f99 clientfield::set("do_fade_material", 1);
+	e_map = getent("mdl_main_ee_map", "targetname");
+	e_map clientfield::set("do_fade_material", 1);
 	level flag::set("trilogy_released");
 	exploder::exploder("lgt_elevator");
 }
