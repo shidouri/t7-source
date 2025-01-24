@@ -1501,8 +1501,8 @@ function function_6cd00f33()
 	}
 	var_37c17be6 thread function_c7c38164("stop_damage_loop");
 	var_37c17be6 waittill(#"hash_7969a7d6");
-	var_47017e15 = getent("fallen_bell_damage_trigger", "targetname");
-	var_47017e15 function_c7c38164();
+	t_bell = getent("fallen_bell_damage_trigger", "targetname");
+	t_bell function_c7c38164();
 }
 
 /*
