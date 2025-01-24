@@ -291,8 +291,8 @@ function function_2d3e3c1b(e_player, var_337b3336, var_6e7a59eb, var_94d13bd0)
 	var_6e7a59eb.origin = var_9b78d768;
 	var_27dc1e70 = var_9b78d768;
 	var_75332e4 = self getcentroid();
-	var_21c86fc5 = vectornormalize(var_75332e4 - var_27dc1e70);
-	var_ad60dac2 = vectortoangles(var_21c86fc5);
+	v_bolt = vectornormalize(var_75332e4 - var_27dc1e70);
+	var_ad60dac2 = vectortoangles(v_bolt);
 	var_ad60dac2 = (var_ad60dac2[0], var_ad60dac2[1], randomint(360));
 	var_6e7a59eb.angles = var_ad60dac2;
 	var_6e7a59eb linkto(var_337b3336);
