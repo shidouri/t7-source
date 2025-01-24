@@ -2194,7 +2194,7 @@ function function_5c2a88d5()
 		{
 			player setsoundentcontext("water", "under");
 		}
-		level waittill(#"hash_fca9c70d");
+		level waittill("fpss");
 		forceambientroom("");
 	}
 }
