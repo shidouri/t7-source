@@ -1104,9 +1104,9 @@ function function_122682ad(b_visible)
 	Parameters: 1
 	Flags: Linked
 */
-function function_17f9c5ad(var_861443b0 = 1)
+function function_17f9c5ad(b_bury = 1)
 {
-	if(var_861443b0)
+	if(b_bury)
 	{
 		/#
 			assert(!isdefined(self.var_f11ace87), "");
