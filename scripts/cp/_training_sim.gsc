@@ -353,11 +353,11 @@ function function_89e36314()
 		if(self.var_3c66c303 != 2)
 		{
 			var_53a79e45 = (self.var_3c66c303 == 0 ? 5 : 45);
-			var_ad74c1fa = (self.var_3c66c303 == 0 ? 2.2 : 2.5);
+			n_freq = (self.var_3c66c303 == 0 ? 2.2 : 2.5);
 			n_accel = (self.var_3c66c303 == 0 ? 0.5 : 0.7);
 			while(self.var_3c66c303 != 2)
 			{
-				self moveto(self.var_792a209 + (0, 0, var_53a79e45), var_ad74c1fa, n_accel, n_accel);
+				self moveto(self.var_792a209 + (0, 0, var_53a79e45), n_freq, n_accel, n_accel);
 				self waittill("movedone");
 				wait(0.15);
 				var_53a79e45 = var_53a79e45 * -1;
