@@ -1046,7 +1046,7 @@ function function_94372a17(inflictor, attacker, damage, dflags, mod, weapon, poi
 	Parameters: 3
 	Flags: Linked
 */
-function function_a59f11f9(e_player, var_3ca8546d, var_9908b5f4)
+function function_a59f11f9(e_player, s_mod, var_9908b5f4)
 {
 	if(var_9908b5f4 == "right_arm_lower" || var_9908b5f4 == "right_hand")
 	{
