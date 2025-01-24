@@ -402,14 +402,14 @@ function function_7914cbc8()
 */
 function function_ccdb680e(var_be748f8, b_on)
 {
-	foreach(var_dda74d31 in var_be748f8)
+	foreach(e_reel in var_be748f8)
 	{
-		if(isdefined(var_dda74d31))
+		if(isdefined(e_reel))
 		{
-			var_dda74d31.var_a02b0d5a = b_on;
+			e_reel.var_a02b0d5a = b_on;
 			if(!b_on)
 			{
-				var_dda74d31 notify(#"hash_7aff9921");
+				e_reel notify(#"hash_7aff9921");
 			}
 		}
 	}
