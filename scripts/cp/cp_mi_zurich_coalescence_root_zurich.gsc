@@ -470,8 +470,8 @@ function function_9831305d()
 */
 function function_3292451c()
 {
-	var_6fbeca4a = 1;
-	var_6fe9b606 = getent("popup_pole_" + var_6fbeca4a, "script_noteworthy");
+	n_pole = 1;
+	var_6fe9b606 = getent("popup_pole_" + n_pole, "script_noteworthy");
 	while(isdefined(var_6fe9b606))
 	{
 		var_6fe9b606 moveto(var_6fe9b606.end_pos, 0.5);
@@ -481,9 +481,9 @@ function function_3292451c()
 		var_f33892ac clientfield::increment("zurich_snow_rise");
 		playsoundatposition("evt_roots_grow", var_f33892ac.origin);
 		var_f33892ac thread function_df835392();
-		exploder::exploder("lgt_zurichpole_exp_" + var_6fbeca4a);
-		var_6fbeca4a++;
-		var_6fe9b606 = getent("popup_pole_" + var_6fbeca4a, "script_noteworthy");
+		exploder::exploder("lgt_zurichpole_exp_" + n_pole);
+		n_pole++;
+		var_6fe9b606 = getent("popup_pole_" + n_pole, "script_noteworthy");
 	}
 }
 
