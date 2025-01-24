@@ -2294,8 +2294,8 @@ function function_36927923(var_67eb721b, var_ef983cc5, var_ea42537d, var_4a243bd
 	var_ba9ce66e thread function_2cef3631();
 	var_ba9ce66e.e_mover.origin = var_ba9ce66e.e_mover.origin + (0, 0, randomintrange(int(-51.2), int(51.2)));
 	var_ba9ce66e.e_mover.angles = (var_ba9ce66e.e_mover.angles[0] + (randomintrange(-30, 30)), var_ba9ce66e.e_mover.angles[1] + (randomintrange(-45, 45)), var_ba9ce66e.e_mover.angles[2]);
-	var_69a783ad = var_ba9ce66e.e_mover.origin + (anglestoforward(var_ba9ce66e.e_mover.angles) * 128);
-	var_ba9ce66e.e_mover moveto(var_69a783ad, 0.6, 0.36, 0.12);
+	v_goto = var_ba9ce66e.e_mover.origin + (anglestoforward(var_ba9ce66e.e_mover.angles) * 128);
+	var_ba9ce66e.e_mover moveto(v_goto, 0.6, 0.36, 0.12);
 	wait(0.6);
 	var_ba9ce66e function_30e15c1e(var_ef983cc5);
 }

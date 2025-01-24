@@ -220,12 +220,12 @@ function function_a2209df2(e_player, var_307bab92, var_c807e383, v_up, var_5c447
 		if(var_20d031ed > 32)
 		{
 			var_28388a90.var_76a58ed1 = var_28388a90.var_76a58ed1 + var_20d031ed;
-			var_69a783ad = a_trace["position"] - (var_c807e383 * 32);
+			v_goto = a_trace["position"] - (var_c807e383 * 32);
 			var_72027ac3 = var_20d031ed / 1920;
 			str_return = "none";
 			if(var_72027ac3 > 0)
 			{
-				var_28388a90 moveto(var_69a783ad, var_72027ac3, var_72027ac3 * 0.3, 0);
+				var_28388a90 moveto(v_goto, var_72027ac3, var_72027ac3 * 0.3, 0);
 				level thread function_2abb74b7(e_player, var_8f0f462c, var_c807e383);
 				level thread function_a6220124(var_8f0f462c);
 				if(var_5c44718b)

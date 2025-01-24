@@ -416,9 +416,9 @@ function function_a3e439a5(e_player, var_67eb721b)
 	self.var_e3146903 = 1;
 	self.origin = self.origin + (0, 0, randomintrange(int(-51.2), int(51.2)));
 	self.angles = (self.angles[0] + (randomintrange(-30, 30)), self.angles[1] + (randomintrange(-45, 45)), self.angles[2]);
-	var_69a783ad = self.origin + (anglestoforward(self.angles) * 96);
+	v_goto = self.origin + (anglestoforward(self.angles) * 96);
 	self.angles = (0, self.angles[1], 0);
-	self moveto(var_69a783ad, 0.4);
+	self moveto(v_goto, 0.4);
 	wait(0.4);
 	self.var_e3146903 = 0;
 	self function_ab77890b(e_player);
@@ -488,10 +488,10 @@ function function_9fcea3e8(e_player)
 	var_9ef67615 = (var_6073ac1c[0] + var_13fe538c, var_6073ac1c[1] + var_3a00cdf5, var_6073ac1c[2] + var_6003485e);
 	var_962558f1 = vectornormalize(anglestoforward(var_9ef67615));
 	a_trace = physicstraceex(v_eyes, v_eyes + (var_962558f1 * 512), vectorscale((-1, -1, -1), 16), vectorscale((1, 1, 1), 16));
-	var_69a783ad = a_trace["position"] + (var_962558f1 * -32);
-	n_dist = distance(self.origin, var_69a783ad);
+	v_goto = a_trace["position"] + (var_962558f1 * -32);
+	n_dist = distance(self.origin, v_goto);
 	n_time = n_dist / 48;
-	v_rotate = var_69a783ad - self.origin;
+	v_rotate = v_goto - self.origin;
 	v_rotate = (0, v_rotate[1], 0);
 	if(!isdefined(level.var_a9ac7b97))
 	{
@@ -502,7 +502,7 @@ function function_9fcea3e8(e_player)
 		wait(randomfloatrange(0.1, 0.2));
 	}
 	level.var_a9ac7b97 = gettime();
-	self moveto(var_69a783ad, n_time);
+	self moveto(v_goto, n_time);
 	self rotateto(vectortoangles(v_rotate), n_time * 0.5);
 	self thread function_f9dd2ee2(e_player);
 	self util::waittill_any_timeout(n_time * 2, "movedone", "demongate_chomper_found_target", "demongate_chomper_despawning", "death");
