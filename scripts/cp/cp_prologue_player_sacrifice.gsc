@@ -242,8 +242,8 @@ function function_d8ccdb23()
 */
 function function_637fae36()
 {
-	var_27606155 = getentarray("trigger_ob_defend", "targetname");
-	foreach(t_ob in var_27606155)
+	a_t_ob = getentarray("trigger_ob_defend", "targetname");
+	foreach(t_ob in a_t_ob)
 	{
 		t_ob triggerenable(1);
 	}
