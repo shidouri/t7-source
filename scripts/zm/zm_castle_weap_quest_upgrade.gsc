@@ -7474,20 +7474,20 @@ function function_971e3797()
 	Parameters: 2
 	Flags: Linked
 */
-function function_a4861409(e_player, var_285c992d)
+function function_a4861409(e_player, s_bow)
 {
-	str_endon = var_285c992d.script_label + "_returned";
+	str_endon = s_bow.script_label + "_returned";
 	level endon(str_endon);
 	var_bbdf3539 = 0;
 	while(true)
 	{
 		str_notify = e_player util::waittill_any_ex("death", "weapon_change", "bgb_about_to_take_on_bled_out", "bled_out", "player_revived", level, str_endon);
-		var_285c992d.var_67b5dd94 unitrigger_refresh_message();
+		s_bow.var_67b5dd94 unitrigger_refresh_message();
 		if(str_notify == "death")
 		{
-			zm_unitrigger::unregister_unitrigger(var_285c992d.var_67b5dd94);
-			var_285c992d.var_d4a62e6b show();
-			var_285c992d thread function_fb704679();
+			zm_unitrigger::unregister_unitrigger(s_bow.var_67b5dd94);
+			s_bow.var_d4a62e6b show();
+			s_bow thread function_fb704679();
 			return;
 		}
 		if(str_notify == "bgb_about_to_take_on_bled_out")
@@ -7499,7 +7499,7 @@ function function_a4861409(e_player, var_285c992d)
 		}
 		else
 		{
-			var_e1041201 = getweapon(var_285c992d.script_label);
+			var_e1041201 = getweapon(s_bow.script_label);
 			if(isdefined(e_player.var_bec0aa15) && e_player.var_bec0aa15 && (isdefined(e_player.laststand) && e_player.laststand) && str_notify != "bled_out")
 			{
 				continue;
@@ -7515,11 +7515,11 @@ function function_a4861409(e_player, var_285c992d)
 			if(!e_player hasweapon(var_e1041201) && !e_player bgb::is_enabled("zm_bgb_disorderly_combat"))
 			{
 				e_player.var_bec0aa15 = undefined;
-				zm_unitrigger::unregister_unitrigger(var_285c992d.var_67b5dd94);
-				var_285c992d.var_d4a62e6b show();
-				var_285c992d thread function_fb704679();
-				level notify(var_285c992d.script_label + "_stop_tracking");
-				level function_8b295d47(var_285c992d.script_label);
+				zm_unitrigger::unregister_unitrigger(s_bow.var_67b5dd94);
+				s_bow.var_d4a62e6b show();
+				s_bow thread function_fb704679();
+				level notify(s_bow.script_label + "_stop_tracking");
+				level function_8b295d47(s_bow.script_label);
 				return;
 			}
 		}
