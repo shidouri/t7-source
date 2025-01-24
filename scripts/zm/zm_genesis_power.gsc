@@ -1338,32 +1338,32 @@ function function_e467fa8d(s_spawn_pos)
 */
 function function_779c1a49(s_spawn_pos, var_d24a63df)
 {
-	var_ecb2c615 = zm_genesis_apothicon_fury::function_21bbe70d(s_spawn_pos.origin, s_spawn_pos.angles, 0);
-	var_ecb2c615 ai::set_behavior_attribute("can_bamf", 0);
-	var_ecb2c615 ai::set_behavior_attribute("can_juke", 0);
-	var_ecb2c615.no_damage_points = 1;
-	var_ecb2c615.deathpoints_already_given = 1;
-	if(isdefined(var_ecb2c615))
+	e_fury = zm_genesis_apothicon_fury::function_21bbe70d(s_spawn_pos.origin, s_spawn_pos.angles, 0);
+	e_fury ai::set_behavior_attribute("can_bamf", 0);
+	e_fury ai::set_behavior_attribute("can_juke", 0);
+	e_fury.no_damage_points = 1;
+	e_fury.deathpoints_already_given = 1;
+	if(isdefined(e_fury))
 	{
-		var_ecb2c615 endon("death");
-		var_ecb2c615 function_da370997(var_d24a63df);
+		e_fury endon("death");
+		e_fury function_da370997(var_d24a63df);
 		wait(0.5);
-		var_ecb2c615.zombie_think_done = 1;
-		var_ecb2c615.no_powerups = 1;
+		e_fury.zombie_think_done = 1;
+		e_fury.no_powerups = 1;
 		if(level.var_eada0345 == 0)
 		{
 			if(math::cointoss())
 			{
-				var_ecb2c615 ai::set_behavior_attribute("move_speed", "walk");
+				e_fury ai::set_behavior_attribute("move_speed", "walk");
 			}
 			else
 			{
-				var_ecb2c615 ai::set_behavior_attribute("move_speed", "run");
+				e_fury ai::set_behavior_attribute("move_speed", "run");
 			}
 		}
 		else
 		{
-			var_ecb2c615 ai::set_behavior_attribute("move_speed", "run");
+			e_fury ai::set_behavior_attribute("move_speed", "run");
 		}
 	}
 }

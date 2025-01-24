@@ -4247,33 +4247,33 @@ function function_e6146239(s_spawnpoint, var_cbc1f143 = 0)
 */
 function function_439458e5(v_origin, v_angles)
 {
-	var_ecb2c615 = spawnactor("spawner_zm_genesis_apothicon_fury", v_origin, v_angles, undefined, 1, 1);
-	if(!isdefined(var_ecb2c615))
+	e_fury = spawnactor("spawner_zm_genesis_apothicon_fury", v_origin, v_angles, undefined, 1, 1);
+	if(!isdefined(e_fury))
 	{
 		return;
 	}
-	var_ecb2c615.spawn_time = gettime();
-	var_ecb2c615.no_powerups = 1;
-	var_ecb2c615.exclude_cleanup_adding_to_total = 1;
-	var_ecb2c615.no_damage_points = 1;
-	var_ecb2c615.deathpoints_already_given = 1;
+	e_fury.spawn_time = gettime();
+	e_fury.no_powerups = 1;
+	e_fury.exclude_cleanup_adding_to_total = 1;
+	e_fury.no_damage_points = 1;
+	e_fury.deathpoints_already_given = 1;
 	level.var_eb7b7914 = level.var_eb7b7914 + 1;
-	var_ecb2c615 thread function_d0ff3ef8();
-	var_ecb2c615 thread zm::update_zone_name();
-	if(isdefined(var_ecb2c615))
+	e_fury thread function_d0ff3ef8();
+	e_fury thread zm::update_zone_name();
+	if(isdefined(e_fury))
 	{
-		var_ecb2c615 endon("death");
-		level thread zm_genesis_ai_spawning::function_6cc52664(var_ecb2c615.origin);
-		var_ecb2c615.voiceprefix = "fury";
-		var_ecb2c615.animname = "fury";
-		var_ecb2c615 thread zm_spawner::play_ambient_zombie_vocals();
-		var_ecb2c615 thread zm_audio::zmbaivox_notifyconvert();
-		var_ecb2c615 playsound("zmb_vocals_fury_spawn");
-		var_ecb2c615.health = level.zombie_health;
-		var_ecb2c615.heroweapon_kill_power = 2;
+		e_fury endon("death");
+		level thread zm_genesis_ai_spawning::function_6cc52664(e_fury.origin);
+		e_fury.voiceprefix = "fury";
+		e_fury.animname = "fury";
+		e_fury thread zm_spawner::play_ambient_zombie_vocals();
+		e_fury thread zm_audio::zmbaivox_notifyconvert();
+		e_fury playsound("zmb_vocals_fury_spawn");
+		e_fury.health = level.zombie_health;
+		e_fury.heroweapon_kill_power = 2;
 		wait(1);
-		var_ecb2c615.zombie_think_done = 1;
-		var_ecb2c615 ai::set_behavior_attribute("move_speed", "sprint");
+		e_fury.zombie_think_done = 1;
+		e_fury ai::set_behavior_attribute("move_speed", "sprint");
 	}
 }
 

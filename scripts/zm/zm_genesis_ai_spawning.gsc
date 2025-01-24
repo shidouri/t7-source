@@ -660,19 +660,19 @@ function function_21bbe70d()
 			if(isdefined(str_zone) && level.zones[str_zone].is_active)
 			{
 				function_1f0a0b52(v_origin);
-				var_ecb2c615 = zm_genesis_apothicon_fury::function_21bbe70d(v_origin, v_angles, 0);
-				if(isdefined(var_ecb2c615))
+				e_fury = zm_genesis_apothicon_fury::function_21bbe70d(v_origin, v_angles, 0);
+				if(isdefined(e_fury))
 				{
 					level.zombie_total--;
 					level.var_c4336559["apothicon_fury"]--;
-					var_ecb2c615 endon("death");
-					var_ecb2c615.health = level.zombie_health;
+					e_fury endon("death");
+					e_fury.health = level.zombie_health;
 					wait(1);
-					var_ecb2c615.zombie_think_done = 1;
-					var_ecb2c615.heroweapon_kill_power = 2;
-					var_ecb2c615 ai::set_behavior_attribute("move_speed", "run");
-					var_ecb2c615 thread zombie_utility::round_spawn_failsafe();
-					return var_ecb2c615;
+					e_fury.zombie_think_done = 1;
+					e_fury.heroweapon_kill_power = 2;
+					e_fury ai::set_behavior_attribute("move_speed", "run");
+					e_fury thread zombie_utility::round_spawn_failsafe();
+					return e_fury;
 				}
 			}
 		}
