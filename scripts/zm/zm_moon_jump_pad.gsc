@@ -80,8 +80,8 @@ function function_4b3d145d(einflictor, eattacker, idamage, idflags, smeansofdeat
 			{
 				return 0;
 			}
-			var_f5f4e9cc = arraygetclosest(self.origin, getentarray("trig_jump_pad", "targetname"));
-			if(self istouching(var_f5f4e9cc))
+			e_pad = arraygetclosest(self.origin, getentarray("trig_jump_pad", "targetname"));
+			if(self istouching(e_pad))
 			{
 				return 0;
 			}

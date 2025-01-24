@@ -501,13 +501,13 @@ function function_c00b8efb(clientnum)
 		return;
 	}
 	var_e3a2cc12 = getentarray(clientnum, "jump_pads", "targetname");
-	foreach(var_f5f4e9cc in var_e3a2cc12)
+	foreach(e_pad in var_e3a2cc12)
 	{
-		if(isdefined(var_f5f4e9cc.script_noteworthy))
+		if(isdefined(e_pad.script_noteworthy))
 		{
-			var_f5f4e9cc util::waittill_dobj(clientnum);
-			var_f5f4e9cc useanimtree($generic);
-			var_f5f4e9cc animscripted("jump_pad", var_f5f4e9cc.origin, var_f5f4e9cc.angles, "p7_fxanim_zmhd_moon_jump_pad_lrg_anim");
+			e_pad util::waittill_dobj(clientnum);
+			e_pad useanimtree($generic);
+			e_pad animscripted("jump_pad", e_pad.origin, e_pad.angles, "p7_fxanim_zmhd_moon_jump_pad_lrg_anim");
 		}
 	}
 }
@@ -524,12 +524,12 @@ function function_c00b8efb(clientnum)
 function function_1cd5e7c6(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	var_e3a2cc12 = getentarray(localclientnum, "jump_pads", "targetname");
-	foreach(var_f5f4e9cc in var_e3a2cc12)
+	foreach(e_pad in var_e3a2cc12)
 	{
-		if(var_f5f4e9cc.script_int == newval)
+		if(e_pad.script_int == newval)
 		{
-			var_f5f4e9cc util::waittill_dobj(localclientnum);
-			playfxontag(localclientnum, level._effect["jump_pad_jump"], var_f5f4e9cc, "tag_origin");
+			e_pad util::waittill_dobj(localclientnum);
+			playfxontag(localclientnum, level._effect["jump_pad_jump"], e_pad, "tag_origin");
 		}
 	}
 }
