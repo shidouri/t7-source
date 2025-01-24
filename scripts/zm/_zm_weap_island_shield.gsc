@@ -22,11 +22,11 @@
 #using scripts\zm\_zm_weapons;
 #using scripts\zm\craftables\_zm_craft_shield;
 
-#namespace namespace_b2c57c5e;
+#namespace island_shield;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_b2c57c5e
+	Namespace: island_shield
 	Checksum: 0x54BE60EC
 	Offset: 0x498
 	Size: 0x3C
@@ -40,7 +40,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_b2c57c5e
+	Namespace: island_shield
 	Checksum: 0x7D158A1F
 	Offset: 0x4E0
 	Size: 0x7C
@@ -56,7 +56,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_b2c57c5e
+	Namespace: island_shield
 	Checksum: 0x69ED35A7
 	Offset: 0x568
 	Size: 0x10C
