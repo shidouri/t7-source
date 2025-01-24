@@ -1458,11 +1458,11 @@ function function_14da3d31()
 	while(true)
 	{
 		var_da5600e3 = getentarray("warehouse_ammo", "targetname");
-		foreach(var_4abed703 in var_da5600e3)
+		foreach(e_ammo in var_da5600e3)
 		{
 			foreach(e_player in level.activeplayers)
 			{
-				if(distance2d(e_player.origin, var_4abed703.origin) < 100)
+				if(distance2d(e_player.origin, e_ammo.origin) < 100)
 				{
 					level.ai_diaz dialog::say("diaz_check_your_ammo_gra_0");
 					return;
