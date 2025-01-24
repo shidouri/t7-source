@@ -35,8 +35,8 @@ function function_6edad947(path, var_66e49a4e)
 {
 	/#
 		var_13265 = ("" + path) + "";
-		var_fe387e48 = ("" + var_66e49a4e) + "";
-		var_282f0c8d = (("" + var_13265) + "") + var_fe387e48;
+		cmdstr = ("" + var_66e49a4e) + "";
+		var_282f0c8d = (("" + var_13265) + "") + cmdstr;
 		adddebugcommand(var_282f0c8d);
 	#/
 }
