@@ -22,11 +22,11 @@
 #using scripts\zm\zm_genesis_util;
 #using scripts\zm\zm_genesis_vo;
 
-#namespace namespace_3ddd867f;
+#namespace zm_genesis_pap;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x37FBBDD6
 	Offset: 0x5F8
 	Size: 0x3C
@@ -40,7 +40,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x761E948E
 	Offset: 0x640
 	Size: 0x17C
@@ -64,7 +64,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0xD1F43254
 	Offset: 0x7C8
 	Size: 0x44
@@ -79,7 +79,7 @@ function __main__()
 
 /*
 	Name: function_23a5b653
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x27896673
 	Offset: 0x818
 	Size: 0xEC
@@ -105,7 +105,7 @@ function function_23a5b653(powered_on)
 
 /*
 	Name: set_pap_zbarrier_state
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0xC8327104
 	Offset: 0x910
 	Size: 0x80
@@ -124,7 +124,7 @@ function set_pap_zbarrier_state(state)
 
 /*
 	Name: function_8d5c3682
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x9B9675D9
 	Offset: 0x998
 	Size: 0x54
@@ -139,7 +139,7 @@ function function_8d5c3682()
 
 /*
 	Name: function_21d887cd
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0xF2DC44AA
 	Offset: 0x9F8
 	Size: 0xD4
@@ -162,7 +162,7 @@ function function_21d887cd()
 
 /*
 	Name: function_f8c1234b
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x4C310D41
 	Offset: 0xAD8
 	Size: 0x12
@@ -176,7 +176,7 @@ function function_f8c1234b(e_player)
 
 /*
 	Name: function_e8ef758e
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x853238E0
 	Offset: 0xAF8
 	Size: 0x14C
@@ -211,7 +211,7 @@ function function_e8ef758e()
 
 /*
 	Name: function_4ab898f4
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x6288F18E
 	Offset: 0xC50
 	Size: 0x5FC
@@ -287,7 +287,7 @@ function function_4ab898f4(nd_start)
 
 /*
 	Name: cleanup_vehicle
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0xFB0D69CA
 	Offset: 0x1258
 	Size: 0x64
@@ -309,7 +309,7 @@ function cleanup_vehicle(var_413ea50f)
 
 /*
 	Name: function_10171438
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x84510305
 	Offset: 0x12C8
 	Size: 0x2C
@@ -326,7 +326,7 @@ function function_10171438()
 
 /*
 	Name: function_fc804fdd
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x9A878F7E
 	Offset: 0x1300
 	Size: 0x104
@@ -350,7 +350,7 @@ function function_fc804fdd(var_16caea3d)
 
 /*
 	Name: function_3298b25f
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x2C909673
 	Offset: 0x1410
 	Size: 0x168
@@ -376,7 +376,7 @@ function function_3298b25f()
 
 /*
 	Name: function_e488a6a8
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x983122DC
 	Offset: 0x1580
 	Size: 0x1CC
@@ -404,7 +404,7 @@ function function_e488a6a8()
 
 /*
 	Name: function_9278bc8a
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0xB9810E04
 	Offset: 0x1758
 	Size: 0x1F4
@@ -440,7 +440,7 @@ function function_9278bc8a(var_181e2689)
 
 /*
 	Name: function_d2b266ee
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0x5352FBBB
 	Offset: 0x1958
 	Size: 0xE6
@@ -474,7 +474,7 @@ function function_d2b266ee(a_ents)
 
 /*
 	Name: function_dc681bed
-	Namespace: namespace_3ddd867f
+	Namespace: zm_genesis_pap
 	Checksum: 0xB8151441
 	Offset: 0x1A48
 	Size: 0x54

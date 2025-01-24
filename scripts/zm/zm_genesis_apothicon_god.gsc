@@ -480,7 +480,7 @@ function function_73f1531()
 	level.var_e7e8e5d6 thread function_16364bba();
 	level scene::play("cin_genesis_apothicon_electrocution_trap", level.var_e7e8e5d6);
 	level flag::set("pap_room_open");
-	namespace_3ddd867f::function_8d5c3682();
+	zm_genesis_pap::function_8d5c3682();
 }
 
 /*
