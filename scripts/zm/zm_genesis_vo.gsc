@@ -3118,20 +3118,20 @@ function function_dfe962f()
 		level.var_4a394cdf = 1;
 		if(level.activeplayers.size == 1)
 		{
-			var_67d3fdc6 = level.activeplayers[0].characterindex;
+			n_ndx = level.activeplayers[0].characterindex;
 		}
 		else
 		{
 			e_richtofen = zm_utility::get_specific_character(2);
 			e_closest_player = zm_utility::get_player_closest_to(e_richtofen);
-			var_67d3fdc6 = e_closest_player.characterindex;
+			n_ndx = e_closest_player.characterindex;
 		}
 		level waittill("audio_log_complete");
-		if(isdefined(level.var_8c92b387["sophia_appears_1_convo"][var_67d3fdc6]))
+		if(isdefined(level.var_8c92b387["sophia_appears_1_convo"][n_ndx]))
 		{
-			var_d44b84c3 = level.var_8c92b387["sophia_appears_1_convo"][var_67d3fdc6];
+			var_d44b84c3 = level.var_8c92b387["sophia_appears_1_convo"][n_ndx];
 			function_7aa5324a(var_d44b84c3, 1);
-			level.var_8c92b387["sophia_appears_1_convo"][var_67d3fdc6] = undefined;
+			level.var_8c92b387["sophia_appears_1_convo"][n_ndx] = undefined;
 		}
 	}
 }
@@ -3150,8 +3150,8 @@ function function_efdd99e2(e_player)
 	if(!(isdefined(level.var_d831dda4) && level.var_d831dda4))
 	{
 		level.var_d831dda4 = 1;
-		var_67d3fdc6 = e_player.characterindex;
-		var_d44b84c3 = level.var_8c92b387["sophia_appears_2_convo"][var_67d3fdc6];
+		n_ndx = e_player.characterindex;
+		var_d44b84c3 = level.var_8c92b387["sophia_appears_2_convo"][n_ndx];
 		function_7aa5324a(var_d44b84c3, 1);
 		function_9db3bdd7(level.var_8c92b387["sophia_appears_2_abcd_vo"], 0);
 	}
@@ -3226,19 +3226,19 @@ function function_60fe98c4()
 	}
 	if(level.activeplayers.size == 1)
 	{
-		var_67d3fdc6 = level.activeplayers[0].characterindex;
+		n_ndx = level.activeplayers[0].characterindex;
 	}
 	else
 	{
 		e_richtofen = zm_utility::get_specific_character(2);
 		e_closest_player = zm_utility::get_player_closest_to(e_richtofen);
-		var_67d3fdc6 = e_closest_player.characterindex;
+		n_ndx = e_closest_player.characterindex;
 	}
-	var_d44b84c3 = level.var_8c92b387[var_bd381e73][var_67d3fdc6];
+	var_d44b84c3 = level.var_8c92b387[var_bd381e73][n_ndx];
 	if(isdefined(var_d44b84c3))
 	{
 		function_7aa5324a(var_d44b84c3);
-		level.var_8c92b387[var_bd381e73][var_67d3fdc6] = undefined;
+		level.var_8c92b387[var_bd381e73][n_ndx] = undefined;
 	}
 }
 
@@ -3253,11 +3253,11 @@ function function_60fe98c4()
 */
 function function_47713f03(e_player)
 {
-	var_67d3fdc6 = e_player.characterindex;
-	if(isdefined(level.var_8c92b387["summoning_key_pickup"][var_67d3fdc6]))
+	n_ndx = e_player.characterindex;
+	if(isdefined(level.var_8c92b387["summoning_key_pickup"][n_ndx]))
 	{
-		function_897246e4(level.var_8c92b387["summoning_key_pickup"][var_67d3fdc6]);
-		level.var_8c92b387["summoning_key_pickup"][var_67d3fdc6] = undefined;
+		function_897246e4(level.var_8c92b387["summoning_key_pickup"][n_ndx]);
+		level.var_8c92b387["summoning_key_pickup"][n_ndx] = undefined;
 		function_c62826c9(level.var_8c92b387["summoning_key_pickup_abcd_overt"], 0, 1, 1000, 2);
 	}
 }
