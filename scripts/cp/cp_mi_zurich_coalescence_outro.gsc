@@ -1485,9 +1485,9 @@ function adjust_angles_to_player(var_cb29ad00)
 	v_ra = var_cb29ad00[2];
 	v_rv = anglestoright(self.angles);
 	v_fv = anglestoforward(self.angles);
-	var_22f51d2d = (v_rv[0], 0, v_rv[1] * -1);
+	v_rva = (v_rv[0], 0, v_rv[1] * -1);
 	v_fva = (v_fv[0], 0, v_fv[1] * -1);
-	v_angles = var_22f51d2d * v_pa;
+	v_angles = v_rva * v_pa;
 	v_angles = v_angles + (v_fva * v_ra);
 	return v_angles + (0, var_cb29ad00[1], 0);
 }
