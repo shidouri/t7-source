@@ -161,7 +161,7 @@ function function_92b4b156()
 					var_5b3694f6 = trigplayer getweaponammoclip(var_3bb6997f);
 					var_be26f631 = trigplayer getweaponammoclip(var_3bb6997f.dualwieldweapon);
 					var_c02edaaf = trigplayer getbuildkitweaponoptions(var_3bb6997f);
-					var_5c2e5267 = trigplayer getbuildkitattachmentcosmeticvariantindexes(var_3bb6997f);
+					n_acvi = trigplayer getbuildkitattachmentcosmeticvariantindexes(var_3bb6997f);
 					trigplayer takeweapon(var_3bb6997f);
 					trigplayer zm_weapons::switch_back_primary_weapon(undefined);
 					var_c59a59e1 = 1;
