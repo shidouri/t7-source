@@ -4171,13 +4171,13 @@ function function_738d040b()
 	Parameters: 2
 	Flags: Linked
 */
-function function_e8db2799(var_46100e43, str_path)
+function function_e8db2799(t_vo, str_path)
 {
 	self endon("death");
 	level endon(#"hash_e8db2799");
 	while(true)
 	{
-		var_46100e43 waittill("trigger", ent);
+		t_vo waittill("trigger", ent);
 		if(isplayer(ent) && isalive(ent))
 		{
 			switch(str_path)

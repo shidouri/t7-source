@@ -369,10 +369,10 @@ function function_e5670bf5()
 function function_bf532adb()
 {
 	level endon("objective_take_out_guards_done");
-	var_46100e43 = getent("t_tarmac_vo_firetruck", "targetname");
-	var_46100e43 endon("death");
-	var_46100e43 trigger::wait_till();
-	var_46100e43 playsound("nrcm0_put_out_that_fire_w_0");
+	t_vo = getent("t_tarmac_vo_firetruck", "targetname");
+	t_vo endon("death");
+	t_vo trigger::wait_till();
+	t_vo playsound("nrcm0_put_out_that_fire_w_0");
 }
 
 /*
@@ -388,8 +388,8 @@ function function_bafd79f6(str_triggername, a_vo_lines, var_61ae76d5, var_9e3b0b
 {
 	self endon("death");
 	level endon("objective_take_out_guards_done");
-	var_46100e43 = getent(str_triggername, "targetname");
-	v_vo = var_46100e43.origin;
+	t_vo = getent(str_triggername, "targetname");
+	v_vo = t_vo.origin;
 	level trigger::wait_till(str_triggername, "targetname", undefined, 0);
 	function_f9be6553(v_vo, a_vo_lines, var_61ae76d5, var_9e3b0b67);
 }
