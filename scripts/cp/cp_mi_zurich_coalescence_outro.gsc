@@ -620,41 +620,41 @@ function function_51e85b80()
 		return;
 	}
 	self thread function_d06b32b2();
-	self.var_322cc58c = self openluimenu("DniWipe");
-	self setluimenudata(self.var_322cc58c, "frac", 0);
-	self setluimenudata(self.var_322cc58c, "Die", 0);
-	self setluimenudata(self.var_322cc58c, "percentage", 0);
-	self setluimenudata(self.var_322cc58c, "percentageVisible", 0);
+	self.e_menu = self openluimenu("DniWipe");
+	self setluimenudata(self.e_menu, "frac", 0);
+	self setluimenudata(self.e_menu, "Die", 0);
+	self setluimenudata(self.e_menu, "percentage", 0);
+	self setluimenudata(self.e_menu, "percentageVisible", 0);
 	wait(1);
-	self setluimenudata(self.var_322cc58c, "duration", 10000);
-	self setluimenudata(self.var_322cc58c, "frac", 0);
-	self setluimenudata(self.var_322cc58c, "percentageVisible", 1);
+	self setluimenudata(self.e_menu, "duration", 10000);
+	self setluimenudata(self.e_menu, "frac", 0);
+	self setluimenudata(self.e_menu, "percentageVisible", 1);
 	wait(1);
-	self setluimenudata(self.var_322cc58c, "frac", 0.2);
+	self setluimenudata(self.e_menu, "frac", 0.2);
 	self thread function_865309a9(20);
 	wait(10);
 	level flag::wait_till("flag_fill_purging_bar_40");
-	self setluimenudata(self.var_322cc58c, "frac", 0.4);
+	self setluimenudata(self.e_menu, "frac", 0.4);
 	self thread function_865309a9(40);
 	wait(10);
 	level flag::wait_till("flag_fill_purging_bar_60");
-	self setluimenudata(self.var_322cc58c, "frac", 0.6);
+	self setluimenudata(self.e_menu, "frac", 0.6);
 	self thread function_865309a9(60);
 	wait(10);
 	level flag::wait_till("flag_fill_purging_bar_80");
-	self setluimenudata(self.var_322cc58c, "frac", 0.8);
+	self setluimenudata(self.e_menu, "frac", 0.8);
 	self thread function_865309a9(80);
 	wait(10);
 	level waittill(#"hash_2e3e5b0a");
-	self setluimenudata(self.var_322cc58c, "frac", 1);
+	self setluimenudata(self.e_menu, "frac", 1);
 	self thread function_865309a9(100);
 	wait(10);
-	self setluimenudata(self.var_322cc58c, "frac", 1);
-	self setluimenudata(self.var_322cc58c, "percentageVisible", 0);
+	self setluimenudata(self.e_menu, "frac", 1);
+	self setluimenudata(self.e_menu, "percentageVisible", 0);
 	wait(0.1);
-	self setluimenudata(self.var_322cc58c, "Die", 1);
+	self setluimenudata(self.e_menu, "Die", 1);
 	wait(3);
-	self closeluimenu(self.var_322cc58c);
+	self closeluimenu(self.e_menu);
 }
 
 /*
@@ -670,7 +670,7 @@ function function_865309a9(var_ea6d6bd2)
 {
 	for(i = var_ea6d6bd2 - 20; i < (var_ea6d6bd2 + 1); i++)
 	{
-		self setluimenudata(self.var_322cc58c, "percentage", i / 100);
+		self setluimenudata(self.e_menu, "percentage", i / 100);
 		wait(0.5);
 	}
 }
@@ -794,9 +794,9 @@ function function_a947c3b3(a_ents)
 	music::setmusicstate("i_live_credits");
 	playsoundatposition("evt_bonuszm_ending_toblack", (0, 0, 0));
 	level thread zurich_util::function_d0e3bb4(0);
-	if(isdefined(self.var_322cc58c))
+	if(isdefined(self.e_menu))
 	{
-		self closeluimenu(self.var_322cc58c);
+		self closeluimenu(self.e_menu);
 	}
 	wait(2);
 	objectives::complete("cp_level_zurich_end_obj");
@@ -1650,9 +1650,9 @@ function function_93ffcbdf(a_ents)
 			player util::set_low_ready(1);
 		}
 	}
-	if(isdefined(self.var_322cc58c))
+	if(isdefined(self.e_menu))
 	{
-		self closeluimenu(self.var_322cc58c);
+		self closeluimenu(self.e_menu);
 	}
 	objectives::complete("cp_level_zurich_end_obj");
 	trigger::use("trig_zurich_end", "targetname");
