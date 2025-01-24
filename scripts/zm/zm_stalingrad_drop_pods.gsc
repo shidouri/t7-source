@@ -526,8 +526,8 @@ function function_a9d4f2ec()
 {
 	if(level flag::get("dragonride_crafted"))
 	{
-		var_446e72fb = randomint(2);
-		switch(var_446e72fb)
+		n_rng = randomint(2);
+		switch(n_rng)
 		{
 			case 1:
 			{
