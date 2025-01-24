@@ -403,12 +403,12 @@ function function_75015b6c()
 			var_a44b86c3 = level.bgb_machines;
 			if(chest.zbarrier.script_noteworthy == "zone_crash_site_chest_zbarrier")
 			{
-				foreach(var_4fdd617e in var_a44b86c3)
+				foreach(e_bgb in var_a44b86c3)
 				{
-					if(var_4fdd617e.script_string === "bgb_crash_site")
+					if(e_bgb.script_string === "bgb_crash_site")
 					{
-						arrayremovevalue(var_a44b86c3, var_4fdd617e);
-						var_4fdd617e thread bgb_machine::hide_bgb_machine();
+						arrayremovevalue(var_a44b86c3, e_bgb);
+						e_bgb thread bgb_machine::hide_bgb_machine();
 						function_a7fdfd3c(var_a44b86c3);
 						break;
 					}
@@ -418,12 +418,12 @@ function function_75015b6c()
 			{
 				if(chest.zbarrier.script_noteworthy == "zone_ruins_chest_zbarrier")
 				{
-					foreach(var_4fdd617e in var_a44b86c3)
+					foreach(e_bgb in var_a44b86c3)
 					{
-						if(var_4fdd617e.script_string === "bgb_ruins")
+						if(e_bgb.script_string === "bgb_ruins")
 						{
-							arrayremovevalue(var_a44b86c3, var_4fdd617e);
-							var_4fdd617e thread bgb_machine::hide_bgb_machine();
+							arrayremovevalue(var_a44b86c3, e_bgb);
+							e_bgb thread bgb_machine::hide_bgb_machine();
 							function_a7fdfd3c(var_a44b86c3);
 							break;
 						}
