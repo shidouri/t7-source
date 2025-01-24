@@ -585,12 +585,12 @@ function function_5516baeb(b_valid_poi)
 {
 	if(level flag::get("placed_audio1") && !level flag::get("acm_done"))
 	{
-		foreach(var_d72f41af in level.var_4bf2a542)
+		foreach(e_hole in level.var_4bf2a542)
 		{
-			if(self istouching(var_d72f41af) && (!(isdefined(var_d72f41af.var_b06a11e0) && var_d72f41af.var_b06a11e0)))
+			if(self istouching(e_hole) && (!(isdefined(e_hole.var_b06a11e0) && e_hole.var_b06a11e0)))
 			{
 				self.sndnosamlaugh = 1;
-				var_d72f41af thread function_fcf0dc78();
+				e_hole thread function_fcf0dc78();
 				self playsound("zmb_main_reel2_arnie_swallow");
 				switch(level.var_db16318c)
 				{
