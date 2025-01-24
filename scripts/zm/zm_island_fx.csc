@@ -318,18 +318,18 @@ function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_a
 	}
 	if(b_on)
 	{
-		var_24fbb6c6 = 0;
+		n_eval = 0;
 		i = 0;
-		while(var_24fbb6c6 <= n_alpha)
+		while(n_eval <= n_alpha)
 		{
-			self transition_shader(localclientnum, var_24fbb6c6, var_afc7cc94);
+			self transition_shader(localclientnum, n_eval, var_afc7cc94);
 			if(var_c0ce8db2)
 			{
-				var_24fbb6c6 = sqrt(i);
+				n_eval = sqrt(i);
 			}
 			else
 			{
-				var_24fbb6c6 = i;
+				n_eval = i;
 			}
 			wait(0.01);
 			i = i + var_b05b3457;
@@ -347,18 +347,18 @@ function function_bea149a5(localclientnum, var_afc7cc94, var_b05b3457, b_on, n_a
 		{
 			var_bbfa5d7d = 1;
 		}
-		var_24fbb6c6 = var_bbfa5d7d;
+		n_eval = var_bbfa5d7d;
 		i = var_bbfa5d7d;
-		while(var_24fbb6c6 >= 0)
+		while(n_eval >= 0)
 		{
-			self transition_shader(localclientnum, var_24fbb6c6, var_afc7cc94);
+			self transition_shader(localclientnum, n_eval, var_afc7cc94);
 			if(var_c0ce8db2)
 			{
-				var_24fbb6c6 = sqrt(i);
+				n_eval = sqrt(i);
 			}
 			else
 			{
-				var_24fbb6c6 = i;
+				n_eval = i;
 			}
 			wait(0.01);
 			i = i - var_b05b3457;

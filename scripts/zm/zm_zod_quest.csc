@@ -304,18 +304,18 @@ function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, b_i
 	}
 	if(b_on)
 	{
-		var_24fbb6c6 = 0;
+		n_eval = 0;
 		i = 0;
-		while(var_24fbb6c6 <= 1)
+		while(n_eval <= 1)
 		{
-			self function_487ce26(localclientnum, var_24fbb6c6, var_afc7cc94);
+			self function_487ce26(localclientnum, n_eval, var_afc7cc94);
 			if(var_c0ce8db2)
 			{
-				var_24fbb6c6 = sqrt(i);
+				n_eval = sqrt(i);
 			}
 			else
 			{
-				var_24fbb6c6 = i;
+				n_eval = i;
 			}
 			wait(0.01);
 			i = i + var_b05b3457;
@@ -324,18 +324,18 @@ function function_ae5b7493(localclientnum, var_afc7cc94, var_b05b3457, b_on, b_i
 	}
 	else
 	{
-		var_24fbb6c6 = 1;
+		n_eval = 1;
 		i = 1;
-		while(var_24fbb6c6 >= 0)
+		while(n_eval >= 0)
 		{
-			self function_487ce26(localclientnum, var_24fbb6c6, var_afc7cc94);
+			self function_487ce26(localclientnum, n_eval, var_afc7cc94);
 			if(var_c0ce8db2)
 			{
-				var_24fbb6c6 = sqrt(i);
+				n_eval = sqrt(i);
 			}
 			else
 			{
-				var_24fbb6c6 = i;
+				n_eval = i;
 			}
 			wait(0.01);
 			i = i - var_b05b3457;
