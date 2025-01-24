@@ -964,11 +964,11 @@ function private function_a50aa078(player)
 function function_ebbb27ae()
 {
 	level endon(#"hash_d8d0f829");
-	var_60532813 = getent("trigger_trap", "targetname");
+	t_trap = getent("trigger_trap", "targetname");
 	var_799520c1 = struct::get("trap_pos");
 	while(true)
 	{
-		var_60532813 waittill("trigger", ai_zombie);
+		t_trap waittill("trigger", ai_zombie);
 		if(!ai_zombie.b_is_spider)
 		{
 			continue;
@@ -997,7 +997,7 @@ function function_ebbb27ae()
 		{
 			if(isdefined(ai_zombie.var_f7522faa) && ai_zombie.var_f7522faa)
 			{
-				var_60532813 thread namespace_1aa6bd0c::function_aa515242(ai_zombie);
+				t_trap thread namespace_1aa6bd0c::function_aa515242(ai_zombie);
 			}
 			else
 			{

@@ -143,11 +143,11 @@ function function_a5062ebd()
 	}
 	var_8fcfe322 = getentarray("zombie_trap", "targetname");
 	array::thread_all(var_8fcfe322, &function_5054a970);
-	foreach(var_60532813 in var_8fcfe322)
+	foreach(t_trap in var_8fcfe322)
 	{
-		if(var_60532813.target === "trap_b")
+		if(t_trap.target === "trap_b")
 		{
-			var_60532813 thread function_aaf2ece7();
+			t_trap thread function_aaf2ece7();
 		}
 	}
 }
@@ -565,7 +565,7 @@ function trigger_damage(var_6ac4e9cb)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e80df8bf(var_ecf98bb6, var_60532813)
+function function_e80df8bf(var_ecf98bb6, t_trap)
 {
 	n_chance = randomint(100);
 	if(n_chance > 90)
@@ -584,13 +584,13 @@ function function_e80df8bf(var_ecf98bb6, var_60532813)
 		{
 			self thread zombie_utility::zombie_gut_explosion();
 			level notify(#"hash_de71acc2", self, var_ecf98bb6);
-			self dodamage(self.health + 100, self.origin, var_60532813, undefined, "none", "MOD_IMPACT");
+			self dodamage(self.health + 100, self.origin, t_trap, undefined, "none", "MOD_IMPACT");
 		}
 		else
 		{
 			self thread zombie_utility::gib_random_parts();
 			level notify(#"hash_de71acc2", self, var_ecf98bb6);
-			self dodamage(self.health + 100, self.origin, var_60532813, undefined, "none", "MOD_IMPACT");
+			self dodamage(self.health + 100, self.origin, t_trap, undefined, "none", "MOD_IMPACT");
 		}
 	}
 	level.zombie_total++;

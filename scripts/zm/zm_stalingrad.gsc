@@ -1402,11 +1402,11 @@ function function_b9d3803a()
 function function_cd541d08()
 {
 	var_8fcfe322 = getentarray("zombie_trap", "targetname");
-	foreach(var_60532813 in var_8fcfe322)
+	foreach(t_trap in var_8fcfe322)
 	{
-		if(var_60532813.script_noteworthy === "electric")
+		if(t_trap.script_noteworthy === "electric")
 		{
-			var_60532813 thread function_78c017aa();
+			t_trap thread function_78c017aa();
 		}
 	}
 }

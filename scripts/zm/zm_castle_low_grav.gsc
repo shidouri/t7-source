@@ -725,7 +725,7 @@ function function_644bd455()
 */
 function function_d09bda12()
 {
-	var_60532813 = getent(self.script_noteworthy, "targetname");
+	t_trap = getent(self.script_noteworthy, "targetname");
 	self.trap_available = 1;
 	var_c5728235 = getent(self.script_string, "targetname");
 	var_6b2a60d = getent(self.target, "targetname");
@@ -734,7 +734,7 @@ function function_d09bda12()
 	var_c5728235 thread trigger_damage();
 	while(true)
 	{
-		var_60532813 waittill("trigger", e_player);
+		t_trap waittill("trigger", e_player);
 		n_distance = distance2d(e_player.origin, self.origin);
 		if(e_player.var_b94b5f2f == 1 && self.trap_available == 1 && n_distance > 500 && n_distance < 1000 && e_player iswallrunning() && !level.dog_intermission)
 		{

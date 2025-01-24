@@ -109,14 +109,14 @@ function init_flinger()
 	Parameters: 1
 	Flags: Linked
 */
-function function_38d940ac(var_60532813)
+function function_38d940ac(t_trap)
 {
 	s_unitrigger = self zm_unitrigger::create_unitrigger(&"ZOMBIE_NEED_POWER", 64, &function_dc9dafb8);
 	s_unitrigger.require_look_at = 1;
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger, 1);
-	s_unitrigger.var_60532813 = var_60532813;
-	s_unitrigger.script_int = var_60532813.script_int;
-	var_60532813._trap_type = "flinger";
+	s_unitrigger.t_trap = t_trap;
+	s_unitrigger.script_int = t_trap.script_int;
+	t_trap._trap_type = "flinger";
 	while(true)
 	{
 		self waittill("trigger_activated", e_player);
@@ -135,8 +135,8 @@ function function_38d940ac(var_60532813)
 		if(e_player zm_score::can_player_purchase(1000))
 		{
 			e_player zm_score::minus_to_player_score(1000);
-			var_60532813 thread function_c7f4ae43(self, e_player);
-			var_60532813.activated_by_player = e_player;
+			t_trap thread function_c7f4ae43(self, e_player);
+			t_trap.activated_by_player = e_player;
 		}
 		else
 		{
@@ -174,12 +174,12 @@ function function_dc9dafb8(e_player)
 		self sethintstring(&"ZOMBIE_NEED_POWER");
 		return false;
 	}
-	if(self.stub.var_60532813 flag::get("trap_active"))
+	if(self.stub.t_trap flag::get("trap_active"))
 	{
 		self sethintstring(&"ZOMBIE_TRAP_ACTIVE");
 		return false;
 	}
-	if(self.stub.var_60532813 flag::get("trap_cooldown"))
+	if(self.stub.t_trap flag::get("trap_cooldown"))
 	{
 		self sethintstring(&"ZOMBIE_TRAP_COOLDOWN");
 		return false;

@@ -1184,15 +1184,15 @@ function function_21fd498a(str_mode = "ALL")
 	Parameters: 1
 	Flags: Linked
 */
-function function_de0d7531(var_60532813)
+function function_de0d7531(t_trap)
 {
-	if(isdefined(var_60532813.var_6b281b64))
+	if(isdefined(t_trap.var_6b281b64))
 	{
-		var_23b6ded0 = (var_60532813.var_6b281b64 * 75) * 10;
+		var_23b6ded0 = (t_trap.var_6b281b64 * 75) * 10;
 	}
 	else
 	{
-		var_23b6ded0 = self.origin - var_60532813.origin;
+		var_23b6ded0 = self.origin - t_trap.origin;
 	}
 	self setvelocity(var_23b6ded0);
 	wait(0.05);
