@@ -969,15 +969,15 @@ function function_a5398264(str_mode)
 	Parameters: 1
 	Flags: Linked
 */
-function function_db027040(var_eb6e3c93)
+function function_db027040(b_aim)
 {
-	level.ai_hendricks.perfectaim = var_eb6e3c93;
-	level.ai_khalil.perfectaim = var_eb6e3c93;
-	level.ai_minister.perfectaim = var_eb6e3c93;
+	level.ai_hendricks.perfectaim = b_aim;
+	level.ai_khalil.perfectaim = b_aim;
+	level.ai_minister.perfectaim = b_aim;
 	a_allies = get_ai_allies();
 	foreach(e_ally in a_allies)
 	{
-		e_ally.perfectaim = var_eb6e3c93;
+		e_ally.perfectaim = b_aim;
 	}
 }
 
