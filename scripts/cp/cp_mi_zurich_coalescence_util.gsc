@@ -1260,12 +1260,12 @@ function function_b1d28dc8()
 				if(math::cointoss())
 				{
 					var_d3fd0a78 = var_f473fe28;
-					var_460479b3 = var_667b6d63;
+					j_zcl = var_667b6d63;
 				}
 				else
 				{
 					var_d3fd0a78 = var_667b6d63;
-					var_460479b3 = var_f473fe28;
+					j_zcl = var_f473fe28;
 				}
 				if(isdefined(var_d3fd0a78))
 				{
@@ -1282,15 +1282,15 @@ function function_b1d28dc8()
 				}
 				else
 				{
-					if(isdefined(var_460479b3))
+					if(isdefined(j_zcl))
 					{
 						if(isdefined(self.attacker))
 						{
 							if(self.attacker.classname != "worldspawn" && self.attacker.classname != "trigger_radius_hurt")
 							{
-								if(sighttracepassed(self.attacker geteye(), var_460479b3 + vectorscale((0, 0, 1), 72), 0, self.attacker))
+								if(sighttracepassed(self.attacker geteye(), j_zcl + vectorscale((0, 0, 1), 72), 0, self.attacker))
 								{
-									self function_f5b7f741(var_460479b3);
+									self function_f5b7f741(j_zcl);
 								}
 							}
 						}
@@ -1301,9 +1301,9 @@ function function_b1d28dc8()
 						{
 							self function_f5b7f741(var_d3fd0a78);
 						}
-						else if(isdefined(var_460479b3))
+						else if(isdefined(j_zcl))
 						{
-							self function_f5b7f741(var_460479b3);
+							self function_f5b7f741(j_zcl);
 						}
 					}
 				}
