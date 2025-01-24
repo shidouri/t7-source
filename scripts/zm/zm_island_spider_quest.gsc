@@ -1059,15 +1059,15 @@ function function_b6ea5d0d()
 		{
 			if(var_cc724e2d.size != 0)
 			{
-				var_54219006 = array::random(var_cc724e2d);
-				arrayremovevalue(var_cc724e2d, var_54219006);
+				s_rand = array::random(var_cc724e2d);
+				arrayremovevalue(var_cc724e2d, s_rand);
 			}
 			else
 			{
-				var_54219006 = array::random(var_4e46d51e);
-				arrayremovevalue(var_4e46d51e, var_54219006);
+				s_rand = array::random(var_4e46d51e);
+				arrayremovevalue(var_4e46d51e, s_rand);
 			}
-			var_54219006 thread function_3d4c345d();
+			s_rand thread function_3d4c345d();
 			wait(randomfloatrange(0.5, 1));
 		}
 		var_cc724e2d = undefined;
