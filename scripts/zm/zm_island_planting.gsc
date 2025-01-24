@@ -2693,8 +2693,8 @@ function function_15142bc5(s_plant)
 				continue;
 			}
 		}
-		var_e59ac7e4 = zm_weapons::get_nonalternate_weapon(weapon);
-		if(weapon != var_e59ac7e4)
+		w_alt = zm_weapons::get_nonalternate_weapon(weapon);
+		if(weapon != w_alt)
 		{
 			continue;
 		}
