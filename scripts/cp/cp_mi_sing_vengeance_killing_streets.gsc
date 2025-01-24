@@ -425,10 +425,10 @@ function function_a39cd1bb()
 	level endon("killing_streets_lineup_patrollers_alerted");
 	level endon(#"hash_f1a04aa0");
 	self endon("disconnect");
-	var_68586610 = getentarray("killing_streets_outside", "targetname");
+	a_vol = getentarray("killing_streets_outside", "targetname");
 	while(true)
 	{
-		foreach(e_vol in var_68586610)
+		foreach(e_vol in a_vol)
 		{
 			if(self istouching(e_vol))
 			{
