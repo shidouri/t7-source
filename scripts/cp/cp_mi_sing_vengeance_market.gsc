@@ -175,7 +175,7 @@ function quad_battle_main()
 	level thread vengeance_util::function_1c347e72("quad_wall_static1", "quad_wall_non_static1");
 	wait(0.35);
 	level.quadtank = spawner::simple_spawn_single("plaza_quadtank", &quad_battle_quadtank_setup);
-	level.quadtank thread namespace_855113f3::function_35209d64();
+	level.quadtank thread quadtank_util::function_35209d64();
 	callback::on_vehicle_damage(&monitor_quadtank_health, level.quadtank);
 	var_ecf5f255 = getentarray("quad_tank_color_triggers", "script_noteworthy");
 	foreach(e_trig in var_ecf5f255)

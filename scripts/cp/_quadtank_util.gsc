@@ -4,11 +4,11 @@
 #using scripts\shared\util_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_855113f3;
+#namespace quadtank_util;
 
 /*
 	Name: function_35209d64
-	Namespace: namespace_855113f3
+	Namespace: quadtank_util
 	Checksum: 0xEE5B8ADF
 	Offset: 0x1C8
 	Size: 0x3C
@@ -23,7 +23,7 @@ function function_35209d64()
 
 /*
 	Name: function_ea61aedc
-	Namespace: namespace_855113f3
+	Namespace: quadtank_util
 	Checksum: 0xE8AB1E2A
 	Offset: 0x210
 	Size: 0x18C
@@ -61,7 +61,7 @@ function function_ea61aedc()
 
 /*
 	Name: function_82f5563d
-	Namespace: namespace_855113f3
+	Namespace: quadtank_util
 	Checksum: 0x88565738
 	Offset: 0x3A8
 	Size: 0x70
@@ -80,7 +80,7 @@ function function_82f5563d(var_ac4390f)
 
 /*
 	Name: function_610493ff
-	Namespace: namespace_855113f3
+	Namespace: quadtank_util
 	Checksum: 0xDD17963
 	Offset: 0x420
 	Size: 0x164
@@ -112,7 +112,7 @@ function function_610493ff(obj, params)
 
 /*
 	Name: function_d9337df
-	Namespace: namespace_855113f3
+	Namespace: quadtank_util
 	Checksum: 0xCDB4A8FD
 	Offset: 0x590
 	Size: 0x10E
