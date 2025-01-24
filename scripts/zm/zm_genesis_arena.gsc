@@ -6476,9 +6476,9 @@ function function_4dd54050(n_val)
 {
 	/#
 		var_83d6000c = struct::get_array("", "");
-		foreach(var_59b850ac in var_83d6000c)
+		foreach(s_elec in var_83d6000c)
 		{
-			playfx(level._effect[""], var_59b850ac.origin);
+			playfx(level._effect[""], s_elec.origin);
 		}
 	#/
 }
