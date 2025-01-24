@@ -303,7 +303,7 @@ function function_bb6d58d0(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 3
 	Flags: Linked
 */
-function function_bd038ea4(n_local_client, var_2c17cb9d, var_116b515b)
+function function_bd038ea4(n_local_client, var_2c17cb9d, b_glow)
 {
 	self notify(#"hash_bd038ea4");
 	self endon(#"hash_bd038ea4");
@@ -332,7 +332,7 @@ function function_bd038ea4(n_local_client, var_2c17cb9d, var_116b515b)
 			break;
 		}
 	}
-	if(var_116b515b)
+	if(b_glow)
 	{
 		while(true)
 		{
