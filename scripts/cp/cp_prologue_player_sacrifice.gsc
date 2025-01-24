@@ -247,12 +247,12 @@ function function_637fae36()
 	{
 		t_ob triggerenable(1);
 	}
-	var_b957e40 = getent("trigger_apc_reinforce", "targetname");
-	var_b957e40 triggerenable(0);
+	t_apc = getent("trigger_apc_reinforce", "targetname");
+	t_apc triggerenable(0);
 	t_lz = getent("trigger_pod_lz", "targetname");
 	t_lz triggerenable(0);
 	level flag::wait_till("shift_defend");
-	var_b957e40 triggerenable(1);
+	t_apc triggerenable(1);
 }
 
 /*
