@@ -313,8 +313,8 @@ function function_bc06f066()
 	level thread function_3eb38d8d();
 	level waittill("explosion_blast");
 	level.ai_hendricks dialog::say("hend_shit_keep_your_hea_0");
-	var_49b32118 = getent("pa_vox_tarmac", "targetname");
-	var_49b32118 thread dialog::say("nrcp_all_available_person_0", 2);
+	e_pa = getent("pa_vox_tarmac", "targetname");
+	e_pa thread dialog::say("nrcp_all_available_person_0", 2);
 	level thread enter_tunnel_nag();
 }
 

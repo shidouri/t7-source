@@ -1600,8 +1600,8 @@ function function_6ba94a8()
 	level flag::wait_till("pod_waypoint");
 	battlechatter::function_d9f49fba(0);
 	level thread function_77fe86ff();
-	var_49b32118 = getent("pa_comm_tower", "targetname");
-	var_49b32118 dialog::say("nrcp_infiltrators_cornere_0", 0.2, 1);
+	e_pa = getent("pa_comm_tower", "targetname");
+	e_pa dialog::say("nrcp_infiltrators_cornere_0", 0.2, 1);
 	battlechatter::function_d9f49fba(1);
 	level flag::wait_till("dropship_return");
 	battlechatter::function_d9f49fba(0);

@@ -733,8 +733,8 @@ function function_f4e0744a()
 function function_38c8ec92()
 {
 	level endon(#"hash_e41afc83");
-	var_49b32118 = getent("pa_nrc_warning", "targetname");
-	var_49b32118 dialog::say("nrcp_warning_nrc_grunt_i_0", 0, 1);
+	e_pa = getent("pa_nrc_warning", "targetname");
+	e_pa dialog::say("nrcp_warning_nrc_grunt_i_0", 0, 1);
 	level flag::wait_till("player_in_alley");
 	function_e3231637(1);
 	level.ai_hyperion dialog::say("mare_you_guys_hear_tha_0", 0.5);
