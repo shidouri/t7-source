@@ -713,22 +713,22 @@ function function_26e22a99()
 			w_current = e_who getcurrentweapon();
 			e_who zm_weapons::weapon_take(w_current);
 		}
-		var_e1041201 = getweapon("elemental_bow");
-		e_who zm_weapons::weapon_give(var_e1041201, 0, 0, 1);
+		w_bow = getweapon("elemental_bow");
+		e_who zm_weapons::weapon_give(w_bow, 0, 0, 1);
 		e_who thread zm_castle_vo::base_bow_picked_up();
 		if(isdefined(e_who.var_e8e28d9e))
 		{
-			e_who setweaponammostock(var_e1041201, e_who.var_e8e28d9e);
+			e_who setweaponammostock(w_bow, e_who.var_e8e28d9e);
 		}
 		if(isdefined(e_who.var_8f97fa0b))
 		{
-			e_who setweaponammoclip(var_e1041201, e_who.var_8f97fa0b);
+			e_who setweaponammoclip(w_bow, e_who.var_8f97fa0b);
 		}
 		else
 		{
-			e_who setweaponammoclip(var_e1041201, var_e1041201.clipsize);
+			e_who setweaponammoclip(w_bow, w_bow.clipsize);
 		}
-		e_who switchtoweapon(var_e1041201);
+		e_who switchtoweapon(w_bow);
 		e_who thread function_fb853e2c();
 		e_who thread function_71d4f620();
 		level.var_15acc392 setinvisibletoplayer(e_who);

@@ -1312,10 +1312,10 @@ function function_812faaaf()
 	level endon("next_channeling_stone");
 	while(true)
 	{
-		self waittill("missile_fire", var_3fee16b8, var_e1041201);
+		self waittill("missile_fire", var_3fee16b8, w_bow);
 		if(zm_utility::is_player_valid(self) && (isdefined(self.var_507ad4a9) && self.var_507ad4a9))
 		{
-			if(issubstr(var_e1041201.name, "elemental_bow_" + level.var_1f18338d))
+			if(issubstr(w_bow.name, "elemental_bow_" + level.var_1f18338d))
 			{
 				self.var_babefc4c = 1;
 			}

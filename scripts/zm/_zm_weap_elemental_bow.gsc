@@ -175,11 +175,11 @@ function function_7fba300(e_player, var_289e02fc)
 function function_982419bb(var_6ab83514)
 {
 	self endon("death");
-	var_e1041201 = getweapon(var_6ab83514);
+	w_bow = getweapon(var_6ab83514);
 	while(true)
 	{
 		self waittill("weapon_change", wpn_new, var_6de65145);
-		if(wpn_new === var_e1041201)
+		if(wpn_new === w_bow)
 		{
 			if(!(isdefined(self.var_8b65be8c) && self.var_8b65be8c))
 			{
@@ -205,7 +205,7 @@ function function_982419bb(var_6ab83514)
 			self util::waittill_any_timeout(1, "weapon_change_complete", "death");
 			self clientfield::set_to_player(var_6ab83514 + "_ambient_bow_fx", 1);
 		}
-		else if(var_6de65145 === var_e1041201)
+		else if(var_6de65145 === w_bow)
 		{
 			self clientfield::set_to_player(var_6ab83514 + "_ambient_bow_fx", 0);
 			self stoprumble("bow_draw_loop");
