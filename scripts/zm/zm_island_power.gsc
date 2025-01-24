@@ -290,8 +290,8 @@ function function_e9f46546()
 	{
 		wait(1);
 	}
-	var_e08b3d94 = getent("penstock_web_trigger", "targetname");
-	var_e08b3d94 zm_ai_spiders::function_7428955c();
+	t_web = getent("penstock_web_trigger", "targetname");
+	t_web zm_ai_spiders::function_7428955c();
 	if(!isdefined(level.var_d3b40681))
 	{
 		level.var_d3b40681 = [];
@@ -300,16 +300,16 @@ function function_e9f46546()
 	{
 		level.var_d3b40681 = array(level.var_d3b40681);
 	}
-	level.var_d3b40681[level.var_d3b40681.size] = var_e08b3d94;
-	var_e08b3d94 zm_ai_spiders::function_f375c6d9(1, 1);
-	var_e08b3d94.var_e084d7bd = 1;
-	var_e08b3d94 waittill("web_torn");
+	level.var_d3b40681[level.var_d3b40681.size] = t_web;
+	t_web zm_ai_spiders::function_f375c6d9(1, 1);
+	t_web.var_e084d7bd = 1;
+	t_web waittill("web_torn");
 	level util::clientnotify("snd_valve");
 	level thread zm_island_vo::function_3bf2d62a("unblock_penstock", 0, 1, 0);
-	var_e08b3d94 zm_ai_spiders::function_f375c6d9(0);
-	arrayremovevalue(level.var_d3b40681, var_e08b3d94);
-	var_e08b3d94.var_1e831600 util::delay(5, undefined, &delete);
-	var_e08b3d94 util::delay(6, undefined, &delete);
+	t_web zm_ai_spiders::function_f375c6d9(0);
+	arrayremovevalue(level.var_d3b40681, t_web);
+	t_web.var_1e831600 util::delay(5, undefined, &delete);
+	t_web util::delay(6, undefined, &delete);
 }
 
 /*
