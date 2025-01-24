@@ -364,8 +364,8 @@ function portal_teleport_player(player, show_fx = 1)
 			s_pos = array::random(self.a_s_port_locs);
 			foreach(var_3bc10d31 in a_players)
 			{
-				var_f2c93934 = distance(var_3bc10d31.origin, s_pos.origin);
-				if(var_f2c93934 < 32)
+				f_dist = distance(var_3bc10d31.origin, s_pos.origin);
+				if(f_dist < 32)
 				{
 					var_cefa4b63 = 0;
 				}
