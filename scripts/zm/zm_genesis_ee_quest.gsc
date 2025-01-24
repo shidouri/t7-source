@@ -2095,10 +2095,10 @@ function function_27b96bc()
 	var_cb6acc3e = undefined;
 	while(level.var_6e907685.size)
 	{
-		var_46352a82 = level.ball;
-		var_d6ba68c5 = var_46352a82.visuals[0];
+		e_ball = level.ball;
+		var_d6ba68c5 = e_ball.visuals[0];
 		var_766335a0 = var_d6ba68c5.origin;
-		if(isdefined(var_46352a82.carrier) || (isdefined(var_46352a82.isresetting) && var_46352a82.isresetting))
+		if(isdefined(e_ball.carrier) || (isdefined(e_ball.isresetting) && e_ball.isresetting))
 		{
 			util::wait_network_frame();
 			continue;
@@ -2127,7 +2127,7 @@ function function_27b96bc()
 						}
 						case "forward":
 						{
-							var_39815a1b = (vectornormalize(var_46352a82.lastcarrier.origin - s_toy.origin)) * 160;
+							var_39815a1b = (vectornormalize(e_ball.lastcarrier.origin - s_toy.origin)) * 160;
 							break;
 						}
 						default:
@@ -2140,12 +2140,12 @@ function function_27b96bc()
 					}
 					var_29c135aa thread function_e2a94206(var_39815a1b);
 					level.var_6e907685 = array::exclude(level.var_6e907685, s_toy);
-					var_46352a82 thread ball::function_b8faebaf(5);
+					e_ball thread ball::function_b8faebaf(5);
 					var_39018584 = getent(s_toy.target, "targetname");
 					playsoundatposition("zmb_gen_ee_toy_found", s_toy.origin);
 					wait(4.8);
 					var_39018584 delete();
-					level thread zm_genesis_vo::function_e644549c(var_46352a82.lastcarrier);
+					level thread zm_genesis_vo::function_e644549c(e_ball.lastcarrier);
 					s_toy notify("toy_found");
 					/#
 						iprintlnbold("");
@@ -2154,21 +2154,21 @@ function function_27b96bc()
 					{
 						if(s_toy.target == "ee_grand_tour_origins")
 						{
-							var_46352a82 ball::reset_ball(1, var_46352a82.lastcarrier.origin, 1);
+							e_ball ball::reset_ball(1, e_ball.lastcarrier.origin, 1);
 						}
 						else
 						{
-							var_b99670e6 = distance2d(var_46352a82.lastcarrier.origin, s_toy.origin);
+							var_b99670e6 = distance2d(e_ball.lastcarrier.origin, s_toy.origin);
 							var_43b88dc1 = var_b99670e6 * 0.3;
-							n_z_diff = abs(var_46352a82.lastcarrier.origin[2] - s_toy.origin[2]);
+							n_z_diff = abs(e_ball.lastcarrier.origin[2] - s_toy.origin[2]);
 							var_43b88dc1 = var_43b88dc1 + (n_z_diff * 0.5);
 							var_43b88dc1 = var_43b88dc1 + 150;
-							v_force = (var_46352a82.lastcarrier.origin + (0, 0, var_43b88dc1)) - var_766335a0;
-							var_46352a82 thread ball::function_fed77788(var_766335a0, v_force);
+							v_force = (e_ball.lastcarrier.origin + (0, 0, var_43b88dc1)) - var_766335a0;
+							e_ball thread ball::function_fed77788(var_766335a0, v_force);
 						}
 						continue;
 					}
-					var_46352a82 ball::function_a41df27c();
+					e_ball ball::function_a41df27c();
 				}
 			}
 		}

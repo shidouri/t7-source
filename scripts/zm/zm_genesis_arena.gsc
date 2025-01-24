@@ -5321,10 +5321,10 @@ function function_867f6495()
 	var_cb6acc3e = undefined;
 	while(true)
 	{
-		var_46352a82 = level.ball;
-		var_d6ba68c5 = var_46352a82.visuals[0];
+		e_ball = level.ball;
+		var_d6ba68c5 = e_ball.visuals[0];
 		var_766335a0 = var_d6ba68c5.origin;
-		if(isdefined(var_46352a82.carrier))
+		if(isdefined(e_ball.carrier))
 		{
 			util::wait_network_frame();
 			continue;
@@ -5338,7 +5338,7 @@ function function_867f6495()
 			if(n_length < 128)
 			{
 				level.ball thread ball::function_a41df27c();
-				level thread zm_genesis_vo::function_8c5fea67(var_46352a82.lastcarrier);
+				level thread zm_genesis_vo::function_8c5fea67(e_ball.lastcarrier);
 				level clientfield::set("sophia_state", 3);
 				level.var_2fe260b8 = 1;
 				/#

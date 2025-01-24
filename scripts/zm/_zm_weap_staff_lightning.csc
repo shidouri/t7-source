@@ -115,10 +115,10 @@ function function_749acb79(localclientnum)
 	{
 		level waittill("lightning_ball_created");
 	}
-	var_46352a82 = level.var_1d5f245c[localclientnum];
-	var_46352a82 endon("entityshutdown");
+	e_ball = level.var_1d5f245c[localclientnum];
+	e_ball endon("entityshutdown");
 	util::server_wait(localclientnum, randomfloatrange(0.1, 0.5));
-	self.e_fx = spawn(localclientnum, var_46352a82.origin, "script_model");
+	self.e_fx = spawn(localclientnum, e_ball.origin, "script_model");
 	self.e_fx setmodel("tag_origin");
 	self.fx_arc = playfxontag(localclientnum, level._effect["lightning_arc"], self.e_fx, "tag_origin");
 	while(true)
@@ -126,7 +126,7 @@ function function_749acb79(localclientnum)
 		var_8d0b58f1 = self gettagorigin("J_SpineUpper");
 		self.e_fx moveto(var_8d0b58f1, 0.1);
 		util::server_wait(localclientnum, 0.5);
-		self.e_fx moveto(var_46352a82.origin, 0.1);
+		self.e_fx moveto(e_ball.origin, 0.1);
 		util::server_wait(localclientnum, 0.5);
 	}
 }
