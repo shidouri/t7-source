@@ -249,8 +249,8 @@ function function_637fae36()
 	}
 	var_b957e40 = getent("trigger_apc_reinforce", "targetname");
 	var_b957e40 triggerenable(0);
-	var_f3fb06d8 = getent("trigger_pod_lz", "targetname");
-	var_f3fb06d8 triggerenable(0);
+	t_lz = getent("trigger_pod_lz", "targetname");
+	t_lz triggerenable(0);
 	level flag::wait_till("shift_defend");
 	var_b957e40 triggerenable(1);
 }
@@ -992,13 +992,13 @@ function function_b0cce50c()
 	s_defend = struct::get("pod_defend");
 	wait(2);
 	objectives::set("cp_waypoint_breadcrumb", s_pod);
-	var_f3fb06d8 = getent("trigger_pod_lz", "targetname");
+	t_lz = getent("trigger_pod_lz", "targetname");
 	var_6848ea7f = getent("trigger_apc_reinforce", "targetname");
-	var_f3fb06d8 triggerenable(1);
+	t_lz triggerenable(1);
 	var_6848ea7f thread function_a950a3ec();
 	level thread function_a3ac9ae0();
 	level flag::wait_till("pod_arrive");
-	var_f3fb06d8 waittill("trigger");
+	t_lz waittill("trigger");
 	objectives::complete("cp_waypoint_breadcrumb", s_pod);
 	objectives::hide("cp_level_prologue_goto_exfil");
 	objectives::set("cp_level_prologue_defend_pod", s_defend);
