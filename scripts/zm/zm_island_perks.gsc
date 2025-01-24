@@ -1329,47 +1329,47 @@ function function_53fbb551(v_pos)
 */
 function function_80cf986b()
 {
-	foreach(var_48b5604f in level.var_fed21619)
+	foreach(s_web in level.var_fed21619)
 	{
-		t_perk = arraygetclosest(var_48b5604f.origin, level.var_961b3545);
+		t_perk = arraygetclosest(s_web.origin, level.var_961b3545);
 		switch(t_perk.script_noteworthy)
 		{
 			case "specialty_doubletap2":
 			{
-				var_48b5604f.e_destructible setmodel("p7_zm_isl_web_vending_doubletap2");
+				s_web.e_destructible setmodel("p7_zm_isl_web_vending_doubletap2");
 				break;
 			}
 			case "specialty_quickrevive":
 			{
-				var_48b5604f.e_destructible setmodel("p7_zm_isl_web_vending_revive");
+				s_web.e_destructible setmodel("p7_zm_isl_web_vending_revive");
 				break;
 			}
 			case "specialty_fastreload":
 			{
-				var_48b5604f.e_destructible setmodel("p7_zm_isl_web_vending_sleight");
+				s_web.e_destructible setmodel("p7_zm_isl_web_vending_sleight");
 				break;
 			}
 			case "specialty_staminup":
 			{
-				var_48b5604f.e_destructible setmodel("p7_zm_isl_web_vending_marathon");
+				s_web.e_destructible setmodel("p7_zm_isl_web_vending_marathon");
 				break;
 			}
 			case "specialty_armorvest":
 			{
-				var_48b5604f.e_destructible setmodel("p7_zm_isl_web_vending_jugg");
+				s_web.e_destructible setmodel("p7_zm_isl_web_vending_jugg");
 				break;
 			}
 			case "specialty_additionalprimaryweapon":
 			{
-				var_48b5604f.e_destructible setmodel("p7_zm_isl_web_vending_three_gun");
+				s_web.e_destructible setmodel("p7_zm_isl_web_vending_three_gun");
 			}
 			default:
 			{
 				break;
 			}
 		}
-		var_48b5604f.e_destructible.origin = t_perk.machine.origin;
-		var_48b5604f.e_destructible.angles = t_perk.machine.angles;
+		s_web.e_destructible.origin = t_perk.machine.origin;
+		s_web.e_destructible.angles = t_perk.machine.angles;
 	}
 }
 
