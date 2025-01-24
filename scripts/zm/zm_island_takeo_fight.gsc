@@ -229,15 +229,15 @@ function function_bf38b3c9(var_6c555b6c = 1, b_force = 0)
 {
 	if(b_force == 1 || (self.var_6c555b6c !== var_6c555b6c && (!(isdefined(self.b_dead) && self.b_dead))))
 	{
-		var_3a0318fc = self.script_int;
+		n_vine = self.script_int;
 		if(var_6c555b6c == 1)
 		{
-			var_7814e8cc = function_b64005e8(var_3a0318fc, "open");
+			var_7814e8cc = function_b64005e8(n_vine, "open");
 			level.mdl_alttakeo playsoundontag("zmb_takeo_vox_eye_open", "tag_eye");
 		}
 		else
 		{
-			var_7814e8cc = function_b64005e8(var_3a0318fc, "close");
+			var_7814e8cc = function_b64005e8(n_vine, "close");
 		}
 		self thread scene::play(var_7814e8cc);
 		self.var_6c555b6c = var_6c555b6c;
@@ -400,38 +400,38 @@ function function_6bc98691()
 	Parameters: 2
 	Flags: Linked
 */
-function function_b64005e8(var_3a0318fc, str_state)
+function function_b64005e8(n_vine, str_state)
 {
 	switch(str_state)
 	{
 		case "close":
 		{
-			str_anim = ("p7_fxanim_zm_island_takeo_arm" + var_3a0318fc) + "_close_bundle";
+			str_anim = ("p7_fxanim_zm_island_takeo_arm" + n_vine) + "_close_bundle";
 			break;
 		}
 		case "open":
 		{
-			str_anim = ("p7_fxanim_zm_island_takeo_arm" + var_3a0318fc) + "_open_bundle";
+			str_anim = ("p7_fxanim_zm_island_takeo_arm" + n_vine) + "_open_bundle";
 			break;
 		}
 		case "idle_close":
 		{
-			str_anim = ("p7_fxanim_zm_island_takeo_arm" + var_3a0318fc) + "_idle_close_bundle";
+			str_anim = ("p7_fxanim_zm_island_takeo_arm" + n_vine) + "_idle_close_bundle";
 			break;
 		}
 		case "idle_open":
 		{
-			str_anim = ("p7_fxanim_zm_island_takeo_arm" + var_3a0318fc) + "_idle_open_bundle";
+			str_anim = ("p7_fxanim_zm_island_takeo_arm" + n_vine) + "_idle_open_bundle";
 			break;
 		}
 		case "slam":
 		{
-			str_anim = ("p7_fxanim_zm_island_takeo_arm" + var_3a0318fc) + "_close_slam_bundle";
+			str_anim = ("p7_fxanim_zm_island_takeo_arm" + n_vine) + "_close_slam_bundle";
 			break;
 		}
 		case "retract":
 		{
-			str_anim = ("p7_fxanim_zm_island_takeo_arm" + var_3a0318fc) + "_retract_bundle";
+			str_anim = ("p7_fxanim_zm_island_takeo_arm" + n_vine) + "_retract_bundle";
 			break;
 		}
 	}
@@ -1603,12 +1603,12 @@ function function_39a206a1()
 	Parameters: 1
 	Flags: Linked
 */
-function function_eff03897(var_3a0318fc)
+function function_eff03897(n_vine)
 {
 	/#
 		if(level flag::get(""))
 		{
-			level.var_bbdc1f95.var_62473c4b = level.var_bbdc1f95.var_69943735[var_3a0318fc];
+			level.var_bbdc1f95.var_62473c4b = level.var_bbdc1f95.var_69943735[n_vine];
 			if(isdefined(level.var_bbdc1f95.var_62473c4b) && (!(isdefined(level.var_bbdc1f95.var_62473c4b.b_dead) && level.var_bbdc1f95.var_62473c4b.b_dead)))
 			{
 				level.var_bbdc1f95 thread function_c3386633(1);
