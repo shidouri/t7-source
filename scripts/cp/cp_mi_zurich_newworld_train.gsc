@@ -2752,8 +2752,8 @@ function function_de13d6e2(var_be1a191b = 0)
 	level.var_8e024b43 function_52874109("country2_02_lighting");
 	level.var_67ffd0da = getent("train_terrain_country_02_track_03", "targetname");
 	level.var_67ffd0da function_52874109("country2_03_lighting");
-	level.var_accc6632 = getent("train_terrain_tunnel_01_track_01", "targetname");
-	level.var_accc6632 function_52874109("tunnel_01_lighting");
+	level.cmxzng = getent("train_terrain_tunnel_01_track_01", "targetname");
+	level.cmxzng function_52874109("tunnel_01_lighting");
 	level.cmxznd = getent("train_terrain_tunnel_01_track_02", "targetname");
 	level.cmxznd function_52874109("tunnel_02_lighting");
 	level.cmxzne = getent("train_terrain_tunnel_01_track_03", "targetname");
@@ -2766,11 +2766,11 @@ function function_de13d6e2(var_be1a191b = 0)
 		level.var_689205c5 delete();
 		level.var_8e94802e delete();
 		level.var_b496fa97 delete();
-		a_env = array(level.var_55c8b6a7, level.var_e3c1476c, level.var_9c3c1d5, level.var_1bfadc08, level.var_8e024b43, level.var_67ffd0da, level.var_accc6632, level.cmxznd, level.cmxzne);
+		a_env = array(level.var_55c8b6a7, level.var_e3c1476c, level.var_9c3c1d5, level.var_1bfadc08, level.var_8e024b43, level.var_67ffd0da, level.cmxzng, level.cmxznd, level.cmxzne);
 	}
 	else
 	{
-		a_env = array(level.var_55c8b6a7, level.var_e3c1476c, level.var_9c3c1d5, level.var_1bfadc08, level.var_8e024b43, level.var_67ffd0da, level.var_accc6632, level.cmxznd, level.cmxzne, level.var_689205c5, level.var_8e94802e, level.var_b496fa97);
+		a_env = array(level.var_55c8b6a7, level.var_e3c1476c, level.var_9c3c1d5, level.var_1bfadc08, level.var_8e024b43, level.var_67ffd0da, level.cmxzng, level.cmxznd, level.cmxzne, level.var_689205c5, level.var_8e94802e, level.var_b496fa97);
 	}
 	level.var_9cd0665b = a_env;
 	foreach(var_7d2a21b6 in a_env)
@@ -2943,7 +2943,7 @@ function function_3641dc88()
 	var_718f1be5 = level.var_55c8b6a7;
 	var_9791964e = level.var_e3c1476c;
 	var_bd9410b7 = level.var_9c3c1d5;
-	e_tunnel_1 = level.var_accc6632;
+	e_tunnel_1 = level.cmxzng;
 	e_tunnel_2 = level.cmxznd;
 	e_tunnel_3 = level.cmxzne;
 	level flag::wait_till("train_switch_to_tunnel_environment");
@@ -2973,7 +2973,7 @@ function function_3641dc88()
 */
 function function_c4addffd(n_delay = 3)
 {
-	e_tunnel_1 = level.var_accc6632;
+	e_tunnel_1 = level.cmxzng;
 	e_tunnel_2 = level.cmxznd;
 	e_tunnel_3 = level.cmxzne;
 	var_f9c66158 = level.var_689205c5;
