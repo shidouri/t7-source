@@ -770,7 +770,7 @@ function function_657fb719(localclientnum, light_on)
 		}
 	}
 	playsound(0, "zmb_crypt_disc_light", self.origin);
-	var_f9e79b00 = self mapshaderconstant(localclientnum, 0, "scriptVector2", 0, var_70f85c31, level.var_1aa82a7e[var_477f7b08], 0);
+	n_test = self mapshaderconstant(localclientnum, 0, "scriptVector2", 0, var_70f85c31, level.var_1aa82a7e[var_477f7b08], 0);
 }
 
 /*
