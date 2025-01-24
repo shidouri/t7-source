@@ -2187,7 +2187,7 @@ function function_5c2a88d5()
 		{
 			player setsoundentcontext("water", "over");
 		}
-		level waittill(#"hash_c4c783f9");
+		level waittill("fpsg");
 		forceambientroom("cp_doa_fps_mode");
 		setsoundcontext("water", "under");
 		foreach(player in getlocalplayers())
