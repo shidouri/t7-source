@@ -929,13 +929,13 @@ function vehicle_rumble(str_rumble_type = "damage_light", var_74584a64, var_48f8
 	Parameters: 1
 	Flags: Linked
 */
-function function_47a62798(var_de243c2)
+function function_47a62798(b_cqb)
 {
-	level.ai_hendricks ai::set_behavior_attribute("cqb", var_de243c2);
+	level.ai_hendricks ai::set_behavior_attribute("cqb", b_cqb);
 	a_allies = get_ai_allies();
 	foreach(e_ally in a_allies)
 	{
-		e_ally ai::set_behavior_attribute("cqb", var_de243c2);
+		e_ally ai::set_behavior_attribute("cqb", b_cqb);
 	}
 }
 
