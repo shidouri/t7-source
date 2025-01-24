@@ -471,19 +471,19 @@ function function_a3b69ec0(var_5d020ece)
 		b_upgraded = 1;
 		var_35ab0c48 = 400;
 		var_825b87b9 = 800;
-		var_6646a04b = getweapon("launcher_dragon_fire_upgraded");
+		w_fire = getweapon("launcher_dragon_fire_upgraded");
 	}
 	else
 	{
 		b_upgraded = 0;
 		var_35ab0c48 = 300;
 		var_825b87b9 = 600;
-		var_6646a04b = getweapon("launcher_dragon_fire");
+		w_fire = getweapon("launcher_dragon_fire");
 	}
 	self setweaponammoclip(var_5a0c399b, self getammocount(var_5a0c399b) - 1);
 	self flag::clear("show_dragon_strike_reticule");
 	self.mdl_target thread function_6efadb82(var_825b87b9, var_5a0c399b);
-	level thread function_9af893e8(self, var_5d020ece, b_upgraded, var_35ab0c48, var_6646a04b);
+	level thread function_9af893e8(self, var_5d020ece, b_upgraded, var_35ab0c48, w_fire);
 	level waittill(#"hash_d3a01285");
 	self notify(#"hash_ddb84fad", self.var_8e17738c);
 	self flag::clear("dragon_strike_active");
@@ -498,7 +498,7 @@ function function_a3b69ec0(var_5d020ece)
 	Parameters: 5
 	Flags: Linked
 */
-function function_9af893e8(e_player, var_5d020ece, b_upgraded, var_35ab0c48, var_6646a04b)
+function function_9af893e8(e_player, var_5d020ece, b_upgraded, var_35ab0c48, w_fire)
 {
 	var_2fcea154 = util::spawn_anim_model("c_zom_dlc3_dragon_body_airstrike", var_5d020ece.var_53d81d57, var_5d020ece.angles + vectorscale((1, 0, 0), 25));
 	var_2fcea154 function_42ab5fbb(var_5d020ece);
@@ -518,7 +518,7 @@ function function_9af893e8(e_player, var_5d020ece, b_upgraded, var_35ab0c48, var
 			var_c606eb7--;
 		}
 		while(bullettracepassed(var_2fcea154.var_201fdf35, var_2410d5ad, 0, var_2fcea154) && var_c606eb7 > 0);
-		var_aa911866 = magicbullet(var_6646a04b, var_2fcea154.var_201fdf35, var_2410d5ad, var_2fcea154);
+		var_aa911866 = magicbullet(w_fire, var_2fcea154.var_201fdf35, var_2410d5ad, var_2fcea154);
 		level thread function_a6d19957(b_upgraded, var_aa911866, var_5d020ece.v_loc, var_35ab0c48);
 	}
 	var_2fcea154 thread function_604af93b();

@@ -3366,7 +3366,7 @@ function function_3a34c204()
 {
 	self endon(#"hash_7869a7a5");
 	level endon(#"hash_a35dee4e");
-	var_6646a04b = getweapon("launcher_dragon_fireball");
+	w_fire = getweapon("launcher_dragon_fireball");
 	self waittill(#"hash_5556f7b");
 	var_201fdf35 = level.var_357a65b gettagorigin("tag_aim");
 	a_e_players = arraysortclosest(level.activeplayers, var_201fdf35);
@@ -3380,7 +3380,7 @@ function function_3a34c204()
 	{
 		var_270cdd14 = anglestoforward((0, randomintrange(-180, 180), 0));
 		v_target_origin = var_4cc0e23c + (var_270cdd14 * randomintrange(36, 72));
-		self thread function_98ee9e20(i, var_6646a04b, v_target_origin);
+		self thread function_98ee9e20(i, w_fire, v_target_origin);
 		util::wait_network_frame();
 		var_4cc0e23c = var_4cc0e23c + (var_f840b1a7 * 256);
 	}
@@ -3395,7 +3395,7 @@ function function_3a34c204()
 	Parameters: 4
 	Flags: Linked
 */
-function function_98ee9e20(n_number, var_6646a04b, v_target_origin, e_player)
+function function_98ee9e20(n_number, w_fire, v_target_origin, e_player)
 {
 	ground_trace = bullettrace(v_target_origin + vectorscale((0, 0, 1), 128), v_target_origin + (vectorscale((0, 0, -1), 500)), 0, e_player);
 	e_fx = fx::play("meatball_impact", ground_trace["position"], (0, 0, 0), "stop_meatball_impact");
@@ -3405,7 +3405,7 @@ function function_98ee9e20(n_number, var_6646a04b, v_target_origin, e_player)
 		wait(n_number * 0.1);
 	}
 	var_201fdf35 = level.var_357a65b gettagorigin("tag_aim");
-	var_aa911866 = magicbullet(var_6646a04b, var_201fdf35, v_target_origin, level.var_357a65b);
+	var_aa911866 = magicbullet(w_fire, var_201fdf35, v_target_origin, level.var_357a65b);
 	var_aa911866 waittill("death");
 	e_fx delete();
 }
