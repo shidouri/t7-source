@@ -126,15 +126,15 @@ function skipto_quad_done(str_objective, b_starting, b_direct, player)
 */
 function function_bd50a158()
 {
-	var_2d4309d9 = getent("quad_battle_qt_ramp", "targetname");
+	e_ramp = getent("quad_battle_qt_ramp", "targetname");
 	e_trigger = getent("quad_battle_qt_cleared_wall", "targetname");
 	e_trigger triggerenable(0);
 	level flag::wait_till("quad_battle_starts");
 	e_trigger triggerenable(1);
 	trigger::wait_till("quad_battle_qt_cleared_wall");
-	var_2d4309d9 connectpaths();
+	e_ramp connectpaths();
 	wait(0.05);
-	var_2d4309d9 delete();
+	e_ramp delete();
 }
 
 /*
