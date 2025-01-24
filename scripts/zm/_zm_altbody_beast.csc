@@ -1316,16 +1316,16 @@ function grapple_watch(onoff, tag = "tag_flash", delay = 0.15)
 		while(isdefined(self))
 		{
 			self waittill("grapple_beam_on", pivot);
-			var_1e66ebb1 = tag;
+			ptag = tag;
 			/#
 				if(getdvarint("") > 0)
 				{
-					var_1e66ebb1 = "";
+					ptag = "";
 				}
 			#/
 			if(isdefined(pivot) && !pivot isplayer())
 			{
-				thread function_55af4b5b(self, var_1e66ebb1, pivot, delay);
+				thread function_55af4b5b(self, ptag, pivot, delay);
 			}
 			evt = self util::waittill_any_ex(7.5, "grapple_pulled", "grapple_landed", "grapple_cancel", "grapple_beam_off", "grapple_watch", "disconnect");
 			self notify("grapple_done");
