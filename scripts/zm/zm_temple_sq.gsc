@@ -52,9 +52,9 @@ function init()
 	level._crystal_bounce_paths[5] = array(6, 5, 6, 1, 3, 5, "R");
 	level._crystal_bounce_paths[6] = array(5, 6, 1, 4, 2, 1, 3, "M");
 	var_81c48749 = getentarray("sq_gong", "targetname");
-	foreach(var_3e9e1b32 in var_81c48749)
+	foreach(e_gong in var_81c48749)
 	{
-		var_3e9e1b32.script_vector = vectorscale((0, 0, 1), 40);
+		e_gong.script_vector = vectorscale((0, 0, 1), 40);
 	}
 	zm_temple_sq_brock::init();
 	zm_temple_sq_skits::init_skits();
