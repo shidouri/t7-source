@@ -181,9 +181,9 @@ function function_f7c8e279(a_ents)
 */
 function function_aa37ce2d()
 {
-	var_b1e70b95 = getent("trigger_pap_hint", "targetname");
-	var_b1e70b95 setcursorhint("HINT_NOICON");
-	var_b1e70b95 sethintstring("");
+	t_hint = getent("trigger_pap_hint", "targetname");
+	t_hint setcursorhint("HINT_NOICON");
+	t_hint sethintstring("");
 	mdl_gate = getent("pap_gate", "targetname");
 	mdl_gate.s_pos = struct::get(mdl_gate.target);
 	level flag::wait_till("pap_water_drained");
@@ -196,7 +196,7 @@ function function_aa37ce2d()
 	level thread zm_island_vo::function_3bf2d62a("pap_opens", 0, 1, 0);
 	mdl_gate waittill("movedone");
 	level flag::set("pap_open");
-	var_b1e70b95 delete();
+	t_hint delete();
 	t_door = getent("trigger_pap", "script_noteworthy");
 	t_door zm_blockers::door_opened(0);
 }
