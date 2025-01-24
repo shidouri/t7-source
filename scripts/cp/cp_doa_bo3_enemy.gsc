@@ -235,7 +235,7 @@ function function_36aa8b6c(loc)
 		ai.var_2d8174e3 = 1;
 		ai.takedamage = 0;
 		ai.meleedamage = 20000;
-		ai namespace_eaa992c::function_285a2999("cyber_eye");
+		ai doa_fx::function_285a2999("cyber_eye");
 		ai forceteleport(loc.origin, loc.angles);
 		ai notify(#"hash_10fd80ee");
 		ai notify(#"hash_6e8326fc");
@@ -245,7 +245,7 @@ function function_36aa8b6c(loc)
 		ai notify(#"hash_67a97d62");
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
 	}
 	return ai;
@@ -280,7 +280,7 @@ function function_a0d7d949(spawner, loc, def)
 		ai.doa.var_da2f5272 = 1;
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
 	}
 	return ai;
@@ -319,7 +319,7 @@ function function_bb3b0416(spawner, loc, def)
 		ai.var_d538832c = 1;
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
 	}
 	return ai;
@@ -354,9 +354,9 @@ function function_92159541(spawner, loc, def)
 		ai.doa.var_da2f5272 = 1;
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
-		ai thread namespace_eaa992c::function_285a2999("blue_eyes");
+		ai thread doa_fx::function_285a2999("blue_eyes");
 		spots = doa_utility::function_8fc4387a(32);
 		ai.var_8f12ed02 = spots[randomint(spots.size)].origin;
 		ai setgoal(ai.var_8f12ed02);
@@ -414,7 +414,7 @@ function function_8b898788()
 			continue;
 		}
 		guy thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
-		guy thread namespace_eaa992c::function_285a2999("hazard_electric");
+		guy thread doa_fx::function_285a2999("hazard_electric");
 		if(!isplayer(guy))
 		{
 			dir = guy.origin - self.damage_trigger.origin;
@@ -442,8 +442,8 @@ function function_8b898788()
 function function_b18c6347()
 {
 	self endon("death");
-	self thread namespace_eaa992c::function_285a2999("player_shield_short");
-	self thread namespace_eaa992c::function_285a2999("electrical_surge");
+	self thread doa_fx::function_285a2999("player_shield_short");
+	self thread doa_fx::function_285a2999("electrical_surge");
 	invultime = gettime() + 3000;
 	while(gettime() < invultime)
 	{
@@ -469,21 +469,21 @@ function function_d4107a2a()
 	{
 		wait(0.05);
 	}
-	self thread namespace_eaa992c::function_285a2999("tesla_shock_eyes");
+	self thread doa_fx::function_285a2999("tesla_shock_eyes");
 	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
-	self thread namespace_eaa992c::function_285a2999("hazard_electric");
+	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
 	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
-	self thread namespace_eaa992c::function_285a2999("hazard_electric");
+	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
 	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
-	self thread namespace_eaa992c::function_285a2999("hazard_electric");
+	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
 	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
-	self thread namespace_eaa992c::function_285a2999("hazard_electric");
+	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
 	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
-	self thread namespace_eaa992c::function_285a2999("hazard_electric");
+	self thread doa_fx::function_285a2999("hazard_electric");
 	level thread function_7517e6b7(self.origin);
 	self.takedamage = 1;
 	self.tesla_death = 1;
@@ -583,7 +583,7 @@ function function_b3a0f63()
 	timeout = gettime() + 2100;
 	while(gettime() < timeout)
 	{
-		self thread namespace_eaa992c::function_285a2999("tesla_shock");
+		self thread doa_fx::function_285a2999("tesla_shock");
 		wait(randomfloatrange(0.1, 0.4));
 	}
 }
@@ -658,7 +658,7 @@ function droptoground(origin, trailfx, var_b8f99479 = "turret_impact", var_96214
 	dst.angles = (0, randomint(180), 0);
 	if(isdefined(var_96214f04) && var_96214f04)
 	{
-		dst thread namespace_eaa992c::function_285a2999("incoming_impact");
+		dst thread doa_fx::function_285a2999("incoming_impact");
 	}
 	dst thread doa_utility::function_1bd67aef(3);
 	pos = dst.origin + vectorscale((0, 0, 1), 2000);
@@ -675,7 +675,7 @@ function droptoground(origin, trailfx, var_b8f99479 = "turret_impact", var_96214
 	org setmodel("tag_origin");
 	if(isdefined(trailfx))
 	{
-		org thread namespace_eaa992c::function_285a2999(trailfx);
+		org thread doa_fx::function_285a2999(trailfx);
 	}
 	org thread doa_utility::function_1bd67aef(2);
 	self enablelinkto();
@@ -696,7 +696,7 @@ function droptoground(origin, trailfx, var_b8f99479 = "turret_impact", var_96214
 	{
 		self.origin = dst.origin;
 	}
-	dst thread namespace_eaa992c::function_285a2999(var_b8f99479);
+	dst thread doa_fx::function_285a2999(var_b8f99479);
 	util::wait_network_frame();
 	self.ignoreall = 0;
 	self.dropping = undefined;
@@ -796,7 +796,7 @@ function function_4d2a4a76(spawner, loc, def)
 		ai thread function_a1f1cd46();
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
 	}
 	return ai;
@@ -997,7 +997,7 @@ function function_1631202b(spawner, loc, def)
 		ai setgoal(goal, 1);
 		ai.updatesight = 1;
 		ai thread function_307cc86e();
-		ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+		ai thread doa_fx::function_285a2999("spawnZombie");
 	}
 	return ai;
 }
@@ -1244,7 +1244,7 @@ function function_7512c5ee(spawner, loc, def, forced = 0)
 		ai thread function_4c047459();
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
 	}
 	return ai;
@@ -1388,7 +1388,7 @@ function function_33525e11(spawner, loc, def)
 		ai setgoal(goal, 1);
 		ai thread function_307cc86e();
 		ai.updatesight = 1;
-		ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+		ai thread doa_fx::function_285a2999("spawnZombie");
 	}
 	return ai;
 }
@@ -1419,7 +1419,7 @@ function function_ce9bce16(spawner, loc, def)
 		ai.goalradius = 64;
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
 		if(level.players.size == 1 && ai.zombie_move_speed == "sprint")
 		{
@@ -1539,7 +1539,7 @@ function shadowteleportmenow(initial = 0)
 	}
 	self.ignoreall = 1;
 	self.takedamage = 0;
-	self thread namespace_eaa992c::function_285a2999("shadow_fade");
+	self thread doa_fx::function_285a2999("shadow_fade");
 	wait(0.1);
 	org = spawn("script_model", self.origin + vectorscale((0, 0, 1), 40));
 	org setmodel("tag_origin");
@@ -1548,8 +1548,8 @@ function shadowteleportmenow(initial = 0)
 	org thread doa_utility::function_981c685d(self);
 	org.teleports = self.teleports;
 	org.spawner = self.spawner;
-	org thread namespace_eaa992c::function_285a2999("shadow_move");
-	org thread namespace_eaa992c::function_285a2999("shadow_glow");
+	org thread doa_fx::function_285a2999("shadow_move");
+	org thread doa_fx::function_285a2999("shadow_glow");
 	org thread namespace_1a381543::function_90118d8c("zmb_enemy_smokeman_poof");
 	wait(0.3);
 	self ghost();
@@ -1558,7 +1558,7 @@ function shadowteleportmenow(initial = 0)
 	self linkto(org);
 	org moveto(goal.origin + vectorscale((0, 0, 1), 40), 2);
 	org util::waittill_any_timeout(2.1, "movedone");
-	org thread namespace_eaa992c::function_285a2999("shadow_appear");
+	org thread doa_fx::function_285a2999("shadow_appear");
 	wait(1);
 	org thread namespace_1a381543::function_90118d8c("zmb_enemy_smokeman_wings");
 	wait(1);
@@ -1568,7 +1568,7 @@ function shadowteleportmenow(initial = 0)
 	self show();
 	self solid();
 	self setplayercollision(1);
-	self thread namespace_eaa992c::function_285a2999("spawnZombie");
+	self thread doa_fx::function_285a2999("spawnZombie");
 	org delete();
 	wait(1);
 	self.ignoreall = 0;
@@ -1597,7 +1597,7 @@ function function_c1b5c042(einflictor, eattacker, idamage, idflags, smeansofdeat
 	}
 	if(self.health == 1)
 	{
-		self thread namespace_eaa992c::function_285a2999("shadow_die");
+		self thread doa_fx::function_285a2999("shadow_die");
 		self show();
 		self.takedamage = 0;
 		self.aioverridedamage = undefined;
@@ -1953,7 +1953,7 @@ function function_57aea19e()
 	bomb setmodel("zombietron_Warlord_mine");
 	bomb playsound("zmb_bomb_initialized");
 	bomb playloopsound("zmb_bomb_looper", 1);
-	bomb thread namespace_eaa992c::function_285a2999("explo_warning_light");
+	bomb thread doa_fx::function_285a2999("explo_warning_light");
 	bomb thread function_97fb783(5);
 	bomb.takedamage = 1;
 	self waittillmatch(#"hash_eecd4c04");
@@ -2023,7 +2023,7 @@ function function_97fb783(fusetime)
 	self util::waittill_any_timeout(fusetime, "damage");
 	radiusdamage(self.origin, 72, 10000, 0, undefined, "MOD_GAS");
 	self playsound("zmb_bomb_explode");
-	self thread namespace_eaa992c::function_285a2999("def_explode");
+	self thread doa_fx::function_285a2999("def_explode");
 	util::wait_network_frame();
 	self delete();
 }
@@ -2133,7 +2133,7 @@ function function_53b44cb7(spawner, loc, def, forced = 0)
 		ai thread function_772a04fe();
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
-			ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
 	}
 	return ai;
@@ -2496,7 +2496,7 @@ function margwadamage(inflictor, attacker, damage, dflags, mod, weapon, point, d
 */
 function private function_7ee81ba4(org)
 {
-	org thread namespace_eaa992c::function_285a2999("margwa_head_explode");
+	org thread doa_fx::function_285a2999("margwa_head_explode");
 	wait(1);
 	org delete();
 }

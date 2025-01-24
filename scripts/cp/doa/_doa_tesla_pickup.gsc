@@ -112,7 +112,7 @@ function tesla_damage_init(player)
 	player.tesla_enemies_hit = 1;
 	player.tesla_powerup_dropped = 0;
 	player notify("tesla_discharged");
-	self thread namespace_eaa992c::function_285a2999("tesla_shock");
+	self thread doa_fx::function_285a2999("tesla_shock");
 	if(!(isdefined(self.boss) && self.boss))
 	{
 		self tesla_arc_damage(self, player, 0);
@@ -324,9 +324,9 @@ function tesla_play_death_fx(arc_num)
 {
 	if(arc_num > 1)
 	{
-		self thread namespace_eaa992c::function_285a2999("tesla_shock_eyes");
+		self thread doa_fx::function_285a2999("tesla_shock_eyes");
 	}
-	self thread namespace_eaa992c::function_285a2999("tesla_shock");
+	self thread doa_fx::function_285a2999("tesla_shock");
 	self thread namespace_1a381543::function_90118d8c("zmb_pwup_coco_impact");
 	if(isdefined(self.tesla_head_gib_func))
 	{
@@ -372,7 +372,7 @@ function tesla_play_arc_fx(target)
 	fxorg = spawn("script_model", origin);
 	fxorg.targetname = "tesla_trail";
 	fxorg setmodel("tag_origin");
-	fxorg thread namespace_eaa992c::function_285a2999("tesla_trail");
+	fxorg thread doa_fx::function_285a2999("tesla_trail");
 	fxorg thread namespace_1a381543::function_90118d8c("zmb_pwup_coco_bounce");
 	fxorg moveto(target_origin, timemove);
 	fxorg util::waittill_any_timeout(timemove + 1, "movedone");
@@ -509,7 +509,7 @@ function function_ccf71744(org, vel)
 	self moveto(org.origin, 0.5);
 	self util::waittill_any_timeout(1, "movedone");
 	vel = vel * 0.4;
-	self thread namespace_eaa992c::function_285a2999("tesla_launch");
+	self thread doa_fx::function_285a2999("tesla_launch");
 	self physicslaunch(self.origin, vel);
 }
 
@@ -671,8 +671,8 @@ function tesla_blockers_fx(org)
 	{
 		if(isdefined(org.objects[i]))
 		{
-			org.objects[i] thread namespace_eaa992c::function_285a2999("tesla_trail");
-			org.objects[i] thread namespace_eaa992c::function_285a2999("tesla_ball");
+			org.objects[i] thread doa_fx::function_285a2999("tesla_trail");
+			org.objects[i] thread doa_fx::function_285a2999("tesla_ball");
 		}
 	}
 }

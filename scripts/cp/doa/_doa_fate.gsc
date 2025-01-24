@@ -285,20 +285,20 @@ function private function_524284e0()
 	{
 		case "trigger_fated":
 		{
-			self.rock thread namespace_eaa992c::function_285a2999("fate_impact");
-			self.rock thread namespace_eaa992c::function_285a2999("fate_trigger");
-			self.rock thread namespace_eaa992c::function_285a2999("fate_impact");
+			self.rock thread doa_fx::function_285a2999("fate_impact");
+			self.rock thread doa_fx::function_285a2999("fate_trigger");
+			self.rock thread doa_fx::function_285a2999("fate_impact");
 			break;
 		}
 		case "trigger_right_match":
 		{
-			self.rock thread namespace_eaa992c::function_285a2999("fate_impact");
-			self.rock thread namespace_eaa992c::function_285a2999("fate_trigger");
+			self.rock thread doa_fx::function_285a2999("fate_impact");
+			self.rock thread doa_fx::function_285a2999("fate_trigger");
 			break;
 		}
 		case "trigger_wrong_match":
 		{
-			self.rock thread namespace_eaa992c::function_285a2999("fate_impact");
+			self.rock thread doa_fx::function_285a2999("fate_impact");
 			break;
 		}
 	}
@@ -319,13 +319,13 @@ function private function_271ba816(var_26fc4461 = 0)
 	level endon(#"hash_7b036079");
 	self thread function_46575fe6();
 	self thread function_524284e0();
-	self.rock thread namespace_eaa992c::function_285a2999("glow_blue");
+	self.rock thread doa_fx::function_285a2999("glow_blue");
 	level waittill(#"hash_4213cffb");
 	wait(randomfloatrange(1, 2.5));
 	self.rock thread doa_utility::function_a98c85b2(self.rock.dloc, 1.5);
 	self.rock thread namespace_1a381543::function_90118d8c("zmb_fate_rock_spawn");
 	wait(1.5);
-	self.rock thread namespace_eaa992c::function_285a2999("fate_impact");
+	self.rock thread doa_fx::function_285a2999("fate_impact");
 	self.rock thread namespace_1a381543::function_90118d8c("zmb_fate_rock_imp");
 	objective_add(self.id, "active", self.origin);
 	objective_set3d(self.id, 1, "default", "*");
@@ -552,7 +552,7 @@ function function_2a2ab6f9()
 	level thread function_fd0b8976(&"DOA_FATE_FEET", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
 	self.doa.default_movespeed = level.doa.rules.var_b92b82b;
 	self setmovespeedscale(level.doa.rules.var_b92b82b);
-	self thread namespace_eaa992c::function_285a2999("fast_feet");
+	self thread doa_fx::function_285a2999("fast_feet");
 }
 
 /*
@@ -587,7 +587,7 @@ function function_c8508847()
 	{
 		self.doa.boosters = 4;
 	}
-	self thread namespace_eaa992c::function_285a2999("fate2_awarded");
+	self thread doa_fx::function_285a2999("fate2_awarded");
 }
 
 /*
@@ -607,7 +607,7 @@ function function_47b8a2a2()
 		self namespace_64c6b720::function_126dc996(3);
 	}
 	self thread namespace_6df66aa5::function_2016b381();
-	self thread namespace_eaa992c::function_285a2999("fate2_awarded");
+	self thread doa_fx::function_285a2999("fate2_awarded");
 }
 
 /*
@@ -623,7 +623,7 @@ function function_78c32d42()
 {
 	level thread function_fd0b8976(&"DOA_FATE_FAVOR", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
 	self thread namespace_5e6c5d1f::function_d35a405a(level.doa.var_9505395a, 2, 1.5);
-	self thread namespace_eaa992c::function_285a2999("fate2_awarded");
+	self thread doa_fx::function_285a2999("fate2_awarded");
 }
 
 /*
@@ -644,7 +644,7 @@ function function_8c9288de()
 	}
 	self.doa.default_weap = level.doa.var_69899304;
 	self namespace_831a4a7c::function_baa7411e(self.doa.default_weap);
-	self thread namespace_eaa992c::function_285a2999("fate2_awarded");
+	self thread doa_fx::function_285a2999("fate2_awarded");
 }
 
 /*
@@ -690,7 +690,7 @@ function awardfate(type, rock)
 {
 	if(isdefined(rock))
 	{
-		rock thread namespace_eaa992c::function_285a2999("fate_trigger");
+		rock thread doa_fx::function_285a2999("fate_trigger");
 		rock thread namespace_1a381543::function_90118d8c("zmb_fate_choose");
 	}
 	self.doa.fate = type;
@@ -784,7 +784,7 @@ function function_17fb777b(player, model, modelscale, fate_cb)
 	}
 	if(isplayer(player))
 	{
-		object thread namespace_eaa992c::function_285a2999("fate_explode");
+		object thread doa_fx::function_285a2999("fate_explode");
 		player playrumbleonentity("artillery_rumble");
 		if(mayspawnentity())
 		{
@@ -1101,7 +1101,7 @@ function private function_5aaa5a64(shield)
 			continue;
 		}
 		guy.doa.var_d6d294af = gettime() + 3000;
-		guy thread namespace_eaa992c::function_285a2999("stoneboss_shield_death");
+		guy thread doa_fx::function_285a2999("stoneboss_shield_death");
 		shield thread namespace_1a381543::function_90118d8c("zmb_boss_shield_death");
 		guy dodamage(guy.health + 500, guy.origin);
 	}
@@ -1127,7 +1127,7 @@ function private function_d654dcd9()
 			{
 				self.shield.trigger delete();
 			}
-			self.shield thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
+			self.shield thread doa_fx::function_285a2999("stoneboss_shield_explode");
 			util::wait_network_frame();
 			if(isdefined(self) && isdefined(self.shield))
 			{
@@ -1173,7 +1173,7 @@ function private function_60a14daa(boss)
 function private function_b1d23a45(boss)
 {
 	level endon(#"hash_d1f5acf7");
-	self thread namespace_eaa992c::function_285a2999("tesla_trail");
+	self thread doa_fx::function_285a2999("tesla_trail");
 	self.angles = vectorscale((0, 0, 1), 180);
 	self.trigger = spawn("trigger_radius", self.origin, 0, 30, 50);
 	self.trigger.targetname = "boss_shieldThink";
@@ -1191,7 +1191,7 @@ function private function_b1d23a45(boss)
 		self waittill("damage", damage);
 		if(isdefined(self.rapps))
 		{
-			self thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
+			self thread doa_fx::function_285a2999("stoneboss_shield_explode");
 			loc = spawnstruct();
 			loc.origin = self.origin;
 			loc.angles = self.angles;
@@ -1218,12 +1218,12 @@ function private function_b1d23a45(boss)
 			if(lasthealth > stage1 && self.health < stage1)
 			{
 				self setmodel("zombietron_boss_shield_damage_size" + self.org.regenerated);
-				self thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
+				self thread doa_fx::function_285a2999("stoneboss_shield_explode");
 			}
 			else if(lasthealth > stage2 && self.health < stage2)
 			{
 				self setmodel("zombietron_boss_shield_destroyed_size" + self.org.regenerated);
-				self thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
+				self thread doa_fx::function_285a2999("stoneboss_shield_explode");
 			}
 		}
 	}
@@ -1380,7 +1380,7 @@ function private function_cb98790d()
 		{
 			if(isdefined(ball))
 			{
-				ball thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
+				ball thread doa_fx::function_285a2999("stoneboss_shield_explode");
 				util::wait_network_frame();
 				if(isdefined(ball))
 				{
@@ -1453,7 +1453,7 @@ function private function_c492e72d()
 		}
 		if(lasthealth > stage1 && self.health < stage1)
 		{
-			self thread namespace_eaa992c::function_285a2999("stoneboss_dmg1");
+			self thread doa_fx::function_285a2999("stoneboss_dmg1");
 			self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
 			level notify(#"hash_55acdab7");
 		}
@@ -1461,7 +1461,7 @@ function private function_c492e72d()
 		{
 			if(lasthealth > stage2 && self.health < stage2)
 			{
-				self thread namespace_eaa992c::function_285a2999("stoneboss_dmg2");
+				self thread doa_fx::function_285a2999("stoneboss_dmg2");
 				self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
 				level notify(#"hash_55acdab7");
 			}
@@ -1469,7 +1469,7 @@ function private function_c492e72d()
 			{
 				if(lasthealth > stage3 && self.health < stage3)
 				{
-					self thread namespace_eaa992c::function_285a2999("stoneboss_dmg3");
+					self thread doa_fx::function_285a2999("stoneboss_dmg3");
 					self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
 					level notify(#"hash_55acdab7");
 				}
@@ -1477,13 +1477,13 @@ function private function_c492e72d()
 				{
 					if(lasthealth > var_301961e7 && self.health < var_301961e7)
 					{
-						self thread namespace_eaa992c::function_285a2999("stoneboss_dmg4");
+						self thread doa_fx::function_285a2999("stoneboss_dmg4");
 						self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
 						level notify(#"hash_55acdab7");
 					}
 					else if(lasthealth > var_a16e77e && self.health < var_a16e77e)
 					{
-						self thread namespace_eaa992c::function_285a2999("stoneboss_dmg5");
+						self thread doa_fx::function_285a2999("stoneboss_dmg5");
 						self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
 						level notify(#"hash_55acdab7");
 					}
@@ -1494,7 +1494,7 @@ function private function_c492e72d()
 			doa_utility::debugmsg("" + self.health);
 		#/
 	}
-	self thread namespace_eaa992c::function_285a2999("stoneboss_death");
+	self thread doa_fx::function_285a2999("stoneboss_death");
 	self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_died");
 	self notify("defeated");
 	level notify("defeated", self);
@@ -1620,24 +1620,24 @@ function private function_b6a1fab3()
 		wait(randomfloatrange(0.25, 1.2));
 	}
 	boss thread doa_utility::function_a98c85b2(boss.origin + vectorscale((0, 0, 1), 2000), 1.75);
-	boss thread namespace_eaa992c::function_285a2999("fate_impact");
-	boss thread namespace_eaa992c::function_285a2999("stoneboss_death");
+	boss thread doa_fx::function_285a2999("fate_impact");
+	boss thread doa_fx::function_285a2999("stoneboss_death");
 	wait(4);
 	fury thread doa_utility::function_a98c85b2(fury.origin + vectorscale((0, 0, 1), 2000), 1.75);
-	fury thread namespace_eaa992c::function_285a2999("fate_impact");
-	fury thread namespace_eaa992c::function_285a2999("fate_launch");
+	fury thread doa_fx::function_285a2999("fate_impact");
+	fury thread doa_fx::function_285a2999("fate_launch");
 	wait(1);
 	force thread doa_utility::function_a98c85b2(force.origin + vectorscale((0, 0, 1), 2000), 1.75);
-	force thread namespace_eaa992c::function_285a2999("fate_impact");
-	force thread namespace_eaa992c::function_285a2999("fate_launch");
+	force thread doa_fx::function_285a2999("fate_impact");
+	force thread doa_fx::function_285a2999("fate_launch");
 	wait(1);
 	var_47bba3bb thread doa_utility::function_a98c85b2(var_47bba3bb.origin + vectorscale((0, 0, 1), 2000), 1.75);
-	var_47bba3bb thread namespace_eaa992c::function_285a2999("fate_impact");
-	var_47bba3bb thread namespace_eaa992c::function_285a2999("fate_launch");
+	var_47bba3bb thread doa_fx::function_285a2999("fate_impact");
+	var_47bba3bb thread doa_fx::function_285a2999("fate_launch");
 	wait(1);
 	favor thread doa_utility::function_a98c85b2(favor.origin + vectorscale((0, 0, 1), 2000), 1.75);
-	favor thread namespace_eaa992c::function_285a2999("fate_impact");
-	favor thread namespace_eaa992c::function_285a2999("fate_launch");
+	favor thread doa_fx::function_285a2999("fate_impact");
+	favor thread doa_fx::function_285a2999("fate_launch");
 	wait(2);
 	level notify(#"hash_852a9fcd");
 	boss delete();

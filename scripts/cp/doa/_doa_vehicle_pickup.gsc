@@ -492,8 +492,8 @@ function function_d460de4b()
 	}
 	self thread namespace_831a4a7c::function_7f33210a();
 	self thread namespace_831a4a7c::function_f2507519(0);
-	self thread namespace_eaa992c::turnofffx("boots");
-	self thread namespace_eaa992c::turnofffx("slow_feet");
+	self thread doa_fx::turnofffx("boots");
+	self thread doa_fx::turnofffx("slow_feet");
 	self.doa.var_c2b9d7d0 = gettime();
 	self notify(#"hash_8820b45b");
 	self notify("kill_chickens");
@@ -522,11 +522,11 @@ function function_d41a4517()
 	self thread namespace_831a4a7c::function_b5843d4f(level.doa.arena_round_number == 3);
 	if(isdefined(self.doa) && (isdefined(self.doa.var_d5c84825) && self.doa.var_d5c84825))
 	{
-		self thread namespace_eaa992c::function_285a2999("slow_feet");
+		self thread doa_fx::function_285a2999("slow_feet");
 	}
 	if(isdefined(self.doa) && (isdefined(self.doa.fast_feet) && self.doa.fast_feet))
 	{
-		self thread namespace_eaa992c::function_285a2999("boots");
+		self thread doa_fx::function_285a2999("boots");
 	}
 }
 

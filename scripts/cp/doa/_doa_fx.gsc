@@ -6,11 +6,11 @@
 #using scripts\shared\fx_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_eaa992c;
+#namespace doa_fx;
 
 /*
 	Name: init
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xD3E9E999
 	Offset: 0x9C0
 	Size: 0xFE4
@@ -151,7 +151,7 @@ function init()
 
 /*
 	Name: function_6dcb1bbc
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x6BD2E76C
 	Offset: 0x19B0
 	Size: 0x7E
@@ -172,7 +172,7 @@ function function_6dcb1bbc(name, type)
 
 /*
 	Name: function_39dbe45b
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xA81030E4
 	Offset: 0x1A38
 	Size: 0x60
@@ -193,7 +193,7 @@ function function_39dbe45b(name)
 
 /*
 	Name: function_81e169ac
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x25708DAE
 	Offset: 0x1AA0
 	Size: 0x48
@@ -215,7 +215,7 @@ function function_81e169ac()
 
 /*
 	Name: function_1f8cb1fa
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x1661D03D
 	Offset: 0x1AF0
 	Size: 0x48
@@ -237,7 +237,7 @@ function function_1f8cb1fa()
 
 /*
 	Name: function_64bc2503
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x19B2A583
 	Offset: 0x1B40
 	Size: 0x224
@@ -282,7 +282,7 @@ function function_64bc2503(&queue, flag, waitfunc, var_a6cc22d4 = 0)
 
 /*
 	Name: turnofffx
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x6B28502E
 	Offset: 0x1D70
 	Size: 0x182
@@ -323,7 +323,7 @@ function turnofffx(name)
 
 /*
 	Name: function_285a2999
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x392B681B
 	Offset: 0x1F00
 	Size: 0x174
@@ -364,7 +364,7 @@ function function_285a2999(name)
 
 /*
 	Name: function_2fc7e62f
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xFC64485A
 	Offset: 0x2080
 	Size: 0x14C
@@ -396,7 +396,7 @@ function function_2fc7e62f(victim, damage, attacker, dir, smeansofdeath, weapon)
 
 /*
 	Name: function_2c0f7946
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x6FDBC64A
 	Offset: 0x21D8
 	Size: 0x74
@@ -410,7 +410,7 @@ function function_2c0f7946(victim, damage, attacker, dir, smeansofdeath, weapon)
 
 /*
 	Name: function_f51d2b7e
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xDAF20933
 	Offset: 0x2258
 	Size: 0x114
@@ -437,7 +437,7 @@ function function_f51d2b7e(victim, damage, attacker, dir, smeansofdeath, weapon)
 
 /*
 	Name: function_4f66d2fb
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x84CC112A
 	Offset: 0x2378
 	Size: 0x5C
@@ -451,7 +451,7 @@ function function_4f66d2fb(victim, damage, attacker, dir, smeansofdeath, weapon)
 
 /*
 	Name: function_2aa1c0b3
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x857BD290
 	Offset: 0x23E0
 	Size: 0x274
@@ -506,7 +506,7 @@ function function_2aa1c0b3(victim, damage, attacker, dir, smeansofdeath, weapon)
 
 /*
 	Name: function_32bcda58
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x993D9B9C
 	Offset: 0x2660
 	Size: 0x150
@@ -539,7 +539,7 @@ function function_32bcda58(var_7aac5112, attacker)
 
 /*
 	Name: function_9fc6e261
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xEB847D5D
 	Offset: 0x27B8
 	Size: 0xC4

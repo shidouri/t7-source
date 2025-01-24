@@ -1625,7 +1625,7 @@ function function_4586479a(var_57e102cb = 1)
 	level.doa.teleporter endon("death");
 	level.doa.teleporter setmodel("zombietron_teleporter");
 	level.doa.teleporter enablelinkto();
-	level.doa.teleporter thread namespace_eaa992c::function_285a2999("teleporter");
+	level.doa.teleporter thread doa_fx::function_285a2999("teleporter");
 	level.doa.teleporter moveto(location + vectorscale((0, 0, 1), 5), 3, 0, 0);
 	level.doa.teleporter thread rotate();
 	physicsexplosionsphere(start_point, 200, 128, 4);

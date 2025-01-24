@@ -420,7 +420,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	mini_turret util::waittill_any_timeout(1, "movedone");
 	mini_turret.owner = player;
 	mini_turret cleartargetentity();
-	mini_turret thread namespace_eaa992c::function_285a2999("turret_impact");
+	mini_turret thread doa_fx::function_285a2999("turret_impact");
 	mini_turret thread namespace_1a381543::function_90118d8c("evt_turret_land");
 	physicsexplosionsphere(mini_turret.origin, 200, 128, 2);
 	mini_turret radiusdamage(mini_turret.origin, 72, 10000, 10000);
@@ -431,7 +431,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	{
 		time_left = gettime() + (player doa_utility::function_1ded48e6(level.doa.rules.var_7daebb69 * 1000));
 		fx = namespace_831a4a7c::function_ee495f41(player.entnum);
-		mini_turret thread namespace_eaa992c::function_285a2999("player_trail_" + fx);
+		mini_turret thread doa_fx::function_285a2999("player_trail_" + fx);
 	}
 	else
 	{
@@ -440,12 +440,12 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	mini_turret thread function_dfe832b7(time_left, "turret_expired");
 	mini_turret waittill(#"hash_d3ef93e9");
 	mini_turret thread namespace_1a381543::function_90118d8c("evt_turret_takeoff");
-	mini_turret thread namespace_eaa992c::function_285a2999("veh_takeoff");
-	mini_turret thread namespace_eaa992c::function_285a2999("crater_dust");
+	mini_turret thread doa_fx::function_285a2999("veh_takeoff");
+	mini_turret thread doa_fx::function_285a2999("crater_dust");
 	mini_turret thread doa_utility::function_a98c85b2(droptarget, 1);
 	if(isdefined(fx))
 	{
-		mini_turret thread namespace_eaa992c::turnofffx("player_trail_" + fx);
+		mini_turret thread doa_fx::turnofffx("player_trail_" + fx);
 	}
 	wait(1);
 	mini_turret thread doa_utility::function_a98c85b2(mini_turret.original_location, 1);
@@ -507,28 +507,28 @@ function function_3ce8bf1c(player, origin)
 	sprinkler thread doa_utility::function_a98c85b2(mark, 0.5);
 	sprinkler util::waittill_any_timeout(1, "movedone");
 	sprinkler thread namespace_1a381543::function_90118d8c("evt_sprinkler_land");
-	sprinkler thread namespace_eaa992c::function_285a2999("sprinkler_land");
+	sprinkler thread doa_fx::function_285a2999("sprinkler_land");
 	if(isdefined(player))
 	{
 		fx = namespace_831a4a7c::function_ee495f41(player.entnum);
-		sprinkler thread namespace_eaa992c::function_285a2999("player_trail_" + fx);
+		sprinkler thread doa_fx::function_285a2999("player_trail_" + fx);
 	}
 	physicsexplosionsphere(mark, 200, 128, 3);
 	sprinkler radiusdamage(mark, 72, 10000, 10000);
 	playrumbleonposition("explosion_generic", mark);
 	wait(1);
 	sprinkler playloopsound("evt_sprinkler_loop", 0.5);
-	sprinkler thread namespace_eaa992c::function_285a2999("sprinkler_active");
+	sprinkler thread doa_fx::function_285a2999("sprinkler_active");
 	sprinkler thread function_a0d09d25(player);
 	wait(player doa_utility::function_1ded48e6(level.doa.rules.var_213b65db));
-	sprinkler thread namespace_eaa992c::turnofffx("sprinkler_active");
+	sprinkler thread doa_fx::turnofffx("sprinkler_active");
 	wait(2);
 	sprinkler thread namespace_1a381543::function_90118d8c("evt_sprinkler_takeoff");
-	sprinkler thread namespace_eaa992c::function_285a2999("sprinkler_takeoff");
+	sprinkler thread doa_fx::function_285a2999("sprinkler_takeoff");
 	sprinkler stoploopsound(2);
 	if(isdefined(fx))
 	{
-		sprinkler thread namespace_eaa992c::turnofffx("player_trail_" + fx);
+		sprinkler thread doa_fx::turnofffx("player_trail_" + fx);
 	}
 	sprinkler thread doa_utility::function_a98c85b2(dropspot, 0.5);
 	sprinkler util::waittill_any_timeout(1, "movedone");
@@ -598,7 +598,7 @@ function function_62c5a5a(player, origin)
 	fake.targetname = "amwsPickupUpdate";
 	fake setmodel(level.doa.var_4aa90d77);
 	fake.angles = angles;
-	fake thread namespace_eaa992c::function_285a2999("fire_trail");
+	fake thread doa_fx::function_285a2999("fire_trail");
 	fake thread namespace_1a381543::function_90118d8c("evt_turret_incoming");
 	fake moveto(mark, 0.5);
 	fake util::waittill_any_timeout(1, "movedone");
@@ -618,7 +618,7 @@ function function_62c5a5a(player, origin)
 		amws.autonomous = 1;
 		amws notsolid();
 		amws thread function_43d18fa4(player, note);
-		amws thread namespace_eaa992c::function_285a2999("turret_impact");
+		amws thread doa_fx::function_285a2999("turret_impact");
 		amws thread namespace_1a381543::function_90118d8c("evt_turret_land");
 		amws.overridevehicledamage = &function_f3ee1c57;
 		level.doa.var_1332e37a[level.doa.var_1332e37a.size] = amws;
@@ -627,13 +627,13 @@ function function_62c5a5a(player, origin)
 	if(isdefined(player) && isdefined(amws))
 	{
 		fx = namespace_831a4a7c::function_ee495f41(player.entnum);
-		amws thread namespace_eaa992c::function_285a2999("player_trail_" + fx);
+		amws thread doa_fx::function_285a2999("player_trail_" + fx);
 	}
 	level thread function_dfe832b7(time_left, note);
 	level waittill(note);
 	if(isdefined(amws) && isdefined(fx))
 	{
-		amws thread namespace_eaa992c::turnofffx("player_trail_" + fx);
+		amws thread doa_fx::turnofffx("player_trail_" + fx);
 	}
 	if(isdefined(amws))
 	{
@@ -643,8 +643,8 @@ function function_62c5a5a(player, origin)
 		fake.angles = amws.angles;
 		fake thread namespace_1a381543::function_90118d8c("evt_turret_takeoff");
 		amws delete();
-		fake thread namespace_eaa992c::function_285a2999("veh_takeoff");
-		fake thread namespace_eaa992c::function_285a2999("crater_dust");
+		fake thread doa_fx::function_285a2999("veh_takeoff");
+		fake thread doa_fx::function_285a2999("crater_dust");
 		fake moveto(dropspot, 0.5);
 		fake util::waittill_any_timeout(1, "movedone");
 		fake delete();

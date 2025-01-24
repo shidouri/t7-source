@@ -598,7 +598,7 @@ function function_21a582ff(current_wave, endnote)
 				}
 				if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 				{
-					ai thread namespace_eaa992c::function_285a2999("spawnZombie");
+					ai thread doa_fx::function_285a2999("spawnZombie");
 				}
 			}
 		}

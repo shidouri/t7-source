@@ -4,11 +4,11 @@
 #using scripts\shared\fx_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_eaa992c;
+#namespace doa_fx;
 
 /*
 	Name: init
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xD06E0D8B
 	Offset: 0x1C40
 	Size: 0x23CC
@@ -310,7 +310,7 @@ function init()
 
 /*
 	Name: function_6dcb1bbc
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xFB591FBE
 	Offset: 0x4018
 	Size: 0xFE
@@ -335,7 +335,7 @@ function function_6dcb1bbc(name, type, tag = "tag_origin", unique = 1)
 
 /*
 	Name: function_9e6fe7c3
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0xA2328501
 	Offset: 0x4120
 	Size: 0x52
@@ -352,7 +352,7 @@ function function_9e6fe7c3(type)
 
 /*
 	Name: function_28a90644
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x5278AF6A
 	Offset: 0x4180
 	Size: 0x52
@@ -369,7 +369,7 @@ function function_28a90644(type)
 
 /*
 	Name: function_7664cc94
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x68B41003
 	Offset: 0x41E0
 	Size: 0x52
@@ -386,7 +386,7 @@ function function_7664cc94(type)
 
 /*
 	Name: function_e68e3c0d
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x7DBBB921
 	Offset: 0x4240
 	Size: 0x512
@@ -488,7 +488,7 @@ function function_e68e3c0d(localclientnum, name, off, tag, kill = 0)
 
 /*
 	Name: function_b71a778a
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x232371C0
 	Offset: 0x4760
 	Size: 0x406
@@ -546,7 +546,7 @@ function function_b71a778a(localclientnum, name, off, tag)
 
 /*
 	Name: createzombieeyesinternal
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x36E45C0E
 	Offset: 0x4B70
 	Size: 0x13A
@@ -588,7 +588,7 @@ function createzombieeyesinternal(localclientnum)
 
 /*
 	Name: function_1c0d0290
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x617D5854
 	Offset: 0x4CB8
 	Size: 0x5C
@@ -608,7 +608,7 @@ function function_1c0d0290(parent)
 
 /*
 	Name: createzombieeyes
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x1FD2B71
 	Offset: 0x4D20
 	Size: 0x24
@@ -622,7 +622,7 @@ function createzombieeyes(localclientnum)
 
 /*
 	Name: deletezombieeyes
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x4D094679
 	Offset: 0x4D50
 	Size: 0x60
@@ -643,7 +643,7 @@ function deletezombieeyes(localclientnum)
 
 /*
 	Name: get_eyeball_on_luminance
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x3C898CFE
 	Offset: 0x4DB8
 	Size: 0x1C
@@ -661,7 +661,7 @@ function get_eyeball_on_luminance()
 
 /*
 	Name: get_eyeball_off_luminance
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x30B165C8
 	Offset: 0x4DE0
 	Size: 0x1A
@@ -679,7 +679,7 @@ function get_eyeball_off_luminance()
 
 /*
 	Name: get_eyeball_color
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x2ECDCA3F
 	Offset: 0x4E08
 	Size: 0x48
@@ -702,7 +702,7 @@ function get_eyeball_color()
 
 /*
 	Name: zombie_eyes_clientfield_cb
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x1F942C9C
 	Offset: 0x4E58
 	Size: 0x154
@@ -733,7 +733,7 @@ function zombie_eyes_clientfield_cb(localclientnum, oldval, newval, bnewent, bin
 
 /*
 	Name: function_7829d7af
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x44C18180
 	Offset: 0x4FB8
 	Size: 0xD6
@@ -756,7 +756,7 @@ function function_7829d7af(localclientnum, mask = randomint(1 << level.var_de2ea
 
 /*
 	Name: function_7aac5112
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x55C75EDB
 	Offset: 0x5098
 	Size: 0xE2
@@ -797,7 +797,7 @@ function function_7aac5112(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f6008bb4
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x7466241E
 	Offset: 0x5188
 	Size: 0xEC
@@ -824,7 +824,7 @@ function function_f6008bb4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: burncorpse
-	Namespace: namespace_eaa992c
+	Namespace: doa_fx
 	Checksum: 0x5F843D8A
 	Offset: 0x5280
 	Size: 0x6C

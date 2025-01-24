@@ -37,7 +37,7 @@ function main()
 	level.doa = spawnstruct();
 	callback::on_spawned(&on_player_spawned);
 	doa_arena::init();
-	namespace_eaa992c::init();
+	doa_fx::init();
 	namespace_1a381543::init();
 	namespace_64c6b720::init();
 	namespace_ad544aeb::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
@@ -104,11 +104,11 @@ function main()
 	clientfield::register("actor", "zombie_riser_fx", 1, 1, "int", &handle_zombie_risers, 0, 0);
 	clientfield::register("actor", "zombie_bloodriser_fx", 1, 1, "int", &function_cb806a9b, 0, 0);
 	clientfield::register("scriptmover", "heartbeat", 1, 3, "int", &function_d277a961, 0, 0);
-	clientfield::register("actor", "burnType", 1, 2, "int", &namespace_eaa992c::function_7aac5112, 0, 0);
-	clientfield::register("actor", "burnZombie", 1, 1, "counter", &namespace_eaa992c::function_f6008bb4, 0, 0);
-	clientfield::register("actor", "burnCorpse", 1, 1, "counter", &namespace_eaa992c::burncorpse, 0, 0);
+	clientfield::register("actor", "burnType", 1, 2, "int", &doa_fx::function_7aac5112, 0, 0);
+	clientfield::register("actor", "burnZombie", 1, 1, "counter", &doa_fx::function_f6008bb4, 0, 0);
+	clientfield::register("actor", "burnCorpse", 1, 1, "counter", &doa_fx::burncorpse, 0, 0);
 	clientfield::register("toplayer", "changeCamera", 1, 1, "counter", &changecamera, 0, 0);
-	clientfield::register("actor", "zombie_has_eyes", 1, 1, "int", &namespace_eaa992c::zombie_eyes_clientfield_cb, 0, 0);
+	clientfield::register("actor", "zombie_has_eyes", 1, 1, "int", &doa_fx::zombie_eyes_clientfield_cb, 0, 0);
 	clientfield::register("world", "cameraHeight", 1, 3, "int", &function_b868b40f, 0, 0);
 	clientfield::register("world", "cleanupGiblets", 1, 1, "int", &function_23f655ed, 0, 0);
 	clientfield::register("scriptmover", "camera_focus_item", 1, 1, "int", &function_354ec425, 0, 0);
@@ -796,12 +796,12 @@ function function_351aa01c(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval != 0)
 	{
-		name = namespace_eaa992c::function_9e6fe7c3(newval);
-		if(isdefined(self.var_ec1cda64) && namespace_eaa992c::function_7664cc94(newval) && isdefined(self.var_ec1cda64[name]))
+		name = doa_fx::function_9e6fe7c3(newval);
+		if(isdefined(self.var_ec1cda64) && doa_fx::function_7664cc94(newval) && isdefined(self.var_ec1cda64[name]))
 		{
-			self thread namespace_eaa992c::function_e68e3c0d(localclientnum, name, 1);
+			self thread doa_fx::function_e68e3c0d(localclientnum, name, 1);
 		}
-		self thread namespace_eaa992c::function_e68e3c0d(localclientnum, name, 0, namespace_eaa992c::function_28a90644(newval));
+		self thread doa_fx::function_e68e3c0d(localclientnum, name, 0, doa_fx::function_28a90644(newval));
 	}
 }
 
@@ -818,7 +818,7 @@ function function_33760903(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval != 0)
 	{
-		self thread namespace_eaa992c::function_e68e3c0d(localclientnum, namespace_eaa992c::function_9e6fe7c3(newval), 1);
+		self thread doa_fx::function_e68e3c0d(localclientnum, doa_fx::function_9e6fe7c3(newval), 1);
 	}
 }
 

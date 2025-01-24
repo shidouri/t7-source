@@ -138,7 +138,7 @@ function function_deb7df37()
 	}
 	else
 	{
-		self thread namespace_eaa992c::function_285a2999("tesla_shock_eyes");
+		self thread doa_fx::function_285a2999("tesla_shock_eyes");
 	}
 }
 

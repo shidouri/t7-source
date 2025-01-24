@@ -188,8 +188,8 @@ function function_fc48f9f3()
 		org.targetname = "mechOrg";
 		org setmodel("tag_origin");
 		mech linkto(org);
-		org thread namespace_eaa992c::function_285a2999("def_explode");
-		org thread namespace_eaa992c::function_285a2999("fire_trail");
+		org thread doa_fx::function_285a2999("def_explode");
+		org thread doa_fx::function_285a2999("fire_trail");
 		org moveto(var_60de7d19, 2);
 		org util::waittill_any_timeout(3, "movedone");
 		mech unlink();
@@ -464,20 +464,20 @@ function private function_b90daa04(delay)
 		org.angles = (0, 0, 0);
 	}
 	playsoundatposition("zmb_ape_prespawn", org.origin);
-	org thread namespace_eaa992c::function_285a2999("silverback_intro");
+	org thread doa_fx::function_285a2999("silverback_intro");
 	wait(0.5);
-	org thread namespace_eaa992c::function_285a2999("silverback_intro");
-	org thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
+	org thread doa_fx::function_285a2999("silverback_intro");
+	org thread doa_fx::function_285a2999("stoneboss_shield_explode");
 	wait(0.5);
-	org thread namespace_eaa992c::function_285a2999("silverback_intro");
-	org thread namespace_eaa992c::function_285a2999("stoneboss_shield_explode");
+	org thread doa_fx::function_285a2999("silverback_intro");
+	org thread doa_fx::function_285a2999("stoneboss_shield_explode");
 	wait(0.5);
 	wait(getdvarfloat("scr_boss_silverback_intro_time", 1));
 	silverback = namespace_51bd792::function_36aa8b6c(org2);
 	silverback linkto(org2);
-	silverback thread namespace_eaa992c::function_285a2999("player_trail_red");
-	silverback thread namespace_eaa992c::function_285a2999("silverback_intro_trail1");
-	silverback thread namespace_eaa992c::function_285a2999("silverback_intro_trail2");
+	silverback thread doa_fx::function_285a2999("player_trail_red");
+	silverback thread doa_fx::function_285a2999("silverback_intro_trail1");
+	silverback thread doa_fx::function_285a2999("silverback_intro_trail2");
 	silverback thread function_b8a39218();
 	player = namespace_831a4a7c::function_5eb6e4d1()[0];
 	if(isdefined(player))
@@ -488,9 +488,9 @@ function private function_b90daa04(delay)
 	org2 moveto(org.origin, 1);
 	org2 util::waittill_any_timeout(2, "movedone");
 	silverback unlink();
-	silverback thread namespace_eaa992c::function_285a2999("silverback_intro_explo");
-	silverback thread namespace_eaa992c::turnofffx("silverback_intro_trail1");
-	silverback thread namespace_eaa992c::turnofffx("silverback_intro_trail2");
+	silverback thread doa_fx::function_285a2999("silverback_intro_explo");
+	silverback thread doa_fx::turnofffx("silverback_intro_trail1");
+	silverback thread doa_fx::turnofffx("silverback_intro_trail2");
 	playrumbleonposition("explosion_generic", org.origin);
 	playsoundatposition("zmb_ape_spawn", org.origin);
 	silverback.aioverridedamage = &function_ae39e30a;
@@ -660,9 +660,9 @@ function private function_c64a860f(driver)
 	org.targetname = "_monkeyEjectionSeat";
 	org setmodel("tag_origin");
 	driver linkto(org);
-	driver thread namespace_eaa992c::function_285a2999("def_explode");
-	driver thread namespace_eaa992c::function_285a2999("silverback_intro_trail1");
-	driver thread namespace_eaa992c::function_285a2999("silverback_intro_trail2");
+	driver thread doa_fx::function_285a2999("def_explode");
+	driver thread doa_fx::function_285a2999("silverback_intro_trail1");
+	driver thread doa_fx::function_285a2999("silverback_intro_trail2");
 	org moveto(org.origin + vectorscale((0, 0, 1), 3000), 2);
 	org util::waittill_any_timeout(3, "movedone");
 	driver delete();
@@ -1046,8 +1046,8 @@ function function_615e73a(var_b84274b8, numattacks = 1)
 			continue;
 		}
 		self playsound("evt_turret_takeoff");
-		self thread namespace_eaa992c::function_285a2999("boss_takeoff");
-		self thread namespace_eaa992c::function_285a2999("crater_dust");
+		self thread doa_fx::function_285a2999("boss_takeoff");
+		self thread doa_fx::function_285a2999("crater_dust");
 		playrumbleonposition("explosion_generic", self.origin);
 		height = 800;
 		timems = (height / 1000) * 3000;
@@ -1076,7 +1076,7 @@ function function_615e73a(var_b84274b8, numattacks = 1)
 		{
 			var_b84274b8 notify(#"hash_c32e3b78");
 		}
-		self thread namespace_eaa992c::function_285a2999("turret_impact");
+		self thread doa_fx::function_285a2999("turret_impact");
 		self playsound("evt_turret_land");
 		physicsexplosionsphere(self.origin, 200, 128, 2);
 		targetpos = undefined;
@@ -1232,9 +1232,9 @@ function function_b830b6d7(linktag, silverback)
 	vel = vectornormalize(target_point - self.origin);
 	vel = vel * getdvarfloat("scr_boss_banana_velocity", 0.8);
 	self physicslaunch(self.origin, vel);
-	self thread namespace_eaa992c::function_285a2999("explo_warning_light_banana");
+	self thread doa_fx::function_285a2999("explo_warning_light_banana");
 	wait(getdvarfloat("scr_boss_banana_fuse", 5));
-	self thread namespace_eaa992c::function_285a2999("silverback_banana_explo");
+	self thread doa_fx::function_285a2999("silverback_banana_explo");
 	util::wait_network_frame();
 	trigger = spawn("trigger_radius", self.origin, 0, 128, 64);
 	trigger.targetname = "banana";
@@ -1430,7 +1430,7 @@ function function_a753035a(egg)
 		egg namespace_5e6c5d1f::function_d63bdb9(1);
 	}
 	egg playsound("zmb_egg_hatch");
-	egg thread namespace_eaa992c::function_285a2999("egg_hatchXL");
+	egg thread doa_fx::function_285a2999("egg_hatchXL");
 	chicken = spawn("script_model", egg.origin);
 	chicken.targetname = "fidohatched";
 	chicken setmodel("zombietron_chicken_fido");

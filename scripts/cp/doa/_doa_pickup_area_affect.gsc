@@ -92,7 +92,7 @@ function function_ca06d008(player, origin)
 	trigger.var_96ff2cda = gettime() + trigger.opentime;
 	trigger.radiussq = level.doa.rules.var_942b8706 * level.doa.rules.var_942b8706;
 	playfx("zombie/fx_exp_rpg_red_doa", coat.origin);
-	org thread namespace_eaa992c::function_285a2999("teamShift");
+	org thread doa_fx::function_285a2999("teamShift");
 	trigger thread function_963e13a0();
 	wait(2);
 	if(isdefined(org))
@@ -184,16 +184,16 @@ function private function_770e1327(trigger)
 	self notify(#"hash_770e1327");
 	self endon(#"hash_770e1327");
 	self.var_bfd5bf9d = 1;
-	self thread namespace_eaa992c::function_285a2999("teamShift_contact");
-	self thread namespace_eaa992c::function_285a2999("zombie_angry");
+	self thread doa_fx::function_285a2999("teamShift_contact");
+	self thread doa_fx::function_285a2999("zombie_angry");
 	team = self.team;
 	self.team = "allies";
 	self.favoriteenemy = undefined;
 	self clearenemy();
 	wait(level.doa.rules.var_a29b8bda);
 	self.team = team;
-	self thread namespace_eaa992c::turnofffx("teamShift_contact");
-	self thread namespace_eaa992c::turnofffx("zombie_angry");
+	self thread doa_fx::turnofffx("teamShift_contact");
+	self thread doa_fx::turnofffx("zombie_angry");
 	self.var_bfd5bf9d = undefined;
 	self clearenemy();
 	self.favoriteenemy = undefined;
@@ -228,7 +228,7 @@ function timeshifterupdate(player, origin)
 	timetowait = player doa_utility::function_1ded48e6(level.doa.rules.var_ecfc4359);
 	/#
 	#/
-	clock thread namespace_eaa992c::function_285a2999("timeshift");
+	clock thread doa_fx::function_285a2999("timeshift");
 	trigger thread function_78d20ce0();
 	level util::waittill_any_timeout(player doa_utility::function_1ded48e6(level.doa.rules.var_ecfc4359), "exit_taken");
 	clock thread namespace_1a381543::function_90118d8c("zmb_pwup_clock_end");
@@ -312,7 +312,7 @@ function private function_59a20c67(trigger)
 	self notify(#"hash_59a20c67");
 	self endon(#"hash_59a20c67");
 	self.var_dd70dacd = 1;
-	self thread namespace_eaa992c::function_285a2999("timeshift_contact");
+	self thread doa_fx::function_285a2999("timeshift_contact");
 	self asmsetanimationrate(0.5);
 	while(isalive(self) && isdefined(trigger) && self istouching(trigger))
 	{
@@ -320,7 +320,7 @@ function private function_59a20c67(trigger)
 		#/
 		wait(0.5);
 	}
-	self thread namespace_eaa992c::turnofffx("timeshift_contact");
+	self thread doa_fx::turnofffx("timeshift_contact");
 	wait(0.75);
 	self asmsetanimationrate((isdefined(self.doa.anim_rate) ? self.doa.anim_rate : 1));
 	self.var_dd70dacd = undefined;
@@ -357,7 +357,7 @@ function function_159bb1dd(player, origin)
 	monkey = spawn("script_model", origin);
 	monkey.targetname = "monkeyUpdate";
 	monkey setmodel(level.doa.var_d6256e83);
-	monkey thread namespace_eaa992c::function_285a2999(namespace_831a4a7c::function_e7e0aa7f(player.entnum));
+	monkey thread doa_fx::function_285a2999(namespace_831a4a7c::function_e7e0aa7f(player.entnum));
 	def = doa_pickups::function_bac08508(11);
 	monkey useanimtree($zombie_cymbal_monkey);
 	monkey animscripted("anim", monkey.origin, monkey.angles, %zombie_cymbal_monkey::o_monkey_bomb);
@@ -387,7 +387,7 @@ function function_2271edf2(player)
 	self waittill(#"hash_2271edf2");
 	doa_utility::function_3d81b494(self);
 	self thread namespace_1a381543::function_90118d8c("zmb_monkey_explo");
-	self thread namespace_eaa992c::function_285a2999("monkey_explode");
+	self thread doa_fx::function_285a2999("monkey_explode");
 	if(isdefined(player))
 	{
 		radiusdamage(self.origin, 200, 15000, 15000, player, "MOD_EXPLOSIVE");

@@ -101,22 +101,22 @@ function function_31c377e(room)
 	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 36));
 	glow.targetname = "spiralglow1";
 	glow setmodel("tag_origin");
-	glow thread namespace_eaa992c::function_285a2999("glow_blue");
+	glow thread doa_fx::function_285a2999("glow_blue");
 	room.glow[room.glow.size] = glow;
 	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 72));
 	glow.targetname = "spiralglow2";
 	glow setmodel("tag_origin");
-	glow thread namespace_eaa992c::function_285a2999("glow_blue");
+	glow thread doa_fx::function_285a2999("glow_blue");
 	room.glow[room.glow.size] = glow;
 	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 128));
 	glow.targetname = "spiralglow3";
 	glow setmodel("tag_origin");
-	glow thread namespace_eaa992c::function_285a2999("glow_blue");
+	glow thread doa_fx::function_285a2999("glow_blue");
 	room.glow[room.glow.size] = glow;
 	glow = spawn("script_model", doa_arena::function_61d60e0b() + vectorscale((0, 0, 1), 160));
 	glow.targetname = "spiralglow4";
 	glow setmodel("tag_origin");
-	glow thread namespace_eaa992c::function_285a2999("glow_blue");
+	glow thread doa_fx::function_285a2999("glow_blue");
 	room.glow[room.glow.size] = glow;
 	barricades = struct::get_array(room.name + "_destructible", "targetname");
 	count = 0;
@@ -624,7 +624,7 @@ function function_db531f2f(room)
 			fake.targetname = "tankmaze_EnemySpawner";
 			fake setmodel(level.doa.var_4aa90d77);
 			fake.angles = spot.angles;
-			fake thread namespace_eaa992c::function_285a2999("fire_trail");
+			fake thread doa_fx::function_285a2999("fire_trail");
 			fake playsound("evt_amws_incoming");
 			fake moveto(spot.origin, 0.75);
 			fake thread doa_utility::function_1bd67aef(1);
@@ -638,7 +638,7 @@ function function_db531f2f(room)
 				amws.angles = spot.angles;
 				amws.health = 100;
 				amws.team = "axis";
-				amws thread namespace_eaa992c::function_285a2999("turret_impact");
+				amws thread doa_fx::function_285a2999("turret_impact");
 				amws.script_noteworthy = "tankmaze_enemy";
 				amws thread function_a1151ae3(room);
 			}
@@ -1707,7 +1707,7 @@ function function_dae418ed()
 	self.doa.var_3024fd0f = 1;
 	self.doa.var_3e3bcaa1 = 1;
 	self thread function_e619ee5(truck);
-	truck thread namespace_eaa992c::function_285a2999("gem_trail_" + namespace_831a4a7c::function_ee495f41(self.entnum));
+	truck thread doa_fx::function_285a2999("gem_trail_" + namespace_831a4a7c::function_ee495f41(self.entnum));
 	self freezecontrols(!level flag::get("doa_challenge_running"));
 	wait(0.05);
 	self enableinvulnerability();
@@ -1809,7 +1809,7 @@ function function_76dd5557(room)
 			level thread function_8f4c809d(room, self.var_a2d7b04a);
 			arrayremovevalue(room.var_677f63c8, self);
 			wait(5);
-			self thread namespace_eaa992c::function_285a2999("egg_hatch");
+			self thread doa_fx::function_285a2999("egg_hatch");
 			util::wait_network_frame();
 			self delete();
 		}
@@ -1983,7 +1983,7 @@ function function_60fcd122(room, goaltrigger)
 					}
 					foreach(color in goaltrigger.colors)
 					{
-						glow.org thread namespace_eaa992c::turnofffx("gem_trail_" + color);
+						glow.org thread doa_fx::turnofffx("gem_trail_" + color);
 					}
 				}
 				lastcount = 0;
@@ -2002,7 +2002,7 @@ function function_60fcd122(room, goaltrigger)
 				}
 				foreach(color in goaltrigger.colors)
 				{
-					glow.org thread namespace_eaa992c::turnofffx("gem_trail_" + color);
+					glow.org thread doa_fx::turnofffx("gem_trail_" + color);
 				}
 				count++;
 			}
@@ -2026,7 +2026,7 @@ function function_60fcd122(room, goaltrigger)
 				}
 				if(isdefined(player))
 				{
-					glow.org thread namespace_eaa992c::function_285a2999("gem_trail_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+					glow.org thread doa_fx::function_285a2999("gem_trail_" + namespace_831a4a7c::function_ee495f41(player.entnum));
 				}
 			}
 			lastcount = goaltrigger.var_f1e29613.size;
@@ -2050,7 +2050,7 @@ function function_5dac2dae(room)
 	self.org = spawn("script_model", self.origin);
 	self.org.targetname = "trucksoccer_BlowTriggerThink";
 	self.org setmodel("tag_origin");
-	self.org thread namespace_eaa992c::function_285a2999("blow_hole");
+	self.org thread doa_fx::function_285a2999("blow_hole");
 	while(true)
 	{
 		self waittill("trigger", guy);
@@ -2513,7 +2513,7 @@ function function_dfbad276(number, startside)
 		if(randomint(getdvarint("cp_doa_sacred_cow_chance", 20)) == 0)
 		{
 			cow.sacred = 1;
-			cow thread namespace_eaa992c::function_285a2999("cow_sacred");
+			cow thread doa_fx::function_285a2999("cow_sacred");
 		}
 		trigger = spawn("trigger_radius", cow.origin + (vectorscale((0, 0, -1), 10)), 3, 34, 100);
 		trigger.targetname = "cow";
@@ -2697,7 +2697,7 @@ function cow_damage_watch()
 					attacker.doa.var_ec573900++;
 				}
 			}
-			self thread namespace_eaa992c::function_285a2999("cow_explode");
+			self thread doa_fx::function_285a2999("cow_explode");
 			self playsound("zmb_cow_explode");
 			self notify("medium_rare");
 			if(isdefined(self.sacred))

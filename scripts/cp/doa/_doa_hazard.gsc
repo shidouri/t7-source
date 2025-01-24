@@ -455,7 +455,7 @@ function private function_6ec8176a()
 					case "water":
 					{
 						guy thread namespace_1a381543::function_90118d8c("zmb_hazard_water_death");
-						guy thread namespace_eaa992c::function_285a2999("hazard_water");
+						guy thread doa_fx::function_285a2999("hazard_water");
 						break;
 					}
 					case "lava":
@@ -727,7 +727,7 @@ function private function_8a97d2c0(trigger)
 			}
 			guy.doa.var_84b9997f = curtime + 1500;
 			guy thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
-			guy thread namespace_eaa992c::function_285a2999("hazard_electric");
+			guy thread doa_fx::function_285a2999("hazard_electric");
 			if(isdefined(guy.boss) && guy.boss)
 			{
 				continue;

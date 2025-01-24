@@ -862,7 +862,7 @@ function function_2241fc21(einflictor, eattacker, idamage, idflags, smeansofdeat
 	}
 	if(isdefined(self.fx) && self.health <= idamage)
 	{
-		self thread namespace_eaa992c::turnofffx(self.fx);
+		self thread doa_fx::turnofffx(self.fx);
 		self.fx = undefined;
 	}
 	if(isdefined(weapon) && isdefined(level.doa.var_7808fc8c[weapon.name]))
@@ -951,7 +951,7 @@ function function_ff217d39(einflictor, eattacker, idamage, smeansofdeath, weapon
 	}
 	if(isdefined(self.fx))
 	{
-		self thread namespace_eaa992c::turnofffx(self.fx);
+		self thread doa_fx::turnofffx(self.fx);
 	}
 	if(randomint(100) < 20)
 	{
@@ -959,17 +959,17 @@ function function_ff217d39(einflictor, eattacker, idamage, smeansofdeath, weapon
 		{
 			case 0:
 			{
-				self thread namespace_eaa992c::function_285a2999("headshot");
+				self thread doa_fx::function_285a2999("headshot");
 				break;
 			}
 			case 1:
 			{
-				self thread namespace_eaa992c::function_285a2999("headshot_nochunks");
+				self thread doa_fx::function_285a2999("headshot_nochunks");
 				break;
 			}
 			default:
 			{
-				self thread namespace_eaa992c::function_285a2999("bloodspurt");
+				self thread doa_fx::function_285a2999("bloodspurt");
 				break;
 			}
 		}

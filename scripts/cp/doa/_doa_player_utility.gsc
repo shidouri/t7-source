@@ -113,13 +113,13 @@ function function_bbb1254c(var_44eb97b0 = 0)
 	self.ignoreme = 0;
 	self.doa.respawning = 0;
 	self.doa.var_b08ad9f8 = [];
-	self thread namespace_eaa992c::turnofffx("reviveAdvertise");
-	self thread namespace_eaa992c::turnofffx("reviveActive");
-	self thread namespace_eaa992c::turnofffx("down_marker_" + function_ee495f41(self.entnum));
-	self thread namespace_eaa992c::turnofffx("stunbear");
-	self thread namespace_eaa992c::turnofffx("stunbear_fade");
-	self thread namespace_eaa992c::turnofffx("slow_feet");
-	self thread namespace_eaa992c::turnofffx("web_contact");
+	self thread doa_fx::turnofffx("reviveAdvertise");
+	self thread doa_fx::turnofffx("reviveActive");
+	self thread doa_fx::turnofffx("down_marker_" + function_ee495f41(self.entnum));
+	self thread doa_fx::turnofffx("stunbear");
+	self thread doa_fx::turnofffx("stunbear_fade");
+	self thread doa_fx::turnofffx("slow_feet");
+	self thread doa_fx::turnofffx("web_contact");
 	if(var_44eb97b0)
 	{
 		self.headshots = 0;
@@ -485,8 +485,8 @@ function function_5bcae97c(trigger)
 	{
 		self function_4519b17(0);
 		self.doa.shield_is_on = undefined;
-		self thread namespace_eaa992c::turnofffx("player_shield_short");
-		self thread namespace_eaa992c::turnofffx("player_shield_long");
+		self thread doa_fx::turnofffx("player_shield_short");
+		self thread doa_fx::turnofffx("player_shield_long");
 	}
 }
 
@@ -544,11 +544,11 @@ function turnplayershieldon(short_shield = 1)
 	}
 	if(short_shield)
 	{
-		self thread namespace_eaa992c::function_285a2999("player_shield_short");
+		self thread doa_fx::function_285a2999("player_shield_short");
 	}
 	else
 	{
-		self thread namespace_eaa992c::function_285a2999("player_shield_long");
+		self thread doa_fx::function_285a2999("player_shield_long");
 		wait(6);
 	}
 	self thread namespace_1a381543::function_90118d8c("zmb_player_shield_half");
@@ -926,7 +926,7 @@ function private function_3f041ff1()
 {
 	self endon("disconnect");
 	self util::waittill_any("new_speed_pickup", "player_died", "speed_expired", "disconnect");
-	self thread namespace_eaa992c::turnofffx("boots");
+	self thread doa_fx::turnofffx("boots");
 	self.doa.fast_feet = undefined;
 	self setmovespeedscale(self.doa.default_movespeed);
 	self thread namespace_1a381543::function_4f06fb8("zmb_pwup_speed_loop");
@@ -951,7 +951,7 @@ function function_832d21c2()
 	wait(0.05);
 	self thread namespace_1a381543::function_90118d8c("zmb_pwup_speed_loop");
 	self setmovespeedscale(level.doa.rules.var_b92b82b);
-	self thread namespace_eaa992c::function_285a2999("boots");
+	self thread doa_fx::function_285a2999("boots");
 	self.doa.fast_feet = 1;
 	self.doa.var_d5c84825 = undefined;
 	timeleft = gettime() + (self doa_utility::function_1ded48e6(level.doa.rules.player_speed_time) * 1000);
@@ -975,8 +975,8 @@ function private function_af5211c2()
 {
 	self endon("disconnect");
 	self util::waittill_any("new_speed_pickup", "player_died", "speed_expired", "snare_broken", "disconnect");
-	self thread namespace_eaa992c::turnofffx("slow_feet");
-	self thread namespace_eaa992c::turnofffx("web_contact");
+	self thread doa_fx::turnofffx("slow_feet");
+	self thread doa_fx::turnofffx("web_contact");
 	self thread namespace_1a381543::function_4f06fb8("zmb_pwup_slow_speed_loop");
 	self thread namespace_1a381543::function_90118d8c("zmb_pwup_slow_speed_end");
 	self.doa.var_d5c84825 = undefined;
@@ -1004,12 +1004,12 @@ function function_3840375a(speed = level.doa.rules.var_ee067ec)
 	self setmovespeedscale(speed);
 	if(speed == 0)
 	{
-		self thread namespace_eaa992c::function_285a2999("web_contact");
+		self thread doa_fx::function_285a2999("web_contact");
 		timeleft = gettime() + (level.doa.rules.var_dec839f3 * 1000);
 	}
 	else if(speed == level.doa.rules.var_ee067ec)
 	{
-		self thread namespace_eaa992c::function_285a2999("slow_feet");
+		self thread doa_fx::function_285a2999("slow_feet");
 		timeleft = gettime() + (level.doa.rules.var_353018d2 * 1000);
 	}
 	self.doa.var_d5c84825 = 1;
@@ -2064,11 +2064,11 @@ function function_f2507519(on = 1)
 	{
 		if(on)
 		{
-			self thread namespace_eaa992c::function_285a2999("player_flashlight");
+			self thread doa_fx::function_285a2999("player_flashlight");
 		}
 		else
 		{
-			self thread namespace_eaa992c::turnofffx("player_flashlight");
+			self thread doa_fx::turnofffx("player_flashlight");
 		}
 	}
 }
@@ -2482,7 +2482,7 @@ function private function_ad1d5fcb(var_243f32c0 = 0)
 		{
 			self playsound("zmb_player_respawn");
 		}
-		self thread namespace_eaa992c::function_285a2999("player_respawn_" + function_ee495f41(self.entnum));
+		self thread doa_fx::function_285a2999("player_respawn_" + function_ee495f41(self.entnum));
 		self thread turnplayershieldon(0);
 		self thread function_f2507519(level.doa.arena_round_number == 3);
 	}
@@ -2652,8 +2652,8 @@ function function_b1958e58()
 	}
 	self.doa.var_97c2af1a = 0;
 	self.doa.var_70b102c6 = 0;
-	self thread namespace_eaa992c::turnofffx("reviveAdvertise");
-	self thread namespace_eaa992c::turnofffx("reviveActive");
+	self thread doa_fx::turnofffx("reviveAdvertise");
+	self thread doa_fx::turnofffx("reviveActive");
 	while(self.var_9ea856f6 > 0)
 	{
 		util::wait_network_frame();
@@ -2669,18 +2669,18 @@ function function_b1958e58()
 		}
 		if(self.doa.var_97c2af1a == 0 && self.doa.var_6ccec7c0 > 0)
 		{
-			self thread namespace_eaa992c::function_285a2999("reviveAdvertise");
-			self thread namespace_eaa992c::turnofffx("reviveActive");
+			self thread doa_fx::function_285a2999("reviveAdvertise");
+			self thread doa_fx::turnofffx("reviveActive");
 		}
 		if(self.doa.var_97c2af1a > 0 && self.doa.var_6ccec7c0 == 0)
 		{
-			self thread namespace_eaa992c::turnofffx("reviveAdvertise");
-			self thread namespace_eaa992c::turnofffx("reviveActive");
+			self thread doa_fx::turnofffx("reviveAdvertise");
+			self thread doa_fx::turnofffx("reviveActive");
 		}
 		if(self.doa.var_22d93250 > 0 && self.doa.var_70b102c6 == 0)
 		{
-			self thread namespace_eaa992c::turnofffx("reviveAdvertise");
-			self thread namespace_eaa992c::function_285a2999("reviveActive");
+			self thread doa_fx::turnofffx("reviveAdvertise");
+			self thread doa_fx::function_285a2999("reviveActive");
 		}
 		self.doa.var_97c2af1a = self.doa.var_6ccec7c0;
 		self.doa.var_70b102c6 = self.doa.var_22d93250;
@@ -2729,7 +2729,7 @@ function function_27202201()
 	}
 	self thread function_b1958e58();
 	self function_7f33210a();
-	self thread namespace_eaa992c::function_285a2999("down_marker_" + function_ee495f41(self.entnum));
+	self thread doa_fx::function_285a2999("down_marker_" + function_ee495f41(self.entnum));
 	while(self.var_9ea856f6 > 0)
 	{
 		wait(1);
@@ -2741,7 +2741,7 @@ function function_27202201()
 			{
 				playsoundatposition("evt_revive", self.origin);
 			}
-			self thread namespace_eaa992c::function_285a2999("reviveCredit");
+			self thread doa_fx::function_285a2999("reviveCredit");
 			self.var_9ea856f6 = self.var_9ea856f6 - amount;
 			foreach(savior in self.doa.var_b08ad9f8)
 			{
@@ -2864,7 +2864,7 @@ function private function_c240f40e(source, dest, orb)
 		orb.targetname = "_lifeLink";
 		orb setmodel("tag_origin");
 	}
-	orb thread namespace_eaa992c::function_285a2999("trail_fast");
+	orb thread doa_fx::function_285a2999("trail_fast");
 	orb thread doa_utility::function_a625b5d3(source);
 	orb thread doa_utility::function_a625b5d3(dest);
 	orb thread doa_utility::function_75e76155(source, "end_life_link");
@@ -2921,7 +2921,7 @@ function private function_2f150493(source, dest)
 	pickup.targetname = "_stealLifeFrom";
 	pickup.angles = source.angles;
 	pickup setmodel(level.doa.extra_life_model);
-	pickup thread namespace_eaa992c::function_285a2999("glow_white");
+	pickup thread doa_fx::function_285a2999("glow_white");
 	source thread turnplayershieldon(1);
 	pickup thread doa_utility::function_a625b5d3(source);
 	pickup thread doa_utility::function_a625b5d3(dest);

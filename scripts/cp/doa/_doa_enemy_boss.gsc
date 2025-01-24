@@ -93,7 +93,7 @@ function private function_d95d34bd(spawner)
 			level.doa.boss.ignoreme = 1;
 			level.doa.boss.goalradius = 64;
 			level.doa.boss.goalheight = 256;
-			level.doa.boss thread namespace_eaa992c::function_285a2999("red_shield");
+			level.doa.boss thread doa_fx::function_285a2999("red_shield");
 			level.doa.boss thread function_ce73145c();
 			level.doa.boss thread function_5bd24aae();
 			level.doa.boss thread function_e5e28b1b();
@@ -496,7 +496,7 @@ function private function_2ca4656()
 		org.targetname = "_doaBossCollectPickups";
 		org setmodel("tag_origin");
 		self linkto(org, "tag_origin");
-		org thread namespace_eaa992c::function_285a2999("boss_takeoff");
+		org thread doa_fx::function_285a2999("boss_takeoff");
 		spot = self.origin + vectorscale((0, 0, 1), 2000);
 		org thread doa_utility::function_a98c85b2(spot, 0.8);
 		self util::waittill_any_timeout(2, "movedone", "death");
@@ -504,7 +504,7 @@ function private function_2ca4656()
 	}
 	if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 	{
-		self thread namespace_eaa992c::function_285a2999("spawnZombie");
+		self thread doa_fx::function_285a2999("spawnZombie");
 		wait(1);
 	}
 	self delete();

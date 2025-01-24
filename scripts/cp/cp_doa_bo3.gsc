@@ -295,7 +295,7 @@ function function_75772673(player)
 	self setplayercollision(0);
 	self namespace_51bd792::droptoground(self.origin, trail, "turret_impact", 0, 0);
 	self namespace_1a381543::function_90118d8c("evt_robot_land");
-	self namespace_eaa992c::function_285a2999("player_trail_" + color);
+	self doa_fx::function_285a2999("player_trail_" + color);
 	while(isdefined(player))
 	{
 		self clearforcedgoal();
@@ -375,7 +375,7 @@ function function_89a2ffc4(player)
 	self.goalradius = 100;
 	self.allowpain = 0;
 	self.aux_melee_damage = &function_f45d4afc;
-	self namespace_eaa992c::function_285a2999("player_trail_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+	self doa_fx::function_285a2999("player_trail_" + namespace_831a4a7c::function_ee495f41(player.entnum));
 	self.holdfire = 0;
 	self.updatesight = 1;
 	self setthreatbiasgroup("players");

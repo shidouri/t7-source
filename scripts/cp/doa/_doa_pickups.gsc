@@ -463,7 +463,7 @@ function function_9fc58738(var_742d8fb5, origin, launch = 0, ondeath = 0, var_b0
 	}
 	if(isdefined(var_742d8fb5.var_cee3d90d) && glow)
 	{
-		pickup thread namespace_eaa992c::function_285a2999(var_742d8fb5.var_cee3d90d);
+		pickup thread doa_fx::function_285a2999(var_742d8fb5.var_cee3d90d);
 	}
 	return pickup;
 }
@@ -559,7 +559,7 @@ function function_92d90e55(var_742d8fb5, location, timeout = 1, rotate = 1, angl
 		pickup notify(#"hash_c42bb828");
 		pickup notify(#"hash_c8c0fb8f");
 	}
-	pickup thread namespace_eaa992c::function_285a2999(function_c41cf2a8(pickup));
+	pickup thread doa_fx::function_285a2999(function_c41cf2a8(pickup));
 	if(timeout)
 	{
 		pickup thread pickuptimeout();
@@ -1615,7 +1615,7 @@ function function_d526f0bb()
 		}
 		if(isdefined(self.def.var_d1c98aa0))
 		{
-			self thread namespace_eaa992c::function_285a2999(self.def.var_d1c98aa0);
+			self thread doa_fx::function_285a2999(self.def.var_d1c98aa0);
 			util::wait_network_frame();
 		}
 		var_9aec68f5 = 1;
@@ -3099,14 +3099,14 @@ function function_322262ea()
 	{
 		return;
 	}
-	self thread namespace_eaa992c::function_285a2999("ammo_infinite");
+	self thread doa_fx::function_285a2999("ammo_infinite");
 	while(isdefined(self) && self.doa.var_c2b9d7d0 > gettime())
 	{
 		wait(0.25);
 	}
 	if(isdefined(self))
 	{
-		self thread namespace_eaa992c::turnofffx("ammo_infinite");
+		self thread doa_fx::turnofffx("ammo_infinite");
 	}
 }
 
