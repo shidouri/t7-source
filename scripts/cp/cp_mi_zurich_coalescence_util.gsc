@@ -2869,7 +2869,7 @@ function function_12141c31()
 	Parameters: 3
 	Flags: Linked
 */
-function function_3adbd846(str_val, str_key = "targetname", var_34b81fdb = 0)
+function function_3adbd846(str_val, str_key = "targetname", b_once = 0)
 {
 	t_trig = getent(str_val, str_key);
 	if(isdefined(t_trig))
@@ -2884,7 +2884,7 @@ function function_3adbd846(str_val, str_key = "targetname", var_34b81fdb = 0)
 				break;
 			}
 		}
-		if(var_34b81fdb)
+		if(b_once)
 		{
 			t_trig delete();
 		}
