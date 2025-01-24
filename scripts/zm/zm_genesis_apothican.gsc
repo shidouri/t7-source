@@ -1279,14 +1279,14 @@ function function_2af9e8f2()
 	var_9c840b49 = struct::get_array("gateworm_egg", "targetname");
 	var_9c840b49 = array::randomize(var_9c840b49);
 	level.var_393eea44 = [];
-	foreach(var_21e43ff6 in var_9c840b49)
+	foreach(s_egg in var_9c840b49)
 	{
-		if(!isdefined(level.var_393eea44[var_21e43ff6.script_int]))
+		if(!isdefined(level.var_393eea44[s_egg.script_int]))
 		{
-			level.var_393eea44[var_21e43ff6.script_int] = var_21e43ff6;
-			var_21e43ff6.var_89bdf56b = var_21e43ff6.origin;
-			var_21e43ff6.var_c1c6575b = var_21e43ff6.origin + vectorscale((0, 0, 1), 1000);
-			var_21e43ff6 thread function_79912fdc();
+			level.var_393eea44[s_egg.script_int] = s_egg;
+			s_egg.var_89bdf56b = s_egg.origin;
+			s_egg.var_c1c6575b = s_egg.origin + vectorscale((0, 0, 1), 1000);
+			s_egg thread function_79912fdc();
 		}
 	}
 }
@@ -1318,7 +1318,7 @@ function function_79912fdc()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c73dbcf0(var_21e43ff6)
+function function_c73dbcf0(s_egg)
 {
 	self enablelinkto();
 	var_e777b564 = self gettagorigin("ovary_egg_tag_jnt");
@@ -1329,13 +1329,13 @@ function function_c73dbcf0(var_21e43ff6)
 	wait(4);
 	var_1436760b clientfield::set("egg_spawn_fx", 0);
 	var_1436760b delete();
-	var_21e43ff6.origin = var_21e43ff6.origin + vectorscale((0, 0, 1), 16);
-	s_unitrigger = var_21e43ff6 zm_unitrigger::create_unitrigger("", 64, &function_e3dd263c);
-	var_21e43ff6 waittill("trigger_activated", e_player);
+	s_egg.origin = s_egg.origin + vectorscale((0, 0, 1), 16);
+	s_unitrigger = s_egg zm_unitrigger::create_unitrigger("", 64, &function_e3dd263c);
+	s_egg waittill("trigger_activated", e_player);
 	if(!e_player flag::get("holding_egg"))
 	{
 		e_player thread zm_genesis_vo::function_2a22bd54();
-		e_player function_4d6562d8(var_21e43ff6);
+		e_player function_4d6562d8(s_egg);
 		e_player playsound("zmb_main_omelettes_egg_pickup");
 		self delete();
 		zm_unitrigger::unregister_unitrigger(s_unitrigger);
@@ -1532,13 +1532,13 @@ function function_4661867f(e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4d6562d8(var_21e43ff6)
+function function_4d6562d8(s_egg)
 {
 	self thread function_b67eab19("player_apothicon_egg", "zmInventory.widget_apothicon_egg", 1);
 	self clientfield::set_player_uimodel("zmInventory.player_apothicon_egg_bg", 1);
 	self clientfield::set_player_uimodel("zmInventory.player_gate_worm_bg", 0);
 	self flag::set("holding_egg");
-	self thread function_9b3d1bca(var_21e43ff6);
+	self thread function_9b3d1bca(s_egg);
 }
 
 /*
@@ -1550,11 +1550,11 @@ function function_4d6562d8(var_21e43ff6)
 	Parameters: 1
 	Flags: Linked
 */
-function function_9b3d1bca(var_21e43ff6)
+function function_9b3d1bca(s_egg)
 {
 	self endon("holding_egg");
 	self waittill("disconnect");
-	var_21e43ff6 thread function_79912fdc();
+	s_egg thread function_79912fdc();
 }
 
 /*
