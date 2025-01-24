@@ -243,9 +243,9 @@ function function_d8ccdb23()
 function function_637fae36()
 {
 	var_27606155 = getentarray("trigger_ob_defend", "targetname");
-	foreach(var_a57773f5 in var_27606155)
+	foreach(t_ob in var_27606155)
 	{
-		var_a57773f5 triggerenable(1);
+		t_ob triggerenable(1);
 	}
 	var_b957e40 = getent("trigger_apc_reinforce", "targetname");
 	var_b957e40 triggerenable(0);
