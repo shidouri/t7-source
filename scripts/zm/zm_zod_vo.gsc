@@ -1925,22 +1925,22 @@ function function_2cc571f6()
 function function_f8939df5()
 {
 	self endon(#"_zombie_game_over");
-	var_25322547 = randomfloatrange(15, 20);
+	f_wait = randomfloatrange(15, 20);
 	while(true)
 	{
 		level waittill(#"hash_aaa21b88");
 		while(level.var_6e63e659 > 0)
 		{
-			wait(var_25322547);
+			wait(f_wait);
 			e_player = function_43b03c7f(5000);
 			if(zm_utility::is_player_valid(e_player))
 			{
 				e_player zm_audio::create_and_play_dialog("margwa", "fight");
-				var_25322547 = randomfloatrange(15, 20);
+				f_wait = randomfloatrange(15, 20);
 			}
 			else
 			{
-				var_25322547 = 1;
+				f_wait = 1;
 			}
 		}
 	}
