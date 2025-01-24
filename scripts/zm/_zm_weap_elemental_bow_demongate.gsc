@@ -478,16 +478,16 @@ function function_9fcea3e8(e_player)
 	if(zm_utility::is_player_valid(e_player))
 	{
 		var_6073ac1c = e_player.angles;
-		var_150aaea = e_player geteye();
+		v_eyes = e_player geteye();
 	}
 	else
 	{
 		var_6073ac1c = self.angles;
-		var_150aaea = self.origin;
+		v_eyes = self.origin;
 	}
 	var_9ef67615 = (var_6073ac1c[0] + var_13fe538c, var_6073ac1c[1] + var_3a00cdf5, var_6073ac1c[2] + var_6003485e);
 	var_962558f1 = vectornormalize(anglestoforward(var_9ef67615));
-	a_trace = physicstraceex(var_150aaea, var_150aaea + (var_962558f1 * 512), vectorscale((-1, -1, -1), 16), vectorscale((1, 1, 1), 16));
+	a_trace = physicstraceex(v_eyes, v_eyes + (var_962558f1 * 512), vectorscale((-1, -1, -1), 16), vectorscale((1, 1, 1), 16));
 	var_69a783ad = a_trace["position"] + (var_962558f1 * -32);
 	n_dist = distance(self.origin, var_69a783ad);
 	n_time = n_dist / 48;
