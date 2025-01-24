@@ -1663,13 +1663,13 @@ function function_f77f0da9()
 {
 	/#
 		self endon("disconnect");
-		var_6c9b76cd = self zm_perks::perk_give_bottle_begin("");
+		e_gun = self zm_perks::perk_give_bottle_begin("");
 		str_notify = self util::waittill_any_return("", "", "", "", "");
 		if(str_notify == "")
 		{
 			self thread zm_perks::wait_give_perk("", 1);
 		}
-		self zm_perks::perk_give_bottle_end(var_6c9b76cd, "");
+		self zm_perks::perk_give_bottle_end(e_gun, "");
 	#/
 }
 
@@ -1754,13 +1754,13 @@ function function_25762e4()
 	if(!(isdefined(self.var_9b95533e) && self.var_9b95533e))
 	{
 		self.var_9b95533e = 1;
-		var_6c9b76cd = self zm_perks::perk_give_bottle_begin("specialty_widowswine");
+		e_gun = self zm_perks::perk_give_bottle_begin("specialty_widowswine");
 		str_notify = self util::waittill_any_return("fake_death", "death", "player_downed", "weapon_change_complete", "disconnect");
 		if(str_notify == "weapon_change_complete")
 		{
 			self thread zm_perks::wait_give_perk("specialty_widowswine", 1);
 		}
-		self zm_perks::perk_give_bottle_end(var_6c9b76cd, "specialty_widowswine");
+		self zm_perks::perk_give_bottle_end(e_gun, "specialty_widowswine");
 		wait(15);
 		self.var_9b95533e = 0;
 	}
