@@ -21,11 +21,11 @@
 #using scripts\zm\_zm_weapons;
 #using scripts\zm\zm_stalingrad_pap_quest;
 
-#namespace namespace_19e79ea1;
+#namespace stalingrad_dragon_strike;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x42D8F5FA
 	Offset: 0x828
 	Size: 0x3C
@@ -39,7 +39,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x2C8E5FDD
 	Offset: 0x870
 	Size: 0x44
@@ -54,7 +54,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x61DCD413
 	Offset: 0x8C0
 	Size: 0x114
@@ -74,7 +74,7 @@ function __main__()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xCB33EFF
 	Offset: 0x9E0
 	Size: 0x104
@@ -103,7 +103,7 @@ function on_player_spawned()
 
 /*
 	Name: function_43b5419a
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x9BB5F7F5
 	Offset: 0xAF0
 	Size: 0xAC
@@ -121,7 +121,7 @@ function function_43b5419a(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: function_ea7e3000
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x6F8426A7
 	Offset: 0xBA8
 	Size: 0xC4
@@ -146,7 +146,7 @@ function function_ea7e3000(s_unitrigger, var_df61c394, var_60e07243)
 
 /*
 	Name: function_748696f0
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x89C76558
 	Offset: 0xC78
 	Size: 0x74
@@ -168,7 +168,7 @@ function function_748696f0(b_on, n_tag)
 
 /*
 	Name: function_41457bd1
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xE27E0EE9
 	Offset: 0xCF8
 	Size: 0x22E
@@ -216,7 +216,7 @@ function function_41457bd1()
 
 /*
 	Name: function_8f02cb7e
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xF55A5E79
 	Offset: 0xF30
 	Size: 0x24E
@@ -267,7 +267,7 @@ function function_8f02cb7e()
 
 /*
 	Name: function_316be9a7
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xA2628307
 	Offset: 0x1188
 	Size: 0x2F4
@@ -304,7 +304,7 @@ function function_316be9a7()
 
 /*
 	Name: function_10d61b3
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x39BE6252
 	Offset: 0x1488
 	Size: 0x47A
@@ -347,7 +347,7 @@ function function_10d61b3(player)
 
 /*
 	Name: function_68299355
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x5E41BE97
 	Offset: 0x1910
 	Size: 0x3C8
@@ -399,7 +399,7 @@ function function_68299355()
 
 /*
 	Name: function_f25c1083
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xF85A7C84
 	Offset: 0x1CE0
 	Size: 0x94
@@ -419,7 +419,7 @@ function function_f25c1083()
 
 /*
 	Name: function_8258d71c
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xA8EE90DA
 	Offset: 0x1D80
 	Size: 0x144
@@ -448,7 +448,7 @@ function function_8258d71c()
 
 /*
 	Name: function_b8ea3482
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xBF45FAC4
 	Offset: 0x1ED0
 	Size: 0x54
@@ -465,7 +465,7 @@ function function_b8ea3482(str_widget_clientuimodel)
 
 /*
 	Name: function_56059128
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x303BE90C
 	Offset: 0x1F30
 	Size: 0xBC
@@ -484,7 +484,7 @@ function function_56059128()
 
 /*
 	Name: function_93510b8b
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x3BC239FA
 	Offset: 0x1FF8
 	Size: 0x344
@@ -533,7 +533,7 @@ function function_93510b8b()
 
 /*
 	Name: function_e6794c49
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x2EEFBE17
 	Offset: 0x2348
 	Size: 0x44
@@ -551,7 +551,7 @@ function function_e6794c49()
 
 /*
 	Name: function_af4562b1
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x4B795451
 	Offset: 0x2398
 	Size: 0xDA
@@ -572,7 +572,7 @@ function function_af4562b1()
 
 /*
 	Name: function_2e107eef
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xC41B03DA
 	Offset: 0x2480
 	Size: 0xC2
@@ -592,7 +592,7 @@ function function_2e107eef(e_attacker)
 
 /*
 	Name: function_815a155e
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x5BE9FB9D
 	Offset: 0x2550
 	Size: 0xA4
@@ -619,7 +619,7 @@ function function_815a155e(var_62a210b7)
 
 /*
 	Name: function_5cb61169
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x13EEE73
 	Offset: 0x2600
 	Size: 0x104
@@ -642,7 +642,7 @@ function function_5cb61169()
 
 /*
 	Name: function_75a7ba2d
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x1E6B4E4A
 	Offset: 0x2710
 	Size: 0x154
@@ -675,7 +675,7 @@ function function_75a7ba2d()
 
 /*
 	Name: function_46c8b621
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x97A910BF
 	Offset: 0x2870
 	Size: 0xA4

@@ -6,11 +6,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_19e79ea1;
+#namespace stalingrad_dragon_strike;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0xC244C572
 	Offset: 0x230
 	Size: 0x34
@@ -24,7 +24,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x58C0319B
 	Offset: 0x270
 	Size: 0x124
@@ -41,7 +41,7 @@ function __init__()
 
 /*
 	Name: lockbox_light_1
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x3CA1EDA7
 	Offset: 0x3A0
 	Size: 0xEC
@@ -66,7 +66,7 @@ function lockbox_light_1(localclientnum, oldval, newval, bnewent, binitialsnap, 
 
 /*
 	Name: lockbox_light_2
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x5C8654A
 	Offset: 0x498
 	Size: 0xEC
@@ -91,7 +91,7 @@ function lockbox_light_2(localclientnum, oldval, newval, bnewent, binitialsnap, 
 
 /*
 	Name: lockbox_light_3
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x582AAE33
 	Offset: 0x590
 	Size: 0xEC
@@ -116,7 +116,7 @@ function lockbox_light_3(localclientnum, oldval, newval, bnewent, binitialsnap, 
 
 /*
 	Name: lockbox_light_4
-	Namespace: namespace_19e79ea1
+	Namespace: stalingrad_dragon_strike
 	Checksum: 0x1B5C4922
 	Offset: 0x688
 	Size: 0xEC

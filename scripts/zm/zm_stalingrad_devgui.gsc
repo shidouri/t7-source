@@ -675,7 +675,7 @@ function function_1b0d61c5()
 		level flag::clear("");
 		foreach(e_player in level.players)
 		{
-			e_player namespace_19e79ea1::function_8258d71c();
+			e_player stalingrad_dragon_strike::function_8258d71c();
 		}
 	#/
 }
@@ -695,7 +695,7 @@ function function_fd68eee0()
 		level flag::set("");
 		foreach(e_player in level.players)
 		{
-			e_player namespace_19e79ea1::function_8258d71c();
+			e_player stalingrad_dragon_strike::function_8258d71c();
 		}
 	#/
 }

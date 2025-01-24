@@ -277,7 +277,7 @@ function main()
 	level.var_464197de = &function_90cae0a9;
 	level thread zm_stalingrad_wearables::function_eed58360();
 	level thread zm_stalingrad_audio::main();
-	level thread namespace_19e79ea1::function_56059128();
+	level thread stalingrad_dragon_strike::function_56059128();
 	level thread namespace_5132b4d6::function_19458e73();
 	_zm_weap_cymbal_monkey::init();
 	level._round_start_func = &zm::round_start;
