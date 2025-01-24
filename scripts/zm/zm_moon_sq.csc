@@ -440,9 +440,9 @@ function vril_generator(localclientnum, oldval, newval, bnewent, binitialsnap, f
 		}
 		case 4:
 		{
-			var_dbd86497 = struct::get("sq_vg_final", "targetname");
+			s_targ = struct::get("sq_vg_final", "targetname");
 			level.a_ents = [];
-			var_93d55a25 = util::spawn_model(localclientnum, var_dbd86497.model, var_dbd86497.origin, var_dbd86497.angles);
+			var_93d55a25 = util::spawn_model(localclientnum, s_targ.model, s_targ.origin, s_targ.angles);
 			level.a_ents[level.a_ents.size] = var_93d55a25;
 			for(i = 0; i < level.a_ents.size; i++)
 			{
