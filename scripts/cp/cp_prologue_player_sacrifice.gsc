@@ -993,9 +993,9 @@ function function_b0cce50c()
 	wait(2);
 	objectives::set("cp_waypoint_breadcrumb", s_pod);
 	t_lz = getent("trigger_pod_lz", "targetname");
-	var_6848ea7f = getent("trigger_apc_reinforce", "targetname");
+	t_pod = getent("trigger_apc_reinforce", "targetname");
 	t_lz triggerenable(1);
-	var_6848ea7f thread function_a950a3ec();
+	t_pod thread function_a950a3ec();
 	level thread function_a3ac9ae0();
 	level flag::wait_till("pod_arrive");
 	t_lz waittill("trigger");
