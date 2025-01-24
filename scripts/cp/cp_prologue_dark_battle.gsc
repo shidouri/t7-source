@@ -1109,7 +1109,7 @@ function vtol_tackle_main(b_starting)
 	level cp_prologue_util::spawn_coop_player_replacement("skipto_vtol_tackle_ai");
 	foreach(ai_ally in level.var_681ad194)
 	{
-		ai_ally thread hangar::ai_teleport(("ally_0" + ai_ally.var_a89679b6) + "_vtol_tackle_node");
+		ai_ally thread hangar::ai_teleport(("ally_0" + ai_ally.n_ally) + "_vtol_tackle_node");
 		ai_ally function_b243f34();
 	}
 	level thread objectives::breadcrumb("dark_battle_breadcrumb_5");

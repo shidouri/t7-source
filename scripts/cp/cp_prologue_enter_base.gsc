@@ -84,7 +84,7 @@ function nrc_knocking_main()
 	foreach(ai_ally in level.var_681ad194)
 	{
 		ai_ally.goalradius = 16;
-		ai_ally setgoal(getnode(("ally0" + ai_ally.var_a89679b6) + "_start_node", "targetname"));
+		ai_ally setgoal(getnode(("ally0" + ai_ally.n_ally) + "_start_node", "targetname"));
 	}
 	battlechatter::function_d9f49fba(0);
 	cp_prologue_util::function_47a62798(1);
@@ -699,7 +699,7 @@ function function_be42a33f()
 	trigger::wait_till("tarmac_move_friendies");
 	foreach(ai_ally in level.var_681ad194)
 	{
-		ai_ally thread setgoal_then_delete(("ally0" + ai_ally.var_a89679b6) + "_tunnel_goal", "security_cam_active");
+		ai_ally thread setgoal_then_delete(("ally0" + ai_ally.n_ally) + "_tunnel_goal", "security_cam_active");
 	}
 }
 

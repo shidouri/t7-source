@@ -138,7 +138,7 @@ function spawn_coop_player_replacement(skipto, var_de2f1b3 = 1)
 			s_struct = struct::get(skipto + "_ally_03", "targetname");
 			level.var_681ad194[1] forceteleport(s_struct.origin, s_struct.angles);
 			level.var_681ad194[1] ai::gun_switchto(primary_weapon, "right");
-			level.var_681ad194[1].var_a89679b6 = 3;
+			level.var_681ad194[1].n_ally = 3;
 		}
 		if(level.players.size <= 2 && !isdefined(level.var_681ad194[2]) && var_5178c24b != 3)
 		{
@@ -146,7 +146,7 @@ function spawn_coop_player_replacement(skipto, var_de2f1b3 = 1)
 			s_struct = struct::get(skipto + "_ally_02", "targetname");
 			level.var_681ad194[2] forceteleport(s_struct.origin, s_struct.angles);
 			level.var_681ad194[2] ai::gun_switchto(primary_weapon, "right");
-			level.var_681ad194[2].var_a89679b6 = 2;
+			level.var_681ad194[2].n_ally = 2;
 		}
 		if(level.players.size == 1 && !isdefined(level.var_681ad194[3]) && var_5178c24b != 4)
 		{
@@ -154,7 +154,7 @@ function spawn_coop_player_replacement(skipto, var_de2f1b3 = 1)
 			s_struct = struct::get(skipto + "_ally_01", "targetname");
 			level.var_681ad194[3] forceteleport(s_struct.origin, s_struct.angles);
 			level.var_681ad194[3] ai::gun_switchto(primary_weapon, "right");
-			level.var_681ad194[3].var_a89679b6 = 1;
+			level.var_681ad194[3].n_ally = 1;
 		}
 	}
 	if(level.players.size >= 2 && isdefined(level.var_681ad194[3]))
