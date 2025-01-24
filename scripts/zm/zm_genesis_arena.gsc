@@ -2738,9 +2738,9 @@ function function_4706cfff(n_duration, var_325cfa0d = 0)
 			return;
 		}
 		n_time_elapsed = gettime() - n_start_time;
-		var_615956ca = sin(n_time_elapsed * n_rate);
-		var_615956ca = abs(var_615956ca);
-		n_scale = 0.25 + (var_615956ca * var_c8ec0774);
+		n_sin = sin(n_time_elapsed * n_rate);
+		n_sin = abs(n_sin);
+		n_scale = 0.25 + (n_sin * var_c8ec0774);
 		if(var_325cfa0d && n_time_elapsed > var_e2b185cf && !var_a8c2ff4b)
 		{
 			self clientfield::set("fire_column", 0);
