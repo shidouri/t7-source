@@ -1706,7 +1706,7 @@ function function_cdab50cc()
 	while(true)
 	{
 		self waittill("trigger", e_player);
-		if(!(isdefined(e_player.var_32ad034f) && e_player.var_32ad034f))
+		if(!(isdefined(e_player.b_drop) && e_player.b_drop))
 		{
 			e_player thread function_6c2447b1(self);
 		}
@@ -1726,11 +1726,11 @@ function function_6c2447b1(var_df0dbc71)
 {
 	self endon("disconnect");
 	self endon("player_downed");
-	self.var_32ad034f = 1;
+	self.b_drop = 1;
 	wait(2);
 	if(!self istouching(var_df0dbc71))
 	{
-		self.var_32ad034f = 0;
+		self.b_drop = 0;
 		return;
 	}
 	v_moveto = undefined;
@@ -1743,7 +1743,7 @@ function function_6c2447b1(var_df0dbc71)
 			break;
 		}
 	}
-	self.var_32ad034f = 0;
+	self.b_drop = 0;
 	self setorigin(v_moveto);
 }
 
