@@ -557,7 +557,7 @@ function init()
 	namespace_2848f8c2::init();
 	doa_fate::init();
 	namespace_b5c133c::init();
-	namespace_74ae326f::init();
+	doa_player_challenge::init();
 	level thread function_57863b20();
 	namespace_2f63e553::setupdevgui();
 	level flag::set("doa_init_complete");

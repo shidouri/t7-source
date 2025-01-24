@@ -558,7 +558,7 @@ function private function_1c54aa82(room)
 		{
 			function_ba9c838e();
 			level.doa.var_6f2c52d8 = undefined;
-			namespace_74ae326f::function_15a0c9b5(room);
+			doa_player_challenge::function_15a0c9b5(room);
 			break;
 		}
 	}
@@ -1455,7 +1455,7 @@ function function_f64e4b70(specific)
 	}
 	opened_exits = 0;
 	playsoundatposition("zmb_exit_open", (0, 0, 0));
-	namespace_74ae326f::function_471d1403();
+	doa_player_challenge::function_471d1403();
 	if(!isdefined(level.doa.forced_magical_room))
 	{
 		function_46b3be09();

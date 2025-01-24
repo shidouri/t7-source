@@ -18,11 +18,11 @@
 #using scripts\shared\flagsys_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_74ae326f;
+#namespace doa_player_challenge;
 
 /*
 	Name: init
-	Namespace: namespace_74ae326f
+	Namespace: doa_player_challenge
 	Checksum: 0x1B0ADF2D
 	Offset: 0x4B8
 	Size: 0x18
@@ -36,7 +36,7 @@ function init()
 
 /*
 	Name: function_471d1403
-	Namespace: namespace_74ae326f
+	Namespace: doa_player_challenge
 	Checksum: 0xD46CDC40
 	Offset: 0x4D8
 	Size: 0x38C
@@ -110,7 +110,7 @@ function function_471d1403()
 
 /*
 	Name: function_4952be41
-	Namespace: namespace_74ae326f
+	Namespace: doa_player_challenge
 	Checksum: 0xBCB28ABC
 	Offset: 0x870
 	Size: 0x2D6
@@ -174,7 +174,7 @@ function private function_4952be41(room)
 
 /*
 	Name: function_15a0c9b5
-	Namespace: namespace_74ae326f
+	Namespace: doa_player_challenge
 	Checksum: 0xB08EC637
 	Offset: 0xB50
 	Size: 0x844
