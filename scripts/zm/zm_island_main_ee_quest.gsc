@@ -264,7 +264,7 @@ function function_df4d1d4()
 	self endon("death");
 	level endon("flag_play_outro_cutscene");
 	level flag::wait_till("trilogy_released");
-	var_af8f5b69 = getent("trigger_gas_hurt", "targetname");
+	t_gas = getent("trigger_gas_hurt", "targetname");
 	while(true)
 	{
 		trigger::wait_till("trigger_gas_hurt", "targetname", self);
@@ -288,14 +288,14 @@ function function_df4d1d4()
 function function_75e5527f()
 {
 	level endon(#"hash_5790f552");
-	var_af8f5b69 = getent("trigger_gas_chamber", "targetname");
+	t_gas = getent("trigger_gas_chamber", "targetname");
 	while(true)
 	{
-		var_af8f5b69 waittill("trigger");
+		t_gas waittill("trigger");
 		a_talkers = [];
 		foreach(player in level.players)
 		{
-			if(player istouching(var_af8f5b69) && !player.var_df4182b1 && zm_utility::is_player_valid(player))
+			if(player istouching(t_gas) && !player.var_df4182b1 && zm_utility::is_player_valid(player))
 			{
 				array::add(a_talkers, player);
 			}
