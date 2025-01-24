@@ -758,10 +758,10 @@ function function_551d8f75()
 			e_player.var_d273f814 = n_current_time;
 			return e_player;
 		}
-		var_43421314 = (n_current_time - e_player.var_d273f814) / 1000;
-		if(var_43421314 >= n_wait_time)
+		n_dt = (n_current_time - e_player.var_d273f814) / 1000;
+		if(n_dt >= n_wait_time)
 		{
-			n_wait_time = var_43421314;
+			n_wait_time = n_dt;
 			e_target = e_player;
 		}
 	}
@@ -1177,10 +1177,10 @@ function function_ecd2e6b5()
 		return;
 	}
 	n_time = gettime();
-	var_43421314 = (n_time - level.var_f77d7372) / 1000;
-	if(var_43421314 < 240)
+	n_dt = (n_time - level.var_f77d7372) / 1000;
+	if(n_dt < 240)
 	{
-		n_delay = (240 - var_43421314) + randomintrange(120, 240);
+		n_delay = (240 - n_dt) + randomintrange(120, 240);
 		wait(n_delay);
 	}
 }

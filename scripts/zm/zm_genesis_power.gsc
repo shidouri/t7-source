@@ -668,8 +668,8 @@ function function_8a3885f2()
 							e_player.var_8e8c165c = gettime();
 						}
 						n_time = gettime();
-						var_43421314 = (n_time - e_player.var_8e8c165c) / 1000;
-						if(var_43421314 >= 0.5)
+						n_dt = (n_time - e_player.var_8e8c165c) / 1000;
+						if(n_dt >= 0.5)
 						{
 							e_player thread function_59bcf901(n_cost, self);
 							level thread zm_genesis_vo::corruption_engine_vo();
