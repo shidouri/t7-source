@@ -23,11 +23,11 @@
 #using scripts\shared\util_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_c550ee23;
+#namespace training_sim;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x70D24ECB
 	Offset: 0xAA8
 	Size: 0x34
@@ -41,7 +41,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xCE31E2B6
 	Offset: 0xAE8
 	Size: 0x30C
@@ -76,7 +76,7 @@ function __init__()
 
 /*
 	Name: function_b8d52e94
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xF15C71AC
 	Offset: 0xE00
 	Size: 0x752
@@ -204,7 +204,7 @@ function function_b8d52e94()
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x1A60D990
 	Offset: 0x1560
 	Size: 0x1C
@@ -220,7 +220,7 @@ function on_player_connect()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x68BC8B88
 	Offset: 0x1588
 	Size: 0x54
@@ -238,7 +238,7 @@ function on_player_spawned()
 
 /*
 	Name: function_b9b9b898
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xE1A6ACC1
 	Offset: 0x15E8
 	Size: 0x176
@@ -264,7 +264,7 @@ function function_b9b9b898()
 
 /*
 	Name: function_a91b6cca
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x87E94E9
 	Offset: 0x1768
 	Size: 0x15E
@@ -288,7 +288,7 @@ function function_a91b6cca()
 
 /*
 	Name: function_daea15a5
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x99884F8B
 	Offset: 0x18D0
 	Size: 0x24
@@ -302,7 +302,7 @@ function function_daea15a5(e_player)
 
 /*
 	Name: function_cc13d7aa
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xCF0B6A46
 	Offset: 0x1900
 	Size: 0xA4
@@ -320,7 +320,7 @@ function function_cc13d7aa()
 
 /*
 	Name: function_d03d00c6
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xAA3A7F0B
 	Offset: 0x19B0
 	Size: 0x34
@@ -338,7 +338,7 @@ function function_d03d00c6()
 
 /*
 	Name: function_89e36314
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xA43B6CAB
 	Offset: 0x19F0
 	Size: 0x144
@@ -370,7 +370,7 @@ function function_89e36314()
 
 /*
 	Name: function_cf1101c0
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xAAAF1DA5
 	Offset: 0x1B40
 	Size: 0x1C8
@@ -393,7 +393,7 @@ function function_cf1101c0()
 
 /*
 	Name: function_fcd1719a
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xE09728BF
 	Offset: 0x1D10
 	Size: 0x1AC
@@ -415,7 +415,7 @@ function function_fcd1719a()
 
 /*
 	Name: teleport_player
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x9941D58D
 	Offset: 0x1EC8
 	Size: 0xE4
@@ -436,7 +436,7 @@ function teleport_player(var_cc1de81f)
 
 /*
 	Name: function_17f2cd2f
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xDCE5EDA5
 	Offset: 0x1FB8
 	Size: 0x204
@@ -467,7 +467,7 @@ function function_17f2cd2f()
 
 /*
 	Name: function_635d5e9d
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xAD39B4B
 	Offset: 0x21C8
 	Size: 0x92
@@ -488,7 +488,7 @@ function function_635d5e9d()
 
 /*
 	Name: run
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x4B4B9012
 	Offset: 0x2268
 	Size: 0x8C
@@ -506,7 +506,7 @@ function run(var_cc1de81f)
 
 /*
 	Name: function_a1fa0b8e
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xD22FD0CA
 	Offset: 0x2300
 	Size: 0x44
@@ -524,7 +524,7 @@ function function_a1fa0b8e()
 
 /*
 	Name: _run
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x793BBEEC
 	Offset: 0x2350
 	Size: 0x222
@@ -572,7 +572,7 @@ function _run(var_cc1de81f)
 
 /*
 	Name: cleanup
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x449C074B
 	Offset: 0x2580
 	Size: 0x1CC
@@ -608,7 +608,7 @@ function cleanup()
 
 /*
 	Name: function_76550e47
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x30AD3CAF
 	Offset: 0x2758
 	Size: 0x1A8
@@ -636,7 +636,7 @@ function function_76550e47()
 
 /*
 	Name: function_7f7e9ea5
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x5DCF13F2
 	Offset: 0x2908
 	Size: 0x34
@@ -650,7 +650,7 @@ function function_7f7e9ea5()
 
 /*
 	Name: function_86a2dc30
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x1438C8DE
 	Offset: 0x2948
 	Size: 0x9A
@@ -672,7 +672,7 @@ function function_86a2dc30()
 
 /*
 	Name: function_b5b532e8
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xB7609E8B
 	Offset: 0x29F0
 	Size: 0x1AC
@@ -696,7 +696,7 @@ function function_b5b532e8()
 
 /*
 	Name: function_cce02c2e
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xEA4E13C1
 	Offset: 0x2BA8
 	Size: 0xC64
@@ -879,7 +879,7 @@ function function_cce02c2e()
 
 /*
 	Name: function_7407182f
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xBBE04DC6
 	Offset: 0x3818
 	Size: 0xB4
@@ -898,7 +898,7 @@ function function_7407182f(var_19f0c7ba)
 
 /*
 	Name: function_a92a30c4
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x2E8F4E74
 	Offset: 0x38D8
 	Size: 0x84
@@ -913,7 +913,7 @@ function function_a92a30c4(var_6ec35b3f, var_fcbbec04)
 
 /*
 	Name: function_44933f23
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xAF4881C2
 	Offset: 0x3968
 	Size: 0x3C
@@ -931,7 +931,7 @@ function function_44933f23(sp1, sp2)
 
 /*
 	Name: function_49796025
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x9326BDD3
 	Offset: 0x39B0
 	Size: 0xA4
@@ -949,7 +949,7 @@ function function_49796025()
 
 /*
 	Name: function_e8f80ed0
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xD42AD6DF
 	Offset: 0x3A60
 	Size: 0x1EC
@@ -987,7 +987,7 @@ function function_e8f80ed0()
 
 /*
 	Name: delete_corpses
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x4A04F49C
 	Offset: 0x3C58
 	Size: 0x142
@@ -1010,7 +1010,7 @@ function delete_corpses()
 
 /*
 	Name: function_8c8a1672
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xCFFC5349
 	Offset: 0x3DA8
 	Size: 0x24
@@ -1024,7 +1024,7 @@ function function_8c8a1672()
 
 /*
 	Name: function_65b24866
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x70B675A5
 	Offset: 0x3DD8
 	Size: 0xEA
@@ -1045,7 +1045,7 @@ function function_65b24866()
 
 /*
 	Name: function_30df2b91
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x78A6DEE6
 	Offset: 0x3ED0
 	Size: 0x142
@@ -1071,7 +1071,7 @@ function function_30df2b91()
 
 /*
 	Name: function_4837ece8
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x63CF1E0F
 	Offset: 0x4020
 	Size: 0x2C
@@ -1085,7 +1085,7 @@ function function_4837ece8(s_beacon)
 
 /*
 	Name: function_c9db2b14
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x91252BDF
 	Offset: 0x4058
 	Size: 0xE0
@@ -1111,7 +1111,7 @@ function function_c9db2b14(var_d8d3a227)
 
 /*
 	Name: function_d2614e32
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x1375D909
 	Offset: 0x4140
 	Size: 0x5C
@@ -1127,7 +1127,7 @@ function function_d2614e32()
 
 /*
 	Name: function_4041981f
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x83646AA1
 	Offset: 0x41A8
 	Size: 0xC0
@@ -1148,7 +1148,7 @@ function function_4041981f()
 
 /*
 	Name: function_6dbfd048
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x9D70D638
 	Offset: 0x4270
 	Size: 0x7C
@@ -1166,7 +1166,7 @@ function function_6dbfd048(e_player)
 
 /*
 	Name: function_27b9fdd3
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xC71499EC
 	Offset: 0x42F8
 	Size: 0x622
@@ -1256,7 +1256,7 @@ function function_27b9fdd3(e_spawned, v_pos, var_8e7d3ece)
 
 /*
 	Name: function_d05904dc
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x5BDBBA29
 	Offset: 0x4928
 	Size: 0xBC
@@ -1273,7 +1273,7 @@ function function_d05904dc(str_type)
 
 /*
 	Name: is_spawner
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x5AC4BD2E
 	Offset: 0x49F0
 	Size: 0x22
@@ -1287,7 +1287,7 @@ function is_spawner(ent)
 
 /*
 	Name: get_ent_array
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xD3773838
 	Offset: 0x4A20
 	Size: 0x84
@@ -1303,7 +1303,7 @@ function get_ent_array(str_value, str_key, b_ignore_spawners = 0)
 
 /*
 	Name: get_ent
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x3D6890B1
 	Offset: 0x4AB0
 	Size: 0x5E
@@ -1322,7 +1322,7 @@ function get_ent(str_value, str_key, b_ignore_spawners)
 
 /*
 	Name: function_aeb2edb
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x75FC021
 	Offset: 0x4B18
 	Size: 0x74
@@ -1341,7 +1341,7 @@ function function_aeb2edb(str_value, str_key)
 
 /*
 	Name: get_struct_array
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xD86D7ED9
 	Offset: 0x4B98
 	Size: 0x82
@@ -1357,7 +1357,7 @@ function get_struct_array(str_value, str_key)
 
 /*
 	Name: on_ai_spawned
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xAE954B43
 	Offset: 0x4C28
 	Size: 0xDC
@@ -1386,7 +1386,7 @@ function on_ai_spawned()
 
 /*
 	Name: on_ai_damage
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xE6CA6235
 	Offset: 0x4D10
 	Size: 0x270
@@ -1438,7 +1438,7 @@ function on_ai_damage(s_params)
 
 /*
 	Name: on_ai_killed
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x72DA7411
 	Offset: 0x4F88
 	Size: 0x17C
@@ -1462,7 +1462,7 @@ function on_ai_killed(s_params)
 
 /*
 	Name: function_a5ac6877
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xDD439CC7
 	Offset: 0x5110
 	Size: 0x5E
@@ -1480,7 +1480,7 @@ function function_a5ac6877()
 
 /*
 	Name: function_c1a5b344
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x8733AAF9
 	Offset: 0x5178
 	Size: 0xE4
@@ -1500,7 +1500,7 @@ function function_c1a5b344()
 
 /*
 	Name: function_d4242515
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x4350DCAF
 	Offset: 0x5268
 	Size: 0x124
@@ -1520,7 +1520,7 @@ function function_d4242515(s_beacon)
 
 /*
 	Name: function_5ecb6fa8
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x3C4AB62B
 	Offset: 0x5398
 	Size: 0x104
@@ -1541,7 +1541,7 @@ function function_5ecb6fa8(s_beacon, str_volume)
 
 /*
 	Name: function_9b1ae7e9
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xB9E89DDB
 	Offset: 0x54A8
 	Size: 0x498
@@ -1613,7 +1613,7 @@ function function_9b1ae7e9(player)
 
 /*
 	Name: function_93405f3
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xD9BA518
 	Offset: 0x5948
 	Size: 0x15A
@@ -1641,7 +1641,7 @@ function function_93405f3(e_enemy, player)
 
 /*
 	Name: function_826a69d8
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xFE6DDD9
 	Offset: 0x5AB0
 	Size: 0x24
@@ -1655,7 +1655,7 @@ function function_826a69d8(player)
 
 /*
 	Name: function_5c685ad1
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x9F82CF13
 	Offset: 0x5AE0
 	Size: 0x4C
@@ -1673,7 +1673,7 @@ function function_5c685ad1()
 
 /*
 	Name: ai_death_derez
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x30C62532
 	Offset: 0x5B38
 	Size: 0x64
@@ -1695,7 +1695,7 @@ function ai_death_derez()
 
 /*
 	Name: function_9d7569cc
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xBF3791AB
 	Offset: 0x5BA8
 	Size: 0x32
@@ -1709,7 +1709,7 @@ function function_9d7569cc()
 
 /*
 	Name: function_29281420
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xBC1FA851
 	Offset: 0x5BE8
 	Size: 0x14
@@ -1723,7 +1723,7 @@ function function_29281420()
 
 /*
 	Name: derez_when_actor_becomes_corpse
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xB012988B
 	Offset: 0x5C08
 	Size: 0xCA
@@ -1756,7 +1756,7 @@ function derez_when_actor_becomes_corpse()
 
 /*
 	Name: derez_on_ragdoll_start
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xEC36277B
 	Offset: 0x5CE0
 	Size: 0xCA
@@ -1790,7 +1790,7 @@ function derez_on_ragdoll_start()
 
 /*
 	Name: function_31f3ed94
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x976E6AE0
 	Offset: 0x5DB8
 	Size: 0xE2
@@ -1809,7 +1809,7 @@ function function_31f3ed94(e_player)
 
 /*
 	Name: function_6d04e0c2
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xF1BD46FB
 	Offset: 0x5EA8
 	Size: 0x14C
@@ -1831,7 +1831,7 @@ function function_6d04e0c2()
 
 /*
 	Name: upload_leaderboards
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xD8BEC7
 	Offset: 0x6000
 	Size: 0x1C
@@ -1845,7 +1845,7 @@ function upload_leaderboards()
 
 /*
 	Name: function_3206b93a
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xEBF993E8
 	Offset: 0x6028
 	Size: 0x29C
@@ -1888,7 +1888,7 @@ function function_3206b93a()
 
 /*
 	Name: function_9ab09984
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x34D56D55
 	Offset: 0x62D0
 	Size: 0x82
@@ -1907,7 +1907,7 @@ function function_9ab09984()
 
 /*
 	Name: function_e22afa2c
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x39E808F6
 	Offset: 0x6360
 	Size: 0x108
@@ -1940,7 +1940,7 @@ function function_e22afa2c()
 
 /*
 	Name: function_453e055b
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x9BAF38FF
 	Offset: 0x6470
 	Size: 0x5C
@@ -1964,7 +1964,7 @@ function function_453e055b()
 
 /*
 	Name: end_round
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x61A4F951
 	Offset: 0x64D8
 	Size: 0x94
@@ -1990,7 +1990,7 @@ function end_round()
 
 /*
 	Name: function_11a03fdc
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x514A4E35
 	Offset: 0x6578
 	Size: 0x24

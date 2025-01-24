@@ -11,11 +11,11 @@
 #using scripts\shared\util_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_c550ee23;
+#namespace training_sim;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x520563CA
 	Offset: 0x6C0
 	Size: 0x34
@@ -29,7 +29,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x3AEE74C0
 	Offset: 0x700
 	Size: 0x2BC
@@ -52,7 +52,7 @@ function __init__()
 
 /*
 	Name: function_86af5f80
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xBDA90FD8
 	Offset: 0x9C8
 	Size: 0x4B4
@@ -123,7 +123,7 @@ function function_86af5f80(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_11225c9f
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0xB11E6213
 	Offset: 0xE88
 	Size: 0x4C4
@@ -195,7 +195,7 @@ function function_11225c9f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_d3b7cf16
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x82E1965F
 	Offset: 0x1358
 	Size: 0x174
@@ -223,7 +223,7 @@ function function_d3b7cf16(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_14646786
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x7ADAC76B
 	Offset: 0x14D8
 	Size: 0x84
@@ -238,7 +238,7 @@ function function_14646786(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_b699155b
-	Namespace: namespace_c550ee23
+	Namespace: training_sim
 	Checksum: 0x74D35E5A
 	Offset: 0x1568
 	Size: 0x122
