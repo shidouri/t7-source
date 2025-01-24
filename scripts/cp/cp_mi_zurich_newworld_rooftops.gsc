@@ -202,14 +202,14 @@ function function_34fb5ce3(a_ents)
 	Parameters: 1
 	Flags: Linked
 */
-function function_b81a9fbb(var_26fbc878)
+function function_b81a9fbb(w_weap)
 {
 	level endon(#"hash_d2197033");
 	while(true)
 	{
 		self waittill("fire");
 		v_end = self.origin + (anglestoforward(self.angles) * 1000);
-		magicbullet(var_26fbc878, self.origin, v_end);
+		magicbullet(w_weap, self.origin, v_end);
 	}
 }
 
