@@ -1059,11 +1059,11 @@ function picture_cipher()
 function function_7e754365()
 {
 	self setcandamage(1);
-	var_face7c14 = getweapon("smg_standard_upgraded");
+	w_key = getweapon("smg_standard_upgraded");
 	while(true)
 	{
 		self waittill("damage", n_damage, e_attacker, v_dir, v_loc, str_type, str_model, str_tag, str_part, w_weapon, n_flags);
-		if(w_weapon.rootweapon == var_face7c14)
+		if(w_weapon.rootweapon == w_key)
 		{
 			break;
 		}
