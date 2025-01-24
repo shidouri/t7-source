@@ -888,13 +888,13 @@ function function_948d4e7d()
 	var_51aa97ed = util::spawn_model(var_9f30ae72.model, var_9f30ae72.origin, var_9f30ae72.angles);
 	var_51aa97ed setscale(var_9f30ae72.script_float);
 	var_c1b1cd1c = 2.3 / 30;
-	var_fa77a9e7 = 0;
+	n_fill = 0;
 	while(true)
 	{
 		level waittill(#"hash_9b391ed5");
-		if(var_fa77a9e7 < 30)
+		if(n_fill < 30)
 		{
-			var_fa77a9e7++;
+			n_fill++;
 			var_51aa97ed.origin = var_51aa97ed.origin + (0, 0, var_c1b1cd1c);
 		}
 		else
@@ -925,13 +925,13 @@ function function_66951281()
 	var_51aa97ed = util::spawn_model(var_e7c6777b.model, var_e7c6777b.origin, var_e7c6777b.angles);
 	var_51aa97ed setscale(var_e7c6777b.script_float);
 	var_c1b1cd1c = 2 / 15;
-	var_fa77a9e7 = 0;
+	n_fill = 0;
 	while(true)
 	{
 		level waittill(#"hash_d7362b52");
-		if(var_fa77a9e7 < 15)
+		if(n_fill < 15)
 		{
-			var_fa77a9e7++;
+			n_fill++;
 			var_51aa97ed.origin = var_51aa97ed.origin + (0, 0, var_c1b1cd1c);
 		}
 		else
