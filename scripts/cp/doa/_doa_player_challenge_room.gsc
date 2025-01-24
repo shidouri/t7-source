@@ -258,9 +258,9 @@ function function_15a0c9b5(room)
 			wait(1);
 			level thread doa_utility::function_37fb5c23((isdefined(room.title2) ? room.title2 : &"DOA_PLAYER_CHALLENGE_ROOM_FAILED2"));
 		}
-		if(isdefined(room.var_1cd9eda))
+		if(isdefined(room.failcb))
 		{
-			level [[room.var_1cd9eda]](room);
+			level [[room.failcb]](room);
 		}
 	}
 	else

@@ -605,7 +605,7 @@ function function_87092704(room)
 			room.var_45da785b = &namespace_df93fc7c::function_6aa91f48;
 			room.var_58e293a2 = &namespace_df93fc7c::function_5f0b67a9;
 			room.var_c64606ef = &namespace_df93fc7c::function_f1915ffb;
-			room.var_1cd9eda = &namespace_df93fc7c::function_9e5e0a15;
+			room.failcb = &namespace_df93fc7c::function_9e5e0a15;
 			room.var_2530dc89 = &namespace_df93fc7c::function_a25fc96;
 			room.var_5281efe5 = 47;
 			room.var_2b9a70de = 47;
@@ -622,7 +622,7 @@ function function_87092704(room)
 			room.var_45da785b = &namespace_df93fc7c::function_ba487e2a;
 			room.var_58e293a2 = &namespace_df93fc7c::function_f14ef72f;
 			room.var_c64606ef = &namespace_df93fc7c::function_ce5fc0d;
-			room.var_1cd9eda = &namespace_df93fc7c::function_9d1b24f7;
+			room.failcb = &namespace_df93fc7c::function_9d1b24f7;
 			room.var_2530dc89 = &namespace_df93fc7c::function_e13abd74;
 			room.var_5281efe5 = 11;
 			room.var_2b9a70de = 11;
@@ -637,7 +637,7 @@ function function_87092704(room)
 			room.var_6f369ab4 = 1;
 			room.var_45da785b = &namespace_df93fc7c::function_31c377e;
 			room.var_58e293a2 = &namespace_df93fc7c::function_8e0e22bb;
-			room.var_1cd9eda = &namespace_df93fc7c::function_47a3686b;
+			room.failcb = &namespace_df93fc7c::function_47a3686b;
 			room.var_c64606ef = &namespace_df93fc7c::function_eee6e911;
 			room.var_2530dc89 = &namespace_df93fc7c::function_7823dbb8;
 			room.var_5281efe5 = 19;
@@ -653,7 +653,7 @@ function function_87092704(room)
 			room.var_45da785b = &namespace_df93fc7c::function_c7e4d911;
 			room.var_58e293a2 = &namespace_df93fc7c::function_2ea4cb82;
 			room.var_c64606ef = &namespace_df93fc7c::function_b3939e94;
-			room.var_1cd9eda = &namespace_df93fc7c::function_92349eb6;
+			room.failcb = &namespace_df93fc7c::function_92349eb6;
 			room.var_2530dc89 = &namespace_df93fc7c::function_fd4f5419;
 			room.banner = 2;
 			room.var_5281efe5 = 26;
