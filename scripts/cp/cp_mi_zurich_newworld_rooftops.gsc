@@ -2808,11 +2808,11 @@ function glass_ceiling_igc()
 	scene::add_scene_func("cin_new_09_01_glassceiling_1st_tackle_part02", &function_47edd0a5);
 	scene::add_scene_func("p7_fxanim_cp_newworld_chase_glass_roof_bundle", &function_920e3893, "play");
 	level thread function_bc6c3aa5();
-	var_5b5cfed1 = getent("start_glass_ceiling_igc", "targetname");
-	level.var_f2a5cb1e = var_5b5cfed1;
+	t_igc = getent("start_glass_ceiling_igc", "targetname");
+	level.var_f2a5cb1e = t_igc;
 	while(true)
 	{
-		var_5b5cfed1 waittill("trigger", ent);
+		t_igc waittill("trigger", ent);
 		if(isplayer(ent))
 		{
 			level thread function_3174cbb();
@@ -3849,8 +3849,8 @@ function bomber_chase_path(str_objective)
 		level thread scene::stop("cin_new_08_01_rooftops_vign_encounter110");
 		function_c2f8c75f();
 		level thread scene::play("cin_new_08_01_rooftops_vign_encounter120");
-		var_5b5cfed1 = getent("start_glass_ceiling_igc", "targetname");
-		level.var_f2a5cb1e = var_5b5cfed1;
+		t_igc = getent("start_glass_ceiling_igc", "targetname");
+		level.var_f2a5cb1e = t_igc;
 	}
 }
 

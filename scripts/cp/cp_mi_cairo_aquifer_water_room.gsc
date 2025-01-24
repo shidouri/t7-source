@@ -107,7 +107,7 @@ function function_1ecf48ef()
 	scene::add_scene_func("cin_aqu_05_01_enter_1st_look", &function_3d8a313e, "play");
 	scene::init("cin_aqu_05_01_enter_1st_look");
 	level waittill(#"hash_7e64f485");
-	var_5b5cfed1 = trigger::wait_till("water_room_igc");
+	t_igc = trigger::wait_till("water_room_igc");
 	struct = getent("igc_kane_khalil_1", "targetname");
 	level notify(#"hash_ee3f7dc5");
 	if(isdefined(level.bzm_aquiferdialogue1_7callback))
@@ -121,7 +121,7 @@ function function_1ecf48ef()
 	aquifer_obj::function_b3ed487d(1);
 	exploder::exploder_stop("lighting_server_perf_lights");
 	function_cd377710();
-	struct scene::play("cin_aqu_05_01_enter_1st_look", var_5b5cfed1.who);
+	struct scene::play("cin_aqu_05_01_enter_1st_look", t_igc.who);
 	aquifer_obj::function_61034146(0);
 	level flag::set("inside_water_room");
 	util::teleport_players_igc("igc_enter_water_structs");
