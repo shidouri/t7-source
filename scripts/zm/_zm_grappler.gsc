@@ -157,9 +157,9 @@ function private function_28ac2916(e_source, e_target)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_3e1b1cea(var_cef3781d, var_a9fb66fa, n_speed)
+function private function_3e1b1cea(var_cef3781d, e_to, n_speed)
 {
-	n_distance = distance(var_cef3781d function_1e702195(), var_a9fb66fa function_1e702195());
+	n_distance = distance(var_cef3781d function_1e702195(), e_to function_1e702195());
 	return n_distance / n_speed;
 }
 
