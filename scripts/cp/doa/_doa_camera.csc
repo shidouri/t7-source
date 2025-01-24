@@ -297,10 +297,10 @@ function function_d207ecc1(localclientnum, delta_time)
 	var_e147176c = 1800;
 	var_ecd4ec49 = 450;
 	var_4544d2a1 = abs(dims[1]);
-	var_c23fe37b = 0;
+	t_y = 0;
 	if(var_4544d2a1 > var_aee49bea)
 	{
-		var_c23fe37b = (var_4544d2a1 - var_aee49bea) / (var_e147176c - var_aee49bea);
+		t_y = (var_4544d2a1 - var_aee49bea) / (var_e147176c - var_aee49bea);
 	}
 	var_de478449 = 50;
 	var_967aec83 = 500;
@@ -314,7 +314,7 @@ function function_d207ecc1(localclientnum, delta_time)
 		new_y = cam_pos[1] + ((var_5296710e - cam_pos[1]) * frac);
 		cam_pos = (cam_pos[0], new_y, cam_pos[2]);
 	}
-	t = var_c23fe37b;
+	t = t_y;
 	if(t_x > t)
 	{
 		t = t_x;
