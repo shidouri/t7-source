@@ -867,8 +867,8 @@ function function_3ae0d6d5(e_player)
 function function_3f67a723(origin, var_a0fa82de = 90, do_trace, e_ignore)
 {
 	var_a0fa82de = absangleclamp360(var_a0fa82de);
-	var_303bd275 = cos(var_a0fa82de * 0.5);
-	if(self util::is_player_looking_at(origin, var_303bd275, do_trace, e_ignore))
+	n_cos = cos(var_a0fa82de * 0.5);
+	if(self util::is_player_looking_at(origin, n_cos, do_trace, e_ignore))
 	{
 		return true;
 	}
