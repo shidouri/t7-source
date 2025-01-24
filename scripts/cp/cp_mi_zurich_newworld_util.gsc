@@ -1835,11 +1835,11 @@ function function_43dfaf16(a_ents)
 	Parameters: 1
 	Flags: Linked
 */
-function lock_player_controls(var_a5efd39d = 1)
+function lock_player_controls(b_lock = 1)
 {
 	foreach(player in level.activeplayers)
 	{
-		if(var_a5efd39d)
+		if(b_lock)
 		{
 			player enableinvulnerability();
 		}
@@ -1847,7 +1847,7 @@ function lock_player_controls(var_a5efd39d = 1)
 		{
 			player disableinvulnerability();
 		}
-		player util::freeze_player_controls(var_a5efd39d);
+		player util::freeze_player_controls(b_lock);
 	}
 }
 

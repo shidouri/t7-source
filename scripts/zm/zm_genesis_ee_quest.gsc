@@ -2454,11 +2454,11 @@ function function_43af724a()
 	Parameters: 1
 	Flags: Linked
 */
-function function_64e4c3ee(var_a5efd39d = 1)
+function function_64e4c3ee(b_lock = 1)
 {
 	foreach(e_player in level.activeplayers)
 	{
-		if(var_a5efd39d)
+		if(b_lock)
 		{
 			e_player enableinvulnerability();
 		}
@@ -2466,7 +2466,7 @@ function function_64e4c3ee(var_a5efd39d = 1)
 		{
 			e_player disableinvulnerability();
 		}
-		e_player util::freeze_player_controls(var_a5efd39d);
+		e_player util::freeze_player_controls(b_lock);
 	}
 }
 
