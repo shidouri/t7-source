@@ -3759,11 +3759,11 @@ function function_b780637(n_val)
 {
 	/#
 		var_e8489bcc = 90 * n_val;
-		var_19ccee47 = (0, var_e8489bcc, 0);
+		v_face = (0, var_e8489bcc, 0);
 		player = level.activeplayers[0];
 		var_5d8a4d6d = util::spawn_model("", player.origin, player.angles);
 		player linkto(var_5d8a4d6d);
-		var_5d8a4d6d rotateto(var_19ccee47, 0.25);
+		var_5d8a4d6d rotateto(v_face, 0.25);
 		wait(0.5);
 		player unlink();
 		var_5d8a4d6d delete();
