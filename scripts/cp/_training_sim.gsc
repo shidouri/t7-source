@@ -1920,9 +1920,9 @@ function function_e22afa2c()
 		self endon("disconnect");
 		while(true)
 		{
-			var_dd6f0201 = getdvarint("");
+			b_goto = getdvarint("");
 			var_e2c1fe1f = getdvarint("");
-			if(var_dd6f0201)
+			if(b_goto)
 			{
 				function_11a03fdc(getdvarint(""));
 				end_round();
