@@ -305,19 +305,19 @@ function function_d207ecc1(localclientnum, delta_time)
 	var_de478449 = 50;
 	var_967aec83 = 500;
 	var_1f425838 = abs(dims[0]);
-	var_9c3d6912 = 0;
+	t_x = 0;
 	if(var_1f425838 > var_de478449)
 	{
-		var_9c3d6912 = (var_1f425838 - var_de478449) / (var_967aec83 - var_de478449);
-		frac = math::clamp(var_9c3d6912, 0, 1);
+		t_x = (var_1f425838 - var_de478449) / (var_967aec83 - var_de478449);
+		frac = math::clamp(t_x, 0, 1);
 		var_5296710e = arena_center[1];
 		new_y = cam_pos[1] + ((var_5296710e - cam_pos[1]) * frac);
 		cam_pos = (cam_pos[0], new_y, cam_pos[2]);
 	}
 	t = var_c23fe37b;
-	if(var_9c3d6912 > t)
+	if(t_x > t)
 	{
-		t = var_9c3d6912;
+		t = t_x;
 	}
 	var_d5d07072 = var_ecd4ec49;
 	if(players.size > 1 && var_44509e49 == 1)
