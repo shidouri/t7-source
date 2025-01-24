@@ -368,8 +368,8 @@ function function_7b56c646()
 	foreach(e_gate in var_5cbc86c9)
 	{
 		e_gate.start_pos = e_gate.origin;
-		var_a6052bbf = struct::get(e_gate.target, "targetname");
-		e_gate.open_pos = var_a6052bbf.origin;
+		s_link = struct::get(e_gate.target, "targetname");
+		e_gate.open_pos = s_link.origin;
 	}
 	while(true)
 	{
@@ -414,8 +414,8 @@ function function_3fb91800()
 	foreach(e_gate in var_5cbc86c9)
 	{
 		e_gate.start_pos = e_gate.origin;
-		var_a6052bbf = struct::get(e_gate.target, "targetname");
-		e_gate.open_pos = var_a6052bbf.origin;
+		s_link = struct::get(e_gate.target, "targetname");
+		e_gate.open_pos = s_link.origin;
 	}
 	while(isdefined(level.var_f31afb37) && level.var_f31afb37)
 	{
