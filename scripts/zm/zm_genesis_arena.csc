@@ -737,11 +737,11 @@ function function_a8a110ed(localclientnum, s_location, v_angle_offset = (0, 0, 0
 	Parameters: 1
 	Flags: None
 */
-function function_3d5c3a74(var_9494ad2f)
+function function_3d5c3a74(b_rise)
 {
 	s_summoning_key = struct::get("summoning_key", "targetname");
 	v_offset = vectorscale((0, 0, 1), 512);
-	if(!var_9494ad2f)
+	if(!b_rise)
 	{
 		v_offset = (0, 0, 0);
 	}
