@@ -1176,9 +1176,9 @@ function function_6dbfd048(e_player)
 function function_27b9fdd3(e_spawned, v_pos, var_8e7d3ece)
 {
 	var_88ea9601 = e_spawned getabsmaxs();
-	var_eea2d76b = e_spawned getabsmins();
-	n_size = max(var_88ea9601[0] - var_eea2d76b[0], var_88ea9601[1] - var_eea2d76b[1]);
-	n_height = var_88ea9601[2] - var_eea2d76b[2];
+	v_mins = e_spawned getabsmins();
+	n_size = max(var_88ea9601[0] - v_mins[0], var_88ea9601[1] - v_mins[1]);
+	n_height = var_88ea9601[2] - v_mins[2];
 	var_567a389e = undefined;
 	if(isdefined(var_8e7d3ece))
 	{
