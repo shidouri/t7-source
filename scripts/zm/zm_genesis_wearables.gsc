@@ -513,7 +513,7 @@ function function_b8449f8c(var_5a533244)
 	}
 	while(var_5a533244.size > 0)
 	{
-		level waittill(#"hash_e8c3642d");
+		level waittill("a_kill");
 		v_kill_pos = level.var_98fdd784;
 		var_e84c42f6 = 0;
 		var_688f490b = undefined;
@@ -1281,7 +1281,7 @@ function function_9d85b9ce(e_attacker)
 		if(zm_utility::is_headshot(self.damageweapon, self.damagelocation, self.damagemod))
 		{
 			level.var_98fdd784 = self.origin;
-			level notify(#"hash_e8c3642d");
+			level notify("a_kill");
 		}
 	}
 	if(isplayer(e_attacker) && (isdefined(e_attacker.var_adaec269) && e_attacker.var_adaec269))
