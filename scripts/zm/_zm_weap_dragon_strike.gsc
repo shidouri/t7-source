@@ -201,20 +201,20 @@ function function_ff07e778()
 	a_players = getplayers();
 	for(i = 0; i < a_players.size; i++)
 	{
-		foreach(var_3ef7692 in level.placeable_mines)
+		foreach(w_mine in level.placeable_mines)
 		{
-			if(a_players[i] zm_utility::is_player_placeable_mine(var_3ef7692))
+			if(a_players[i] zm_utility::is_player_placeable_mine(w_mine))
 			{
-				if(var_3ef7692 == getweapon("launcher_dragon_strike") || var_3ef7692 == getweapon("launcher_dragon_strike_upgraded"))
+				if(w_mine == getweapon("launcher_dragon_strike") || w_mine == getweapon("launcher_dragon_strike_upgraded"))
 				{
 					a_players[i] function_ab4fad2f();
 					continue;
 					continue;
 				}
-				a_players[i] giveweapon(var_3ef7692);
-				a_players[i] zm_utility::set_player_placeable_mine(var_3ef7692);
-				a_players[i] setactionslot(4, "weapon", var_3ef7692);
-				a_players[i] setweaponammoclip(var_3ef7692, 2);
+				a_players[i] giveweapon(w_mine);
+				a_players[i] zm_utility::set_player_placeable_mine(w_mine);
+				a_players[i] setactionslot(4, "weapon", w_mine);
+				a_players[i] setweaponammoclip(w_mine, 2);
 				break;
 			}
 		}
