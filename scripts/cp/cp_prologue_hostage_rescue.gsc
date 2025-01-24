@@ -2826,8 +2826,8 @@ function function_5517d018()
 		}
 	}
 	e_volume delete();
-	var_2fd07777 = getent("lifttunnel_pipecollision", "targetname");
-	var_2fd07777 movez(-80, 0.05);
+	e_coll = getent("lifttunnel_pipecollision", "targetname");
+	e_coll movez(-80, 0.05);
 }
 
 /*
