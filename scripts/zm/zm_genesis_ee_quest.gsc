@@ -191,8 +191,8 @@ function function_c185c51f()
 	array::run_all(var_2efcd138, &delete);
 	for(i = 0; i < 7; i++)
 	{
-		var_f03dd5b1 = struct::get("ee_grand_tour_toy_0" + i, "targetname");
-		var_39018584 = getent(var_f03dd5b1.target, "targetname");
+		s_toy = struct::get("ee_grand_tour_toy_0" + i, "targetname");
+		var_39018584 = getent(s_toy.target, "targetname");
 		var_39018584 delete();
 	}
 	var_22610f78 = getentarray("115_crystals", "script_noteworthy");
@@ -2063,7 +2063,7 @@ function function_79fd9323()
 	level.var_6e907685 = [];
 	for(i = 0; i < 7; i++)
 	{
-		var_f03dd5b1 = struct::get("ee_grand_tour_toy_0" + i, "targetname");
+		s_toy = struct::get("ee_grand_tour_toy_0" + i, "targetname");
 		if(!isdefined(level.var_6e907685))
 		{
 			level.var_6e907685 = [];
@@ -2072,8 +2072,8 @@ function function_79fd9323()
 		{
 			level.var_6e907685 = array(level.var_6e907685);
 		}
-		level.var_6e907685[level.var_6e907685.size] = var_f03dd5b1;
-		var_39018584 = getent(var_f03dd5b1.target, "targetname");
+		level.var_6e907685[level.var_6e907685.size] = s_toy;
+		var_39018584 = getent(s_toy.target, "targetname");
 		var_39018584 notsolid();
 	}
 	level thread function_27b96bc();
@@ -2105,20 +2105,20 @@ function function_27b96bc()
 		}
 		else if(isdefined(var_cb6acc3e) && var_766335a0 != var_cb6acc3e && distancesquared(var_766335a0, var_cb6acc3e) < 40000)
 		{
-			foreach(var_f03dd5b1 in level.var_6e907685)
+			foreach(s_toy in level.var_6e907685)
 			{
-				var_32769d76 = pointonsegmentnearesttopoint(var_766335a0, var_cb6acc3e, var_f03dd5b1.origin);
-				var_7dac19aa = var_32769d76 - var_f03dd5b1.origin;
+				var_32769d76 = pointonsegmentnearesttopoint(var_766335a0, var_cb6acc3e, s_toy.origin);
+				var_7dac19aa = var_32769d76 - s_toy.origin;
 				n_length = length(var_7dac19aa);
 				/#
-					assert(isdefined(var_f03dd5b1.radius), "");
+					assert(isdefined(s_toy.radius), "");
 				#/
-				if(n_length < var_f03dd5b1.radius)
+				if(n_length < s_toy.radius)
 				{
-					var_29c135aa = util::spawn_model(var_f03dd5b1.model, var_f03dd5b1.origin, var_f03dd5b1.angles);
-					var_29c135aa setscale(var_f03dd5b1.script_float);
+					var_29c135aa = util::spawn_model(s_toy.model, s_toy.origin, s_toy.angles);
+					var_29c135aa setscale(s_toy.script_float);
 					var_29c135aa notsolid();
-					switch(var_f03dd5b1.script_string)
+					switch(s_toy.script_string)
 					{
 						case "up":
 						{
@@ -2127,7 +2127,7 @@ function function_27b96bc()
 						}
 						case "forward":
 						{
-							var_39815a1b = (vectornormalize(var_46352a82.lastcarrier.origin - var_f03dd5b1.origin)) * 160;
+							var_39815a1b = (vectornormalize(var_46352a82.lastcarrier.origin - s_toy.origin)) * 160;
 							break;
 						}
 						default:
@@ -2139,28 +2139,28 @@ function function_27b96bc()
 						}
 					}
 					var_29c135aa thread function_e2a94206(var_39815a1b);
-					level.var_6e907685 = array::exclude(level.var_6e907685, var_f03dd5b1);
+					level.var_6e907685 = array::exclude(level.var_6e907685, s_toy);
 					var_46352a82 thread ball::function_b8faebaf(5);
-					var_39018584 = getent(var_f03dd5b1.target, "targetname");
-					playsoundatposition("zmb_gen_ee_toy_found", var_f03dd5b1.origin);
+					var_39018584 = getent(s_toy.target, "targetname");
+					playsoundatposition("zmb_gen_ee_toy_found", s_toy.origin);
 					wait(4.8);
 					var_39018584 delete();
 					level thread zm_genesis_vo::function_e644549c(var_46352a82.lastcarrier);
-					var_f03dd5b1 notify("toy_found");
+					s_toy notify("toy_found");
 					/#
 						iprintlnbold("");
 					#/
 					if(level.var_6e907685.size)
 					{
-						if(var_f03dd5b1.target == "ee_grand_tour_origins")
+						if(s_toy.target == "ee_grand_tour_origins")
 						{
 							var_46352a82 ball::reset_ball(1, var_46352a82.lastcarrier.origin, 1);
 						}
 						else
 						{
-							var_b99670e6 = distance2d(var_46352a82.lastcarrier.origin, var_f03dd5b1.origin);
+							var_b99670e6 = distance2d(var_46352a82.lastcarrier.origin, s_toy.origin);
 							var_43b88dc1 = var_b99670e6 * 0.3;
-							n_z_diff = abs(var_46352a82.lastcarrier.origin[2] - var_f03dd5b1.origin[2]);
+							n_z_diff = abs(var_46352a82.lastcarrier.origin[2] - s_toy.origin[2]);
 							var_43b88dc1 = var_43b88dc1 + (n_z_diff * 0.5);
 							var_43b88dc1 = var_43b88dc1 + 150;
 							v_force = (var_46352a82.lastcarrier.origin + (0, 0, var_43b88dc1)) - var_766335a0;
