@@ -2730,7 +2730,7 @@ function function_63326db4(b_debug = 0)
 	Parameters: 3
 	Flags: Linked
 */
-function function_c0e035d6(str_spawn, var_bf7e118f = 0, var_8f4dddff = 1)
+function function_c0e035d6(str_spawn, b_raz = 0, var_8f4dddff = 1)
 {
 	if(level.round_number < 20)
 	{
@@ -2738,7 +2738,7 @@ function function_c0e035d6(str_spawn, var_bf7e118f = 0, var_8f4dddff = 1)
 	}
 	var_ad0ee644 = struct::get_array(str_spawn, "targetname");
 	var_ad0ee644 = array::filter(var_ad0ee644, 0, &zm_stalingrad_util::function_c66f2957);
-	if(!var_bf7e118f)
+	if(!b_raz)
 	{
 		level notify("stop_dragon_boss_zombie");
 		wait(1);
