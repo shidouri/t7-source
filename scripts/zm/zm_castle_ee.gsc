@@ -2405,8 +2405,8 @@ function function_a4b7a410()
 	var_530ae70 delete();
 	exploder::stop_exploder("lgt_MPD_exp");
 	exploder::stop_exploder("lgt_MPD_broken_exp");
-	var_76c91f56 = getentarray("undercroft_pyramid", "targetname");
-	foreach(var_293d02aa in var_76c91f56)
+	a_mpd = getentarray("undercroft_pyramid", "targetname");
+	foreach(var_293d02aa in a_mpd)
 	{
 		var_293d02aa connectpaths();
 		var_293d02aa delete();
