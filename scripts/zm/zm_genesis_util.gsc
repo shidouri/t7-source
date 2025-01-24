@@ -3483,12 +3483,12 @@ function function_30672281()
 		{
 			for(i = 0; i < level.activeplayers.size; i++)
 			{
-				var_83c144e5 = (var_2f06ca53 * 10) + 11;
+				n_ypos = (var_2f06ca53 * 10) + 11;
 				if(isdefined(level.activeplayers[i]))
 				{
 					if(isgodmode(level.activeplayers[i]) && !isdefined(var_f1ef8e43[level.activeplayers[i].name]))
 					{
-						var_f1ef8e43[level.activeplayers[i].name] = function_a1bfa962(level.activeplayers[i], level.activeplayers[i].name + "", 2, var_83c144e5);
+						var_f1ef8e43[level.activeplayers[i].name] = function_a1bfa962(level.activeplayers[i], level.activeplayers[i].name + "", 2, n_ypos);
 						var_2f06ca53++;
 					}
 					if(!isgodmode(level.activeplayers[i]) && isdefined(var_f1ef8e43[level.activeplayers[i].name]))
