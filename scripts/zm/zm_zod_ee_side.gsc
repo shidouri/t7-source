@@ -931,10 +931,10 @@ function function_e947749a()
 		}
 	}
 	a_items = struct::get_array("hs_item_stage", "targetname");
-	foreach(var_2e8087fe in a_items)
+	foreach(s_item in a_items)
 	{
-		var_49d8189c = util::spawn_model(var_2e8087fe.model, var_2e8087fe.origin, var_2e8087fe.angles);
-		if(var_2e8087fe.model == "p7_zm_zod_hidden_songs_mic_stand")
+		var_49d8189c = util::spawn_model(s_item.model, s_item.origin, s_item.angles);
+		if(s_item.model == "p7_zm_zod_hidden_songs_mic_stand")
 		{
 			var_49d8189c thread function_b6296b8b();
 		}
