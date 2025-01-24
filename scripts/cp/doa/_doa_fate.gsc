@@ -33,46 +33,46 @@
 */
 function init()
 {
-	if(!isdefined(level.doa.var_b1698a42))
+	if(!isdefined(level.doa.fates))
 	{
-		level.doa.var_b1698a42 = spawnstruct();
-		level.doa.var_b1698a42.types = [];
-		level.doa.var_b1698a42.var_9c35e18e = [];
-		level.doa.var_b1698a42.arena = "temple";
-		level.doa.var_b1698a42.var_64e3261c = "temple";
-		level.doa.var_b1698a42.var_f485e213 = "p7_sin_rock_park_07_blue";
-		level.doa.var_b1698a42.var_6e3ecc6b = "zombietron_stoneboss";
-		level.doa.var_b1698a42.types[level.doa.var_b1698a42.types.size] = 1;
-		level.doa.var_b1698a42.types[level.doa.var_b1698a42.types.size] = 2;
-		level.doa.var_b1698a42.types[level.doa.var_b1698a42.types.size] = 3;
-		level.doa.var_b1698a42.types[level.doa.var_b1698a42.types.size] = 4;
-		level.doa.var_b1698a42.var_9c35e18e[level.doa.var_b1698a42.var_9c35e18e.size] = 10;
-		level.doa.var_b1698a42.var_9c35e18e[level.doa.var_b1698a42.var_9c35e18e.size] = 11;
-		level.doa.var_b1698a42.var_9c35e18e[level.doa.var_b1698a42.var_9c35e18e.size] = 12;
-		level.doa.var_b1698a42.var_9c35e18e[level.doa.var_b1698a42.var_9c35e18e.size] = 13;
-		level.doa.var_b1698a42.locations = doa_utility::function_4e9a23a9(struct::get_array("doa_fate_loc", "targetname"));
-		level.doa.var_b1698a42.var_70a33a0b = doa_utility::function_4e9a23a9(struct::get_array("doa_fate2_loc", "targetname"));
-		level.doa.var_b1698a42.types = doa_utility::function_4e9a23a9(level.doa.var_b1698a42.types);
-		level.doa.var_b1698a42.var_9c35e18e = doa_utility::function_4e9a23a9(level.doa.var_b1698a42.var_9c35e18e);
-		level.doa.var_b1698a42.msgs = [];
-		level.doa.var_b1698a42.var_33d94cd7 = 0;
-		level.doa.var_b1698a42.msgs[level.doa.var_b1698a42.msgs.size] = newhudelem();
-		level.doa.var_b1698a42.msgs[level.doa.var_b1698a42.msgs.size] = newhudelem();
-		level.doa.var_b1698a42.msgs[level.doa.var_b1698a42.msgs.size] = newhudelem();
-		level.doa.var_b1698a42.msgs[level.doa.var_b1698a42.msgs.size] = newhudelem();
-		level.doa.var_b1698a42.var_cadf4b04 = [];
-		level.doa.var_b1698a42.var_1bcf76cc = 0;
-		for(i = 0; i < level.doa.var_b1698a42.msgs.size; i++)
+		level.doa.fates = spawnstruct();
+		level.doa.fates.types = [];
+		level.doa.fates.var_9c35e18e = [];
+		level.doa.fates.arena = "temple";
+		level.doa.fates.var_64e3261c = "temple";
+		level.doa.fates.var_f485e213 = "p7_sin_rock_park_07_blue";
+		level.doa.fates.var_6e3ecc6b = "zombietron_stoneboss";
+		level.doa.fates.types[level.doa.fates.types.size] = 1;
+		level.doa.fates.types[level.doa.fates.types.size] = 2;
+		level.doa.fates.types[level.doa.fates.types.size] = 3;
+		level.doa.fates.types[level.doa.fates.types.size] = 4;
+		level.doa.fates.var_9c35e18e[level.doa.fates.var_9c35e18e.size] = 10;
+		level.doa.fates.var_9c35e18e[level.doa.fates.var_9c35e18e.size] = 11;
+		level.doa.fates.var_9c35e18e[level.doa.fates.var_9c35e18e.size] = 12;
+		level.doa.fates.var_9c35e18e[level.doa.fates.var_9c35e18e.size] = 13;
+		level.doa.fates.locations = doa_utility::function_4e9a23a9(struct::get_array("doa_fate_loc", "targetname"));
+		level.doa.fates.var_70a33a0b = doa_utility::function_4e9a23a9(struct::get_array("doa_fate2_loc", "targetname"));
+		level.doa.fates.types = doa_utility::function_4e9a23a9(level.doa.fates.types);
+		level.doa.fates.var_9c35e18e = doa_utility::function_4e9a23a9(level.doa.fates.var_9c35e18e);
+		level.doa.fates.msgs = [];
+		level.doa.fates.var_33d94cd7 = 0;
+		level.doa.fates.msgs[level.doa.fates.msgs.size] = newhudelem();
+		level.doa.fates.msgs[level.doa.fates.msgs.size] = newhudelem();
+		level.doa.fates.msgs[level.doa.fates.msgs.size] = newhudelem();
+		level.doa.fates.msgs[level.doa.fates.msgs.size] = newhudelem();
+		level.doa.fates.var_cadf4b04 = [];
+		level.doa.fates.var_1bcf76cc = 0;
+		for(i = 0; i < level.doa.fates.msgs.size; i++)
 		{
-			level.doa.var_b1698a42.msgs[i].alignx = "center";
-			level.doa.var_b1698a42.msgs[i].aligny = "middle";
-			level.doa.var_b1698a42.msgs[i].horzalign = "center";
-			level.doa.var_b1698a42.msgs[i].vertalign = "middle";
-			level.doa.var_b1698a42.msgs[i].y = level.doa.var_b1698a42.msgs[i].y - (80 - (i * 20));
-			level.doa.var_b1698a42.msgs[i].foreground = 1;
-			level.doa.var_b1698a42.msgs[i].fontscale = 2.5;
-			level.doa.var_b1698a42.msgs[i].color = (1, 0.2, 0);
-			level.doa.var_b1698a42.msgs[i].hidewheninmenu = 1;
+			level.doa.fates.msgs[i].alignx = "center";
+			level.doa.fates.msgs[i].aligny = "middle";
+			level.doa.fates.msgs[i].horzalign = "center";
+			level.doa.fates.msgs[i].vertalign = "middle";
+			level.doa.fates.msgs[i].y = level.doa.fates.msgs[i].y - (80 - (i * 20));
+			level.doa.fates.msgs[i].foreground = 1;
+			level.doa.fates.msgs[i].fontscale = 2.5;
+			level.doa.fates.msgs[i].color = (1, 0.2, 0);
+			level.doa.fates.msgs[i].hidewheninmenu = 1;
 		}
 	}
 }
@@ -146,11 +146,11 @@ function private function_6162a853(var_26fc4461 = 0)
 */
 function function_fd0b8976(text, holdtime = 4, color = (1, 0, 0), reset = 0)
 {
-	msg = level.doa.var_b1698a42.msgs[level.doa.var_b1698a42.var_33d94cd7];
-	level.doa.var_b1698a42.var_33d94cd7++;
-	if(level.doa.var_b1698a42.var_33d94cd7 >= level.doa.var_b1698a42.msgs.size)
+	msg = level.doa.fates.msgs[level.doa.fates.var_33d94cd7];
+	level.doa.fates.var_33d94cd7++;
+	if(level.doa.fates.var_33d94cd7 >= level.doa.fates.msgs.size)
 	{
-		level.doa.var_b1698a42.var_33d94cd7 = 0;
+		level.doa.fates.var_33d94cd7 = 0;
 	}
 	msg.alpha = 0;
 	msg settext(text);
@@ -162,7 +162,7 @@ function function_fd0b8976(text, holdtime = 4, color = (1, 0, 0), reset = 0)
 	msg.alpha = 0;
 	if(reset)
 	{
-		level.doa.var_b1698a42.var_33d94cd7 = 0;
+		level.doa.fates.var_33d94cd7 = 0;
 	}
 }
 
@@ -202,15 +202,15 @@ function function_77ed1bae()
 		namespace_cdb9a8fe::function_55762a85(doa_arena::function_61d60e0b());
 	}
 	level thread doa_utility::set_lighting_state(3);
-	for(i = 0; i < level.doa.var_b1698a42.types.size; i++)
+	for(i = 0; i < level.doa.fates.types.size; i++)
 	{
-		type = level.doa.var_b1698a42.types[i];
-		loc = level.doa.var_b1698a42.locations[i];
+		type = level.doa.fates.types[i];
+		loc = level.doa.fates.locations[i];
 		rock = spawn("script_model", loc.origin + vectorscale((0, 0, 1), 2000));
 		rock.targetname = "fate_rock";
 		rock.oloc = rock.origin;
 		rock.dloc = loc.origin;
-		rock setmodel(level.doa.var_b1698a42.var_f485e213);
+		rock setmodel(level.doa.fates.var_f485e213);
 		rock.angles = (0, type * 90, 0);
 		rock setscale(0.9 + (type * 0.05));
 		trigger = spawn("trigger_radius", rock.origin, 0, loc.radius, 128);
@@ -219,7 +219,7 @@ function function_77ed1bae()
 		trigger.rock = rock;
 		trigger.id = i;
 		trigger thread function_271ba816();
-		level.doa.var_b1698a42.var_cadf4b04[level.doa.var_b1698a42.var_cadf4b04.size] = trigger;
+		level.doa.fates.var_cadf4b04[level.doa.fates.var_cadf4b04.size] = trigger;
 		trigger enablelinkto();
 		trigger linkto(rock);
 	}
@@ -244,7 +244,7 @@ function function_77ed1bae()
 	wait(5);
 	doa_utility::function_44eb090b();
 	level.doa.fates_have_been_chosen = 1;
-	level.doa.var_b1698a42.var_cadf4b04 = [];
+	level.doa.fates.var_cadf4b04 = [];
 	guardian.origin = guardian.origin + vectorscale((0, 0, 1), 1000);
 	var_526b2f85.origin = var_526b2f85.origin + vectorscale((0, 0, 1), 1000);
 	level thread doa_utility::set_lighting_state(level.doa.arena_round_number);
@@ -359,7 +359,7 @@ function private function_271ba816(var_26fc4461 = 0)
 			guy.doa.var_2219ffc9 = 1;
 			if(guy.doa.fate == 0)
 			{
-				avail = level.doa.var_b1698a42.types;
+				avail = level.doa.fates.types;
 				players = namespace_831a4a7c::function_5eb6e4d1();
 				foreach(player in players)
 				{
@@ -924,7 +924,7 @@ function function_833dad0d()
 		players[i].doa.var_eb1cd159 = 0;
 		players[i].doa.var_2219ffc9 = undefined;
 	}
-	level.doa.var_b1698a42.var_1bcf76cc = 1;
+	level.doa.fates.var_1bcf76cc = 1;
 	flag::set("doa_round_active");
 	level thread function_b6a1fab3();
 	/#
@@ -970,16 +970,16 @@ function function_833dad0d()
 	/#
 		doa_utility::debugmsg((("" + (isdefined(var_de2c598.name) ? var_de2c598.name : var_de2c598 getentitynumber())) + "") + var_de2c598.doa.var_e5be00e0);
 	#/
-	for(i = 0; i < level.doa.var_b1698a42.var_9c35e18e.size; i++)
+	for(i = 0; i < level.doa.fates.var_9c35e18e.size; i++)
 	{
 		type = (10 + var_de2c598.doa.fate) - 1;
-		loc = level.doa.var_b1698a42.var_70a33a0b[i];
+		loc = level.doa.fates.var_70a33a0b[i];
 		rock = spawn("script_model", loc.origin + vectorscale((0, 0, 1), 2000));
 		rock.targetname = "doRoomOfJudgement";
 		rock.dloc = loc.origin;
 		rock.oloc = rock.origin;
 		rock.angles = loc.angles + vectorscale((0, 1, 0), 90);
-		rock setmodel(level.doa.var_b1698a42.var_f485e213);
+		rock setmodel(level.doa.fates.var_f485e213);
 		trigger = spawn("trigger_radius", rock.origin, 0, loc.radius, 128);
 		trigger.targetname = "fate2trigger";
 		trigger.type = type;
@@ -988,7 +988,7 @@ function function_833dad0d()
 		trigger thread function_271ba816(1);
 		trigger enablelinkto();
 		trigger linkto(rock);
-		level.doa.var_b1698a42.var_cadf4b04[level.doa.var_b1698a42.var_cadf4b04.size] = trigger;
+		level.doa.fates.var_cadf4b04[level.doa.fates.var_cadf4b04.size] = trigger;
 	}
 	locs = struct::get_array("fate_player_spawn", "targetname");
 	if(isdefined(locs) && locs.size == 4)
@@ -1061,10 +1061,10 @@ function function_be1e2cfc(guardian, var_526b2f85)
 	}
 	level thread doa_utility::set_lighting_state(level.doa.arena_round_number);
 	level.doa.var_aaefc0f3 = 1;
-	level.doa.var_b1698a42.var_cadf4b04 = [];
+	level.doa.fates.var_cadf4b04 = [];
 	guardian.origin = guardian.origin + vectorscale((0, 0, 1), 1000);
 	var_526b2f85.origin = var_526b2f85.origin + vectorscale((0, 0, 1), 1000);
-	level.doa.var_b1698a42.var_1bcf76cc = 0;
+	level.doa.fates.var_1bcf76cc = 0;
 	level.doa.rules.max_enemy_count = doa_arena::function_b0e9983(doa_arena::function_d2d75f5d());
 }
 
@@ -1580,29 +1580,29 @@ function private function_b6a1fab3()
 	var_9a550361 = var_60de7d19;
 	boss = spawn("script_model", var_9a550361);
 	boss.targetname = "stoneguardian";
-	boss setmodel(level.doa.var_b1698a42.var_6e3ecc6b);
+	boss setmodel(level.doa.fates.var_6e3ecc6b);
 	boss thread function_c492e72d();
 	level.doa.boss = boss;
 	badplace_cylinder("bossJustice", -1, boss.origin, 180, 64, "all");
-	loc = level.doa.var_b1698a42.locations[0];
+	loc = level.doa.fates.locations[0];
 	fury = spawn("script_model", loc.origin);
 	fury.targetname = "fury";
 	fury setmodel("zombietron_statue_fury");
 	fury.angles = loc.angles + vectorscale((0, 1, 0), 90);
 	fury thread doa_utility::function_783519c1("player_challenge_failure", 1);
-	loc = level.doa.var_b1698a42.locations[1];
+	loc = level.doa.fates.locations[1];
 	force = spawn("script_model", loc.origin);
 	force.targetname = "force";
 	force setmodel("zombietron_statue_force");
 	force.angles = loc.angles + vectorscale((0, 1, 0), 90);
 	force thread doa_utility::function_783519c1("player_challenge_failure", 1);
-	loc = level.doa.var_b1698a42.locations[2];
+	loc = level.doa.fates.locations[2];
 	var_47bba3bb = spawn("script_model", loc.origin);
 	var_47bba3bb.targetname = "fortitude";
 	var_47bba3bb setmodel("zombietron_statue_fortitude");
 	var_47bba3bb.angles = loc.angles + vectorscale((0, 1, 0), 90);
 	var_47bba3bb thread doa_utility::function_783519c1("player_challenge_failure", 1);
-	loc = level.doa.var_b1698a42.locations[3];
+	loc = level.doa.fates.locations[3];
 	favor = spawn("script_model", loc.origin);
 	favor.targetname = "favor";
 	favor setmodel("zombietron_statue_favor");

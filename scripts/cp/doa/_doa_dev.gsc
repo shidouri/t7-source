@@ -387,14 +387,14 @@ function function_a3bba13d()
 				doa_utility::debugmsg("Bot is being added.  Count=" + level.botcount);
 			}
 		}
-		if(level.doa.var_b1698a42.var_cadf4b04.size > 0)
+		if(level.doa.fates.var_cadf4b04.size > 0)
 		{
 			i = 0;
 			foreach(guy in namespace_831a4a7c::function_5eb6e4d1())
 			{
 				if(guy arecontrolsfrozen() == 0)
 				{
-					guy setorigin(level.doa.var_b1698a42.var_cadf4b04[i].origin);
+					guy setorigin(level.doa.fates.var_cadf4b04[i].origin);
 					i++;
 				}
 			}
