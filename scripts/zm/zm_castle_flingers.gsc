@@ -1092,7 +1092,7 @@ function function_979004a()
 	Parameters: 1
 	Flags: Linked
 */
-function function_ab3112dc(var_16a4e32)
+function function_ab3112dc(t_well)
 {
 	if(!(isdefined(self.var_c7a6615d) && self.var_c7a6615d))
 	{
@@ -1104,14 +1104,14 @@ function function_ab3112dc(var_16a4e32)
 			level.var_bf38980c = gettime();
 			playsoundatposition("vox_maxis_pad_pa_use_0", self.origin);
 		}
-		while(self istouching(var_16a4e32) && (!(isdefined(self.is_flung) && self.is_flung)))
+		while(self istouching(t_well) && (!(isdefined(self.is_flung) && self.is_flung)))
 		{
 			self playrumbleonentity("zod_beast_grapple_reel");
 			n_current_time = gettime();
 			n_time = (n_current_time - n_start_time) / 1000;
 			if(n_time >= var_2d04a37c)
 			{
-				self thread function_894853cb(var_16a4e32);
+				self thread function_894853cb(t_well);
 				return;
 			}
 			wait(0.2);
@@ -1129,10 +1129,10 @@ function function_ab3112dc(var_16a4e32)
 	Parameters: 1
 	Flags: Linked
 */
-function function_894853cb(var_16a4e32)
+function function_894853cb(t_well)
 {
 	self endon("death");
-	nd_start = getvehiclenode(var_16a4e32.target, "targetname");
+	nd_start = getvehiclenode(t_well.target, "targetname");
 	self.is_flung = 1;
 	self enableinvulnerability();
 	self notsolid();
