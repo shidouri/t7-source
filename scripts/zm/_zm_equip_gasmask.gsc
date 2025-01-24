@@ -342,7 +342,7 @@ function gasmask_debug_print(msg, color)
 	Parameters: 4
 	Flags: Linked
 */
-function function_7cb416b(var_226f0a45, w_curr, var_d79c9dc0, str_notify)
+function function_7cb416b(var_226f0a45, w_curr, w_prev, str_notify)
 {
 	if(w_curr == var_226f0a45)
 	{
