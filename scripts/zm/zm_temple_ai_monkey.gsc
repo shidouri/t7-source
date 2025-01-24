@@ -859,20 +859,20 @@ function _monkey_play_stolen_loop()
 */
 function _monkey_getspawnlocation(var_93eb638b)
 {
-	var_9199584e = self monkey_getmonkeyspawnlocation(700, 0, 1);
-	if(!isdefined(var_9199584e))
+	v_best = self monkey_getmonkeyspawnlocation(700, 0, 1);
+	if(!isdefined(v_best))
 	{
-		var_9199584e = self monkey_getmonkeyspawnlocation(700, 1, 0);
+		v_best = self monkey_getmonkeyspawnlocation(700, 1, 0);
 	}
-	if(!isdefined(var_9199584e))
+	if(!isdefined(v_best))
 	{
-		var_9199584e = self monkey_getmonkeyspawnlocation(0, 0, 0);
+		v_best = self monkey_getmonkeyspawnlocation(0, 0, 0);
 	}
-	if(!isdefined(var_9199584e) && isdefined(var_93eb638b))
+	if(!isdefined(v_best) && isdefined(var_93eb638b))
 	{
-		var_9199584e = getbarrierattacklocation(var_93eb638b);
+		v_best = getbarrierattacklocation(var_93eb638b);
 	}
-	return var_9199584e;
+	return v_best;
 }
 
 /*
