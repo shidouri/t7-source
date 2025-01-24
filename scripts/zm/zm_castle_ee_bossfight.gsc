@@ -187,8 +187,8 @@ function function_b18f59bf()
 	level.var_513683a6 = 1;
 	exploder::kill_exploder("fxexp_117");
 	level thread lui::screen_flash(0.15, 1, 0.35, 0.95, "white");
-	var_649d30e8 = struct::get("mpd_pos");
-	var_293d02aa = util::spawn_model("p7_zm_ctl_undercroft_pyramid", var_649d30e8.origin, var_649d30e8.angles);
+	s_mpd = struct::get("mpd_pos");
+	var_293d02aa = util::spawn_model("p7_zm_ctl_undercroft_pyramid", s_mpd.origin, s_mpd.angles);
 	var_293d02aa hidepart("tag_prestine_can");
 	var_293d02aa.targetname = "undercroft_pyramid";
 	var_293d02aa playsound("zmb_ee_mpd_spawn_pyramid");

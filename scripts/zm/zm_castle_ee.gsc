@@ -2360,8 +2360,8 @@ function function_a4b7a410()
 {
 	level flag::wait_till("start_channeling_stone_step");
 	level flag::wait_till("boss_fight_completed");
-	var_649d30e8 = struct::get("mpd_pos");
-	var_293d02aa = util::spawn_model("p7_zm_ctl_undercroft_pyramid", var_649d30e8.origin, var_649d30e8.angles);
+	s_mpd = struct::get("mpd_pos");
+	var_293d02aa = util::spawn_model("p7_zm_ctl_undercroft_pyramid", s_mpd.origin, s_mpd.angles);
 	var_293d02aa.targetname = "undercroft_pyramid";
 	level scene::init("p7_fxanim_zm_castle_moon_rocket_front_bundle");
 	s_summoning_key = struct::get("ee_mpd_summoning_key");
