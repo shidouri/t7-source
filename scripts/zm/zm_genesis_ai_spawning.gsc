@@ -93,28 +93,28 @@ function __init__()
 */
 function function_a70ab4c3()
 {
-	level.var_783db6ab = randomintrange(5, 7);
+	level.n_next_chaos_round = randomintrange(5, 7);
 	while(true)
 	{
 		level waittill(#"between_round_over");
-		if(level.round_number > level.var_783db6ab)
+		if(level.round_number > level.n_next_chaos_round)
 		{
-			level.var_783db6ab = level.round_number + randomintrange(2, 4);
+			level.n_next_chaos_round = level.round_number + randomintrange(2, 4);
 		}
-		if(level.round_number == level.var_783db6ab)
+		if(level.round_number == level.n_next_chaos_round)
 		{
 			if(isdefined(level.var_256b19d4) && level.var_256b19d4)
 			{
-				level.var_783db6ab++;
+				level.n_next_chaos_round++;
 				continue;
 			}
 			level.sndmusicspecialround = 1;
 			level thread zm_audio::sndmusicsystem_playstate("chaos_start");
 			function_c87827a3();
-			level.var_783db6ab = level.round_number + randomintrange(9, 11);
-			if(level.var_783db6ab == level.var_ba0d6d40)
+			level.n_next_chaos_round = level.round_number + randomintrange(9, 11);
+			if(level.n_next_chaos_round == level.var_ba0d6d40)
 			{
-				level.var_783db6ab = level.var_783db6ab + 2;
+				level.n_next_chaos_round = level.n_next_chaos_round + 2;
 			}
 		}
 	}
@@ -1012,7 +1012,7 @@ function function_28e53883()
 function function_b6f47996(n_val)
 {
 	/#
-		zm_utility::zombie_goto_round(level.var_783db6ab - 1);
+		zm_utility::zombie_goto_round(level.n_next_chaos_round - 1);
 		level notify("kill_round");
 		iprintlnbold("");
 		zm_genesis_power::function_5003c1cd(0, 1);

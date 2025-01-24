@@ -515,7 +515,7 @@ function function_7884e6b8()
 					}
 					level notify(#"boss_round_end_vo_done");
 				}
-				else if(level.round_number != level.var_783db6ab && !level flag::get("mega_round_end_abcd_talking") && !level flag::get("mega_round_end_shad_talking") && level.round_number != level.var_ba0d6d40)
+				else if(level.round_number != level.n_next_chaos_round && !level flag::get("mega_round_end_abcd_talking") && !level flag::get("mega_round_end_shad_talking") && level.round_number != level.var_ba0d6d40)
 				{
 					if(level flag::get("boss_round"))
 					{

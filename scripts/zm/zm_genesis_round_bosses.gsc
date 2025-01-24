@@ -93,7 +93,7 @@ function function_755b4548()
 			level.var_ba0d6d40 = level.round_number + randomintrange(7, 10);
 			level thread function_c68599fd();
 		}
-		if(level.var_ba0d6d40 == level.var_783db6ab)
+		if(level.var_ba0d6d40 == level.n_next_chaos_round)
 		{
 			level.var_ba0d6d40 = level.var_ba0d6d40 + 2;
 		}

@@ -330,7 +330,7 @@ function function_bce246fa()
 */
 function function_b177eb62()
 {
-	var_76bf4ac6 = level.var_783db6ab;
+	var_76bf4ac6 = level.n_next_chaos_round;
 	while(true)
 	{
 		str_wait = util::waittill_any_return("start_of_round");
