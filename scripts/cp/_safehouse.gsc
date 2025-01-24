@@ -884,7 +884,7 @@ function function_29532574()
 }
 
 /*
-	Name: function_c550ee23
+	Name: training_sim
 	Namespace: safehouse
 	Checksum: 0xE72BE575
 	Offset: 0x7B78
@@ -892,7 +892,7 @@ function function_29532574()
 	Parameters: 1
 	Flags: None
 */
-function function_c550ee23()
+function training_sim()
 {
 	// Unsupported VM revision (1B).
 }
