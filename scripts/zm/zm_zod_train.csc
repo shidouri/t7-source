@@ -40,7 +40,7 @@ function __init__()
 	{
 		level._additional_wallbuy_weapons = [];
 	}
-	var_d7d92d53 = getweapon("smg_sten");
+	w_sten = getweapon("smg_sten");
 	if(!isdefined(level._additional_wallbuy_weapons))
 	{
 		level._additional_wallbuy_weapons = [];
@@ -49,7 +49,7 @@ function __init__()
 	{
 		level._additional_wallbuy_weapons = array(level._additional_wallbuy_weapons);
 	}
-	level._additional_wallbuy_weapons[level._additional_wallbuy_weapons.size] = var_d7d92d53;
+	level._additional_wallbuy_weapons[level._additional_wallbuy_weapons.size] = w_sten;
 	level._effect["train_switch_use"] = "light/fx_light_button_green_traincar_zod_zmb";
 	level._effect["train_switch_cooldown"] = "light/fx_light_button_yellow_traincar_zod_zmb";
 	level._effect["train_switch_offline"] = "light/fx_light_button_red_train_zod_zmb";
