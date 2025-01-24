@@ -336,7 +336,7 @@ function function_43eea1de()
 			var_6ab32645 = var_6ab32645 + s_move.probability;
 			if(n_roll <= var_6ab32645)
 			{
-				if(!(isdefined(self.var_8abfb076) && self.var_8abfb076))
+				if(!(isdefined(self.b_away) && self.b_away))
 				{
 					self [[s_move.func]](s_move.n_move_duration);
 				}
@@ -372,7 +372,7 @@ function function_b6c7fd80()
 	}
 	var_bac4e70 = 0;
 	var_90530d3 = 0;
-	self.var_8abfb076 = 0;
+	self.b_away = 0;
 	while(true)
 	{
 		self.var_93dad597.health = 1000000;
@@ -408,7 +408,7 @@ function function_b6c7fd80()
 		{
 			continue;
 		}
-		self.var_8abfb076 = 1;
+		self.b_away = 1;
 		level notify(#"hash_82a23c03");
 		if(level flag::get("ee_boss_started"))
 		{
@@ -431,7 +431,7 @@ function function_b6c7fd80()
 			}
 			self.s_spawnpoint = a_s_spawnpoints[var_bac4e70];
 			var_685eb707 = randomfloatrange(5, 10);
-			self.var_8abfb076 = 0;
+			self.b_away = 0;
 			var_5d186a94 = level.var_6e3c8a77.origin;
 			v_dir = vectornormalize(var_5d186a94 - self.s_spawnpoint.origin);
 			v_angles = vectortoangles(v_dir);
