@@ -3192,28 +3192,28 @@ function function_1bd87d75(var_4054c946, var_665743af, var_5c856d1f)
 	{
 		if(var_4054c946 == 4 && var_665743af == 0)
 		{
-			var_6af9e605 = array(2, 0, 3);
+			a_dirs = array(2, 0, 3);
 		}
 		if(var_4054c946 == 0 && var_665743af == 4)
 		{
-			var_6af9e605 = array(1, 0, 3);
+			a_dirs = array(1, 0, 3);
 		}
 		if(var_4054c946 == 4 && var_665743af == 8)
 		{
-			var_6af9e605 = array(2, 1, 3);
+			a_dirs = array(2, 1, 3);
 		}
 		if(var_4054c946 == 8 && var_665743af == 4)
 		{
-			var_6af9e605 = array(2, 0, 1);
+			a_dirs = array(2, 0, 1);
 		}
-		var_6af9e605 = zm_genesis_util::array_remove(var_6af9e605, var_47c6b9e2);
-		return array::random(var_6af9e605);
+		a_dirs = zm_genesis_util::array_remove(a_dirs, var_47c6b9e2);
+		return array::random(a_dirs);
 	}
 	if(var_4054c946 == 4 && var_665743af == 4)
 	{
-		var_6af9e605 = array(2, 0, 3, 1);
-		var_6af9e605 = zm_genesis_util::array_remove(var_6af9e605, var_47c6b9e2);
-		return array::random(var_6af9e605);
+		a_dirs = array(2, 0, 3, 1);
+		a_dirs = zm_genesis_util::array_remove(a_dirs, var_47c6b9e2);
+		return array::random(a_dirs);
 	}
 	return var_5c856d1f;
 }
