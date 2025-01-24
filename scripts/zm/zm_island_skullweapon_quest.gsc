@@ -782,9 +782,9 @@ function function_3654cf4c(n_amount = 10, var_f8ad0afc)
 {
 	if(isdefined(var_f8ad0afc))
 	{
-		var_964af2de = var_f8ad0afc + vectorscale((0, 0, 1), 32);
+		v_src = var_f8ad0afc + vectorscale((0, 0, 1), 32);
 		v_dest = self.mdl_skulltar.origin + vectorscale((0, 0, 1), 16);
-		function_a050863e(var_964af2de, v_dest);
+		function_a050863e(v_src, v_dest);
 	}
 	self.n_progress = self.n_progress + n_amount;
 	if(self.n_progress > self.n_goal)
@@ -843,11 +843,11 @@ function function_f20126b2()
 	Parameters: 2
 	Flags: Linked
 */
-function function_a050863e(var_964af2de, v_dest)
+function function_a050863e(v_src, v_dest)
 {
-	if(isdefined(var_964af2de) && isdefined(v_dest))
+	if(isdefined(v_src) && isdefined(v_dest))
 	{
-		var_b6f3d7c3 = spawn("script_model", var_964af2de);
+		var_b6f3d7c3 = spawn("script_model", v_src);
 		var_b6f3d7c3 setmodel("p7_sky_vista_light_flare_blue");
 		var_b6f3d7c3 playsound("zmb_skull_soul_feed");
 		var_b6f3d7c3 moveto(v_dest, 0.5);
