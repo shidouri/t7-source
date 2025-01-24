@@ -2665,10 +2665,10 @@ function function_2b0fa0c0()
 {
 	while(true)
 	{
-		self waittill("player_bought", var_58aaa67b);
-		if(isdefined(var_58aaa67b) && isdefined(var_58aaa67b.name))
+		self waittill("player_bought", e_what);
+		if(isdefined(e_what) && isdefined(e_what.name))
 		{
-			if(var_58aaa67b.name == "dragonshield")
+			if(e_what.name == "dragonshield")
 			{
 				self thread function_aa5f0ceb("dragonshield_pickup", 1);
 			}
