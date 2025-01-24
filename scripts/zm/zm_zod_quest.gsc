@@ -2415,10 +2415,10 @@ function pap_chasm_killtrigger()
 */
 function function_64cb1f9b(str_trigger_name, var_f8826470)
 {
-	var_b354bc3b = getent(str_trigger_name, "targetname");
+	t_side = getent(str_trigger_name, "targetname");
 	while(true)
 	{
-		var_b354bc3b waittill("trigger", e_triggerer);
+		t_side waittill("trigger", e_triggerer);
 		if(isplayer(e_triggerer))
 		{
 			e_triggerer.var_d9394bfb = var_f8826470;
