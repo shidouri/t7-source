@@ -928,18 +928,18 @@ function function_24fcf23b(str_targetname, localclientnum)
 */
 function function_ac197e52(localclientnumber, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	var_eb1b4657 = function_12a07195(localclientnumber);
-	if(isdefined(var_eb1b4657))
+	m_ring = function_12a07195(localclientnumber);
+	if(isdefined(m_ring))
 	{
 		if(newval)
 		{
-			var_eb1b4657 thread function_aab40f28(localclientnumber, 3);
-			var_eb1b4657 thread function_f35264ff();
+			m_ring thread function_aab40f28(localclientnumber, 3);
+			m_ring thread function_f35264ff();
 		}
 		else
 		{
-			var_eb1b4657 thread function_aab40f28(localclientnumber, 0);
-			var_eb1b4657 thread function_3f73ddc3(oldval);
+			m_ring thread function_aab40f28(localclientnumber, 0);
+			m_ring thread function_3f73ddc3(oldval);
 		}
 	}
 	var_82347477 = function_cd49ce76(localclientnumber);
@@ -1031,24 +1031,24 @@ function function_3f73ddc3(oldval)
 */
 function pap_monolith_ring_shake(localclientnumber, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	var_eb1b4657 = function_12a07195(localclientnumber);
-	var_eb1b4657 endon(#"hash_3b22402e");
+	m_ring = function_12a07195(localclientnumber);
+	m_ring endon(#"hash_3b22402e");
 	if(newval == 1)
 	{
-		var_eb1b4657 function_4f226940();
-		var_eb1b4657 setanim(%generic::p7_fxanim_zm_ori_monolith_inductor_shake_anim, 1, 0.2);
+		m_ring function_4f226940();
+		m_ring setanim(%generic::p7_fxanim_zm_ori_monolith_inductor_shake_anim, 1, 0.2);
 		waitrealtime((getanimlength(%generic::p7_fxanim_zm_ori_monolith_inductor_shake_anim)) - 0.2);
-		var_eb1b4657 clearanim(%generic::p7_fxanim_zm_ori_monolith_inductor_shake_anim, 0.2);
+		m_ring clearanim(%generic::p7_fxanim_zm_ori_monolith_inductor_shake_anim, 0.2);
 		if(level.var_d7512031)
 		{
-			var_eb1b4657 setanim(%generic::p7_fxanim_zm_ori_monolith_inductor_pull_anim, 1, 0.2);
+			m_ring setanim(%generic::p7_fxanim_zm_ori_monolith_inductor_pull_anim, 1, 0.2);
 			waitrealtime((getanimlength(%generic::p7_fxanim_zm_ori_monolith_inductor_pull_anim)) - 0.2);
-			var_eb1b4657 clearanim(%generic::p7_fxanim_zm_ori_monolith_inductor_pull_anim, 0.2);
-			var_eb1b4657 setanim(%generic::p7_fxanim_zm_ori_monolith_inductor_pull_idle_anim, 1, 0.2);
+			m_ring clearanim(%generic::p7_fxanim_zm_ori_monolith_inductor_pull_anim, 0.2);
+			m_ring setanim(%generic::p7_fxanim_zm_ori_monolith_inductor_pull_idle_anim, 1, 0.2);
 		}
 		else
 		{
-			var_eb1b4657 thread function_3f73ddc3(0);
+			m_ring thread function_3f73ddc3(0);
 		}
 	}
 }
