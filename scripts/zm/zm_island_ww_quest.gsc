@@ -1223,8 +1223,8 @@ function function_1228bd27()
 */
 function function_c5cd1083()
 {
-	level.var_9fce15de = getent("trigger_inside_cage", "targetname");
-	level.var_9fce15de setinvisibletoall();
+	level.t_cage = getent("trigger_inside_cage", "targetname");
+	level.t_cage setinvisibletoall();
 	level.var_2ba557f2 = getent("clip_swamp_hatch", "targetname");
 }
 
@@ -1660,10 +1660,10 @@ function function_1d3366a8()
 function function_871dbb3a()
 {
 	level flag::wait_till("power_on");
-	level.var_9fce15de setvisibletoall();
+	level.t_cage setvisibletoall();
 	while(true)
 	{
-		level.var_9fce15de waittill("trigger", player);
+		level.t_cage waittill("trigger", player);
 		if(level.var_f353ae68.is_moving)
 		{
 			continue;
@@ -1671,7 +1671,7 @@ function function_871dbb3a()
 		if(!level.var_f353ae68.b_occupied)
 		{
 			level.var_f353ae68.b_occupied = 1;
-			level.var_9fce15de setinvisibletoall();
+			level.t_cage setinvisibletoall();
 			if(level flag::get("solo_game"))
 			{
 				function_d452a2ca(player);
@@ -1683,11 +1683,11 @@ function function_871dbb3a()
 				level thread zm_island_vo::function_3bf2d62a("raise_cage", 0, 0, 1);
 				player unlink();
 			}
-			while(player istouching(level.var_9fce15de))
+			while(player istouching(level.t_cage))
 			{
 				wait(0.1);
 			}
-			level.var_9fce15de setvisibletoall();
+			level.t_cage setvisibletoall();
 			level.var_f353ae68.b_occupied = 0;
 		}
 	}
@@ -1788,7 +1788,7 @@ function function_3cd05ecf(str_direction)
 	{
 		for(i = 0; i < level.players.size; i++)
 		{
-			if(level.players[i] istouching(level.var_9fce15de))
+			if(level.players[i] istouching(level.t_cage))
 			{
 				level.players[i].var_90f735f8 = 1;
 				function_d452a2ca(level.players[i]);
@@ -1872,7 +1872,7 @@ function function_46d3d1b0(var_9330a364)
 	{
 		foreach(player in level.players)
 		{
-			if(player istouching(level.var_9fce15de))
+			if(player istouching(level.t_cage))
 			{
 				player.var_b0329be9 = 1;
 			}
