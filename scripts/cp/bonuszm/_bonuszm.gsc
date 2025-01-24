@@ -1388,7 +1388,7 @@ function function_7effc669(var_f85c1f6a)
 	{
 		return false;
 	}
-	if(namespace_37cacec1::function_5f2c4513() <= 0)
+	if(namespace_37cacec1::_zsfx() <= 0)
 	{
 		return false;
 	}
@@ -1470,7 +1470,7 @@ function function_9bc25e40()
 */
 function function_7e75b892(var_14e6a7e9, var_5b43e537, var_df4e4d0f)
 {
-	if(level.var_b1955bd6 >= namespace_37cacec1::function_5f2c4513())
+	if(level.var_b1955bd6 >= namespace_37cacec1::_zsfx())
 	{
 		return;
 	}
@@ -1507,7 +1507,7 @@ function function_cc657250()
 {
 	self waittill("death");
 	level.var_d0e37460++;
-	if(level.var_d0e37460 >= namespace_37cacec1::function_5f2c4513())
+	if(level.var_d0e37460 >= namespace_37cacec1::_zsfx())
 	{
 		level flag::set("bzmExtraZombieCleared");
 	}
@@ -2332,7 +2332,7 @@ function bzmutil_waitforallzombiestodie()
 		{
 			if(isdefined(level.var_a9e78bf7) && level.var_a9e78bf7["zombifyenabled"])
 			{
-				if(!level.var_b1955bd6 && namespace_37cacec1::function_5f2c4513() || !level flag::get("bzmExtraZombieCleared"))
+				if(!level.var_b1955bd6 && namespace_37cacec1::_zsfx() || !level flag::get("bzmExtraZombieCleared"))
 				{
 					wait(1);
 					continue;
@@ -2360,7 +2360,7 @@ function private function_9b15c7b()
 	{
 		if(isdefined(level.var_a9e78bf7) && level.var_a9e78bf7["zombifyenabled"])
 		{
-			if(!level.var_b1955bd6 && namespace_37cacec1::function_5f2c4513() || !level flag::get("bzmExtraZombieCleared"))
+			if(!level.var_b1955bd6 && namespace_37cacec1::_zsfx() || !level flag::get("bzmExtraZombieCleared"))
 			{
 				zombies = getaiteamarray("axis");
 				foreach(zombie in zombies)
@@ -2430,7 +2430,7 @@ function function_11692fba()
 		{
 			if(isdefined(level.var_a9e78bf7) && level.var_a9e78bf7["zombifyenabled"])
 			{
-				if(!level.var_b1955bd6 && namespace_37cacec1::function_5f2c4513() || !level flag::get("bzmExtraZombieCleared"))
+				if(!level.var_b1955bd6 && namespace_37cacec1::_zsfx() || !level flag::get("bzmExtraZombieCleared"))
 				{
 					wait(1);
 					continue;
@@ -2469,7 +2469,7 @@ function function_88adb698(var_454219da, levelstart)
 	{
 		level.var_a9e78bf7["extraspawns"] = 0;
 	}
-	if(!namespace_37cacec1::function_5f2c4513())
+	if(!namespace_37cacec1::_zsfx())
 	{
 		level flag::set("bzmExtraZombieCleared");
 	}

@@ -127,7 +127,7 @@ function function_165bd27a(health)
 }
 
 /*
-	Name: function_5f2c4513
+	Name: _zsfx
 	Namespace: namespace_37cacec1
 	Checksum: 0x856E1F27
 	Offset: 0xD68
@@ -135,7 +135,7 @@ function function_165bd27a(health)
 	Parameters: 0
 	Flags: Linked
 */
-function function_5f2c4513()
+function _zsfx()
 {
 	scalar = 1;
 	if(isdefined(level.activeplayers))
