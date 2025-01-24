@@ -463,10 +463,10 @@ function function_b8f105c6(a_ents)
 	ai_hunter = getvehiclenode("intro_hunter_kill_node", "targetname") zurich_util::function_a569867c(undefined, &function_5568741b);
 	level.var_726eb89c thread function_663b5805(ai_hunter);
 	var_9bcc4bde = spawner::simple_spawn_single("zurich_intro_redshirts_right_3", &function_56e5aa4d);
-	var_9faa0c88 = getweapon("launcher_standard");
+	w_rpg = getweapon("launcher_standard");
 	s_rpg = struct::get("intro_magic_bullet_scene_spot2");
 	s_target = struct::get(s_rpg.target);
-	e_rocket = magicbullet(var_9faa0c88, s_rpg.origin, s_target.origin);
+	e_rocket = magicbullet(w_rpg, s_rpg.origin, s_target.origin);
 	e_rocket.team = "allies";
 	a_ents["zurich_intro_sitrep_guy"] thread function_d8d72142();
 	wait(0.05);
@@ -735,14 +735,14 @@ function function_19017cb9()
 	nd_end = getnode(nd_start.target, "targetname");
 	s_rpg = struct::get("intro_magic_rpg_spot");
 	var_2d4ab0e6 = struct::get("intro_magic_rpg_spot2");
-	var_9faa0c88 = getweapon("launcher_standard");
+	w_rpg = getweapon("launcher_standard");
 	self setvehgoalpos(nd_start.origin, 1, 1);
 	wait(3.5);
 	self setvehgoalpos(nd_end.origin, 1, 1);
 	wait(1.3);
-	magicbullet(var_9faa0c88, s_rpg.origin, self geteye());
+	magicbullet(w_rpg, s_rpg.origin, self geteye());
 	wait(1.5);
-	magicbullet(var_9faa0c88, s_rpg.origin, self geteye());
+	magicbullet(w_rpg, s_rpg.origin, self geteye());
 	wait(0.98);
 	self kill();
 }
@@ -761,14 +761,14 @@ function function_a294dd02()
 	level endon(#"hash_1b75d876");
 	n_offset = 128;
 	var_fccc406f = struct::get_array("intro_magic_rpg_spot_enemy");
-	var_9faa0c88 = getweapon("launcher_standard");
+	w_rpg = getweapon("launcher_standard");
 	while(true)
 	{
 		s_rpg = array::random(var_fccc406f);
 		a_s_targets = struct::get_array(s_rpg.target);
 		s_target = array::random(a_s_targets);
 		var_8d661004 = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
-		e_rocket = magicbullet(var_9faa0c88, s_rpg.origin + var_8d661004, s_target.origin + var_8d661004);
+		e_rocket = magicbullet(w_rpg, s_rpg.origin + var_8d661004, s_target.origin + var_8d661004);
 		e_rocket.team = "allies";
 		wait(randomfloatrange(1.1, 3.1));
 	}
