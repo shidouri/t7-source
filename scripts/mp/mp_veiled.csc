@@ -19,7 +19,7 @@
 */
 function main()
 {
-	namespace_f7008227::main();
+	mp_veiled_fx::main();
 	namespace_8f273e4e::main();
 	load::main();
 	util::waitforclient(0);
