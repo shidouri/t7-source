@@ -1037,22 +1037,22 @@ function function_2426269b(v_pos, n_range = 1000)
 {
 	if(isdefined(level.a_e_speakers))
 	{
-		foreach(var_36ca1ecb in level.a_e_speakers)
+		foreach(e_spkr in level.a_e_speakers)
 		{
-			if(!isdefined(var_36ca1ecb))
+			if(!isdefined(e_spkr))
 			{
 				continue;
 			}
-			if(!isdefined(v_pos) || distancesquared(var_36ca1ecb.origin, v_pos) <= (n_range * n_range))
+			if(!isdefined(v_pos) || distancesquared(e_spkr.origin, v_pos) <= (n_range * n_range))
 			{
-				if(isdefined(var_36ca1ecb.str_vo_being_spoken) && var_36ca1ecb.str_vo_being_spoken != "")
+				if(isdefined(e_spkr.str_vo_being_spoken) && e_spkr.str_vo_being_spoken != "")
 				{
-					var_36ca1ecb stopsound(var_36ca1ecb.str_vo_being_spoken);
+					e_spkr stopsound(e_spkr.str_vo_being_spoken);
 				}
-				var_36ca1ecb.deleteme = 1;
-				var_36ca1ecb.str_vo_being_spoken = "";
-				var_36ca1ecb.n_vo_priority = 0;
-				var_36ca1ecb.isspeaking = 0;
+				e_spkr.deleteme = 1;
+				e_spkr.str_vo_being_spoken = "";
+				e_spkr.n_vo_priority = 0;
+				e_spkr.isspeaking = 0;
 			}
 		}
 		i = 0;
