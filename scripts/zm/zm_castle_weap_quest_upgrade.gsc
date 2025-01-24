@@ -2089,14 +2089,14 @@ function demon_gate_seal()
 			return;
 		}
 	#/
-	var_a3bb3065 = getent("aq_dg_flagstone_seal_trig", "targetname");
+	t_seal = getent("aq_dg_flagstone_seal_trig", "targetname");
 	exploder::exploder("fxexp_300");
 	zm_spawner::register_zombie_death_event_callback(&function_c58a0fe3);
 	level flag::wait_till("demon_gate_seal");
 	zm_spawner::deregister_zombie_death_event_callback(&function_c58a0fe3);
 	exploder::stop_exploder("fxexp_300");
 	exploder::exploder("fxexp_301");
-	playrumbleonposition("zm_castle_quest_demon_gate_seal_rumble", var_a3bb3065.origin);
+	playrumbleonposition("zm_castle_quest_demon_gate_seal_rumble", t_seal.origin);
 	level scene::init("p7_fxanim_zm_castle_quest_demongate_urn_bundle");
 	level scene::play("p7_fxanim_zm_castle_quest_demongate_flagstones_bundle");
 	level function_bb59b66c();
@@ -2115,8 +2115,8 @@ function function_c58a0fe3(e_attacker)
 {
 	if(self function_ab623d34(level.var_6e68c0d8))
 	{
-		var_a3bb3065 = getent("aq_dg_flagstone_seal_trig", "targetname");
-		if(self istouching(var_a3bb3065) && self.damagemod == "MOD_MELEE")
+		t_seal = getent("aq_dg_flagstone_seal_trig", "targetname");
+		if(self istouching(t_seal) && self.damagemod == "MOD_MELEE")
 		{
 			self zombie_utility::gib_random_parts();
 			gibserverutils::annihilate(self);
