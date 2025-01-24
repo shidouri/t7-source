@@ -2443,8 +2443,8 @@ function function_79eeee03(str_enemy)
 	var_30f9b5a1["boss_round_margwa"] = 75;
 	var_30f9b5a1["boss_round_mechz"] = 75;
 	level flag::set("boss_round");
-	var_be6a28e5 = randomint(100);
-	if(isdefined(level.var_8c92b387[var_a91c725a]) && var_be6a28e5 < var_30f9b5a1[var_a91c725a])
+	n_prob = randomint(100);
+	if(isdefined(level.var_8c92b387[var_a91c725a]) && n_prob < var_30f9b5a1[var_a91c725a])
 	{
 		if(level.var_8c92b387[var_a91c725a].size > 0)
 		{
@@ -2503,8 +2503,8 @@ function function_c74d1a57()
 	while(true)
 	{
 		var_a91c725a = util::waittill_any_ex("chaos_round_spawn_keeper", "chaos_round_spawn_parasite", "chaos_round_spawn_apothicon", level, "chaos_round_complete");
-		var_be6a28e5 = randomint(100);
-		if(!(isdefined(var_6e11c191[var_a91c725a]) && var_6e11c191[var_a91c725a]) && isdefined(level.var_8c92b387[var_a91c725a]) && var_be6a28e5 < var_30f9b5a1[var_a91c725a])
+		n_prob = randomint(100);
+		if(!(isdefined(var_6e11c191[var_a91c725a]) && var_6e11c191[var_a91c725a]) && isdefined(level.var_8c92b387[var_a91c725a]) && n_prob < var_30f9b5a1[var_a91c725a])
 		{
 			var_6e11c191[var_a91c725a] = 1;
 			if(level.var_8c92b387[var_a91c725a].size > 0)
