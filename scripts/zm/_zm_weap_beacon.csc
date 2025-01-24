@@ -283,14 +283,14 @@ function build_weap_beacon_start_offsets_ee()
 */
 function function_3700164e(model, index, v_start, localclientnum)
 {
-	var_89ea469b = model.origin + model.a_v_land_offsets[localclientnum][index];
+	v_land = model.origin + model.a_v_land_offsets[localclientnum][index];
 	v_start_trace = v_start - vectorscale((0, 0, 1), 5000);
-	trace = bullettrace(v_start_trace, var_89ea469b, 0, undefined);
-	var_89ea469b = trace["position"];
-	self moveto(var_89ea469b, 3);
+	trace = bullettrace(v_start_trace, v_land, 0, undefined);
+	v_land = trace["position"];
+	self moveto(v_land, 3);
 	playfxontag(localclientnum, level._effect["beacon_shell_trail"], self, "tag_origin");
 	self playsound(0, "zmb_homingbeacon_missile_boom");
-	self thread function_42cb41ec(var_89ea469b);
+	self thread function_42cb41ec(v_land);
 	self waittill("movedone");
 	if(index == 1)
 	{
