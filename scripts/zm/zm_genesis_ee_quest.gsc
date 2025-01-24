@@ -297,7 +297,7 @@ function function_b51d4ede()
 	Parameters: 1
 	Flags: Linked
 */
-function function_bde2ec4(var_f5e9fb6c)
+function function_bde2ec4(n_reel)
 {
 	playfx(level._effect["portal_3p"], self.origin);
 	util::wait_network_frame();
@@ -318,7 +318,7 @@ function function_bde2ec4(var_f5e9fb6c)
 	var_d955a5b1 waittill("trigger_activated", e_player);
 	e_player playsound("zmb_main_reel_pickup");
 	level thread zm_genesis_vo::function_21783178(e_player);
-	level flag::set("got_audio" + var_f5e9fb6c);
+	level flag::set("got_audio" + n_reel);
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
 	var_d955a5b1 delete();
 	self struct::delete();
@@ -446,7 +446,7 @@ function function_e464aa51()
 	Parameters: 1
 	Flags: Linked
 */
-function function_be26578d(var_f5e9fb6c)
+function function_be26578d(n_reel)
 {
 	var_3a557c26 = struct::get_array("audio1_start", "targetname");
 	var_4d544c7f = array::random(var_3a557c26);
@@ -476,9 +476,9 @@ function function_be26578d(var_f5e9fb6c)
 		wait(0.5);
 	}
 	var_bbd61432 = struct::get(var_4d544c7f.target, "targetname");
-	var_bbd61432 thread function_bde2ec4(var_f5e9fb6c);
+	var_bbd61432 thread function_bde2ec4(n_reel);
 	var_b44af04e delete();
-	level flag::wait_till("placed_audio" + var_f5e9fb6c);
+	level flag::wait_till("placed_audio" + n_reel);
 	foreach(var_4d544c7f in var_3a557c26)
 	{
 		var_4d544c7f struct::delete();
@@ -557,7 +557,7 @@ function function_9045ea2a(b_on)
 	Parameters: 1
 	Flags: Linked
 */
-function function_37acb884(var_f5e9fb6c)
+function function_37acb884(n_reel)
 {
 	level.var_4bf2a542 = getentarray("apothicon_spawn", "targetname");
 	level.var_db16318c = 0;
@@ -569,7 +569,7 @@ function function_37acb884(var_f5e9fb6c)
 	{
 		s_reel.origin = level.var_d29b5881;
 	}
-	s_reel thread function_bde2ec4(var_f5e9fb6c);
+	s_reel thread function_bde2ec4(n_reel);
 }
 
 /*
@@ -781,7 +781,7 @@ function function_d0b9561c()
 	Parameters: 1
 	Flags: Linked
 */
-function function_21bfe3c8(var_f5e9fb6c)
+function function_21bfe3c8(n_reel)
 {
 	var_2efcd138 = getentarray("b_target", "targetname");
 	array::thread_all(var_2efcd138, &function_24240140);
@@ -798,7 +798,7 @@ function function_21bfe3c8(var_f5e9fb6c)
 	wait(5);
 	level flag::set("b_target_done");
 	s_reel.origin = level.var_3848ad63;
-	s_reel thread function_bde2ec4(var_f5e9fb6c);
+	s_reel thread function_bde2ec4(n_reel);
 }
 
 /*
