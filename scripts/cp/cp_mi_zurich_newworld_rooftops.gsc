@@ -4903,7 +4903,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	}
 	var_7af45315[0] = var_5ae02fb7;
 	var_934a157 = struct::get(var_4b204b1c, "targetname");
-	var_e5a4a905 = getent(var_37048efd.target, "targetname");
+	t_end = getent(var_37048efd.target, "targetname");
 	if(var_37713607 == "train_station_train_org")
 	{
 		level thread function_69747207();
@@ -4961,7 +4961,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 		var_8edb1dfd = [];
 		foreach(e_train in var_7af45315)
 		{
-			if(e_train istouching(var_e5a4a905))
+			if(e_train istouching(t_end))
 			{
 				var_8edb1dfd[var_8edb1dfd.size] = e_train;
 			}
@@ -5061,11 +5061,11 @@ function function_4332c4dc(var_7af45315)
 	if(!level flag::get("train_station_end_gate_closed"))
 	{
 		var_d8966c4b = getent("train_station_gate_modern_side", "targetname");
-		var_e5a4a905 = getent("train_station_end_closet", "targetname");
+		t_end = getent("train_station_end_closet", "targetname");
 		var_fe4ad5ca = 1;
 		foreach(e_train in var_7af45315)
 		{
-			if(e_train istouching(var_e5a4a905))
+			if(e_train istouching(t_end))
 			{
 				var_fe4ad5ca = 0;
 				break;
