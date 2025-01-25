@@ -87,14 +87,14 @@ function quadrotor_medallions()
 	v_spawnpt = s_mg_spawn.origin;
 	v_spawnang = s_mg_spawn.angles;
 	player = getplayers()[0];
-	var_67f03e82 = getweapon("lmg_mg08_upgraded");
-	options = player zm_weapons::get_pack_a_punch_weapon_options(var_67f03e82);
-	var_c91432f = zm_utility::spawn_weapon_model(var_67f03e82, undefined, v_spawnpt, v_spawnang, options);
+	w_mg08_upgraded = getweapon("lmg_mg08_upgraded");
+	options = player zm_weapons::get_pack_a_punch_weapon_options(w_mg08_upgraded);
+	var_c91432f = zm_utility::spawn_weapon_model(w_mg08_upgraded, undefined, v_spawnpt, v_spawnang, options);
 	playfxontag(level._effect["special_glow"], var_c91432f, "tag_origin");
 	t_weapon_swap = zm_tomb_utility::tomb_spawn_trigger_radius(v_spawnpt, 100, 1);
 	t_weapon_swap.require_look_at = 1;
 	t_weapon_swap.cursor_hint = "HINT_WEAPON";
-	t_weapon_swap.cursor_hint_weapon = var_67f03e82;
+	t_weapon_swap.cursor_hint_weapon = w_mg08_upgraded;
 	b_retrieved = 0;
 	while(!b_retrieved)
 	{
