@@ -50,7 +50,7 @@ function __init__()
 	{
 		level thread hacker_debug();
 	}
-	level.var_bbd4901d = getweapon("equip_hacker");
+	level.w_hacker = getweapon("equip_hacker");
 }
 
 /*
@@ -102,11 +102,11 @@ function hacker_round_reward()
 			players = getplayers();
 			for(i = 0; i < players.size; i++)
 			{
-				if(isdefined(players[i] zm_equipment::get_player_equipment()) && players[i] zm_equipment::get_player_equipment() == level.var_bbd4901d)
+				if(isdefined(players[i] zm_equipment::get_player_equipment()) && players[i] zm_equipment::get_player_equipment() == level.w_hacker)
 				{
-					if(isdefined(players[i].equipment_got_in_round[level.var_bbd4901d]))
+					if(isdefined(players[i].equipment_got_in_round[level.w_hacker]))
 					{
-						got_in_round = players[i].equipment_got_in_round[level.var_bbd4901d];
+						got_in_round = players[i].equipment_got_in_round[level.w_hacker];
 						rounds_kept = level.round_number - got_in_round;
 						rounds_kept = rounds_kept - 1;
 						if(rounds_kept > 0)
@@ -1061,7 +1061,7 @@ function function_b743c597()
 	while(true)
 	{
 		self waittill("player_given", equipment);
-		if(equipment == level.var_bbd4901d)
+		if(equipment == level.w_hacker)
 		{
 			self clientfield::set_player_uimodel("hudItems.showDpadDown_HackTool", 1);
 		}

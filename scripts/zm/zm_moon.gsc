@@ -128,13 +128,13 @@ function main()
 	level.use_multiple_spawns = 1;
 	level.use_low_gravity_risers = 1;
 	level.sndzhdaudio = 1;
-	level.var_bbd4901d = getweapon("equip_hacker");
+	level.w_hacker = getweapon("equip_hacker");
 	level._num_overriden_models = 0;
 	level._use_choke_weapon_hints = 1;
 	level._use_choke_blockers = 1;
 	level._special_blackhole_bomb_structs = &blackhole_bomb_area_check;
 	level._limited_equipment = [];
-	level._limited_equipment[level._limited_equipment.size] = level.var_bbd4901d;
+	level._limited_equipment[level._limited_equipment.size] = level.w_hacker;
 	level._override_blackhole_destination_logic = &get_blackholebomb_destination_point;
 	level._blackhole_bomb_valid_area_check = &blackhole_bomb_in_invalid_area;
 	level.quantum_bomb_prevent_player_getting_teleported = &quantum_bomb_prevent_player_getting_teleported_override;
@@ -472,9 +472,9 @@ function moon_post_respawn_callback()
 	{
 		self clientfield::set_to_player("player_sky_transition", 0);
 	}
-	if(!zm_equipment::limited_in_use(level.var_bbd4901d))
+	if(!zm_equipment::limited_in_use(level.w_hacker))
 	{
-		self zm_equipment::set_equipment_invisibility_to_player(level.var_bbd4901d, 0);
+		self zm_equipment::set_equipment_invisibility_to_player(level.w_hacker, 0);
 	}
 }
 
@@ -586,7 +586,7 @@ function init_hackables()
 */
 function function_d70e1ddb(player)
 {
-	if(player zm_equipment::is_active(level.var_bbd4901d))
+	if(player zm_equipment::is_active(level.w_hacker))
 	{
 		if(isdefined(self.unitrigger_stub.playertrigger))
 		{
@@ -608,7 +608,7 @@ function function_d70e1ddb(player)
 */
 function function_89f86341(player)
 {
-	if(player zm_equipment::is_active(level.var_bbd4901d))
+	if(player zm_equipment::is_active(level.w_hacker))
 	{
 		if(isdefined(self.trigger_target))
 		{
