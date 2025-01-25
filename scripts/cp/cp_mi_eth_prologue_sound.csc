@@ -219,7 +219,7 @@ function function_7ec0e1ae()
 */
 function function_eb4e50fb()
 {
-	level waittill(#"hash_caebb0ab");
+	level waittill("snddbw");
 	audio::playloopat("amb_distant_soldier_walla", (12604, 1857, 357));
 	level waittill(#"hash_f8c8ddf6");
 	audio::stoploopat("amb_distant_soldier_walla", (12604, 1857, 357));
