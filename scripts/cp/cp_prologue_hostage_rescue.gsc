@@ -1795,8 +1795,8 @@ function lift_escape_start(str_objective)
 		skipto::teleport_ai(str_objective);
 	}
 	callback::on_ai_killed(&namespace_61c634f2::function_cbaf37cd);
-	var_489e46a = getent("t_regroup_lift", "targetname");
-	var_489e46a triggerenable(0);
+	t_regroup_lift = getent("t_regroup_lift", "targetname");
+	t_regroup_lift triggerenable(0);
 	trigger::use("t_lift_respawns_disable");
 	exploder::stop_exploder("light_exploder_prison_exit");
 	level.ai_hendricks ai::set_ignoreall(0);
@@ -1808,8 +1808,8 @@ function lift_escape_start(str_objective)
 	level thread function_6fabe3da();
 	level thread function_b17bd9c5();
 	function_e97f7dba();
-	var_489e46a = getent("t_regroup_lift", "targetname");
-	var_489e46a triggerenable(1);
+	t_regroup_lift = getent("t_regroup_lift", "targetname");
+	t_regroup_lift triggerenable(1);
 	trigger::use("t_lift_respawns_enable");
 	level thread function_a3dbf6a2();
 	level thread lift_escape_cleanup();
