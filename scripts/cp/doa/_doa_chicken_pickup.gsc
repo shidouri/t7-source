@@ -1039,7 +1039,7 @@ function private function_e4f21fa9()
 }
 
 /*
-	Name: function_d63bdb9
+	Name: egghop
 	Namespace: namespace_5e6c5d1f
 	Checksum: 0xFAA79F58
 	Offset: 0x31D8
@@ -1047,7 +1047,7 @@ function private function_e4f21fa9()
 	Parameters: 1
 	Flags: Linked
 */
-function function_d63bdb9(hop)
+function egghop(hop)
 {
 	if(hop)
 	{

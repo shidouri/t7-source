@@ -2610,7 +2610,7 @@ function private function_f56a2ab()
 	if(self.def.type == 23 || self.def.type == 27 || self.def.type == 36)
 	{
 		self thread namespace_5e6c5d1f::function_7b8c015c();
-		self.var_71bbb00a = &namespace_5e6c5d1f::function_d63bdb9;
+		self.var_71bbb00a = &namespace_5e6c5d1f::egghop;
 		return true;
 	}
 	if(self.def.type == 26)

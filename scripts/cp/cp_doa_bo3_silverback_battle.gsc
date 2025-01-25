@@ -1427,7 +1427,7 @@ function function_a753035a(egg)
 	{
 		wait(randomfloatrange(0.5 * hops, 1.2 * hops));
 		hops--;
-		egg namespace_5e6c5d1f::function_d63bdb9(1);
+		egg namespace_5e6c5d1f::egghop(1);
 	}
 	egg playsound("zmb_egg_hatch");
 	egg thread doa_fx::function_285a2999("egg_hatchXL");
