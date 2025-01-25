@@ -1633,8 +1633,8 @@ function function_6bd33d28(player)
 		var_a18af120 = 1;
 	}
 	var_ec277adf = 0;
-	var_fa9b3019 = level clientfield::get("ee_totem_state");
-	if(var_fa9b3019 == 1)
+	n_totem_state = level clientfield::get("ee_totem_state");
+	if(n_totem_state == 1)
 	{
 		var_ec277adf = 1;
 	}
@@ -1743,9 +1743,9 @@ function function_9190a90e(n_char_index)
 		{
 			continue;
 		}
-		var_fa9b3019 = level clientfield::get("ee_totem_state");
+		n_totem_state = level clientfield::get("ee_totem_state");
 		var_27b0f0e4 = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
-		if(var_27b0f0e4 == 1 && var_fa9b3019 == 3)
+		if(var_27b0f0e4 == 1 && n_totem_state == 3)
 		{
 			function_b54f7960(player, n_char_index);
 		}
