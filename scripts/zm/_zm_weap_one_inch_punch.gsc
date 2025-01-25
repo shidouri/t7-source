@@ -29,7 +29,7 @@ function init()
 	clientfield::register("actor", "oneinchpunch_physics_launchragdoll", 21000, 1, "int");
 	level.w_one_inch_punch = getweapon("one_inch_punch");
 	level.w_one_inch_punch_fire = getweapon("one_inch_punch_fire");
-	level.var_e27d2514 = getweapon("one_inch_punch_air");
+	level.w_one_inch_punch_air = getweapon("one_inch_punch_air");
 	level.var_590c486e = getweapon("one_inch_punch_lightning");
 	level.var_af96dd85 = getweapon("one_inch_punch_ice");
 	level.var_75ef78a0 = getweapon("one_inch_punch_upgraded");
@@ -100,8 +100,8 @@ function one_inch_punch_melee_attack()
 		self takeweapon(level.var_9d7b544c);
 		if(self.str_punch_element == "air")
 		{
-			self giveweapon(level.var_e27d2514);
-			self zm_utility::set_player_melee_weapon(level.var_e27d2514);
+			self giveweapon(level.w_one_inch_punch_air);
+			self zm_utility::set_player_melee_weapon(level.w_one_inch_punch_air);
 		}
 		else
 		{
