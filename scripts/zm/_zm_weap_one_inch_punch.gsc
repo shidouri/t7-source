@@ -30,7 +30,7 @@ function init()
 	level.w_one_inch_punch = getweapon("one_inch_punch");
 	level.w_one_inch_punch_fire = getweapon("one_inch_punch_fire");
 	level.w_one_inch_punch_air = getweapon("one_inch_punch_air");
-	level.var_590c486e = getweapon("one_inch_punch_lightning");
+	level.w_one_inch_punch_lightning = getweapon("one_inch_punch_lightning");
 	level.var_af96dd85 = getweapon("one_inch_punch_ice");
 	level.var_75ef78a0 = getweapon("one_inch_punch_upgraded");
 	level.var_9d7b544c = getweapon("zombie_one_inch_punch_flourish");
@@ -121,8 +121,8 @@ function one_inch_punch_melee_attack()
 				{
 					if(self.str_punch_element == "lightning")
 					{
-						self giveweapon(level.var_590c486e);
-						self zm_utility::set_player_melee_weapon(level.var_590c486e);
+						self giveweapon(level.w_one_inch_punch_lightning);
+						self zm_utility::set_player_melee_weapon(level.w_one_inch_punch_lightning);
 					}
 					else
 					{
