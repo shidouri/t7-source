@@ -736,7 +736,7 @@ function function_2ce1c95f()
 		self notify("coughing_complete");
 	}
 	w_original = self getcurrentweapon();
-	var_cb4caef3 = getweapon("zombie_cough");
+	w_cough = getweapon("zombie_cough");
 	if(w_original != level.weaponnone && (!(isdefined(self zm_laststand::is_reviving_any()) && self zm_laststand::is_reviving_any())) && (isdefined(zm_utility::is_player_valid(self)) && zm_utility::is_player_valid(self)))
 	{
 		self.original_weapon = w_original;
@@ -749,8 +749,8 @@ function function_2ce1c95f()
 	}
 	self.var_e1f8edd6 = 1;
 	self zm_utility::disable_player_move_states(1);
-	self giveweapon(var_cb4caef3);
-	self switchtoweapon(var_cb4caef3);
+	self giveweapon(w_cough);
+	self switchtoweapon(w_cough);
 }
 
 /*
@@ -767,10 +767,10 @@ function function_909c515f()
 	self endon("disconnect");
 	self endon("coughing_complete");
 	self zm_utility::enable_player_move_states();
-	var_cb4caef3 = getweapon("zombie_cough");
+	w_cough = getweapon("zombie_cough");
 	if(self laststand::player_is_in_laststand() || (isdefined(self.intermission) && self.intermission))
 	{
-		self takeweapon(var_cb4caef3);
+		self takeweapon(w_cough);
 		return;
 	}
 	if(self.is_drinking > 0)
@@ -778,7 +778,7 @@ function function_909c515f()
 		self zm_utility::decrement_is_drinking();
 	}
 	var_d82ff565 = self getweaponslistprimaries();
-	self takeweapon(var_cb4caef3);
+	self takeweapon(w_cough);
 	if(self.is_drinking > 0)
 	{
 		return;
