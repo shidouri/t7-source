@@ -706,10 +706,10 @@ function function_a24562f8(val)
 	Parameters: 1
 	Flags: None
 */
-function function_e52aa8bb(var_6866c6f1)
+function function_e52aa8bb(inval)
 {
 	/#
-		var_f1858fdd = self.var_4efaa35 + var_6866c6f1;
+		var_f1858fdd = self.var_4efaa35 + inval;
 		if(var_f1858fdd >= level.propindex.size)
 		{
 			var_f1858fdd = 0;
