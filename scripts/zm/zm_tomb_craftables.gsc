@@ -1239,8 +1239,8 @@ function onfullycrafted_quadrotor(player)
 */
 function function_52fbdde1(player)
 {
-	var_703e6a13 = getweapon("equip_dieseldrone");
-	if(player hasweapon(var_703e6a13))
+	w_drone = getweapon("equip_dieseldrone");
+	if(player hasweapon(w_drone))
 	{
 		self.hint_string = &"ZOMBIE_BUILD_PIECE_HAVE_ONE";
 		return false;
@@ -1248,7 +1248,7 @@ function function_52fbdde1(player)
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
-		if(players[i] hasweapon(var_703e6a13))
+		if(players[i] hasweapon(w_drone))
 		{
 			self.hint_string = &"DLC5_QUADROTOR_UNAVAILABLE";
 			return false;
@@ -1480,14 +1480,14 @@ function quadrotor_control_thread()
 	self endon("new_placeable_mine");
 	while(true)
 	{
-		var_703e6a13 = getweapon("equip_dieseldrone");
-		if(self actionslotfourbuttonpressed() && self hasweapon(var_703e6a13))
+		w_drone = getweapon("equip_dieseldrone");
+		if(self actionslotfourbuttonpressed() && self hasweapon(w_drone))
 		{
 			self util::waittill_any_timeout(1, "weapon_change_complete");
 			self playsound("veh_qrdrone_takeoff");
 			self zm_weapons::switch_back_primary_weapon();
 			self util::waittill_any_timeout(1, "weapon_change_complete");
-			self zm_weapons::weapon_take(var_703e6a13);
+			self zm_weapons::weapon_take(w_drone);
 			self setactionslot(4, "");
 			str_vehicle = "heli_quadrotor_zm";
 			if(level flag::get("ee_maxis_drone_retrieved"))
@@ -1808,10 +1808,10 @@ function pickupfrommover()
 */
 function setup_quadrotor_purchase(player)
 {
-	var_703e6a13 = getweapon("equip_dieseldrone");
+	w_drone = getweapon("equip_dieseldrone");
 	if(self.stub.equipname == "equip_dieseldrone")
 	{
-		if(players_has_weapon(var_703e6a13))
+		if(players_has_weapon(w_drone))
 		{
 			return true;
 		}
@@ -1821,16 +1821,16 @@ function setup_quadrotor_purchase(player)
 			return true;
 		}
 		quadrotor_set_unavailable();
-		player zm_weapons::weapon_give(var_703e6a13);
-		player setweaponammoclip(var_703e6a13, 1);
+		player zm_weapons::weapon_give(w_drone);
+		player setweaponammoclip(w_drone, 1);
 		player playsoundtoplayer("zmb_buildable_pickup_complete", player);
 		if(isdefined(self.stub.craftablestub.use_actionslot))
 		{
-			player setactionslot(self.stub.craftablestub.use_actionslot, "weapon", var_703e6a13);
+			player setactionslot(self.stub.craftablestub.use_actionslot, "weapon", w_drone);
 		}
 		else
 		{
-			player setactionslot(4, "weapon", var_703e6a13);
+			player setactionslot(4, "weapon", w_drone);
 		}
 		player clientfield::set_player_uimodel("hudItems.showDpadRight_Drone", 1);
 		player notify("equip_dieseldrone_zm_given");
@@ -1884,8 +1884,8 @@ function tomb_custom_craftable_validation(player)
 		level.quadrotor_status.pickup_trig = self.stub;
 		if(level.quadrotor_status.crafted)
 		{
-			var_703e6a13 = getweapon("equip_dieseldrone");
-			return !players_has_weapon(var_703e6a13) && !level flag::get("quadrotor_cooling_down");
+			w_drone = getweapon("equip_dieseldrone");
+			return !players_has_weapon(w_drone) && !level flag::get("quadrotor_cooling_down");
 		}
 	}
 	if(!issubstr(self.stub.weaponname.name, "staff"))

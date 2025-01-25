@@ -2578,10 +2578,10 @@ function get_speaking_location_maxis_drone(player, s_craftable)
 function b_player_has_dieseldrone_weapon()
 {
 	a_players = getplayers();
-	var_703e6a13 = getweapon("equip_dieseldrone");
+	w_drone = getweapon("equip_dieseldrone");
 	foreach(player in a_players)
 	{
-		if(player hasweapon(var_703e6a13))
+		if(player hasweapon(w_drone))
 		{
 			return player;
 		}
