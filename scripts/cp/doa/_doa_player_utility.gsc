@@ -1128,7 +1128,7 @@ function function_a36ffe73()
 {
 	self notify(#"hash_a36ffe73");
 	self endon(#"hash_a36ffe73");
-	self waittill(#"hash_89b28ec", attacker);
+	self waittill("snared", attacker);
 	self thread function_6e1ed82();
 	self thread function_3840375a(0);
 	self thread function_a36ffe73();
@@ -2297,7 +2297,7 @@ function function_bfbc53f4(einflictor, eattacker, idamage, idflags, smeansofdeat
 			}
 			if(isdefined(eattacker.is_spider) && eattacker.is_spider && smeansofdeath == "MOD_PROJECTILE")
 			{
-				self notify(#"hash_89b28ec", eattacker);
+				self notify("snared", eattacker);
 				idamage = 0;
 			}
 			else if(!(isdefined(eattacker.boss) && eattacker.boss) && (smeansofdeath == "MOD_PROJECTILE" || smeansofdeath == "MOD_RIFLE_BULLET" || smeansofdeath == "MOD_PROJECTILE_SPLASH" || smeansofdeath == "MOD_GRENADE" || smeansofdeath == "MOD_GRENADE_SPLASH" || smeansofdeath == "MOD_BURNED" || smeansofdeath == "MOD_EXPLOSIVE"))
