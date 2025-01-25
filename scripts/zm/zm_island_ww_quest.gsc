@@ -432,7 +432,7 @@ function function_659c2324(a_keys)
 				break;
 			}
 		}
-		if(randomint(100) <= n_chance && zm_magicbox::treasure_chest_canplayerreceiveweapon(self, level.w_mirg2000, var_b45fbf8c) && !self hasweapon(level.var_a4052592))
+		if(randomint(100) <= n_chance && zm_magicbox::treasure_chest_canplayerreceiveweapon(self, level.w_mirg2000, var_b45fbf8c) && !self hasweapon(level.w_mirg2000_up))
 		{
 			arrayinsert(a_keys, level.w_mirg2000, 0);
 			self thread function_97d5f905();
@@ -442,7 +442,7 @@ function function_659c2324(a_keys)
 			arrayremovevalue(a_keys, level.w_mirg2000);
 		}
 	}
-	else if(self hasweapon(level.w_mirg2000) || self hasweapon(level.var_a4052592))
+	else if(self hasweapon(level.w_mirg2000) || self hasweapon(level.w_mirg2000_up))
 	{
 		arrayremovevalue(a_keys, level.w_mirg2000);
 	}
@@ -498,7 +498,7 @@ function function_52193f1e()
 	n_count = 0;
 	foreach(player in level.players)
 	{
-		if(player hasweapon(level.w_mirg2000) || player hasweapon(level.var_a4052592))
+		if(player hasweapon(level.w_mirg2000) || player hasweapon(level.w_mirg2000_up))
 		{
 			n_count++;
 		}
@@ -1365,9 +1365,9 @@ function function_9f93c407(player)
 				var_dc7ddcde = player getcurrentweapon();
 				player takeweapon(var_dc7ddcde);
 			}
-			player giveweapon(level.var_a4052592);
-			player givemaxammo(level.var_a4052592);
-			player switchtoweapon(level.var_a4052592);
+			player giveweapon(level.w_mirg2000_up);
+			player givemaxammo(level.w_mirg2000_up);
+			player switchtoweapon(level.w_mirg2000_up);
 			var_85b2b1ab = getent("wwup_station", "targetname");
 			var_85b2b1ab detach(level.var_7cb81d3c.model, "mirg_cent_gun_tag_jnt");
 			player notify("player_upgraded_ww");

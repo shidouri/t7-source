@@ -57,7 +57,7 @@ function __init__()
 	level.w_mirg2000 = getweapon("hero_mirg2000");
 	level.var_a367ea52 = getweapon("hero_mirg2000_1");
 	level.var_7d656fe9 = getweapon("hero_mirg2000_2");
-	level.var_a4052592 = getweapon("hero_mirg2000_upgraded");
+	level.w_mirg2000_up = getweapon("hero_mirg2000_upgraded");
 	level.var_5c210a9a = getweapon("hero_mirg2000_upgraded_1");
 	level.var_361e9031 = getweapon("hero_mirg2000_upgraded_2");
 	clientfield::register("scriptmover", "plant_killer", 9000, getminbitcountfornum(4), "int");
@@ -118,7 +118,7 @@ function is_wonder_weapon(weapon, str_type = "any")
 	{
 		case "any":
 		{
-			if(weapon == level.w_mirg2000 || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.var_a4052592 || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
+			if(weapon == level.w_mirg2000 || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.w_mirg2000_up || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
 			{
 				return true;
 			}
@@ -142,7 +142,7 @@ function is_wonder_weapon(weapon, str_type = "any")
 		}
 		case "upgraded":
 		{
-			if(weapon == level.var_a4052592 || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
+			if(weapon == level.w_mirg2000_up || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
 			{
 				return true;
 			}
@@ -158,7 +158,7 @@ function is_wonder_weapon(weapon, str_type = "any")
 		}
 		default:
 		{
-			if(weapon == level.w_mirg2000 || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.var_a4052592 || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
+			if(weapon == level.w_mirg2000 || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.w_mirg2000_up || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
 			{
 				return true;
 			}
@@ -179,7 +179,7 @@ function is_wonder_weapon(weapon, str_type = "any")
 */
 function function_a1fce678(var_2b568a63 = 0)
 {
-	if(self hasweapon(level.var_a4052592))
+	if(self hasweapon(level.w_mirg2000_up))
 	{
 		if(var_2b568a63)
 		{
@@ -248,7 +248,7 @@ function function_8734b840(v_start, v_end, n_range_sq, var_a8ed33a = 72)
 */
 function function_794992bd(player, v_pos)
 {
-	if(player hasweapon(level.var_a4052592))
+	if(player hasweapon(level.w_mirg2000_up))
 	{
 		n_damage = 7000;
 		var_a9fb62c6 = 2;
@@ -535,7 +535,7 @@ function function_1e4094ac(v_position, var_d24bfa82)
 	{
 		var_31678178 = util::spawn_model("tag_origin", v_pos);
 		var_31678178 endon("death");
-		if(self hasweapon(level.var_a4052592))
+		if(self hasweapon(level.w_mirg2000_up))
 		{
 			var_a00b8053 = var_d24bfa82 + 1;
 		}
@@ -755,7 +755,7 @@ function function_4a1cb794(player)
 {
 	self endon("death");
 	player endon("disconnect");
-	if(player hasweapon(level.var_a4052592))
+	if(player hasweapon(level.w_mirg2000_up))
 	{
 		var_6d5757ae = 1;
 	}
@@ -840,9 +840,9 @@ function function_79504f13(ai_zombie, v_pos)
 {
 	self endon("disconnect");
 	ai_zombie endon("death");
-	if(self hasweapon(level.var_a4052592))
+	if(self hasweapon(level.w_mirg2000_up))
 	{
-		e_grenade = magicbullet(level.var_a4052592, v_pos, ai_zombie getcentroid());
+		e_grenade = magicbullet(level.w_mirg2000_up, v_pos, ai_zombie getcentroid());
 	}
 	else
 	{
@@ -1022,7 +1022,7 @@ function function_d150c3fe(ai_zombie)
 		}
 		if(isdefined(ai_zombie.b_is_spider) && ai_zombie.b_is_spider)
 		{
-			if(self hasweapon(level.var_a4052592))
+			if(self hasweapon(level.w_mirg2000_up))
 			{
 				ai_zombie clientfield::set("mirg2000_spider_death_fx", 2);
 			}

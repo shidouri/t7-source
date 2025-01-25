@@ -1709,8 +1709,8 @@ function function_f59a935a()
 			player giveweapon(level.weaponriotshield);
 			player thread zm_island_skullquest::function_458f50f2();
 			wait(1);
-			player giveweapon(level.var_a4052592);
-			player givemaxammo(level.var_a4052592);
+			player giveweapon(level.w_mirg2000_up);
+			player givemaxammo(level.w_mirg2000_up);
 			if(randomint(4) > 2)
 			{
 				str_gun = array::random(array("", "", "", ""));

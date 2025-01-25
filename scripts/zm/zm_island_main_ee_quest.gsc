@@ -224,7 +224,7 @@ function function_d9de7eb6(var_a3612ddd)
 				e_attacker thread zm_island_vo::function_7b697614(str_vo, 0, 1);
 			}
 		}
-		else if(w_weapon === level.var_a4052592)
+		else if(w_weapon === level.w_mirg2000_up)
 		{
 			self playrumbleonentity("zm_island_rumble_takeo_hall_vine_hit");
 			earthquake(0.35, 0.5, self.origin, 325);
