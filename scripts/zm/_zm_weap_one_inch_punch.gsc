@@ -33,7 +33,7 @@ function init()
 	level.w_one_inch_punch_lightning = getweapon("one_inch_punch_lightning");
 	level.w_one_inch_punch_water = getweapon("one_inch_punch_ice");
 	level.var_75ef78a0 = getweapon("one_inch_punch_upgraded");
-	level.var_9d7b544c = getweapon("zombie_one_inch_punch_flourish");
+	level.w_one_inch_punch_flourish = getweapon("zombie_one_inch_punch_flourish");
 	level.var_ee516197 = getweapon("zombie_one_inch_punch_upgrade_flourish");
 	level._effect["oneinch_impact"] = "dlc5/tomb/fx_one_inch_punch_impact";
 	level._effect["punch_knockdown_ground"] = "dlc5/zmb_weapon/fx_thundergun_knockback_ground";
@@ -92,12 +92,12 @@ function one_inch_punch_melee_attack()
 	{
 		w_weapon = self getcurrentweapon();
 		self zm_utility::disable_player_move_states(1);
-		self giveweapon(level.var_9d7b544c);
-		self switchtoweapon(level.var_9d7b544c);
+		self giveweapon(level.w_one_inch_punch_flourish);
+		self switchtoweapon(level.w_one_inch_punch_flourish);
 		self util::waittill_any("player_downed", "weapon_change_complete");
 		self switchtoweapon(w_weapon);
 		self zm_utility::enable_player_move_states();
-		self takeweapon(level.var_9d7b544c);
+		self takeweapon(level.w_one_inch_punch_flourish);
 		if(self.str_punch_element == "air")
 		{
 			self giveweapon(level.w_one_inch_punch_air);
@@ -137,12 +137,12 @@ function one_inch_punch_melee_attack()
 	{
 		w_weapon = self getcurrentweapon();
 		self zm_utility::disable_player_move_states(1);
-		self giveweapon(level.var_9d7b544c);
-		self switchtoweapon(level.var_9d7b544c);
+		self giveweapon(level.w_one_inch_punch_flourish);
+		self switchtoweapon(level.w_one_inch_punch_flourish);
 		self util::waittill_any("player_downed", "weapon_change_complete");
 		self switchtoweapon(w_weapon);
 		self zm_utility::enable_player_move_states();
-		self takeweapon(level.var_9d7b544c);
+		self takeweapon(level.w_one_inch_punch_flourish);
 		self giveweapon(level.w_one_inch_punch);
 		self zm_utility::set_player_melee_weapon(level.w_one_inch_punch);
 		self thread zm_audio::create_and_play_dialog("perk", "one_inch");
