@@ -332,7 +332,7 @@ function private _lock_requirement(target)
 		self cybercom::function_29bf9dee(target, 4);
 		return false;
 	}
-	if(isdefined(target.var_f40d252c) && target.var_f40d252c)
+	if(isdefined(target.no_iff) && target.no_iff)
 	{
 		return false;
 	}

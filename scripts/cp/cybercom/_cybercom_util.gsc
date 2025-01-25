@@ -125,12 +125,12 @@ function function_fabadf47(vehicle, issystemup)
 {
 	if(issystemup)
 	{
-		vehicle.var_f40d252c = 1;
+		vehicle.no_iff = 1;
 	}
 	else
 	{
 		vehicle.var_d3f57f67 = undefined;
-		vehicle.var_f40d252c = undefined;
+		vehicle.no_iff = undefined;
 	}
 }
 
