@@ -157,8 +157,8 @@ function private function_963e13a0()
 				distsq = distancesquared(guy.origin, self.origin);
 				frac = distsq / self.radiussq;
 				diff = time - self.birthtime;
-				var_d4857947 = diff / self.opentime;
-				if(frac > var_d4857947)
+				dfrac = diff / self.opentime;
+				if(frac > dfrac)
 				{
 					continue;
 				}
@@ -286,8 +286,8 @@ function private function_78d20ce0()
 				distsq = distancesquared(guy.origin, self.origin);
 				frac = distsq / self.radiussq;
 				diff = time - self.birthtime;
-				var_d4857947 = diff / self.opentime;
-				if(frac > var_d4857947)
+				dfrac = diff / self.opentime;
+				if(frac > dfrac)
 				{
 					continue;
 				}
