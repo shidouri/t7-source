@@ -452,12 +452,12 @@ function function_ab4d9ece(var_21e230b7, e_player)
 */
 function robot_sky_trail()
 {
-	var_8d888091 = spawn("script_model", self.origin);
-	var_8d888091 setmodel("tag_origin");
-	playfxontag(level._effect["robot_sky_trail"], var_8d888091, "tag_origin");
-	var_8d888091 linkto(self);
+	m_sky_trail = spawn("script_model", self.origin);
+	m_sky_trail setmodel("tag_origin");
+	playfxontag(level._effect["robot_sky_trail"], m_sky_trail, "tag_origin");
+	m_sky_trail linkto(self);
 	level waittill(#"hash_10a36fa2");
-	var_8d888091 delete();
+	m_sky_trail delete();
 }
 
 /*
