@@ -199,7 +199,7 @@ function private function_80bf1f40(player, note, sfx, var_5e61e69d, mod = "MOD_C
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_3c5a0d64(org, note, var_3587f608, var_eaac4dd5)
+function private function_3c5a0d64(org, note, var_3587f608, sfxend)
 {
 	self endon(note);
 	self endon("disconnect");
@@ -216,9 +216,9 @@ function private function_3c5a0d64(org, note, var_3587f608, var_eaac4dd5)
 	{
 		self stoploopsound(0.5);
 	}
-	if(isdefined(var_eaac4dd5))
+	if(isdefined(sfxend))
 	{
-		self thread namespace_1a381543::function_90118d8c(var_eaac4dd5);
+		self thread namespace_1a381543::function_90118d8c(sfxend);
 	}
 	self notify(note);
 }
