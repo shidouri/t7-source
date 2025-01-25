@@ -34,7 +34,7 @@ function init()
 	level.w_one_inch_punch_water = getweapon("one_inch_punch_ice");
 	level.var_75ef78a0 = getweapon("one_inch_punch_upgraded");
 	level.w_one_inch_punch_flourish = getweapon("zombie_one_inch_punch_flourish");
-	level.var_ee516197 = getweapon("zombie_one_inch_punch_upgrade_flourish");
+	level.w_one_inch_punch_flourish_upgraded = getweapon("zombie_one_inch_punch_upgrade_flourish");
 	level._effect["oneinch_impact"] = "dlc5/tomb/fx_one_inch_punch_impact";
 	level._effect["punch_knockdown_ground"] = "dlc5/zmb_weapon/fx_thundergun_knockback_ground";
 	callback::on_connect(&one_inch_punch_take_think);
