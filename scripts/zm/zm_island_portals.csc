@@ -374,7 +374,7 @@ function stop_fx_if_defined(localclientnum, fx_reference)
 	Parameters: 5
 	Flags: Linked
 */
-function function_a2d0d0e4(origin1, origin2, var_4358f968, var_2978dbc6, activation)
+function function_a2d0d0e4(origin1, origin2, onloop, var_2978dbc6, activation)
 {
 }
 
@@ -387,7 +387,7 @@ function function_a2d0d0e4(origin1, origin2, var_4358f968, var_2978dbc6, activat
 	Parameters: 4
 	Flags: Linked
 */
-function function_c968dcbc(origin1, var_4358f968, oneshot, activate = 0)
+function function_c968dcbc(origin1, onloop, oneshot, activate = 0)
 {
 }
 

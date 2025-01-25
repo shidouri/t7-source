@@ -522,16 +522,16 @@ function stop_fx_if_defined(localclientnum, fx_reference)
 	Parameters: 5
 	Flags: Linked
 */
-function function_a2d0d0e4(origin1, origin2, var_4358f968, var_2978dbc6, activation)
+function function_a2d0d0e4(origin1, origin2, onloop, var_2978dbc6, activation)
 {
-	audio::playloopat(var_4358f968, origin1);
+	audio::playloopat(onloop, origin1);
 	audio::stoploopat(var_2978dbc6, origin1);
 	if(isdefined(activation))
 	{
 		playsound(0, activation, origin1);
 	}
 	wait(0.05);
-	audio::playloopat(var_4358f968, origin2);
+	audio::playloopat(onloop, origin2);
 	audio::stoploopat(var_2978dbc6, origin2);
 	if(isdefined(activation))
 	{
@@ -548,15 +548,15 @@ function function_a2d0d0e4(origin1, origin2, var_4358f968, var_2978dbc6, activat
 	Parameters: 4
 	Flags: Linked
 */
-function function_c968dcbc(origin1, var_4358f968, oneshot, activate = 0)
+function function_c968dcbc(origin1, onloop, oneshot, activate = 0)
 {
 	if(isdefined(activate) && activate)
 	{
-		audio::playloopat(var_4358f968, origin1);
+		audio::playloopat(onloop, origin1);
 	}
 	else
 	{
-		audio::stoploopat(var_4358f968, origin1);
+		audio::stoploopat(onloop, origin1);
 	}
 	playsound(0, oneshot, origin1);
 }
