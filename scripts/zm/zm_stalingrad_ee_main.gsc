@@ -1269,9 +1269,9 @@ function function_ca8026e2()
 {
 	array::thread_all(level.players, &function_35eed524);
 	callback::on_connect(&function_35eed524);
-	level waittill(#"hash_a8bfa21a", var_ac486a40);
+	level waittill(#"hash_a8bfa21a", w_shield);
 	callback::remove_on_connect(&function_35eed524);
-	if(var_ac486a40 == getweapon("dragonshield"))
+	if(w_shield == getweapon("dragonshield"))
 	{
 		exploder::exploder("fxexp_703");
 	}
@@ -1303,7 +1303,7 @@ function function_35eed524()
 	{
 		for(;;)
 		{
-			self waittill(#"hash_10fa975d", var_ac486a40);
+			self waittill(#"hash_10fa975d", w_shield);
 			var_7dda366c = self getweaponmuzzlepoint();
 			var_9c5bd97c = self getweaponforwarddir();
 			var_ae93125 = level.zombie_vars["dragonshield_knockdown_range"] * level.zombie_vars["dragonshield_knockdown_range"];
@@ -1322,7 +1322,7 @@ function function_35eed524()
 		{
 		}
 		s_pipe struct::delete();
-		level notify(#"hash_a8bfa21a", var_ac486a40);
+		level notify(#"hash_a8bfa21a", w_shield);
 		return;
 	}
 }

@@ -165,14 +165,14 @@ function monitor_melee_swipe()
 	self notify(#"stop_monitor_melee_swipe");
 	self endon(#"stop_monitor_melee_swipe");
 	self endon(#"bled_out");
-	var_ac486a40 = getweapon("tomb_shield");
+	w_shield = getweapon("tomb_shield");
 	while(true)
 	{
 		while(!self ismeleeing())
 		{
 			wait(0.05);
 		}
-		if(self getcurrentweapon() == var_ac486a40)
+		if(self getcurrentweapon() == w_shield)
 		{
 			wait(0.1);
 			continue;
