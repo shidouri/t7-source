@@ -684,33 +684,33 @@ function target_lase_next(node)
 	{
 		return undefined;
 	}
-	var_e236c887 = undefined;
+	nexta = undefined;
 	var_702f594c = undefined;
 	if(isdefined(node.target) && isdefined(node.script_linkto))
 	{
-		var_e236c887 = struct::get(node.target, "targetname");
+		nexta = struct::get(node.target, "targetname");
 		var_702f594c = struct::get(node.script_linkto, "script_linkname");
 	}
 	else
 	{
 		if(isdefined(node.target))
 		{
-			var_e236c887 = struct::get(node.target, "targetname");
+			nexta = struct::get(node.target, "targetname");
 		}
 		else if(isdefined(node.script_linkto))
 		{
-			var_e236c887 = struct::get(node.script_linkto, "script_linkname");
+			nexta = struct::get(node.script_linkto, "script_linkname");
 		}
 	}
-	if(isdefined(var_e236c887) && isdefined(var_702f594c))
+	if(isdefined(nexta) && isdefined(var_702f594c))
 	{
 		if(randomfloatrange(0, 1) < 0.5)
 		{
-			return var_e236c887;
+			return nexta;
 		}
 		return var_702f594c;
 	}
-	return var_e236c887;
+	return nexta;
 }
 
 /*
