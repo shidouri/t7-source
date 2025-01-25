@@ -315,9 +315,9 @@ function private function_6ba7e9d6(e_player)
 	var_20c067ae = int(3 * 1000);
 	e_player zm_utility::increment_is_drinking();
 	w_current = e_player getcurrentweapon();
-	var_700a22a9 = getweapon("zombie_builder");
-	e_player giveweapon(var_700a22a9);
-	e_player switchtoweapon(var_700a22a9);
+	w_build = getweapon("zombie_builder");
+	e_player giveweapon(w_build);
+	e_player switchtoweapon(w_build);
 	mdl_anchor = util::spawn_model("tag_origin", e_player.origin, e_player.angles);
 	e_player thread anchor_delete_watcher(mdl_anchor);
 	e_player zm_utility::disable_player_move_states(1);
@@ -338,7 +338,7 @@ function private function_6ba7e9d6(e_player)
 	e_player stoploopsound(0.5);
 	e_player notify("craftable_progress_end");
 	e_player zm_weapons::switch_back_primary_weapon(w_current);
-	e_player takeweapon(var_700a22a9);
+	e_player takeweapon(w_build);
 	if(isdefined(e_player.is_drinking) && e_player.is_drinking)
 	{
 		e_player zm_utility::decrement_is_drinking();
