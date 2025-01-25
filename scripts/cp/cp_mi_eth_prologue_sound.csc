@@ -105,7 +105,7 @@ function function_6ce0e63()
 */
 function function_eddf6028()
 {
-	level waittill(#"hash_6e2fd964");
+	level waittill("sndapc");
 	audio::snd_set_snapshot("cp_prologue_exit_apc");
 	level waittill(#"hash_36f74bd3");
 	audio::snd_set_snapshot("default");
