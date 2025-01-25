@@ -685,11 +685,11 @@ function target_lase_next(node)
 		return undefined;
 	}
 	nexta = undefined;
-	var_702f594c = undefined;
+	nextb = undefined;
 	if(isdefined(node.target) && isdefined(node.script_linkto))
 	{
 		nexta = struct::get(node.target, "targetname");
-		var_702f594c = struct::get(node.script_linkto, "script_linkname");
+		nextb = struct::get(node.script_linkto, "script_linkname");
 	}
 	else
 	{
@@ -702,13 +702,13 @@ function target_lase_next(node)
 			nexta = struct::get(node.script_linkto, "script_linkname");
 		}
 	}
-	if(isdefined(nexta) && isdefined(var_702f594c))
+	if(isdefined(nexta) && isdefined(nextb))
 	{
 		if(randomfloatrange(0, 1) < 0.5)
 		{
 			return nexta;
 		}
-		return var_702f594c;
+		return nextb;
 	}
 	return nexta;
 }
