@@ -140,12 +140,12 @@ function function_3ea85f63()
 	self playloopsound("evt_sq_std_spray_loop", 1);
 	trigger = spawn("trigger_damage", self.origin, 0, 32, 32);
 	trigger.angles = self.angles + (0, 90, 90);
-	var_a4ff74b9 = getweapon("bouncingbetty");
+	w_betty = getweapon("bouncingbetty");
 	attacker = undefined;
 	while(true)
 	{
 		trigger waittill("damage", amount, attacker, dir, point, mod, tagname, modelname, partname, weaponname, dflags, inflictor, chargelevel);
-		if(weaponname == var_a4ff74b9 && !level.var_b19e3661)
+		if(weaponname == w_betty && !level.var_b19e3661)
 		{
 			level.var_b19e3661 = 1;
 			break;
