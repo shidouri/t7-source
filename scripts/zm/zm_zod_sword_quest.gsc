@@ -2173,7 +2173,7 @@ function sword_devgui()
 	Parameters: 1
 	Flags: None
 */
-function function_31880c32(var_27b0f0e4)
+function function_31880c32(n_keeper_state)
 {
 	/#
 	#/

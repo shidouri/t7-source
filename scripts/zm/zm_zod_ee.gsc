@@ -1744,8 +1744,8 @@ function function_9190a90e(n_char_index)
 			continue;
 		}
 		n_totem_state = level clientfield::get("ee_totem_state");
-		var_27b0f0e4 = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
-		if(var_27b0f0e4 == 1 && n_totem_state == 3)
+		n_keeper_state = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
+		if(n_keeper_state == 1 && n_totem_state == 3)
 		{
 			function_b54f7960(player, n_char_index);
 		}
@@ -2073,14 +2073,14 @@ function function_5eae8cbb()
 		{
 			continue;
 		}
-		var_27b0f0e4 = level clientfield::get(("ee_keeper_" + self.stub.str_charname) + "_state");
-		if(var_27b0f0e4 === 3)
+		n_keeper_state = level clientfield::get(("ee_keeper_" + self.stub.str_charname) + "_state");
+		if(n_keeper_state === 3)
 		{
 			player zm_zod_sword::take_sword();
 			level clientfield::set(("ee_keeper_" + self.stub.str_charname) + "_state", 4);
 			level flag::set(("ee_keeper_" + self.stub.str_charname) + "_armed");
 		}
-		else if(var_27b0f0e4 === 6)
+		else if(n_keeper_state === 6)
 		{
 			level clientfield::set(("ee_keeper_" + self.stub.str_charname) + "_state", 4);
 			level flag::set(("ee_keeper_" + self.stub.str_charname) + "_armed");
@@ -3693,8 +3693,8 @@ function function_7a0bffae(n_val)
 	for(i = 1; i < 5; i++)
 	{
 		str_charname = function_d93f551b(i);
-		var_27b0f0e4 = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
-		if(var_27b0f0e4 == 3)
+		n_keeper_state = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
+		if(n_keeper_state == 3)
 		{
 			continue;
 		}
@@ -3720,8 +3720,8 @@ function function_54098545(n_val)
 	for(i = 1; i < 5; i++)
 	{
 		str_charname = function_d93f551b(i);
-		var_27b0f0e4 = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
-		if(var_27b0f0e4 == 3)
+		n_keeper_state = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
+		if(n_keeper_state == 3)
 		{
 			continue;
 		}
@@ -3789,8 +3789,8 @@ function function_c1cc37db(n_val)
 			for(i = 1; i < 5; i++)
 			{
 				str_charname = function_d93f551b(i);
-				var_27b0f0e4 = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
-				if(var_27b0f0e4 == 3)
+				n_keeper_state = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
+				if(n_keeper_state == 3)
 				{
 					continue;
 				}
