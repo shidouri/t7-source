@@ -590,14 +590,14 @@ function function_fb853e2c()
 	self endon("death");
 	self endon(#"hash_99ff6d52");
 	level endon(#"hash_1deaef05");
-	var_890bca07 = getweapon("elemental_bow");
+	w_elemental_bow = getweapon("elemental_bow");
 	while(true)
 	{
 		self util::waittill_either("projectile_impact", "zmb_max_ammo");
-		if(self hasweapon(var_890bca07))
+		if(self hasweapon(w_elemental_bow))
 		{
-			self.var_e8e28d9e = self getweaponammostock(var_890bca07);
-			self.var_8f97fa0b = self getweaponammoclip(var_890bca07);
+			self.var_e8e28d9e = self getweaponammostock(w_elemental_bow);
+			self.var_8f97fa0b = self getweaponammoclip(w_elemental_bow);
 		}
 	}
 }
@@ -617,14 +617,14 @@ function function_71d4f620()
 	self endon("death");
 	self endon(#"hash_a1f46392");
 	level endon(#"hash_1deaef05");
-	var_890bca07 = getweapon("elemental_bow");
+	w_elemental_bow = getweapon("elemental_bow");
 	var_d95a0cf3 = -1;
 	while(var_d95a0cf3 != self.characterindex)
 	{
 		level waittill(#"bleed_out", var_d95a0cf3);
 	}
-	self.var_e8e28d9e = var_890bca07.maxammo;
-	self.var_8f97fa0b = var_890bca07.clipsize;
+	self.var_e8e28d9e = w_elemental_bow.maxammo;
+	self.var_8f97fa0b = w_elemental_bow.clipsize;
 }
 
 /*
