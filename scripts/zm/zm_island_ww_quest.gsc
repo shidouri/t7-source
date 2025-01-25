@@ -349,8 +349,8 @@ function function_9279976b(player)
 {
 	if(player should_take_weapon())
 	{
-		var_dc7ddcde = player getcurrentweapon();
-		player takeweapon(var_dc7ddcde);
+		w_currentweapon = player getcurrentweapon();
+		player takeweapon(w_currentweapon);
 	}
 	level.var_97c56c3c unlink();
 	level.var_97c56c3c hide();
@@ -1362,8 +1362,8 @@ function function_9f93c407(player)
 			}
 			else if(player should_take_weapon())
 			{
-				var_dc7ddcde = player getcurrentweapon();
-				player takeweapon(var_dc7ddcde);
+				w_currentweapon = player getcurrentweapon();
+				player takeweapon(w_currentweapon);
 			}
 			player giveweapon(level.w_mirg2000_up);
 			player givemaxammo(level.w_mirg2000_up);
