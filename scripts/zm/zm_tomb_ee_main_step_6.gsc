@@ -104,7 +104,7 @@ function ruins_fist_glow_monitor()
 				inflictor.n_ee_punch_souls = 0;
 				inflictor.b_punch_upgraded = 0;
 			}
-			if(self.has_soul && inflictor.n_ee_punch_souls < 20 && isdefined(weapon) && weapon == level.var_653c9585 && (isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
+			if(self.has_soul && inflictor.n_ee_punch_souls < 20 && isdefined(weapon) && weapon == level.w_one_inch_punch && (isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
 			{
 				self clientfield::set("ee_zombie_fist_fx", 0);
 				self.has_soul = 0;

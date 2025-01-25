@@ -1505,7 +1505,7 @@ function zombie_killed_override(einflictor, attacker, idamage, smeansofdeath, sw
 		return;
 	}
 	n_max_dist_sq = 9000000;
-	if(isplayer(attacker) || sweapon == level.var_653c9585)
+	if(isplayer(attacker) || sweapon == level.w_one_inch_punch)
 	{
 		if(!level flag::get("fire_puzzle_1_complete"))
 		{
