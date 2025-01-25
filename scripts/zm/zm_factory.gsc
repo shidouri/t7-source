@@ -3036,7 +3036,7 @@ function function_45814329(var_3c100ea1)
 */
 function function_86e1c543()
 {
-	var_957c9ba0 = getweapon("hero_annihilator");
+	w_annihilator = getweapon("hero_annihilator");
 	while(true)
 	{
 		var_65af5e9c = trigger::wait_till("flytrap_prize");
@@ -3051,9 +3051,9 @@ function function_86e1c543()
 			level.var_1cbe7756 = 1;
 		}
 		player = var_65af5e9c.who;
-		if(!player hasweapon(var_957c9ba0))
+		if(!player hasweapon(w_annihilator))
 		{
-			player function_5d3bb3fe(var_957c9ba0);
+			player function_5d3bb3fe(w_annihilator);
 		}
 	}
 }
@@ -3067,12 +3067,12 @@ function function_86e1c543()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5d3bb3fe(var_957c9ba0)
+function function_5d3bb3fe(w_annihilator)
 {
 	w_previous = self getcurrentweapon();
-	self zm_weapons::weapon_give(var_957c9ba0);
+	self zm_weapons::weapon_give(w_annihilator);
 	self gadgetpowerset(0, 99);
-	self switchtoweapon(var_957c9ba0);
+	self switchtoweapon(w_annihilator);
 	self waittill("weapon_change_complete");
 	self setlowready(1);
 	self switchtoweapon(w_previous);
@@ -3154,10 +3154,10 @@ function function_35372e3f(n_value)
 function function_7c3a679c(n_value)
 {
 	/#
-		var_957c9ba0 = getweapon("");
+		w_annihilator = getweapon("");
 		foreach(player in level.activeplayers)
 		{
-			player function_5d3bb3fe(var_957c9ba0);
+			player function_5d3bb3fe(w_annihilator);
 		}
 	#/
 }
