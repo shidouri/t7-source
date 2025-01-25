@@ -394,7 +394,7 @@ function function_44ff9baa(player)
 				follow_pt = self.var_947e1f34.origin;
 				if(isplayer(self.var_947e1f34))
 				{
-					if(isdefined(self.var_947e1f34.doa.var_65f7f2a9) && self.var_947e1f34.doa.var_65f7f2a9 || isdefined(self.var_5c667593))
+					if(isdefined(self.var_947e1f34.doa.infps) && self.var_947e1f34.doa.infps || isdefined(self.var_5c667593))
 					{
 						z = getdvarint("scr_doa_chickenZ", 20);
 					}

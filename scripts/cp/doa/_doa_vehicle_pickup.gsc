@@ -578,7 +578,7 @@ function function_3b1b644d(var_85f85940, vehicle)
 	}
 	self namespace_831a4a7c::function_4519b17(0);
 	self function_d41a4517();
-	if(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9)
+	if(isdefined(self.doa.infps) && self.doa.infps)
 	{
 		self clientfield::increment_to_player("goFPS");
 	}

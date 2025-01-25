@@ -100,13 +100,13 @@ function function_bbb1254c(var_44eb97b0 = 0)
 	self.doa.multiplier = 1;
 	self.doa.var_d55e6679 = 0;
 	self.doa.var_5d2140f2 = level.doa.rules.var_a9114441;
-	self.doa.var_a3f61a60 = isdefined(self.doa.var_65f7f2a9) && (self.doa.var_65f7f2a9 ? 4 : 0);
+	self.doa.var_a3f61a60 = isdefined(self.doa.infps) && (self.doa.infps ? 4 : 0);
 	self.doa.default_movespeed = 1;
 	self.doa.var_f89dbefa = 0;
 	self.doa.var_91c268dc = 0;
 	self.doa.weaponlevel = 0;
 	self.doa.var_c2b9d7d0 = 0;
-	if(!(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9))
+	if(!(isdefined(self.doa.infps) && self.doa.infps))
 	{
 		self.topdowncamera = 1;
 	}
@@ -842,8 +842,8 @@ function function_aea40863()
 	self allowslide(0);
 	self allowdoublejump(0);
 	self allowwallrun(0);
-	self allowsprint(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9);
-	self allowads(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9);
+	self allowsprint(isdefined(self.doa.infps) && self.doa.infps);
+	self allowads(isdefined(self.doa.infps) && self.doa.infps);
 	self setstance("stand");
 }
 
@@ -1302,7 +1302,7 @@ function function_7d7a7fde()
 	{
 		wait(0.05);
 	}
-	if(!(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9))
+	if(!(isdefined(self.doa.infps) && self.doa.infps))
 	{
 		self clientfield::increment_to_player("controlBinding");
 	}
@@ -2270,7 +2270,7 @@ function function_bfbc53f4(einflictor, eattacker, idamage, idflags, smeansofdeat
 			{
 				idamage = 0;
 			}
-			if(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9)
+			if(isdefined(self.doa.infps) && self.doa.infps)
 			{
 				curtime = gettime();
 				if(curtime < self.doa.var_f9deeb49)

@@ -1944,7 +1944,7 @@ function function_cb119fa6(timeinterval = 1)
 	self notify(#"hash_cb119fa6");
 	self endon(#"hash_cb119fa6");
 	var_f2801f2d = int(self.maxhealth * 0.1);
-	while(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9)
+	while(isdefined(self.doa.infps) && self.doa.infps)
 	{
 		wait(timeinterval);
 		if(self.health < self.maxhealth)
@@ -1990,9 +1990,9 @@ function function_a2eecefa()
 	#/
 	self thread namespace_831a4a7c::turnplayershieldon(0);
 	self thread function_bc81eba();
-	if(!(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9))
+	if(!(isdefined(self.doa.infps) && self.doa.infps))
 	{
-		self.doa.var_65f7f2a9 = 1;
+		self.doa.infps = 1;
 		self.doa.var_f9deeb49 = 0;
 		self clientfield::set_to_player("overdrive_state", 1);
 		self freezecontrols(1);
@@ -2008,12 +2008,12 @@ function function_a2eecefa()
 	self setclientthirdperson(0);
 	self.doa.var_a3f61a60 = 4;
 	self.topdowncamera = 0;
-	self allowsprint(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9);
-	self allowads(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9);
+	self allowsprint(isdefined(self.doa.infps) && self.doa.infps);
+	self allowads(isdefined(self.doa.infps) && self.doa.infps);
 	self util::waittill_any("camera_changed", "doa_playerdumpFPS", "exit_taken", "playerFPSForATime", "disconnect");
 	self thread namespace_831a4a7c::turnplayershieldon();
 	self.topdowncamera = 1;
-	self.doa.var_65f7f2a9 = undefined;
+	self.doa.infps = undefined;
 	self.doa.var_a3f61a60 = 0;
 	self setclientthirdperson(0);
 	if(isalive(self) && (!(isdefined(self.doa.respawning) && self.doa.respawning)))
@@ -2026,8 +2026,8 @@ function function_a2eecefa()
 	/#
 		doa_utility::debugmsg("" + gettime());
 	#/
-	self allowsprint(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9);
-	self allowads(isdefined(self.doa.var_65f7f2a9) && self.doa.var_65f7f2a9);
+	self allowsprint(isdefined(self.doa.infps) && self.doa.infps);
+	self allowads(isdefined(self.doa.infps) && self.doa.infps);
 }
 
 /*
@@ -2077,7 +2077,7 @@ function function_851d4a18()
 			{
 				continue;
 			}
-			if(!(isdefined(player.hotjoin) && player.hotjoin) && (!(isdefined(player.doa.var_65f7f2a9) && player.doa.var_65f7f2a9)))
+			if(!(isdefined(player.hotjoin) && player.hotjoin) && (!(isdefined(player.doa.infps) && player.doa.infps)))
 			{
 				player thread function_a2eecefa();
 			}
