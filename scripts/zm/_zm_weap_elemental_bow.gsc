@@ -36,7 +36,7 @@ function autoexec __init__sytem__()
 */
 function __init__()
 {
-	level.var_be94cdb = getweapon("elemental_bow");
+	level.w_bow_base = getweapon("elemental_bow");
 	level.var_1a828a16 = getweapon("elemental_bow4");
 	clientfield::register("toplayer", "elemental_bow" + "_ambient_bow_fx", 5000, 1, "int");
 	clientfield::register("missile", "elemental_bow" + "_arrow_impact_fx", 5000, 1, "int");
@@ -499,7 +499,7 @@ function function_b78fcfc7(e_player, var_48369d98, v_position)
 		}
 		var_40955aed = (var_3bb42832 * var_26680fd5) / 0.2;
 		var_40955aed = var_40955aed * var_c36342f3;
-		self dodamage(var_40955aed, self.origin, e_player, e_player, undefined, "MOD_PROJECTILE_SPLASH", 0, level.var_be94cdb);
+		self dodamage(var_40955aed, self.origin, e_player, e_player, undefined, "MOD_PROJECTILE_SPLASH", 0, level.w_bow_base);
 	}
 }
 
