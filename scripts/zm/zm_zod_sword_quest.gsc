@@ -762,7 +762,7 @@ function function_7922af5f(player, trig_stub, index, str_endon)
 		trig_stub.ai_defender[index].no_powerups = 1;
 		trig_stub.ai_defender[index].var_89905c65 = 1;
 		trig_stub.ai_defender[index].deathpoints_already_given = 1;
-		trig_stub.ai_defender[index].var_2d5d7413 = 1;
+		trig_stub.ai_defender[index].no_xp = 1;
 		trig_stub.ai_defender[index].var_de609f65 = player;
 		trig_stub.ai_defender[index] waittill("death", attacker, mod, var_13b27531);
 		if(isdefined(var_13b27531 === level.sword_quest.weapons[player.characterindex][1]))

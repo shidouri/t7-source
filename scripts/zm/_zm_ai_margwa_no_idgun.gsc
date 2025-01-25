@@ -1055,7 +1055,7 @@ function private function_8d578a58()
 	self waittill("death", attacker, mod, weapon);
 	foreach(player in level.players)
 	{
-		if(player.am_i_valid && (!(isdefined(level.var_1f6ca9c8) && level.var_1f6ca9c8)) && (!(isdefined(self.var_2d5d7413) && self.var_2d5d7413)))
+		if(player.am_i_valid && (!(isdefined(level.var_1f6ca9c8) && level.var_1f6ca9c8)) && (!(isdefined(self.no_xp) && self.no_xp)))
 		{
 			scoreevents::processscoreevent("kill_margwa", player, undefined, undefined);
 		}
