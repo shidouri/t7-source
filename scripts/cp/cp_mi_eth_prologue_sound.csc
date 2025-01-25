@@ -236,7 +236,7 @@ function function_eb4e50fb()
 */
 function function_889a9ace()
 {
-	level waittill(#"hash_dccb7956");
+	level waittill("snddbb");
 	audio::playloopat("amb_darkbattle_battery_beep", (13849, 2832, 226));
 	audio::playloopat("amb_darkbattle_battery_beep", (13521, 3259, 229));
 	audio::playloopat("amb_darkbattle_battery_beep", (13287, 3267, 226));
