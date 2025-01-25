@@ -1054,15 +1054,15 @@ function function_65b24866()
 */
 function function_30df2b91()
 {
-	var_fed635a = getweapon("riotshield");
-	if(!isdefined(var_fed635a))
+	w_riotshield = getweapon("riotshield");
+	if(!isdefined(w_riotshield))
 	{
 		return;
 	}
 	a_dropped_weapons = getdroppedweapons();
 	foreach(e_weapon in a_dropped_weapons)
 	{
-		if(isdefined(e_weapon) && isdefined(e_weapon.item) && e_weapon.item == var_fed635a && distance2dsquared(self.origin, e_weapon.origin) <= (5000 * 5000))
+		if(isdefined(e_weapon) && isdefined(e_weapon.item) && e_weapon.item == w_riotshield && distance2dsquared(self.origin, e_weapon.origin) <= (5000 * 5000))
 		{
 			e_weapon delete();
 		}
