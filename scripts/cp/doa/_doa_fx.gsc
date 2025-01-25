@@ -271,11 +271,11 @@ function function_64bc2503(&queue, flag, waitfunc, var_a6cc22d4 = 0)
 		self notify(#"hash_6a404ade");
 		return;
 	}
-	var_1b0298c0 = function_39dbe45b(queue[0]);
+	nextfx = function_39dbe45b(queue[0]);
 	arrayremoveindex(queue, 0, 0);
-	if(isdefined(self) && isdefined(var_1b0298c0))
+	if(isdefined(self) && isdefined(nextfx))
 	{
-		self clientfield::set(flag, var_1b0298c0);
+		self clientfield::set(flag, nextfx);
 		self function_64bc2503(queue, flag, waitfunc, 1);
 	}
 }
