@@ -104,7 +104,7 @@ function function_63fe1ddd()
 	while(true)
 	{
 		level clientfield::set("robot_lights", 1);
-		level waittill(#"hash_421e5b59");
+		level waittill("robot_called");
 		level clientfield::set("robot_lights", 2);
 		level waittill(#"hash_10a36fa2");
 		level clientfield::set("robot_lights", 3);
@@ -303,7 +303,7 @@ function robot_callbox_trigger_think()
 			n_spawn_delay = 3;
 			level thread spawn_robot(player, self.stub, n_spawn_delay);
 			player notify(#"hash_b7f8e77c");
-			level notify(#"hash_421e5b59");
+			level notify("robot_called");
 			level thread function_f9a6039c(self, "activated");
 			self playsound("evt_police_box_siren");
 			wait(1.5);
