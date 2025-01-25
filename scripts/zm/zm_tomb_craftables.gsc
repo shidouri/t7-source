@@ -2138,10 +2138,10 @@ function track_staff_weapon_respawn(player)
 					has_weapon = 1;
 					n_melee_element = s_upgraded_staff.enum;
 				}
-				if(player hasweapon(level.var_2b2f83e5))
+				if(player hasweapon(level.w_staff_revive))
 				{
-					s_upgraded_staff.revive_ammo_stock = player getweaponammostock(level.var_2b2f83e5);
-					s_upgraded_staff.revive_ammo_clip = player getweaponammoclip(level.var_2b2f83e5);
+					s_upgraded_staff.revive_ammo_stock = player getweaponammostock(level.w_staff_revive);
+					s_upgraded_staff.revive_ammo_clip = player getweaponammoclip(level.w_staff_revive);
 				}
 				if(has_weapon && (!(isdefined(player.one_inch_punch_flag_has_been_init) && player.one_inch_punch_flag_has_been_init)) && n_melee_element != 0 && !player hasperk("specialty_widowswine"))
 				{

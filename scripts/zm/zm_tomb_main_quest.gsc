@@ -159,7 +159,7 @@ function main_quest_init()
 		staff.prev_ammo_stock = staff.w_weapon.startammo;
 		staff.upgrade.downgrade = staff;
 	}
-	level.var_2b2f83e5 = getweapon("staff_revive");
+	level.w_staff_revive = getweapon("staff_revive");
 	level.staffs_charged = 0;
 	array::thread_all(level.zombie_spawners, &spawner::add_spawn_function, &zombie_spawn_func);
 	level thread watch_for_staff_upgrades();

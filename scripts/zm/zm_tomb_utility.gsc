@@ -1218,7 +1218,7 @@ function function_38af9e8e()
 	self endon("disconnect");
 	while(true)
 	{
-		ammo = self getammocount(level.var_2b2f83e5);
+		ammo = self getammocount(level.w_staff_revive);
 		self clientfield::set_player_uimodel("hudItems.dpadLeftAmmo", ammo);
 		wait(0.05);
 	}
@@ -2841,7 +2841,7 @@ function update_staff_accessories(n_element_index)
 			melee_changed = 1;
 		}
 	}
-	has_revive = self hasweapon(level.var_2b2f83e5);
+	has_revive = self hasweapon(level.w_staff_revive);
 	has_upgraded_staff = 0;
 	a_weapons = self getweaponslistprimaries();
 	staff_info = zm_tomb_craftables::get_staff_info_from_element_index(n_element_index);
@@ -2855,18 +2855,18 @@ function update_staff_accessories(n_element_index)
 	if(has_revive && !has_upgraded_staff)
 	{
 		self setactionslot(3, "altmode");
-		self takeweapon(level.var_2b2f83e5);
+		self takeweapon(level.w_staff_revive);
 	}
 	else if(!has_revive && has_upgraded_staff)
 	{
-		self setactionslot(3, "weapon", level.var_2b2f83e5);
-		self giveweapon(level.var_2b2f83e5);
+		self setactionslot(3, "weapon", level.w_staff_revive);
+		self giveweapon(level.w_staff_revive);
 		if(isdefined(staff_info))
 		{
 			if(isdefined(staff_info.upgrade.revive_ammo_stock))
 			{
-				self setweaponammostock(level.var_2b2f83e5, staff_info.upgrade.revive_ammo_stock);
-				self setweaponammoclip(level.var_2b2f83e5, staff_info.upgrade.revive_ammo_clip);
+				self setweaponammostock(level.w_staff_revive, staff_info.upgrade.revive_ammo_stock);
+				self setweaponammoclip(level.w_staff_revive, staff_info.upgrade.revive_ammo_clip);
 			}
 		}
 	}
