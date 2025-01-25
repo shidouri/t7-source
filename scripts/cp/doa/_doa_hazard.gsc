@@ -642,26 +642,26 @@ function function_3341776e(origin, var_891d7d80 = origin, var_ba2a535c = 85)
 		return undefined;
 	}
 	trace = worldtrace(origin + vectorscale((0, 0, 1), 32), origin + (48, 0, 32));
-	var_4a592d6b = trace["fraction"] == 1 && trace["surfacetype"] == "none";
-	if(!var_4a592d6b)
+	nohit = trace["fraction"] == 1 && trace["surfacetype"] == "none";
+	if(!nohit)
 	{
 		return undefined;
 	}
 	trace = worldtrace(origin + vectorscale((0, 0, 1), 32), origin + (-48, 0, 32));
-	var_4a592d6b = trace["fraction"] == 1 && trace["surfacetype"] == "none";
-	if(!var_4a592d6b)
+	nohit = trace["fraction"] == 1 && trace["surfacetype"] == "none";
+	if(!nohit)
 	{
 		return undefined;
 	}
 	trace = worldtrace(origin + vectorscale((0, 0, 1), 32), origin + (0, 48, 32));
-	var_4a592d6b = trace["fraction"] == 1 && trace["surfacetype"] == "none";
-	if(!var_4a592d6b)
+	nohit = trace["fraction"] == 1 && trace["surfacetype"] == "none";
+	if(!nohit)
 	{
 		return undefined;
 	}
 	trace = worldtrace(origin + vectorscale((0, 0, 1), 32), origin + (0, -48, 32));
-	var_4a592d6b = trace["fraction"] == 1 && trace["surfacetype"] == "none";
-	if(!var_4a592d6b)
+	nohit = trace["fraction"] == 1 && trace["surfacetype"] == "none";
+	if(!nohit)
 	{
 		return undefined;
 	}
