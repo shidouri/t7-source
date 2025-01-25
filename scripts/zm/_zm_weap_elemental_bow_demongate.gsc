@@ -49,7 +49,7 @@ function autoexec __init__sytem__()
 */
 function __init__()
 {
-	level.var_edf1e590 = getweapon("elemental_bow_demongate");
+	level.w_bow_demongate = getweapon("elemental_bow_demongate");
 	level.var_e106fba5 = getweapon("elemental_bow_demongate4");
 	level.var_ecd0c077 = [];
 	clientfield::register("toplayer", "elemental_bow_demongate" + "_ambient_bow_fx", 5000, 1, "int");
@@ -834,7 +834,7 @@ function function_67903a83(e_player)
 	{
 		var_38fe557 = undefined;
 	}
-	e_target dodamage(n_damage, e_target.origin, var_38fe557, var_38fe557, undefined, "MOD_UNKNOWN", 0, level.var_edf1e590);
+	e_target dodamage(n_damage, e_target.origin, var_38fe557, var_38fe557, undefined, "MOD_UNKNOWN", 0, level.w_bow_demongate);
 	gibserverutils::gibhead(e_target);
 }
 
@@ -865,7 +865,7 @@ function function_3f57ba41(e_player)
 	{
 		var_38fe557 = undefined;
 	}
-	e_target dodamage(n_damage, e_target.origin, var_38fe557, var_38fe557, undefined, "MOD_PROJECTILE_SPLASH", 0, level.var_edf1e590);
+	e_target dodamage(n_damage, e_target.origin, var_38fe557, var_38fe557, undefined, "MOD_PROJECTILE_SPLASH", 0, level.w_bow_demongate);
 	self waittill(#"hash_368634cd");
 	e_target.var_bc9b5fbd = 0;
 	e_target.var_98056717 = 0;
