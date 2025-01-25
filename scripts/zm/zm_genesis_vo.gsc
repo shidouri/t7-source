@@ -2804,7 +2804,7 @@ function function_bbeae714(var_d95a0cf3)
 }
 
 /*
-	Name: function_e5bc23b9
+	Name: gen_vo
 	Namespace: zm_genesis_vo
 	Checksum: 0x90A40F9A
 	Offset: 0x11908
@@ -2812,7 +2812,7 @@ function function_bbeae714(var_d95a0cf3)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e5bc23b9(str_type)
+function gen_vo(str_type)
 {
 	var_f62df441 = [];
 	var_f62df441["gen_pos"] = 100;
@@ -2859,7 +2859,7 @@ function function_e6873e6a()
 	while(true)
 	{
 		str_notify = self util::waittill_any_return("disconnect", "gen_pickup", "player_got_keeper_companion_piece", "player_got_craftable_piece_for_craft_shield_zm");
-		self thread function_e5bc23b9("gen_pickup");
+		self thread gen_vo("gen_pickup");
 		wait(5);
 	}
 }
@@ -2882,7 +2882,7 @@ function function_f24af040()
 		self.var_f069d80e++;
 		if(self.var_f069d80e <= 4)
 		{
-			self thread function_e5bc23b9("gen_pos");
+			self thread gen_vo("gen_pos");
 		}
 		else
 		{
@@ -2908,7 +2908,7 @@ function function_4eab9dac()
 	while(true)
 	{
 		self waittill("gen_neg");
-		self thread function_e5bc23b9("gen_neg");
+		self thread gen_vo("gen_neg");
 		wait(30);
 	}
 }
