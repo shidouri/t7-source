@@ -481,7 +481,7 @@ function speak_charge_lines(lines)
 		{
 			level._charge_terminal setmodel("p7_zm_moo_computer_rocket_launch_red");
 		}
-		if(zombie_utility::is_player_valid(sound_ent) && sound_ent zm_equipment::is_active(level.var_f486078e))
+		if(zombie_utility::is_player_valid(sound_ent) && sound_ent zm_equipment::is_active(level.w_gasmask))
 		{
 			sound_ent playsoundwithnotify(l.what + "_f", "line_spoken");
 		}

@@ -414,7 +414,7 @@ function play_futz_or_not_moonvox(sound_to_play)
 	}
 	for(i = 0; i < players.size; i++)
 	{
-		if(self zm_equipment::is_active(level.var_f486078e))
+		if(self zm_equipment::is_active(level.w_gasmask))
 		{
 			if(self == players[i])
 			{
@@ -623,7 +623,7 @@ function do_mooncomp_vox(alias)
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
-		if(players[i] zm_equipment::is_active(level.var_f486078e))
+		if(players[i] zm_equipment::is_active(level.w_gasmask))
 		{
 			players[i] playsoundtoplayer(alias + "_f", players[i]);
 		}
@@ -790,7 +790,7 @@ function play_warning_vox()
 		{
 			wait(0.1);
 		}
-		if(isdefined(self.in_low_gravity && self hasweapon(level.var_f486078e) && !self zm_equip_gasmask::gasmask_active()) && self.in_low_gravity && self hasweapon(level.var_f486078e) && !self zm_equip_gasmask::gasmask_active())
+		if(isdefined(self.in_low_gravity && self hasweapon(level.w_gasmask) && !self zm_equip_gasmask::gasmask_active()) && self.in_low_gravity && self hasweapon(level.w_gasmask) && !self zm_equip_gasmask::gasmask_active())
 		{
 			self stopsounds();
 			wait(0.05);
