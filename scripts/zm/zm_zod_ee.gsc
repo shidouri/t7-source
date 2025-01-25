@@ -235,8 +235,8 @@ function function_189ed812()
 */
 function function_1b6ee215()
 {
-	var_501cba6a = getent("ee_book", "targetname");
-	var_501cba6a ghost();
+	e_book = getent("ee_book", "targetname");
+	e_book ghost();
 	function_c3466d96(0);
 	level.var_b94f6d7a = struct::get_array("ee_totem_leyline", "targetname");
 }
@@ -330,17 +330,17 @@ function function_8a05e65()
 */
 function ee_begin()
 {
-	var_501cba6a = getent("ee_book", "targetname");
-	e_deletable_spawn_point = spawn("script_model", var_501cba6a.origin);
+	e_book = getent("ee_book", "targetname");
+	e_deletable_spawn_point = spawn("script_model", e_book.origin);
 	e_deletable_spawn_point setmodel("tag_origin");
-	e_deletable_spawn_point.origin = var_501cba6a.origin;
-	e_deletable_spawn_point.angles = var_501cba6a.angles;
+	e_deletable_spawn_point.origin = e_book.origin;
+	e_deletable_spawn_point.angles = e_book.angles;
 	var_61835890 = playfxontag(level._effect["ee_quest_book_mist"], e_deletable_spawn_point, "tag_origin");
 	wait(1.5);
-	var_501cba6a show();
+	e_book show();
 	wait(1.5);
 	e_deletable_spawn_point delete();
-	level thread function_e6341733(var_501cba6a);
+	level thread function_e6341733(e_book);
 	level flag::wait_till("ee_book");
 }
 
@@ -1561,12 +1561,12 @@ function function_bddd53dc(trig_stub, player)
 	/#
 		iprintlnbold("");
 	#/
-	var_501cba6a = getent("ee_book", "targetname");
-	var_501cba6a moveto(var_501cba6a.origin + vectorscale((0, 0, 1), 48), 3, 1, 1);
+	e_book = getent("ee_book", "targetname");
+	e_book moveto(e_book.origin + vectorscale((0, 0, 1), 48), 3, 1, 1);
 	wait(3);
-	playfxontag(level._effect["ee_quest_book_mist"], var_501cba6a, "tag_origin");
-	var_501cba6a playsound("zmb_ee_main_book_aflame");
-	var_501cba6a playloopsound("zmb_ee_main_book_aflame_lp", 1);
+	playfxontag(level._effect["ee_quest_book_mist"], e_book, "tag_origin");
+	e_book playsound("zmb_ee_main_book_aflame");
+	e_book playloopsound("zmb_ee_main_book_aflame_lp", 1);
 	level flag::set("ee_book");
 	level clientfield::set("ee_keeper_boxer_state", 1);
 	level clientfield::set("ee_keeper_detective_state", 1);
