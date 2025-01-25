@@ -633,7 +633,7 @@ function function_18a45f58()
 function function_6049bca3(val)
 {
 	/#
-		self endon(#"hash_c1452ba");
+		self endon("letgo");
 		function_9c8c6fe4(val);
 		wait(0.5);
 		while(true)
@@ -686,7 +686,7 @@ function function_9c8c6fe4(val)
 function function_a24562f8(val)
 {
 	/#
-		self endon(#"hash_c1452ba");
+		self endon("letgo");
 		function_8bdc662f(val);
 		wait(0.5);
 		while(true)
