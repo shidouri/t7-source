@@ -453,7 +453,7 @@ function function_37906040()
 */
 function function_7a818f3c()
 {
-	level waittill(#"hash_64976832");
+	level waittill("hlhrun");
 	music::setmusicstate("hall_heroic_run");
 }
 
