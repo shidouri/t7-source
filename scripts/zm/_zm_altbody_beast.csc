@@ -1357,10 +1357,10 @@ function function_4778b020(lo, hi)
 	Parameters: 3
 	Flags: Linked
 */
-function function_4b2bbece(var_3ae5c24, var_1bfa7cb7, frac)
+function function_4b2bbece(cfrom, var_1bfa7cb7, frac)
 {
 	frac0 = 1 - frac;
-	color = ((frac0 * var_3ae5c24[0]) + (frac * var_1bfa7cb7[0]), (frac0 * var_3ae5c24[1]) + (frac * var_1bfa7cb7[1]), (frac0 * var_3ae5c24[2]) + (frac * var_1bfa7cb7[2]));
+	color = ((frac0 * cfrom[0]) + (frac * var_1bfa7cb7[0]), (frac0 * cfrom[1]) + (frac * var_1bfa7cb7[1]), (frac0 * cfrom[2]) + (frac * var_1bfa7cb7[2]));
 	return color;
 }
 
