@@ -304,11 +304,11 @@ function function_d207ecc1(localclientnum, delta_time)
 	}
 	var_de478449 = 50;
 	var_967aec83 = 500;
-	var_1f425838 = abs(dims[0]);
+	dim_x = abs(dims[0]);
 	t_x = 0;
-	if(var_1f425838 > var_de478449)
+	if(dim_x > var_de478449)
 	{
-		t_x = (var_1f425838 - var_de478449) / (var_967aec83 - var_de478449);
+		t_x = (dim_x - var_de478449) / (var_967aec83 - var_de478449);
 		frac = math::clamp(t_x, 0, 1);
 		var_5296710e = arena_center[1];
 		new_y = cam_pos[1] + ((var_5296710e - cam_pos[1]) * frac);
