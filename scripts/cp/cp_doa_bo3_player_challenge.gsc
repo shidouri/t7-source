@@ -341,7 +341,7 @@ function private function_533483a3(room)
 					ai hidepart("TAG_WEAPON_LEFT");
 					ai setavoidancemask("avoid none");
 					ai pushactors(0);
-					ai.var_ad61c13d = 1;
+					ai.nogibs = 1;
 					ai.is_skeleton = 1;
 					ai.nofire = 1;
 					ai.doa.points = undefined;

@@ -645,7 +645,7 @@ function shield_trigger_think(player, var_c1ff53d9, thresh)
 				if(randomint(100) < getdvarint("scr_doa_ragdoll_toss_up_chance", 25))
 				{
 					velocity = function_93739933(player getvelocity());
-					if(velocity > 30 && (!(isdefined(guy.var_ad61c13d) && guy.var_ad61c13d)))
+					if(velocity > 30 && (!(isdefined(guy.nogibs) && guy.nogibs)))
 					{
 						guy clientfield::set("zombie_rhino_explosion", 1);
 						namespace_fba031c8::trygibbinglimb(guy, 5000);

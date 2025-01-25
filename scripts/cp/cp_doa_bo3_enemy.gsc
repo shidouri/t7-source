@@ -850,7 +850,7 @@ function function_fb051310(spawner, loc, def, droptoground = 1, hp, force = 0)
 		}
 		ai.maxhealth = ai.health;
 		ai.spawner = spawner;
-		ai.var_ad61c13d = 1;
+		ai.nogibs = 1;
 		ai.var_2d8174e3 = 1;
 		ai.def = def;
 		ai.untouchable = 1;
@@ -983,7 +983,7 @@ function function_1631202b(spawner, loc, def)
 		ai.holdfire = 0;
 		ai.var_b7e79322 = 1;
 		ai.var_65e0af26 = 1;
-		ai.var_ad61c13d = 1;
+		ai.nogibs = 1;
 		ai.meleedamage = 0;
 		ai.squelch_damage_overlay = 1;
 		ai.goalradius = 512;
@@ -1017,7 +1017,7 @@ function function_ee2c4b95(spawner = level.doa.spiderspawner, loc, def)
 	if(isdefined(ai))
 	{
 		ai.maxhealth = ai.health;
-		ai.var_ad61c13d = 1;
+		ai.nogibs = 1;
 		ai.var_2d8174e3 = 1;
 		ai.is_spider = 1;
 		ai.meleedamage = 50;
@@ -1662,7 +1662,7 @@ function function_17de14f1(spawner, loc, def)
 		ai thread function_b6d31d3a(loc, 0, "zombie_bloodriser_fx");
 		ai.spawner = spawner;
 		ai.team = "axis";
-		ai.var_ad61c13d = 1;
+		ai.nogibs = 1;
 		if(isdefined(def))
 		{
 			ai.health = def.var_83bae1f8 + (150 * level.doa.round_number);

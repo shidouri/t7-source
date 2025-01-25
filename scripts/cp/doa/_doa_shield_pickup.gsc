@@ -617,7 +617,7 @@ function private function_92374630(player)
 		if(isactor(guy))
 		{
 			vel = vectorscale(self.origin - player.origin, 0.2);
-			if(!(isdefined(guy.var_ad61c13d) && guy.var_ad61c13d))
+			if(!(isdefined(guy.nogibs) && guy.nogibs))
 			{
 				guy namespace_fba031c8::function_ddf685e8(vel, player);
 				guy thread doa_utility::function_ba30b321(0.5, player);

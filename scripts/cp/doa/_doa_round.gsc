@@ -591,7 +591,7 @@ function function_21a582ff(current_wave, endnote)
 			{
 				current_wave.var_3f7b0d81--;
 				ai notify(#"hash_48b8c577");
-				if(!isvehicle(ai) && (!(isdefined(ai.var_ad61c13d) && ai.var_ad61c13d)))
+				if(!isvehicle(ai) && (!(isdefined(ai.nogibs) && ai.nogibs)))
 				{
 					ai thread zombie_utility::zombie_gib_on_damage();
 					ai.tesla_head_gib_func = &namespace_fba031c8::function_deb7df37;
