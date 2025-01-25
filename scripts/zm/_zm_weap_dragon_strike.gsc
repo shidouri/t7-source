@@ -161,14 +161,14 @@ function function_1939853d()
 */
 function function_ab4fad2f()
 {
-	var_5a0c399b = self zm_utility::get_player_placeable_mine();
-	if(var_5a0c399b == getweapon("launcher_dragon_strike"))
+	w_dragon_strike = self zm_utility::get_player_placeable_mine();
+	if(w_dragon_strike == getweapon("launcher_dragon_strike"))
 	{
 		n_max_ammo = 1;
 	}
 	else
 	{
-		if(var_5a0c399b == getweapon("launcher_dragon_strike_upgraded"))
+		if(w_dragon_strike == getweapon("launcher_dragon_strike_upgraded"))
 		{
 			n_max_ammo = 2;
 		}
@@ -177,13 +177,13 @@ function function_ab4fad2f()
 			return;
 		}
 	}
-	if(self getammocount(var_5a0c399b) < n_max_ammo)
+	if(self getammocount(w_dragon_strike) < n_max_ammo)
 	{
 		if(array::contains(level.var_163a43e4, self))
 		{
 			self waittill(#"hash_2e47bc4a");
 		}
-		self setweaponammoclip(var_5a0c399b, n_max_ammo);
+		self setweaponammoclip(w_dragon_strike, n_max_ammo);
 	}
 }
 
@@ -433,7 +433,7 @@ function function_2864e2c1()
 	self.var_8660deae = 1;
 	if(isdefined(level.var_d4286019) && level.var_d4286019)
 	{
-		var_5a0c399b = self zm_utility::get_player_placeable_mine();
+		w_dragon_strike = self zm_utility::get_player_placeable_mine();
 		self function_ab4fad2f();
 	}
 }
@@ -465,8 +465,8 @@ function function_42ab5fbb(var_5d020ece)
 function function_a3b69ec0(var_5d020ece)
 {
 	self endon("disconnect");
-	var_5a0c399b = self zm_utility::get_player_placeable_mine();
-	if(var_5a0c399b == getweapon("launcher_dragon_strike_upgraded"))
+	w_dragon_strike = self zm_utility::get_player_placeable_mine();
+	if(w_dragon_strike == getweapon("launcher_dragon_strike_upgraded"))
 	{
 		b_upgraded = 1;
 		var_35ab0c48 = 400;
@@ -480,9 +480,9 @@ function function_a3b69ec0(var_5d020ece)
 		var_825b87b9 = 600;
 		w_fire = getweapon("launcher_dragon_fire");
 	}
-	self setweaponammoclip(var_5a0c399b, self getammocount(var_5a0c399b) - 1);
+	self setweaponammoclip(w_dragon_strike, self getammocount(w_dragon_strike) - 1);
 	self flag::clear("show_dragon_strike_reticule");
-	self.mdl_target thread function_6efadb82(var_825b87b9, var_5a0c399b);
+	self.mdl_target thread function_6efadb82(var_825b87b9, w_dragon_strike);
 	level thread function_9af893e8(self, var_5d020ece, b_upgraded, var_35ab0c48, w_fire);
 	level waittill(#"hash_d3a01285");
 	self notify(#"hash_ddb84fad", self.var_8e17738c);
@@ -589,7 +589,7 @@ function function_adac83c4()
 	Parameters: 2
 	Flags: Linked
 */
-function function_6efadb82(var_825b87b9, var_5a0c399b)
+function function_6efadb82(var_825b87b9, w_dragon_strike)
 {
 	self clientfield::set("dragon_strike_flare_fx", 1);
 	var_dc5fde65 = getclosestpointonnavmesh(self.origin, 128);
@@ -599,7 +599,7 @@ function function_6efadb82(var_825b87b9, var_5a0c399b)
 	if(isdefined(self))
 	{
 		self clientfield::set("dragon_strike_flare_fx", 0);
-		if(var_5a0c399b == getweapon("launcher_dragon_strike_upgraded"))
+		if(w_dragon_strike == getweapon("launcher_dragon_strike_upgraded"))
 		{
 			self clientfield::increment("dragon_strike_marker_upgraded_fx_fadeout");
 		}
@@ -678,8 +678,8 @@ function function_7fcb14a8()
 	}
 	util::wait_network_frame();
 	self.mdl_target clientfield::set("dragon_strike_marker_on", 1);
-	var_5a0c399b = self zm_utility::get_player_placeable_mine();
-	if(var_5a0c399b == getweapon("launcher_dragon_strike_upgraded"))
+	w_dragon_strike = self zm_utility::get_player_placeable_mine();
+	if(w_dragon_strike == getweapon("launcher_dragon_strike_upgraded"))
 	{
 		var_78f8828b = "dragon_strike_marker_upgraded_fx";
 		var_854898eb = "dragon_strike_marker_upgraded_invalid_fx";

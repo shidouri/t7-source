@@ -430,18 +430,18 @@ function function_8258d71c()
 {
 	if(level flag::get("draconite_available"))
 	{
-		var_5a0c399b = getweapon("launcher_dragon_strike_upgraded");
+		w_dragon_strike = getweapon("launcher_dragon_strike_upgraded");
 		n_max_ammo = 2;
 	}
 	else
 	{
-		var_5a0c399b = getweapon("launcher_dragon_strike");
+		w_dragon_strike = getweapon("launcher_dragon_strike");
 		n_max_ammo = 1;
 	}
-	self thread zm_placeable_mine::setup_for_player(var_5a0c399b, "hudItems.showDpadRight_DragonStrike");
+	self thread zm_placeable_mine::setup_for_player(w_dragon_strike, "hudItems.showDpadRight_DragonStrike");
 	self thread function_b8ea3482("zmInventory.widget_dragon_strike");
-	self zm_weapons::weapon_give(var_5a0c399b);
-	self setweaponammoclip(var_5a0c399b, n_max_ammo);
+	self zm_weapons::weapon_give(w_dragon_strike);
+	self setweaponammoclip(w_dragon_strike, n_max_ammo);
 	self thread zm_equipment::show_hint_text(&"ZM_STALINGRAD_DRAGON_STRIKE_EQUIP");
 	self zm_audio::create_and_play_dialog("weapon_pickup", "controller");
 }
@@ -560,12 +560,12 @@ function function_e6794c49()
 */
 function function_af4562b1()
 {
-	var_5a0c399b = getweapon("launcher_dragon_strike");
+	w_dragon_strike = getweapon("launcher_dragon_strike");
 	foreach(player in level.players)
 	{
-		if(player zm_utility::get_player_placeable_mine() === var_5a0c399b)
+		if(player zm_utility::get_player_placeable_mine() === w_dragon_strike)
 		{
-			player setweaponammoclip(var_5a0c399b, 1);
+			player setweaponammoclip(w_dragon_strike, 1);
 		}
 	}
 }
