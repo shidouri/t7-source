@@ -54,7 +54,7 @@ function autoexec __init__sytem__()
 */
 function __init__()
 {
-	level.var_5e75629a = getweapon("hero_mirg2000");
+	level.w_mirg2000 = getweapon("hero_mirg2000");
 	level.var_a367ea52 = getweapon("hero_mirg2000_1");
 	level.var_7d656fe9 = getweapon("hero_mirg2000_2");
 	level.var_a4052592 = getweapon("hero_mirg2000_upgraded");
@@ -118,7 +118,7 @@ function is_wonder_weapon(weapon, str_type = "any")
 	{
 		case "any":
 		{
-			if(weapon == level.var_5e75629a || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.var_a4052592 || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
+			if(weapon == level.w_mirg2000 || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.var_a4052592 || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
 			{
 				return true;
 			}
@@ -126,7 +126,7 @@ function is_wonder_weapon(weapon, str_type = "any")
 		}
 		case "default":
 		{
-			if(weapon == level.var_5e75629a || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9)
+			if(weapon == level.w_mirg2000 || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9)
 			{
 				return true;
 			}
@@ -158,7 +158,7 @@ function is_wonder_weapon(weapon, str_type = "any")
 		}
 		default:
 		{
-			if(weapon == level.var_5e75629a || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.var_a4052592 || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
+			if(weapon == level.w_mirg2000 || weapon == level.var_a367ea52 || weapon == level.var_7d656fe9 || weapon == level.var_a4052592 || weapon == level.var_5c210a9a || weapon == level.var_361e9031)
 			{
 				return true;
 			}
@@ -846,7 +846,7 @@ function function_79504f13(ai_zombie, v_pos)
 	}
 	else
 	{
-		e_grenade = magicbullet(level.var_5e75629a, v_pos, ai_zombie getcentroid());
+		e_grenade = magicbullet(level.w_mirg2000, v_pos, ai_zombie getcentroid());
 	}
 	if(isdefined(e_grenade))
 	{

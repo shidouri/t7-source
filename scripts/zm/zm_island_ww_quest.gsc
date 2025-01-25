@@ -354,13 +354,13 @@ function function_9279976b(player)
 	}
 	level.var_97c56c3c unlink();
 	level.var_97c56c3c hide();
-	player giveweapon(level.var_5e75629a);
-	player givemaxammo(level.var_5e75629a);
-	player switchtoweapon(level.var_5e75629a);
+	player giveweapon(level.w_mirg2000);
+	player givemaxammo(level.w_mirg2000);
+	player switchtoweapon(level.w_mirg2000);
 	player notify("player_got_mirg2000");
 	level clientfield::set("add_ww_to_box", 1);
 	player.var_3599826c = 1;
-	level.zombie_weapons[level.var_5e75629a].is_in_box = 1;
+	level.zombie_weapons[level.w_mirg2000].is_in_box = 1;
 	level.customrandomweaponweights = &function_659c2324;
 	level.var_2cb8e184 = 0;
 	player thread function_9dd4723a();
@@ -432,19 +432,19 @@ function function_659c2324(a_keys)
 				break;
 			}
 		}
-		if(randomint(100) <= n_chance && zm_magicbox::treasure_chest_canplayerreceiveweapon(self, level.var_5e75629a, var_b45fbf8c) && !self hasweapon(level.var_a4052592))
+		if(randomint(100) <= n_chance && zm_magicbox::treasure_chest_canplayerreceiveweapon(self, level.w_mirg2000, var_b45fbf8c) && !self hasweapon(level.var_a4052592))
 		{
-			arrayinsert(a_keys, level.var_5e75629a, 0);
+			arrayinsert(a_keys, level.w_mirg2000, 0);
 			self thread function_97d5f905();
 		}
 		else
 		{
-			arrayremovevalue(a_keys, level.var_5e75629a);
+			arrayremovevalue(a_keys, level.w_mirg2000);
 		}
 	}
-	else if(self hasweapon(level.var_5e75629a) || self hasweapon(level.var_a4052592))
+	else if(self hasweapon(level.w_mirg2000) || self hasweapon(level.var_a4052592))
 	{
-		arrayremovevalue(a_keys, level.var_5e75629a);
+		arrayremovevalue(a_keys, level.w_mirg2000);
 	}
 	return a_keys;
 }
@@ -498,7 +498,7 @@ function function_52193f1e()
 	n_count = 0;
 	foreach(player in level.players)
 	{
-		if(player hasweapon(level.var_5e75629a) || player hasweapon(level.var_a4052592))
+		if(player hasweapon(level.w_mirg2000) || player hasweapon(level.var_a4052592))
 		{
 			n_count++;
 		}
@@ -1274,11 +1274,11 @@ function function_cc882a46()
 		{
 			continue;
 		}
-		if(!player hasweapon(level.var_5e75629a))
+		if(!player hasweapon(level.w_mirg2000))
 		{
 			continue;
 		}
-		if(player getcurrentweapon() != level.var_5e75629a)
+		if(player getcurrentweapon() != level.w_mirg2000)
 		{
 			continue;
 		}
@@ -1289,7 +1289,7 @@ function function_cc882a46()
 		if(level flag::get("wwup1_found") && level flag::get("wwup2_found") && level flag::get("wwup3_found"))
 		{
 			level flag::set("wwup_wait");
-			player takeweapon(level.var_5e75629a);
+			player takeweapon(level.w_mirg2000);
 			var_85b2b1ab attach(level.var_97c56c3c.model, "mirg_cent_gun_tag_jnt");
 			var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", var_85b2b1ab);
 			var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_turn_on_bundle", var_85b2b1ab);
@@ -1318,7 +1318,7 @@ function private function_5521d6b5(player)
 	{
 		return &"ZM_ISLAND_WONDERWEAPON_UP_PICKUP";
 	}
-	if(level flag::get("wwup1_found") && level flag::get("wwup2_found") && level flag::get("wwup3_found") && player getcurrentweapon() == level.var_5e75629a)
+	if(level flag::get("wwup1_found") && level flag::get("wwup2_found") && level flag::get("wwup3_found") && player getcurrentweapon() == level.w_mirg2000)
 	{
 		return &"ZM_ISLAND_WONDERWEAPON_AMMO";
 	}
@@ -1356,9 +1356,9 @@ function function_9f93c407(player)
 			}
 			level flag::clear("wwup_wait");
 			level flag::clear("wwup_ready");
-			if(player hasweapon(level.var_5e75629a))
+			if(player hasweapon(level.w_mirg2000))
 			{
-				player takeweapon(level.var_5e75629a);
+				player takeweapon(level.w_mirg2000);
 			}
 			else if(player should_take_weapon())
 			{
