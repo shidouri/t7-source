@@ -298,16 +298,16 @@ function function_8be04f83()
 function function_8c1bac65(var_953206f3)
 {
 	n_count = 0;
-	foreach(var_3ee6fb6a in level.var_fc730f22)
+	foreach(w_dragon in level.var_fc730f22)
 	{
-		if(var_953206f3 == var_3ee6fb6a)
+		if(var_953206f3 == w_dragon)
 		{
 			n_count++;
 			continue;
 		}
 		if(isdefined(level.zombie_weapons[var_953206f3]) && isdefined(level.zombie_weapons[var_953206f3].upgrade))
 		{
-			if(var_3ee6fb6a == level.zombie_weapons[var_953206f3].upgrade)
+			if(w_dragon == level.zombie_weapons[var_953206f3].upgrade)
 			{
 				n_count++;
 			}
