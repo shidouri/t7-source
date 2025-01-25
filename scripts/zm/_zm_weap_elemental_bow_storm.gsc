@@ -49,7 +49,7 @@ function autoexec __init__sytem__()
 */
 function __init__()
 {
-	level.var_16e90d5f = getweapon("elemental_bow_storm");
+	level.w_bow_storm = getweapon("elemental_bow_storm");
 	level.var_5d4538da = getweapon("elemental_bow_storm4");
 	clientfield::register("toplayer", "elemental_bow_storm" + "_ambient_bow_fx", 5000, 1, "int");
 	clientfield::register("missile", "elemental_bow_storm" + "_arrow_impact_fx", 5000, 1, "int");
@@ -326,7 +326,7 @@ function function_2d3e3c1b(e_player, var_337b3336, var_6e7a59eb, var_94d13bd0)
 		}
 		if(var_79be6e3b > n_damage && !var_dfc0ef57)
 		{
-			self dodamage(n_damage, self.origin, e_player, e_player, undefined, str_damage_mod, 0, level.var_16e90d5f);
+			self dodamage(n_damage, self.origin, e_player, e_player, undefined, str_damage_mod, 0, level.w_bow_storm);
 			if(var_94d13bd0)
 			{
 				var_b50659f2 = 1;
@@ -405,7 +405,7 @@ function function_b6e08804(e_player, var_94d13bd0)
 		e_player.zapped_zombies++;
 		e_player notify("zombie_zapped");
 	}
-	w_damage_weapon = (var_94d13bd0 ? level.var_5d4538da : level.var_16e90d5f);
+	w_damage_weapon = (var_94d13bd0 ? level.var_5d4538da : level.w_bow_storm);
 	self dodamage(n_damage, self.origin, e_player, e_player, undefined, str_damage_mod, 0, w_damage_weapon);
 	self.var_789ebfb2 = 0;
 	self setplayercollision(1);
