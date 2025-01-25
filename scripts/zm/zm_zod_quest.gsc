@@ -1813,7 +1813,7 @@ function function_7839dceb()
 {
 	for(i = 1; i <= 4; i++)
 	{
-		str_charname = function_d4c08457(i);
+		str_charname = get_character_name_from_index(i);
 		n_quest_state = level clientfield::get("quest_state_" + str_charname);
 		if(n_quest_state == 4)
 		{
@@ -1824,7 +1824,7 @@ function function_7839dceb()
 }
 
 /*
-	Name: function_d4c08457
+	Name: get_character_name_from_index
 	Namespace: zm_zod_quest
 	Checksum: 0xBC1F9ED9
 	Offset: 0x7040
@@ -1832,7 +1832,7 @@ function function_7839dceb()
 	Parameters: 1
 	Flags: Linked
 */
-function function_d4c08457(n_character_index)
+function get_character_name_from_index(n_character_index)
 {
 	switch(n_character_index)
 	{
