@@ -1327,9 +1327,9 @@ function flashlockpropkey()
 	level endon("game_ended");
 	self notify("flashlockpropkey");
 	self endon("flashlockpropkey");
-	var_ec404e3d = self.lockpropkey.startfontscale + 0.75;
+	newscale = self.lockpropkey.startfontscale + 0.75;
 	self.lockpropkey changefontscaleovertime(0.1);
-	self.lockpropkey.fontscale = var_ec404e3d;
+	self.lockpropkey.fontscale = newscale;
 	wait(0.1);
 	if(isdefined(self.lockpropkey))
 	{
