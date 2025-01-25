@@ -1209,7 +1209,7 @@ function function_89a258a7()
 }
 
 /*
-	Name: function_5fd5c3ea
+	Name: addpoi
 	Namespace: doa_utility
 	Checksum: 0x6E0E7992
 	Offset: 0x2718
@@ -1217,7 +1217,7 @@ function function_89a258a7()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5fd5c3ea(entity)
+function addpoi(entity)
 {
 	entity thread function_89a258a7();
 	level.doa.var_f953d785[level.doa.var_f953d785.size] = entity;

@@ -364,7 +364,7 @@ function function_159bb1dd(player, origin)
 	monkey.angles = (0, randomint(360), 0);
 	monkey makesentient();
 	monkey.threatbias = 0;
-	doa_utility::function_5fd5c3ea(monkey);
+	doa_utility::addpoi(monkey);
 	monkey endon("death");
 	level thread function_254f3480(monkey);
 	monkey thread function_2271edf2(player);

@@ -1125,7 +1125,7 @@ function function_7b8c015c()
 	wait(1);
 	self makesentient();
 	self.threatbias = 0;
-	doa_utility::function_5fd5c3ea(self);
+	doa_utility::addpoi(self);
 	self.var_b2290d2d = 1;
 	self waittill("pickup_timeout");
 	wait(1);
