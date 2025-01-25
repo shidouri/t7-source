@@ -48,7 +48,7 @@ function autoexec __init__sytem__()
 */
 function __init__()
 {
-	level.var_fb620116 = getweapon("elemental_bow_rune_prison");
+	level.w_bow_rune_prison = getweapon("elemental_bow_rune_prison");
 	level.var_791ba87b = getweapon("elemental_bow_rune_prison4");
 	clientfield::register("toplayer", "elemental_bow_rune_prison" + "_ambient_bow_fx", 5000, 1, "int");
 	clientfield::register("missile", "elemental_bow_rune_prison" + "_arrow_impact_fx", 5000, 1, "int");
@@ -417,14 +417,14 @@ function function_e7abbbb8(var_3c817f0d, e_player)
 	}
 	self clientfield::set("runeprison_lava_geyser_dot_fx", 1);
 	var_2a8dacd1 = n_max_damage * 0.3;
-	self dodamage(var_2a8dacd1, self.origin, e_player, e_player, undefined, str_mod, 0, level.var_fb620116);
+	self dodamage(var_2a8dacd1, self.origin, e_player, e_player, undefined, str_mod, 0, level.w_bow_rune_prison);
 	var_c18df445 = n_max_damage * 0.1;
 	while(n_timer < 6 && var_2a8dacd1 < n_max_damage)
 	{
 		var_e1fd6746 = randomfloatrange(0.4, 1);
 		wait(var_e1fd6746);
 		n_timer = n_timer + var_e1fd6746;
-		self dodamage(var_c18df445, self.origin, e_player, e_player, undefined, str_mod, 0, level.var_fb620116);
+		self dodamage(var_c18df445, self.origin, e_player, e_player, undefined, str_mod, 0, level.w_bow_rune_prison);
 		var_2a8dacd1 = var_2a8dacd1 + var_c18df445;
 	}
 	self clientfield::set("runeprison_lava_geyser_dot_fx", 0);
