@@ -849,8 +849,8 @@ function function_fcd226a8(n_move_duration)
 	level endon(#"hash_a881e3fa");
 	level endon(#"hash_82a23c03");
 	self function_a3821eb5(n_move_duration);
-	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
-	str_charname = array::random(var_9eb45ed3);
+	a_str_charnames = array("boxer", "detective", "femme", "magician");
+	str_charname = array::random(a_str_charnames);
 	level clientfield::set(("ee_keeper_" + str_charname) + "_state", 6);
 	wait(n_move_duration);
 }
@@ -869,8 +869,8 @@ function function_e44c4f1b(n_move_duration)
 	level endon(#"hash_a881e3fa");
 	level endon(#"hash_82a23c03");
 	self function_a3821eb5(n_move_duration);
-	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
-	foreach(str_charname in var_9eb45ed3)
+	a_str_charnames = array("boxer", "detective", "femme", "magician");
+	foreach(str_charname in a_str_charnames)
 	{
 		level clientfield::set(("ee_keeper_" + str_charname) + "_state", 6);
 	}

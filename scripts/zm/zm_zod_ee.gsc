@@ -101,10 +101,10 @@ function __init__()
 	clientfield::register("toplayer", "ee_final_boss_attack_tell", 1, 1, "int");
 	clientfield::register("scriptmover", "ee_rail_electricity_state", 1, 1, "int");
 	clientfield::register("world", "sndEndIGC", 1, 1, "int");
-	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
+	a_str_charnames = array("boxer", "detective", "femme", "magician");
 	level flag::init("ee_begin");
 	level flag::init("ee_book");
-	foreach(str_charname in var_9eb45ed3)
+	foreach(str_charname in a_str_charnames)
 	{
 		level flag::init(("ee_keeper_" + str_charname) + "_resurrected");
 		level flag::init(("ee_keeper_" + str_charname) + "_armed");
@@ -387,11 +387,11 @@ function function_2e77f7bf()
 function function_db49b939()
 {
 	level clientfield::set("ee_quest_state", 1);
-	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
+	a_str_charnames = array("boxer", "detective", "femme", "magician");
 	var_62e5c0fb = [];
 	for(i = 0; i < 4; i++)
 	{
-		str_charname = var_9eb45ed3[i];
+		str_charname = a_str_charnames[i];
 		if(!isdefined(var_62e5c0fb))
 		{
 			var_62e5c0fb = [];
@@ -2102,12 +2102,12 @@ function function_5eae8cbb()
 function function_4bcb6826()
 {
 	level endon("ee_boss_defeated");
-	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
+	a_str_charnames = array("boxer", "detective", "femme", "magician");
 	level.var_df5409ea = 9;
 	while(true)
 	{
 		var_a74ccb30 = 1;
-		foreach(str_charname in var_9eb45ed3)
+		foreach(str_charname in a_str_charnames)
 		{
 			var_587a4446 = level clientfield::get(("ee_keeper_" + str_charname) + "_state");
 			if(var_587a4446 !== 4)
@@ -2121,7 +2121,7 @@ function function_4bcb6826()
 			continue;
 		}
 		wait(3);
-		foreach(str_charname in var_9eb45ed3)
+		foreach(str_charname in a_str_charnames)
 		{
 			level clientfield::set(("ee_keeper_" + str_charname) + "_state", 5);
 		}
@@ -2142,7 +2142,7 @@ function function_4bcb6826()
 		level.var_dbc3a0ef.s_spawnpoint = a_s_spawnpoints[0];
 		zm_zod_shadowman::function_284b1884(level.var_dbc3a0ef, level.var_dbc3a0ef.s_spawnpoint, 0.1);
 		level.var_dbc3a0ef zm_zod_shadowman::function_a3821eb5(0.1, 4);
-		foreach(str_charname in var_9eb45ed3)
+		foreach(str_charname in a_str_charnames)
 		{
 			level clientfield::set(("ee_keeper_" + str_charname) + "_state", 6);
 		}
@@ -2313,8 +2313,8 @@ function function_3fc4aca5()
 		level.var_dbc3a0ef.var_93dad597 delete();
 	}
 	level thread cleanup_ai(1);
-	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
-	foreach(str_charname in var_9eb45ed3)
+	a_str_charnames = array("boxer", "detective", "femme", "magician");
+	foreach(str_charname in a_str_charnames)
 	{
 		if(isdefined(level.var_f86952c7["boss_1_" + str_charname]))
 		{
@@ -2682,8 +2682,8 @@ function function_e4f61654()
 function function_832f1b2a()
 {
 	var_fb88b1ef = 0;
-	var_9eb45ed3 = array("boxer", "detective", "femme", "magician");
-	foreach(str_charname in var_9eb45ed3)
+	a_str_charnames = array("boxer", "detective", "femme", "magician");
+	foreach(str_charname in a_str_charnames)
 	{
 		if((clientfield::get(("ee_keeper_" + str_charname) + "_state")) >= 3)
 		{
