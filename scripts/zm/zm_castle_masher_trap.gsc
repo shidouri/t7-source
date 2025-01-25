@@ -436,7 +436,7 @@ function function_d12a18d7(e_player)
 	level.var_995bb84e.activated_by_player = e_player;
 	level.var_995bb84e thread function_df78b782();
 	wait(0.5);
-	level.var_6ac4e9cb function_8123d15a();
+	level.var_6ac4e9cb masher_trap_think();
 	level flag::clear("masher_on");
 	level flag::set("masher_cooldown");
 	level.var_6ac4e9cb.activated_by_player = undefined;
@@ -446,7 +446,7 @@ function function_d12a18d7(e_player)
 }
 
 /*
-	Name: function_8123d15a
+	Name: masher_trap_think
 	Namespace: zm_castle_masher_trap
 	Checksum: 0x38DBE76C
 	Offset: 0x1600
@@ -454,7 +454,7 @@ function function_d12a18d7(e_player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_8123d15a()
+function masher_trap_think()
 {
 	array::run_all(self.var_beb932f1, &show);
 	n_start_time = gettime();
