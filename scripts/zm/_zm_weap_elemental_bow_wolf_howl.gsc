@@ -48,7 +48,7 @@ function autoexec __init__sytem__()
 */
 function __init__()
 {
-	level.var_e93874ed = getweapon("elemental_bow_wolf_howl");
+	level.w_bow_wolf_howl = getweapon("elemental_bow_wolf_howl");
 	level.var_30611368 = getweapon("elemental_bow_wolf_howl4");
 	clientfield::register("toplayer", "elemental_bow_wolf_howl" + "_ambient_bow_fx", 5000, 1, "int");
 	clientfield::register("missile", "elemental_bow_wolf_howl" + "_arrow_impact_fx", 5000, 1, "int");
@@ -737,11 +737,11 @@ function function_88bf0c4e(e_player, n_damage, v_hit_origin, weapon)
 	{
 		if(self.archetype === "mechz")
 		{
-			self dodamage(n_damage, v_hit_origin, e_player, e_player, undefined, "MOD_PROJECTILE_SPLASH", 0, level.var_e93874ed);
+			self dodamage(n_damage, v_hit_origin, e_player, e_player, undefined, "MOD_PROJECTILE_SPLASH", 0, level.w_bow_wolf_howl);
 		}
 		else
 		{
-			self dodamage(self.health, self.origin, e_player, e_player, undefined, "MOD_UNKNOWN", 0, level.var_e93874ed);
+			self dodamage(self.health, self.origin, e_player, e_player, undefined, "MOD_UNKNOWN", 0, level.w_bow_wolf_howl);
 		}
 	}
 	else
