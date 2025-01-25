@@ -1828,10 +1828,10 @@ function function_b54f7960(player, n_char_index)
 */
 function function_6032557b(player, trig_stub)
 {
-	if(isdefined(trig_stub.var_4cf62d2c))
+	if(isdefined(trig_stub.mdl_totem))
 	{
-		trig_stub.var_4cf62d2c clientfield::set("totem_damage_fx", 0);
-		trig_stub.var_4cf62d2c delete();
+		trig_stub.mdl_totem clientfield::set("totem_damage_fx", 0);
+		trig_stub.mdl_totem delete();
 	}
 	level flag::clear("totem_placed");
 	level notify(#"hash_26f14b55");
@@ -2417,11 +2417,11 @@ function function_fe26340b()
 {
 	foreach(var_b9caebb1 in level.var_b94f6d7a)
 	{
-		if(!isdefined(var_b9caebb1) || !isdefined(var_b9caebb1.unitrigger_stub) || !isdefined(var_b9caebb1.unitrigger_stub.var_4cf62d2c))
+		if(!isdefined(var_b9caebb1) || !isdefined(var_b9caebb1.unitrigger_stub) || !isdefined(var_b9caebb1.unitrigger_stub.mdl_totem))
 		{
 			continue;
 		}
-		var_b9caebb1.unitrigger_stub.var_4cf62d2c delete();
+		var_b9caebb1.unitrigger_stub.mdl_totem delete();
 		zm_unitrigger::unregister_unitrigger(var_b9caebb1.unitrigger_stub);
 	}
 }
@@ -2490,10 +2490,10 @@ function function_fe31ce39(var_1652ac62)
 	var_1652ac62.unitrigger_stub.script_noteworthy = var_1652ac62.script_noteworthy;
 	var_1652ac62.unitrigger_stub.require_look_at = 0;
 	var_1652ac62.unitrigger_stub.var_1652ac62 = var_1652ac62;
-	var_1652ac62.unitrigger_stub.var_4cf62d2c = spawn("script_model", var_1652ac62.origin);
-	var_1652ac62.unitrigger_stub.var_4cf62d2c setmodel("t7_zm_zod_keepers_totem");
-	var_1652ac62.unitrigger_stub.var_4cf62d2c hidepart("j_totem");
-	var_1652ac62.unitrigger_stub.var_4cf62d2c clientfield::set("totem_state_fx", 2);
+	var_1652ac62.unitrigger_stub.mdl_totem = spawn("script_model", var_1652ac62.origin);
+	var_1652ac62.unitrigger_stub.mdl_totem setmodel("t7_zm_zod_keepers_totem");
+	var_1652ac62.unitrigger_stub.mdl_totem hidepart("j_totem");
+	var_1652ac62.unitrigger_stub.mdl_totem clientfield::set("totem_state_fx", 2);
 	var_1652ac62.unitrigger_stub.prompt_and_visibility_func = &function_51ca11ba;
 	zm_unitrigger::register_static_unitrigger(var_1652ac62.unitrigger_stub, &function_943c90e6);
 }
@@ -2568,7 +2568,7 @@ function function_f016ad0d(trig_stub, player)
 		{
 			return;
 		}
-		trig_stub.var_4cf62d2c clientfield::set("totem_state_fx", 0);
+		trig_stub.mdl_totem clientfield::set("totem_state_fx", 0);
 		level flag::clear("totem_placed");
 		level notify(#"hash_26f14b55");
 		player playsound("zmb_zod_totem_pickup");
@@ -2576,8 +2576,8 @@ function function_f016ad0d(trig_stub, player)
 		player.var_11104075 setmodel("t7_zm_zod_keepers_totem");
 		player.var_11104075 linkto(player, "tag_stowed_back", (0, 12, -32));
 		player.var_11104075 clientfield::set("totem_state_fx", 1);
-		trig_stub.var_4cf62d2c clientfield::set("totem_damage_fx", 0);
-		trig_stub.var_4cf62d2c delete();
+		trig_stub.mdl_totem clientfield::set("totem_damage_fx", 0);
+		trig_stub.mdl_totem delete();
 		v_origin = level.var_6e3c8a77.origin + vectorscale((0, 0, 1), 30);
 		if(level.var_f47099f2 == 1 || level.var_86557cb0 < 3)
 		{
@@ -2620,9 +2620,9 @@ function function_f016ad0d(trig_stub, player)
 	level.var_6e3c8a77 = trig_stub.var_1652ac62;
 	player playsound("zmb_zod_totem_place");
 	player.var_11104075 delete();
-	trig_stub.var_4cf62d2c showpart("j_totem");
-	trig_stub.var_4cf62d2c setcandamage(1);
-	trig_stub.var_4cf62d2c clientfield::set("totem_state_fx", 3);
+	trig_stub.mdl_totem showpart("j_totem");
+	trig_stub.mdl_totem setcandamage(1);
+	trig_stub.mdl_totem clientfield::set("totem_state_fx", 3);
 	var_a21704fb = [];
 	var_a21704fb[0] = spawnstruct();
 	var_a21704fb[0].func = &zm_zod_shadowman::function_4a41b207;
@@ -2631,11 +2631,11 @@ function function_f016ad0d(trig_stub, player)
 	str_targetname = "ee_shadowman_totem";
 	str_script_noteworthy = trig_stub.script_noteworthy;
 	level thread zm_zod_shadowman::function_f3805c8a(str_targetname, str_script_noteworthy, var_a21704fb, 2, 4);
-	trig_stub.var_4cf62d2c thread function_353871a(undefined, player);
-	trig_stub.var_4cf62d2c thread function_ac3c8848();
+	trig_stub.mdl_totem thread function_353871a(undefined, player);
+	trig_stub.mdl_totem thread function_ac3c8848();
 	function_7a40f43c();
 	wait(30);
-	trig_stub.var_4cf62d2c clientfield::set("totem_state_fx", 4);
+	trig_stub.mdl_totem clientfield::set("totem_state_fx", 4);
 	trig_stub.b_completed = 1;
 	trig_stub zm_unitrigger::run_visibility_function_for_all_triggers();
 }

@@ -549,8 +549,8 @@ function function_a39c9866(localclientnum, var_fe2fb4b9, var_f471914b, n_charact
 			var_4fafa709.model clearanim("ai_zombie_zod_keeper_give_egg_intro", 0);
 			var_4fafa709.model clearanim("ai_zombie_zod_keeper_give_egg_loop", 0);
 			var_4fafa709.model.sndloop = var_4fafa709.model playloopsound("zmb_zod_totem_resurrecting_lp", 2);
-			var_4fafa709.var_4cf62d2c show();
-			var_4fafa709.var_b0ff8d18 = playfxontag(localclientnum, level._effect["ee_totem_to_ghost"], var_4fafa709.var_4cf62d2c, "j_head");
+			var_4fafa709.mdl_totem show();
+			var_4fafa709.var_b0ff8d18 = playfxontag(localclientnum, level._effect["ee_totem_to_ghost"], var_4fafa709.mdl_totem, "j_head");
 			var_4fafa709.var_a0b06f1c = playfxontag(localclientnum, level._effect["ee_ghost_charging"], var_4fafa709.model, "tag_origin");
 			var_4fafa709.model animation::play("ai_zombie_zod_keeper_give_egg_outro", undefined, undefined, 1);
 			break;
@@ -576,12 +576,12 @@ function function_a39c9866(localclientnum, var_fe2fb4b9, var_f471914b, n_charact
 			var_4fafa709.model playsound(0, "zmb_ee_keeper_resurrect");
 			wait(3);
 			var_4fafa709.var_f87c0436 = playfxontag(localclientnum, level._effect["keeper_spawn"], var_4fafa709.model, "tag_origin");
-			var_4fafa709.var_6b0fc6a1 = playfxontag(localclientnum, level._effect["keeper_spawn"], var_4fafa709.var_4cf62d2c, "tag_origin");
+			var_4fafa709.var_6b0fc6a1 = playfxontag(localclientnum, level._effect["keeper_spawn"], var_4fafa709.mdl_totem, "tag_origin");
 			var_4fafa709.model playsound(0, "evt_keeper_portal_end");
-			var_4fafa709.var_4cf62d2c playsound(0, "evt_keeper_portal_end");
+			var_4fafa709.mdl_totem playsound(0, "evt_keeper_portal_end");
 			wait(1);
 			var_4fafa709.model hide();
-			var_4fafa709.var_4cf62d2c hide();
+			var_4fafa709.mdl_totem hide();
 			stopfx(localclientnum, var_4fafa709.var_f87c0436);
 			stopfx(localclientnum, var_4fafa709.var_6b0fc6a1);
 			str_targetname = "ee_keeper_8_" + (n_character_index - 1);
@@ -814,13 +814,13 @@ function function_e1e53e16(localclientnum, n_character_index)
 		var_4fafa709.model setmodel("c_zom_zod_keeper_fb");
 		var_4fafa709.model zm_zod::ghost_actor(localclientnum, 0, 1);
 	}
-	if(!isdefined(var_4fafa709.var_4cf62d2c))
+	if(!isdefined(var_4fafa709.mdl_totem))
 	{
 		var_f4fc4f28 = struct::get("keeper_resurrection_totem_" + (n_character_index - 1), "targetname");
-		var_4fafa709.var_4cf62d2c = spawn(localclientnum, var_f4fc4f28.origin, "script_model");
-		var_4fafa709.var_4cf62d2c.angles = var_f4fc4f28.angles;
-		var_4fafa709.var_4cf62d2c setmodel("t7_zm_zod_keepers_totem");
-		var_4fafa709.var_4cf62d2c hide();
+		var_4fafa709.mdl_totem = spawn(localclientnum, var_f4fc4f28.origin, "script_model");
+		var_4fafa709.mdl_totem.angles = var_f4fc4f28.angles;
+		var_4fafa709.mdl_totem setmodel("t7_zm_zod_keepers_totem");
+		var_4fafa709.mdl_totem hide();
 	}
 	return var_4fafa709;
 }
