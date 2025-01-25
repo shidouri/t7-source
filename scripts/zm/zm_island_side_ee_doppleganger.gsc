@@ -318,13 +318,13 @@ function function_5ee3951f()
 		self.ai_doppleganger cloneserverutils::cloneplayerlook(self.ai_doppleganger, e_clone, self);
 		self.ai_doppleganger hide();
 		self.ai_doppleganger showtoplayer(self);
-		self thread function_c948de86();
+		self thread doppleganger_think();
 		self flag::clear("doppleganger_enabled");
 	}
 }
 
 /*
-	Name: function_c948de86
+	Name: doppleganger_think
 	Namespace: zm_island_side_ee_doppleganger
 	Checksum: 0x4C1CE2EC
 	Offset: 0x1050
@@ -332,7 +332,7 @@ function function_5ee3951f()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c948de86()
+function doppleganger_think()
 {
 	self.ai_doppleganger endon("death");
 	self endon("death");
