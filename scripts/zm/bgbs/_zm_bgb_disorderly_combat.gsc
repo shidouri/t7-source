@@ -285,27 +285,27 @@ function function_4035ce17(n_index, b_upgraded, var_77bd95a)
 		level.var_8fcdc919 = array::randomize(level.var_8fcdc919);
 		n_index = 0;
 	}
-	var_e3c04036 = level.var_8fcdc919[n_index];
+	var_w_random = level.var_8fcdc919[n_index];
 	if(b_upgraded)
 	{
-		var_e3c04036 = zm_weapons::get_upgrade_weapon(var_e3c04036);
+		var_w_random = zm_weapons::get_upgrade_weapon(var_w_random);
 	}
-	if(!self has_weapon(var_e3c04036))
+	if(!self has_weapon(var_w_random))
 	{
-		var_e3c04036 = self zm_weapons::give_build_kit_weapon(var_e3c04036);
-		self.var_8cee13f3 = var_e3c04036;
-		self giveweapon(var_e3c04036);
-		self shoulddoinitialweaponraise(var_e3c04036, 0);
-		self switchtoweaponimmediate(var_e3c04036);
+		var_w_random = self zm_weapons::give_build_kit_weapon(var_w_random);
+		self.var_8cee13f3 = var_w_random;
+		self giveweapon(var_w_random);
+		self shoulddoinitialweaponraise(var_w_random, 0);
+		self switchtoweaponimmediate(var_w_random);
 		if(isdefined(var_77bd95a) && var_77bd95a != "none")
 		{
-			self thread aat::acquire(var_e3c04036, var_77bd95a);
+			self thread aat::acquire(var_w_random, var_77bd95a);
 		}
 		self bgb::do_one_shot_use(1);
 		return true;
 	}
 	/#
-		println("" + var_e3c04036.displayname);
+		println("" + var_w_random.displayname);
 	#/
 	return false;
 }
