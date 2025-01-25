@@ -78,7 +78,7 @@ function __init__()
 	callback::on_spawned(&function_83a70ec3);
 	spawner::add_archetype_spawn_function("spider", &function_82b6256d);
 	spawner::add_archetype_spawn_function("spider", &spider_spawn_init);
-	zm::register_vehicle_damage_callback(&function_5b625d74);
+	zm::register_vehicle_damage_callback(&spider_damage_callback);
 }
 
 /*
@@ -1185,7 +1185,7 @@ function spider_spawn_init()
 }
 
 /*
-	Name: function_5b625d74
+	Name: spider_damage_callback
 	Namespace: zm_ai_spiders
 	Checksum: 0x79476A02
 	Offset: 0x2F10
@@ -1193,7 +1193,7 @@ function spider_spawn_init()
 	Parameters: 15
 	Flags: Linked
 */
-function function_5b625d74(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, psoffsettime, damagefromunderneath, modelindex, partname, vsurfacenormal)
+function spider_damage_callback(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, psoffsettime, damagefromunderneath, modelindex, partname, vsurfacenormal)
 {
 	if(isdefined(self.archetype) && self.archetype == "spider")
 	{
