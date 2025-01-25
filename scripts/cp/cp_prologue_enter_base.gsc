@@ -1280,7 +1280,7 @@ function function_809b0d82()
 {
 	trigger_hit = trigger::wait_till("t_glass_floor_cracks");
 	level notify(#"hash_809b0d82");
-	level notify(#"hash_fc089399");
+	level notify("phnr");
 	trigger_hit.who playrumbleonentity("damage_heavy");
 }
 

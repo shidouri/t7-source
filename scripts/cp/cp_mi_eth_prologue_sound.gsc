@@ -159,7 +159,7 @@ function function_44ee5cb7()
 function function_a4312bfe()
 {
 	level endon(#"hash_f8e975b8");
-	level waittill(#"hash_fc089399");
+	level waittill("phnr");
 	while(true)
 	{
 		wait(1);
