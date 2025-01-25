@@ -1064,8 +1064,8 @@ function thundergun_check(model, trig, weapon_combo_spot)
 	while(true)
 	{
 		self waittill("weapon_fired");
-		var_ca8d49bb = self getcurrentweapon();
-		if(var_ca8d49bb.name == "thundergun_upgraded")
+		w_player_weapon = self getcurrentweapon();
+		if(w_player_weapon.name == "thundergun_upgraded")
 		{
 			if(distancesquared(self.origin, weapon_combo_spot.origin) < 90000)
 			{
