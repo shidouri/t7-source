@@ -201,7 +201,7 @@ function function_c943c5e5()
 */
 function function_7ec0e1ae()
 {
-	level waittill(#"hash_dade54fb");
+	level waittill("sndbw");
 	audio::playloopat("amb_distant_soldier_walla", (8160, 756, 270));
 	level waittill(#"hash_d1ef0d27");
 	level waittill(#"hash_d1ef0d27");
