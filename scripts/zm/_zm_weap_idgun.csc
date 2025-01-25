@@ -65,9 +65,9 @@ function function_50ee0a95(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e1efbc50(var_9727e47e)
+function function_e1efbc50(w_idgun)
 {
-	if(var_9727e47e != level.weaponnone)
+	if(w_idgun != level.weaponnone)
 	{
 		if(!isdefined(level.idgun_weapons))
 		{
@@ -77,7 +77,7 @@ function function_e1efbc50(var_9727e47e)
 		{
 			level.idgun_weapons = array(level.idgun_weapons);
 		}
-		level.idgun_weapons[level.idgun_weapons.size] = var_9727e47e;
+		level.idgun_weapons[level.idgun_weapons.size] = w_idgun;
 	}
 }
 

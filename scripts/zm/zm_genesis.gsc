@@ -637,7 +637,7 @@ function offhand_weapon_overrride()
 function construct_idgun_weapon_array()
 {
 	level.idgun_weapons = [];
-	level.var_9727e47e = getweapon("idgun_genesis_0");
+	level.w_idgun = getweapon("idgun_genesis_0");
 	level.var_ed2646a1 = getweapon("idgun_genesis_0_upgraded");
 	if(!isdefined(level.idgun_weapons))
 	{
@@ -647,7 +647,7 @@ function construct_idgun_weapon_array()
 	{
 		level.idgun_weapons = array(level.idgun_weapons);
 	}
-	level.idgun_weapons[level.idgun_weapons.size] = level.var_9727e47e;
+	level.idgun_weapons[level.idgun_weapons.size] = level.w_idgun;
 	if(!isdefined(level.idgun_weapons))
 	{
 		level.idgun_weapons = [];

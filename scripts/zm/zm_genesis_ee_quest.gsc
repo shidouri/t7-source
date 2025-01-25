@@ -735,8 +735,8 @@ function function_a062344d()
 		}
 	#/
 	level flag::wait_till("shards_done");
-	level.zombie_weapons[level.var_9727e47e].upgrade = level.var_ed2646a1;
-	level.zombie_weapons_upgraded[level.var_ed2646a1] = level.var_9727e47e;
+	level.zombie_weapons[level.w_idgun].upgrade = level.var_ed2646a1;
+	level.zombie_weapons_upgraded[level.var_ed2646a1] = level.w_idgun;
 	level.aat_exemptions[level.var_ed2646a1] = 1;
 	level.limited_weapon[level.var_ed2646a1] = 0;
 }
