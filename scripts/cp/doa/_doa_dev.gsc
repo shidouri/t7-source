@@ -120,7 +120,7 @@ function setupdevgui()
 		level.doa.var_e5a69065 = 0;
 		rootmenu = "";
 		index = 1;
-		var_9ba2319f = index;
+		minlvl = index;
 		maxlvl = level.doa.rules.var_88c0b67b;
 		foreach(arena in level.doa.arenas)
 		{
@@ -128,11 +128,11 @@ function setupdevgui()
 			{
 				continue;
 			}
-			name = (((((arena.name + "") + var_9ba2319f) + "") + maxlvl) + "") + index;
+			name = (((((arena.name + "") + minlvl) + "") + maxlvl) + "") + index;
 			index++;
 			cmd = (((rootmenu + name) + "") + arena.name) + "";
 			adddebugcommand(cmd);
-			var_9ba2319f = var_9ba2319f + level.doa.rules.var_88c0b67b;
+			minlvl = minlvl + level.doa.rules.var_88c0b67b;
 			maxlvl = maxlvl + level.doa.rules.var_88c0b67b;
 		}
 		if(isdefined(world.var_e5cf1b41))
