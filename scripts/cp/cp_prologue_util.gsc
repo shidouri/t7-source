@@ -1054,7 +1054,7 @@ function function_d1f1caad(str_trigger)
 	Parameters: 8
 	Flags: Linked
 */
-function function_e0fb6da9(str_struct, close_dist, wait_time, var_d1b83750, max_ai, var_a70db4af, var_1813646e, var_98e9bc46)
+function function_e0fb6da9(str_struct, close_dist, wait_time, min_ai, max_ai, var_a70db4af, var_1813646e, var_98e9bc46)
 {
 	a_players = getplayers();
 	if(a_players.size > 1)
@@ -1107,7 +1107,7 @@ function function_e0fb6da9(str_struct, close_dist, wait_time, var_d1b83750, max_
 						}
 					}
 				}
-				var_d6f9eed8 = randomintrange(var_d1b83750, max_ai + 1);
+				var_d6f9eed8 = randomintrange(min_ai, max_ai + 1);
 				if(var_d6f9eed8 > a_touching.size)
 				{
 					var_d6f9eed8 = a_touching.size;
