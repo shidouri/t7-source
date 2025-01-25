@@ -946,8 +946,8 @@ function private function_94a24a91(cmd)
 {
 	/#
 		players = getplayers();
-		var_6aad1b23 = getentarray("", "");
-		mechz = arraygetclosest(getplayers()[0].origin, var_6aad1b23);
+		mechzs = getentarray("", "");
+		mechz = arraygetclosest(getplayers()[0].origin, mechzs);
 		switch(cmd)
 		{
 			case "":
