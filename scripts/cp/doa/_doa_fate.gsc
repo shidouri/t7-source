@@ -40,7 +40,7 @@ function init()
 		level.doa.fates.var_9c35e18e = [];
 		level.doa.fates.arena = "temple";
 		level.doa.fates.var_64e3261c = "temple";
-		level.doa.fates.var_f485e213 = "p7_sin_rock_park_07_blue";
+		level.doa.fates.idol = "p7_sin_rock_park_07_blue";
 		level.doa.fates.var_6e3ecc6b = "zombietron_stoneboss";
 		level.doa.fates.types[level.doa.fates.types.size] = 1;
 		level.doa.fates.types[level.doa.fates.types.size] = 2;
@@ -210,7 +210,7 @@ function function_77ed1bae()
 		rock.targetname = "fate_rock";
 		rock.oloc = rock.origin;
 		rock.dloc = loc.origin;
-		rock setmodel(level.doa.fates.var_f485e213);
+		rock setmodel(level.doa.fates.idol);
 		rock.angles = (0, type * 90, 0);
 		rock setscale(0.9 + (type * 0.05));
 		trigger = spawn("trigger_radius", rock.origin, 0, loc.radius, 128);
@@ -979,7 +979,7 @@ function function_833dad0d()
 		rock.dloc = loc.origin;
 		rock.oloc = rock.origin;
 		rock.angles = loc.angles + vectorscale((0, 1, 0), 90);
-		rock setmodel(level.doa.fates.var_f485e213);
+		rock setmodel(level.doa.fates.idol);
 		trigger = spawn("trigger_radius", rock.origin, 0, loc.radius, 128);
 		trigger.targetname = "fate2trigger";
 		trigger.type = type;
