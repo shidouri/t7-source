@@ -350,7 +350,7 @@ function function_e26adf8d(player, ip1)
 	Parameters: 1
 	Flags: Linked
 */
-function function_b45f77c1(var_9dcd6900)
+function function_b45f77c1(w_revive)
 {
 	if(isdefined(self.carryobject) && isdefined(self.carryobject.carryweapon) && self.carryobject.carryweapon == level.ballweapon)
 	{
