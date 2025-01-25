@@ -1216,7 +1216,7 @@ function function_2f31f931(e_player)
 	b_here = e_player function_6dc5b484(n_statue);
 	b_sword_rock = e_statue.script_noteworthy === "initial_egg_statue";
 	var_c9c683e8 = level.sword_quest.swords[e_player.characterindex].var_c9c683e8;
-	var_5f66b0c7 = level clientfield::get("ee_quest_state");
+	n_ee_quest_state = level clientfield::get("ee_quest_state");
 	n_quest_state = level clientfield::get("keeper_quest_state_" + e_player.characterindex);
 	if(n_quest_state === 7)
 	{
@@ -1235,7 +1235,7 @@ function function_2f31f931(e_player)
 				}
 				else
 				{
-					if(var_5f66b0c7 < 1)
+					if(n_ee_quest_state < 1)
 					{
 						self setvisibletoplayer(e_player);
 						self.hint_string = &"ZM_ZOD_SWORD_EGG_RETRIEVE";

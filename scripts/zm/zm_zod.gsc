@@ -472,8 +472,8 @@ function function_2d0e5eb6()
 */
 function function_533186ee()
 {
-	var_5f66b0c7 = level clientfield::get("ee_quest_state");
-	if(var_5f66b0c7 == 1)
+	n_ee_quest_state = level clientfield::get("ee_quest_state");
+	if(n_ee_quest_state == 1)
 	{
 		var_18bac0f0 = array((2544, -3432, -368), (2708, -3432, -368), (2544, -3624, -368), (2708, -3624, -368));
 		v_spawn = array::random(var_18bac0f0);
