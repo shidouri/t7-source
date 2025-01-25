@@ -128,14 +128,14 @@ function monitor_robot_power()
 {
 	level waittill(#"hash_5b9acfd8");
 	level flag::set("police_box_ready");
-	var_6f73bd35 = getent("police_box", "targetname");
-	if(isdefined(var_6f73bd35))
+	e_police_box = getent("police_box", "targetname");
+	if(isdefined(e_police_box))
 	{
-		var_6f73bd35 playsound("zmb_bm_interaction_machine_start");
+		e_police_box playsound("zmb_bm_interaction_machine_start");
 	}
-	e_player = zm_utility::get_closest_player(var_6f73bd35.origin);
+	e_player = zm_utility::get_closest_player(e_police_box.origin);
 	e_player zm_zod_vo::function_81ba60e2();
-	var_6f73bd35 clientfield::set("robot_switch", 1);
+	e_police_box clientfield::set("robot_switch", 1);
 }
 
 /*

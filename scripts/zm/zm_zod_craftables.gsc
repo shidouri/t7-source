@@ -401,10 +401,10 @@ function function_27ef9857(player)
 */
 function function_6c41d7f2(player)
 {
-	var_6f73bd35 = getent("police_box", "targetname");
-	if(isdefined(var_6f73bd35))
+	e_police_box = getent("police_box", "targetname");
+	if(isdefined(e_police_box))
 	{
-		var_6f73bd35 playsound("zmb_zod_fuse_place");
+		e_police_box playsound("zmb_zod_fuse_place");
 	}
 	foreach(e_player in level.players)
 	{
