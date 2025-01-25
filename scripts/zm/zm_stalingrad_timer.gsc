@@ -108,9 +108,9 @@ function function_86419da()
 	{
 		level waittill("end_of_round");
 		n_current_time = (gettime() - level.n_gameplay_start_time) / 1000;
-		var_99870abd = zm::get_round_number() - 1;
+		n_last_round = zm::get_round_number() - 1;
 		var_ec31aba8 = undefined;
-		switch(var_99870abd)
+		switch(n_last_round)
 		{
 			case 5:
 			{
@@ -256,21 +256,21 @@ function function_86419da()
 				break;
 			}
 		}
-		if((var_99870abd % 5) == 0)
+		if((n_last_round % 5) == 0)
 		{
 			if(isdefined(var_ec31aba8) && n_current_time < var_ec31aba8)
 			{
 				luinotifyevent(&"zombie_time_attack_notification", 2, zm::get_round_number() - 1, level.players.size);
 				playsoundatposition("zmb_stalingrad_time_trial_complete", (0, 0, 0));
-				level thread function_cc8ae246(var_99870abd);
-				if(var_99870abd == 20)
+				level thread function_cc8ae246(n_last_round);
+				if(n_last_round == 20)
 				{
 					level notify(#"hash_399599c1");
 				}
 			}
 		}
 	}
-	while(var_99870abd < 50);
+	while(n_last_round < 50);
 }
 
 /*
