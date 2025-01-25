@@ -875,12 +875,12 @@ function function_fb051310(spawner, loc, def, droptoground = 1, hp, force = 0)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5f1a1e65(var_b48b7b5d)
+function function_5f1a1e65(zlevel)
 {
 	self endon("death");
 	while(isdefined(self))
 	{
-		if(self.origin[2] <= var_b48b7b5d)
+		if(self.origin[2] <= zlevel)
 		{
 			self delete();
 		}
