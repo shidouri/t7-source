@@ -787,9 +787,9 @@ function function_12b8ab88(player, var_41b6c34b = 2)
 		}
 		return;
 	}
-	var_6c552ad1 = getweapon("bowie_knife");
+	w_bowie_knife = getweapon("bowie_knife");
 	w_widows_wine_bowie_knife = getweapon("bowie_knife_widows_wine");
-	var_1e74f559 = player hasweapon(var_6c552ad1) || player hasweapon(w_widows_wine_bowie_knife);
+	var_1e74f559 = player hasweapon(w_bowie_knife) || player hasweapon(w_widows_wine_bowie_knife);
 	if(var_1e74f559)
 	{
 		var_41b6c34b = var_41b6c34b / 2;
