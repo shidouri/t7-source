@@ -653,13 +653,13 @@ function function_9c1ac1cb(endposition, totaltime, var_5d61a864)
 		var_67fe8eb1 = min(deltatime, var_ed017668);
 		var_e42cf565 = startposition + (var_e651c736 * var_67fe8eb1);
 		var_7a592a87 = var_e42cf565 + ((((var_c8240fdb * phase) * -0.5) * var_67fe8eb1) * var_67fe8eb1);
-		var_60941c0a = deltatime / totaltime;
-		var_60941c0a = 1 - (0.5 + ((cos(var_60941c0a * 180)) * 0.5));
+		coef = deltatime / totaltime;
+		coef = 1 - (0.5 + ((cos(coef * 180)) * 0.5));
 		var_515ca7cf = endposition;
 		/#
 			assert(isdefined(var_515ca7cf));
 		#/
-		neworigin = vectorlerp(var_7a592a87, var_515ca7cf, var_60941c0a);
+		neworigin = vectorlerp(var_7a592a87, var_515ca7cf, coef);
 		self.velocity = (neworigin - self.origin) / 0.05;
 		if(neworigin[0] > (var_3d372c1a * -1) && neworigin[0] < var_3d372c1a && neworigin[1] > (var_3d372c1a * -1) && neworigin[1] < var_3d372c1a && neworigin[2] > (var_3d372c1a * -1) && neworigin[2] < var_3d372c1a)
 		{
