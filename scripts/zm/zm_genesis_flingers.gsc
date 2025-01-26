@@ -114,8 +114,8 @@ function function_5ecbd7cb()
 			}
 			else
 			{
-				var_7092e170 = function_3dcd0982(level.activeplayers, vol_fling);
-				array::thread_all(var_7092e170, &function_e9d3c391, vol_fling, v_fling, nd_start, var_845e036a);
+				a_active_players = function_3dcd0982(level.activeplayers, vol_fling);
+				array::thread_all(a_active_players, &function_e9d3c391, vol_fling, v_fling, nd_start, var_845e036a);
 			}
 			n_timer = n_timer + 0.1;
 			wait(0.1);

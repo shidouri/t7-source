@@ -127,14 +127,14 @@ function function_5ecbd7cb()
 			}
 			else
 			{
-				var_7092e170 = function_3dcd0982(level.activeplayers, vol_fling);
-				if(var_7092e170.size > 1)
+				a_active_players = function_3dcd0982(level.activeplayers, vol_fling);
+				if(a_active_players.size > 1)
 				{
-					var_7092e170 thread function_f7842163(vol_fling, v_fling, nd_start, var_845e036a, var_df826fd8);
+					a_active_players thread function_f7842163(vol_fling, v_fling, nd_start, var_845e036a, var_df826fd8);
 				}
 				else
 				{
-					array::thread_all(var_7092e170, &function_e9d3c391, vol_fling, v_fling, nd_start, var_845e036a, var_df826fd8);
+					array::thread_all(a_active_players, &function_e9d3c391, vol_fling, v_fling, nd_start, var_845e036a, var_df826fd8);
 				}
 			}
 			n_timer = n_timer + 0.1;

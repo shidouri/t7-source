@@ -80,8 +80,8 @@ function validation()
 function activation()
 {
 	self endon("disconnect");
-	var_7092e170 = arraycopy(level.activeplayers);
-	array::thread_all(var_7092e170, &zm_utility::increment_ignoreme);
+	a_active_players = arraycopy(level.activeplayers);
+	array::thread_all(a_active_players, &zm_utility::increment_ignoreme);
 	self.bgb_idle_eyes_active = 1;
 	if(!bgb::increment_ref_count("zm_bgb_idle_eyes"))
 	{
@@ -94,7 +94,7 @@ function activation()
 			level.no_target_override = undefined;
 		}
 	}
-	level thread function_1f57344e(self, var_7092e170);
+	level thread function_1f57344e(self, a_active_players);
 	self playsound("zmb_bgb_idleeyes_start");
 	self playloopsound("zmb_bgb_idleeyes_loop", 1);
 	self thread bgb::run_timer(31);
@@ -114,7 +114,7 @@ function activation()
 	visionset_mgr::deactivate("overlay", "zm_bgb_idle_eyes", self);
 	self.bgb_idle_eyes_active = undefined;
 	self notify(#"hash_16ab3604");
-	deactivate(var_7092e170);
+	deactivate(a_active_players);
 }
 
 /*
@@ -126,11 +126,11 @@ function activation()
 	Parameters: 2
 	Flags: Linked
 */
-function function_1f57344e(var_e04844d6, var_7092e170)
+function function_1f57344e(var_e04844d6, a_active_players)
 {
 	var_e04844d6 endon(#"hash_16ab3604");
 	var_e04844d6 waittill("disconnect");
-	deactivate(var_7092e170);
+	deactivate(a_active_players);
 }
 
 /*
@@ -142,10 +142,10 @@ function function_1f57344e(var_e04844d6, var_7092e170)
 	Parameters: 1
 	Flags: Linked
 */
-function deactivate(var_7092e170)
+function deactivate(a_active_players)
 {
-	var_7092e170 = array::remove_undefined(var_7092e170);
-	array::thread_all(var_7092e170, &zm_utility::decrement_ignoreme);
+	a_active_players = array::remove_undefined(a_active_players);
+	array::thread_all(a_active_players, &zm_utility::decrement_ignoreme);
 	if(bgb::decrement_ref_count("zm_bgb_idle_eyes"))
 	{
 		return;
