@@ -55,7 +55,7 @@ function autoexec ignore_systems()
 */
 function main()
 {
-	level.var_e2c19907 = 1;
+	level.isdoa = 1;
 	globallogic::init();
 	level.gametype = tolower(getdvarstring("g_gametype"));
 	util::registerroundswitch(0, 9);

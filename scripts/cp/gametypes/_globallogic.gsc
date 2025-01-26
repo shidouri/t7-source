@@ -321,7 +321,7 @@ function precache_mp_leaderboards()
 	{
 		return;
 	}
-	if(isdefined(level.var_e2c19907) && level.var_e2c19907)
+	if(isdefined(level.isdoa) && level.isdoa)
 	{
 		return;
 	}
