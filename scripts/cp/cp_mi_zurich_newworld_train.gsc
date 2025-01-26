@@ -2672,7 +2672,7 @@ function function_7db3194d(a_ents)
 {
 	level thread function_778d22d7(a_ents);
 	a_ents["player 1"] waittill(#"hash_7db3194d");
-	level notify(#"hash_c053b2ca");
+	level notify("troff");
 	hidemiscmodels("train_bomb_models_hide");
 	level thread scene::play("p7_fxanim_cp_newworld_train_end_bundle");
 	if(!scene::is_skipping_in_progress())
