@@ -430,7 +430,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	if(isdefined(player))
 	{
 		time_left = gettime() + (player doa_utility::function_1ded48e6(level.doa.rules.var_7daebb69 * 1000));
-		fx = namespace_831a4a7c::function_ee495f41(player.entnum);
+		fx = doa_player_utility::function_ee495f41(player.entnum);
 		mini_turret thread doa_fx::function_285a2999("player_trail_" + fx);
 	}
 	else
@@ -510,7 +510,7 @@ function function_3ce8bf1c(player, origin)
 	sprinkler thread doa_fx::function_285a2999("sprinkler_land");
 	if(isdefined(player))
 	{
-		fx = namespace_831a4a7c::function_ee495f41(player.entnum);
+		fx = doa_player_utility::function_ee495f41(player.entnum);
 		sprinkler thread doa_fx::function_285a2999("player_trail_" + fx);
 	}
 	physicsexplosionsphere(mark, 200, 128, 3);
@@ -626,7 +626,7 @@ function function_62c5a5a(player, origin)
 	}
 	if(isdefined(player) && isdefined(amws))
 	{
-		fx = namespace_831a4a7c::function_ee495f41(player.entnum);
+		fx = doa_player_utility::function_ee495f41(player.entnum);
 		amws thread doa_fx::function_285a2999("player_trail_" + fx);
 	}
 	level thread function_dfe832b7(time_left, note);

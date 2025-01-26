@@ -360,7 +360,7 @@ function private function_271ba816(var_26fc4461 = 0)
 			if(guy.doa.fate == 0)
 			{
 				avail = level.doa.fates.types;
-				players = namespace_831a4a7c::function_5eb6e4d1();
+				players = doa_player_utility::function_5eb6e4d1();
 				foreach(player in players)
 				{
 					if(player == guy)
@@ -514,10 +514,10 @@ function private function_271ba816(var_26fc4461 = 0)
 */
 function function_b6841741()
 {
-	level thread function_fd0b8976(&"DOA_FATE_FIREPOWER", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FIREPOWER", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	self.doa.default_weap = level.doa.var_416914d0;
 	self.doa.var_1b58e8ba = 1;
-	self namespace_831a4a7c::function_baa7411e(self.doa.default_weap);
+	self doa_player_utility::function_baa7411e(self.doa.default_weap);
 }
 
 /*
@@ -531,7 +531,7 @@ function function_b6841741()
 */
 function function_d30f9791()
 {
-	level thread function_fd0b8976(&"DOA_FATE_FORTUNE", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FORTUNE", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	if(self.doa.multiplier < 2)
 	{
 		self namespace_64c6b720::function_126dc996(2);
@@ -549,7 +549,7 @@ function function_d30f9791()
 */
 function function_2a2ab6f9()
 {
-	level thread function_fd0b8976(&"DOA_FATE_FEET", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FEET", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	self.doa.default_movespeed = level.doa.rules.var_b92b82b;
 	self setmovespeedscale(level.doa.rules.var_b92b82b);
 	self thread doa_fx::function_285a2999("fast_feet");
@@ -567,7 +567,7 @@ function function_2a2ab6f9()
 function function_4c552db8()
 {
 	self.doa.var_1b58e8ba = 2;
-	level thread function_fd0b8976(&"DOA_FATE_FRIENDSHIP", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FRIENDSHIP", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	self thread namespace_5e6c5d1f::function_d35a405a(level.doa.var_a7cfb7eb, 1);
 }
 
@@ -582,7 +582,7 @@ function function_4c552db8()
 */
 function function_c8508847()
 {
-	level thread function_fd0b8976(&"DOA_FATE_FORCE", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FORCE", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	if(self.doa.boosters < 4)
 	{
 		self.doa.boosters = 4;
@@ -601,7 +601,7 @@ function function_c8508847()
 */
 function function_47b8a2a2()
 {
-	level thread function_fd0b8976(&"DOA_FATE_FORTITUDE", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FORTITUDE", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	if(self.doa.multiplier < 3)
 	{
 		self namespace_64c6b720::function_126dc996(3);
@@ -621,7 +621,7 @@ function function_47b8a2a2()
 */
 function function_78c32d42()
 {
-	level thread function_fd0b8976(&"DOA_FATE_FAVOR", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FAVOR", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	self thread namespace_5e6c5d1f::function_d35a405a(level.doa.var_9505395a, 2, 1.5);
 	self thread doa_fx::function_285a2999("fate2_awarded");
 }
@@ -637,13 +637,13 @@ function function_78c32d42()
 */
 function function_8c9288de()
 {
-	level thread function_fd0b8976(&"DOA_FATE_FURY", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_FURY", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	if(self.doa.bombs < 1)
 	{
 		self.doa.bombs = 1;
 	}
 	self.doa.default_weap = level.doa.var_69899304;
-	self namespace_831a4a7c::function_baa7411e(self.doa.default_weap);
+	self doa_player_utility::function_baa7411e(self.doa.default_weap);
 	self thread doa_fx::function_285a2999("fate2_awarded");
 }
 
@@ -658,7 +658,7 @@ function function_8c9288de()
 */
 function private function_78f27983(player)
 {
-	level thread function_fd0b8976(&"DOA_FATE_BOOBY_PRIZE", 4, namespace_831a4a7c::function_fea7ed75(self.entnum));
+	level thread function_fd0b8976(&"DOA_FATE_BOOBY_PRIZE", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	if(isdefined(player.doa.var_eb1cd159))
 	{
 		player thread doa_pickups::directeditemawardto(player, "zombietron_extra_life");
@@ -1005,7 +1005,7 @@ function function_833dad0d()
 		namespace_cdb9a8fe::function_55762a85(doa_arena::function_61d60e0b());
 	}
 	level thread doa_utility::set_lighting_state(3);
-	namespace_831a4a7c::function_82e3b1cb();
+	doa_player_utility::function_82e3b1cb();
 	/#
 		doa_utility::debugmsg("");
 	#/
@@ -1024,7 +1024,7 @@ function function_833dad0d()
 	foreach(player in getplayers())
 	{
 		player freezecontrols(0);
-		player thread namespace_831a4a7c::function_4519b17(0);
+		player thread doa_player_utility::function_4519b17(0);
 	}
 	level thread function_6162a853(1);
 	/#

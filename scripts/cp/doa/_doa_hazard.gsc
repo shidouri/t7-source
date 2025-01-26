@@ -518,7 +518,7 @@ function private function_70dbf276()
 				}
 				default:
 				{
-					spot = namespace_831a4a7c::function_68ece679(guy.entnum).origin;
+					spot = doa_player_utility::function_68ece679(guy.entnum).origin;
 					break;
 				}
 			}

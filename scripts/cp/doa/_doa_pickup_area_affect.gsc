@@ -357,7 +357,7 @@ function function_159bb1dd(player, origin)
 	monkey = spawn("script_model", origin);
 	monkey.targetname = "monkeyUpdate";
 	monkey setmodel(level.doa.var_d6256e83);
-	monkey thread doa_fx::function_285a2999(namespace_831a4a7c::function_e7e0aa7f(player.entnum));
+	monkey thread doa_fx::function_285a2999(doa_player_utility::function_e7e0aa7f(player.entnum));
 	def = doa_pickups::function_bac08508(11);
 	monkey useanimtree($zombie_cymbal_monkey);
 	monkey animscripted("anim", monkey.origin, monkey.angles, %zombie_cymbal_monkey::o_monkey_bomb);

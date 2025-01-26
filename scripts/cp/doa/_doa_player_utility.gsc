@@ -23,11 +23,11 @@
 #using scripts\shared\math_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_831a4a7c;
+#namespace doa_player_utility;
 
 /*
 	Name: function_138c35de
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xC5D8942
 	Offset: 0xB38
 	Size: 0x1E4
@@ -64,7 +64,7 @@ function function_138c35de()
 
 /*
 	Name: function_70339630
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xC4432F8E
 	Offset: 0xD28
 	Size: 0x58
@@ -84,7 +84,7 @@ function function_70339630()
 
 /*
 	Name: function_bbb1254c
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xF8203008
 	Offset: 0xD88
 	Size: 0x95C
@@ -217,7 +217,7 @@ function function_bbb1254c(var_44eb97b0 = 0)
 
 /*
 	Name: function_e2a1a825
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x4C039E2C
 	Offset: 0x16F0
 	Size: 0xE0
@@ -243,7 +243,7 @@ function function_e2a1a825()
 
 /*
 	Name: function_eb67e3d2
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xF5B0DCB
 	Offset: 0x17D8
 	Size: 0x38C
@@ -348,7 +348,7 @@ function function_eb67e3d2()
 
 /*
 	Name: function_7e372abd
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xAC509ADB
 	Offset: 0x1B70
 	Size: 0xC4
@@ -375,7 +375,7 @@ function function_7e372abd()
 
 /*
 	Name: function_4db260cb
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x490B4967
 	Offset: 0x1C40
 	Size: 0x92
@@ -392,7 +392,7 @@ function function_4db260cb()
 
 /*
 	Name: function_895845f9
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x1E77CC42
 	Offset: 0x1CE0
 	Size: 0x136
@@ -433,7 +433,7 @@ function function_895845f9(origin, ignore_player)
 
 /*
 	Name: isplayervalid
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xFA70A96C
 	Offset: 0x1E20
 	Size: 0xA4
@@ -467,7 +467,7 @@ function isplayervalid(player, checkignoremeflag)
 
 /*
 	Name: function_5bcae97c
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x977768B5
 	Offset: 0x1ED0
 	Size: 0xFC
@@ -492,7 +492,7 @@ function function_5bcae97c(trigger)
 
 /*
 	Name: turnplayershieldon
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x2330A284
 	Offset: 0x1FD8
 	Size: 0x2E2
@@ -561,7 +561,7 @@ function turnplayershieldon(short_shield = 1)
 
 /*
 	Name: function_6b0da7ff
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x88F5327A
 	Offset: 0x22C8
 	Size: 0x24
@@ -579,7 +579,7 @@ function private function_6b0da7ff()
 
 /*
 	Name: shield_trigger_think
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xFF7D0680
 	Offset: 0x22F8
 	Size: 0x4AC
@@ -678,7 +678,7 @@ function shield_trigger_think(player, var_c1ff53d9, thresh)
 
 /*
 	Name: function_93739933
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x601F5C8D
 	Offset: 0x27B0
 	Size: 0x2C
@@ -692,7 +692,7 @@ function function_93739933(vel)
 
 /*
 	Name: function_ab9cf24b
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xD1405DE7
 	Offset: 0x27E8
 	Size: 0x11C
@@ -721,7 +721,7 @@ function private function_ab9cf24b(player)
 
 /*
 	Name: infiniteammo
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xA95D81A0
 	Offset: 0x2910
 	Size: 0xB2
@@ -747,7 +747,7 @@ function infiniteammo()
 
 /*
 	Name: function_1a86a494
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xF81F5B8
 	Offset: 0x29D0
 	Size: 0x1B0
@@ -803,7 +803,7 @@ function function_1a86a494(var_d55fe723 = 0)
 
 /*
 	Name: function_82e3b1cb
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x331B40EB
 	Offset: 0x2B88
 	Size: 0x106
@@ -825,7 +825,7 @@ function function_82e3b1cb(var_d55fe723 = 0)
 
 /*
 	Name: function_aea40863
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xEA03D196
 	Offset: 0x2C98
 	Size: 0x16C
@@ -849,7 +849,7 @@ function function_aea40863()
 
 /*
 	Name: function_6a52a347
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x41FBC092
 	Offset: 0x2E10
 	Size: 0xC4
@@ -871,7 +871,7 @@ function function_6a52a347(count = 1)
 
 /*
 	Name: function_ba145a39
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xA6753372
 	Offset: 0x2EE0
 	Size: 0xC4
@@ -893,7 +893,7 @@ function function_ba145a39(count = 1)
 
 /*
 	Name: function_f3748dcb
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x5B18C089
 	Offset: 0x2FB0
 	Size: 0xC4
@@ -915,7 +915,7 @@ function function_f3748dcb(count = 1)
 
 /*
 	Name: function_3f041ff1
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xF619789B
 	Offset: 0x3080
 	Size: 0xD4
@@ -935,7 +935,7 @@ function private function_3f041ff1()
 
 /*
 	Name: function_832d21c2
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x135ECFFC
 	Offset: 0x3160
 	Size: 0x166
@@ -964,7 +964,7 @@ function function_832d21c2()
 
 /*
 	Name: function_af5211c2
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xC5606A64
 	Offset: 0x32D0
 	Size: 0x114
@@ -986,7 +986,7 @@ function private function_af5211c2()
 
 /*
 	Name: function_3840375a
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xC652E9FF
 	Offset: 0x33F0
 	Size: 0x1DE
@@ -1023,7 +1023,7 @@ function function_3840375a(speed = level.doa.rules.var_ee067ec)
 
 /*
 	Name: function_1ba980a
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xBBEEEE01
 	Offset: 0x35D8
 	Size: 0x42
@@ -1041,7 +1041,7 @@ function function_1ba980a()
 
 /*
 	Name: function_6e1ed82
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xD1CAD194
 	Offset: 0x3628
 	Size: 0x2FE
@@ -1117,7 +1117,7 @@ function function_6e1ed82()
 
 /*
 	Name: function_a36ffe73
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x96F72FE3
 	Offset: 0x3930
 	Size: 0x7C
@@ -1136,7 +1136,7 @@ function function_a36ffe73()
 
 /*
 	Name: function_d7c57981
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xAC283DF2
 	Offset: 0x39B8
 	Size: 0x64
@@ -1154,7 +1154,7 @@ function function_d7c57981()
 
 /*
 	Name: function_e5fa8e6a
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xF98AD3E4
 	Offset: 0x3A28
 	Size: 0x8A
@@ -1172,7 +1172,7 @@ function function_e5fa8e6a()
 
 /*
 	Name: function_e6b2517f
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xD03A2719
 	Offset: 0x3AC0
 	Size: 0x64
@@ -1190,7 +1190,7 @@ function function_e6b2517f()
 
 /*
 	Name: function_ab0e2cf3
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x554E5CEA
 	Offset: 0x3B30
 	Size: 0x5C0
@@ -1289,7 +1289,7 @@ function function_ab0e2cf3()
 
 /*
 	Name: function_7d7a7fde
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x958F24D
 	Offset: 0x40F8
 	Size: 0x94
@@ -1314,7 +1314,7 @@ function function_7d7a7fde()
 
 /*
 	Name: function_9fc6e261
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xBB818606
 	Offset: 0x4198
 	Size: 0x4C
@@ -1333,7 +1333,7 @@ function private function_9fc6e261()
 
 /*
 	Name: function_d392db04
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xD237BD29
 	Offset: 0x41F0
 	Size: 0x344
@@ -1399,7 +1399,7 @@ function private function_d392db04(var_adc420e5, origin, player, updir)
 
 /*
 	Name: function_73d40751
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xB510F15D
 	Offset: 0x4540
 	Size: 0xE0
@@ -1432,7 +1432,7 @@ function function_73d40751()
 
 /*
 	Name: function_f19e9b07
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x52D163D8
 	Offset: 0x4628
 	Size: 0xD8
@@ -1471,7 +1471,7 @@ function function_f19e9b07()
 
 /*
 	Name: function_4eabae51
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xB376BEB9
 	Offset: 0x4708
 	Size: 0x580
@@ -1577,7 +1577,7 @@ function function_4eabae51()
 
 /*
 	Name: function_350f42fa
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x46A91DC2
 	Offset: 0x4C90
 	Size: 0xD8
@@ -1606,7 +1606,7 @@ function function_350f42fa(var_e1eb317e)
 
 /*
 	Name: function_62c5034a
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x3E0E03FA
 	Offset: 0x4D70
 	Size: 0x168
@@ -1630,7 +1630,7 @@ function function_62c5034a(owner)
 
 /*
 	Name: function_48b5439d
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xA10A820E
 	Offset: 0x4EE0
 	Size: 0xD8
@@ -1658,7 +1658,7 @@ function function_48b5439d(owner)
 
 /*
 	Name: missile_logic
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xE1658125
 	Offset: 0x4FC0
 	Size: 0x54
@@ -1676,7 +1676,7 @@ function missile_logic(target)
 
 /*
 	Name: function_5e373fc6
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x639CE363
 	Offset: 0x5020
 	Size: 0x36C
@@ -1733,7 +1733,7 @@ function function_5e373fc6()
 
 /*
 	Name: function_baa7411e
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x6E6FB973
 	Offset: 0x5398
 	Size: 0x28C
@@ -1793,7 +1793,7 @@ function function_baa7411e(weapon)
 
 /*
 	Name: function_71dab8e8
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x84304CBE
 	Offset: 0x5630
 	Size: 0x3AC
@@ -1846,7 +1846,7 @@ function function_71dab8e8(amount = 1)
 
 /*
 	Name: updateweapon
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xEDA3E95C
 	Offset: 0x59E8
 	Size: 0x4BC
@@ -1910,7 +1910,7 @@ function updateweapon()
 
 /*
 	Name: function_d5f89a15
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xCBE3CAC9
 	Offset: 0x5EB0
 	Size: 0x4C4
@@ -1974,7 +1974,7 @@ function function_d5f89a15(name, weaponpickup = 0)
 
 /*
 	Name: function_1318d1e4
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x69591697
 	Offset: 0x6380
 	Size: 0x74
@@ -1994,7 +1994,7 @@ function function_1318d1e4()
 
 /*
 	Name: function_7f33210a
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xD908941E
 	Offset: 0x6400
 	Size: 0x34
@@ -2012,7 +2012,7 @@ function function_7f33210a()
 
 /*
 	Name: function_b5843d4f
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xF73FC282
 	Offset: 0x6440
 	Size: 0x6C
@@ -2035,7 +2035,7 @@ function function_b5843d4f(var_6a15db21)
 
 /*
 	Name: function_f2507519
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x578398FD
 	Offset: 0x64B8
 	Size: 0x10C
@@ -2075,7 +2075,7 @@ function function_f2507519(on = 1)
 
 /*
 	Name: function_7e85dbee
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x1262091E
 	Offset: 0x65D0
 	Size: 0xF4
@@ -2098,7 +2098,7 @@ function function_7e85dbee()
 
 /*
 	Name: function_2fee362e
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x48FEA903
 	Offset: 0x66D0
 	Size: 0x84
@@ -2123,7 +2123,7 @@ function function_2fee362e()
 
 /*
 	Name: function_3682cfe4
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x3CA46216
 	Offset: 0x6760
 	Size: 0x40C
@@ -2185,7 +2185,7 @@ function function_3682cfe4(einflictor, attacker, idamage, smeansofdeath, sweapon
 
 /*
 	Name: function_fdf74b3
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xFE014027
 	Offset: 0x6B78
 	Size: 0x4A
@@ -2203,7 +2203,7 @@ function private function_fdf74b3()
 
 /*
 	Name: function_bfbc53f4
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x6649D7B8
 	Offset: 0x6BD0
 	Size: 0x5FC
@@ -2328,7 +2328,7 @@ function function_bfbc53f4(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: finishplayerdamagewrapper
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xE4DADBBF
 	Offset: 0x71D8
 	Size: 0xB4
@@ -2342,7 +2342,7 @@ function finishplayerdamagewrapper(einflictor, eattacker, idamage, idflags, smea
 
 /*
 	Name: playerlaststand
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x80DDDFE7
 	Offset: 0x7298
 	Size: 0x4C
@@ -2355,7 +2355,7 @@ function playerlaststand(einflictor, eattacker, idamage, smeansofdeath, weapon, 
 
 /*
 	Name: function_f847ee8c
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x823941B1
 	Offset: 0x72F0
 	Size: 0x4C
@@ -2368,7 +2368,7 @@ function function_f847ee8c(einflictor, eattacker, idamage, smeansofdeath, weapon
 
 /*
 	Name: function_68ece679
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xEC9E208E
 	Offset: 0x7348
 	Size: 0xA8
@@ -2390,7 +2390,7 @@ function function_68ece679(entnum)
 
 /*
 	Name: function_161ce9cd
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x78BC9F28
 	Offset: 0x73F8
 	Size: 0xF4
@@ -2420,7 +2420,7 @@ function private function_161ce9cd(delay = 2)
 
 /*
 	Name: function_ad1d5fcb
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x2EE44434
 	Offset: 0x74F8
 	Size: 0x382
@@ -2497,7 +2497,7 @@ function private function_ad1d5fcb(var_243f32c0 = 0)
 
 /*
 	Name: function_bbdc9bc0
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xFCF66629
 	Offset: 0x7888
 	Size: 0xC2
@@ -2523,7 +2523,7 @@ function private function_bbdc9bc0()
 
 /*
 	Name: function_1c683070
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x88C87372
 	Offset: 0x7958
 	Size: 0xF4
@@ -2549,7 +2549,7 @@ function function_1c683070(distsq = 1296)
 
 /*
 	Name: function_2b1d321f
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x7EF1E5B1
 	Offset: 0x7A58
 	Size: 0x3AE
@@ -2629,7 +2629,7 @@ function function_2b1d321f(player, downedplayer)
 
 /*
 	Name: function_b1958e58
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x474EB54
 	Offset: 0x7E10
 	Size: 0x3E8
@@ -2689,7 +2689,7 @@ function function_b1958e58()
 
 /*
 	Name: function_285fe1ad
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xF03A41E1
 	Offset: 0x8200
 	Size: 0x5C
@@ -2709,7 +2709,7 @@ function function_285fe1ad()
 
 /*
 	Name: function_27202201
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x9148932
 	Offset: 0x8268
 	Size: 0x44C
@@ -2777,7 +2777,7 @@ function function_27202201()
 
 /*
 	Name: function_c7471371
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xAA1DC807
 	Offset: 0x86C0
 	Size: 0x230
@@ -2826,7 +2826,7 @@ function function_c7471371()
 
 /*
 	Name: function_79489c4c
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xAC6D5BDA
 	Offset: 0x88F8
 	Size: 0x66
@@ -2846,7 +2846,7 @@ function private function_79489c4c(time)
 
 /*
 	Name: function_c240f40e
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x8FA9E227
 	Offset: 0x8968
 	Size: 0x210
@@ -2885,7 +2885,7 @@ function private function_c240f40e(source, dest, orb)
 
 /*
 	Name: function_2f150493
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x9668880E
 	Offset: 0x8B80
 	Size: 0xA9C
@@ -3070,7 +3070,7 @@ function private function_2f150493(source, dest)
 
 /*
 	Name: function_60123d1c
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x74C826D1
 	Offset: 0x9628
 	Size: 0x1B6
@@ -3119,7 +3119,7 @@ function function_60123d1c()
 
 /*
 	Name: function_fea7ed75
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xD1EAD2AC
 	Offset: 0x97E8
 	Size: 0x82
@@ -3161,7 +3161,7 @@ function function_fea7ed75(num)
 
 /*
 	Name: function_e7e0aa7f
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x94FA2217
 	Offset: 0x9878
 	Size: 0x2C
@@ -3175,7 +3175,7 @@ function function_e7e0aa7f(num)
 
 /*
 	Name: function_ee495f41
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x81255FD2
 	Offset: 0x98B0
 	Size: 0x82
@@ -3213,7 +3213,7 @@ function function_ee495f41(num)
 
 /*
 	Name: function_5eb6e4d1
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x7F81A97A
 	Offset: 0x9940
 	Size: 0xC4
@@ -3239,7 +3239,7 @@ function function_5eb6e4d1()
 
 /*
 	Name: function_35f36dec
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x4D239E81
 	Offset: 0x9A10
 	Size: 0x19C
@@ -3281,7 +3281,7 @@ function function_35f36dec(origin)
 
 /*
 	Name: function_f300c612
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x21B585B3
 	Offset: 0x9BB8
 	Size: 0x88
@@ -3305,7 +3305,7 @@ function function_f300c612()
 
 /*
 	Name: function_4519b17
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0xDA029DD7
 	Offset: 0x9C48
 	Size: 0x1C8
@@ -3361,7 +3361,7 @@ function function_4519b17(on, clear = 0)
 
 /*
 	Name: function_139199e1
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x8B35897F
 	Offset: 0x9E18
 	Size: 0x452
@@ -3445,7 +3445,7 @@ function function_139199e1(type)
 
 /*
 	Name: donothing
-	Namespace: namespace_831a4a7c
+	Namespace: doa_player_utility
 	Checksum: 0x99EC1590
 	Offset: 0xA278
 	Size: 0x4

@@ -227,7 +227,7 @@ function function_a5821e05(time = 1)
 	foreach(player in getplayers())
 	{
 		player freezecontrols(1);
-		player thread namespace_831a4a7c::function_4519b17(1);
+		player thread doa_player_utility::function_4519b17(1);
 	}
 	level lui::screen_fade_out(time, "black");
 	wait(time);
@@ -263,7 +263,7 @@ function function_c85960dd(hold_black_time = 1.2, unfreeze = 1)
 		foreach(player in getplayers())
 		{
 			player freezecontrols(0);
-			player thread namespace_831a4a7c::function_4519b17(0);
+			player thread doa_player_utility::function_4519b17(0);
 		}
 	}
 	level notify("fade_in_complete");

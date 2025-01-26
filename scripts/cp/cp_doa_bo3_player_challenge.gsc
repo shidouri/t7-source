@@ -430,7 +430,7 @@ function function_b6c25c3c(spot)
 	self.room = level.doa.var_52cccfb6;
 	tank = getent("doa_tankmaze_spawner", "targetname") spawner::spawn(1);
 	self setorigin(spot.origin);
-	tank setmodel("veh_t7_mil_tank_tiger_zombietron_" + namespace_831a4a7c::function_ee495f41(self.entnum));
+	tank setmodel("veh_t7_mil_tank_tiger_zombietron_" + doa_player_utility::function_ee495f41(self.entnum));
 	tank.origin = spot.origin;
 	tank.spawnpoint = spot.origin;
 	tank.angles = spot.angles;
@@ -763,7 +763,7 @@ function function_f1915ffb(room)
 				player.doa.vehicle delete();
 				player.doa.vehicle = undefined;
 			}
-			player namespace_831a4a7c::function_7d7a7fde();
+			player doa_player_utility::function_7d7a7fde();
 			if(!isdefined(player))
 			{
 				continue;
@@ -983,7 +983,7 @@ function function_14e75d7a(spot)
 	truck.takedamage = 0;
 	truck.var_f71159da = 0;
 	truck.owner = self;
-	truck setmodel("veh_t7_civ_truck_pickup_tech_nrc_mini_" + namespace_831a4a7c::function_ee495f41(self.entnum));
+	truck setmodel("veh_t7_civ_truck_pickup_tech_nrc_mini_" + doa_player_utility::function_ee495f41(self.entnum));
 	self.doa.vehicle = truck;
 	self.doa.var_de24aff7 = 0;
 	self.doa.var_37efabf7 = 1;
@@ -1208,7 +1208,7 @@ function function_ce5fc0d(room)
 				player.doa.vehicle delete();
 				player.doa.vehicle = undefined;
 			}
-			player namespace_831a4a7c::function_7d7a7fde();
+			player doa_player_utility::function_7d7a7fde();
 			player disableinvulnerability();
 			player.doa.var_3024fd0f = undefined;
 			player.doa.var_f30b49ec = 1;
@@ -1360,7 +1360,7 @@ function function_3ed913b4(room)
 	winner.doa.var_74c73153++;
 	spots = struct::get_array("redins_pickup_location");
 	level notify(#"hash_e1dc3538");
-	winner thread namespace_831a4a7c::function_139199e1();
+	winner thread doa_player_utility::function_139199e1();
 	level notify(#"hash_276164a7", winner);
 }
 
@@ -1691,7 +1691,7 @@ function function_dae418ed()
 	}
 	var_f3a9458e = getent("doa_redins_truck", "targetname");
 	truck = var_f3a9458e spawner::spawn(1);
-	truck setmodel("veh_t7_civ_truck_pickup_tech_nrc_mini_" + namespace_831a4a7c::function_ee495f41(self.entnum));
+	truck setmodel("veh_t7_civ_truck_pickup_tech_nrc_mini_" + doa_player_utility::function_ee495f41(self.entnum));
 	truck.origin = spot.origin;
 	truck.spawnpoint = spot.origin;
 	truck.angles = spot.angles;
@@ -1707,7 +1707,7 @@ function function_dae418ed()
 	self.doa.var_3024fd0f = 1;
 	self.doa.var_3e3bcaa1 = 1;
 	self thread function_e619ee5(truck);
-	truck thread doa_fx::function_285a2999("gem_trail_" + namespace_831a4a7c::function_ee495f41(self.entnum));
+	truck thread doa_fx::function_285a2999("gem_trail_" + doa_player_utility::function_ee495f41(self.entnum));
 	self freezecontrols(!level flag::get("doa_challenge_running"));
 	wait(0.05);
 	self enableinvulnerability();
@@ -2026,7 +2026,7 @@ function function_60fcd122(room, goaltrigger)
 				}
 				if(isdefined(player))
 				{
-					glow.org thread doa_fx::function_285a2999("gem_trail_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+					glow.org thread doa_fx::function_285a2999("gem_trail_" + doa_player_utility::function_ee495f41(player.entnum));
 				}
 			}
 			lastcount = goaltrigger.var_f1e29613.size;
@@ -2356,7 +2356,7 @@ function function_b3939e94(room)
 			player.doa.var_3024fd0f = undefined;
 			player.doa.var_3e3bcaa1 = undefined;
 			player disableinvulnerability();
-			player thread namespace_831a4a7c::turnplayershieldon(0);
+			player thread doa_player_utility::turnplayershieldon(0);
 			player namespace_2848f8c2::function_d41a4517();
 		}
 	}
@@ -2708,8 +2708,8 @@ function cow_damage_watch()
 				}
 				self playsound("zmb_cow_explode_gold");
 				location = self.origin;
-				var_888caf9f = namespace_831a4a7c::function_5eb6e4d1().size + 10;
-				maxamount = namespace_831a4a7c::function_5eb6e4d1().size + 20;
+				var_888caf9f = doa_player_utility::function_5eb6e4d1().size + 10;
+				maxamount = doa_player_utility::function_5eb6e4d1().size + 20;
 				level thread doa_pickups::spawnubertreasure(location, randomintrange(var_888caf9f, maxamount), 85, 1, 1, 1, undefined, 0);
 				self.sacred = undefined;
 			}

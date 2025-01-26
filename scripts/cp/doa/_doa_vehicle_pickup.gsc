@@ -96,7 +96,7 @@ function function_f27a22c8(player, origin)
 	}
 	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
-	player namespace_831a4a7c::function_4519b17(1);
+	player doa_player_utility::function_4519b17(1);
 	player function_d460de4b();
 	level.doa.var_b3040642.count = 999999;
 	heli = level.doa.var_b3040642 spawner::spawn(1);
@@ -108,7 +108,7 @@ function function_f27a22c8(player, origin)
 	heli.vehaircraftcollisionenabled = 1;
 	heli.health = 9999999;
 	heli.team = player.team;
-	heli setmodel("veh_t7_drone_hunter_zombietron_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+	heli setmodel("veh_t7_drone_hunter_zombietron_" + doa_player_utility::function_ee495f41(player.entnum));
 	heli usevehicle(player, 0);
 	heli makeunusable();
 	heli setheliheightlock(1);
@@ -228,7 +228,7 @@ function function_2ef99744(player, origin)
 	}
 	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
-	player namespace_831a4a7c::function_4519b17(1);
+	player doa_player_utility::function_4519b17(1);
 	player function_d460de4b();
 	level.doa.var_32e07142.count = 99999;
 	siegebot = level.doa.var_32e07142 spawner::spawn(1);
@@ -308,7 +308,7 @@ function function_21af9396(player, origin)
 	}
 	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
-	player namespace_831a4a7c::function_4519b17(1);
+	player doa_player_utility::function_4519b17(1);
 	player function_d460de4b();
 	level.doa.var_37219336.count = 99999;
 	siegebot = level.doa.var_37219336 spawner::spawn(1);
@@ -320,7 +320,7 @@ function function_21af9396(player, origin)
 	siegebot.team = player.team;
 	siegebot.owner = player;
 	siegebot.playercontrolled = 1;
-	siegebot setmodel("zombietron_siegebot_mini_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+	siegebot setmodel("zombietron_siegebot_mini_" + doa_player_utility::function_ee495f41(player.entnum));
 	siegebot usevehicle(player, 0);
 	siegebot makeunusable();
 	siegebot.health = 9999999;
@@ -374,7 +374,7 @@ function function_1e663abe(player, origin)
 	}
 	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
-	player namespace_831a4a7c::function_4519b17(1);
+	player doa_player_utility::function_4519b17(1);
 	player function_d460de4b();
 	rapps = level.doa.var_95dee038 spawner::spawn(1);
 	rapps thread doa_utility::function_24245456(player, "disconnect");
@@ -384,7 +384,7 @@ function function_1e663abe(player, origin)
 	rapps.angles = player.angles;
 	rapps.team = player.team;
 	rapps.playercontrolled = 1;
-	rapps setmodel("veh_t7_drone_raps_zombietron_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+	rapps setmodel("veh_t7_drone_raps_zombietron_" + doa_player_utility::function_ee495f41(player.entnum));
 	rapps.owner = player;
 	rapps usevehicle(player, 0);
 	rapps makeunusable();
@@ -433,7 +433,7 @@ function function_e9f445ce(player, origin)
 	}
 	player endon("disconnect");
 	player.doa.var_52cb4fb9 = 1;
-	player namespace_831a4a7c::function_4519b17(1);
+	player doa_player_utility::function_4519b17(1);
 	player function_d460de4b();
 	var_b22d6040 = level.doa.var_1179f89e spawner::spawn(1);
 	var_b22d6040 thread doa_utility::function_24245456(player, "disconnect");
@@ -443,7 +443,7 @@ function function_e9f445ce(player, origin)
 	var_b22d6040.angles = player.angles;
 	var_b22d6040.team = player.team;
 	var_b22d6040.playercontrolled = 1;
-	var_b22d6040 setmodel("veh_t7_mil_tank_tiger_zombietron_" + namespace_831a4a7c::function_ee495f41(player.entnum));
+	var_b22d6040 setmodel("veh_t7_mil_tank_tiger_zombietron_" + doa_player_utility::function_ee495f41(player.entnum));
 	var_b22d6040 usevehicle(player, 0);
 	var_b22d6040 makeunusable();
 	var_b22d6040.health = 9999999;
@@ -490,8 +490,8 @@ function function_d460de4b()
 	{
 		return;
 	}
-	self thread namespace_831a4a7c::function_7f33210a();
-	self thread namespace_831a4a7c::function_f2507519(0);
+	self thread doa_player_utility::function_7f33210a();
+	self thread doa_player_utility::function_f2507519(0);
 	self thread doa_fx::turnofffx("boots");
 	self thread doa_fx::turnofffx("slow_feet");
 	self.doa.var_c2b9d7d0 = gettime();
@@ -517,9 +517,9 @@ function function_d41a4517()
 	}
 	self endon("disconnect");
 	util::wait_network_frame();
-	self thread namespace_831a4a7c::turnplayershieldon();
-	self thread namespace_831a4a7c::function_f2507519(level.doa.arena_round_number == 3);
-	self thread namespace_831a4a7c::function_b5843d4f(level.doa.arena_round_number == 3);
+	self thread doa_player_utility::turnplayershieldon();
+	self thread doa_player_utility::function_f2507519(level.doa.arena_round_number == 3);
+	self thread doa_player_utility::function_b5843d4f(level.doa.arena_round_number == 3);
 	if(isdefined(self.doa) && (isdefined(self.doa.var_d5c84825) && self.doa.var_d5c84825))
 	{
 		self thread doa_fx::function_285a2999("slow_feet");
@@ -560,7 +560,7 @@ function function_3b1b644d(var_85f85940, vehicle)
 	self.doa.var_ccf4ef81 = 1;
 	self endon("disconnect");
 	vehicle thread function_33f0cca4(self);
-	self namespace_831a4a7c::function_4519b17(1);
+	self doa_player_utility::function_4519b17(1);
 	wait(0.05);
 	self.ignoreme = 0;
 	self.doa.vehicle = undefined;
@@ -576,7 +576,7 @@ function function_3b1b644d(var_85f85940, vehicle)
 	{
 		self setorigin(var_85f85940);
 	}
-	self namespace_831a4a7c::function_4519b17(0);
+	self doa_player_utility::function_4519b17(0);
 	self function_d41a4517();
 	if(isdefined(self.doa.infps) && self.doa.infps)
 	{

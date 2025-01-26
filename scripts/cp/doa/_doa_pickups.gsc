@@ -830,7 +830,7 @@ function function_68c8220(player)
 	ent = spawn("script_origin", (0, 0, 0));
 	ent playloopsound("zmb_pickup_umbrella_loop");
 	locations = doa_utility::function_308fa126(16);
-	amount = randomintrange((namespace_831a4a7c::function_5eb6e4d1().size * 3) + 4, (namespace_831a4a7c::function_5eb6e4d1().size * 5) + 6);
+	amount = randomintrange((doa_player_utility::function_5eb6e4d1().size * 3) + 4, (doa_player_utility::function_5eb6e4d1().size * 5) + 6);
 	while(amount)
 	{
 		item = spawnubertreasure(locations[randomint(locations.size)] + vectorscale((0, 0, 1), 2200), 1, 128, 1, 1, 1, level.doa.var_9bf7e61b, undefined, 1, 0, 0)[0];
@@ -1440,7 +1440,7 @@ function function_5bb8e0d1(var_742d8fb5, location)
 			wait(5);
 			waittime = waittime - 5;
 		}
-		players = namespace_831a4a7c::function_5eb6e4d1();
+		players = doa_player_utility::function_5eb6e4d1();
 		lives = 0;
 		for(i = 0; i < players.size; i++)
 		{
@@ -1538,7 +1538,7 @@ function function_967df2b6(var_1db3e61a)
 	}
 	if(var_1db3e61a.type == 7 || var_1db3e61a.type == 19 || var_1db3e61a.type == 6 || var_1db3e61a.type == 34)
 	{
-		foreach(player in namespace_831a4a7c::function_5eb6e4d1())
+		foreach(player in doa_player_utility::function_5eb6e4d1())
 		{
 			if(isdefined(player.doa.var_5a34cdc9))
 			{
@@ -1564,7 +1564,7 @@ function function_967df2b6(var_1db3e61a)
 		{
 			return 0;
 		}
-		foreach(player in namespace_831a4a7c::function_5eb6e4d1())
+		foreach(player in doa_player_utility::function_5eb6e4d1())
 		{
 			if(isdefined(player.doa.vehicle))
 			{
@@ -1647,7 +1647,7 @@ function function_d526f0bb()
 					player.doa.skulls++;
 					player.doa.var_fda5a6e5++;
 					self thread namespace_1a381543::function_90118d8c("zmb_pickup_nurgle");
-					player namespace_831a4a7c::function_71dab8e8(self.var_25ffdef1);
+					player doa_player_utility::function_71dab8e8(self.var_25ffdef1);
 					self function_6b4a5f81(player);
 					break;
 				}
@@ -1673,7 +1673,7 @@ function function_d526f0bb()
 				case 16:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_weapon");
-					player namespace_831a4a7c::function_d5f89a15(self.def.gdtname, 1);
+					player doa_player_utility::function_d5f89a15(self.def.gdtname, 1);
 					player.special_weapon = getweapon(self.def.gdtname);
 					/#
 						assert(isdefined(player.special_weapon));
@@ -1683,14 +1683,14 @@ function function_d526f0bb()
 				case 10:
 				{
 					self thread namespace_1a381543::function_90118d8c("zmb_pickup_powerup");
-					player thread namespace_831a4a7c::function_f3748dcb();
+					player thread doa_player_utility::function_f3748dcb();
 					self function_6b4a5f81(player);
 					break;
 				}
 				case 12:
 				{
 					self thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					player thread namespace_831a4a7c::function_ba145a39();
+					player thread doa_player_utility::function_ba145a39();
 					self function_6b4a5f81(player);
 					break;
 				}
@@ -1698,7 +1698,7 @@ function function_d526f0bb()
 				{
 					if(!isdefined(self.player))
 					{
-						players = namespace_831a4a7c::function_5eb6e4d1();
+						players = doa_player_utility::function_5eb6e4d1();
 						var_63ef8ae = [];
 						foreach(player in players)
 						{
@@ -1718,14 +1718,14 @@ function function_d526f0bb()
 						{
 							if(isdefined(guy))
 							{
-								guy namespace_831a4a7c::function_6a52a347();
+								guy doa_player_utility::function_6a52a347();
 							}
 							wait(0.05);
 						}
 					}
 					else
 					{
-						player thread namespace_831a4a7c::function_6a52a347();
+						player thread doa_player_utility::function_6a52a347();
 					}
 					self thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
 					self function_6b4a5f81(player);
@@ -1734,13 +1734,13 @@ function function_d526f0bb()
 				}
 				case 4:
 				{
-					player thread namespace_831a4a7c::function_832d21c2();
+					player thread doa_player_utility::function_832d21c2();
 					break;
 				}
 				case 2:
 				{
 					player.doa.var_c2b9d7d0 = gettime() + (int(player doa_utility::function_1ded48e6(level.doa.rules.var_c05a9a3f) * 1000));
-					player namespace_831a4a7c::function_71dab8e8((int(getdvarint("scr_doa_weapon_increment_range", 1024) / getdvarint("scr_doa_weapon_increment", 64))) - 1);
+					player doa_player_utility::function_71dab8e8((int(getdvarint("scr_doa_weapon_increment_range", 1024) / getdvarint("scr_doa_weapon_increment", 64))) - 1);
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_ammo");
 					player thread function_322262ea();
 					break;
@@ -1988,7 +1988,7 @@ function function_a2eecefa()
 	/#
 		doa_utility::debugmsg("" + gettime());
 	#/
-	self thread namespace_831a4a7c::turnplayershieldon(0);
+	self thread doa_player_utility::turnplayershieldon(0);
 	self thread function_bc81eba();
 	if(!(isdefined(self.doa.infps) && self.doa.infps))
 	{
@@ -2011,7 +2011,7 @@ function function_a2eecefa()
 	self allowsprint(isdefined(self.doa.infps) && self.doa.infps);
 	self allowads(isdefined(self.doa.infps) && self.doa.infps);
 	self util::waittill_any("camera_changed", "doa_playerdumpFPS", "exit_taken", "playerFPSForATime", "disconnect");
-	self thread namespace_831a4a7c::turnplayershieldon();
+	self thread doa_player_utility::turnplayershieldon();
 	self.topdowncamera = 1;
 	self.doa.infps = undefined;
 	self.doa.var_a3f61a60 = 0;
@@ -2530,7 +2530,7 @@ function function_9615d68f()
 {
 	if(!isdefined(self.doa.var_a2d31b4a) || self.doa.var_a2d31b4a != self.doa.default_weap.name)
 	{
-		self namespace_831a4a7c::function_d5f89a15(self.doa.default_weap.name);
+		self doa_player_utility::function_d5f89a15(self.doa.default_weap.name);
 	}
 }
 
@@ -2713,7 +2713,7 @@ function function_b33393b3()
 		}
 		if(function_295872fa(self))
 		{
-			foreach(player in namespace_831a4a7c::function_5eb6e4d1())
+			foreach(player in doa_player_utility::function_5eb6e4d1())
 			{
 				if(!isdefined(player.doa.var_3df27425))
 				{
@@ -3068,7 +3068,7 @@ function function_a40895ab()
 function function_b62ed8c1()
 {
 	self.attractors = [];
-	foreach(player in namespace_831a4a7c::function_5eb6e4d1())
+	foreach(player in doa_player_utility::function_5eb6e4d1())
 	{
 		distsq = distancesquared(player.origin, self.origin);
 		if(distsq < level.doa.rules.var_6a4387bb)

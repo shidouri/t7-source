@@ -417,13 +417,13 @@ function function_437a340d(var_73419762)
 	self.var_4777f621 = undefined;
 	self closeluimenu(self.var_744a3931);
 	self.var_744a3931 = undefined;
-	self namespace_831a4a7c::function_d5f89a15(level.doa.rules.default_weapon);
+	self doa_player_utility::function_d5f89a15(level.doa.rules.default_weapon);
 	self thread lui::screen_fade_in(1.5);
 	self freezecontrols(0);
 	self.takedamage = 1;
 	self.ignoreme = 0;
-	self thread namespace_831a4a7c::turnplayershieldon();
-	self thread namespace_831a4a7c::function_b5843d4f(level.doa.arena_round_number == 3);
+	self thread doa_player_utility::turnplayershieldon();
+	self thread doa_player_utility::function_b5843d4f(level.doa.arena_round_number == 3);
 	self.hotjoin = undefined;
 	self notify(#"hash_437a340d");
 	self.doa.var_80ffe475 = var_73419762;
@@ -444,9 +444,9 @@ function on_player_spawned()
 		doa_utility::debugmsg("" + (isdefined(self.name) ? self.name : ""));
 	#/
 	self.topdowncamera = 1;
-	self thread namespace_831a4a7c::function_138c35de();
-	self namespace_831a4a7c::function_7d7a7fde();
-	self namespace_831a4a7c::function_60123d1c();
+	self thread doa_player_utility::function_138c35de();
+	self doa_player_utility::function_7d7a7fde();
+	self doa_player_utility::function_60123d1c();
 	self util::set_lighting_state();
 	self notify("give_achievement", "CP_UNLOCK_DOA");
 	var_9774756a = 0;
@@ -679,10 +679,10 @@ function function_555fb805()
 	level.in_intermission = 0;
 	level.spawnspectator = &function_688245f1;
 	level.givecustomloadout = &function_a90bdb51;
-	level.callbackplayerkilled = &namespace_831a4a7c::function_3682cfe4;
-	level.callbackplayerdamage = &namespace_831a4a7c::function_bfbc53f4;
-	level.callbackplayerlaststand = &namespace_831a4a7c::function_f847ee8c;
-	level.playerlaststand_func = &namespace_831a4a7c::function_f847ee8c;
+	level.callbackplayerkilled = &doa_player_utility::function_3682cfe4;
+	level.callbackplayerdamage = &doa_player_utility::function_bfbc53f4;
+	level.callbackplayerlaststand = &doa_player_utility::function_f847ee8c;
+	level.playerlaststand_func = &doa_player_utility::function_f847ee8c;
 	level.callbackactordamage = &doa_enemy::function_2241fc21;
 	level.callbackactorkilled = &doa_enemy::function_ff217d39;
 	level.callbackvehicledamage = &doa_enemy::function_c26b6656;
@@ -874,7 +874,7 @@ function function_3e351f83(firsttime)
 	doa_arena::init();
 	doa_pickups::init();
 	doa_arena::function_5af67667(level.doa.current_arena);
-	namespace_831a4a7c::function_4db260cb();
+	doa_player_utility::function_4db260cb();
 	namespace_cdb9a8fe::function_55762a85();
 	namespace_d88e3a06::function_7a8a936b();
 	doa_arena::function_1c812a03();
@@ -909,7 +909,7 @@ function function_dc4ffe5c()
 		{
 			continue;
 		}
-		players = namespace_831a4a7c::function_5eb6e4d1();
+		players = doa_player_utility::function_5eb6e4d1();
 		curcount = players.size;
 		if(curcount != var_97e9dd7)
 		{
@@ -920,7 +920,7 @@ function function_dc4ffe5c()
 		foreach(player in players)
 		{
 			player thread namespace_64c6b720::function_676edeb7();
-			player thread namespace_831a4a7c::updateweapon();
+			player thread doa_player_utility::updateweapon();
 		}
 		var_97e9dd7 = curcount;
 	}
@@ -969,7 +969,7 @@ function function_64a5cd5e()
 	foreach(player in getplayers())
 	{
 		player.doa.var_af875fb7 = [];
-		player namespace_831a4a7c::function_7f33210a();
+		player doa_player_utility::function_7f33210a();
 	}
 	level clientfield::set("set_scoreHidden", 1);
 	level clientfield::set("activateBanner", 0);
@@ -1149,8 +1149,8 @@ function function_688245f1()
 	self.psoffsettime = 0;
 	self.friendlydamage = undefined;
 	self.statusicon = "";
-	self namespace_831a4a7c::function_60123d1c();
-	spawnpoint = namespace_831a4a7c::function_68ece679();
+	self doa_player_utility::function_60123d1c();
+	spawnpoint = doa_player_utility::function_68ece679();
 	self spawn(self.origin, self.angles);
 	self thread namespace_cdb9a8fe::function_fe0946ac();
 	self ghost();

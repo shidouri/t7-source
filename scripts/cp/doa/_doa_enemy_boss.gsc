@@ -319,7 +319,7 @@ function private function_66efd1eb()
 		{
 			continue;
 		}
-		allies = arraycombine(getaiteamarray("allies"), namespace_831a4a7c::function_5eb6e4d1(), 0, 0);
+		allies = arraycombine(getaiteamarray("allies"), doa_player_utility::function_5eb6e4d1(), 0, 0);
 		for(i = 0; i < allies.size; i++)
 		{
 			player = allies[i];

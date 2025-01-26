@@ -413,7 +413,7 @@ function function_e88371e5()
 function private function_1c54aa82(room)
 {
 	level.doa.var_677d1262 = 0;
-	players = namespace_831a4a7c::function_5eb6e4d1();
+	players = doa_player_utility::function_5eb6e4d1();
 	playercount = players.size;
 	level.doa.lastarena = level.doa.current_arena;
 	level thread doa_utility::clearallcorpses();
@@ -444,7 +444,7 @@ function private function_1c54aa82(room)
 			}
 		}
 	}
-	namespace_831a4a7c::function_82e3b1cb(1);
+	doa_player_utility::function_82e3b1cb(1);
 	room.cooloff = gettime() + (10 * 60000);
 	level.doa.var_6f2c52d8 = 1;
 	level thread doa_utility::set_lighting_state(0);

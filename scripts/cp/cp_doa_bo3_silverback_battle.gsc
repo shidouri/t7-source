@@ -157,7 +157,7 @@ function function_fc48f9f3()
 	level thread namespace_cdb9a8fe::function_87703158(1);
 	var_e5c8b9e7 = level.doa.var_bc9b7c71;
 	level.doa.var_bc9b7c71 = &function_8b1dfb44;
-	foreach(player in namespace_831a4a7c::function_5eb6e4d1())
+	foreach(player in doa_player_utility::function_5eb6e4d1())
 	{
 		player notify(#"hash_d28ba89d");
 	}
@@ -196,7 +196,7 @@ function function_fc48f9f3()
 		org delete();
 		level clientfield::set("cameraHeight", 0);
 	}
-	foreach(player in namespace_831a4a7c::function_5eb6e4d1())
+	foreach(player in doa_player_utility::function_5eb6e4d1())
 	{
 		player freezecontrols(0);
 	}
@@ -247,7 +247,7 @@ function function_fc48f9f3()
 	wait(6.5);
 	doa_utility::function_44eb090b();
 	level.doa.var_635342b0 hide();
-	array::thread_all(getplayers(), &namespace_831a4a7c::function_82e3b1cb);
+	array::thread_all(getplayers(), &doa_player_utility::function_82e3b1cb);
 	level thread doa_pickups::function_c1869ec8();
 	level thread doa_utility::clearallcorpses();
 	if(isdefined(level.doa.var_6fb37836))
@@ -264,7 +264,7 @@ function function_fc48f9f3()
 	foreach(player in getplayers())
 	{
 		player namespace_cdb9a8fe::function_fe0946ac(var_249f9545[i].origin);
-		player thread namespace_831a4a7c::function_f2507519(0);
+		player thread doa_player_utility::function_f2507519(0);
 		i++;
 	}
 	level doa_utility::set_lighting_state(2);
@@ -479,7 +479,7 @@ function private function_b90daa04(delay)
 	silverback thread doa_fx::function_285a2999("silverback_intro_trail1");
 	silverback thread doa_fx::function_285a2999("silverback_intro_trail2");
 	silverback thread function_b8a39218();
-	player = namespace_831a4a7c::function_5eb6e4d1()[0];
+	player = doa_player_utility::function_5eb6e4d1()[0];
 	if(isdefined(player))
 	{
 		anim_ang = vectortoangles(player.origin - org2.origin);
@@ -1017,7 +1017,7 @@ function function_615e73a(var_b84274b8, numattacks = 1)
 	while(numattacks)
 	{
 		numattacks--;
-		players = namespace_831a4a7c::function_5eb6e4d1();
+		players = doa_player_utility::function_5eb6e4d1();
 		if(players.size == 1)
 		{
 			self.favoriteenemy = players[0];
@@ -1386,7 +1386,7 @@ function function_f61639be(dist = 72)
 	distsq = dist * dist;
 	while(isdefined(self))
 	{
-		players = namespace_831a4a7c::function_5eb6e4d1();
+		players = doa_player_utility::function_5eb6e4d1();
 		foreach(player in players)
 		{
 			if(!isdefined(player))
