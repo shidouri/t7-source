@@ -178,11 +178,11 @@ function raz_spawner_init()
 		#/
 		return;
 	}
-	foreach(var_ad58b9ca in level.var_6bca5baa)
+	foreach(sp_raz in level.var_6bca5baa)
 	{
-		var_ad58b9ca.is_enabled = 1;
-		var_ad58b9ca.script_forcespawn = 1;
-		var_ad58b9ca spawner::add_spawn_function(&raz_init);
+		sp_raz.is_enabled = 1;
+		sp_raz.script_forcespawn = 1;
+		sp_raz spawner::add_spawn_function(&raz_init);
 	}
 }
 
