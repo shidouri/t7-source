@@ -898,7 +898,7 @@ function function_10477d98(localclientnum)
 {
 	self notify(#"hash_f33fde4b");
 	self endon("disconnect");
-	self endon(#"hash_7f60c43e");
+	self endon("spawnd");
 	self endon("entityshutdown");
 	endtime = gettime() + 600;
 	self playsound(0, "zmb_fated_boost_activate");
