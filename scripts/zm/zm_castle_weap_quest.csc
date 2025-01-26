@@ -376,7 +376,7 @@ function function_a5ee5367(localclientnum)
 */
 function function_979d2797(localclientnum)
 {
-	self endon(#"hash_4b8a9b1");
+	self endon("dragon_eating");
 	self endon(#"hash_4846b79f");
 	self notify(#"hash_8c17cec");
 	if(isdefined(self.var_d90397ef) && self.var_d90397ef)
@@ -485,7 +485,7 @@ function function_8cce2397(a_ents)
 {
 	self notify(#"hash_7291a140");
 	self endon(#"hash_7291a140");
-	self endon(#"hash_4b8a9b1");
+	self endon("dragon_eating");
 	self endon(#"hash_4846b79f");
 	while(true)
 	{
@@ -513,7 +513,7 @@ function function_def5820e(a_ents)
 {
 	self notify(#"hash_7291a140");
 	self endon(#"hash_7291a140");
-	self endon(#"hash_4b8a9b1");
+	self endon("dragon_eating");
 	self endon(#"hash_4846b79f");
 	while(true)
 	{
@@ -593,7 +593,7 @@ function function_4ae89880(body, localclientnum, direction)
 {
 	self endon(#"hash_8c17cec");
 	self endon(#"hash_4846b79f");
-	self notify(#"hash_4b8a9b1");
+	self notify("dragon_eating");
 	self.var_d90397ef = 0;
 	s_closest = array::get_all_closest(self.origin, level.var_f302359b);
 	fieldname = s_closest[0].script_parameters;
