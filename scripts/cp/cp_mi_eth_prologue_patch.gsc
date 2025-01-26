@@ -13,11 +13,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_8cf14dc8;
+#namespace cp_mi_eth_prologue_patch;
 
 /*
 	Name: function_7403e82b
-	Namespace: namespace_8cf14dc8
+	Namespace: cp_mi_eth_prologue_patch
 	Checksum: 0xCFEA1CD7
 	Offset: 0x250
 	Size: 0x134
