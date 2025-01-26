@@ -35,7 +35,7 @@ function main()
 	cp_mi_cairo_infection_sgen_test_chamber::main();
 	load::main();
 	util::waitforclient(0);
-	namespace_f397b667::function_7403e82b();
+	cp_mi_cairo_infection_patch_c::function_7403e82b();
 }
 
 /*
