@@ -9,11 +9,11 @@
 #using scripts\shared\trigger_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_23567e72;
+#namespace blackstation_accolades;
 
 /*
 	Name: accolades_init
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x1F461BB
 	Offset: 0x6B8
 	Size: 0x2A8
@@ -53,7 +53,7 @@ function accolades_init()
 
 /*
 	Name: function_3a6b5b3e
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xBF5317FC
 	Offset: 0x968
 	Size: 0xAC
@@ -73,7 +73,7 @@ function function_3a6b5b3e()
 
 /*
 	Name: function_806ef44e
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x3B18DB87
 	Offset: 0xA20
 	Size: 0x1A
@@ -88,7 +88,7 @@ function function_806ef44e()
 
 /*
 	Name: function_c6595cb5
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xC07E71B7
 	Offset: 0xA48
 	Size: 0x24
@@ -102,7 +102,7 @@ function function_c6595cb5()
 
 /*
 	Name: function_f673d34
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x4BAD4EA8
 	Offset: 0xA78
 	Size: 0x50
@@ -117,7 +117,7 @@ function function_f673d34(params)
 
 /*
 	Name: function_feac00a
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x8C9528F1
 	Offset: 0xAD0
 	Size: 0x46
@@ -136,7 +136,7 @@ function function_feac00a()
 
 /*
 	Name: function_e83f24
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xC3DCA349
 	Offset: 0xB20
 	Size: 0x13C
@@ -165,7 +165,7 @@ function function_e83f24(params)
 
 /*
 	Name: function_86716d12
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x553B7C46
 	Offset: 0xC68
 	Size: 0x24
@@ -179,7 +179,7 @@ function function_86716d12()
 
 /*
 	Name: function_2f913423
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x1CFBF7FA
 	Offset: 0xC98
 	Size: 0x68
@@ -196,7 +196,7 @@ function function_2f913423(params)
 
 /*
 	Name: function_80f71baf
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xCDF6FE5B
 	Offset: 0xD08
 	Size: 0x2C
@@ -210,7 +210,7 @@ function function_80f71baf()
 
 /*
 	Name: function_41954f8f
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x60DDBB58
 	Offset: 0xD40
 	Size: 0x64
@@ -228,7 +228,7 @@ function function_41954f8f()
 
 /*
 	Name: function_587c487b
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x6D0895B6
 	Offset: 0xDB0
 	Size: 0xC0
@@ -246,7 +246,7 @@ function function_587c487b(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: warlord_death_watcher
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x492706A4
 	Offset: 0xE78
 	Size: 0x138
@@ -271,7 +271,7 @@ function warlord_death_watcher()
 
 /*
 	Name: function_ba5f78c4
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x60A435C9
 	Offset: 0xFB8
 	Size: 0x2C
@@ -286,7 +286,7 @@ function function_ba5f78c4()
 
 /*
 	Name: function_ed62e62f
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xE6243764
 	Offset: 0xFF0
 	Size: 0x24
@@ -300,7 +300,7 @@ function function_ed62e62f()
 
 /*
 	Name: function_9cb470ce
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x808E4921
 	Offset: 0x1020
 	Size: 0x194
@@ -333,7 +333,7 @@ function function_9cb470ce(params)
 
 /*
 	Name: function_ca5e3a6
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xD008C9EE
 	Offset: 0x11C0
 	Size: 0x2C
@@ -348,7 +348,7 @@ function function_ca5e3a6()
 
 /*
 	Name: function_be537152
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x631548D9
 	Offset: 0x11F8
 	Size: 0x24
@@ -362,7 +362,7 @@ function function_be537152()
 
 /*
 	Name: function_55a74563
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x2433DA37
 	Offset: 0x1228
 	Size: 0x1A8
@@ -396,7 +396,7 @@ function function_55a74563(params)
 
 /*
 	Name: function_81a32f61
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xB979A4FB
 	Offset: 0x13D8
 	Size: 0x34
@@ -412,7 +412,7 @@ function function_81a32f61()
 
 /*
 	Name: function_35dfc997
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x4ECD3CB6
 	Offset: 0x1418
 	Size: 0x40
@@ -432,7 +432,7 @@ function function_35dfc997()
 
 /*
 	Name: function_fe5a0b6
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x78D4CB
 	Offset: 0x1460
 	Size: 0x24
@@ -446,7 +446,7 @@ function function_fe5a0b6()
 
 /*
 	Name: function_635e0947
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x704FE7FB
 	Offset: 0x1490
 	Size: 0xDC
@@ -474,7 +474,7 @@ function function_635e0947(params)
 
 /*
 	Name: function_af8faf92
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x70642A50
 	Offset: 0x1578
 	Size: 0x40
@@ -490,7 +490,7 @@ function function_af8faf92()
 
 /*
 	Name: function_69b1ee49
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x72276A97
 	Offset: 0x15C0
 	Size: 0xA6
@@ -511,7 +511,7 @@ function function_69b1ee49()
 
 /*
 	Name: function_91f0e7d2
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x60777F2C
 	Offset: 0x1670
 	Size: 0x10
@@ -525,7 +525,7 @@ function function_91f0e7d2()
 
 /*
 	Name: function_91fa5513
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xC3FF44F5
 	Offset: 0x1688
 	Size: 0x74
@@ -542,7 +542,7 @@ function function_91fa5513()
 
 /*
 	Name: function_92bc12da
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x6C1BCBB6
 	Offset: 0x1708
 	Size: 0xD0
@@ -566,7 +566,7 @@ function function_92bc12da(params)
 
 /*
 	Name: function_78f93084
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x17AA572B
 	Offset: 0x17E0
 	Size: 0x10
@@ -580,7 +580,7 @@ function function_78f93084()
 
 /*
 	Name: function_29c337dd
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x503D9C7E
 	Offset: 0x17F8
 	Size: 0x84
@@ -597,7 +597,7 @@ function function_29c337dd()
 
 /*
 	Name: function_8c9ce56
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xDD177919
 	Offset: 0x1888
 	Size: 0xAC
@@ -621,7 +621,7 @@ function function_8c9ce56(params)
 
 /*
 	Name: function_f0b50148
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xDB0B55E7
 	Offset: 0x1940
 	Size: 0x84
@@ -638,7 +638,7 @@ function function_f0b50148()
 
 /*
 	Name: function_26aa602b
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xEB82C577
 	Offset: 0x19D0
 	Size: 0x84
@@ -655,7 +655,7 @@ function function_26aa602b()
 
 /*
 	Name: function_328b2c47
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x7B20594B
 	Offset: 0x1A60
 	Size: 0x84
@@ -672,7 +672,7 @@ function function_328b2c47()
 
 /*
 	Name: function_b82c8e7b
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x9FB8B094
 	Offset: 0x1AF0
 	Size: 0x80
@@ -692,7 +692,7 @@ function function_b82c8e7b(params)
 
 /*
 	Name: function_92e8d6d8
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xBB855B1B
 	Offset: 0x1B78
 	Size: 0x134
@@ -714,7 +714,7 @@ function function_92e8d6d8(a_ai)
 
 /*
 	Name: function_aa2360ca
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x91BBACE9
 	Offset: 0x1CB8
 	Size: 0x148
@@ -740,7 +740,7 @@ function function_aa2360ca(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: function_ccfcd136
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xF94ED75F
 	Offset: 0x1E08
 	Size: 0xBE
@@ -762,7 +762,7 @@ function function_ccfcd136(a_ai)
 
 /*
 	Name: riotshield_death
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x9D086747
 	Offset: 0x1ED0
 	Size: 0x70
@@ -780,7 +780,7 @@ function riotshield_death()
 
 /*
 	Name: function_c169f275
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0x1EC0B937
 	Offset: 0x1F48
 	Size: 0x10
@@ -794,7 +794,7 @@ function function_c169f275()
 
 /*
 	Name: function_7d2dae0a
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xEE41515D
 	Offset: 0x1F60
 	Size: 0x84
@@ -811,7 +811,7 @@ function function_7d2dae0a()
 
 /*
 	Name: function_cdf3285b
-	Namespace: namespace_23567e72
+	Namespace: blackstation_accolades
 	Checksum: 0xC0BE881B
 	Offset: 0x1FF0
 	Size: 0xC8
