@@ -11,11 +11,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_dc4413fe;
+#namespace cp_mi_sing_sgen_patch_c;
 
 /*
 	Name: function_7403e82b
-	Namespace: namespace_dc4413fe
+	Namespace: cp_mi_sing_sgen_patch_c
 	Checksum: 0x99EC1590
 	Offset: 0x1D0
 	Size: 0x4
