@@ -1327,12 +1327,12 @@ function function_5f9e6e69(localclientnum)
 	if(level.weather_snow == 0)
 	{
 		level notify("_snow_thread" + localclientnum);
-		level.var_1c69bb12.var_308c43c8 = 0;
+		level.var_1c69bb12.issnow = 0;
 	}
 	else
 	{
 		self thread _snow_thread(level.weather_snow, localclientnum);
-		level.var_1c69bb12.var_308c43c8 = 1;
+		level.var_1c69bb12.issnow = 1;
 	}
 	level thread function_f099c69d(self);
 }

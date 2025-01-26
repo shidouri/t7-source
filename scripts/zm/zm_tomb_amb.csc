@@ -196,7 +196,7 @@ function function_c052f9b8()
 		}
 		else
 		{
-			if(isdefined(level.var_1c69bb12.var_308c43c8) && level.var_1c69bb12.var_308c43c8)
+			if(isdefined(level.var_1c69bb12.issnow) && level.var_1c69bb12.issnow)
 			{
 				setsoundcontext("train", "city");
 			}
@@ -221,7 +221,7 @@ function function_33be1969()
 {
 	level.var_1c69bb12 = spawnstruct();
 	level.var_1c69bb12.var_b13d6dfb = 0;
-	level.var_1c69bb12.var_308c43c8 = 0;
+	level.var_1c69bb12.issnow = 0;
 }
 
 /*
