@@ -9,7 +9,7 @@
 #namespace infection_accolades;
 
 /*
-	Name: function_66df416f
+	Name: init_accolades
 	Namespace: infection_accolades
 	Checksum: 0xC11546BE
 	Offset: 0x528
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: None
 */
-function function_66df416f()
+function init_accolades()
 {
 	// Unsupported VM revision (1B).
 }

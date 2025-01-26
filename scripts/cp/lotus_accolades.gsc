@@ -14,7 +14,7 @@
 #namespace namespace_f4ff722a;
 
 /*
-	Name: function_66df416f
+	Name: init_accolades
 	Namespace: namespace_f4ff722a
 	Checksum: 0x3235DA01
 	Offset: 0x7F0
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: Linked
 */
-function function_66df416f()
+function init_accolades()
 {
 	accolades::register("MISSION_LOTUS_UNTOUCHED");
 	accolades::register("MISSION_LOTUS_SCORE");

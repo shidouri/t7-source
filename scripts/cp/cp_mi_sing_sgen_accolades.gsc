@@ -12,7 +12,7 @@
 #namespace namespace_99202726;
 
 /*
-	Name: function_66df416f
+	Name: init_accolades
 	Namespace: namespace_99202726
 	Checksum: 0x6B1A0793
 	Offset: 0x600
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: Linked
 */
-function function_66df416f()
+function init_accolades()
 {
 	accolades::register("MISSION_SGEN_UNTOUCHED");
 	accolades::register("MISSION_SGEN_SCORE");

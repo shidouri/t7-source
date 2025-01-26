@@ -108,7 +108,7 @@ function main()
 	t_boundary = getent("flood_defend_out_of_boundary_trig", "targetname");
 	t_boundary setinvisibletoall();
 	level thread level_threads();
-	level thread namespace_99202726::function_66df416f();
+	level thread namespace_99202726::init_accolades();
 }
 
 /*
