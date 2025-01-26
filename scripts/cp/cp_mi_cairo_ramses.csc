@@ -38,7 +38,7 @@ function main()
 	util::waitforclient(0);
 	level.var_7ab81734 = findstaticmodelindexarray("station_shells");
 	level thread set_foley_context();
-	namespace_98e946e1::function_7403e82b();
+	cp_mi_cairo_ramses_patch_c::function_7403e82b();
 }
 
 /*
