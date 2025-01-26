@@ -20,11 +20,11 @@
 #using scripts\shared\trigger_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_90072e58;
+#namespace cp_mi_cairo_lotus_anim;
 
 /*
 	Name: main
-	Namespace: namespace_90072e58
+	Namespace: cp_mi_cairo_lotus_anim
 	Checksum: 0xE9C07CD6
 	Offset: 0x2F8
 	Size: 0x0
