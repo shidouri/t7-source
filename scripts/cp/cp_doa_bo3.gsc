@@ -527,7 +527,7 @@ function function_165c9bd0()
 			doa_arena::function_5af67667(doa_arena::function_5835533a("boss"), 1);
 			doa_arena::function_ba9c838e();
 			level thread util::set_lighting_state(3);
-			namespace_cdb9a8fe::function_55762a85();
+			doa_round::function_55762a85();
 			doa_player_utility::function_82e3b1cb();
 		}
 		level.doa.var_602737ab = undefined;
@@ -540,7 +540,7 @@ function function_165c9bd0()
 		{
 			doa_arena::function_5af67667(doa_arena::function_5835533a("cave"), 1);
 			doa_arena::function_ba9c838e();
-			namespace_cdb9a8fe::function_55762a85();
+			doa_round::function_55762a85();
 			doa_player_utility::function_82e3b1cb();
 		}
 		level.doa.var_bae65231 = undefined;

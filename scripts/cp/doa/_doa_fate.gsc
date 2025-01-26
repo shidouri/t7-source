@@ -193,13 +193,13 @@ function function_77ed1bae()
 		foreach(player in getplayers())
 		{
 			spot = locs[player.entnum];
-			player namespace_cdb9a8fe::function_fe0946ac(spot.origin);
+			player doa_round::function_fe0946ac(spot.origin);
 			player setplayerangles((0, spot.angles[1], 0));
 		}
 	}
 	else
 	{
-		namespace_cdb9a8fe::function_55762a85(doa_arena::function_61d60e0b());
+		doa_round::function_55762a85(doa_arena::function_61d60e0b());
 	}
 	level thread doa_utility::set_lighting_state(3);
 	for(i = 0; i < level.doa.fates.types.size; i++)
@@ -916,8 +916,8 @@ function function_833dad0d()
 	level thread namespace_d88e3a06::function_116bb43();
 	level notify(#"hash_a50a72db");
 	level thread doa_utility::set_lighting_state(3);
-	namespace_cdb9a8fe::function_691ef36b();
-	namespace_cdb9a8fe::function_703bb8b2(30);
+	doa_round::function_691ef36b();
+	doa_round::function_703bb8b2(30);
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
@@ -996,13 +996,13 @@ function function_833dad0d()
 		foreach(player in getplayers())
 		{
 			spot = locs[player.entnum];
-			player namespace_cdb9a8fe::function_fe0946ac(spot.origin);
+			player doa_round::function_fe0946ac(spot.origin);
 			player setplayerangles((0, spot.angles[1], 0));
 		}
 	}
 	else
 	{
-		namespace_cdb9a8fe::function_55762a85(doa_arena::function_61d60e0b());
+		doa_round::function_55762a85(doa_arena::function_61d60e0b());
 	}
 	level thread doa_utility::set_lighting_state(3);
 	doa_player_utility::function_82e3b1cb();
@@ -1558,7 +1558,7 @@ function private function_5c819284()
 				return;
 			}
 			level.doa.current_wave = level.doa.spawn_sequence[wave];
-			level thread namespace_cdb9a8fe::function_21a582ff(level.doa.current_wave, "boss_of_justice_died");
+			level thread doa_round::function_21a582ff(level.doa.current_wave, "boss_of_justice_died");
 		}
 	}
 }

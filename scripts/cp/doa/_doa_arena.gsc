@@ -440,7 +440,7 @@ function private function_1c54aa82(room)
 				{
 					origin = points[0].origin;
 				}
-				players[i] namespace_cdb9a8fe::function_fe0946ac(origin);
+				players[i] doa_round::function_fe0946ac(origin);
 			}
 		}
 	}
@@ -852,7 +852,7 @@ function private function_b7dafa0c(name, center, valid)
 	{
 		struct.exits[i] triggerenable(0);
 	}
-	namespace_cdb9a8fe::function_c81e1083(name);
+	doa_round::function_c81e1083(name);
 	if(isdefined(level.doa.var_62423327))
 	{
 		[[level.doa.var_62423327]](struct);
@@ -1198,7 +1198,7 @@ function function_a50a72db()
 			if(!player istouching(safezone) && !player isinmovemode("ufo", "noclip"))
 			{
 				doa_utility::debugmsg((((((("Player " + player.entnum) + " (") + player.name) + ") is out of safety zone (") + safezone.targetname) + ") at:") + player.origin);
-				player thread namespace_cdb9a8fe::function_fe0946ac(undefined);
+				player thread doa_round::function_fe0946ac(undefined);
 			}
 		}
 		wait(0.05);

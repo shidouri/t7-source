@@ -19,11 +19,11 @@
 #using scripts\shared\lui_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_cdb9a8fe;
+#namespace doa_round;
 
 /*
 	Name: function_542758d0
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x4CC458C9
 	Offset: 0x450
 	Size: 0x2B8
@@ -75,7 +75,7 @@ function private function_542758d0()
 
 /*
 	Name: function_8c6e89b4
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x23049A7
 	Offset: 0x710
 	Size: 0x80
@@ -95,7 +95,7 @@ function function_8c6e89b4(round)
 
 /*
 	Name: function_5f5d09ae
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x231CA1CE
 	Offset: 0x798
 	Size: 0x1E8
@@ -137,7 +137,7 @@ function private function_5f5d09ae()
 
 /*
 	Name: function_691ef36b
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x74FA7355
 	Offset: 0x988
 	Size: 0x120
@@ -164,7 +164,7 @@ function function_691ef36b()
 
 /*
 	Name: function_c81e1083
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x11737CAB
 	Offset: 0xAB0
 	Size: 0x254
@@ -193,7 +193,7 @@ function function_c81e1083(name)
 
 /*
 	Name: main
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0xF178379B
 	Offset: 0xD10
 	Size: 0x698
@@ -306,7 +306,7 @@ function main()
 
 /*
 	Name: function_d87cb356
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x8A8C1534
 	Offset: 0x13B0
 	Size: 0xC4
@@ -335,7 +335,7 @@ function private function_d87cb356()
 
 /*
 	Name: function_40bfe842
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0xFAA7B442
 	Offset: 0x1480
 	Size: 0x1F2
@@ -394,7 +394,7 @@ function function_40bfe842(entnum = 0)
 
 /*
 	Name: function_f581d585
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x41589A6F
 	Offset: 0x1680
 	Size: 0xA4
@@ -413,7 +413,7 @@ function function_f581d585(point, facepoint)
 
 /*
 	Name: function_fe0946ac
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x9AA35F53
 	Offset: 0x1730
 	Size: 0x2CC
@@ -465,7 +465,7 @@ function function_fe0946ac(spawn_origin, var_97887a95 = 1)
 
 /*
 	Name: function_55762a85
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x470C7010
 	Offset: 0x1A08
 	Size: 0x62
@@ -481,7 +481,7 @@ function function_55762a85(spawn_origin)
 
 /*
 	Name: function_ff7f941a
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0xE853D736
 	Offset: 0x1A78
 	Size: 0x94
@@ -504,7 +504,7 @@ function private function_ff7f941a(def)
 
 /*
 	Name: function_21a582ff
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x3191E0F8
 	Offset: 0x1B18
 	Size: 0x694
@@ -608,7 +608,7 @@ function function_21a582ff(current_wave, endnote)
 
 /*
 	Name: function_87703158
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x2ED0F03E
 	Offset: 0x21B8
 	Size: 0x584
@@ -693,7 +693,7 @@ function function_87703158(var_372a8daa = 0)
 
 /*
 	Name: function_da304666
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0xE3DCA043
 	Offset: 0x2748
 	Size: 0x184
@@ -714,7 +714,7 @@ function private function_da304666(wave_number, round_number)
 
 /*
 	Name: function_703bb8b2
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0xB09F2C18
 	Offset: 0x28D8
 	Size: 0x208
@@ -745,7 +745,7 @@ function function_703bb8b2(round_number)
 
 /*
 	Name: function_d9345c74
-	Namespace: namespace_cdb9a8fe
+	Namespace: doa_round
 	Checksum: 0x332873F7
 	Offset: 0x2AE8
 	Size: 0x46A

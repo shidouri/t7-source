@@ -2441,9 +2441,9 @@ function margwadamage(inflictor, attacker, damage, dflags, mod, weapon, point, d
 		modelhit = "c_zom_margwa_chunks_le";
 		if(isdefined(self.bossbattle) && self.bossbattle)
 		{
-			level thread namespace_cdb9a8fe::function_691ef36b();
-			level thread namespace_cdb9a8fe::function_703bb8b2(30);
-			level thread namespace_cdb9a8fe::function_87703158(1);
+			level thread doa_round::function_691ef36b();
+			level thread doa_round::function_703bb8b2(30);
+			level thread doa_round::function_87703158(1);
 		}
 		org = spawn("script_model", self gettagorigin("J_Head_LE"));
 		org.targetname = "margwa1";

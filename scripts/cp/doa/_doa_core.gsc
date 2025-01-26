@@ -599,7 +599,7 @@ function function_c7f824a()
 	level.doa.var_f5e35752 = [];
 	level.doa.exits_open = [];
 	level.doa.var_d0cde02c = undefined;
-	level.doa.var_bc9b7c71 = &namespace_cdb9a8fe::function_fe0946ac;
+	level.doa.var_bc9b7c71 = &doa_round::function_fe0946ac;
 	level.doa.var_c061227e = 1;
 	level.doa.zombie_move_speed = level.doa.rules.var_e626be31;
 	level.doa.zombie_health = level.doa.rules.var_6fa02512;
@@ -875,7 +875,7 @@ function function_3e351f83(firsttime)
 	doa_pickups::init();
 	doa_arena::function_5af67667(level.doa.current_arena);
 	doa_player_utility::function_4db260cb();
-	namespace_cdb9a8fe::function_55762a85();
+	doa_round::function_55762a85();
 	namespace_d88e3a06::function_7a8a936b();
 	doa_arena::function_1c812a03();
 	level clientfield::set("activateBanner", 0);
@@ -883,7 +883,7 @@ function function_3e351f83(firsttime)
 	level thread doa_utility::function_390adefe();
 	level doa_utility::function_d0e32ad0(0);
 	level clientfield::set("set_scoreHidden", 0);
-	level thread namespace_cdb9a8fe::main();
+	level thread doa_round::main();
 	level thread function_64a5cd5e();
 }
 
@@ -1152,7 +1152,7 @@ function function_688245f1()
 	self doa_player_utility::function_60123d1c();
 	spawnpoint = doa_player_utility::function_68ece679();
 	self spawn(self.origin, self.angles);
-	self thread namespace_cdb9a8fe::function_fe0946ac();
+	self thread doa_round::function_fe0946ac();
 	self ghost();
 	self thread function_d2450010();
 }
