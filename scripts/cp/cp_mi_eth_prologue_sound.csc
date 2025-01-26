@@ -57,7 +57,7 @@ function function_aca4761()
 {
 	level audio::playloopat("amb_firetruck_distant_alarm", (-1287, -1872, 535));
 	level audio::playloopat("evt_firehose", (581, -857, 130));
-	level waittill(#"hash_cfcc0f30");
+	level waittill("_daftit");
 	level audio::playloopat("amb_firetruck_close_alarm", (-169, -585, 161));
 	level waittill(#"hash_da4c530f");
 	level audio::stoploopat("amb_firetruck_distant_alarm", (-1287, -1872, 535));
