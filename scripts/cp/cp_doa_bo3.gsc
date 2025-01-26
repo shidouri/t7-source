@@ -602,11 +602,11 @@ function function_87092704(room)
 		case "tankmaze":
 		{
 			room.var_6f369ab4 = 99;
-			room.var_45da785b = &namespace_df93fc7c::function_6aa91f48;
-			room.var_58e293a2 = &namespace_df93fc7c::function_5f0b67a9;
-			room.var_c64606ef = &namespace_df93fc7c::function_f1915ffb;
-			room.failcb = &namespace_df93fc7c::function_9e5e0a15;
-			room.var_2530dc89 = &namespace_df93fc7c::function_a25fc96;
+			room.var_45da785b = &doa_bo3_player_challenge::function_6aa91f48;
+			room.var_58e293a2 = &doa_bo3_player_challenge::function_5f0b67a9;
+			room.var_c64606ef = &doa_bo3_player_challenge::function_f1915ffb;
+			room.failcb = &doa_bo3_player_challenge::function_9e5e0a15;
+			room.var_2530dc89 = &doa_bo3_player_challenge::function_a25fc96;
 			room.var_5281efe5 = 47;
 			room.var_2b9a70de = 47;
 			room.timeout = 90;
@@ -619,11 +619,11 @@ function function_87092704(room)
 		case "redins":
 		{
 			room.var_6f369ab4 = 99;
-			room.var_45da785b = &namespace_df93fc7c::function_ba487e2a;
-			room.var_58e293a2 = &namespace_df93fc7c::function_f14ef72f;
-			room.var_c64606ef = &namespace_df93fc7c::function_ce5fc0d;
-			room.failcb = &namespace_df93fc7c::function_9d1b24f7;
-			room.var_2530dc89 = &namespace_df93fc7c::function_e13abd74;
+			room.var_45da785b = &doa_bo3_player_challenge::function_ba487e2a;
+			room.var_58e293a2 = &doa_bo3_player_challenge::function_f14ef72f;
+			room.var_c64606ef = &doa_bo3_player_challenge::function_ce5fc0d;
+			room.failcb = &doa_bo3_player_challenge::function_9d1b24f7;
+			room.var_2530dc89 = &doa_bo3_player_challenge::function_e13abd74;
 			room.var_5281efe5 = 11;
 			room.var_2b9a70de = 11;
 			room.var_a90de2a1 = 30;
@@ -635,11 +635,11 @@ function function_87092704(room)
 		case "spiral":
 		{
 			room.var_6f369ab4 = 1;
-			room.var_45da785b = &namespace_df93fc7c::function_31c377e;
-			room.var_58e293a2 = &namespace_df93fc7c::function_8e0e22bb;
-			room.failcb = &namespace_df93fc7c::function_47a3686b;
-			room.var_c64606ef = &namespace_df93fc7c::function_eee6e911;
-			room.var_2530dc89 = &namespace_df93fc7c::function_7823dbb8;
+			room.var_45da785b = &doa_bo3_player_challenge::function_31c377e;
+			room.var_58e293a2 = &doa_bo3_player_challenge::function_8e0e22bb;
+			room.failcb = &doa_bo3_player_challenge::function_47a3686b;
+			room.var_c64606ef = &doa_bo3_player_challenge::function_eee6e911;
+			room.var_2530dc89 = &doa_bo3_player_challenge::function_7823dbb8;
 			room.var_5281efe5 = 19;
 			room.var_cbad0e8f = 19;
 			room.var_2b9a70de = 19;
@@ -650,11 +650,11 @@ function function_87092704(room)
 		case "truck_soccer":
 		{
 			room.var_6f369ab4 = 99;
-			room.var_45da785b = &namespace_df93fc7c::function_c7e4d911;
-			room.var_58e293a2 = &namespace_df93fc7c::function_2ea4cb82;
-			room.var_c64606ef = &namespace_df93fc7c::function_b3939e94;
-			room.failcb = &namespace_df93fc7c::function_92349eb6;
-			room.var_2530dc89 = &namespace_df93fc7c::function_fd4f5419;
+			room.var_45da785b = &doa_bo3_player_challenge::function_c7e4d911;
+			room.var_58e293a2 = &doa_bo3_player_challenge::function_2ea4cb82;
+			room.var_c64606ef = &doa_bo3_player_challenge::function_b3939e94;
+			room.failcb = &doa_bo3_player_challenge::function_92349eb6;
+			room.var_2530dc89 = &doa_bo3_player_challenge::function_fd4f5419;
 			room.banner = 2;
 			room.var_5281efe5 = 26;
 			room.var_2b9a70de = 26;
@@ -722,7 +722,7 @@ function function_957373c6(def)
 			def.spawnfunc = &namespace_51bd792::function_ce9bce16;
 			def.var_23502a36 = 1;
 			def.var_3ceda880 = 1;
-			def.var_965be9 = &namespace_df93fc7c::function_c0485deb;
+			def.var_965be9 = &doa_bo3_player_challenge::function_c0485deb;
 			def.var_474e643b = 36;
 			break;
 		}
