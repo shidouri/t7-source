@@ -435,13 +435,13 @@ function function_3cf05b99()
 	if(var_f09dee4f.size)
 	{
 		var_f09dee4f = array::randomize(var_f09dee4f);
-		var_64b0a5ef = var_f09dee4f[0];
+		str_ai = var_f09dee4f[0];
 	}
 	else
 	{
-		var_64b0a5ef = "parasite";
+		str_ai = "parasite";
 	}
-	switch(var_64b0a5ef)
+	switch(str_ai)
 	{
 		case "apothicon_fury":
 		{
