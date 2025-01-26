@@ -982,7 +982,7 @@ function setupnearbyspawns()
 	}
 	first = [];
 	second = [];
-	var_d9ac65f8 = [];
+	third = [];
 	outer = [];
 	thirdsize = spawns.size / 3;
 	for(i = 0; i <= thirdsize; i++)
@@ -998,13 +998,13 @@ function setupnearbyspawns()
 		}
 		else
 		{
-			var_d9ac65f8[var_d9ac65f8.size] = spawns[i];
+			third[third.size] = spawns[i];
 		}
 		i++;
 	}
 	self.gameobject.nearspawns = first;
 	self.gameobject.midspawns = second;
-	self.gameobject.farspawns = var_d9ac65f8;
+	self.gameobject.farspawns = third;
 	self.gameobject.outerspawns = outer;
 }
 
