@@ -992,7 +992,7 @@ function function_4933d21a()
 	self endon("death");
 	if(self flag::exists("no_damage_taken") && self flag::get("no_damage_taken"))
 	{
-		namespace_61c634f2::function_b9175513(self);
+		prologue_accolades::function_b9175513(self);
 	}
 }
 
@@ -1077,7 +1077,7 @@ function function_63222c73()
 	self endon("death");
 	if(self flag::exists("used_only_melee") && self flag::get("used_only_melee") && self flag::get("melee_killed_ai"))
 	{
-		namespace_61c634f2::function_df19cf7c(self);
+		prologue_accolades::function_df19cf7c(self);
 	}
 }
 

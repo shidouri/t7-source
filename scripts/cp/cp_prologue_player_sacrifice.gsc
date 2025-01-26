@@ -147,7 +147,7 @@ function function_fe88fdb1()
 	{
 		if(!(isdefined(player.var_c34702c6) && player.var_c34702c6))
 		{
-			namespace_61c634f2::function_51c49e5(player);
+			prologue_accolades::function_51c49e5(player);
 		}
 	}
 }

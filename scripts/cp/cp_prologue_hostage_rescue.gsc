@@ -942,7 +942,7 @@ function function_f50dec65()
 function function_771ca4c3()
 {
 	objectives::set("cp_level_prologue_free_the_minister");
-	callback::on_ai_killed(&namespace_61c634f2::function_c58a9e36);
+	callback::on_ai_killed(&prologue_accolades::function_c58a9e36);
 	level flag::wait_till("player_entered_observation");
 	objectives::complete("cp_level_prologue_goto_minister_door");
 	level waittill(#"hash_a859aef4");
@@ -956,7 +956,7 @@ function function_771ca4c3()
 	level flag::wait_till("khalil_door_breached");
 	objectives::complete("cp_level_prologue_goto_minister_door");
 	objectives::complete("cp_level_prologue_free_khalil");
-	callback::remove_on_ai_killed(&namespace_61c634f2::function_c58a9e36);
+	callback::remove_on_ai_killed(&prologue_accolades::function_c58a9e36);
 	objectives::set("cp_level_prologue_get_to_the_surface");
 	level waittill("hendricks_by_weapon_room");
 	level thread objectives::breadcrumb("post_prison_breadcrumb_start");
@@ -1794,7 +1794,7 @@ function lift_escape_start(str_objective)
 		level.ai_khalil ai::set_ignoreme(1);
 		skipto::teleport_ai(str_objective);
 	}
-	callback::on_ai_killed(&namespace_61c634f2::function_cbaf37cd);
+	callback::on_ai_killed(&prologue_accolades::function_cbaf37cd);
 	t_regroup_lift = getent("t_regroup_lift", "targetname");
 	t_regroup_lift triggerenable(0);
 	trigger::use("t_lift_respawns_disable");
@@ -1814,7 +1814,7 @@ function lift_escape_start(str_objective)
 	level thread function_a3dbf6a2();
 	level thread lift_escape_cleanup();
 	level waittill(#"hash_b100689e");
-	callback::remove_on_ai_killed(&namespace_61c634f2::function_cbaf37cd);
+	callback::remove_on_ai_killed(&prologue_accolades::function_cbaf37cd);
 	skipto::objective_completed("skipto_lift_escape");
 }
 
@@ -2814,7 +2814,7 @@ function function_5517d018()
 			a_ai[i] kill();
 			if(isplayer(e_who))
 			{
-				namespace_61c634f2::function_d248b92b(e_who);
+				prologue_accolades::function_d248b92b(e_who);
 			}
 		}
 	}
