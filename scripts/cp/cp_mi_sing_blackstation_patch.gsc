@@ -13,11 +13,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_814e90c0;
+#namespace cp_mi_sing_blackstation_patch;
 
 /*
 	Name: function_7403e82b
-	Namespace: namespace_814e90c0
+	Namespace: cp_mi_sing_blackstation_patch
 	Checksum: 0x5886DEAA
 	Offset: 0x310
 	Size: 0xA1C
