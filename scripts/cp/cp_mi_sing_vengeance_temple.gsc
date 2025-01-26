@@ -79,7 +79,7 @@ function temple_main(str_objective)
 	level flag::set("temple_begin");
 	setdvar("scr_security_breach_lose_contact_distance", 36000);
 	setdvar("scr_security_breach_lost_contact_distance", 72000);
-	level thread namespace_523da15d::function_a6fadcaa();
+	level thread vengeance_accolades::function_a6fadcaa();
 	level thread temple_vo();
 	level.ai_hendricks thread setup_temple_hendricks();
 	spawner::add_spawn_function_group("temple_ambient_civilian", "script_noteworthy", &function_8e6475bd);

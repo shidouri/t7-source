@@ -85,8 +85,8 @@ function dogleg_1_main(str_objective, b_starting)
 	level thread function_254de1e5();
 	function_e17e849c();
 	stealth::reset();
-	namespace_523da15d::function_e887345e();
-	namespace_523da15d::function_eda4634d();
+	vengeance_accolades::function_e887345e();
+	vengeance_accolades::function_eda4634d();
 	level thread function_7272ed9d();
 	level thread function_4326839a();
 	level.var_831ab6b2 = struct::get("quadtank_alley_intro_org");
@@ -354,7 +354,7 @@ function function_4326839a()
 {
 	level.var_4326839a = spawner::simple_spawn("dogleg_1_wasps", &function_b5dfff73);
 	level.var_4843e321 = level.var_4326839a.size;
-	namespace_523da15d::function_cae14a51();
+	vengeance_accolades::function_cae14a51();
 }
 
 /*
@@ -1093,8 +1093,8 @@ function skipto_dogleg_1_done(str_objective, b_starting, b_direct, player)
 	level notify(#"hash_bab8795");
 	level flag::clear("combat_enemies_retreating");
 	level cleanup_dogleg_1();
-	namespace_523da15d::function_a4b67c57();
-	namespace_523da15d::function_82266abb();
+	vengeance_accolades::function_a4b67c57();
+	vengeance_accolades::function_82266abb();
 	vengeance_util::function_4e8207e9("dogleg_1", 0);
 	if(!isdefined(b_starting) || (isdefined(b_starting) && b_starting == 0))
 	{

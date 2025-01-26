@@ -1074,7 +1074,7 @@ function skipto_plaza_init(str_objective, b_starting)
 		level stealth::stop();
 	}
 	exploder::exploder("sh_tracer_all");
-	namespace_523da15d::function_f03a38c7();
+	vengeance_accolades::function_f03a38c7();
 	level.ai_hendricks thread plaza_hendricks();
 	level thread function_aecb2215();
 	level thread cp_mi_sing_vengeance_sound::function_d56e8ba6();
@@ -1159,7 +1159,7 @@ function plaza_main()
 	level.var_4c62d05f = function_f7d00e6a();
 	objectives::hide("cp_level_vengeance_go_to_safehouse");
 	skipto::objective_completed("safehouse_plaza");
-	namespace_523da15d::function_b4f6e07d();
+	vengeance_accolades::function_b4f6e07d();
 }
 
 /*

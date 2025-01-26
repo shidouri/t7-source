@@ -76,7 +76,7 @@ function main()
 	{
 		setclearanceceiling(116);
 	}
-	namespace_523da15d::accolades_init();
+	vengeance_accolades::accolades_init();
 	precache();
 	init_clientfields();
 	init_flags();

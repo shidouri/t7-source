@@ -752,7 +752,7 @@ function function_5ef7fdc2()
 	var_702c9f7 linkto(var_517e2322);
 	level.var_5bc00cbb thread scene::init("cin_ven_02_20_synckill_vign");
 	level.var_7819b21b = level.var_1dca7888.size;
-	namespace_523da15d::function_dab879d0();
+	vengeance_accolades::function_dab879d0();
 	trigger = getent("syncshot_lookat_trigger", "targetname");
 	foreach(player in level.players)
 	{
@@ -1487,7 +1487,7 @@ function takedown_scene()
 	}
 	level.ai_hendricks waittill("start_slowmo");
 	level.var_6e0b32d8 = level.var_d9f6d6.size;
-	namespace_523da15d::function_b510823b();
+	vengeance_accolades::function_b510823b();
 	setslowmotion(1, 0.3, 0.3);
 	foreach(player in level.activeplayers)
 	{
