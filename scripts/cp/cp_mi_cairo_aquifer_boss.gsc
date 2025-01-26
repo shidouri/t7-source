@@ -797,11 +797,11 @@ function function_510d0407()
 */
 function function_d1b143ce()
 {
-	var_e42db353 = undefined;
+	hurter = undefined;
 	if(isdefined(self.target))
 	{
-		var_e42db353 = getent(self.target, "targetname");
-		var_e42db353 triggerenable(0);
+		hurter = getent(self.target, "targetname");
+		hurter triggerenable(0);
 		self.target = undefined;
 	}
 	ent = spawnstruct();
@@ -814,10 +814,10 @@ function function_d1b143ce()
 	}
 	self waittill(#"broken");
 	arrayremovevalue(level.var_510d0407, self);
-	if(isdefined(var_e42db353))
+	if(isdefined(hurter))
 	{
-		var_e42db353 triggerenable(1);
-		badplace_cylinder(var_e42db353.targetname, -1, ent.origin, 110, 64, "all");
+		hurter triggerenable(1);
+		badplace_cylinder(hurter.targetname, -1, ent.origin, 110, 64, "all");
 	}
 	if(fx == "boss_fire")
 	{
@@ -983,11 +983,11 @@ function function_6800ac1d()
 	struct = getent("hyperion_death_origin", "targetname");
 	struct thread scene::play("cin_aqu_05_20_boss_3rd_death_debris");
 	wait(2.5);
-	var_e42db353 = getent("boss_debris_hurter", "targetname");
-	var_e42db353 triggerenable(1);
+	hurter = getent("boss_debris_hurter", "targetname");
+	hurter triggerenable(1);
 	aquifer_util::toggle_door("debris_clip", 0);
 	wait(0.25);
-	var_e42db353 triggerenable(0);
+	hurter triggerenable(0);
 	end_battle();
 }
 
