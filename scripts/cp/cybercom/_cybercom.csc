@@ -978,7 +978,6 @@ function setiffname(localclientnum, oldval, newval, bnewent, binitialsnap, field
 		}
 	}
 }
-
 /*
 	Name: function_13f09a6b
 	Namespace: cybercom
@@ -1048,23 +1047,23 @@ function private function_a4cd6b9a()
 	name = "";
 	if(issubstr(self.model, "_54i_"))
 	{
-		var_461b88f6 = "3534:49FF:FE";
+		oui = "3534:49FF:FE";
 	}
 	else
 	{
 		if(issubstr(self.model, "_nrc_"))
 		{
-			var_461b88f6 = "4E52:43FF:FE";
+			oui = "4E52:43FF:FE";
 		}
 		else
 		{
-			var_461b88f6 = "4349:41FF:FE";
+			oui = "4349:41FF:FE";
 		}
 	}
 	var_13ff0d3c = function_66be631b();
 	var_86067c77 = function_66be631b();
 	var_6004020e = function_66be631b();
-	name = (((var_461b88f6 + var_13ff0d3c) + ":") + var_86067c77) + var_6004020e;
+	name = (((oui + var_13ff0d3c) + ":") + var_86067c77) + var_6004020e;
 	return name;
 }
 
