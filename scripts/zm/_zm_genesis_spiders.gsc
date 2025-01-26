@@ -1160,8 +1160,8 @@ function function_82b6256d()
 	self zm_spawner::check_zombie_death_event_callbacks(e_attacker);
 	if(isplayer(e_attacker) && (isdefined(level.var_26af7b39) && level.var_26af7b39) && (isdefined(level.var_a5d2ba4) && level.var_a5d2ba4))
 	{
-		var_46927a7e = getent("apothicon_belly_center", "targetname");
-		if(e_attacker istouching(var_46927a7e) && self istouching(var_46927a7e))
+		t_belly = getent("apothicon_belly_center", "targetname");
+		if(e_attacker istouching(t_belly) && self istouching(t_belly))
 		{
 			level notify(#"hash_ca3a841");
 		}
