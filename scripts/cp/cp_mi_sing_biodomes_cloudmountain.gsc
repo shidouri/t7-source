@@ -738,7 +738,7 @@ function function_d532cc21()
 	var_2ef43a6a = array::exclude(var_2ef43a6a, level.activeplayers);
 	if(var_2ef43a6a.size > 0)
 	{
-		namespace_769dc23f::function_8ca89944();
+		biodomes_accolades::function_8ca89944();
 		foreach(victim in var_2ef43a6a)
 		{
 			victim kill();
@@ -2520,7 +2520,7 @@ function function_e87de176(a_e_cleanup)
 {
 	self endon("dismount_zipline");
 	self waittill("death");
-	namespace_769dc23f::function_72f8596b();
+	biodomes_accolades::function_72f8596b();
 	self unlink();
 	self startragdoll(1);
 	foreach(entity in a_e_cleanup)

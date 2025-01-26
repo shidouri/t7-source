@@ -84,7 +84,7 @@ function main()
 	}
 	savegame::set_mission_name("biodomes");
 	util::init_streamer_hints(2);
-	namespace_769dc23f::accolades_init();
+	biodomes_accolades::accolades_init();
 	precache();
 	clientfields_init();
 	flag_init();
