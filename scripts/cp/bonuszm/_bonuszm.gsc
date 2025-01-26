@@ -2251,10 +2251,10 @@ function function_254de6e5(startorigin)
 	Parameters: 3
 	Flags: Linked
 */
-function function_e183aac0(var_8e25979b, dist, ignore)
+function function_e183aac0(vstart, dist, ignore)
 {
-	start = var_8e25979b + (0, 0, dist);
-	end = var_8e25979b - (0, 0, dist);
+	start = vstart + (0, 0, dist);
+	end = vstart - (0, 0, dist);
 	a_trace = groundtrace(start, end, 0, ignore, 1);
 	return a_trace["position"];
 }

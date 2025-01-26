@@ -1547,10 +1547,10 @@ function function_a4d1f25e(note, time)
 	Parameters: 3
 	Flags: Linked
 */
-function function_1c0abd70(var_8e25979b, var_5e50267c, ignore)
+function function_1c0abd70(vstart, var_5e50267c, ignore)
 {
-	start = var_8e25979b + (0, 0, var_5e50267c);
-	end = var_8e25979b - vectorscale((0, 0, 1), 1024);
+	start = vstart + (0, 0, var_5e50267c);
+	end = vstart - vectorscale((0, 0, 1), 1024);
 	a_trace = groundtrace(start, end, 0, ignore, 1);
 	return a_trace["position"];
 }
