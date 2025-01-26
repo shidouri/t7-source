@@ -54,7 +54,7 @@ function function_28416c1e()
 */
 function function_a96d8fc7()
 {
-	level.var_15e33496 = undefined;
+	level.bg_ent = undefined;
 }
 
 /*
@@ -154,7 +154,7 @@ function meteor_shrink(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 function function_762642a6()
 {
 	wait(5.5);
-	if(isdefined(level.var_15e33496))
+	if(isdefined(level.bg_ent))
 	{
 		audio::snd_set_snapshot("zmb_temple_sq");
 	}
