@@ -1048,8 +1048,8 @@ function set_pitch_roll_for_ground_normal(var_a84e1ffa)
 	new_angles = vectortoangles(groundnormal);
 	pitch = angleclamp180(new_angles[0] + 90);
 	new_angles = (0, new_angles[1], 0);
-	var_7001e881 = anglestoforward(new_angles);
-	mod = vectordot(var_7001e881, ovr);
+	nvf = anglestoforward(new_angles);
+	mod = vectordot(nvf, ovr);
 	if(mod < 0)
 	{
 		mod = -1;
@@ -1058,7 +1058,7 @@ function set_pitch_roll_for_ground_normal(var_a84e1ffa)
 	{
 		mod = 1;
 	}
-	dot = vectordot(var_7001e881, ovf);
+	dot = vectordot(nvf, ovf);
 	var_4ef8701 = dot * pitch;
 	var_676ea8f0 = ((1 - abs(dot)) * pitch) * mod;
 	self.angles = (var_4ef8701, self.angles[1], var_676ea8f0);
