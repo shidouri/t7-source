@@ -2008,7 +2008,7 @@ function function_60fcd122(room, goaltrigger)
 			}
 			while(count > 0)
 			{
-				level util::waittill_any_timeout(1, "off_fx_queue_processed", ""trucksoccer_rally_complete");
+				level util::waittill_any_timeout(1, "off_fx_queue_processed", "trucksoccer_rally_complete_complete");
 				count--;
 			}
 			idx = 0;
@@ -2316,7 +2316,7 @@ function function_55e9043d()
 			{
 				ai forceteleport(ai.origin, (0, randomint(360), 0));
 				ai notify(#"hash_6e8326fc");
-				ai thread doa_utility::function_24245456(level, ""trucksoccer_rally_complete");
+				ai thread doa_utility::function_24245456(level, "trucksoccer_rally_complete_complete");
 			}
 			wait(randomfloatrange(0.05, 0.4));
 		}
