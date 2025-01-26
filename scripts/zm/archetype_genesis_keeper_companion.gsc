@@ -735,13 +735,13 @@ function private get_average_origin(entities, var_d4653ed3)
 		assert(entities.size > 0);
 	#/
 	totalx = 0;
-	var_6465d65e = 0;
+	totaly = 0;
 	for(i = 0; i < entities.size; i++)
 	{
 		totalx = totalx + entities[i].origin[0];
-		var_6465d65e = var_6465d65e + entities[i].origin[1];
+		totaly = totaly + entities[i].origin[1];
 	}
-	return (totalx / entities.size, var_6465d65e / entities.size, var_d4653ed3);
+	return (totalx / entities.size, totaly / entities.size, var_d4653ed3);
 }
 
 /*
