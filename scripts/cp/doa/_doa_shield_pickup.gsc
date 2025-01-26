@@ -416,7 +416,7 @@ function private function_5f0b5579(player)
 	while(true)
 	{
 		self waittill("trigger", guy);
-		if(isdefined(guy.var_d538832c) && guy.var_d538832c)
+		if(isdefined(guy.nostun) && guy.nostun)
 		{
 			continue;
 		}

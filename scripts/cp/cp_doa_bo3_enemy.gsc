@@ -316,7 +316,7 @@ function function_bb3b0416(spawner, loc, def)
 		}
 		ai.maxhealth = ai.health;
 		ai.var_2d8174e3 = 1;
-		ai.var_d538832c = 1;
+		ai.nostun = 1;
 		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
@@ -788,7 +788,7 @@ function function_4d2a4a76(spawner, loc, def)
 		ai.maxhealth = ai.health;
 		ai.var_2d8174e3 = 1;
 		ai.ignorevortices = 1;
-		ai.var_d538832c = 1;
+		ai.nostun = 1;
 		ai.custom_damage_func = &function_d45df351;
 		ai ai::set_behavior_attribute("rogue_control", "forced_level_3");
 		ai ai::set_behavior_attribute("rogue_control_speed", "sprint");
