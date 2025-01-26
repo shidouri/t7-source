@@ -2797,7 +2797,7 @@ function function_686645ab()
 		if(e_who === level.var_6e68c0d8)
 		{
 			var_cd45655b thread zm_castle_vo::function_c123b81c("ask_name", "vox_arro_demongate_ask_name_0");
-			var_cd45655b zm_castle_vo::function_7b697614("vox_arro_demongate_ask_name_0");
+			var_cd45655b zm_castle_vo::vo_say("vox_arro_demongate_ask_name_0");
 		}
 	}
 }

@@ -221,7 +221,7 @@ function function_d9de7eb6(var_a3612ddd)
 			{
 				var_b538c87 = 1;
 				str_vo = ("vox_plr_" + e_attacker.characterindex) + "_mq_ee_3_1_0";
-				e_attacker thread zm_island_vo::function_7b697614(str_vo, 0, 1);
+				e_attacker thread zm_island_vo::vo_say(str_vo, 0, 1);
 			}
 		}
 		else if(w_weapon === level.w_mirg2000_up)
@@ -304,7 +304,7 @@ function function_75e5527f()
 		if(isdefined(e_talker))
 		{
 			str_vo = ("vox_plr_" + e_talker.characterindex) + "_mq_ee_3_0_0";
-			e_talker thread zm_island_vo::function_7b697614(str_vo, 0, 1);
+			e_talker thread zm_island_vo::vo_say(str_vo, 0, 1);
 			level notify(#"hash_5790f552");
 		}
 	}

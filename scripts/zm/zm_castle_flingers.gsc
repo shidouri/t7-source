@@ -616,7 +616,7 @@ function function_d1736cb5()
 		{
 			return;
 		}
-		b_result = self zm_castle_vo::function_7b697614((("vox_plr_" + self.characterindex) + "_use_jumpsphere_") + var_323d1645, 1.4);
+		b_result = self zm_castle_vo::vo_say((("vox_plr_" + self.characterindex) + "_use_jumpsphere_") + var_323d1645, 1.4);
 		if(b_result)
 		{
 			self.var_9a3fa33b = var_323d1645;

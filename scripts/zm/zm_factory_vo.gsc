@@ -294,12 +294,12 @@ function function_897246e4(str_vo_alias, n_wait = 0, b_wait_if_busy = 0, n_prior
 	}
 	if(zm_utility::is_player_valid(e_speaker))
 	{
-		e_speaker function_7b697614(str_vo_alias, n_wait, b_wait_if_busy, n_priority);
+		e_speaker vo_say(str_vo_alias, n_wait, b_wait_if_busy, n_priority);
 	}
 }
 
 /*
-	Name: function_7b697614
+	Name: vo_say
 	Namespace: zm_factory_vo
 	Checksum: 0x2830973F
 	Offset: 0x1B50
@@ -307,7 +307,7 @@ function function_897246e4(str_vo_alias, n_wait = 0, b_wait_if_busy = 0, n_prior
 	Parameters: 5
 	Flags: Linked
 */
-function function_7b697614(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0)
+function vo_say(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, var_d1295208 = 0)
 {
 	self endon("death");
 	self endon("disconnect");
