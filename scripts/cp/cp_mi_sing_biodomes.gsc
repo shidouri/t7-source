@@ -103,7 +103,7 @@ function main()
 		level scene::init("server_room_access_start", "targetname");
 	}
 	load::main();
-	namespace_e82fdc69::function_7403e82b();
+	cp_mi_sing_biodomes_patch::function_7403e82b();
 	skipto::set_skip_safehouse();
 }
 
