@@ -39,7 +39,7 @@ function main()
 	load::main();
 	util::waitforclient(0);
 	setdvar("sv_mapswitch", 1);
-	namespace_ba84f16::function_7403e82b();
+	cp_mi_eth_prologue_patch_c::function_7403e82b();
 }
 
 /*
