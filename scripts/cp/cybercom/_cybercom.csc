@@ -956,7 +956,7 @@ function setiffname(localclientnum, oldval, newval, bnewent, binitialsnap, field
 		}
 		case 2:
 		{
-			self.var_2b998b77 = function_a4cd6b9a();
+			self.var_2b998b77 = geteui();
 			self setdrawname(self.var_2b998b77);
 			self callback::on_shutdown(&function_d48fcfa6);
 			break;
@@ -1034,7 +1034,7 @@ function private function_66be631b()
 }
 
 /*
-	Name: function_a4cd6b9a
+	Name: geteui
 	Namespace: cybercom
 	Checksum: 0x55A79DB3
 	Offset: 0x3458
@@ -1042,7 +1042,7 @@ function private function_66be631b()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_a4cd6b9a()
+function private geteui()
 {
 	name = "";
 	if(issubstr(self.model, "_54i_"))
