@@ -1360,7 +1360,7 @@ function function_4a9e7e2(localclientnum)
 	{
 		level notify("_rain_thread" + localclientnum);
 		self.b_lightning = 0;
-		level.var_1c69bb12.var_b13d6dfb = 0;
+		level.var_1c69bb12.israin = 0;
 	}
 	else
 	{
@@ -1369,7 +1369,7 @@ function function_4a9e7e2(localclientnum)
 			self thread _lightning_thread(localclientnum);
 		}
 		self thread _rain_thread(level.weather_rain, localclientnum);
-		level.var_1c69bb12.var_b13d6dfb = 1;
+		level.var_1c69bb12.israin = 1;
 	}
 	level thread function_f099c69d(self);
 }

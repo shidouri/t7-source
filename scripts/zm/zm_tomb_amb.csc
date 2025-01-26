@@ -190,7 +190,7 @@ function function_c052f9b8()
 	while(true)
 	{
 		level waittill(#"hash_f099c69d");
-		if(isdefined(level.var_1c69bb12.var_b13d6dfb) && level.var_1c69bb12.var_b13d6dfb)
+		if(isdefined(level.var_1c69bb12.israin) && level.var_1c69bb12.israin)
 		{
 			setsoundcontext("train", "country");
 		}
@@ -220,7 +220,7 @@ function function_c052f9b8()
 function function_33be1969()
 {
 	level.var_1c69bb12 = spawnstruct();
-	level.var_1c69bb12.var_b13d6dfb = 0;
+	level.var_1c69bb12.israin = 0;
 	level.var_1c69bb12.issnow = 0;
 }
 
