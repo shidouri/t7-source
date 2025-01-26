@@ -1766,7 +1766,7 @@ function function_c7e4d911(room)
 */
 function function_5284e8dc(room)
 {
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	if(room.var_677f63c8.size > getdvarint("scr_doa_chicken_balls_max", 3))
 	{
 		return;
@@ -1828,7 +1828,7 @@ function function_76dd5557(room)
 */
 function function_90585f48(room)
 {
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	while(true)
 	{
 		level thread function_5284e8dc(room);
@@ -1944,7 +1944,7 @@ function function_7c9617ef(var_7bb420a0, goaltrigger)
 */
 function function_60fcd122(room, goaltrigger)
 {
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	goaltrigger.movetime = getdvarfloat("scr_doa_chicken_bowl_glow_default_speed", 1.25);
 	goaltrigger.posts = [];
 	goaltrigger.posts[goaltrigger.posts.size] = struct::get(goaltrigger.target, "targetname");
@@ -2008,7 +2008,7 @@ function function_60fcd122(room, goaltrigger)
 			}
 			while(count > 0)
 			{
-				level util::waittill_any_timeout(1, "off_fx_queue_processed", "trucksoccer_rally_complete");
+				level util::waittill_any_timeout(1, "off_fx_queue_processed", ""trucksoccer_rally_complete");
 				count--;
 			}
 			idx = 0;
@@ -2046,7 +2046,7 @@ function function_60fcd122(room, goaltrigger)
 */
 function function_5dac2dae(room)
 {
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	self.org = spawn("script_model", self.origin);
 	self.org.targetname = "trucksoccer_BlowTriggerThink";
 	self.org setmodel("tag_origin");
@@ -2090,7 +2090,7 @@ function function_5dac2dae(room)
 */
 function function_8f4c809d(room, goaltrigger)
 {
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	goaltrigger notify(#"hash_8f4c809d");
 	goaltrigger endon(#"hash_8f4c809d");
 	room.var_efbfafed++;
@@ -2110,7 +2110,7 @@ function function_8f4c809d(room, goaltrigger)
 */
 function function_71be5ae5(room)
 {
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	self.var_f1e29613 = [];
 	self.myteam = int(self.script_noteworthy);
 	level thread function_60fcd122(room, self);
@@ -2243,7 +2243,7 @@ function function_2ea4cb82(room)
 		level notify(#"hash_d1f5acf7");
 	}
 	playsoundatposition("zmb_eggbowl_whistle", (0, 0, 0));
-	level notify(#"hash_4f4a6e14");
+	level notify("trucksoccer_rally_complete");
 	doa_pickups::function_c1869ec8();
 }
 
@@ -2295,7 +2295,7 @@ function function_55e9043d()
 {
 	level endon(#"hash_16154574");
 	level endon(#"hash_d1f5acf7");
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	while(true)
 	{
 		level waittill(#"hash_c62f5087", left);
@@ -2316,7 +2316,7 @@ function function_55e9043d()
 			{
 				ai forceteleport(ai.origin, (0, randomint(360), 0));
 				ai notify(#"hash_6e8326fc");
-				ai thread doa_utility::function_24245456(level, "trucksoccer_rally_complete");
+				ai thread doa_utility::function_24245456(level, ""trucksoccer_rally_complete");
 			}
 			wait(randomfloatrange(0.05, 0.4));
 		}
@@ -2338,7 +2338,7 @@ function function_55e9043d()
 */
 function function_b3939e94(room)
 {
-	level notify(#"hash_4f4a6e14");
+	level notify("trucksoccer_rally_complete");
 	doa_pickups::function_c1869ec8();
 	level thread doa_utility::killallenemy();
 	function_baa38e65(room);
@@ -2404,7 +2404,7 @@ function function_6274a031()
 */
 function function_e619ee5(vehicle)
 {
-	level endon(#"hash_4f4a6e14");
+	level endon("trucksoccer_rally_complete");
 	level endon(#"hash_d1f5acf7");
 	self notify(#"hash_2747daf7");
 	self endon(#"hash_2747daf7");
