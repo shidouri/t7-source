@@ -7496,12 +7496,12 @@ function function_62f3bbf4(counter_name)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_8eb96012(ishost, var_95597467, var_88b8e8ec)
+function private function_8eb96012(ishost, var_95597467, issolo)
 {
 	path = spawnstruct();
 	path.hosted = (ishost ? "HOSTED" : "PLAYED");
 	path.var_95597467 = (var_95597467 ? "USED" : "UNUSED");
-	path.var_c0cf8114 = (var_88b8e8ec ? "SOLO" : "COOP");
+	path.var_c0cf8114 = (issolo ? "SOLO" : "COOP");
 	return path;
 }
 
