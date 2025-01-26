@@ -652,8 +652,8 @@ function function_af12b9a4()
 	level waittill(#"hash_4619f71b");
 	zm_spawner::register_zombie_death_event_callback(&function_e8de9974);
 	var_b2b5bc6e = struct::get("keeper_spawn_loc", "targetname");
-	var_aae59061 = getent("keeper_archon", "targetname");
-	var_747532f4 = zombie_utility::spawn_zombie(var_aae59061, "keeper_archon_ai", var_b2b5bc6e);
+	sp_keeper = getent("keeper_archon", "targetname");
+	var_747532f4 = zombie_utility::spawn_zombie(sp_keeper, "keeper_archon_ai", var_b2b5bc6e);
 	var_747532f4 function_2d0c5aa1(var_b2b5bc6e);
 	var_747532f4 playsound("zmb_ee_resurrect_keeper_spawn");
 	var_747532f4 playloopsound("zmb_ee_resurrect_keeper_lp", 2);
