@@ -149,13 +149,13 @@ function function_93ccc5da()
 	Parameters: 2
 	Flags: Linked
 */
-function function_80eb303(points, var_c979daec = 0)
+function function_80eb303(points, nox = 0)
 {
 	if(!level flag::get("doa_game_is_running"))
 	{
 		return;
 	}
-	if(!(isdefined(var_c979daec) && var_c979daec))
+	if(!(isdefined(nox) && nox))
 	{
 		multiplier = self.doa.multiplier + self.doa.var_a3f61a60;
 		max = level.doa.rules.max_multiplier;
