@@ -761,24 +761,24 @@ function private _lock_sighttest(target, var_b3464abe = 1)
 	{
 		mins = target getmins();
 		maxs = target getmaxs();
-		var_d11e725f = (maxs[2] - mins[2]) / 4;
+		stepz = (maxs[2] - mins[2]) / 4;
 		for(i = 0; i <= 4; i++)
 		{
-			pos = target.origin + (0, 0, var_d11e725f * i);
+			pos = target.origin + (0, 0, stepz * i);
 			passed = bullettracepassed(eyepos, pos, 0, target, undefined, 1, 1);
 			if(passed)
 			{
 				target.cybercom.var_8d2f4636[self getentitynumber()] = gettime();
 				return 1;
 			}
-			pos = target.origin + (mins[0], mins[1], var_d11e725f * i);
+			pos = target.origin + (mins[0], mins[1], stepz * i);
 			passed = bullettracepassed(eyepos, pos, 0, target, undefined, 1, 1);
 			if(passed)
 			{
 				target.cybercom.var_8d2f4636[self getentitynumber()] = gettime();
 				return 1;
 			}
-			pos = target.origin + (maxs[0], maxs[1], var_d11e725f * i);
+			pos = target.origin + (maxs[0], maxs[1], stepz * i);
 			passed = bullettracepassed(eyepos, pos, 0, target, undefined, 1, 1);
 			if(passed)
 			{
