@@ -99,7 +99,7 @@ function main()
 		sgen_util::rename_coop_spawn_points("flood_combat", "dev_flood_combat");
 	}
 	load::main();
-	namespace_643bc20::function_7403e82b();
+	cp_mi_sing_sgen_patch::function_7403e82b();
 	a_s_align = struct::get_array("dark_battle_align_2", "targetname");
 	if(isdefined(a_s_align) && a_s_align.size > 1)
 	{
