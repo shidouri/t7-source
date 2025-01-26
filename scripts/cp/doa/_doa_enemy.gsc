@@ -1546,14 +1546,14 @@ function function_53055b45()
 		if(isdefined(self.var_b7e79322) && self.var_b7e79322)
 		{
 			mindistsq = 4 * 4;
-			var_3faea97b = (self.origin[0], self.origin[1], self.origin[2]);
+			posnow = (self.origin[0], self.origin[1], self.origin[2]);
 		}
 		else
 		{
 			mindistsq = 32 * 32;
-			var_3faea97b = (self.origin[0], self.origin[1], 0);
+			posnow = (self.origin[0], self.origin[1], 0);
 		}
-		distsq = distancesquared(checkpos, var_3faea97b);
+		distsq = distancesquared(checkpos, posnow);
 		if(distsq < mindistsq)
 		{
 			fails++;
