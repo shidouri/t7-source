@@ -99,7 +99,7 @@ function init()
 	level.b_raz_rounds_enabled = 0;
 	level.n_raz_round_count = 1;
 	level.var_b9ce6312 = 0;
-	level.var_6bca5baa = [];
+	level.a_sp_raz = [];
 	level.n_raz_health = 5500;
 	zm_score::register_score_event("death_raz", &function_6fdcefe3);
 	level flag::init("raz_round");
@@ -170,15 +170,15 @@ function enable_raz_rounds()
 */
 function raz_spawner_init()
 {
-	level.var_6bca5baa = getentarray("zombie_raz_spawner", "script_noteworthy");
-	if(level.var_6bca5baa.size == 0)
+	level.a_sp_raz = getentarray("zombie_raz_spawner", "script_noteworthy");
+	if(level.a_sp_raz.size == 0)
 	{
 		/#
 			assertmsg("");
 		#/
 		return;
 	}
-	foreach(sp_raz in level.var_6bca5baa)
+	foreach(sp_raz in level.a_sp_raz)
 	{
 		sp_raz.is_enabled = 1;
 		sp_raz.script_forcespawn = 1;
@@ -377,7 +377,7 @@ function raz_round_spawning()
 */
 function function_665a13cd(spawner, s_spot)
 {
-	raz_ai = zombie_utility::spawn_zombie(level.var_6bca5baa[0], "raz", s_spot);
+	raz_ai = zombie_utility::spawn_zombie(level.a_sp_raz[0], "raz", s_spot);
 	if(isdefined(raz_ai))
 	{
 		raz_ai.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
@@ -449,7 +449,7 @@ function spawn_raz()
 		wait(randomfloatrange(0.3333333, 0.6666667));
 		return;
 	}
-	ai = function_665a13cd(level.var_6bca5baa[0]);
+	ai = function_665a13cd(level.a_sp_raz[0]);
 	if(isdefined(ai))
 	{
 		ai thread function_b8671cc0(s_spawn_loc);
@@ -942,7 +942,7 @@ function special_raz_spawn(n_to_spawn = 1, func_on_spawned, b_force_spawn = 0, v
 		{
 			if(isdefined(level.raz_spawn_func))
 			{
-				s_spawn_loc = [[level.raz_spawn_func]](level.var_6bca5baa, e_favorite_enemy);
+				s_spawn_loc = [[level.raz_spawn_func]](level.a_sp_raz, e_favorite_enemy);
 			}
 			else if(level.zm_loc_types["raz_location"].size > 0)
 			{
@@ -953,7 +953,7 @@ function special_raz_spawn(n_to_spawn = 1, func_on_spawned, b_force_spawn = 0, v
 		{
 			return 0;
 		}
-		ai = function_665a13cd(level.var_6bca5baa[0]);
+		ai = function_665a13cd(level.a_sp_raz[0]);
 		if(isdefined(ai))
 		{
 			ai forceteleport(s_spawn_loc.origin, s_spawn_loc.angles);
@@ -1196,7 +1196,7 @@ function function_e115a394(n_raz)
 		{
 			return;
 		}
-		if(!isdefined(level.var_6bca5baa) || level.var_6bca5baa.size < 1)
+		if(!isdefined(level.a_sp_raz) || level.a_sp_raz.size < 1)
 		{
 			return;
 		}
