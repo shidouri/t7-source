@@ -2100,14 +2100,14 @@ function zod_ghost_test(n_index)
 	level notify("zod_ghost_test");
 	level endon("zod_ghost_test");
 	player = getplayers()[0];
-	var_8cfd368 = 1;
+	gp = 1;
 	while(true)
 	{
 		foreach(zombie in getaiteamarray(level.zombie_team))
 		{
-			zombie clientfield::set("ghost_actor", var_8cfd368);
+			zombie clientfield::set("ghost_actor", gp);
 		}
-		var_8cfd368 = 1 - var_8cfd368;
+		gp = 1 - gp;
 		wait(12);
 	}
 }
