@@ -429,7 +429,7 @@ function function_613df5d9(var_9597a744)
 	}
 	level thread battlechatter::function_d9f49fba(1);
 	level util::clientnotify("sndDSTRe");
-	level thread namespace_a92ad484::function_51e72857();
+	level thread lotus2_sound::function_51e72857();
 	level.var_c35e5e91 util::stop_magic_bullet_shield();
 	level.var_c35e5e91 thread turret::stop(0);
 	function_76bada8a(1);
@@ -772,7 +772,7 @@ function function_29458b95(b_starting = 0)
 	{
 		level.ai_hendricks thread function_edd237d9();
 	}
-	level thread namespace_a92ad484::function_614dc783();
+	level thread lotus2_sound::function_614dc783();
 	level.ai_hendricks dialog::say("hend_okay_kane_enough_0");
 	level dialog::remote("kane_take_that_shop_up_to_0");
 	level thread function_aa17eb00();
@@ -1032,7 +1032,7 @@ function function_aa17eb00()
 	level dialog::remote("kane_watch_hendricks_he_0", 0.5);
 	level thread dialog::player_say("plyr_copy_that_0");
 	level waittill(#"hash_e0df7237");
-	level thread namespace_a92ad484::function_8ca46216();
+	level thread lotus2_sound::function_8ca46216();
 	level.ai_hendricks dialog::say("hend_rpg_0", 0.5);
 	wait(2);
 	level dialog::player_say("plyr_looks_like_this_is_o_0");
