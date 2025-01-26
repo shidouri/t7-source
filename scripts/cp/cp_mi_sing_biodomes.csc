@@ -30,7 +30,7 @@ function main()
 	cp_mi_sing_biodomes_sound::main();
 	load::main();
 	util::waitforclient(0);
-	namespace_8d32191f::function_7403e82b();
+	cp_mi_sing_biodomes_patch_c::function_7403e82b();
 }
 
 /*
