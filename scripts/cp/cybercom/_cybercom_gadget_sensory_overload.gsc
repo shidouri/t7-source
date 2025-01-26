@@ -308,7 +308,7 @@ function private _activate_sensory_overload(slot, weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function ai_activatesensoryoverload(target, var_9bc2efcb = 1)
+function ai_activatesensoryoverload(target, docast = 1)
 {
 	if(!isdefined(target))
 	{
@@ -338,7 +338,7 @@ function ai_activatesensoryoverload(target, var_9bc2efcb = 1)
 		}
 		validtargets[validtargets.size] = target;
 	}
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");

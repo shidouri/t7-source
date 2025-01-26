@@ -732,7 +732,7 @@ function private function_d09562d9(target, time, tag)
 	Parameters: 3
 	Flags: Linked
 */
-function ai_activatesurge(target, var_9bc2efcb = 1, upgraded = 0)
+function ai_activatesurge(target, docast = 1, upgraded = 0)
 {
 	if(!isdefined(target))
 	{
@@ -762,7 +762,7 @@ function ai_activatesurge(target, var_9bc2efcb = 1, upgraded = 0)
 		}
 		validtargets[validtargets.size] = target;
 	}
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");

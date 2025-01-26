@@ -194,14 +194,14 @@ function _is_primed(slot, weapon)
 	Parameters: 3
 	Flags: Linked
 */
-function ai_activatefireflyswarm(target, var_9bc2efcb = 1, upgraded = 1)
+function ai_activatefireflyswarm(target, docast = 1, upgraded = 1)
 {
 	self endon("death");
 	if(self.archetype != "human")
 	{
 		return;
 	}
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");

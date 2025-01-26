@@ -630,10 +630,10 @@ function cybercom_getadjusteddamage(player, eattacker, einflictor, idamage, weap
 	Parameters: 4
 	Flags: None
 */
-function function_d240e350(var_7872e02, target, var_9bc2efcb = 1, upgraded = 0)
+function function_d240e350(var_7872e02, target, docast = 1, upgraded = 0)
 {
 	self endon("death");
-	while(var_9bc2efcb && self isplayinganimscripted())
+	while(docast && self isplayinganimscripted())
 	{
 		wait(0.1);
 	}
@@ -641,62 +641,62 @@ function function_d240e350(var_7872e02, target, var_9bc2efcb = 1, upgraded = 0)
 	{
 		case "cybercom_iffoverride":
 		{
-			cybercom_gadget_iff_override::ai_activateiffoverride(target, var_9bc2efcb);
+			cybercom_gadget_iff_override::ai_activateiffoverride(target, docast);
 			break;
 		}
 		case "cybercom_systemoverload":
 		{
-			cybercom_gadget_system_overload::ai_activatesystemoverload(target, var_9bc2efcb);
+			cybercom_gadget_system_overload::ai_activatesystemoverload(target, docast);
 			break;
 		}
 		case "cybercom_servoshortout":
 		{
-			cybercom_gadget_servo_shortout::ai_activateservoshortout(target, var_9bc2efcb);
+			cybercom_gadget_servo_shortout::ai_activateservoshortout(target, docast);
 			break;
 		}
 		case "cybercom_exosuitbreakdown":
 		{
-			cybercom_gadget_exosuitbreakdown::ai_activateexosuitbreakdown(target, var_9bc2efcb);
+			cybercom_gadget_exosuitbreakdown::ai_activateexosuitbreakdown(target, docast);
 			break;
 		}
 		case "cybercom_surge":
 		{
-			cybercom_gadget_surge::ai_activatesurge(target, var_9bc2efcb, upgraded);
+			cybercom_gadget_surge::ai_activatesurge(target, docast, upgraded);
 			break;
 		}
 		case "cybercom_sensoryoverload":
 		{
-			cybercom_gadget_sensory_overload::ai_activatesensoryoverload(target, var_9bc2efcb);
+			cybercom_gadget_sensory_overload::ai_activatesensoryoverload(target, docast);
 			break;
 		}
 		case "cybercom_forcedmalfunction":
 		{
-			cybercom_gadget_forced_malfunction::ai_activateforcedmalfuncton(target, var_9bc2efcb);
+			cybercom_gadget_forced_malfunction::ai_activateforcedmalfuncton(target, docast);
 			break;
 		}
 		case "cybercom_fireflyswarm":
 		{
-			cybercom_gadget_firefly::ai_activatefireflyswarm(target, var_9bc2efcb, upgraded);
+			cybercom_gadget_firefly::ai_activatefireflyswarm(target, docast, upgraded);
 			break;
 		}
 		case "cybercom_immolation":
 		{
-			cybercom_gadget_immolation::ai_activateimmolate(target, var_9bc2efcb, upgraded);
+			cybercom_gadget_immolation::ai_activateimmolate(target, docast, upgraded);
 			break;
 		}
 		case "cybercom_mrpukey":
 		{
-			namespace_e44205a2::function_da7ef8ba(target, var_9bc2efcb, upgraded);
+			namespace_e44205a2::function_da7ef8ba(target, docast, upgraded);
 			break;
 		}
 		case "cybercom_concussive":
 		{
-			cybercom_gadget_concussive_wave::ai_activateconcussivewave(target, var_9bc2efcb);
+			cybercom_gadget_concussive_wave::ai_activateconcussivewave(target, docast);
 			break;
 		}
 		case "cybercom_smokescreen":
 		{
-			cybercom_gadget_smokescreen::ai_activatesmokescreen(var_9bc2efcb, upgraded);
+			cybercom_gadget_smokescreen::ai_activatesmokescreen(docast, upgraded);
 			break;
 		}
 		case "cybercom_es_strike":

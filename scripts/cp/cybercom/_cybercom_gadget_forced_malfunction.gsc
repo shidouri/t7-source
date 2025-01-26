@@ -462,7 +462,7 @@ function private _force_malfunction(attacker, disabletimemsec)
 	Parameters: 2
 	Flags: Linked
 */
-function ai_activateforcedmalfuncton(target, var_9bc2efcb = 1)
+function ai_activateforcedmalfuncton(target, docast = 1)
 {
 	if(!isdefined(target))
 	{
@@ -492,7 +492,7 @@ function ai_activateforcedmalfuncton(target, var_9bc2efcb = 1)
 		}
 		validtargets[validtargets.size] = target;
 	}
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self animscripted("ai_cybercom_anim", self.origin, self.angles, ("ai_base_rifle_" + type) + "_exposed_cybercom_activate");

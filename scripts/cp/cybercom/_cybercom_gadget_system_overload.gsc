@@ -342,7 +342,7 @@ function private _system_overload_vehicle(attacker, weapon)
 	Parameters: 3
 	Flags: Linked
 */
-function ai_activatesystemoverload(target, var_9bc2efcb = 1, disabletimemsec)
+function ai_activatesystemoverload(target, docast = 1, disabletimemsec)
 {
 	if(!isdefined(target))
 	{
@@ -372,7 +372,7 @@ function ai_activatesystemoverload(target, var_9bc2efcb = 1, disabletimemsec)
 		}
 		validtargets[validtargets.size] = target;
 	}
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");

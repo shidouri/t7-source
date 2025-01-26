@@ -374,7 +374,7 @@ function function_ceb2ee11()
 	Parameters: 3
 	Flags: Linked
 */
-function function_da7ef8ba(target, var_9bc2efcb = 1, upgraded)
+function function_da7ef8ba(target, docast = 1, upgraded)
 {
 	if(!isdefined(target))
 	{
@@ -404,7 +404,7 @@ function function_da7ef8ba(target, var_9bc2efcb = 1, upgraded)
 		}
 		validtargets[validtargets.size] = target;
 	}
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");

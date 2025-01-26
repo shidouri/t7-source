@@ -523,9 +523,9 @@ function private _debug_cloud(time)
 	Parameters: 2
 	Flags: Linked
 */
-function ai_activatesmokescreen(var_9bc2efcb = 1, upgraded = 0)
+function ai_activatesmokescreen(docast = 1, upgraded = 0)
 {
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");

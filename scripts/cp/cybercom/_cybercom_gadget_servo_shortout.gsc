@@ -460,7 +460,7 @@ function servo_shortout(attacker, weapon = getweapon("gadget_servo_shortout"), u
 	Parameters: 2
 	Flags: Linked
 */
-function ai_activateservoshortout(target, var_9bc2efcb = 1)
+function ai_activateservoshortout(target, docast = 1)
 {
 	if(!isdefined(target))
 	{
@@ -490,7 +490,7 @@ function ai_activateservoshortout(target, var_9bc2efcb = 1)
 		}
 		validtargets[validtargets.size] = target;
 	}
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");

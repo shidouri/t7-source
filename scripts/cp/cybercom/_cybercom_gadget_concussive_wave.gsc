@@ -207,9 +207,9 @@ function _is_primed(slot, weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function ai_activateconcussivewave(damage, var_9bc2efcb = 1)
+function ai_activateconcussivewave(damage, docast = 1)
 {
-	if(isdefined(var_9bc2efcb) && var_9bc2efcb)
+	if(isdefined(docast) && docast)
 	{
 		type = self cybercom::function_5e3d3aa();
 		self orientmode("face default");
