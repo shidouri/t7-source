@@ -1839,31 +1839,31 @@ function function_d526f0bb()
 				case 24:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					level thread namespace_2848f8c2::function_21af9396(player, self.origin + vectorscale((0, 0, 1), 20));
+					level thread doa_vehicle::function_21af9396(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 38:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					level thread namespace_2848f8c2::function_2ef99744(player, self.origin + vectorscale((0, 0, 1), 20));
+					level thread doa_vehicle::function_2ef99744(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 9:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					level thread namespace_2848f8c2::function_f27a22c8(player, self.origin + vectorscale((0, 0, 1), 50));
+					level thread doa_vehicle::function_f27a22c8(player, self.origin + vectorscale((0, 0, 1), 50));
 					break;
 				}
 				case 25:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					level thread namespace_2848f8c2::function_1e663abe(player, self.origin + vectorscale((0, 0, 1), 20));
+					level thread doa_vehicle::function_1e663abe(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 33:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					level thread namespace_2848f8c2::function_e9f445ce(player, self.origin + vectorscale((0, 0, 1), 20));
+					level thread doa_vehicle::function_e9f445ce(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 34:

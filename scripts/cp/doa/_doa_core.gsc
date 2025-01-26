@@ -554,7 +554,7 @@ function init()
 	doa_arena::init();
 	namespace_aa4730ec::init();
 	namespace_d88e3a06::init();
-	namespace_2848f8c2::init();
+	doa_vehicle::init();
 	doa_fate::init();
 	namespace_b5c133c::init();
 	doa_player_challenge::init();

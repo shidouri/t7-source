@@ -773,7 +773,7 @@ function function_f1915ffb(room)
 			player.doa.var_3e3bcaa1 = undefined;
 		}
 		player.ignoreme = 0;
-		player namespace_2848f8c2::function_d41a4517();
+		player doa_vehicle::function_d41a4517();
 	}
 	level.doa.var_bc9b7c71 = room.var_e5c8b9e7;
 	level.callbackvehicledamage = room.var_dc49d6a4;
@@ -1016,7 +1016,7 @@ function function_14e75d7a(spot)
 function function_810ced6b()
 {
 	wait(1);
-	self namespace_2848f8c2::function_d460de4b();
+	self doa_vehicle::function_d460de4b();
 }
 
 /*
@@ -1217,7 +1217,7 @@ function function_ce5fc0d(room)
 			player.doa.bombs = player.var_b1c8a8a2;
 			player.doa.boosters = player.var_e9aff98;
 		}
-		player namespace_2848f8c2::function_d41a4517();
+		player doa_vehicle::function_d41a4517();
 	}
 	spots = struct::get_array("redins_pickup_location");
 	level notify("ro");
@@ -2357,7 +2357,7 @@ function function_b3939e94(room)
 			player.doa.var_3e3bcaa1 = undefined;
 			player disableinvulnerability();
 			player thread doa_player_utility::turnplayershieldon(0);
-			player namespace_2848f8c2::function_d41a4517();
+			player doa_vehicle::function_d41a4517();
 		}
 	}
 	level.doa.var_bc9b7c71 = room.var_e5c8b9e7;

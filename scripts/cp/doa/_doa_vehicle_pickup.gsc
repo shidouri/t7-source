@@ -20,11 +20,11 @@
 #using_animtree("generic");
 #using_animtree("chicken_mech");
 
-#namespace namespace_2848f8c2;
+#namespace doa_vehicle;
 
 /*
 	Name: init
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x2741869E
 	Offset: 0x4D8
 	Size: 0x124
@@ -43,7 +43,7 @@ function init()
 
 /*
 	Name: function_254eefd6
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x806E5972
 	Offset: 0x608
 	Size: 0x60
@@ -62,7 +62,7 @@ function function_254eefd6(player, time)
 
 /*
 	Name: function_ab709357
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0xDD49BA42
 	Offset: 0x670
 	Size: 0x60
@@ -81,7 +81,7 @@ function function_ab709357(heli)
 
 /*
 	Name: function_f27a22c8
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x702456AC
 	Offset: 0x6D8
 	Size: 0x404
@@ -141,7 +141,7 @@ function function_f27a22c8(player, origin)
 
 /*
 	Name: function_db948b3
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x34F2AA82
 	Offset: 0xAE8
 	Size: 0x60
@@ -161,7 +161,7 @@ function function_db948b3()
 
 /*
 	Name: function_569d8fe3
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x79DBD678
 	Offset: 0xB50
 	Size: 0x84
@@ -188,7 +188,7 @@ function function_569d8fe3()
 
 /*
 	Name: function_ee6962d9
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x7279C81F
 	Offset: 0xBE0
 	Size: 0xE0
@@ -213,7 +213,7 @@ function function_ee6962d9(player, chicken)
 
 /*
 	Name: function_2ef99744
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x21EC7617
 	Offset: 0xCC8
 	Size: 0x604
@@ -293,7 +293,7 @@ function function_2ef99744(player, origin)
 
 /*
 	Name: function_21af9396
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0xE2D7DB70
 	Offset: 0x12D8
 	Size: 0x454
@@ -359,7 +359,7 @@ function function_21af9396(player, origin)
 
 /*
 	Name: function_1e663abe
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0xA3DDA49C
 	Offset: 0x1738
 	Size: 0x39C
@@ -418,7 +418,7 @@ function function_1e663abe(player, origin)
 
 /*
 	Name: function_e9f445ce
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0xC64D7377
 	Offset: 0x1AE0
 	Size: 0x39C
@@ -477,7 +477,7 @@ function function_e9f445ce(player, origin)
 
 /*
 	Name: function_d460de4b
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x84AC7005
 	Offset: 0x1E88
 	Size: 0xCC
@@ -502,7 +502,7 @@ function function_d460de4b()
 
 /*
 	Name: function_d41a4517
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0xF989605B
 	Offset: 0x1F60
 	Size: 0x144
@@ -532,7 +532,7 @@ function function_d41a4517()
 
 /*
 	Name: function_33f0cca4
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x6F48D8A4
 	Offset: 0x20B0
 	Size: 0x3C
@@ -548,7 +548,7 @@ function function_33f0cca4(player)
 
 /*
 	Name: function_3b1b644d
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0x7A69A295
 	Offset: 0x20F8
 	Size: 0x212
@@ -595,7 +595,7 @@ function function_3b1b644d(var_85f85940, vehicle)
 
 /*
 	Name: function_cdfa9ce8
-	Namespace: namespace_2848f8c2
+	Namespace: doa_vehicle
 	Checksum: 0xB454709E
 	Offset: 0x2318
 	Size: 0x132
