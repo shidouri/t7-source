@@ -9,7 +9,7 @@
 #namespace namespace_b5b83650;
 
 /*
-	Name: function_4d39a2af
+	Name: accolades_init
 	Namespace: namespace_b5b83650
 	Checksum: 0x345984B
 	Offset: 0x5B0
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: Linked
 */
-function function_4d39a2af()
+function accolades_init()
 {
 	accolades::register("MISSION_AQUIFER_UNTOUCHED");
 	accolades::register("MISSION_AQUIFER_SCORE");

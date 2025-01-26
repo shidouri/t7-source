@@ -9,7 +9,7 @@
 #namespace namespace_e9d9fb34;
 
 /*
-	Name: function_4d39a2af
+	Name: accolades_init
 	Namespace: namespace_e9d9fb34
 	Checksum: 0xEE12F66B
 	Offset: 0x580
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: None
 */
-function function_4d39a2af()
+function accolades_init()
 {
 	// Unsupported VM revision (1B).
 }

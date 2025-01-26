@@ -71,7 +71,7 @@ function main()
 		setclearanceceiling(23);
 	}
 	savegame::set_mission_name("ramses");
-	ramses_accolades::function_4d39a2af();
+	ramses_accolades::accolades_init();
 	ramses_accolades::function_43898266();
 	ramses_accolades::function_e1862c87();
 	ramses_accolades::function_3484502e();

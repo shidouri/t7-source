@@ -74,7 +74,7 @@ function main()
 	collectibles::function_93523442("p7_nc_zur_coa_01", 30, vectorscale((0, 0, 1), 10));
 	collectibles::function_93523442("p7_nc_zur_coa_03", 60, vectorscale((-1, 0, -1), 10));
 	collectibles::function_93523442("p7_nc_zur_coa_04", 60, vectorscale((0, 0, 1), 10));
-	namespace_e9d9fb34::function_4d39a2af();
+	namespace_e9d9fb34::accolades_init();
 	level thread zurich_util::t_skipto_init();
 	level thread zurich_util::function_be06d646();
 	level thread zurich_util::function_91d852fa();

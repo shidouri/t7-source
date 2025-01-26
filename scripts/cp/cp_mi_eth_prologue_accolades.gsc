@@ -5,7 +5,7 @@
 #namespace namespace_61c634f2;
 
 /*
-	Name: function_4d39a2af
+	Name: accolades_init
 	Namespace: namespace_61c634f2
 	Checksum: 0xA2114A18
 	Offset: 0x3F0
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: None
 */
-function function_4d39a2af()
+function accolades_init()
 {
 	// Unsupported VM revision (1B).
 }

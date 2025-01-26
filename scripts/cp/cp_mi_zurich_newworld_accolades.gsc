@@ -11,7 +11,7 @@
 #namespace namespace_37a1dc33;
 
 /*
-	Name: function_4d39a2af
+	Name: accolades_init
 	Namespace: namespace_37a1dc33
 	Checksum: 0x39B206BC
 	Offset: 0x5D0
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: Linked
 */
-function function_4d39a2af()
+function accolades_init()
 {
 	accolades::register("MISSION_NEWWORLD_UNTOUCHED");
 	accolades::register("MISSION_NEWWORLD_SCORE");

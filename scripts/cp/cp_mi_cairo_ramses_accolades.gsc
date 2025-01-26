@@ -6,7 +6,7 @@
 #namespace ramses_accolades;
 
 /*
-	Name: function_4d39a2af
+	Name: accolades_init
 	Namespace: ramses_accolades
 	Checksum: 0x3B98DDCB
 	Offset: 0x508
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: None
 */
-function function_4d39a2af()
+function accolades_init()
 {
 	// Unsupported VM revision (1B).
 }

@@ -12,7 +12,7 @@
 #namespace namespace_23567e72;
 
 /*
-	Name: function_4d39a2af
+	Name: accolades_init
 	Namespace: namespace_23567e72
 	Checksum: 0x1F461BB
 	Offset: 0x6B8
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: Linked
 */
-function function_4d39a2af()
+function accolades_init()
 {
 	accolades::register("MISSION_BLACKSTATION_CHALLENGE3", "micromissile_kill_challenge");
 	accolades::register("MISSION_BLACKSTATION_CHALLENGE4", "technical_turret_challenge");
