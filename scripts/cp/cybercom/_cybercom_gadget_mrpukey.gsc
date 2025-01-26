@@ -277,7 +277,7 @@ function private function_2de61c3f(slot, weapon)
 					continue;
 				}
 				self thread challenges::function_96ed590f("cybercom_uses_chaos");
-				item.target thread function_25411db1(upgraded, 0, self, weapon);
+				item.target thread _puke(upgraded, 0, self, weapon);
 				fired++;
 				continue;
 			}
@@ -305,7 +305,7 @@ function private function_2de61c3f(slot, weapon)
 }
 
 /*
-	Name: function_25411db1
+	Name: _puke
 	Namespace: namespace_e44205a2
 	Checksum: 0xBDB74FCD
 	Offset: 0x10B8
@@ -313,7 +313,7 @@ function private function_2de61c3f(slot, weapon)
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_25411db1(upgraded = 0, secondary = 0, attacker, weapon)
+function private _puke(upgraded = 0, secondary = 0, attacker, weapon)
 {
 	self notify(#"hash_f8c5dd60", weapon, attacker);
 	weapon = getweapon("gadget_mrpukey");
@@ -418,7 +418,7 @@ function function_da7ef8ba(target, docast = 1, upgraded)
 		{
 			continue;
 		}
-		guy thread function_25411db1(upgraded, 0, self);
+		guy thread _puke(upgraded, 0, self);
 		wait(0.05);
 	}
 }
