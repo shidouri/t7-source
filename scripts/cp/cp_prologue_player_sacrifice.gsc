@@ -1625,7 +1625,7 @@ function function_6ba94a8()
 */
 function function_77fe86ff()
 {
-	level endon(#"hash_ba5c153");
+	level endon("pod_go");
 	level flag::wait_till("pod_loaded");
 	wait(5);
 	level.ai_hendricks dialog::say("hend_get_your_ass_over_he_1");
