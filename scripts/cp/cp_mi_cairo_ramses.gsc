@@ -94,7 +94,7 @@ function main()
 	#/
 	level thread set_sound_igc();
 	level.var_dc236bc8 = 1;
-	namespace_e9e39773::function_7403e82b();
+	cp_mi_cairo_ramses_patch::function_7403e82b();
 }
 
 /*

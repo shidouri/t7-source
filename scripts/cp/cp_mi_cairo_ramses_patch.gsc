@@ -13,11 +13,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_e9e39773;
+#namespace cp_mi_cairo_ramses_patch;
 
 /*
 	Name: function_7403e82b
-	Namespace: namespace_e9e39773
+	Namespace: cp_mi_cairo_ramses_patch
 	Checksum: 0x99EC1590
 	Offset: 0x210
 	Size: 0x4
