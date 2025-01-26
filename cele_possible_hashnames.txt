@@ -1,1 +1,5 @@
 initial_possible_hash_commit_celestria
+doa_player_utility
+doa_round
+doa_vehicle
+trucksoccer_rally_complete
