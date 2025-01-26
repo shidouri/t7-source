@@ -9,11 +9,11 @@
 #using scripts\shared\trigger_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_99202726;
+#namespace sgen_accolades;
 
 /*
 	Name: init_accolades
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x6B1A0793
 	Offset: 0x600
 	Size: 0x396
@@ -76,7 +76,7 @@ function init_accolades()
 
 /*
 	Name: function_d5c2bb53
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x34E5263D
 	Offset: 0x9A0
 	Size: 0x34
@@ -91,7 +91,7 @@ function function_d5c2bb53()
 
 /*
 	Name: function_b5ffeeac
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x73A73A4
 	Offset: 0x9E0
 	Size: 0xA0
@@ -109,7 +109,7 @@ function function_b5ffeeac()
 
 /*
 	Name: function_b67d38c4
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x2905DF66
 	Offset: 0xA88
 	Size: 0xE
@@ -123,7 +123,7 @@ function function_b67d38c4()
 
 /*
 	Name: function_6b1e8f3c
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xBC925887
 	Offset: 0xAA0
 	Size: 0x118
@@ -150,7 +150,7 @@ function function_6b1e8f3c(params)
 
 /*
 	Name: function_3fafea6d
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x57209D47
 	Offset: 0xBC0
 	Size: 0xA4
@@ -168,7 +168,7 @@ function function_3fafea6d()
 
 /*
 	Name: function_ed6cec59
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xBF578BB6
 	Offset: 0xC70
 	Size: 0x264
@@ -215,7 +215,7 @@ function function_ed6cec59(s_params)
 
 /*
 	Name: function_3bf99ff5
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x867FB796
 	Offset: 0xEE0
 	Size: 0x24
@@ -229,7 +229,7 @@ function function_3bf99ff5()
 
 /*
 	Name: function_25a5bc35
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x56AE5F94
 	Offset: 0xF10
 	Size: 0x84
@@ -252,7 +252,7 @@ function function_25a5bc35(params)
 
 /*
 	Name: function_3dc86a1
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x4B5D14C7
 	Offset: 0xFA0
 	Size: 0xB8
@@ -282,7 +282,7 @@ function function_3dc86a1(params)
 
 /*
 	Name: function_3be7776b
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xE156D92
 	Offset: 0x1068
 	Size: 0xCC
@@ -301,7 +301,7 @@ function function_3be7776b()
 
 /*
 	Name: function_c05b6c67
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x463FC380
 	Offset: 0x1140
 	Size: 0x1C
@@ -316,7 +316,7 @@ function function_c05b6c67()
 
 /*
 	Name: function_d77515b3
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x8CB63D04
 	Offset: 0x1168
 	Size: 0x204
@@ -363,7 +363,7 @@ function function_d77515b3(params)
 
 /*
 	Name: function_6a1ab5fc
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xE0014840
 	Offset: 0x1378
 	Size: 0x24
@@ -377,7 +377,7 @@ function function_6a1ab5fc()
 
 /*
 	Name: function_94847029
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xD3DB063
 	Offset: 0x13A8
 	Size: 0x64
@@ -397,7 +397,7 @@ function function_94847029(params)
 
 /*
 	Name: function_45afef12
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xE005F7B5
 	Offset: 0x1418
 	Size: 0x24
@@ -411,7 +411,7 @@ function function_45afef12()
 
 /*
 	Name: function_b2309b8
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x6EE91F97
 	Offset: 0x1448
 	Size: 0x24
@@ -425,7 +425,7 @@ function function_b2309b8()
 
 /*
 	Name: function_52b96b46
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xCE1C8609
 	Offset: 0x1478
 	Size: 0x7C
@@ -448,7 +448,7 @@ function function_52b96b46(params)
 
 /*
 	Name: function_59fa6593
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x58ED0BD6
 	Offset: 0x1500
 	Size: 0x24
@@ -462,7 +462,7 @@ function function_59fa6593()
 
 /*
 	Name: function_6a2780bc
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x2D80123B
 	Offset: 0x1530
 	Size: 0x24
@@ -476,7 +476,7 @@ function function_6a2780bc()
 
 /*
 	Name: function_707a731a
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x2296944E
 	Offset: 0x1560
 	Size: 0x9C
@@ -498,7 +498,7 @@ function function_707a731a(params)
 
 /*
 	Name: function_6d2fd9d2
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x6C2F219D
 	Offset: 0x1608
 	Size: 0x24
@@ -512,7 +512,7 @@ function function_6d2fd9d2()
 
 /*
 	Name: function_5335c37e
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x8FD624A5
 	Offset: 0x1638
 	Size: 0x24
@@ -526,7 +526,7 @@ function function_5335c37e()
 
 /*
 	Name: function_e7cebc20
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xD9A76FF7
 	Offset: 0x1668
 	Size: 0x114
@@ -564,7 +564,7 @@ function function_e7cebc20(params)
 
 /*
 	Name: function_17b77884
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x4E02EC83
 	Offset: 0x1788
 	Size: 0x1A
@@ -579,7 +579,7 @@ function function_17b77884()
 
 /*
 	Name: function_5fc826b3
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xC44D4F3B
 	Offset: 0x17B0
 	Size: 0x48
@@ -594,7 +594,7 @@ function function_5fc826b3(params)
 
 /*
 	Name: function_bc2458f5
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x244AFE59
 	Offset: 0x1800
 	Size: 0xA6
@@ -614,7 +614,7 @@ function function_bc2458f5()
 
 /*
 	Name: function_c75f9c25
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x2A3290A0
 	Offset: 0x18B0
 	Size: 0x82
@@ -631,7 +631,7 @@ function function_c75f9c25()
 
 /*
 	Name: function_f3915502
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x6488F5F7
 	Offset: 0x1940
 	Size: 0xAC
@@ -649,7 +649,7 @@ function function_f3915502()
 
 /*
 	Name: function_79aac6ce
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x9DF26C98
 	Offset: 0x19F8
 	Size: 0x24
@@ -664,7 +664,7 @@ function function_79aac6ce()
 
 /*
 	Name: function_962154a7
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x639A69CD
 	Offset: 0x1A28
 	Size: 0x88
@@ -690,7 +690,7 @@ function function_962154a7()
 
 /*
 	Name: function_fde8c3ce
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x8CB72815
 	Offset: 0x1AB8
 	Size: 0x92
@@ -710,7 +710,7 @@ function function_fde8c3ce()
 
 /*
 	Name: function_e85e2afd
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x7B01FFB6
 	Offset: 0x1B58
 	Size: 0x1C
@@ -724,7 +724,7 @@ function function_e85e2afd(e_attacker)
 
 /*
 	Name: function_a07abde9
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x686B47E3
 	Offset: 0x1B80
 	Size: 0xA0
@@ -742,7 +742,7 @@ function function_a07abde9()
 
 /*
 	Name: function_d669046f
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0xE82C2E16
 	Offset: 0x1C28
 	Size: 0xE
@@ -756,7 +756,7 @@ function function_d669046f()
 
 /*
 	Name: function_89c51083
-	Namespace: namespace_99202726
+	Namespace: sgen_accolades
 	Checksum: 0x6623AA27
 	Offset: 0x1C40
 	Size: 0x110

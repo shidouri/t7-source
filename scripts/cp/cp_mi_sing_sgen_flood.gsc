@@ -95,7 +95,7 @@ function skipto_flood_init(str_objective, b_starting)
 */
 function skipto_flood_done(str_objective, b_starting, b_direct, player)
 {
-	namespace_99202726::function_bc2458f5();
+	sgen_accolades::function_bc2458f5();
 }
 
 /*
