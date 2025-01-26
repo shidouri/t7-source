@@ -1340,7 +1340,7 @@ function private function_9fc6e261()
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_d392db04(var_adc420e5, origin, player, var_307c0d3)
+function private function_d392db04(var_adc420e5, origin, player, updir)
 {
 	self endon("death");
 	/#
@@ -1542,7 +1542,7 @@ function function_4eabae51()
 				level notify(#"hash_8817f58");
 				enemies = doa_utility::function_fb2ad2fb();
 				camerapos = doa_arena::function_5147636f();
-				var_307c0d3 = vectornormalize(camerapos - player_org);
+				updir = vectornormalize(camerapos - player_org);
 				var_adc420e5 = 0.3;
 				foreach(guy in enemies)
 				{
@@ -1557,7 +1557,7 @@ function function_4eabae51()
 						{
 							guy dodamage(guy.health + 1, player_org, self, self, "none", "MOD_EXPLOSIVE", 0, getweapon("none"));
 						}
-						guy thread function_d392db04(var_adc420e5, player_org, self, var_307c0d3);
+						guy thread function_d392db04(var_adc420e5, player_org, self, updir);
 					}
 				}
 				foreach(hazard in level.doa.hazards)
