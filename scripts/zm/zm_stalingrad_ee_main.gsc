@@ -4204,13 +4204,13 @@ function function_d47c68fb()
 	var_47ee7db6 = getent("ee_veh_sewer_cam", "targetname");
 	nd_path_start = getvehiclenode("ee_sewer_rail_start", "targetname");
 	var_a9352214 = getent("ee_sewer_to_arena_trig", "targetname");
-	var_a9352214.var_9469fd43 = 0;
-	while(var_a9352214.var_9469fd43 < level.players.size)
+	var_a9352214.n_used = 0;
+	while(var_a9352214.n_used < level.players.size)
 	{
 		var_a9352214 waittill("trigger", e_who);
 		if(!(isdefined(e_who.var_a0a9409e) && e_who.var_a0a9409e))
 		{
-			var_a9352214.var_9469fd43++;
+			var_a9352214.n_used++;
 			dragon::dragon_boss_intro_init();
 			e_who.var_a0a9409e = 1;
 			e_who thread zm_stalingrad_util::function_5eeabbe0(var_47ee7db6, nd_path_start, undefined, "player_enter_boss_arena");
