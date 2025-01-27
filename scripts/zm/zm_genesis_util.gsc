@@ -1998,7 +1998,7 @@ function function_bb26d959(var_e4342d5d)
 			level flag::set("electricity_rq_done");
 			str_text = "ELECTRICITY RUNE";
 			str_tag_name = "electricity";
-			var_198c807f = 10;
+			n_x_pos = 10;
 			n_y_pos = 200;
 			break;
 		}
@@ -2007,7 +2007,7 @@ function function_bb26d959(var_e4342d5d)
 			level flag::set("fire_rq_done");
 			str_text = "FIRE RUNE";
 			str_tag_name = "fire";
-			var_198c807f = 10;
+			n_x_pos = 10;
 			n_y_pos = 220;
 			break;
 		}
@@ -2016,7 +2016,7 @@ function function_bb26d959(var_e4342d5d)
 			level flag::set("light_rq_done");
 			str_text = "LIGHT RUNE";
 			str_tag_name = "light";
-			var_198c807f = 10;
+			n_x_pos = 10;
 			n_y_pos = 240;
 			break;
 		}
@@ -2025,7 +2025,7 @@ function function_bb26d959(var_e4342d5d)
 			level flag::set("shadow_rq_done");
 			str_text = "SHADOW RUNE";
 			str_tag_name = "shadow";
-			var_198c807f = 10;
+			n_x_pos = 10;
 			n_y_pos = 260;
 			break;
 		}
