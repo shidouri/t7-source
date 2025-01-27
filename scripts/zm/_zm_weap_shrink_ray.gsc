@@ -371,8 +371,8 @@ function shrink_zombie(upgraded, attacker)
 			{
 				model = self getattachmodelname(i);
 				tag = self getattachtagname(i);
-				var_4f32ff14 = isdefined(self.hatmodel) && self.hatmodel == model;
-				if(var_4f32ff14)
+				ishat = isdefined(self.hatmodel) && self.hatmodel == model;
+				if(ishat)
 				{
 					self.hatmodel = undefined;
 				}
@@ -383,7 +383,7 @@ function shrink_zombie(upgraded, attacker)
 				if(isdefined(var_89a773f5))
 				{
 					self attach(var_89a773f5);
-					if(var_4f32ff14)
+					if(ishat)
 					{
 						self.hatmodel = var_89a773f5;
 					}
