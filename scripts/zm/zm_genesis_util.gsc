@@ -2272,10 +2272,10 @@ function watch_for_open_sesame()
 	/#
 		level waittill("open_sesame");
 		var_2bbbcbec = getentarray("", "");
-		foreach(var_a816c58c in var_2bbbcbec)
+		foreach(e_power in var_2bbbcbec)
 		{
-			var_a816c58c.var_98e1d15 = 1;
-			var_7e0a45c8 = var_a816c58c.script_int;
+			e_power.var_98e1d15 = 1;
+			var_7e0a45c8 = e_power.script_int;
 			level thread zm_power::turn_power_on_and_open_doors(var_7e0a45c8);
 		}
 		zm_zonemgr::enable_zone("");
@@ -3453,12 +3453,12 @@ function function_712a86f4(var_7e0a45c8)
 {
 	/#
 		var_2bbbcbec = getentarray("", "");
-		foreach(var_a816c58c in var_2bbbcbec)
+		foreach(e_power in var_2bbbcbec)
 		{
-			if(var_a816c58c.script_int == var_7e0a45c8)
+			if(e_power.script_int == var_7e0a45c8)
 			{
-				var_a816c58c.var_98e1d15 = 1;
-				var_7e0a45c8 = var_a816c58c.script_int;
+				e_power.var_98e1d15 = 1;
+				var_7e0a45c8 = e_power.script_int;
 				level thread zm_power::turn_power_on_and_open_doors(var_7e0a45c8);
 			}
 		}
