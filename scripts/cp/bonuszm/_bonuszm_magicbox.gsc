@@ -122,7 +122,7 @@ class class_dafbfd8e
 	*/
 	function function_f555c05b()
 	{
-		weaponinfo = namespace_fdfaa57d::function_1e2e0936(1);
+		weaponinfo = bonuszmdrops::function_1e2e0936(1);
 		return weaponinfo;
 	}
 
@@ -188,7 +188,7 @@ class class_dafbfd8e
 		/#
 			assert(isdefined(weaponinfo));
 		#/
-		e_player namespace_fdfaa57d::function_43128d49(weaponinfo, 0);
+		e_player bonuszmdrops::function_43128d49(weaponinfo, 0);
 		var_7983c848 notify(#"hash_1285c563");
 		e_player unlink();
 	}

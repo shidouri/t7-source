@@ -2066,7 +2066,7 @@ function zombie_death_event(zombie)
 		}
 		zombie clientfield::set("arch_actor_fire_fx", 3);
 	}
-	zombie thread namespace_fdfaa57d::function_b67e03f7();
+	zombie thread bonuszmdrops::function_b67e03f7();
 	if(isdefined(zombie.attacker) && isplayer(zombie.attacker))
 	{
 		zombie.attacker notify("zom_kill", zombie);

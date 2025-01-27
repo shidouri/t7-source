@@ -52,11 +52,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\weapons_shared;
 
-#namespace namespace_fdfaa57d;
+#namespace bonuszmdrops;
 
 /*
 	Name: main
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x883DA939
 	Offset: 0xB18
 	Size: 0x6C
@@ -78,7 +78,7 @@ function autoexec main()
 
 /*
 	Name: init
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x99EC1590
 	Offset: 0xB90
 	Size: 0x4
@@ -91,7 +91,7 @@ function init()
 
 /*
 	Name: function_b67e03f7
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xBF20C473
 	Offset: 0xBA0
 	Size: 0xAC4
@@ -293,7 +293,7 @@ function function_b67e03f7()
 
 /*
 	Name: function_95409c5
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x9B0A1083
 	Offset: 0x1670
 	Size: 0x220
@@ -341,7 +341,7 @@ function function_95409c5(str_model, v_model_origin, v_offset = (0, 0, 0), weapo
 
 /*
 	Name: function_fe2b609e
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x1ECE3C49
 	Offset: 0x1898
 	Size: 0x194
@@ -385,7 +385,7 @@ function function_fe2b609e(v_moveto_pos, str_model, upgraded, var_b8419776 = 0)
 
 /*
 	Name: function_58f94c40
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xA3D9B648
 	Offset: 0x1A38
 	Size: 0x34
@@ -400,7 +400,7 @@ function function_58f94c40()
 
 /*
 	Name: function_8036f40b
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xCD0FCAD6
 	Offset: 0x1A78
 	Size: 0x8E
@@ -428,7 +428,7 @@ function function_8036f40b()
 
 /*
 	Name: function_b050d188
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x4B0F56CB
 	Offset: 0x1B10
 	Size: 0x1BE
@@ -488,7 +488,7 @@ function function_b050d188()
 
 /*
 	Name: function_d7f5b3c2
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x2071F10A
 	Offset: 0x1CD8
 	Size: 0x14A
@@ -511,7 +511,7 @@ function function_d7f5b3c2(facee)
 
 /*
 	Name: function_6b3c34cc
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x498F8CE2
 	Offset: 0x1E30
 	Size: 0x256
@@ -555,7 +555,7 @@ function function_6b3c34cc(var_638b7f73, str_identifier, str_bonus)
 
 /*
 	Name: function_cf8cea5f
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x7120F25D
 	Offset: 0x2090
 	Size: 0x9C
@@ -583,7 +583,7 @@ function function_cf8cea5f(n_delay = 0.1)
 
 /*
 	Name: function_13d6da78
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xE14F88F5
 	Offset: 0x2138
 	Size: 0xAC
@@ -605,7 +605,7 @@ function function_13d6da78()
 
 /*
 	Name: function_da35c458
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xD2A54C73
 	Offset: 0x21F0
 	Size: 0x16E
@@ -668,7 +668,7 @@ function function_da35c458(str_bonus, var_638b7f73)
 
 /*
 	Name: function_be188509
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xB82755B2
 	Offset: 0x2368
 	Size: 0x258
@@ -707,7 +707,7 @@ function private function_be188509()
 
 /*
 	Name: function_94c35cf8
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xEEA78996
 	Offset: 0x25C8
 	Size: 0x94
@@ -725,7 +725,7 @@ function function_94c35cf8()
 
 /*
 	Name: function_2beeb3b3
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x7CFE6E45
 	Offset: 0x2668
 	Size: 0x284
@@ -772,7 +772,7 @@ function function_2beeb3b3(upgraded)
 
 /*
 	Name: function_8435cfdc
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xF4A6AF22
 	Offset: 0x28F8
 	Size: 0xB6
@@ -805,7 +805,7 @@ function private function_8435cfdc(var_b5725157, upgraded)
 
 /*
 	Name: function_1c087aac
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x71515410
 	Offset: 0x29B8
 	Size: 0x172
@@ -842,7 +842,7 @@ function private function_1c087aac(upgraded)
 
 /*
 	Name: function_2d73d3d9
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x8709EAB1
 	Offset: 0x2B38
 	Size: 0x16A
@@ -880,7 +880,7 @@ function private function_2d73d3d9(upgraded)
 
 /*
 	Name: bzmoncybercomoncallback
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xCE4EA774
 	Offset: 0x2CB0
 	Size: 0x60
@@ -901,7 +901,7 @@ function private bzmoncybercomoncallback(player)
 
 /*
 	Name: give_max_ammo
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xD1A15789
 	Offset: 0x2D18
 	Size: 0xDA
@@ -920,7 +920,7 @@ function give_max_ammo()
 
 /*
 	Name: function_4827a249
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x420157FA
 	Offset: 0x2E00
 	Size: 0x148
@@ -942,7 +942,7 @@ function function_4827a249()
 
 /*
 	Name: function_4035ce17
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xAF1FE8B0
 	Offset: 0x2F50
 	Size: 0x54
@@ -959,7 +959,7 @@ function function_4035ce17(var_638b7f73)
 
 /*
 	Name: function_f3239cd2
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x20094B06
 	Offset: 0x2FB0
 	Size: 0x1C
@@ -973,7 +973,7 @@ function function_f3239cd2()
 
 /*
 	Name: function_4759fbcb
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xCEACB534
 	Offset: 0x2FD8
 	Size: 0xA0
@@ -996,7 +996,7 @@ function function_4759fbcb()
 
 /*
 	Name: function_ac97a368
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x5D74205C
 	Offset: 0x3080
 	Size: 0x76
@@ -1018,7 +1018,7 @@ function function_ac97a368()
 
 /*
 	Name: function_9c4468cc
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x7B4B67B9
 	Offset: 0x3100
 	Size: 0x8A
@@ -1039,7 +1039,7 @@ function function_9c4468cc()
 
 /*
 	Name: function_5fcda3a0
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x5E7797FD
 	Offset: 0x3198
 	Size: 0x22
@@ -1057,7 +1057,7 @@ function function_5fcda3a0()
 
 /*
 	Name: function_c54347ed
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x420EEFFA
 	Offset: 0x31C8
 	Size: 0x2C
@@ -1075,7 +1075,7 @@ function function_c54347ed()
 
 /*
 	Name: function_eb0b4e74
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xEB69098C
 	Offset: 0x3200
 	Size: 0x6C
@@ -1095,7 +1095,7 @@ function function_eb0b4e74()
 
 /*
 	Name: function_3dce4e74
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x3229D65C
 	Offset: 0x3278
 	Size: 0x302
@@ -1139,7 +1139,7 @@ function function_3dce4e74()
 
 /*
 	Name: function_1dfabdfa
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x906413B4
 	Offset: 0x3588
 	Size: 0x1B0
@@ -1176,7 +1176,7 @@ function function_1dfabdfa()
 
 /*
 	Name: function_2a5eb705
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x85EA0738
 	Offset: 0x3740
 	Size: 0x136

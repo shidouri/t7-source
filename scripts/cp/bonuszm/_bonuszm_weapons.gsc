@@ -35,11 +35,11 @@ class class_a17e6f03
 
 }
 
-#namespace namespace_fdfaa57d;
+#namespace bonuszmdrops;
 
 /*
 	Name: function_58d5283a
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x30387A33
 	Offset: 0x248
 	Size: 0x154
@@ -69,7 +69,7 @@ function autoexec function_58d5283a()
 
 /*
 	Name: function_549c28ac
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x9597F221
 	Offset: 0x3A8
 	Size: 0x24E
@@ -110,7 +110,7 @@ function function_549c28ac(var_6a173bd1)
 
 /*
 	Name: function_1e2e0936
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x97A564D
 	Offset: 0x600
 	Size: 0xEA
@@ -135,7 +135,7 @@ function function_1e2e0936(var_1010f96a = 0)
 
 /*
 	Name: function_53200e4d
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x93E48692
 	Offset: 0x6F8
 	Size: 0x890
@@ -250,7 +250,7 @@ function function_53200e4d(var_1010f96a)
 
 /*
 	Name: function_43128d49
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xE01C7CC
 	Offset: 0xF90
 	Size: 0x48C
@@ -332,7 +332,7 @@ function function_43128d49(weaponinfo, var_fe7b5ca3 = 1)
 
 /*
 	Name: function_7e774306
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xA9502087
 	Offset: 0x1428
 	Size: 0x156
@@ -359,7 +359,7 @@ function function_7e774306()
 
 /*
 	Name: function_be94c003
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x639C1FBF
 	Offset: 0x1588
 	Size: 0x94
@@ -382,7 +382,7 @@ function function_be94c003()
 
 /*
 	Name: function_d5efb07f
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0x5600CDC8
 	Offset: 0x1628
 	Size: 0x7C
@@ -403,7 +403,7 @@ function function_d5efb07f()
 
 /*
 	Name: function_132d9eee
-	Namespace: namespace_fdfaa57d
+	Namespace: bonuszmdrops
 	Checksum: 0xEC9D94B6
 	Offset: 0x16B0
 	Size: 0x174
