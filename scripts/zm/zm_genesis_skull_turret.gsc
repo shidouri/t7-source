@@ -724,9 +724,9 @@ function function_7fd518ea()
 	}
 	foreach(var_9d1acd49 in var_8ddaf045)
 	{
-		var_40ff3b03 = util::spawn_model("p7_zm_ctl_crystal", var_9d1acd49.origin, var_9d1acd49.angles);
-		var_40ff3b03 setscale(2);
-		var_40ff3b03 thread function_13eaa39c();
+		e_decoy = util::spawn_model("p7_zm_ctl_crystal", var_9d1acd49.origin, var_9d1acd49.angles);
+		e_decoy setscale(2);
+		e_decoy thread function_13eaa39c();
 	}
 }
 
