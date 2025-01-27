@@ -533,8 +533,8 @@ function function_1e4094ac(v_position, var_d24bfa82)
 	v_pos = getclosestpointonnavmesh(v_position, 80);
 	if(isdefined(v_pos))
 	{
-		var_31678178 = util::spawn_model("tag_origin", v_pos);
-		var_31678178 endon("death");
+		e_plant = util::spawn_model("tag_origin", v_pos);
+		e_plant endon("death");
 		if(self hasweapon(level.w_mirg2000_up))
 		{
 			var_a00b8053 = var_d24bfa82 + 1;
@@ -543,13 +543,13 @@ function function_1e4094ac(v_position, var_d24bfa82)
 		{
 			var_a00b8053 = var_d24bfa82 - 1;
 		}
-		var_31678178 clientfield::set("plant_killer", var_a00b8053);
-		var_31678178 thread function_3604c7ec(self);
-		self thread function_d3b8fbb0(v_pos, var_31678178);
-		var_31678178 waittill(#"hash_2b1c6c7");
-		var_31678178 clientfield::set("plant_killer", 0);
+		e_plant clientfield::set("plant_killer", var_a00b8053);
+		e_plant thread function_3604c7ec(self);
+		self thread function_d3b8fbb0(v_pos, e_plant);
+		e_plant waittill(#"hash_2b1c6c7");
+		e_plant clientfield::set("plant_killer", 0);
 		wait(0.1);
-		var_31678178 delete();
+		e_plant delete();
 	}
 }
 
@@ -588,20 +588,20 @@ function function_3604c7ec(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d3b8fbb0(v_pos, var_31678178)
+function function_d3b8fbb0(v_pos, e_plant)
 {
 	self endon("disconnect");
-	var_31678178 endon(#"hash_2b1c6c7");
+	e_plant endon(#"hash_2b1c6c7");
 	n_kills = 0;
 	n_range_sq = self function_a1fce678(1);
 	w_current_weapon = self getcurrentweapon();
 	if(is_wonder_weapon(w_current_weapon, "upgraded"))
 	{
-		var_31678178.n_kills = 9;
+		e_plant.n_kills = 9;
 	}
 	else
 	{
-		var_31678178.n_kills = 6;
+		e_plant.n_kills = 6;
 	}
 	while(true)
 	{
@@ -614,9 +614,9 @@ function function_d3b8fbb0(v_pos, var_31678178)
 				{
 					self thread function_79504f13(ai_zombie, v_pos);
 					n_kills++;
-					if(n_kills >= var_31678178.n_kills)
+					if(n_kills >= e_plant.n_kills)
 					{
-						var_31678178 notify(#"hash_2b1c6c7");
+						e_plant notify(#"hash_2b1c6c7");
 					}
 					if(!(isdefined(ai_zombie.var_61f7b3a0) && ai_zombie.var_61f7b3a0) && (!(isdefined(ai_zombie.b_is_spider) && ai_zombie.b_is_spider)))
 					{

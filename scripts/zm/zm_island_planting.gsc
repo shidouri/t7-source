@@ -2275,25 +2275,25 @@ function function_32c5773c(var_d0aaf7a2, var_121609e)
 function function_9e124689(a_ents)
 {
 	e_target = a_ents["zombie"];
-	var_31678178 = a_ents["plant_trap"];
-	var_31678178 flag::set("trap_plant_attacking");
-	var_31678178 util::waittill_any("spawn_head", "plant_melee");
+	e_plant = a_ents["plant_trap"];
+	e_plant flag::set("trap_plant_attacking");
+	e_plant util::waittill_any("spawn_head", "plant_melee");
 	if(isalive(e_target))
 	{
 		self thread function_e6f615b3(e_target);
 		var_fdbb0645 = e_target.head + "_prop";
 		gibserverutils::gibhead(e_target);
 		e_target dodamage(e_target.health, e_target.origin);
-		v_org = var_31678178 gettagorigin("tag_plant_grab");
-		v_angles = var_31678178 gettagangles("tag_plant_grab");
+		v_org = e_plant gettagorigin("tag_plant_grab");
+		v_angles = e_plant gettagangles("tag_plant_grab");
 		var_c40b12dc = util::spawn_model(var_fdbb0645, v_org, v_angles);
-		var_c40b12dc linkto(var_31678178, "tag_plant_grab");
-		var_31678178 waittill(#"hash_af56254a");
+		var_c40b12dc linkto(e_plant, "tag_plant_grab");
+		e_plant waittill(#"hash_af56254a");
 		var_c40b12dc delete();
 	}
-	var_31678178 waittill(#"hash_350a84f");
-	var_31678178 flag::clear("trap_plant_attacking");
-	var_31678178 notify(#"hash_4ce89178");
+	e_plant waittill(#"hash_350a84f");
+	e_plant flag::clear("trap_plant_attacking");
+	e_plant notify(#"hash_4ce89178");
 }
 
 /*
@@ -2308,17 +2308,17 @@ function function_9e124689(a_ents)
 function function_b1a9e247(a_ents)
 {
 	e_target = a_ents["spider"];
-	var_31678178 = a_ents["plant_trap"];
-	var_31678178 flag::set("trap_plant_attacking");
-	var_31678178 waittill("spawn_head");
+	e_plant = a_ents["plant_trap"];
+	e_plant flag::set("trap_plant_attacking");
+	e_plant waittill("spawn_head");
 	if(isalive(e_target))
 	{
 		self thread function_e6f615b3(e_target);
 		e_target dodamage(e_target.health, e_target.origin);
 	}
-	var_31678178 waittill(#"hash_350a84f");
-	var_31678178 flag::clear("trap_plant_attacking");
-	var_31678178 notify(#"hash_4ce89178");
+	e_plant waittill(#"hash_350a84f");
+	e_plant flag::clear("trap_plant_attacking");
+	e_plant notify(#"hash_4ce89178");
 }
 
 /*
