@@ -8,11 +8,11 @@
 #using scripts\shared\array_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_3530eac4;
+#namespace _bonuszm_biodomes1;
 
 /*
 	Name: init
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0x2E0D034F
 	Offset: 0x768
 	Size: 0x1BC
@@ -48,7 +48,7 @@ function autoexec init()
 
 /*
 	Name: function_f0d84c78
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xDAE52221
 	Offset: 0x930
 	Size: 0x1B2
@@ -79,7 +79,7 @@ function function_f0d84c78()
 
 /*
 	Name: function_30d5fd50
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0x71D3EA7E
 	Offset: 0xAF0
 	Size: 0x1C4
@@ -116,7 +116,7 @@ function function_30d5fd50()
 
 /*
 	Name: function_a2dd6c8b
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xAA6C1A73
 	Offset: 0xCC0
 	Size: 0x84
@@ -137,7 +137,7 @@ function function_a2dd6c8b()
 
 /*
 	Name: function_8d77af70
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0x263ABB85
 	Offset: 0xD50
 	Size: 0x24
@@ -152,7 +152,7 @@ function function_8d77af70()
 
 /*
 	Name: function_b37a29d9
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0x130A7D84
 	Offset: 0xD80
 	Size: 0x24
@@ -167,7 +167,7 @@ function function_b37a29d9()
 
 /*
 	Name: function_71868de6
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xD74C61E5
 	Offset: 0xDB0
 	Size: 0x2C
@@ -183,7 +183,7 @@ function function_71868de6()
 
 /*
 	Name: function_7cdaf222
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xED9724CE
 	Offset: 0xDE8
 	Size: 0x16C
@@ -217,7 +217,7 @@ function function_7cdaf222()
 
 /*
 	Name: function_eee2615d
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0x25E625FB
 	Offset: 0xF60
 	Size: 0x3C
@@ -233,7 +233,7 @@ function function_eee2615d()
 
 /*
 	Name: function_c8dfe6f4
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xF224F8A2
 	Offset: 0xFA8
 	Size: 0x2C
@@ -249,7 +249,7 @@ function function_c8dfe6f4()
 
 /*
 	Name: function_ed187ea8
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xDD0A70BE
 	Offset: 0xFE0
 	Size: 0x6C
@@ -269,7 +269,7 @@ function function_ed187ea8()
 
 /*
 	Name: function_5f1fede3
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xD5FF2968
 	Offset: 0x1058
 	Size: 0x44
@@ -286,7 +286,7 @@ function function_5f1fede3()
 
 /*
 	Name: function_391d737a
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xA6ED8C8
 	Offset: 0x10A8
 	Size: 0x44
@@ -303,7 +303,7 @@ function function_391d737a()
 
 /*
 	Name: function_ab24e2b5
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0xB7503599
 	Offset: 0x10F8
 	Size: 0xBC
@@ -327,7 +327,7 @@ function function_ab24e2b5()
 
 /*
 	Name: function_3ae7562f
-	Namespace: namespace_3530eac4
+	Namespace: _bonuszm_biodomes1
 	Checksum: 0x6EBF487F
 	Offset: 0x11C0
 	Size: 0xE
