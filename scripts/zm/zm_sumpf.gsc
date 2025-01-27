@@ -1083,11 +1083,11 @@ function function_22476936()
 			iprintln("");
 			wait(12);
 		}
-		var_307510ba = level.round_number + 1;
-		level.next_dog_round = var_307510ba;
-		iprintln("" + var_307510ba);
-		zm_devgui::zombie_devgui_goto_round(var_307510ba);
-		iprintln("" + var_307510ba);
+		n_next_round = level.round_number + 1;
+		level.next_dog_round = n_next_round;
+		iprintln("" + n_next_round);
+		zm_devgui::zombie_devgui_goto_round(n_next_round);
+		iprintln("" + n_next_round);
 	#/
 }
 

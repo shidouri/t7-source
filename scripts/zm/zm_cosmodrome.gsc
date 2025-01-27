@@ -1398,10 +1398,10 @@ function function_797b2641()
 		}
 		level flag::wait_till("");
 		wait(0.05);
-		var_307510ba = level.round_number + 1;
-		iprintln("" + var_307510ba);
-		level.next_monkey_round = var_307510ba;
-		zm_devgui::zombie_devgui_goto_round(var_307510ba);
+		n_next_round = level.round_number + 1;
+		iprintln("" + n_next_round);
+		level.next_monkey_round = n_next_round;
+		zm_devgui::zombie_devgui_goto_round(n_next_round);
 	#/
 }
 
