@@ -5,3 +5,4 @@ doa_vehicle
 trucksoccer_rally_complete
 doa_hazard
 blood_riser_spawner
+cp_doa_bo3_sound
