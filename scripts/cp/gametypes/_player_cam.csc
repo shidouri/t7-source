@@ -114,7 +114,7 @@ function player_cam_fire(localclientnum, oldval, newval, bnewent, binitialsnap, 
 	}
 	else
 	{
-		function_7a5c3cf3();
+		burn_off_postfx();
 	}
 }
 
@@ -135,7 +135,7 @@ function burn_on_postfx()
 }
 
 /*
-	Name: function_7a5c3cf3
+	Name: burn_off_postfx
 	Namespace: namespace_5f11fb0b
 	Checksum: 0x536F65D4
 	Offset: 0x658
@@ -143,7 +143,7 @@ function burn_on_postfx()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7a5c3cf3()
+function burn_off_postfx()
 {
 	self notify(#"hash_bdb63a72");
 	self postfx::stoppostfxbundle();
