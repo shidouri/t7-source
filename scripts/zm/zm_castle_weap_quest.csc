@@ -767,10 +767,10 @@ function function_4e75b7c1(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		exploder::stop_exploder("lgt_bow_family");
 	}
-	var_14ea0734 = struct::get("base_bow_pickup_struct", "targetname");
-	if(isdefined(var_14ea0734))
+	s_bow_pickup = struct::get("base_bow_pickup_struct", "targetname");
+	if(isdefined(s_bow_pickup))
 	{
-		playfx(localclientnum, level._effect["bow_spawn_fx"], var_14ea0734.origin);
+		playfx(localclientnum, level._effect["bow_spawn_fx"], s_bow_pickup.origin);
 	}
 }
 

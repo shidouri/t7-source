@@ -498,11 +498,11 @@ function function_a01a53de()
 		}
 		level flag::set("");
 	#/
-	var_14ea0734 = struct::get("base_bow_pickup_struct", "targetname");
+	s_bow_pickup = struct::get("base_bow_pickup_struct", "targetname");
 	level thread scene::play("p7_fxanim_zm_castle_quest_base_bow_idle_bundle");
 	wait(0.25);
 	level.var_15acc392 = getent("base_bow_pickup", "targetname");
-	var_14ea0734 function_bb60c970();
+	s_bow_pickup function_bb60c970();
 	array::thread_all(level.players, &function_9376cff9);
 	callback::on_connect(&function_c9cdf051);
 	var_65a03676 = array("rune_prison_spawned", "demon_gate_spawned", "elemental_storm_spawned", "wolf_howl_spawned", "ee_start_done");
@@ -514,7 +514,7 @@ function function_a01a53de()
 	}
 	level scene::stop("p7_fxanim_zm_castle_quest_base_bow_idle_bundle");
 	callback::remove_on_connect(&function_c9cdf051);
-	zm_unitrigger::unregister_unitrigger(var_14ea0734.var_67b5dd94);
+	zm_unitrigger::unregister_unitrigger(s_bow_pickup.var_67b5dd94);
 	wait(5);
 	level thread struct::delete_script_bundle("scene", "p7_fxanim_zm_castle_quest_base_bow_idle_bundle");
 }
@@ -533,7 +533,7 @@ function function_9376cff9()
 	self endon("death");
 	level endon(#"hash_1deaef05");
 	self clientfield::set_to_player("bow_pickup_fx", 1);
-	var_14ea0734 = struct::get("base_bow_pickup_struct", "targetname");
+	s_bow_pickup = struct::get("base_bow_pickup_struct", "targetname");
 	while(true)
 	{
 		self util::waittill_either("weapon_change", "show_base_bow");
@@ -553,7 +553,7 @@ function function_9376cff9()
 			}
 			self clientfield::set_to_player("bow_pickup_fx", 0);
 		}
-		var_14ea0734.var_67b5dd94 thread zm_unitrigger::run_visibility_function_for_all_triggers();
+		s_bow_pickup.var_67b5dd94 thread zm_unitrigger::run_visibility_function_for_all_triggers();
 	}
 }
 
