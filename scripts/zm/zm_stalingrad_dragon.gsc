@@ -1777,7 +1777,7 @@ function function_bd21006c(player)
 		}
 		case 3:
 		{
-			if(player.var_e7d196cc === "dragon_wings")
+			if(player.str_wearable === "dragon_wings")
 			{
 				var_d2b5a43f = 0;
 			}
@@ -1862,7 +1862,7 @@ function function_8b508a1b()
 			{
 				self.stub.related_parent notify(#"hash_9c0a67f3", player);
 				player clientfield::increment_to_player("interact_rumble");
-				if(player.var_e7d196cc !== "dragon_wings")
+				if(player.str_wearable !== "dragon_wings")
 				{
 					player zm_score::minus_to_player_score(500);
 				}

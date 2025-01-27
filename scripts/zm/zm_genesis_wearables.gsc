@@ -570,7 +570,7 @@ function function_b8449f8c(var_5a533244)
 	Parameters: 3
 	Flags: Linked
 */
-function function_edd475ab(var_dd087d43, var_33c3e058, var_e7d196cc)
+function function_edd475ab(var_dd087d43, var_33c3e058, str_wearable)
 {
 	self endon("disconnect");
 	self endon(#"hash_baf651e0");
@@ -596,7 +596,7 @@ function function_edd475ab(var_dd087d43, var_33c3e058, var_e7d196cc)
 			var_fce7f186++;
 			if(var_fce7f186 >= var_dd087d43)
 			{
-				switch(var_e7d196cc)
+				switch(str_wearable)
 				{
 					case "c_zom_dlc4_player_siegfried_helmet":
 					{
