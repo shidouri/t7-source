@@ -4239,14 +4239,14 @@ function function_d47c68fb()
 */
 function function_a9e72613()
 {
-	var_af81398 = getent("ee_sewer_hatch_trig", "targetname");
+	t_hatch = getent("ee_sewer_hatch_trig", "targetname");
 	while(true)
 	{
-		if(var_af81398 function_2b042a95())
+		if(t_hatch function_2b042a95())
 		{
 			n_end_time = gettime() + (1 * 1000);
 			wait(0.25);
-			while(var_af81398 function_2b042a95())
+			while(t_hatch function_2b042a95())
 			{
 				if(gettime() >= n_end_time)
 				{
@@ -4261,7 +4261,7 @@ function function_a9e72613()
 					}
 					wait(0.25);
 					self notsolid();
-					var_af81398 delete();
+					t_hatch delete();
 					return;
 				}
 				wait(0.25);
@@ -4305,12 +4305,12 @@ function function_2b042a95()
 	Parameters: 1
 	Flags: Linked
 */
-function function_61f148a5(var_af81398)
+function function_61f148a5(t_hatch)
 {
 	self endon("death");
 	self.var_35ea5b31 = 1;
 	self clientfield::set_to_player("ee_hatch_strain_rumble", 1);
-	while(isdefined(var_af81398) && self istouching(var_af81398))
+	while(isdefined(t_hatch) && self istouching(t_hatch))
 	{
 		wait(0.4);
 	}
