@@ -2,11 +2,11 @@
 #using scripts\codescripts\struct;
 #using scripts\shared\fx_shared;
 
-#namespace namespace_d22f7529;
+#namespace mp_biodome_fx;
 
 /*
 	Name: main
-	Namespace: namespace_d22f7529
+	Namespace: mp_biodome_fx
 	Checksum: 0x99EC1590
 	Offset: 0xB0
 	Size: 0x4

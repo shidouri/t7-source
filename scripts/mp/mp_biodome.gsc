@@ -23,7 +23,7 @@ function main()
 {
 	precache();
 	setdvar("phys_buoyancy", 1);
-	namespace_d22f7529::main();
+	mp_biodome_fx::main();
 	mp_biodome_sound::main();
 	level.remotemissile_kill_z = -130 + 50;
 	load::main();

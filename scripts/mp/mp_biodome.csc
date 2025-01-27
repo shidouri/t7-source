@@ -19,7 +19,7 @@
 */
 function main()
 {
-	namespace_d22f7529::main();
+	mp_biodome_fx::main();
 	mp_biodome_sound::main();
 	load::main();
 	level.domflagbasefxoverride = &dom_flag_base_fx_override;
