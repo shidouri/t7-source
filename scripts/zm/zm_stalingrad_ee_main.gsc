@@ -2699,15 +2699,15 @@ function function_ceeaf112()
 		level endon(#"hash_9546144d");
 	#/
 	level endon("ee_kite_failed");
-	var_f80d6608 = getent("ee_raz_capture", "targetname");
+	t_capture = getent("ee_raz_capture", "targetname");
 	while(true)
 	{
-		var_f80d6608 waittill("trigger", e_who);
+		t_capture waittill("trigger", e_who);
 		if(e_who == self)
 		{
 			self clearforcedgoal();
 			self ai::set_ignoreall(1);
-			var_f80d6608 delete();
+			t_capture delete();
 			s_capture_point = struct::get("ee_capture_point", "targetname");
 			self setgoal(s_capture_point.origin);
 			var_c1fbdc10 = util::spawn_model("tag_origin", s_capture_point.origin);
