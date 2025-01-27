@@ -8,11 +8,11 @@
 #using scripts\shared\flag_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_fc7d2b5e;
+#namespace _bonuszm_sgen;
 
 /*
 	Name: init
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x935EB484
 	Offset: 0x770
 	Size: 0x21C
@@ -52,7 +52,7 @@ function autoexec init()
 
 /*
 	Name: function_1304b9f1
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x14FAF505
 	Offset: 0x998
 	Size: 0x2C
@@ -68,7 +68,7 @@ function function_1304b9f1()
 
 /*
 	Name: function_4a08b9b5
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x7E8D92B8
 	Offset: 0x9D0
 	Size: 0x94
@@ -91,7 +91,7 @@ function function_4a08b9b5()
 
 /*
 	Name: function_700b341e
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0xE9780942
 	Offset: 0xA70
 	Size: 0x4C
@@ -109,7 +109,7 @@ function function_700b341e()
 
 /*
 	Name: function_960dae87
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x71353B29
 	Offset: 0xAC8
 	Size: 0x84
@@ -129,7 +129,7 @@ function function_960dae87()
 
 /*
 	Name: function_1dfa8915
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x21F8FA93
 	Offset: 0xB58
 	Size: 0x24
@@ -143,7 +143,7 @@ function function_1dfa8915()
 
 /*
 	Name: function_3907345a
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x9115DE93
 	Offset: 0xB88
 	Size: 0x7C
@@ -162,7 +162,7 @@ function function_3907345a()
 
 /*
 	Name: function_7752cc92
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x93F90A7
 	Offset: 0xC10
 	Size: 0x2C
@@ -178,7 +178,7 @@ function function_7752cc92()
 
 /*
 	Name: function_5f09aec3
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0xFDB19684
 	Offset: 0xC48
 	Size: 0x2C
@@ -194,7 +194,7 @@ function function_5f09aec3()
 
 /*
 	Name: function_850c292c
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x357EF152
 	Offset: 0xC80
 	Size: 0x24
@@ -209,7 +209,7 @@ function function_850c292c()
 
 /*
 	Name: function_1230a890
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x98285CEA
 	Offset: 0xCB0
 	Size: 0x44
@@ -226,7 +226,7 @@ function function_1230a890()
 
 /*
 	Name: function_ab0ea395
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0xFD779EEB
 	Offset: 0xD00
 	Size: 0xC4
@@ -249,7 +249,7 @@ function function_ab0ea395()
 
 /*
 	Name: function_d1111dfe
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0xD6A17071
 	Offset: 0xDD0
 	Size: 0x15C
@@ -283,7 +283,7 @@ function function_d1111dfe()
 
 /*
 	Name: function_f7139867
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0xC8CBE6FA
 	Offset: 0xF38
 	Size: 0x4C
@@ -300,7 +300,7 @@ function function_f7139867()
 
 /*
 	Name: function_bcee6c40
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x3385116B
 	Offset: 0xF90
 	Size: 0x124
@@ -331,7 +331,7 @@ function function_bcee6c40()
 
 /*
 	Name: function_549842dc
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0xC3EF78E3
 	Offset: 0x10C0
 	Size: 0x6C
@@ -351,7 +351,7 @@ function function_549842dc()
 
 /*
 	Name: function_c69fb217
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0xF4822D26
 	Offset: 0x1138
 	Size: 0x2C
@@ -367,7 +367,7 @@ function function_c69fb217()
 
 /*
 	Name: function_e2f0e6a9
-	Namespace: namespace_fc7d2b5e
+	Namespace: _bonuszm_sgen
 	Checksum: 0x89A450A7
 	Offset: 0x1170
 	Size: 0x74
