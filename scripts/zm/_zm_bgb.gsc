@@ -232,10 +232,10 @@ function private bgb_finalize()
 			level.bgb[keys[i]].consumable = 1;
 		}
 		level.bgb[keys[i]].camo_index = int(tablelookup(statstablename, 0, level.bgb[keys[i]].item_index, 5));
-		var_cf65a2c0 = tablelookup(statstablename, 0, level.bgb[keys[i]].item_index, 15);
-		if(issubstr(var_cf65a2c0, "dlc"))
+		str_dlc = tablelookup(statstablename, 0, level.bgb[keys[i]].item_index, 15);
+		if(issubstr(str_dlc, "dlc"))
 		{
-			level.bgb[keys[i]].dlc_index = int(var_cf65a2c0[3]);
+			level.bgb[keys[i]].dlc_index = int(str_dlc[3]);
 			continue;
 		}
 		level.bgb[keys[i]].dlc_index = 0;
