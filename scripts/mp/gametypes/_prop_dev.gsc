@@ -538,10 +538,10 @@ function debugaxis(origin, angles, size, alpha, depthtest, duration)
 	/#
 		axisx = anglestoforward(angles) * size;
 		axisy = anglestoright(angles) * size;
-		var_8d32b3a0 = anglestoup(angles) * size;
+		axisz = anglestoup(angles) * size;
 		line(origin, origin + axisx, (1, 0, 0), alpha, 0, duration);
 		line(origin, origin + axisy, (0, 1, 0), alpha, 0, duration);
-		line(origin, origin + var_8d32b3a0, (0, 0, 1), alpha, 0, duration);
+		line(origin, origin + axisz, (0, 0, 1), alpha, 0, duration);
 	#/
 }
 
