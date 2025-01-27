@@ -1826,9 +1826,9 @@ function function_edca6dc9()
 	Parameters: 3
 	Flags: Linked
 */
-function function_b19fc986(var_93447b81 = "positive", n_delay = 0, b_wait_if_busy = 0)
+function function_b19fc986(str_posneg = "positive", n_delay = 0, b_wait_if_busy = 0)
 {
-	if(var_93447b81 == "positive")
+	if(str_posneg == "positive")
 	{
 		str_suffix = "_generic_responses_positive_";
 		n_vo_index = function_5803cf05(3, self.var_4d38f64b);
