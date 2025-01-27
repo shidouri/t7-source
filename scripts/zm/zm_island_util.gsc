@@ -548,16 +548,16 @@ function function_3420bc2f(wpn_new)
 	Parameters: 4
 	Flags: Linked
 */
-function function_8faf1d24(v_color, var_8882142e, n_scale, str_endon)
+function function_8faf1d24(v_color, str_print, n_scale, str_endon)
 {
 	/#
 		if(!isdefined(v_color))
 		{
 			v_color = vectorscale((0, 0, 1), 255);
 		}
-		if(!isdefined(var_8882142e))
+		if(!isdefined(str_print))
 		{
-			var_8882142e = "";
+			str_print = "";
 		}
 		if(!isdefined(n_scale))
 		{
@@ -578,7 +578,7 @@ function function_8faf1d24(v_color, var_8882142e, n_scale, str_endon)
 		origin = self.origin;
 		while(true)
 		{
-			print3d(origin, var_8882142e, v_color, n_scale);
+			print3d(origin, str_print, v_color, n_scale);
 			wait(0.1);
 		}
 	#/

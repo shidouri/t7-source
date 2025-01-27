@@ -2313,7 +2313,7 @@ function function_5045e366()
 	Parameters: 4
 	Flags: Linked
 */
-function function_8faf1d24(v_color = vectorscale((0, 0, 1), 255), var_8882142e = "+", n_scale = 0.25, str_endon = "trigger_activated")
+function function_8faf1d24(v_color = vectorscale((0, 0, 1), 255), str_print = "+", n_scale = 0.25, str_endon = "trigger_activated")
 {
 	/#
 		if(getdvarint("") == 0)
@@ -2327,7 +2327,7 @@ function function_8faf1d24(v_color = vectorscale((0, 0, 1), 255), var_8882142e =
 		origin = self.origin;
 		while(true)
 		{
-			print3d(origin, var_8882142e, v_color, n_scale);
+			print3d(origin, str_print, v_color, n_scale);
 			wait(0.1);
 		}
 	#/
