@@ -286,12 +286,12 @@ function callback_vtol_highlight_ai(localclientnum, oldval, newval, bnewent, bin
 	{
 		case 0:
 		{
-			self thread namespace_68dfcbbe::enemy_highlight_display_stop(localclientnum);
+			self thread enemy_highlight::enemy_highlight_display_stop(localclientnum);
 			break;
 		}
 		case 1:
 		{
-			self thread namespace_68dfcbbe::enemy_highlight_display(localclientnum, "compassping_enemysatellite_diamond", 64, 1, 2, 1, "compassping_friendly");
+			self thread enemy_highlight::enemy_highlight_display(localclientnum, "compassping_enemysatellite_diamond", 64, 1, 2, 1, "compassping_friendly");
 			break;
 		}
 	}

@@ -4,11 +4,11 @@
 #using scripts\shared\clientfield_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_68dfcbbe;
+#namespace enemy_highlight;
 
 /*
 	Name: enemy_highlight_display
-	Namespace: namespace_68dfcbbe
+	Namespace: enemy_highlight
 	Checksum: 0xAF4B7203
 	Offset: 0x160
 	Size: 0xAC
@@ -25,7 +25,7 @@ function enemy_highlight_display(localclientnum, materialname, size, fovpercent,
 
 /*
 	Name: enemy_highlight_display_pulse
-	Namespace: namespace_68dfcbbe
+	Namespace: enemy_highlight
 	Checksum: 0x4DB856FE
 	Offset: 0x218
 	Size: 0x304
@@ -86,7 +86,7 @@ function enemy_highlight_display_pulse(localclientnum, actorsonly, allymaterialn
 
 /*
 	Name: enemy_highlight_display_frame
-	Namespace: namespace_68dfcbbe
+	Namespace: enemy_highlight
 	Checksum: 0xBD893A80
 	Offset: 0x528
 	Size: 0x964
@@ -222,7 +222,7 @@ function enemy_highlight_display_frame(localclientnum, materialname, size, fovpe
 
 /*
 	Name: enemy_highlight_display_stop
-	Namespace: namespace_68dfcbbe
+	Namespace: enemy_highlight
 	Checksum: 0x5CA34DA9
 	Offset: 0xE98
 	Size: 0xDA
@@ -247,7 +247,7 @@ function enemy_highlight_display_stop(localclientnum)
 
 /*
 	Name: create_target_indicator
-	Namespace: namespace_68dfcbbe
+	Namespace: enemy_highlight
 	Checksum: 0x24D1136B
 	Offset: 0xF80
 	Size: 0x1F8
