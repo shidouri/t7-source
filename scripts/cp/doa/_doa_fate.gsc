@@ -534,7 +534,7 @@ function function_d30f9791()
 	level thread function_fd0b8976(&"DOA_FATE_FORTUNE", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	if(self.doa.multiplier < 2)
 	{
-		self namespace_64c6b720::function_126dc996(2);
+		self doa_score::function_126dc996(2);
 	}
 }
 
@@ -604,7 +604,7 @@ function function_47b8a2a2()
 	level thread function_fd0b8976(&"DOA_FATE_FORTITUDE", 4, doa_player_utility::function_fea7ed75(self.entnum));
 	if(self.doa.multiplier < 3)
 	{
-		self namespace_64c6b720::function_126dc996(3);
+		self doa_score::function_126dc996(3);
 	}
 	self thread doa_shield::function_2016b381();
 	self thread doa_fx::function_285a2999("fate2_awarded");
@@ -1448,7 +1448,7 @@ function private function_c492e72d()
 					attacker.doa.var_eb1cd159 = 0;
 				}
 				attacker.doa.var_eb1cd159 = attacker.doa.var_eb1cd159 + damage;
-				attacker namespace_64c6b720::function_80eb303(int(damage * 0.25), 1);
+				attacker doa_score::function_80eb303(int(damage * 0.25), 1);
 			}
 		}
 		if(lasthealth > stage1 && self.health < stage1)

@@ -2415,7 +2415,7 @@ function private function_c0147a11()
 			level clientfield::set("pumpBannerBar", data);
 			if(isdefined(attacker) && isplayer(attacker))
 			{
-				attacker namespace_64c6b720::function_80eb303(int(damage * 0.25), 1);
+				attacker doa_score::function_80eb303(int(damage * 0.25), 1);
 			}
 			/#
 				doa_utility::debugmsg("" + self.health);

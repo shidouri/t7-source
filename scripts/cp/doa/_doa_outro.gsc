@@ -1113,7 +1113,7 @@ function function_4d8b6e1e()
 	}
 	for(i = 1; i < players.size; i++)
 	{
-		for(j = i; j > 0 && (int(players[j - 1] namespace_64c6b720::function_93ccc5da())) < int(players[j] namespace_64c6b720::function_93ccc5da()); j--)
+		for(j = i; j > 0 && (int(players[j - 1] doa_score::function_93ccc5da())) < int(players[j] doa_score::function_93ccc5da()); j--)
 		{
 			array::swap(players, j, j - 1);
 		}

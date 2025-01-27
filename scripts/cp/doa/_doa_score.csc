@@ -14,11 +14,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_64c6b720;
+#namespace doa_score;
 
 /*
 	Name: init
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xCD6B6813
 	Offset: 0x438
 	Size: 0x1BC
@@ -41,7 +41,7 @@ function init()
 
 /*
 	Name: function_6fa6dee2
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x3BBC555D
 	Offset: 0x600
 	Size: 0x9EC
@@ -114,7 +114,7 @@ function function_6fa6dee2()
 
 /*
 	Name: function_d3f117f9
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x1413355F
 	Offset: 0xFF8
 	Size: 0x1F8
@@ -158,7 +158,7 @@ function function_d3f117f9(doa, idx)
 
 /*
 	Name: function_e06716c7
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x6A1B22D2
 	Offset: 0x11F8
 	Size: 0x4A4
@@ -192,7 +192,7 @@ function function_e06716c7(doa, idx)
 
 /*
 	Name: function_cdb6d911
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x328408C6
 	Offset: 0x16A8
 	Size: 0x1EE
@@ -227,7 +227,7 @@ function function_cdb6d911()
 
 /*
 	Name: function_4d819138
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x11C2E5B8
 	Offset: 0x18A0
 	Size: 0x288
@@ -273,7 +273,7 @@ function function_4d819138()
 
 /*
 	Name: function_2c9a6a47
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x68482663
 	Offset: 0x1B30
 	Size: 0xA6E
@@ -371,7 +371,7 @@ function function_2c9a6a47()
 
 /*
 	Name: on_shutdown
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xAE7C7E1
 	Offset: 0x25A8
 	Size: 0x9C
@@ -394,7 +394,7 @@ function on_shutdown(localclientnum, ent)
 
 /*
 	Name: on_player_spawn
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x801C95EE
 	Offset: 0x2650
 	Size: 0x2C
@@ -408,7 +408,7 @@ function on_player_spawn(localclientnum)
 
 /*
 	Name: function_7fe5e3f4
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x82EEDF2C
 	Offset: 0x2688
 	Size: 0x48
@@ -422,7 +422,7 @@ function function_7fe5e3f4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e0f15ca4
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xA3B1FA89
 	Offset: 0x26D8
 	Size: 0x134
@@ -447,7 +447,7 @@ function function_e0f15ca4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_2db8b053
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x7436D51
 	Offset: 0x2818
 	Size: 0x8C
@@ -462,7 +462,7 @@ function function_2db8b053(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_b9397b2b
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x809A7227
 	Offset: 0x28B0
 	Size: 0x8C
@@ -477,7 +477,7 @@ function function_b9397b2b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_6ccafee6
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xF012797E
 	Offset: 0x2948
 	Size: 0x3C
@@ -490,7 +490,7 @@ function function_6ccafee6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_75319a37
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x2AC96C0B
 	Offset: 0x2990
 	Size: 0x7C
@@ -512,7 +512,7 @@ function function_75319a37(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_a08fe7c3
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xA0414CE1
 	Offset: 0x2A18
 	Size: 0x130
@@ -539,7 +539,7 @@ function function_a08fe7c3(totaltime)
 
 /*
 	Name: function_56dd76b
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xB31B4EEB
 	Offset: 0x2B50
 	Size: 0x1E0
@@ -571,7 +571,7 @@ function function_56dd76b(val)
 
 /*
 	Name: function_ecca2450
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x9B1ECB2C
 	Offset: 0x2D38
 	Size: 0x44

@@ -10,11 +10,11 @@
 #using scripts\shared\math_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_64c6b720;
+#namespace doa_score;
 
 /*
 	Name: init
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x99EC1590
 	Offset: 0x210
 	Size: 0x4
@@ -27,7 +27,7 @@ function init()
 
 /*
 	Name: function_acd89108
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x5F92D60B
 	Offset: 0x220
 	Size: 0x2E
@@ -43,7 +43,7 @@ function function_acd89108(note)
 
 /*
 	Name: function_7c5410c4
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x4BE88CD
 	Offset: 0x258
 	Size: 0xFE
@@ -67,7 +67,7 @@ function function_7c5410c4()
 
 /*
 	Name: function_92c929ab
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xCD67FF51
 	Offset: 0x360
 	Size: 0x32
@@ -82,7 +82,7 @@ function function_92c929ab(val)
 
 /*
 	Name: function_676edeb7
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x3A7181E3
 	Offset: 0x3A0
 	Size: 0x30C
@@ -124,7 +124,7 @@ function function_676edeb7()
 
 /*
 	Name: function_93ccc5da
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x84BB0B6A
 	Offset: 0x6B8
 	Size: 0x76
@@ -142,7 +142,7 @@ function function_93ccc5da()
 
 /*
 	Name: function_80eb303
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x61C78C40
 	Offset: 0x738
 	Size: 0x3A4
@@ -210,7 +210,7 @@ function function_80eb303(points, nox = 0)
 
 /*
 	Name: function_126dc996
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0xB80DD6E7
 	Offset: 0xAE8
 	Size: 0x166
@@ -237,7 +237,7 @@ function function_126dc996(multiplier)
 
 /*
 	Name: function_850bb47e
-	Namespace: namespace_64c6b720
+	Namespace: doa_score
 	Checksum: 0x4C4DE764
 	Offset: 0xC58
 	Size: 0x234

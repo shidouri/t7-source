@@ -239,7 +239,7 @@ function function_fc48f9f3()
 	{
 		if(isdefined(player.doa.var_1f7cae53))
 		{
-			player namespace_64c6b720::function_80eb303(player.doa.var_1f7cae53, 1);
+			player doa_score::function_80eb303(player.doa.var_1f7cae53, 1);
 		}
 		player.doa.var_1f7cae53 = 0;
 	}

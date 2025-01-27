@@ -997,7 +997,7 @@ function function_ff217d39(einflictor, eattacker, idamage, smeansofdeath, weapon
 		{
 			eattacker.kills = math::clamp(eattacker.kills + 1, 0, 65535);
 			eattacker.doa.kills++;
-			eattacker namespace_64c6b720::function_80eb303(self.doa.points);
+			eattacker doa_score::function_80eb303(self.doa.points);
 		}
 	}
 	if(smeansofdeath == "MOD_CRUSH")
@@ -1072,7 +1072,7 @@ function function_90772ac6(einflictor, eattacker, idamage, smeansofdeath, weapon
 	{
 		eattacker.kills = math::clamp(eattacker.kills + 1, 0, 65535);
 		eattacker.doa.kills++;
-		eattacker namespace_64c6b720::function_80eb303(self.doa.points);
+		eattacker doa_score::function_80eb303(self.doa.points);
 	}
 	params = spawnstruct();
 	params.einflictor = einflictor;

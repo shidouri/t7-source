@@ -543,7 +543,7 @@ function init()
 	{
 		[[level.var_7ed6996d]]();
 	}
-	namespace_64c6b720::init();
+	doa_score::init();
 	doa_fx::init();
 	doa_sound::init();
 	doa_gib::init();
@@ -919,7 +919,7 @@ function function_dc4ffe5c()
 		}
 		foreach(player in players)
 		{
-			player thread namespace_64c6b720::function_676edeb7();
+			player thread doa_score::function_676edeb7();
 			player thread doa_player_utility::updateweapon();
 		}
 		var_97e9dd7 = curcount;
@@ -1062,7 +1062,7 @@ function function_9ac615ee(gameover, round = level.doa.round_number)
 		self setdstat("deadOpsArcade", "silverbackKills", self.doa.var_53bd6cfa);
 		self setdstat("deadOpsArcade", "gemsEarned", self.doa.gems);
 		self setdstat("deadOpsArcade", "skullsEarned", self.doa.skulls);
-		self setdstat("deadOpsArcade", "scoreAchieved", self namespace_64c6b720::function_93ccc5da());
+		self setdstat("deadOpsArcade", "scoreAchieved", self doa_score::function_93ccc5da());
 		self setdstat("deadOpsArcade", "roundAchieved", round);
 		/#
 			doa_utility::debugmsg("" + self getdstat("", ""));
@@ -1111,7 +1111,7 @@ function function_780f83fd(round)
 		return;
 	}
 	/#
-		doa_utility::debugmsg((((("" + (isdefined(self.name) ? self.name : "")) + "") + round) + "") + self namespace_64c6b720::function_93ccc5da());
+		doa_utility::debugmsg((((("" + (isdefined(self.name) ? self.name : "")) + "") + round) + "") + self doa_score::function_93ccc5da());
 	#/
 	self function_9ac615ee(0, round);
 	wait(4);

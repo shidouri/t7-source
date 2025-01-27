@@ -212,7 +212,7 @@ function function_bbb1254c(var_44eb97b0 = 0)
 		self.hud_damagefeedback destroy();
 		self.hud_damagefeedback = undefined;
 	}
-	self namespace_64c6b720::function_850bb47e();
+	self doa_score::function_850bb47e();
 }
 
 /*
@@ -2142,7 +2142,7 @@ function function_3682cfe4(einflictor, attacker, idamage, smeansofdeath, sweapon
 	self.doa.weaponlevel = 0;
 	self.doa.var_c2b9d7d0 = 0;
 	self.var_5f951816 = gettime();
-	self thread namespace_64c6b720::function_850bb47e();
+	self thread doa_score::function_850bb47e();
 	self.deaths = math::clamp(self.deaths + 1, 0, 1023);
 	self.dead = 1;
 	/#

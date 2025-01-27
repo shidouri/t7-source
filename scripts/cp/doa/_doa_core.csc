@@ -39,7 +39,7 @@ function main()
 	doa_arena::init();
 	doa_fx::init();
 	doa_sound::init();
-	namespace_64c6b720::init();
+	doa_score::init();
 	doa_camera::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
 	doa_pickups::init();
 	level.doa.var_160ae6c6 = 1;
@@ -1330,7 +1330,7 @@ function function_d8d20160(localclientnum, value)
 function function_4ac9a8ba(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	doa_arena::restart();
-	namespace_64c6b720::function_6fa6dee2();
+	doa_score::function_6fa6dee2();
 	doa_camera::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
 	cleanupspawneddynents();
 	level.doa.hazards = [];
@@ -2047,7 +2047,7 @@ function function_12c2fbcb()
 				assert(self.doa.player == self);
 			#/
 		}
-		namespace_64c6b720::function_e06716c7(self.doa);
+		doa_score::function_e06716c7(self.doa);
 		self.doa.player = self;
 		/#
 			loc_00006DF4:

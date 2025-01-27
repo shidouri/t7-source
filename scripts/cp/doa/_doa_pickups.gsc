@@ -1665,8 +1665,8 @@ function function_d526f0bb()
 						player.doa.var_6946711f++;
 					}
 					self thread doa_sound::function_90118d8c("zmb_pickup_money");
-					player thread namespace_64c6b720::function_850bb47e((isdefined(self.var_5d2140f2) ? self.var_5d2140f2 : level.doa.rules.var_a9114441));
-					player thread namespace_64c6b720::function_80eb303(self.score);
+					player thread doa_score::function_850bb47e((isdefined(self.var_5d2140f2) ? self.var_5d2140f2 : level.doa.rules.var_a9114441));
+					player thread doa_score::function_80eb303(self.score);
 					self function_6b4a5f81(player);
 					break;
 				}
