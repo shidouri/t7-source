@@ -496,7 +496,7 @@ function private function_b90daa04(delay)
 	silverback.aioverridedamage = &function_ae39e30a;
 	level.doa.var_155f5b81[level.doa.var_155f5b81.size] = silverback;
 	silverback thread function_19b9f1d6();
-	silverback thread namespace_4973e019::function_ce73145c();
+	silverback thread doa_boss::function_ce73145c();
 	level notify(#"hash_d29de2a8");
 	level.doa.var_7b9808fc = level.doa.var_7b9808fc + silverback.health;
 	wait(1);

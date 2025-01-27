@@ -2402,7 +2402,7 @@ function private function_c0147a11()
 	/#
 		if(isdefined(level.doa.dev_level_skipped))
 		{
-			self thread namespace_4973e019::function_76b30cc1();
+			self thread doa_boss::function_76b30cc1();
 		}
 	#/
 	if(isdefined(level.doa.margwa) && level.doa.margwa == self)

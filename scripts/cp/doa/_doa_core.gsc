@@ -549,7 +549,7 @@ function init()
 	doa_gib::init();
 	doa_pickups::init();
 	namespace_3f3eaecb::init();
-	namespace_4973e019::init();
+	doa_boss::init();
 	doa_enemy::init();
 	doa_arena::init();
 	namespace_aa4730ec::init();

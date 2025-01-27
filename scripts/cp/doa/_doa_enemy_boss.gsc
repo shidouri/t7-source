@@ -19,11 +19,11 @@
 
 #using_animtree("generic");
 
-#namespace namespace_4973e019;
+#namespace doa_boss;
 
 /*
 	Name: init
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x6E375A1D
 	Offset: 0x488
 	Size: 0x6C
@@ -41,7 +41,7 @@ function init()
 
 /*
 	Name: function_d95d34bd
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x889A2704
 	Offset: 0x500
 	Size: 0x4A4
@@ -114,7 +114,7 @@ function private function_d95d34bd(spawner)
 
 /*
 	Name: function_555608c7
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0xF576030C
 	Offset: 0x9B0
 	Size: 0x452
@@ -179,7 +179,7 @@ function private function_555608c7()
 
 /*
 	Name: function_4e81959
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x3E01CD2C
 	Offset: 0xE10
 	Size: 0x2C
@@ -195,7 +195,7 @@ function private function_4e81959(waittime)
 
 /*
 	Name: function_a2756e92
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x126AD4FB
 	Offset: 0xE48
 	Size: 0x154
@@ -226,7 +226,7 @@ function private function_a2756e92()
 
 /*
 	Name: function_ce73145c
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0xEE2FCF87
 	Offset: 0xFA8
 	Size: 0x316
@@ -291,7 +291,7 @@ function function_ce73145c()
 
 /*
 	Name: function_66efd1eb
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x7B38AD91
 	Offset: 0x12C8
 	Size: 0x330
@@ -361,7 +361,7 @@ function private function_66efd1eb()
 
 /*
 	Name: function_5bd24aae
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x44BC310E
 	Offset: 0x1600
 	Size: 0x6C
@@ -380,7 +380,7 @@ function private function_5bd24aae()
 
 /*
 	Name: function_2ca4656
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x96F403E1
 	Offset: 0x1678
 	Size: 0x69C
@@ -512,7 +512,7 @@ function private function_2ca4656()
 
 /*
 	Name: function_e5e28b1b
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x924BAB
 	Offset: 0x1D20
 	Size: 0xFC
@@ -543,7 +543,7 @@ function private function_e5e28b1b()
 
 /*
 	Name: function_76b30cc1
-	Namespace: namespace_4973e019
+	Namespace: doa_boss
 	Checksum: 0x83FCDDB2
 	Offset: 0x1E28
 	Size: 0x6A
