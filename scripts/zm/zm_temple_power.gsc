@@ -218,12 +218,12 @@ function function_fb70e1ed(var_68f7eb77)
 	var_760c8bf1 = getentarray(var_68f7eb77, "targetname");
 	for(i = 0; i < var_760c8bf1.size; i++)
 	{
-		var_760c8bf1[i] thread function_d57d875f(-180, 4, 0.25, 0.25);
+		var_760c8bf1[i] thread _movez(-180, 4, 0.25, 0.25);
 	}
 }
 
 /*
-	Name: function_d57d875f
+	Name: _movez
 	Namespace: zm_temple_power
 	Checksum: 0x62125E92
 	Offset: 0xD50
@@ -231,7 +231,7 @@ function function_fb70e1ed(var_68f7eb77)
 	Parameters: 4
 	Flags: Linked
 */
-function function_d57d875f(z_value, time, acceleration_time, var_cff30a24)
+function _movez(z_value, time, acceleration_time, var_cff30a24)
 {
 	self movez(z_value, time, acceleration_time, var_cff30a24);
 }
