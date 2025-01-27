@@ -259,7 +259,7 @@ function function_3e3b2e02(player)
 */
 function function_4e02c665(player)
 {
-	function_aa4f440c(self.origin, self.angles);
+	create_gasmask_trigger(self.origin, self.angles);
 	var_6796a7a4 = getent("mask_display", "targetname");
 	var_6796a7a4 setscale(1.5);
 	var_6796a7a4 moveto((self.origin + anglestoforward(self.angles)) + (-5, 0, -105), 0.05);
@@ -269,7 +269,7 @@ function function_4e02c665(player)
 }
 
 /*
-	Name: function_aa4f440c
+	Name: create_gasmask_trigger
 	Namespace: zm_island_craftables
 	Checksum: 0xA0452C9B
 	Offset: 0x1088
@@ -277,7 +277,7 @@ function function_4e02c665(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_aa4f440c(v_origin, v_angles)
+function create_gasmask_trigger(v_origin, v_angles)
 {
 	width = 128;
 	height = 128;
