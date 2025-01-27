@@ -47,7 +47,7 @@ function main()
 	clientfield::register("world", "nuketown_endgame", 1, 1, "int");
 	precache();
 	mp_nuketown_x_fx::main();
-	namespace_4cda09f7::main();
+	mp_nuketown_x_sound::main();
 	level.remotemissile_kill_z = -175 + 50;
 	level.team_free_targeting = 1;
 	level.update_escort_robot_path = &update_escort_robot_path;
