@@ -79,7 +79,7 @@ function main()
 	savegame::set_mission_name("aquifer");
 	cp_mi_cairo_aquifer_fx::main();
 	cp_mi_cairo_aquifer_sound::main();
-	namespace_1254c007::main();
+	aquifer_ambience::main();
 	cp_mi_cairo_aquifer_aitest::init();
 	thread cp_mi_cairo_aquifer_aitest::function_82230f12();
 	callback::on_finalize_initialization(&on_finalize_initialization);

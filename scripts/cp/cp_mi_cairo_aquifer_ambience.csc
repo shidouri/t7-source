@@ -9,11 +9,11 @@
 #using scripts\shared\scene_shared;
 #using scripts\shared\system_shared;
 
-#namespace namespace_1254c007;
+#namespace aquifer_ambience;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x192961E2
 	Offset: 0x430
 	Size: 0x34
@@ -27,7 +27,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0xAF1E6420
 	Offset: 0x470
 	Size: 0x1CC
@@ -47,7 +47,7 @@ function __init__()
 
 /*
 	Name: main
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0xD226EEAF
 	Offset: 0x648
 	Size: 0xC
@@ -60,7 +60,7 @@ function main(localclientnum)
 
 /*
 	Name: function_134f3566
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x6D3A76B3
 	Offset: 0x660
 	Size: 0x172
@@ -85,7 +85,7 @@ function function_134f3566(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ad396d58
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x385F71EC
 	Offset: 0x7E0
 	Size: 0x2CC
@@ -121,7 +121,7 @@ function function_ad396d58(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9ba61e20
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x91E51F21
 	Offset: 0xAB8
 	Size: 0x344
@@ -161,7 +161,7 @@ function function_9ba61e20(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ca056d7e
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x97E01C72
 	Offset: 0xE08
 	Size: 0x23E
@@ -205,7 +205,7 @@ function function_ca056d7e()
 
 /*
 	Name: function_5794dab9
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x127D9830
 	Offset: 0x1050
 	Size: 0x54
@@ -223,7 +223,7 @@ function function_5794dab9(s_bundle, delay)
 
 /*
 	Name: function_e5def758
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x3110C74D
 	Offset: 0x10B0
 	Size: 0xA4
@@ -241,7 +241,7 @@ function function_e5def758(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_7ddc918d
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x4D1AD5DD
 	Offset: 0x1160
 	Size: 0xA4
@@ -259,7 +259,7 @@ function function_7ddc918d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: visible
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x802451D1
 	Offset: 0x1210
 	Size: 0x44
@@ -280,7 +280,7 @@ function visible(bool)
 
 /*
 	Name: function_91528afa
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x8A4A502
 	Offset: 0x1260
 	Size: 0xEC
@@ -302,7 +302,7 @@ function function_91528afa(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_89b52898
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x33E438B1
 	Offset: 0x1358
 	Size: 0x34

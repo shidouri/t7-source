@@ -14,11 +14,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_hunter;
 
-#namespace namespace_1254c007;
+#namespace aquifer_ambience;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0xED99FCEA
 	Offset: 0x418
 	Size: 0x0
@@ -32,7 +32,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x791EBE30
 	Offset: 0x450
 	Size: 0x0
@@ -46,7 +46,7 @@ function __init__()
 
 /*
 	Name: main
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x23C3B645
 	Offset: 0x550
 	Size: 0x0
@@ -60,7 +60,7 @@ function main()
 
 /*
 	Name: function_9f32fed2
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0xFABEC992
 	Offset: 0x5E0
 	Size: 0x0
@@ -74,7 +74,7 @@ function function_9f32fed2()
 
 /*
 	Name: function_4b099a44
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0xBDD5EDFB
 	Offset: 0x760
 	Size: 0x0
@@ -88,7 +88,7 @@ function function_4b099a44()
 
 /*
 	Name: function_febb5e1e
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x30E3E1F8
 	Offset: 0x7F0
 	Size: 0x0
@@ -102,7 +102,7 @@ function function_febb5e1e()
 
 /*
 	Name: function_8f28e703
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0xFA936CDC
 	Offset: 0x940
 	Size: 0x0
@@ -116,7 +116,7 @@ function function_8f28e703()
 
 /*
 	Name: function_bf52f93f
-	Namespace: namespace_1254c007
+	Namespace: aquifer_ambience
 	Checksum: 0x1D9A4514
 	Offset: 0xAD0
 	Size: 0x0
