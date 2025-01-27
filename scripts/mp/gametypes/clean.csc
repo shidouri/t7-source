@@ -46,8 +46,8 @@ function function_3fdcaa92(localclientnum, oldval, newval, bnewent, binitialsnap
 			self.var_bc148e61 setmodel("tag_origin");
 			self thread function_8eab3bb6(localclientnum);
 		}
-		self.var_fd5fd3d4 = playfxontag(localclientnum, "ui/fx_stockpile_drop_marker", self.var_bc148e61, "tag_origin");
-		setfxteam(localclientnum, self.var_fd5fd3d4, self.team);
+		self.tacofx = playfxontag(localclientnum, "ui/fx_stockpile_drop_marker", self.var_bc148e61, "tag_origin");
+		setfxteam(localclientnum, self.tacofx, self.team);
 	}
 	if(newval == 1)
 	{
@@ -87,10 +87,10 @@ function function_8eab3bb6(localclientnum)
 */
 function function_21017588(localclientnum)
 {
-	if(isdefined(self.var_fd5fd3d4))
+	if(isdefined(self.tacofx))
 	{
-		killfx(localclientnum, self.var_fd5fd3d4);
-		self.var_fd5fd3d4 = undefined;
+		killfx(localclientnum, self.tacofx);
+		self.tacofx = undefined;
 	}
 }
 
