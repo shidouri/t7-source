@@ -952,7 +952,7 @@ function function_7884e6b8()
 				level waittill("end_of_round");
 				if(!level flag::get("ritual_in_progress"))
 				{
-					var_e09cb16 = level.round_number - 1;
+					n_previous_round = level.round_number - 1;
 					var_5bc4a435 = array::random(level.activeplayers);
 					if(level flag::get("vo_beastmode_hint"))
 					{
@@ -963,9 +963,9 @@ function function_7884e6b8()
 					}
 					else
 					{
-						if(var_e09cb16 < 2)
+						if(n_previous_round < 2)
 						{
-							var_76393213 = ((("vox_plr_" + var_5bc4a435.characterindex) + "_round") + var_e09cb16) + "_end_0";
+							var_76393213 = ((("vox_plr_" + var_5bc4a435.characterindex) + "_round") + n_previous_round) + "_end_0";
 							function_218256bd(1);
 							if(isdefined(var_5bc4a435))
 							{
@@ -975,7 +975,7 @@ function function_7884e6b8()
 						}
 						else
 						{
-							if(var_e09cb16 == 2)
+							if(n_previous_round == 2)
 							{
 								function_218256bd(1);
 								function_897246e4("vox_shad_keepers_ritual_0", 0, 1);
