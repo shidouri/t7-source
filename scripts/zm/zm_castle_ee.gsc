@@ -1455,11 +1455,11 @@ function function_c460669e()
 	level flag::wait_till("ee_golden_key");
 	var_e7113aa6 = 0;
 	level.var_cf5a713 = undefined;
-	var_18b93ed0 = struct::get_array("golden_key_slot");
+	a_terminals = struct::get_array("golden_key_slot");
 	while(var_e7113aa6 < 2)
 	{
-		var_18b93ed0[0] thread function_bb8e762c(var_18b93ed0[1]);
-		var_18b93ed0[1] thread function_bb8e762c(var_18b93ed0[0]);
+		a_terminals[0] thread function_bb8e762c(a_terminals[1]);
+		a_terminals[1] thread function_bb8e762c(a_terminals[0]);
 		var_b5aa6f14 = function_19abb192(var_e7113aa6);
 		function_15752140(var_b5aa6f14);
 		if(level.var_e3162591 && level flag::get("switch_to_death_ray") && level flag::get("tesla_connector_" + level.var_cf5a713.script_noteworthy))
@@ -1469,7 +1469,7 @@ function function_c460669e()
 		else
 		{
 			var_e7113aa6 = 0;
-			foreach(var_4ae0fc9f in var_18b93ed0)
+			foreach(var_4ae0fc9f in a_terminals)
 			{
 				var_4ae0fc9f.b_done = undefined;
 			}
