@@ -57,10 +57,10 @@ function function_c102a998()
 	{
 		if(player isplayerunderwater())
 		{
-			var_f97c401 = player zm_utility::get_current_zone();
-			if(isdefined(var_f97c401))
+			str_current_zone = player zm_utility::get_current_zone();
+			if(isdefined(str_current_zone))
 			{
-				if(var_f97c401 == "zone_start_water" || var_f97c401 == "zone_meteor_site" || var_f97c401 == "zone_meteor_site_2")
+				if(str_current_zone == "zone_start_water" || str_current_zone == "zone_meteor_site" || str_current_zone == "zone_meteor_site_2")
 				{
 					player clientfield::set_to_player("set_world_fog", 1);
 				}

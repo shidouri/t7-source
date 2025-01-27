@@ -690,10 +690,10 @@ function function_3363c147()
 				self clientfield::set_to_player("water_motes", 1);
 				self clientfield::set_to_player("play_bubbles", 1);
 				self fx::play("bubbles", self.origin, (0, 0, 0), "swim_done", 1, "j_spineupper");
-				var_f97c401 = self zm_utility::get_current_zone();
-				if(isdefined(var_f97c401))
+				str_current_zone = self zm_utility::get_current_zone();
+				if(isdefined(str_current_zone))
 				{
-					if(var_f97c401 == "zone_start_water" || var_f97c401 == "zone_meteor_site" || var_f97c401 == "zone_meteor_site_2")
+					if(str_current_zone == "zone_start_water" || str_current_zone == "zone_meteor_site" || str_current_zone == "zone_meteor_site_2")
 					{
 						if(!level flag::get("spider_round_in_progress"))
 						{
@@ -1506,10 +1506,10 @@ function function_1f00b569()
 */
 function function_37f2c48b()
 {
-	var_f97c401 = self zm_utility::get_current_zone();
-	if(isdefined(var_f97c401))
+	str_current_zone = self zm_utility::get_current_zone();
+	if(isdefined(str_current_zone))
 	{
-		switch(var_f97c401)
+		switch(str_current_zone)
 		{
 			case "zone_start":
 			case "zone_start_2":
