@@ -1,11 +1,11 @@
 #using scripts\codescripts\struct;
 #using scripts\shared\fx_shared;
 
-#namespace namespace_97daed88;
+#namespace mp_freerun_02_fx;
 
 /*
 	Name: main
-	Namespace: namespace_97daed88
+	Namespace: mp_freerun_02_fx
 	Checksum: 0xE9C07CD6
 	Offset: 0xB0
 	Size: 0x0

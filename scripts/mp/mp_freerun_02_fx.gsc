@@ -1,10 +1,10 @@
 #using scripts\codescripts\struct;
 
-#namespace namespace_97daed88;
+#namespace mp_freerun_02_fx;
 
 /*
 	Name: main
-	Namespace: namespace_97daed88
+	Namespace: mp_freerun_02_fx
 	Checksum: 0xE9C07CD6
 	Offset: 0x90
 	Size: 0x0
