@@ -243,7 +243,7 @@ function function_95b88092(str_objective, b_starting)
 		savegame::checkpoint_save();
 	}
 	t_heart = zurich_util::function_a1851f86(str_objective);
-	t_heart waittill(#"brn");
+	t_heart waittill("brn");
 	level thread root_cinematics::play_scene(str_objective, t_heart.var_90971f20.e_player);
 	if(isdefined(level.bzm_forceaicleanup))
 	{

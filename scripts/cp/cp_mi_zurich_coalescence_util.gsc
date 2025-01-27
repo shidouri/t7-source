@@ -2134,7 +2134,7 @@ function function_17b739e2(var_779fea3)
 {
 	self function_30a6b901(1, var_779fea3);
 	self.var_afacae68 = 1;
-	self notify(#"brn");
+	self notify("brn");
 }
 
 /*
@@ -2148,7 +2148,7 @@ function function_17b739e2(var_779fea3)
 */
 function function_61f7fc15()
 {
-	self waittill(#"brn");
+	self waittill("brn");
 	level util::clientnotify("stp_mus");
 }
 
