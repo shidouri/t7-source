@@ -25,7 +25,7 @@ function main()
 	precache();
 	spawnlogic::move_spawn_point("mp_dm_spawn_start", (1687.56, -465.166, 45.625), (-1164.6, 603.783, 29.625), vectorscale((0, 1, 0), 315.516));
 	mp_veiled_fx::main();
-	namespace_8f273e4e::main();
+	mp_veiled_sound::main();
 	load::main();
 	compass::setupminimap("compass_map_mp_veiled");
 	setdvar("compassmaxrange", "2100");
