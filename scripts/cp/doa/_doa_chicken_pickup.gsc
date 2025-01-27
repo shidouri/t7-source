@@ -332,9 +332,9 @@ function function_e636d9c5(player)
 			self.spinouttime = 0;
 		}
 		self.var_6fdb49e0 = 1;
-		var_7bb420a0 = self function_bd97e9ba(player) + 1;
+		myidx = self function_bd97e9ba(player) + 1;
 		forward = anglestoforward(player.angles);
-		offset = forward * (24 * var_7bb420a0, 0, 0);
+		offset = forward * (24 * myidx, 0, 0);
 		self.origin = player.origin - offset;
 	}
 }

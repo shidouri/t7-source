@@ -1917,18 +1917,18 @@ function function_db9097e4(room)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7c9617ef(var_7bb420a0, goaltrigger)
+function function_7c9617ef(myidx, goaltrigger)
 {
 	self endon("death");
 	level waittill(#"hash_130fa748");
 	while(true)
 	{
-		self moveto(goaltrigger.posts[var_7bb420a0].origin, goaltrigger.movetime);
+		self moveto(goaltrigger.posts[myidx].origin, goaltrigger.movetime);
 		self util::waittill_any_timeout(goaltrigger.movetime + 0.25, "movedone");
-		var_7bb420a0++;
-		if(var_7bb420a0 >= goaltrigger.posts.size)
+		myidx++;
+		if(myidx >= goaltrigger.posts.size)
 		{
-			var_7bb420a0 = 0;
+			myidx = 0;
 		}
 	}
 }
