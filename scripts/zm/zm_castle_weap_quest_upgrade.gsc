@@ -170,10 +170,10 @@ function private function_8c52805(str_widget_clientuimodel)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_f5e9876(var_1493eda1, n_quest_state)
+function private function_f5e9876(str_quest, n_quest_state)
 {
-	var_78cede1 = "quest_state_" + var_1493eda1;
-	str_widget_clientuimodel = "zmInventory.widget_weap_quest_" + var_1493eda1;
+	var_78cede1 = "quest_state_" + str_quest;
+	str_widget_clientuimodel = "zmInventory.widget_weap_quest_" + str_quest;
 	level clientfield::set(var_78cede1, n_quest_state);
 	level notify("widget_ui_override");
 	array::thread_all(level.players, &function_8c52805, str_widget_clientuimodel);
@@ -6536,25 +6536,25 @@ function function_f708e6b2()
 	{
 		case "elemental_bow_rune_prison":
 		{
-			var_1493eda1 = "rune_prison";
+			str_quest = "rune_prison";
 			var_f3636838 = level.var_2b11065e;
 			break;
 		}
 		case "elemental_bow_demongate":
 		{
-			var_1493eda1 = "demon_gate";
+			str_quest = "demon_gate";
 			var_f3636838 = level.var_72a6d56b;
 			break;
 		}
 		case "elemental_bow_wolf_howl":
 		{
-			var_1493eda1 = "wolf_howl";
+			str_quest = "wolf_howl";
 			var_f3636838 = level.var_eee1576;
 			break;
 		}
 		case "elemental_bow_storm":
 		{
-			var_1493eda1 = "elemental_storm";
+			str_quest = "elemental_storm";
 			var_f3636838 = level.var_18c771ad;
 			break;
 		}
@@ -6720,13 +6720,13 @@ function function_e0db1fe7(e_who)
 	Parameters: 2
 	Flags: Linked
 */
-function function_16bdda6f(e_player, var_1493eda1)
+function function_16bdda6f(e_player, str_quest)
 {
 	arrayremovevalue(level.var_427e7668, e_player);
-	var_5be2705e = struct::get("upgraded_bow_struct_" + var_1493eda1, "targetname");
+	var_5be2705e = struct::get("upgraded_bow_struct_" + str_quest, "targetname");
 	var_5be2705e.var_67b5dd94.prompt_and_visibility_func = &function_4b76cf52;
 	var_5be2705e.var_67b5dd94 unitrigger_refresh_message();
-	level notify(var_1493eda1 + "_complete");
+	level notify(str_quest + "_complete");
 }
 
 /*
@@ -6744,41 +6744,41 @@ function function_42084ad5(var_e459d8fb)
 	{
 		case "elemental_bow_rune_prison":
 		{
-			var_1493eda1 = "rune_prison";
+			str_quest = "rune_prison";
 			var_78cede1 = "quest_owner_rune";
 			break;
 		}
 		case "elemental_bow_demongate":
 		{
-			var_1493eda1 = "demon_gate";
+			str_quest = "demon_gate";
 			var_78cede1 = "quest_owner_demon";
 			break;
 		}
 		case "elemental_bow_wolf_howl":
 		{
-			var_1493eda1 = "wolf_howl";
+			str_quest = "wolf_howl";
 			var_78cede1 = "quest_owner_wolf";
 			break;
 		}
 		case "elemental_bow_storm":
 		{
-			var_1493eda1 = "elemental_storm";
+			str_quest = "elemental_storm";
 			var_78cede1 = "quest_owner_storm";
 			break;
 		}
 	}
-	level endon(var_1493eda1 + "_complete");
-	level endon(var_1493eda1 + "_arrow_reforged");
+	level endon(str_quest + "_complete");
+	level endon(str_quest + "_arrow_reforged");
 	/#
-		level endon(("" + var_1493eda1) + "");
+		level endon(("" + str_quest) + "");
 	#/
-	str_notify = var_e459d8fb util::waittill_any_ex("death", "quest_swap", level, var_1493eda1 + "_complete", var_1493eda1 + "_arrow_reforged");
+	str_notify = var_e459d8fb util::waittill_any_ex("death", "quest_swap", level, str_quest + "_complete", str_quest + "_arrow_reforged");
 	level clientfield::set(var_78cede1, 0);
 	if(str_notify == "death")
 	{
 		arrayremovevalue(level.var_427e7668, var_e459d8fb);
 	}
-	level function_abeafdcb(var_1493eda1);
+	level function_abeafdcb(str_quest);
 }
 
 /*
@@ -6790,14 +6790,14 @@ function function_42084ad5(var_e459d8fb)
 	Parameters: 1
 	Flags: Linked
 */
-function function_abeafdcb(var_1493eda1)
+function function_abeafdcb(str_quest)
 {
-	var_d1a0ccb = var_1493eda1 + "_placed";
-	var_7ceb9ac6 = var_1493eda1 + "_upgraded";
-	var_491b9e06 = var_1493eda1 + "_spawned";
+	var_d1a0ccb = str_quest + "_placed";
+	var_7ceb9ac6 = str_quest + "_upgraded";
+	var_491b9e06 = str_quest + "_spawned";
 	if(level flag::get(var_491b9e06))
 	{
-		str_struct = "upgraded_bow_struct_" + var_1493eda1;
+		str_struct = "upgraded_bow_struct_" + str_quest;
 		var_5be2705e = struct::get(str_struct, "targetname");
 		var_5be2705e.var_67b5dd94.prompt_and_visibility_func = &function_4b76cf52;
 		var_5be2705e.var_67b5dd94 unitrigger_refresh_message();
@@ -6806,7 +6806,7 @@ function function_abeafdcb(var_1493eda1)
 	{
 		if(level flag::get(var_7ceb9ac6))
 		{
-			str_struct = "upgraded_bow_struct_" + var_1493eda1;
+			str_struct = "upgraded_bow_struct_" + str_quest;
 			var_5be2705e = struct::get(str_struct, "targetname");
 			var_5be2705e.var_67b5dd94.prompt_and_visibility_func = &function_47b1e30a;
 			var_5be2705e.var_67b5dd94 unitrigger_refresh_message();
@@ -6815,7 +6815,7 @@ function function_abeafdcb(var_1493eda1)
 		{
 			if(level flag::get(var_d1a0ccb))
 			{
-				str_struct = "upgraded_bow_struct_" + var_1493eda1;
+				str_struct = "upgraded_bow_struct_" + str_quest;
 				var_5be2705e = struct::get(str_struct, "targetname");
 				var_5be2705e function_3313abd5(&function_4a58bb9);
 				var_5be2705e function_655cb8e();
@@ -6823,21 +6823,21 @@ function function_abeafdcb(var_1493eda1)
 			}
 			else
 			{
-				var_683c1652 = var_1493eda1 + "_repaired";
+				var_683c1652 = str_quest + "_repaired";
 				if(level flag::get(var_683c1652))
 				{
-					str_struct = "quest_reforge_" + var_1493eda1;
+					str_struct = "quest_reforge_" + str_quest;
 				}
 				else
 				{
-					str_struct = "quest_start_" + var_1493eda1;
+					str_struct = "quest_start_" + str_quest;
 				}
 				var_abce3f8a = struct::get(str_struct, "targetname");
 				var_abce3f8a function_f708e6b2();
 			}
 		}
 	}
-	switch(var_1493eda1)
+	switch(str_quest)
 	{
 		case "rune_prison":
 		{
@@ -6916,7 +6916,7 @@ function function_7bbe3a25()
 		var_7774be93 = 1;
 		if(level.players[0] === level.var_6e68c0d8)
 		{
-			var_1493eda1 = "";
+			str_quest = "";
 			var_78cede1 = "";
 			level.var_6e68c0d8 = undefined;
 		}
@@ -6924,7 +6924,7 @@ function function_7bbe3a25()
 		{
 			if(level.players[0] === level.var_c62829c7)
 			{
-				var_1493eda1 = "";
+				str_quest = "";
 				var_78cede1 = "";
 				level.var_c62829c7 = undefined;
 			}
@@ -6932,7 +6932,7 @@ function function_7bbe3a25()
 			{
 				if(level.players[0] === level.var_f8d1dc16)
 				{
-					var_1493eda1 = "";
+					str_quest = "";
 					var_78cede1 = "";
 					level.var_f8d1dc16 = undefined;
 				}
@@ -6940,7 +6940,7 @@ function function_7bbe3a25()
 				{
 					if(level.players[0] === level.var_52978d72)
 					{
-						var_1493eda1 = "";
+						str_quest = "";
 						var_78cede1 = "";
 						level.var_52978d72 = undefined;
 					}
@@ -6952,10 +6952,10 @@ function function_7bbe3a25()
 			}
 		}
 		level clientfield::set(var_78cede1, 0);
-		level notify(("" + var_1493eda1) + "");
+		level notify(("" + str_quest) + "");
 		level.players[0] notify(#"hash_3c5d2ca5");
 		arrayremovevalue(level.var_427e7668, level.players[0]);
-		level function_abeafdcb(var_1493eda1);
+		level function_abeafdcb(str_quest);
 	#/
 }
 
@@ -6981,7 +6981,7 @@ function function_14dd5ea5()
 			if(level flag::get(""))
 			{
 			}
-			var_1493eda1 = "rune_prison";
+			str_quest = "rune_prison";
 			var_febc5f71 = &function_d04d2c23;
 			str_exploder = "lgt_rune_bow_plinth";
 			var_5cdbaec4 = "rune";
@@ -6997,7 +6997,7 @@ function function_14dd5ea5()
 			if(level flag::get(""))
 			{
 			}
-			var_1493eda1 = "demon_gate";
+			str_quest = "demon_gate";
 			var_febc5f71 = &function_983083c;
 			str_exploder = "lgt_demon_bow_plinth";
 			var_5cdbaec4 = "demon";
@@ -7013,7 +7013,7 @@ function function_14dd5ea5()
 			if(level flag::get(""))
 			{
 			}
-			var_1493eda1 = "wolf_howl";
+			str_quest = "wolf_howl";
 			var_febc5f71 = &function_e3ef7bf6;
 			str_exploder = "lgt_wolf_bow_plinth";
 			var_5cdbaec4 = "wolf";
@@ -7029,7 +7029,7 @@ function function_14dd5ea5()
 			if(level flag::get(""))
 			{
 			}
-			var_1493eda1 = "elemental_storm";
+			str_quest = "elemental_storm";
 			var_febc5f71 = &function_c5b609e2;
 			str_exploder = "lgt_elemental_bow_plinth";
 			var_5cdbaec4 = "storm";
@@ -7048,7 +7048,7 @@ function function_14dd5ea5()
 			e_who playsound("zmb_give_arrow_piece");
 			e_who playrumbleonentity("zm_castle_quest_interact_rumble");
 			zm_unitrigger::unregister_unitrigger(self.var_67b5dd94);
-			var_d1a0ccb = var_1493eda1 + "_placed";
+			var_d1a0ccb = str_quest + "_placed";
 			level flag::set(var_d1a0ccb);
 			if(isdefined(var_90de5a6f))
 			{
@@ -7059,7 +7059,7 @@ function function_14dd5ea5()
 		}
 	}
 	exploder::exploder(str_exploder);
-	level scene::play("p7_fxanim_zm_castle_quest_pedestal_bundle_" + var_1493eda1);
+	level scene::play("p7_fxanim_zm_castle_quest_pedestal_bundle_" + str_quest);
 	/#
 		switch(self.script_label)
 		{
@@ -7085,7 +7085,7 @@ function function_14dd5ea5()
 			}
 		}
 	#/
-	var_7ceb9ac6 = var_1493eda1 + "_upgraded";
+	var_7ceb9ac6 = str_quest + "_upgraded";
 	self.var_ce58f456 = 0;
 	zm_spawner::register_zombie_death_event_callback(var_febc5f71);
 	level flag::wait_till(var_7ceb9ac6);
@@ -7131,7 +7131,7 @@ function function_14dd5ea5()
 	}
 	level thread function_f78eeee0(self.origin);
 	e_who playrumbleonentity("zm_castle_quest_interact_rumble");
-	level scene::play("p7_fxanim_zm_castle_quest_upgrade_bundle_" + var_1493eda1);
+	level scene::play("p7_fxanim_zm_castle_quest_upgrade_bundle_" + str_quest);
 	exploder::stop_exploder(str_exploder);
 	if(!isdefined(level.var_e8a6b6f7))
 	{
@@ -7146,9 +7146,9 @@ function function_14dd5ea5()
 		level function_8b295d47(self.script_label);
 	}
 	self thread function_fb704679(e_target_player);
-	var_491b9e06 = var_1493eda1 + "_spawned";
+	var_491b9e06 = str_quest + "_spawned";
 	level flag::set(var_491b9e06);
-	level thread function_2c1c1d3e(var_1493eda1);
+	level thread function_2c1c1d3e(str_quest);
 	level function_f5e9876(var_5cdbaec4, 6);
 }
 
@@ -7194,10 +7194,10 @@ function function_bf26d3fb(var_e93a0115)
 	Parameters: 1
 	Flags: Linked
 */
-function function_2c1c1d3e(var_1493eda1)
+function function_2c1c1d3e(str_quest)
 {
 	wait(5);
-	switch(var_1493eda1)
+	switch(str_quest)
 	{
 		case "rune_prison":
 		{
@@ -7249,8 +7249,8 @@ function function_2c1c1d3e(var_1493eda1)
 			break;
 		}
 	}
-	level thread struct::delete_script_bundle("scene", "p7_fxanim_zm_castle_quest_upgrade_bundle_" + var_1493eda1);
-	level thread struct::delete_script_bundle("scene", "p7_fxanim_zm_castle_quest_pedestal_bundle_" + var_1493eda1);
+	level thread struct::delete_script_bundle("scene", "p7_fxanim_zm_castle_quest_upgrade_bundle_" + str_quest);
+	level thread struct::delete_script_bundle("scene", "p7_fxanim_zm_castle_quest_pedestal_bundle_" + str_quest);
 }
 
 /*
@@ -7650,9 +7650,9 @@ function function_5facaaf9(e_target_player, str_weapon_name)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7b6fdb3e(var_1493eda1)
+function function_7b6fdb3e(str_quest)
 {
-	switch(var_1493eda1)
+	switch(str_quest)
 	{
 		case "elemental_bow_rune_prison":
 		{

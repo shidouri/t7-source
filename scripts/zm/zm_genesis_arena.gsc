@@ -5511,12 +5511,12 @@ function function_7fd60b47()
 	var_ce48d9bb = [];
 	foreach(player in level.players)
 	{
-		foreach(var_1493eda1 in var_d028d3a8)
+		foreach(str_quest in var_d028d3a8)
 		{
-			var_dc163518 = (player zm_stats::get_global_stat(("DARKOPS_" + var_1493eda1) + "_SUPER_EE")) > 0;
+			var_dc163518 = (player zm_stats::get_global_stat(("DARKOPS_" + str_quest) + "_SUPER_EE")) > 0;
 			if(var_dc163518)
 			{
-				var_ce48d9bb[var_1493eda1] = 1;
+				var_ce48d9bb[str_quest] = 1;
 			}
 		}
 	}
@@ -5612,10 +5612,10 @@ function function_43049e1e()
 	var_61d59a5a = [];
 	foreach(player in level.players)
 	{
-		foreach(var_1493eda1 in var_d028d3a8)
+		foreach(str_quest in var_d028d3a8)
 		{
-			var_dc163518 = (player zm_stats::get_global_stat(("DARKOPS_" + var_1493eda1) + "_SUPER_EE")) > 0;
-			var_9d5e869 = isinarray(var_61d59a5a, var_1493eda1);
+			var_dc163518 = (player zm_stats::get_global_stat(("DARKOPS_" + str_quest) + "_SUPER_EE")) > 0;
+			var_9d5e869 = isinarray(var_61d59a5a, str_quest);
 			if(var_dc163518 && !var_9d5e869)
 			{
 				if(!isdefined(var_61d59a5a))
@@ -5626,7 +5626,7 @@ function function_43049e1e()
 				{
 					var_61d59a5a = array(var_61d59a5a);
 				}
-				var_61d59a5a[var_61d59a5a.size] = var_1493eda1;
+				var_61d59a5a[var_61d59a5a.size] = str_quest;
 			}
 		}
 	}
