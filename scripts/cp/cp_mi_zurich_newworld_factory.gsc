@@ -3654,7 +3654,7 @@ function function_aef915b2()
 			e_vat.var_f3e8791a = getent("cauldron_1_hang", "targetname");
 			e_vat.var_8406755b = getent("cauldron_1_fall", "targetname");
 			e_vat.str_exploder = "fx_interior_cauldron_right";
-			e_vat.var_84d67e66 = getent("fire_hazard_right_cauldron", "targetname");
+			e_vat.t_hazard = getent("fire_hazard_right_cauldron", "targetname");
 			break;
 		}
 		case "s1_02":
@@ -3663,7 +3663,7 @@ function function_aef915b2()
 			e_vat.var_f3e8791a = getent("cauldron_2_hang", "targetname");
 			e_vat.var_8406755b = getent("cauldron_2_fall", "targetname");
 			e_vat.str_exploder = "fx_interior_cauldron_left";
-			e_vat.var_84d67e66 = getent("fire_hazard_left_cauldron", "targetname");
+			e_vat.t_hazard = getent("fire_hazard_left_cauldron", "targetname");
 			break;
 		}
 		case "bridge":
@@ -3673,7 +3673,7 @@ function function_aef915b2()
 			e_vat.var_8406755b = getent("cauldron_bridge_fall", "targetname");
 			e_vat.var_3d0b54ab = getent("foundry_catwalk_clip", "targetname");
 			e_vat.var_cb14c98c = getent("foundry_catwalk_ai_clip", "targetname");
-			e_vat.var_84d67e66 = getent("fire_hazard_bridge", "targetname");
+			e_vat.t_hazard = getent("fire_hazard_bridge", "targetname");
 			var_77f0f8f6 = getentarray("cauldron_bridge_fxanim_clip", "targetname");
 			foreach(e_clip in var_77f0f8f6)
 			{
@@ -3682,7 +3682,7 @@ function function_aef915b2()
 			break;
 		}
 	}
-	e_vat.var_84d67e66 triggerenable(0);
+	e_vat.t_hazard triggerenable(0);
 	e_vat.target = self.target;
 	e_vat.script_string = self.script_string;
 	e_vat.script_noteworthy = self.script_noteworthy;
@@ -3824,7 +3824,7 @@ function destroyable_vat()
 				}
 				wait(0.5);
 				self thread function_528ae2fd(sattacker);
-				self.var_84d67e66 triggerenable(1);
+				self.t_hazard triggerenable(1);
 				self.var_f3e8791a delete();
 				self.var_8406755b movez(256, 0.05);
 				self.var_8406755b waittill("movedone");
