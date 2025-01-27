@@ -2143,7 +2143,7 @@ function function_dad4e4f3(a_ents)
 */
 function function_1f3b8e3c(a_ents = undefined)
 {
-	var_f852acf0 = a_ents["summoning_key"];
+	e_summoning_key = a_ents["summoning_key"];
 	s_org = struct::get("tag_align_end_cinematic");
 	e_org = spawn("script_model", s_org.origin);
 	if(isdefined(a_ents))
@@ -2153,7 +2153,7 @@ function function_1f3b8e3c(a_ents = undefined)
 	level lui::screen_fade_out(0, "white");
 	level waittill(#"hash_71fdf829");
 	e_org playsoundwithnotify("vox_plr_0_outro_igc_28");
-	var_f852acf0 hide();
+	e_summoning_key hide();
 	level waittill(#"hash_4bfb7dc0");
 	e_org playsoundwithnotify("vox_plr_2_outro_igc_29");
 	level waittill("portal_effect");
