@@ -3039,7 +3039,7 @@ function function_86e1c543()
 	w_annihilator = getweapon("hero_annihilator");
 	while(true)
 	{
-		var_65af5e9c = trigger::wait_till("flytrap_prize");
+		t_flytrap = trigger::wait_till("flytrap_prize");
 		if(!(isdefined(level.var_1cbe7756) && level.var_1cbe7756))
 		{
 			foreach(player in level.players)
@@ -3050,7 +3050,7 @@ function function_86e1c543()
 			}
 			level.var_1cbe7756 = 1;
 		}
-		player = var_65af5e9c.who;
+		player = t_flytrap.who;
 		if(!player hasweapon(w_annihilator))
 		{
 			player function_5d3bb3fe(w_annihilator);
