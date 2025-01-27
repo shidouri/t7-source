@@ -19,7 +19,7 @@
 */
 function main()
 {
-	namespace_b046f355::main();
+	mp_freerun_01_fx::main();
 	namespace_db5bc658::main();
 	setdvar("phys_buoyancy", 1);
 	setdvar("phys_ragdoll_buoyancy", 1);
