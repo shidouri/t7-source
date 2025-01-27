@@ -4399,12 +4399,12 @@ function function_d6702e87()
 	Parameters: 2
 	Flags: Linked
 */
-function ee_outro(n_wait = 0, var_d15ef3dd = 0)
+function ee_outro(n_wait = 0, b_dev = 0)
 {
 	level function_2868b6f4(1, undefined, 0);
 	level.var_2801f599 = int(((level.time - level.n_gameplay_start_time) + 500) / 1000);
 	level clientfield::set("quest_complete_time", level.var_2801f599);
-	if(var_d15ef3dd)
+	if(b_dev)
 	{
 		level scene::init("cin_sta_outro_3rd_sh020");
 		level util::streamer_wait(undefined, 0.2, 15);
@@ -4413,7 +4413,7 @@ function ee_outro(n_wait = 0, var_d15ef3dd = 0)
 	level notify(#"hash_6460283a");
 	level zm_stalingrad_vo::function_6f2aecbd();
 	level function_184114b9(undefined);
-	if(!var_d15ef3dd)
+	if(!b_dev)
 	{
 		level.var_cf6e9729.var_fa4643fb delete();
 		level.var_cf6e9729 delete();
