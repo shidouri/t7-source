@@ -999,11 +999,11 @@ function function_ceb822db(var_fed4dbb3)
 */
 function function_9d32f5d()
 {
-	if(!isdefined(level.doa.var_43e34d24))
+	if(!isdefined(level.doa.blood_riser_spawner))
 	{
-		level.doa.var_43e34d24 = getent("blood_riser_spawner", "targetname");
+		level.doa.blood_riser_spawner = getent("blood_riser_spawner", "targetname");
 	}
-	return bo3_enemy::function_17de14f1(level.doa.var_43e34d24);
+	return bo3_enemy::function_17de14f1(level.doa.blood_riser_spawner);
 }
 
 /*
