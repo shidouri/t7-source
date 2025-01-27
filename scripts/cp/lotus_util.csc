@@ -169,7 +169,7 @@ function function_eb04522d(n_z, a_items, n_max = a_items.size)
 	{
 		n_max = a_items.size;
 	}
-	var_932b706d = [];
+	a_length = [];
 	var_b9b72b4f = [];
 	for(i = 0; i < a_items.size; i++)
 	{
@@ -182,15 +182,15 @@ function function_eb04522d(n_z, a_items, n_max = a_items.size)
 			continue;
 		}
 		n_length = abs(n_z - a_items[i].origin[2]);
-		if(!isdefined(var_932b706d))
+		if(!isdefined(a_length))
 		{
-			var_932b706d = [];
+			a_length = [];
 		}
-		else if(!isarray(var_932b706d))
+		else if(!isarray(a_length))
 		{
-			var_932b706d = array(var_932b706d);
+			a_length = array(a_length);
 		}
-		var_932b706d[var_932b706d.size] = n_length;
+		a_length[a_length.size] = n_length;
 		if(!isdefined(var_b9b72b4f))
 		{
 			var_b9b72b4f = [];
@@ -204,16 +204,16 @@ function function_eb04522d(n_z, a_items, n_max = a_items.size)
 	while(true)
 	{
 		b_change = 0;
-		for(i = 0; i < (var_932b706d.size - 1); i++)
+		for(i = 0; i < (a_length.size - 1); i++)
 		{
-			if(var_932b706d[i] <= (var_932b706d[i + 1]))
+			if(a_length[i] <= (a_length[i + 1]))
 			{
 				continue;
 			}
 			b_change = 1;
-			n_length = var_932b706d[i];
-			var_932b706d[i] = var_932b706d[i + 1];
-			var_932b706d[i + 1] = n_length;
+			n_length = a_length[i];
+			a_length[i] = a_length[i + 1];
+			a_length[i + 1] = n_length;
 			n_index = var_b9b72b4f[i];
 			var_b9b72b4f[i] = var_b9b72b4f[i + 1];
 			var_b9b72b4f[i + 1] = n_index;
