@@ -11,11 +11,11 @@
 #using scripts\shared\trigger_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_f4ff722a;
+#namespace lotus_accolades;
 
 /*
 	Name: init_accolades
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x3235DA01
 	Offset: 0x7F0
 	Size: 0x244
@@ -48,7 +48,7 @@ function init_accolades()
 
 /*
 	Name: function_f2c7746a
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xA956D313
 	Offset: 0xA40
 	Size: 0x112
@@ -90,7 +90,7 @@ function function_f2c7746a()
 
 /*
 	Name: function_a2c4c634
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xA77B0C08
 	Offset: 0xB60
 	Size: 0xAA
@@ -123,7 +123,7 @@ function function_a2c4c634()
 
 /*
 	Name: function_d657f93a
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x39D39D38
 	Offset: 0xC18
 	Size: 0x24
@@ -137,7 +137,7 @@ function function_d657f93a()
 
 /*
 	Name: function_8b3820b0
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x2E755A98
 	Offset: 0xC48
 	Size: 0xB0
@@ -158,7 +158,7 @@ function function_8b3820b0(params)
 
 /*
 	Name: function_b68ffa5d
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x3A7670FE
 	Offset: 0xD00
 	Size: 0x24
@@ -172,7 +172,7 @@ function function_b68ffa5d()
 
 /*
 	Name: function_6e45ce5d
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xF4F9735
 	Offset: 0xD30
 	Size: 0x322
@@ -228,7 +228,7 @@ function function_6e45ce5d(params)
 
 /*
 	Name: function_c6ba5108
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x377F2D1E
 	Offset: 0x1060
 	Size: 0x24
@@ -242,7 +242,7 @@ function function_c6ba5108()
 
 /*
 	Name: function_8eb61d56
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x3C6A9BF6
 	Offset: 0x1090
 	Size: 0xEC
@@ -259,7 +259,7 @@ function function_8eb61d56(params)
 
 /*
 	Name: function_367835e3
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x5754643A
 	Offset: 0x1188
 	Size: 0x24
@@ -273,7 +273,7 @@ function function_367835e3()
 
 /*
 	Name: function_109e560b
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x2957958E
 	Offset: 0x11B8
 	Size: 0xE8
@@ -299,7 +299,7 @@ function function_109e560b()
 
 /*
 	Name: function_d48890bb
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xE9570BC0
 	Offset: 0x12A8
 	Size: 0x58
@@ -317,7 +317,7 @@ function function_d48890bb()
 
 /*
 	Name: function_7c30e9e0
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x571729D5
 	Offset: 0x1308
 	Size: 0xAE
@@ -338,7 +338,7 @@ function function_7c30e9e0()
 
 /*
 	Name: function_8c0cbe3e
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xE69B9404
 	Offset: 0x13C0
 	Size: 0x14
@@ -352,7 +352,7 @@ function function_8c0cbe3e()
 
 /*
 	Name: function_4815496
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xCEFD2EA7
 	Offset: 0x13E0
 	Size: 0x24
@@ -366,7 +366,7 @@ function function_4815496()
 
 /*
 	Name: function_b9a9c8d8
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x259DD1A6
 	Offset: 0x1410
 	Size: 0x64
@@ -383,7 +383,7 @@ function function_b9a9c8d8(params)
 
 /*
 	Name: function_9e965239
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xC6401A69
 	Offset: 0x1480
 	Size: 0x24
@@ -397,7 +397,7 @@ function function_9e965239()
 
 /*
 	Name: function_3bbd5251
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x4C0435CD
 	Offset: 0x14B0
 	Size: 0x84
@@ -414,7 +414,7 @@ function function_3bbd5251(params)
 
 /*
 	Name: function_8593adf4
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xB5AA7517
 	Offset: 0x1540
 	Size: 0x24
@@ -428,7 +428,7 @@ function function_8593adf4()
 
 /*
 	Name: function_e36c85d8
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x4B89AC64
 	Offset: 0x1570
 	Size: 0x150
@@ -468,7 +468,7 @@ function function_e36c85d8(params)
 
 /*
 	Name: function_8dc27487
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xF0EA6FEE
 	Offset: 0x16C8
 	Size: 0x5C
@@ -490,7 +490,7 @@ function function_8dc27487(n_max_time)
 
 /*
 	Name: function_75102c92
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x1AD67A44
 	Offset: 0x1730
 	Size: 0x48C
@@ -595,7 +595,7 @@ function function_75102c92()
 
 /*
 	Name: function_f5ef0d83
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x96193FAB
 	Offset: 0x1BC8
 	Size: 0x8C
@@ -612,7 +612,7 @@ function function_f5ef0d83(params)
 
 /*
 	Name: function_c20741bf
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xE56EFB89
 	Offset: 0x1C60
 	Size: 0xF2
@@ -639,7 +639,7 @@ function function_c20741bf()
 
 /*
 	Name: function_fc480d54
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x77D19DBD
 	Offset: 0x1D60
 	Size: 0x64
@@ -656,7 +656,7 @@ function function_fc480d54()
 
 /*
 	Name: function_e8cf8caa
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x124B1CB
 	Offset: 0x1DD0
 	Size: 0x58
@@ -673,7 +673,7 @@ function function_e8cf8caa(params)
 
 /*
 	Name: function_12b1c299
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xC7F3AA54
 	Offset: 0x1E30
 	Size: 0x64
@@ -689,7 +689,7 @@ function function_12b1c299()
 
 /*
 	Name: function_436940b1
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xDC8AF3A7
 	Offset: 0x1EA0
 	Size: 0x19C
@@ -721,7 +721,7 @@ function function_436940b1(params)
 
 /*
 	Name: function_f53b652e
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x8FCD3E58
 	Offset: 0x2048
 	Size: 0x5C
@@ -737,7 +737,7 @@ function function_f53b652e()
 
 /*
 	Name: function_d57bb90f
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xD5D8AE75
 	Offset: 0x20B0
 	Size: 0x222
@@ -783,7 +783,7 @@ function function_d57bb90f()
 
 /*
 	Name: function_aff09c5b
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xF586E5E5
 	Offset: 0x22E0
 	Size: 0x1A2
@@ -814,7 +814,7 @@ function function_aff09c5b()
 
 /*
 	Name: function_428a25c7
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0xFD9FFA31
 	Offset: 0x2490
 	Size: 0x5C
@@ -832,7 +832,7 @@ function function_428a25c7()
 
 /*
 	Name: function_3d0c6b79
-	Namespace: namespace_f4ff722a
+	Namespace: lotus_accolades
 	Checksum: 0x4BB85D05
 	Offset: 0x24F8
 	Size: 0x11A

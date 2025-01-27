@@ -2218,7 +2218,7 @@ function detention_center_main(str_objective, b_starting)
 		level lotus_util::function_484bc3aa(1);
 	}
 	lotus_util::function_3b6587d6(0, "lotus2_standdown_igc_umbra_gate");
-	namespace_f4ff722a::function_a2c4c634();
+	lotus_accolades::function_a2c4c634();
 	var_d6cea0d7 = getent("trig_kick_door", "targetname");
 	if(isdefined(var_d6cea0d7))
 	{
