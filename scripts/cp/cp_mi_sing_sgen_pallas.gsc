@@ -1028,8 +1028,8 @@ function pallas_greeting_event(b_starting)
 {
 	if(!b_starting)
 	{
-		var_34a8e0f = getent("pallas_turret_enable_trigger", "targetname");
-		var_34a8e0f.origin = var_34a8e0f.origin + (vectorscale((0, -1, 0), 38));
+		t_pallas = getent("pallas_turret_enable_trigger", "targetname");
+		t_pallas.origin = t_pallas.origin + (vectorscale((0, -1, 0), 38));
 		level waittill("enter_server");
 		trigger::wait_or_timeout(30, "pallas_turret_enable_trigger");
 	}
