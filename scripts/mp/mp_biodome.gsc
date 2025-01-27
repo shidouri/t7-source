@@ -24,7 +24,7 @@ function main()
 	precache();
 	setdvar("phys_buoyancy", 1);
 	namespace_d22f7529::main();
-	namespace_8911e65c::main();
+	mp_biodome_sound::main();
 	level.remotemissile_kill_z = -130 + 50;
 	load::main();
 	compass::setupminimap("compass_map_mp_biodome");

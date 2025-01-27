@@ -20,7 +20,7 @@
 function main()
 {
 	namespace_d22f7529::main();
-	namespace_8911e65c::main();
+	mp_biodome_sound::main();
 	load::main();
 	level.domflagbasefxoverride = &dom_flag_base_fx_override;
 	level.domflagcapfxoverride = &dom_flag_cap_fx_override;
