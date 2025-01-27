@@ -2767,14 +2767,14 @@ function function_6a1cc377()
 	{
 		level thread zm_stalingrad_vo::function_e4acaa37("vox_soph_security_system_orders_0", 0, 1, 0, 1);
 	}
-	var_4af7b97 = array("armory", "barracks", "command", "store", "supply", "tank");
-	var_4af7b97 = array::randomize(var_4af7b97);
-	level function_18375f27(var_4af7b97);
+	a_str_locations = array("armory", "barracks", "command", "store", "supply", "tank");
+	a_str_locations = array::randomize(a_str_locations);
+	level function_18375f27(a_str_locations);
 	level function_2868b6f4(0);
 	level.var_178c3c6b = 0;
 	level thread function_df3d4b2f();
 	var_7953b28 = getentarray("ee_timed", "script_label");
-	array::thread_all(var_7953b28, &function_82d88307, var_4af7b97);
+	array::thread_all(var_7953b28, &function_82d88307, a_str_locations);
 	var_2635052a = level util::waittill_any_return("ee_timed_complete", "ee_timed_failed");
 	foreach(mdl_button in var_7953b28)
 	{
@@ -2816,7 +2816,7 @@ function function_6a1cc377()
 	Parameters: 1
 	Flags: Linked
 */
-function function_18375f27(var_4af7b97)
+function function_18375f27(a_str_locations)
 {
 	var_cf5f1519 = getent("ee_map", "targetname");
 	/#
@@ -2830,20 +2830,20 @@ function function_18375f27(var_4af7b97)
 	for(i = 0; i < 4; i++)
 	{
 		wait(0.4);
-		foreach(str_location in var_4af7b97)
+		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
 			var_cf5f1519 showpart(str_tag);
 		}
 		level.var_f0d11538 playsound("zmb_scenarios_map_beep_higher");
 		wait(0.4);
-		foreach(str_location in var_4af7b97)
+		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
 			var_cf5f1519 hidepart(str_tag);
 		}
 	}
-	var_bf616d4d = array::randomize(var_4af7b97);
+	var_bf616d4d = array::randomize(a_str_locations);
 	foreach(var_796743e2 in var_bf616d4d)
 	{
 		str_tag = "tag_map_screen_glow_" + var_796743e2;
@@ -2853,7 +2853,7 @@ function function_18375f27(var_4af7b97)
 		wait(0.1);
 		var_cf5f1519 hidepart(str_tag);
 	}
-	foreach(str_location in var_4af7b97)
+	foreach(str_location in a_str_locations)
 	{
 		str_tag = "tag_map_screen_glow_" + str_location;
 		wait(0.3);
@@ -2865,14 +2865,14 @@ function function_18375f27(var_4af7b97)
 	wait(0.1);
 	for(i = 0; i < (4 - 1); i++)
 	{
-		foreach(str_location in var_4af7b97)
+		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
 			var_cf5f1519 showpart(str_tag);
 		}
 		level.var_f0d11538 playsound("zmb_scenarios_map_beep_higher");
 		wait(0.4);
-		foreach(str_location in var_4af7b97)
+		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
 			var_cf5f1519 hidepart(str_tag);
@@ -2965,7 +2965,7 @@ function function_845d9fe9()
 	Parameters: 1
 	Flags: Linked
 */
-function function_82d88307(var_4af7b97)
+function function_82d88307(a_str_locations)
 {
 	/#
 		level endon(#"hash_9546144d");
@@ -2974,7 +2974,7 @@ function function_82d88307(var_4af7b97)
 	self scene::play("p7_fxanim_zm_stal_rigged_button_extend_bundle", array(self));
 	self playloopsound("zmb_rigged_button_alarm_lp", 3);
 	self function_6e3a6092();
-	var_d1033754 = "ee_timed_" + var_4af7b97[level.var_178c3c6b];
+	var_d1033754 = "ee_timed_" + a_str_locations[level.var_178c3c6b];
 	if(self.targetname != var_d1033754)
 	{
 		level.var_e5f51155 = 1;
@@ -5330,9 +5330,9 @@ function function_1b02c173(n_value)
 function function_90a2468c(n_value)
 {
 	/#
-		var_4af7b97 = array("", "", "", "", "", "");
-		var_4af7b97 = array::randomize(var_4af7b97);
-		level function_18375f27(var_4af7b97);
+		a_str_locations = array("", "", "", "", "", "");
+		a_str_locations = array::randomize(a_str_locations);
+		level function_18375f27(a_str_locations);
 	#/
 }
 
