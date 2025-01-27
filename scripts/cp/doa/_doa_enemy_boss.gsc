@@ -133,7 +133,7 @@ function private function_555608c7()
 			break;
 		}
 	}
-	self thread namespace_1a381543::function_90118d8c("zmb_simianaut_roar");
+	self thread doa_sound::function_90118d8c("zmb_simianaut_roar");
 	self.health = 999999;
 	self.takedamage = 0;
 	waittillframeend();
@@ -155,7 +155,7 @@ function private function_555608c7()
 	anim_ang = vectortoangles(attacker.origin - self.origin);
 	self.anchor rotateto((0, anim_ang[1], 0), 0.5);
 	self.anchor waittill("rotatedone");
-	self thread namespace_1a381543::function_90118d8c("zmb_simianaut_roar");
+	self thread doa_sound::function_90118d8c("zmb_simianaut_roar");
 	self forceteleport(self.origin, (0, anim_ang[1], 0));
 	self unlink();
 	self orientmode("face enemy");
@@ -165,7 +165,7 @@ function private function_555608c7()
 	self waittillmatch("pissedoff");
 	self.anchor delete();
 	self.var_faa677d7 = gettime() + 10000;
-	self thread namespace_1a381543::function_90118d8c("zmb_simianaut_roar");
+	self thread doa_sound::function_90118d8c("zmb_simianaut_roar");
 	self.zombie_move_speed = "run";
 	if(isdefined(attacker) && isplayer(attacker))
 	{
@@ -206,7 +206,7 @@ function private function_a2756e92()
 {
 	self endon("death");
 	self notify(#"hash_d96c599c");
-	self thread namespace_1a381543::function_90118d8c("zmb_simianaut_roar");
+	self thread doa_sound::function_90118d8c("zmb_simianaut_roar");
 	self.var_88168473 = 1;
 	self.zombie_move_speed = "walk";
 	self.var_f4a5c4fe = doa_pickups::function_ac410a13().origin;

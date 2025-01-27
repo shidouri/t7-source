@@ -295,7 +295,7 @@ function function_9fc58738(var_742d8fb5, origin, launch = 0, ondeath = 0, var_b0
 	pickup.trigger linkto(pickup);
 	pickup.score = pickup.def.data;
 	pickup.def.count++;
-	pickup thread namespace_1a381543::function_90118d8c("zmb_spawn_pickup_money");
+	pickup thread doa_sound::function_90118d8c("zmb_spawn_pickup_money");
 	if(level.doa.arena_round_number == 3)
 	{
 		pickup setnosunshadow();
@@ -526,7 +526,7 @@ function function_92d90e55(var_742d8fb5, location, timeout = 1, rotate = 1, angl
 	{
 		pickup setnosunshadow();
 	}
-	pickup thread namespace_1a381543::function_90118d8c("zmb_pickup_spawn");
+	pickup thread doa_sound::function_90118d8c("zmb_pickup_spawn");
 	if(isdefined(pickup.type) && pickup.type == 26)
 	{
 		pickup playloopsound("zmb_heart_lp", 2);
@@ -1646,7 +1646,7 @@ function function_d526f0bb()
 					}
 					player.doa.skulls++;
 					player.doa.var_fda5a6e5++;
-					self thread namespace_1a381543::function_90118d8c("zmb_pickup_nurgle");
+					self thread doa_sound::function_90118d8c("zmb_pickup_nurgle");
 					player doa_player_utility::function_71dab8e8(self.var_25ffdef1);
 					self function_6b4a5f81(player);
 					break;
@@ -1664,7 +1664,7 @@ function function_d526f0bb()
 						player.doa.gems++;
 						player.doa.var_6946711f++;
 					}
-					self thread namespace_1a381543::function_90118d8c("zmb_pickup_money");
+					self thread doa_sound::function_90118d8c("zmb_pickup_money");
 					player thread namespace_64c6b720::function_850bb47e((isdefined(self.var_5d2140f2) ? self.var_5d2140f2 : level.doa.rules.var_a9114441));
 					player thread namespace_64c6b720::function_80eb303(self.score);
 					self function_6b4a5f81(player);
@@ -1672,7 +1672,7 @@ function function_d526f0bb()
 				}
 				case 16:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_weapon");
+					player thread doa_sound::function_90118d8c("zmb_pickup_weapon");
 					player doa_player_utility::function_d5f89a15(self.def.gdtname, 1);
 					player.special_weapon = getweapon(self.def.gdtname);
 					/#
@@ -1682,14 +1682,14 @@ function function_d526f0bb()
 				}
 				case 10:
 				{
-					self thread namespace_1a381543::function_90118d8c("zmb_pickup_powerup");
+					self thread doa_sound::function_90118d8c("zmb_pickup_powerup");
 					player thread doa_player_utility::function_f3748dcb();
 					self function_6b4a5f81(player);
 					break;
 				}
 				case 12:
 				{
-					self thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					self thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					player thread doa_player_utility::function_ba145a39();
 					self function_6b4a5f81(player);
 					break;
@@ -1727,9 +1727,9 @@ function function_d526f0bb()
 					{
 						player thread doa_player_utility::function_6a52a347();
 					}
-					self thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					self thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					self function_6b4a5f81(player);
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_life");
+					player thread doa_sound::function_90118d8c("zmb_pickup_life");
 					break;
 				}
 				case 4:
@@ -1741,7 +1741,7 @@ function function_d526f0bb()
 				{
 					player.doa.var_c2b9d7d0 = gettime() + (int(player doa_utility::function_1ded48e6(level.doa.rules.var_c05a9a3f) * 1000));
 					player doa_player_utility::function_71dab8e8((int(getdvarint("scr_doa_weapon_increment_range", 1024) / getdvarint("scr_doa_weapon_increment", 64))) - 1);
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_ammo");
+					player thread doa_sound::function_90118d8c("zmb_pickup_ammo");
 					player thread function_322262ea();
 					break;
 				}
@@ -1749,7 +1749,7 @@ function function_d526f0bb()
 				{
 					player.chickens++;
 					player.doa.var_d92a8d3e++;
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_chicken");
+					player thread doa_sound::function_90118d8c("zmb_pickup_chicken");
 					player doa_chicken::function_d35a405a();
 					break;
 				}
@@ -1760,135 +1760,135 @@ function function_d526f0bb()
 				}
 				case 29:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_vortex");
+					player thread doa_sound::function_90118d8c("zmb_pickup_vortex");
 					level thread namespace_4f1562f7::function_d171e15a(player, self.origin);
 					break;
 				}
 				case 17:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_umbrella");
+					player thread doa_sound::function_90118d8c("zmb_pickup_umbrella");
 					self thread function_68c8220(player);
 					break;
 				}
 				case 7:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					player thread doa_shield::barrelupdate();
 					break;
 				}
 				case 13:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					player thread doa_shield::function_affe0c28();
 					break;
 				}
 				case 3:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread namespace_aa4730ec::function_eabe8c0(player);
 					break;
 				}
 				case 18:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread namespace_aa4730ec::function_eabe8c0(player, 1);
 					break;
 				}
 				case 6:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					player thread namespace_3f3eaecb::tesla_blockers_update();
 					break;
 				}
 				case 21:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					player thread doa_shield::function_2016b381();
 					break;
 				}
 				case 28:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level notify(#"hash_bbc7bdf9", player);
 					break;
 				}
 				case 19:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					player thread doa_shield::sawbladeupdate();
 					break;
 				}
 				case 20:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread namespace_aa4730ec::function_3ce8bf1c(player, self.origin);
 					break;
 				}
 				case 22:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread namespace_aa4730ec::function_62c5a5a(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 14:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread namespace_4f1562f7::timeshifterupdate(player, self.origin);
 					break;
 				}
 				case 24:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread doa_vehicle::function_21af9396(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 38:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread doa_vehicle::function_2ef99744(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 9:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread doa_vehicle::function_f27a22c8(player, self.origin + vectorscale((0, 0, 1), 50));
 					break;
 				}
 				case 25:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread doa_vehicle::function_1e663abe(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 33:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread doa_vehicle::function_e9f445ce(player, self.origin + vectorscale((0, 0, 1), 20));
 					break;
 				}
 				case 34:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					player thread doa_shield::boxingpickupupdate();
 					break;
 				}
 				case 30:
 				case 31:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread function_411355c0(self.type, player, player.origin);
 					break;
 				}
 				case 26:
 				{
 					self stoploopsound();
-					player thread namespace_1a381543::function_90118d8c("zmb_heart_pickup");
+					player thread doa_sound::function_90118d8c("zmb_heart_pickup");
 					level thread function_fce74a5f(self);
 					break;
 				}
 				case 35:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread function_8bf960cf(player);
 					break;
 				}
@@ -1901,7 +1901,7 @@ function function_d526f0bb()
 				}
 				case 37:
 				{
-					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
+					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
 					level thread namespace_4f1562f7::function_ca06d008(player, self.origin);
 					break;
 				}

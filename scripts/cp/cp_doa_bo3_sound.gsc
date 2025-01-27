@@ -17,11 +17,11 @@ function main()
 {
 }
 
-#namespace namespace_1a381543;
+#namespace doa_sound;
 
 /*
 	Name: function_68fdd800
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0x8514A9DF
 	Offset: 0xE0
 	Size: 0x6C
@@ -40,7 +40,7 @@ function function_68fdd800()
 
 /*
 	Name: function_42b6c406
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0x87E393D2
 	Offset: 0x158
 	Size: 0x3C

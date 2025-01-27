@@ -1052,7 +1052,7 @@ function function_ba487e2a(room)
 	{
 		player thread function_14e75d7a();
 	}
-	level thread namespace_1a381543::function_68fdd800();
+	level thread doa_sound::function_68fdd800();
 	level thread function_10aa3e48(room);
 	level flag::set("doa_challenge_ready");
 }
@@ -1805,7 +1805,7 @@ function function_76dd5557(room)
 		if(isdefined(self.var_a2d7b04a))
 		{
 			self.var_a2d7b04a thread function_db9097e4(room);
-			self thread namespace_1a381543::function_90118d8c("zmb_eggbowl_goal");
+			self thread doa_sound::function_90118d8c("zmb_eggbowl_goal");
 			level thread function_8f4c809d(room, self.var_a2d7b04a);
 			arrayremovevalue(room.var_677f63c8, self);
 			wait(5);

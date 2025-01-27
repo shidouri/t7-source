@@ -454,7 +454,7 @@ function private function_6ec8176a()
 				{
 					case "water":
 					{
-						guy thread namespace_1a381543::function_90118d8c("zmb_hazard_water_death");
+						guy thread doa_sound::function_90118d8c("zmb_hazard_water_death");
 						guy thread doa_fx::function_285a2999("hazard_water");
 						break;
 					}
@@ -726,7 +726,7 @@ function private function_8a97d2c0(trigger)
 				continue;
 			}
 			guy.doa.var_84b9997f = curtime + 1500;
-			guy thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
+			guy thread doa_sound::function_90118d8c("zmb_hazard_hit");
 			guy thread doa_fx::function_285a2999("hazard_electric");
 			if(isdefined(guy.boss) && guy.boss)
 			{
@@ -827,7 +827,7 @@ function function_193a95a6()
 	self.death_func = undefined;
 	origin = self.origin;
 	self clientfield::set("hazard_activated", 9);
-	self thread namespace_1a381543::function_90118d8c("exp_barrel_explo");
+	self thread doa_sound::function_90118d8c("exp_barrel_explo");
 	self function_65192900();
 	util::wait_network_frame();
 	radiusdamage(origin, 200, 10000, 10000);

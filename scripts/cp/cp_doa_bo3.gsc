@@ -294,7 +294,7 @@ function function_75772673(player)
 	trail = "gem_trail_" + color;
 	self setplayercollision(0);
 	self namespace_51bd792::droptoground(self.origin, trail, "turret_impact", 0, 0);
-	self namespace_1a381543::function_90118d8c("evt_robot_land");
+	self doa_sound::function_90118d8c("evt_robot_land");
 	self doa_fx::function_285a2999("player_trail_" + color);
 	while(isdefined(player))
 	{
@@ -387,7 +387,7 @@ function function_89a2ffc4(player)
 		self kill();
 		return;
 	}
-	self namespace_1a381543::function_90118d8c("evt_skel_rise");
+	self doa_sound::function_90118d8c("evt_skel_rise");
 	if(!isdefined(player.doa.var_af875fb7))
 	{
 		player.doa.var_af875fb7 = [];
@@ -421,7 +421,7 @@ function function_f45d4afc(target)
 	if(isdefined(target))
 	{
 		target dodamage(1100, target.origin, self, self);
-		self namespace_1a381543::function_90118d8c("evt_skel_attack");
+		self doa_sound::function_90118d8c("evt_skel_attack");
 	}
 }
 
@@ -489,14 +489,14 @@ function function_cef7f9fd()
 	wait(lifetime);
 	self clientfield::increment("burnZombie");
 	self.ignoreall = 1;
-	self namespace_1a381543::function_90118d8c("gdt_immolation_robot_countdown");
+	self doa_sound::function_90118d8c("gdt_immolation_robot_countdown");
 	var_989e36b3 = 2000 + gettime();
 	while(gettime() < var_989e36b3)
 	{
 		self dodamage(5, self.origin, undefined, undefined, "none", "MOD_RIFLE_BULLET", 0, getweapon("gadget_immolation"), -1, 1);
 		self waittillmatch(#"bhtn_action_terminate");
 	}
-	self namespace_1a381543::function_90118d8c("wpn_incendiary_explode");
+	self doa_sound::function_90118d8c("wpn_incendiary_explode");
 	playfxontag("explosions/fx_ability_exp_immolation", self, "j_spinelower");
 	physicsexplosionsphere(self.origin, 200, 32, 2);
 	util::wait_network_frame();

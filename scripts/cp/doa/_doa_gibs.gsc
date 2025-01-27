@@ -111,7 +111,7 @@ function function_45dffa6b(launchvector)
 	self thread doa_utility::function_e3c30240(launchvector);
 	if(isdefined(launchvector))
 	{
-		self thread namespace_1a381543::function_90118d8c("zmb_ragdoll_launched");
+		self thread doa_sound::function_90118d8c("zmb_ragdoll_launched");
 	}
 }
 

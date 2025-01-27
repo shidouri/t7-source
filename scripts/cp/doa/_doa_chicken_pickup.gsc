@@ -34,24 +34,24 @@ function function_cdfa9ce8(bird)
 	bird useanimtree($critter);
 	curanim = %critter::a_chicken_react_up_down;
 	lastanim = %critter::a_chicken_idle_peck;
-	bird thread namespace_1a381543::function_90118d8c("zmb_dblshot_squawk");
+	bird thread doa_sound::function_90118d8c("zmb_dblshot_squawk");
 	while(isdefined(bird))
 	{
 		if(randomint(100) > 15)
 		{
-			bird thread namespace_1a381543::function_90118d8c("zmb_dblshot_squawk");
+			bird thread doa_sound::function_90118d8c("zmb_dblshot_squawk");
 		}
 		if(isdefined(self.var_3424aae1) && self.var_3424aae1)
 		{
 			curanim = %critter::a_chicken_react_up_down;
-			bird thread namespace_1a381543::function_90118d8c("zmb_dblshot_squawk");
+			bird thread doa_sound::function_90118d8c("zmb_dblshot_squawk");
 		}
 		else
 		{
 			if(isdefined(self.var_a732885d) && self.var_a732885d)
 			{
 				curanim = %critter::a_chicken_react_up_down;
-				bird thread namespace_1a381543::function_90118d8c("zmb_dblshot_squawk");
+				bird thread doa_sound::function_90118d8c("zmb_dblshot_squawk");
 			}
 			else
 			{
@@ -59,7 +59,7 @@ function function_cdfa9ce8(bird)
 				{
 					curanim = %critter::a_chicken_react_up_down;
 					self.var_7d36ff94 = undefined;
-					bird thread namespace_1a381543::function_90118d8c("zmb_dblshot_squawk");
+					bird thread doa_sound::function_90118d8c("zmb_dblshot_squawk");
 				}
 				else
 				{
@@ -280,7 +280,7 @@ function function_3118ca4d(player)
 			self.spinouttime = self.spinouttime - rotate180time;
 		}
 	}
-	self thread namespace_1a381543::function_90118d8c("zmb_dblshot_end");
+	self thread doa_sound::function_90118d8c("zmb_dblshot_end");
 	self.bird thread doa_fx::function_285a2999("chicken_explode");
 	util::wait_network_frame();
 	if(isdefined(self.bird))
@@ -629,11 +629,11 @@ function function_da8e9c9b()
 		rand = randomintrange(0, 100);
 		if(rand > 30)
 		{
-			self thread namespace_1a381543::function_90118d8c("zmb_dblshot_wingflap");
+			self thread doa_sound::function_90118d8c("zmb_dblshot_wingflap");
 		}
 		if(rand > 70)
 		{
-			self thread namespace_1a381543::function_90118d8c("zmb_dblshot_squawk");
+			self thread doa_sound::function_90118d8c("zmb_dblshot_squawk");
 		}
 		wait(randomfloatrange(1, 3));
 	}
@@ -654,8 +654,8 @@ function function_4ef3ec52()
 	self waittill("spinning_out");
 	while(isdefined(self))
 	{
-		self thread namespace_1a381543::function_90118d8c("zmb_dblshot_wingflap");
-		self thread namespace_1a381543::function_90118d8c("zmb_dblshot_death");
+		self thread doa_sound::function_90118d8c("zmb_dblshot_wingflap");
+		self thread doa_sound::function_90118d8c("zmb_dblshot_death");
 		wait(randomfloatrange(0.5, 1));
 	}
 }
@@ -853,7 +853,7 @@ function function_cff32183(player)
 			}
 			if(self.var_cdf31c46 != var_cdf31c46)
 			{
-				self thread namespace_1a381543::function_90118d8c("zmb_golden_chicken_grow");
+				self thread doa_sound::function_90118d8c("zmb_golden_chicken_grow");
 				self.var_7d36ff94 = 1;
 				self.var_cdf31c46 = var_cdf31c46;
 			}
@@ -891,7 +891,7 @@ function function_2d0f96ef(player)
 	pos = 0;
 	i = 0;
 	var_fb842d4e = gettime() + (getdvarfloat("scr_doa_chicken_egg_lay_duration", 12) * 1000);
-	self thread namespace_1a381543::function_90118d8c("zmb_golden_chicken_dance");
+	self thread doa_sound::function_90118d8c("zmb_golden_chicken_dance");
 	while(gettime() < var_fb842d4e)
 	{
 		foreach(chicken in player.doa.var_3cdd8203)
@@ -911,7 +911,7 @@ function function_2d0f96ef(player)
 		self rotateto(self.angles + vectorscale((0, 1, 0), 180), 1);
 		wait(1);
 	}
-	self thread namespace_1a381543::function_90118d8c("zmb_golden_chicken_pop");
+	self thread doa_sound::function_90118d8c("zmb_golden_chicken_pop");
 	chance = 100;
 	scale = 1;
 	var_19a5d5 = 2 + randomint(5);
@@ -1052,7 +1052,7 @@ function egghop(hop)
 	if(hop)
 	{
 		self physicslaunch(self.origin, (randomintrange(-10, 10), randomintrange(-10, 10), 30));
-		self thread namespace_1a381543::function_90118d8c("zmb_egg_shake");
+		self thread doa_sound::function_90118d8c("zmb_egg_shake");
 	}
 }
 
@@ -1084,7 +1084,7 @@ function function_4c41e6af()
 			self.health = self.health - 40;
 			if(self.health < 0)
 			{
-				self thread namespace_1a381543::function_90118d8c("zmb_explode");
+				self thread doa_sound::function_90118d8c("zmb_explode");
 				self thread doa_fx::function_285a2999("egg_explode");
 				physicsexplosionsphere(self.origin, 200, 128, 2);
 				self radiusdamage(self.origin, 72, 2000, 1000);
@@ -1129,7 +1129,7 @@ function function_7b8c015c()
 	self.var_b2290d2d = 1;
 	self waittill("pickup_timeout");
 	wait(1);
-	self thread namespace_1a381543::function_90118d8c("zmb_egg_hatch");
+	self thread doa_sound::function_90118d8c("zmb_egg_hatch");
 	self thread doa_fx::function_285a2999("egg_hatch");
 	if(isdefined(self.prize))
 	{

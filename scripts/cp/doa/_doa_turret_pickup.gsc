@@ -409,7 +409,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	mini_turret.autonomous = 1;
 	droptarget = player.origin + vectorscale((0, 0, 1), 2200);
 	mini_turret.origin = droptarget;
-	mini_turret thread namespace_1a381543::function_90118d8c("evt_turret_incoming");
+	mini_turret thread doa_sound::function_90118d8c("evt_turret_incoming");
 	target = player.origin;
 	if(isdefined(player.doa.vehicle))
 	{
@@ -421,7 +421,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	mini_turret.owner = player;
 	mini_turret cleartargetentity();
 	mini_turret thread doa_fx::function_285a2999("turret_impact");
-	mini_turret thread namespace_1a381543::function_90118d8c("evt_turret_land");
+	mini_turret thread doa_sound::function_90118d8c("evt_turret_land");
 	physicsexplosionsphere(mini_turret.origin, 200, 128, 2);
 	mini_turret radiusdamage(mini_turret.origin, 72, 10000, 10000);
 	playrumbleonposition("explosion_generic", mini_turret.origin);
@@ -439,7 +439,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	}
 	mini_turret thread function_dfe832b7(time_left, "turret_expired");
 	mini_turret waittill(#"hash_d3ef93e9");
-	mini_turret thread namespace_1a381543::function_90118d8c("evt_turret_takeoff");
+	mini_turret thread doa_sound::function_90118d8c("evt_turret_takeoff");
 	mini_turret thread doa_fx::function_285a2999("veh_takeoff");
 	mini_turret thread doa_fx::function_285a2999("crater_dust");
 	mini_turret thread doa_utility::function_a98c85b2(droptarget, 1);
@@ -503,10 +503,10 @@ function function_3ce8bf1c(player, origin)
 		target = (player.origin[0], player.origin[1], hitp[2]);
 	}
 	mark = target + vectorscale((0, 0, 1), 12);
-	sprinkler thread namespace_1a381543::function_90118d8c("evt_sprinkler_incoming");
+	sprinkler thread doa_sound::function_90118d8c("evt_sprinkler_incoming");
 	sprinkler thread doa_utility::function_a98c85b2(mark, 0.5);
 	sprinkler util::waittill_any_timeout(1, "movedone");
-	sprinkler thread namespace_1a381543::function_90118d8c("evt_sprinkler_land");
+	sprinkler thread doa_sound::function_90118d8c("evt_sprinkler_land");
 	sprinkler thread doa_fx::function_285a2999("sprinkler_land");
 	if(isdefined(player))
 	{
@@ -523,7 +523,7 @@ function function_3ce8bf1c(player, origin)
 	wait(player doa_utility::function_1ded48e6(level.doa.rules.var_213b65db));
 	sprinkler thread doa_fx::turnofffx("sprinkler_active");
 	wait(2);
-	sprinkler thread namespace_1a381543::function_90118d8c("evt_sprinkler_takeoff");
+	sprinkler thread doa_sound::function_90118d8c("evt_sprinkler_takeoff");
 	sprinkler thread doa_fx::function_285a2999("sprinkler_takeoff");
 	sprinkler stoploopsound(2);
 	if(isdefined(fx))
@@ -599,7 +599,7 @@ function function_62c5a5a(player, origin)
 	fake setmodel(level.doa.var_4aa90d77);
 	fake.angles = angles;
 	fake thread doa_fx::function_285a2999("fire_trail");
-	fake thread namespace_1a381543::function_90118d8c("evt_turret_incoming");
+	fake thread doa_sound::function_90118d8c("evt_turret_incoming");
 	fake moveto(mark, 0.5);
 	fake util::waittill_any_timeout(1, "movedone");
 	physicsexplosionsphere(mark, 200, 128, 3);
@@ -619,7 +619,7 @@ function function_62c5a5a(player, origin)
 		amws notsolid();
 		amws thread function_43d18fa4(player, note);
 		amws thread doa_fx::function_285a2999("turret_impact");
-		amws thread namespace_1a381543::function_90118d8c("evt_turret_land");
+		amws thread doa_sound::function_90118d8c("evt_turret_land");
 		amws.overridevehicledamage = &function_f3ee1c57;
 		level.doa.var_1332e37a[level.doa.var_1332e37a.size] = amws;
 		amws thread doa_pickups::function_9908c4ec();
@@ -641,7 +641,7 @@ function function_62c5a5a(player, origin)
 		fake.targetname = "amwsPickupUpdate2";
 		fake setmodel(level.doa.var_4aa90d77);
 		fake.angles = amws.angles;
-		fake thread namespace_1a381543::function_90118d8c("evt_turret_takeoff");
+		fake thread doa_sound::function_90118d8c("evt_turret_takeoff");
 		amws delete();
 		fake thread doa_fx::function_285a2999("veh_takeoff");
 		fake thread doa_fx::function_285a2999("crater_dust");

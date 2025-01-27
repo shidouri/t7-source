@@ -413,7 +413,7 @@ function function_8b898788()
 		{
 			continue;
 		}
-		guy thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
+		guy thread doa_sound::function_90118d8c("zmb_hazard_hit");
 		guy thread doa_fx::function_285a2999("hazard_electric");
 		if(!isplayer(guy))
 		{
@@ -470,19 +470,19 @@ function function_d4107a2a()
 		wait(0.05);
 	}
 	self thread doa_fx::function_285a2999("tesla_shock_eyes");
-	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
+	self thread doa_sound::function_90118d8c("zmb_hazard_hit");
 	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
-	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
+	self thread doa_sound::function_90118d8c("zmb_hazard_hit");
 	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
-	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
+	self thread doa_sound::function_90118d8c("zmb_hazard_hit");
 	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
-	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
+	self thread doa_sound::function_90118d8c("zmb_hazard_hit");
 	self thread doa_fx::function_285a2999("hazard_electric");
 	wait(1);
-	self thread namespace_1a381543::function_90118d8c("zmb_hazard_hit");
+	self thread doa_sound::function_90118d8c("zmb_hazard_hit");
 	self thread doa_fx::function_285a2999("hazard_electric");
 	level thread function_7517e6b7(self.origin);
 	self.takedamage = 1;
@@ -682,9 +682,9 @@ function droptoground(origin, trailfx, var_b8f99479 = "turret_impact", var_96214
 	org enablelinkto();
 	self linkto(org, "tag_origin");
 	org moveto(dst.origin, 1.2);
-	org thread namespace_1a381543::function_90118d8c("zmb_enemy_incoming");
+	org thread doa_sound::function_90118d8c("zmb_enemy_incoming");
 	org util::waittill_any_timeout(1.5, "movedone");
-	org thread namespace_1a381543::function_90118d8c("zmb_enemy_impact");
+	org thread doa_sound::function_90118d8c("zmb_enemy_impact");
 	physicsexplosionsphere(dst.origin, 200, 128, 3);
 	playrumbleonposition("grenade_rumble", dst.origin);
 	self unlink();
@@ -1550,7 +1550,7 @@ function shadowteleportmenow(initial = 0)
 	org.spawner = self.spawner;
 	org thread doa_fx::function_285a2999("shadow_move");
 	org thread doa_fx::function_285a2999("shadow_glow");
-	org thread namespace_1a381543::function_90118d8c("zmb_enemy_smokeman_poof");
+	org thread doa_sound::function_90118d8c("zmb_enemy_smokeman_poof");
 	wait(0.3);
 	self ghost();
 	self notsolid();
@@ -1560,9 +1560,9 @@ function shadowteleportmenow(initial = 0)
 	org util::waittill_any_timeout(2.1, "movedone");
 	org thread doa_fx::function_285a2999("shadow_appear");
 	wait(1);
-	org thread namespace_1a381543::function_90118d8c("zmb_enemy_smokeman_wings");
+	org thread doa_sound::function_90118d8c("zmb_enemy_smokeman_wings");
 	wait(1);
-	self thread namespace_1a381543::function_90118d8c("zmb_enemy_smokeman_poof");
+	self thread doa_sound::function_90118d8c("zmb_enemy_smokeman_poof");
 	self unlink();
 	self forceteleport(org.origin);
 	self show();

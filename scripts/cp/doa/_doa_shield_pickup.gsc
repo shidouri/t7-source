@@ -32,7 +32,7 @@ function boxingpickupupdate()
 	org.angles = (0, randomint(180), 0);
 	org setmodel("tag_origin");
 	self.doa.var_bfb9be95 = org;
-	org thread namespace_1a381543::function_90118d8c("zmb_pwup_boxing_start");
+	org thread doa_sound::function_90118d8c("zmb_pwup_boxing_start");
 	leftglove = spawn("script_model", self.origin + (0, 60, 32));
 	leftglove.targetname = "leftglove";
 	leftglove setmodel("zombietron_boxing_gloves_lt");
@@ -165,7 +165,7 @@ function private function_80bf1f40(player, note, sfx, var_5e61e69d, mod = "MOD_C
 		}
 		if(isdefined(sfx))
 		{
-			guy thread namespace_1a381543::function_90118d8c(sfx);
+			guy thread doa_sound::function_90118d8c(sfx);
 		}
 		if(isdefined(var_5e61e69d))
 		{
@@ -218,7 +218,7 @@ function private function_3c5a0d64(org, note, var_3587f608, sfxend)
 	}
 	if(isdefined(sfxend))
 	{
-		self thread namespace_1a381543::function_90118d8c(sfxend);
+		self thread doa_sound::function_90118d8c(sfxend);
 	}
 	self notify(note);
 }
@@ -351,11 +351,11 @@ function private function_6143f535(org, note)
 	}
 	if(isdefined(org) && isdefined(org.barrel1))
 	{
-		org.barrel1 thread namespace_1a381543::function_90118d8c("zmb_pwup_barrel_fall_0");
+		org.barrel1 thread doa_sound::function_90118d8c("zmb_pwup_barrel_fall_0");
 	}
 	if(isdefined(org) && isdefined(org.barrel2))
 	{
-		org.barrel2 thread namespace_1a381543::function_90118d8c("zmb_pwup_barrel_fall_1");
+		org.barrel2 thread doa_sound::function_90118d8c("zmb_pwup_barrel_fall_1");
 	}
 	wait(5);
 	if(isdefined(org) && isdefined(org.barrel1))
@@ -426,7 +426,7 @@ function private function_5f0b5579(player)
 		}
 		if(guy.doa.stunned == 0)
 		{
-			guy thread namespace_1a381543::function_90118d8c("zmb_pwup_bear_stun");
+			guy thread doa_sound::function_90118d8c("zmb_pwup_bear_stun");
 			guy thread doa_fx::function_285a2999("stunbear_contact");
 			player playrumbleonentity("slide_rumble");
 			guy thread function_a0a646c2();
@@ -481,7 +481,7 @@ function private function_e6abac68(trigger)
 	util::wait_network_frame();
 	if(isdefined(self))
 	{
-		self thread namespace_1a381543::function_90118d8c("zmb_pwup_bear_end");
+		self thread doa_sound::function_90118d8c("zmb_pwup_bear_end");
 		self thread doa_fx::turnofffx("stunbear_fade");
 	}
 	if(isdefined(trigger))
@@ -613,7 +613,7 @@ function private function_92374630(player)
 		{
 			continue;
 		}
-		guy thread namespace_1a381543::function_90118d8c("zmb_pwup_blade_impact");
+		guy thread doa_sound::function_90118d8c("zmb_pwup_blade_impact");
 		if(isactor(guy))
 		{
 			vel = vectorscale(self.origin - player.origin, 0.2);
@@ -656,7 +656,7 @@ function private function_f797c54(org, note)
 		#/
 	}
 	self stoploopsound(0.5);
-	self thread namespace_1a381543::function_90118d8c("zmb_pwup_blade_end");
+	self thread doa_sound::function_90118d8c("zmb_pwup_blade_end");
 	self notify(note);
 }
 
@@ -686,7 +686,7 @@ function private function_595842c5(org, note)
 			vel = org.blades[i].origin - self.origin;
 			org.blades[i] physicslaunch(org.blades[i].origin, vel);
 		}
-		org.blades[i] thread namespace_1a381543::function_90118d8c("zmb_pwup_blade_fall_0");
+		org.blades[i] thread doa_sound::function_90118d8c("zmb_pwup_blade_fall_0");
 	}
 	wait(5);
 	for(i = 0; i < org.blades.size; i++)
@@ -722,8 +722,8 @@ function function_64bb8338(orb)
 	wait(1);
 	if(isdefined(self))
 	{
-		self thread namespace_1a381543::function_4f06fb8("zmb_pwup_magnet_loop");
-		self thread namespace_1a381543::function_90118d8c("zmb_pwup_magnet_end");
+		self thread doa_sound::function_4f06fb8("zmb_pwup_magnet_loop");
+		self thread doa_sound::function_90118d8c("zmb_pwup_magnet_end");
 	}
 	orb delete();
 }
@@ -749,7 +749,7 @@ function function_2016b381(time)
 	orb linkto(self, "", vectorscale((0, 0, 1), 50));
 	self.doa.var_3df27425 = orb;
 	self thread function_64bb8338(orb);
-	self thread namespace_1a381543::function_90118d8c("zmb_pwup_magnet_loop");
+	self thread doa_sound::function_90118d8c("zmb_pwup_magnet_loop");
 	orb thread doa_fx::function_285a2999("magnet_on");
 	level doa_utility::function_c8f4d63a();
 	if(isdefined(time))

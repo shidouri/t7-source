@@ -1632,7 +1632,7 @@ function function_4586479a(var_57e102cb = 1)
 	level.doa.teleporter util::waittill_any_timeout(4, "movedone");
 	physicsexplosionsphere(start_point, 200, 128, 3);
 	level.doa.teleporter setmovingplatformenabled(1);
-	level.doa.teleporter thread namespace_1a381543::function_90118d8c("zmb_teleporter_spawn");
+	level.doa.teleporter thread doa_sound::function_90118d8c("zmb_teleporter_spawn");
 	level.doa.teleporter playloopsound("zmb_teleporter_loop", 3);
 	level.doa.teleporter.trigger = spawn("trigger_radius", location + (vectorscale((0, 0, -1), 100)), 0, 20, 200);
 	level.doa.teleporter.trigger.targetname = "teleporter";
@@ -1656,9 +1656,9 @@ function function_4586479a(var_57e102cb = 1)
 	}
 	playrumbleonposition("artillery_rumble", location);
 	level.doa.teleporter stoploopsound(2);
-	level.doa.teleporter thread namespace_1a381543::function_4f06fb8("zmb_teleporter_spawn");
+	level.doa.teleporter thread doa_sound::function_4f06fb8("zmb_teleporter_spawn");
 	level notify(#"hash_ba37290e", "arenatransition");
-	level.doa.teleporter thread namespace_1a381543::function_90118d8c("zmb_teleporter_tele_out");
+	level.doa.teleporter thread doa_sound::function_90118d8c("zmb_teleporter_tele_out");
 	doa_utility::function_44eb090b();
 	level clientfield::set("roundMenu", 0);
 	level clientfield::set("teleportMenu", 0);

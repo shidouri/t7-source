@@ -6,11 +6,11 @@
 #using scripts\shared\fx_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_1a381543;
+#namespace doa_sound;
 
 /*
 	Name: init
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0xE87EEA7B
 	Offset: 0xA18
 	Size: 0xE64
@@ -138,7 +138,7 @@ function init()
 
 /*
 	Name: function_ce931b57
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0x334835C5
 	Offset: 0x1888
 	Size: 0x7E
@@ -159,7 +159,7 @@ function function_ce931b57(name, type)
 
 /*
 	Name: function_7ad8eb52
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0x67DBBB33
 	Offset: 0x1910
 	Size: 0x58
@@ -176,7 +176,7 @@ function function_7ad8eb52(name)
 
 /*
 	Name: function_9ab759da
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0xABEC4B68
 	Offset: 0x1970
 	Size: 0x1FC
@@ -218,7 +218,7 @@ function function_9ab759da(&queue, flag, var_a6cc22d4 = 0)
 
 /*
 	Name: function_4f06fb8
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0xD5E62182
 	Offset: 0x1B78
 	Size: 0xAA
@@ -245,7 +245,7 @@ function function_4f06fb8(name)
 
 /*
 	Name: function_90118d8c
-	Namespace: namespace_1a381543
+	Namespace: doa_sound
 	Checksum: 0x12D08646
 	Offset: 0x1C30
 	Size: 0x9C

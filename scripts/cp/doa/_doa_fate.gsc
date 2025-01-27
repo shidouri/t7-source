@@ -323,10 +323,10 @@ function private function_271ba816(var_26fc4461 = 0)
 	level waittill(#"hash_4213cffb");
 	wait(randomfloatrange(1, 2.5));
 	self.rock thread doa_utility::function_a98c85b2(self.rock.dloc, 1.5);
-	self.rock thread namespace_1a381543::function_90118d8c("zmb_fate_rock_spawn");
+	self.rock thread doa_sound::function_90118d8c("zmb_fate_rock_spawn");
 	wait(1.5);
 	self.rock thread doa_fx::function_285a2999("fate_impact");
-	self.rock thread namespace_1a381543::function_90118d8c("zmb_fate_rock_imp");
+	self.rock thread doa_sound::function_90118d8c("zmb_fate_rock_imp");
 	objective_add(self.id, "active", self.origin);
 	objective_set3d(self.id, 1, "default", "*");
 	while(true)
@@ -691,7 +691,7 @@ function awardfate(type, rock)
 	if(isdefined(rock))
 	{
 		rock thread doa_fx::function_285a2999("fate_trigger");
-		rock thread namespace_1a381543::function_90118d8c("zmb_fate_choose");
+		rock thread doa_sound::function_90118d8c("zmb_fate_choose");
 	}
 	self.doa.fate = type;
 	switch(type)
@@ -1102,7 +1102,7 @@ function private function_5aaa5a64(shield)
 		}
 		guy.doa.var_d6d294af = gettime() + 3000;
 		guy thread doa_fx::function_285a2999("stoneboss_shield_death");
-		shield thread namespace_1a381543::function_90118d8c("zmb_boss_shield_death");
+		shield thread doa_sound::function_90118d8c("zmb_boss_shield_death");
 		guy dodamage(guy.health + 500, guy.origin);
 	}
 }
@@ -1454,7 +1454,7 @@ function private function_c492e72d()
 		if(lasthealth > stage1 && self.health < stage1)
 		{
 			self thread doa_fx::function_285a2999("stoneboss_dmg1");
-			self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
+			self thread doa_sound::function_90118d8c("zmb_stoneboss_damaged");
 			level notify(#"hash_55acdab7");
 		}
 		else
@@ -1462,7 +1462,7 @@ function private function_c492e72d()
 			if(lasthealth > stage2 && self.health < stage2)
 			{
 				self thread doa_fx::function_285a2999("stoneboss_dmg2");
-				self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
+				self thread doa_sound::function_90118d8c("zmb_stoneboss_damaged");
 				level notify(#"hash_55acdab7");
 			}
 			else
@@ -1470,7 +1470,7 @@ function private function_c492e72d()
 				if(lasthealth > stage3 && self.health < stage3)
 				{
 					self thread doa_fx::function_285a2999("stoneboss_dmg3");
-					self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
+					self thread doa_sound::function_90118d8c("zmb_stoneboss_damaged");
 					level notify(#"hash_55acdab7");
 				}
 				else
@@ -1478,13 +1478,13 @@ function private function_c492e72d()
 					if(lasthealth > var_301961e7 && self.health < var_301961e7)
 					{
 						self thread doa_fx::function_285a2999("stoneboss_dmg4");
-						self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
+						self thread doa_sound::function_90118d8c("zmb_stoneboss_damaged");
 						level notify(#"hash_55acdab7");
 					}
 					else if(lasthealth > var_a16e77e && self.health < var_a16e77e)
 					{
 						self thread doa_fx::function_285a2999("stoneboss_dmg5");
-						self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_damaged");
+						self thread doa_sound::function_90118d8c("zmb_stoneboss_damaged");
 						level notify(#"hash_55acdab7");
 					}
 				}
@@ -1495,7 +1495,7 @@ function private function_c492e72d()
 		#/
 	}
 	self thread doa_fx::function_285a2999("stoneboss_death");
-	self thread namespace_1a381543::function_90118d8c("zmb_stoneboss_died");
+	self thread doa_sound::function_90118d8c("zmb_stoneboss_died");
 	self notify("defeated");
 	level notify("defeated", self);
 	level notify(#"hash_cb54277d");
@@ -1517,7 +1517,7 @@ function private function_ae21464b()
 	while(true)
 	{
 		wait(randomintrange(10, 20) - (getplayers().size * 1.2));
-		self thread namespace_1a381543::function_90118d8c("zmb_boss_sound_minion_summon");
+		self thread doa_sound::function_90118d8c("zmb_boss_sound_minion_summon");
 		level notify(#"hash_55acdab7");
 		/#
 			if(getdvarint("", 0))

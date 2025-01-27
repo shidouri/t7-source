@@ -38,7 +38,7 @@ function main()
 	callback::on_spawned(&on_player_spawned);
 	doa_arena::init();
 	doa_fx::init();
-	namespace_1a381543::init();
+	doa_sound::init();
 	namespace_64c6b720::init();
 	namespace_ad544aeb::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
 	doa_pickups::init();
@@ -839,7 +839,7 @@ function function_68503cb7(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval != 0)
 	{
-		self namespace_1a381543::function_1f085aea(localclientnum, newval, 0);
+		self doa_sound::function_1f085aea(localclientnum, newval, 0);
 	}
 }
 
@@ -860,7 +860,7 @@ function function_9bf26aa6(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval != 0)
 	{
-		self namespace_1a381543::function_1f085aea(localclientnum, newval, 1);
+		self doa_sound::function_1f085aea(localclientnum, newval, 1);
 	}
 }
 

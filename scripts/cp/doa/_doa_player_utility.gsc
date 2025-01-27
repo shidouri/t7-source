@@ -522,7 +522,7 @@ function turnplayershieldon(short_shield = 1)
 	{
 		if(short_shield)
 		{
-			self thread namespace_1a381543::function_90118d8c("zmb_player_shield_half");
+			self thread doa_sound::function_90118d8c("zmb_player_shield_half");
 		}
 		else if(mayspawnentity())
 		{
@@ -551,9 +551,9 @@ function turnplayershieldon(short_shield = 1)
 		self thread doa_fx::function_285a2999("player_shield_long");
 		wait(6);
 	}
-	self thread namespace_1a381543::function_90118d8c("zmb_player_shield_half");
+	self thread doa_sound::function_90118d8c("zmb_player_shield_half");
 	wait(3);
-	self thread namespace_1a381543::function_90118d8c("zmb_player_shield_end");
+	self thread doa_sound::function_90118d8c("zmb_player_shield_end");
 	wait(0.5);
 	self function_4519b17(0);
 	self notify("turnplayershieldoff");
@@ -656,7 +656,7 @@ function shield_trigger_think(player, var_c1ff53d9, thresh)
 					#/
 					guy thread doa_utility::function_e3c30240(vectorscale((0, 0, 1), 220), 100, 0.3);
 					guy thread doa_utility::function_ba30b321(0.2, player);
-					guy thread namespace_1a381543::function_90118d8c("zmb_ragdoll_launched");
+					guy thread doa_sound::function_90118d8c("zmb_ragdoll_launched");
 				}
 				else
 				{
@@ -929,8 +929,8 @@ function private function_3f041ff1()
 	self thread doa_fx::turnofffx("boots");
 	self.doa.fast_feet = undefined;
 	self setmovespeedscale(self.doa.default_movespeed);
-	self thread namespace_1a381543::function_4f06fb8("zmb_pwup_speed_loop");
-	self thread namespace_1a381543::function_90118d8c("zmb_pwup_speed_end");
+	self thread doa_sound::function_4f06fb8("zmb_pwup_speed_loop");
+	self thread doa_sound::function_90118d8c("zmb_pwup_speed_end");
 }
 
 /*
@@ -949,7 +949,7 @@ function function_832d21c2()
 	self endon("disconnect");
 	self thread function_3f041ff1();
 	wait(0.05);
-	self thread namespace_1a381543::function_90118d8c("zmb_pwup_speed_loop");
+	self thread doa_sound::function_90118d8c("zmb_pwup_speed_loop");
 	self setmovespeedscale(level.doa.rules.var_b92b82b);
 	self thread doa_fx::function_285a2999("boots");
 	self.doa.fast_feet = 1;
@@ -977,8 +977,8 @@ function private function_af5211c2()
 	self util::waittill_any("new_speed_pickup", "player_died", "speed_expired", "snare_broken", "disconnect");
 	self thread doa_fx::turnofffx("slow_feet");
 	self thread doa_fx::turnofffx("web_contact");
-	self thread namespace_1a381543::function_4f06fb8("zmb_pwup_slow_speed_loop");
-	self thread namespace_1a381543::function_90118d8c("zmb_pwup_slow_speed_end");
+	self thread doa_sound::function_4f06fb8("zmb_pwup_slow_speed_loop");
+	self thread doa_sound::function_90118d8c("zmb_pwup_slow_speed_end");
 	self.doa.var_d5c84825 = undefined;
 	util::wait_network_frame();
 	self setmovespeedscale(self.doa.default_movespeed);
@@ -1000,7 +1000,7 @@ function function_3840375a(speed = level.doa.rules.var_ee067ec)
 	self endon("disconnect");
 	self thread function_af5211c2();
 	wait(0.05);
-	self thread namespace_1a381543::function_90118d8c("zmb_pwup_slow_speed_loop");
+	self thread doa_sound::function_90118d8c("zmb_pwup_slow_speed_loop");
 	self setmovespeedscale(speed);
 	if(speed == 0)
 	{
@@ -1163,7 +1163,7 @@ function function_d7c57981()
 */
 function function_e5fa8e6a()
 {
-	self thread namespace_1a381543::function_90118d8c("zmb_player_poisoned");
+	self thread doa_sound::function_90118d8c("zmb_player_poisoned");
 	self.doa.var_91c268dc = 0;
 	self.doa.weaponlevel = 0;
 	self function_d5f89a15(self.doa.default_weap.name);
@@ -2133,7 +2133,7 @@ function function_2fee362e()
 function function_3682cfe4(einflictor, attacker, idamage, smeansofdeath, sweapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
 	self globallogic_score::incpersstat("deaths", 1, 1, 1);
-	self thread namespace_1a381543::function_90118d8c("zmb_player_death");
+	self thread doa_sound::function_90118d8c("zmb_player_death");
 	self notify("player_died");
 	self freezecontrols(1);
 	self setplayercollision(0);
@@ -2927,7 +2927,7 @@ function private function_2f150493(source, dest)
 	pickup thread doa_utility::function_a625b5d3(dest);
 	pickup thread doa_utility::function_75e76155(level, "doa_game_is_over");
 	pickup moveto(dest.origin, 1, 0, 0);
-	pickup thread namespace_1a381543::function_90118d8c("zmb_pickup_life_shimmer");
+	pickup thread doa_sound::function_90118d8c("zmb_pickup_life_shimmer");
 	pickup thread doa_utility::function_1bd67aef(3);
 	pickup util::waittill_any_timeout(2, "movedone");
 	source notify("end_life_link");
@@ -2972,7 +2972,7 @@ function private function_2f150493(source, dest)
 			/#
 				doa_utility::debugmsg("" + source.name);
 			#/
-			source thread namespace_1a381543::function_90118d8c("zmb_army_skeleton");
+			source thread doa_sound::function_90118d8c("zmb_army_skeleton");
 			for(i = 0; i < 10; i++)
 			{
 				spot = doa_utility::function_14a10231(source.origin);
@@ -2985,7 +2985,7 @@ function private function_2f150493(source, dest)
 			/#
 				doa_utility::debugmsg("" + source.name);
 			#/
-			source thread namespace_1a381543::function_90118d8c("zmb_army_robot");
+			source thread doa_sound::function_90118d8c("zmb_army_robot");
 			for(i = 0; i < 4; i++)
 			{
 				spot = doa_utility::function_14a10231(source.origin);

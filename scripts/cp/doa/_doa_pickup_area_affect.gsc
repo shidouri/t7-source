@@ -83,7 +83,7 @@ function function_ca06d008(player, origin)
 		coat thread function_be253d27();
 		coat.targetname = "coat_of_arms";
 		coat setmodel(level.doa.coat_of_arms);
-		coat thread namespace_1a381543::function_90118d8c("zmb_coat_of_arms");
+		coat thread doa_sound::function_90118d8c("zmb_coat_of_arms");
 	}
 	trigger = spawn("trigger_radius", coat.origin, 9, level.doa.rules.var_942b8706, 60);
 	trigger.targetname = "teamShifterUpdate";
@@ -216,7 +216,7 @@ function timeshifterupdate(player, origin)
 	clock = spawn("script_model", origin);
 	clock.targetname = "clock";
 	clock setmodel(level.doa.var_27f4032b);
-	clock thread namespace_1a381543::function_90118d8c("zmb_pwup_clock_start");
+	clock thread doa_sound::function_90118d8c("zmb_pwup_clock_start");
 	clock playloopsound("zmb_pwup_clock_loop", 2);
 	trigger = spawn("trigger_radius", clock.origin, 9, level.doa.rules.var_942b8706, 60);
 	trigger.targetname = "timeShifterUpdate";
@@ -231,7 +231,7 @@ function timeshifterupdate(player, origin)
 	clock thread doa_fx::function_285a2999("timeshift");
 	trigger thread function_78d20ce0();
 	level util::waittill_any_timeout(player doa_utility::function_1ded48e6(level.doa.rules.var_ecfc4359), "exit_taken");
-	clock thread namespace_1a381543::function_90118d8c("zmb_pwup_clock_end");
+	clock thread doa_sound::function_90118d8c("zmb_pwup_clock_end");
 	wait(1);
 	if(isdefined(clock))
 	{
@@ -386,7 +386,7 @@ function function_2271edf2(player)
 	self endon("death");
 	self waittill(#"hash_2271edf2");
 	doa_utility::function_3d81b494(self);
-	self thread namespace_1a381543::function_90118d8c("zmb_monkey_explo");
+	self thread doa_sound::function_90118d8c("zmb_monkey_explo");
 	self thread doa_fx::function_285a2999("monkey_explode");
 	if(isdefined(player))
 	{
