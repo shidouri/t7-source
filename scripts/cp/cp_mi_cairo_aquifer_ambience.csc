@@ -311,7 +311,7 @@ function function_91528afa(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_89b52898()
 {
-	level waittill(#"hash_496d3ee1");
+	level waittill("sndwr");
 	audio::playloopat("amb_postwateroom_weird_lp", (12618, 1364, 2949));
 }
 
