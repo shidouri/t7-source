@@ -2271,8 +2271,8 @@ function watch_for_open_sesame()
 {
 	/#
 		level waittill("open_sesame");
-		var_2bbbcbec = getentarray("", "");
-		foreach(e_power in var_2bbbcbec)
+		a_e_power = getentarray("", "");
+		foreach(e_power in a_e_power)
 		{
 			e_power.var_98e1d15 = 1;
 			var_7e0a45c8 = e_power.script_int;
@@ -3452,8 +3452,8 @@ function function_d5c8a6c2()
 function function_712a86f4(var_7e0a45c8)
 {
 	/#
-		var_2bbbcbec = getentarray("", "");
-		foreach(e_power in var_2bbbcbec)
+		a_e_power = getentarray("", "");
+		foreach(e_power in a_e_power)
 		{
 			if(e_power.script_int == var_7e0a45c8)
 			{
