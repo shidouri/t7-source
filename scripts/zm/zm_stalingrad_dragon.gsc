@@ -428,7 +428,7 @@ function function_59bb533b(a_ents)
 	Parameters: 2
 	Flags: Linked
 */
-function function_851889a0(var_2e1f54d4, var_777ffc66)
+function function_851889a0(e_dragon, var_777ffc66)
 {
 	level endon(#"hash_9ccce34a");
 	level waittill("wingflap_arrival");
@@ -880,7 +880,7 @@ function function_40dbf71()
 	Parameters: 4
 	Flags: Linked
 */
-function function_3d1f7c2e(var_2e1f54d4, var_777ffc66, var_90929db6 = 0, var_c3052a58 = 0)
+function function_3d1f7c2e(e_dragon, var_777ffc66, var_90929db6 = 0, var_c3052a58 = 0)
 {
 	var_90f8d95e = struct::get_array("rumble_" + var_777ffc66, "targetname");
 	if(!var_90929db6)
@@ -902,19 +902,19 @@ function function_3d1f7c2e(var_2e1f54d4, var_777ffc66, var_90929db6 = 0, var_c30
 	Parameters: 2
 	Flags: Linked
 */
-function function_21146aa(var_2e1f54d4, var_777ffc66)
+function function_21146aa(e_dragon, var_777ffc66)
 {
 	level endon("dragon_interrupt");
 	var_90f8d95e = struct::get_array("rumble_" + var_777ffc66, "targetname");
 	level waittill("fire_start");
-	var_2e1f54d4 clientfield::set("dragon_body_glow", 1);
+	e_dragon clientfield::set("dragon_body_glow", 1);
 	level thread function_acdda91d("zm_stalingrad_dragon_fire_charge", var_90f8d95e);
 	level waittill(#"breathe_fire");
 	stopallrumbles();
 	util::wait_network_frame();
 	level thread function_acdda91d("zm_stalingrad_dragon_fire_breathe", var_90f8d95e);
 	level waittill("fire_end");
-	var_2e1f54d4 clientfield::set("dragon_body_glow", 0);
+	e_dragon clientfield::set("dragon_body_glow", 0);
 	level waittill(#"hash_ed468118");
 	stopallrumbles();
 }
@@ -964,10 +964,10 @@ function function_acdda91d(str_rumble, var_90f8d95e)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ca29ccc4(var_2e1f54d4, var_777ffc66)
+function function_ca29ccc4(e_dragon, var_777ffc66)
 {
 	level endon("dragon_interrupt");
-	var_2e1f54d4 thread function_c4860ff6();
+	e_dragon thread function_c4860ff6();
 	switch(var_777ffc66)
 	{
 		case "department_store":
@@ -993,11 +993,11 @@ function function_ca29ccc4(var_2e1f54d4, var_777ffc66)
 		}
 	}
 	weapon = getweapon(weaponname);
-	var_2e1f54d4.var_caa5308f setvehweapon(weapon);
-	var_2e1f54d4.var_caa5308f.firing = 1;
-	while(var_2e1f54d4.var_caa5308f.firing)
+	e_dragon.var_caa5308f setvehweapon(weapon);
+	e_dragon.var_caa5308f.firing = 1;
+	while(e_dragon.var_caa5308f.firing)
 	{
-		var_2e1f54d4.var_caa5308f fireweapon();
+		e_dragon.var_caa5308f fireweapon();
 		wait(0.05);
 	}
 }
@@ -1011,12 +1011,12 @@ function function_ca29ccc4(var_2e1f54d4, var_777ffc66)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d4556285(var_2e1f54d4, var_777ffc66)
+function function_d4556285(e_dragon, var_777ffc66)
 {
 	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
 	level waittill(#"breathe_fire");
-	level thread function_ca29ccc4(var_2e1f54d4, var_777ffc66);
+	level thread function_ca29ccc4(e_dragon, var_777ffc66);
 	wait(1);
 	switch(var_777ffc66)
 	{
