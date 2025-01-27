@@ -552,7 +552,7 @@ function init()
 	doa_boss::init();
 	doa_enemy::init();
 	doa_arena::init();
-	namespace_aa4730ec::init();
+	doa_turret::init();
 	namespace_d88e3a06::init();
 	doa_vehicle::init();
 	doa_fate::init();
@@ -687,7 +687,7 @@ function function_555fb805()
 	level.callbackactorkilled = &doa_enemy::function_ff217d39;
 	level.callbackvehicledamage = &doa_enemy::function_c26b6656;
 	level.callbackvehiclekilled = &doa_enemy::function_90772ac6;
-	level.var_a753e7a8 = &namespace_aa4730ec::turret_fire;
+	level.var_a753e7a8 = &doa_turret::turret_fire;
 	level.player_stats_init = &donothing;
 	level.doa.var_e6653624 = [];
 	level.doa.var_a9ba4ffb = [];

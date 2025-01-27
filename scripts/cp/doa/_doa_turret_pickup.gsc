@@ -16,11 +16,11 @@
 #using scripts\shared\spawner_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_aa4730ec;
+#namespace doa_turret;
 
 /*
 	Name: init
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x1A615FC7
 	Offset: 0x520
 	Size: 0x3C6
@@ -75,7 +75,7 @@ function init()
 
 /*
 	Name: missile_logic
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x61B91ED1
 	Offset: 0x8F0
 	Size: 0x3A4
@@ -141,7 +141,7 @@ function missile_logic(fake)
 
 /*
 	Name: function_3bf11cb5
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x569738A1
 	Offset: 0xCA0
 	Size: 0x12C
@@ -165,7 +165,7 @@ function function_3bf11cb5(index, enemy)
 
 /*
 	Name: function_d8189eaf
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x1166A2FB
 	Offset: 0xDD8
 	Size: 0x18C
@@ -195,7 +195,7 @@ function function_d8189eaf(weapon, enemy)
 
 /*
 	Name: turret_fire
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0xD0948813
 	Offset: 0xF70
 	Size: 0x6C
@@ -216,7 +216,7 @@ function turret_fire(index, enemy)
 
 /*
 	Name: turretthink
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x3F1B1AF1
 	Offset: 0xFE8
 	Size: 0x90
@@ -239,7 +239,7 @@ function turretthink()
 
 /*
 	Name: turret_target
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0xA19B572C
 	Offset: 0x1080
 	Size: 0x158
@@ -282,7 +282,7 @@ function turret_target()
 
 /*
 	Name: function_4deaa5de
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x934AE733
 	Offset: 0x11E0
 	Size: 0x124
@@ -315,7 +315,7 @@ function function_4deaa5de(totalfiretime, enemy)
 
 /*
 	Name: function_2c414dda
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x90BF6E20
 	Offset: 0x1310
 	Size: 0x128
@@ -348,7 +348,7 @@ function function_2c414dda()
 
 /*
 	Name: canspawnturret
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x22A70D8E
 	Offset: 0x1440
 	Size: 0xD4
@@ -378,7 +378,7 @@ function canspawnturret(var_a6f28f3b = 0)
 
 /*
 	Name: function_eabe8c0
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0xE02BC7E4
 	Offset: 0x1520
 	Size: 0x56E
@@ -456,7 +456,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 
 /*
 	Name: function_a0d09d25
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x652CA5F8
 	Offset: 0x1A98
 	Size: 0x140
@@ -480,7 +480,7 @@ function function_a0d09d25(player)
 
 /*
 	Name: function_3ce8bf1c
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0xFADCC137
 	Offset: 0x1BE0
 	Size: 0x4CC
@@ -537,7 +537,7 @@ function function_3ce8bf1c(player, origin)
 
 /*
 	Name: function_dfe832b7
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0xFA1FD0AB
 	Offset: 0x20B8
 	Size: 0xA6
@@ -569,7 +569,7 @@ function private function_dfe832b7(timeleft, note)
 
 /*
 	Name: function_62c5a5a
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0x7A2CB0FC
 	Offset: 0x2168
 	Size: 0x6EC
@@ -653,7 +653,7 @@ function function_62c5a5a(player, origin)
 
 /*
 	Name: function_f3ee1c57
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0xF675EFCC
 	Offset: 0x2860
 	Size: 0xA0
@@ -671,7 +671,7 @@ function function_f3ee1c57(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: function_43d18fa4
-	Namespace: namespace_aa4730ec
+	Namespace: doa_turret
 	Checksum: 0xD5F59049
 	Offset: 0x2908
 	Size: 0x66
