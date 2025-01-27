@@ -26,11 +26,11 @@
 
 #using_animtree("generic");
 
-#namespace namespace_6b38abe3;
+#namespace wearables;
 
 /*
 	Name: __init__sytem__
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x1B3DFA48
 	Offset: 0xCA0
 	Size: 0x34
@@ -44,7 +44,7 @@ function autoexec __init__sytem__()
 
 /*
 	Name: __init__
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x2B3A9A78
 	Offset: 0xCE0
 	Size: 0x204
@@ -77,7 +77,7 @@ function __init__()
 
 /*
 	Name: function_2436f867
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x16E4D927
 	Offset: 0xEF0
 	Size: 0x84
@@ -96,7 +96,7 @@ function function_2436f867()
 
 /*
 	Name: function_b712ee6f
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xEC71EFC0
 	Offset: 0xF80
 	Size: 0x3C
@@ -110,7 +110,7 @@ function function_b712ee6f(var_908867a0)
 
 /*
 	Name: function_30fb8e63
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x3C64BE7A
 	Offset: 0xFC8
 	Size: 0x2C
@@ -124,7 +124,7 @@ function function_30fb8e63(n_perks)
 
 /*
 	Name: function_f6b20985
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xD1DD04EB
 	Offset: 0x1000
 	Size: 0x194
@@ -148,7 +148,7 @@ function function_f6b20985(var_8fca9f8c, var_f48b681c, str_tag, var_f3776824)
 
 /*
 	Name: function_24061b58
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x5E459BE1
 	Offset: 0x11A0
 	Size: 0x98
@@ -168,7 +168,7 @@ function function_24061b58(e_player)
 
 /*
 	Name: function_7f0ec71c
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x34F01979
 	Offset: 0x1248
 	Size: 0xF0
@@ -195,7 +195,7 @@ function function_7f0ec71c()
 
 /*
 	Name: function_a16ce474
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x4B93DF8C
 	Offset: 0x1340
 	Size: 0x60E
@@ -304,7 +304,7 @@ function function_a16ce474(str_model, var_475b0a4e, str_tag)
 
 /*
 	Name: function_e5515520
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x11624876
 	Offset: 0x1958
 	Size: 0x86
@@ -331,7 +331,7 @@ function function_e5515520()
 
 /*
 	Name: function_e5974b49
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x121E0F29
 	Offset: 0x19E8
 	Size: 0x134
@@ -369,7 +369,7 @@ function function_e5974b49()
 
 /*
 	Name: function_aa6437f1
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xD1FC1244
 	Offset: 0x1B28
 	Size: 0x3C
@@ -384,7 +384,7 @@ function function_aa6437f1()
 
 /*
 	Name: function_b4575902
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xF157F5E6
 	Offset: 0x1B70
 	Size: 0x304
@@ -428,7 +428,7 @@ function function_b4575902()
 
 /*
 	Name: function_9157236c
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x795E943B
 	Offset: 0x1E80
 	Size: 0x2B4
@@ -497,7 +497,7 @@ function function_9157236c()
 
 /*
 	Name: function_b8449f8c
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x5474ADC2
 	Offset: 0x2140
 	Size: 0x2D4
@@ -563,7 +563,7 @@ function function_b8449f8c(var_5a533244)
 
 /*
 	Name: function_edd475ab
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xAE3F892E
 	Offset: 0x2420
 	Size: 0x16C
@@ -618,7 +618,7 @@ function function_edd475ab(var_dd087d43, var_33c3e058, var_e7d196cc)
 
 /*
 	Name: function_8454afd5
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xEC936B93
 	Offset: 0x2598
 	Size: 0x144
@@ -640,7 +640,7 @@ function function_8454afd5()
 
 /*
 	Name: function_59c5b722
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x98BCAF96
 	Offset: 0x26E8
 	Size: 0x44
@@ -656,7 +656,7 @@ function function_59c5b722(str_flag)
 
 /*
 	Name: function_1a3ef9c4
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xE113FC98
 	Offset: 0x2738
 	Size: 0x44
@@ -672,7 +672,7 @@ function function_1a3ef9c4(str_flag)
 
 /*
 	Name: function_a4ae62cc
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x355A65C
 	Offset: 0x2788
 	Size: 0x84
@@ -691,7 +691,7 @@ function function_a4ae62cc(str_flag)
 
 /*
 	Name: function_c81a7efa
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x2481A381
 	Offset: 0x2818
 	Size: 0x44
@@ -708,7 +708,7 @@ function function_c81a7efa()
 
 /*
 	Name: function_796904fd
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xEF210D27
 	Offset: 0x2868
 	Size: 0x11C
@@ -731,7 +731,7 @@ function function_796904fd()
 
 /*
 	Name: function_c489ad78
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x4006BC8F
 	Offset: 0x2990
 	Size: 0x162
@@ -761,7 +761,7 @@ function function_c489ad78(str_flag)
 
 /*
 	Name: function_f4caac35
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xEE508679
 	Offset: 0x2B00
 	Size: 0x234
@@ -806,7 +806,7 @@ function function_f4caac35(str_flag)
 
 /*
 	Name: function_579caadc
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xAE47CC3D
 	Offset: 0x2D40
 	Size: 0x24C
@@ -858,7 +858,7 @@ function function_579caadc()
 
 /*
 	Name: function_3167c564
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xB918F02F
 	Offset: 0x2F98
 	Size: 0x154
@@ -884,7 +884,7 @@ function function_3167c564()
 
 /*
 	Name: function_5aca8a04
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xF44FAD3D
 	Offset: 0x30F8
 	Size: 0x74
@@ -903,7 +903,7 @@ function function_5aca8a04(str_flag)
 
 /*
 	Name: function_cceea36c
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x42FA448F
 	Offset: 0x3178
 	Size: 0x74
@@ -922,7 +922,7 @@ function function_cceea36c(str_flag)
 
 /*
 	Name: function_4fddc919
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x27150DA9
 	Offset: 0x31F8
 	Size: 0x1A4
@@ -951,7 +951,7 @@ function function_4fddc919()
 
 /*
 	Name: function_a5131f0d
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xA5EFF186
 	Offset: 0x33A8
 	Size: 0xAE
@@ -977,7 +977,7 @@ function function_a5131f0d(e_margwa, weapon)
 
 /*
 	Name: function_43e9a25a
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xF6B93A6E
 	Offset: 0x3460
 	Size: 0x4C
@@ -993,7 +993,7 @@ function function_43e9a25a(str_flag)
 
 /*
 	Name: function_9b35bbf0
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x399AC3C3
 	Offset: 0x34B8
 	Size: 0x6C
@@ -1012,7 +1012,7 @@ function function_9b35bbf0(str_flag, var_c5b75477)
 
 /*
 	Name: function_bf2067a4
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x1F68A960
 	Offset: 0x3530
 	Size: 0x6C
@@ -1031,7 +1031,7 @@ function function_bf2067a4(str_flag, var_c5b75477)
 
 /*
 	Name: function_838522a5
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xE8FBCD17
 	Offset: 0x35A8
 	Size: 0x24
@@ -1045,7 +1045,7 @@ function function_838522a5()
 
 /*
 	Name: function_37ba4813
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xEE2FE8BC
 	Offset: 0x35D8
 	Size: 0x25C
@@ -1078,7 +1078,7 @@ function function_37ba4813()
 
 /*
 	Name: function_b464a575
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x53235599
 	Offset: 0x3840
 	Size: 0x74
@@ -1097,7 +1097,7 @@ function function_b464a575(var_776628b2)
 
 /*
 	Name: function_b507724f
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xEA3F3BB6
 	Offset: 0x38C0
 	Size: 0x74
@@ -1116,7 +1116,7 @@ function function_b507724f(var_776628b2)
 
 /*
 	Name: function_d3f5f766
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xB8D599CA
 	Offset: 0x3940
 	Size: 0x74
@@ -1135,7 +1135,7 @@ function function_d3f5f766(var_776628b2)
 
 /*
 	Name: function_f6aa218a
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x2CDEE76D
 	Offset: 0x39C0
 	Size: 0x74
@@ -1154,7 +1154,7 @@ function function_f6aa218a(var_776628b2)
 
 /*
 	Name: function_904f0f67
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xF62EE0A6
 	Offset: 0x3A40
 	Size: 0x74
@@ -1173,7 +1173,7 @@ function function_904f0f67(var_776628b2)
 
 /*
 	Name: function_a94b36fd
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x4ECBB282
 	Offset: 0x3AC0
 	Size: 0x74
@@ -1192,7 +1192,7 @@ function function_a94b36fd(var_776628b2)
 
 /*
 	Name: function_70b329b3
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xF401682D
 	Offset: 0x3B40
 	Size: 0x7C
@@ -1210,7 +1210,7 @@ function function_70b329b3()
 
 /*
 	Name: function_6d72c0dc
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xC231471C
 	Offset: 0x3BC8
 	Size: 0xE4
@@ -1233,7 +1233,7 @@ function function_6d72c0dc()
 
 /*
 	Name: function_f1691f03
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x302921A4
 	Offset: 0x3CB8
 	Size: 0xB4
@@ -1253,7 +1253,7 @@ function function_f1691f03(var_776628b2)
 
 /*
 	Name: function_716f6548
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x59A3F01F
 	Offset: 0x3D78
 	Size: 0x24
@@ -1267,7 +1267,7 @@ function function_716f6548()
 
 /*
 	Name: function_9d85b9ce
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0xED9070D1
 	Offset: 0x3DA8
 	Size: 0x4C8
@@ -1383,7 +1383,7 @@ function function_9d85b9ce(e_attacker)
 
 /*
 	Name: function_cb27f92e
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x7A3D3B3E
 	Offset: 0x4278
 	Size: 0x176
@@ -1410,7 +1410,7 @@ function function_cb27f92e(mod, hit_location, hit_origin, player, amount, weapon
 
 /*
 	Name: function_e8a31296
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x11C41E5C
 	Offset: 0x43F8
 	Size: 0x244
@@ -1441,7 +1441,7 @@ function function_e8a31296()
 
 /*
 	Name: function_b03acf4e
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x92CD238E
 	Offset: 0x4648
 	Size: 0x9C
@@ -1463,7 +1463,7 @@ function function_b03acf4e(var_b3ecaf28)
 
 /*
 	Name: function_82e9c58d
-	Namespace: namespace_6b38abe3
+	Namespace: wearables
 	Checksum: 0x49D7BE7A
 	Offset: 0x46F0
 	Size: 0x33E
