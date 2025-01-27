@@ -20,7 +20,7 @@
 function main()
 {
 	precache();
-	namespace_c68b7fb6::main();
+	mp_freerun_04_fx::main();
 	namespace_8a3acb29::main();
 	load::main();
 	setdvar("glassMinVelocityToBreakFromJump", "380");

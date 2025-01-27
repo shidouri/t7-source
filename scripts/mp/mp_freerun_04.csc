@@ -20,7 +20,7 @@
 */
 function main()
 {
-	namespace_c68b7fb6::main();
+	mp_freerun_04_fx::main();
 	namespace_8a3acb29::main();
 	level._effect["blood_rain"] = "weather/fx_rain_blood_player_freerun_loop";
 	setdvar("phys_buoyancy", 1);
