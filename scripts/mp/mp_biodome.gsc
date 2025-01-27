@@ -8,11 +8,11 @@
 #using scripts\shared\compass;
 #using scripts\shared\util_shared;
 
-#namespace namespace_86fa17e8;
+#namespace mp_biodome;
 
 /*
 	Name: main
-	Namespace: namespace_86fa17e8
+	Namespace: mp_biodome
 	Checksum: 0xBA58C87E
 	Offset: 0x390
 	Size: 0x6FC
@@ -69,7 +69,7 @@ function main()
 
 /*
 	Name: precache
-	Namespace: namespace_86fa17e8
+	Namespace: mp_biodome
 	Checksum: 0x99EC1590
 	Offset: 0xA98
 	Size: 0x4
@@ -82,7 +82,7 @@ function precache()
 
 /*
 	Name: spawnkilltrigger
-	Namespace: namespace_86fa17e8
+	Namespace: mp_biodome
 	Checksum: 0x9E942F27
 	Offset: 0xAA8
 	Size: 0x13C
@@ -103,7 +103,7 @@ function spawnkilltrigger()
 
 /*
 	Name: watchkilltrigger
-	Namespace: namespace_86fa17e8
+	Namespace: mp_biodome
 	Checksum: 0x8C913160
 	Offset: 0xBF0
 	Size: 0x90

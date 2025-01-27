@@ -6,11 +6,11 @@
 #using scripts\mp\mp_biodome_sound;
 #using scripts\shared\util_shared;
 
-#namespace namespace_86fa17e8;
+#namespace mp_biodome;
 
 /*
 	Name: main
-	Namespace: namespace_86fa17e8
+	Namespace: mp_biodome
 	Checksum: 0x359DFE23
 	Offset: 0x258
 	Size: 0xCC
@@ -32,7 +32,7 @@ function main()
 
 /*
 	Name: dom_flag_base_fx_override
-	Namespace: namespace_86fa17e8
+	Namespace: mp_biodome
 	Checksum: 0x296B2810
 	Offset: 0x330
 	Size: 0xC2
@@ -84,7 +84,7 @@ function dom_flag_base_fx_override(flag, team)
 
 /*
 	Name: dom_flag_cap_fx_override
-	Namespace: namespace_86fa17e8
+	Namespace: mp_biodome
 	Checksum: 0x8B2C7295
 	Offset: 0x400
 	Size: 0xC2
