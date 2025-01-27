@@ -2999,9 +2999,9 @@ function function_8fbb6760(str_perk)
 */
 function flytrap_prize()
 {
-	var_3c100ea1 = struct::get("flytrap_prize", "targetname");
-	var_6e1b8eeb = util::spawn_model("wpn_t7_hero_annihilator_world", var_3c100ea1.origin, var_3c100ea1.angles);
-	var_6e1b8eeb thread function_45814329(var_3c100ea1);
+	s_prize = struct::get("flytrap_prize", "targetname");
+	var_6e1b8eeb = util::spawn_model("wpn_t7_hero_annihilator_world", s_prize.origin, s_prize.angles);
+	var_6e1b8eeb thread function_45814329(s_prize);
 	level thread function_86e1c543();
 	level flag::clear("flytrap");
 }
@@ -3015,7 +3015,7 @@ function flytrap_prize()
 	Parameters: 1
 	Flags: Linked
 */
-function function_45814329(var_3c100ea1)
+function function_45814329(s_prize)
 {
 	self endon("death");
 	while(true)
