@@ -536,10 +536,10 @@ function function_8bd2ff0()
 function debugaxis(origin, angles, size, alpha, depthtest, duration)
 {
 	/#
-		var_d937a872 = anglestoforward(angles) * size;
+		axisx = anglestoforward(angles) * size;
 		var_ff3a22db = anglestoright(angles) * size;
 		var_8d32b3a0 = anglestoup(angles) * size;
-		line(origin, origin + var_d937a872, (1, 0, 0), alpha, 0, duration);
+		line(origin, origin + axisx, (1, 0, 0), alpha, 0, duration);
 		line(origin, origin + var_ff3a22db, (0, 1, 0), alpha, 0, duration);
 		line(origin, origin + var_8d32b3a0, (0, 0, 1), alpha, 0, duration);
 	#/
