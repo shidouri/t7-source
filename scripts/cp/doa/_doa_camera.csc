@@ -4,11 +4,11 @@
 #using scripts\shared\math_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_ad544aeb;
+#namespace doa_camera;
 
 /*
 	Name: function_d22ceb57
-	Namespace: namespace_ad544aeb
+	Namespace: doa_camera
 	Checksum: 0xA988DA5D
 	Offset: 0x118
 	Size: 0xFC
@@ -38,7 +38,7 @@ function function_d22ceb57(angles, min_dist, max_dist = 0)
 
 /*
 	Name: function_44a2ae85
-	Namespace: namespace_ad544aeb
+	Namespace: doa_camera
 	Checksum: 0xE78FD80
 	Offset: 0x220
 	Size: 0xCE
@@ -64,7 +64,7 @@ function function_44a2ae85(vec, mins)
 
 /*
 	Name: function_b72ba417
-	Namespace: namespace_ad544aeb
+	Namespace: doa_camera
 	Checksum: 0x86F9A1C4
 	Offset: 0x2F8
 	Size: 0xCE
@@ -90,7 +90,7 @@ function function_b72ba417(vec, maxs)
 
 /*
 	Name: function_d207ecc1
-	Namespace: namespace_ad544aeb
+	Namespace: doa_camera
 	Checksum: 0x142BCAA0
 	Offset: 0x3D0
 	Size: 0x12DC

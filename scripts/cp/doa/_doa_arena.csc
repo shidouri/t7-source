@@ -405,7 +405,7 @@ function restart()
 	level.doa.var_708cc739 = undefined;
 	level.doa.var_1a75d02b = 1;
 	level.doa.flipped = 0;
-	namespace_ad544aeb::function_d22ceb57(vectorscale((1, 0, 0), 75), function_61e2e743());
+	doa_camera::function_d22ceb57(vectorscale((1, 0, 0), 75), function_61e2e743());
 	if(isdefined(level.doa.arenas[level.doa.current_arena].var_2ac7f133))
 	{
 		level.doa.arenas[level.doa.current_arena].var_7526f3f5 = level.doa.arenas[level.doa.current_arena].var_2ac7f133;
@@ -466,7 +466,7 @@ function flipcamera(localclientnum, oldval, newval, bnewent, binitialsnap, field
 		case 1:
 		{
 			level.doa.flipped = 0;
-			namespace_ad544aeb::function_d22ceb57(function_c530afc5(vectorscale((1, 0, 0), 75)), function_61e2e743());
+			doa_camera::function_d22ceb57(function_c530afc5(vectorscale((1, 0, 0), 75)), function_61e2e743());
 			if(isdefined(level.doa.arenas[level.doa.current_arena].var_2ac7f133))
 			{
 				level.doa.arenas[level.doa.current_arena].var_7526f3f5 = level.doa.arenas[level.doa.current_arena].var_2ac7f133;
@@ -481,7 +481,7 @@ function flipcamera(localclientnum, oldval, newval, bnewent, binitialsnap, field
 		case 2:
 		{
 			level.doa.flipped = 1;
-			namespace_ad544aeb::function_d22ceb57(function_c530afc5((75, 180, 0)), function_61e2e743());
+			doa_camera::function_d22ceb57(function_c530afc5((75, 180, 0)), function_61e2e743());
 			if(isdefined(level.doa.arenas[level.doa.current_arena].var_5a97f5e9))
 			{
 				level.doa.arenas[level.doa.current_arena].var_7526f3f5 = level.doa.arenas[level.doa.current_arena].var_5a97f5e9;
@@ -734,11 +734,11 @@ function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 	level.doa.current_arena = newval;
 	if(level.doa.arenas[level.doa.current_arena].var_37d3a53b)
 	{
-		namespace_ad544aeb::function_d22ceb57(vectorscale((1, 0, 0), 75), function_61e2e743());
+		doa_camera::function_d22ceb57(vectorscale((1, 0, 0), 75), function_61e2e743());
 	}
 	else
 	{
-		namespace_ad544aeb::function_d22ceb57(undefined, function_61e2e743());
+		doa_camera::function_d22ceb57(undefined, function_61e2e743());
 	}
 	cleanupspawneddynents();
 	if(isdefined(level.doa.arenas[level.doa.current_arena].var_f3114f93))
@@ -768,7 +768,7 @@ function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 function function_986ae2b3(localclientnum)
 {
 	var_46caea66 = (level.doa.var_1a75d02b == 1 ? vectorscale((1, 0, 0), 75) : (75, 180, 0));
-	namespace_ad544aeb::function_d22ceb57(function_c530afc5(var_46caea66), function_61e2e743());
+	doa_camera::function_d22ceb57(function_c530afc5(var_46caea66), function_61e2e743());
 	level function_43141563(localclientnum);
 }
 

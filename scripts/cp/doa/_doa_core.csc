@@ -40,7 +40,7 @@ function main()
 	doa_fx::init();
 	doa_sound::init();
 	namespace_64c6b720::init();
-	namespace_ad544aeb::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
+	doa_camera::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
 	doa_pickups::init();
 	level.doa.var_160ae6c6 = 1;
 	level.doa.roundnumber = 1;
@@ -1331,7 +1331,7 @@ function function_4ac9a8ba(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	doa_arena::restart();
 	namespace_64c6b720::function_6fa6dee2();
-	namespace_ad544aeb::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
+	doa_camera::function_d22ceb57(vectorscale((1, 0, 0), 75), 600);
 	cleanupspawneddynents();
 	level.doa.hazards = [];
 	level.doa.roundnumber = 1;
@@ -2054,7 +2054,7 @@ function function_12c2fbcb()
 			debugmsg((((("" + (isdefined(self.name) ? self.name : "")) + "") + self.entnum) + "") + (isdefined(self.doa.player) ? self.doa.player getentitynumber() : -1));
 		#/
 		self cameraforcedisablescriptcam(0);
-		self camerasetupdatecallback(&namespace_ad544aeb::function_d207ecc1);
+		self camerasetupdatecallback(&doa_camera::function_d207ecc1);
 		setdvar("vr_playerScale", 30);
 		setfriendlynamedraw(0);
 		if(self islocalplayer())
