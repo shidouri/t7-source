@@ -502,7 +502,7 @@ function private function_2ca4656()
 		self util::waittill_any_timeout(2, "movedone", "death");
 		org delete();
 	}
-	if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+	if(isdefined(level.doa.isfps) && level.doa.isfps)
 	{
 		self thread doa_fx::function_285a2999("spawnZombie");
 		wait(1);

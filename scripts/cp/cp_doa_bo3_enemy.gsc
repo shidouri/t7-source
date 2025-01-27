@@ -243,7 +243,7 @@ function function_36aa8b6c(loc)
 		ai notify(#"hash_d96c599c");
 		ai notify(#"hash_48b8c577");
 		ai notify(#"hash_67a97d62");
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
@@ -278,7 +278,7 @@ function function_a0d7d949(spawner, loc, def)
 		ai.var_55361ee6 = randomint(3);
 		ai.nextspecial = 0;
 		ai.doa.var_da2f5272 = 1;
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
@@ -317,7 +317,7 @@ function function_bb3b0416(spawner, loc, def)
 		ai.maxhealth = ai.health;
 		ai.var_2d8174e3 = 1;
 		ai.nostun = 1;
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
@@ -352,7 +352,7 @@ function function_92159541(spawner, loc, def)
 		ai.var_de3055b5 = 1;
 		ai.ignoreall = 1;
 		ai.doa.var_da2f5272 = 1;
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
@@ -794,7 +794,7 @@ function function_4d2a4a76(spawner, loc, def)
 		ai ai::set_behavior_attribute("rogue_control_speed", "sprint");
 		ai.team = "axis";
 		ai thread function_a1f1cd46();
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
@@ -1242,7 +1242,7 @@ function function_7512c5ee(spawner, loc, def, forced = 0)
 		ai.maxhealth = ai.health;
 		ai.var_2d8174e3 = 1;
 		ai thread function_4c047459();
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
@@ -1417,7 +1417,7 @@ function function_ce9bce16(spawner, loc, def)
 		ai.spawner = spawner;
 		ai.squelch_damage_overlay = 1;
 		ai.goalradius = 64;
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}
@@ -2131,7 +2131,7 @@ function function_53b44cb7(spawner, loc, def, forced = 0)
 		ai.maxhealth = ai.health;
 		ai.var_2d8174e3 = 1;
 		ai thread function_772a04fe();
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			ai thread doa_fx::function_285a2999("spawnZombie");
 		}

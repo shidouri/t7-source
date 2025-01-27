@@ -496,7 +496,7 @@ function function_e63081e8(localclientnum, oldval, newval, bnewent, binitialsnap
 			level.doa.var_6e0195ea = undefined;
 		}
 	}
-	level.doa.var_2836c8ee = newval;
+	level.doa.isfps = newval;
 }
 
 /*
@@ -909,7 +909,7 @@ function function_10477d98(localclientnum)
 		if(self onground())
 		{
 			wait(0.2);
-			if(!(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee) && localclientnum != 0)
+			if(!(isdefined(level.doa.isfps) && level.doa.isfps) && localclientnum != 0)
 			{
 				continue;
 			}
@@ -1409,7 +1409,7 @@ function function_f87ff72d(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		return;
 	}
-	if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+	if(isdefined(level.doa.isfps) && level.doa.isfps)
 	{
 		forward = anglestoforward(self.angles);
 		var_ec8a4984 = self.origin + (forward * 100);

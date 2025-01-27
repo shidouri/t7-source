@@ -596,7 +596,7 @@ function function_21a582ff(current_wave, endnote)
 					ai thread zombie_utility::zombie_gib_on_damage();
 					ai.tesla_head_gib_func = &namespace_fba031c8::function_deb7df37;
 				}
-				if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+				if(isdefined(level.doa.isfps) && level.doa.isfps)
 				{
 					ai thread doa_fx::function_285a2999("spawnZombie");
 				}

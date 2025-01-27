@@ -1515,7 +1515,7 @@ function function_967df2b6(var_1db3e61a)
 	}
 	if(var_1db3e61a.type == 35)
 	{
-		if(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+		if(isdefined(level.doa.isfps) && level.doa.isfps)
 		{
 			return 0;
 		}
@@ -2065,7 +2065,7 @@ function function_851d4a18()
 {
 	level endon(#"hash_8bf960cf");
 	level endon(#"hash_3b432f18");
-	while(isdefined(level.doa.var_2836c8ee) && level.doa.var_2836c8ee)
+	while(isdefined(level.doa.isfps) && level.doa.isfps)
 	{
 		foreach(player in getplayers())
 		{
@@ -2099,7 +2099,7 @@ function function_8bf960cf(player)
 {
 	level notify(#"hash_8bf960cf");
 	level endon(#"hash_8bf960cf");
-	level.doa.var_2836c8ee = 1;
+	level.doa.isfps = 1;
 	level clientfield::set("doafps", 1);
 	level thread function_2cd5668();
 	util::wait_network_frame();
@@ -2110,7 +2110,7 @@ function function_8bf960cf(player)
 	time = int(player doa_utility::function_1ded48e6(getdvarint("scr_doa_fps_time", 60)));
 	level thread function_197694d8();
 	level util::waittill_any_timeout(time, "camera_changed", "doa_playerdumpFPS", "exit_taken", "host_migration_begin", "firstPersonForATime");
-	level.doa.var_2836c8ee = undefined;
+	level.doa.isfps = undefined;
 	foreach(player in getplayers())
 	{
 		player notify(#"hash_3b432f18");
