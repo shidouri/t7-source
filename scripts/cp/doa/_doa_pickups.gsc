@@ -1773,13 +1773,13 @@ function function_d526f0bb()
 				case 7:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					player thread namespace_6df66aa5::barrelupdate();
+					player thread doa_shield::barrelupdate();
 					break;
 				}
 				case 13:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					player thread namespace_6df66aa5::function_affe0c28();
+					player thread doa_shield::function_affe0c28();
 					break;
 				}
 				case 3:
@@ -1803,7 +1803,7 @@ function function_d526f0bb()
 				case 21:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					player thread namespace_6df66aa5::function_2016b381();
+					player thread doa_shield::function_2016b381();
 					break;
 				}
 				case 28:
@@ -1815,7 +1815,7 @@ function function_d526f0bb()
 				case 19:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					player thread namespace_6df66aa5::sawbladeupdate();
+					player thread doa_shield::sawbladeupdate();
 					break;
 				}
 				case 20:
@@ -1869,7 +1869,7 @@ function function_d526f0bb()
 				case 34:
 				{
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_generic");
-					player thread namespace_6df66aa5::boxingpickupupdate();
+					player thread doa_shield::boxingpickupupdate();
 					break;
 				}
 				case 30:

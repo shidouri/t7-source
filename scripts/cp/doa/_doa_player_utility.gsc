@@ -785,7 +785,7 @@ function function_1a86a494(var_d55fe723 = 0)
 			{
 				if(!var_d55fe723 && !isdefined(self.doa.var_3df27425))
 				{
-					self thread namespace_6df66aa5::function_2016b381(10);
+					self thread doa_shield::function_2016b381(10);
 				}
 			}
 			else if(self.doa.fate == 10)
