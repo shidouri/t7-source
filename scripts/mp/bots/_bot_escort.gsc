@@ -12,11 +12,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_ebd80b8b;
+#namespace bot_escort;
 
 /*
 	Name: init
-	Namespace: namespace_ebd80b8b
+	Namespace: bot_escort
 	Checksum: 0x11DCAEAC
 	Offset: 0x1F8
 	Size: 0x1C
@@ -30,7 +30,7 @@ function init()
 
 /*
 	Name: bot_idle
-	Namespace: namespace_ebd80b8b
+	Namespace: bot_escort
 	Checksum: 0xE007FE44
 	Offset: 0x220
 	Size: 0x4C
@@ -51,7 +51,7 @@ function bot_idle()
 
 /*
 	Name: function_69879c50
-	Namespace: namespace_ebd80b8b
+	Namespace: bot_escort
 	Checksum: 0x8B74385B
 	Offset: 0x278
 	Size: 0xEC
@@ -78,7 +78,7 @@ function function_69879c50()
 
 /*
 	Name: function_16ce4b24
-	Namespace: namespace_ebd80b8b
+	Namespace: bot_escort
 	Checksum: 0x203A2CFE
 	Offset: 0x370
 	Size: 0x84

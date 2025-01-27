@@ -832,7 +832,7 @@ function init_bot_gametype()
 		}
 		case "escort":
 		{
-			namespace_ebd80b8b::init();
+			bot_escort::init();
 			return true;
 		}
 		case "infect":
