@@ -1646,16 +1646,16 @@ function function_daf4318(localclientnumber, oldval, newval, bnewent, binitialsn
 */
 function function_6543186c(localclientnumber, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	var_d26305ae = function_23d70c75(fieldname);
-	if(isdefined(var_d26305ae))
+	s_pipes = function_23d70c75(fieldname);
+	if(isdefined(s_pipes))
 	{
 		if(newval == 1)
 		{
-			var_d26305ae function_b64620a3(localclientnumber);
+			s_pipes function_b64620a3(localclientnumber);
 		}
 		else
 		{
-			var_d26305ae function_176e302e(localclientnumber);
+			s_pipes function_176e302e(localclientnumber);
 		}
 	}
 }
