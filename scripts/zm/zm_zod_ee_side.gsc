@@ -1888,16 +1888,16 @@ function function_b943cc04()
 			level.var_ee921bdc = 1;
 		}
 	#/
-	level.var_71279923 = getweapon("bouncingbetty");
+	level.w_tripmine = getweapon("bouncingbetty");
 	zm_zod_util::on_zombie_killed(&function_b134ab6c);
 	level thread function_41eedc1();
 	level waittill(#"hash_25ff6e8", str_weapon);
 	var_7a2a8066 = getweapon(str_weapon);
 	foreach(player in level.activeplayers)
 	{
-		if(player hasweapon(level.var_71279923))
+		if(player hasweapon(level.w_tripmine))
 		{
-			player zm_weapons::weapon_take(level.var_71279923);
+			player zm_weapons::weapon_take(level.w_tripmine);
 			player zm_weapons::weapon_give(var_7a2a8066);
 		}
 	}
@@ -1938,7 +1938,7 @@ function function_41eedc1()
 */
 function function_b134ab6c(e_attacker, str_means_of_death, w_weapon)
 {
-	if(!isdefined(w_weapon) || w_weapon != level.var_71279923)
+	if(!isdefined(w_weapon) || w_weapon != level.w_tripmine)
 	{
 		return;
 	}
