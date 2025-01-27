@@ -93,7 +93,7 @@ function main()
 	spawner::add_global_spawn_function("axis", &function_f141f41c);
 	compass::setupminimap("compass_map_cp_mi_cairo_aquifer");
 	load::main();
-	namespace_b5b83650::accolades_init();
+	aquifer_accolades::accolades_init();
 	namespace_a52a2a1d::function_7403e82b();
 	aquifer_util::loadeffects();
 	thread function_c2c4ea75();

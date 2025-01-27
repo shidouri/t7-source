@@ -6,11 +6,11 @@
 #using scripts\shared\flag_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_b5b83650;
+#namespace aquifer_accolades;
 
 /*
 	Name: accolades_init
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x345984B
 	Offset: 0x5B0
 	Size: 0x294
@@ -47,7 +47,7 @@ function accolades_init()
 
 /*
 	Name: function_c27610f9
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x401B6C66
 	Offset: 0x850
 	Size: 0x1EA
@@ -90,7 +90,7 @@ function function_c27610f9(var_8e087689 = "dummy", var_70b01bd3, var_513753b4 = 
 
 /*
 	Name: function_89f596d9
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xEFE3EEF1
 	Offset: 0xA48
 	Size: 0x104
@@ -113,7 +113,7 @@ function function_89f596d9()
 
 /*
 	Name: function_171499d7
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x776CE5C8
 	Offset: 0xB58
 	Size: 0x94
@@ -133,7 +133,7 @@ function function_171499d7(params)
 
 /*
 	Name: function_6be65617
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x9BA0CAD6
 	Offset: 0xBF8
 	Size: 0x11C
@@ -158,7 +158,7 @@ function function_6be65617(params)
 
 /*
 	Name: function_c7122e75
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xB373EC4C
 	Offset: 0xD20
 	Size: 0xDC
@@ -178,7 +178,7 @@ function function_c7122e75(params)
 
 /*
 	Name: function_b49b24ca
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x925AE9DB
 	Offset: 0xE08
 	Size: 0x24
@@ -192,7 +192,7 @@ function function_b49b24ca()
 
 /*
 	Name: function_9cda9485
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x48B513C7
 	Offset: 0xE38
 	Size: 0xCC
@@ -212,7 +212,7 @@ function function_9cda9485(params)
 
 /*
 	Name: function_ff25056a
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x89A459A0
 	Offset: 0xF10
 	Size: 0x24
@@ -226,7 +226,7 @@ function function_ff25056a()
 
 /*
 	Name: function_a8831ac1
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xD61D6B35
 	Offset: 0xF40
 	Size: 0x94
@@ -247,7 +247,7 @@ function function_a8831ac1()
 
 /*
 	Name: function_5ae2cb8a
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xD347D509
 	Offset: 0xFE0
 	Size: 0x94
@@ -267,7 +267,7 @@ function function_5ae2cb8a(params)
 
 /*
 	Name: function_282c46db
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x18EE2AF6
 	Offset: 0x1080
 	Size: 0x24
@@ -281,7 +281,7 @@ function function_282c46db()
 
 /*
 	Name: function_eab778af
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xC179F252
 	Offset: 0x10B0
 	Size: 0x18C
@@ -310,7 +310,7 @@ function function_eab778af(params)
 
 /*
 	Name: function_a3f650bc
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x5AE42C36
 	Offset: 0x1248
 	Size: 0x24
@@ -324,7 +324,7 @@ function function_a3f650bc()
 
 /*
 	Name: function_e3e41d63
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x10B8B370
 	Offset: 0x1278
 	Size: 0x21C
@@ -376,7 +376,7 @@ function function_e3e41d63(params)
 
 /*
 	Name: function_8618bd31
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x99EC1590
 	Offset: 0x14A0
 	Size: 0x4
@@ -389,7 +389,7 @@ function function_8618bd31()
 
 /*
 	Name: function_3b8b405
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xEBC84F05
 	Offset: 0x14B0
 	Size: 0x18E
@@ -419,7 +419,7 @@ function function_3b8b405()
 
 /*
 	Name: function_2edc96bc
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x676CDEB1
 	Offset: 0x1648
 	Size: 0x94
@@ -440,7 +440,7 @@ function function_2edc96bc()
 
 /*
 	Name: function_f208dfd8
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x45AD8FFA
 	Offset: 0x16E8
 	Size: 0x162
@@ -467,7 +467,7 @@ function function_f208dfd8()
 
 /*
 	Name: function_deee0b62
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xF284C7F6
 	Offset: 0x1858
 	Size: 0x100
@@ -499,7 +499,7 @@ function function_deee0b62(params)
 
 /*
 	Name: function_dcb19e2a
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xE638224
 	Offset: 0x1960
 	Size: 0xBC
@@ -519,7 +519,7 @@ function function_dcb19e2a()
 
 /*
 	Name: function_3718be07
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0xC80DC45C
 	Offset: 0x1A28
 	Size: 0xB4
@@ -536,7 +536,7 @@ function function_3718be07(params)
 
 /*
 	Name: function_f42b5fa1
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x1FBD553A
 	Offset: 0x1AE8
 	Size: 0x1CE
@@ -568,7 +568,7 @@ function function_f42b5fa1()
 
 /*
 	Name: function_a2aa8ca8
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x37FAB50A
 	Offset: 0x1CC0
 	Size: 0x9C
@@ -589,7 +589,7 @@ function function_a2aa8ca8()
 
 /*
 	Name: function_c2ba8da
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x67512523
 	Offset: 0x1D68
 	Size: 0xCA
@@ -610,7 +610,7 @@ function function_c2ba8da()
 
 /*
 	Name: function_b362fb44
-	Namespace: namespace_b5b83650
+	Namespace: aquifer_accolades
 	Checksum: 0x771AD3F2
 	Offset: 0x1E40
 	Size: 0x84

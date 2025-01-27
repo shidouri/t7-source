@@ -874,7 +874,7 @@ function function_78e66c54()
 				self thread function_c7676d36();
 				if(!isdefined(self.var_c12a181e))
 				{
-					self.dogfighter namespace_b5b83650::function_c27610f9("aq_dogfight_kill_only_guns");
+					self.dogfighter aquifer_accolades::function_c27610f9("aq_dogfight_kill_only_guns");
 				}
 				return;
 			}
