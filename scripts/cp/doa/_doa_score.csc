@@ -138,7 +138,7 @@ function function_d3f117f9(doa, idx)
 		}
 		loc_00001094:
 		txt = (("" + (isdefined(idx) ? idx : "")) + "") + (isdefined(doa.player) ? doa.player getentitynumber() : "");
-		namespace_693feb87::debugmsg(txt);
+		doa_core::debugmsg(txt);
 	#/
 	doa.score = 0;
 	doa.var_db3637c0 = 0;
@@ -383,7 +383,7 @@ function on_shutdown(localclientnum, ent)
 	if(isdefined(ent) && self === ent)
 	{
 		/#
-			namespace_693feb87::debugmsg("" + (isdefined(self.name) ? self.name : self getentitynumber()));
+			doa_core::debugmsg("" + (isdefined(self.name) ? self.name : self getentitynumber()));
 		#/
 		if(isdefined(self.doa))
 		{

@@ -32,11 +32,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_693feb87;
+#namespace doa_core;
 
 /*
 	Name: main
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xDB6E71F
 	Offset: 0xDE8
 	Size: 0x178
@@ -71,7 +71,7 @@ function main()
 
 /*
 	Name: _load
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xD083C13B
 	Offset: 0xF68
 	Size: 0x32C
@@ -131,7 +131,7 @@ function private _load()
 
 /*
 	Name: load
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x6DB21511
 	Offset: 0x12A0
 	Size: 0x94
@@ -152,7 +152,7 @@ function load()
 
 /*
 	Name: donothing
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x99EC1590
 	Offset: 0x1340
 	Size: 0x4
@@ -165,7 +165,7 @@ function donothing()
 
 /*
 	Name: registerclientfields
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x75409E9C
 	Offset: 0x1350
 	Size: 0xDF6
@@ -256,7 +256,7 @@ function registerclientfields()
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xA6A982A5
 	Offset: 0x2150
 	Size: 0xAC
@@ -277,7 +277,7 @@ function on_player_connect()
 
 /*
 	Name: initialblack
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x71D7339
 	Offset: 0x2208
 	Size: 0x94
@@ -297,7 +297,7 @@ function initialblack(time = 12)
 
 /*
 	Name: function_154ab047
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x6DAC3BEA
 	Offset: 0x22A8
 	Size: 0x74
@@ -320,7 +320,7 @@ function private function_154ab047(currentround, idx)
 
 /*
 	Name: function_57863b20
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x26FB27C1
 	Offset: 0x2328
 	Size: 0xB8
@@ -348,7 +348,7 @@ function function_57863b20()
 
 /*
 	Name: function_437a340d
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xF2064750
 	Offset: 0x23E8
 	Size: 0x418
@@ -431,7 +431,7 @@ function function_437a340d(var_73419762)
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x2D8A7B6E
 	Offset: 0x2808
 	Size: 0x254
@@ -481,7 +481,7 @@ function on_player_spawned()
 
 /*
 	Name: on_player_disconnect
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x33BC4816
 	Offset: 0x2A68
 	Size: 0x44
@@ -498,7 +498,7 @@ function on_player_disconnect()
 
 /*
 	Name: init
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x4E836621
 	Offset: 0x2AB8
 	Size: 0x524
@@ -569,7 +569,7 @@ function init()
 
 /*
 	Name: function_c7f824a
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xC5BD80C5
 	Offset: 0x2FE8
 	Size: 0x594
@@ -633,7 +633,7 @@ function function_c7f824a()
 
 /*
 	Name: function_555fb805
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x25F17176
 	Offset: 0x3588
 	Size: 0x8EC
@@ -726,7 +726,7 @@ function function_555fb805()
 
 /*
 	Name: function_53bcdb30
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x84FB060
 	Offset: 0x3E80
 	Size: 0xA80
@@ -839,7 +839,7 @@ function function_53bcdb30()
 
 /*
 	Name: function_53b7b84f
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x3C5E812C
 	Offset: 0x4908
 	Size: 0x30
@@ -855,7 +855,7 @@ function function_53b7b84f()
 
 /*
 	Name: function_3e351f83
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x8A51C744
 	Offset: 0x4940
 	Size: 0x1EC
@@ -889,7 +889,7 @@ function function_3e351f83(firsttime)
 
 /*
 	Name: function_dc4ffe5c
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xA2DADAC8
 	Offset: 0x4B38
 	Size: 0x178
@@ -928,7 +928,7 @@ function function_dc4ffe5c()
 
 /*
 	Name: function_64a5cd5e
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x85861A46
 	Offset: 0x4CB8
 	Size: 0x5E4
@@ -1010,7 +1010,7 @@ function function_64a5cd5e()
 
 /*
 	Name: upload_leaderboards
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x63490A9C
 	Offset: 0x52A8
 	Size: 0xFA
@@ -1036,7 +1036,7 @@ function upload_leaderboards()
 
 /*
 	Name: function_9ac615ee
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x223AE341
 	Offset: 0x53B0
 	Size: 0x694
@@ -1089,7 +1089,7 @@ function function_9ac615ee(gameover, round = level.doa.round_number)
 
 /*
 	Name: function_780f83fd
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x706CA742
 	Offset: 0x5A50
 	Size: 0x164
@@ -1128,7 +1128,7 @@ function function_780f83fd(round)
 
 /*
 	Name: function_688245f1
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xC4E1CEF
 	Offset: 0x5BC0
 	Size: 0x17C
@@ -1159,7 +1159,7 @@ function function_688245f1()
 
 /*
 	Name: function_d2450010
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x12EA1D2
 	Offset: 0x5D48
 	Size: 0xDC
@@ -1182,7 +1182,7 @@ function function_d2450010()
 
 /*
 	Name: function_a90bdb51
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x24F44EC4
 	Offset: 0x5E30
 	Size: 0xB0

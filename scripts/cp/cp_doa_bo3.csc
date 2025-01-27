@@ -42,7 +42,7 @@ function main()
 	clientfield::register("world", "redinsinstruct", 1, 12, "int", &function_9cbb849c, 0, 0);
 	clientfield::register("scriptmover", "runcowanim", 1, 1, "int", &function_caf96f2d, 0, 0);
 	clientfield::register("scriptmover", "runsiegechickenanim", 8000, 2, "int", &function_f9064aec, 0, 0);
-	namespace_693feb87::main();
+	doa_core::main();
 	load::main();
 }
 

@@ -420,7 +420,7 @@ function function_e68e3c0d(localclientnum, name, off, tag, kill = 0)
 		/#
 			loc_000043C8:
 			loc_000043FC:
-			namespace_693feb87::debugmsg((((((("" + (isdefined(self.name) ? self.name : "")) + "") + name) + "") + (isdefined(tag) ? tag : "") + "") + (off ? "" : "") + "") + localclientnum);
+			doa_core::debugmsg((((((("" + (isdefined(self.name) ? self.name : "")) + "") + name) + "") + (isdefined(tag) ? tag : "") + "") + (off ? "" : "") + "") + localclientnum);
 		#/
 	}
 	if(off)

@@ -281,7 +281,7 @@ function function_fc48f9f3()
 	level thread function_14ba3248();
 	foreach(player in getplayers())
 	{
-		player thread namespace_693feb87::initialblack(24);
+		player thread doa_core::initialblack(24);
 	}
 	lui::play_movie("cp_doa_bo3_endgame", "fullscreen", 1);
 	level notify(#"hash_629939b8");

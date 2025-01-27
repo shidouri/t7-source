@@ -91,7 +91,7 @@ function main()
 	setdvar("bg_friendlyFireMode", 0);
 	level.var_7ed6996d = &init;
 	level.var_fd84aa1f = &function_56600114;
-	level thread namespace_693feb87::main();
+	level thread doa_core::main();
 	level thread namespace_e8effba5::main();
 	level thread namespace_4fca3ee8::main();
 }

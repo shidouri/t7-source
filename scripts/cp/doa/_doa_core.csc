@@ -21,11 +21,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_693feb87;
+#namespace doa_core;
 
 /*
 	Name: main
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x2A62E304
 	Offset: 0xA28
 	Size: 0x144C
@@ -136,7 +136,7 @@ function main()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x7DE001F4
 	Offset: 0x1E80
 	Size: 0x84
@@ -156,7 +156,7 @@ function on_player_spawned(localclientnum)
 
 /*
 	Name: function_d5eb029a
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x6BE79366
 	Offset: 0x1F10
 	Size: 0x3A4
@@ -240,7 +240,7 @@ function function_d5eb029a()
 
 /*
 	Name: function_ae0a4fc5
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xB479B90E
 	Offset: 0x22C0
 	Size: 0x260
@@ -292,7 +292,7 @@ function function_ae0a4fc5()
 
 /*
 	Name: player_on_connect
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x1058E50D
 	Offset: 0x2528
 	Size: 0x3C
@@ -307,7 +307,7 @@ function player_on_connect(localclientnum)
 
 /*
 	Name: on_player_spawn
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x80CD2BE9
 	Offset: 0x2570
 	Size: 0x38
@@ -322,7 +322,7 @@ function on_player_spawn(localclientnum)
 
 /*
 	Name: on_player_shutdown
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xAB473D9F
 	Offset: 0x25B0
 	Size: 0xDC
@@ -351,7 +351,7 @@ function on_player_shutdown(localclientnum)
 
 /*
 	Name: function_fc05827f
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x69337CF5
 	Offset: 0x2698
 	Size: 0x4C
@@ -368,7 +368,7 @@ function function_fc05827f(localclientnum)
 
 /*
 	Name: function_2eaf8a3f
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x70AAF276
 	Offset: 0x26F0
 	Size: 0xFC
@@ -392,7 +392,7 @@ function function_2eaf8a3f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_c97b97ae
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x20F3127
 	Offset: 0x27F8
 	Size: 0x74
@@ -406,7 +406,7 @@ function function_c97b97ae(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e3bb35e
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x7762234
 	Offset: 0x2878
 	Size: 0x84
@@ -423,7 +423,7 @@ function function_e3bb35e(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_c86d63f6
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x4BBD897D
 	Offset: 0x2908
 	Size: 0x9C
@@ -440,7 +440,7 @@ function function_c86d63f6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_91976e37
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x35373392
 	Offset: 0x29B0
 	Size: 0xC4
@@ -457,7 +457,7 @@ function function_91976e37(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e63081e8
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x5E03639E
 	Offset: 0x2A80
 	Size: 0x258
@@ -501,7 +501,7 @@ function function_e63081e8(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9e1eca0b
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xF1E317C5
 	Offset: 0x2CE0
 	Size: 0xFE
@@ -530,7 +530,7 @@ function function_9e1eca0b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ca593121
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xE7681C29
 	Offset: 0x2DE8
 	Size: 0x2EC
@@ -575,7 +575,7 @@ function function_ca593121(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_22de3f7
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xF8B32BC9
 	Offset: 0x30E0
 	Size: 0x94
@@ -590,7 +590,7 @@ function function_22de3f7(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_d3b4c89d
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xA8EE6E15
 	Offset: 0x3180
 	Size: 0xC4
@@ -613,7 +613,7 @@ function function_d3b4c89d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_a6c926fc
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x119072E1
 	Offset: 0x3250
 	Size: 0x1DA
@@ -651,7 +651,7 @@ function function_a6c926fc(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_10093dd7
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xDA31140A
 	Offset: 0x3438
 	Size: 0x1FE
@@ -699,7 +699,7 @@ function function_10093dd7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_354ec425
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x7604C9E1
 	Offset: 0x3640
 	Size: 0x114
@@ -733,7 +733,7 @@ function function_354ec425(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_23f655ed
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x2F02471D
 	Offset: 0x3760
 	Size: 0x4C
@@ -747,7 +747,7 @@ function function_23f655ed(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ee495f41
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x83ECB617
 	Offset: 0x37B8
 	Size: 0x82
@@ -785,7 +785,7 @@ function function_ee495f41(num)
 
 /*
 	Name: function_351aa01c
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xDB931C25
 	Offset: 0x3848
 	Size: 0xF4
@@ -807,7 +807,7 @@ function function_351aa01c(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_33760903
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x3911602B
 	Offset: 0x3948
 	Size: 0x7C
@@ -824,7 +824,7 @@ function function_33760903(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_68503cb7
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xD357C448
 	Offset: 0x39D0
 	Size: 0x74
@@ -845,7 +845,7 @@ function function_68503cb7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9bf26aa6
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x566CC620
 	Offset: 0x3A50
 	Size: 0x74
@@ -866,7 +866,7 @@ function function_9bf26aa6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: onground
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xC9D87E0E
 	Offset: 0x3AD0
 	Size: 0x9E
@@ -887,7 +887,7 @@ function onground()
 
 /*
 	Name: function_10477d98
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xADF4C6C5
 	Offset: 0x3B78
 	Size: 0x29C
@@ -938,7 +938,7 @@ function function_10477d98(localclientnum)
 
 /*
 	Name: function_b868b40f
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x56D308F3
 	Offset: 0x3E20
 	Size: 0x84
@@ -960,7 +960,7 @@ function function_b868b40f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_409fa9ce
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xFB65DA9E
 	Offset: 0x3EB0
 	Size: 0xCE
@@ -984,7 +984,7 @@ function function_409fa9ce(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_cb806a9b
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x9CA31BB8
 	Offset: 0x3F88
 	Size: 0x166
@@ -1012,7 +1012,7 @@ function function_cb806a9b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: handle_zombie_risers
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xE96738FF
 	Offset: 0x40F8
 	Size: 0x166
@@ -1040,7 +1040,7 @@ function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitials
 
 /*
 	Name: rise_dust_fx
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x2C9C2D23
 	Offset: 0x4268
 	Size: 0x1D6
@@ -1078,7 +1078,7 @@ function rise_dust_fx(localclientnum, type, billow_fx, burst_fx, var_cf929ddb)
 
 /*
 	Name: function_20671f0
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x25787F13
 	Offset: 0x4448
 	Size: 0xAC
@@ -1095,7 +1095,7 @@ function function_20671f0(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_ec2caec3
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xC1EFDA95
 	Offset: 0x4500
 	Size: 0xDE
@@ -1129,7 +1129,7 @@ function function_ec2caec3(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_38452435
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x129CF718
 	Offset: 0x45E8
 	Size: 0x9E
@@ -1155,7 +1155,7 @@ function private function_38452435(localclientnum)
 
 /*
 	Name: function_b54615b2
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x2559169C
 	Offset: 0x4690
 	Size: 0x18C
@@ -1194,7 +1194,7 @@ function function_b54615b2()
 
 /*
 	Name: function_e41e6611
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x593BC8A
 	Offset: 0x4828
 	Size: 0x386
@@ -1282,7 +1282,7 @@ function function_e41e6611(localclientnum, value)
 
 /*
 	Name: function_d8d20160
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x249C1FD5
 	Offset: 0x4BB8
 	Size: 0x156
@@ -1320,7 +1320,7 @@ function function_d8d20160(localclientnum, value)
 
 /*
 	Name: function_4ac9a8ba
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xAA61F8F5
 	Offset: 0x4D18
 	Size: 0x1FC
@@ -1347,7 +1347,7 @@ function function_4ac9a8ba(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f7c0d598
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xBECB4713
 	Offset: 0x4F20
 	Size: 0x174
@@ -1382,7 +1382,7 @@ function function_f7c0d598(mapping = "zombietron")
 
 /*
 	Name: function_f8c69ca4
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xB1004401
 	Offset: 0x50A0
 	Size: 0x54
@@ -1396,7 +1396,7 @@ function function_f8c69ca4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f87ff72d
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xFD8B0B9E
 	Offset: 0x5100
 	Size: 0x2F4
@@ -1438,7 +1438,7 @@ function function_f87ff72d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: randomize_array
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x46FB018
 	Offset: 0x5400
 	Size: 0x9C
@@ -1459,7 +1459,7 @@ function randomize_array(array)
 
 /*
 	Name: function_ef1ad359
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xD360E022
 	Offset: 0x54A8
 	Size: 0x1CE
@@ -1483,7 +1483,7 @@ function function_ef1ad359(origin, count = 3, dir)
 
 /*
 	Name: function_3a1ccea7
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xBB14733C
 	Offset: 0x5680
 	Size: 0xF4
@@ -1506,7 +1506,7 @@ function function_3a1ccea7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: zombie_gut_explosion_cb
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x59D91203
 	Offset: 0x5780
 	Size: 0xFC
@@ -1532,7 +1532,7 @@ function zombie_gut_explosion_cb(localclientnum, oldval, newval, bnewent, biniti
 
 /*
 	Name: function_15b503eb
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xD72082AA
 	Offset: 0x5888
 	Size: 0xFC
@@ -1559,7 +1559,7 @@ function function_15b503eb(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_8b8f5cb4
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x86D49E12
 	Offset: 0x5990
 	Size: 0x104
@@ -1586,7 +1586,7 @@ function function_8b8f5cb4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: zombie_ragdoll_explode_cb
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xC077EE8F
 	Offset: 0x5AA0
 	Size: 0x5C
@@ -1603,7 +1603,7 @@ function zombie_ragdoll_explode_cb(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: zombie_wait_explode
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xA607AE7A
 	Offset: 0x5B08
 	Size: 0x114
@@ -1638,7 +1638,7 @@ function zombie_wait_explode(localclientnum)
 
 /*
 	Name: function_36c61ba6
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x4197386
 	Offset: 0x5C28
 	Size: 0x288
@@ -1699,7 +1699,7 @@ function function_36c61ba6(localclientnum, var_4faf5231 = 1, var_ad5de66e = 1)
 
 /*
 	Name: function_455fa2fe
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x2D8F58C6
 	Offset: 0x5EB8
 	Size: 0x6C
@@ -1715,7 +1715,7 @@ function function_455fa2fe(localclientnum, owner, fx)
 
 /*
 	Name: function_d277a961
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xA9DE01DF
 	Offset: 0x5F30
 	Size: 0x246
@@ -1770,7 +1770,7 @@ function function_d277a961(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: delay_for_clients_then_execute
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xA71F10D3
 	Offset: 0x6180
 	Size: 0x52
@@ -1790,7 +1790,7 @@ function delay_for_clients_then_execute(func)
 
 /*
 	Name: function_ddbc17b4
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xF6D85C9D
 	Offset: 0x61E0
 	Size: 0x152
@@ -1828,7 +1828,7 @@ function function_ddbc17b4(localclientnum, var_bac17ccf, var_2ca34dda)
 
 /*
 	Name: changecamera
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x58366A3D
 	Offset: 0x6340
 	Size: 0x294
@@ -1884,7 +1884,7 @@ function changecamera(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 
 /*
 	Name: function_bbb7743c
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xBEFB77A3
 	Offset: 0x65E0
 	Size: 0xB8
@@ -1908,7 +1908,7 @@ function function_bbb7743c(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_cee29ae7
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xBE0E84AE
 	Offset: 0x66A0
 	Size: 0xB4
@@ -1931,7 +1931,7 @@ function function_cee29ae7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_cd844947
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x5B01A10E
 	Offset: 0x6760
 	Size: 0x414
@@ -1989,7 +1989,7 @@ function function_cd844947(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_efeeaa92
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xC530B83A
 	Offset: 0x6B80
 	Size: 0x4C
@@ -2003,7 +2003,7 @@ function function_efeeaa92(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: debugmsg
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x9913422E
 	Offset: 0x6BD8
 	Size: 0x34
@@ -2019,7 +2019,7 @@ function debugmsg(txt)
 
 /*
 	Name: function_12c2fbcb
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xF7124A0C
 	Offset: 0x6C18
 	Size: 0x41C
@@ -2095,7 +2095,7 @@ function function_12c2fbcb()
 
 /*
 	Name: function_c33d3992
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xC0A82063
 	Offset: 0x7040
 	Size: 0x42C
@@ -2170,7 +2170,7 @@ function function_c33d3992(localclientnum)
 
 /*
 	Name: function_5c2a88d5
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0x9D648174
 	Offset: 0x7478
 	Size: 0x1E0
@@ -2201,7 +2201,7 @@ function function_5c2a88d5()
 
 /*
 	Name: drawcylinder
-	Namespace: namespace_693feb87
+	Namespace: doa_core
 	Checksum: 0xB8CBF264
 	Offset: 0x7660
 	Size: 0x2FA

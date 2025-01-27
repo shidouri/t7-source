@@ -687,7 +687,7 @@ function function_836d1e22(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	level.doa.var_1a3f3152 = (("fx_exploder_" + level.doa.arenas[level.doa.current_arena].name) + "_") + level.doa.var_d94564a5;
 	/#
-		namespace_693feb87::debugmsg((("" + level.doa.var_1a3f3152) + "") + localclientnum);
+		doa_core::debugmsg((("" + level.doa.var_1a3f3152) + "") + localclientnum);
 	#/
 	playradiantexploder(localclientnum, level.doa.var_1a3f3152);
 	level function_43141563(localclientnum);
@@ -728,7 +728,7 @@ function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 	level.doa.var_708cc739 = undefined;
 	level notify(#"hash_ec7ca67b");
 	/#
-		namespace_693feb87::debugmsg((("" + level.doa.arenas[level.doa.current_arena].name) + "") + level.doa.arenas[newval].name);
+		doa_core::debugmsg((("" + level.doa.arenas[level.doa.current_arena].name) + "") + level.doa.arenas[newval].name);
 	#/
 	level.doa.var_95e3fdf9 = level.doa.current_arena;
 	level.doa.current_arena = newval;

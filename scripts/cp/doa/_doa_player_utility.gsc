@@ -236,7 +236,7 @@ function function_e2a1a825()
 		self util::waittill_any("doa_round_is_over", "bossEventComplete", "playerLeaderboardUploader", "disconnect");
 		if(level.doa.round_number >= getdvarint("scr_doa_min_level_stat_upload", 45))
 		{
-			self thread namespace_693feb87::function_780f83fd(level.doa.round_number);
+			self thread doa_core::function_780f83fd(level.doa.round_number);
 		}
 	}
 }
