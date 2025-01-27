@@ -2773,10 +2773,10 @@ function function_6a1cc377()
 	level function_2868b6f4(0);
 	level.var_178c3c6b = 0;
 	level thread function_df3d4b2f();
-	var_7953b28 = getentarray("ee_timed", "script_label");
-	array::thread_all(var_7953b28, &function_82d88307, a_str_locations);
+	a_mdl_buttons = getentarray("ee_timed", "script_label");
+	array::thread_all(a_mdl_buttons, &function_82d88307, a_str_locations);
 	var_2635052a = level util::waittill_any_return("ee_timed_complete", "ee_timed_failed");
-	foreach(mdl_button in var_7953b28)
+	foreach(mdl_button in a_mdl_buttons)
 	{
 		zm_unitrigger::unregister_unitrigger(mdl_button.s_unitrigger);
 		mdl_button.s_unitrigger = undefined;
@@ -2797,9 +2797,9 @@ function function_6a1cc377()
 		level function_aeaa21eb();
 		return true;
 	}
-	level function_f715c0b9(var_7953b28);
+	level function_f715c0b9(a_mdl_buttons);
 	wait(1);
-	foreach(mdl_button in var_7953b28)
+	foreach(mdl_button in a_mdl_buttons)
 	{
 		mdl_button thread scene::play("p7_fxanim_zm_stal_rigged_button_retract_bundle", array(mdl_button));
 		mdl_button stoploopsound(2);
@@ -3006,10 +3006,10 @@ function function_82d88307(a_str_locations)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f715c0b9(var_7953b28)
+function function_f715c0b9(a_mdl_buttons)
 {
 	exploder::exploder("fxexp_708");
-	foreach(mdl_button in var_7953b28)
+	foreach(mdl_button in a_mdl_buttons)
 	{
 		mdl_button clientfield::increment("ee_timed_explosion_rumble");
 		foreach(e_player in level.activeplayers)
@@ -5598,8 +5598,8 @@ function function_ff112fdc(n_value)
 function function_3de60ba3(n_value)
 {
 	/#
-		var_7953b28 = getentarray("", "");
-		foreach(mdl_button in var_7953b28)
+		a_mdl_buttons = getentarray("", "");
+		foreach(mdl_button in a_mdl_buttons)
 		{
 			mdl_button thread function_2ffdc89();
 		}
