@@ -450,16 +450,16 @@ function function_b64005e8(n_vine, str_state)
 function function_75174ee()
 {
 	level endon("flag_play_outro_cutscene");
-	var_a175a10b = util::spawn_model("tag_origin", self.origin, self.angles);
-	var_a175a10b thread function_5c1adaf1();
-	self linkto(var_a175a10b);
-	var_a175a10b rotateroll(1, 2.5);
+	e_pivot = util::spawn_model("tag_origin", self.origin, self.angles);
+	e_pivot thread function_5c1adaf1();
+	self linkto(e_pivot);
+	e_pivot rotateroll(1, 2.5);
 	while(!level flag::get("flag_play_outro_cutscene"))
 	{
-		var_a175a10b rotateroll(-2, 5);
-		var_a175a10b waittill("rotatedone");
-		var_a175a10b rotateroll(2, 5);
-		var_a175a10b waittill("rotatedone");
+		e_pivot rotateroll(-2, 5);
+		e_pivot waittill("rotatedone");
+		e_pivot rotateroll(2, 5);
+		e_pivot waittill("rotatedone");
 	}
 }
 
