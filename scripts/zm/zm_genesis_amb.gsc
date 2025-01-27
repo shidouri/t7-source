@@ -52,14 +52,14 @@ function function_25b0085d()
 		do
 		{
 			var_34b4e10b = undefined;
-			var_717fac8 = array::random(level.activeplayers);
-			if(!isdefined(var_717fac8.var_a3d40b8))
+			e_player_rand = array::random(level.activeplayers);
+			if(!isdefined(e_player_rand.var_a3d40b8))
 			{
 				wait(0.5);
 			}
 			else
 			{
-				str_zone = var_717fac8.var_a3d40b8;
+				str_zone = e_player_rand.var_a3d40b8;
 				var_32db8f92 = strtok(str_zone, "_");
 				var_34b4e10b = var_32db8f92[0];
 				if(var_34b4e10b === "apothicon")
