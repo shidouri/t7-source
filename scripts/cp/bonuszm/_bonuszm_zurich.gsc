@@ -9,11 +9,11 @@
 #using scripts\shared\flag_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_cc6db628;
+#namespace _bonuszm_zurich;
 
 /*
 	Name: init
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x8ACE922B
 	Offset: 0xF50
 	Size: 0x34C
@@ -67,7 +67,7 @@ function autoexec init()
 
 /*
 	Name: function_6ff1594f
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xC7A9ACAA
 	Offset: 0x12A8
 	Size: 0x24
@@ -81,7 +81,7 @@ function private function_6ff1594f()
 
 /*
 	Name: function_cee0476
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x99EC1590
 	Offset: 0x12D8
 	Size: 0x4
@@ -94,7 +94,7 @@ function function_cee0476()
 
 /*
 	Name: function_8924576f
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x8EF8E17
 	Offset: 0x12E8
 	Size: 0x84
@@ -115,7 +115,7 @@ function function_8924576f()
 
 /*
 	Name: function_465e0207
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xA346DDA7
 	Offset: 0x1378
 	Size: 0x2C
@@ -131,7 +131,7 @@ function function_465e0207()
 
 /*
 	Name: function_d45692cc
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xD3DD10BD
 	Offset: 0x13B0
 	Size: 0x24
@@ -146,7 +146,7 @@ function function_d45692cc()
 
 /*
 	Name: function_fa590d35
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x3D64C6E
 	Offset: 0x13E0
 	Size: 0x2C
@@ -162,7 +162,7 @@ function function_fa590d35()
 
 /*
 	Name: function_88519dfa
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x8DBA09A2
 	Offset: 0x1418
 	Size: 0x4C
@@ -180,7 +180,7 @@ function function_88519dfa()
 
 /*
 	Name: function_171ce834
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x818801D
 	Offset: 0x1470
 	Size: 0x1AC
@@ -217,7 +217,7 @@ function function_171ce834()
 
 /*
 	Name: function_3d1f629d
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xF1A37188
 	Offset: 0x1628
 	Size: 0x124
@@ -244,7 +244,7 @@ function function_3d1f629d()
 
 /*
 	Name: function_cb17f362
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xF1860B34
 	Offset: 0x1758
 	Size: 0x154
@@ -277,7 +277,7 @@ function function_cb17f362()
 
 /*
 	Name: function_b80578aa
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xAFA7F434
 	Offset: 0x18B8
 	Size: 0xAC
@@ -299,7 +299,7 @@ function function_b80578aa()
 
 /*
 	Name: function_f11a6dcb
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x99EC1590
 	Offset: 0x1970
 	Size: 0x4
@@ -312,7 +312,7 @@ function function_f11a6dcb()
 
 /*
 	Name: function_7f12fe90
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x2838440
 	Offset: 0x1980
 	Size: 0xAC
@@ -334,7 +334,7 @@ function function_7f12fe90()
 
 /*
 	Name: function_a51578f9
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x9E3D864F
 	Offset: 0x1A38
 	Size: 0x23C
@@ -378,7 +378,7 @@ function function_a51578f9()
 
 /*
 	Name: function_b9382ab7
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x210407C4
 	Offset: 0x1C80
 	Size: 0x94
@@ -399,7 +399,7 @@ function function_b9382ab7()
 
 /*
 	Name: function_32beb00d
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x67E291AF
 	Offset: 0x1D20
 	Size: 0xE
@@ -413,7 +413,7 @@ function function_32beb00d()
 
 /*
 	Name: function_cbc35a4
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x35D336AE
 	Offset: 0x1D38
 	Size: 0x8C
@@ -435,7 +435,7 @@ function function_cbc35a4()
 
 /*
 	Name: function_7ec3a4df
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x3CF6E8EC
 	Offset: 0x1DD0
 	Size: 0x9C
@@ -457,7 +457,7 @@ function function_7ec3a4df()
 
 /*
 	Name: function_58c12a76
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xEE2B8383
 	Offset: 0x1E78
 	Size: 0x84
@@ -478,7 +478,7 @@ function function_58c12a76()
 
 /*
 	Name: function_9ab4c669
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x91A6B05B
 	Offset: 0x1F08
 	Size: 0xE
@@ -492,7 +492,7 @@ function function_9ab4c669()
 
 /*
 	Name: function_74b24c00
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xF7D9C46E
 	Offset: 0x1F20
 	Size: 0x8C
@@ -512,7 +512,7 @@ function function_74b24c00()
 
 /*
 	Name: function_e6b9bb3b
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x99226D53
 	Offset: 0x1FB8
 	Size: 0xAC
@@ -536,7 +536,7 @@ function function_e6b9bb3b()
 
 /*
 	Name: function_c0b740d2
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xC091890C
 	Offset: 0x2070
 	Size: 0x4C
@@ -554,7 +554,7 @@ function function_c0b740d2()
 
 /*
 	Name: function_62d28355
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xF27D47D4
 	Offset: 0x20C8
 	Size: 0xE
@@ -568,7 +568,7 @@ function function_62d28355()
 
 /*
 	Name: function_3cd008ec
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x2FE2C4C8
 	Offset: 0x20E0
 	Size: 0x6C
@@ -588,7 +588,7 @@ function function_3cd008ec()
 
 /*
 	Name: function_760a962c
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x1EB54B96
 	Offset: 0x2158
 	Size: 0xAC
@@ -612,7 +612,7 @@ function function_760a962c()
 
 /*
 	Name: function_9c0d1095
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x199A4B94
 	Offset: 0x2210
 	Size: 0x74
@@ -631,7 +631,7 @@ function function_9c0d1095()
 
 /*
 	Name: function_c20f8afe
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x991F404D
 	Offset: 0x2290
 	Size: 0x84
@@ -650,7 +650,7 @@ function function_c20f8afe()
 
 /*
 	Name: function_e8120567
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x2235B4B4
 	Offset: 0x2320
 	Size: 0xC4
@@ -672,7 +672,7 @@ function function_e8120567()
 
 /*
 	Name: function_de00ac88
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0x9518B892
 	Offset: 0x23F0
 	Size: 0x2C
@@ -688,7 +688,7 @@ function function_de00ac88()
 
 /*
 	Name: function_40326f1
-	Namespace: namespace_cc6db628
+	Namespace: _bonuszm_zurich
 	Checksum: 0xE95FAA2C
 	Offset: 0x2428
 	Size: 0x26
