@@ -2718,8 +2718,8 @@ function function_15142bc5(s_plant)
 	}
 	self.var_5942b967.n_score = self.score;
 	self.var_5942b967.bgb = self.bgb;
-	self.var_5942b967.var_2ecea42d = self clientfield::get_to_player("bucket_held");
-	if(!self.var_5942b967.var_2ecea42d)
+	self.var_5942b967.b_has_bucket = self clientfield::get_to_player("bucket_held");
+	if(!self.var_5942b967.b_has_bucket)
 	{
 		self.var_5942b967.var_bb2fd41c = 0;
 		self.var_5942b967.var_c6cad973 = 0;
@@ -2833,9 +2833,9 @@ function func_clone_plant_respawn()
 	self bgb::function_d35f60a1(self.var_5942b967.bgb);
 	__protected__setbgbunlocked(0);
 	/#
-		assert(isdefined(self.var_5942b967.var_2ecea42d));
+		assert(isdefined(self.var_5942b967.b_has_bucket));
 	#/
-	if(!self.var_5942b967.var_2ecea42d && self clientfield::get_to_player("bucket_held"))
+	if(!self.var_5942b967.b_has_bucket && self clientfield::get_to_player("bucket_held"))
 	{
 		self notify("clone_plant_bucket_lost");
 	}
