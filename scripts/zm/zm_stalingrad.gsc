@@ -1687,9 +1687,9 @@ function function_965d1d83(str_scene, str_flag, var_38cd507c = undefined)
 function function_9c2d9678()
 {
 	var_97e8ec5c = getentarray("debris_using_door_trigger", "script_label");
-	foreach(var_81072907 in var_97e8ec5c)
+	foreach(t_debris in var_97e8ec5c)
 	{
-		var_81072907 zm_utility::set_hint_string(var_81072907, "default_buy_debris", var_81072907.zombie_cost);
+		t_debris zm_utility::set_hint_string(t_debris, "default_buy_debris", t_debris.zombie_cost);
 	}
 }
 
