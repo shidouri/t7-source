@@ -545,21 +545,21 @@ function function_e9b126ef(n_time, var_827d6de0 = 1)
 	Parameters: 4
 	Flags: Linked
 */
-function function_ccddb105(var_be6a04c9, var_6d20ee14, n_time, var_827d6de0)
+function function_ccddb105(str_hazard, var_6d20ee14, n_time, var_827d6de0)
 {
 	/#
-		assert(isdefined(level.hazards[var_be6a04c9]), ("" + var_be6a04c9) + "");
+		assert(isdefined(level.hazards[str_hazard]), ("" + str_hazard) + "");
 	#/
-	self notify("stop_hazard_dot_" + var_be6a04c9);
-	self endon("stop_hazard_dot_" + var_be6a04c9);
+	self notify("stop_hazard_dot_" + str_hazard);
+	self endon("stop_hazard_dot_" + str_hazard);
 	self endon("death");
-	self function_459e5eff(var_be6a04c9, 0);
+	self function_459e5eff(str_hazard, 0);
 	var_dd075cd2 = 1;
-	s_hazard = level.hazards[var_be6a04c9];
+	s_hazard = level.hazards[str_hazard];
 	n_damage = var_6d20ee14;
 	if(isdefined(n_time))
 	{
-		var_97dd249c = self function_eaa9157d(var_be6a04c9);
+		var_97dd249c = self function_eaa9157d(str_hazard);
 		var_90d01cd2 = s_hazard.n_max_protection;
 		var_7046c7b3 = var_827d6de0 * var_90d01cd2;
 		var_a6321c17 = var_7046c7b3 - var_97dd249c;
@@ -571,8 +571,8 @@ function function_ccddb105(var_be6a04c9, var_6d20ee14, n_time, var_827d6de0)
 	while(true)
 	{
 		wait(1);
-		var_dd075cd2 = self do_damage(var_be6a04c9, n_damage);
-		var_7ba0abc9 = self function_b78a859e(var_be6a04c9);
+		var_dd075cd2 = self do_damage(str_hazard, n_damage);
+		var_7ba0abc9 = self function_b78a859e(str_hazard);
 		if(n_damage > var_6d20ee14 && var_7ba0abc9 >= var_827d6de0)
 		{
 			n_damage = var_6d20ee14;
@@ -589,9 +589,9 @@ function function_ccddb105(var_be6a04c9, var_6d20ee14, n_time, var_827d6de0)
 	Parameters: 1
 	Flags: None
 */
-function function_60455f28(var_be6a04c9)
+function function_60455f28(str_hazard)
 {
-	self notify("stop_hazard_dot_" + var_be6a04c9);
-	self function_459e5eff(var_be6a04c9, 1);
+	self notify("stop_hazard_dot_" + str_hazard);
+	self function_459e5eff(str_hazard, 1);
 }
 
