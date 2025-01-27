@@ -622,11 +622,11 @@ class cbeastcode
 		Parameters: 4
 		Flags: Linked
 	*/
-	function init(a_mdl_inputs, a_t_inputs, var_4582f16d, func_activate)
+	function init(a_mdl_inputs, a_t_inputs, a_t_clue, func_activate)
 	{
 		m_a_mdl_inputs = a_mdl_inputs;
 		m_a_t_inputs = a_t_inputs;
-		var_1d4fdfa6 = var_4582f16d;
+		var_1d4fdfa6 = a_t_clue;
 		m_a_current = array(0, 0, 0);
 		m_n_input_index = 0;
 		m_a_codes = array(generate_random_code());
@@ -696,9 +696,9 @@ function init()
 		t_input = getent("keeper_sword_locker_trigger_" + i, "targetname");
 		a_t_inputs[a_t_inputs.size] = t_input;
 	}
-	var_4582f16d = getentarray("keeper_sword_locker_clue_lookat", "targetname");
+	a_t_clue = getentarray("keeper_sword_locker_clue_lookat", "targetname");
 	level.o_canal_beastcode = new cbeastcode();
-	[[ level.o_canal_beastcode ]]->init(a_mdl_inputs, a_t_inputs, var_4582f16d, &keeper_sword_locker_open_locker);
+	[[ level.o_canal_beastcode ]]->init(a_mdl_inputs, a_t_inputs, a_t_clue, &keeper_sword_locker_open_locker);
 	a_code = [[ level.o_canal_beastcode ]]->get_code();
 	[[ level.o_canal_beastcode ]]->set_clue_numbers_for_code(a_mdl_clues);
 }
