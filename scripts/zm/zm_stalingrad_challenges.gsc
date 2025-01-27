@@ -395,11 +395,11 @@ function function_fbbc8608(n_challenge_index, var_d4adfa57)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e8547a5b(var_cc0f18cc)
+function function_e8547a5b(str_challenge)
 {
-	if(self.challenge_text !== var_cc0f18cc)
+	if(self.challenge_text !== str_challenge)
 	{
-		self.challenge_text = var_cc0f18cc;
+		self.challenge_text = str_challenge;
 		self luinotifyevent(&"trial_set_description", 1, self.challenge_text);
 	}
 }
