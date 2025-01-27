@@ -681,7 +681,7 @@ function function_fcd3cf3f()
 	Parameters: 1
 	Flags: Linked
 */
-function function_cac73614(var_735c65d7)
+function function_cac73614(numxp)
 {
 	/#
 		/#
@@ -690,7 +690,7 @@ function function_cac73614(var_735c65d7)
 		/#
 			assert(isplayer(self));
 		#/
-		self addrankxpvalue("", var_735c65d7);
+		self addrankxpvalue("", numxp);
 	#/
 }
 
@@ -703,7 +703,7 @@ function function_cac73614(var_735c65d7)
 	Parameters: 1
 	Flags: Linked
 */
-function function_9f78d70e(var_735c65d7)
+function function_9f78d70e(numxp)
 {
 	/#
 		/#
@@ -714,7 +714,7 @@ function function_9f78d70e(var_735c65d7)
 		#/
 		weaponnum = int(tablelookup("", 3, self.currentweapon.rootweapon.displayname, 0));
 		var_b51b0d94 = self getdstat("", weaponnum, "");
-		self setdstat("", weaponnum, "", var_735c65d7 + var_b51b0d94);
+		self setdstat("", weaponnum, "", numxp + var_b51b0d94);
 	#/
 }
 
