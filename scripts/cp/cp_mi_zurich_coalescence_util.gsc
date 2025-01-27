@@ -2047,8 +2047,8 @@ function t_skipto()
 */
 function function_a1851f86(str_objective)
 {
-	var_e061e0f4 = getentarray("root_end_skipto", "targetname");
-	foreach(var_8fb0849a in var_e061e0f4)
+	a_t_ends = getentarray("root_end_skipto", "targetname");
+	foreach(var_8fb0849a in a_t_ends)
 	{
 		if(var_8fb0849a.script_string === str_objective)
 		{
