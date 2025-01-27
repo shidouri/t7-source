@@ -4028,19 +4028,19 @@ function function_73e24bb9()
 	if(self issplitscreen())
 	{
 		n_text_x = -75;
-		var_ce514045 = 191;
+		n_text_y = 191;
 		var_cf35e8e9 = "TOP";
 		var_2efa8e9 = 1;
 	}
 	else
 	{
 		n_text_x = 0;
-		var_ce514045 = 161;
+		n_text_y = 161;
 		var_cf35e8e9 = "CENTER";
 		var_2efa8e9 = level.primaryprogressbarfontsize;
 	}
 	text = hud::createfontstring("objective", var_2efa8e9);
-	text hud::setpoint(var_cf35e8e9, undefined, n_text_x, var_ce514045);
+	text hud::setpoint(var_cf35e8e9, undefined, n_text_x, n_text_y);
 	text.sort = -1;
 	return text;
 }
