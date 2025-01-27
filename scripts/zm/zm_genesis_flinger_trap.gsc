@@ -135,7 +135,7 @@ function function_38d940ac(t_trap)
 		if(e_player zm_score::can_player_purchase(1000))
 		{
 			e_player zm_score::minus_to_player_score(1000);
-			t_trap thread function_c7f4ae43(self, e_player);
+			t_trap thread flinger_trap_think(self, e_player);
 			t_trap.activated_by_player = e_player;
 		}
 		else
@@ -267,7 +267,7 @@ function trap_lights_green()
 }
 
 /*
-	Name: function_c7f4ae43
+	Name: flinger_trap_think
 	Namespace: zm_genesis_flinger_trap
 	Checksum: 0x3709DDE0
 	Offset: 0xE28
@@ -275,7 +275,7 @@ function trap_lights_green()
 	Parameters: 2
 	Flags: Linked
 */
-function function_c7f4ae43(var_c4f1ee44, e_player)
+function flinger_trap_think(var_c4f1ee44, e_player)
 {
 	self flag::set("trap_active");
 	self thread function_ef013ee8(var_c4f1ee44, e_player);
