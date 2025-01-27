@@ -2048,12 +2048,12 @@ function t_skipto()
 function function_a1851f86(str_objective)
 {
 	a_t_ends = getentarray("root_end_skipto", "targetname");
-	foreach(var_8fb0849a in a_t_ends)
+	foreach(t_heart in a_t_ends)
 	{
-		if(var_8fb0849a.script_string === str_objective)
+		if(t_heart.script_string === str_objective)
 		{
-			var_8fb0849a thread function_3da5d43b(str_objective);
-			return var_8fb0849a;
+			t_heart thread function_3da5d43b(str_objective);
+			return t_heart;
 		}
 	}
 }
