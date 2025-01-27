@@ -300,39 +300,39 @@ function function_ea3d061(str_name, str_side)
 {
 	var_498b0d1c = self.angles;
 	vec_forward = anglestoforward(var_498b0d1c);
-	if(isdefined(self.var_6d5392e9))
+	if(isdefined(self.a_loopfx))
 	{
-		for(i = 0; i < self.var_6d5392e9.size; i++)
+		for(i = 0; i < self.a_loopfx.size; i++)
 		{
-			stopfx(i, self.var_6d5392e9[i]);
+			stopfx(i, self.a_loopfx[i]);
 		}
-		self.var_6d5392e9 = [];
+		self.a_loopfx = [];
 	}
-	if(!isdefined(self.var_6d5392e9))
+	if(!isdefined(self.a_loopfx))
 	{
-		self.var_6d5392e9 = [];
+		self.a_loopfx = [];
 	}
 	a_players = getlocalplayers();
 	for(i = 0; i < a_players.size; i++)
 	{
-		self.var_6d5392e9[i] = playfx(i, level._effect["flame_trap_start"], self.origin, vec_forward);
+		self.a_loopfx[i] = playfx(i, level._effect["flame_trap_start"], self.origin, vec_forward);
 		wait(1);
 		level.var_d9c7b303 = 1;
 		level thread function_b8462abd();
 		while(level.var_d9c7b303)
 		{
-			self.var_6d5392e9[i] = playfx(i, level._effect["flame_trap_loop"], self.origin, vec_forward);
+			self.a_loopfx[i] = playfx(i, level._effect["flame_trap_loop"], self.origin, vec_forward);
 			wait(1);
 		}
-		self.var_6d5392e9[i] = playfx(i, level._effect["flame_trap_start"], self.origin, vec_forward);
+		self.a_loopfx[i] = playfx(i, level._effect["flame_trap_start"], self.origin, vec_forward);
 		wait(1);
 	}
 	level waittill(str_side + "off");
-	for(i = 0; i < self.var_6d5392e9.size; i++)
+	for(i = 0; i < self.a_loopfx.size; i++)
 	{
-		stopfx(i, self.var_6d5392e9[i]);
+		stopfx(i, self.a_loopfx[i]);
 	}
-	self.var_6d5392e9 = [];
+	self.a_loopfx = [];
 }
 
 /*
