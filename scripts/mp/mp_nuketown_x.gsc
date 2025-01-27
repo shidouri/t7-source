@@ -46,7 +46,7 @@ function main()
 	clientfield::register("scriptmover", "nuketown_population_tens", 1, 4, "int");
 	clientfield::register("world", "nuketown_endgame", 1, 1, "int");
 	precache();
-	namespace_6044bb60::main();
+	mp_nuketown_x_fx::main();
 	namespace_4cda09f7::main();
 	level.remotemissile_kill_z = -175 + 50;
 	level.team_free_targeting = 1;

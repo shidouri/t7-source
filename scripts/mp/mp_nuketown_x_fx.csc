@@ -2,11 +2,11 @@
 #using scripts\codescripts\struct;
 #using scripts\shared\fx_shared;
 
-#namespace namespace_6044bb60;
+#namespace mp_nuketown_x_fx;
 
 /*
 	Name: main
-	Namespace: namespace_6044bb60
+	Namespace: mp_nuketown_x_fx
 	Checksum: 0x99EC1590
 	Offset: 0xB0
 	Size: 0x4
