@@ -722,9 +722,9 @@ function function_7fd518ea()
 		var_618c7145 thread function_c4a9de44();
 		var_618c7145.targetname = s_crystal.targetname;
 	}
-	foreach(var_9d1acd49 in var_8ddaf045)
+	foreach(s_decoy in var_8ddaf045)
 	{
-		e_decoy = util::spawn_model("p7_zm_ctl_crystal", var_9d1acd49.origin, var_9d1acd49.angles);
+		e_decoy = util::spawn_model("p7_zm_ctl_crystal", s_decoy.origin, s_decoy.angles);
 		e_decoy setscale(2);
 		e_decoy thread function_13eaa39c();
 	}
