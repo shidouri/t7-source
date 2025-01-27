@@ -2285,12 +2285,12 @@ function function_a5ee3628(weapon, player)
 	if(weapon === getweapon("sticky_grenade_widows_wine"))
 	{
 		self waittill("stationary");
-		var_9f172edf = self.origin;
+		t_poplvl = self.origin;
 		v_normal = (0, 0, 0);
 	}
 	else
 	{
-		self waittill("grenade_bounce", var_9f172edf, v_normal, hitent, str_surface);
+		self waittill("grenade_bounce", t_poplvl, v_normal, hitent, str_surface);
 	}
 	foreach(trigger in level.var_d3b40681)
 	{
@@ -2298,9 +2298,9 @@ function function_a5ee3628(weapon, player)
 		{
 			continue;
 		}
-		if(self istouching(trigger) || trigger.var_1e831600 === hitent && distance2dsquared(trigger.origin, var_9f172edf) < 2500)
+		if(self istouching(trigger) || trigger.var_1e831600 === hitent && distance2dsquared(trigger.origin, t_poplvl) < 2500)
 		{
-			self thread function_96ebe65e(trigger, weapon, var_9f172edf, v_normal, player);
+			self thread function_96ebe65e(trigger, weapon, t_poplvl, v_normal, player);
 			return;
 		}
 	}
@@ -2413,20 +2413,20 @@ function function_5165d3f2(weapon, player)
 	Parameters: 5
 	Flags: Linked
 */
-function function_96ebe65e(trigger, weapon, var_9f172edf, v_normal, player)
+function function_96ebe65e(trigger, weapon, t_poplvl, v_normal, player)
 {
 	trigger endon("death");
 	trigger endon("web_torn");
 	player endon("death");
 	if(weapon == getweapon("frag_grenade"))
 	{
-		var_a8dac2c5 = player magicgrenademanualplayer(var_9f172edf - v_normal, (0, 0, 0), getweapon("frag_grenade_web"), weapon.fusetime / 1000);
+		var_a8dac2c5 = player magicgrenademanualplayer(t_poplvl - v_normal, (0, 0, 0), getweapon("frag_grenade_web"), weapon.fusetime / 1000);
 	}
 	else
 	{
 		if(weapon == getweapon("bouncingbetty"))
 		{
-			var_a8dac2c5 = player magicgrenademanualplayer(var_9f172edf - v_normal, (0, 0, 0), getweapon("bouncingbetty_web"), weapon.fusetime / 1000);
+			var_a8dac2c5 = player magicgrenademanualplayer(t_poplvl - v_normal, (0, 0, 0), getweapon("bouncingbetty_web"), weapon.fusetime / 1000);
 		}
 		else
 		{
@@ -2451,7 +2451,7 @@ function function_96ebe65e(trigger, weapon, var_9f172edf, v_normal, player)
 	if(!(isdefined(trigger.var_e084d7bd) && trigger.var_e084d7bd))
 	{
 		player.var_3b4423fd = 1;
-		trigger thread function_6b1cc9fb(1, var_9f172edf - v_normal, undefined, 1);
+		trigger thread function_6b1cc9fb(1, t_poplvl - v_normal, undefined, 1);
 		player function_20915a1a(1, 1);
 		trigger notify("web_torn");
 	}
