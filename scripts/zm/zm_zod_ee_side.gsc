@@ -1107,27 +1107,27 @@ function function_523509c2()
 	#/
 	if(!var_4a7285b7)
 	{
-		level.var_e0133c46 = [];
+		level.a_hearts = [];
 		var_fad038a6 = struct::get_array("margwa_heart");
 		foreach(var_a3b2752a in var_fad038a6)
 		{
 			var_779fea3 = util::spawn_model("p7_zm_zod_margwa_heart_alive", var_a3b2752a.origin, var_a3b2752a.angles);
 			var_779fea3 thread function_9a436d7f();
-			if(!isdefined(level.var_e0133c46))
+			if(!isdefined(level.a_hearts))
 			{
-				level.var_e0133c46 = [];
+				level.a_hearts = [];
 			}
-			else if(!isarray(level.var_e0133c46))
+			else if(!isarray(level.a_hearts))
 			{
-				level.var_e0133c46 = array(level.var_e0133c46);
+				level.a_hearts = array(level.a_hearts);
 			}
-			level.var_e0133c46[level.var_e0133c46.size] = var_779fea3;
+			level.a_hearts[level.a_hearts.size] = var_779fea3;
 		}
 		level thread function_51b665f0();
 		while(true)
 		{
 			var_9094458d = 0;
-			foreach(var_779fea3 in level.var_e0133c46)
+			foreach(var_779fea3 in level.a_hearts)
 			{
 				if(isdefined(var_779fea3.b_shown) && var_779fea3.b_shown)
 				{
@@ -1142,7 +1142,7 @@ function function_523509c2()
 			wait(0.05);
 		}
 		level notify(#"hash_e87ace62");
-		array::run_all(level.var_e0133c46, &delete);
+		array::run_all(level.a_hearts, &delete);
 	}
 	var_baa93c97 = struct::get_array("margwa_shiny", "targetname");
 	var_baa93c97 = array::randomize(var_baa93c97);
