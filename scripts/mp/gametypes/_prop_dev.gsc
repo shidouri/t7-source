@@ -415,10 +415,10 @@ function function_194631ab(enabled)
 	Parameters: 5
 	Flags: None
 */
-function function_e7f343ff(color, label, value, text, var_5f790513)
+function function_e7f343ff(color, label, value, text, textpc)
 {
 	/#
-		hudelem = namespace_4c773ed3::addupperrighthudelem(label, value, text, var_5f790513);
+		hudelem = namespace_4c773ed3::addupperrighthudelem(label, value, text, textpc);
 		hudelem.alpha = 0.5;
 		hudelem.color = color;
 		return hudelem;
