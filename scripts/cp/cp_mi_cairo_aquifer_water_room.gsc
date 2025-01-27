@@ -30,11 +30,11 @@
 #using scripts\shared\trigger_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_967f4af8;
+#namespace cp_mi_cairo_aquifer_water_room;
 
 /*
 	Name: main
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xE5A01181
 	Offset: 0xDB0
 	Size: 0x124
@@ -58,7 +58,7 @@ function main()
 
 /*
 	Name: init_flags
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xEB475BAC
 	Offset: 0xEE0
 	Size: 0x84
@@ -75,7 +75,7 @@ function init_flags()
 
 /*
 	Name: function_60f7b1b6
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xB708C701
 	Offset: 0xF70
 	Size: 0xA4
@@ -94,7 +94,7 @@ function function_60f7b1b6()
 
 /*
 	Name: function_1ecf48ef
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x4D807C32
 	Offset: 0x1020
 	Size: 0x364
@@ -145,7 +145,7 @@ function function_1ecf48ef()
 
 /*
 	Name: function_cd377710
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x7ACB3CBA
 	Offset: 0x1390
 	Size: 0x12A
@@ -170,7 +170,7 @@ function function_cd377710()
 
 /*
 	Name: function_3d8a313e
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xD6E906B1
 	Offset: 0x14C8
 	Size: 0x24
@@ -184,7 +184,7 @@ function function_3d8a313e(a_ents)
 
 /*
 	Name: function_4a90c357
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x288DB59C
 	Offset: 0x14F8
 	Size: 0x29C
@@ -223,7 +223,7 @@ function function_4a90c357()
 
 /*
 	Name: function_8aec0a4c
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x9A3ABE90
 	Offset: 0x17A0
 	Size: 0x20C
@@ -256,7 +256,7 @@ function function_8aec0a4c()
 
 /*
 	Name: function_cc9a0395
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x3C3E34A5
 	Offset: 0x19B8
 	Size: 0xFC
@@ -282,7 +282,7 @@ function function_cc9a0395()
 
 /*
 	Name: function_c1808198
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xF8E3184C
 	Offset: 0x1AC0
 	Size: 0xCA
@@ -301,7 +301,7 @@ function function_c1808198()
 
 /*
 	Name: function_498a7d66
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x45E1FEAB
 	Offset: 0x1B98
 	Size: 0x54
@@ -318,7 +318,7 @@ function function_498a7d66()
 
 /*
 	Name: function_ee430caa
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x6C165947
 	Offset: 0x1BF8
 	Size: 0x44C
@@ -377,7 +377,7 @@ function function_ee430caa()
 
 /*
 	Name: function_430fd872
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x92039143
 	Offset: 0x2050
 	Size: 0x9C
@@ -398,7 +398,7 @@ function function_430fd872()
 
 /*
 	Name: function_ddc03444
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x47A11F9E
 	Offset: 0x20F8
 	Size: 0xE4
@@ -419,7 +419,7 @@ function function_ddc03444()
 
 /*
 	Name: function_a079b7e3
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x153A874F
 	Offset: 0x21E8
 	Size: 0x8C
@@ -436,7 +436,7 @@ function function_a079b7e3()
 
 /*
 	Name: function_26031755
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xA83D5152
 	Offset: 0x2280
 	Size: 0x34
@@ -450,7 +450,7 @@ function function_26031755()
 
 /*
 	Name: emprumbleloop
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x8AC5CA08
 	Offset: 0x22C0
 	Size: 0x70
@@ -471,7 +471,7 @@ function emprumbleloop(duration)
 
 /*
 	Name: checktoturnoffemp
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x4BA2CB77
 	Offset: 0x2338
 	Size: 0x64
@@ -491,7 +491,7 @@ function checktoturnoffemp()
 
 /*
 	Name: shutdownemprebootindicatormenu
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xC6ABB6A6
 	Offset: 0x23A8
 	Size: 0x54
@@ -509,7 +509,7 @@ function shutdownemprebootindicatormenu()
 
 /*
 	Name: function_4f725f0b
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xDB3EDF2
 	Offset: 0x2408
 	Size: 0x1C4
@@ -542,7 +542,7 @@ function function_4f725f0b()
 
 /*
 	Name: function_408f0fb5
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x7806BD47
 	Offset: 0x25D8
 	Size: 0x1FC
@@ -577,7 +577,7 @@ function function_408f0fb5()
 
 /*
 	Name: function_846f1215
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x43A32278
 	Offset: 0x27E0
 	Size: 0xD2
@@ -596,7 +596,7 @@ function function_846f1215(n_alpha)
 
 /*
 	Name: function_45676b91
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x76BC628F
 	Offset: 0x28C0
 	Size: 0x4C
@@ -612,7 +612,7 @@ function function_45676b91(n_alpha)
 
 /*
 	Name: function_645f7873
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xAB8698AC
 	Offset: 0x2918
 	Size: 0x15C
@@ -640,7 +640,7 @@ function function_645f7873()
 
 /*
 	Name: function_ba41df77
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xBAEADA78
 	Offset: 0x2A80
 	Size: 0x6C
@@ -657,7 +657,7 @@ function function_ba41df77()
 
 /*
 	Name: function_e367262c
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x1855A16E
 	Offset: 0x2AF8
 	Size: 0x4C
@@ -672,7 +672,7 @@ function function_e367262c()
 
 /*
 	Name: player_underwater
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xF685B4FA
 	Offset: 0x2B50
 	Size: 0xB8
@@ -697,7 +697,7 @@ function player_underwater()
 
 /*
 	Name: function_41018429
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xEAFC9E38
 	Offset: 0x2C10
 	Size: 0xE8
@@ -723,7 +723,7 @@ function function_41018429()
 
 /*
 	Name: function_a1923020
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x96F756AE
 	Offset: 0x2D00
 	Size: 0x2C
@@ -738,7 +738,7 @@ function function_a1923020()
 
 /*
 	Name: function_a1b52577
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x109B04E8
 	Offset: 0x2D38
 	Size: 0x20C
@@ -771,7 +771,7 @@ function function_a1b52577()
 
 /*
 	Name: function_71af9864
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x85D9812C
 	Offset: 0x2F50
 	Size: 0xF4
@@ -793,7 +793,7 @@ function function_71af9864()
 
 /*
 	Name: function_b563cc38
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xFC1543F5
 	Offset: 0x3050
 	Size: 0x3C
@@ -808,7 +808,7 @@ function function_b563cc38()
 
 /*
 	Name: function_18af354a
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x222F3B2E
 	Offset: 0x3098
 	Size: 0x10C
@@ -830,7 +830,7 @@ function function_18af354a()
 
 /*
 	Name: function_8fdcc95b
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xF6DD97DD
 	Offset: 0x31B0
 	Size: 0x5C
@@ -848,7 +848,7 @@ function function_8fdcc95b(delay)
 
 /*
 	Name: function_67c72b6
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x7DFC2CEF
 	Offset: 0x3218
 	Size: 0x104
@@ -869,7 +869,7 @@ function function_67c72b6()
 
 /*
 	Name: function_cb3decf1
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x53CED520
 	Offset: 0x3328
 	Size: 0x1AA
@@ -900,7 +900,7 @@ function function_cb3decf1()
 
 /*
 	Name: function_a476832a
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xC597B4AF
 	Offset: 0x34E0
 	Size: 0x3C
@@ -915,7 +915,7 @@ function function_a476832a(delay, duration)
 
 /*
 	Name: function_a05b1c8c
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xB679127C
 	Offset: 0x3528
 	Size: 0x2C2
@@ -954,7 +954,7 @@ function function_a05b1c8c()
 
 /*
 	Name: function_a0faf694
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xEB54C5DA
 	Offset: 0x37F8
 	Size: 0x25C
@@ -986,7 +986,7 @@ function function_a0faf694(var_4b70f64, kane, var_be38fd90)
 
 /*
 	Name: robot_underwater_callback
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xD0A3853D
 	Offset: 0x3A60
 	Size: 0x94
@@ -1009,7 +1009,7 @@ function robot_underwater_callback()
 
 /*
 	Name: function_3b4d25aa
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x4C4B12B5
 	Offset: 0x3B00
 	Size: 0x6C
@@ -1025,7 +1025,7 @@ function function_3b4d25aa()
 
 /*
 	Name: function_3ed240f1
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x8A9E5D29
 	Offset: 0x3B78
 	Size: 0x24
@@ -1040,7 +1040,7 @@ function function_3ed240f1()
 
 /*
 	Name: function_8492aced
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x66287DAD
 	Offset: 0x3BA8
 	Size: 0x14C
@@ -1068,7 +1068,7 @@ function function_8492aced()
 
 /*
 	Name: fade_from_black
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0xBBAD9B36
 	Offset: 0x3D00
 	Size: 0x60
@@ -1091,7 +1091,7 @@ function fade_from_black()
 
 /*
 	Name: fade_to_black
-	Namespace: namespace_967f4af8
+	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x7A5EC2C1
 	Offset: 0x3D68
 	Size: 0x60
