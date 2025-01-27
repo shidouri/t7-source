@@ -1427,7 +1427,7 @@ function function_a753035a(egg)
 	{
 		wait(randomfloatrange(0.5 * hops, 1.2 * hops));
 		hops--;
-		egg namespace_5e6c5d1f::egghop(1);
+		egg doa_chicken::egghop(1);
 	}
 	egg playsound("zmb_egg_hatch");
 	egg thread doa_fx::function_285a2999("egg_hatchXL");
@@ -1452,7 +1452,7 @@ function function_a753035a(egg)
 function function_1d9d0ed2(chicken)
 {
 	chicken endon("death");
-	chicken thread namespace_5e6c5d1f::function_cdfa9ce8(chicken);
+	chicken thread doa_chicken::function_cdfa9ce8(chicken);
 	chicken.var_a732885d = 1;
 	rotate180time = 1;
 	while(true)

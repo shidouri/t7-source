@@ -449,7 +449,7 @@ function function_b6c25c3c(spot)
 	self freezecontrols(!level flag::get("doa_challenge_running"));
 	wait(0.05);
 	self thread function_810ced6b();
-	self namespace_5e6c5d1f::function_8397461e();
+	self doa_chicken::function_8397461e();
 }
 
 /*
@@ -1001,7 +1001,7 @@ function function_14e75d7a(spot)
 	wait(0.05);
 	self enableinvulnerability();
 	self thread function_810ced6b();
-	self namespace_5e6c5d1f::function_8397461e();
+	self doa_chicken::function_8397461e();
 }
 
 /*
@@ -1712,7 +1712,7 @@ function function_dae418ed()
 	wait(0.05);
 	self enableinvulnerability();
 	self thread function_810ced6b();
-	self namespace_5e6c5d1f::function_8397461e();
+	self doa_chicken::function_8397461e();
 }
 
 /*

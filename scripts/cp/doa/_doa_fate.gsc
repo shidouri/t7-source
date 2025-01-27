@@ -568,7 +568,7 @@ function function_4c552db8()
 {
 	self.doa.var_1b58e8ba = 2;
 	level thread function_fd0b8976(&"DOA_FATE_FRIENDSHIP", 4, doa_player_utility::function_fea7ed75(self.entnum));
-	self thread namespace_5e6c5d1f::function_d35a405a(level.doa.var_a7cfb7eb, 1);
+	self thread doa_chicken::function_d35a405a(level.doa.var_a7cfb7eb, 1);
 }
 
 /*
@@ -622,7 +622,7 @@ function function_47b8a2a2()
 function function_78c32d42()
 {
 	level thread function_fd0b8976(&"DOA_FATE_FAVOR", 4, doa_player_utility::function_fea7ed75(self.entnum));
-	self thread namespace_5e6c5d1f::function_d35a405a(level.doa.var_9505395a, 2, 1.5);
+	self thread doa_chicken::function_d35a405a(level.doa.var_9505395a, 2, 1.5);
 	self thread doa_fx::function_285a2999("fate2_awarded");
 }
 

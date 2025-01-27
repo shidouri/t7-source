@@ -1750,7 +1750,7 @@ function function_d526f0bb()
 					player.chickens++;
 					player.doa.var_d92a8d3e++;
 					player thread namespace_1a381543::function_90118d8c("zmb_pickup_chicken");
-					player namespace_5e6c5d1f::function_d35a405a();
+					player doa_chicken::function_d35a405a();
 					break;
 				}
 				case 11:
@@ -2603,14 +2603,14 @@ function private function_f56a2ab()
 	}
 	if(self.def.type == 5)
 	{
-		self thread namespace_5e6c5d1f::function_cdfa9ce8(self);
+		self thread doa_chicken::function_cdfa9ce8(self);
 		self.angles = (0, 0, 0);
 		return true;
 	}
 	if(self.def.type == 23 || self.def.type == 27 || self.def.type == 36)
 	{
-		self thread namespace_5e6c5d1f::function_7b8c015c();
-		self.var_71bbb00a = &namespace_5e6c5d1f::egghop;
+		self thread doa_chicken::function_7b8c015c();
+		self.var_71bbb00a = &doa_chicken::egghop;
 		return true;
 	}
 	if(self.def.type == 26)
