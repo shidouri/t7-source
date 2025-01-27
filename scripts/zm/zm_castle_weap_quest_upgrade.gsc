@@ -7571,19 +7571,19 @@ function function_7c48f9d8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_cdfce37d(var_87e87273)
+function function_cdfce37d(str_bow_name)
 {
 	self endon("death");
-	level endon(var_87e87273 + "_stop_tracking");
-	level endon(var_87e87273 + "_returned");
-	var_48e2fc20 = getweapon(var_87e87273);
+	level endon(str_bow_name + "_stop_tracking");
+	level endon(str_bow_name + "_returned");
+	var_48e2fc20 = getweapon(str_bow_name);
 	while(true)
 	{
 		self util::waittill_either("missile_fire", "zmb_max_ammo");
 		if(self hasweapon(var_48e2fc20))
 		{
-			level.var_7df95fd1[var_87e87273] = self getweaponammostock(var_48e2fc20);
-			level.var_67616e8e[var_87e87273] = self getweaponammoclip(var_48e2fc20);
+			level.var_7df95fd1[str_bow_name] = self getweaponammostock(var_48e2fc20);
+			level.var_67616e8e[str_bow_name] = self getweaponammoclip(var_48e2fc20);
 		}
 	}
 }
