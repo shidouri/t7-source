@@ -141,16 +141,16 @@ function function_c5f1b67()
 {
 	var_1a085458 = getentarray("hatch_slick_clip", "targetname");
 	array::run_all(var_1a085458, &notsolid);
-	var_cf5f1519 = getent("ee_map", "targetname");
-	var_cf5f1519 hidepart("tag_map_screen_on");
-	var_cf5f1519 hidepart("tag_map_screen_glow_text");
-	var_cf5f1519 hidepart("tag_map_screen_glow_command");
-	var_cf5f1519 hidepart("tag_map_screen_glow_barracks");
-	var_cf5f1519 hidepart("tag_map_screen_glow_tank");
-	var_cf5f1519 hidepart("tag_map_screen_glow_armory");
-	var_cf5f1519 hidepart("tag_map_screen_glow_store");
-	var_cf5f1519 hidepart("tag_map_screen_glow_supply");
-	var_cf5f1519 hidepart("tag_map_screen_glow_square");
+	mdl_map = getent("ee_map", "targetname");
+	mdl_map hidepart("tag_map_screen_on");
+	mdl_map hidepart("tag_map_screen_glow_text");
+	mdl_map hidepart("tag_map_screen_glow_command");
+	mdl_map hidepart("tag_map_screen_glow_barracks");
+	mdl_map hidepart("tag_map_screen_glow_tank");
+	mdl_map hidepart("tag_map_screen_glow_armory");
+	mdl_map hidepart("tag_map_screen_glow_store");
+	mdl_map hidepart("tag_map_screen_glow_supply");
+	mdl_map hidepart("tag_map_screen_glow_square");
 	var_78d02c88 = getent("ee_map_shelf", "targetname");
 	var_78d02c88 hidepart("wall_map_shelf_button_green");
 	var_78d02c88 hidepart("wall_map_shelf_figure_01");
@@ -188,8 +188,8 @@ function function_7cde9a31()
 {
 	level flag::wait_till("power_on");
 	exploder::exploder("fxexp_604");
-	var_cf5f1519 = getent("ee_map", "targetname");
-	var_cf5f1519 showpart("tag_map_screen_on");
+	mdl_map = getent("ee_map", "targetname");
+	mdl_map showpart("tag_map_screen_on");
 	level waittill(#"hash_423907c1");
 	level thread function_b81d4eec();
 	level thread function_3bd05213();
@@ -1137,8 +1137,8 @@ function function_8d296a92()
 	level.var_4e47b032 = 0;
 	level function_928d903a();
 	level flag::wait_till("key_placement");
-	var_cf5f1519 = getent("ee_map", "targetname");
-	var_cf5f1519 showpart("tag_map_screen_glow_text");
+	mdl_map = getent("ee_map", "targetname");
+	mdl_map showpart("tag_map_screen_glow_text");
 	level function_67cef48(1);
 	level thread function_469f74c5();
 	level zm_stalingrad_vo::function_38bc572f();
@@ -2818,7 +2818,7 @@ function function_6a1cc377()
 */
 function function_18375f27(a_str_locations)
 {
-	var_cf5f1519 = getent("ee_map", "targetname");
+	mdl_map = getent("ee_map", "targetname");
 	/#
 		if(!isdefined(level.var_f0d11538))
 		{
@@ -2833,14 +2833,14 @@ function function_18375f27(a_str_locations)
 		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
-			var_cf5f1519 showpart(str_tag);
+			mdl_map showpart(str_tag);
 		}
 		level.var_f0d11538 playsound("zmb_scenarios_map_beep_higher");
 		wait(0.4);
 		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
-			var_cf5f1519 hidepart(str_tag);
+			mdl_map hidepart(str_tag);
 		}
 	}
 	var_bf616d4d = array::randomize(a_str_locations);
@@ -2848,19 +2848,19 @@ function function_18375f27(a_str_locations)
 	{
 		str_tag = "tag_map_screen_glow_" + var_796743e2;
 		wait(0.1);
-		var_cf5f1519 showpart(str_tag);
-		var_cf5f1519 playsound("zmb_scenarios_map_beep_higher");
+		mdl_map showpart(str_tag);
+		mdl_map playsound("zmb_scenarios_map_beep_higher");
 		wait(0.1);
-		var_cf5f1519 hidepart(str_tag);
+		mdl_map hidepart(str_tag);
 	}
 	foreach(str_location in a_str_locations)
 	{
 		str_tag = "tag_map_screen_glow_" + str_location;
 		wait(0.3);
-		var_cf5f1519 showpart(str_tag);
-		var_cf5f1519 playsound("zmb_scenarios_map_beep_higher");
+		mdl_map showpart(str_tag);
+		mdl_map playsound("zmb_scenarios_map_beep_higher");
 		wait(0.4);
-		var_cf5f1519 hidepart(str_tag);
+		mdl_map hidepart(str_tag);
 	}
 	wait(0.1);
 	for(i = 0; i < (4 - 1); i++)
@@ -2868,14 +2868,14 @@ function function_18375f27(a_str_locations)
 		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
-			var_cf5f1519 showpart(str_tag);
+			mdl_map showpart(str_tag);
 		}
 		level.var_f0d11538 playsound("zmb_scenarios_map_beep_higher");
 		wait(0.4);
 		foreach(str_location in a_str_locations)
 		{
 			str_tag = "tag_map_screen_glow_" + str_location;
-			var_cf5f1519 hidepart(str_tag);
+			mdl_map hidepart(str_tag);
 		}
 		wait(0.4);
 	}
@@ -4901,15 +4901,15 @@ function function_3d1cdcf3()
 */
 function function_15d9679d(str_location, var_f48714a)
 {
-	var_cf5f1519 = getent("ee_map", "targetname");
+	mdl_map = getent("ee_map", "targetname");
 	for(i = 0; i < var_f48714a; i++)
 	{
 		str_tag = "tag_map_screen_glow_" + str_location;
 		wait(0.5);
-		var_cf5f1519 showpart(str_tag);
-		var_cf5f1519 playsound("zmb_scenarios_map_beep_higher");
+		mdl_map showpart(str_tag);
+		mdl_map playsound("zmb_scenarios_map_beep_higher");
 		wait(0.75);
-		var_cf5f1519 hidepart(str_tag);
+		mdl_map hidepart(str_tag);
 	}
 }
 
