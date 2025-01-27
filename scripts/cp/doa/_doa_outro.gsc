@@ -268,7 +268,7 @@ function function_5e04bf78()
 	org thread doa_fx::function_285a2999("silverback_intro");
 	org thread doa_fx::function_285a2999("stoneboss_shield_explode");
 	wait(0.5);
-	silverback = namespace_51bd792::function_36aa8b6c(org2);
+	silverback = bo3_enemy::function_36aa8b6c(org2);
 	silverback thread doa_utility::function_783519c1("podiumAllDone", 1);
 	silverback linkto(org2);
 	silverback thread doa_fx::function_285a2999("player_trail_red");

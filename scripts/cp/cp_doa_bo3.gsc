@@ -114,13 +114,13 @@ function init()
 	level.doa.var_cefa8799 = &function_87092704;
 	level.doa.var_c95041ea = &function_165c9bd0;
 	level.doa.var_5ddb204f = &function_aab05139;
-	level.doa.var_771e3915 = &namespace_51bd792::function_771e3915;
-	namespace_51bd792::init();
+	level.doa.var_771e3915 = &bo3_enemy::function_771e3915;
+	bo3_enemy::init();
 	namespace_a3646565::init();
 	function_d1c7245c();
 	level.doa.enemyspawners = [];
 	/#
-		level.doa.var_e6fd0e17 = &namespace_51bd792::function_65762352;
+		level.doa.var_e6fd0e17 = &bo3_enemy::function_65762352;
 	#/
 	rootmenu = "devgui_cmd \"Zombietron/Spawn/Enemy/";
 	spawners = getspawnerarray();
@@ -247,13 +247,13 @@ function function_d1c7245c()
 	guardian = spawnstruct();
 	guardian.type = 30;
 	guardian.spawner = getent("spawner_zombietron_skeleton", "targetname");
-	guardian.spawnfunction = &namespace_51bd792::function_862e15fa;
+	guardian.spawnfunction = &bo3_enemy::function_862e15fa;
 	guardian.initfunction = &function_89a2ffc4;
 	level.doa.var_af875fb7[level.doa.var_af875fb7.size] = guardian;
 	guardian = spawnstruct();
 	guardian.type = 31;
 	guardian.spawner = getent("zombietron_guardian_robot", "targetname");
-	guardian.spawnfunction = &namespace_51bd792::function_575e3933;
+	guardian.spawnfunction = &bo3_enemy::function_575e3933;
 	guardian.initfunction = &function_75772673;
 	level.doa.var_af875fb7[level.doa.var_af875fb7.size] = guardian;
 }
@@ -293,7 +293,7 @@ function function_75772673(player)
 	color = doa_player_utility::function_ee495f41(player.entnum);
 	trail = "gem_trail_" + color;
 	self setplayercollision(0);
-	self namespace_51bd792::droptoground(self.origin, trail, "turret_impact", 0, 0);
+	self bo3_enemy::droptoground(self.origin, trail, "turret_impact", 0, 0);
 	self doa_sound::function_90118d8c("evt_robot_land");
 	self doa_fx::function_285a2999("player_trail_" + color);
 	while(isdefined(player))
@@ -565,7 +565,7 @@ function function_1de9db1b(name)
 	{
 		case "margwa":
 		{
-			namespace_51bd792::function_4ce6d0ea();
+			bo3_enemy::function_4ce6d0ea();
 			level notify(#"hash_593b80cb");
 			foreach(player in getplayers())
 			{
@@ -707,7 +707,7 @@ function function_957373c6(def)
 			def.title = &"CP_DOA_BO3_CHALLENGE_COLLECTOR";
 			def.var_84aef63e = 5;
 			def.var_83bae1f8 = 1000;
-			def.spawnfunc = &namespace_51bd792::function_53b44cb7;
+			def.spawnfunc = &bo3_enemy::function_53b44cb7;
 			def.var_23502a36 = 1;
 			def.cooldown = 0;
 			def.var_759562f7 = 5000;
@@ -719,7 +719,7 @@ function function_957373c6(def)
 			def.title = &"CP_DOA_BO3_ITS_MY_FARM";
 			def.var_84aef63e = 40;
 			def.var_83bae1f8 = 1000;
-			def.spawnfunc = &namespace_51bd792::function_ce9bce16;
+			def.spawnfunc = &bo3_enemy::function_ce9bce16;
 			def.var_23502a36 = 1;
 			def.var_3ceda880 = 1;
 			def.var_965be9 = &doa_bo3_player_challenge::function_c0485deb;
@@ -732,7 +732,7 @@ function function_957373c6(def)
 			def.title = &"CP_DOA_BO3_CHALLENGE_RISERS";
 			def.var_84aef63e = 40;
 			def.var_83bae1f8 = 1000;
-			def.spawnfunc = &namespace_51bd792::function_45849d81;
+			def.spawnfunc = &bo3_enemy::function_45849d81;
 			def.var_23502a36 = 1;
 			def.var_3ceda880 = 1;
 			def.var_474e643b = 36;
@@ -745,7 +745,7 @@ function function_957373c6(def)
 			def.title = &"CP_DOA_BO3_CHALLENGE_SHADOW";
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
-			def.spawnfunc = &namespace_51bd792::function_b9980eda;
+			def.spawnfunc = &bo3_enemy::function_b9980eda;
 			def.var_23502a36 = 1;
 			break;
 		}
@@ -754,7 +754,7 @@ function function_957373c6(def)
 			def.round = 25;
 			def.title = &"CP_DOA_BO3_CHALLENGE_BLOOD_RISERS";
 			def.var_84aef63e = 40;
-			def.spawnfunc = &namespace_51bd792::function_17de14f1;
+			def.spawnfunc = &bo3_enemy::function_17de14f1;
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
 			def.var_23502a36 = 1;
@@ -769,7 +769,7 @@ function function_957373c6(def)
 			def.round = 26;
 			def.title = &"CP_DOA_BO3_CHALLENGE_MEATBALLS";
 			def.var_84aef63e = 6;
-			def.spawnfunc = &namespace_51bd792::function_fb051310;
+			def.spawnfunc = &bo3_enemy::function_fb051310;
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
 			def.var_3ceda880 = 1;
@@ -786,7 +786,7 @@ function function_957373c6(def)
 			def.title = &"CP_DOA_BO3_CHALLENGE_WARLORD";
 			def.var_84aef63e = 5;
 			def.var_83bae1f8 = 1000;
-			def.spawnfunc = &namespace_51bd792::function_a0d7d949;
+			def.spawnfunc = &bo3_enemy::function_a0d7d949;
 			def.var_23502a36 = 1;
 			break;
 		}
@@ -797,7 +797,7 @@ function function_957373c6(def)
 			def.var_84aef63e = 20;
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
-			def.spawnfunc = &namespace_51bd792::function_33525e11;
+			def.spawnfunc = &bo3_enemy::function_33525e11;
 			def.var_23502a36 = 0.1;
 			def.var_3ceda880 = 0;
 			def.cooldown = 0;
@@ -809,7 +809,7 @@ function function_957373c6(def)
 			def.round = 45;
 			def.title = &"CP_DOA_BO3_CHALLENGE_ROBOTS";
 			def.var_84aef63e = 10;
-			def.spawnfunc = &namespace_51bd792::function_4d2a4a76;
+			def.spawnfunc = &bo3_enemy::function_4d2a4a76;
 			def.var_83bae1f8 = 1000;
 			def.var_23502a36 = 1;
 			break;
@@ -820,7 +820,7 @@ function function_957373c6(def)
 			def.title = &"CP_DOA_BO3_CHALLENGE_CELLBREAK";
 			def.var_84aef63e = 10;
 			def.var_83bae1f8 = 2000;
-			def.spawnfunc = &namespace_51bd792::function_5e86b6fa;
+			def.spawnfunc = &bo3_enemy::function_5e86b6fa;
 			def.var_23502a36 = 1;
 			break;
 		}
@@ -831,7 +831,7 @@ function function_957373c6(def)
 			def.var_84aef63e = 6;
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
-			def.spawnfunc = &namespace_51bd792::function_bb3b0416;
+			def.spawnfunc = &bo3_enemy::function_bb3b0416;
 			def.var_23502a36 = 1;
 			def.var_3ceda880 = 1;
 			break;
@@ -843,7 +843,7 @@ function function_957373c6(def)
 			def.var_84aef63e = 6;
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
-			def.spawnfunc = &namespace_51bd792::function_92159541;
+			def.spawnfunc = &bo3_enemy::function_92159541;
 			def.var_23502a36 = 0.5;
 			def.var_3ceda880 = 0;
 			def.cooldown = 0;
@@ -857,7 +857,7 @@ function function_957373c6(def)
 			def.var_84aef63e = 5;
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
-			def.spawnfunc = &namespace_51bd792::function_1631202b;
+			def.spawnfunc = &bo3_enemy::function_1631202b;
 			def.var_23502a36 = 1;
 			def.var_3ceda880 = 0;
 			level.doa.var_83a65bc6 = def;
@@ -873,7 +873,7 @@ function function_957373c6(def)
 			def.var_84aef63e = 10;
 			def.var_83bae1f8 = 1000;
 			def.maxhitpoints = 1000;
-			def.spawnfunc = &namespace_51bd792::function_7512c5ee;
+			def.spawnfunc = &bo3_enemy::function_7512c5ee;
 			def.endfunc = &function_7ea6d638;
 			def.var_23502a36 = 1;
 			def.var_3ceda880 = 0;
@@ -1003,7 +1003,7 @@ function function_9d32f5d()
 	{
 		level.doa.var_43e34d24 = getent("blood_riser_spawner", "targetname");
 	}
-	return namespace_51bd792::function_17de14f1(level.doa.var_43e34d24);
+	return bo3_enemy::function_17de14f1(level.doa.var_43e34d24);
 }
 
 /*
@@ -1021,7 +1021,7 @@ function function_b8aa2b56()
 	{
 		level.doa.var_8fb5dd7d = getent("zombie_riser", "targetname");
 	}
-	return namespace_51bd792::function_45849d81(level.doa.var_8fb5dd7d);
+	return bo3_enemy::function_45849d81(level.doa.var_8fb5dd7d);
 }
 
 /*
@@ -1067,7 +1067,7 @@ function function_2fb9e83f()
 	while(margwas > 0)
 	{
 		loc = doa_utility::function_ada6d90();
-		level.doa.margwas[level.doa.margwas.size] = namespace_51bd792::margwaspawn(loc);
+		level.doa.margwas[level.doa.margwas.size] = bo3_enemy::margwaspawn(loc);
 		margwas--;
 		wait(30);
 	}

@@ -1200,7 +1200,7 @@ function private function_b1d23a45(boss)
 				doa_utility::function_fe180f6f(3);
 				wait(0.05);
 			}
-			ai = namespace_51bd792::function_fb051310(self.rapps, loc, undefined, 0, 1);
+			ai = bo3_enemy::function_fb051310(self.rapps, loc, undefined, 0, 1);
 			if(isdefined(ai))
 			{
 				ai.spawner = self.rapps;

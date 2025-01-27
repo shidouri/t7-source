@@ -356,7 +356,7 @@ function function_1cb931df(def, var_3d19d2b1 = getdvarint("scr_doa_eggcount", 6)
 				origin = baseorigin + _rotatevec(vectorscale((1, 0, 0), 30), angle);
 				angle = angle + randomintrange(30, 60);
 			}
-			namespace_51bd792::function_ecbf1358(origin, (randomfloatrange(-3, 3), randomfloatrange(0, 180), randomfloatrange(-3, 3)));
+			bo3_enemy::function_ecbf1358(origin, (randomfloatrange(-3, 3), randomfloatrange(0, 180), randomfloatrange(-3, 3)));
 			var_3d19d2b1--;
 			var_485dfece++;
 			if(var_485dfece >= getdvarint("scr_doa_clutchcount_max", 6) || randomint(100) > 85)

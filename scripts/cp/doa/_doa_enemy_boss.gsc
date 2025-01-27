@@ -81,7 +81,7 @@ function private function_d95d34bd(spawner)
 			continue;
 		}
 		loc = level.doa.spawners[spawn_set]["boss"][randomint(level.doa.spawners[spawn_set]["boss"].size)];
-		level.doa.boss = namespace_51bd792::function_36aa8b6c(loc);
+		level.doa.boss = bo3_enemy::function_36aa8b6c(loc);
 		if(getdvarint("scr_boss_debug", 0) && isdefined(spawner))
 		{
 			level thread namespace_2f63e553::function_5e6b8376(spawner.origin, 20, 500, (0, 0, 1));

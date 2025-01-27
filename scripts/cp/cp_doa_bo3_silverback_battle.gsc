@@ -473,7 +473,7 @@ function private function_b90daa04(delay)
 	org thread doa_fx::function_285a2999("stoneboss_shield_explode");
 	wait(0.5);
 	wait(getdvarfloat("scr_boss_silverback_intro_time", 1));
-	silverback = namespace_51bd792::function_36aa8b6c(org2);
+	silverback = bo3_enemy::function_36aa8b6c(org2);
 	silverback linkto(org2);
 	silverback thread doa_fx::function_285a2999("player_trail_red");
 	silverback thread doa_fx::function_285a2999("silverback_intro_trail1");
@@ -1324,11 +1324,11 @@ function private function_5659ec29(var_c840292d)
 	spawner = (randomint(100) > 50 ? level.doa.var_5f57a68d : level.doa.var_b5aef19c);
 	if(spawner == level.doa.var_5f57a68d)
 	{
-		ai = namespace_51bd792::function_1631202b(spawner, loc);
+		ai = bo3_enemy::function_1631202b(spawner, loc);
 	}
 	else
 	{
-		ai = namespace_51bd792::function_33525e11(spawner, loc);
+		ai = bo3_enemy::function_33525e11(spawner, loc);
 	}
 	if(isdefined(ai))
 	{

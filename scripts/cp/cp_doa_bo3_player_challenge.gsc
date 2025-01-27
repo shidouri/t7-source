@@ -335,7 +335,7 @@ function private function_533483a3(room)
 			while(var_e1a06452)
 			{
 				var_e1a06452--;
-				ai = namespace_51bd792::function_45849d81(var_48be25f5, undefined, undefined);
+				ai = bo3_enemy::function_45849d81(var_48be25f5, undefined, undefined);
 				if(isdefined(ai))
 				{
 					ai hidepart("TAG_WEAPON_LEFT");
@@ -1170,7 +1170,7 @@ function function_455c43ca()
 		count = doa_utility::function_b99d78c7();
 		if(count < getdvarint("scr_redins_enemy_count", 16))
 		{
-			ai = namespace_51bd792::function_45849d81(var_48be25f5, spawnpoints[randomint(spawnpoints.size)], undefined);
+			ai = bo3_enemy::function_45849d81(var_48be25f5, spawnpoints[randomint(spawnpoints.size)], undefined);
 			ai forceteleport(ai.origin, (0, randomint(360), 0));
 			ai.doa.var_4d252af6 = 1;
 			wait(randomfloatrange(0.1, 2));
@@ -2311,7 +2311,7 @@ function function_55e9043d()
 		count = doa_utility::function_b99d78c7();
 		if(count < getdvarint("scr_trucksoccer_enemy_count", 50))
 		{
-			ai = namespace_51bd792::function_45849d81(var_48be25f5, spawnpoints[randomint(spawnpoints.size)], undefined);
+			ai = bo3_enemy::function_45849d81(var_48be25f5, spawnpoints[randomint(spawnpoints.size)], undefined);
 			if(isdefined(ai))
 			{
 				ai forceteleport(ai.origin, (0, randomint(360), 0));

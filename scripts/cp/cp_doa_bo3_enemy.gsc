@@ -28,11 +28,11 @@
 #using scripts\shared\flagsys_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_51bd792;
+#namespace bo3_enemy;
 
 /*
 	Name: init
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xA727E1B2
 	Offset: 0xCE0
 	Size: 0x8C
@@ -48,7 +48,7 @@ function init()
 
 /*
 	Name: function_65762352
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xD6022E23
 	Offset: 0xD78
 	Size: 0x7B4
@@ -214,7 +214,7 @@ function function_65762352(classname, var_3a9f2119)
 
 /*
 	Name: function_36aa8b6c
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x450DFE93
 	Offset: 0x1538
 	Size: 0x218
@@ -253,7 +253,7 @@ function function_36aa8b6c(loc)
 
 /*
 	Name: function_a0d7d949
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x11676B75
 	Offset: 0x1758
 	Size: 0x200
@@ -288,7 +288,7 @@ function function_a0d7d949(spawner, loc, def)
 
 /*
 	Name: function_bb3b0416
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xD9F3C085
 	Offset: 0x1960
 	Size: 0x288
@@ -327,7 +327,7 @@ function function_bb3b0416(spawner, loc, def)
 
 /*
 	Name: function_92159541
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x52ADF71
 	Offset: 0x1BF0
 	Size: 0x318
@@ -372,7 +372,7 @@ function function_92159541(spawner, loc, def)
 
 /*
 	Name: function_8b898788
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x6735A9CC
 	Offset: 0x1F10
 	Size: 0x2A8
@@ -432,7 +432,7 @@ function function_8b898788()
 
 /*
 	Name: function_b18c6347
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x685A7769
 	Offset: 0x21C0
 	Size: 0x90
@@ -455,7 +455,7 @@ function function_b18c6347()
 
 /*
 	Name: function_d4107a2a
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xC58096F4
 	Offset: 0x2258
 	Size: 0x1F4
@@ -492,7 +492,7 @@ function function_d4107a2a()
 
 /*
 	Name: function_7517e6b7
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x29B941F8
 	Offset: 0x2458
 	Size: 0x30C
@@ -551,7 +551,7 @@ function function_7517e6b7(origin)
 
 /*
 	Name: function_471897
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xCD0676C4
 	Offset: 0x2770
 	Size: 0x34
@@ -569,7 +569,7 @@ function function_471897()
 
 /*
 	Name: function_b3a0f63
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x98E565D1
 	Offset: 0x27B0
 	Size: 0x80
@@ -590,7 +590,7 @@ function function_b3a0f63()
 
 /*
 	Name: function_5e86b6fa
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xECD9EEDA
 	Offset: 0x2838
 	Size: 0x1C8
@@ -624,7 +624,7 @@ function function_5e86b6fa(spawner, loc, def)
 
 /*
 	Name: droptoground
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xE7FEEE9A
 	Offset: 0x2A08
 	Size: 0x594
@@ -712,7 +712,7 @@ function droptoground(origin, trailfx, var_b8f99479 = "turret_impact", var_96214
 
 /*
 	Name: function_9a5d69ac
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x3C24FBB8
 	Offset: 0x2FA8
 	Size: 0x94
@@ -733,7 +733,7 @@ function private function_9a5d69ac()
 
 /*
 	Name: function_a1f1cd46
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xBFF6A035
 	Offset: 0x3048
 	Size: 0x74
@@ -752,7 +752,7 @@ function function_a1f1cd46()
 
 /*
 	Name: function_d45df351
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xEA51BFCD
 	Offset: 0x30C8
 	Size: 0x8
@@ -766,7 +766,7 @@ function function_d45df351()
 
 /*
 	Name: function_4d2a4a76
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x8E0DB57E
 	Offset: 0x30D8
 	Size: 0x268
@@ -804,7 +804,7 @@ function function_4d2a4a76(spawner, loc, def)
 
 /*
 	Name: function_d4213fbb
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xA6655E47
 	Offset: 0x3348
 	Size: 0x8
@@ -818,7 +818,7 @@ function function_d4213fbb()
 
 /*
 	Name: function_fb051310
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x2A730891
 	Offset: 0x3358
 	Size: 0x2F8
@@ -868,7 +868,7 @@ function function_fb051310(spawner, loc, def, droptoground = 1, hp, force = 0)
 
 /*
 	Name: function_5f1a1e65
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xEAA22DB
 	Offset: 0x3658
 	Size: 0x58
@@ -890,7 +890,7 @@ function function_5f1a1e65(zlevel)
 
 /*
 	Name: function_7ebf419e
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xF084D199
 	Offset: 0x36B8
 	Size: 0x374
@@ -932,7 +932,7 @@ function function_7ebf419e()
 
 /*
 	Name: function_307cc86e
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x3D065A00
 	Offset: 0x3A38
 	Size: 0x54
@@ -948,7 +948,7 @@ function function_307cc86e()
 
 /*
 	Name: function_1631202b
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x389E16
 	Offset: 0x3A98
 	Size: 0x3C8
@@ -1004,7 +1004,7 @@ function function_1631202b(spawner, loc, def)
 
 /*
 	Name: function_ee2c4b95
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x53D36D3F
 	Offset: 0x3E68
 	Size: 0x1B0
@@ -1033,7 +1033,7 @@ function function_ee2c4b95(spawner = level.doa.spiderspawner, loc, def)
 
 /*
 	Name: function_e59bd7c5
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xC68DA95D
 	Offset: 0x4020
 	Size: 0xC2
@@ -1054,7 +1054,7 @@ function function_e59bd7c5(carrier)
 
 /*
 	Name: function_3dc77ad7
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x3F9D4A00
 	Offset: 0x40F0
 	Size: 0x5E
@@ -1073,7 +1073,7 @@ function function_3dc77ad7()
 
 /*
 	Name: function_e4004164
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x5D8ECD76
 	Offset: 0x4158
 	Size: 0x1C
@@ -1087,7 +1087,7 @@ function function_e4004164()
 
 /*
 	Name: function_deb6cf13
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x1E5AA1E8
 	Offset: 0x4180
 	Size: 0x88
@@ -1110,7 +1110,7 @@ function function_deb6cf13()
 
 /*
 	Name: function_70320f4a
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x99A75888
 	Offset: 0x4210
 	Size: 0x94
@@ -1129,7 +1129,7 @@ function function_70320f4a(time = 5)
 
 /*
 	Name: function_197752f7
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xA103AAC6
 	Offset: 0x42B0
 	Size: 0x134
@@ -1153,7 +1153,7 @@ function function_197752f7(lifetime = 15)
 
 /*
 	Name: function_e0df2a3e
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x426DD6F7
 	Offset: 0x43F0
 	Size: 0x44
@@ -1168,7 +1168,7 @@ function function_e0df2a3e()
 
 /*
 	Name: function_8fe0340c
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xADF7CACB
 	Offset: 0x4440
 	Size: 0x80
@@ -1192,7 +1192,7 @@ function function_8fe0340c()
 
 /*
 	Name: function_517ce292
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xA0D1AF29
 	Offset: 0x44C8
 	Size: 0x54
@@ -1211,7 +1211,7 @@ function function_517ce292()
 
 /*
 	Name: function_7512c5ee
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xE764F91A
 	Offset: 0x4528
 	Size: 0x258
@@ -1252,7 +1252,7 @@ function function_7512c5ee(spawner, loc, def, forced = 0)
 
 /*
 	Name: function_129ef3d
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xD7280B3
 	Offset: 0x4788
 	Size: 0x1E
@@ -1270,7 +1270,7 @@ function function_129ef3d()
 
 /*
 	Name: function_4c047459
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x495AB5BA
 	Offset: 0x47B0
 	Size: 0x1F4
@@ -1305,7 +1305,7 @@ function function_4c047459()
 
 /*
 	Name: function_ecbf1358
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xFBF90D0E
 	Offset: 0x49B0
 	Size: 0x1BE
@@ -1340,7 +1340,7 @@ function function_ecbf1358(origin, angles, carried = 0)
 
 /*
 	Name: function_33525e11
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xA9B05891
 	Offset: 0x4B78
 	Size: 0x3B8
@@ -1395,7 +1395,7 @@ function function_33525e11(spawner, loc, def)
 
 /*
 	Name: function_ce9bce16
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xF77E3281
 	Offset: 0x4F38
 	Size: 0x210
@@ -1431,7 +1431,7 @@ function function_ce9bce16(spawner, loc, def)
 
 /*
 	Name: function_b9980eda
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x5864B6EC
 	Offset: 0x5150
 	Size: 0x2C0
@@ -1478,7 +1478,7 @@ function function_b9980eda(spawner, loc, def, teleport = 1)
 
 /*
 	Name: function_ef4fa49d
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xE80376F1
 	Offset: 0x5418
 	Size: 0x100
@@ -1501,7 +1501,7 @@ function function_ef4fa49d(&spots, mindist = 300)
 
 /*
 	Name: shadowteleportmenow
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x9AF476A2
 	Offset: 0x5520
 	Size: 0x482
@@ -1578,7 +1578,7 @@ function shadowteleportmenow(initial = 0)
 
 /*
 	Name: function_c1b5c042
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x412482D2
 	Offset: 0x59B0
 	Size: 0x148
@@ -1608,7 +1608,7 @@ function function_c1b5c042(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: function_575e3933
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x647C8E47
 	Offset: 0x5B00
 	Size: 0x44
@@ -1623,7 +1623,7 @@ function function_575e3933(spawner, loc)
 
 /*
 	Name: function_862e15fa
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xA2AF06D0
 	Offset: 0x5B50
 	Size: 0x68
@@ -1642,7 +1642,7 @@ function function_862e15fa(spawner, loc)
 
 /*
 	Name: function_17de14f1
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x47B5CD81
 	Offset: 0x5BC0
 	Size: 0x280
@@ -1686,7 +1686,7 @@ function function_17de14f1(spawner, loc, def)
 
 /*
 	Name: function_45849d81
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x1C56757D
 	Offset: 0x5E48
 	Size: 0x358
@@ -1746,7 +1746,7 @@ function function_45849d81(spawner, loc, def)
 
 /*
 	Name: function_28cdab69
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xBC4259CB
 	Offset: 0x61A8
 	Size: 0x15E
@@ -1774,7 +1774,7 @@ function private function_28cdab69(def)
 
 /*
 	Name: function_1ee8b18c
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xD3BCA543
 	Offset: 0x6310
 	Size: 0x3C
@@ -1790,7 +1790,7 @@ function private function_1ee8b18c(def, ai)
 
 /*
 	Name: function_be745286
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xA70A5C0D
 	Offset: 0x6358
 	Size: 0xA4
@@ -1814,7 +1814,7 @@ function private function_be745286(def, ai)
 
 /*
 	Name: function_b6d31d3a
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xC692FA53
 	Offset: 0x6408
 	Size: 0x292
@@ -1858,7 +1858,7 @@ function private function_b6d31d3a(spot, hold = 0, fx = "zombie_riser_fx", var_3
 
 /*
 	Name: function_2f0633b5
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xE4A672C1
 	Offset: 0x66A8
 	Size: 0x34
@@ -1877,7 +1877,7 @@ function private function_2f0633b5()
 
 /*
 	Name: function_7c9f5521
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x36C88A16
 	Offset: 0x66E8
 	Size: 0xA4
@@ -1900,7 +1900,7 @@ function private function_7c9f5521(zombie, spot)
 
 /*
 	Name: function_43f48136
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x5B32DA12
 	Offset: 0x6798
 	Size: 0x82
@@ -1930,7 +1930,7 @@ function function_43f48136(var_bbd280b0)
 
 /*
 	Name: function_57aea19e
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xE13C372A
 	Offset: 0x6828
 	Size: 0x1BE
@@ -1962,7 +1962,7 @@ function function_57aea19e()
 
 /*
 	Name: function_c9e4e727
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x77A9E81F
 	Offset: 0x69F0
 	Size: 0xB8
@@ -1988,7 +1988,7 @@ function function_c9e4e727(var_bbd280b0, asmstatename)
 
 /*
 	Name: function_c238a312
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xF9C5E58E
 	Offset: 0x6AB0
 	Size: 0x4C
@@ -2010,7 +2010,7 @@ function function_c238a312(var_bbd280b0, asmstatename)
 
 /*
 	Name: function_97fb783
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x35A181CA
 	Offset: 0x6B08
 	Size: 0xCC
@@ -2030,7 +2030,7 @@ function function_97fb783(fusetime)
 
 /*
 	Name: function_2fd0d5c7
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x12221CCB
 	Offset: 0x6BE0
 	Size: 0x3A6
@@ -2097,7 +2097,7 @@ function function_2fd0d5c7(behaviortreeentity)
 
 /*
 	Name: function_53b44cb7
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xEEE8C80A
 	Offset: 0x6F90
 	Size: 0x240
@@ -2141,7 +2141,7 @@ function function_53b44cb7(spawner, loc, def, forced = 0)
 
 /*
 	Name: function_c783bef2
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xC49A0EB7
 	Offset: 0x71D8
 	Size: 0x12
@@ -2155,7 +2155,7 @@ function function_c783bef2()
 
 /*
 	Name: function_772a04fe
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xC0713486
 	Offset: 0x71F8
 	Size: 0x24C
@@ -2194,7 +2194,7 @@ function function_772a04fe()
 
 /*
 	Name: function_45f23318
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x29A05752
 	Offset: 0x7450
 	Size: 0x50
@@ -2214,7 +2214,7 @@ function private function_45f23318(ai)
 
 /*
 	Name: function_7e51c1d2
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x9204838A
 	Offset: 0x74A8
 	Size: 0x8C
@@ -2234,7 +2234,7 @@ function function_7e51c1d2()
 
 /*
 	Name: margwaspawn
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x7DB95EFC
 	Offset: 0x7540
 	Size: 0x120
@@ -2257,7 +2257,7 @@ function margwaspawn(loc, bossbattle = 0)
 
 /*
 	Name: function_4ce6d0ea
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xFBF0338F
 	Offset: 0x7668
 	Size: 0x402
@@ -2309,7 +2309,7 @@ function function_4ce6d0ea()
 
 /*
 	Name: function_e8a17069
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x39D501E4
 	Offset: 0x7A78
 	Size: 0xE8
@@ -2333,7 +2333,7 @@ function private function_e8a17069()
 
 /*
 	Name: function_62d794a5
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xC76B1FE3
 	Offset: 0x7B68
 	Size: 0x14E
@@ -2356,7 +2356,7 @@ function function_62d794a5()
 
 /*
 	Name: function_13109fad
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xF4C52146
 	Offset: 0x7CC0
 	Size: 0x40
@@ -2375,7 +2375,7 @@ function private function_13109fad()
 
 /*
 	Name: function_c0147a11
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xF419B2ED
 	Offset: 0x7D08
 	Size: 0x310
@@ -2426,7 +2426,7 @@ function private function_c0147a11()
 
 /*
 	Name: margwadamage
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x72B9B59A
 	Offset: 0x8020
 	Size: 0x440
@@ -2487,7 +2487,7 @@ function margwadamage(inflictor, attacker, damage, dflags, mod, weapon, point, d
 
 /*
 	Name: function_7ee81ba4
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xE3BCD2FA
 	Offset: 0x8468
 	Size: 0x4C
@@ -2503,7 +2503,7 @@ function private function_7ee81ba4(org)
 
 /*
 	Name: margwaupdatemovespeed
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x14CB7732
 	Offset: 0x84C0
 	Size: 0xDC
@@ -2528,7 +2528,7 @@ function private margwaupdatemovespeed()
 
 /*
 	Name: function_1c99c7cd
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0x348E59FF
 	Offset: 0x85A8
 	Size: 0x130
@@ -2556,7 +2556,7 @@ function private function_1c99c7cd()
 
 /*
 	Name: function_771e3915
-	Namespace: namespace_51bd792
+	Namespace: bo3_enemy
 	Checksum: 0xFC4F5F47
 	Offset: 0x86E0
 	Size: 0x242
