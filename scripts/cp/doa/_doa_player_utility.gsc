@@ -648,8 +648,8 @@ function shield_trigger_think(player, var_c1ff53d9, thresh)
 					if(velocity > 30 && (!(isdefined(guy.nogibs) && guy.nogibs)))
 					{
 						guy clientfield::set("zombie_rhino_explosion", 1);
-						namespace_fba031c8::trygibbinglimb(guy, 5000);
-						namespace_fba031c8::trygibbinglegs(guy, 5000, undefined, 1, player);
+						doa_gib::trygibbinglimb(guy, 5000);
+						doa_gib::trygibbinglegs(guy, 5000, undefined, 1, player);
 					}
 					/#
 						assert(!(isdefined(guy.boss) && guy.boss));
@@ -1360,7 +1360,7 @@ function private function_d392db04(var_adc420e5, origin, player, updir)
 	wait(time);
 	if(isdefined(self.archetype) && self.archetype == "robot")
 	{
-		self namespace_fba031c8::function_7b3e39cb();
+		self doa_gib::function_7b3e39cb();
 	}
 	else
 	{

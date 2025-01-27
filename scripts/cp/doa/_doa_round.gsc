@@ -594,7 +594,7 @@ function function_21a582ff(current_wave, endnote)
 				if(!isvehicle(ai) && (!(isdefined(ai.nogibs) && ai.nogibs)))
 				{
 					ai thread zombie_utility::zombie_gib_on_damage();
-					ai.tesla_head_gib_func = &namespace_fba031c8::function_deb7df37;
+					ai.tesla_head_gib_func = &doa_gib::function_deb7df37;
 				}
 				if(isdefined(level.doa.isfps) && level.doa.isfps)
 				{

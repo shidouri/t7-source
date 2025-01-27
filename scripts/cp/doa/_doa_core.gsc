@@ -546,7 +546,7 @@ function init()
 	namespace_64c6b720::init();
 	doa_fx::init();
 	namespace_1a381543::init();
-	namespace_fba031c8::init();
+	doa_gib::init();
 	doa_pickups::init();
 	namespace_3f3eaecb::init();
 	namespace_4973e019::init();

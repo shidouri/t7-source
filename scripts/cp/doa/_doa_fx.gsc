@@ -431,7 +431,7 @@ function function_f51d2b7e(victim, damage, attacker, dir, smeansofdeath, weapon)
 	dir = dir * level.doa.var_f6ac2080;
 	if(!(isdefined(victim.boss) && victim.boss))
 	{
-		victim namespace_fba031c8::function_ddf685e8(dir, attacker);
+		victim doa_gib::function_ddf685e8(dir, attacker);
 	}
 }
 

@@ -417,7 +417,7 @@ function function_f45d4afc(target)
 		return;
 	}
 	vel = vectorscale(self.origin - target.origin, 0.2);
-	target namespace_fba031c8::function_ddf685e8(vel, self);
+	target doa_gib::function_ddf685e8(vel, self);
 	if(isdefined(target))
 	{
 		target dodamage(1100, target.origin, self, self);

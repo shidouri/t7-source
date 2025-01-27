@@ -2850,7 +2850,7 @@ function function_fce74a5f(heart)
 		}
 		if(!(isdefined(mf.isdog) && mf.isdog))
 		{
-			mf namespace_fba031c8::function_45dffa6b(vectorscale((0, 0, 1), 100));
+			mf doa_gib::function_45dffa6b(vectorscale((0, 0, 1), 100));
 			gibserverutils::gibhead(mf);
 			gibserverutils::giblegs(mf);
 			if(math::cointoss())

@@ -871,7 +871,7 @@ function function_2241fc21(einflictor, eattacker, idamage, idflags, smeansofdeat
 	}
 	if(!(isdefined(self.boss) && self.boss))
 	{
-		self namespace_fba031c8::function_15a268a6(eattacker, idamage, smeansofdeath, weapon, shitloc, vdir);
+		self doa_gib::function_15a268a6(eattacker, idamage, smeansofdeath, weapon, shitloc, vdir);
 	}
 	if(smeansofdeath == "MOD_BURNED")
 	{
@@ -984,7 +984,7 @@ function function_ff217d39(einflictor, eattacker, idamage, smeansofdeath, weapon
 	}
 	if(isdefined(self.interdimensional_gun_kill) && self.interdimensional_gun_kill)
 	{
-		self namespace_fba031c8::function_7b3e39cb();
+		self doa_gib::function_7b3e39cb();
 		level thread doa_pickups::spawnubertreasure(self.origin, 1, 1, 1, 1);
 	}
 	if(isdefined(eattacker))
@@ -1005,7 +1005,7 @@ function function_ff217d39(einflictor, eattacker, idamage, smeansofdeath, weapon
 		/#
 			assert(!(isdefined(self.boss) && self.boss));
 		#/
-		self namespace_fba031c8::function_ddf685e8(undefined, eattacker);
+		self doa_gib::function_ddf685e8(undefined, eattacker);
 		if(isdefined(eattacker))
 		{
 			eattacker notify(#"hash_108fd845");

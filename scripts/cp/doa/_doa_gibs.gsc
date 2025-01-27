@@ -21,11 +21,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_fba031c8;
+#namespace doa_gib;
 
 /*
 	Name: init
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0x4DE06458
 	Offset: 0x5C0
 	Size: 0x194
@@ -41,7 +41,7 @@ function init()
 
 /*
 	Name: function_ddf685e8
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0xC3C31D9F
 	Offset: 0x760
 	Size: 0xE4
@@ -73,7 +73,7 @@ function function_ddf685e8(launchvector, attacker)
 
 /*
 	Name: function_7b3e39cb
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0x1D5A08CE
 	Offset: 0x850
 	Size: 0x1C
@@ -87,7 +87,7 @@ function function_7b3e39cb()
 
 /*
 	Name: function_45dffa6b
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0xD2AFBA04
 	Offset: 0x878
 	Size: 0xBC
@@ -117,7 +117,7 @@ function function_45dffa6b(launchvector)
 
 /*
 	Name: function_deb7df37
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0x410CC0A3
 	Offset: 0x940
 	Size: 0x9C
@@ -144,7 +144,7 @@ function function_deb7df37()
 
 /*
 	Name: trygibbinghead
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0x92E5D157
 	Offset: 0x9E8
 	Size: 0x154
@@ -176,7 +176,7 @@ function trygibbinghead(entity, damage, hitloc, isexplosive)
 
 /*
 	Name: trygibbinglimb
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0x34213BA4
 	Offset: 0xB48
 	Size: 0x334
@@ -234,7 +234,7 @@ function trygibbinglimb(entity, damage, hitloc = level.doa.hitlocs[randomint(lev
 
 /*
 	Name: trygibbinglegs
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0xCBDAA51C
 	Offset: 0xE88
 	Size: 0x49C
@@ -302,7 +302,7 @@ function trygibbinglegs(entity, damage, hitloc = level.doa.hitlocs[randomint(lev
 
 /*
 	Name: function_15a268a6
-	Namespace: namespace_fba031c8
+	Namespace: doa_gib
 	Checksum: 0x21FC330
 	Offset: 0x1330
 	Size: 0x204

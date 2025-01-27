@@ -301,7 +301,7 @@ function tesla_do_damage(source_enemy, arc_num, player)
 	}
 	if(self.archetype == "robot")
 	{
-		self namespace_fba031c8::function_7b3e39cb();
+		self doa_gib::function_7b3e39cb();
 	}
 	if(isdefined(self.tesla_damage_func))
 	{

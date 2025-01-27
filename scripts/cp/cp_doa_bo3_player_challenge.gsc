@@ -2648,8 +2648,8 @@ function cow_damage_trigger(cow)
 			if(!isvehicle(guy))
 			{
 				guy clientfield::set("zombie_rhino_explosion", 1);
-				namespace_fba031c8::trygibbinglimb(guy, 5000);
-				namespace_fba031c8::trygibbinglegs(guy, 5000, undefined, 1);
+				doa_gib::trygibbinglimb(guy, 5000);
+				doa_gib::trygibbinglegs(guy, 5000, undefined, 1);
 				guy setplayercollision(0);
 				guy startragdoll();
 				guy launchragdoll(vectorscale((0, 0, 1), 220));
