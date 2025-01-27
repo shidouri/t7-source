@@ -1046,16 +1046,16 @@ function function_dc8f9fa6()
 		}
 		if(self.archetype === "robot")
 		{
-			var_fee79dd1 = "forced_level_1";
+			str_level = "forced_level_1";
 			if(self.script_noteworthy === "forced_level_2" || self.script_noteworthy === "forced_level_3")
 			{
-				var_fee79dd1 = self.script_noteworthy;
+				str_level = self.script_noteworthy;
 				if(self.script_noteworthy === "forced_level_3")
 				{
 					self ai::set_behavior_attribute("rogue_control_speed", "run");
 				}
 			}
-			self ai::set_behavior_attribute("rogue_control", var_fee79dd1);
+			self ai::set_behavior_attribute("rogue_control", str_level);
 			self.team = "axis";
 			self util::set_rogue_controlled();
 			if(self.script_noteworthy === "has_mini_raps" || self.script_string === "has_mini_raps")
