@@ -1082,8 +1082,8 @@ function function_4bd6211(var_ba1e1975)
 	var_2ab10bee[5] = "fciv_crying_hysterically_5";
 	while(true)
 	{
-		var_616d3e3e = array::random(var_2ab10bee);
-		var_ba1e1975 vengeance_util::function_5fbec645(var_616d3e3e);
+		random_vo = array::random(var_2ab10bee);
+		var_ba1e1975 vengeance_util::function_5fbec645(random_vo);
 		wait(randomfloatrange(0.5, 2));
 	}
 }

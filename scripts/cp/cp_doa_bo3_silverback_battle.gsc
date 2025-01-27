@@ -93,7 +93,7 @@ function function_d8e6314c()
 	}
 	level thread doa_pickups::function_c1869ec8();
 	level thread doa_utility::clearallcorpses();
-	level thread namespace_d88e3a06::function_116bb43();
+	level thread doa_hazard::function_116bb43();
 	level flag::clear("doa_game_silverback_round");
 	level flag::clear("doa_round_abort");
 }
@@ -149,7 +149,7 @@ function function_fc48f9f3()
 			level.doa.round_number = 64;
 			level.doa.zombie_move_speed = level.doa.zombie_move_speed + (level.doa.round_number * level.doa.var_c9e1c854);
 			level.doa.zombie_health = level.doa.zombie_health + (level.doa.round_number * level.doa.zombie_health_inc);
-			namespace_d88e3a06::function_7a8a936b();
+			doa_hazard::function_7a8a936b();
 			doa_round::function_691ef36b();
 			doa_round::function_703bb8b2(level.doa.round_number);
 		}

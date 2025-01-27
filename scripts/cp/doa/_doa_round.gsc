@@ -293,7 +293,7 @@ function main()
 		level clientfield::set("roundnumber", level.doa.round_number & (1024 - 1));
 		function_d9345c74();
 		function_55762a85();
-		namespace_d88e3a06::function_7a8a936b();
+		doa_hazard::function_7a8a936b();
 		if(isdefined(var_d2d5db8a) && var_d2d5db8a)
 		{
 			level thread doa_arena::function_e88371e5();

@@ -187,7 +187,7 @@ function function_15a0c9b5(room)
 	level flag::clear("doa_challenge_running");
 	level notify(#"hash_e2918623");
 	level thread doa_utility::clearallcorpses();
-	level thread namespace_d88e3a06::function_116bb43();
+	level thread doa_hazard::function_116bb43();
 	level thread doa_pickups::function_c1869ec8();
 	level waittill(#"hash_229914a6");
 	level notify(#"hash_4d952f70");

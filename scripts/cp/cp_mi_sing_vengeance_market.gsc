@@ -743,20 +743,20 @@ function function_43458bf2()
 	last_vo = undefined;
 	while(true)
 	{
-		var_616d3e3e = array::random(var_c823b7c6);
-		if(isdefined(last_vo) && last_vo == var_616d3e3e)
+		random_vo = array::random(var_c823b7c6);
+		if(isdefined(last_vo) && last_vo == random_vo)
 		{
-			while(last_vo == var_616d3e3e)
+			while(last_vo == random_vo)
 			{
-				var_616d3e3e = array::random(var_c823b7c6);
+				random_vo = array::random(var_c823b7c6);
 				wait(0.05);
 			}
 		}
-		if(!isdefined(last_vo) || last_vo != var_616d3e3e)
+		if(!isdefined(last_vo) || last_vo != random_vo)
 		{
-			last_vo = var_616d3e3e;
+			last_vo = random_vo;
 		}
-		level.ai_hendricks vengeance_garage::function_73a79ca0(var_616d3e3e);
+		level.ai_hendricks vengeance_garage::function_73a79ca0(random_vo);
 		wait(randomfloatrange(10, 15));
 	}
 }
@@ -895,9 +895,9 @@ function function_23dea593()
 	while(true)
 	{
 		wait(45);
-		var_616d3e3e = array::random(var_361ba23a);
-		vengeance_garage::function_73a79ca0(var_616d3e3e);
-		var_361ba23a = array::exclude(var_361ba23a, var_616d3e3e);
+		random_vo = array::random(var_361ba23a);
+		vengeance_garage::function_73a79ca0(random_vo);
+		var_361ba23a = array::exclude(var_361ba23a, random_vo);
 		if(var_361ba23a.size < 1)
 		{
 			break;
@@ -1832,9 +1832,9 @@ function function_9af0090()
 	while(true)
 	{
 		wait(randomintrange(10, 15));
-		var_616d3e3e = array::random(nag_vo);
-		level.ai_hendricks vengeance_util::function_5fbec645(var_616d3e3e, 0, 0, self);
-		nag_vo = array::exclude(nag_vo, var_616d3e3e);
+		random_vo = array::random(nag_vo);
+		level.ai_hendricks vengeance_util::function_5fbec645(random_vo, 0, 0, self);
+		nag_vo = array::exclude(nag_vo, random_vo);
 		if(nag_vo.size < 1)
 		{
 			break;

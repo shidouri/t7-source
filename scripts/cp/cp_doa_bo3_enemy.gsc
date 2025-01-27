@@ -518,7 +518,7 @@ function function_7517e6b7(origin)
 	{
 		return;
 	}
-	origin = namespace_d88e3a06::function_3341776e(origin);
+	origin = doa_hazard::function_3341776e(origin);
 	if(!isdefined(origin))
 	{
 		return;
@@ -545,7 +545,7 @@ function function_7517e6b7(origin)
 	wait(2);
 	if(isdefined(hazard))
 	{
-		hazard thread namespace_d88e3a06::function_5d31907f();
+		hazard thread doa_hazard::function_5d31907f();
 	}
 }
 
@@ -2150,7 +2150,7 @@ function function_53b44cb7(spawner, loc, def, forced = 0)
 */
 function function_c783bef2()
 {
-	return namespace_d88e3a06::function_cda60edb();
+	return doa_hazard::function_cda60edb();
 }
 
 /*
@@ -2180,7 +2180,7 @@ function function_772a04fe()
 	trashcan linkto(self, "tag_origin", vectorscale((0, 0, 1), 54));
 	trashcan thread function_45f23318(self);
 	self doa_enemy::function_d30fe558(self.var_8f12ed02, 1);
-	trashcan thread namespace_d88e3a06::function_d8d20160();
+	trashcan thread doa_hazard::function_d8d20160();
 	self waittill("goal");
 	self.var_8f12ed02 = undefined;
 	if(isdefined(trashcan))

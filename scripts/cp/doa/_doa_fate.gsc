@@ -185,7 +185,7 @@ function function_77ed1bae()
 	var_526b2f85.origin = var_526b2f85.origin + (vectorscale((0, 0, -1), 1000));
 	level thread doa_pickups::function_c1869ec8();
 	level thread doa_utility::clearallcorpses();
-	level thread namespace_d88e3a06::function_116bb43();
+	level thread doa_hazard::function_116bb43();
 	level notify(#"hash_a50a72db");
 	locs = struct::get_array("fate_player_spawn", "targetname");
 	if(isdefined(locs) && locs.size == 4)
@@ -913,7 +913,7 @@ function function_833dad0d()
 	level.doa.rules.max_enemy_count = 20;
 	level thread doa_pickups::function_c1869ec8();
 	level thread doa_utility::clearallcorpses();
-	level thread namespace_d88e3a06::function_116bb43();
+	level thread doa_hazard::function_116bb43();
 	level notify(#"hash_a50a72db");
 	level thread doa_utility::set_lighting_state(3);
 	doa_round::function_691ef36b();

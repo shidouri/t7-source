@@ -1665,7 +1665,7 @@ function function_4586479a(var_57e102cb = 1)
 	level clientfield::set("numexits", 0);
 	level doa_utility::set_lighting_state(0);
 	level clientfield::set("arenaRound", 5);
-	namespace_d88e3a06::function_116bb43();
+	doa_hazard::function_116bb43();
 	level.doa.teleporter.trigger delete();
 	level.doa.teleporter delete();
 	level.doa.teleporter = undefined;

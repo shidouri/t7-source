@@ -553,7 +553,7 @@ function init()
 	doa_enemy::init();
 	doa_arena::init();
 	doa_turret::init();
-	namespace_d88e3a06::init();
+	doa_hazard::init();
 	doa_vehicle::init();
 	doa_fate::init();
 	doa_audio::init();
@@ -876,7 +876,7 @@ function function_3e351f83(firsttime)
 	doa_arena::function_5af67667(level.doa.current_arena);
 	doa_player_utility::function_4db260cb();
 	doa_round::function_55762a85();
-	namespace_d88e3a06::function_7a8a936b();
+	doa_hazard::function_7a8a936b();
 	doa_arena::function_1c812a03();
 	level clientfield::set("activateBanner", 0);
 	level clientfield::increment("restart_doa");
@@ -964,7 +964,7 @@ function function_64a5cd5e()
 	wait(1);
 	doa_pickups::function_c1869ec8();
 	doa_utility::clearallcorpses();
-	namespace_d88e3a06::function_116bb43();
+	doa_hazard::function_116bb43();
 	doa_utility::function_1ced251e(1);
 	foreach(player in getplayers())
 	{
@@ -1000,7 +1000,7 @@ function function_64a5cd5e()
 	level notify(#"hash_97276c43");
 	doa_pickups::function_c1869ec8();
 	doa_utility::clearallcorpses();
-	namespace_d88e3a06::function_116bb43();
+	doa_hazard::function_116bb43();
 	wait(1);
 	level notify("doa_game_is_over");
 	level notify(#"hash_24d3a44");
