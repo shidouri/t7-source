@@ -33,11 +33,11 @@
 
 #using_animtree("generic");
 
-#namespace namespace_a3646565;
+#namespace bo3_silverback_battle;
 
 /*
 	Name: init
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x12AF5DB3
 	Offset: 0xD58
 	Size: 0x18C
@@ -63,7 +63,7 @@ function init()
 
 /*
 	Name: function_d8e6314c
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x39D2DA32
 	Offset: 0xEF0
 	Size: 0x1CC
@@ -100,7 +100,7 @@ function function_d8e6314c()
 
 /*
 	Name: function_f35c54a
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x128BA027
 	Offset: 0x10C8
 	Size: 0x2C
@@ -116,7 +116,7 @@ function function_f35c54a()
 
 /*
 	Name: function_8b1dfb44
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x1A1A350A
 	Offset: 0x1100
 	Size: 0x1C
@@ -130,7 +130,7 @@ function function_8b1dfb44()
 
 /*
 	Name: function_fc48f9f3
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xC706525A
 	Offset: 0x1128
 	Size: 0xFF4
@@ -297,7 +297,7 @@ function function_fc48f9f3()
 
 /*
 	Name: function_14ba3248
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x97D0FBB3
 	Offset: 0x2128
 	Size: 0xAA
@@ -316,7 +316,7 @@ function private function_14ba3248()
 
 /*
 	Name: function_72e0a286
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x90E5A4B7
 	Offset: 0x21E0
 	Size: 0x10A
@@ -347,7 +347,7 @@ function private function_72e0a286()
 
 /*
 	Name: function_b4195d47
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x46ECC72A
 	Offset: 0x22F8
 	Size: 0x3C
@@ -362,7 +362,7 @@ function private function_b4195d47()
 
 /*
 	Name: function_28eb6914
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x235F7C5D
 	Offset: 0x2340
 	Size: 0x27E
@@ -411,7 +411,7 @@ function function_28eb6914(ent)
 
 /*
 	Name: function_eb6ee9e0
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xC1DCC01B
 	Offset: 0x25C8
 	Size: 0x4C
@@ -428,7 +428,7 @@ function private function_eb6ee9e0()
 
 /*
 	Name: function_b90daa04
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x71426739
 	Offset: 0x2620
 	Size: 0x67C
@@ -506,7 +506,7 @@ function private function_b90daa04(delay)
 
 /*
 	Name: function_b8a39218
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x127122D9
 	Offset: 0x2CA8
 	Size: 0x182
@@ -537,7 +537,7 @@ function function_b8a39218()
 
 /*
 	Name: function_ae39e30a
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x1CA00C33
 	Offset: 0x2E38
 	Size: 0x1B8
@@ -570,7 +570,7 @@ function function_ae39e30a(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: function_a733cd6a
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x66AA62ED
 	Offset: 0x2FF8
 	Size: 0x150
@@ -603,7 +603,7 @@ function private function_a733cd6a(mech)
 
 /*
 	Name: function_fb3b78fe
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x4DC976C4
 	Offset: 0x3150
 	Size: 0x15E
@@ -639,7 +639,7 @@ function function_fb3b78fe()
 
 /*
 	Name: function_c64a860f
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xA1DD2230
 	Offset: 0x32B8
 	Size: 0x25A
@@ -672,7 +672,7 @@ function private function_c64a860f(driver)
 
 /*
 	Name: function_19b9f1d6
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x4DFA7756
 	Offset: 0x3520
 	Size: 0xC8
@@ -692,7 +692,7 @@ function private function_19b9f1d6()
 
 /*
 	Name: function_162d9658
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x44354F9B
 	Offset: 0x35F0
 	Size: 0xC
@@ -705,7 +705,7 @@ function function_162d9658(params)
 
 /*
 	Name: function_695a39c6
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x24E63246
 	Offset: 0x3608
 	Size: 0xC
@@ -718,7 +718,7 @@ function function_695a39c6(params)
 
 /*
 	Name: function_6441ddee
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x4CDAD002
 	Offset: 0x3620
 	Size: 0xAE
@@ -749,7 +749,7 @@ function function_6441ddee(ent)
 
 /*
 	Name: function_3cc9ed44
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x240B8186
 	Offset: 0x36D8
 	Size: 0xC2
@@ -789,7 +789,7 @@ function function_3cc9ed44()
 
 /*
 	Name: function_ec5c4c1c
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xE794EA16
 	Offset: 0x37A8
 	Size: 0x184
@@ -816,7 +816,7 @@ function function_ec5c4c1c(params)
 
 /*
 	Name: function_2fd43405
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xF3DA0009
 	Offset: 0x3938
 	Size: 0x184
@@ -855,7 +855,7 @@ function function_2fd43405()
 
 /*
 	Name: function_47e8d1a6
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x3941A14C
 	Offset: 0x3AC8
 	Size: 0xC0
@@ -888,7 +888,7 @@ function function_47e8d1a6()
 
 /*
 	Name: function_c8f8a134
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xFBFC4FEC
 	Offset: 0x3B90
 	Size: 0x78
@@ -913,7 +913,7 @@ function function_c8f8a134()
 
 /*
 	Name: function_f98533fb
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x217AF03B
 	Offset: 0x3C10
 	Size: 0xCC
@@ -944,7 +944,7 @@ function private function_f98533fb(rate)
 
 /*
 	Name: function_f5afb415
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x90793026
 	Offset: 0x3CE8
 	Size: 0x51C
@@ -1001,7 +1001,7 @@ function function_f5afb415(var_b84274b8, numattacks = 1)
 
 /*
 	Name: function_615e73a
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xAD883CE2
 	Offset: 0x4210
 	Size: 0x4D0
@@ -1085,7 +1085,7 @@ function function_615e73a(var_b84274b8, numattacks = 1)
 
 /*
 	Name: function_b3eb3a0b
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x87DC4701
 	Offset: 0x46E8
 	Size: 0x67C
@@ -1199,7 +1199,7 @@ function function_b3eb3a0b(params)
 
 /*
 	Name: function_e1938709
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x6B2938E9
 	Offset: 0x4D70
 	Size: 0x34
@@ -1213,7 +1213,7 @@ function function_e1938709()
 
 /*
 	Name: function_b830b6d7
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x9097F3F6
 	Offset: 0x4DB0
 	Size: 0x3E4
@@ -1251,7 +1251,7 @@ function function_b830b6d7(linktag, silverback)
 
 /*
 	Name: function_c2d22e21
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x903B4369
 	Offset: 0x51A0
 	Size: 0x9C
@@ -1277,7 +1277,7 @@ function private function_c2d22e21()
 
 /*
 	Name: function_df12b0c9
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x5D9A0D50
 	Offset: 0x5248
 	Size: 0xD4
@@ -1305,7 +1305,7 @@ function private function_df12b0c9(target)
 
 /*
 	Name: function_5659ec29
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xF33B9DC6
 	Offset: 0x5328
 	Size: 0x174
@@ -1340,7 +1340,7 @@ function private function_5659ec29(var_c840292d)
 
 /*
 	Name: function_a3a6c6d0
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x6D8D713D
 	Offset: 0x54A8
 	Size: 0xFC
@@ -1371,7 +1371,7 @@ function private function_a3a6c6d0()
 
 /*
 	Name: function_f61639be
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xB2A89C67
 	Offset: 0x55B0
 	Size: 0x1DC
@@ -1410,7 +1410,7 @@ function function_f61639be(dist = 72)
 
 /*
 	Name: function_a753035a
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x47E2C975
 	Offset: 0x5798
 	Size: 0x1C4
@@ -1442,7 +1442,7 @@ function function_a753035a(egg)
 
 /*
 	Name: function_1d9d0ed2
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0xF7996316
 	Offset: 0x5968
 	Size: 0xA6
@@ -1464,7 +1464,7 @@ function function_1d9d0ed2(chicken)
 
 /*
 	Name: move_to_position_over_time
-	Namespace: namespace_a3646565
+	Namespace: bo3_silverback_battle
 	Checksum: 0x310DE92
 	Offset: 0x5A18
 	Size: 0x2C8

@@ -300,7 +300,7 @@ function function_5e04bf78()
 	org.angles = silverback.angles;
 	org.origin = silverback.origin;
 	silverback linkto(org);
-	org namespace_a3646565::move_to_position_over_time(point2.origin, timems, height);
+	org bo3_silverback_battle::move_to_position_over_time(point2.origin, timems, height);
 	silverback thread doa_fx::function_285a2999("turret_impact");
 	silverback playsound("zmb_simianaut_roar");
 	level.doa.var_63e2b87e = silverback;

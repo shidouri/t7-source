@@ -116,7 +116,7 @@ function init()
 	level.doa.var_5ddb204f = &function_aab05139;
 	level.doa.var_771e3915 = &bo3_enemy::function_771e3915;
 	bo3_enemy::init();
-	namespace_a3646565::init();
+	bo3_silverback_battle::init();
 	function_d1c7245c();
 	level.doa.enemyspawners = [];
 	/#
@@ -575,7 +575,7 @@ function function_1de9db1b(name)
 		}
 		case "silverback":
 		{
-			namespace_a3646565::function_fc48f9f3();
+			bo3_silverback_battle::function_fc48f9f3();
 			level notify(#"hash_593b80cb");
 			foreach(player in getplayers())
 			{
