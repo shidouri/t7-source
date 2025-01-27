@@ -100,7 +100,7 @@ function function_9940e82f(str_objective, b_starting)
 	level.var_ebb30c1a = [];
 	level thread zurich_street::function_48166ad7();
 	level thread zurich_util::function_2361541e("street");
-	level thread function_e3750802();
+	level thread init_cameras();
 	level clientfield::set("intro_ambience", 1);
 	exploder::exploder("streets_tower_wasp_swarm");
 	level clientfield::set("zurich_city_ambience", 1);
@@ -245,7 +245,7 @@ function function_8fb45492(str_objective, b_starting)
 		level flag::set("intro_squad_ready_move");
 		level zurich_util::init_kane(str_objective, 1);
 		level.var_ebb30c1a = [];
-		level thread function_e3750802();
+		level thread init_cameras();
 		level clientfield::set("intro_ambience", 1);
 		exploder::exploder("streets_tower_wasp_swarm");
 		level clientfield::set("zurich_city_ambience", 1);
@@ -383,7 +383,7 @@ function function_51e389ee()
 }
 
 /*
-	Name: function_e3750802
+	Name: init_cameras
 	Namespace: zurich_city
 	Checksum: 0x68E73808
 	Offset: 0x1EE0
@@ -391,7 +391,7 @@ function function_51e389ee()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e3750802()
+function init_cameras()
 {
 	var_295a1e1f = zurich_util::function_f9afa212("zurich_intro_camera");
 }
