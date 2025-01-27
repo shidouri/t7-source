@@ -11,11 +11,11 @@
 #using scripts\shared\music_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_b5c133c;
+#namespace doa_audio;
 
 /*
 	Name: init
-	Namespace: namespace_b5c133c
+	Namespace: doa_audio
 	Checksum: 0xB9935F75
 	Offset: 0x440
 	Size: 0x2C
@@ -30,7 +30,7 @@ function init()
 
 /*
 	Name: musicsystem
-	Namespace: namespace_b5c133c
+	Namespace: doa_audio
 	Checksum: 0x7995AD16
 	Offset: 0x478
 	Size: 0xC0
@@ -58,7 +58,7 @@ function musicsystem()
 
 /*
 	Name: function_4bbc3ecf
-	Namespace: namespace_b5c133c
+	Namespace: doa_audio
 	Checksum: 0xBD577D28
 	Offset: 0x540
 	Size: 0x444
@@ -105,7 +105,7 @@ function function_4bbc3ecf()
 
 /*
 	Name: function_2f2996ee
-	Namespace: namespace_b5c133c
+	Namespace: doa_audio
 	Checksum: 0x893330BD
 	Offset: 0x990
 	Size: 0x4E
@@ -123,7 +123,7 @@ function function_2f2996ee(var_82a18d17, state)
 
 /*
 	Name: function_1a5a0c78
-	Namespace: namespace_b5c133c
+	Namespace: doa_audio
 	Checksum: 0xF71DBB06
 	Offset: 0x9E8
 	Size: 0xCC

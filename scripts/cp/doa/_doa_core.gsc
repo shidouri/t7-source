@@ -556,7 +556,7 @@ function init()
 	namespace_d88e3a06::init();
 	doa_vehicle::init();
 	doa_fate::init();
-	namespace_b5c133c::init();
+	doa_audio::init();
 	doa_player_challenge::init();
 	level thread function_57863b20();
 	namespace_2f63e553::setupdevgui();
