@@ -3,3 +3,5 @@ doa_player_utility
 doa_round
 doa_vehicle
 trucksoccer_rally_complete
+doa_hazard
+blood_riser_spawner
