@@ -1838,7 +1838,7 @@ function function_4769ea02()
 	{
 		level thread zm_stalingrad_vo::function_e4acaa37("vox_soph_cargo_orders_repeat_0", 0, 1, 0, 1);
 	}
-	level thread namespace_2e6e7fce::function_d1a91c4f(level.var_8cc024f2);
+	level thread zm_stalingrad_drop_pod::function_d1a91c4f(level.var_8cc024f2);
 	level thread function_f858a27e();
 	var_eb4d7ff3 = level util::waittill_any_return("ee_defend_complete", "ee_defend_failed");
 	level dragon::function_d21f20fe();
@@ -1901,7 +1901,7 @@ function function_b09a54a3()
 	}
 	foreach(var_3d8a9064 in level.var_583e4a97.var_4dfc9f38)
 	{
-		var_3d8a9064 namespace_2e6e7fce::function_d4c6ea10();
+		var_3d8a9064 zm_stalingrad_drop_pod::function_d4c6ea10();
 	}
 }
 

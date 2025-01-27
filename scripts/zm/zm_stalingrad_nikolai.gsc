@@ -65,7 +65,7 @@ function main()
 function function_cf4e4fc1()
 {
 	level scene::init("cin_sta_outro_3rd_sh020");
-	zm_spawner::deregister_zombie_death_event_callback(&namespace_2e6e7fce::function_1389d425);
+	zm_spawner::deregister_zombie_death_event_callback(&zm_stalingrad_drop_pod::function_1389d425);
 	level flag::clear("zombie_drop_powerups");
 	level.whelp_no_power_up_pickup = 1;
 	level function_6afa5293();
@@ -113,7 +113,7 @@ function function_a21082e5()
 	}
 	level thread zm_stalingrad_ee_main::ee_outro(n_wait);
 	level waittill(#"hash_19aa582d");
-	zm_spawner::register_zombie_death_event_callback(&namespace_2e6e7fce::function_1389d425);
+	zm_spawner::register_zombie_death_event_callback(&zm_stalingrad_drop_pod::function_1389d425);
 	level flag::set("zombie_drop_powerups");
 	level.whelp_no_power_up_pickup = undefined;
 	var_5b2e05a8 = struct::get_array("boss_complete_return_point", "targetname");

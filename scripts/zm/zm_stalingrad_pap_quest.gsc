@@ -100,7 +100,7 @@ function function_2fcaffe2()
 	level flag::init("dragon_strike_quest_complete");
 	level flag::init("lockdown_complete");
 	level flag::init("lockdown_active");
-	level thread namespace_2e6e7fce::function_2bb254bb();
+	level thread zm_stalingrad_drop_pod::function_2bb254bb();
 	level thread function_2b0bc12();
 	level notify("pack_a_punch_on");
 }
@@ -135,7 +135,7 @@ function function_809fbbff(var_db0ac3dc)
 	/#
 		println("" + var_e7a36389.script_string);
 	#/
-	level thread namespace_2e6e7fce::function_d1a91c4f(var_e7a36389);
+	level thread zm_stalingrad_drop_pod::function_d1a91c4f(var_e7a36389);
 }
 
 /*
@@ -388,7 +388,7 @@ function function_6236d848(var_e57afa84, var_7741a4b8, var_ed686791, var_2a448c9
 	}
 	level thread zm_stalingrad_util::function_e7c75cf0();
 	level flag::clear("zombie_drop_powerups");
-	zm_spawner::deregister_zombie_death_event_callback(&namespace_2e6e7fce::function_1389d425);
+	zm_spawner::deregister_zombie_death_event_callback(&zm_stalingrad_drop_pod::function_1389d425);
 	level thread zm_stalingrad_util::function_3804dbf1();
 	level zm_stalingrad_util::function_adf4d1d0();
 	level flag::clear("lockdown_complete");
@@ -652,7 +652,7 @@ function function_6236d848(var_e57afa84, var_7741a4b8, var_ed686791, var_2a448c9
 	function_f10ea3a8();
 	exploder::exploder_stop("pavlov_" + 0);
 	exploder::exploder_stop("pavlov_" + 4);
-	zm_spawner::register_zombie_death_event_callback(&namespace_2e6e7fce::function_1389d425);
+	zm_spawner::register_zombie_death_event_callback(&zm_stalingrad_drop_pod::function_1389d425);
 	level flag::set("zombie_drop_powerups");
 	level flag::set("lockdown_complete");
 	level thread zm_stalingrad_util::function_3804dbf1(0);
@@ -1030,7 +1030,7 @@ function function_2c6fd7(var_2b71b5b4, var_15eb9a52, var_f92c3865, var_13d1e831)
 	level.var_1dfcc9b2 = spawnstruct();
 	level thread zm_stalingrad_util::function_e7c75cf0();
 	level flag::clear("zombie_drop_powerups");
-	zm_spawner::deregister_zombie_death_event_callback(&namespace_2e6e7fce::function_1389d425);
+	zm_spawner::deregister_zombie_death_event_callback(&zm_stalingrad_drop_pod::function_1389d425);
 	level thread zm_stalingrad_util::function_3804dbf1();
 	level zm_stalingrad_util::function_adf4d1d0();
 	level flag::clear("lockdown_complete");
@@ -1184,7 +1184,7 @@ function function_2c6fd7(var_2b71b5b4, var_15eb9a52, var_f92c3865, var_13d1e831)
 	function_f10ea3a8();
 	exploder::exploder_stop("pavlov_" + 0);
 	exploder::exploder_stop("pavlov_" + 4);
-	zm_spawner::register_zombie_death_event_callback(&namespace_2e6e7fce::function_1389d425);
+	zm_spawner::register_zombie_death_event_callback(&zm_stalingrad_drop_pod::function_1389d425);
 	level flag::set("zombie_drop_powerups");
 	level flag::set("lockdown_complete");
 	level thread zm_stalingrad_util::function_3804dbf1(0);

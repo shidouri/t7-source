@@ -178,7 +178,7 @@ function function_17d8768b(cmd)
 			case "":
 			{
 				level.var_8cc024f2 = level.var_583e4a97.var_5d8406ed[cmd];
-				level thread namespace_2e6e7fce::function_d1a91c4f(level.var_8cc024f2);
+				level thread zm_stalingrad_drop_pod::function_d1a91c4f(level.var_8cc024f2);
 				return true;
 			}
 			case "":

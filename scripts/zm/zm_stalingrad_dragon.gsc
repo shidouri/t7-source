@@ -2706,7 +2706,7 @@ function function_63326db4(b_debug = 0)
 			function_17b7a6a();
 		}
 	#/
-	zm_spawner::deregister_zombie_death_event_callback(&namespace_2e6e7fce::function_1389d425);
+	zm_spawner::deregister_zombie_death_event_callback(&zm_stalingrad_drop_pod::function_1389d425);
 	level zm_stalingrad_util::function_3804dbf1();
 	zm_stalingrad_util::function_adf4d1d0();
 	util::wait_network_frame();

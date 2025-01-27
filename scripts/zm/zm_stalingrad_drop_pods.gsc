@@ -36,11 +36,11 @@
 
 #using_animtree("generic");
 
-#namespace namespace_2e6e7fce;
+#namespace zm_stalingrad_drop_pod;
 
 /*
 	Name: function_2bb254bb
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x1E8ABC74
 	Offset: 0xF48
 	Size: 0x724
@@ -108,7 +108,7 @@ function function_2bb254bb()
 
 /*
 	Name: function_f7b738bf
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xBE8E6E86
 	Offset: 0x1678
 	Size: 0x286
@@ -163,7 +163,7 @@ function function_f7b738bf(e_player)
 
 /*
 	Name: function_5f435187
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x35A0E648
 	Offset: 0x1908
 	Size: 0x128
@@ -199,7 +199,7 @@ function function_5f435187()
 
 /*
 	Name: function_8aebb789
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xE48FDF91
 	Offset: 0x1A38
 	Size: 0x1F8
@@ -242,7 +242,7 @@ function function_8aebb789()
 
 /*
 	Name: function_ee55d7d6
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xD2B98F13
 	Offset: 0x1C38
 	Size: 0x44
@@ -257,7 +257,7 @@ function function_ee55d7d6()
 
 /*
 	Name: function_f5212f09
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x9093D37D
 	Offset: 0x1C88
 	Size: 0xD4
@@ -277,7 +277,7 @@ function function_f5212f09()
 
 /*
 	Name: function_d4c6ea10
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x93911D66
 	Offset: 0x1D68
 	Size: 0x1C
@@ -292,7 +292,7 @@ function function_d4c6ea10()
 
 /*
 	Name: function_6905fcad
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xD64212B6
 	Offset: 0x1D90
 	Size: 0x34
@@ -307,7 +307,7 @@ function function_6905fcad(var_f3bda498, str_zone)
 
 /*
 	Name: function_830313d1
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x857A642F
 	Offset: 0x1DD0
 	Size: 0x22A
@@ -362,7 +362,7 @@ function function_830313d1(str_zone)
 
 /*
 	Name: function_6b964717
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x742F9FD
 	Offset: 0x2008
 	Size: 0x26C
@@ -395,7 +395,7 @@ function function_6b964717()
 
 /*
 	Name: function_855f59cb
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xB0A87090
 	Offset: 0x2280
 	Size: 0x9C
@@ -418,7 +418,7 @@ function function_855f59cb()
 
 /*
 	Name: function_86d9efb0
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x32E815E4
 	Offset: 0x2328
 	Size: 0x1F2
@@ -462,7 +462,7 @@ function function_86d9efb0(e_player)
 
 /*
 	Name: function_1389d425
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x683DE903
 	Offset: 0x2528
 	Size: 0xA4
@@ -480,7 +480,7 @@ function function_1389d425(e_attacker)
 
 /*
 	Name: function_aa168b7a
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x3F521D02
 	Offset: 0x25D8
 	Size: 0x184
@@ -515,7 +515,7 @@ function function_aa168b7a()
 
 /*
 	Name: function_a9d4f2ec
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xF4F885D9
 	Offset: 0x2768
 	Size: 0xA0
@@ -551,7 +551,7 @@ function function_a9d4f2ec()
 
 /*
 	Name: function_9411a0ff
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x56818ED7
 	Offset: 0x2810
 	Size: 0x50
@@ -566,7 +566,7 @@ function function_9411a0ff()
 
 /*
 	Name: function_d1a91c4f
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x9F67BFA8
 	Offset: 0x2868
 	Size: 0x804
@@ -658,7 +658,7 @@ function function_d1a91c4f(var_e7a36389)
 
 /*
 	Name: function_7400750d
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xC4C00A38
 	Offset: 0x3078
 	Size: 0x54
@@ -675,7 +675,7 @@ function function_7400750d()
 
 /*
 	Name: function_943a35e3
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x33950FDE
 	Offset: 0x30D8
 	Size: 0x76
@@ -691,7 +691,7 @@ function function_943a35e3()
 
 /*
 	Name: function_5cf8b853
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x78648993
 	Offset: 0x3158
 	Size: 0x326
@@ -794,7 +794,7 @@ function function_5cf8b853(str_location)
 
 /*
 	Name: function_306f40e1
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xA151CE3F
 	Offset: 0x3488
 	Size: 0x2D0
@@ -851,7 +851,7 @@ function function_306f40e1(str_location)
 
 /*
 	Name: function_51837de8
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x8C35013B
 	Offset: 0x3760
 	Size: 0xF4
@@ -879,7 +879,7 @@ function function_51837de8()
 
 /*
 	Name: function_bb390883
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xEC8AC1C5
 	Offset: 0x3860
 	Size: 0x74
@@ -899,7 +899,7 @@ function function_bb390883()
 
 /*
 	Name: function_a3d6f85c
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xF210CB6E
 	Offset: 0x38E0
 	Size: 0x48
@@ -917,7 +917,7 @@ function function_a3d6f85c()
 
 /*
 	Name: function_e677d12
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xEAEF4F7F
 	Offset: 0x3930
 	Size: 0x4E0
@@ -1006,7 +1006,7 @@ function function_e677d12()
 
 /*
 	Name: function_cdc52f02
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xDB0F0223
 	Offset: 0x3E18
 	Size: 0x1CC
@@ -1064,7 +1064,7 @@ function function_cdc52f02()
 
 /*
 	Name: function_1ce76e16
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xA5CD5F9A
 	Offset: 0x3FF0
 	Size: 0x3E
@@ -1083,7 +1083,7 @@ function function_1ce76e16()
 
 /*
 	Name: function_94bb84a1
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x7C2E79AD
 	Offset: 0x4038
 	Size: 0x76C
@@ -1184,7 +1184,7 @@ function function_94bb84a1(var_e7a36389, var_51d4ce0d)
 
 /*
 	Name: function_3653ea22
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x3733D93
 	Offset: 0x47B0
 	Size: 0x3CC
@@ -1245,7 +1245,7 @@ function function_3653ea22(var_51d4ce0d, var_e7a36389)
 
 /*
 	Name: function_8f66c62a
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x60CF9054
 	Offset: 0x4B88
 	Size: 0x22
@@ -1263,7 +1263,7 @@ function function_8f66c62a()
 
 /*
 	Name: function_78a4f940
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x153F0DDE
 	Offset: 0x4BB8
 	Size: 0x3EC
@@ -1324,7 +1324,7 @@ function function_78a4f940()
 
 /*
 	Name: function_503cfe0f
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xFEB9C708
 	Offset: 0x4FB0
 	Size: 0xDC
@@ -1347,7 +1347,7 @@ function function_503cfe0f(var_e7a36389)
 
 /*
 	Name: function_4843856e
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x4B9BD386
 	Offset: 0x5098
 	Size: 0x78
@@ -1364,7 +1364,7 @@ function function_4843856e()
 
 /*
 	Name: function_ba5071c4
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0x94ABB760
 	Offset: 0x5118
 	Size: 0x190
@@ -1409,7 +1409,7 @@ function function_ba5071c4()
 
 /*
 	Name: function_737e2ef4
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xD0D1CE43
 	Offset: 0x52B0
 	Size: 0x1E4
@@ -1452,7 +1452,7 @@ function function_737e2ef4()
 
 /*
 	Name: function_53482422
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xA987DA08
 	Offset: 0x54A0
 	Size: 0xD4
@@ -1474,7 +1474,7 @@ function function_53482422()
 
 /*
 	Name: function_a0a37968
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xD34D22C5
 	Offset: 0x5580
 	Size: 0xDE
@@ -1496,7 +1496,7 @@ function function_a0a37968(var_db0ac3dc)
 
 /*
 	Name: function_8df46779
-	Namespace: namespace_2e6e7fce
+	Namespace: zm_stalingrad_drop_pod
 	Checksum: 0xA52ACBE7
 	Offset: 0x5668
 	Size: 0x270
