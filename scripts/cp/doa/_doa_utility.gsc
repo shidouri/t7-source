@@ -1188,7 +1188,7 @@ function function_a98c85b2(location, timesec = 1)
 function function_89a258a7()
 {
 	self endon("death");
-	self endon(#"hash_3d81b494");
+	self endon("delpoi");
 	while(true)
 	{
 		wait(0.5);
