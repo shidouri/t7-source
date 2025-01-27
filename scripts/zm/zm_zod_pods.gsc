@@ -245,9 +245,9 @@ function fungus_pods_devgui()
 */
 function function_bcc1a076()
 {
-	foreach(var_3c1def9d in level.fungus_pods.rewards)
+	foreach(a_level in level.fungus_pods.rewards)
 	{
-		foreach(s_reward in var_3c1def9d)
+		foreach(s_reward in a_level)
 		{
 			if(s_reward.type == "shield_recharge")
 			{
@@ -269,9 +269,9 @@ function function_bcc1a076()
 function function_77d7e068()
 {
 	level waittill("shield_built");
-	foreach(var_3c1def9d in level.fungus_pods.rewards)
+	foreach(a_level in level.fungus_pods.rewards)
 	{
-		foreach(s_reward in var_3c1def9d)
+		foreach(s_reward in a_level)
 		{
 			if(s_reward.type == "shield_recharge")
 			{
