@@ -4027,20 +4027,20 @@ function function_73e24bb9()
 {
 	if(self issplitscreen())
 	{
-		var_a84ec5dc = -75;
+		n_text_x = -75;
 		var_ce514045 = 191;
 		var_cf35e8e9 = "TOP";
 		var_2efa8e9 = 1;
 	}
 	else
 	{
-		var_a84ec5dc = 0;
+		n_text_x = 0;
 		var_ce514045 = 161;
 		var_cf35e8e9 = "CENTER";
 		var_2efa8e9 = level.primaryprogressbarfontsize;
 	}
 	text = hud::createfontstring("objective", var_2efa8e9);
-	text hud::setpoint(var_cf35e8e9, undefined, var_a84ec5dc, var_ce514045);
+	text hud::setpoint(var_cf35e8e9, undefined, n_text_x, var_ce514045);
 	text.sort = -1;
 	return text;
 }
