@@ -9,11 +9,11 @@
 #using scripts\shared\flag_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_f0e08494;
+#namespace _bonuszm_aquifer;
 
 /*
 	Name: init
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xEAE46A9E
 	Offset: 0xA28
 	Size: 0x23C
@@ -56,7 +56,7 @@ function autoexec init()
 
 /*
 	Name: function_3a602f83
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x55DCE0A1
 	Offset: 0xC70
 	Size: 0x24
@@ -70,7 +70,7 @@ function private function_3a602f83()
 
 /*
 	Name: function_89d4327a
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x99EC1590
 	Offset: 0xCA0
 	Size: 0x4
@@ -83,7 +83,7 @@ function function_89d4327a()
 
 /*
 	Name: function_cd2a65c3
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x7D22A2F9
 	Offset: 0xCB0
 	Size: 0x2C
@@ -99,7 +99,7 @@ function function_cd2a65c3()
 
 /*
 	Name: function_f3e4bb97
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x31CCC4A5
 	Offset: 0xCE8
 	Size: 0x2C
@@ -115,7 +115,7 @@ function function_f3e4bb97()
 
 /*
 	Name: function_5bdad1f3
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x237AFEB1
 	Offset: 0xD20
 	Size: 0x2C
@@ -131,7 +131,7 @@ function function_5bdad1f3()
 
 /*
 	Name: function_e9d362b8
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x76EEAB42
 	Offset: 0xD58
 	Size: 0x2C
@@ -147,7 +147,7 @@ function function_e9d362b8()
 
 /*
 	Name: function_fd5dd21
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xC025488C
 	Offset: 0xD90
 	Size: 0x2C
@@ -163,7 +163,7 @@ function function_fd5dd21()
 
 /*
 	Name: function_cde2412e
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x296F3E8C
 	Offset: 0xDC8
 	Size: 0x2C
@@ -179,7 +179,7 @@ function function_cde2412e()
 
 /*
 	Name: function_f2c44c1e
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xDA00E2E1
 	Offset: 0xE00
 	Size: 0x24
@@ -194,7 +194,7 @@ function function_f2c44c1e()
 
 /*
 	Name: function_81dd4c5c
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x93B6FEB7
 	Offset: 0xE30
 	Size: 0x2C
@@ -210,7 +210,7 @@ function function_81dd4c5c()
 
 /*
 	Name: function_a7dfc6c5
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xBE6FE7AA
 	Offset: 0xE68
 	Size: 0x24
@@ -225,7 +225,7 @@ function function_a7dfc6c5()
 
 /*
 	Name: function_5b22f688
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x6265FB81
 	Offset: 0xE98
 	Size: 0x30C
@@ -278,7 +278,7 @@ function function_5b22f688()
 
 /*
 	Name: function_3b59ac54
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x1FEFF57E
 	Offset: 0x11B0
 	Size: 0x4C
@@ -296,7 +296,7 @@ function function_3b59ac54()
 
 /*
 	Name: function_812570f1
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x10F26C15
 	Offset: 0x1208
 	Size: 0x64
@@ -315,7 +315,7 @@ function function_812570f1()
 
 /*
 	Name: function_7aa9c8b5
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xA66B6E76
 	Offset: 0x1278
 	Size: 0x2C
@@ -331,7 +331,7 @@ function function_7aa9c8b5()
 
 /*
 	Name: function_3f31d4fe
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x5A402ECE
 	Offset: 0x12B0
 	Size: 0xFC
@@ -359,7 +359,7 @@ function function_3f31d4fe()
 
 /*
 	Name: function_fd9ec2ee
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xF4354782
 	Offset: 0x13B8
 	Size: 0x54
@@ -376,7 +376,7 @@ function function_fd9ec2ee()
 
 /*
 	Name: function_65344f67
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0x61C8F38D
 	Offset: 0x1418
 	Size: 0x10C
@@ -404,7 +404,7 @@ function function_65344f67()
 
 /*
 	Name: function_f32ce02c
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xE90E7E89
 	Offset: 0x1530
 	Size: 0xAC
@@ -428,7 +428,7 @@ function function_f32ce02c()
 
 /*
 	Name: function_192f5a95
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xCDFACDBC
 	Offset: 0x15E8
 	Size: 0x18C
@@ -462,7 +462,7 @@ function function_192f5a95()
 
 /*
 	Name: function_c8750131
-	Namespace: namespace_f0e08494
+	Namespace: _bonuszm_aquifer
 	Checksum: 0xDA53604
 	Offset: 0x1780
 	Size: 0x2C
