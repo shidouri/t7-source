@@ -45,11 +45,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\weapons_shared;
 
-#namespace namespace_37cacec1;
+#namespace bonuszmutil;
 
 /*
 	Name: function_5e408c24
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x872C3364
 	Offset: 0xAA0
 	Size: 0x17C
@@ -79,7 +79,7 @@ function function_5e408c24(origin, region, minradius, maxradius)
 
 /*
 	Name: function_165bd27a
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x381DC3F
 	Offset: 0xC28
 	Size: 0x132
@@ -128,7 +128,7 @@ function function_165bd27a(health)
 
 /*
 	Name: _zsfx
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x856E1F27
 	Offset: 0xD68
 	Size: 0x11A
@@ -172,7 +172,7 @@ function _zsfx()
 
 /*
 	Name: function_9cb5d4c9
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x39A40085
 	Offset: 0xE90
 	Size: 0x1B4
@@ -199,7 +199,7 @@ function function_9cb5d4c9()
 
 /*
 	Name: function_51828ce6
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x644B23EF
 	Offset: 0x1050
 	Size: 0xFE
@@ -234,7 +234,7 @@ function function_51828ce6()
 
 /*
 	Name: function_ce6a97e6
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0xC9CE7BEB
 	Offset: 0x1158
 	Size: 0x5A
@@ -249,7 +249,7 @@ function function_ce6a97e6()
 
 /*
 	Name: function_d68296ac
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0xD5F288A6
 	Offset: 0x11C0
 	Size: 0xEC
@@ -278,7 +278,7 @@ function function_d68296ac()
 
 /*
 	Name: function_ec036ed3
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0xB4902CEF
 	Offset: 0x12B8
 	Size: 0x680
@@ -376,7 +376,7 @@ function function_ec036ed3(var_28b84d73, var_14e6a7e9, var_df4e4d0f)
 
 /*
 	Name: function_1f637867
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0xD678897
 	Offset: 0x1940
 	Size: 0x164
@@ -401,7 +401,7 @@ function function_1f637867(var_28b84d73, closestplayer, data)
 
 /*
 	Name: function_ae0beba6
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0xC5CEDEFE
 	Offset: 0x1AB0
 	Size: 0x1B4
@@ -428,7 +428,7 @@ function function_ae0beba6(var_28b84d73, closestplayer, data)
 
 /*
 	Name: function_d789e857
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x3ADBC828
 	Offset: 0x1C70
 	Size: 0x82
@@ -450,7 +450,7 @@ function function_d789e857(var_28b84d73, closestplayer, data)
 
 /*
 	Name: function_fb8e7615
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x33A2CD6
 	Offset: 0x1D00
 	Size: 0x112
@@ -473,7 +473,7 @@ function function_fb8e7615(var_28b84d73, closestplayer, data)
 
 /*
 	Name: function_4d084a77
-	Namespace: namespace_37cacec1
+	Namespace: bonuszmutil
 	Checksum: 0x14E4B0C7
 	Offset: 0x1E20
 	Size: 0x9A
