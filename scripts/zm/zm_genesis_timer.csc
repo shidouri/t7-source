@@ -58,9 +58,9 @@ function __main__()
 	Parameters: 7
 	Flags: Linked
 */
-function function_b94ee48a(n_local_client, var_3bf16bb3, var_6998917a, b_new_ent, var_b54312de, str_field_name, b_was_time_jump)
+function function_b94ee48a(n_local_client, var_3bf16bb3, n_new_val, b_new_ent, var_b54312de, str_field_name, b_was_time_jump)
 {
-	level.var_dd724c18 = var_6998917a;
+	level.var_dd724c18 = n_new_val;
 }
 
 /*
