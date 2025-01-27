@@ -3997,7 +3997,7 @@ function function_64a35779()
 	{
 		var_2cf8c6d2 = -75;
 		var_52fb413b = 205;
-		var_cf35e8e9 = "TOP";
+		str_point = "TOP";
 		var_16d3e5b2 = 80;
 		var_cb7f5b1b = 5;
 	}
@@ -4005,12 +4005,12 @@ function function_64a35779()
 	{
 		var_2cf8c6d2 = 0;
 		var_52fb413b = 175;
-		var_cf35e8e9 = "CENTER";
+		str_point = "CENTER";
 		var_16d3e5b2 = level.primaryprogressbarwidth;
 		var_cb7f5b1b = level.primaryprogressbarheight;
 	}
 	bar = hud::createbar((1, 1, 1), var_16d3e5b2, var_cb7f5b1b);
-	bar hud::setpoint(var_cf35e8e9, undefined, var_2cf8c6d2, var_52fb413b);
+	bar hud::setpoint(str_point, undefined, var_2cf8c6d2, var_52fb413b);
 	return bar;
 }
 
@@ -4029,18 +4029,18 @@ function function_73e24bb9()
 	{
 		n_text_x = -75;
 		n_text_y = 191;
-		var_cf35e8e9 = "TOP";
+		str_point = "TOP";
 		var_2efa8e9 = 1;
 	}
 	else
 	{
 		n_text_x = 0;
 		n_text_y = 161;
-		var_cf35e8e9 = "CENTER";
+		str_point = "CENTER";
 		var_2efa8e9 = level.primaryprogressbarfontsize;
 	}
 	text = hud::createfontstring("objective", var_2efa8e9);
-	text hud::setpoint(var_cf35e8e9, undefined, n_text_x, n_text_y);
+	text hud::setpoint(str_point, undefined, n_text_x, n_text_y);
 	text.sort = -1;
 	return text;
 }
