@@ -9,11 +9,11 @@
 #using scripts\shared\flag_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_39f1482a;
+#namespace bonuszm_ramses;
 
 /*
 	Name: init
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0xEBB031B3
 	Offset: 0xBA8
 	Size: 0x18C
@@ -48,7 +48,7 @@ function autoexec init()
 
 /*
 	Name: function_77e3cb91
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x93710A5
 	Offset: 0xD40
 	Size: 0x24
@@ -62,7 +62,7 @@ function private function_77e3cb91()
 
 /*
 	Name: function_3e52c274
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x99EC1590
 	Offset: 0xD70
 	Size: 0x4
@@ -75,7 +75,7 @@ function function_3e52c274()
 
 /*
 	Name: function_dfa3a625
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x9089121A
 	Offset: 0xD80
 	Size: 0x2F4
@@ -128,7 +128,7 @@ function function_dfa3a625()
 
 /*
 	Name: function_5a6208e
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0xC99CAB19
 	Offset: 0x1080
 	Size: 0x20C
@@ -166,7 +166,7 @@ function function_5a6208e()
 
 /*
 	Name: function_2ba89af7
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0xCD77BF64
 	Offset: 0x1298
 	Size: 0x4C
@@ -184,7 +184,7 @@ function function_2ba89af7()
 
 /*
 	Name: function_9c47b97f
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x2840E34C
 	Offset: 0x12F0
 	Size: 0x2C
@@ -200,7 +200,7 @@ function function_9c47b97f()
 
 /*
 	Name: function_2a404a44
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x371D89C4
 	Offset: 0x1328
 	Size: 0x4C
@@ -218,7 +218,7 @@ function function_2a404a44()
 
 /*
 	Name: function_4799bc81
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x1AB403DA
 	Offset: 0x1380
 	Size: 0xBC
@@ -242,7 +242,7 @@ function function_4799bc81()
 
 /*
 	Name: function_9a51f005
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x48313B65
 	Offset: 0x1448
 	Size: 0x2C
@@ -258,7 +258,7 @@ function function_9a51f005()
 
 /*
 	Name: function_6d9c36ea
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x4BEF2823
 	Offset: 0x1480
 	Size: 0xCC
@@ -283,7 +283,7 @@ function function_6d9c36ea()
 
 /*
 	Name: function_939eb153
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x31FFAAD2
 	Offset: 0x1558
 	Size: 0x13C
@@ -315,7 +315,7 @@ function function_939eb153()
 
 /*
 	Name: function_4d3f4c83
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x6D27BDE7
 	Offset: 0x16A0
 	Size: 0x8C
@@ -335,7 +335,7 @@ function function_4d3f4c83()
 
 /*
 	Name: function_898d5874
-	Namespace: namespace_39f1482a
+	Namespace: bonuszm_ramses
 	Checksum: 0x8AF22037
 	Offset: 0x1738
 	Size: 0x1F4
