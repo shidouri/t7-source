@@ -1224,7 +1224,7 @@ function addpoi(entity)
 }
 
 /*
-	Name: function_3d81b494
+	Name: delpoi
 	Namespace: doa_utility
 	Checksum: 0x721B9527
 	Offset: 0x2770
@@ -1232,7 +1232,7 @@ function addpoi(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3d81b494(entity)
+function delpoi(entity)
 {
 	arrayremovevalue(level.doa.var_f953d785, entity);
 }

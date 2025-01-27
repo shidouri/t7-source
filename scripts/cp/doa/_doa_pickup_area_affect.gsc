@@ -385,7 +385,7 @@ function function_2271edf2(player)
 {
 	self endon("death");
 	self waittill(#"hash_2271edf2");
-	doa_utility::function_3d81b494(self);
+	doa_utility::delpoi(self);
 	self thread doa_sound::function_90118d8c("zmb_monkey_explo");
 	self thread doa_fx::function_285a2999("monkey_explode");
 	if(isdefined(player))
