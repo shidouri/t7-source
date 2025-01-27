@@ -1142,11 +1142,11 @@ function function_1690ddb0()
 {
 	self.var_40b46e43 delete();
 	self.var_e3d9917e delete();
-	foreach(var_b30aea81 in self.var_92904d31)
+	foreach(e_point in self.var_92904d31)
 	{
-		if(isdefined(var_b30aea81))
+		if(isdefined(e_point))
 		{
-			var_b30aea81 delete();
+			e_point delete();
 		}
 	}
 	foreach(var_4a243bdd in self.var_29204bf)
