@@ -2,11 +2,11 @@
 #using scripts\codescripts\struct;
 #using scripts\shared\util_shared;
 
-#namespace namespace_4fca3ee8;
+#namespace cp_doa_bo3_sound;
 
 /*
 	Name: main
-	Namespace: namespace_4fca3ee8
+	Namespace: cp_doa_bo3_sound
 	Checksum: 0x99EC1590
 	Offset: 0xD0
 	Size: 0x4
