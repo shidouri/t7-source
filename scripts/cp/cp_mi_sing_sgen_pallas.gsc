@@ -938,7 +938,7 @@ function elevator_lift_intro()
 	array::run_all(getentarray("pallas_lift_front_clip", "targetname"), &movez, 112, 0.05);
 	elevator_set_door_state("front", "close");
 	elevator_set_opaque(3);
-	level thread namespace_d40478f6::function_874f01d();
+	level thread sgen_sound::function_874f01d();
 	level notify("elevator_vo");
 	level notify("pallas_elevator_starting");
 	a_ai = getaiteamarray("team3");
@@ -1033,13 +1033,13 @@ function pallas_greeting_event(b_starting)
 		level waittill("enter_server");
 		trigger::wait_or_timeout(30, "pallas_turret_enable_trigger");
 	}
-	level thread namespace_d40478f6::function_973b77f9();
+	level thread sgen_sound::function_973b77f9();
 	savegame::checkpoint_save();
 	level thread function_87d6b629();
 	level dialog::player_say("plyr_diaz_you_have_to_s_0", 1);
 	array::thread_all(level.players, &clientfield::set_to_player, "pallas_monitors_state", 1);
 	level.ai_pallas dialog::say("diaz_i_am_willing_to_d_0");
-	level thread namespace_d40478f6::function_ad14681b();
+	level thread sgen_sound::function_ad14681b();
 	level flag::set("pallas_ambush_over");
 	level dialog::remote("kane_the_only_way_to_disc_0", 2);
 	level dialog::remote("hend_kane_i_m_currently_0");
@@ -1165,20 +1165,20 @@ function handle_pallas_pillar_weakspot()
 			{
 				spawn_manager::kill("sm_stage1_flood", 0);
 				spawn_manager::kill("sm_stage1");
-				level thread namespace_d40478f6::function_3d554ba8();
+				level thread sgen_sound::function_3d554ba8();
 				break;
 			}
 			case 2:
 			{
 				spawn_manager::kill("sm_stage2_flood", 0);
 				spawn_manager::kill("sm_stage2");
-				level thread namespace_d40478f6::function_af5cbae3();
+				level thread sgen_sound::function_af5cbae3();
 				break;
 			}
 			case 3:
 			{
 				spawn_manager::kill("sm_stage3_flood", 0);
-				level thread namespace_d40478f6::function_895a407a();
+				level thread sgen_sound::function_895a407a();
 				break;
 			}
 		}

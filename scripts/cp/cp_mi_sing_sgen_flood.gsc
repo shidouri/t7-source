@@ -1116,7 +1116,7 @@ function defend_logic(b_starting)
 	level thread catwalk_zone_anti_camper_measures();
 	level flag::wait_till("hendricks_defend_started");
 	spawn_manager::enable("flood_combat_reinforcements_human");
-	level thread namespace_d40478f6::function_72ef07c3();
+	level thread sgen_sound::function_72ef07c3();
 	level.ai_hendricks ai::set_ignoreall(1);
 	level thread surgical_room_entrance_close_resistance();
 	wait(18);
@@ -1162,7 +1162,7 @@ function function_3ed2d232()
 function function_d0378b1a(e_player)
 {
 	level notify("floor_door_open");
-	level thread namespace_d40478f6::function_973b77f9();
+	level thread sgen_sound::function_973b77f9();
 	self gameobjects::disable_object();
 	objectives::complete("cp_level_sgen_use_door");
 	if(isdefined(level.bzm_sgendialogue8_2callback))

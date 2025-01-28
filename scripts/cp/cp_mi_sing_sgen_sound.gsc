@@ -246,11 +246,11 @@ function function_2b89e6e8()
 	// Unsupported VM revision (1B).
 }
 
-#namespace namespace_d40478f6;
+#namespace sgen_sound;
 
 /*
 	Name: function_973b77f9
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x4D8C4D1C
 	Offset: 0xD00
 	Size: 0x0
@@ -264,7 +264,7 @@ function function_973b77f9()
 
 /*
 	Name: function_3440789f
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x65F8FD48
 	Offset: 0xD28
 	Size: 0x0
@@ -278,7 +278,7 @@ function function_3440789f()
 
 /*
 	Name: play_genlab_music
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xA5B3BF05
 	Offset: 0xD50
 	Size: 0x0
@@ -292,7 +292,7 @@ function play_genlab_music()
 
 /*
 	Name: play_robot_knock_music
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xC620515D
 	Offset: 0xD90
 	Size: 0x0
@@ -306,7 +306,7 @@ function play_robot_knock_music()
 
 /*
 	Name: function_98762d53
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x3146DFCA
 	Offset: 0xDB8
 	Size: 0x0
@@ -320,7 +320,7 @@ function function_98762d53()
 
 /*
 	Name: play_robot_ambush_music
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x7FA4C0EE
 	Offset: 0xDE0
 	Size: 0x0
@@ -334,7 +334,7 @@ function play_robot_ambush_music()
 
 /*
 	Name: function_55f6ee71
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x395DB088
 	Offset: 0xE08
 	Size: 0x0
@@ -348,7 +348,7 @@ function function_55f6ee71()
 
 /*
 	Name: function_3eb3d06
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xEA28136D
 	Offset: 0xE30
 	Size: 0x0
@@ -362,7 +362,7 @@ function function_3eb3d06()
 
 /*
 	Name: function_874f01d
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x9AB05207
 	Offset: 0xE58
 	Size: 0x0
@@ -376,7 +376,7 @@ function function_874f01d()
 
 /*
 	Name: function_ad14681b
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x1C66F3E0
 	Offset: 0xE80
 	Size: 0x0
@@ -390,7 +390,7 @@ function function_ad14681b()
 
 /*
 	Name: function_3d554ba8
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x93FA6DEB
 	Offset: 0xEA8
 	Size: 0x0
@@ -404,7 +404,7 @@ function function_3d554ba8()
 
 /*
 	Name: function_fdf54ba5
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xECDC1A06
 	Offset: 0xEE0
 	Size: 0x0
@@ -418,7 +418,7 @@ function function_fdf54ba5()
 
 /*
 	Name: function_af5cbae3
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x988E5838
 	Offset: 0xF08
 	Size: 0x0
@@ -432,7 +432,7 @@ function function_af5cbae3()
 
 /*
 	Name: function_7881343b
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x2BF42489
 	Offset: 0xF40
 	Size: 0x0
@@ -446,7 +446,7 @@ function function_7881343b()
 
 /*
 	Name: function_895a407a
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x45184799
 	Offset: 0xF68
 	Size: 0x0
@@ -460,7 +460,7 @@ function function_895a407a()
 
 /*
 	Name: function_72ef07c3
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xC73BCD16
 	Offset: 0xF90
 	Size: 0x0
@@ -474,7 +474,7 @@ function function_72ef07c3()
 
 /*
 	Name: function_5d6d7c60
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xBA495CF
 	Offset: 0xFB8
 	Size: 0x0
@@ -488,7 +488,7 @@ function function_5d6d7c60()
 
 /*
 	Name: function_71f06599
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xA40FA304
 	Offset: 0xFE0
 	Size: 0x0
@@ -502,7 +502,7 @@ function function_71f06599()
 
 /*
 	Name: function_29597dc9
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x3B7496F4
 	Offset: 0x1008
 	Size: 0x0
@@ -516,7 +516,7 @@ function function_29597dc9()
 
 /*
 	Name: function_89871797
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xF2E2035F
 	Offset: 0x1030
 	Size: 0x0
@@ -530,7 +530,7 @@ function function_89871797()
 
 /*
 	Name: function_af9045f8
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x91D90DAF
 	Offset: 0x1058
 	Size: 0x0
@@ -544,7 +544,7 @@ function function_af9045f8()
 
 /*
 	Name: function_34465ae6
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x5FFDD52B
 	Offset: 0x1088
 	Size: 0x0
@@ -558,7 +558,7 @@ function function_34465ae6()
 
 /*
 	Name: function_4a262c0b
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x78FC86EE
 	Offset: 0x10B0
 	Size: 0x0
@@ -572,7 +572,7 @@ function function_4a262c0b()
 
 /*
 	Name: function_6cad5ce0
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x649146A8
 	Offset: 0x10D8
 	Size: 0x0
@@ -586,7 +586,7 @@ function function_6cad5ce0()
 
 /*
 	Name: function_26fc5a92
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xE6622BB5
 	Offset: 0x1100
 	Size: 0x0
@@ -600,7 +600,7 @@ function function_26fc5a92()
 
 /*
 	Name: function_fb17452c
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x694F9C19
 	Offset: 0x1128
 	Size: 0x0
@@ -614,7 +614,7 @@ function function_fb17452c()
 
 /*
 	Name: play_outro
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0x88350C25
 	Offset: 0x1150
 	Size: 0x0
@@ -628,7 +628,7 @@ function play_outro()
 
 /*
 	Name: function_22982c6e
-	Namespace: namespace_d40478f6
+	Namespace: sgen_sound
 	Checksum: 0xA1C70680
 	Offset: 0x1178
 	Size: 0x0

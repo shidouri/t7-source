@@ -53,7 +53,7 @@ function skipto_testing_lab_igc_init(str_objective, b_starting)
 	level thread function_e763362b();
 	function_d9cab9d3();
 	level waittill(#"hash_89d9c0f");
-	level thread namespace_d40478f6::function_4a262c0b();
+	level thread sgen_sound::function_4a262c0b();
 	if(isdefined(level.bzm_sgendialogue6callback))
 	{
 		level thread [[level.bzm_sgendialogue6callback]]();

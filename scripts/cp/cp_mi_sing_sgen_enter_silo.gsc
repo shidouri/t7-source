@@ -75,7 +75,7 @@ function skipto_discover_data_init(str_objective, b_starting)
 	}
 	level thread building_glass_debris();
 	level thread function_370bcbcc();
-	level thread namespace_d40478f6::function_26fc5a92();
+	level thread sgen_sound::function_26fc5a92();
 	level thread scene::play("cin_sgen_05_01_discoverdata_vign_lookaround_hendricks");
 	level waittill(#"hash_dd334053");
 	level thread util::set_streamer_hint(6);
@@ -246,7 +246,7 @@ function discover_data_vo()
 	level.ai_hendricks waittill("activate_drone_vo_done");
 	level dialog::remote("kane_message_received_and_0");
 	level flag::wait_till("post_discover_data");
-	level thread namespace_d40478f6::function_fb17452c();
+	level thread sgen_sound::function_fb17452c();
 	level.ai_hendricks dialog::say("hend_stick_to_the_ledge_0");
 }
 
@@ -543,7 +543,7 @@ function skipto_gen_lab_init(str_objective, b_starting)
 		objectives::set("cp_level_sgen_descend_into_core");
 		level.ai_hendricks thread gen_lab_hendricks();
 		level thread gen_lab_objective_breadcrumbs();
-		level thread namespace_d40478f6::function_fb17452c();
+		level thread sgen_sound::function_fb17452c();
 		load::function_a2995f22();
 		foreach(player in level.activeplayers)
 		{
@@ -671,7 +671,7 @@ function force_gen_lab_hot()
 {
 	level flag::wait_till("player_front_gen_lab");
 	level flag::set("gen_lab_gone_hot");
-	level thread namespace_d40478f6::play_genlab_music();
+	level thread sgen_sound::play_genlab_music();
 }
 
 /*
@@ -766,7 +766,7 @@ function monitor_patrol_damage()
 	self waittill("damage");
 	sgen_util::scene_stop_if_active(self.current_scene);
 	level flag::set("gen_lab_gone_hot");
-	level thread namespace_d40478f6::play_genlab_music();
+	level thread sgen_sound::play_genlab_music();
 }
 
 /*
@@ -834,7 +834,7 @@ function gen_lab_sight_check()
 			if(self cansee(player))
 			{
 				level flag::set("gen_lab_gone_hot");
-				level thread namespace_d40478f6::play_genlab_music();
+				level thread sgen_sound::play_genlab_music();
 			}
 		}
 		wait(0.5);
@@ -935,8 +935,8 @@ function wait_till_lab_cleared()
 		[[level.bzmutil_waitforallzombiestodie]]();
 	}
 	level flag::set("gen_lab_cleared");
-	level thread namespace_d40478f6::function_973b77f9();
-	level thread namespace_d40478f6::play_robot_knock_music();
+	level thread sgen_sound::function_973b77f9();
+	level thread sgen_sound::play_robot_knock_music();
 	level battlechatter::function_d9f49fba(0);
 }
 
@@ -986,7 +986,7 @@ function gen_lab_hendricks()
 	level thread hendricks_gen_lab_vo();
 	level flag::wait_till("gen_lab_gone_hot");
 	level.ai_hendricks ai::set_ignoreall(0);
-	level thread namespace_d40478f6::play_genlab_music();
+	level thread sgen_sound::play_genlab_music();
 	self.goalradius = 1024;
 	level flag::wait_till("gen_lab_cleared");
 	self colors::disable();
@@ -1049,7 +1049,7 @@ function skipto_post_gen_lab_init(str_objective, b_starting)
 			player clientfield::set_to_player("sndSiloBG", 1);
 			player clientfield::set_to_player("dust_motes", 1);
 		}
-		level thread namespace_d40478f6::play_robot_knock_music();
+		level thread sgen_sound::play_robot_knock_music();
 	}
 	level notify("skr");
 	level thread function_8a4d2dee();
@@ -1185,7 +1185,7 @@ function skipto_chem_lab_init(str_objective, b_starting)
 		level flag::set("hendricks_wallrun_done");
 		scene::add_scene_func("cin_sgen_09_01_chemlab_vign_windowknock_robots_start", &function_67a6b650);
 		level thread scene::play("cin_sgen_09_01_chemlab_vign_windowknock_robots_start");
-		level thread namespace_d40478f6::play_robot_knock_music();
+		level thread sgen_sound::play_robot_knock_music();
 		load::function_a2995f22();
 		foreach(player in level.activeplayers)
 		{
@@ -1336,7 +1336,7 @@ function robot_breaks_glass_notetrack()
 {
 	level clientfield::set("w_robot_window_break", 2);
 	level waittill("chem_lab_break_glass");
-	level thread namespace_d40478f6::function_98762d53();
+	level thread sgen_sound::function_98762d53();
 	level notify("skrd");
 	level.players[0] thread dialog::player_say("plyr_shit_1", 1);
 	level clientfield::set("w_robot_window_break", 1);
@@ -1402,7 +1402,7 @@ function skipto_post_chem_lab_init(str_objective, b_starting)
 		scene::add_scene_func("cin_sgen_11_02_silofloor_vign_notice_hendricks", &drone_highlights_grate, "init");
 		level scene::init("cin_sgen_11_02_silofloor_vign_notice_hendricks");
 		level thread setup_silo_robot_risers();
-		level thread namespace_d40478f6::function_98762d53();
+		level thread sgen_sound::function_98762d53();
 		level flag::set("follow3_1");
 		trig_player_at_silo_floor = getent("trig_player_at_silo_floor", "targetname");
 		trig_player_at_silo_floor triggerenable(0);
@@ -1575,7 +1575,7 @@ function silo_floor_battle_vo()
 	playsoundatposition("mus_coalescence_theme_silo", (-624, 995, -2569));
 	wait(1);
 	level notify("ambush");
-	level thread namespace_d40478f6::play_robot_ambush_music();
+	level thread sgen_sound::play_robot_ambush_music();
 	level flag::set("start_floor_risers");
 	level.ai_hendricks dialog::say("hend_whoa_what_the_hel_0");
 	level.ai_hendricks dialog::say("hend_whoa_whoa_0", 1);
@@ -1641,7 +1641,7 @@ function silo_floor_battle()
 	level util::delay(4.5, undefined, &function_847fb8ed, "break_higher_balcony_left");
 	spawner::simple_spawn("silo_ambush_robots");
 	spawner::waittill_ai_group_cleared("silo_floor_robots");
-	level thread namespace_d40478f6::function_973b77f9();
+	level thread sgen_sound::function_973b77f9();
 	level battlechatter::function_d9f49fba(0);
 	level.vh_mapper mapping_drone::function_74191a2(0);
 	level flag::set("silo_floor_cleared");
@@ -1889,7 +1889,7 @@ function skipto_under_silo_init(str_objective, b_starting)
 		level flag::set("drone_over_grate");
 		level flag::set("start_silo_ambush");
 		level flag::wait_till("all_players_spawned");
-		level thread namespace_d40478f6::function_71f06599();
+		level thread sgen_sound::function_71f06599();
 		foreach(player in level.activeplayers)
 		{
 			player clientfield::set_to_player("sndSiloBG", 1);
@@ -2254,7 +2254,7 @@ function drone_lead_player_silo_floor()
 	level thread scene::init("cin_sgen_11_02_silofloor_vign_notice_drone");
 	level flag::set("drone_over_grate_real");
 	level flag::wait_till("silo_grate_open");
-	level thread namespace_d40478f6::function_71f06599();
+	level thread sgen_sound::function_71f06599();
 	level scene::play("cin_sgen_11_02_silofloor_vign_notice_drone");
 	self.drivepath = 0;
 	self mapping_drone::function_6a8adcf6(25);
