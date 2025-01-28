@@ -6,3 +6,10 @@ trucksoccer_rally_complete
 doa_hazard
 blood_riser_spawner
 cp_doa_bo3_sound
+aquifer_sound
+ramses_sound
+prologue_sound
+blackstation_sound
+sgen_sound
+vengeance_sound
+newworld_accolades
