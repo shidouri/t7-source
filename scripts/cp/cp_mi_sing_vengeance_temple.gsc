@@ -54,7 +54,7 @@ function skipto_temple_init(str_objective, b_starting)
 		vengeance_util::init_hero("hendricks", str_objective);
 		level thread vengeance_util::function_cc6f3598();
 		level thread vengeance_util::function_3f34106b();
-		level thread namespace_9fd035::function_dad71f51();
+		level thread vengeance_sound::function_dad71f51();
 		load::function_a2995f22();
 		objectives::set("cp_level_vengeance_rescue_kane");
 		objectives::set("cp_level_vengeance_go_to_safehouse");
@@ -933,7 +933,7 @@ function function_e4612dd6()
 	line = array::random(var_eb6e35ef);
 	vengeance_util::function_ee75acde(line);
 	vengeance_util::function_ee75acde("hend_if_we_can_clear_the_0", 4);
-	level thread namespace_9fd035::function_14592f48();
+	level thread vengeance_sound::function_14592f48();
 	level.ai_hendricks battlechatter::function_d9f49fba(1);
 }
 

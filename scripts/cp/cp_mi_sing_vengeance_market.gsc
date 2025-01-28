@@ -150,7 +150,7 @@ function quad_battle_main()
 {
 	thread cp_mi_sing_vengeance_sound::function_10de79ba();
 	level.ai_hendricks vengeance_util::function_5fbec645("hend_rally_on_me_and_let_0");
-	level thread namespace_9fd035::function_973b77f9();
+	level thread vengeance_sound::function_973b77f9();
 	objectives::set("cp_level_vengeance_go_to_safehouse");
 	trigger::use("hendricks_qt_color_start", "targetname");
 	var_77d44b28 = getent("garage_player_gather_trigger", "targetname");

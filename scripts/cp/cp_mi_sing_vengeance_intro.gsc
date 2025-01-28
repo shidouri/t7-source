@@ -76,7 +76,7 @@ function intro_main(str_objective)
 	level flag::set("intro_wall_done");
 	level thread intro_hendricks();
 	level thread function_858195d5();
-	level thread namespace_9fd035::function_d4c52995();
+	level thread vengeance_sound::function_d4c52995();
 	level clientfield::set("gameplay_started", 1);
 	savegame::checkpoint_save();
 	thread cp_mi_sing_vengeance_sound::intro_complete();
@@ -189,7 +189,7 @@ function intro_screen(str_objective)
 	{
 		level thread [[level.bzm_vengeancedialogue1callback]]();
 	}
-	level thread namespace_9fd035::function_7dc66faa();
+	level thread vengeance_sound::function_7dc66faa();
 	intro_anim_struct scene::play("cin_ven_01_intro_3rd_sh010");
 	level waittill("intro_igc_done");
 	util::clear_streamer_hint();
@@ -1360,7 +1360,7 @@ function hendricks_takedown_vo()
 	wait(1.5);
 	level thread function_d07dfdc1();
 	level waittill(#"hash_d1668ed6");
-	level thread namespace_9fd035::function_e18f629a();
+	level thread vengeance_sound::function_e18f629a();
 	level.ai_hendricks waittill(#"hash_6ed80778");
 	level dialog::player_say("plyr_this_is_what_happens_0");
 	level dialog::player_say("plyr_we_get_kane_then_w_0");

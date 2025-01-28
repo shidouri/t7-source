@@ -60,7 +60,7 @@ function skipto_dogleg_1_init(str_objective, b_starting)
 		objectives::set("cp_level_vengeance_rescue_kane");
 		objectives::set("cp_level_vengeance_go_to_safehouse");
 		objectives::hide("cp_level_vengeance_go_to_safehouse");
-		level thread namespace_9fd035::function_dad71f51("tension_loop_2");
+		level thread vengeance_sound::function_dad71f51("tension_loop_2");
 		level.var_4c62d05f = level.players[0];
 		scene::init("cin_ven_04_10_cafedoor_1st_sh010");
 		util::set_streamer_hint(3);
@@ -165,7 +165,7 @@ function function_e17e849c()
 	{
 		level thread [[level.bzm_vengeancedialogue5callback]]();
 	}
-	level thread namespace_9fd035::function_dad71f51("tension_loop_2");
+	level thread vengeance_sound::function_dad71f51("tension_loop_2");
 	foreach(player in level.players)
 	{
 		player thread function_fd7fd40d();
@@ -229,7 +229,7 @@ function function_798b0fec()
 {
 	level endon(#"hash_2b965a47");
 	level dialog::remote("tayr_you_don_t_understand_1", 0, "no_dni");
-	level thread namespace_9fd035::function_862430bd();
+	level thread vengeance_sound::function_862430bd();
 	util::clientnotify("sndLRstop");
 	level notify("kas");
 	level.ai_hendricks waittill(#"hash_a89f76ac");

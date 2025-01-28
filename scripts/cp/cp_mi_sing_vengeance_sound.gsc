@@ -115,7 +115,7 @@ function function_7be69db9()
 function function_749aad88()
 {
 	stealth::function_76c2ffe4("unaware");
-	level thread namespace_9fd035::function_e18f629a();
+	level thread vengeance_sound::function_e18f629a();
 }
 
 /*
@@ -142,8 +142,8 @@ function function_34d7007d()
 */
 function garage_init()
 {
-	level thread namespace_9fd035::function_f64b08fb();
-	level thread namespace_9fd035::function_46333a8a();
+	level thread vengeance_sound::function_f64b08fb();
+	level thread vengeance_sound::function_46333a8a();
 }
 
 /*
@@ -414,7 +414,7 @@ function function_4f84abfa()
 		player playsoundtoplayer("evt_takedown_hendricks_shot_low", player);
 	}
 	playsoundatposition("evt_takedown_hendricks_shot", (20387, -4854, 401));
-	level thread namespace_9fd035::function_fedfbdb0();
+	level thread vengeance_sound::function_fedfbdb0();
 	wait(0.6);
 	playsoundatposition("veh_siege_bot_disable", (20692, -4683, 224));
 }
@@ -588,9 +588,9 @@ function function_5bd9fe4()
 {
 	wait(0.5);
 	playsoundatposition("evt_quad_tank_enter", (-18946, -17409, 151));
-	level thread namespace_9fd035::function_8d18c8bc();
+	level thread vengeance_sound::function_8d18c8bc();
 	level flag::wait_till("quad_tank_dead");
-	level thread namespace_9fd035::function_fa2e45b8();
+	level thread vengeance_sound::function_fa2e45b8();
 }
 
 /*
@@ -787,11 +787,11 @@ function function_bbdaa3ea()
 	iprintlnbold("anim3 started");
 }
 
-#namespace namespace_9fd035;
+#namespace vengeance_sound;
 
 /*
 	Name: function_973b77f9
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x7B32AE2F
 	Offset: 0x22B8
 	Size: 0x1C
@@ -805,7 +805,7 @@ function function_973b77f9()
 
 /*
 	Name: function_7dc66faa
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x63D19081
 	Offset: 0x22E0
 	Size: 0x1C
@@ -819,7 +819,7 @@ function function_7dc66faa()
 
 /*
 	Name: function_d4c52995
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x723D011C
 	Offset: 0x2308
 	Size: 0x1C
@@ -833,7 +833,7 @@ function function_d4c52995()
 
 /*
 	Name: function_fedfbdb0
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xD9C7A69C
 	Offset: 0x2330
 	Size: 0x1C
@@ -847,7 +847,7 @@ function function_fedfbdb0()
 
 /*
 	Name: function_9b52c0fa
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x8D18BDB4
 	Offset: 0x2358
 	Size: 0x1C
@@ -861,7 +861,7 @@ function function_9b52c0fa()
 
 /*
 	Name: function_e18f629a
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x8B346E3D
 	Offset: 0x2380
 	Size: 0x24
@@ -876,7 +876,7 @@ function function_e18f629a()
 
 /*
 	Name: function_862430bd
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x54A75695
 	Offset: 0x23B0
 	Size: 0x1C
@@ -890,7 +890,7 @@ function function_862430bd()
 
 /*
 	Name: function_791dd03
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x7BFB56AB
 	Offset: 0x23D8
 	Size: 0x1C
@@ -904,7 +904,7 @@ function function_791dd03()
 
 /*
 	Name: function_fa2e45b8
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xCBD3722B
 	Offset: 0x2400
 	Size: 0x1C
@@ -918,7 +918,7 @@ function function_fa2e45b8()
 
 /*
 	Name: function_c270e327
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xC91BACDF
 	Offset: 0x2428
 	Size: 0x24
@@ -933,7 +933,7 @@ function function_c270e327()
 
 /*
 	Name: function_8d18c8bc
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xE65FC318
 	Offset: 0x2458
 	Size: 0x1C
@@ -947,7 +947,7 @@ function function_8d18c8bc()
 
 /*
 	Name: function_58779b4
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xA12229DB
 	Offset: 0x2480
 	Size: 0x1C
@@ -961,7 +961,7 @@ function function_58779b4()
 
 /*
 	Name: function_46333a8a
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xE1709C93
 	Offset: 0x24A8
 	Size: 0x1C
@@ -975,7 +975,7 @@ function function_46333a8a()
 
 /*
 	Name: function_83763d08
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xFF6FCE
 	Offset: 0x24D0
 	Size: 0x1C
@@ -989,7 +989,7 @@ function function_83763d08()
 
 /*
 	Name: function_b83aa9c5
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xAA889593
 	Offset: 0x24F8
 	Size: 0x1C
@@ -1003,7 +1003,7 @@ function function_b83aa9c5()
 
 /*
 	Name: function_c8bfdb76
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x39B2DCFB
 	Offset: 0x2520
 	Size: 0x24
@@ -1018,7 +1018,7 @@ function function_c8bfdb76()
 
 /*
 	Name: function_14592f48
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x2F896350
 	Offset: 0x2550
 	Size: 0x1C
@@ -1032,7 +1032,7 @@ function function_14592f48()
 
 /*
 	Name: function_e6a33cb1
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x2B31FD2E
 	Offset: 0x2578
 	Size: 0x1C
@@ -1046,7 +1046,7 @@ function function_e6a33cb1()
 
 /*
 	Name: function_dad71f51
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x90567200
 	Offset: 0x25A0
 	Size: 0x198
@@ -1095,7 +1095,7 @@ function function_dad71f51(state)
 
 /*
 	Name: function_f64b08fb
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x8A6B37A6
 	Offset: 0x2740
 	Size: 0x3C
@@ -1113,7 +1113,7 @@ function function_f64b08fb(state)
 
 /*
 	Name: function_484281f1
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0xB59839F0
 	Offset: 0x2788
 	Size: 0xD8
@@ -1137,7 +1137,7 @@ function function_484281f1()
 
 /*
 	Name: function_6c2fa1d0
-	Namespace: namespace_9fd035
+	Namespace: vengeance_sound
 	Checksum: 0x71B78B98
 	Offset: 0x2868
 	Size: 0x24

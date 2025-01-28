@@ -790,7 +790,7 @@ function setup_killing_streets_lineup_patroller_spawners()
 	self ai::set_ignoreme(0);
 	level flag::set("killing_streets_lineup_patrollers_alerted");
 	util::clientnotify("sndLRstop");
-	level thread namespace_9fd035::function_6c2fa1d0();
+	level thread vengeance_sound::function_6c2fa1d0();
 	self stopanimscripted();
 }
 
