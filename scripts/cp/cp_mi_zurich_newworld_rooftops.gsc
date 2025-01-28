@@ -83,8 +83,8 @@ function skipto_apartment_igc_done(str_objective, b_starting, b_direct, player)
 	{
 		level flag::init("chase_done");
 	}
-	level thread namespace_37a1dc33::function_cd261d0b();
-	level thread namespace_37a1dc33::function_323baa37();
+	level thread newworld_accolades::function_cd261d0b();
+	level thread newworld_accolades::function_323baa37();
 }
 
 /*

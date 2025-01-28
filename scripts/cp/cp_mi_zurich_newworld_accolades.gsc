@@ -8,11 +8,11 @@
 #using scripts\shared\spawner_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_37a1dc33;
+#namespace newworld_accolades;
 
 /*
 	Name: accolades_init
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x39B206BC
 	Offset: 0x5D0
 	Size: 0x29C
@@ -51,7 +51,7 @@ function accolades_init()
 
 /*
 	Name: function_3a6b5b3e
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xD029393
 	Offset: 0x878
 	Size: 0x64
@@ -68,7 +68,7 @@ function function_3a6b5b3e()
 
 /*
 	Name: function_c27610f9
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xCF9AD48F
 	Offset: 0x8E8
 	Size: 0xD6
@@ -96,7 +96,7 @@ function function_c27610f9(var_8e087689, var_70b01bd3)
 
 /*
 	Name: function_9f8d841b
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x9AFAD62E
 	Offset: 0x9C8
 	Size: 0x1A
@@ -111,7 +111,7 @@ function function_9f8d841b()
 
 /*
 	Name: function_89a4c66f
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xE8E41C32
 	Offset: 0x9F0
 	Size: 0x24
@@ -125,7 +125,7 @@ function function_89a4c66f()
 
 /*
 	Name: function_595dc718
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xAB731FC9
 	Offset: 0xA20
 	Size: 0x214
@@ -169,7 +169,7 @@ function function_595dc718(params)
 
 /*
 	Name: function_840d3bcc
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x42CBAA63
 	Offset: 0xC40
 	Size: 0x4C
@@ -188,7 +188,7 @@ function function_840d3bcc()
 
 /*
 	Name: function_314eff4a
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x79546174
 	Offset: 0xC98
 	Size: 0x24
@@ -202,7 +202,7 @@ function function_314eff4a()
 
 /*
 	Name: function_9257e223
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xB2B3A567
 	Offset: 0xCC8
 	Size: 0x7C
@@ -223,7 +223,7 @@ function function_9257e223(params)
 
 /*
 	Name: function_2b972244
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xABEAF6AA
 	Offset: 0xD50
 	Size: 0x24
@@ -237,7 +237,7 @@ function function_2b972244()
 
 /*
 	Name: function_9d5a87b1
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x74218BB8
 	Offset: 0xD80
 	Size: 0xFC
@@ -263,7 +263,7 @@ function function_9d5a87b1(params)
 
 /*
 	Name: function_b4b1da62
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x6040BBBE
 	Offset: 0xE88
 	Size: 0x2C
@@ -278,7 +278,7 @@ function function_b4b1da62()
 
 /*
 	Name: function_5a3da660
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x83CFE33C
 	Offset: 0xEC0
 	Size: 0x2C
@@ -292,7 +292,7 @@ function function_5a3da660()
 
 /*
 	Name: function_f9a5c6a1
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x1243F60C
 	Offset: 0xEF8
 	Size: 0x14C
@@ -327,7 +327,7 @@ function function_f9a5c6a1()
 
 /*
 	Name: function_9c7144b6
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xF948F2E1
 	Offset: 0x1050
 	Size: 0x1A
@@ -342,7 +342,7 @@ function function_9c7144b6()
 
 /*
 	Name: function_e346bcd4
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xFFF9A42F
 	Offset: 0x1078
 	Size: 0x24
@@ -356,7 +356,7 @@ function function_e346bcd4()
 
 /*
 	Name: function_1b6f43c5
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x7847D504
 	Offset: 0x10A8
 	Size: 0x210
@@ -397,7 +397,7 @@ function function_1b6f43c5(params)
 
 /*
 	Name: function_7e35ccbc
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x172DB8B4
 	Offset: 0x12C0
 	Size: 0x88
@@ -421,7 +421,7 @@ function function_7e35ccbc()
 
 /*
 	Name: function_23ad043b
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x66E2613
 	Offset: 0x1350
 	Size: 0x40
@@ -439,7 +439,7 @@ function function_23ad043b()
 
 /*
 	Name: function_a87e96e
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xC6610F5
 	Offset: 0x1398
 	Size: 0x24
@@ -453,7 +453,7 @@ function function_a87e96e()
 
 /*
 	Name: function_ee3272c2
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xE61E089A
 	Offset: 0x13C8
 	Size: 0xC0
@@ -480,7 +480,7 @@ function function_ee3272c2(params)
 
 /*
 	Name: function_353e449e
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x842FCE29
 	Offset: 0x1490
 	Size: 0x24
@@ -494,7 +494,7 @@ function function_353e449e()
 
 /*
 	Name: function_3867e45c
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x7097BE11
 	Offset: 0x14C0
 	Size: 0x68
@@ -511,7 +511,7 @@ function function_3867e45c(params)
 
 /*
 	Name: function_6972c343
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x7A38CFFB
 	Offset: 0x1530
 	Size: 0x4C
@@ -526,7 +526,7 @@ function function_6972c343()
 
 /*
 	Name: function_deb99e6
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xDB4B6E99
 	Offset: 0x1588
 	Size: 0x54
@@ -548,7 +548,7 @@ function function_deb99e6()
 
 /*
 	Name: function_c008ffe2
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x734EA42E
 	Offset: 0x15E8
 	Size: 0x64
@@ -568,7 +568,7 @@ function function_c008ffe2(params)
 
 /*
 	Name: function_cd261d0b
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xD12FA721
 	Offset: 0x1658
 	Size: 0x142
@@ -591,7 +591,7 @@ function function_cd261d0b()
 
 /*
 	Name: function_af529683
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x7C53D562
 	Offset: 0x17A8
 	Size: 0x4C
@@ -608,7 +608,7 @@ function function_af529683()
 
 /*
 	Name: function_2d344335
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x8D1DB050
 	Offset: 0x1800
 	Size: 0xA4
@@ -626,7 +626,7 @@ function function_2d344335()
 
 /*
 	Name: function_323baa37
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xA450F35A
 	Offset: 0x18B0
 	Size: 0x14C
@@ -649,7 +649,7 @@ function function_323baa37()
 
 /*
 	Name: function_bc7f04af
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x46CC825D
 	Offset: 0x1A08
 	Size: 0x7C
@@ -666,7 +666,7 @@ function function_bc7f04af(params)
 
 /*
 	Name: function_829b12c4
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x5029A397
 	Offset: 0x1A90
 	Size: 0x9C
@@ -688,7 +688,7 @@ function function_829b12c4(params)
 
 /*
 	Name: function_8af9d448
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x4C2A8BBD
 	Offset: 0x1B38
 	Size: 0xA4
@@ -706,7 +706,7 @@ function function_8af9d448()
 
 /*
 	Name: function_f7dd9b2c
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x178D951E
 	Offset: 0x1BE8
 	Size: 0x54
@@ -722,7 +722,7 @@ function function_f7dd9b2c()
 
 /*
 	Name: function_e50c8d4a
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x41F26345
 	Offset: 0x1C48
 	Size: 0xB8
@@ -742,7 +742,7 @@ function function_e50c8d4a(params)
 
 /*
 	Name: function_8bb97e0
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x4B4A0419
 	Offset: 0x1D08
 	Size: 0xCC
@@ -761,7 +761,7 @@ function function_8bb97e0()
 
 /*
 	Name: function_85ed003e
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x83940A47
 	Offset: 0x1DE0
 	Size: 0xB0
@@ -784,7 +784,7 @@ function function_85ed003e(params)
 
 /*
 	Name: function_ee166ee8
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xFA6E1C5D
 	Offset: 0x1E98
 	Size: 0x44
@@ -802,7 +802,7 @@ function function_ee166ee8()
 
 /*
 	Name: function_80820e19
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0xF1321C52
 	Offset: 0x1EE8
 	Size: 0x44
@@ -817,7 +817,7 @@ function function_80820e19()
 
 /*
 	Name: function_14316bd1
-	Namespace: namespace_37a1dc33
+	Namespace: newworld_accolades
 	Checksum: 0x8BDB8ABC
 	Offset: 0x1F38
 	Size: 0xF4

@@ -540,7 +540,7 @@ function skipto_vat_room_init(str_objective, b_starting)
 		load::function_a2995f22();
 		level thread namespace_e38c3c58::function_ccafa212();
 	}
-	level thread namespace_37a1dc33::function_f7dd9b2c();
+	level thread newworld_accolades::function_f7dd9b2c();
 	battlechatter::function_d9f49fba(0);
 	umbragate_set("umbra_gate_vat_room_door_01", 0);
 	if(sessionmodeiscampaignzombiesgame())

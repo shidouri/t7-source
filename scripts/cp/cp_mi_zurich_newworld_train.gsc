@@ -443,7 +443,7 @@ function skipto_train_init(str_objective, b_starting)
 	function_c63fb1d();
 	level thread function_8c0c3c47();
 	level thread namespace_e38c3c58::function_a99be221();
-	level thread namespace_37a1dc33::function_8bb97e0();
+	level thread newworld_accolades::function_8bb97e0();
 	level thread function_8b44d21a();
 	function_b9045c8a();
 	function_9301e221();
