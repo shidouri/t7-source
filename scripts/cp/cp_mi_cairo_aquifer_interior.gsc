@@ -231,7 +231,7 @@ function handle_hideout(b_starting = 0)
 	aquifer_obj::function_f67ca613(1);
 	scene::play("cin_aqu_16_outro_3rd_sh010", level.hendricks);
 	level waittill("hideout_scene_done");
-	level thread namespace_71a63eac::function_a1e074db();
+	level thread aquifer_sound::function_a1e074db();
 	util::teleport_players_igc("post_hideout_igc");
 }
 

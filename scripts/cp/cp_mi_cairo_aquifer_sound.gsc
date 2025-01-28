@@ -659,11 +659,11 @@ function function_de37a122(b_active = 1)
 	}
 }
 
-#namespace namespace_71a63eac;
+#namespace aquifer_sound;
 
 /*
 	Name: function_973b77f9
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x6242B7E3
 	Offset: 0x2670
 	Size: 0x1C
@@ -677,7 +677,7 @@ function function_973b77f9()
 
 /*
 	Name: play_intro_igc
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xA01B03BA
 	Offset: 0x2698
 	Size: 0x1C
@@ -691,7 +691,7 @@ function play_intro_igc()
 
 /*
 	Name: function_bdb99f05
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xD4B9231
 	Offset: 0x26C0
 	Size: 0x1C
@@ -705,7 +705,7 @@ function function_bdb99f05()
 
 /*
 	Name: function_48972636
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xCC7B5971
 	Offset: 0x26E8
 	Size: 0x1C
@@ -719,7 +719,7 @@ function function_48972636()
 
 /*
 	Name: function_e703f818
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xE55F2BA4
 	Offset: 0x2710
 	Size: 0x1C
@@ -733,7 +733,7 @@ function function_e703f818()
 
 /*
 	Name: function_ca2c6d9f
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xBC60DA9E
 	Offset: 0x2738
 	Size: 0x1C
@@ -747,7 +747,7 @@ function function_ca2c6d9f()
 
 /*
 	Name: function_bb8ce831
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xB6159BEA
 	Offset: 0x2760
 	Size: 0x24
@@ -762,7 +762,7 @@ function function_bb8ce831()
 
 /*
 	Name: function_8210b658
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xF3321B6D
 	Offset: 0x2790
 	Size: 0x1C
@@ -776,7 +776,7 @@ function function_8210b658()
 
 /*
 	Name: function_e18f629a
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x616CC581
 	Offset: 0x27B8
 	Size: 0x1C
@@ -790,7 +790,7 @@ function function_e18f629a()
 
 /*
 	Name: function_a2d40521
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xA832B5BB
 	Offset: 0x27E0
 	Size: 0x1C
@@ -804,7 +804,7 @@ function function_a2d40521()
 
 /*
 	Name: function_b1ee6c2d
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x7FB6BFDF
 	Offset: 0x2808
 	Size: 0x1C
@@ -818,7 +818,7 @@ function function_b1ee6c2d()
 
 /*
 	Name: function_6860e122
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x2C639473
 	Offset: 0x2830
 	Size: 0x1C
@@ -832,7 +832,7 @@ function function_6860e122()
 
 /*
 	Name: function_55376eeb
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xC464EF76
 	Offset: 0x2858
 	Size: 0x1C
@@ -846,7 +846,7 @@ function function_55376eeb()
 
 /*
 	Name: function_36cd6ee8
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x27D86413
 	Offset: 0x2880
 	Size: 0x1C
@@ -860,7 +860,7 @@ function function_36cd6ee8()
 
 /*
 	Name: function_5ac17e2c
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xFDE99485
 	Offset: 0x28A8
 	Size: 0x1C
@@ -874,7 +874,7 @@ function function_5ac17e2c()
 
 /*
 	Name: function_4de42644
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x73CFB806
 	Offset: 0x28D0
 	Size: 0x1C
@@ -888,7 +888,7 @@ function function_4de42644()
 
 /*
 	Name: function_f819830b
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x584B2EFD
 	Offset: 0x28F8
 	Size: 0x1C
@@ -902,7 +902,7 @@ function function_f819830b()
 
 /*
 	Name: function_1a168f0c
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xA3EB6BE
 	Offset: 0x2920
 	Size: 0x1C
@@ -916,7 +916,7 @@ function function_1a168f0c()
 
 /*
 	Name: function_99caac9d
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xA8DC39F3
 	Offset: 0x2948
 	Size: 0x1C
@@ -930,7 +930,7 @@ function function_99caac9d()
 
 /*
 	Name: function_e0e00797
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0xDB0E9DD4
 	Offset: 0x2970
 	Size: 0x1C
@@ -944,7 +944,7 @@ function function_e0e00797()
 
 /*
 	Name: function_a1e074db
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x4200A0B4
 	Offset: 0x2998
 	Size: 0x1C
@@ -958,7 +958,7 @@ function function_a1e074db()
 
 /*
 	Name: function_ae6b41cd
-	Namespace: namespace_71a63eac
+	Namespace: aquifer_sound
 	Checksum: 0x9C38EC14
 	Offset: 0x29C0
 	Size: 0x1C

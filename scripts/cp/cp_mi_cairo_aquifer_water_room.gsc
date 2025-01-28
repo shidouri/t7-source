@@ -209,11 +209,11 @@ function function_4a90c357()
 	thread function_3ed240f1();
 	var_31b9fd4a = getent("doubledoor_sbm", "targetname");
 	var_31b9fd4a hide();
-	level thread namespace_71a63eac::function_8210b658();
+	level thread aquifer_sound::function_8210b658();
 	level thread scene::play("cin_aqu_02_01_floodroom_1st_dragged", level.kayne);
 	level waittill(#"hash_b580186f");
 	level notify(#"hash_8f79547f");
-	level thread namespace_71a63eac::function_e18f629a();
+	level thread aquifer_sound::function_e18f629a();
 	util::teleport_players_igc("igc_post_water_structs");
 	setdvar("player_swimSpeed", 150);
 	thread function_a079b7e3();
@@ -328,7 +328,7 @@ function function_498a7d66()
 function function_ee430caa()
 {
 	var_99b9d1f2 = trigger::wait_till("water_room_exit_igc");
-	level thread namespace_71a63eac::function_973b77f9();
+	level thread aquifer_sound::function_973b77f9();
 	level notify(#"hash_9f732141");
 	level notify(#"hash_bf1c950c");
 	aquifer_util::function_8bf8a765(1);
@@ -391,7 +391,7 @@ function function_430fd872()
 	level dialog::player_say("plyr_copy_that_we_re_on_0");
 	wait(4);
 	level dialog::player_say("plyr_i_see_em_multiple_0");
-	level thread namespace_71a63eac::function_b1ee6c2d();
+	level thread aquifer_sound::function_b1ee6c2d();
 	wait(1);
 	level dialog::player_say("kane_copy_i_see_em_too_0");
 }
@@ -760,7 +760,7 @@ function function_a1b52577()
 	level dialog::remote("khal_kane_do_you_read_me_0");
 	level dialog::remote("khal_there_s_multiple_con_0");
 	level.kayne dialog::say("kane_taylor_and_maretti_0");
-	level thread namespace_71a63eac::function_a2d40521();
+	level thread aquifer_sound::function_a2d40521();
 	level dialog::remote("khal_kane_you_have_to_go_0");
 	thread function_71af9864();
 	level flag::set("water_room_checkpoint");
