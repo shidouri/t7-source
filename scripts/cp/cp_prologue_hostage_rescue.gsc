@@ -635,7 +635,7 @@ function function_c9d7d48a()
 		}
 		wait(0.05);
 	}
-	level thread namespace_21b2c1f2::function_d4c52995();
+	level thread prologue_sound::function_d4c52995();
 	wait(0.15);
 	level scene::add_scene_func("cin_pro_06_02_hostage_vign_getminister_hendricks_airlock", &function_5729b9e7, "play");
 	level scene::play("cin_pro_06_02_hostage_vign_getminister_hendricks_airlock");
@@ -995,7 +995,7 @@ function hendricks_update()
 function function_22b149da()
 {
 	level waittill(#"hash_5ea48ae9");
-	level thread namespace_21b2c1f2::function_1c0460dd();
+	level thread prologue_sound::function_1c0460dd();
 	level waittill(#"hash_35308140");
 	level.ai_hendricks dialog::say("hend_depot_ahead_will_be_0");
 }
@@ -1286,7 +1286,7 @@ function function_b8d7b823(a_ents)
 	level.ai_hendricks dialog::say("hend_on_my_mark_0");
 	wait(1);
 	level.ai_hendricks thread dialog::say("hend_three_two_go_0");
-	level thread namespace_21b2c1f2::function_2f85277b();
+	level thread prologue_sound::function_2f85277b();
 	wait(1);
 	foreach(e_player in level.activeplayers)
 	{
@@ -1348,7 +1348,7 @@ function function_15c51270()
 	level waittill(#"hash_a859aef4");
 	level thread function_b1d2594d();
 	level flag::wait_till("khalil_door_breached");
-	level thread namespace_21b2c1f2::function_fb4a2ce1();
+	level thread prologue_sound::function_fb4a2ce1();
 }
 
 /*
@@ -1472,7 +1472,7 @@ function security_desk_main()
 	trig_weapon_room_door = getent("trig_open_weapons_room", "targetname");
 	trig_weapon_room_door triggerenable(1);
 	level flag::wait_till("open_weapons_room");
-	level thread namespace_21b2c1f2::function_6c35b4f3();
+	level thread prologue_sound::function_6c35b4f3();
 	level thread bioweapon_objective_handler();
 }
 
@@ -2064,7 +2064,7 @@ function function_b17bd9c5()
 function function_e97f7dba()
 {
 	spawner::waittill_ai_group_cleared("lift_area");
-	level thread namespace_21b2c1f2::function_49fef8f4();
+	level thread prologue_sound::function_49fef8f4();
 	level thread function_d4734ff1();
 	level thread function_6f04ae03();
 	level.ai_hendricks thread send_hendricks_to_lift();
@@ -2846,8 +2846,8 @@ function function_6fabe3da()
 	cp_prologue_util::function_520255e3("t_lift_reinforcements", 60);
 	level.ai_hendricks dialog::say("hend_elevator_s_right_the_0");
 	level waittill("lift_is_moving");
-	level thread namespace_21b2c1f2::function_9f50ebc2();
-	level thread namespace_21b2c1f2::function_c4c71c7();
+	level thread prologue_sound::function_9f50ebc2();
+	level thread prologue_sound::function_c4c71c7();
 }
 
 /*

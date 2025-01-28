@@ -143,7 +143,7 @@ function function_e4486a45()
 	level.ai_hendricks waittill("open_door");
 	level.ai_hendricks setgoal(getnode("nd_nrc_knocking_hendrics_retreat", "targetname"), 1);
 	level.ai_hendricks thread dialog::say("hend_let_s_get_this_done_0");
-	level thread namespace_21b2c1f2::function_e245d17f();
+	level thread prologue_sound::function_e245d17f();
 	level.ai_hendricks.allowbattlechatter["bc"] = 0;
 	battlechatter::function_d9f49fba(1);
 	level thread function_d511e678();

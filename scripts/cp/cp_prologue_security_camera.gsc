@@ -216,7 +216,7 @@ function function_9f9f8c2a()
 			case "interrogation":
 			{
 				level.minister_located = 1;
-				level thread namespace_21b2c1f2::function_fa2e45b8();
+				level thread prologue_sound::function_fa2e45b8();
 				break;
 			}
 		}
@@ -348,7 +348,7 @@ function player_uses_the_security_camera_station(s_player_use, extra_cam_index)
 		level notify(#"hash_17ce64b4");
 		self thread turn_on_security_camera(extra_cam_index);
 		level.var_ab82ba6d = 1;
-		level thread namespace_21b2c1f2::function_e847067();
+		level thread prologue_sound::function_e847067();
 	}
 	s_align_struct thread scene::play(str_anim_idle, self);
 	wait(2);
@@ -377,7 +377,7 @@ function player_uses_the_security_camera_station(s_player_use, extra_cam_index)
 		wait(0.05);
 	}
 	self thread function_a4090f73(level.var_d658503a);
-	level thread namespace_21b2c1f2::function_973b77f9();
+	level thread prologue_sound::function_973b77f9();
 	level.minister_located = 1;
 	level notify("minister_located");
 	var_38907d67 = getent("t_regroup_security_camera", "targetname");
@@ -817,11 +817,11 @@ function hendricks_security_camera()
 	level flag::set("activate_bc_5");
 	level flag::wait_till("stealth_kill_prepare_done");
 	cp_prologue_util::function_d1f1caad("t_start_security_cam_room_breach_v2");
-	level thread namespace_21b2c1f2::function_973b77f9();
+	level thread prologue_sound::function_973b77f9();
 	level notify(#"hash_fa5c41eb");
 	exploder::exploder("light_exploder_cameraroom");
 	level thread scene::add_scene_func("cin_pro_05_01_securitycam_1st_stealth_kill", &function_2b60c70b);
-	level thread namespace_21b2c1f2::function_fd00a4f2();
+	level thread prologue_sound::function_fd00a4f2();
 	level scene::play("cin_pro_05_01_securitycam_1st_stealth_kill");
 	level notify(#"hash_af8926a2");
 	if(isdefined(level.bzm_prologuedialogue3callback))

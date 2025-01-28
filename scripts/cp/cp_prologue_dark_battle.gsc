@@ -49,7 +49,7 @@ function dark_battle_start()
 {
 	dark_battle_precache();
 	dark_battle_heros_init();
-	level thread namespace_21b2c1f2::function_3c37ec50();
+	level thread prologue_sound::function_3c37ec50();
 	level thread dark_battle_main();
 }
 
@@ -141,7 +141,7 @@ function dark_battle_main()
 	{
 		wait(0.5);
 	}
-	level thread namespace_21b2c1f2::function_973b77f9();
+	level thread prologue_sound::function_973b77f9();
 	level notify(#"hash_a9e3188");
 	level notify(#"hash_bd74d007");
 	level util::clientnotify("sndDBW");
@@ -544,7 +544,7 @@ function function_c2326e34()
 	level flag::set("ev_enabled");
 	wait(1);
 	level notify("lights_out");
-	level thread namespace_21b2c1f2::function_a0f24f9b();
+	level thread prologue_sound::function_a0f24f9b();
 }
 
 /*
@@ -592,7 +592,7 @@ function function_7bd8c5a3()
 	wait(1);
 	exploder::exploder("light_exploder_darkbattle");
 	level util::clientnotify("sndDBBe");
-	level thread namespace_21b2c1f2::function_2a66b344();
+	level thread prologue_sound::function_2a66b344();
 }
 
 /*
@@ -1286,7 +1286,7 @@ function function_321578a8()
 function function_623731e2()
 {
 	level waittill(#"hash_13ea3fcf");
-	level thread namespace_21b2c1f2::function_f573bcb9();
+	level thread prologue_sound::function_f573bcb9();
 	level dialog::remote("tayr_easy_hold_your_fire_0", undefined, "normal");
 }
 
@@ -1301,7 +1301,7 @@ function function_623731e2()
 */
 function hendricks_vtol_snark()
 {
-	level thread namespace_21b2c1f2::function_49fef8f4();
+	level thread prologue_sound::function_49fef8f4();
 	level.ai_hendricks dialog::say("hend_taylor_alpha_two_te_0", 2);
 	level.ai_hendricks dialog::say("hend_comes_easy_now_hu_0", 1.5);
 	level.ai_prometheus dialog::say("tayr_extract_is_the_satel_0", 0.5);

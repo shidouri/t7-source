@@ -189,7 +189,7 @@ function function_9f230ee1()
 function function_679e7da9(a_ents)
 {
 	level thread function_ac290386();
-	scene::add_scene_func("cin_pro_09_01_intro_1st_cybersoldiers_taylor_attack", &namespace_21b2c1f2::function_43ead72c, "play");
+	scene::add_scene_func("cin_pro_09_01_intro_1st_cybersoldiers_taylor_attack", &prologue_sound::function_43ead72c, "play");
 	scene::add_scene_func("cin_pro_09_01_intro_1st_cybersoldiers_taylor_attack", &function_39b556d, "play");
 	scene::add_scene_func("cin_pro_09_01_intro_1st_cybersoldiers_taylor_attack", &function_e98e1240, "play");
 	scene::add_scene_func("cin_pro_09_01_intro_1st_cybersoldiers_sarah_attack", &function_4e5acf5e, "play");

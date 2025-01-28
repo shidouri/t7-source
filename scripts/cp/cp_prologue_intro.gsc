@@ -80,7 +80,7 @@ function air_traffic_controller_main()
 	level.ai_hendricks thread dialog::say("hend_the_nrc_are_gonna_be_0");
 	wait(1.5);
 	level clientfield::set("sndIGCsnapshot", 2);
-	level thread namespace_21b2c1f2::play_intro_igc();
+	level thread prologue_sound::play_intro_igc();
 	if(isdefined(level.bzm_prologuedialogue1callback))
 	{
 		level thread [[level.bzm_prologuedialogue1callback]]();
