@@ -91,11 +91,11 @@ function function_b23a802b()
 	// Unsupported VM revision (1B).
 }
 
-#namespace namespace_e4c0c552;
+#namespace ramses_sound;
 
 /*
 	Name: function_4f8bda39
-	Namespace: namespace_e4c0c552
+	Namespace: ramses_sound
 	Checksum: 0x48C0A495
 	Offset: 0x308
 	Size: 0x0
@@ -109,7 +109,7 @@ function function_4f8bda39()
 
 /*
 	Name: function_53de5c02
-	Namespace: namespace_e4c0c552
+	Namespace: ramses_sound
 	Checksum: 0x6AAA4159
 	Offset: 0x330
 	Size: 0x0
@@ -123,7 +123,7 @@ function function_53de5c02()
 
 /*
 	Name: station_defend_music
-	Namespace: namespace_e4c0c552
+	Namespace: ramses_sound
 	Checksum: 0xD2060EC3
 	Offset: 0x358
 	Size: 0x0
@@ -137,7 +137,7 @@ function station_defend_music()
 
 /*
 	Name: function_9bda9447
-	Namespace: namespace_e4c0c552
+	Namespace: ramses_sound
 	Checksum: 0x2BE6C46
 	Offset: 0x380
 	Size: 0x0
@@ -151,7 +151,7 @@ function function_9bda9447()
 
 /*
 	Name: function_973b77f9
-	Namespace: namespace_e4c0c552
+	Namespace: ramses_sound
 	Checksum: 0xA9BCA655
 	Offset: 0x3A8
 	Size: 0x0
