@@ -211,7 +211,7 @@ function subway_completion()
 function subway_dialog()
 {
 	trigger::wait_till("trig_hendricks_swim");
-	level thread namespace_4297372::function_37f7c98d();
+	level thread blackstation_sound::function_37f7c98d();
 	level thread cp_mi_sing_blackstation_police_station::function_a7bb8a82();
 }
 
