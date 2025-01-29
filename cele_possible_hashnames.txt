@@ -13,3 +13,11 @@ blackstation_sound
 sgen_sound
 vengeance_sound
 newworld_accolades
+cloudmountain_siegebots_dead
+set_exposure_bank
+warehouse_warlord_retreated
+raven_spawn_teleport
+intro_ambience
+zurich_city_ambience
+hq_amb
+hq_exit_zone_trig
