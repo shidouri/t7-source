@@ -74,7 +74,7 @@ function init_clientfields()
 	clientfield::register("toplayer", "postfx_futz", 1, 1, "counter", &postfx_futz, 0, 0);
 	clientfield::register("toplayer", "postfx_futz_mild", 1, 1, "counter", &postfx_futz_mild, 0, 0);
 	clientfield::register("toplayer", "postfx_transition", 1, 1, "counter", &function_edf5c801, 0, 0);
-	clientfield::register("world", "zurich_city_ambience", 1, 1, "int", &function_14b2ccdd, 0, 0);
+	clientfield::register("world", "zurich_city_ambience", 1, 1, "int", &zurich_city_ambience, 0, 0);
 	clientfield::register("actor", "skin_transition_melt", 1, 1, "int", &function_28572b48, 0, 1);
 	clientfield::register("scriptmover", "corvus_body_fx", 1, 1, "int", &function_b5037219, 0, 0);
 	clientfield::register("actor", "raven_ai_rez", 1, 1, "int", &function_91c7508e, 0, 0);
@@ -758,7 +758,7 @@ function postfx_futz_mild(localclientnum, oldval, newval, bnewent, binitialsnap,
 }
 
 /*
-	Name: function_14b2ccdd
+	Name: zurich_city_ambience
 	Namespace: zurich_util
 	Checksum: 0xC3C79A4E
 	Offset: 0x4CB8
@@ -766,7 +766,7 @@ function postfx_futz_mild(localclientnum, oldval, newval, bnewent, binitialsnap,
 	Parameters: 7
 	Flags: Linked
 */
-function function_14b2ccdd(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function zurich_city_ambience(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
