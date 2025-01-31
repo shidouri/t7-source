@@ -261,7 +261,7 @@ function main()
 	main_quest::function_30d4f164();
 	zm_island_pap_quest::init();
 	spider_ee_quest::init();
-	namespace_d9f30fb4::init();
+	side_ee_golden_bucket::init();
 	zm_island_inventory::init();
 	level thread zm_island_dogfights::init();
 	zm_island_planting::main();
@@ -315,7 +315,7 @@ function main()
 	level thread zm_island_side_ee_secret_maxammo::main();
 	level thread zm_island_side_ee_song::main();
 	level thread zm_island_side_ee_spore_hallucinations::main();
-	level thread namespace_d9f30fb4::main();
+	level thread side_ee_golden_bucket::main();
 	level thread function_94fc6a19();
 	level thread function_8a2a48bb();
 	setdvar("dlc2_fix_scripted_looping_linked_animations", 1);

@@ -34,11 +34,11 @@
 #using scripts\zm\zm_island_power;
 #using scripts\zm\zm_island_util;
 
-#namespace namespace_d9f30fb4;
+#namespace side_ee_golden_bucket;
 
 /*
 	Name: init
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x2B91F652
 	Offset: 0x988
 	Size: 0x2C
@@ -55,7 +55,7 @@ function init()
 
 /*
 	Name: register_clientfields
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x20759AC0
 	Offset: 0x9C0
 	Size: 0x64
@@ -70,7 +70,7 @@ function register_clientfields()
 
 /*
 	Name: main
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x7F8014D0
 	Offset: 0xA30
 	Size: 0x1C
@@ -84,7 +84,7 @@ function main()
 
 /*
 	Name: function_ee79f2bd
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xA62E7D02
 	Offset: 0xA58
 	Size: 0x234
@@ -112,7 +112,7 @@ function function_ee79f2bd()
 
 /*
 	Name: function_8db1ed35
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x516ACECE
 	Offset: 0xC98
 	Size: 0x64
@@ -127,7 +127,7 @@ function function_8db1ed35()
 
 /*
 	Name: function_e6cfa209
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x6EB61B13
 	Offset: 0xD08
 	Size: 0x15A
@@ -167,7 +167,7 @@ function function_e6cfa209()
 
 /*
 	Name: function_26f677a6
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x36C28675
 	Offset: 0xE70
 	Size: 0x1A4
@@ -196,7 +196,7 @@ function function_26f677a6(e_clip)
 
 /*
 	Name: function_4fd948c5
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x77FA9D63
 	Offset: 0x1020
 	Size: 0x96
@@ -216,7 +216,7 @@ function function_4fd948c5(player)
 
 /*
 	Name: function_870bdfee
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x845ACC53
 	Offset: 0x10C0
 	Size: 0xB0
@@ -249,7 +249,7 @@ function function_870bdfee()
 
 /*
 	Name: function_9b3bd7c4
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xB891E83F
 	Offset: 0x1178
 	Size: 0x144
@@ -270,7 +270,7 @@ function function_9b3bd7c4(e_player)
 
 /*
 	Name: function_4cebde70
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xD2A330AC
 	Offset: 0x12C8
 	Size: 0x194
@@ -295,7 +295,7 @@ function function_4cebde70()
 
 /*
 	Name: function_152720d8
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x1B6AC74B
 	Offset: 0x1468
 	Size: 0xE4
@@ -314,7 +314,7 @@ function function_152720d8(var_fc72ce0a)
 
 /*
 	Name: function_c2dab6c5
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x559CE7C0
 	Offset: 0x1558
 	Size: 0xF0
@@ -343,7 +343,7 @@ function function_c2dab6c5()
 
 /*
 	Name: function_21bde96b
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x9C7AB744
 	Offset: 0x1650
 	Size: 0x7C
@@ -364,7 +364,7 @@ function function_21bde96b()
 
 /*
 	Name: function_64b86454
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xBEA4E365
 	Offset: 0x16D8
 	Size: 0x4E
@@ -387,7 +387,7 @@ function function_64b86454()
 
 /*
 	Name: function_738acad6
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x1340E0CC
 	Offset: 0x1730
 	Size: 0x34
@@ -404,7 +404,7 @@ function function_738acad6()
 
 /*
 	Name: function_f0d8de1d
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x8524D8AC
 	Offset: 0x1770
 	Size: 0xE8
@@ -437,7 +437,7 @@ function function_f0d8de1d()
 
 /*
 	Name: function_72c0a344
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xB928972C
 	Offset: 0x1860
 	Size: 0xC2
@@ -456,7 +456,7 @@ function function_72c0a344()
 
 /*
 	Name: function_9a2f5188
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x9AAC77A1
 	Offset: 0x1930
 	Size: 0xBC
@@ -478,7 +478,7 @@ function function_9a2f5188(e_volume)
 
 /*
 	Name: function_e630b27f
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x28BC77BD
 	Offset: 0x19F8
 	Size: 0xFC
@@ -500,7 +500,7 @@ function function_e630b27f()
 
 /*
 	Name: function_4d1841e4
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xC87A7D21
 	Offset: 0x1B00
 	Size: 0x62C
@@ -556,7 +556,7 @@ function function_4d1841e4()
 
 /*
 	Name: function_c1f64636
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xDA7BD2CA
 	Offset: 0x2138
 	Size: 0x194
@@ -598,7 +598,7 @@ function function_c1f64636(b_completed)
 
 /*
 	Name: function_6742be8f
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x6A3D31DD
 	Offset: 0x22D8
 	Size: 0x54
@@ -616,7 +616,7 @@ function function_6742be8f()
 
 /*
 	Name: function_41280a71
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x94CB8FF8
 	Offset: 0x2338
 	Size: 0x202
@@ -643,7 +643,7 @@ function function_41280a71()
 
 /*
 	Name: function_53296cde
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x223011B1
 	Offset: 0x2548
 	Size: 0xBE
@@ -668,7 +668,7 @@ function function_53296cde(player)
 
 /*
 	Name: function_30804104
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x1B79BF1C
 	Offset: 0x2610
 	Size: 0x98
@@ -698,7 +698,7 @@ function function_30804104()
 
 /*
 	Name: function_da9c118b
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xF5A6DE40
 	Offset: 0x26B0
 	Size: 0xC8
@@ -732,7 +732,7 @@ function function_da9c118b()
 
 /*
 	Name: function_bbd146a7
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x9159FCC8
 	Offset: 0x2780
 	Size: 0x4C
@@ -749,7 +749,7 @@ function function_bbd146a7()
 
 /*
 	Name: function_da0bbc71
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x67A5312C
 	Offset: 0x27D8
 	Size: 0x11C
@@ -796,7 +796,7 @@ function function_da0bbc71()
 
 /*
 	Name: function_66eeac50
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0x587EA36C
 	Offset: 0x2900
 	Size: 0x74
@@ -815,7 +815,7 @@ function function_66eeac50()
 
 /*
 	Name: function_3655d28a
-	Namespace: namespace_d9f30fb4
+	Namespace: side_ee_golden_bucket
 	Checksum: 0xE3F9E170
 	Offset: 0x2980
 	Size: 0x1A0
