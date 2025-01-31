@@ -260,7 +260,7 @@ function main()
 	zm_island_ww_quest::function_30d4f164();
 	main_quest::function_30d4f164();
 	zm_island_pap_quest::init();
-	namespace_1aa6bd0c::init();
+	spider_ee_quest::init();
 	namespace_d9f30fb4::init();
 	zm_island_inventory::init();
 	level thread zm_island_dogfights::init();
@@ -308,7 +308,7 @@ function main()
 	level thread zm_island_takeo_fight::main();
 	level thread zm_island_dogfights::main();
 	level thread zm_island_challenges::main();
-	level thread namespace_1aa6bd0c::main();
+	level thread spider_ee_quest::main();
 	level thread zm_island_side_ee_distant_monster::main();
 	level thread zm_island_side_ee_doppleganger::main();
 	level thread zm_island_side_ee_good_thrasher::main();

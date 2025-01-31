@@ -35,11 +35,11 @@
 #using scripts\zm\zm_island_util;
 #using scripts\zm\zm_island_vo;
 
-spider_ee_quest;
+#namespace spider_ee_quest;
 
 /*
 	Name: init
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x5FEDE29A
 	Offset: 0x798
 	Size: 0x14
@@ -53,7 +53,7 @@ function init()
 
 /*
 	Name: register_clientfields
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xD968D242
 	Offset: 0x7B8
 	Size: 0x94
@@ -69,7 +69,7 @@ function register_clientfields()
 
 /*
 	Name: main
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xB50A51EE
 	Offset: 0x858
 	Size: 0xBC
@@ -91,7 +91,7 @@ function main()
 
 /*
 	Name: function_b27f5ad5
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xEAF7D466
 	Offset: 0x920
 	Size: 0xA6
@@ -111,7 +111,7 @@ function function_b27f5ad5()
 
 /*
 	Name: function_78b57752
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x7D8A1D80
 	Offset: 0x9D0
 	Size: 0xE4
@@ -134,7 +134,7 @@ function function_78b57752()
 
 /*
 	Name: function_f163b5b5
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x73940F04
 	Offset: 0xAC0
 	Size: 0x26
@@ -150,7 +150,7 @@ function function_f163b5b5()
 
 /*
 	Name: function_ed878303
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x12C98A67
 	Offset: 0xAF0
 	Size: 0x1C
@@ -165,7 +165,7 @@ function function_ed878303()
 
 /*
 	Name: function_241013f7
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x17B3CE52
 	Offset: 0xB18
 	Size: 0x17C
@@ -198,7 +198,7 @@ function function_241013f7()
 
 /*
 	Name: function_60b06e98
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x60ABCEF6
 	Offset: 0xCA0
 	Size: 0x15C
@@ -222,7 +222,7 @@ function function_60b06e98(var_c6cad973)
 
 /*
 	Name: function_c8ca27d0
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x60B26643
 	Offset: 0xE08
 	Size: 0x30
@@ -237,7 +237,7 @@ function function_c8ca27d0()
 
 /*
 	Name: function_aa515242
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x6AD8B4DF
 	Offset: 0xE40
 	Size: 0x3C
@@ -253,7 +253,7 @@ function function_aa515242(ai_spider)
 
 /*
 	Name: function_6dff284c
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xDCF011C
 	Offset: 0xE88
 	Size: 0xE4
@@ -283,7 +283,7 @@ function function_6dff284c()
 
 /*
 	Name: function_89826011
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x3A368E
 	Offset: 0xF78
 	Size: 0x258
@@ -319,7 +319,7 @@ function function_89826011()
 
 /*
 	Name: function_69f5a9c5
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x1C813087
 	Offset: 0x11D8
 	Size: 0xEC
@@ -344,7 +344,7 @@ function function_69f5a9c5(var_1cdfa0f4)
 
 /*
 	Name: function_901514b1
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x8E221F0D
 	Offset: 0x12D0
 	Size: 0x86
@@ -361,7 +361,7 @@ function function_901514b1()
 
 /*
 	Name: function_3321a018
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xBA31B339
 	Offset: 0x1360
 	Size: 0x10
@@ -375,7 +375,7 @@ function function_3321a018(var_93eb638b)
 
 /*
 	Name: function_c9e92f7b
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x39BB58D5
 	Offset: 0x1378
 	Size: 0x3A
@@ -393,7 +393,7 @@ function function_c9e92f7b()
 
 /*
 	Name: function_49fac1ac
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x6790C5A5
 	Offset: 0x13C0
 	Size: 0x3C
@@ -410,7 +410,7 @@ function function_49fac1ac()
 
 /*
 	Name: spiders_from_mars_round
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xFF8E8D7F
 	Offset: 0x1408
 	Size: 0x12C
@@ -445,7 +445,7 @@ function spiders_from_mars_round()
 
 /*
 	Name: function_7855f232
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xFE6CC327
 	Offset: 0x1540
 	Size: 0x144
@@ -477,7 +477,7 @@ function function_7855f232()
 
 /*
 	Name: function_2176e192
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x3C65ECC8
 	Offset: 0x1690
 	Size: 0x2CA
@@ -515,7 +515,7 @@ function function_2176e192()
 
 /*
 	Name: function_bf0f2293
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x18DD547
 	Offset: 0x1968
 	Size: 0x78
@@ -535,7 +535,7 @@ function function_bf0f2293(player)
 
 /*
 	Name: function_2818665b
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x2DC91BC2
 	Offset: 0x19F0
 	Size: 0xC0
@@ -570,7 +570,7 @@ function function_2818665b()
 
 /*
 	Name: function_315620f9
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0xDC3A257F
 	Offset: 0x1AB8
 	Size: 0x74
@@ -589,7 +589,7 @@ function function_315620f9()
 
 /*
 	Name: function_acbe4aed
-	Namespace: namespace_1aa6bd0c
+	Namespace: spider_ee_quest
 	Checksum: 0x59985297
 	Offset: 0x1B38
 	Size: 0x384
