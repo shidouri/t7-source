@@ -62,20 +62,20 @@ function __main__()
 	Parameters: 4
 	Flags: Linked
 */
-function start_grapple(var_683c052c, var_a2613153, n_type, n_speed = 1800)
+function start_grapple(e_grappler, var_a2613153, n_type, n_speed = 1800)
 {
 	/#
 		assert(n_type == 2);
 	#/
-	e_source = function_7027852f(var_683c052c function_1e702195(), var_683c052c.angles);
-	var_b7c15e33 = function_7027852f(var_683c052c function_1e702195(), var_683c052c.angles * -1);
+	e_source = function_7027852f(e_grappler function_1e702195(), e_grappler.angles);
+	var_b7c15e33 = function_7027852f(e_grappler function_1e702195(), e_grappler.angles * -1);
 	thread function_28ac2916(e_source, var_b7c15e33);
 	if(isdefined(var_b7c15e33))
 	{
 		var_a2613153 function_63b4b8a5(1);
 		util::wait_network_frame();
-		n_time = function_3e1b1cea(var_683c052c, var_a2613153, n_speed);
-		var_b7c15e33.origin = var_683c052c function_1e702195();
+		n_time = function_3e1b1cea(e_grappler, var_a2613153, n_speed);
+		var_b7c15e33.origin = e_grappler function_1e702195();
 		var_c35f0f99 = var_a2613153 function_1e702195();
 		var_b7c15e33 playsound("zmb_grapple_start");
 		var_b7c15e33 moveto(var_c35f0f99, n_time);
@@ -91,7 +91,7 @@ function start_grapple(var_683c052c, var_a2613153, n_type, n_speed = 1800)
 			var_a2613153 linkto(var_b7c15e33);
 		}
 		var_a2613153 playsound("zmb_grapple_grab");
-		var_de84fe14 = var_683c052c function_1e702195() - var_8986f6e8;
+		var_de84fe14 = e_grappler function_1e702195() - var_8986f6e8;
 		var_b7c15e33 moveto(var_de84fe14, n_time);
 		var_b7c15e33 playsound("zmb_grapple_pull");
 		var_b7c15e33 waittill("movedone");
