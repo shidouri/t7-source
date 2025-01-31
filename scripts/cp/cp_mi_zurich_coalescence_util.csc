@@ -73,7 +73,7 @@ function init_clientfields()
 	clientfield::register("toplayer", "vortex_teleport", 1, 1, "counter", &function_560fbdb4, 0, 0);
 	clientfield::register("toplayer", "postfx_futz", 1, 1, "counter", &postfx_futz, 0, 0);
 	clientfield::register("toplayer", "postfx_futz_mild", 1, 1, "counter", &postfx_futz_mild, 0, 0);
-	clientfield::register("toplayer", "postfx_transition", 1, 1, "counter", &function_edf5c801, 0, 0);
+	clientfield::register("toplayer", "postfx_transition", 1, 1, "counter", &postfx_transition, 0, 0);
 	clientfield::register("world", "zurich_city_ambience", 1, 1, "int", &zurich_city_ambience, 0, 0);
 	clientfield::register("actor", "skin_transition_melt", 1, 1, "int", &function_28572b48, 0, 1);
 	clientfield::register("scriptmover", "corvus_body_fx", 1, 1, "int", &function_b5037219, 0, 0);
@@ -727,7 +727,7 @@ function postfx_futz(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 }
 
 /*
-	Name: function_edf5c801
+	Name: postfx_transition
 	Namespace: zurich_util
 	Checksum: 0xA5D61993
 	Offset: 0x4B80
@@ -735,7 +735,7 @@ function postfx_futz(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 	Parameters: 7
 	Flags: Linked
 */
-function function_edf5c801(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function postfx_transition(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	player = getlocalplayer(localclientnum);
 	player thread postfx::playpostfxbundle("pstfx_cp_transition_sprite_zur");
