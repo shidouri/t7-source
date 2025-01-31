@@ -13,11 +13,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_82e422e5;
+#namespace cp_mi_zurich_newworld_patch;
 
 /*
 	Name: function_7403e82b
-	Namespace: namespace_82e422e5
+	Namespace: cp_mi_zurich_newworld_patch
 	Checksum: 0x9CAB742F
 	Offset: 0x250
 	Size: 0x7C
