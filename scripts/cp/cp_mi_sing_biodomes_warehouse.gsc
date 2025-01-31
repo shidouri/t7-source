@@ -1114,7 +1114,7 @@ function wait_for_sight_to_engage()
 */
 function warehouse_warlord_surprise()
 {
-	level endon(#"hash_54e7636b");
+	level endon("warehouse_warlord_retreated");
 	trigger::wait_till("trig_back_door_close");
 	savegame::checkpoint_save();
 	wait(1.5);
