@@ -35,7 +35,7 @@
 #using scripts\zm\zm_island_util;
 #using scripts\zm\zm_island_vo;
 
-#namespace namespace_1aa6bd0c;
+spider_ee_quest;
 
 /*
 	Name: init
