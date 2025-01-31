@@ -79,7 +79,7 @@ function init_clientfields()
 	clientfield::register("scriptmover", "corvus_body_fx", 1, 1, "int", &function_b5037219, 0, 0);
 	clientfield::register("actor", "raven_ai_rez", 1, 1, "int", &function_91c7508e, 0, 0);
 	clientfield::register("scriptmover", "raven_ai_rez", 1, 1, "int", &function_91c7508e, 0, 0);
-	clientfield::register("toplayer", "zurich_server_cam", 1, 1, "int", &function_9596c4e, 0, 0);
+	clientfield::register("toplayer", "zurich_server_cam", 1, 1, "int", &zurich_server_cam, 0, 0);
 	clientfield::register("world", "set_exposure_bank", 1, 1, "int", &set_exposure_bank, 0, 0);
 	clientfield::register("scriptmover", "corvus_tree_shader", 1, 1, "int", &function_51e77d4f, 0, 0);
 	clientfield::register("actor", "hero_cold_breath", 1, 1, "int", &function_33714f9b, 0, 0);
@@ -873,7 +873,7 @@ function function_276d0d02()
 }
 
 /*
-	Name: function_9596c4e
+	Name: zurich_server_cam
 	Namespace: zurich_util
 	Checksum: 0xAC9BCD1F
 	Offset: 0x50E8
@@ -881,7 +881,7 @@ function function_276d0d02()
 	Parameters: 7
 	Flags: Linked
 */
-function function_9596c4e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function zurich_server_cam(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
