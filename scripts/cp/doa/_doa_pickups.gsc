@@ -1797,7 +1797,7 @@ function function_d526f0bb()
 				case 6:
 				{
 					player thread doa_sound::function_90118d8c("zmb_pickup_generic");
-					player thread namespace_3f3eaecb::tesla_blockers_update();
+					player thread doa_tesla::tesla_blockers_update();
 					break;
 				}
 				case 21:

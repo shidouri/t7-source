@@ -548,7 +548,7 @@ function init()
 	doa_sound::init();
 	doa_gib::init();
 	doa_pickups::init();
-	namespace_3f3eaecb::init();
+	doa_tesla::init();
 	doa_boss::init();
 	doa_enemy::init();
 	doa_arena::init();

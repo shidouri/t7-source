@@ -18,11 +18,11 @@
 
 #using_animtree("generic_human");
 
-#namespace namespace_3f3eaecb;
+#namespace doa_tesla;
 
 /*
 	Name: init
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x7A44167F
 	Offset: 0x460
 	Size: 0xEC
@@ -43,7 +43,7 @@ function init()
 
 /*
 	Name: tesla_discharge_mechanic
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xFEADCEA
 	Offset: 0x558
 	Size: 0x5E
@@ -66,7 +66,7 @@ function tesla_discharge_mechanic()
 
 /*
 	Name: tesla_ok_to_discharge
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xED26D94F
 	Offset: 0x5C0
 	Size: 0x42
@@ -88,7 +88,7 @@ function tesla_ok_to_discharge(player)
 
 /*
 	Name: tesla_damage_init
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x78FEC1CF
 	Offset: 0x610
 	Size: 0xF4
@@ -122,7 +122,7 @@ function tesla_damage_init(player)
 
 /*
 	Name: tesla_arc_damage
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xDBFA5FB6
 	Offset: 0x710
 	Size: 0x20E
@@ -160,7 +160,7 @@ function tesla_arc_damage(source_enemy, player, arc_num)
 
 /*
 	Name: tesla_end_arc_damage
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xE143672
 	Offset: 0x928
 	Size: 0xBC
@@ -187,7 +187,7 @@ function tesla_end_arc_damage(arc_num, enemies_hit_num)
 
 /*
 	Name: tesla_get_enemies_in_area
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x5783B256
 	Offset: 0x9F0
 	Size: 0x1E8
@@ -233,7 +233,7 @@ function tesla_get_enemies_in_area(origin, distance, player)
 
 /*
 	Name: tesla_flag_hit
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xA6185FF4
 	Offset: 0xBE0
 	Size: 0x90
@@ -261,7 +261,7 @@ function tesla_flag_hit(enemy, hit)
 
 /*
 	Name: tesla_do_damage
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xD915E289
 	Offset: 0xC78
 	Size: 0x1F4
@@ -313,7 +313,7 @@ function tesla_do_damage(source_enemy, arc_num, player)
 
 /*
 	Name: tesla_play_death_fx
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x23BD0038
 	Offset: 0xE78
 	Size: 0x90
@@ -336,7 +336,7 @@ function tesla_play_death_fx(arc_num)
 
 /*
 	Name: tesla_play_arc_fx
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x93C713FE
 	Offset: 0xF10
 	Size: 0x28C
@@ -381,7 +381,7 @@ function tesla_play_arc_fx(target)
 
 /*
 	Name: tesla_debug_arc
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xE464F405
 	Offset: 0x11A8
 	Size: 0x6C
@@ -405,7 +405,7 @@ function tesla_debug_arc(origin, distance)
 
 /*
 	Name: enemy_killed_by_tesla
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x5A82EAB7
 	Offset: 0x1220
 	Size: 0x16
@@ -419,7 +419,7 @@ function enemy_killed_by_tesla()
 
 /*
 	Name: function_395fdfb8
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x4D86147E
 	Offset: 0x1240
 	Size: 0xF4
@@ -451,7 +451,7 @@ function function_395fdfb8(guy, attacker)
 
 /*
 	Name: tesla_blockers_damage_trigger
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x56FFB1CC
 	Offset: 0x1340
 	Size: 0x84
@@ -475,7 +475,7 @@ function tesla_blockers_damage_trigger(player, note)
 
 /*
 	Name: tesla_blockers_timeout
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x8DA5BE2B
 	Offset: 0x13D0
 	Size: 0xEE
@@ -497,7 +497,7 @@ function tesla_blockers_timeout(org, note)
 
 /*
 	Name: function_ccf71744
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xE9ABE27B
 	Offset: 0x14C8
 	Size: 0xAC
@@ -515,7 +515,7 @@ function function_ccf71744(org, vel)
 
 /*
 	Name: function_89843a06
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x5CDB3F0B
 	Offset: 0x1580
 	Size: 0x124
@@ -550,7 +550,7 @@ function function_89843a06(player)
 
 /*
 	Name: tesla_blockers_cleanup
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xEB6CA3E1
 	Offset: 0x16B0
 	Size: 0x224
@@ -603,7 +603,7 @@ function tesla_blockers_cleanup(org, note)
 
 /*
 	Name: tesla_blockers_deletion_monitors
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xCAD648F4
 	Offset: 0x18E0
 	Size: 0x13C
@@ -636,7 +636,7 @@ function tesla_blockers_deletion_monitors(org, note)
 
 /*
 	Name: tesla_blockers_move
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0xFED77A14
 	Offset: 0x1A28
 	Size: 0x76
@@ -656,7 +656,7 @@ function tesla_blockers_move(org, note)
 
 /*
 	Name: tesla_blockers_fx
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x85CA1AA1
 	Offset: 0x1AA8
 	Size: 0xC6
@@ -679,7 +679,7 @@ function tesla_blockers_fx(org)
 
 /*
 	Name: tesla_blockers_update
-	Namespace: namespace_3f3eaecb
+	Namespace: doa_tesla
 	Checksum: 0x44D991C9
 	Offset: 0x1B78
 	Size: 0x92C

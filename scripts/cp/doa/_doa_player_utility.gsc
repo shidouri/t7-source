@@ -1652,7 +1652,7 @@ function function_48b5439d(owner)
 			continue;
 		}
 		owner.doa.var_cdd906a9 = time;
-		level thread namespace_3f3eaecb::function_395fdfb8(victim, owner);
+		level thread doa_tesla::function_395fdfb8(victim, owner);
 	}
 }
 
