@@ -236,7 +236,7 @@ function function_95b88092(str_objective, b_starting)
 	level thread scene::init("singapore_fxanim_heart_ceiling", "targetname");
 	exploder::exploder("heartLightsSing");
 	level thread namespace_67110270::function_973b77f9();
-	self zurich_util::function_b0f0dd1f(0);
+	self zurich_util::player_weather(0);
 	level thread function_4b2f6f7();
 	if(level.players === 1)
 	{
@@ -514,7 +514,7 @@ function function_eb271a4b(str_objective)
 */
 function function_26f61e7c()
 {
-	level zurich_util::function_b0f0dd1f(1, "red_rain");
+	level zurich_util::player_weather(1, "red_rain");
 }
 
 /*

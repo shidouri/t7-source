@@ -124,7 +124,7 @@ function function_618d5a98(str_objective, b_starting)
 	level scene::init("cin_zur_20_01_plaza_1st_fight_it");
 	level scene::init("cin_zur_20_01_plaza_1st_fight_it_player_end");
 	level scene::init("cin_zur_20_01_plaza_1st_fight_it_player_start");
-	level thread zurich_util::function_b0f0dd1f(0);
+	level thread zurich_util::player_weather(0);
 	level thread zurich_util::enable_surreal_ai_fx(0);
 	array::thread_all(level.players, &function_354b619b, 1);
 	level clientfield::set("gameplay_started", 1);
@@ -742,7 +742,7 @@ function function_1cc6775d()
 	e_who = var_5cca3f31 zurich_util::function_d1996775();
 	level thread zurich_util::function_df1fc23b(1);
 	level notify(#"hash_21ddc441");
-	level zurich_util::function_b0f0dd1f(1, "reverse_snow");
+	level zurich_util::player_weather(1, "reverse_snow");
 	level flag::set("flag_start_zurich_outro");
 	level notify(#"hash_8271ee50");
 	music::setmusicstate("none");
@@ -1558,7 +1558,7 @@ function function_3ec4c691()
 	level clientfield::set("set_post_color_grade_bank", 1);
 	array::thread_all(level.players, &zurich_util::set_world_fog, 1);
 	exploder::exploder("plaza_lights");
-	level zurich_util::function_b0f0dd1f(1, "reverse_snow");
+	level zurich_util::player_weather(1, "reverse_snow");
 	level flag::set("flag_start_zurich_outro");
 	if(isdefined(level.bzm_zurichdialogue24callback))
 	{

@@ -77,7 +77,7 @@ function skipto_start(str_objective, b_starting)
 	level flag::wait_till("all_players_spawned");
 	skipto::teleport_players(str_objective, 0);
 	array::thread_all(level.activeplayers, &util::player_frost_breath, 1);
-	level zurich_util::function_b0f0dd1f(1, "reverse_snow");
+	level zurich_util::player_weather(1, "reverse_snow");
 	if(b_starting)
 	{
 		util::set_streamer_hint(3);
@@ -347,7 +347,7 @@ function skipto_waterfall(str_objective, b_starting)
 		level scene::init("cin_zur_09_02_standoff_3rd_forest_part2_sh010");
 		zurich_util::enable_surreal_ai_fx(1, 0.5);
 		var_4ccf970 = zurich_util::function_a00fa665("clearing_start");
-		level zurich_util::function_b0f0dd1f(1, "reverse_snow");
+		level zurich_util::player_weather(1, "reverse_snow");
 		level thread function_6a2abd6d();
 		level clientfield::set("zurich_waterfall_bodies", 1);
 		level clientfield::set("clearing_vinewall_init", 5);
@@ -452,7 +452,7 @@ function skipto_path_choice(str_objective, b_starting)
 		level thread zurich_util::function_11b424e5(1);
 		var_4ccf970 = zurich_util::function_a00fa665("clearing_start");
 		array::thread_all(level.activeplayers, &util::player_frost_breath, 1);
-		level zurich_util::function_b0f0dd1f(1, "reverse_snow");
+		level zurich_util::player_weather(1, "reverse_snow");
 		level clientfield::set("zurich_waterfall_bodies", 1);
 		level clientfield::set("clearing_vinewall_init", 5);
 		scene::add_scene_func("cin_zur_10_01_kruger_3rd_questioned_sh010", &zurich_util::function_f3e247d6, "init");
@@ -496,9 +496,9 @@ function function_eadc4ffc()
 	level thread scene::play("p7_fxanim_cp_zurich_tree_krueger_split_rt_bundle");
 	level scene::play("cin_zur_10_01_kruger_3rd_questioned_sh010");
 	level thread function_6c92c263(0);
-	level zurich_util::function_b0f0dd1f(0);
+	level zurich_util::player_weather(0);
 	wait(1);
-	level zurich_util::function_b0f0dd1f(1, "red_rain");
+	level zurich_util::player_weather(1, "red_rain");
 }
 
 /*
@@ -810,7 +810,7 @@ function function_1270c207(str_objective, b_starting)
 		}
 		load::function_a2995f22(isdefined(b_starting) && (b_starting ? 2 : 0));
 		skipto::teleport_players(str_objective, 0);
-		level zurich_util::function_b0f0dd1f(1, "red_rain");
+		level zurich_util::player_weather(1, "red_rain");
 		array::thread_all(level.activeplayers, &util::player_frost_breath, 1);
 		level thread zurich_util::function_11b424e5(1);
 		if(!b_starting)
@@ -897,7 +897,7 @@ function function_b42e7a80(str_objective, b_starting, b_direct, player)
 */
 function function_82fb3fff()
 {
-	level zurich_util::function_b0f0dd1f(0);
+	level zurich_util::player_weather(0);
 	level clientfield::set("zurich_waterfall_bodies", 0);
 	level clientfield::set("clearing_vinewall_init", 0);
 	level clientfield::set("clearing_vinewall_open", 0);

@@ -92,7 +92,7 @@ function skipto_main(str_objective, b_starting)
 	skipto::teleport_players(str_objective, 1);
 	array::thread_all(level.players, &util::player_frost_breath, 1);
 	array::thread_all(level.players, &clientfield::set_to_player, "zurich_vinewall_init", 1);
-	level zurich_util::function_b0f0dd1f(1, "light_snow");
+	level zurich_util::player_weather(1, "light_snow");
 	level thread function_aa95075d(str_objective);
 	level thread function_53a7bcca();
 	level thread zurich_util::function_a03f30f2(str_objective, "root_zurich_vortex", "root_zurich_regroup");
@@ -162,7 +162,7 @@ function function_95b88092(str_objective, b_starting)
 function skipto_done(str_objective, b_starting, b_direct, player)
 {
 	level notify(#"hash_c955b42d");
-	level zurich_util::function_b0f0dd1f(0);
+	level zurich_util::player_weather(0);
 	level clientfield::increment("root_vine_cleanup");
 	level thread zurich_util::function_4a00a473("root_zurich");
 	level util::clientnotify("stp_mus");
