@@ -23,7 +23,7 @@
 */
 function main()
 {
-	namespace_e4ce27de::main();
+	cp_sh_singapore_fx::main();
 	namespace_d3b26b91::main();
 	load::main();
 	level thread set_ambient_state();
