@@ -866,7 +866,7 @@ function function_3e351f83(firsttime)
 {
 	util::wait_network_frame();
 	level clientfield::set("gameplay_started", 1);
-	level namespace_917e49b3::function_d4766377();
+	level doa_outro::function_d4766377();
 	level flag::set("doa_game_is_running");
 	level thread function_dc4ffe5c();
 	doa_utility::killallenemy();
@@ -973,7 +973,7 @@ function function_64a5cd5e()
 	}
 	level clientfield::set("set_scoreHidden", 1);
 	level clientfield::set("activateBanner", 0);
-	namespace_917e49b3::function_e2d6beb9();
+	doa_outro::function_e2d6beb9();
 	level thread doa_utility::function_390adefe(0);
 	level doa_utility::function_d0e32ad0(0);
 	level thread doa_utility::function_c5f3ece8(&"DOA_GAMEOVER", undefined, 6);
