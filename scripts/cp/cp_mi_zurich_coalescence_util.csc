@@ -83,7 +83,7 @@ function init_clientfields()
 	clientfield::register("world", "set_exposure_bank", 1, 1, "int", &set_exposure_bank, 0, 0);
 	clientfield::register("scriptmover", "corvus_tree_shader", 1, 1, "int", &function_51e77d4f, 0, 0);
 	clientfield::register("actor", "hero_cold_breath", 1, 1, "int", &function_33714f9b, 0, 0);
-	clientfield::register("world", "set_post_color_grade_bank", 1, 1, "int", &function_7b22d9c9, 0, 0);
+	clientfield::register("world", "set_post_color_grade_bank", 1, 1, "int", &set_post_color_grade_bank, 0, 0);
 	clientfield::register("toplayer", "postfx_hallucinations", 1, 1, "counter", &function_6ec9825e, 0, 0);
 	clientfield::register("toplayer", "player_water_transition", 1, 1, "int", &function_70a9fa32, 0, 0);
 	clientfield::register("toplayer", "raven_hallucinations", 1, 1, "int", &function_8f5cd506, 0, 0);
@@ -409,7 +409,7 @@ function set_exposure_bank(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_7b22d9c9
+	Name: set_post_color_grade_bank
 	Namespace: zurich_util
 	Checksum: 0x170E32F4
 	Offset: 0x38A8
@@ -417,7 +417,7 @@ function set_exposure_bank(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_7b22d9c9(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function set_post_color_grade_bank(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
