@@ -826,7 +826,7 @@ function function_51e77d4f(localclientnum, oldval, newval, bnewent, binitialsnap
 			return;
 		}
 		self.var_540c25e7 = 1;
-		self thread function_276d0d02();
+		self thread corvus_tree_shader();
 	}
 	else
 	{
@@ -836,7 +836,7 @@ function function_51e77d4f(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_276d0d02
+	Name: corvus_tree_shader
 	Namespace: zurich_util
 	Checksum: 0xD4B5E7AA
 	Offset: 0x4F20
@@ -844,7 +844,7 @@ function function_51e77d4f(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 0
 	Flags: Linked
 */
-function function_276d0d02()
+function corvus_tree_shader()
 {
 	self endon(#"hash_5cd0c3cb");
 	n_increment = 0.1;
