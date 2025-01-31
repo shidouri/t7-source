@@ -88,7 +88,7 @@ function init_clientfields()
 	clientfield::register("toplayer", "player_water_transition", 1, 1, "int", &function_70a9fa32, 0, 0);
 	clientfield::register("toplayer", "raven_hallucinations", 1, 1, "int", &raven_hallucinations, 0, 0);
 	clientfield::register("scriptmover", "quadtank_raven_explosion", 1, 1, "int", &function_45e22343, 0, 0);
-	clientfield::register("scriptmover", "raven_fade_out", 1, 1, "int", &function_629bf9a7, 0, 0);
+	clientfield::register("scriptmover", "raven_fade_out", 1, 1, "int", &raven_fade_out, 0, 0);
 }
 
 /*
@@ -1032,7 +1032,7 @@ function function_b5adc0ad(localclientnum)
 }
 
 /*
-	Name: function_629bf9a7
+	Name: raven_fade_out
 	Namespace: zurich_util
 	Checksum: 0x61AFFA11
 	Offset: 0x5610
@@ -1040,7 +1040,7 @@ function function_b5adc0ad(localclientnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_629bf9a7(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function raven_fade_out(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon("entityshutdown");
 	if(newval)
