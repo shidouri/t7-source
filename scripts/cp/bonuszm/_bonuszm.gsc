@@ -282,7 +282,7 @@ function private function_13eef9b9()
 function function_36a89e89()
 {
 	self thread function_fa34e301();
-	self thread namespace_36e5bc12::function_b80a73a4();
+	self thread bonuszmsound::function_b80a73a4();
 	self thread function_7ef5e890();
 	self playerknockback(0);
 }
@@ -723,7 +723,7 @@ function function_aed40969(var_c3afa726, str_targetname, force_spawn)
 		self.disable_head_gib = 1;
 	}
 	self thread function_745c9570();
-	self thread namespace_36e5bc12::function_f46e57be();
+	self thread bonuszmsound::function_f46e57be();
 	self thread function_d0d9ed35();
 	self thread function_29e1570d();
 	self thread function_9bc25e40();

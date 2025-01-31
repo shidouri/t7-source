@@ -44,11 +44,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\weapons_shared;
 
-#namespace namespace_36e5bc12;
+#namespace bonuszmsound;
 
 /*
 	Name: init
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x1E88E82A
 	Offset: 0x738
 	Size: 0x13C
@@ -75,7 +75,7 @@ function autoexec init()
 
 /*
 	Name: bzm_sceneseqended
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x3F8657D0
 	Offset: 0x880
 	Size: 0x160
@@ -109,7 +109,7 @@ function bzm_sceneseqended(scenename)
 
 /*
 	Name: say
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x577A3A3F
 	Offset: 0x9E8
 	Size: 0x144
@@ -146,7 +146,7 @@ function private say(alias)
 
 /*
 	Name: function_cf21d35c
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x3A691CDD
 	Offset: 0xB38
 	Size: 0xBC
@@ -173,7 +173,7 @@ function function_cf21d35c(alias, blocking = 1)
 
 /*
 	Name: function_ef0ce9fb
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x189B26F4
 	Offset: 0xC00
 	Size: 0x9C
@@ -197,7 +197,7 @@ function function_ef0ce9fb(alias, blocking = 1)
 
 /*
 	Name: function_b4a3e925
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x26E4BD51
 	Offset: 0xCA8
 	Size: 0x9C
@@ -221,7 +221,7 @@ function function_b4a3e925(alias, blocking = 1)
 
 /*
 	Name: function_45809471
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x200232C6
 	Offset: 0xD50
 	Size: 0x9C
@@ -245,7 +245,7 @@ function function_45809471(alias, blocking = 1)
 
 /*
 	Name: function_f46e57be
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0xF1A64FB4
 	Offset: 0xDF8
 	Size: 0x64
@@ -263,7 +263,7 @@ function function_f46e57be()
 
 /*
 	Name: function_b7efd00a
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0xA8609CA9
 	Offset: 0xE68
 	Size: 0x152
@@ -321,7 +321,7 @@ function function_b7efd00a()
 
 /*
 	Name: function_dc28c71b
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x6D15B00F
 	Offset: 0xFC8
 	Size: 0x17C
@@ -365,7 +365,7 @@ function function_dc28c71b(zombie, type, override)
 
 /*
 	Name: function_f93398c4
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x3C6935D4
 	Offset: 0x1150
 	Size: 0x118
@@ -413,7 +413,7 @@ function function_f93398c4()
 
 /*
 	Name: function_acd6c6f8
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x15684D5D
 	Offset: 0x1270
 	Size: 0x5C
@@ -432,7 +432,7 @@ function function_acd6c6f8()
 
 /*
 	Name: networksafereset
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x33A22EE5
 	Offset: 0x12D8
 	Size: 0x30
@@ -450,7 +450,7 @@ function networksafereset()
 
 /*
 	Name: sndisnetworksafe
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0xED567E0F
 	Offset: 0x1310
 	Size: 0x44
@@ -473,7 +473,7 @@ function sndisnetworksafe()
 
 /*
 	Name: function_b80a73a4
-	Namespace: namespace_36e5bc12
+	Namespace: bonuszmsound
 	Checksum: 0x60CBF68B
 	Offset: 0x1360
 	Size: 0x2F4
