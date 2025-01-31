@@ -9,11 +9,11 @@
 #using scripts\shared\flagsys_shared;
 #using scripts\shared\system_shared;
 
-#namespace namespace_2f63e553;
+#namespace doa_dev;
 
 /*
 	Name: function_40206fdf
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x5D704E08
 	Offset: 0x770
 	Size: 0x288
@@ -80,7 +80,7 @@ function function_40206fdf()
 
 /*
 	Name: function_35d58a26
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0xD11245EC
 	Offset: 0xA00
 	Size: 0xDA
@@ -102,7 +102,7 @@ function function_35d58a26()
 
 /*
 	Name: setupdevgui
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0xCCB7ECE2
 	Offset: 0xAE8
 	Size: 0x4A4
@@ -169,7 +169,7 @@ function setupdevgui()
 
 /*
 	Name: function_92c840a6
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0xAE695569
 	Offset: 0xF98
 	Size: 0xF4
@@ -203,7 +203,7 @@ function function_92c840a6(delay = 0.1)
 
 /*
 	Name: function_a4d5519a
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x8D98C1B0
 	Offset: 0x1098
 	Size: 0x23C
@@ -242,7 +242,7 @@ function function_a4d5519a(pickup)
 
 /*
 	Name: function_733651c
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x321D8385
 	Offset: 0x12E0
 	Size: 0x118
@@ -275,7 +275,7 @@ function function_733651c()
 
 /*
 	Name: function_7abdb1e8
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x9C92CCFE
 	Offset: 0x1400
 	Size: 0x54
@@ -293,7 +293,7 @@ function function_7abdb1e8()
 
 /*
 	Name: function_f71d59c
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x9D9D9DAB
 	Offset: 0x1460
 	Size: 0x44
@@ -310,7 +310,7 @@ function function_f71d59c()
 
 /*
 	Name: function_a3bba13d
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x68E748D4
 	Offset: 0x14B0
 	Size: 0x850
@@ -449,7 +449,7 @@ function function_a3bba13d()
 
 /*
 	Name: function_f24eee41
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x34C478BD
 	Offset: 0x1D08
 	Size: 0x50
@@ -469,7 +469,7 @@ function function_f24eee41()
 
 /*
 	Name: devguithink
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x3480E02E
 	Offset: 0x1D60
 	Size: 0x16E8
@@ -851,7 +851,7 @@ function devguithink()
 
 /*
 	Name: function_5e6b8376
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x879EDB88
 	Offset: 0x3450
 	Size: 0x200
@@ -888,7 +888,7 @@ function function_5e6b8376(origin, radius, time, color = (0, 1, 0))
 
 /*
 	Name: plotpoints
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0xBAB68229
 	Offset: 0x3658
 	Size: 0xFA
@@ -918,7 +918,7 @@ function plotpoints(plotpoints, rbg, server_frames = 1)
 
 /*
 	Name: drawcylinder
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0xC42DB679
 	Offset: 0x3760
 	Size: 0x2FA
@@ -949,7 +949,7 @@ function drawcylinder(pos, rad, height, server_frames = 1, color = (0, 0, 0))
 
 /*
 	Name: debugorigin
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0xD8D2482E
 	Offset: 0x3A68
 	Size: 0x1D0
@@ -980,7 +980,7 @@ function debugorigin()
 
 /*
 	Name: function_a0e51d80
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0x963F7917
 	Offset: 0x3C40
 	Size: 0x1C0
@@ -1010,7 +1010,7 @@ function function_a0e51d80(point, timesec, size, color)
 
 /*
 	Name: debugline
-	Namespace: namespace_2f63e553
+	Namespace: doa_dev
 	Checksum: 0xBBBDD605
 	Offset: 0x3E08
 	Size: 0x88

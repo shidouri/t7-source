@@ -84,7 +84,7 @@ function private function_d95d34bd(spawner)
 		level.doa.boss = bo3_enemy::function_36aa8b6c(loc);
 		if(getdvarint("scr_boss_debug", 0) && isdefined(spawner))
 		{
-			level thread namespace_2f63e553::function_5e6b8376(spawner.origin, 20, 500, (0, 0, 1));
+			level thread doa_dev::function_5e6b8376(spawner.origin, 20, 500, (0, 0, 1));
 		}
 		if(isdefined(level.doa.boss))
 		{
@@ -216,7 +216,7 @@ function private function_a2756e92()
 	}
 	if(getdvarint("scr_boss_debug", 0))
 	{
-		level thread namespace_2f63e553::function_5e6b8376(self.var_f4a5c4fe, 128, 0.5, (1, 0, 0));
+		level thread doa_dev::function_5e6b8376(self.var_f4a5c4fe, 128, 0.5, (1, 0, 0));
 	}
 	self util::waittill_any_timeout(14, "goal", "damage", "death");
 	self.var_88168473 = undefined;
@@ -345,7 +345,7 @@ function private function_66efd1eb()
 				self.ignoreall = 0;
 				if(getdvarint("scr_boss_debug", 0))
 				{
-					level thread namespace_2f63e553::function_5e6b8376(self.origin, 100, 0.5, (1, 0, 0));
+					level thread doa_dev::function_5e6b8376(self.origin, 100, 0.5, (1, 0, 0));
 				}
 				wait(0.5);
 				break;
@@ -353,8 +353,8 @@ function private function_66efd1eb()
 		}
 		if(getdvarint("scr_boss_debug", 0))
 		{
-			level thread namespace_2f63e553::function_5e6b8376(self.origin, 128, 500, (1, 0.8, 0.8));
-			level thread namespace_2f63e553::function_5e6b8376(self.origin, 32, 0.05, (0, 1, 0));
+			level thread doa_dev::function_5e6b8376(self.origin, 128, 500, (1, 0.8, 0.8));
+			level thread doa_dev::function_5e6b8376(self.origin, 32, 0.05, (0, 1, 0));
 		}
 	}
 }
@@ -443,7 +443,7 @@ function private function_2ca4656()
 				self setgoal(self.var_f4a5c4fe, 1);
 				if(getdvarint("scr_boss_debug", 0))
 				{
-					level thread namespace_2f63e553::function_5e6b8376(target.origin, 32, 500, (1, 1, 0));
+					level thread doa_dev::function_5e6b8376(target.origin, 32, 500, (1, 1, 0));
 				}
 				self util::waittill_any_timeout(10, "goal", "death");
 				self.var_f4a5c4fe = undefined;

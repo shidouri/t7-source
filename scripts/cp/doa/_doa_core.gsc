@@ -335,7 +335,7 @@ function function_57863b20()
 	{
 		level waittill("host_migration_begin");
 		level waittill("host_migration_end");
-		namespace_2f63e553::setupdevgui();
+		doa_dev::setupdevgui();
 		if(isdefined(level.doa.var_52cccfb6))
 		{
 			if(isdefined(level.doa.var_52cccfb6.host_migration))
@@ -559,7 +559,7 @@ function init()
 	doa_audio::init();
 	doa_player_challenge::init();
 	level thread function_57863b20();
-	namespace_2f63e553::setupdevgui();
+	doa_dev::setupdevgui();
 	level flag::set("doa_init_complete");
 	if(!isdefined(level.voice))
 	{

@@ -93,7 +93,7 @@ function missile_logic(fake)
 	{
 		if(getdvarfloat("scr_doa_missile_debug", 0))
 		{
-			level thread namespace_2f63e553::function_a0e51d80(missile.origin, 4, 24, (1, 0, 0));
+			level thread doa_dev::function_a0e51d80(missile.origin, 4, 24, (1, 0, 0));
 		}
 		distsq = distancesquared(missile.origin, fake.origin);
 		if(distsq < (getdvarint("scr_doa_missile_travel_reached_dist", 96) * getdvarint("scr_doa_missile_travel_reached_dist", 96)))
@@ -124,7 +124,7 @@ function missile_logic(fake)
 	{
 		if(getdvarfloat("scr_doa_missile_debug", 0))
 		{
-			level thread namespace_2f63e553::function_a0e51d80(missile.origin, 4, 24, (0, 1, 0));
+			level thread doa_dev::function_a0e51d80(missile.origin, 4, 24, (0, 1, 0));
 		}
 		distsq = distancesquared(missile.origin, enemy.origin);
 		if(distsq < (getdvarint("scr_doa_missile_detonate_range", 96) * getdvarint("scr_doa_missile_detonate_range", 96)))

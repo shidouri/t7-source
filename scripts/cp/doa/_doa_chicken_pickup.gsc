@@ -605,8 +605,8 @@ function private function_cea0c915(player, weapon)
 	start = self.bird.origin + offset;
 	if(getdvarint("scr_doa_debug_chicken_fire", 0))
 	{
-		level thread namespace_2f63e553::function_a0e51d80(start, 5, 20, (1, 0, 0));
-		level thread namespace_2f63e553::debugline(start, self.origin + (forward * 1000), 5, (1, 0, 0));
+		level thread doa_dev::function_a0e51d80(start, 5, 20, (1, 0, 0));
+		level thread doa_dev::debugline(start, self.origin + (forward * 1000), 5, (1, 0, 0));
 	}
 	magicbullet(weapon, start, start + (forward * 1000), (isdefined(player) ? player : self.bird));
 }

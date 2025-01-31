@@ -3298,7 +3298,7 @@ function function_f300c612()
 		wait(0.05);
 		if(isdefined(self.doa.var_f4a883ed) && self.doa.var_f4a883ed)
 		{
-			namespace_2f63e553::drawcylinder(self.origin, 50, 50, 1, (1, 0, 0));
+			doa_dev::drawcylinder(self.origin, 50, 50, 1, (1, 0, 0));
 		}
 	}
 }

@@ -195,7 +195,7 @@ function function_7b02a267()
 							{
 								radius = loc.radius;
 							}
-							level thread namespace_2f63e553::drawcylinder(loc.origin, radius, 5, 20);
+							level thread doa_dev::drawcylinder(loc.origin, radius, 5, 20);
 						}
 					}
 				}
@@ -684,7 +684,7 @@ function private function_993013cd(trigger)
 	{
 		if(isdefined(self.active) && self.active && isdefined(trigger))
 		{
-			namespace_2f63e553::drawcylinder(trigger.origin, self.def.width, self.def.height);
+			doa_dev::drawcylinder(trigger.origin, self.def.width, self.def.height);
 		}
 		wait(0.05);
 	}
