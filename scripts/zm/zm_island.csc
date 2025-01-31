@@ -148,7 +148,7 @@ function register_clientfields()
 	clientfield::register("toplayer", "postfx_futz_mild", 9000, 1, "counter", &postfx_futz_mild, 0, 0);
 	clientfield::register("toplayer", "water_motes", 9000, 1, "int", &water_motes, 0, 0);
 	clientfield::register("toplayer", "play_bubbles", 9000, 1, "int", &function_58e931d1, 0, 0);
-	clientfield::register("toplayer", "set_world_fog", 9000, var_ddba80d7, "int", &function_346468e3, 0, 0);
+	clientfield::register("toplayer", "set_world_fog", 9000, var_ddba80d7, "int", &world_fog_set, 0, 0);
 	clientfield::register("toplayer", "speed_burst", 9000, 1, "int", &player_speed_changed, 0, 1);
 	clientfield::register("toplayer", "tp_water_sheeting", 9000, 1, "int", &water_sheeting_toggle, 0, 0);
 	clientfield::register("toplayer", "wind_blur", 9000, 1, "int", &function_4a01cc4e, 0, 0);
@@ -414,7 +414,7 @@ function function_738868d4(localclientnum)
 }
 
 /*
-	Name: function_346468e3
+	Name: world_fog_set
 	Namespace: zm_island
 	Checksum: 0x767F9287
 	Offset: 0x35D0
@@ -422,7 +422,7 @@ function function_738868d4(localclientnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_346468e3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function world_fog_set(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval == 1)
 	{

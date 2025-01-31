@@ -63,7 +63,7 @@ function init_clientfields()
 	clientfield::register("actor", "hero_spawn_fx", 1, 1, "int", &function_78bd19c4, 0, 0);
 	clientfield::register("scriptmover", "hero_spawn_fx", 1, 1, "int", &function_78bd19c4, 0, 0);
 	clientfield::register("scriptmover", "vehicle_spawn_fx", 1, 1, "int", &function_f026ccfa, 0, 0);
-	clientfield::register("toplayer", "set_world_fog", 1, 1, "int", &function_346468e3, 0, 0);
+	clientfield::register("toplayer", "set_world_fog", 1, 1, "int", &world_fog_set, 0, 0);
 	clientfield::register("scriptmover", "raven_juke_effect", 1, 1, "counter", &function_69d5dc62, 0, 0);
 	clientfield::register("actor", "raven_juke_limb_effect", 1, 1, "counter", &function_d559bc1d, 0, 0);
 	clientfield::register("scriptmover", "raven_teleport_effect", 1, 1, "counter", &function_cb609334, 0, 0);
@@ -365,7 +365,7 @@ function function_f026ccfa(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_346468e3
+	Name: world_fog_set
 	Namespace: zurich_util
 	Checksum: 0xEF036DBA
 	Offset: 0x3750
@@ -373,7 +373,7 @@ function function_f026ccfa(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_346468e3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function world_fog_set(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval == 1)
 	{
