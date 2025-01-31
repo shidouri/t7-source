@@ -49,7 +49,7 @@ function main()
 */
 function init_clientfields()
 {
-	clientfield::register("world", "set_exposure_bank", 1, 2, "int", &function_1e832062, 0, 0);
+	clientfield::register("world", "set_exposure_bank", 1, 2, "int", &set_exposure_bank, 0, 0);
 }
 
 /*
@@ -126,7 +126,7 @@ function force_streamer(n_zone)
 }
 
 /*
-	Name: function_1e832062
+	Name: set_exposure_bank
 	Namespace: cp_mi_cairo_infection
 	Checksum: 0x6C1D0B05
 	Offset: 0xB08
@@ -134,7 +134,7 @@ function force_streamer(n_zone)
 	Parameters: 7
 	Flags: Linked
 */
-function function_1e832062(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function set_exposure_bank(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval != oldval)
 	{

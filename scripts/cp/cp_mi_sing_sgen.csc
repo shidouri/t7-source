@@ -1184,7 +1184,7 @@ function twin_igc_client_fxanims()
 }
 
 /*
-	Name: function_1e832062
+	Name: set_exposure_bank
 	Namespace: cp_mi_sing_sgen
 	Checksum: 0x533DF231
 	Offset: 0x5690
@@ -1192,7 +1192,7 @@ function twin_igc_client_fxanims()
 	Parameters: 7
 	Flags: None
 */
-function function_1e832062()
+function set_exposure_bank()
 {
 	// Unsupported VM revision (1B).
 }

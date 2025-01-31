@@ -125,7 +125,7 @@ function function_867a9765()
 }
 
 /*
-	Name: function_1e832062
+	Name: set_exposure_bank
 	Namespace: cp_mi_sing_sgen_revenge_igc
 	Checksum: 0xD41F0FD
 	Offset: 0x928
@@ -133,7 +133,7 @@ function function_867a9765()
 	Parameters: 2
 	Flags: None
 */
-function function_1e832062()
+function set_exposure_bank()
 {
 	// Unsupported VM revision (1B).
 }

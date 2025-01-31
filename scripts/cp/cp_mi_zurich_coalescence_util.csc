@@ -80,7 +80,7 @@ function init_clientfields()
 	clientfield::register("actor", "raven_ai_rez", 1, 1, "int", &function_91c7508e, 0, 0);
 	clientfield::register("scriptmover", "raven_ai_rez", 1, 1, "int", &function_91c7508e, 0, 0);
 	clientfield::register("toplayer", "zurich_server_cam", 1, 1, "int", &function_9596c4e, 0, 0);
-	clientfield::register("world", "set_exposure_bank", 1, 1, "int", &function_1e832062, 0, 0);
+	clientfield::register("world", "set_exposure_bank", 1, 1, "int", &set_exposure_bank, 0, 0);
 	clientfield::register("scriptmover", "corvus_tree_shader", 1, 1, "int", &function_51e77d4f, 0, 0);
 	clientfield::register("actor", "hero_cold_breath", 1, 1, "int", &function_33714f9b, 0, 0);
 	clientfield::register("world", "set_post_color_grade_bank", 1, 1, "int", &function_7b22d9c9, 0, 0);
@@ -388,7 +388,7 @@ function function_346468e3(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_1e832062
+	Name: set_exposure_bank
 	Namespace: zurich_util
 	Checksum: 0x575CDB17
 	Offset: 0x3820
@@ -396,7 +396,7 @@ function function_346468e3(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_1e832062(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function set_exposure_bank(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{

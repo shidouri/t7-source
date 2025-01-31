@@ -50,7 +50,7 @@ function clientfields_init()
 	clientfield::register("toplayer", "zipline_speed_blur", 1, 1, "int", &function_424e31ac, 0, 0);
 	clientfield::register("toplayer", "umbra_tome_markets2", 1, 1, "counter", &function_51e4599a, 0, 0);
 	clientfield::register("scriptmover", "waiter_blood_shader", 1, 1, "int", &function_81199318, 0, 0);
-	clientfield::register("world", "set_exposure_bank", 1, 1, "int", &function_1e832062, 0, 0);
+	clientfield::register("world", "set_exposure_bank", 1, 1, "int", &set_exposure_bank, 0, 0);
 	clientfield::register("world", "party_house_shutter", 1, 1, "int", &function_e49f0db0, 0, 0);
 	clientfield::register("world", "party_house_destruction", 1, 1, "int", &function_f3caffbf, 0, 0);
 	clientfield::register("world", "dome_glass_break", 1, 1, "int", &function_f386de49, 0, 0);
@@ -475,7 +475,7 @@ function force_streamer(n_zone)
 }
 
 /*
-	Name: function_1e832062
+	Name: set_exposure_bank
 	Namespace: cp_mi_sing_biodomes
 	Checksum: 0x36424DFC
 	Offset: 0x1BA8
@@ -483,7 +483,7 @@ function force_streamer(n_zone)
 	Parameters: 7
 	Flags: Linked
 */
-function function_1e832062(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function set_exposure_bank(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
