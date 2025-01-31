@@ -85,7 +85,7 @@ function skipto_main(str_objective, b_starting)
 	var_4ccf970 = zurich_util::function_a00fa665(str_objective);
 	zurich_util::enable_surreal_ai_fx(1, 0.5);
 	spawner::add_spawn_function_group("raven_ambush_ai", "script_parameters", &zurich_util::function_aceff870);
-	spawner::add_spawn_function_group("raven_spawn_teleport", "script_parameters", &zurich_util::function_3287bea1);
+	spawner::add_spawn_function_group("raven_spawn_teleport", "script_parameters", &zurich_util::raven_spawn_teleport);
 	level thread namespace_67110270::function_1935b4aa();
 	level thread function_42dddb91(str_objective);
 	level clientfield::set("cairo_client_ents", 1);

@@ -1553,7 +1553,7 @@ function function_c9e8f95a(e_anchor)
 }
 
 /*
-	Name: function_3287bea1
+	Name: raven_spawn_teleport
 	Namespace: zurich_util
 	Checksum: 0xF4E9AF3C
 	Offset: 0x5928
@@ -1561,7 +1561,7 @@ function function_c9e8f95a(e_anchor)
 	Parameters: 0
 	Flags: Linked
 */
-function function_3287bea1()
+function raven_spawn_teleport()
 {
 	self endon("death");
 	if(isdefined(self.target) && self.script_parameters === "raven_spawn_teleport")
