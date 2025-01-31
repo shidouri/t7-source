@@ -79,7 +79,7 @@ function force_streamer()
 }
 
 /*
-	Name: function_ba3ef194
+	Name: intro_ambience
 	Namespace: cp_mi_zurich_coalescence
 	Checksum: 0xCAFB453B
 	Offset: 0x1450
@@ -87,7 +87,7 @@ function force_streamer()
 	Parameters: 7
 	Flags: None
 */
-function function_ba3ef194()
+function intro_ambience()
 {
 	// Unsupported VM revision (1B).
 }
