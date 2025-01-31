@@ -185,7 +185,7 @@ function cloudmountain_main()
 function function_9a10cb7d()
 {
 	level endon(#"hash_19af2c9a");
-	level waittill(#"hash_ce48e0c4");
+	level waittill("cloudmountain_siegebots_dead");
 	spawn_manager::enable("manager_phalanx_humans_overhead");
 }
 
