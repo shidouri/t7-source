@@ -86,7 +86,7 @@ function init_clientfields()
 	clientfield::register("world", "set_post_color_grade_bank", 1, 1, "int", &set_post_color_grade_bank, 0, 0);
 	clientfield::register("toplayer", "postfx_hallucinations", 1, 1, "counter", &function_6ec9825e, 0, 0);
 	clientfield::register("toplayer", "player_water_transition", 1, 1, "int", &function_70a9fa32, 0, 0);
-	clientfield::register("toplayer", "raven_hallucinations", 1, 1, "int", &function_8f5cd506, 0, 0);
+	clientfield::register("toplayer", "raven_hallucinations", 1, 1, "int", &raven_hallucinations, 0, 0);
 	clientfield::register("scriptmover", "quadtank_raven_explosion", 1, 1, "int", &function_45e22343, 0, 0);
 	clientfield::register("scriptmover", "raven_fade_out", 1, 1, "int", &function_629bf9a7, 0, 0);
 }
@@ -983,7 +983,7 @@ function function_6ec9825e(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_8f5cd506
+	Name: raven_hallucinations
 	Namespace: zurich_util
 	Checksum: 0xE725E3F2
 	Offset: 0x5480
@@ -991,7 +991,7 @@ function function_6ec9825e(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_8f5cd506(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function raven_hallucinations(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon("entityshutdown");
 	if(newval)
