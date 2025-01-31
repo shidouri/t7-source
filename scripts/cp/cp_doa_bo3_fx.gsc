@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\codescripts\struct;
 
-#namespace namespace_e8effba5;
+#namespace cp_doa_bo3_fx;
 
 /*
 	Name: main
-	Namespace: namespace_e8effba5
+	Namespace: cp_doa_bo3_fx
 	Checksum: 0x567E5419
 	Offset: 0x188
 	Size: 0x8E
@@ -23,7 +23,7 @@ function main()
 
 /*
 	Name: raps_explode_fx
-	Namespace: namespace_e8effba5
+	Namespace: cp_doa_bo3_fx
 	Checksum: 0xB9768B45
 	Offset: 0x220
 	Size: 0x54

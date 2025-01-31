@@ -32,7 +32,7 @@ function main()
 	setdvar("doa_redins_rally", 0);
 	level.var_2eda2d85 = &function_62423327;
 	level.var_1f314fb9 = &function_4eb73a5;
-	namespace_e8effba5::main();
+	cp_doa_bo3_fx::main();
 	cp_doa_bo3_sound::main();
 	setdvar("bg_friendlyFireMode", 0);
 	clientfield::register("world", "redinsExploder", 1, 2, "int", &function_1dd0a889, 0, 0);

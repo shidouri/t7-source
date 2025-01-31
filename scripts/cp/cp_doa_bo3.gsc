@@ -92,7 +92,7 @@ function main()
 	level.var_7ed6996d = &init;
 	level.var_fd84aa1f = &function_56600114;
 	level thread doa_core::main();
-	level thread namespace_e8effba5::main();
+	level thread cp_doa_bo3_fx::main();
 	level thread cp_doa_bo3_sound::main();
 }
 

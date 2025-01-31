@@ -913,19 +913,19 @@ function function_7ebf419e()
 	loc.angles = self.angles;
 	loc.origin = self.origin;
 	loc.def = self.def;
-	level namespace_e8effba5::raps_explode_fx(loc.origin);
+	level cp_doa_bo3_fx::raps_explode_fx(loc.origin);
 	if(self.model == "veh_t7_drone_insanity_elemental_v2_large")
 	{
 		function_fb051310(level.doa.var_b2669ad0["medium"], loc, loc.def, 0, 600, 1);
 		loc.origin = loc.origin + (randomfloatrange(-40, 40), randomfloatrange(-40, 40), 32);
-		level namespace_e8effba5::raps_explode_fx(loc.origin);
+		level cp_doa_bo3_fx::raps_explode_fx(loc.origin);
 		function_fb051310(level.doa.var_b2669ad0["medium"], loc, loc.def, 0, 600, 1);
 	}
 	else if(self.model == "veh_t7_drone_insanity_elemental_v2_med")
 	{
 		function_fb051310(level.doa.var_b2669ad0["small"], loc, loc.def, 0, 100, 1);
 		loc.origin = loc.origin + (randomfloatrange(-40, 40), randomfloatrange(-40, 40), 32);
-		level namespace_e8effba5::raps_explode_fx(loc.origin);
+		level cp_doa_bo3_fx::raps_explode_fx(loc.origin);
 		function_fb051310(level.doa.var_b2669ad0["small"], loc, loc.def, 0, 100, 1);
 	}
 }
