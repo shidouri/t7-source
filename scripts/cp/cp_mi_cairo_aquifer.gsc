@@ -94,7 +94,7 @@ function main()
 	compass::setupminimap("compass_map_cp_mi_cairo_aquifer");
 	load::main();
 	aquifer_accolades::accolades_init();
-	namespace_a52a2a1d::function_7403e82b();
+	cp_mi_cairo_aquifer_patch::function_7403e82b();
 	aquifer_util::loadeffects();
 	thread function_c2c4ea75();
 	setdvar("compassmaxrange", "2100");
