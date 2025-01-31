@@ -25,7 +25,7 @@
 function main()
 {
 	cp_sh_mobile_fx::main();
-	namespace_94ce943b::main();
+	cp_sh_mobile_sound::main();
 	load::main();
 	level thread set_ambient_state();
 	level thread setup_vignettes();

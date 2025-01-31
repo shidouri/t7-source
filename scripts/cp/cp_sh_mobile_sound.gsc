@@ -1,10 +1,10 @@
 #using scripts\codescripts\struct;
 
-#namespace namespace_94ce943b;
+#namespace cp_sh_mobile_sound;
 
 /*
 	Name: main
-	Namespace: namespace_94ce943b
+	Namespace: cp_sh_mobile_sound
 	Checksum: 0xE9C07CD6
 	Offset: 0x98
 	Size: 0x0
