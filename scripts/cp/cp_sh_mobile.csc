@@ -20,7 +20,7 @@
 */
 function main()
 {
-	namespace_43c49144::main();
+	cp_sh_mobile_fx::main();
 	namespace_94ce943b::main();
 	load::main();
 	util::waitforclient(0);

@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\codescripts\struct;
 
-#namespace namespace_43c49144;
+#namespace cp_sh_mobile_fx;
 
 /*
 	Name: main
-	Namespace: namespace_43c49144
+	Namespace: cp_sh_mobile_fx
 	Checksum: 0x99EC1590
 	Offset: 0x90
 	Size: 0x4
