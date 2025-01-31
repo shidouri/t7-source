@@ -296,7 +296,7 @@ function function_9006ed1d()
 */
 function function_187d0cba()
 {
-	level endon(#"hash_13a0547d");
+	level endon("hq_exit_zone_trig");
 	self waittill("trigger", e_who);
 	e_who util::break_glass(200);
 }
