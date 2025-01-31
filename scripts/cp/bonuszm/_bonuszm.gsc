@@ -2464,7 +2464,7 @@ function function_88adb698(var_454219da, levelstart)
 	/#
 		assert(isdefined(var_454219da));
 	#/
-	namespace_a432d965::function_da5f2c0d(getdvarstring("mapname"), var_454219da);
+	bonuszmdata::function_da5f2c0d(getdvarstring("mapname"), var_454219da);
 	if(!levelstart && level.var_a9e78bf7["onlyuseonstart"])
 	{
 		level.var_a9e78bf7["extraspawns"] = 0;

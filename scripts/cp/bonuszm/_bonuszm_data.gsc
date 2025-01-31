@@ -3,11 +3,11 @@
 #using scripts\cp\bonuszm\_bonuszm;
 #using scripts\cp\bonuszm\_bonuszm_spawner_shared;
 
-#namespace namespace_a432d965;
+#namespace bonuszmdata;
 
 /*
 	Name: function_dc036a7c
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0xCA21C695
 	Offset: 0x5D8
 	Size: 0x9C
@@ -28,7 +28,7 @@ function autoexec function_dc036a7c()
 
 /*
 	Name: function_da5f2c0d
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0x494BD8B7
 	Offset: 0x680
 	Size: 0xE34
@@ -155,7 +155,7 @@ function function_da5f2c0d(mapname, checkpointname)
 
 /*
 	Name: function_9a6a6726
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0xE2103E6
 	Offset: 0x14C0
 	Size: 0x1D6
@@ -185,7 +185,7 @@ function function_9a6a6726()
 
 /*
 	Name: function_97b4bacb
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0xCA6321F4
 	Offset: 0x16A0
 	Size: 0xF86
@@ -567,7 +567,7 @@ function function_97b4bacb(zombify, var_a621e856)
 
 /*
 	Name: function_15c7079
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0x632909F
 	Offset: 0x2630
 	Size: 0x20
@@ -581,7 +581,7 @@ function function_15c7079(index)
 
 /*
 	Name: function_4542e087
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0x44553725
 	Offset: 0x2658
 	Size: 0x194
@@ -612,7 +612,7 @@ function private function_4542e087()
 
 /*
 	Name: bzm_overridelocomotion
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0xEE8DC0E0
 	Offset: 0x27F8
 	Size: 0xD2
@@ -636,7 +636,7 @@ function private bzm_overridelocomotion(var_68d35041, var_dbe80e3b, var_5a7ff9f0
 
 /*
 	Name: bzm_overridehealth
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0x43FB351E
 	Offset: 0x28D8
 	Size: 0x7A
@@ -656,7 +656,7 @@ function private bzm_overridehealth(var_52292ab5, var_d3cfcdb3, var_dd13b525)
 
 /*
 	Name: bzm_overridesuicidalchance
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0x6139457D
 	Offset: 0x2960
 	Size: 0x52
@@ -678,7 +678,7 @@ function private bzm_overridesuicidalchance(chance)
 
 /*
 	Name: function_481f94
-	Namespace: namespace_a432d965
+	Namespace: bonuszmdata
 	Checksum: 0xB3F5ED5
 	Offset: 0x29C0
 	Size: 0x52
