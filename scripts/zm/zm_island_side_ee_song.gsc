@@ -134,13 +134,13 @@ function function_4b02c768()
 		{
 			continue;
 		}
-		e_origin function_f86c981f();
+		e_origin activate_bear();
 	}
 	zm_unitrigger::unregister_unitrigger(e_origin.s_unitrigger);
 }
 
 /*
-	Name: function_f86c981f
+	Name: activate_bear
 	Namespace: zm_island_side_ee_song
 	Checksum: 0x63374814
 	Offset: 0x7A8
@@ -148,7 +148,7 @@ function function_4b02c768()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f86c981f()
+function activate_bear()
 {
 	if(!(isdefined(self.b_activated) && self.b_activated))
 	{
@@ -195,17 +195,17 @@ function function_aed87222(cmd)
 		{
 			case "":
 			{
-				level.var_c911c0a2[0] function_f86c981f();
+				level.var_c911c0a2[0] activate_bear();
 				return true;
 			}
 			case "":
 			{
-				level.var_c911c0a2[1] function_f86c981f();
+				level.var_c911c0a2[1] activate_bear();
 				return true;
 			}
 			case "":
 			{
-				level.var_c911c0a2[2] function_f86c981f();
+				level.var_c911c0a2[2] activate_bear();
 				return true;
 			}
 		}

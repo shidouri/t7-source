@@ -546,14 +546,14 @@ function function_4b02c768()
 		{
 			continue;
 		}
-		e_origin function_f86c981f();
+		e_origin activate_bear();
 	}
 	zm_unitrigger::unregister_unitrigger(e_origin.s_unitrigger);
 	e_origin delete();
 }
 
 /*
-	Name: function_f86c981f
+	Name: activate_bear
 	Namespace: zm_genesis_sound
 	Checksum: 0xE4A95BE4
 	Offset: 0x1980
@@ -561,7 +561,7 @@ function function_4b02c768()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f86c981f()
+function activate_bear()
 {
 	if(!(isdefined(self.b_activated) && self.b_activated))
 	{
