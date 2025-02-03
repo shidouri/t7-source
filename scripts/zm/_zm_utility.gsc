@@ -3488,9 +3488,9 @@ function set_zombie_var(zvar, value, is_float = 0, column = 1, is_team_based)
 	Parameters: 5
 	Flags: None
 */
-function get_table_var(table = "mp/zombiemode.csv", var_d45c761e, value, is_float = 0, column = 1)
+function get_table_var(table = "mp/zombiemode.csv", var_name, value, is_float = 0, column = 1)
 {
-	table_value = tablelookup(table, 0, var_d45c761e, column);
+	table_value = tablelookup(table, 0, var_name, column);
 	if(isdefined(table_value) && table_value != "")
 	{
 		if(is_float)
