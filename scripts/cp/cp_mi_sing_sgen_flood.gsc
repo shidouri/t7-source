@@ -1176,7 +1176,7 @@ function function_d0378b1a(e_player)
 	wait(0.05);
 	if(!isdefined(level.var_5580212f))
 	{
-		level notify(#"hash_f8576d57");
+		level notify("apartments_extend");
 		play_water_teleport_fx();
 	}
 	level notify("stop_flood_sounds");
@@ -1198,7 +1198,7 @@ function function_d0378b1a(e_player)
 */
 function function_7ade3b88(a_ents)
 {
-	level endon(#"hash_f8576d57");
+	level endon("apartments_extend");
 	wait(1.5);
 	play_water_teleport_fx();
 }
