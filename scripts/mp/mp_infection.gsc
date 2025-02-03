@@ -32,7 +32,7 @@ function main()
 	level.add_raps_drop_locations = &add_raps_drop_locations;
 	level.remotemissile_kill_z = -800;
 	namespace_5d379c9::main();
-	namespace_83fbe97c::main();
+	mp_infection_sound::main();
 	load::main();
 	compass::setupminimap("compass_map_mp_infection");
 	setdvar("compassmaxrange", "2100");

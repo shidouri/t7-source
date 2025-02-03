@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\codescripts\struct;
 
-#namespace namespace_83fbe97c;
+#namespace mp_infection_sound;
 
 /*
 	Name: main
-	Namespace: namespace_83fbe97c
+	Namespace: mp_infection_sound
 	Checksum: 0x99EC1590
 	Offset: 0x98
 	Size: 0x4
