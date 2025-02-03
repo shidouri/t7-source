@@ -874,7 +874,7 @@ class class_d90687be
 			#/
 			wait(1);
 		}
-		level notify(#"hash_b7da93ea");
+		level notify("arena_timeout");
 	}
 
 	/*
@@ -888,7 +888,7 @@ class class_d90687be
 	*/
 	function function_32374471()
 	{
-		level endon(#"hash_b7da93ea");
+		level endon("arena_timeout");
 		while(true)
 		{
 			level thread function_f115a4c8();
@@ -923,7 +923,7 @@ class class_d90687be
 			level clientfield::set("circle_state", 2);
 			level flag::wait_till("arena_timer");
 			level thread function_32374471();
-			level waittill(#"hash_b7da93ea");
+			level waittill("arena_timeout");
 			level thread function_cba8ad32();
 			level flag::wait_till_clear("test_activate_arena");
 			flag::clear("test_activate_arena");
@@ -4465,7 +4465,7 @@ function function_386f30f4()
 	level flag::set("book_runes_success");
 	level flag::set("final_boss_started");
 	level thread zm_genesis_sound::function_e9341208();
-	level notify(#"hash_b7da93ea");
+	level notify("arena_timeout");
 	level notify(#"hash_f115a4c8");
 	level notify(#"hash_fa713eaf");
 	level clientfield::set("arena_state", 4);
