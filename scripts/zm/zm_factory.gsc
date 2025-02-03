@@ -209,7 +209,7 @@ function main()
 	array::thread_all(trigs, &extra_events);
 	level.use_powerup_volumes = 1;
 	level.var_9aaae7ae = &function_869d6f66;
-	level thread function_6d012317();
+	level thread ciphers();
 	level thread flytrap();
 	level thread function_5d386c43();
 	/#
@@ -2557,7 +2557,7 @@ function fx_overrides()
 }
 
 /*
-	Name: function_6d012317
+	Name: ciphers
 	Namespace: zm_factory
 	Checksum: 0x1DF7305A
 	Offset: 0x8890
@@ -2565,7 +2565,7 @@ function fx_overrides()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6d012317()
+function ciphers()
 {
 	var_3d01fc2c = getent("cipher_brick_main", "script_noteworthy");
 	var_3d01fc2c thread brick_cipher();

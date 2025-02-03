@@ -85,7 +85,7 @@ function main()
 	level.riotshield_melee_juke_callback = &function_c6930415;
 	level flag::wait_till("all_players_spawned");
 	level thread function_932e3574();
-	level thread function_6d012317();
+	level thread ciphers();
 	level thread function_a59032c3();
 	level thread function_e947749a();
 	level thread function_b943cc04();
@@ -992,7 +992,7 @@ function function_b6296b8b()
 }
 
 /*
-	Name: function_6d012317
+	Name: ciphers
 	Namespace: zm_zod_ee_side
 	Checksum: 0x58A8B7B5
 	Offset: 0x39E8
@@ -1000,7 +1000,7 @@ function function_b6296b8b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6d012317()
+function ciphers()
 {
 	var_3d01fc2c = getent("brick_cipher", "targetname");
 	var_3d01fc2c thread brick_cipher();
