@@ -146,12 +146,12 @@ function function_1939853d()
 	{
 		self waittill("zmb_max_ammo");
 		wait(0.05);
-		self function_ab4fad2f();
+		self add_ammo();
 	}
 }
 
 /*
-	Name: function_ab4fad2f
+	Name: add_ammo
 	Namespace: dragon_strike
 	Checksum: 0x3028027E
 	Offset: 0xBD0
@@ -159,7 +159,7 @@ function function_1939853d()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ab4fad2f()
+function add_ammo()
 {
 	w_dragon_strike = self zm_utility::get_player_placeable_mine();
 	if(w_dragon_strike == getweapon("launcher_dragon_strike"))
@@ -207,7 +207,7 @@ function function_ff07e778()
 			{
 				if(w_mine == getweapon("launcher_dragon_strike") || w_mine == getweapon("launcher_dragon_strike_upgraded"))
 				{
-					a_players[i] function_ab4fad2f();
+					a_players[i] add_ammo();
 					continue;
 					continue;
 				}
@@ -434,7 +434,7 @@ function function_2864e2c1()
 	if(isdefined(level.var_d4286019) && level.var_d4286019)
 	{
 		w_dragon_strike = self zm_utility::get_player_placeable_mine();
-		self function_ab4fad2f();
+		self add_ammo();
 	}
 }
 
