@@ -3292,7 +3292,7 @@ function function_d9753c8f(a_ents)
 */
 function function_676dcd54()
 {
-	level waittill(#"hash_e6b5302a");
+	level waittill("aims_assembly");
 	var_7e421bd8 = struct::get_array("inside_man_robot", "script_noteworthy");
 	foreach(s_scene in var_7e421bd8)
 	{
