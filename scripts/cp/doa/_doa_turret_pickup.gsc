@@ -269,7 +269,7 @@ function turret_target()
 		{
 			self thread function_2c414dda();
 		}
-		self notify(#"hash_dc8a04ab");
+		self notify("acquired_target");
 		while(isalive(self.e_target))
 		{
 			wait(0.5);
@@ -329,7 +329,7 @@ function function_2c414dda()
 	self endon("death");
 	self endon("lost_target");
 	self endon(#"hash_d3ef93e9");
-	self waittill(#"hash_dc8a04ab");
+	self waittill("acquired_target");
 	self.turretrotscale = 6;
 	self sentry_turret::sentry_turret_alert_sound();
 	self.is_attacking = 1;
