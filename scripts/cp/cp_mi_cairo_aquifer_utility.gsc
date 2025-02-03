@@ -261,7 +261,7 @@ function function_44287aa3()
 	while(true)
 	{
 		t = trigger::wait_till("pipe_splash_trig");
-		if(!isdefined(t.who.var_ddcbc2bb))
+		if(!isdefined(t.who.splashed))
 		{
 			t.who splash_fx();
 		}
@@ -279,11 +279,11 @@ function function_44287aa3()
 */
 function splash_fx()
 {
-	if(!isdefined(self.var_ddcbc2bb))
+	if(!isdefined(self.splashed))
 	{
-		self.var_ddcbc2bb = 1;
+		self.splashed = 1;
 		wait(2);
-		self.var_ddcbc2bb = undefined;
+		self.splashed = undefined;
 	}
 }
 
