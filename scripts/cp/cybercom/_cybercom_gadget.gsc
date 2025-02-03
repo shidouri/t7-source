@@ -56,7 +56,7 @@ function init()
 	cybercom_gadget_unstoppable_force::init();
 	cybercom_gadget_concussive_wave::init();
 	cybercom_gadget_active_camo::init();
-	namespace_6dcc04c7::init();
+	cybercom_gadget_cacophany::init();
 	namespace_328b6406::init();
 	cybercom_gadget_immolation::init();
 	cybercom_gadget_sensory_overload::init();
@@ -97,7 +97,7 @@ function main()
 	namespace_328b6406::main();
 	cybercom_gadget_sensory_overload::main();
 	cybercom_gadget_misdirection::main();
-	namespace_6dcc04c7::main();
+	cybercom_gadget_cacophany::main();
 	cybercom_gadget_mrpukey::main();
 	cybercom_gadget_firefly::main();
 	cybercom_gadget_immolation::main();

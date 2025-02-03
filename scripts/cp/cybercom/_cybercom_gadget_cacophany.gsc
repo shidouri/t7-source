@@ -14,11 +14,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_6dcc04c7;
+#namespace cybercom_gadget_cacophany;
 
 /*
 	Name: init
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x99EC1590
 	Offset: 0x350
 	Size: 0x4
@@ -31,7 +31,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x92F8397B
 	Offset: 0x360
 	Size: 0x17C
@@ -54,7 +54,7 @@ function main()
 
 /*
 	Name: _is_flickering
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x245BFE36
 	Offset: 0x4E8
 	Size: 0xC
@@ -67,7 +67,7 @@ function _is_flickering(slot)
 
 /*
 	Name: _on_flicker
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x57427223
 	Offset: 0x500
 	Size: 0x14
@@ -80,7 +80,7 @@ function _on_flicker(slot, weapon)
 
 /*
 	Name: _on_give
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x220D8889
 	Offset: 0x520
 	Size: 0x1B4
@@ -105,7 +105,7 @@ function _on_give(slot, weapon)
 
 /*
 	Name: _on_take
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x806E6AA3
 	Offset: 0x6E0
 	Size: 0x72
@@ -123,7 +123,7 @@ function _on_take(slot, weapon)
 
 /*
 	Name: _on_connect
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x99EC1590
 	Offset: 0x760
 	Size: 0x4
@@ -136,7 +136,7 @@ function _on_connect()
 
 /*
 	Name: _on
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0xA276F931
 	Offset: 0x770
 	Size: 0x54
@@ -151,7 +151,7 @@ function _on(slot, weapon)
 
 /*
 	Name: _off
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0xE8D05293
 	Offset: 0x7D0
 	Size: 0x3A
@@ -166,7 +166,7 @@ function _off(slot, weapon)
 
 /*
 	Name: _is_primed
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x264E9FC6
 	Offset: 0x818
 	Size: 0xA8
@@ -187,7 +187,7 @@ function _is_primed(slot, weapon)
 
 /*
 	Name: _lock_requirement
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x6C8227D3
 	Offset: 0x8C8
 	Size: 0xDC
@@ -219,7 +219,7 @@ function private _lock_requirement(target)
 
 /*
 	Name: _get_valid_targets
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x56CAD3C9
 	Offset: 0x9B0
 	Size: 0x2A
@@ -233,7 +233,7 @@ function private _get_valid_targets(weapon)
 
 /*
 	Name: function_7f3f3bde
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0xC25AC954
 	Offset: 0x9E8
 	Size: 0x28C
@@ -283,7 +283,7 @@ function private function_7f3f3bde(slot, weapon)
 
 /*
 	Name: function_41e98fcc
-	Namespace: namespace_6dcc04c7
+	Namespace: cybercom_gadget_cacophany
 	Checksum: 0x3E1FABF9
 	Offset: 0xC80
 	Size: 0xA8
