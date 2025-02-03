@@ -72,11 +72,11 @@ function init()
 */
 function function_d8e6314c()
 {
-	foreach(var_2e488485 in level.doa.var_155f5b81)
+	foreach(gorilla in level.doa.var_155f5b81)
 	{
-		if(isdefined(var_2e488485))
+		if(isdefined(gorilla))
 		{
-			var_2e488485 delete();
+			gorilla delete();
 		}
 	}
 	if(isdefined(level.doa.var_6fb37836))
@@ -330,11 +330,11 @@ function private function_72e0a286()
 	{
 		wait(1);
 		valid = [];
-		foreach(var_2e488485 in level.doa.var_155f5b81)
+		foreach(gorilla in level.doa.var_155f5b81)
 		{
-			if(isdefined(var_2e488485) && var_2e488485.health > 0)
+			if(isdefined(gorilla) && gorilla.health > 0)
 			{
-				valid[valid.size] = var_2e488485;
+				valid[valid.size] = gorilla;
 			}
 		}
 		level.doa.var_155f5b81 = valid;
@@ -394,13 +394,13 @@ function function_28eb6914(ent)
 		while(level.doa.var_155f5b81.size)
 		{
 			var_9386082f = 0;
-			foreach(var_2e488485 in level.doa.var_155f5b81)
+			foreach(gorilla in level.doa.var_155f5b81)
 			{
-				if(!isdefined(var_2e488485))
+				if(!isdefined(gorilla))
 				{
 					continue;
 				}
-				var_9386082f = var_9386082f + var_2e488485.health;
+				var_9386082f = var_9386082f + gorilla.health;
 			}
 			data = doa_utility::clamp(var_9386082f / level.doa.var_7b9808fc, 0, 1);
 			level clientfield::set("pumpBannerBar", data);
