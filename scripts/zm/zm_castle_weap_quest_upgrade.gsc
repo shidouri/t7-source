@@ -7181,7 +7181,7 @@ function function_f78eeee0(v_position)
 function function_bf26d3fb(var_e93a0115)
 {
 	self clientfield::set(var_e93a0115, 1);
-	self waittill(#"hash_894076d7");
+	self waittill("arrow_hidden");
 	self clientfield::set(var_e93a0115, 0);
 }
 
