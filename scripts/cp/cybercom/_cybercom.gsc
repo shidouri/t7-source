@@ -686,7 +686,7 @@ function function_d240e350(var_7872e02, target, docast = 1, upgraded = 0)
 		}
 		case "cybercom_mrpukey":
 		{
-			namespace_e44205a2::function_da7ef8ba(target, docast, upgraded);
+			cybercom_gadget_mrpukey::function_da7ef8ba(target, docast, upgraded);
 			break;
 		}
 		case "cybercom_concussive":

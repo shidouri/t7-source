@@ -65,7 +65,7 @@ function init()
 	cybercom_gadget_smokescreen::init();
 	cybercom_gadget_misdirection::init();
 	cybercom_gadget_electrostatic_strike::init();
-	namespace_e44205a2::init();
+	cybercom_gadget_mrpukey::init();
 }
 
 /*
@@ -98,7 +98,7 @@ function main()
 	cybercom_gadget_sensory_overload::main();
 	cybercom_gadget_misdirection::main();
 	namespace_6dcc04c7::main();
-	namespace_e44205a2::main();
+	cybercom_gadget_mrpukey::main();
 	cybercom_gadget_firefly::main();
 	cybercom_gadget_immolation::main();
 	cybercom_gadget_electrostatic_strike::main();

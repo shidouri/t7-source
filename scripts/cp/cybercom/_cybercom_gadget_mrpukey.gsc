@@ -23,11 +23,11 @@
 
 #using_animtree("generic");
 
-#namespace namespace_e44205a2;
+#namespace cybercom_gadget_mrpukey;
 
 /*
 	Name: init
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x99EC1590
 	Offset: 0x578
 	Size: 0x4
@@ -40,7 +40,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x6AF5EABC
 	Offset: 0x588
 	Size: 0x1FC
@@ -65,7 +65,7 @@ function main()
 
 /*
 	Name: _is_flickering
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0xDE61FF3E
 	Offset: 0x790
 	Size: 0xC
@@ -78,7 +78,7 @@ function _is_flickering(slot)
 
 /*
 	Name: _on_flicker
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0xF7208179
 	Offset: 0x7A8
 	Size: 0x14
@@ -91,7 +91,7 @@ function _on_flicker(slot, weapon)
 
 /*
 	Name: _on_give
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0xF4C16B13
 	Offset: 0x7C8
 	Size: 0x1B4
@@ -117,7 +117,7 @@ function _on_give(slot, weapon)
 
 /*
 	Name: _on_take
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x14D873F9
 	Offset: 0x988
 	Size: 0x62
@@ -134,7 +134,7 @@ function _on_take(slot, weapon)
 
 /*
 	Name: _on_connect
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x99EC1590
 	Offset: 0x9F8
 	Size: 0x4
@@ -147,7 +147,7 @@ function _on_connect()
 
 /*
 	Name: _on
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x606EEADC
 	Offset: 0xA08
 	Size: 0x54
@@ -162,7 +162,7 @@ function _on(slot, weapon)
 
 /*
 	Name: _off
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x7BF646E9
 	Offset: 0xA68
 	Size: 0x3A
@@ -177,7 +177,7 @@ function _off(slot, weapon)
 
 /*
 	Name: _is_primed
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x6A6D4CBC
 	Offset: 0xAB0
 	Size: 0xA8
@@ -198,7 +198,7 @@ function _is_primed(slot, weapon)
 
 /*
 	Name: _lock_requirement
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x13C08C9B
 	Offset: 0xB60
 	Size: 0x200
@@ -240,7 +240,7 @@ function private _lock_requirement(target)
 
 /*
 	Name: _get_valid_targets
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0xA7FA5BE3
 	Offset: 0xD68
 	Size: 0x52
@@ -254,7 +254,7 @@ function private _get_valid_targets(weapon)
 
 /*
 	Name: function_2de61c3f
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0xD3560DCD
 	Offset: 0xDC8
 	Size: 0x2E4
@@ -306,7 +306,7 @@ function private function_2de61c3f(slot, weapon)
 
 /*
 	Name: _puke
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0xBDB74FCD
 	Offset: 0x10B8
 	Size: 0x1EC
@@ -344,7 +344,7 @@ function private _puke(upgraded = 0, secondary = 0, attacker, weapon)
 
 /*
 	Name: function_ceb2ee11
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0xADA038DB
 	Offset: 0x12B0
 	Size: 0xA8
@@ -367,7 +367,7 @@ function function_ceb2ee11()
 
 /*
 	Name: function_da7ef8ba
-	Namespace: namespace_e44205a2
+	Namespace: cybercom_gadget_mrpukey
 	Checksum: 0x7B482510
 	Offset: 0x1360
 	Size: 0x2CA
