@@ -798,7 +798,7 @@ function function_fe180f6f(count = 1)
 		{
 			continue;
 		}
-		if(!(isdefined(guy.spawner.var_8d1af144) && guy.spawner.var_8d1af144))
+		if(!(isdefined(guy.spawner.basic_spawner) && guy.spawner.basic_spawner))
 		{
 			continue;
 		}

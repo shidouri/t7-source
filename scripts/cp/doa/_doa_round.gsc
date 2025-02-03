@@ -156,7 +156,7 @@ function function_691ef36b()
 		}
 		if(int(spawners[i].script_noteworthy) <= level.doa.round_number)
 		{
-			spawners[i].var_8d1af144 = 1;
+			spawners[i].basic_spawner = 1;
 			level.doa.var_c838db72[level.doa.var_c838db72.size] = spawners[i];
 		}
 	}

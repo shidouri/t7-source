@@ -1211,7 +1211,7 @@ function function_a4e16560(sp_enemy, s_spawn_loc, force = 0)
 	ai_spawned.maxsightdistsqrd = 512 * 512;
 	ai_spawned.fovcosine = 0.77;
 	ai_spawned.anim_rate = level.doa.var_c061227e;
-	if(isdefined(sp_enemy.var_8d1af144) && sp_enemy.var_8d1af144)
+	if(isdefined(sp_enemy.basic_spawner) && sp_enemy.basic_spawner)
 	{
 		ai_spawned asmsetanimationrate(ai_spawned.anim_rate);
 		ai_spawned.var_96437a17 = 1;
