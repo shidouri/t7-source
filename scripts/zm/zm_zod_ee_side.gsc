@@ -84,7 +84,7 @@ function main()
 	callback::on_spawned(&on_player_spawned);
 	level.riotshield_melee_juke_callback = &function_c6930415;
 	level flag::wait_till("all_players_spawned");
-	level thread function_932e3574();
+	level thread audio_recordings();
 	level thread ciphers();
 	level thread function_a59032c3();
 	level thread function_e947749a();
@@ -635,7 +635,7 @@ function function_1b5affd(player)
 }
 
 /*
-	Name: function_932e3574
+	Name: audio_recordings
 	Namespace: zm_zod_ee_side
 	Checksum: 0xBAEF565B
 	Offset: 0x2AD8
@@ -643,7 +643,7 @@ function function_1b5affd(player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_932e3574()
+function audio_recordings()
 {
 	level.var_4a9b0bd3 = 0;
 	var_e2dface3 = struct::get_array("audio_recording");
