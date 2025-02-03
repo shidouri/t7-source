@@ -247,17 +247,17 @@ function on_player_spawned()
 */
 function function_b9b9b898()
 {
-	if(!isdefined(level.var_6de9c3a5))
+	if(!isdefined(level.ratings))
 	{
-		level.var_6de9c3a5 = [];
-		var_6de9c3a5 = struct::get_script_bundle_list("trainingsimrating", "rating_list");
-		foreach(index, rating in var_6de9c3a5)
+		level.ratings = [];
+		ratings = struct::get_script_bundle_list("trainingsimrating", "rating_list");
+		foreach(index, rating in ratings)
 		{
 			var_1a07fad9 = struct::get_script_bundle("trainingsimrating", rating);
-			level.var_6de9c3a5[index] = spawnstruct();
-			level.var_6de9c3a5[index].var_92142c80 = var_1a07fad9.var_92142c80;
-			level.var_6de9c3a5[index].tokensawarded = var_1a07fad9.tokensawarded;
-			level.var_6de9c3a5[index].var_9f813737 = var_1a07fad9.var_9f813737;
+			level.ratings[index] = spawnstruct();
+			level.ratings[index].var_92142c80 = var_1a07fad9.var_92142c80;
+			level.ratings[index].tokensawarded = var_1a07fad9.tokensawarded;
+			level.ratings[index].var_9f813737 = var_1a07fad9.var_9f813737;
 		}
 	}
 }
@@ -445,19 +445,19 @@ function teleport_player(var_cc1de81f)
 */
 function function_17f2cd2f()
 {
-	if(self.var_d6d35c88 == level.var_6de9c3a5.size)
+	if(self.var_d6d35c88 == level.ratings.size)
 	{
 		return;
 	}
-	if(level.var_6de9c3a5[self.var_d6d35c88].var_92142c80 <= self.var_d1b47d51)
+	if(level.ratings[self.var_d6d35c88].var_92142c80 <= self.var_d1b47d51)
 	{
 		if(!(isdefined(self getdstat("trainingSimStats", "ranksAchieved", self.var_d6d35c88)) && self getdstat("trainingSimStats", "ranksAchieved", self.var_d6d35c88)))
 		{
 			self setdstat("trainingSimStats", "ranksAchieved", self.var_d6d35c88, 1);
 			self setdstat("PlayerStatsByMap", "cp_sh_cairo", "completedDifficulties", self.var_d6d35c88, 1);
-			self giveunlocktoken(level.var_6de9c3a5[self.var_d6d35c88].tokensawarded);
-			self addplayerstat("career_tokens", level.var_6de9c3a5[self.var_d6d35c88].tokensawarded);
-			self addrankxpvalue("completed_training_sim_rating", level.var_6de9c3a5[self.var_d6d35c88].var_9f813737);
+			self giveunlocktoken(level.ratings[self.var_d6d35c88].tokensawarded);
+			self addplayerstat("career_tokens", level.ratings[self.var_d6d35c88].tokensawarded);
+			self addrankxpvalue("completed_training_sim_rating", level.ratings[self.var_d6d35c88].var_9f813737);
 			self addplayerstat("CAREER_TRAINING_SIM", 1);
 		}
 		self.var_d6d35c88++;
@@ -1860,7 +1860,7 @@ function function_3206b93a()
 	}
 	if(isdefined(self.var_d6d35c88))
 	{
-		if(self.var_d6d35c88 == level.var_6de9c3a5.size)
+		if(self.var_d6d35c88 == level.ratings.size)
 		{
 			self achievements::give_achievement("CP_TRAINING_GOLD");
 		}
