@@ -248,7 +248,7 @@ function runeprison_explode_fx(localclientnum, oldval, newval, bnewent, binitial
 */
 function basin_state_0(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	function_bb70f55a(localclientnum, newval, 0);
+	basin_state(localclientnum, newval, 0);
 }
 
 /*
@@ -262,7 +262,7 @@ function basin_state_0(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function basin_state_1(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	function_bb70f55a(localclientnum, newval, 1);
+	basin_state(localclientnum, newval, 1);
 }
 
 /*
@@ -276,7 +276,7 @@ function basin_state_1(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function basin_state_2(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	function_bb70f55a(localclientnum, newval, 2);
+	basin_state(localclientnum, newval, 2);
 }
 
 /*
@@ -290,11 +290,11 @@ function basin_state_2(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function basin_state_3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	function_bb70f55a(localclientnum, newval, 3);
+	basin_state(localclientnum, newval, 3);
 }
 
 /*
-	Name: function_bb70f55a
+	Name: basin_state
 	Namespace: zm_genesis_arena
 	Checksum: 0xAD58C89C
 	Offset: 0x18D8
@@ -302,7 +302,7 @@ function basin_state_3(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 	Parameters: 3
 	Flags: Linked
 */
-function function_bb70f55a(localclientnum, newval, var_549b41ba)
+function basin_state(localclientnum, newval, var_549b41ba)
 {
 	function_244d3483(localclientnum);
 	level.var_530ae70[localclientnum] util::waittill_dobj(localclientnum);
