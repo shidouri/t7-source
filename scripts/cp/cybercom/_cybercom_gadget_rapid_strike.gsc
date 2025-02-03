@@ -18,11 +18,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_328b6406;
+#namespace cybercom_gadget_rapid_strike;
 
 /*
 	Name: init
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x99EC1590
 	Offset: 0x340
 	Size: 0x4
@@ -35,7 +35,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0xE0DCC19C
 	Offset: 0x350
 	Size: 0x174
@@ -58,7 +58,7 @@ function main()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x99EC1590
 	Offset: 0x4D0
 	Size: 0x4
@@ -71,7 +71,7 @@ function on_player_spawned()
 
 /*
 	Name: _is_flickering
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x847BB4E8
 	Offset: 0x4E0
 	Size: 0xC
@@ -84,7 +84,7 @@ function _is_flickering(slot)
 
 /*
 	Name: _on_flicker
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x3A188EF5
 	Offset: 0x4F8
 	Size: 0x14
@@ -97,7 +97,7 @@ function _on_flicker(slot, weapon)
 
 /*
 	Name: _on_give
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0xF5FFACC3
 	Offset: 0x518
 	Size: 0x2C
@@ -111,7 +111,7 @@ function _on_give(slot, weapon)
 
 /*
 	Name: _on_take
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x46483F67
 	Offset: 0x550
 	Size: 0x22
@@ -125,7 +125,7 @@ function _on_take(slot, weapon)
 
 /*
 	Name: _on_connect
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x99EC1590
 	Offset: 0x580
 	Size: 0x4
@@ -138,7 +138,7 @@ function _on_connect()
 
 /*
 	Name: _on
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x833DF0B
 	Offset: 0x590
 	Size: 0x14
@@ -151,7 +151,7 @@ function _on(slot, weapon)
 
 /*
 	Name: _off
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x7E5E915C
 	Offset: 0x5B0
 	Size: 0x14
@@ -164,7 +164,7 @@ function _off(slot, weapon)
 
 /*
 	Name: function_677ed44f
-	Namespace: namespace_328b6406
+	Namespace: cybercom_gadget_rapid_strike
 	Checksum: 0x5E0D018A
 	Offset: 0x5D0
 	Size: 0x190
