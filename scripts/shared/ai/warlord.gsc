@@ -845,7 +845,7 @@ function warlordangryattack_shootthemall(entity, attackersarray)
 {
 	entity endon("disconnect");
 	entity endon("death");
-	entity notify(#"hash_b160390f");
+	entity notify("angry_attack");
 	shoottime = getdvarfloat("warlordangryattack", 3);
 	foreach(attacker in attackersarray)
 	{
@@ -1616,7 +1616,7 @@ function warlorddangerousenemyattack(entity, attacker, threat)
 	entity endon("disconnect");
 	entity endon("death");
 	attacker endon("death");
-	entity endon(#"hash_b160390f");
+	entity endon("angry_attack");
 	entity notify(#"hash_beb03d5e");
 	entity endon(#"hash_beb03d5e");
 	entity.lastdangerousattackertime = gettime();
