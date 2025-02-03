@@ -1752,11 +1752,11 @@ function function_ef5b1df5()
 		level.var_55c48492 thread function_85a2a491();
 	}
 	var_2241a147 = array::remove_dead(var_2241a147, 0);
-	foreach(var_e35bb14a in var_2241a147)
+	foreach(straggler in var_2241a147)
 	{
-		if(isalive(var_e35bb14a))
+		if(isalive(straggler))
 		{
-			var_e35bb14a kill();
+			straggler kill();
 		}
 	}
 	level.var_55c48492 playsound("evt_keeper_quest_done");
