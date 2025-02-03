@@ -17,11 +17,11 @@
 #using scripts\shared\util_shared;
 #using scripts\shared\visionset_mgr_shared;
 
-#namespace namespace_f388b961;
+#namespace cybercom_gadget_overdrive;
 
 /*
 	Name: init
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x99EC1590
 	Offset: 0x3A8
 	Size: 0x4
@@ -34,7 +34,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x51469A0D
 	Offset: 0x3B8
 	Size: 0xDC
@@ -53,7 +53,7 @@ function main()
 
 /*
 	Name: _on_flicker
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0xAF34D774
 	Offset: 0x4A0
 	Size: 0x14
@@ -66,7 +66,7 @@ function _on_flicker(slot, weapon)
 
 /*
 	Name: _on_give
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x9C9D36D4
 	Offset: 0x4C0
 	Size: 0x4C
@@ -82,7 +82,7 @@ function _on_give(slot, weapon)
 
 /*
 	Name: _on_take
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x1CFD5D45
 	Offset: 0x518
 	Size: 0x2C
@@ -96,7 +96,7 @@ function _on_take(slot, weapon)
 
 /*
 	Name: _on_connect
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x99EC1590
 	Offset: 0x550
 	Size: 0x4
@@ -109,7 +109,7 @@ function _on_connect()
 
 /*
 	Name: _on_disconnect
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x1477C675
 	Offset: 0x560
 	Size: 0x12
@@ -123,7 +123,7 @@ function _on_disconnect()
 
 /*
 	Name: _on
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x707F6A48
 	Offset: 0x580
 	Size: 0x264
@@ -166,7 +166,7 @@ function _on(slot, weapon)
 
 /*
 	Name: _off
-	Namespace: namespace_f388b961
+	Namespace: cybercom_gadget_overdrive
 	Checksum: 0x1C3A4265
 	Offset: 0x7F0
 	Size: 0x74
