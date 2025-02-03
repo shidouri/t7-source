@@ -20,7 +20,7 @@ function accolades_init()
 }
 
 /*
-	Name: function_ed573577
+	Name: accolades_cleanup
 	Namespace: biodomes_accolades
 	Checksum: 0x8CD130C1
 	Offset: 0x6A8
@@ -28,7 +28,7 @@ function accolades_init()
 	Parameters: 0
 	Flags: None
 */
-function function_ed573577()
+function accolades_cleanup()
 {
 	// Unsupported VM revision (1B).
 }
