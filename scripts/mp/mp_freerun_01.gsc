@@ -7,11 +7,11 @@
 #using scripts\shared\compass;
 #using scripts\shared\util_shared;
 
-#namespace namespace_49ee819c;
+#namespace mp_freerun_01;
 
 /*
 	Name: main
-	Namespace: namespace_49ee819c
+	Namespace: mp_freerun_01
 	Checksum: 0xC6A2DACE
 	Offset: 0x1A8
 	Size: 0x34
@@ -27,7 +27,7 @@ function main()
 
 /*
 	Name: precache
-	Namespace: namespace_49ee819c
+	Namespace: mp_freerun_01
 	Checksum: 0x99EC1590
 	Offset: 0x1E8
 	Size: 0x4
@@ -40,7 +40,7 @@ function precache()
 
 /*
 	Name: init
-	Namespace: namespace_49ee819c
+	Namespace: mp_freerun_01
 	Checksum: 0x99EC1590
 	Offset: 0x1F8
 	Size: 0x4
@@ -53,7 +53,7 @@ function init()
 
 /*
 	Name: speed_test_init
-	Namespace: namespace_49ee819c
+	Namespace: mp_freerun_01
 	Checksum: 0x6F62621A
 	Offset: 0x208
 	Size: 0x1AC
@@ -78,7 +78,7 @@ function speed_test_init()
 
 /*
 	Name: speed_test
-	Namespace: namespace_49ee819c
+	Namespace: mp_freerun_01
 	Checksum: 0xF42E5CC3
 	Offset: 0x3C0
 	Size: 0x80
@@ -100,7 +100,7 @@ function speed_test()
 
 /*
 	Name: player_on_trigger
-	Namespace: namespace_49ee819c
+	Namespace: mp_freerun_01
 	Checksum: 0x96E4303
 	Offset: 0x448
 	Size: 0xC2
@@ -123,7 +123,7 @@ function player_on_trigger(player, endon_string)
 
 /*
 	Name: player_off_trigger
-	Namespace: namespace_49ee819c
+	Namespace: mp_freerun_01
 	Checksum: 0x94CE140A
 	Offset: 0x518
 	Size: 0x56
