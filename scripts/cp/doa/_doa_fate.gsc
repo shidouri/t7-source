@@ -1597,11 +1597,11 @@ function private function_b6a1fab3()
 	force.angles = loc.angles + vectorscale((0, 1, 0), 90);
 	force thread doa_utility::function_783519c1("player_challenge_failure", 1);
 	loc = level.doa.fates.locations[2];
-	var_47bba3bb = spawn("script_model", loc.origin);
-	var_47bba3bb.targetname = "fortitude";
-	var_47bba3bb setmodel("zombietron_statue_fortitude");
-	var_47bba3bb.angles = loc.angles + vectorscale((0, 1, 0), 90);
-	var_47bba3bb thread doa_utility::function_783519c1("player_challenge_failure", 1);
+	fortitude = spawn("script_model", loc.origin);
+	fortitude.targetname = "fortitude";
+	fortitude setmodel("zombietron_statue_fortitude");
+	fortitude.angles = loc.angles + vectorscale((0, 1, 0), 90);
+	fortitude thread doa_utility::function_783519c1("player_challenge_failure", 1);
 	loc = level.doa.fates.locations[3];
 	favor = spawn("script_model", loc.origin);
 	favor.targetname = "favor";
@@ -1631,9 +1631,9 @@ function private function_b6a1fab3()
 	force thread doa_fx::function_285a2999("fate_impact");
 	force thread doa_fx::function_285a2999("fate_launch");
 	wait(1);
-	var_47bba3bb thread doa_utility::function_a98c85b2(var_47bba3bb.origin + vectorscale((0, 0, 1), 2000), 1.75);
-	var_47bba3bb thread doa_fx::function_285a2999("fate_impact");
-	var_47bba3bb thread doa_fx::function_285a2999("fate_launch");
+	fortitude thread doa_utility::function_a98c85b2(fortitude.origin + vectorscale((0, 0, 1), 2000), 1.75);
+	fortitude thread doa_fx::function_285a2999("fate_impact");
+	fortitude thread doa_fx::function_285a2999("fate_launch");
 	wait(1);
 	favor thread doa_utility::function_a98c85b2(favor.origin + vectorscale((0, 0, 1), 2000), 1.75);
 	favor thread doa_fx::function_285a2999("fate_impact");
@@ -1641,7 +1641,7 @@ function private function_b6a1fab3()
 	wait(2);
 	level notify(#"hash_852a9fcd");
 	boss delete();
-	var_47bba3bb delete();
+	fortitude delete();
 	force delete();
 	fury delete();
 	favor delete();
