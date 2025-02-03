@@ -726,7 +726,7 @@ function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 		return;
 	}
 	level.doa.var_708cc739 = undefined;
-	level notify(#"hash_ec7ca67b");
+	level notify("arena_changed");
 	/#
 		doa_core::debugmsg((("" + level.doa.arenas[level.doa.current_arena].name) + "") + level.doa.arenas[newval].name);
 	#/

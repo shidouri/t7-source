@@ -1060,7 +1060,7 @@ function function_2fb9e83f()
 {
 	level notify(#"hash_2fb9e83f");
 	level endon(#"hash_2fb9e83f");
-	level endon(#"hash_ec7ca67b");
+	level endon("arena_changed");
 	wait(60);
 	margwas = math::clamp(level.doa.var_da96f13c + 1, 0, 3);
 	level.doa.margwas = [];

@@ -366,7 +366,7 @@ function function_b5e8546d(localclientnum)
 */
 function function_caffcc1d(localclientnum)
 {
-	level waittill(#"hash_ec7ca67b");
+	level waittill("arena_changed");
 	level.var_81528e19 = undefined;
 	setuimodelvalue(createuimodel(level.var_7e2a814c, "driving"), 0);
 }
@@ -382,7 +382,7 @@ function function_caffcc1d(localclientnum)
 */
 function function_c8020bd9(localclientnum)
 {
-	level waittill(#"hash_ec7ca67b");
+	level waittill("arena_changed");
 	level.var_81528e19 = undefined;
 	setuimodelvalue(createuimodel(level.var_7e2a814c, "redins"), "");
 	setuimodelvalue(createuimodel(level.var_7e2a814c, "gtxt0"), "");
@@ -427,7 +427,7 @@ function function_7183a31d(fieldname, diff)
 */
 function function_ec984567()
 {
-	level endon(#"hash_ec7ca67b");
+	level endon("arena_changed");
 	while(true)
 	{
 		level waittill(#"hash_48152b36", fieldname, diff);
@@ -543,7 +543,7 @@ function function_c7163a08(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_96abee17(localclientnum)
 {
-	level waittill(#"hash_ec7ca67b");
+	level waittill("arena_changed");
 	level.var_81528e19 = undefined;
 }
 
@@ -558,7 +558,7 @@ function function_96abee17(localclientnum)
 */
 function function_52612667(localclientnum)
 {
-	level endon(#"hash_ec7ca67b");
+	level endon("arena_changed");
 	if(isdefined(level.weatherfx) && isdefined(level.weatherfx[localclientnum]))
 	{
 		stopfx(localclientnum, level.weatherfx[localclientnum]);
@@ -579,7 +579,7 @@ function function_52612667(localclientnum)
 */
 function function_787f2b69(localclientnum)
 {
-	level endon(#"hash_ec7ca67b");
+	level endon("arena_changed");
 	if(isdefined(level.weatherfx) && isdefined(level.weatherfx[localclientnum]))
 	{
 		stopfx(localclientnum, level.weatherfx[localclientnum]);

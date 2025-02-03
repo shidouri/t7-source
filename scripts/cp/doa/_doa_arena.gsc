@@ -1142,7 +1142,7 @@ function function_5af67667(var_7dd30d23, var_b4ca654f = 0)
 		level flag::clear("doa_game_is_completed");
 	}
 	level.doa.current_arena = var_7dd30d23;
-	level notify(#"hash_ec7ca67b");
+	level notify("arena_changed");
 	level clientfield::set("arenaUpdate", level.doa.current_arena);
 	util::wait_network_frame();
 	level thread function_a50a72db();
@@ -1180,7 +1180,7 @@ function function_fd84aa1f()
 */
 function function_a50a72db()
 {
-	level endon(#"hash_ec7ca67b");
+	level endon("arena_changed");
 	level endon(#"hash_24d3a44");
 	level notify(#"hash_a50a72db");
 	level endon(#"hash_a50a72db");
@@ -1235,7 +1235,7 @@ function function_1c812a03()
 */
 function function_573ad24e()
 {
-	level endon(#"hash_ec7ca67b");
+	level endon("arena_changed");
 	if(!isdefined(self.script_noteworthy))
 	{
 		self.script_noteworthy = "move_to_target";
@@ -1291,7 +1291,7 @@ function function_573ad24e()
 */
 function function_852998f1(trigger)
 {
-	level endon(#"hash_ec7ca67b");
+	level endon("arena_changed");
 	wait(0.4);
 	trigger enablelinkto();
 	trigger linkto(self);
@@ -1340,7 +1340,7 @@ function function_852998f1(trigger)
 */
 function function_7d65367c()
 {
-	level waittill(#"hash_ec7ca67b");
+	level waittill("arena_changed");
 	self setmovingplatformenabled(0);
 	nodes = getnodearray(function_d2d75f5d() + "_platform_traversal_node", "targetname");
 	foreach(node in nodes)
