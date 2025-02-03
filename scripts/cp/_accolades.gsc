@@ -141,13 +141,13 @@ function function_50f58bd0(str_accolade, var_a3dc571a)
 	Parameters: 2
 	Flags: Linked
 */
-function function_464d3607(var_36b04a4a, is_state)
+function function_464d3607(accolade_index, is_state)
 {
 	if(isdefined(is_state) && is_state)
 	{
-		return self getdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", var_36b04a4a, "state");
+		return self getdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", accolade_index, "state");
 	}
-	return self getdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", var_36b04a4a, "value");
+	return self getdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", accolade_index, "value");
 }
 
 /*
@@ -159,20 +159,20 @@ function function_464d3607(var_36b04a4a, is_state)
 	Parameters: 4
 	Flags: Linked
 */
-function function_ce95384b(var_36b04a4a, is_state, value, var_b3982c20)
+function function_ce95384b(accolade_index, is_state, value, var_b3982c20)
 {
 	if(isdefined(is_state) && is_state)
 	{
-		self function_e2d5f2db(var_36b04a4a, value);
-		self setdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", var_36b04a4a, "state", value);
+		self function_e2d5f2db(accolade_index, value);
+		self setdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", accolade_index, "state", value);
 	}
 	else
 	{
 		if(isdefined(var_b3982c20) && var_b3982c20)
 		{
-			self function_86373aa7(var_36b04a4a, value);
+			self function_86373aa7(accolade_index, value);
 		}
-		self setdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", var_36b04a4a, "value", value);
+		self setdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", accolade_index, "value", value);
 	}
 	/#
 		self.var_eb7d74bb = 1;
@@ -188,9 +188,9 @@ function function_ce95384b(var_36b04a4a, is_state, value, var_b3982c20)
 	Parameters: 1
 	Flags: Linked
 */
-function function_520227e6(var_36b04a4a)
+function function_520227e6(accolade_index)
 {
-	return self function_464d3607(var_36b04a4a, 0);
+	return self function_464d3607(accolade_index, 0);
 }
 
 /*
@@ -202,9 +202,9 @@ function function_520227e6(var_36b04a4a)
 	Parameters: 3
 	Flags: Linked
 */
-function function_de8b9e62(var_36b04a4a, value, var_b3982c20)
+function function_de8b9e62(accolade_index, value, var_b3982c20)
 {
-	self function_ce95384b(var_36b04a4a, 0, value, var_b3982c20);
+	self function_ce95384b(accolade_index, 0, value, var_b3982c20);
 }
 
 /*
@@ -216,10 +216,10 @@ function function_de8b9e62(var_36b04a4a, value, var_b3982c20)
 	Parameters: 3
 	Flags: Linked
 */
-function function_3bbb909b(var_36b04a4a, value, var_b3982c20)
+function function_3bbb909b(accolade_index, value, var_b3982c20)
 {
-	statvalue = self function_520227e6(var_36b04a4a);
-	self function_de8b9e62(var_36b04a4a, statvalue + value, var_b3982c20);
+	statvalue = self function_520227e6(accolade_index);
+	self function_de8b9e62(accolade_index, statvalue + value, var_b3982c20);
 	return statvalue + value;
 }
 
@@ -232,9 +232,9 @@ function function_3bbb909b(var_36b04a4a, value, var_b3982c20)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3a7fd23a(var_36b04a4a)
+function function_3a7fd23a(accolade_index)
 {
-	return self function_464d3607(var_36b04a4a, 1);
+	return self function_464d3607(accolade_index, 1);
 }
 
 /*
@@ -246,9 +246,9 @@ function function_3a7fd23a(var_36b04a4a)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8992915e(var_36b04a4a, state)
+function function_8992915e(accolade_index, state)
 {
-	self function_ce95384b(var_36b04a4a, 1, state);
+	self function_ce95384b(accolade_index, 1, state);
 }
 
 /*
@@ -260,9 +260,9 @@ function function_8992915e(var_36b04a4a, state)
 	Parameters: 2
 	Flags: Linked
 */
-function function_86373aa7(var_36b04a4a, value)
+function function_86373aa7(accolade_index, value)
 {
-	self setnoncheckpointdata(("accolades" + var_36b04a4a) + "value", value);
+	self setnoncheckpointdata(("accolades" + accolade_index) + "value", value);
 }
 
 /*
@@ -274,9 +274,9 @@ function function_86373aa7(var_36b04a4a, value)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e2d5f2db(var_36b04a4a, state)
+function function_e2d5f2db(accolade_index, state)
 {
-	self setnoncheckpointdata(("accolades" + var_36b04a4a) + "state", state);
+	self setnoncheckpointdata(("accolades" + accolade_index) + "state", state);
 }
 
 /*
@@ -288,9 +288,9 @@ function function_e2d5f2db(var_36b04a4a, state)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4f34644b(var_36b04a4a)
+function function_4f34644b(accolade_index)
 {
-	return self getnoncheckpointdata(("accolades" + var_36b04a4a) + "value");
+	return self getnoncheckpointdata(("accolades" + accolade_index) + "value");
 }
 
 /*
@@ -302,9 +302,9 @@ function function_4f34644b(var_36b04a4a)
 	Parameters: 1
 	Flags: Linked
 */
-function function_31381fa7(var_36b04a4a)
+function function_31381fa7(accolade_index)
 {
-	return self getnoncheckpointdata(("accolades" + var_36b04a4a) + "state");
+	return self getnoncheckpointdata(("accolades" + accolade_index) + "state");
 }
 
 /*
@@ -316,10 +316,10 @@ function function_31381fa7(var_36b04a4a)
 	Parameters: 1
 	Flags: Linked
 */
-function function_cc6b3591(var_36b04a4a)
+function function_cc6b3591(accolade_index)
 {
-	self clearnoncheckpointdata(("accolades" + var_36b04a4a) + "state");
-	self clearnoncheckpointdata(("accolades" + var_36b04a4a) + "value");
+	self clearnoncheckpointdata(("accolades" + accolade_index) + "state");
+	self clearnoncheckpointdata(("accolades" + accolade_index) + "value");
 }
 
 /*
@@ -461,12 +461,12 @@ function function_77abfac7(num_tokens = 1)
 	Parameters: 2
 	Flags: Linked
 */
-function function_92050191(var_36b04a4a, var_eb856299)
+function function_92050191(accolade_index, var_eb856299)
 {
-	var_9d479b7 = self getdstat("PlayerStatsByMap", getrootmapname(), "accolades", var_36b04a4a, "highestValue");
+	var_9d479b7 = self getdstat("PlayerStatsByMap", getrootmapname(), "accolades", accolade_index, "highestValue");
 	if(var_eb856299 > var_9d479b7)
 	{
-		self setdstat("PlayerStatsByMap", getrootmapname(), "accolades", var_36b04a4a, "highestValue", var_eb856299);
+		self setdstat("PlayerStatsByMap", getrootmapname(), "accolades", accolade_index, "highestValue", var_eb856299);
 	}
 }
 
@@ -1113,13 +1113,13 @@ function function_1ea616fe()
 	Parameters: 1
 	Flags: Linked
 */
-function function_a4b8b7d1(var_36b04a4a)
+function function_a4b8b7d1(accolade_index)
 {
 	/#
 		current_index = 0;
 		foreach(str_accolade, s_accolade in level.accolades)
 		{
-			if(current_index == var_36b04a4a)
+			if(current_index == accolade_index)
 			{
 				self increment(str_accolade);
 				break;
