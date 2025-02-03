@@ -278,7 +278,7 @@ function trap_lights_green()
 function flinger_trap_think(var_c4f1ee44, e_player)
 {
 	self flag::set("trap_active");
-	self thread function_ef013ee8(var_c4f1ee44, e_player);
+	self thread activate_flinger(var_c4f1ee44, e_player);
 	self waittill("trap_done");
 	self flag::clear("trap_active");
 	self flag::set("trap_cooldown");
@@ -287,7 +287,7 @@ function flinger_trap_think(var_c4f1ee44, e_player)
 }
 
 /*
-	Name: function_ef013ee8
+	Name: activate_flinger
 	Namespace: zm_genesis_flinger_trap
 	Checksum: 0xE4E0CFBE
 	Offset: 0xEF0
@@ -295,7 +295,7 @@ function flinger_trap_think(var_c4f1ee44, e_player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ef013ee8(var_c4f1ee44, e_player)
+function activate_flinger(var_c4f1ee44, e_player)
 {
 	n_start_time = gettime();
 	n_total_time = 0;
