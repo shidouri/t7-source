@@ -546,7 +546,7 @@ function function_1e4094ac(v_position, var_d24bfa82)
 		e_plant clientfield::set("plant_killer", var_a00b8053);
 		e_plant thread function_3604c7ec(self);
 		self thread function_d3b8fbb0(v_pos, e_plant);
-		e_plant waittill(#"hash_2b1c6c7");
+		e_plant waittill("withered");
 		e_plant clientfield::set("plant_killer", 0);
 		wait(0.1);
 		e_plant delete();
@@ -576,7 +576,7 @@ function function_3604c7ec(player)
 		n_timeout = player.chargeshotlevel * 3;
 	}
 	wait(n_timeout);
-	self notify(#"hash_2b1c6c7");
+	self notify("withered");
 }
 
 /*
@@ -591,7 +591,7 @@ function function_3604c7ec(player)
 function function_d3b8fbb0(v_pos, e_plant)
 {
 	self endon("disconnect");
-	e_plant endon(#"hash_2b1c6c7");
+	e_plant endon("withered");
 	n_kills = 0;
 	n_range_sq = self function_a1fce678(1);
 	w_current_weapon = self getcurrentweapon();
@@ -616,7 +616,7 @@ function function_d3b8fbb0(v_pos, e_plant)
 					n_kills++;
 					if(n_kills >= e_plant.n_kills)
 					{
-						e_plant notify(#"hash_2b1c6c7");
+						e_plant notify("withered");
 					}
 					if(!(isdefined(ai_zombie.var_61f7b3a0) && ai_zombie.var_61f7b3a0) && (!(isdefined(ai_zombie.b_is_spider) && ai_zombie.b_is_spider)))
 					{
