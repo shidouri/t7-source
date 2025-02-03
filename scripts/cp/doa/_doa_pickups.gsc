@@ -61,7 +61,7 @@ function init()
 	level.doa.pickups.var_3e3b7a53 = [];
 	level.doa.pickups.items = [];
 	level.doa.var_3cc04c3a = [];
-	level.doa.var_bd919311 = "zombietron_ammobox";
+	level.doa.ammo_model = "zombietron_ammobox";
 	level.doa.turret_model = "veh_t7_turret_sentry_gun_world";
 	level.doa.var_b851a0fc = "zombietron_grenade_turret";
 	level.doa.var_f7277ad6 = "zombietron_boots";
@@ -125,9 +125,9 @@ function init()
 	function_db1442f2("zombietron_launcher", &function_92d90e55, 0, 1, 2.4, 100, 16, 2);
 	function_db1442f2("zombietron_rpg", &function_92d90e55, 0, 1, 2.4, 100, 16, 3);
 	function_db1442f2("zombietron_flamethrower", &function_92d90e55, 0, 1, 2, 100, 16, 5);
-	function_db1442f2(level.doa.var_bd919311, &function_92d90e55, 0, 1, 2, 100, 2);
-	function_db1442f2(level.doa.var_bd919311, &function_92d90e55, 0, 1, 2, 100, 2);
-	function_db1442f2(level.doa.var_bd919311, &function_92d90e55, 0, 1, 2, 100, 2);
+	function_db1442f2(level.doa.ammo_model, &function_92d90e55, 0, 1, 2, 100, 2);
+	function_db1442f2(level.doa.ammo_model, &function_92d90e55, 0, 1, 2, 100, 2);
+	function_db1442f2(level.doa.ammo_model, &function_92d90e55, 0, 1, 2, 100, 2);
 	function_db1442f2(level.doa.var_8d63e734, &function_92d90e55, 0, 1, 1, 100, 5, undefined, (0, 0, 0));
 	function_db1442f2(level.doa.var_8d63e734, &function_92d90e55, 0, 1, 1, 100, 5, undefined, (0, 0, 0));
 	function_db1442f2(level.doa.turret_model, &function_92d90e55, 0, 1, 0.75, 100, 3);
