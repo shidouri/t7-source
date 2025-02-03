@@ -681,7 +681,7 @@ function function_479374a3()
 		ent hide();
 	}
 	door = getent("boss_hideaway_door", "targetname");
-	level thread namespace_71a63eac::function_e0e00797();
+	level thread aquifer_sound::function_e0e00797();
 	a_ents = [];
 	if(!isdefined(a_ents))
 	{
