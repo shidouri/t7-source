@@ -6,11 +6,11 @@
 #using scripts\mp\mp_freerun_02_sound;
 #using scripts\shared\util_shared;
 
-#namespace namespace_bbf5f0d7;
+#namespace mp_freerun_02;
 
 /*
 	Name: main
-	Namespace: namespace_bbf5f0d7
+	Namespace: mp_freerun_02
 	Checksum: 0x2D395D7A
 	Offset: 0x140
 	Size: 0x8C
