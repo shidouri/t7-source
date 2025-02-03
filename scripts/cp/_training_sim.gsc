@@ -279,7 +279,7 @@ function function_a91b6cca()
 		foreach(beacon in struct::get_array("round_beacon", "script_noteworthy"))
 		{
 			e_trig = getent(beacon.targetname, "target");
-			beacon.prompt = safehouse::init_interactive_prompt(e_trig, &"cp_safehouse_training_nextround", &"CP_SH_CAIRO_TRAINING_START_ROUND", &function_daea15a5, 0);
+			beacon.prompt = safehouse::init_interactive_prompt(e_trig, &"cp_safehouse_training_nextround", &"CP_SH_CAIRO_TRAINING_START_ROUND", &beacon_use, 0);
 			beacon.prompt safehouse::function_e04cba0f();
 			beacon.prompt.beacon = beacon;
 		}
@@ -287,7 +287,7 @@ function function_a91b6cca()
 }
 
 /*
-	Name: function_daea15a5
+	Name: beacon_use
 	Namespace: training_sim
 	Checksum: 0x99884F8B
 	Offset: 0x18D0
@@ -295,7 +295,7 @@ function function_a91b6cca()
 	Parameters: 1
 	Flags: Linked
 */
-function function_daea15a5(e_player)
+function beacon_use(e_player)
 {
 	self.beacon notify("trigger", e_player);
 }
@@ -683,7 +683,7 @@ function function_b5b532e8()
 {
 	var_762314d8 = function_d2614e32();
 	e_trig = getent(var_762314d8.targetname, "target");
-	var_762314d8.prompt = safehouse::init_interactive_prompt(e_trig, &"cp_safehouse_training_start", &"CP_SH_CAIRO_TRAINING_START_ROUND", &function_daea15a5, 0);
+	var_762314d8.prompt = safehouse::init_interactive_prompt(e_trig, &"cp_safehouse_training_start", &"CP_SH_CAIRO_TRAINING_START_ROUND", &beacon_use, 0);
 	var_762314d8.prompt safehouse::function_e04cba0f();
 	var_762314d8.prompt.beacon = var_762314d8;
 	objectives::show("cp_safehouse_training_start", self);
@@ -1984,7 +1984,7 @@ function end_round()
 			level array::run_all(array::remove_dead(self.var_4c79ddb8), &kill);
 		}
 		wait(5);
-		self.s_beacon.prompt function_daea15a5(self);
+		self.s_beacon.prompt beacon_use(self);
 	#/
 }
 
