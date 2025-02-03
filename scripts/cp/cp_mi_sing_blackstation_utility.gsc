@@ -234,7 +234,7 @@ function toggle_player_anchor(b_anchor)
 		self.is_anchored = 0;
 		level notify("enable_cybercom", self, 1);
 		self util::hide_hint_text();
-		self notify(#"hash_af6705ff");
+		self notify("anchor_away");
 	}
 	else if(b_anchor)
 	{
@@ -284,7 +284,7 @@ function toggle_player_anchor(b_anchor)
 function function_c87bc7e2()
 {
 	self endon("death");
-	self endon(#"hash_af6705ff");
+	self endon("anchor_away");
 	wait(20);
 	if(self.is_anchored)
 	{
