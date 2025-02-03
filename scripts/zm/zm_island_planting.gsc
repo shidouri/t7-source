@@ -171,7 +171,7 @@ function function_fedc998b(var_e7abf7d0 = 0)
 	self.s_plant.var_198c12a1 = 0;
 	self.s_plant.var_8d8becb0 = 0;
 	self.s_plant.var_5a41bc99 = 0;
-	self.s_plant.var_4d34f582 = 0;
+	self.s_plant.b_watered = 0;
 	self.s_plant flag::init("plant_interact_trigger_used");
 	self thread function_ae64b39a(undefined, self.var_e7abf7d0);
 }
@@ -217,7 +217,7 @@ function planting_spot_trigger_visibility(e_player)
 		self sethintstring(&"");
 		return false;
 	}
-	if(self.stub.s_parent.var_594609f9 == 0 && self.stub.s_parent.s_plant.var_4d34f582 == 0 && self.stub.s_parent.s_plant.var_5a41bc99 == 0 && self.stub.s_parent.var_e7abf7d0 == 0)
+	if(self.stub.s_parent.var_594609f9 == 0 && self.stub.s_parent.s_plant.b_watered == 0 && self.stub.s_parent.s_plant.var_5a41bc99 == 0 && self.stub.s_parent.var_e7abf7d0 == 0)
 	{
 		if(isdefined(e_player.var_6fd3d65c) && e_player.var_6fd3d65c && e_player.var_bb2fd41c > 0)
 		{
@@ -264,7 +264,7 @@ function planting_spot_unitrigger_think()
 				self.stub.s_parent notify(#"hash_fa482f7", e_who);
 			}
 		}
-		else if(self.stub.s_parent.s_plant.var_4d34f582 == 0 && self.stub.s_parent.s_plant.var_5a41bc99 == 0 && self.stub.s_parent.var_e7abf7d0 == 0)
+		else if(self.stub.s_parent.s_plant.b_watered == 0 && self.stub.s_parent.s_plant.var_5a41bc99 == 0 && self.stub.s_parent.var_e7abf7d0 == 0)
 		{
 			if(isdefined(e_who.var_6fd3d65c) && e_who.var_6fd3d65c && isdefined(e_who.var_bb2fd41c) && e_who.var_bb2fd41c > 0 && isdefined(e_who.var_c6cad973))
 			{
@@ -539,7 +539,7 @@ function function_ffa65395(var_f40460f5)
 	wait(1);
 	for(n_round = 0; n_round < 3; n_round++)
 	{
-		self.s_plant.var_4d34f582 = 0;
+		self.s_plant.b_watered = 0;
 		self waittill(#"hash_8626f7f1", user);
 		/#
 			if(isdefined(user.playernum))
@@ -547,7 +547,7 @@ function function_ffa65395(var_f40460f5)
 				println((("" + user.playernum) + "") + user.var_c6cad973);
 			}
 		#/
-		self.s_plant.var_4d34f582 = 1;
+		self.s_plant.b_watered = 1;
 		user notify("update_challenge_1_3");
 		user playsound("evt_island_seed_water");
 		if(!isdefined(user.var_f6130406))
