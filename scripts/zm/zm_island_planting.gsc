@@ -161,7 +161,7 @@ function function_fedc998b(var_e7abf7d0 = 0)
 	s_plant_unitrigger.prompt_and_visibility_func = &planting_spot_trigger_visibility;
 	zm_unitrigger::register_static_unitrigger(s_plant_unitrigger, &planting_spot_unitrigger_think);
 	self.s_plant_unitrigger = s_plant_unitrigger;
-	self.var_75c7a97e = 0;
+	self.b_seed_planted = 0;
 	self.var_594609f9 = 0;
 	self.var_e7abf7d0 = var_e7abf7d0;
 	self.s_plant = spawnstruct();
@@ -207,7 +207,7 @@ function planting_spot_trigger_visibility(e_player)
 		self sethintstring(&"");
 		return false;
 	}
-	if(self.stub.s_parent.var_75c7a97e == 0)
+	if(self.stub.s_parent.b_seed_planted == 0)
 	{
 		if(e_player clientfield::get_to_player("has_island_seed"))
 		{
@@ -257,7 +257,7 @@ function planting_spot_unitrigger_think()
 		{
 			continue;
 		}
-		if(self.stub.s_parent.var_75c7a97e == 0)
+		if(self.stub.s_parent.b_seed_planted == 0)
 		{
 			if(e_who clientfield::get_to_player("has_island_seed"))
 			{
@@ -305,7 +305,7 @@ function function_ae64b39a(var_9636d237, var_f40460f5, var_895cb900 = 0)
 		{
 			self.var_561a9c48 = level.activeplayers[0];
 		}
-		self.var_75c7a97e = 1;
+		self.b_seed_planted = 1;
 		self.s_plant.var_198c12a1 = 1;
 		self thread function_18d2ce8b();
 		self thread function_447658c7(var_9636d237, var_f40460f5);
@@ -321,7 +321,7 @@ function function_ae64b39a(var_9636d237, var_f40460f5, var_895cb900 = 0)
 		}
 		self scene::play("p7_fxanim_zm_island_plant_dead_bundle", self.s_plant.model);
 		self.s_plant.model ghost();
-		self.var_75c7a97e = 0;
+		self.b_seed_planted = 0;
 		self.var_561a9c48 = undefined;
 		if(isdefined(var_9636d237))
 		{
@@ -3717,9 +3717,9 @@ function function_2dbcc8ad(cmd)
 			{
 				foreach(var_a68e9e1 in level.a_s_planting_spots)
 				{
-					if(!(isdefined(var_a68e9e1.var_75c7a97e) && var_a68e9e1.var_75c7a97e))
+					if(!(isdefined(var_a68e9e1.b_seed_planted) && var_a68e9e1.b_seed_planted))
 					{
-						var_a68e9e1.var_75c7a97e = 1;
+						var_a68e9e1.b_seed_planted = 1;
 						var_a68e9e1 notify(#"hash_378095a2");
 						var_a68e9e1 thread function_ae64b39a(undefined, undefined, 1);
 					}
@@ -3874,9 +3874,9 @@ function function_c3cee22e()
 		var_5eaa768a = level.a_s_planting_spots;
 		n_index = zm_utility::get_closest_index(self.origin, var_5eaa768a);
 		s_spot = var_5eaa768a[n_index];
-		if(!(isdefined(s_spot.var_75c7a97e) && s_spot.var_75c7a97e))
+		if(!(isdefined(s_spot.b_seed_planted) && s_spot.b_seed_planted))
 		{
-			s_spot.var_75c7a97e = 1;
+			s_spot.b_seed_planted = 1;
 			return s_spot;
 		}
 		return undefined;

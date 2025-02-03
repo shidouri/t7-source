@@ -700,7 +700,7 @@ function function_508749d7(v_position, player)
 	n_range_sq = player function_a1fce678();
 	foreach(s_planting_spot in level.a_s_planting_spots)
 	{
-		if(!(isdefined(s_planting_spot.var_75c7a97e) && s_planting_spot.var_75c7a97e))
+		if(!(isdefined(s_planting_spot.b_seed_planted) && s_planting_spot.b_seed_planted))
 		{
 			continue;
 		}

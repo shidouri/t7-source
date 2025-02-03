@@ -580,7 +580,7 @@ function function_c1f64636(b_completed)
 			{
 				self.s_plant.var_b454101b zm_attackables::do_damage(self.s_plant.var_b454101b.health);
 			}
-			if(self.var_75c7a97e == 0)
+			if(self.b_seed_planted == 0)
 			{
 				self notify(#"hash_7a0cef7b");
 				break;
