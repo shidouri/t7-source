@@ -13,11 +13,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_465859d;
+#namespace cp_mi_sing_vengeance_patch;
 
 /*
 	Name: function_7403e82b
-	Namespace: namespace_465859d
+	Namespace: cp_mi_sing_vengeance_patch
 	Checksum: 0x38B17A3
 	Offset: 0x270
 	Size: 0x784

@@ -86,7 +86,7 @@ function main()
 	util::init_streamer_hints(8);
 	savegame::set_mission_name("vengeance");
 	load::main();
-	namespace_465859d::function_7403e82b();
+	cp_mi_sing_vengeance_patch::function_7403e82b();
 	vengeance_util::fire_fx();
 	setdvar("vengeance_save", "1");
 	level thread vengeance_temple::function_38bcd0();
