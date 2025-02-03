@@ -385,7 +385,7 @@ function private function_9ba543a3(str_accolade, accolade_value)
 */
 function private function_214e644a()
 {
-	return isdefined(level.var_837b3a61) && level.var_837b3a61 || sessionmodeiscampaignzombiesgame();
+	return isdefined(level.accolades_disabled) && level.accolades_disabled || sessionmodeiscampaignzombiesgame();
 }
 
 /*
