@@ -739,7 +739,7 @@ function function_dcf3d41b()
 function function_5ef7fdc2()
 {
 	trigger::wait_till("apartment_light_fire_trigger");
-	level.var_1dca7888 = [];
+	level.apartment_enemies = [];
 	var_71e5f989 = getentarray("apartment_enemy", "script_noteworthy");
 	var_6a00e3c4 = spawner::simple_spawn(var_71e5f989, &function_1f707d1e);
 	var_12d51ad2 = getentarray("apartment_civilian", "script_noteworthy");
@@ -751,7 +751,7 @@ function function_5ef7fdc2()
 	var_702c9f7 = getent("bedroom_door_left_clip", "targetname");
 	var_702c9f7 linkto(var_517e2322);
 	level.var_5bc00cbb thread scene::init("cin_ven_02_20_synckill_vign");
-	level.var_7819b21b = level.var_1dca7888.size;
+	level.var_7819b21b = level.apartment_enemies.size;
 	vengeance_accolades::function_dab879d0();
 	trigger = getent("syncshot_lookat_trigger", "targetname");
 	foreach(player in level.players)
@@ -833,7 +833,7 @@ function function_7f6de599()
 function function_1f707d1e()
 {
 	self endon("death");
-	array::add(level.var_1dca7888, self);
+	array::add(level.apartment_enemies, self);
 	self.goalradius = 32;
 	if(isdefined(self.targetname))
 	{
@@ -911,8 +911,8 @@ function function_fb5e09cf()
 	{
 		level flag::set("apartment_enemy_dead");
 	}
-	level.var_1dca7888 = array::remove_dead(level.var_1dca7888);
-	if(level.var_1dca7888.size == 0)
+	level.apartment_enemies = array::remove_dead(level.apartment_enemies);
+	if(level.apartment_enemies.size == 0)
 	{
 		level flag::set("apartment_enemies_dead");
 	}
