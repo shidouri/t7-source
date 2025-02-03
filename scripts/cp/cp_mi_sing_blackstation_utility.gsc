@@ -356,7 +356,7 @@ function function_a81e2f8f()
 }
 
 /*
-	Name: function_12398a8b
+	Name: anchor_mechanic
 	Namespace: blackstation_utility
 	Checksum: 0xE168E6BB
 	Offset: 0x1B98
@@ -364,7 +364,7 @@ function function_a81e2f8f()
 	Parameters: 1
 	Flags: Linked
 */
-function function_12398a8b(a_ents)
+function anchor_mechanic(a_ents)
 {
 	self endon("death");
 	e_anchor = a_ents["spike"];
