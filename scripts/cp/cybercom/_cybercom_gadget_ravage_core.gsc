@@ -21,11 +21,11 @@
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_9cc756f9;
+#namespace cybercom_gadget_ravage_core;
 
 /*
 	Name: init
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x99EC1590
 	Offset: 0x418
 	Size: 0x4
@@ -38,7 +38,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x4EAB8102
 	Offset: 0x428
 	Size: 0x1A4
@@ -62,7 +62,7 @@ function main()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x99EC1590
 	Offset: 0x5D8
 	Size: 0x4
@@ -75,7 +75,7 @@ function on_player_spawned()
 
 /*
 	Name: _is_flickering
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x7251EF06
 	Offset: 0x5E8
 	Size: 0xC
@@ -88,7 +88,7 @@ function _is_flickering(slot)
 
 /*
 	Name: _on_flicker
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x3DD06780
 	Offset: 0x600
 	Size: 0x14
@@ -101,7 +101,7 @@ function _on_flicker(slot, weapon)
 
 /*
 	Name: _on_give
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x2A23B567
 	Offset: 0x620
 	Size: 0x2C
@@ -115,7 +115,7 @@ function _on_give(slot, weapon)
 
 /*
 	Name: _on_take
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x8DF9590C
 	Offset: 0x658
 	Size: 0x22
@@ -129,7 +129,7 @@ function _on_take(slot, weapon)
 
 /*
 	Name: _on_connect
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x99EC1590
 	Offset: 0x688
 	Size: 0x4
@@ -142,7 +142,7 @@ function _on_connect()
 
 /*
 	Name: _on
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0x72F03944
 	Offset: 0x698
 	Size: 0x14
@@ -155,7 +155,7 @@ function _on(slot, weapon)
 
 /*
 	Name: _off
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0xB6821936
 	Offset: 0x6B8
 	Size: 0x14
@@ -168,7 +168,7 @@ function _off(slot, weapon)
 
 /*
 	Name: function_677ed44f
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0xD6E69F2B
 	Offset: 0x6D8
 	Size: 0x24A
@@ -208,7 +208,7 @@ function function_677ed44f(weapon)
 
 /*
 	Name: _corpsewatcher
-	Namespace: namespace_9cc756f9
+	Namespace: cybercom_gadget_ravage_core
 	Checksum: 0xB50B5C32
 	Offset: 0x930
 	Size: 0x44

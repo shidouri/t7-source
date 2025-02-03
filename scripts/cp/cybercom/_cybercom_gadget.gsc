@@ -51,7 +51,7 @@ function init()
 	cybercom_gadget_servo_shortout::init();
 	cybercom_gadget_exosuitbreakdown::init();
 	cybercom_gadget_surge::init();
-	namespace_9cc756f9::init();
+	cybercom_gadget_ravage_core::init();
 	cybercom_gadget_overdrive::init();
 	cybercom_gadget_unstoppable_force::init();
 	cybercom_gadget_concussive_wave::init();
@@ -87,7 +87,7 @@ function main()
 	cybercom_gadget_iff_override::main();
 	cybercom_gadget_security_breach::main();
 	cybercom_gadget_servo_shortout::main();
-	namespace_9cc756f9::main();
+	cybercom_gadget_ravage_core::main();
 	cybercom_gadget_overdrive::main();
 	cybercom_gadget_smokescreen::main();
 	cybercom_gadget_forced_malfunction::main();
