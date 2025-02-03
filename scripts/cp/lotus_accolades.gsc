@@ -450,8 +450,8 @@ function function_e36c85d8(params)
 			{
 				if(player.var_cacfc33c < 5)
 				{
-					player.var_29d01adc++;
-					if(player.var_29d01adc >= 5)
+					player.advancers_fed++;
+					if(player.advancers_fed >= 5)
 					{
 						player notify(#"hash_8a5f1db");
 					}
@@ -480,7 +480,7 @@ function function_8dc27487(n_max_time)
 	self endon("death");
 	self endon(#"hash_ada946c0");
 	self.var_cacfc33c = 0;
-	self.var_29d01adc = 1;
+	self.advancers_fed = 1;
 	while(n_max_time > self.var_cacfc33c)
 	{
 		wait(1);
