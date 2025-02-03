@@ -433,7 +433,7 @@ function function_fe0946ac(spawn_origin, var_97887a95 = 1)
 	}
 	var_60de7d19 = doa_arena::function_61d60e0b();
 	self thread doa_player_utility::function_7d7a7fde();
-	foreach(guardian in self.doa.var_af875fb7)
+	foreach(guardian in self.doa.guardians)
 	{
 		if(isdefined(guardian))
 		{

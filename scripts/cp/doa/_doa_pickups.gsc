@@ -2778,7 +2778,7 @@ function function_295872fa(pickup)
 */
 function function_411355c0(type, player, origin)
 {
-	foreach(guardian in level.doa.var_af875fb7)
+	foreach(guardian in level.doa.guardians)
 	{
 		if(guardian.type == type)
 		{

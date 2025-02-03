@@ -158,7 +158,7 @@ function function_bbb1254c(var_44eb97b0 = 0)
 		self.doa.var_9742391e = 1;
 		self.doa.var_c5fe2763 = undefined;
 		self.doa.var_80ffe475 = undefined;
-		self.doa.var_af875fb7 = [];
+		self.doa.guardians = [];
 		self notify(#"hash_44eb97b0");
 		wait(0.05);
 		if(isdefined(self.doa.var_3cdd8203))

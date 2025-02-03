@@ -968,7 +968,7 @@ function function_64a5cd5e()
 	doa_utility::function_1ced251e(1);
 	foreach(player in getplayers())
 	{
-		player.doa.var_af875fb7 = [];
+		player.doa.guardians = [];
 		player doa_player_utility::function_7f33210a();
 	}
 	level clientfield::set("set_scoreHidden", 1);
