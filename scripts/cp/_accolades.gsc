@@ -777,8 +777,8 @@ function function_39f05ec1()
 	self endon("death");
 	last_score = self getdstat("PlayerStatsByMap", getrootmapname(), "currentStats", "SCORE");
 	var_7b12b16 = self function_4f9d8dec(level.var_f8718de3 + "SCORE");
-	var_6962bddd = self function_3a7fd23a(var_7b12b16.index);
-	if(isdefined(var_6962bddd) && var_6962bddd)
+	accolade_state = self function_3a7fd23a(var_7b12b16.index);
+	if(isdefined(accolade_state) && accolade_state)
 	{
 		return;
 	}
