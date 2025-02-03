@@ -584,20 +584,20 @@ function activatezip(rider)
 			prevdist = undefined;
 			playerspot = undefined;
 			playerorg = peeps[i] getorigin();
-			foreach(var_bcd49665 in var_d496a1ae)
+			foreach(attach_spot in var_d496a1ae)
 			{
-				attachorg = self.zip gettagorigin(var_bcd49665);
+				attachorg = self.zip gettagorigin(attach_spot);
 				dist = distance2d(playerorg, attachorg);
 				if(!isdefined(prevdist))
 				{
 					prevdist = dist;
-					playerspot = var_bcd49665;
+					playerspot = attach_spot;
 					continue;
 				}
 				if(dist <= prevdist)
 				{
 					prevdist = dist;
-					playerspot = var_bcd49665;
+					playerspot = attach_spot;
 				}
 			}
 			if(!isdefined(self.riders))
