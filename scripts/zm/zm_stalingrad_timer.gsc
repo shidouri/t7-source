@@ -262,7 +262,7 @@ function function_86419da()
 			{
 				luinotifyevent(&"zombie_time_attack_notification", 2, zm::get_round_number() - 1, level.players.size);
 				playsoundatposition("zmb_stalingrad_time_trial_complete", (0, 0, 0));
-				level thread function_cc8ae246(n_last_round);
+				level thread award_item(n_last_round);
 				if(n_last_round == 20)
 				{
 					level notify(#"hash_399599c1");
@@ -274,7 +274,7 @@ function function_86419da()
 }
 
 /*
-	Name: function_cc8ae246
+	Name: award_item
 	Namespace: zm_stalingrad_timer
 	Checksum: 0x6B3E463
 	Offset: 0x9D0
@@ -282,7 +282,7 @@ function function_86419da()
 	Parameters: 1
 	Flags: Linked
 */
-function function_cc8ae246(str_reward)
+function award_item(str_reward)
 {
 	switch(str_reward)
 	{

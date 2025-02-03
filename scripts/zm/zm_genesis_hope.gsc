@@ -329,7 +329,7 @@ function function_6143b210(e_triggerer)
 	playsoundatposition("zmb_overachiever_spark_success", (0, 0, 0));
 	level.wallbuy_should_upgrade_weapon_override = &function_afddb902;
 	level.magicbox_should_upgrade_weapon_override = &function_7e7eb906;
-	zm_genesis_timer::function_cc8ae246(200);
+	zm_genesis_timer::award_item(200);
 	level thread bgb::function_93da425("zm_bgb_crate_power", &function_f648c43);
 	level thread bgb::function_93da425("zm_bgb_wall_power", &function_f648c43);
 }
