@@ -21,7 +21,7 @@
 function main()
 {
 	mp_freerun_04_fx::main();
-	namespace_8a3acb29::main();
+	mp_freerun_04_sound::main();
 	level._effect["blood_rain"] = "weather/fx_rain_blood_player_freerun_loop";
 	setdvar("phys_buoyancy", 1);
 	setdvar("phys_ragdoll_buoyancy", 1);

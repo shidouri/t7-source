@@ -21,7 +21,7 @@ function main()
 {
 	precache();
 	mp_freerun_04_fx::main();
-	namespace_8a3acb29::main();
+	mp_freerun_04_sound::main();
 	load::main();
 	setdvar("glassMinVelocityToBreakFromJump", "380");
 	setdvar("glassMinVelocityToBreakFromWallRun", "180");
