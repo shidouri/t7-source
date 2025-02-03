@@ -182,7 +182,7 @@ function add_contract_slot(localclientnum, slot)
 		root = "" + slot;
 		add_weekly = 1;
 		add_daily = 1;
-		var_5ed3f7ba = 0;
+		add_special = 0;
 		switch(slot)
 		{
 			case 0:
@@ -208,7 +208,7 @@ function add_contract_slot(localclientnum, slot)
 				root = root + "";
 				add_daily = 0;
 				add_weekly = 0;
-				var_5ed3f7ba = 1;
+				add_special = 1;
 				break;
 			}
 			default:
@@ -244,7 +244,7 @@ function add_contract_slot(localclientnum, slot)
 				{
 					continue;
 				}
-				if(var_a8c2111c && !var_5ed3f7ba)
+				if(var_a8c2111c && !add_special)
 				{
 					continue;
 				}
@@ -273,7 +273,7 @@ function add_contract_slot(localclientnum, slot)
 				cmds = cmds + next_cmd;
 				cmds = cmds + "";
 				cmds = wrap_dvarconfig_cmds(cmds);
-				if(var_5ed3f7ba)
+				if(add_special)
 				{
 					by_index_name = "";
 				}
