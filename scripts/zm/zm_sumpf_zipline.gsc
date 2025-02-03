@@ -626,7 +626,7 @@ function activatezip(rider)
 		center = self.zip gettagorigin("link_zipline_jnt");
 		physicsexplosionsphere(center, 128, 64, 2);
 	}
-	self thread function_58047fdd();
+	self thread activate_switch();
 	if(!isdefined(level.direction))
 	{
 		self.aiblocker solid();
@@ -671,7 +671,7 @@ function activatezip(rider)
 }
 
 /*
-	Name: function_58047fdd
+	Name: activate_switch
 	Namespace: zm_sumpf_zipline
 	Checksum: 0x60335074
 	Offset: 0x28F0
@@ -679,7 +679,7 @@ function activatezip(rider)
 	Parameters: 0
 	Flags: Linked
 */
-function function_58047fdd()
+function activate_switch()
 {
 	wait(0.5);
 	self.zipdamagetrigger thread zipdamage(self);
