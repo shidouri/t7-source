@@ -67,7 +67,7 @@ function function_3a6b5b3e()
 }
 
 /*
-	Name: function_c27610f9
+	Name: accolade_increment
 	Namespace: newworld_accolades
 	Checksum: 0xCF9AD48F
 	Offset: 0x8E8
@@ -75,7 +75,7 @@ function function_3a6b5b3e()
 	Parameters: 2
 	Flags: Linked
 */
-function function_c27610f9(var_8e087689, var_70b01bd3)
+function accolade_increment(var_8e087689, var_70b01bd3)
 {
 	if(self == level)
 	{
@@ -216,7 +216,7 @@ function function_9257e223(params)
 		player = params.eattacker;
 		if(player iswallrunning())
 		{
-			player function_c27610f9("ch04_wall_run_kills");
+			player accolade_increment("ch04_wall_run_kills");
 		}
 	}
 }
@@ -256,7 +256,7 @@ function function_9d5a87b1(params)
 		var_3d9e461f = !bullettracepassed(player geteye(), self geteye(), 0, self);
 		if(util::isbulletimpactmod(params.smeansofdeath) && var_3d9e461f)
 		{
-			player function_c27610f9("ch05_penetrate_bullet_kills");
+			player accolade_increment("ch05_penetrate_bullet_kills");
 		}
 	}
 }

@@ -20,7 +20,7 @@ function accolades_init()
 }
 
 /*
-	Name: function_c27610f9
+	Name: accolade_increment
 	Namespace: ramses_accolades
 	Checksum: 0x2B7DA42E
 	Offset: 0x740
@@ -28,7 +28,7 @@ function accolades_init()
 	Parameters: 2
 	Flags: None
 */
-function function_c27610f9()
+function accolade_increment()
 {
 	// Unsupported VM revision (1B).
 }

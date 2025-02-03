@@ -23,7 +23,7 @@ function accolades_init()
 }
 
 /*
-	Name: function_c27610f9
+	Name: accolade_increment
 	Namespace: namespace_e9d9fb34
 	Checksum: 0x730F6F2A
 	Offset: 0x858
@@ -31,7 +31,7 @@ function accolades_init()
 	Parameters: 2
 	Flags: None
 */
-function function_c27610f9()
+function accolade_increment()
 {
 	// Unsupported VM revision (1B).
 }

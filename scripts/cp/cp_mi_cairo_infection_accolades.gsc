@@ -37,7 +37,7 @@ function on_player_connect()
 }
 
 /*
-	Name: function_5a97e5bd
+	Name: accolade_completed
 	Namespace: infection_accolades
 	Checksum: 0xBFAAD7EE
 	Offset: 0x760
@@ -45,7 +45,7 @@ function on_player_connect()
 	Parameters: 3
 	Flags: None
 */
-function function_5a97e5bd()
+function accolade_completed()
 {
 	// Unsupported VM revision (1B).
 }

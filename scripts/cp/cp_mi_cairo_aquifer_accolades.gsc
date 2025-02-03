@@ -46,7 +46,7 @@ function accolades_init()
 }
 
 /*
-	Name: function_c27610f9
+	Name: accolade_increment
 	Namespace: aquifer_accolades
 	Checksum: 0x401B6C66
 	Offset: 0x850
@@ -54,7 +54,7 @@ function accolades_init()
 	Parameters: 3
 	Flags: Linked
 */
-function function_c27610f9(var_8e087689 = "dummy", var_70b01bd3, var_513753b4 = 1)
+function accolade_increment(var_8e087689 = "dummy", var_70b01bd3, var_513753b4 = 1)
 {
 	if(!isdefined(level.var_bb70984c[var_8e087689]))
 	{
@@ -171,7 +171,7 @@ function function_c7122e75(params)
 	{
 		if(isdefined(params.eattacker.pvtol) && params.eattacker islinkedto(params.eattacker.pvtol))
 		{
-			params.eattacker function_c27610f9("aq_thirty_kill_vtol", &function_b49b24ca);
+			params.eattacker accolade_increment("aq_thirty_kill_vtol", &function_b49b24ca);
 		}
 	}
 }
@@ -205,7 +205,7 @@ function function_9cda9485(params)
 	{
 		if(isdefined(params.eattacker.pvtol) && params.eattacker islinkedto(params.eattacker.pvtol))
 		{
-			params.eattacker function_c27610f9("aq_three_hunters_vtol", &function_ff25056a);
+			params.eattacker accolade_increment("aq_three_hunters_vtol", &function_ff25056a);
 		}
 	}
 }
@@ -240,7 +240,7 @@ function function_a8831ac1()
 	flag::wait_till("destroy_defenses2_completed");
 	if(level.var_67a0c1e2 == 0)
 	{
-		level function_c27610f9("aq_quads_only_guns");
+		level accolade_increment("aq_quads_only_guns");
 	}
 	callback::remove_on_vehicle_killed(&function_5ae2cb8a);
 }
@@ -302,7 +302,7 @@ function function_eab778af(params)
 			params.eattacker.var_eb0c14e++;
 			if(params.eattacker.var_eb0c14e >= 5)
 			{
-				params.eattacker function_c27610f9("aq_threefer_missile", &function_a3f650bc);
+				params.eattacker accolade_increment("aq_threefer_missile", &function_a3f650bc);
 			}
 		}
 	}
@@ -369,7 +369,7 @@ function function_e3e41d63(params)
 		if(player.var_c3919891.size >= 10)
 		{
 			player.var_2aec500b = 1;
-			player function_c27610f9("aq_six_under_two");
+			player accolade_increment("aq_six_under_two");
 		}
 	}
 }
@@ -434,7 +434,7 @@ function function_2edc96bc()
 	retval = self util::waittill_any_return("player_took_accolade_damage", "destroy_defenses_completed");
 	if(isdefined(retval) && retval == "destroy_defenses_completed")
 	{
-		self function_c27610f9("aq_zero_damage_defenses");
+		self accolade_increment("aq_zero_damage_defenses");
 	}
 }
 
@@ -460,7 +460,7 @@ function function_f208dfd8()
 	{
 		if(isdefined(player.var_80329ae2) && !player.var_80329ae2)
 		{
-			player function_c27610f9("aq_zero_damage_defenses");
+			player accolade_increment("aq_zero_damage_defenses");
 		}
 	}
 }
@@ -530,7 +530,7 @@ function function_3718be07(params)
 {
 	if(isplayer(params.eattacker) && (self.targetname == "res_vtol1_vh" || self.targetname == "res_vtol2_vh" || self.targetname == "port_vtol1_vh" || self.targetname == "port_vtol2_vh" || self.targetname == "lcombat_dropoff_vtol_vh"))
 	{
-		level function_c27610f9("aq_vtol_drop_block");
+		level accolade_increment("aq_vtol_drop_block");
 	}
 }
 
@@ -583,7 +583,7 @@ function function_a2aa8ca8()
 	retval = self util::waittill_any_return("sniper_boss_damage", "accolades_boss_done");
 	if(isdefined(retval) && retval == "accolades_boss_done")
 	{
-		self function_c27610f9("aq_boss_zero_damage");
+		self accolade_increment("aq_boss_zero_damage");
 	}
 }
 
@@ -624,7 +624,7 @@ function function_b362fb44()
 	retval = self util::waittill_any_return("weapon_fired", "accolades_boss_done");
 	if(isdefined(retval) && retval == "accolades_boss_done")
 	{
-		self function_c27610f9("aq_boss_cybercore_only");
+		self accolade_increment("aq_boss_cybercore_only");
 	}
 }
 
