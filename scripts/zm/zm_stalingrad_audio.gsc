@@ -553,9 +553,9 @@ function function_61c5cb4e()
 	var_4540293a = struct::get_array("s_anthem_array", "targetname");
 	level.var_96d76bfc = 0;
 	level.var_c9c5dfcc = var_4540293a.size;
-	foreach(var_71f55e40 in var_4540293a)
+	foreach(anthem_pa in var_4540293a)
 	{
-		var_71f55e40 thread function_3b8ba4e9();
+		anthem_pa thread function_3b8ba4e9();
 	}
 	wait(68.7);
 	level thread function_f1ce2a9a(3);
@@ -613,14 +613,14 @@ function function_9fa22cf7()
 {
 	level notify(#"hash_787a404e");
 	var_4540293a = struct::get_array("s_anthem_array", "targetname");
-	foreach(var_71f55e40 in var_4540293a)
+	foreach(anthem_pa in var_4540293a)
 	{
-		if(isdefined(var_71f55e40.var_1431218c))
+		if(isdefined(anthem_pa.var_1431218c))
 		{
-			var_71f55e40.var_1431218c clientfield::set("ee_anthem_pa", 0);
+			anthem_pa.var_1431218c clientfield::set("ee_anthem_pa", 0);
 			util::wait_network_frame();
-			var_71f55e40.var_1431218c delete();
-			var_71f55e40.var_1431218c = undefined;
+			anthem_pa.var_1431218c delete();
+			anthem_pa.var_1431218c = undefined;
 		}
 	}
 }
