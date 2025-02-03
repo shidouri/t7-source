@@ -592,8 +592,8 @@ function increment(str_accolade, n_val = 1, var_50f65478)
 		/#
 			if(!(isdefined(var_50f65478) && var_50f65478))
 			{
-				var_cacb0169 = tablelookupistring("", 4, str_accolade, 5);
-				iprintln(var_cacb0169);
+				accolade_string = tablelookupistring("", 4, str_accolade, 5);
+				iprintln(accolade_string);
 			}
 			self.var_eb7d74bb = 1;
 		#/
