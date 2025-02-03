@@ -856,11 +856,11 @@ function function_ee1274a2()
 		}
 	}
 	zm_unitrigger::unregister_unitrigger(var_a0069a05);
-	level thread function_16401ba8();
+	level thread activate_ovary();
 }
 
 /*
-	Name: function_16401ba8
+	Name: activate_ovary
 	Namespace: zm_genesis_minor_ee
 	Checksum: 0x99EC1590
 	Offset: 0x2988
@@ -868,7 +868,7 @@ function function_ee1274a2()
 	Parameters: 0
 	Flags: Linked
 */
-function function_16401ba8()
+function activate_ovary()
 {
 }
 
