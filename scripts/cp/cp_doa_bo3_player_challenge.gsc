@@ -136,8 +136,8 @@ function function_31c377e(room)
 			count = 0;
 		}
 	}
-	var_2b8e59af = getentarray(room.name + "_barrier_trigger", "targetname");
-	foreach(trigger in var_2b8e59af)
+	barricades_triggers = getentarray(room.name + "_barrier_trigger", "targetname");
+	foreach(trigger in barricades_triggers)
 	{
 		trigger thread triggernotify();
 	}
