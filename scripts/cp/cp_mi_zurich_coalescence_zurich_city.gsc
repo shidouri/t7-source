@@ -197,7 +197,7 @@ function function_ab4451a1()
 			mdl movez(85 * -1, randomfloatrange(0.9, 1.2));
 		}
 		mdl waittill("movedone");
-		level notify(#"hash_2fa6d91");
+		level notify("bar_close");
 	}
 }
 
@@ -222,7 +222,7 @@ function function_52073baf()
 		{
 			level notify(#"hash_443f3c33");
 			self setcandamage(0);
-			level waittill(#"hash_2fa6d91");
+			level waittill("bar_close");
 		}
 	}
 }
