@@ -853,7 +853,7 @@ function alley_area()
 	spawn_manager::enable("sm_alley_rear_right");
 	trigger::wait_till("alley_reinforcements");
 	spawn_manager::enable("sm_alley_reinforcements");
-	level thread function_b9d42d14();
+	level thread alley_retreat();
 	level.ai_diaz thread dialog::say("diaz_reinforcements_at_th_0", 2);
 	spawner::waittill_ai_group_ai_count("alley_enemies", 2);
 	if(!level flag::get("player_completed_alley"))
@@ -863,7 +863,7 @@ function alley_area()
 }
 
 /*
-	Name: function_b9d42d14
+	Name: alley_retreat
 	Namespace: newworld_factory
 	Checksum: 0x1152E31
 	Offset: 0x5158
@@ -871,7 +871,7 @@ function alley_area()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b9d42d14()
+function alley_retreat()
 {
 	foreach(ai_friendly in spawner::get_ai_group_ai("factory_allies"))
 	{
