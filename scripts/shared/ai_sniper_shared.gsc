@@ -534,14 +534,14 @@ function target_lase_points_ally_track(v_eye, entity_or_point_array, a_owner)
 	Parameters: 4
 	Flags: Linked
 */
-function function_b77b41d1(v_eye, entity_or_point, a_owner, var_12065f0b = 1)
+function function_b77b41d1(v_eye, entity_or_point, a_owner, allow_interrupts = 1)
 {
 	sight_timeout = 7;
 	if(isdefined(self.a_owner) && isdefined(self.a_owner.var_815502c4))
 	{
 		sight_timeout = self.a_owner.var_815502c4;
 	}
-	self target_lase_override(v_eye, entity_or_point, sight_timeout, a_owner, 1, var_12065f0b);
+	self target_lase_override(v_eye, entity_or_point, sight_timeout, a_owner, 1, allow_interrupts);
 }
 
 /*
@@ -767,9 +767,9 @@ function target_lase_transition(entity_or_point, owner)
 	Parameters: 6
 	Flags: Linked
 */
-function target_lase_override(v_eye, entity_or_point, sight_timeout, a_owner, fire_weapon, var_12065f0b = 1)
+function target_lase_override(v_eye, entity_or_point, sight_timeout, a_owner, fire_weapon, allow_interrupts = 1)
 {
-	if(isdefined(self.lase_override) && (!var_12065f0b || self.lase_override == entity_or_point))
+	if(isdefined(self.lase_override) && (!allow_interrupts || self.lase_override == entity_or_point))
 	{
 		return;
 	}
