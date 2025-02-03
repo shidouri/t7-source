@@ -897,7 +897,7 @@ class class_d90687be
 	}
 
 	/*
-		Name: function_15715797
+		Name: arena_session
 		Namespace: namespace_d90687be
 		Checksum: 0xBD11F13C
 		Offset: 0x3300
@@ -905,7 +905,7 @@ class class_d90687be
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_15715797()
+	function arena_session()
 	{
 		level endon(#"hash_fa713eaf");
 		level flag::wait_till("test_activate_arena");
@@ -1073,7 +1073,7 @@ class class_d90687be
 		var_95ceb5f7 = getent("dark_arena_volume", "targetname");
 		var_4ff05dea = struct::get_array("arena_scripted_zombie_spawn", "targetname");
 		zm_genesis_arena::function_c1402204();
-		level thread function_15715797();
+		level thread arena_session();
 	}
 
 }
