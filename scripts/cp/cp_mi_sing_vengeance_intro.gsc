@@ -743,7 +743,7 @@ function function_5ef7fdc2()
 	var_71e5f989 = getentarray("apartment_enemy", "script_noteworthy");
 	var_6a00e3c4 = spawner::simple_spawn(var_71e5f989, &function_1f707d1e);
 	var_12d51ad2 = getentarray("apartment_civilian", "script_noteworthy");
-	var_c5b87ef7 = spawner::simple_spawn(var_12d51ad2, &function_a645cfd9);
+	apartment_civilian = spawner::simple_spawn(var_12d51ad2, &function_a645cfd9);
 	var_1cef4611 = getent("bedroom_door_right", "targetname");
 	var_59f550ce = getent("bedroom_door_right_clip", "targetname");
 	var_59f550ce linkto(var_1cef4611);
