@@ -168,7 +168,7 @@ function function_f9d87307(name)
 			break;
 		}
 	}
-	level.var_a86d0056 = points;
+	level.aim_points = points;
 }
 
 /*
@@ -184,7 +184,7 @@ function function_7c54d87d()
 {
 	self ai::set_ignoreall(1);
 	self ai::set_ignoreme(1);
-	self thread ai_sniper::actor_lase_points_behavior(level.var_a86d0056);
+	self thread ai_sniper::actor_lase_points_behavior(level.aim_points);
 }
 
 /*
