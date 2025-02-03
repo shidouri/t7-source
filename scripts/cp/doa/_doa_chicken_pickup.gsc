@@ -137,7 +137,7 @@ function add_a_chicken(model, scale, fated, var_5c667593)
 	orb.team = self.team;
 	orb.special = fated;
 	orb.var_cdf31c46 = 0;
-	orb.var_fe6ede28 = 0;
+	orb.plumpness = 0;
 	orb.var_947e1f34 = (self.doa.var_3cdd8203.size == 0 ? self : self.doa.var_3cdd8203[self.doa.var_3cdd8203.size - 1]);
 	orb enablelinkto();
 	orb thread function_cdfa9ce8(bird);
@@ -771,21 +771,21 @@ function function_c397fab3(player)
 		/#
 			doa_utility::debugmsg("");
 		#/
-		var_141b6128 = self.var_fe6ede28 * 0.98;
+		var_141b6128 = self.plumpness * 0.98;
 		self.var_1f6fdc8f = 1;
-		while(self.var_fe6ede28 > var_141b6128)
+		while(self.plumpness > var_141b6128)
 		{
-			self.var_fe6ede28 = self.var_fe6ede28 - 0.05;
-			self.bird setscale(self.var_6e0abf98 + self.var_fe6ede28);
+			self.plumpness = self.plumpness - 0.05;
+			self.bird setscale(self.var_6e0abf98 + self.plumpness);
 			/#
-				doa_utility::debugmsg((("" + self getentitynumber()) + "") + self.var_fe6ede28);
+				doa_utility::debugmsg((("" + self getentitynumber()) + "") + self.plumpness);
 			#/
 			wait(0.05);
 		}
 		/#
-			doa_utility::debugmsg((("" + self getentitynumber()) + "") + self.var_fe6ede28);
+			doa_utility::debugmsg((("" + self getentitynumber()) + "") + self.plumpness);
 		#/
-		self.var_fe6ede28 = math::clamp(var_141b6128, 0, getdvarfloat("scr_doa_chicken_max_plump", 3));
+		self.plumpness = math::clamp(var_141b6128, 0, getdvarfloat("scr_doa_chicken_max_plump", 3));
 		self.var_1f6fdc8f = undefined;
 	}
 }
@@ -803,7 +803,7 @@ function function_cff32183(player)
 {
 	self endon("death");
 	self endon("spinning_out");
-	self.var_fe6ede28 = 0;
+	self.plumpness = 0;
 	self.var_5c667593 = 1;
 	self thread function_c397fab3(player);
 	while(true)
@@ -815,14 +815,14 @@ function function_cff32183(player)
 			increment = getdvarfloat("scr_doa_chicken_inc_plump", 0.035) * numchickens;
 			if(!(isdefined(self.var_1f6fdc8f) && self.var_1f6fdc8f))
 			{
-				self.var_fe6ede28 = math::clamp(self.var_fe6ede28 + increment, 0, getdvarfloat("scr_doa_chicken_max_plump", 3));
+				self.plumpness = math::clamp(self.plumpness + increment, 0, getdvarfloat("scr_doa_chicken_max_plump", 3));
 				/#
-					doa_utility::debugmsg((("" + self getentitynumber()) + "") + self.var_fe6ede28);
+					doa_utility::debugmsg((("" + self getentitynumber()) + "") + self.plumpness);
 				#/
 			}
-			self.bird setscale(self.var_6e0abf98 + self.var_fe6ede28);
+			self.bird setscale(self.var_6e0abf98 + self.plumpness);
 			var_cdf31c46 = 0;
-			frac = self.var_fe6ede28 / getdvarfloat("scr_doa_chicken_max_plump", 3);
+			frac = self.plumpness / getdvarfloat("scr_doa_chicken_max_plump", 3);
 			if(frac > 0.03)
 			{
 				var_cdf31c46 = 1;
@@ -857,13 +857,13 @@ function function_cff32183(player)
 				self.var_7d36ff94 = 1;
 				self.var_cdf31c46 = var_cdf31c46;
 			}
-			if(self.var_fe6ede28 == getdvarfloat("scr_doa_chicken_max_plump", 3))
+			if(self.plumpness == getdvarfloat("scr_doa_chicken_max_plump", 3))
 			{
 				wait(getdvarfloat("scr_doa_chicken_waitfull_plump", 30));
 				self function_2d0f96ef(player);
-				self.var_fe6ede28 = 0;
+				self.plumpness = 0;
 				self.var_cdf31c46 = 0;
-				self.bird setscale(self.var_6e0abf98 + self.var_fe6ede28);
+				self.bird setscale(self.var_6e0abf98 + self.plumpness);
 			}
 		}
 	}
@@ -930,10 +930,10 @@ function function_2d0f96ef(player)
 		scale = scale * 0.72;
 		chance = int((chance * scale) + 0.9);
 	}
-	while(self.var_fe6ede28 > 0)
+	while(self.plumpness > 0)
 	{
-		self.var_fe6ede28 = self.var_fe6ede28 - 0.05;
-		self.bird setscale(self.var_6e0abf98 + self.var_fe6ede28);
+		self.plumpness = self.plumpness - 0.05;
+		self.bird setscale(self.var_6e0abf98 + self.plumpness);
 		wait(0.05);
 	}
 	foreach(chicken in player.doa.var_3cdd8203)
