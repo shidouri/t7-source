@@ -1958,15 +1958,15 @@ function function_b7365949(trig_stub, player)
 	{
 		if(isdefined(player) && isalive(player))
 		{
-			player thread function_45b9eba4();
+			player thread award_plunger();
 		}
 	}
-	callback::on_spawned(&function_45b9eba4);
+	callback::on_spawned(&award_plunger);
 	trig_stub zm_unitrigger::run_visibility_function_for_all_triggers();
 }
 
 /*
-	Name: function_45b9eba4
+	Name: award_plunger
 	Namespace: zm_castle_ee_side
 	Checksum: 0xE1993545
 	Offset: 0x5908
@@ -1974,7 +1974,7 @@ function function_b7365949(trig_stub, player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_45b9eba4()
+function award_plunger()
 {
 	self.widows_wine_knife_override = &function_9ce92341;
 	self zm_melee_weapon::award_melee_weapon("knife_plunger");
@@ -2378,7 +2378,7 @@ function function_ce8b131c(n_val)
 		players = level.activeplayers;
 		foreach(player in players)
 		{
-			player thread function_45b9eba4();
+			player thread award_plunger();
 		}
 	#/
 }
