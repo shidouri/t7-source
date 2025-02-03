@@ -239,7 +239,7 @@ function init()
 		level.doa.arenas[level.doa.arenas.size] = arena;
 	}
 	level.doa.current_arena = 0;
-	level.doa.var_95e3fdf9 = -1;
+	level.doa.arena_last = -1;
 	level.doa.var_1a75d02b = 1;
 	level.doa.var_d94564a5 = "morning";
 	level thread function_a83dfb2c();
@@ -401,7 +401,7 @@ function function_a5b9b9b9(var_92804e37, var_b092b293, struct)
 function restart()
 {
 	level.doa.current_arena = 0;
-	level.doa.var_95e3fdf9 = -1;
+	level.doa.arena_last = -1;
 	level.doa.var_708cc739 = undefined;
 	level.doa.var_1a75d02b = 1;
 	level.doa.flipped = 0;
@@ -721,7 +721,7 @@ function function_43141563(localclientnum)
 */
 function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(level.doa.current_arena == newval && level.doa.var_95e3fdf9 != -1)
+	if(level.doa.current_arena == newval && level.doa.arena_last != -1)
 	{
 		return;
 	}
@@ -730,7 +730,7 @@ function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 	/#
 		doa_core::debugmsg((("" + level.doa.arenas[level.doa.current_arena].name) + "") + level.doa.arenas[newval].name);
 	#/
-	level.doa.var_95e3fdf9 = level.doa.current_arena;
+	level.doa.arena_last = level.doa.current_arena;
 	level.doa.current_arena = newval;
 	if(level.doa.arenas[level.doa.current_arena].var_37d3a53b)
 	{
