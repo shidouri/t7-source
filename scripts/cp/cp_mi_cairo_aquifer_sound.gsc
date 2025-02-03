@@ -19,7 +19,7 @@
 function main()
 {
 	voice_aquifer::init_voice();
-	thread function_609d3ec();
+	thread aquifer_music();
 	thread ambiance_novice();
 	thread function_4fb4bdc3();
 }
@@ -56,7 +56,7 @@ function test_music_loop()
 }
 
 /*
-	Name: function_609d3ec
+	Name: aquifer_music
 	Namespace: cp_mi_cairo_aquifer_sound
 	Checksum: 0x99EC1590
 	Offset: 0xE60
@@ -64,7 +64,7 @@ function test_music_loop()
 	Parameters: 0
 	Flags: Linked
 */
-function function_609d3ec()
+function aquifer_music()
 {
 }
 
