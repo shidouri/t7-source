@@ -18,7 +18,7 @@
 function init()
 {
 	level.w_beacon = getweapon("beacon");
-	level.var_67735adb = "wpn_t7_zmb_hd_g_strike_world";
+	level.beacon_model = "wpn_t7_zmb_hd_g_strike_world";
 	level._effect["beacon_glow"] = "dlc5/tomb/fx_tomb_beacon_glow";
 	level._effect["beacon_launch_fx"] = "dlc5/tomb/fx_tomb_beacon_launch";
 	level._effect["beacon_shell_explosion"] = "dlc5/tomb/fx_tomb_beacon_exp";
