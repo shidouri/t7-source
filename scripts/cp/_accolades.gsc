@@ -73,7 +73,7 @@ function __init__()
 		callback::on_spawned(&on_player_spawned);
 		callback::on_disconnect(&on_player_disconnect);
 		level.var_f8718de3 = ("MISSION_" + toupper(level.mission_name)) + "_";
-		level.var_d8f32e57 = int(tablelookup("gamedata/stats/cp/statsmilestones1.csv", 4, level.var_f8718de3 + "UNTOUCHED", 0));
+		level.accolade_offset = int(tablelookup("gamedata/stats/cp/statsmilestones1.csv", 4, level.var_f8718de3 + "UNTOUCHED", 0));
 		register(level.var_f8718de3 + "UNTOUCHED", undefined, 1);
 		register(level.var_f8718de3 + "SCORE");
 		register(level.var_f8718de3 + "COLLECTIBLE");
@@ -535,10 +535,10 @@ function register(str_accolade, str_increment_notify, var_ab795acb)
 	}
 	if(!isdefined(level.accolades[str_accolade]))
 	{
-		var_d8f32e57 = int(tablelookup("gamedata/stats/cp/statsmilestones1.csv", 4, str_accolade, 0));
+		accolade_offset = int(tablelookup("gamedata/stats/cp/statsmilestones1.csv", 4, str_accolade, 0));
 		level.accolades[str_accolade] = spawnstruct();
 		level.accolades[str_accolade].increment_notify = str_increment_notify;
-		level.accolades[str_accolade].index = var_d8f32e57 - level.var_d8f32e57;
+		level.accolades[str_accolade].index = accolade_offset - level.accolade_offset;
 		level.accolades[str_accolade].var_ab795acb = isdefined(var_ab795acb) && var_ab795acb;
 	}
 }
