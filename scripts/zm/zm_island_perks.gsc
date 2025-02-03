@@ -83,7 +83,7 @@ function function_c97259e9()
 		level.var_961b3545 = getentarray("zombie_vending", "targetname");
 	}
 	function_8abc06a5();
-	level thread function_3bccea41();
+	level thread airdrop_think();
 	function_f9d235ed();
 	foreach(var_271d87d8 in level.var_961b3545)
 	{
@@ -177,7 +177,7 @@ function function_8abc06a5()
 }
 
 /*
-	Name: function_3bccea41
+	Name: airdrop_think
 	Namespace: zm_island_perks
 	Checksum: 0xD4C0E729
 	Offset: 0x14F8
@@ -185,7 +185,7 @@ function function_8abc06a5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3bccea41()
+function airdrop_think()
 {
 	while(level.round_number <= 6)
 	{
