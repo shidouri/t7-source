@@ -206,7 +206,7 @@ function add(skipto, func, str_name, cleanup_func, launch_after, end_before, var
 }
 
 /*
-	Name: function_d68e678e
+	Name: add_saved
 	Namespace: skipto
 	Checksum: 0xF4AE8E96
 	Offset: 0x1828
@@ -214,7 +214,7 @@ function add(skipto, func, str_name, cleanup_func, launch_after, end_before, var
 	Parameters: 6
 	Flags: None
 */
-function function_d68e678e(skipto, func, str_name, cleanup_func, launch_after, end_before)
+function add_saved(skipto, func, str_name, cleanup_func, launch_after, end_before)
 {
 	struct = add(skipto, func, str_name, cleanup_func, launch_after, undefined, 1);
 }

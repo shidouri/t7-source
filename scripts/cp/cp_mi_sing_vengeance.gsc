@@ -283,19 +283,19 @@ function setup_skiptos()
 {
 	skipto::add("intro", &vengeance_intro::skipto_intro_init, "Intro", &vengeance_intro::skipto_intro_done);
 	skipto::add_dev("dev_apartment", &vengeance_intro::function_5cb54255, "Apartment", &vengeance_intro::function_4762cf8f);
-	skipto::function_d68e678e("takedown", &vengeance_intro::skipto_takedown_init, "Takedown", &vengeance_intro::skipto_takedown_done);
-	skipto::function_d68e678e("killing_streets", &vengeance_killing_streets::skipto_killing_streets_init, "Killing Streets", &vengeance_killing_streets::skipto_killing_streets_done);
-	skipto::function_d68e678e("dogleg_1", &vengeance_dogleg_1::skipto_dogleg_1_init, "Dogleg 1", &vengeance_dogleg_1::skipto_dogleg_1_done);
-	skipto::function_d68e678e("quadtank_alley", &vengeance_quadtank_alley::skipto_quadtank_alley_init, "Quadtank Alley", &vengeance_quadtank_alley::skipto_quadtank_alley_done);
-	skipto::function_d68e678e("temple", &vengeance_temple::skipto_temple_init, "Temple Arena", &vengeance_temple::skipto_temple_done);
-	skipto::function_d68e678e("dogleg_2", &vengeance_dogleg_2::skipto_dogleg_2_init, "Dogleg 2", &vengeance_dogleg_2::skipto_dogleg_2_done);
-	skipto::function_d68e678e("garage_igc", &vengeance_garage::function_b17357cc, "Parking Garage IGC", &vengeance_garage::function_608352d2);
+	skipto::add_saved("takedown", &vengeance_intro::skipto_takedown_init, "Takedown", &vengeance_intro::skipto_takedown_done);
+	skipto::add_saved("killing_streets", &vengeance_killing_streets::skipto_killing_streets_init, "Killing Streets", &vengeance_killing_streets::skipto_killing_streets_done);
+	skipto::add_saved("dogleg_1", &vengeance_dogleg_1::skipto_dogleg_1_init, "Dogleg 1", &vengeance_dogleg_1::skipto_dogleg_1_done);
+	skipto::add_saved("quadtank_alley", &vengeance_quadtank_alley::skipto_quadtank_alley_init, "Quadtank Alley", &vengeance_quadtank_alley::skipto_quadtank_alley_done);
+	skipto::add_saved("temple", &vengeance_temple::skipto_temple_init, "Temple Arena", &vengeance_temple::skipto_temple_done);
+	skipto::add_saved("dogleg_2", &vengeance_dogleg_2::skipto_dogleg_2_init, "Dogleg 2", &vengeance_dogleg_2::skipto_dogleg_2_done);
+	skipto::add_saved("garage_igc", &vengeance_garage::function_b17357cc, "Parking Garage IGC", &vengeance_garage::function_608352d2);
 	skipto::add_dev("dev_garage", &vengeance_garage::function_63a4033a, "Parking Garage Arena", &vengeance_garage::function_a55eff44);
-	skipto::function_d68e678e("quad_battle", &vengeance_market::skipto_quad_init, "Quad Tank Battle", &vengeance_market::skipto_quad_done);
-	skipto::function_d68e678e("safehouse_plaza", &vengeance_market::skipto_plaza_init, "Plaza Combat", &vengeance_market::skipto_plaza_done);
-	skipto::function_d68e678e("safehouse_explodes", &vengeance_safehouse::function_26524bc8, "Safehouse Explodes", &vengeance_safehouse::function_683ab16e);
+	skipto::add_saved("quad_battle", &vengeance_market::skipto_quad_init, "Quad Tank Battle", &vengeance_market::skipto_quad_done);
+	skipto::add_saved("safehouse_plaza", &vengeance_market::skipto_plaza_init, "Plaza Combat", &vengeance_market::skipto_plaza_done);
+	skipto::add_saved("safehouse_explodes", &vengeance_safehouse::function_26524bc8, "Safehouse Explodes", &vengeance_safehouse::function_683ab16e);
 	skipto::add_dev("dev_safehouse_interior", &vengeance_safehouse::function_29dad6e8, "Safehouse Interior", &vengeance_safehouse::function_6bc33c8e);
-	skipto::function_d68e678e("panic_room", &vengeance_safehouse::skipto_panic_init, "Panic Room Scene", &vengeance_safehouse::skipto_panic_done);
+	skipto::add_saved("panic_room", &vengeance_safehouse::skipto_panic_init, "Panic Room Scene", &vengeance_safehouse::skipto_panic_done);
 	/#
 		skipto::add_dev("", &vengeance_intro::function_616e9ab6, "");
 		skipto::add_dev("", &vengeance_intro::function_8771151f, "");

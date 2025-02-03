@@ -179,28 +179,28 @@ function setup_skiptos()
 {
 	skipto::add("intro", &cp_mi_sing_sgen_exterior::skipto_intro_init, "Intro", &cp_mi_sing_sgen_exterior::skipto_intro_done);
 	skipto::add("exterior", &cp_mi_sing_sgen_exterior::function_d43e5685, "Exterior", &cp_mi_sing_sgen_exterior::function_91e8545f);
-	skipto::function_d68e678e("enter_lobby", &cp_mi_sing_sgen_exterior::skipto_enter_lobby_init, "Enter Lobby", &cp_mi_sing_sgen_exterior::skipto_enter_lobby_done);
-	skipto::function_d68e678e("discover_data", &cp_mi_sing_sgen_enter_silo::skipto_discover_data_init, "Discover Data", &cp_mi_sing_sgen_enter_silo::skipto_discover_data_done);
-	skipto::function_d68e678e("aquarium_shimmy", &cp_mi_sing_sgen_enter_silo::skipto_aquarium_shimmy_init, "Aquarium Shimmy", &cp_mi_sing_sgen_enter_silo::skipto_aquarium_shimmy_done);
-	skipto::function_d68e678e("gen_lab", &cp_mi_sing_sgen_enter_silo::skipto_gen_lab_init, "Genetics Lab", &cp_mi_sing_sgen_enter_silo::skipto_gen_lab_done);
-	skipto::function_d68e678e("post_gen_lab", &cp_mi_sing_sgen_enter_silo::skipto_post_gen_lab_init, "Post Gen Lab", &cp_mi_sing_sgen_enter_silo::skipto_post_gen_lab_done);
-	skipto::function_d68e678e("chem_lab", &cp_mi_sing_sgen_enter_silo::skipto_chem_lab_init, "Chemical Lab", &cp_mi_sing_sgen_enter_silo::skipto_chem_lab_done);
-	skipto::function_d68e678e("post_chem_lab", &cp_mi_sing_sgen_enter_silo::skipto_post_chem_lab_init, "Post Chem Lab", &cp_mi_sing_sgen_enter_silo::skipto_post_chem_lab_done);
-	skipto::function_d68e678e("silo_floor", &cp_mi_sing_sgen_enter_silo::skipto_silo_floor_init, "Silo Floor Battle", &cp_mi_sing_sgen_enter_silo::skipto_silo_floor_done);
-	skipto::function_d68e678e("under_silo", &cp_mi_sing_sgen_enter_silo::skipto_under_silo_init, "Under Silo", &cp_mi_sing_sgen_enter_silo::skipto_under_silo_done);
-	skipto::function_d68e678e("fallen_soldiers", &cp_mi_sing_sgen_fallen_soldiers::skipto_fallen_soldiers_init, "Fallen Soldiers", &cp_mi_sing_sgen_fallen_soldiers::skipto_fallen_soldiers_done);
-	skipto::function_d68e678e("testing_lab_igc", &cp_mi_sing_sgen_testing_lab_igc::skipto_testing_lab_igc_init, "Human Testing Lab", &cp_mi_sing_sgen_testing_lab_igc::skipto_testing_lab_igc_done);
-	skipto::function_d68e678e("dark_battle", &cp_mi_sing_sgen_dark_battle::skipto_dark_battle_init, "Dark Battle", &cp_mi_sing_sgen_dark_battle::skipto_dark_battle_done);
-	skipto::function_d68e678e("charging_station", &cp_mi_sing_sgen_dark_battle::skipto_charging_station_init, "Charging Station", &cp_mi_sing_sgen_dark_battle::skipto_charging_station_done);
-	skipto::function_d68e678e("descent", &cp_mi_sing_sgen_pallas::skipto_descent_init, "Descent", &cp_mi_sing_sgen_pallas::skipto_descent_done);
+	skipto::add_saved("enter_lobby", &cp_mi_sing_sgen_exterior::skipto_enter_lobby_init, "Enter Lobby", &cp_mi_sing_sgen_exterior::skipto_enter_lobby_done);
+	skipto::add_saved("discover_data", &cp_mi_sing_sgen_enter_silo::skipto_discover_data_init, "Discover Data", &cp_mi_sing_sgen_enter_silo::skipto_discover_data_done);
+	skipto::add_saved("aquarium_shimmy", &cp_mi_sing_sgen_enter_silo::skipto_aquarium_shimmy_init, "Aquarium Shimmy", &cp_mi_sing_sgen_enter_silo::skipto_aquarium_shimmy_done);
+	skipto::add_saved("gen_lab", &cp_mi_sing_sgen_enter_silo::skipto_gen_lab_init, "Genetics Lab", &cp_mi_sing_sgen_enter_silo::skipto_gen_lab_done);
+	skipto::add_saved("post_gen_lab", &cp_mi_sing_sgen_enter_silo::skipto_post_gen_lab_init, "Post Gen Lab", &cp_mi_sing_sgen_enter_silo::skipto_post_gen_lab_done);
+	skipto::add_saved("chem_lab", &cp_mi_sing_sgen_enter_silo::skipto_chem_lab_init, "Chemical Lab", &cp_mi_sing_sgen_enter_silo::skipto_chem_lab_done);
+	skipto::add_saved("post_chem_lab", &cp_mi_sing_sgen_enter_silo::skipto_post_chem_lab_init, "Post Chem Lab", &cp_mi_sing_sgen_enter_silo::skipto_post_chem_lab_done);
+	skipto::add_saved("silo_floor", &cp_mi_sing_sgen_enter_silo::skipto_silo_floor_init, "Silo Floor Battle", &cp_mi_sing_sgen_enter_silo::skipto_silo_floor_done);
+	skipto::add_saved("under_silo", &cp_mi_sing_sgen_enter_silo::skipto_under_silo_init, "Under Silo", &cp_mi_sing_sgen_enter_silo::skipto_under_silo_done);
+	skipto::add_saved("fallen_soldiers", &cp_mi_sing_sgen_fallen_soldiers::skipto_fallen_soldiers_init, "Fallen Soldiers", &cp_mi_sing_sgen_fallen_soldiers::skipto_fallen_soldiers_done);
+	skipto::add_saved("testing_lab_igc", &cp_mi_sing_sgen_testing_lab_igc::skipto_testing_lab_igc_init, "Human Testing Lab", &cp_mi_sing_sgen_testing_lab_igc::skipto_testing_lab_igc_done);
+	skipto::add_saved("dark_battle", &cp_mi_sing_sgen_dark_battle::skipto_dark_battle_init, "Dark Battle", &cp_mi_sing_sgen_dark_battle::skipto_dark_battle_done);
+	skipto::add_saved("charging_station", &cp_mi_sing_sgen_dark_battle::skipto_charging_station_init, "Charging Station", &cp_mi_sing_sgen_dark_battle::skipto_charging_station_done);
+	skipto::add_saved("descent", &cp_mi_sing_sgen_pallas::skipto_descent_init, "Descent", &cp_mi_sing_sgen_pallas::skipto_descent_done);
 	skipto::add("pallas_start", &cp_mi_sing_sgen_pallas::skipto_pallas_start_init, "pallas start", &cp_mi_sing_sgen_pallas::skipto_pallas_start_done);
 	skipto::add("pallas_end", &cp_mi_sing_sgen_pallas::skipto_pallas_end_init, "Pallas Death", &cp_mi_sing_sgen_pallas::skipto_pallas_end_done);
-	skipto::function_d68e678e("twin_revenge", &cp_mi_sing_sgen_revenge_igc::skipto_revenge_init, "Twin Revenge", &cp_mi_sing_sgen_revenge_igc::skipto_revenge_done);
-	skipto::function_d68e678e("flood_combat", &cp_mi_sing_sgen_flood::skipto_flood_init, "Flood Combat", &cp_mi_sing_sgen_flood::skipto_flood_done);
-	skipto::function_d68e678e("flood_defend", &cp_mi_sing_sgen_flood::skipto_flood_defend_init, "Flood Defend", &cp_mi_sing_sgen_flood::skipto_flood_defend_done);
-	skipto::function_d68e678e("underwater_battle", &cp_mi_sing_sgen_uw_battle::skipto_underwater_init, "Underwater Battle", &cp_mi_sing_sgen_uw_battle::skipto_underwater_done);
-	skipto::function_d68e678e("underwater_rail", &cp_mi_sing_sgen_water_ride::skipto_underwater_rail_init, "Underwater Rail", &cp_mi_sing_sgen_water_ride::skipto_underwater_rail_done);
-	skipto::function_d68e678e("silo_swim", &cp_mi_sing_sgen_silo_swim::skipto_silo_swim_init, "Silo Swim", &cp_mi_sing_sgen_silo_swim::skipto_silo_swim_done);
+	skipto::add_saved("twin_revenge", &cp_mi_sing_sgen_revenge_igc::skipto_revenge_init, "Twin Revenge", &cp_mi_sing_sgen_revenge_igc::skipto_revenge_done);
+	skipto::add_saved("flood_combat", &cp_mi_sing_sgen_flood::skipto_flood_init, "Flood Combat", &cp_mi_sing_sgen_flood::skipto_flood_done);
+	skipto::add_saved("flood_defend", &cp_mi_sing_sgen_flood::skipto_flood_defend_init, "Flood Defend", &cp_mi_sing_sgen_flood::skipto_flood_defend_done);
+	skipto::add_saved("underwater_battle", &cp_mi_sing_sgen_uw_battle::skipto_underwater_init, "Underwater Battle", &cp_mi_sing_sgen_uw_battle::skipto_underwater_done);
+	skipto::add_saved("underwater_rail", &cp_mi_sing_sgen_water_ride::skipto_underwater_rail_init, "Underwater Rail", &cp_mi_sing_sgen_water_ride::skipto_underwater_rail_done);
+	skipto::add_saved("silo_swim", &cp_mi_sing_sgen_silo_swim::skipto_silo_swim_init, "Silo Swim", &cp_mi_sing_sgen_silo_swim::skipto_silo_swim_done);
 	skipto::add_dev("dev_flood_combat", &cp_mi_sing_sgen_flood::skipto_flood_init, "Flood Combat", &cp_mi_sing_sgen_flood::skipto_flood_done);
 }
 

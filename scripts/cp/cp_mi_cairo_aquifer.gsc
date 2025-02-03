@@ -170,21 +170,21 @@ function function_4b0a421()
 function skipto_setup()
 {
 	skipto::add("level_long_fly_in", &aquifer_obj::skipto_level_long_fly_in_init, "Intro spawnvtol", &aquifer_obj::skipto_level_long_fly_in_done);
-	skipto::function_d68e678e("intro_dogfight", &aquifer_obj::function_9239cf5c, "Destroy Bogey spawnvtol", &aquifer_obj::function_b3635282);
-	skipto::function_d68e678e("destroy_defenses", &aquifer_obj::skipto_defenses_init, "Destroy AA defenses spawnvtol", &aquifer_obj::skipto_defenses_done);
-	skipto::function_d68e678e("hack_terminal_left", &aquifer_obj::skipto_hack_init, "Hack Left Defend checkkayneexist", &aquifer_obj::skipto_hack_done);
-	skipto::function_d68e678e("destroy_defenses_mid", &aquifer_obj::function_fb03103d, "Destroy Remaining AA spawnvtol", &aquifer_obj::function_46151925);
-	skipto::function_d68e678e("hack_terminal_right", &aquifer_obj::function_386c647b, "Hack Right Defend checkkayneexist", &aquifer_obj::function_ec898691);
+	skipto::add_saved("intro_dogfight", &aquifer_obj::function_9239cf5c, "Destroy Bogey spawnvtol", &aquifer_obj::function_b3635282);
+	skipto::add_saved("destroy_defenses", &aquifer_obj::skipto_defenses_init, "Destroy AA defenses spawnvtol", &aquifer_obj::skipto_defenses_done);
+	skipto::add_saved("hack_terminal_left", &aquifer_obj::skipto_hack_init, "Hack Left Defend checkkayneexist", &aquifer_obj::skipto_hack_done);
+	skipto::add_saved("destroy_defenses_mid", &aquifer_obj::function_fb03103d, "Destroy Remaining AA spawnvtol", &aquifer_obj::function_46151925);
+	skipto::add_saved("hack_terminal_right", &aquifer_obj::function_386c647b, "Hack Right Defend checkkayneexist", &aquifer_obj::function_ec898691);
 	skipto::add("water_room", &aquifer_obj::skipto_water_room_init, "Searching checkenteredwater", &aquifer_obj::skipto_water_room_done);
-	skipto::function_d68e678e("water_room_exit", &aquifer_obj::function_e2e38eb, "Exit Water", &aquifer_obj::function_829aa821);
-	skipto::function_d68e678e("post_water_room_dogfight", &aquifer_obj::function_5b113d76, "Destroy Bogey", &aquifer_obj::function_427463e0);
-	skipto::function_d68e678e("destroy_defenses2", &aquifer_obj::skipto_defenses_init2, "Support Egyptian Forces spawnvtol", &aquifer_obj::skipto_defenses_done2);
-	skipto::function_d68e678e("hack_terminals3", &aquifer_obj::skipto_hack_init3, "L Combat checkplayerlanded", &aquifer_obj::skipto_hack_done3);
-	skipto::function_d68e678e("breach_hangar", &aquifer_obj::skipto_breach_init, "Hangar Breach", &aquifer_obj::skipto_breach_done);
+	skipto::add_saved("water_room_exit", &aquifer_obj::function_e2e38eb, "Exit Water", &aquifer_obj::function_829aa821);
+	skipto::add_saved("post_water_room_dogfight", &aquifer_obj::function_5b113d76, "Destroy Bogey", &aquifer_obj::function_427463e0);
+	skipto::add_saved("destroy_defenses2", &aquifer_obj::skipto_defenses_init2, "Support Egyptian Forces spawnvtol", &aquifer_obj::skipto_defenses_done2);
+	skipto::add_saved("hack_terminals3", &aquifer_obj::skipto_hack_init3, "L Combat checkplayerlanded", &aquifer_obj::skipto_hack_done3);
+	skipto::add_saved("breach_hangar", &aquifer_obj::skipto_breach_init, "Hangar Breach", &aquifer_obj::skipto_breach_done);
 	skipto::add("post_breach", &aquifer_obj::skipto_post_breach_init, "Post Breach", &aquifer_obj::skipto_post_breach_done);
-	skipto::function_d68e678e("sniper_boss_intro", &aquifer_obj::function_53d54ffb, "Hyperion Battle Intro", &aquifer_obj::function_7f27211);
+	skipto::add_saved("sniper_boss_intro", &aquifer_obj::function_53d54ffb, "Hyperion Battle Intro", &aquifer_obj::function_7f27211);
 	skipto::add("sniper_boss", &aquifer_obj::skipto_boss_init, "Hyperion Battle", &aquifer_obj::skipto_boss_done);
-	skipto::function_d68e678e("hideout", &aquifer_obj::skipto_hideout_init, "Hyperion's hideout", &aquifer_obj::skipto_hideout_done);
+	skipto::add_saved("hideout", &aquifer_obj::skipto_hideout_init, "Hyperion's hideout", &aquifer_obj::skipto_hideout_done);
 	skipto::add("run_out", &aquifer_obj::function_95463da0, "Flee From Aquifer", &aquifer_obj::function_fb8ad8d6);
 	skipto::add("exfil", &aquifer_obj::skipto_exfil_init, "Exfil", &aquifer_obj::skipto_exfil_done);
 	/#

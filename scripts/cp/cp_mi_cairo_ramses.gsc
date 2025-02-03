@@ -208,9 +208,9 @@ function setup_skiptos()
 {
 	skipto::add("level_start", &skipto_level_start_init, "level_start", &skipto_level_start_done);
 	skipto::add("rs_walk_through", &skipto_rs_walk_through_init, "rs_walk_through", &skipto_rs_walk_through_done);
-	skipto::function_d68e678e("interview_dr_nasser", &skipto_interview_dr_nasser_init, "interview_dr_nasser", &skipto_interview_dr_nasser_done);
-	skipto::function_d68e678e("defend_ramses_station", &station_fight::init, "defend_ramses_station", &station_fight::done);
-	skipto::function_d68e678e("vtol_ride", &vtol_ride::init, "vtol_ride", &vtol_ride::done);
+	skipto::add_saved("interview_dr_nasser", &skipto_interview_dr_nasser_init, "interview_dr_nasser", &skipto_interview_dr_nasser_done);
+	skipto::add_saved("defend_ramses_station", &station_fight::init, "defend_ramses_station", &station_fight::done);
+	skipto::add_saved("vtol_ride", &vtol_ride::init, "vtol_ride", &vtol_ride::done);
 	skipto::add_dev("dev_defend_station_test", &station_fight::defend_station_test, "Defend Station Test", &station_fight::defend_station_done, "", "");
 }
 
