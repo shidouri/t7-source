@@ -2802,7 +2802,7 @@ function function_411355c0(type, player, origin)
 		ai notify(#"hash_6dcbb83e");
 		ai notify(#"hash_67a97d62");
 		ai thread [[var_f3cefb9b.initfunction]](player);
-		level.doa.var_1332e37a[level.doa.var_1332e37a.size] = ai;
+		level.doa.active_guardians[level.doa.active_guardians.size] = ai;
 	}
 }
 
@@ -2818,11 +2818,11 @@ function function_411355c0(type, player, origin)
 function function_9908c4ec()
 {
 	self waittill("death");
-	if(!isdefined(level.doa.var_1332e37a))
+	if(!isdefined(level.doa.active_guardians))
 	{
-		level.doa.var_1332e37a = [];
+		level.doa.active_guardians = [];
 	}
-	level.doa.var_1332e37a = array::remove_undefined(level.doa.var_1332e37a);
+	level.doa.active_guardians = array::remove_undefined(level.doa.active_guardians);
 }
 
 /*

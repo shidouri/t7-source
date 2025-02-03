@@ -505,9 +505,9 @@ function function_a1761846(behaviortreeentity)
 			if(behaviortreeentity.team == "axis")
 			{
 				validtargets = arraycombine(getaiteamarray("team3"), doa_player_utility::function_5eb6e4d1(), 0, 0);
-				if(isdefined(level.doa.var_1332e37a) && level.doa.var_1332e37a.size)
+				if(isdefined(level.doa.active_guardians) && level.doa.active_guardians.size)
 				{
-					validtargets = arraycombine(validtargets, level.doa.var_1332e37a, 0, 0);
+					validtargets = arraycombine(validtargets, level.doa.active_guardians, 0, 0);
 				}
 				closest = arraygetclosest(behaviortreeentity.origin, validtargets);
 			}

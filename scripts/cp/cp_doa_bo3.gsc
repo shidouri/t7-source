@@ -243,7 +243,7 @@ function function_5ee7262b(def)
 function function_d1c7245c()
 {
 	level.doa.guardians = [];
-	level.doa.var_1332e37a = [];
+	level.doa.active_guardians = [];
 	guardian = spawnstruct();
 	guardian.type = 30;
 	guardian.spawner = getent("spawner_zombietron_skeleton", "targetname");
