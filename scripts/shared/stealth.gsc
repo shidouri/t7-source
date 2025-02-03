@@ -106,10 +106,10 @@ function reset()
 			{
 				continue;
 			}
-			agent function_e8434f94();
+			agent agent_reset();
 		}
 	}
-	self function_e8434f94();
+	self agent_reset();
 }
 
 /*
@@ -262,7 +262,7 @@ function agent_stop()
 }
 
 /*
-	Name: function_e8434f94
+	Name: agent_reset
 	Namespace: stealth
 	Checksum: 0x9C994A1B
 	Offset: 0x8F8
@@ -270,7 +270,7 @@ function agent_stop()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e8434f94()
+function agent_reset()
 {
 	object = self;
 	if(!isdefined(object))
