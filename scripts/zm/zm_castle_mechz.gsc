@@ -97,7 +97,7 @@ function private function_76e7495b()
 */
 function private function_78c0d00b(entity)
 {
-	if(isdefined(entity.var_7c963fc4) && entity.var_7c963fc4 || (isdefined(entity.var_8993e21) && entity.var_8993e21))
+	if(isdefined(entity.var_7c963fc4) && entity.var_7c963fc4 || (isdefined(entity.attack_trap) && entity.attack_trap))
 	{
 		return true;
 	}
@@ -168,10 +168,10 @@ function function_216e21ed()
 {
 	self endon("death");
 	wait(60);
-	if(isdefined(self.var_7c963fc4) && self.var_7c963fc4 || (isdefined(self.var_8993e21) && self.var_8993e21) || (isdefined(self.ignoreall) && self.ignoreall))
+	if(isdefined(self.var_7c963fc4) && self.var_7c963fc4 || (isdefined(self.attack_trap) && self.attack_trap) || (isdefined(self.ignoreall) && self.ignoreall))
 	{
 		self.var_7c963fc4 = 0;
-		self.var_8993e21 = 0;
+		self.attack_trap = 0;
 		self.ignoreall = 0;
 		mechzbehavior::mechztargetservice(self);
 	}
@@ -224,7 +224,7 @@ function function_829fa81c(entity)
 */
 function function_e4f26ac8(entity)
 {
-	if(isdefined(entity.var_8993e21) && entity.var_8993e21)
+	if(isdefined(entity.attack_trap) && entity.attack_trap)
 	{
 		return true;
 	}
@@ -243,7 +243,7 @@ function function_e4f26ac8(entity)
 function function_cf4879ad(entity)
 {
 	entity.var_7c963fc4 = 0;
-	entity.var_8993e21 = 1;
+	entity.attack_trap = 1;
 }
 
 /*
@@ -257,7 +257,7 @@ function function_cf4879ad(entity)
 */
 function function_7c295452(entity)
 {
-	entity.var_8993e21 = 0;
+	entity.attack_trap = 0;
 	entity.ignoreall = 0;
 	if(isdefined(entity.trap_struct))
 	{
