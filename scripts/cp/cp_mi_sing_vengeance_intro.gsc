@@ -741,7 +741,7 @@ function function_5ef7fdc2()
 	trigger::wait_till("apartment_light_fire_trigger");
 	level.apartment_enemies = [];
 	var_71e5f989 = getentarray("apartment_enemy", "script_noteworthy");
-	var_6a00e3c4 = spawner::simple_spawn(var_71e5f989, &function_1f707d1e);
+	apartment_enemy = spawner::simple_spawn(var_71e5f989, &function_1f707d1e);
 	var_12d51ad2 = getentarray("apartment_civilian", "script_noteworthy");
 	apartment_civilian = spawner::simple_spawn(var_12d51ad2, &function_a645cfd9);
 	var_1cef4611 = getent("bedroom_door_right", "targetname");
