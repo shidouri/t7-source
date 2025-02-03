@@ -20,11 +20,11 @@
 #using scripts\shared\math_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_baba9b52;
+#namespace prop_dev;
 
 /*
 	Name: function_6edad947
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x10EE84F4
 	Offset: 0x340
 	Size: 0x9C
@@ -43,7 +43,7 @@ function function_6edad947(path, var_66e49a4e)
 
 /*
 	Name: function_6c015e54
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xAAFD4EBC
 	Offset: 0x3E8
 	Size: 0x1720
@@ -353,7 +353,7 @@ function function_6c015e54()
 
 /*
 	Name: function_f35dfc64
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xD6FDB526
 	Offset: 0x1B10
 	Size: 0xEC
@@ -375,7 +375,7 @@ function function_f35dfc64(enabled)
 
 /*
 	Name: function_194631ab
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x7BA3ECBF
 	Offset: 0x1C08
 	Size: 0xE0
@@ -408,7 +408,7 @@ function function_194631ab(enabled)
 
 /*
 	Name: function_e7f343ff
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xA3E9F7E5
 	Offset: 0x1CF8
 	Size: 0x8C
@@ -427,7 +427,7 @@ function function_e7f343ff(color, label, value, text, textpc)
 
 /*
 	Name: function_1b260dda
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x21B8F9EF
 	Offset: 0x1D90
 	Size: 0x4EC
@@ -475,7 +475,7 @@ function function_1b260dda()
 
 /*
 	Name: function_bff3e3c5
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x43B9E33E
 	Offset: 0x2288
 	Size: 0x17C
@@ -506,7 +506,7 @@ function function_bff3e3c5()
 
 /*
 	Name: function_8bd2ff0
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x5B4E48D4
 	Offset: 0x2410
 	Size: 0x54
@@ -526,7 +526,7 @@ function function_8bd2ff0()
 
 /*
 	Name: debugaxis
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xC28DFE5C
 	Offset: 0x2470
 	Size: 0x13C
@@ -547,7 +547,7 @@ function debugaxis(origin, angles, size, alpha, depthtest, duration)
 
 /*
 	Name: function_d8d922ad
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xA3D2D16E
 	Offset: 0x25B8
 	Size: 0xB0
@@ -569,7 +569,7 @@ function function_d8d922ad()
 
 /*
 	Name: function_18a45f58
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x1970135E
 	Offset: 0x2670
 	Size: 0x178
@@ -623,7 +623,7 @@ function function_18a45f58()
 
 /*
 	Name: function_6049bca3
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x691CBAF6
 	Offset: 0x27F0
 	Size: 0x68
@@ -646,7 +646,7 @@ function function_6049bca3(val)
 
 /*
 	Name: function_9c8c6fe4
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x51C5A6CE
 	Offset: 0x2860
 	Size: 0xF4
@@ -676,7 +676,7 @@ function function_9c8c6fe4(val)
 
 /*
 	Name: function_a24562f8
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x979BDB9
 	Offset: 0x2960
 	Size: 0x68
@@ -699,7 +699,7 @@ function function_a24562f8(val)
 
 /*
 	Name: function_e52aa8bb
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x876BB00D
 	Offset: 0x29D0
 	Size: 0x78
@@ -724,7 +724,7 @@ function function_e52aa8bb(inval)
 
 /*
 	Name: function_639754d0
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x83DF7DEE
 	Offset: 0x2A50
 	Size: 0x84
@@ -746,7 +746,7 @@ function function_639754d0(var_95f39eee)
 
 /*
 	Name: function_8bdc662f
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xB3F2FFAD
 	Offset: 0x2AE0
 	Size: 0xF5C
@@ -911,7 +911,7 @@ function function_8bdc662f(val)
 
 /*
 	Name: function_4ef69a48
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x4757A0ED
 	Offset: 0x3A48
 	Size: 0x74
@@ -930,7 +930,7 @@ function function_4ef69a48()
 
 /*
 	Name: function_9cfa92f3
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x5B8E6721
 	Offset: 0x3AC8
 	Size: 0x1E4
@@ -957,7 +957,7 @@ function function_9cfa92f3()
 
 /*
 	Name: function_4e71de66
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xF5D14F24
 	Offset: 0x3CB8
 	Size: 0x1E4
@@ -984,7 +984,7 @@ function function_4e71de66()
 
 /*
 	Name: function_b7096a63
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xF0F7E163
 	Offset: 0x3EA8
 	Size: 0x4A
@@ -1000,7 +1000,7 @@ function function_b7096a63(vec)
 
 /*
 	Name: function_f0e744af
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x26E43A0
 	Offset: 0x3F00
 	Size: 0x54
@@ -1016,7 +1016,7 @@ function function_f0e744af(propinfo)
 
 /*
 	Name: function_52e4c413
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x3832FF7
 	Offset: 0x3F60
 	Size: 0x54
@@ -1032,7 +1032,7 @@ function function_52e4c413(propinfo)
 
 /*
 	Name: function_954fa963
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x276C8E5C
 	Offset: 0x3FC0
 	Size: 0x2A4
@@ -1081,7 +1081,7 @@ function function_954fa963(file, propinfo)
 
 /*
 	Name: function_90b01d01
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x645EFCDA
 	Offset: 0x4270
 	Size: 0x5C
@@ -1098,7 +1098,7 @@ function function_90b01d01(file, propinfo)
 
 /*
 	Name: function_74e29250
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x78E0E2CF
 	Offset: 0x42D8
 	Size: 0x128
@@ -1123,7 +1123,7 @@ function function_74e29250(file, propsizetext)
 
 /*
 	Name: function_bce1e8ea
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xB6EE1CEE
 	Offset: 0x4408
 	Size: 0x128
@@ -1148,7 +1148,7 @@ function function_bce1e8ea(file, propsizetext)
 
 /*
 	Name: function_d3a80896
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x1E42A382
 	Offset: 0x4538
 	Size: 0x324
@@ -1185,7 +1185,7 @@ function function_d3a80896(file, var_dc7b1be6)
 
 /*
 	Name: function_543336f9
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x1B15ACA1
 	Offset: 0x4868
 	Size: 0x3C4
@@ -1238,7 +1238,7 @@ function function_543336f9()
 
 /*
 	Name: function_a8147bf9
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xC289C660
 	Offset: 0x4C38
 	Size: 0x3A4
@@ -1290,7 +1290,7 @@ function function_a8147bf9()
 
 /*
 	Name: function_1a022b4b
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xAA973459
 	Offset: 0x4FE8
 	Size: 0xC54
@@ -1419,7 +1419,7 @@ function function_1a022b4b()
 
 /*
 	Name: function_c64fb4ca
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x4B50B060
 	Offset: 0x5C48
 	Size: 0x3E8
@@ -1477,7 +1477,7 @@ function function_c64fb4ca()
 
 /*
 	Name: function_276ad638
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xA85FB79D
 	Offset: 0x6038
 	Size: 0x10A
@@ -1503,7 +1503,7 @@ function function_276ad638()
 
 /*
 	Name: function_b52ad1b2
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xBDB77043
 	Offset: 0x6150
 	Size: 0x132
@@ -1529,7 +1529,7 @@ function function_b52ad1b2()
 
 /*
 	Name: function_b02387d6
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x3B365809
 	Offset: 0x6290
 	Size: 0xCA
@@ -1555,7 +1555,7 @@ function function_b02387d6()
 
 /*
 	Name: function_61b27799
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xDF8FDF55
 	Offset: 0x6368
 	Size: 0x328
@@ -1594,7 +1594,7 @@ function function_61b27799(propinfo, origin, angles)
 
 /*
 	Name: function_ad9aebcc
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x6628B56A
 	Offset: 0x66A0
 	Size: 0x264
@@ -1633,7 +1633,7 @@ function function_ad9aebcc()
 
 /*
 	Name: function_36895abd
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xE76F612
 	Offset: 0x6910
 	Size: 0x334
@@ -1686,7 +1686,7 @@ function function_36895abd()
 
 /*
 	Name: function_b2eba1e3
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x868DBD0
 	Offset: 0x6C50
 	Size: 0x19C
@@ -1715,7 +1715,7 @@ function function_b2eba1e3(propinfo, origin, angles, team)
 
 /*
 	Name: function_9b9725b1
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x5E43D0EB
 	Offset: 0x6DF8
 	Size: 0x268
@@ -1750,7 +1750,7 @@ function function_9b9725b1()
 
 /*
 	Name: function_6863880e
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0xFBC664A3
 	Offset: 0x7068
 	Size: 0x11E
@@ -1775,7 +1775,7 @@ function function_6863880e()
 
 /*
 	Name: function_5e127ae8
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x69DC4CDD
 	Offset: 0x7190
 	Size: 0xF2
@@ -1798,7 +1798,7 @@ function function_5e127ae8()
 
 /*
 	Name: function_b9002790
-	Namespace: namespace_baba9b52
+	Namespace: prop_dev
 	Checksum: 0x9A50EFEB
 	Offset: 0x7290
 	Size: 0xD6

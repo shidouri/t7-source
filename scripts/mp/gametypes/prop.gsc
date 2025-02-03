@@ -155,7 +155,7 @@ function main()
 	util::set_dvar_int_if_unset("scr_prop_minigame", 1);
 	/#
 		level.var_2898ef72 = 0;
-		thread namespace_baba9b52::function_6c015e54();
+		thread prop_dev::function_6c015e54();
 	#/
 }
 
