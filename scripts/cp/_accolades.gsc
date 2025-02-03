@@ -367,11 +367,11 @@ function function_77b3b4d1()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_9ba543a3(str_accolade, var_eb856299)
+function private function_9ba543a3(str_accolade, accolade_value)
 {
 	var_51ccabeb = tablelookuprownum("gamedata/stats/cp/statsmilestones1.csv", 4, str_accolade);
 	var_35cb50ff = tablelookupcolumnforrow("gamedata/stats/cp/statsmilestones1.csv", var_51ccabeb, 2);
-	return int(var_35cb50ff) <= var_eb856299;
+	return int(var_35cb50ff) <= accolade_value;
 }
 
 /*
@@ -461,12 +461,12 @@ function function_77abfac7(num_tokens = 1)
 	Parameters: 2
 	Flags: Linked
 */
-function function_92050191(accolade_index, var_eb856299)
+function function_92050191(accolade_index, accolade_value)
 {
 	var_9d479b7 = self getdstat("PlayerStatsByMap", getrootmapname(), "accolades", accolade_index, "highestValue");
-	if(var_eb856299 > var_9d479b7)
+	if(accolade_value > var_9d479b7)
 	{
-		self setdstat("PlayerStatsByMap", getrootmapname(), "accolades", accolade_index, "highestValue", var_eb856299);
+		self setdstat("PlayerStatsByMap", getrootmapname(), "accolades", accolade_index, "highestValue", accolade_value);
 	}
 }
 
