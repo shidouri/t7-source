@@ -175,7 +175,7 @@ function function_ce95384b(accolade_index, is_state, value, var_b3982c20)
 		self setdstat("PlayerStatsByMap", level.var_deb20b04, "accolades", accolade_index, "value", value);
 	}
 	/#
-		self.var_eb7d74bb = 1;
+		self.accolades_dirty = 1;
 	#/
 }
 
@@ -595,7 +595,7 @@ function increment(str_accolade, n_val = 1, var_50f65478)
 				accolade_string = tablelookupistring("", 4, str_accolade, 5);
 				iprintln(accolade_string);
 			}
-			self.var_eb7d74bb = 1;
+			self.accolades_dirty = 1;
 		#/
 		self function_de8b9e62(accolade.index, accolade.current_value, 0);
 		self function_92050191(accolade.index, accolade.current_value);
@@ -708,7 +708,7 @@ function private function_115de864()
 		self function_50f58bd0(str_accolade, var_aa6073);
 	}
 	/#
-		self.var_eb7d74bb = 1;
+		self.accolades_dirty = 1;
 	#/
 	self decorations::function_e72fc18();
 	self savegame::set_player_data("last_mission", getmissionname());
@@ -815,7 +815,7 @@ function on_player_connect()
 	/#
 		if(isdefined(level.accolades))
 		{
-			self.var_eb7d74bb = 1;
+			self.accolades_dirty = 1;
 			self function_2d7075c8();
 			self thread function_8082e9f0();
 		}
@@ -920,7 +920,7 @@ function function_8082e9f0()
 			{
 				setdvar("", "");
 			}
-			if(self.var_eb7d74bb == 1 && isdefined(self.var_ab872594))
+			if(self.accolades_dirty == 1 && isdefined(self.var_ab872594))
 			{
 				function_7aaf1e5d();
 			}
@@ -1100,7 +1100,7 @@ function function_1ea616fe()
 		self.var_5922e3b8[self.var_5922e3b8.size] = var_5922e3b8;
 		self.var_87b86b14[self.var_87b86b14.size] = var_87b86b14;
 		self thread function_7b64a1e0();
-		self.var_eb7d74bb = 0;
+		self.accolades_dirty = 0;
 	#/
 }
 
@@ -1219,7 +1219,7 @@ function function_4c436dfe()
 			}
 			e_player decorations::function_59f1fa79();
 			/#
-				e_player.var_eb7d74bb = 1;
+				e_player.accolades_dirty = 1;
 			#/
 		}
 		uploadstats();
