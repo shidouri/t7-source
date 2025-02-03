@@ -692,7 +692,7 @@ function function_17fe87c5()
 }
 
 /*
-	Name: function_fea6ae9f
+	Name: accolade_reward
 	Namespace: biodomes_accolades
 	Checksum: 0x27720A3E
 	Offset: 0x1910
@@ -700,7 +700,7 @@ function function_17fe87c5()
 	Parameters: 1
 	Flags: None
 */
-function function_fea6ae9f()
+function accolade_reward()
 {
 	// Unsupported VM revision (1B).
 }
