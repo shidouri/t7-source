@@ -7,11 +7,11 @@
 #using scripts\shared\callbacks_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_d7e71261;
+#namespace mp_freerun_04;
 
 /*
 	Name: main
-	Namespace: namespace_d7e71261
+	Namespace: mp_freerun_04
 	Checksum: 0x9485B1A9
 	Offset: 0x1B0
 	Size: 0xC4
@@ -32,7 +32,7 @@ function main()
 
 /*
 	Name: player_rain
-	Namespace: namespace_d7e71261
+	Namespace: mp_freerun_04
 	Checksum: 0x6FC6FC28
 	Offset: 0x280
 	Size: 0xCC
