@@ -575,7 +575,7 @@ function activatezip(rider)
 		}
 	}
 	level thread zip_line_audio();
-	var_d496a1ae = array("link_player1", "link_player2", "link_player3", "link_player4");
+	a_attachspot = array("link_player1", "link_player2", "link_player3", "link_player4");
 	peeps = getplayers();
 	for(i = 0; i < peeps.size; i++)
 	{
@@ -584,7 +584,7 @@ function activatezip(rider)
 			prevdist = undefined;
 			playerspot = undefined;
 			playerorg = peeps[i] getorigin();
-			foreach(attach_spot in var_d496a1ae)
+			foreach(attach_spot in a_attachspot)
 			{
 				attachorg = self.zip gettagorigin(attach_spot);
 				dist = distance2d(playerorg, attachorg);
@@ -617,11 +617,11 @@ function activatezip(rider)
 			peeps[i] allowprone(0);
 			peeps[i] clientfield::set("player_legs_hide", 1);
 			peeps[i] playerlinkto(self.zip, playerspot, 0, 180, 180, 180, 180, 1);
-			arrayremovevalue(var_d496a1ae, playerspot);
+			arrayremovevalue(a_attachspot, playerspot);
 		}
 	}
 	wait(0.1);
-	if(var_d496a1ae.size > 0)
+	if(a_attachspot.size > 0)
 	{
 		center = self.zip gettagorigin("link_zipline_jnt");
 		physicsexplosionsphere(center, 128, 64, 2);
