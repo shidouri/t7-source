@@ -550,14 +550,14 @@ function function_578145a3()
 	if(isdefined(var_1044cded) && var_1044cded)
 	{
 		ally_volume = getent("temple_ally_gv_0" + i, "targetname");
-		var_a2d2b3b = getent("temple_axis_gv_0" + i, "targetname");
+		axis_volume = getent("temple_axis_gv_0" + i, "targetname");
 		var_fcf2483c = getent("temple_axis_cleanup_volume_0" + i, "targetname");
 		level thread function_620fbb8a(var_17994622, var_fcf2483c);
 	}
 	else
 	{
 		ally_volume = getent("temple_ally_gv_01", "targetname");
-		var_a2d2b3b = getent("temple_axis_gv_01", "targetname");
+		axis_volume = getent("temple_axis_gv_01", "targetname");
 	}
 	foreach(guy in var_17994622)
 	{
@@ -565,7 +565,7 @@ function function_578145a3()
 		{
 			guy clearforcedgoal();
 			guy cleargoalvolume();
-			guy setgoal(var_a2d2b3b);
+			guy setgoal(axis_volume);
 		}
 	}
 	if(isdefined(var_1044cded) && var_1044cded)
@@ -579,7 +579,7 @@ function function_578145a3()
 	level.ai_hendricks cleargoalvolume();
 	level.ai_hendricks setgoal(ally_volume);
 	ally_volume = getent("temple_ally_gv_02", "targetname");
-	var_a2d2b3b = getent("temple_axis_gv_02", "targetname");
+	axis_volume = getent("temple_axis_gv_02", "targetname");
 	while(true)
 	{
 		if(isdefined(var_1044cded) && var_1044cded && i >= 2)
@@ -595,7 +595,7 @@ function function_578145a3()
 				{
 					guy clearforcedgoal();
 					guy cleargoalvolume();
-					guy setgoal(var_a2d2b3b);
+					guy setgoal(axis_volume);
 				}
 			}
 			level.ai_hendricks clearforcedgoal();
@@ -606,7 +606,7 @@ function function_578145a3()
 		wait(0.1);
 	}
 	ally_volume = getent("temple_ally_gv_03", "targetname");
-	var_a2d2b3b = getent("temple_axis_gv_03", "targetname");
+	axis_volume = getent("temple_axis_gv_03", "targetname");
 	while(true)
 	{
 		if(isdefined(var_1044cded) && var_1044cded && i >= 3)
@@ -622,7 +622,7 @@ function function_578145a3()
 				{
 					guy clearforcedgoal();
 					guy cleargoalvolume();
-					guy setgoal(var_a2d2b3b);
+					guy setgoal(axis_volume);
 				}
 			}
 			level.ai_hendricks clearforcedgoal();
@@ -633,7 +633,7 @@ function function_578145a3()
 		wait(0.1);
 	}
 	ally_volume = getent("temple_ally_gv_04", "targetname");
-	var_a2d2b3b = getent("temple_axis_gv_04", "targetname");
+	axis_volume = getent("temple_axis_gv_04", "targetname");
 	while(true)
 	{
 		guys_left = getaiteamarray("axis");
@@ -645,7 +645,7 @@ function function_578145a3()
 				{
 					guy clearforcedgoal();
 					guy cleargoalvolume();
-					guy setgoal(var_a2d2b3b);
+					guy setgoal(axis_volume);
 				}
 			}
 			level.ai_hendricks clearforcedgoal();
