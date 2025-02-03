@@ -2087,7 +2087,7 @@ class czmtrain
 		{
 			duration = 1;
 			var_6ffe9d93 = 240;
-			var_4dc5a359 = 12;
+			arrow_width = 12;
 			origin = m_vh_train.origin;
 			origin = origin + (vectorscale((0, 0, -1), 90));
 			forward = anglestoforward(m_vh_train.angles);
@@ -2101,10 +2101,10 @@ class czmtrain
 				line(origin, arrow_end, (1, 0, 0), 1, 1, duration);
 			#/
 			/#
-				line(arrow_end, (arrow_end - (var_4dc5a359 * forward)) - (var_4dc5a359 * right), (1, 0, 0), 1, 1, duration);
+				line(arrow_end, (arrow_end - (arrow_width * forward)) - (arrow_width * right), (1, 0, 0), 1, 1, duration);
 			#/
 			/#
-				line(arrow_end, (arrow_end - (var_4dc5a359 * forward)) + (var_4dc5a359 * right), (1, 0, 0), 1, 1, duration);
+				line(arrow_end, (arrow_end - (arrow_width * forward)) + (arrow_width * right), (1, 0, 0), 1, 1, duration);
 			#/
 			foreach(e_door in m_a_mdl_doors)
 			{
