@@ -24,11 +24,11 @@
 #using scripts\shared\tweakables_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_4c773ed3;
+#namespace prop_controls;
 
 /*
 	Name: notifyonplayercommand
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xFB4D26B8
 	Offset: 0x838
 	Size: 0x5C
@@ -45,7 +45,7 @@ function notifyonplayercommand(command, key)
 
 /*
 	Name: notifyonplayercommandremove
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xBE563177
 	Offset: 0x8A0
 	Size: 0x2E
@@ -59,7 +59,7 @@ function notifyonplayercommandremove(command, key)
 
 /*
 	Name: function_e17a8f06
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x320CBF53
 	Offset: 0x8D8
 	Size: 0x39E
@@ -164,7 +164,7 @@ function function_e17a8f06(command, key)
 
 /*
 	Name: function_c6639fc9
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x91E19DF8
 	Offset: 0xC80
 	Size: 0x64
@@ -189,7 +189,7 @@ function function_c6639fc9(var_33b64687, command)
 
 /*
 	Name: function_b01c4bcb
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xFB703A77
 	Offset: 0xCF0
 	Size: 0x62
@@ -214,7 +214,7 @@ function function_b01c4bcb(var_33b64687, command)
 
 /*
 	Name: setupkeybindings
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x1025E606
 	Offset: 0xD60
 	Size: 0x184
@@ -240,7 +240,7 @@ function setupkeybindings()
 
 /*
 	Name: function_3122ae57
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xDF004209
 	Offset: 0xEF0
 	Size: 0x184
@@ -266,7 +266,7 @@ function function_3122ae57()
 
 /*
 	Name: is_player_gamepad_enabled
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x249680DE
 	Offset: 0x1080
 	Size: 0x1A
@@ -280,7 +280,7 @@ function is_player_gamepad_enabled()
 
 /*
 	Name: addupperrighthudelem
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x3678A526
 	Offset: 0x10A8
 	Size: 0x224
@@ -334,7 +334,7 @@ function addupperrighthudelem(label, value, text, labelpc)
 
 /*
 	Name: propcontrolshud
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xC6AFB0C3
 	Offset: 0x12D8
 	Size: 0x1BC
@@ -369,7 +369,7 @@ function propcontrolshud()
 
 /*
 	Name: cleanuppropcontrolshudondeath
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x8C6846C5
 	Offset: 0x14A0
 	Size: 0x54
@@ -387,7 +387,7 @@ function cleanuppropcontrolshudondeath()
 
 /*
 	Name: safedestroy
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xAE94B016
 	Offset: 0x1500
 	Size: 0x2C
@@ -404,7 +404,7 @@ function safedestroy(hudelem)
 
 /*
 	Name: cleanuppropcontrolshud
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x98FEB889
 	Offset: 0x1538
 	Size: 0xDC
@@ -426,7 +426,7 @@ function cleanuppropcontrolshud()
 
 /*
 	Name: updatetextongamepadchange
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x80F56F06
 	Offset: 0x1620
 	Size: 0x178
@@ -481,7 +481,7 @@ function updatetextongamepadchange()
 
 /*
 	Name: propinputwatch
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xEE6AF523
 	Offset: 0x17A0
 	Size: 0x230
@@ -559,7 +559,7 @@ function propinputwatch()
 
 /*
 	Name: proplockunlock
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x5D846836
 	Offset: 0x19D8
 	Size: 0x54
@@ -584,7 +584,7 @@ function proplockunlock()
 
 /*
 	Name: function_90ce903e
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xF2CF965E
 	Offset: 0x1A38
 	Size: 0xCC
@@ -605,7 +605,7 @@ function function_90ce903e()
 
 /*
 	Name: registerpreviousprop
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x1D7F12AD
 	Offset: 0x1B10
 	Size: 0xA8
@@ -629,7 +629,7 @@ function registerpreviousprop(var_bc9de76b)
 
 /*
 	Name: propchange
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x9E4F481D
 	Offset: 0x1BC0
 	Size: 0x294
@@ -690,7 +690,7 @@ function propchange()
 
 /*
 	Name: prophaschangesleft
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x738EF7AD
 	Offset: 0x1E60
 	Size: 0x2E
@@ -710,7 +710,7 @@ function prophaschangesleft()
 
 /*
 	Name: propdeductchange
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x663C8F47
 	Offset: 0x1E98
 	Size: 0x44
@@ -730,7 +730,7 @@ function propdeductchange()
 
 /*
 	Name: propsetchangesleft
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x31A18AB3
 	Offset: 0x1EE8
 	Size: 0x74
@@ -752,7 +752,7 @@ function propsetchangesleft(newvalue)
 
 /*
 	Name: propchangeto
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xEF4A0DB8
 	Offset: 0x1F68
 	Size: 0x374
@@ -805,7 +805,7 @@ function propchangeto(info)
 
 /*
 	Name: propmatchslope
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x75289AB7
 	Offset: 0x22E8
 	Size: 0x214
@@ -861,7 +861,7 @@ function propmatchslope()
 
 /*
 	Name: propability
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xB929FB78
 	Offset: 0x2508
 	Size: 0x6C
@@ -883,7 +883,7 @@ function propability()
 
 /*
 	Name: propclonepower
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xF12C4CD6
 	Offset: 0x2580
 	Size: 0x44
@@ -901,7 +901,7 @@ function propclonepower()
 
 /*
 	Name: prophasclonesleft
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x26838613
 	Offset: 0x25D0
 	Size: 0x2E
@@ -921,7 +921,7 @@ function prophasclonesleft()
 
 /*
 	Name: propdeductclonechange
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x8D286D0F
 	Offset: 0x2608
 	Size: 0x44
@@ -941,7 +941,7 @@ function propdeductclonechange()
 
 /*
 	Name: propsetclonesleft
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x1E11CF07
 	Offset: 0x2658
 	Size: 0xBC
@@ -967,7 +967,7 @@ function propsetclonesleft(newvalue)
 
 /*
 	Name: prophasflashesleft
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x52BC6043
 	Offset: 0x2720
 	Size: 0x2E
@@ -987,7 +987,7 @@ function prophasflashesleft()
 
 /*
 	Name: propdeductflash
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xFE63C964
 	Offset: 0x2758
 	Size: 0x44
@@ -1007,7 +1007,7 @@ function propdeductflash()
 
 /*
 	Name: propsetflashesleft
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x46EE740A
 	Offset: 0x27A8
 	Size: 0x74
@@ -1029,7 +1029,7 @@ function propsetflashesleft(newvalue)
 
 /*
 	Name: set_pitch_roll_for_ground_normal
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x480275B7
 	Offset: 0x2828
 	Size: 0x1F0
@@ -1066,7 +1066,7 @@ function set_pitch_roll_for_ground_normal(var_a84e1ffa)
 
 /*
 	Name: function_b811663a
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x2E4EE664
 	Offset: 0x2A20
 	Size: 0xD2
@@ -1091,7 +1091,7 @@ function function_b811663a(var_32d4bb6a)
 
 /*
 	Name: function_af3207f6
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x37D45F6D
 	Offset: 0x2B00
 	Size: 0x148
@@ -1122,7 +1122,7 @@ function function_af3207f6(var_32d4bb6a)
 
 /*
 	Name: get_ground_normal
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x6C49E6EB
 	Offset: 0x2C50
 	Size: 0x3BE
@@ -1203,7 +1203,7 @@ function get_ground_normal(var_a84e1ffa, debug)
 
 /*
 	Name: propmoveunlock
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x6C819B5D
 	Offset: 0x3018
 	Size: 0x18E
@@ -1250,7 +1250,7 @@ function propmoveunlock()
 
 /*
 	Name: unlockprop
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xAB53B618
 	Offset: 0x31B0
 	Size: 0x13C
@@ -1279,7 +1279,7 @@ function unlockprop()
 
 /*
 	Name: lockprop
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x6C4ADE18
 	Offset: 0x32F8
 	Size: 0x144
@@ -1313,7 +1313,7 @@ function lockprop()
 
 /*
 	Name: flashlockpropkey
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xA93CFCF3
 	Offset: 0x3448
 	Size: 0xEC
@@ -1340,7 +1340,7 @@ function flashlockpropkey()
 
 /*
 	Name: function_fd824ee5
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xEEDEB620
 	Offset: 0x3540
 	Size: 0x7A
@@ -1359,7 +1359,7 @@ function function_fd824ee5()
 
 /*
 	Name: function_b9733d59
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xA7C9C622
 	Offset: 0x35C8
 	Size: 0x94
@@ -1379,7 +1379,7 @@ function function_b9733d59()
 
 /*
 	Name: function_2dff88ca
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x2D6A8CDD
 	Offset: 0x3668
 	Size: 0x1A4
@@ -1410,7 +1410,7 @@ function function_2dff88ca(success, type, player, origin1, text1, origin2, text2
 
 /*
 	Name: canlock
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x870959C3
 	Offset: 0x3818
 	Size: 0x6D8
@@ -1518,7 +1518,7 @@ function canlock()
 
 /*
 	Name: propcamerazoom
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xE48D10B9
 	Offset: 0x3F00
 	Size: 0x1C8
@@ -1563,7 +1563,7 @@ function propcamerazoom()
 
 /*
 	Name: setnewabilityhud
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x83D231CB
 	Offset: 0x40D0
 	Size: 0x66
@@ -1591,7 +1591,7 @@ function setnewabilityhud()
 
 /*
 	Name: setnewabilitycount
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xE9446F13
 	Offset: 0x4140
 	Size: 0xD6
@@ -1632,7 +1632,7 @@ function setnewabilitycount(var_9c968389, count)
 
 /*
 	Name: endondeath
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x34B087B9
 	Offset: 0x4220
 	Size: 0x1E
@@ -1648,7 +1648,7 @@ function endondeath()
 
 /*
 	Name: flashtheprops
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xABFE86D4
 	Offset: 0x4248
 	Size: 0x84
@@ -1671,7 +1671,7 @@ function flashtheprops(var_e967d644)
 
 /*
 	Name: flashenemies
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xADBF8D03
 	Offset: 0x42D8
 	Size: 0x33A
@@ -1721,7 +1721,7 @@ function flashenemies(var_e967d644 = self, position = self.origin)
 
 /*
 	Name: deletepropsifatmax
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x9EC5F38
 	Offset: 0x4620
 	Size: 0x1E0
@@ -1777,7 +1777,7 @@ function deletepropsifatmax()
 
 /*
 	Name: cloneprop
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x6DA9C3B
 	Offset: 0x4808
 	Size: 0x286
@@ -1824,7 +1824,7 @@ function cloneprop()
 
 /*
 	Name: damageclonewatch
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xBF1929A5
 	Offset: 0x4A98
 	Size: 0x174
@@ -1861,7 +1861,7 @@ function damageclonewatch(damage, attacker, direction_vec, point, meansofdeath, 
 
 /*
 	Name: function_8e6b5244
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x7CBA58A
 	Offset: 0x4C18
 	Size: 0x48
@@ -1877,7 +1877,7 @@ function function_8e6b5244()
 
 /*
 	Name: function_de01cce2
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x4CC87F24
 	Offset: 0x4C68
 	Size: 0x134
@@ -1903,7 +1903,7 @@ function function_de01cce2()
 
 /*
 	Name: function_7a923efa
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xF9C86014
 	Offset: 0x4DA8
 	Size: 0xA4
@@ -1932,7 +1932,7 @@ function function_7a923efa(var_8847a584, attacker)
 
 /*
 	Name: function_a40d8853
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xF30A778
 	Offset: 0x4E58
 	Size: 0x174
@@ -1971,7 +1971,7 @@ function function_a40d8853()
 
 /*
 	Name: function_7244ebc6
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x14F6CE7E
 	Offset: 0x4FD8
 	Size: 0x30C
@@ -2033,7 +2033,7 @@ function function_7244ebc6(var_ad5f9a75, fade_in_time, fade_out_time)
 
 /*
 	Name: watchspecialgrenadethrow
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xCCAB25F7
 	Offset: 0x52F0
 	Size: 0x9C
@@ -2057,7 +2057,7 @@ function watchspecialgrenadethrow()
 
 /*
 	Name: function_899a39ec
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x96E1A1A
 	Offset: 0x5398
 	Size: 0x108
@@ -2088,7 +2088,7 @@ function function_899a39ec(grenade)
 
 /*
 	Name: function_141daf3d
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x3DA62B3E
 	Offset: 0x54A8
 	Size: 0x10C
@@ -2110,7 +2110,7 @@ function function_141daf3d(attacker, damageorigin, weapon, damage, meansofdeath)
 
 /*
 	Name: function_770b4cfa
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x5C5988A6
 	Offset: 0x55C0
 	Size: 0xFE
@@ -2137,7 +2137,7 @@ function function_770b4cfa(attacker, var_bf500123, meansofdeath, damage, damageo
 
 /*
 	Name: function_913d23
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x7823D6F3
 	Offset: 0x56C8
 	Size: 0xA8
@@ -2161,7 +2161,7 @@ function function_913d23(damageorigin)
 
 /*
 	Name: function_af4e8351
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xC47AF14A
 	Offset: 0x5778
 	Size: 0x31E
@@ -2206,7 +2206,7 @@ function function_af4e8351(index)
 
 /*
 	Name: function_73052bdb
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x1A5663D3
 	Offset: 0x5AA0
 	Size: 0x19A
@@ -2243,7 +2243,7 @@ function function_73052bdb(var_d18ea86a)
 
 /*
 	Name: function_564fbbef
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x931210E6
 	Offset: 0x5C48
 	Size: 0x1D8
@@ -2286,7 +2286,7 @@ function function_564fbbef(var_d18ea86a)
 
 /*
 	Name: function_b7d2b256
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x69F510
 	Offset: 0x5E28
 	Size: 0x132
@@ -2314,7 +2314,7 @@ function function_b7d2b256(var_d18ea86a)
 
 /*
 	Name: function_56938929
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x6AB0BC25
 	Offset: 0x5F68
 	Size: 0x132
@@ -2342,7 +2342,7 @@ function function_56938929(var_d18ea86a)
 
 /*
 	Name: function_94e1618c
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x21210D8F
 	Offset: 0x60A8
 	Size: 0x56
@@ -2361,7 +2361,7 @@ function function_94e1618c(damageorigin)
 
 /*
 	Name: function_fde936b5
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xCD6CF48B
 	Offset: 0x6108
 	Size: 0xAA
@@ -2382,7 +2382,7 @@ function function_fde936b5(index)
 
 /*
 	Name: safesetalpha
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x7408BDE4
 	Offset: 0x61C0
 	Size: 0x30
@@ -2399,7 +2399,7 @@ function safesetalpha(hudelem, var_9a1ea53a)
 
 /*
 	Name: propabilitykeysvisible
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x5BCB9CBA
 	Offset: 0x61F8
 	Size: 0x194
@@ -2435,7 +2435,7 @@ function propabilitykeysvisible(visible, override)
 
 /*
 	Name: function_8b7be7e3
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x253A6D32
 	Offset: 0x6398
 	Size: 0xD8
@@ -2472,7 +2472,7 @@ function function_8b7be7e3()
 
 /*
 	Name: function_bf45ce54
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x6D93B601
 	Offset: 0x6478
 	Size: 0x7C
@@ -2497,7 +2497,7 @@ function function_bf45ce54()
 
 /*
 	Name: function_227409a5
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xE71C7110
 	Offset: 0x6500
 	Size: 0x54
@@ -2515,7 +2515,7 @@ function function_227409a5()
 
 /*
 	Name: function_7fd4f3ae
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x52AECDFA
 	Offset: 0x6560
 	Size: 0x1C
@@ -2529,7 +2529,7 @@ function function_7fd4f3ae()
 
 /*
 	Name: function_b6740059
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x8F8510F9
 	Offset: 0x6588
 	Size: 0x44
@@ -2547,7 +2547,7 @@ function function_b6740059()
 
 /*
 	Name: function_b4c19c50
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xD435B370
 	Offset: 0x65D8
 	Size: 0x44
@@ -2565,7 +2565,7 @@ function function_b4c19c50()
 
 /*
 	Name: function_5951cacf
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xE2DAD99B
 	Offset: 0x6628
 	Size: 0x2E
@@ -2585,7 +2585,7 @@ function function_5951cacf()
 
 /*
 	Name: function_2c53f5e6
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x3FDFAC9
 	Offset: 0x6660
 	Size: 0x44
@@ -2605,7 +2605,7 @@ function function_2c53f5e6()
 
 /*
 	Name: function_afeda2bf
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xFE48798A
 	Offset: 0x66B0
 	Size: 0x74
@@ -2627,7 +2627,7 @@ function function_afeda2bf(newvalue)
 
 /*
 	Name: function_1abcc66
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x44BC984
 	Offset: 0x6730
 	Size: 0xC0
@@ -2660,7 +2660,7 @@ function function_1abcc66()
 
 /*
 	Name: function_38543493
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xF20F30F2
 	Offset: 0x67F8
 	Size: 0x84
@@ -2686,7 +2686,7 @@ function function_38543493()
 
 /*
 	Name: function_aac4667c
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0xBEE6A8E1
 	Offset: 0x6888
 	Size: 0x2CA
@@ -2732,7 +2732,7 @@ function function_aac4667c()
 
 /*
 	Name: function_41584b4b
-	Namespace: namespace_4c773ed3
+	Namespace: prop_controls
 	Checksum: 0x87991EE3
 	Offset: 0x6B60
 	Size: 0x5C

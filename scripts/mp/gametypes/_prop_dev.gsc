@@ -150,7 +150,7 @@ function function_6c015e54()
 					{
 						if(isdefined(player.team) && player util::isprop())
 						{
-							player namespace_4c773ed3::propabilitykeysvisible(var_5f965ece, 1);
+							player prop_controls::propabilitykeysvisible(var_5f965ece, 1);
 						}
 					}
 					level.elim_hud.alpha = var_5f965ece;
@@ -285,7 +285,7 @@ function function_6c015e54()
 			{
 				if(isdefined(level.players) && isdefined(level.players[0]))
 				{
-					level.players[0] namespace_4c773ed3::canlock();
+					level.players[0] prop_controls::canlock();
 				}
 			}
 			if(getdvarint("", 0) != 0 || getdvarint("", 0) != 0)
@@ -418,7 +418,7 @@ function function_194631ab(enabled)
 function function_e7f343ff(color, label, value, text, textpc)
 {
 	/#
-		hudelem = namespace_4c773ed3::addupperrighthudelem(label, value, text, textpc);
+		hudelem = prop_controls::addupperrighthudelem(label, value, text, textpc);
 		hudelem.alpha = 0.5;
 		hudelem.color = color;
 		return hudelem;
@@ -437,8 +437,8 @@ function function_e7f343ff(color, label, value, text, textpc)
 function function_1b260dda()
 {
 	/#
-		self namespace_4c773ed3::cleanuppropcontrolshud();
-		self namespace_4c773ed3::function_3122ae57();
+		self prop_controls::cleanuppropcontrolshud();
+		self prop_controls::function_3122ae57();
 		if(self issplitscreen())
 		{
 			self.currenthudy = -10;
@@ -486,21 +486,21 @@ function function_bff3e3c5()
 {
 	/#
 		self notify(#"hash_bff3e3c5");
-		namespace_4c773ed3::safedestroy(self.placementmodel);
-		namespace_4c773ed3::safedestroy(self.var_b97b612d);
-		namespace_4c773ed3::safedestroy(self.var_6b04bc54);
-		namespace_4c773ed3::safedestroy(self.var_f3f7c094);
-		namespace_4c773ed3::safedestroy(self.var_ec187f25);
-		namespace_4c773ed3::safedestroy(self.var_c61604bc);
-		namespace_4c773ed3::safedestroy(self.var_381d73f7);
-		namespace_4c773ed3::safedestroy(self.var_3e02b967);
-		namespace_4c773ed3::safedestroy(self.var_e7ec6bb6);
-		namespace_4c773ed3::safedestroy(self.var_f1fdc495);
-		namespace_4c773ed3::safedestroy(self.var_40dabe6f);
-		namespace_4c773ed3::safedestroy(self.var_c9f40191);
+		prop_controls::safedestroy(self.placementmodel);
+		prop_controls::safedestroy(self.var_b97b612d);
+		prop_controls::safedestroy(self.var_6b04bc54);
+		prop_controls::safedestroy(self.var_f3f7c094);
+		prop_controls::safedestroy(self.var_ec187f25);
+		prop_controls::safedestroy(self.var_c61604bc);
+		prop_controls::safedestroy(self.var_381d73f7);
+		prop_controls::safedestroy(self.var_3e02b967);
+		prop_controls::safedestroy(self.var_e7ec6bb6);
+		prop_controls::safedestroy(self.var_f1fdc495);
+		prop_controls::safedestroy(self.var_40dabe6f);
+		prop_controls::safedestroy(self.var_c9f40191);
 		self function_4e71de66();
-		self namespace_4c773ed3::propcontrolshud();
-		self namespace_4c773ed3::setupkeybindings();
+		self prop_controls::propcontrolshud();
+		self prop_controls::setupkeybindings();
 	#/
 }
 
@@ -761,7 +761,7 @@ function function_8bdc662f(val)
 		{
 			function_e52aa8bb(val);
 			self.prop.info = level.proplist[level.propindex[self.var_4efaa35][0]][level.propindex[self.var_4efaa35][1]];
-			namespace_4c773ed3::propchangeto(self.prop.info);
+			prop_controls::propchangeto(self.prop.info);
 			self.placementmodel settext((("" + self.var_4efaa35) + "") + self.prop.info.modelname);
 			self.var_b97b612d settext("" + self.prop.info.propsizetext);
 			self.var_6b04bc54 setvalue(self.prop.info.propsize);
@@ -940,18 +940,18 @@ function function_4ef69a48()
 function function_9cfa92f3()
 {
 	/#
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
-		self namespace_4c773ed3::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
+		self prop_controls::notifyonplayercommand("", "");
 	#/
 }
 
@@ -967,18 +967,18 @@ function function_9cfa92f3()
 function function_4e71de66()
 {
 	/#
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
-		self namespace_4c773ed3::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
+		self prop_controls::notifyonplayercommandremove("", "");
 	#/
 }
 
@@ -1547,7 +1547,7 @@ function function_b02387d6()
 		{
 			if(isdefined(player) && isdefined(player.prop))
 			{
-				player namespace_4c773ed3::get_ground_normal(player.prop, 1);
+				player prop_controls::get_ground_normal(player.prop, 1);
 			}
 		}
 	#/
@@ -1705,7 +1705,7 @@ function function_b2eba1e3(propinfo, origin, angles, team)
 		var_a20cbf64.fakehealth = 50;
 		var_a20cbf64.health = 99999;
 		var_a20cbf64.maxhealth = 99999;
-		var_a20cbf64 thread prop::function_500dc7d9(&namespace_4c773ed3::damageclonewatch);
+		var_a20cbf64 thread prop::function_500dc7d9(&prop_controls::damageclonewatch);
 		var_a20cbf64 setplayercollision(0);
 		var_a20cbf64 makesentient();
 		var_a20cbf64 notsolidcapsule();
@@ -1733,7 +1733,7 @@ function function_9b9725b1()
 		{
 			foreach(clone in level.var_79ca1379)
 			{
-				clone namespace_4c773ed3::function_a40d8853();
+				clone prop_controls::function_a40d8853();
 			}
 		}
 		level.var_79ca1379 = [];

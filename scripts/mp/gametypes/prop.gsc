@@ -436,7 +436,7 @@ function hidehudintermission()
 	}
 	foreach(player in level.players)
 	{
-		player namespace_4c773ed3::propabilitykeysvisible(0);
+		player prop_controls::propabilitykeysvisible(0);
 	}
 }
 
@@ -951,7 +951,7 @@ function onspawnplayer(predictedspawn)
 		self.currentability = level.abilities[self.pers["ability"]];
 		if(useprophudserver())
 		{
-			self thread namespace_4c773ed3::propcontrolshud();
+			self thread prop_controls::propcontrolshud();
 		}
 		self.isangleoffset = 0;
 		var_4cfdb40e = int(level.phsettings.propchangecount);
@@ -963,10 +963,10 @@ function onspawnplayer(predictedspawn)
 			var_461f13b6 = self.abilityleft;
 			var_4a6a29c9 = self.clonesleft;
 		}
-		self namespace_4c773ed3::propsetchangesleft(var_4cfdb40e);
-		self namespace_4c773ed3::setnewabilitycount(self.currentability, var_461f13b6);
-		self namespace_4c773ed3::setnewabilitycount("CLONE", var_4a6a29c9);
-		self thread namespace_4c773ed3::cleanuppropcontrolshudondeath();
+		self prop_controls::propsetchangesleft(var_4cfdb40e);
+		self prop_controls::setnewabilitycount(self.currentability, var_461f13b6);
+		self prop_controls::setnewabilitycount("CLONE", var_4a6a29c9);
+		self thread prop_controls::cleanuppropcontrolshudondeath();
 		self thread handleprop();
 	}
 	else
@@ -983,15 +983,15 @@ function onspawnplayer(predictedspawn)
 		}
 		if(useprophudserver())
 		{
-			self thread namespace_4c773ed3::function_bf45ce54();
+			self thread prop_controls::function_bf45ce54();
 		}
 		var_292246d3 = level.phsettings.var_60a20fdc;
 		if(isdefined(self.spawnedonce) && isdefined(self.var_292246d3))
 		{
 			var_292246d3 = self.var_292246d3;
 		}
-		self namespace_4c773ed3::function_afeda2bf(var_292246d3);
-		self thread namespace_4c773ed3::function_227409a5();
+		self prop_controls::function_afeda2bf(var_292246d3);
+		self thread prop_controls::function_227409a5();
 		self thread function_346bdc3b();
 	}
 	self thread attackerswaittime();
@@ -1123,9 +1123,9 @@ function handleprop()
 		assert(!isdefined(self.prop));
 	#/
 	self thread setupprop();
-	self thread namespace_4c773ed3::setupkeybindings();
+	self thread prop_controls::setupkeybindings();
 	self thread setupdamage();
-	self thread namespace_4c773ed3::propinputwatch();
+	self thread prop_controls::propinputwatch();
 	self thread propwatchdeath();
 	self thread propwatchcleanupondisconnect();
 	self thread propwatchcleanuponroundend();
@@ -1446,7 +1446,7 @@ function damagewatch(damage, attacker, direction_vec, point, meansofdeath, model
 		attacker thread damagefeedback::update();
 		if(isdefined(weapon) && weapon.rootweapon.name == "concussion_grenade" && isdefined(meansofdeath) && meansofdeath != "MOD_IMPACT")
 		{
-			namespace_4c773ed3::function_770b4cfa(attacker, undefined, meansofdeath, damage, point, weapon);
+			prop_controls::function_770b4cfa(attacker, undefined, meansofdeath, damage, point, weapon);
 		}
 	}
 	self.owner dodamage(damage, point, attacker, attacker, "none", meansofdeath, idflags, weapon);
@@ -2464,8 +2464,8 @@ function function_346bdc3b()
 	{
 		self function_543b1a75(0);
 	}
-	self thread namespace_4c773ed3::function_b6740059();
-	self thread namespace_4c773ed3::function_1abcc66();
+	self thread prop_controls::function_b6740059();
+	self thread prop_controls::function_1abcc66();
 	self.concussionimmune = 1;
 	self.healthregendisabled = 0;
 	self thread attackerregenammo();
@@ -2696,7 +2696,7 @@ function function_b00e098a(var_e47d50e6, remainingtime)
 		fadeintime = 0;
 		fadeouttime = 0;
 	}
-	self thread namespace_4c773ed3::function_7244ebc6(remainingtime, fadeintime, fadeouttime);
+	self thread prop_controls::function_7244ebc6(remainingtime, fadeintime, fadeouttime);
 	result = self function_da184fd(remainingtime);
 	self freezecontrols(0);
 	return result;
@@ -2740,7 +2740,7 @@ function function_b1b25534(var_e47d50e6, remainingtime)
 			fadeintime = 0;
 			fadeouttime = 0;
 		}
-		self thread namespace_4c773ed3::function_7244ebc6(remainingtime, fadeintime, fadeouttime);
+		self thread prop_controls::function_7244ebc6(remainingtime, fadeintime, fadeouttime);
 		result = self function_da184fd(remainingtime);
 		self freezecontrols(0);
 	}
@@ -2921,7 +2921,7 @@ function attackerinitammo()
 		self setweaponammostock(weapon, var_10f7466f);
 		if(var_10f7466f > 0)
 		{
-			self thread namespace_4c773ed3::watchspecialgrenadethrow();
+			self thread prop_controls::watchspecialgrenadethrow();
 		}
 	}
 }
@@ -3553,7 +3553,7 @@ function function_b37cf698(eattacker, einflictor, weapon, meansofdeath, damage, 
 			{
 				damageorigin = point;
 			}
-			if(self namespace_4c773ed3::function_94e1618c(damageorigin))
+			if(self prop_controls::function_94e1618c(damageorigin))
 			{
 				return;
 			}
@@ -3581,9 +3581,9 @@ function function_b37cf698(eattacker, einflictor, weapon, meansofdeath, damage, 
 				{
 					if(isdefined(self.lock) && self.lock)
 					{
-						self namespace_4c773ed3::unlockprop();
+						self prop_controls::unlockprop();
 					}
-					self namespace_4c773ed3::function_770b4cfa(einflictor, self, meansofdeath, damage, damageorigin, weapon);
+					self prop_controls::function_770b4cfa(einflictor, self, meansofdeath, damage, damageorigin, weapon);
 				}
 			}
 			break;
