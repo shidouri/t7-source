@@ -127,9 +127,9 @@ function function_4f9d8dec(str_accolade)
 */
 function function_50f58bd0(str_accolade, var_a3dc571a)
 {
-	var_83736781 = self savegame::get_player_data("accolades");
-	var_83736781[str_accolade] = var_a3dc571a;
-	self savegame::set_player_data("accolades", var_83736781);
+	accolade_array = self savegame::get_player_data("accolades");
+	accolade_array[str_accolade] = var_a3dc571a;
+	self savegame::set_player_data("accolades", accolade_array);
 }
 
 /*
