@@ -69,7 +69,7 @@ function init()
 	level.doa.var_9505395a = "zombietron_chicken_gold";
 	level.doa.var_a7cfb7eb = "zombietron_chicken_silver";
 	level.doa.var_f6e22ab8 = "zombietron_electric_ball";
-	level.doa.var_f6947407 = "zombietron_barrel";
+	level.doa.barrel_model = "zombietron_barrel";
 	level.doa.extra_life_model = "zombietron_extra_life";
 	level.doa.var_3b704a85 = "veh_t7_drone_hunter_zombietron";
 	level.doa.booster_model = "zombietron_lightning_bolt";
@@ -131,7 +131,7 @@ function init()
 	function_db1442f2(level.doa.var_8d63e734, &function_92d90e55, 0, 1, 1, 100, 5, undefined, (0, 0, 0));
 	function_db1442f2(level.doa.var_8d63e734, &function_92d90e55, 0, 1, 1, 100, 5, undefined, (0, 0, 0));
 	function_db1442f2(level.doa.turret_model, &function_92d90e55, 0, 1, 0.75, 100, 3);
-	function_db1442f2(level.doa.var_f6947407, &function_92d90e55, 0, 1, 1, 100, 7);
+	function_db1442f2(level.doa.barrel_model, &function_92d90e55, 0, 1, 1, 100, 7);
 	function_db1442f2(level.doa.var_97bbae9c, &function_92d90e55, 0, 1, 2, 100, 19, undefined, (0, 0, 0));
 	function_db1442f2(level.doa.var_f21ae3af, &function_92d90e55, 0, 3, 0.5, 100, 17);
 	function_db1442f2(level.doa.firstperson, &function_92d90e55, 0, 3, 3, 100, 35, undefined, vectorscale((0, 0, -1), 70), undefined, &function_5c21c936, &function_76a2dd5c);

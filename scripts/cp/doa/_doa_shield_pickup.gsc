@@ -102,7 +102,7 @@ function barrelupdate()
 	org setmodel("tag_origin");
 	barrel = spawn("script_model", self.origin + vectorscale((0, 1, 0), 90));
 	barrel.targetname = "barrel1";
-	barrel setmodel(level.doa.var_f6947407);
+	barrel setmodel(level.doa.barrel_model);
 	barrel setplayercollision(0);
 	barrel linkto(org, "tag_origin", vectorscale((0, 1, 0), 90));
 	trigger = spawn("trigger_radius", barrel.origin, 1, 40, 50);
@@ -114,7 +114,7 @@ function barrelupdate()
 	org.trigger1 = trigger;
 	barrel = spawn("script_model", self.origin + (vectorscale((0, -1, 0), 90)));
 	barrel.targetname = "barrel2";
-	barrel setmodel(level.doa.var_f6947407);
+	barrel setmodel(level.doa.barrel_model);
 	barrel setplayercollision(0);
 	barrel linkto(org, "tag_origin", vectorscale((0, -1, 0), 90));
 	trigger = spawn("trigger_radius", barrel.origin, 1, 40, 50);
