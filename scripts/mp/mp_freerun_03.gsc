@@ -5,11 +5,11 @@
 #using scripts\mp\mp_freerun_03_sound;
 #using scripts\shared\util_shared;
 
-#namespace namespace_95f3766e;
+#namespace mp_freerun_03;
 
 /*
 	Name: main
-	Namespace: namespace_95f3766e
+	Namespace: mp_freerun_03
 	Checksum: 0x14B6208C
 	Offset: 0x130
 	Size: 0x0
@@ -23,7 +23,7 @@ function main()
 
 /*
 	Name: precache
-	Namespace: namespace_95f3766e
+	Namespace: mp_freerun_03
 	Checksum: 0xE9C07CD6
 	Offset: 0x1A0
 	Size: 0x0
