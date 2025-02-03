@@ -31,7 +31,7 @@ function main()
 	level.add_raps_omit_locations = &add_raps_omit_locations;
 	level.add_raps_drop_locations = &add_raps_drop_locations;
 	level.remotemissile_kill_z = -800;
-	namespace_5d379c9::main();
+	mp_infection_fx::main();
 	mp_infection_sound::main();
 	load::main();
 	compass::setupminimap("compass_map_mp_infection");

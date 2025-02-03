@@ -19,7 +19,7 @@
 */
 function main()
 {
-	namespace_5d379c9::main();
+	mp_infection_fx::main();
 	namespace_83fbe97c::main();
 	load::main();
 	util::waitforclient(0);
