@@ -4795,8 +4795,8 @@ function function_f8243869()
 			guy delete();
 		}
 	}
-	var_1753830a = spawner::get_ai_group_ai("lcombat_ally_secondwave");
-	foreach(backup in var_1753830a)
+	backup_guys = spawner::get_ai_group_ai("lcombat_ally_secondwave");
+	foreach(backup in backup_guys)
 	{
 		if(isdefined(backup) || isalive(backup))
 		{
