@@ -6,11 +6,11 @@
 #using scripts\mp\mp_infection_sound;
 #using scripts\shared\util_shared;
 
-#namespace namespace_82e4b148;
+#namespace mp_infection;
 
 /*
 	Name: main
-	Namespace: namespace_82e4b148
+	Namespace: mp_infection
 	Checksum: 0x1BEE8B2B
 	Offset: 0x138
 	Size: 0x5C

@@ -7,11 +7,11 @@
 #using scripts\shared\compass;
 #using scripts\shared\util_shared;
 
-#namespace namespace_82e4b148;
+#namespace mp_infection;
 
 /*
 	Name: main
-	Namespace: namespace_82e4b148
+	Namespace: mp_infection
 	Checksum: 0xC13691C0
 	Offset: 0x220
 	Size: 0xC14
@@ -81,7 +81,7 @@ function main()
 
 /*
 	Name: precache
-	Namespace: namespace_82e4b148
+	Namespace: mp_infection
 	Checksum: 0x99EC1590
 	Offset: 0xE40
 	Size: 0x4
@@ -94,7 +94,7 @@ function precache()
 
 /*
 	Name: add_raps_omit_locations
-	Namespace: namespace_82e4b148
+	Namespace: mp_infection
 	Checksum: 0x15FE86B8
 	Offset: 0xE50
 	Size: 0x1AC
@@ -143,7 +143,7 @@ function add_raps_omit_locations(&omit_locations)
 
 /*
 	Name: add_raps_drop_locations
-	Namespace: namespace_82e4b148
+	Namespace: mp_infection
 	Checksum: 0x626FD65D
 	Offset: 0x1008
 	Size: 0xDC
