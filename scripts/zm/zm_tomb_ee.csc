@@ -303,17 +303,17 @@ function function_b628a101(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		if(!isdefined(self.var_e6c8ca8e))
+		if(!isdefined(self.beacon_portal))
 		{
-			self.var_e6c8ca8e = 1;
+			self.beacon_portal = 1;
 			self thread function_4e9276ed(localclientnum);
 			self.m_reward = util::spawn_model(localclientnum, level.w_beacon.worldmodel, (-141, 4464, -322) + (8, 35, 20), self.angles);
 			self.m_reward thread function_17bc361f(localclientnum);
 		}
 	}
-	else if(isdefined(self.var_e6c8ca8e))
+	else if(isdefined(self.beacon_portal))
 	{
-		self.var_e6c8ca8e = 0;
+		self.beacon_portal = 0;
 		self notify(#"hash_7066982d");
 		self.m_reward delete();
 	}
