@@ -356,10 +356,10 @@ function function_d6bb2a6c()
 */
 function function_2fae2796()
 {
-	var_664f35bb = struct::get_array("ee_gear_teleport_spot", "targetname");
+	a_s_spot = struct::get_array("ee_gear_teleport_spot", "targetname");
 	while(true)
 	{
-		foreach(s_spot in var_664f35bb)
+		foreach(s_spot in a_s_spot)
 		{
 			if(!positionwouldtelefrag(s_spot.origin))
 			{
