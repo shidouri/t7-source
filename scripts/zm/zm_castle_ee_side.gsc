@@ -373,7 +373,7 @@ class class_d7100ae3
 	}
 
 	/*
-		Name: function_719601e4
+		Name: activation_switch
 		Namespace: namespace_d7100ae3
 		Checksum: 0xE06F50EB
 		Offset: 0x4518
@@ -381,7 +381,7 @@ class class_d7100ae3
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_719601e4()
+	function activation_switch()
 	{
 		m_mdl_switch zm_castle_util::create_unitrigger();
 		while(true)
@@ -530,7 +530,7 @@ class class_d7100ae3
 	*/
 	function start()
 	{
-		self thread function_719601e4();
+		self thread activation_switch();
 		while(true)
 		{
 			if(m_b_active)
