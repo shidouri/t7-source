@@ -267,13 +267,13 @@ function toggle_player_anchor(b_anchor)
 				self openluimenu("AnchorDeployed");
 			}
 			self thread function_a81e2f8f();
-			self thread function_c87bc7e2();
+			self thread anchor_timeout();
 		}
 	}
 }
 
 /*
-	Name: function_c87bc7e2
+	Name: anchor_timeout
 	Namespace: blackstation_utility
 	Checksum: 0xE4AE1060
 	Offset: 0x1930
@@ -281,7 +281,7 @@ function toggle_player_anchor(b_anchor)
 	Parameters: 0
 	Flags: Linked
 */
-function function_c87bc7e2()
+function anchor_timeout()
 {
 	self endon("death");
 	self endon("anchor_away");
