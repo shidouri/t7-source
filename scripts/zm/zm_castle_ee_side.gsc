@@ -442,13 +442,13 @@ class class_d7100ae3
 			{
 				zm_castle_ee_side::function_779bfe1e();
 				var_1ed02f45 playsound("evt_clock_comp");
-				function_614407e2();
+				advance_hands();
 			}
 		}
 	}
 
 	/*
-		Name: function_614407e2
+		Name: advance_hands
 		Namespace: namespace_d7100ae3
 		Checksum: 0x3B3523D
 		Offset: 0x42D0
@@ -456,7 +456,7 @@ class class_d7100ae3
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_614407e2()
+	function advance_hands()
 	{
 		var_246b41b3++;
 		if(var_246b41b3 == 60)
@@ -535,7 +535,7 @@ class class_d7100ae3
 		{
 			if(m_b_active)
 			{
-				function_614407e2();
+				advance_hands();
 			}
 			if(!m_b_active)
 			{
