@@ -171,7 +171,7 @@ function function_ab4451a1()
 	array::thread_all(var_7be3ca60, &function_52073baf);
 	while(true)
 	{
-		level waittill(#"hash_443f3c33");
+		level waittill("bar_open");
 		var_7be3ca60 = array::randomize(var_7be3ca60);
 		foreach(mdl in var_7be3ca60)
 		{
@@ -220,7 +220,7 @@ function function_52073baf()
 		self waittill("damage", n_damage, e_attacker, $_, $_, str_damage_type);
 		if(isplayer(e_attacker))
 		{
-			level notify(#"hash_443f3c33");
+			level notify("bar_open");
 			self setcandamage(0);
 			level waittill("bar_close");
 		}
