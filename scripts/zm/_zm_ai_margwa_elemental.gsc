@@ -1430,14 +1430,14 @@ function private function_90ec324d()
 		var_68149ff9 = anglestoforward(self.angles);
 	}
 	var_1642db30 = var_68149ff9;
-	var_74475c34 = int(13.33333);
+	attack_iterations = int(13.33333);
 	position = self.origin;
 	var_898f5d33 = spawn("script_model", position);
 	var_898f5d33 setmodel("tag_origin");
 	level thread function_396590c8(position, 48);
 	torpedo_yaw_per_interval = 13.5;
 	torpedo_max_yaw_cos = cos(torpedo_yaw_per_interval);
-	for(i = 0; i <= var_74475c34; i++)
+	for(i = 0; i <= attack_iterations; i++)
 	{
 		self function_68ff73f4();
 		position = position + vectorscale((0, 0, 1), 32);
