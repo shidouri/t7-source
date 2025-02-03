@@ -126,51 +126,51 @@ function spawn_coop_player_replacement(skipto, var_de2f1b3 = 1)
 	flag::wait_till("all_players_spawned");
 	primary_weapon = getweapon("ar_standard_hero");
 	var_5178c24b = getdvarint("scene_debug_player", 0);
-	if(!isdefined(level.var_681ad194))
+	if(!isdefined(level.alpha_squad))
 	{
-		level.var_681ad194 = [];
+		level.alpha_squad = [];
 	}
 	if(var_de2f1b3)
 	{
-		if(level.players.size <= 3 && !isdefined(level.var_681ad194[1]) && var_5178c24b != 2)
+		if(level.players.size <= 3 && !isdefined(level.alpha_squad[1]) && var_5178c24b != 2)
 		{
-			level.var_681ad194[1] = util::get_hero("ally_03");
+			level.alpha_squad[1] = util::get_hero("ally_03");
 			s_struct = struct::get(skipto + "_ally_03", "targetname");
-			level.var_681ad194[1] forceteleport(s_struct.origin, s_struct.angles);
-			level.var_681ad194[1] ai::gun_switchto(primary_weapon, "right");
-			level.var_681ad194[1].n_ally = 3;
+			level.alpha_squad[1] forceteleport(s_struct.origin, s_struct.angles);
+			level.alpha_squad[1] ai::gun_switchto(primary_weapon, "right");
+			level.alpha_squad[1].n_ally = 3;
 		}
-		if(level.players.size <= 2 && !isdefined(level.var_681ad194[2]) && var_5178c24b != 3)
+		if(level.players.size <= 2 && !isdefined(level.alpha_squad[2]) && var_5178c24b != 3)
 		{
-			level.var_681ad194[2] = util::get_hero("ally_02");
+			level.alpha_squad[2] = util::get_hero("ally_02");
 			s_struct = struct::get(skipto + "_ally_02", "targetname");
-			level.var_681ad194[2] forceteleport(s_struct.origin, s_struct.angles);
-			level.var_681ad194[2] ai::gun_switchto(primary_weapon, "right");
-			level.var_681ad194[2].n_ally = 2;
+			level.alpha_squad[2] forceteleport(s_struct.origin, s_struct.angles);
+			level.alpha_squad[2] ai::gun_switchto(primary_weapon, "right");
+			level.alpha_squad[2].n_ally = 2;
 		}
-		if(level.players.size == 1 && !isdefined(level.var_681ad194[3]) && var_5178c24b != 4)
+		if(level.players.size == 1 && !isdefined(level.alpha_squad[3]) && var_5178c24b != 4)
 		{
-			level.var_681ad194[3] = util::get_hero("ally_01");
+			level.alpha_squad[3] = util::get_hero("ally_01");
 			s_struct = struct::get(skipto + "_ally_01", "targetname");
-			level.var_681ad194[3] forceteleport(s_struct.origin, s_struct.angles);
-			level.var_681ad194[3] ai::gun_switchto(primary_weapon, "right");
-			level.var_681ad194[3].n_ally = 1;
+			level.alpha_squad[3] forceteleport(s_struct.origin, s_struct.angles);
+			level.alpha_squad[3] ai::gun_switchto(primary_weapon, "right");
+			level.alpha_squad[3].n_ally = 1;
 		}
 	}
-	if(level.players.size >= 2 && isdefined(level.var_681ad194[3]))
+	if(level.players.size >= 2 && isdefined(level.alpha_squad[3]))
 	{
-		level.var_681ad194[3] delete();
-		level.var_681ad194[3] = undefined;
+		level.alpha_squad[3] delete();
+		level.alpha_squad[3] = undefined;
 	}
-	if(level.players.size >= 3 && isdefined(level.var_681ad194[2]))
+	if(level.players.size >= 3 && isdefined(level.alpha_squad[2]))
 	{
-		level.var_681ad194[2] delete();
-		level.var_681ad194[2] = undefined;
+		level.alpha_squad[2] delete();
+		level.alpha_squad[2] = undefined;
 	}
-	if(level.players.size >= 4 && isdefined(level.var_681ad194[1]))
+	if(level.players.size >= 4 && isdefined(level.alpha_squad[1]))
 	{
-		level.var_681ad194[1] delete();
-		level.var_681ad194[1] = undefined;
+		level.alpha_squad[1] delete();
+		level.alpha_squad[1] = undefined;
 	}
 }
 
@@ -265,18 +265,18 @@ function ai_idle_then_alert(str_wait_till, var_4afdd260)
 */
 function get_ai_allies()
 {
-	if(!isdefined(level.var_681ad194))
+	if(!isdefined(level.alpha_squad))
 	{
 		return [];
 	}
 	for(i = 1; i < 4; i++)
 	{
-		if(!isdefined(level.var_681ad194[i]) || !isalive(level.var_681ad194[i]))
+		if(!isdefined(level.alpha_squad[i]) || !isalive(level.alpha_squad[i]))
 		{
-			level.var_681ad194[i] = undefined;
+			level.alpha_squad[i] = undefined;
 		}
 	}
-	return arraycopy(level.var_681ad194);
+	return arraycopy(level.alpha_squad);
 }
 
 /*
@@ -290,7 +290,7 @@ function get_ai_allies()
 */
 function get_ai_allies_and_players()
 {
-	a_team = arraycombine(getplayers(), level.var_681ad194, 0, 0);
+	a_team = arraycombine(getplayers(), level.alpha_squad, 0, 0);
 	return a_team;
 }
 
@@ -684,17 +684,17 @@ function wait_for_all_players_to_pass_struct(str_struct, var_e209da48)
 function function_12ce22ee()
 {
 	level.a_ai_allies = [];
-	if(isdefined(level.var_681ad194[1]))
+	if(isdefined(level.alpha_squad[1]))
 	{
-		arrayinsert(level.a_ai_allies, level.var_681ad194[1], 0);
+		arrayinsert(level.a_ai_allies, level.alpha_squad[1], 0);
 	}
-	if(isdefined(level.var_681ad194[2]))
+	if(isdefined(level.alpha_squad[2]))
 	{
-		arrayinsert(level.a_ai_allies, level.var_681ad194[2], 0);
+		arrayinsert(level.a_ai_allies, level.alpha_squad[2], 0);
 	}
-	if(isdefined(level.var_681ad194[3]))
+	if(isdefined(level.alpha_squad[3]))
 	{
-		arrayinsert(level.a_ai_allies, level.var_681ad194[3], 0);
+		arrayinsert(level.a_ai_allies, level.alpha_squad[3], 0);
 	}
 }
 

@@ -774,9 +774,9 @@ function function_38c8ec92()
 */
 function function_e3231637(var_8a4b0c9)
 {
-	if(isdefined(level.var_681ad194))
+	if(isdefined(level.alpha_squad))
 	{
-		foreach(e_soldier in level.var_681ad194)
+		foreach(e_soldier in level.alpha_squad)
 		{
 			e_soldier ai::set_pacifist(var_8a4b0c9);
 			if(var_8a4b0c9)

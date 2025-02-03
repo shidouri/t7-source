@@ -1107,14 +1107,14 @@ function vtol_tackle_main(b_starting)
 	level thread vtol_tackle_enemies();
 	level waittill(#"hash_147f8c7");
 	level cp_prologue_util::spawn_coop_player_replacement("skipto_vtol_tackle_ai");
-	foreach(ai_ally in level.var_681ad194)
+	foreach(ai_ally in level.alpha_squad)
 	{
 		ai_ally thread hangar::ai_teleport(("ally_0" + ai_ally.n_ally) + "_vtol_tackle_node");
 		ai_ally function_b243f34();
 	}
 	level thread objectives::breadcrumb("dark_battle_breadcrumb_5");
 	array::thread_all(var_6cf84815, &function_b243f34, 0);
-	array::thread_all(level.var_681ad194, &function_b243f34, 0);
+	array::thread_all(level.alpha_squad, &function_b243f34, 0);
 	if(isdefined(level.ai_pallas))
 	{
 		level.ai_pallas colors::disable();

@@ -81,7 +81,7 @@ function nrc_knocking_main()
 	{
 		level thread [[level.bzmloadoutchangecallback]]();
 	}
-	foreach(ai_ally in level.var_681ad194)
+	foreach(ai_ally in level.alpha_squad)
 	{
 		ai_ally.goalradius = 16;
 		ai_ally setgoal(getnode(("ally0" + ai_ally.n_ally) + "_start_node", "targetname"));
@@ -239,7 +239,7 @@ function blend_in_precache()
 function blend_in_main()
 {
 	level cp_prologue_util::spawn_coop_player_replacement("skipto_blend_in");
-	foreach(ai_ally in level.var_681ad194)
+	foreach(ai_ally in level.alpha_squad)
 	{
 		ai_ally ai::set_ignoreme(1);
 		ai_ally ai::set_pacifist(1);
@@ -653,7 +653,7 @@ function function_a7dec0e7()
 	level thread function_a87bddf2();
 	level.ai_hendricks.pacifist = 1;
 	level.ai_hendricks.ignoreme = 1;
-	foreach(ai_ally in level.var_681ad194)
+	foreach(ai_ally in level.alpha_squad)
 	{
 		ai_ally ai::set_ignoreme(1);
 		ai_ally ai::set_pacifist(1);
@@ -697,7 +697,7 @@ function function_a87bddf2()
 function function_be42a33f()
 {
 	trigger::wait_till("tarmac_move_friendies");
-	foreach(ai_ally in level.var_681ad194)
+	foreach(ai_ally in level.alpha_squad)
 	{
 		ai_ally thread setgoal_then_delete(("ally0" + ai_ally.n_ally) + "_tunnel_goal", "security_cam_active");
 	}
