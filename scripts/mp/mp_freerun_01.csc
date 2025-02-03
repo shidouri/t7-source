@@ -20,7 +20,7 @@
 function main()
 {
 	mp_freerun_01_fx::main();
-	namespace_db5bc658::main();
+	mp_freerun_01_sound::main();
 	setdvar("phys_buoyancy", 1);
 	setdvar("phys_ragdoll_buoyancy", 1);
 	load::main();
