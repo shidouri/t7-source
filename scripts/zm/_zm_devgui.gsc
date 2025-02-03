@@ -4045,10 +4045,10 @@ function zombie_devgui_dump_zombie_vars()
 		{
 			return;
 		}
-		var_66026a81 = getarraykeys(level.zombie_vars);
+		var_names = getarraykeys(level.zombie_vars);
 		for(i = 0; i < level.zombie_vars.size; i++)
 		{
-			key = var_66026a81[i];
+			key = var_names[i];
 			println((key + "") + level.zombie_vars[key]);
 		}
 		println("");
