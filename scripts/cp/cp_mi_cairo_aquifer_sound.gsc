@@ -20,7 +20,7 @@ function main()
 {
 	voice_aquifer::init_voice();
 	thread function_609d3ec();
-	thread function_cd85d22a();
+	thread ambiance_novice();
 	thread function_4fb4bdc3();
 }
 
@@ -598,7 +598,7 @@ function function_fbfb4dae()
 }
 
 /*
-	Name: function_cd85d22a
+	Name: ambiance_novice
 	Namespace: cp_mi_cairo_aquifer_sound
 	Checksum: 0x9380F2BF
 	Offset: 0x2400
@@ -606,7 +606,7 @@ function function_fbfb4dae()
 	Parameters: 0
 	Flags: Linked
 */
-function function_cd85d22a()
+function ambiance_novice()
 {
 	wait(5);
 	if(isdefined(level.var_cca43db2))
