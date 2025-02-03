@@ -183,10 +183,10 @@ function function_7ad8eb52(name)
 	Parameters: 3
 	Flags: Linked
 */
-function function_9ab759da(&queue, flag, var_a6cc22d4 = 0)
+function function_9ab759da(&queue, flag, recursed = 0)
 {
 	self endon("death");
-	if(!var_a6cc22d4)
+	if(!recursed)
 	{
 		self notify("sfxProcessQueue_" + flag);
 		self endon("sfxProcessQueue_" + flag);
