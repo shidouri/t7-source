@@ -2096,15 +2096,15 @@ class czmtrain
 			{
 				forward = -1 * forward;
 			}
-			var_bba032ca = origin + (var_6ffe9d93 * forward);
+			arrow_end = origin + (var_6ffe9d93 * forward);
 			/#
-				line(origin, var_bba032ca, (1, 0, 0), 1, 1, duration);
+				line(origin, arrow_end, (1, 0, 0), 1, 1, duration);
 			#/
 			/#
-				line(var_bba032ca, (var_bba032ca - (var_4dc5a359 * forward)) - (var_4dc5a359 * right), (1, 0, 0), 1, 1, duration);
+				line(arrow_end, (arrow_end - (var_4dc5a359 * forward)) - (var_4dc5a359 * right), (1, 0, 0), 1, 1, duration);
 			#/
 			/#
-				line(var_bba032ca, (var_bba032ca - (var_4dc5a359 * forward)) + (var_4dc5a359 * right), (1, 0, 0), 1, 1, duration);
+				line(arrow_end, (arrow_end - (var_4dc5a359 * forward)) + (var_4dc5a359 * right), (1, 0, 0), 1, 1, duration);
 			#/
 			foreach(e_door in m_a_mdl_doors)
 			{
