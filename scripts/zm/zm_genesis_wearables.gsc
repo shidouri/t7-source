@@ -189,12 +189,12 @@ function function_7f0ec71c()
 		e_player function_e5974b49();
 		str_tag = self.stub.str_tag;
 		var_475b0a4e = self.stub.var_475b0a4e;
-		e_player function_a16ce474(self.stub.var_f4b4f2f2, var_475b0a4e, str_tag);
+		e_player give_wearable(self.stub.var_f4b4f2f2, var_475b0a4e, str_tag);
 	}
 }
 
 /*
-	Name: function_a16ce474
+	Name: give_wearable
 	Namespace: wearables
 	Checksum: 0x4B93DF8C
 	Offset: 0x1340
@@ -202,7 +202,7 @@ function function_7f0ec71c()
 	Parameters: 3
 	Flags: Linked
 */
-function function_a16ce474(str_model, var_475b0a4e, str_tag)
+function give_wearable(str_model, var_475b0a4e, str_tag)
 {
 	self function_e5515520();
 	self.var_bc5f242a.str_model = str_model;
