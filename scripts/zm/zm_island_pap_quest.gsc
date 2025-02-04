@@ -548,7 +548,7 @@ function cocoon_select()
 		}
 	}
 	var_696dc555 = array::random(var_d43245b8);
-	var_696dc555.var_166a0518 = 1;
+	var_696dc555.has_piece = 1;
 }
 
 /*
@@ -565,7 +565,7 @@ function cocoon_effects()
 	self playloopsound("zmb_cocoon_lp", 1);
 	playsoundatposition("evt_cocoon_explode", self.origin + (vectorscale((0, 0, -1), 100)));
 	self stoploopsound();
-	if(isdefined(self.var_166a0518))
+	if(isdefined(self.has_piece))
 	{
 		self function_14c57bc9();
 	}
