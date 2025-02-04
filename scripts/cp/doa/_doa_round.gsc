@@ -376,7 +376,7 @@ function function_40bfe842(entnum = 0)
 	}
 	if(level.doa.arena_round_number != 0)
 	{
-		points = level.doa.arenas[level.doa.current_arena].var_f616a3b7[var_3c70b682];
+		points = level.doa.arenas[level.doa.current_arena].exit_starts[var_3c70b682];
 		if(isdefined(points) && points.size)
 		{
 			if(!isdefined(points[entnum]))

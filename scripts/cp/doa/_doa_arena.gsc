@@ -762,57 +762,57 @@ function private function_b7dafa0c(name, center, valid)
 	struct.entity = self;
 	struct.var_fe390b01 = struct::get_array(name + "_flyer_spawn_loc", "targetname");
 	struct.var_1d2ed40 = struct::get_array(name + "_safe_spot", "targetname");
-	struct.var_f616a3b7 = [];
-	struct.var_f616a3b7["top"] = [];
-	struct.var_f616a3b7["bottom"] = [];
-	struct.var_f616a3b7["left"] = [];
-	struct.var_f616a3b7["right"] = [];
+	struct.exit_starts = [];
+	struct.exit_starts["top"] = [];
+	struct.exit_starts["bottom"] = [];
+	struct.exit_starts["left"] = [];
+	struct.exit_starts["right"] = [];
 	struct.player_spawn_points = struct::get_array(name + "_player_spawnpoint");
-	struct.var_f616a3b7["top"] = struct::get_array(name + "_exit_start_top");
-	struct.var_f616a3b7["bottom"] = struct::get_array(name + "_exit_start_bottom");
-	struct.var_f616a3b7["left"] = struct::get_array(name + "_exit_start_left");
-	struct.var_f616a3b7["right"] = struct::get_array(name + "_exit_start_right");
+	struct.exit_starts["top"] = struct::get_array(name + "_exit_start_top");
+	struct.exit_starts["bottom"] = struct::get_array(name + "_exit_start_bottom");
+	struct.exit_starts["left"] = struct::get_array(name + "_exit_start_left");
+	struct.exit_starts["right"] = struct::get_array(name + "_exit_start_right");
 	/#
 		if(isdefined(struct.var_160ae6c6))
 		{
-			if(!struct.var_f616a3b7[""].size && getdvarint("", 0))
+			if(!struct.exit_starts[""].size && getdvarint("", 0))
 			{
 				doa_utility::debugmsg("" + name);
 			}
 			else
 			{
 				/#
-					assert(struct.var_f616a3b7[""].size);
+					assert(struct.exit_starts[""].size);
 				#/
 			}
-			if(!struct.var_f616a3b7[""].size && getdvarint("", 0))
+			if(!struct.exit_starts[""].size && getdvarint("", 0))
 			{
 				doa_utility::debugmsg("" + name);
 			}
 			else
 			{
 				/#
-					assert(struct.var_f616a3b7[""].size);
+					assert(struct.exit_starts[""].size);
 				#/
 			}
-			if(!struct.var_f616a3b7[""].size && getdvarint("", 0))
+			if(!struct.exit_starts[""].size && getdvarint("", 0))
 			{
 				doa_utility::debugmsg("" + name);
 			}
 			else
 			{
 				/#
-					assert(struct.var_f616a3b7[""].size);
+					assert(struct.exit_starts[""].size);
 				#/
 			}
-			if(!struct.var_f616a3b7[""].size && getdvarint("", 0))
+			if(!struct.exit_starts[""].size && getdvarint("", 0))
 			{
 				doa_utility::debugmsg("" + name);
 			}
 			else
 			{
 				/#
-					assert(struct.var_f616a3b7[""].size);
+					assert(struct.exit_starts[""].size);
 				#/
 			}
 			if(!struct.player_spawn_points.size && getdvarint("", 0))
