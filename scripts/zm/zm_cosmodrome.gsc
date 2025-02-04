@@ -1845,7 +1845,7 @@ function function_9a889da5(str_msg, str_ender)
 }
 
 /*
-	Name: function_bb831d
+	Name: debug_remove
 	Namespace: zm_cosmodrome
 	Checksum: 0x2986CF87
 	Offset: 0x65A8
@@ -1853,7 +1853,7 @@ function function_9a889da5(str_msg, str_ender)
 	Parameters: 1
 	Flags: Linked
 */
-function function_bb831d(str_ender)
+function debug_remove(str_ender)
 {
 	/#
 		self notify(str_ender);
