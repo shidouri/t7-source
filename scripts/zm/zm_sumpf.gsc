@@ -496,7 +496,7 @@ function init_sounds()
 		iprintlnbold("");
 	#/
 	level thread function_c06f4240();
-	level thread function_5a36831b();
+	level thread hut_radios();
 	level thread function_34a348fc();
 	level thread function_8aa785e();
 	level thread radio_eggs();
@@ -905,7 +905,7 @@ function function_4deca569()
 }
 
 /*
-	Name: function_5a36831b
+	Name: hut_radios
 	Namespace: zm_sumpf
 	Checksum: 0x5747F54E
 	Offset: 0x3178
@@ -913,7 +913,7 @@ function function_4deca569()
 	Parameters: 0
 	Flags: Linked
 */
-function function_5a36831b()
+function hut_radios()
 {
 	level.var_5a36831b = getentarray("radio_hut", "targetname");
 	if(isdefined(level.var_5a36831b))
