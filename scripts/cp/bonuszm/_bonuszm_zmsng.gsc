@@ -64,11 +64,11 @@ function __main__()
 	{
 		return;
 	}
-	thread function_ab60ef67();
+	thread delayed_main();
 }
 
 /*
-	Name: function_ab60ef67
+	Name: delayed_main
 	Namespace: collectibles
 	Checksum: 0xAD974EDE
 	Offset: 0x720
@@ -76,7 +76,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ab60ef67()
+function delayed_main()
 {
 	wait(2);
 	level.var_8a9d11b = 0;
