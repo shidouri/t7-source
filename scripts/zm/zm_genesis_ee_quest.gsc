@@ -409,7 +409,7 @@ function function_ccdb680e(var_be748f8, b_on)
 			e_reel.var_a02b0d5a = b_on;
 			if(!b_on)
 			{
-				e_reel notify(#"hash_7aff9921");
+				e_reel notify(#"end_rotation");
 			}
 		}
 	}
@@ -426,7 +426,7 @@ function function_ccdb680e(var_be748f8, b_on)
 */
 function function_e464aa51()
 {
-	self endon(#"hash_7aff9921");
+	self endon(#"end_rotation");
 	while(true)
 	{
 		if(isdefined(self.var_a02b0d5a) && self.var_a02b0d5a)

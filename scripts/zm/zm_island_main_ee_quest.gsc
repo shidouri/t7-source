@@ -1334,7 +1334,7 @@ function function_8f599d4f()
 		{
 			continue;
 		}
-		level thread function_46201613(self, player);
+		level thread elevator_use(self, player);
 	}
 }
 
@@ -1400,13 +1400,13 @@ function function_66070c12()
 		}
 		if(self.stub.var_db67c127 != level flag::get("elevator_at_bottom"))
 		{
-			level thread function_46201613(self, player);
+			level thread elevator_use(self, player);
 		}
 	}
 }
 
 /*
-	Name: function_46201613
+	Name: elevator_use
 	Namespace: main_quest
 	Checksum: 0xC49275FA
 	Offset: 0x5918
@@ -1414,7 +1414,7 @@ function function_66070c12()
 	Parameters: 2
 	Flags: Linked
 */
-function function_46201613(trig_stub, player)
+function elevator_use(trig_stub, player)
 {
 	level flag::set("elevator_in_use");
 	exploder::exploder_stop("ex_elevator_panel_green");
