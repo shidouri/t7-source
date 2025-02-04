@@ -475,7 +475,7 @@ function private function_1c54aa82(room)
 		{
 			flag::set("doa_bonusroom_active");
 			level thread doa_pickups::spawnmoneyglob(0, 2, randomfloatrange(2, 4));
-			level thread doa_pickups::function_3238133b(level.doa.var_8d63e734, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.chicken_model, undefined, 1);
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
 			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
 			spot = doa_pickups::function_ac410a13();

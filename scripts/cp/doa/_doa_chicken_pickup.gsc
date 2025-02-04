@@ -702,7 +702,7 @@ function function_d35a405a(model, fated = 0, var_c29d1327 = 1)
 	def = doa_pickups::function_bac08508(5);
 	if(!isdefined(model))
 	{
-		model = level.doa.var_8d63e734;
+		model = level.doa.chicken_model;
 	}
 	self add_a_chicken(model, def.scale * var_c29d1327, fated != 0, fated == 2);
 }
@@ -1026,7 +1026,7 @@ function private function_e4f21fa9()
 			{
 				if(roll <= 40)
 				{
-					prize = level.doa.var_8d63e734;
+					prize = level.doa.chicken_model;
 				}
 				else
 				{
