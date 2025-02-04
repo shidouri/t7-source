@@ -1161,7 +1161,7 @@ function function_d3a80896(file, var_dc7b1be6)
 		var_7b625b5a = var_dc7b1be6 + "";
 		var_74036302 = var_dc7b1be6 + "";
 		var_11e4d40d = var_dc7b1be6 + "";
-		var_9f31b917 = level.script + "";
+		filename_zone = level.script + "";
 		var_a0b36f12 = level.script + "";
 		var_43a6e14b = "";
 		var_6da36d3e = "";
@@ -1175,7 +1175,7 @@ function function_d3a80896(file, var_dc7b1be6)
 		fprintln(file, (("" + var_7b625b5a) + "") + var_586b7057);
 		fprintln(file, (("" + var_74036302) + "") + var_6da36d3e);
 		fprintln(file, "");
-		fprintln(file, (("" + var_9f31b917) + "") + var_dc7b1be6);
+		fprintln(file, (("" + filename_zone) + "") + var_dc7b1be6);
 		fprintln(file, ((("" + var_a0b36f12) + "") + var_74036302) + "");
 		fprintln(file, "");
 		fprintln(file, "");
@@ -1313,7 +1313,7 @@ function function_1a022b4b()
 		var_7b625b5a = var_dc7b1be6 + "";
 		var_74036302 = var_dc7b1be6 + "";
 		var_11e4d40d = var_dc7b1be6 + "";
-		var_9f31b917 = level.script + "";
+		filename_zone = level.script + "";
 		var_a0b36f12 = level.script + "";
 		var_36b45864 = ("" + platform) + "";
 		var_43a6e14b = "";
