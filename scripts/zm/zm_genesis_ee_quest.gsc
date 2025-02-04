@@ -457,14 +457,14 @@ function function_be26578d(n_reel)
 	var_b44af04e waittill("movedone");
 	while(true)
 	{
-		if(isdefined(level.ai_companion) && isalive(level.var_bfd9ed83))
+		if(isdefined(level.ai_companion) && isalive(level.companion_leader))
 		{
 			if(level.ai_companion.reviving_a_player === 1 || level.ai_companion.b_teleporting === 1 || isdefined(level.ai_companion.traversestartnode))
 			{
 				wait(0.1);
 				continue;
 			}
-			if(distancesquared(level.var_bfd9ed83.origin, var_b44af04e.origin) < 2500 && distancesquared(level.ai_companion.origin, var_b44af04e.origin) < 40000)
+			if(distancesquared(level.companion_leader.origin, var_b44af04e.origin) < 2500 && distancesquared(level.ai_companion.origin, var_b44af04e.origin) < 40000)
 			{
 				b_success = level.ai_companion function_3877f225(var_b44af04e);
 				if(b_success)

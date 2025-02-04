@@ -720,7 +720,7 @@ function function_ff7f239d(e_player, s_stub, s_start_pos)
 	level.ai_companion.can_gib_zombies = 1;
 	level.ai_companion setcandamage(0);
 	level.ai_companion.time_expired = 0;
-	level.var_bfd9ed83 = e_player;
+	level.companion_leader = e_player;
 	level.var_eb326880 = s_stub.str_areaname;
 	level.ai_companion.var_5a513941 = 1;
 	level.ai_companion.is_zombie = 1;

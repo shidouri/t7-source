@@ -593,9 +593,9 @@ function private zodcompaniontryreacquireservice(entity)
 function private manage_companion_movement(entity)
 {
 	self endon("death");
-	if(isdefined(level.var_bfd9ed83) && level.var_bfd9ed83.eligible_leader)
+	if(isdefined(level.companion_leader) && level.companion_leader.eligible_leader)
 	{
-		self.leader = level.var_bfd9ed83;
+		self.leader = level.companion_leader;
 	}
 	if(!isdefined(entity.var_57e708f6))
 	{
@@ -1423,9 +1423,9 @@ function function_cbe73e3d()
 */
 function define_new_leader()
 {
-	if(isdefined(level.var_bfd9ed83) && level.var_bfd9ed83.eligible_leader)
+	if(isdefined(level.companion_leader) && level.companion_leader.eligible_leader)
 	{
-		self.leader = level.var_bfd9ed83;
+		self.leader = level.companion_leader;
 	}
 	else
 	{
