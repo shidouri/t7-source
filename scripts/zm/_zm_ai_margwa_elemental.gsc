@@ -134,7 +134,7 @@ function private function_afef488b()
 	Parameters: 4
 	Flags: Linked
 */
-function function_eb5051f4(spawner, targetname, var_f9ebd43e, s_location)
+function function_eb5051f4(spawner, targetname, element_type, s_location)
 {
 	if(isdefined(spawner))
 	{
@@ -144,7 +144,7 @@ function function_eb5051f4(spawner, targetname, var_f9ebd43e, s_location)
 		level.margwa_gore_left_model_override = undefined;
 		level.margwa_gore_mid_model_override = undefined;
 		level.margwa_gore_right_model_override = undefined;
-		switch(var_f9ebd43e)
+		switch(element_type)
 		{
 			case "fire":
 			{
@@ -189,8 +189,8 @@ function function_eb5051f4(spawner, targetname, var_f9ebd43e, s_location)
 		ai.candamage = 0;
 		ai.targetname = targetname;
 		ai.holdfire = 1;
-		ai function_c0ff1e9(var_f9ebd43e);
-		switch(var_f9ebd43e)
+		ai function_c0ff1e9(element_type);
+		switch(element_type)
 		{
 			case "fire":
 			{
@@ -263,8 +263,8 @@ function function_75b161ab(spawner, s_location)
 		spawner = var_fda751f9[0];
 	}
 	spawner_targetname = "margwa_fire";
-	var_f9ebd43e = "fire";
-	ai = function_eb5051f4(spawner, spawner_targetname, var_f9ebd43e, s_location);
+	element_type = "fire";
+	ai = function_eb5051f4(spawner, spawner_targetname, element_type, s_location);
 	return ai;
 }
 
@@ -292,8 +292,8 @@ function function_26efbc37(spawner, s_location)
 		spawner = var_5e8312fd[0];
 	}
 	spawner_targetname = "margwa_shadow";
-	var_f9ebd43e = "shadow";
-	ai = function_eb5051f4(spawner, spawner_targetname, var_f9ebd43e, s_location);
+	element_type = "shadow";
+	ai = function_eb5051f4(spawner, spawner_targetname, element_type, s_location);
 	return ai;
 }
 
@@ -321,8 +321,8 @@ function function_12301fd1(spawner, s_location)
 		spawner = var_1977e3bb[0];
 	}
 	spawner_targetname = "margwa_light";
-	var_f9ebd43e = "light";
-	ai = function_eb5051f4(spawner, spawner_targetname, var_f9ebd43e, s_location);
+	element_type = "light";
+	ai = function_eb5051f4(spawner, spawner_targetname, element_type, s_location);
 	return ai;
 }
 
@@ -350,8 +350,8 @@ function function_5b1c9e5c(spawner, s_location)
 		spawner = var_9ceb03c8[0];
 	}
 	spawner_targetname = "margwa_electric";
-	var_f9ebd43e = "electric";
-	ai = function_eb5051f4(spawner, spawner_targetname, var_f9ebd43e, s_location);
+	element_type = "electric";
+	ai = function_eb5051f4(spawner, spawner_targetname, element_type, s_location);
 	return ai;
 }
 
@@ -505,9 +505,9 @@ function function_181f65f7(pos, range)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_c0ff1e9(var_f9ebd43e)
+function private function_c0ff1e9(element_type)
 {
-	self.var_f9ebd43e = var_f9ebd43e;
+	self.element_type = element_type;
 }
 
 /*
@@ -521,7 +521,7 @@ function private function_c0ff1e9(var_f9ebd43e)
 */
 function function_6bbd2a18(entity)
 {
-	if(isdefined(entity) && isdefined(entity.var_f9ebd43e) && entity.var_f9ebd43e == "fire")
+	if(isdefined(entity) && isdefined(entity.element_type) && entity.element_type == "fire")
 	{
 		return true;
 	}
@@ -539,7 +539,7 @@ function function_6bbd2a18(entity)
 */
 function function_3cfb8731(entity)
 {
-	if(isdefined(entity) && isdefined(entity.var_f9ebd43e) && entity.var_f9ebd43e == "electric")
+	if(isdefined(entity) && isdefined(entity.element_type) && entity.element_type == "electric")
 	{
 		return true;
 	}
@@ -557,7 +557,7 @@ function function_3cfb8731(entity)
 */
 function function_7db0458(entity)
 {
-	if(isdefined(entity) && isdefined(entity.var_f9ebd43e) && entity.var_f9ebd43e == "light")
+	if(isdefined(entity) && isdefined(entity.element_type) && entity.element_type == "light")
 	{
 		return true;
 	}
@@ -575,7 +575,7 @@ function function_7db0458(entity)
 */
 function function_b9fad980(entity)
 {
-	if(isdefined(entity) && isdefined(entity.var_f9ebd43e) && entity.var_f9ebd43e == "shadow")
+	if(isdefined(entity) && isdefined(entity.element_type) && entity.element_type == "shadow")
 	{
 		return true;
 	}
@@ -2372,11 +2372,11 @@ function function_2ab5f647(e_player, v_attack_source, n_push_away, n_lift_height
 		self dodamage(10, self.origin);
 		self.var_3abf1eec = self.origin;
 		scene = "cin_zm_dlc4_margwa_dth_deathray_01";
-		if(self.var_f9ebd43e === "fire")
+		if(self.element_type === "fire")
 		{
 			scene = "cin_zm_dlc4_margwa_fire_dth_deathray_01";
 		}
-		if(self.var_f9ebd43e === "shadow")
+		if(self.element_type === "shadow")
 		{
 			scene = "cin_zm_dlc4_margwa_shadow_dth_deathray_01";
 		}
@@ -2429,11 +2429,11 @@ function function_3f3b0b14(margwa)
 	{
 		self.var_3abf1eec = self.origin;
 		scene = "cin_zm_dlc4_margwa_dth_deathray_02";
-		if(self.var_f9ebd43e === "fire")
+		if(self.element_type === "fire")
 		{
 			scene = "cin_zm_dlc4_margwa_fire_dth_deathray_02";
 		}
-		if(self.var_f9ebd43e === "shadow")
+		if(self.element_type === "shadow")
 		{
 			scene = "cin_zm_dlc4_margwa_shadow_dth_deathray_02";
 		}

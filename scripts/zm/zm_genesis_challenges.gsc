@@ -1895,11 +1895,11 @@ function function_905d9544(e_attacker)
 			{
 				e_attacker notify(#"hash_bf458b1e");
 			}
-			if(self.var_f9ebd43e === "fire")
+			if(self.element_type === "fire")
 			{
 				e_attacker notify("fire_margwa_death");
 			}
-			else if(self.var_f9ebd43e === "shadow")
+			else if(self.element_type === "shadow")
 			{
 				e_attacker notify("shadow_margwa_death");
 			}
