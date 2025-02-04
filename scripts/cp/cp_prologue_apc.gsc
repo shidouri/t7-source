@@ -1046,7 +1046,7 @@ function function_6cb71a05()
 }
 
 /*
-	Name: function_fbbf6635
+	Name: divert_truck
 	Namespace: apc
 	Checksum: 0x4CA1B025
 	Offset: 0x6E30
@@ -1054,7 +1054,7 @@ function function_6cb71a05()
 	Parameters: 0
 	Flags: None
 */
-function function_fbbf6635()
+function divert_truck()
 {
 	// Unsupported VM revision (1B).
 }
