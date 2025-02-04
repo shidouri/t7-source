@@ -148,13 +148,13 @@ function function_d3ef9004(var_b41337db)
 	Parameters: 2
 	Flags: Linked
 */
-function function_850a0f8d(var_80c5df, start_index)
+function function_850a0f8d(current_type, start_index)
 {
 	for(index = 1; index < 6; index++)
 	{
 		var_93a57fde = (start_index + index) % 6;
 		abilityindex = function_d3ef9004(var_93a57fde);
-		if(self iscybercomindexenabled(var_80c5df, abilityindex))
+		if(self iscybercomindexenabled(current_type, abilityindex))
 		{
 			return var_93a57fde;
 		}
