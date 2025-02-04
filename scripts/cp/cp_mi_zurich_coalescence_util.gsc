@@ -2494,9 +2494,9 @@ function function_d0103e8d(var_95fca89b = 395, var_62320a5b = 0.7)
 				var_10b4a7a6 = a_enemies[i] geteye();
 				var_b8f6e26f = player util::is_player_looking_at(var_10b4a7a6, var_62320a5b, 1, player);
 				in_range = distancesquared(self.origin, a_enemies[i].origin) >= (var_95fca89b * var_95fca89b);
-				var_7792c65f = sighttracepassed(self geteye(), var_10b4a7a6, 0, a_enemies[i]);
+				can_trace = sighttracepassed(self geteye(), var_10b4a7a6, 0, a_enemies[i]);
 				var_39e0fee4 = isalive(a_enemies[i]) && a_enemies[i].allowdeath !== 0 && a_enemies[i].magic_bullet_shield !== 1 && a_enemies[i].ignoreme == 0;
-				if(var_b8f6e26f && var_7792c65f && var_39e0fee4 && in_range && a_enemies[i] function_50c2e8b0())
+				if(var_b8f6e26f && can_trace && var_39e0fee4 && in_range && a_enemies[i] function_50c2e8b0())
 				{
 					self thread function_fc91db35(a_enemies[i]);
 					break;
