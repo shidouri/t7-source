@@ -468,9 +468,9 @@ function onpickup_ritual_piece(player)
 		level.relics_picked_up = 0;
 		level.sndritualmementos = 1;
 	}
-	if(!(isdefined(self.var_34db6ce0) && self.var_34db6ce0))
+	if(!(isdefined(self.ever_picked) && self.ever_picked))
 	{
-		self.var_34db6ce0 = 1;
+		self.ever_picked = 1;
 		self.start_origin = self.model.origin;
 		self.start_angles = self.model.angles;
 	}
