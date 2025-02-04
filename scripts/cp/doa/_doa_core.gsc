@@ -450,11 +450,11 @@ function on_player_spawned()
 	self util::set_lighting_state();
 	self notify("give_achievement", "CP_UNLOCK_DOA");
 	var_9774756a = 0;
-	if(isdefined(level.doa.var_e6653624))
+	if(isdefined(level.doa.game_players))
 	{
-		if(!isinarray(level.doa.var_e6653624, self.name))
+		if(!isinarray(level.doa.game_players, self.name))
 		{
-			level.doa.var_e6653624[level.doa.var_e6653624.size] = self.name;
+			level.doa.game_players[level.doa.game_players.size] = self.name;
 			level.doa.var_a9ba4ffb[self.name] = gettime();
 		}
 		else if(isdefined(level.doa.var_a9ba4ffb[self.name]))
@@ -689,7 +689,7 @@ function function_555fb805()
 	level.callbackvehiclekilled = &doa_enemy::function_90772ac6;
 	level.var_a753e7a8 = &doa_turret::turret_fire;
 	level.player_stats_init = &donothing;
-	level.doa.var_e6653624 = [];
+	level.doa.game_players = [];
 	level.doa.var_a9ba4ffb = [];
 	level.disableclassselection = 1;
 	level.disable_damage_blur = 1;
@@ -1058,7 +1058,7 @@ function function_9ac615ee(gameover, round = level.doa.round_number)
 		self.doa.var_fda5a6e5 = 0;
 		self.doa.var_6946711f = 0;
 		self.doa.var_52e89a72 = 0;
-		self setdstat("deadOpsArcade", "numPlayers", math::clamp(level.doa.var_e6653624.size, 1, 4));
+		self setdstat("deadOpsArcade", "numPlayers", math::clamp(level.doa.game_players.size, 1, 4));
 		self setdstat("deadOpsArcade", "silverbackKills", self.doa.var_53bd6cfa);
 		self setdstat("deadOpsArcade", "gemsEarned", self.doa.gems);
 		self setdstat("deadOpsArcade", "skullsEarned", self.doa.skulls);

@@ -362,11 +362,11 @@ function function_7e372abd()
 	{
 		wait(0.05);
 	}
-	if(isdefined(level.doa.var_e6653624))
+	if(isdefined(level.doa.game_players))
 	{
-		if(!isinarray(level.doa.var_e6653624, self.name))
+		if(!isinarray(level.doa.game_players, self.name))
 		{
-			level.doa.var_e6653624[level.doa.var_e6653624.size] = self.name;
+			level.doa.game_players[level.doa.game_players.size] = self.name;
 			level.doa.var_a9ba4ffb[self.name] = gettime();
 		}
 	}
