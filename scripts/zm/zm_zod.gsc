@@ -2884,7 +2884,7 @@ function function_48fda59a()
 }
 
 /*
-	Name: function_af2b349c
+	Name: can_stand
 	Namespace: zm_zod
 	Checksum: 0xC1548961
 	Offset: 0xB468
@@ -2892,7 +2892,7 @@ function function_48fda59a()
 	Parameters: 0
 	Flags: Linked
 */
-function function_af2b349c()
+function can_stand()
 {
 	/#
 		var_1b913866 = self allowstand(1);
@@ -2932,7 +2932,7 @@ function function_f7d81bd5()
 				if(!var_d8d76cd3)
 				{
 					/#
-						if(!self function_af2b349c())
+						if(!self can_stand())
 						{
 							/#
 								assertmsg("");
