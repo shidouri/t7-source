@@ -492,7 +492,7 @@ function function_3ce8bf1c(player, origin)
 	dropspot = origin + vectorscale((0, 0, 1), 800);
 	sprinkler = spawn("script_model", dropspot);
 	sprinkler.targetname = "sprinkler";
-	sprinkler setmodel(level.doa.var_304b4b41);
+	sprinkler setmodel(level.doa.sprinkler_model);
 	def = doa_pickups::function_bac08508(20);
 	sprinkler setscale(def.scale);
 	sprinkler notsolid();
