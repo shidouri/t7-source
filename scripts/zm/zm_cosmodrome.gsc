@@ -726,7 +726,7 @@ function centrifuge_init()
 	centrifuge = getent("centrifuge", "targetname");
 	if(isdefined(centrifuge))
 	{
-		centrifuge function_c6807eeb();
+		centrifuge centrifuge_rotate();
 	}
 }
 
@@ -749,11 +749,11 @@ function function_a97cb654()
 			pieces[i] linkto(self);
 		}
 	}
-	self thread function_c6807eeb();
+	self thread centrifuge_rotate();
 }
 
 /*
-	Name: function_c6807eeb
+	Name: centrifuge_rotate
 	Namespace: zm_cosmodrome
 	Checksum: 0x5FDA2F15
 	Offset: 0x39C8
@@ -761,7 +761,7 @@ function function_a97cb654()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c6807eeb()
+function centrifuge_rotate()
 {
 	while(true)
 	{
