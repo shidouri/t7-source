@@ -77,7 +77,7 @@ function init()
 	level.doa.var_501f85b4 = "zombietron_nuke";
 	level.doa.var_7f53bb28 = "zombietron_teddy_bear";
 	level.doa.var_27f4032b = "zombietron_wallclock";
-	level.doa.var_90650338 = "zombietron_water_buffalo";
+	level.doa.bull_model = "zombietron_water_buffalo";
 	level.doa.var_f21ae3af = "zombietron_umbrella";
 	level.doa.var_97bbae9c = "zombietron_sawblade";
 	level.doa.var_304b4b41 = "zombietron_sprinkler";
