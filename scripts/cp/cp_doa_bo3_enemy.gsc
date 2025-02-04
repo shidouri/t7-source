@@ -528,7 +528,7 @@ function function_7517e6b7(origin)
 	hazard.targetname = "hazard";
 	hazard setmodel(level.doa.var_f6ba7ed2.model);
 	hazard.def = level.doa.var_f6ba7ed2;
-	hazard.var_d05d7e08 = 3;
+	hazard.hazard_type = 3;
 	hazard thread function_b3a0f63();
 	hazard moveto(origin, 2);
 	playsoundatposition("evt_pole", hazard.origin);

@@ -1089,7 +1089,7 @@ function function_20671f0(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	level.doa.hazards[level.doa.hazards.size] = self;
 	arrayremovevalue(level.doa.hazards, undefined);
-	self.var_d05d7e08 = newval;
+	self.hazard_type = newval;
 	self thread function_38452435(localclientnum);
 }
 
@@ -1104,11 +1104,11 @@ function function_20671f0(localclientnum, oldval, newval, bnewent, binitialsnap,
 */
 function function_ec2caec3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(!isdefined(self.var_d05d7e08))
+	if(!isdefined(self.hazard_type))
 	{
-		self.var_d05d7e08 = 0;
+		self.hazard_type = 0;
 	}
-	switch(self.var_d05d7e08)
+	switch(self.hazard_type)
 	{
 		case 3:
 		{
@@ -1175,7 +1175,7 @@ function function_b54615b2()
 		{
 			continue;
 		}
-		if(hazard.var_d05d7e08 != self.var_d05d7e08)
+		if(hazard.hazard_type != self.hazard_type)
 		{
 			continue;
 		}

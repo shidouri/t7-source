@@ -795,7 +795,7 @@ function function_bf0f9f64()
 {
 	self endon("death");
 	self.active = 0;
-	self clientfield::set("hazard_type", (isdefined(self.var_d05d7e08) ? self.var_d05d7e08 : 1));
+	self clientfield::set("hazard_type", (isdefined(self.hazard_type) ? self.hazard_type : 1));
 	wait(0.05);
 	self thread function_8a97d2c0(self.trigger);
 	self clientfield::set("hazard_activated", 1);
