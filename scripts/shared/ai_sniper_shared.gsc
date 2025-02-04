@@ -744,15 +744,15 @@ function target_lase_transition(entity_or_point, owner)
 		speed = 200;
 		point = lase_point(entity_or_point);
 		time = distance(point, self.origin) / speed;
-		var_779fd53f = 0;
+		early_out = 0;
 		if(isdefined(owner) && isdefined(owner.var_26c21ea3))
 		{
-			var_779fd53f = 1;
+			early_out = 1;
 			time = min(time, owner.var_26c21ea3);
 		}
 		if(time > 0)
 		{
-			self thread function_9c1ac1cb(point, time, var_779fd53f);
+			self thread function_9c1ac1cb(point, time, early_out);
 			self waittill(#"hash_9744842a");
 		}
 	}
