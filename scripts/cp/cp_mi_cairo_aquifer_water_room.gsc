@@ -732,7 +732,7 @@ function function_41018429()
 */
 function function_a1923020()
 {
-	level waittill(#"hash_a57da79e");
+	level waittill("door_explodes");
 	level flag::set("flag_door_explodes");
 }
 
