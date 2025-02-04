@@ -2684,7 +2684,7 @@ function skipto_glass_ceiling_igc_done(str_objective, b_starting, b_direct, play
 		player savegame::set_player_data("b_has_done_chase", 1);
 	}
 	level flag::set("chase_done");
-	level notify(#"hash_3d00ae0c");
+	level notify("chase_done");
 	callback::remove_on_disconnect(&function_25e57b80);
 	chase_cleanup();
 	e_door = getent("chase_door_breach", "targetname");

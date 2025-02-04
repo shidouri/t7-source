@@ -601,7 +601,7 @@ function function_cd261d0b()
 function function_af529683()
 {
 	self endon("death");
-	level endon(#"hash_3d00ae0c");
+	level endon("chase_done");
 	self waittill("reload");
 	self savegame::set_player_data("b_nw_accolade_11_failed", 1);
 }
