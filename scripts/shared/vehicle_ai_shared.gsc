@@ -2987,9 +2987,9 @@ function positionquery_postprocess_removeoutofgoalradius(queryresult, tolerance 
 	Parameters: 4
 	Flags: Linked
 */
-function updatepersonalthreatbias_attackerlockedontome(var_9f84050f, var_1e08b2fd, var_9c5ca2c, var_cee3c9e9)
+function updatepersonalthreatbias_attackerlockedontome(var_9f84050f, biaas_duration, var_9c5ca2c, var_cee3c9e9)
 {
-	function_c8b0c8c2(self.locked_on, var_9f84050f, var_1e08b2fd, var_9c5ca2c, var_cee3c9e9);
+	function_c8b0c8c2(self.locked_on, var_9f84050f, biaas_duration, var_9c5ca2c, var_cee3c9e9);
 }
 
 /*
@@ -3001,9 +3001,9 @@ function updatepersonalthreatbias_attackerlockedontome(var_9f84050f, var_1e08b2f
 	Parameters: 4
 	Flags: Linked
 */
-function updatepersonalthreatbias_attackerlockingontome(var_9f84050f, var_1e08b2fd, var_9c5ca2c, var_cee3c9e9)
+function updatepersonalthreatbias_attackerlockingontome(var_9f84050f, biaas_duration, var_9c5ca2c, var_cee3c9e9)
 {
-	function_c8b0c8c2(self.locking_on, var_9f84050f, var_1e08b2fd, var_9c5ca2c, var_cee3c9e9);
+	function_c8b0c8c2(self.locking_on, var_9f84050f, biaas_duration, var_9c5ca2c, var_cee3c9e9);
 }
 
 /*
@@ -3015,7 +3015,7 @@ function updatepersonalthreatbias_attackerlockingontome(var_9f84050f, var_1e08b2
 	Parameters: 5
 	Flags: Linked
 */
-function function_c8b0c8c2(client_flags, var_9f84050f, var_1e08b2fd, var_9c5ca2c = 1, var_cee3c9e9 = 1)
+function function_c8b0c8c2(client_flags, var_9f84050f, biaas_duration, var_9c5ca2c = 1, var_cee3c9e9 = 1)
 {
 	/#
 		assert(isdefined(client_flags));
@@ -3029,7 +3029,7 @@ function function_c8b0c8c2(client_flags, var_9f84050f, var_1e08b2fd, var_9c5ca2c
 			client_flag = 1 << attacker getentitynumber();
 			if(client_flag & remaining_flags_to_process)
 			{
-				self setpersonalthreatbias(attacker, int(var_9f84050f), var_1e08b2fd);
+				self setpersonalthreatbias(attacker, int(var_9f84050f), biaas_duration);
 				if(var_9c5ca2c)
 				{
 					self getperfectinfo(attacker, var_cee3c9e9);
@@ -3049,14 +3049,14 @@ function function_c8b0c8c2(client_flags, var_9f84050f, var_1e08b2fd, var_9c5ca2c
 	Parameters: 2
 	Flags: None
 */
-function updatepersonalthreatbias_bots(var_9f84050f, var_1e08b2fd)
+function updatepersonalthreatbias_bots(var_9f84050f, biaas_duration)
 {
 	/#
 		foreach(player in level.players)
 		{
 			if(player util::is_bot())
 			{
-				self setpersonalthreatbias(player, int(var_9f84050f), var_1e08b2fd);
+				self setpersonalthreatbias(player, int(var_9f84050f), biaas_duration);
 			}
 		}
 	#/
