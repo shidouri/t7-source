@@ -48,7 +48,7 @@ function __init__()
 	callback::on_spawned(&on_player_spawned);
 	init_clientfields();
 	duplicate_render::set_dr_filter_offscreen("weakpoint_keyline", 100, "weakpoint_keyline_show_z", "weakpoint_keyline_hide_z", 2, "mc/hud_outline_model_z_orange", 1);
-	thread function_3e82b262();
+	thread handle_tree();
 	thread function_8f62f317();
 }
 
@@ -2041,7 +2041,7 @@ function fx_play(localclientnum, str_type, str_fx, v_pos, v_forward, v_up, b_kil
 }
 
 /*
-	Name: function_3e82b262
+	Name: handle_tree
 	Namespace: aquifer_util
 	Checksum: 0x9E05C5
 	Offset: 0x7618
@@ -2049,7 +2049,7 @@ function fx_play(localclientnum, str_type, str_fx, v_pos, v_forward, v_up, b_kil
 	Parameters: 0
 	Flags: Linked
 */
-function function_3e82b262()
+function handle_tree()
 {
 	self endon("disconnect");
 	smodelanimcmd("boss_tree", "pause", "unloop", "goto_start");
