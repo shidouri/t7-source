@@ -1419,8 +1419,8 @@ function function_73d40751()
 			if(!(isdefined(self.doa.var_655cbff1) && self.doa.var_655cbff1))
 			{
 				self clientfield::increment_to_player("changeCamera");
-				self notify(#"hash_348c5f29");
-				level notify(#"hash_348c5f29", self);
+				self notify("camera_changed");
+				level notify("camera_changed", self);
 			}
 			while(self weaponswitchbuttonpressed())
 			{
