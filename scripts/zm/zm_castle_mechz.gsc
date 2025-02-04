@@ -541,7 +541,7 @@ function function_d8d01032()
 	self thread function_2a2bfc25();
 	if(isdefined(self.attacker) && isplayer(self.attacker) && self.attacker hasweapon(getweapon("knife_plunger")))
 	{
-		level thread zm_castle_ee_side::function_c7bb86e5(self.attacker);
+		level thread zm_castle_ee_side::charge_plunger(self.attacker);
 	}
 	level.n_mechz_alive--;
 	level.zombie_ai_limit++;

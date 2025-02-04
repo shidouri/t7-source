@@ -2035,7 +2035,7 @@ function function_9daec9e3()
 }
 
 /*
-	Name: function_c7bb86e5
+	Name: charge_plunger
 	Namespace: zm_castle_ee_side
 	Checksum: 0x51532645
 	Offset: 0x5A60
@@ -2043,7 +2043,7 @@ function function_9daec9e3()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c7bb86e5(attacker)
+function charge_plunger(attacker)
 {
 	if(!isdefined(attacker.var_ea5424ae))
 	{
@@ -2482,7 +2482,7 @@ function function_d40e8eab(n_val)
 		players = level.activeplayers;
 		foreach(player in players)
 		{
-			level thread function_c7bb86e5(player);
+			level thread charge_plunger(player);
 		}
 	#/
 }
