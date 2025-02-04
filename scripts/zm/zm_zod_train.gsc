@@ -1665,7 +1665,7 @@ class czmtrain
 	}
 
 	/*
-		Name: function_dda9a9d2
+		Name: flip_forward
 		Namespace: czmtrain
 		Checksum: 0x4FA3ACD0
 		Offset: 0x37B0
@@ -1673,7 +1673,7 @@ class czmtrain
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_dda9a9d2()
+	function flip_forward()
 	{
 		m_b_facing_forward = !m_b_facing_forward;
 	}
@@ -2260,7 +2260,7 @@ function function_eb0db7bc()
 		level waittill("host_migration_end");
 		[[ level.o_zod_train ]]->initialize_stations();
 		[[ level.o_zod_train ]]->function_7eb2583b();
-		[[ level.o_zod_train ]]->function_dda9a9d2();
+		[[ level.o_zod_train ]]->flip_forward();
 		[[ level.o_zod_train ]]->send_train();
 	}
 }
