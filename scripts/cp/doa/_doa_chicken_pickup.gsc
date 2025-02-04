@@ -546,7 +546,7 @@ function function_be58e20c(player)
 		}
 		if(isdefined(msg) && msg != "timeout")
 		{
-			self notify(#"hash_4148f7d1");
+			self notify("chicken_fire");
 		}
 	}
 }
@@ -567,7 +567,7 @@ function function_8fb467a7(player)
 	self thread function_be58e20c(player);
 	while(true)
 	{
-		self waittill(#"hash_4148f7d1");
+		self waittill("chicken_fire");
 		if(isdefined(self.var_18845184) && self.var_18845184)
 		{
 			continue;
