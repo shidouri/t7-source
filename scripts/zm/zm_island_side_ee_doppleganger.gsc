@@ -220,17 +220,17 @@ function function_8c3f76f3()
 	var_9876cb30 = [];
 	var_7378d690 = [];
 	var_2bb7b39d = undefined;
-	var_506c0a63 = [];
+	a_alive_players = [];
 	foreach(player in level.activeplayers)
 	{
 		if(zm_utility::is_player_valid(player) && player flag::get("doppleganger_enabled"))
 		{
-			array::add(var_506c0a63, player);
+			array::add(a_alive_players, player);
 		}
 	}
-	if(var_506c0a63.size)
+	if(a_alive_players.size)
 	{
-		foreach(player in var_506c0a63)
+		foreach(player in a_alive_players)
 		{
 			n_index = player zm_zonemgr::get_player_zone();
 			if(!isdefined(var_9876cb30[n_index]))
