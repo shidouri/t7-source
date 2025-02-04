@@ -74,7 +74,7 @@ function start_grapple(e_grappler, e_grapplee, n_type, n_speed = 1800)
 	{
 		e_grapplee function_63b4b8a5(1);
 		util::wait_network_frame();
-		n_time = function_3e1b1cea(e_grappler, e_grapplee, n_speed);
+		n_time = grapple_time(e_grappler, e_grapplee, n_speed);
 		var_b7c15e33.origin = e_grappler grapple_point();
 		var_c35f0f99 = e_grapplee grapple_point();
 		var_b7c15e33 playsound("zmb_grapple_start");
@@ -149,7 +149,7 @@ function private function_28ac2916(e_source, e_target)
 }
 
 /*
-	Name: function_3e1b1cea
+	Name: grapple_time
 	Namespace: zm_grappler
 	Checksum: 0x6D5DC9A2
 	Offset: 0x798
@@ -157,7 +157,7 @@ function private function_28ac2916(e_source, e_target)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_3e1b1cea(e_from, e_to, n_speed)
+function private grapple_time(e_from, e_to, n_speed)
 {
 	n_distance = distance(e_from grapple_point(), e_to grapple_point());
 	return n_distance / n_speed;
