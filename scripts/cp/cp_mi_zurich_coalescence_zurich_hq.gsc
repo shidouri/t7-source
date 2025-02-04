@@ -842,7 +842,7 @@ function turret_think()
 }
 
 /*
-	Name: function_525e4268
+	Name: delete_turrets
 	Namespace: zurich_hq
 	Checksum: 0x92BD22AC
 	Offset: 0x2E78
@@ -850,7 +850,7 @@ function turret_think()
 	Parameters: 0
 	Flags: None
 */
-function function_525e4268()
+function delete_turrets()
 {
 	a_vh_turrets = self;
 	if(!isarray(self))
