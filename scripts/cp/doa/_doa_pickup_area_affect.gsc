@@ -215,7 +215,7 @@ function timeshifterupdate(player, origin)
 	mark = origin + vectorscale((0, 0, 1), 28);
 	clock = spawn("script_model", origin);
 	clock.targetname = "clock";
-	clock setmodel(level.doa.var_27f4032b);
+	clock setmodel(level.doa.clock_model);
 	clock thread doa_sound::function_90118d8c("zmb_pwup_clock_start");
 	clock playloopsound("zmb_pwup_clock_loop", 2);
 	trigger = spawn("trigger_radius", clock.origin, 9, level.doa.rules.var_942b8706, 60);
