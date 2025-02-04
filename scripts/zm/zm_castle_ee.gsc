@@ -2483,7 +2483,7 @@ function function_f6678e99()
 function function_6a8d41d1(a_ents)
 {
 	var_abd3814e = a_ents["moon_rocket_02"];
-	var_abd3814e waittill(#"hash_c79f61d1");
+	var_abd3814e waittill("impact_moon");
 	level thread function_6d74c298();
 	exploder::exploder("fxexp_610");
 	level scene::init("cin_cas_01_outro_3rd_sh010");
