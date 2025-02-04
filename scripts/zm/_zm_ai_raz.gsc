@@ -1028,8 +1028,8 @@ function function_94372a17(inflictor, attacker, damage, dflags, mod, weapon, poi
 		dist_sq = distancesquared(attacker.origin, player.origin);
 		var_bfa346a2 = 16384;
 		var_a9914202 = 1 - (dist_sq / var_bfa346a2);
-		var_2882f9d = 35;
-		damage = var_2882f9d * var_a9914202;
+		damage_gradient = 35;
+		damage = damage_gradient * var_a9914202;
 		damage = int(damage);
 		damage = damage + 15;
 		return damage;
