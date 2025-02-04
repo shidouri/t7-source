@@ -76,7 +76,7 @@ function private quadphasingservice(entity)
 	{
 		return false;
 	}
-	entity.var_662afd11 = 0;
+	entity.can_phase = 0;
 	if(entity.var_20535e44 == 0)
 	{
 		if(math::cointoss())
@@ -105,7 +105,7 @@ function private quadphasingservice(entity)
 		{
 			if(entity maymovefrompointtopoint(entity.origin, zombie_utility::getanimendpos(level.var_9fcbbc83["phase_left_long"])))
 			{
-				entity.var_662afd11 = 1;
+				entity.can_phase = 1;
 			}
 		}
 	}
@@ -113,18 +113,18 @@ function private quadphasingservice(entity)
 	{
 		if(entity maymovefrompointtopoint(entity.origin, zombie_utility::getanimendpos(level.var_9fcbbc83["phase_right_long"])))
 		{
-			entity.var_662afd11 = 1;
+			entity.can_phase = 1;
 		}
 	}
-	if(!(isdefined(entity.var_662afd11) && entity.var_662afd11))
+	if(!(isdefined(entity.can_phase) && entity.can_phase))
 	{
 		if(entity maymovefrompointtopoint(entity.origin, zombie_utility::getanimendpos(level.var_9fcbbc83["phase_forward"])))
 		{
-			entity.var_662afd11 = 1;
+			entity.can_phase = 1;
 			entity.var_3b07930a = "quad_phase_forward";
 		}
 	}
-	if(isdefined(entity.var_662afd11) && entity.var_662afd11)
+	if(isdefined(entity.can_phase) && entity.can_phase)
 	{
 		blackboard::setblackboardattribute(entity, "_quad_phase_direction", entity.var_3b07930a);
 		if(math::cointoss())
@@ -151,7 +151,7 @@ function private quadphasingservice(entity)
 */
 function private shouldphase(entity)
 {
-	if(!(isdefined(entity.var_662afd11) && entity.var_662afd11))
+	if(!(isdefined(entity.can_phase) && entity.can_phase))
 	{
 		return false;
 	}
@@ -319,7 +319,7 @@ function private function_4e0a671e(entity, mocompanim, mocompanimblendouttime, m
 */
 function function_5076473f()
 {
-	self.var_662afd11 = 0;
+	self.can_phase = 0;
 	self.var_b7d765b3 = gettime();
 	self.var_20535e44 = 0;
 	if(!isdefined(level.var_9fcbbc83))
