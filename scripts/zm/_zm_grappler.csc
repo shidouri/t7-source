@@ -36,12 +36,12 @@ function autoexec __init__sytem__()
 */
 function __init__()
 {
-	clientfield::register("scriptmover", "grappler_beam_source", 15000, 1, "int", &function_79d05fa8, 0, 0);
+	clientfield::register("scriptmover", "grappler_beam_source", 15000, 1, "int", &grappler_source, 0, 0);
 	clientfield::register("scriptmover", "grappler_beam_target", 15000, 1, "int", &function_7bbbd82e, 0, 0);
 }
 
 /*
-	Name: function_79d05fa8
+	Name: grappler_source
 	Namespace: zm_grappler
 	Checksum: 0x2BEDF7C9
 	Offset: 0x2E8
@@ -49,7 +49,7 @@ function __init__()
 	Parameters: 7
 	Flags: Linked
 */
-function function_79d05fa8(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function grappler_source(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(!isdefined(level.var_3d35ab43))
 	{
