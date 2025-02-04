@@ -3552,7 +3552,7 @@ function monkey_revive_solo_fx()
 function monkey_print(str)
 {
 	/#
-		if(isdefined(level.var_ce37864e) && level.var_ce37864e)
+		if(isdefined(level.debug_monkey) && level.debug_monkey)
 		{
 			iprintln(str + "");
 		}
