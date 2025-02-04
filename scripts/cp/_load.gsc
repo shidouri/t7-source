@@ -115,7 +115,7 @@ function main()
 	{
 		if(level.skipto_point == level.default_skipto)
 		{
-			world.var_bf966ebd = undefined;
+			world.checkpoint_used = undefined;
 		}
 	}
 	level thread function_4dd1a4b();

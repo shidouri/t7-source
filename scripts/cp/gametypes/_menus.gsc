@@ -220,7 +220,7 @@ function on_menu_response()
 				}
 				player clearallnoncheckpointdata();
 			}
-			world.var_bf966ebd = undefined;
+			world.checkpoint_used = undefined;
 			missionrestart();
 			continue;
 		}
