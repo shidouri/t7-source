@@ -157,8 +157,8 @@ function function_b6af57a8()
 		{
 			continue;
 		}
-		var_8601d520 = getarraykeys(level.hazards);
-		foreach(str_name in var_8601d520)
+		hazard_names = getarraykeys(level.hazards);
+		foreach(str_name in hazard_names)
 		{
 			self do_damage(str_name, 3, undefined);
 			wait(0.1);
