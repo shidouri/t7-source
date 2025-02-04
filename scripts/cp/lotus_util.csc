@@ -235,7 +235,7 @@ function function_eb04522d(n_z, a_items, n_max = a_items.size)
 }
 
 /*
-	Name: function_3e466373
+	Name: ignore_siege
 	Namespace: lotus_util
 	Checksum: 0x31E9FD4E
 	Offset: 0xF18
@@ -243,7 +243,7 @@ function function_eb04522d(n_z, a_items, n_max = a_items.size)
 	Parameters: 4
 	Flags: None
 */
-function function_3e466373(n_local_client, n_val_new, str_name, str_key = "script_label")
+function ignore_siege(n_local_client, n_val_new, str_name, str_key = "script_label")
 {
 	var_707bc057 = struct::get_array(str_name, str_key);
 	if(n_val_new)
