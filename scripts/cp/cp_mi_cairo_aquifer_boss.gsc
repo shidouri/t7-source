@@ -1286,7 +1286,7 @@ function boss_vo(str_line, n_timeout = -1)
 }
 
 /*
-	Name: function_4463326b
+	Name: handle_nags
 	Namespace: cp_mi_cairo_aquifer_boss
 	Checksum: 0xB064FA55
 	Offset: 0x4310
@@ -1294,7 +1294,7 @@ function boss_vo(str_line, n_timeout = -1)
 	Parameters: 4
 	Flags: Linked
 */
-function function_4463326b(a_str_nags, var_aa750b18 = 10, n_timeout, str_endon_notify)
+function handle_nags(a_str_nags, var_aa750b18 = 10, n_timeout, str_endon_notify)
 {
 	level endon(str_endon_notify);
 	n_waittime = var_aa750b18;
@@ -1347,7 +1347,7 @@ function function_269260a3()
 		a_nags = array(a_nags);
 	}
 	a_nags[a_nags.size] = "hend_i_ll_cover_you_over_0";
-	thread function_4463326b(a_nags, undefined, -1, "gen1_done");
+	thread handle_nags(a_nags, undefined, -1, "gen1_done");
 	level waittill(#"hash_6ca7aa5d");
 	function_86fc21bb();
 }
@@ -1382,7 +1382,7 @@ function function_86fc21bb()
 		a_nags = array(a_nags);
 	}
 	a_nags[a_nags.size] = "hend_move_to_the_next_gen_0";
-	thread function_4463326b(a_nags, undefined, -1, "gen1_done");
+	thread handle_nags(a_nags, undefined, -1, "gen1_done");
 }
 
 /*
@@ -1415,7 +1415,7 @@ function capture_nags()
 		a_nags = array(a_nags);
 	}
 	a_nags[a_nags.size] = "hend_there_s_a_path_to_ma_0";
-	thread function_4463326b(a_nags, undefined, -1, "start_finale");
+	thread handle_nags(a_nags, undefined, -1, "start_finale");
 }
 
 /*
