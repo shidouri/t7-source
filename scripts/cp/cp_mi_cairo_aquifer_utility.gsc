@@ -5025,7 +5025,7 @@ function exterior_aerial_threats()
 	Parameters: 2
 	Flags: Linked
 */
-function function_96450f49(var_6c968618, var_a3a78823)
+function function_96450f49(var_6c968618, hunters_only)
 {
 	level notify(#"hash_96450f49");
 	level endon(#"hash_96450f49");
@@ -5065,7 +5065,7 @@ function function_96450f49(var_6c968618, var_a3a78823)
 	}
 	level.var_c37cadc1 vehicle::god_on();
 	level.var_c37cadc1.riders[0] util::magic_bullet_shield();
-	level.var_c37cadc1 thread function_5b6daa1a(focus, isrockettype, var_a3a78823);
+	level.var_c37cadc1 thread function_5b6daa1a(focus, isrockettype, hunters_only);
 	var_e0ad81ed = 1;
 	add = -1;
 	level.var_c37cadc1 setneargoalnotifydist(120);
@@ -5150,7 +5150,7 @@ function function_9476c2d5()
 	Parameters: 3
 	Flags: Linked
 */
-function function_5b6daa1a(focus, isrockettype, var_a3a78823)
+function function_5b6daa1a(focus, isrockettype, hunters_only)
 {
 	self endon("death");
 	level endon(#"hash_96450f49");
@@ -5185,7 +5185,7 @@ function function_5b6daa1a(focus, isrockettype, var_a3a78823)
 						{
 							continue;
 						}
-						if(var_a3a78823 && !isvehicle(ai))
+						if(hunters_only && !isvehicle(ai))
 						{
 							continue;
 						}
