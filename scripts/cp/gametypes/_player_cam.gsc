@@ -134,7 +134,7 @@ function function_812435e3()
 }
 
 /*
-	Name: function_6eb06d8d
+	Name: get_trace
 	Namespace: namespace_5f11fb0b
 	Checksum: 0x4BDE5EC
 	Offset: 0xA28
@@ -142,7 +142,7 @@ function function_812435e3()
 	Parameters: 2
 	Flags: Linked
 */
-function function_6eb06d8d(old_position, new_position)
+function get_trace(old_position, new_position)
 {
 	size = 10;
 	height = size * 2;
@@ -163,7 +163,7 @@ function function_6eb06d8d(old_position, new_position)
 */
 function function_b1d0850f(old_position, new_position)
 {
-	trace = function_6eb06d8d(old_position, new_position);
+	trace = get_trace(old_position, new_position);
 	return trace["position"];
 }
 
@@ -178,7 +178,7 @@ function function_b1d0850f(old_position, new_position)
 */
 function function_e2d94882(old_position, new_position)
 {
-	trace = function_6eb06d8d(old_position, new_position);
+	trace = get_trace(old_position, new_position);
 	if(trace["fraction"] < 1)
 	{
 		return false;
