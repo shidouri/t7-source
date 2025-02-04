@@ -1270,8 +1270,8 @@ function function_e9a25955()
 			var_3e02e245 = angleclamp180(desired_angles[1]);
 			desired_pitch = angleclamp180(desired_angles[0]);
 			yaw_diff = angleclamp180(var_3e02e245 - veh.angles[1]);
-			var_cd190041 = angleclamp180(desired_pitch - veh.angles[0]);
-			veh.angles = (angleclamp180(veh.angles[0]) + (math::clamp(var_cd190041, -2.25, 2.25)), angleclamp180(veh.angles[1]) + (math::clamp(yaw_diff, -2.25, 2.25)), veh.angles[2] * 0.9);
+			pitch_diff = angleclamp180(desired_pitch - veh.angles[0]);
+			veh.angles = (angleclamp180(veh.angles[0]) + (math::clamp(pitch_diff, -2.25, 2.25)), angleclamp180(veh.angles[1]) + (math::clamp(yaw_diff, -2.25, 2.25)), veh.angles[2] * 0.9);
 			veh.origin = veh.origin + ((((anglestoforward(veh.angles) * 300) * 17.6) * speed_scale) * 0.05);
 			if(speed_scale < 0.5 && !var_c6f525f9)
 			{
