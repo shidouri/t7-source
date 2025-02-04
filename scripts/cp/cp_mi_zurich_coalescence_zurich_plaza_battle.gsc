@@ -973,7 +973,7 @@ function function_68fbe95d()
 }
 
 /*
-	Name: function_695f38a7
+	Name: boss_think
 	Namespace: zurich_plaza_battle
 	Checksum: 0xE8E3F9EF
 	Offset: 0x6418
@@ -981,7 +981,7 @@ function function_68fbe95d()
 	Parameters: 0
 	Flags: None
 */
-function function_695f38a7()
+function boss_think()
 {
 	// Unsupported VM revision (1B).
 }
