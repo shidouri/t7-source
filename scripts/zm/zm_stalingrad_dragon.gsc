@@ -3284,11 +3284,11 @@ function function_1a2d9dc9()
 	{
 		return false;
 	}
-	var_b1a4952d = level.var_ef9c43d7 function_b1a4952d();
+	current_post = level.var_ef9c43d7 function_b1a4952d();
 	var_7649b699 = undefined;
-	if(isdefined(var_b1a4952d))
+	if(isdefined(current_post))
 	{
-		var_7649b699 = var_b1a4952d.script_string;
+		var_7649b699 = current_post.script_string;
 	}
 	if(level.var_7a29ed06 == 1 && var_7649b699 === "north")
 	{
@@ -4512,15 +4512,15 @@ function function_30e5b419(s_pos, str_pos, var_6e2a6191, var_4827e728)
 */
 function function_b1a4952d()
 {
-	if(isdefined(self.var_b1a4952d) && distance2dsquared(self.origin, self.var_b1a4952d.origin) < (100 * 100))
+	if(isdefined(self.current_post) && distance2dsquared(self.origin, self.current_post.origin) < (100 * 100))
 	{
-		return self.var_b1a4952d;
+		return self.current_post;
 	}
 	foreach(post in level.var_4c8e35f4)
 	{
 		if(distance2dsquared(self.origin, post.origin) < (100 * 100))
 		{
-			self.var_b1a4952d = post;
+			self.current_post = post;
 			return post;
 		}
 	}
@@ -4693,11 +4693,11 @@ function function_32faa6e1(no_delay = 0)
 			continue;
 		}
 		self setneargoalnotifydist(self.radius);
-		var_b1a4952d = self function_b1a4952d();
+		current_post = self function_b1a4952d();
 		var_7649b699 = undefined;
-		if(isdefined(var_b1a4952d))
+		if(isdefined(current_post))
 		{
-			var_7649b699 = var_b1a4952d.script_string;
+			var_7649b699 = current_post.script_string;
 		}
 		var_f315c28 = array::filter(level.var_4c8e35f4, 0, &function_30e5b419, level.var_181b1223, var_7649b699);
 		var_2cd775bb = array::random(var_f315c28);
