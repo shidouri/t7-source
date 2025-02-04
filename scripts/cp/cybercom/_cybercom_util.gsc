@@ -1393,11 +1393,11 @@ function function_b5f4e597(weapon)
 				{
 					continue;
 				}
-				var_b766574c = self.cybercom.var_b766574c;
+				fail_type = self.cybercom.fail_type;
 				var_42d20903 = self.cybercom.var_42d20903;
 				if(!targetisvalid(enemy, weapon))
 				{
-					self.cybercom.var_b766574c = var_b766574c;
+					self.cybercom.fail_type = fail_type;
 					self.cybercom.var_42d20903 = var_42d20903;
 					continue;
 				}
@@ -1536,7 +1536,7 @@ function function_17fea3ed(slot, weapon, maxtargets)
 		wait(0.05);
 		self function_f5799ee1();
 		self weapon_lock_clearslots();
-		self.cybercom.var_b766574c = 0;
+		self.cybercom.fail_type = 0;
 		if(isdefined(self.cybercom.targetlockcb))
 		{
 			enemies = self [[self.cybercom.targetlockcb]](weapon);
@@ -2297,17 +2297,17 @@ function function_adc40f11(weapon, fired)
 */
 function function_a3e55896(weapon)
 {
-	if(self.cybercom.var_b766574c != 0 && (self.cybercom.lock_targets.size == 0 || self.cybercom.var_b766574c == 8))
+	if(self.cybercom.fail_type != 0 && (self.cybercom.lock_targets.size == 0 || self.cybercom.fail_type == 8))
 	{
-		if(self.cybercom.var_b766574c == 2 && isdefined(self.cybercom.var_42d20903))
+		if(self.cybercom.fail_type == 2 && isdefined(self.cybercom.var_42d20903))
 		{
 			var_edc325e = self _lock_sighttest(self.cybercom.var_42d20903, 0);
 			if(var_edc325e == 0)
 			{
-				self.cybercom.var_b766574c = 1;
+				self.cybercom.fail_type = 1;
 			}
 		}
-		switch(self.cybercom.var_b766574c)
+		switch(self.cybercom.fail_type)
 		{
 			case 2:
 			{
@@ -2350,9 +2350,9 @@ function function_a3e55896(weapon)
 				break;
 			}
 		}
-		level notify(#"hash_dce473f9", self, self.cybercom.var_b766574c);
-		self notify(#"hash_dce473f9", self.cybercom.var_b766574c);
-		self.cybercom.var_b766574c = 0;
+		level notify(#"hash_dce473f9", self, self.cybercom.fail_type);
+		self notify(#"hash_dce473f9", self.cybercom.fail_type);
+		self.cybercom.fail_type = 0;
 	}
 }
 
@@ -2365,7 +2365,7 @@ function function_a3e55896(weapon)
 	Parameters: 4
 	Flags: Linked
 */
-function function_29bf9dee(var_42d20903, var_b766574c, var_10853dc3 = 1, priority = 1)
+function function_29bf9dee(var_42d20903, fail_type, var_10853dc3 = 1, priority = 1)
 {
 	if(!isplayer(self) || !isdefined(self.cybercom))
 	{
@@ -2381,15 +2381,15 @@ function function_29bf9dee(var_42d20903, var_b766574c, var_10853dc3 = 1, priorit
 	}
 	if(priority)
 	{
-		if(var_b766574c > self.cybercom.var_b766574c)
+		if(fail_type > self.cybercom.fail_type)
 		{
-			self.cybercom.var_b766574c = var_b766574c;
+			self.cybercom.fail_type = fail_type;
 			self.cybercom.var_42d20903 = var_42d20903;
 		}
 	}
 	else
 	{
-		self.cybercom.var_b766574c = var_b766574c;
+		self.cybercom.fail_type = fail_type;
 		self.cybercom.var_42d20903 = var_42d20903;
 	}
 }

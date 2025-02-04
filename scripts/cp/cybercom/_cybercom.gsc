@@ -297,7 +297,7 @@ function on_player_connect()
 {
 	self.cybercom = spawnstruct();
 	self.cybercom.flags = spawnstruct();
-	self.cybercom.var_b766574c = 0;
+	self.cybercom.fail_type = 0;
 	self.var_1c0132c = [];
 	self getcybercomflags();
 	self.pers["cybercom_flags"] = self.cybercom.flags;
