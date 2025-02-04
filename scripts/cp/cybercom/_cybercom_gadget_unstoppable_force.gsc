@@ -358,7 +358,7 @@ function private function_40b93b78()
 }
 
 /*
-	Name: function_649c2f65
+	Name: hit_vehicle
 	Namespace: cybercom_gadget_unstoppable_force
 	Checksum: 0xCFCB6134
 	Offset: 0xEF8
@@ -366,7 +366,7 @@ function private function_40b93b78()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_649c2f65(enemy, weapon)
+function private hit_vehicle(enemy, weapon)
 {
 	if(enemy cybercom::islinked())
 	{
@@ -477,7 +477,7 @@ function watch_collisions(weapon)
 			if(isvehicle(guy))
 			{
 				self playsound("gdt_unstoppable_hit_veh");
-				self function_649c2f65(guy, weapon);
+				self hit_vehicle(guy, weapon);
 				continue;
 			}
 			self hit_enemy(guy, weapon);
