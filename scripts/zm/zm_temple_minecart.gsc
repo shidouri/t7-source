@@ -913,18 +913,18 @@ function function_b56e3436()
 	Parameters: 3
 	Flags: Linked
 */
-function function_59dcb5d1(var_e48fa956, var_8c9fa61, time)
+function function_59dcb5d1(var_e48fa956, end_vehicle, time)
 {
 	model = spawn("script_model", var_e48fa956.origin);
 	model setmodel(var_e48fa956.model);
 	model.angles = var_e48fa956.angles;
 	var_e48fa956 ghost();
-	model moveto(var_8c9fa61.origin, 1, 0.1, 0.1);
-	rotateangles = (0 - var_8c9fa61.angles[0], var_8c9fa61.angles[1] - 180, 0);
+	model moveto(end_vehicle.origin, 1, 0.1, 0.1);
+	rotateangles = (0 - end_vehicle.angles[0], end_vehicle.angles[1] - 180, 0);
 	model rotateto(rotateangles, 1, 0.1, 0.1);
 	model waittill("movedone");
 	model delete();
-	var_8c9fa61 show();
+	end_vehicle show();
 }
 
 /*
