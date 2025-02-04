@@ -457,9 +457,9 @@ function function_a8d8b9c7()
 	Parameters: 2
 	Flags: Linked
 */
-function function_8acd43fd(var_5c0b5b64, value)
+function function_8acd43fd(collectible_index, value)
 {
-	self setnoncheckpointdata(("collectibles" + var_5c0b5b64) + "value", value);
+	self setnoncheckpointdata(("collectibles" + collectible_index) + "value", value);
 }
 
 /*
@@ -471,9 +471,9 @@ function function_8acd43fd(var_5c0b5b64, value)
 	Parameters: 1
 	Flags: Linked
 */
-function function_70b41d41(var_5c0b5b64)
+function function_70b41d41(collectible_index)
 {
-	return self getnoncheckpointdata(("collectibles" + var_5c0b5b64) + "value");
+	return self getnoncheckpointdata(("collectibles" + collectible_index) + "value");
 }
 
 /*
