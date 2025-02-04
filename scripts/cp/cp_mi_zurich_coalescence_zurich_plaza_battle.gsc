@@ -1197,7 +1197,7 @@ function function_7f39a78b()
 }
 
 /*
-	Name: function_6c61fe9e
+	Name: hunter_think
 	Namespace: zurich_plaza_battle
 	Checksum: 0xD3DF6266
 	Offset: 0x76F0
@@ -1205,7 +1205,7 @@ function function_7f39a78b()
 	Parameters: 0
 	Flags: None
 */
-function function_6c61fe9e()
+function hunter_think()
 {
 	// Unsupported VM revision (1B).
 }
