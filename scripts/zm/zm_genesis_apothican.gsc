@@ -1304,13 +1304,13 @@ function function_79912fdc()
 {
 	self.origin = self.var_89bdf56b;
 	e_egg = util::spawn_model("p7_fxanim_zm_gen_gateworm_egg_mod", self.var_c1c6575b, self.angles);
-	e_egg thread function_c73dbcf0(self);
+	e_egg thread egg_update(self);
 	e_egg playsound("zmb_main_omelettes_egg_spawn");
 	e_egg playloopsound("zmb_main_omelettes_egg_lp", 2);
 }
 
 /*
-	Name: function_c73dbcf0
+	Name: egg_update
 	Namespace: zm_genesis_apothican
 	Checksum: 0x97ED6508
 	Offset: 0x3EC8
@@ -1318,7 +1318,7 @@ function function_79912fdc()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c73dbcf0(s_egg)
+function egg_update(s_egg)
 {
 	self enablelinkto();
 	var_e777b564 = self gettagorigin("ovary_egg_tag_jnt");
