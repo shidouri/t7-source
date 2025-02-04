@@ -17,12 +17,12 @@
 */
 function main()
 {
-	level thread function_cf637cc();
+	level thread combats_notifies();
 	level thread function_ba59ec78();
 }
 
 /*
-	Name: function_cf637cc
+	Name: combats_notifies
 	Namespace: cp_mi_cairo_lotus_sound
 	Checksum: 0xF899AC1B
 	Offset: 0x1E8
@@ -30,7 +30,7 @@ function main()
 	Parameters: 0
 	Flags: Linked
 */
-function function_cf637cc()
+function combats_notifies()
 {
 	level waittill(#"hash_72d53556");
 	level util::clientnotify("start_battle_sound");
