@@ -477,7 +477,7 @@ function function_b01c9f8()
 	var_b77e0da playloopsound("evt_runout_wall_fire");
 	var_6754449b = spawn("script_origin", (15755, 1298, 2164));
 	var_6754449b playloopsound("evt_runout_large_fire");
-	level waittill(#"hash_92f048cf");
+	level waittill("corridor_explosion");
 	playsoundatposition("evt_runout_corridor_exp", (15862, 1444, 2090));
 }
 
