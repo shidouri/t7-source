@@ -44,7 +44,7 @@ function main()
 */
 function play_intro_music()
 {
-	level waittill(#"hash_fd9adc1e");
+	level waittill("cue_music");
 	level thread zm_audio::sndmusicsystem_playstate("round_start_first_lander");
 }
 

@@ -292,7 +292,7 @@ function init_clientfields()
 */
 function function_a4a54181()
 {
-	level notify(#"hash_fd9adc1e");
+	level notify("cue_music");
 	level flag::wait_till("lander_intro_done");
 	zm::round_start();
 }
