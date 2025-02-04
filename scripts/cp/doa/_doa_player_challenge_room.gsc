@@ -240,7 +240,7 @@ function function_15a0c9b5(room)
 	{
 		level clientfield::set("activateBanner", room.banner);
 	}
-	level notify(#"hash_6d346dac");
+	level notify("challenge_running");
 	if(room.timeout > 0)
 	{
 		msg = level util::waittill_any_timeout(room.timeout, "player_challenge_failure", "player_challenge_success", "doa_game_is_over");
