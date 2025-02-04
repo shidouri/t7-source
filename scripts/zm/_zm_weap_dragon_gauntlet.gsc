@@ -848,7 +848,7 @@ function function_f5802b55()
 		var_42c06d64 setignorepauseworld(1);
 		var_42c06d64.owner = self;
 		self thread zm_audio::create_and_play_dialog("whelp", "command");
-		var_42c06d64 thread function_44ecb9cb();
+		var_42c06d64 thread delayed_show();
 		var_42c06d64 thread function_b80d5548();
 		self thread function_1692b405();
 	}
@@ -856,7 +856,7 @@ function function_f5802b55()
 }
 
 /*
-	Name: function_44ecb9cb
+	Name: delayed_show
 	Namespace: zm_weap_dragon_gauntlet
 	Checksum: 0xD7D9C291
 	Offset: 0x2B40
@@ -864,7 +864,7 @@ function function_f5802b55()
 	Parameters: 0
 	Flags: Linked
 */
-function function_44ecb9cb()
+function delayed_show()
 {
 	self endon("death");
 	self ghost();
