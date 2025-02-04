@@ -1045,7 +1045,7 @@ function function_3ed8bf0e()
 	if(isdefined(self.var_1d195e2c))
 	{
 		self.var_1d195e2c notify(#"bug_out");
-		self.var_1d195e2c.var_8a707c29 = 1;
+		self.var_1d195e2c.bugging_out = 1;
 		if(!(isdefined(self.var_1d195e2c.dying) && self.var_1d195e2c.dying) && isalive(self.var_1d195e2c))
 		{
 			self.var_1d195e2c setdamagestage(3);
@@ -1064,7 +1064,7 @@ function function_3ed8bf0e()
 	{
 		target = self function_a9d982da();
 		target notify(#"bug_out");
-		target.var_8a707c29 = 1;
+		target.bugging_out = 1;
 		if(!(isdefined(target.dying) && target.dying) && isalive(target))
 		{
 			target setdamagestage(3);
