@@ -584,7 +584,7 @@ function function_c7f824a()
 	level.doa.total_kills = 0;
 	level.doa.current_arena = 0;
 	level.lighting_state = 0;
-	level.doa.var_da96f13c = 0;
+	level.doa.game_laps = 0;
 	level.doa.isfps = undefined;
 	level.doa.in_intermission = 0;
 	level.doa.flipped = 0;

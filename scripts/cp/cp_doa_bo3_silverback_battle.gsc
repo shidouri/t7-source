@@ -207,7 +207,7 @@ function function_fc48f9f3()
 		level thread function_a733cd6a(mech);
 		level waittill(#"hash_885b3b5e");
 	}
-	var_3d99e7a6 = math::clamp(1 + level.doa.var_da96f13c, 1, 10);
+	var_3d99e7a6 = math::clamp(1 + level.doa.game_laps, 1, 10);
 	while(var_3d99e7a6)
 	{
 		var_3d99e7a6--;

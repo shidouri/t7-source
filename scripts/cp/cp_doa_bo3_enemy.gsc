@@ -2387,7 +2387,7 @@ function private function_c0147a11()
 	wait(0.05);
 	self endon("death");
 	self.takedamage = 1;
-	self.health = (getplayers().size * 250000) + ((1 + level.doa.var_da96f13c) * 300000);
+	self.health = (getplayers().size * 250000) + ((1 + level.doa.game_laps) * 300000);
 	self.maxhealth = self.health;
 	self.var_d3627554 = int(self.health * 0.8);
 	self.var_b220d777 = int(self.health * 0.5);

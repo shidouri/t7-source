@@ -724,7 +724,7 @@ function private function_da304666(wave_number, round_number)
 function function_703bb8b2(round_number)
 {
 	level.doa.spawn_sequence = [];
-	max = level.doa.rules.var_57cac10a + (level.doa.var_da96f13c * level.doa.rules.var_57cac10a);
+	max = level.doa.rules.var_57cac10a + (level.doa.game_laps * level.doa.rules.var_57cac10a);
 	waves = 6 + (int(round_number * 1.2));
 	if(waves > max)
 	{

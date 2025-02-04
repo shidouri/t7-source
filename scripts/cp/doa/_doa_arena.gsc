@@ -644,7 +644,7 @@ function function_b0e9983(name)
 			break;
 		}
 	}
-	count = count + (level.doa.var_da96f13c * 4);
+	count = count + (level.doa.game_laps * 4);
 	if(getplayers().size > 1)
 	{
 		count = count - (int(getplayers().size * 1.5));
@@ -1127,7 +1127,7 @@ function function_5af67667(var_7dd30d23, var_b4ca654f = 0)
 			[[level.doa.var_5ddb204f]]();
 		}
 		var_7dd30d23 = 0;
-		level.doa.var_da96f13c++;
+		level.doa.game_laps++;
 		level.doa.var_5bd7f25a = level.doa.var_5bd7f25a - 2000;
 		if(level.doa.var_5bd7f25a < 2000)
 		{

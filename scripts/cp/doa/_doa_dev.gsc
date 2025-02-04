@@ -786,7 +786,7 @@ function devguithink()
 			}
 			case "lap_next":
 			{
-				level.doa.var_da96f13c++;
+				level.doa.game_laps++;
 				level.doa.round_number = level.doa.round_number + 64;
 				flag::clear("doa_round_active");
 				doa_utility::function_1ced251e();

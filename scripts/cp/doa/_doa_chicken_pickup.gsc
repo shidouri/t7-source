@@ -1115,7 +1115,7 @@ function function_7b8c015c()
 		self.prize = level.doa.extra_life_model;
 	}
 	self physicslaunch(self.origin, vectorscale((0, 0, 1), 10));
-	self.health = 1500 + (level.doa.var_da96f13c * 500);
+	self.health = 1500 + (level.doa.game_laps * 500);
 	if(self.def.type == 36)
 	{
 		self.health = self.health + 3000;
