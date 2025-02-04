@@ -653,7 +653,7 @@ function function_da35c458(str_bonus, dropped_model)
 		}
 		case "raps":
 		{
-			self thread function_be188509();
+			self thread give_raps();
 			break;
 		}
 		default:
@@ -667,7 +667,7 @@ function function_da35c458(str_bonus, dropped_model)
 }
 
 /*
-	Name: function_be188509
+	Name: give_raps
 	Namespace: bonuszmdrops
 	Checksum: 0xB82755B2
 	Offset: 0x2368
@@ -675,7 +675,7 @@ function function_da35c458(str_bonus, dropped_model)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_be188509()
+function private give_raps()
 {
 	level.var_5a1513c4 = 1;
 	closestplayer = arraygetclosest(self.origin, level.players);
