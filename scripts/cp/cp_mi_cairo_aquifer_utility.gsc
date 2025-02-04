@@ -536,26 +536,26 @@ function function_a05f9e55()
 {
 	self endon("disconnect");
 	self endon("death");
-	self.var_a66e492f = 0;
+	self.dust_on = 0;
 	while(!level flag::get("inside_aquifer"))
 	{
 		if(self isinvehicle() || self isplayerunderwater() || level flag::get("inside_data_center") || level flag::get("flag_force_off_dust"))
 		{
-			if(self.var_a66e492f)
+			if(self.dust_on)
 			{
 				self clientfield::set_to_player("player_dust_fx", 0);
-				self.var_a66e492f = 0;
+				self.dust_on = 0;
 			}
 		}
-		else if(!self.var_a66e492f)
+		else if(!self.dust_on)
 		{
 			self clientfield::set_to_player("player_dust_fx", 1);
-			self.var_a66e492f = 1;
+			self.dust_on = 1;
 		}
 		wait(0.5);
 	}
 	self clientfield::set_to_player("player_dust_fx", 0);
-	self.var_a66e492f = 0;
+	self.dust_on = 0;
 }
 
 /*
@@ -5499,7 +5499,7 @@ function function_9ab6fc55(var_5fe70955, max_missiles)
 				}
 				else
 				{
-					self thread function_b7aaca29(getweapon("quadtank_main_turret_rocketpods_straight_homing"));
+					self thread early_kill(getweapon("quadtank_main_turret_rocketpods_straight_homing"));
 					self fireweapon(0);
 				}
 				fired = 1;
@@ -5536,7 +5536,7 @@ function function_9ab6fc55(var_5fe70955, max_missiles)
 }
 
 /*
-	Name: function_b7aaca29
+	Name: early_kill
 	Namespace: aquifer_util
 	Checksum: 0x596B977E
 	Offset: 0x12F60
@@ -5544,7 +5544,7 @@ function function_9ab6fc55(var_5fe70955, max_missiles)
 	Parameters: 1
 	Flags: Linked
 */
-function function_b7aaca29(projectile)
+function early_kill(projectile)
 {
 	self endon("entityshutdown");
 	self endon("death");
