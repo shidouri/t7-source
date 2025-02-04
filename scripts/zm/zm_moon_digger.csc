@@ -298,7 +298,7 @@ function do_digger_arm_fx(localclientnum, ent)
 }
 
 /*
-	Name: function_245b13ce
+	Name: digger_visibility
 	Namespace: zm_moon_digger
 	Checksum: 0xA1753AB6
 	Offset: 0xCC0
@@ -306,7 +306,7 @@ function do_digger_arm_fx(localclientnum, ent)
 	Parameters: 7
 	Flags: Linked
 */
-function function_245b13ce(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function digger_visibility(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(newval)
 	{

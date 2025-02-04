@@ -300,7 +300,7 @@ function register_clientfields()
 function function_20c21740()
 {
 	clientfield::register("world", "BIO", 21000, 1, "int", &zm_moon_digger::function_a0cf54a0, 0, 0);
-	clientfield::register("world", "DH", 21000, 1, "int", &zm_moon_digger::function_245b13ce, 0, 0);
+	clientfield::register("world", "DH", 21000, 1, "int", &zm_moon_digger::digger_visibility, 0, 0);
 	clientfield::register("world", "TCA", 21000, 1, "int", &zm_moon_digger::function_774edb15, 0, 0);
 	clientfield::register("world", "HCA", 21000, 1, "int", &zm_moon_digger::function_774edb15, 0, 0);
 	clientfield::register("world", "BCA", 21000, 1, "int", &zm_moon_digger::function_774edb15, 0, 0);
