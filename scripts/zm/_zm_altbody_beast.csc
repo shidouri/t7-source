@@ -1390,7 +1390,7 @@ function function_89d6f49a(localclientnum, onoff)
 	var_781fc232 = (63, 103, 4) / 255;
 	var_27745be8 = (105, 148, 24) / 255;
 	cycle_period = 2;
-	var_ec055171 = 0.25;
+	cycle_refresh = 0.25;
 	cycle_time = cycle_period;
 	old_color = function_4778b020(var_781fc232, var_27745be8);
 	new_color = old_color;
@@ -1405,8 +1405,8 @@ function function_89d6f49a(localclientnum, onoff)
 		color = function_4b2bbece(old_color, new_color, cycle_time / cycle_period);
 		self setcontrollerlightbarcolor(localclientnum, color);
 		self.controllercolor = color;
-		cycle_time = cycle_time + var_ec055171;
-		wait(var_ec055171);
+		cycle_time = cycle_time + cycle_refresh;
+		wait(cycle_refresh);
 	}
 }
 
