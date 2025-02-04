@@ -2959,7 +2959,7 @@ function private function_2f150493(source, dest)
 			/#
 				doa_utility::debugmsg("" + source.name);
 			#/
-			level thread doa_pickups::directeditemawardto(source, level.doa.var_501f85b4, 3);
+			level thread doa_pickups::directeditemawardto(source, level.doa.nuke_model, 3);
 		}
 		return;
 	}
@@ -3015,7 +3015,7 @@ function private function_2f150493(source, dest)
 				/#
 					doa_utility::debugmsg("" + source.name);
 				#/
-				level thread doa_pickups::directeditemawardto(source, level.doa.var_501f85b4, 2);
+				level thread doa_pickups::directeditemawardto(source, level.doa.nuke_model, 2);
 			}
 			else
 			{

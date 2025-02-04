@@ -458,7 +458,7 @@ function private function_1c54aa82(room)
 			var_4833a640 = 1;
 			level thread doa_pickups::spawnmoneyglob(0, 15, 0.1);
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
-			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
 			break;
 		}
 		case 1:
@@ -468,7 +468,7 @@ function private function_1c54aa82(room)
 			var_4833a640 = 1;
 			level thread doa_pickups::spawnmoneyglob(0, 2, randomfloatrange(2, 4));
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
-			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
 			break;
 		}
 		case 3:
@@ -477,7 +477,7 @@ function private function_1c54aa82(room)
 			level thread doa_pickups::spawnmoneyglob(0, 2, randomfloatrange(2, 4));
 			level thread doa_pickups::function_3238133b(level.doa.chicken_model, undefined, 1);
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
-			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
 			spot = doa_pickups::function_ac410a13();
 			if(isdefined(spot))
 			{
@@ -496,7 +496,7 @@ function private function_1c54aa82(room)
 			level thread doa_pickups::spawnmoneyglob(1, 5, 0.1);
 			level thread doa_pickups::spawnmoneyglob(0, 2, randomfloatrange(2, 4));
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
-			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
 			room.cooloff = gettime() + (30 * 60000);
 			break;
 		}
@@ -512,7 +512,7 @@ function private function_1c54aa82(room)
 			level doa_pickups::function_3238133b(level.doa.var_97bbae9c, undefined, 4);
 			level doa_pickups::function_3238133b(level.doa.var_f6e22ab8, undefined, 3);
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
-			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
 			break;
 		}
 		case 5:
@@ -523,7 +523,7 @@ function private function_1c54aa82(room)
 			level.doa.var_a3a11449 = 1;
 			level thread doa_pickups::spawnmoneyglob(0, 2, randomfloatrange(2, 4));
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
-			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
 			break;
 		}
 		case 7:
@@ -533,7 +533,7 @@ function private function_1c54aa82(room)
 			var_4833a640 = 1;
 			level thread doa_pickups::spawnmoneyglob(0, 2, randomfloatrange(2, 4));
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
-			level thread doa_pickups::function_3238133b(level.doa.var_501f85b4, undefined, 1);
+			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
 			break;
 		}
 		case 8:

@@ -1014,7 +1014,7 @@ function private function_e4f21fa9()
 	{
 		if(roll < 6)
 		{
-			prize = level.doa.var_501f85b4;
+			prize = level.doa.nuke_model;
 		}
 		else
 		{
