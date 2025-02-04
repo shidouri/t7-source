@@ -716,16 +716,16 @@ function private function_8a97d2c0(trigger)
 			{
 				continue;
 			}
-			if(!isdefined(guy.doa.var_84b9997f))
+			if(!isdefined(guy.doa.hazard_hit))
 			{
-				guy.doa.var_84b9997f = 0;
+				guy.doa.hazard_hit = 0;
 			}
 			curtime = gettime();
-			if(curtime < guy.doa.var_84b9997f)
+			if(curtime < guy.doa.hazard_hit)
 			{
 				continue;
 			}
-			guy.doa.var_84b9997f = curtime + 1500;
+			guy.doa.hazard_hit = curtime + 1500;
 			guy thread doa_sound::function_90118d8c("zmb_hazard_hit");
 			guy thread doa_fx::function_285a2999("hazard_electric");
 			if(isdefined(guy.boss) && guy.boss)
