@@ -199,7 +199,7 @@ function function_e8ef758e()
 	if(isdefined(level.apothicon_grapple_source))
 	{
 		e_player = self;
-		e_player.var_c932472f = "j_spine4";
+		e_player.grapple_tag = "j_spine4";
 		if(!(isdefined(e_player.var_1533bb11) && e_player.var_1533bb11))
 		{
 			e_player.var_1533bb11 = 1;

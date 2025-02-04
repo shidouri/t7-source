@@ -213,9 +213,9 @@ function private function_63b4b8a5(var_365c612)
 */
 function private grapple_point()
 {
-	if(isdefined(self.var_c932472f))
+	if(isdefined(self.grapple_tag))
 	{
-		v_origin = self gettagorigin(self.var_c932472f);
+		v_origin = self gettagorigin(self.grapple_tag);
 		return v_origin;
 	}
 	return self.origin;
