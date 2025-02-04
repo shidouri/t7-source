@@ -389,20 +389,20 @@ function centrifuge_jumpup_fix()
 		return;
 	}
 	jump_pos = var_157ff899.origin;
-	var_b9bd08ae = 0;
+	centrifuge_occupied = 0;
 	while(true)
 	{
-		if(level.zones["centrifuge_zone"].is_occupied && var_b9bd08ae == 0)
+		if(level.zones["centrifuge_zone"].is_occupied && centrifuge_occupied == 0)
 		{
 			var_157ff899 movex(jump_pos[0] + 64, 0.1);
 			var_157ff899 disconnectpaths();
-			var_b9bd08ae = 1;
+			centrifuge_occupied = 1;
 		}
-		else if(!level.zones["centrifuge_zone"].is_occupied && var_b9bd08ae == 1)
+		else if(!level.zones["centrifuge_zone"].is_occupied && centrifuge_occupied == 1)
 		{
 			var_157ff899 moveto(jump_pos, 0.1);
 			var_157ff899 connectpaths();
-			var_b9bd08ae = 0;
+			centrifuge_occupied = 0;
 		}
 		wait(1);
 	}
