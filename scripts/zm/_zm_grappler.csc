@@ -51,13 +51,13 @@ function __init__()
 */
 function grappler_source(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(!isdefined(level.var_3d35ab43))
+	if(!isdefined(level.grappler_sources))
 	{
-		level.var_3d35ab43 = [];
+		level.grappler_sources = [];
 	}
 	if(newval)
 	{
-		level.var_3d35ab43[localclientnum] = self;
+		level.grappler_sources[localclientnum] = self;
 	}
 }
 
@@ -72,14 +72,14 @@ function grappler_source(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function function_7bbbd82e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(!isdefined(level.var_3d35ab43))
+	if(!isdefined(level.grappler_sources))
 	{
-		level.var_3d35ab43 = [];
+		level.grappler_sources = [];
 	}
 	/#
-		assert(isdefined(level.var_3d35ab43[localclientnum]));
+		assert(isdefined(level.grappler_sources[localclientnum]));
 	#/
-	pivot = level.var_3d35ab43[localclientnum];
+	pivot = level.grappler_sources[localclientnum];
 	if(newval)
 	{
 		thread function_55af4b5b(self, "tag_origin", pivot, 0.05);
