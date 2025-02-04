@@ -45,7 +45,7 @@ function bot_idle()
 	}
 	else
 	{
-		self function_16ce4b24();
+		self defenders_idle();
 	}
 }
 
@@ -77,7 +77,7 @@ function attackers_idle()
 }
 
 /*
-	Name: function_16ce4b24
+	Name: defenders_idle
 	Namespace: bot_escort
 	Checksum: 0x203A2CFE
 	Offset: 0x370
@@ -85,7 +85,7 @@ function attackers_idle()
 	Parameters: 0
 	Flags: Linked
 */
-function function_16ce4b24()
+function defenders_idle()
 {
 	if(isdefined(level.moveobject) && level.robot.active)
 	{
