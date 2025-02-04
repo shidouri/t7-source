@@ -2382,13 +2382,13 @@ function function_328f9079(a_ents)
 		{
 			nd_goal = array::random(var_46700fc3);
 			arrayremovevalue(var_46700fc3, nd_goal);
-			ai thread function_ff59cf8(nd_goal);
+			ai thread foundry_retreat(nd_goal);
 		}
 	}
 }
 
 /*
-	Name: function_ff59cf8
+	Name: foundry_retreat
 	Namespace: newworld_factory
 	Checksum: 0x1BEC4E27
 	Offset: 0x9130
@@ -2396,7 +2396,7 @@ function function_328f9079(a_ents)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ff59cf8(nd_goal)
+function foundry_retreat(nd_goal)
 {
 	self endon("death");
 	self setgoal(nd_goal, 1);
