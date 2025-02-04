@@ -1844,7 +1844,7 @@ function function_67137b13()
 }
 
 /*
-	Name: function_4f66eed6
+	Name: hide_vistas
 	Namespace: infection_util
 	Checksum: 0xC21710C8
 	Offset: 0x6AD8
@@ -1852,7 +1852,7 @@ function function_67137b13()
 	Parameters: 0
 	Flags: None
 */
-function function_4f66eed6()
+function hide_vistas()
 {
 	// Unsupported VM revision (1B).
 }
