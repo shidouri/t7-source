@@ -626,7 +626,7 @@ function function_8b18e3ce()
 	{
 		return;
 	}
-	level thread function_f67d5866();
+	level thread floater_timer();
 	level.players[0] util::waittill_player_looking_at(var_feb1d46b.origin + vectorscale((0, 0, 1), 50), 90);
 	level notify(#"hash_d64d78d6");
 	var_d99e0864.origin = var_feb1d46b.origin + vectorscale((0, 0, 1), 64);
@@ -646,7 +646,7 @@ function function_8b18e3ce()
 }
 
 /*
-	Name: function_f67d5866
+	Name: floater_timer
 	Namespace: zm_castle_low_grav
 	Checksum: 0xF34F77C4
 	Offset: 0x2B28
@@ -654,7 +654,7 @@ function function_8b18e3ce()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f67d5866()
+function floater_timer()
 {
 	level endon(#"hash_d64d78d6");
 	wait(5);
