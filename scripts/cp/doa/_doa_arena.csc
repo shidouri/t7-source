@@ -341,11 +341,11 @@ function function_d6bfcb75(keywords)
 			i--;
 		}
 	}
-	var_e5c5b3d2 = level.struct_class_names;
-	var_7234d8ce = getarraykeys(var_e5c5b3d2);
+	class_names = level.struct_class_names;
+	var_7234d8ce = getarraykeys(class_names);
 	for(i = 0; i < var_7234d8ce.size; i++)
 	{
-		var_df94bc60 = var_e5c5b3d2[var_7234d8ce[i]];
+		var_df94bc60 = class_names[var_7234d8ce[i]];
 		keys = getarraykeys(var_df94bc60);
 		for(j = 0; j < keys.size; j++)
 		{
