@@ -100,8 +100,8 @@ function start_grapple(e_grappler, e_grapplee, n_type, n_speed = 1800)
 		e_grapplee unlink();
 		e_grapplee function_63b4b8a5(0);
 		util::wait_network_frame();
-		function_58192f77(var_b7c15e33);
-		function_58192f77(e_source);
+		destroy_mover(var_b7c15e33);
+		destroy_mover(e_source);
 	}
 }
 
@@ -238,7 +238,7 @@ function private create_mover(v_origin, v_angles)
 }
 
 /*
-	Name: function_58192f77
+	Name: destroy_mover
 	Namespace: zm_grappler
 	Checksum: 0x41501F2B
 	Offset: 0x9D8
@@ -246,7 +246,7 @@ function private create_mover(v_origin, v_angles)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_58192f77(var_b7c15e33)
+function private destroy_mover(var_b7c15e33)
 {
 	if(isdefined(var_b7c15e33))
 	{
