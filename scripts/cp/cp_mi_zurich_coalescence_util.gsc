@@ -3256,7 +3256,7 @@ function function_a00fa665(str_objective)
 {
 	if(isdefined(level.var_65070634))
 	{
-		level.var_65070634 notify(#"hash_11a8c313");
+		level.var_65070634 notify("delete_tree");
 	}
 	switch(str_objective)
 	{
@@ -3320,7 +3320,7 @@ function function_17fdda66()
 {
 	wait(0.1);
 	self clientfield::set("corvus_tree_shader", 1);
-	self waittill(#"hash_11a8c313");
+	self waittill("delete_tree");
 	self clientfield::set("corvus_tree_shader", 0);
 	if(isdefined(self.var_73c84646))
 	{

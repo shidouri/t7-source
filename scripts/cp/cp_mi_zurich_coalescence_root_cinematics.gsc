@@ -61,7 +61,7 @@ function play_scene(str_objective, e_player)
 	array::thread_all(a_ai, &zurich_util::function_48463818);
 	if(isdefined(level.var_65070634))
 	{
-		level.var_65070634 notify(#"hash_11a8c313");
+		level.var_65070634 notify("delete_tree");
 	}
 	function_32b529d8(str_objective, e_player);
 	switch(str_objective)
