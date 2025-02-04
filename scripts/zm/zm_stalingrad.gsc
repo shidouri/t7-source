@@ -1512,9 +1512,9 @@ function powerup_grab_get_players_override()
 	players = getplayers();
 	foreach(player in players)
 	{
-		if(isalive(player.var_4bd1ce6b))
+		if(isalive(player.dragon_whelp))
 		{
-			players[players.size] = player.var_4bd1ce6b;
+			players[players.size] = player.dragon_whelp;
 		}
 	}
 	return players;

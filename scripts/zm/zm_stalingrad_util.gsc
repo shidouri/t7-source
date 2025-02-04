@@ -257,11 +257,11 @@ function function_f8043960(var_57216c49, e_volume = undefined, var_50efb072 = 1,
 function function_7fbdcc5f(var_57216c49)
 {
 	self endon("death");
-	self.var_4bd1ce6b endon("death");
+	self.dragon_whelp endon("death");
 	self.var_9d9ac25d = 1;
-	self.var_4bd1ce6b vehicle_ai::start_scripted();
+	self.dragon_whelp vehicle_ai::start_scripted();
 	var_5572b89 = self [[var_57216c49]]();
-	self.var_4bd1ce6b vehicle_ai::stop_scripted();
+	self.dragon_whelp vehicle_ai::stop_scripted();
 	if(isdefined(var_5572b89) && var_5572b89)
 	{
 		return true;

@@ -2097,24 +2097,24 @@ function function_61210287()
 function function_3f7226c0()
 {
 	level endon("ee_defend_failed");
-	var_852a7c46 = self.var_4bd1ce6b getclosestpointonnavvolume(level.var_79fa326a.origin, 30);
-	self.var_4bd1ce6b setvehgoalpos(var_852a7c46, 1, 1);
-	if(self.var_4bd1ce6b vehicle_ai::waittill_pathresult())
+	var_852a7c46 = self.dragon_whelp getclosestpointonnavvolume(level.var_79fa326a.origin, 30);
+	self.dragon_whelp setvehgoalpos(var_852a7c46, 1, 1);
+	if(self.dragon_whelp vehicle_ai::waittill_pathresult())
 	{
-		self.var_4bd1ce6b vehicle_ai::waittill_pathing_done();
+		self.dragon_whelp vehicle_ai::waittill_pathing_done();
 	}
-	level.var_79fa326a.origin = self.var_4bd1ce6b gettagorigin("j_ankle_2_ri_anim");
-	level.var_79fa326a linkto(self.var_4bd1ce6b, "j_ankle_2_ri_anim");
+	level.var_79fa326a.origin = self.dragon_whelp gettagorigin("j_ankle_2_ri_anim");
+	level.var_79fa326a linkto(self.dragon_whelp, "j_ankle_2_ri_anim");
 	level notify("ee_cargo_retrieved");
-	self.var_4bd1ce6b thread function_948b1459();
+	self.dragon_whelp thread function_948b1459();
 	var_14b6e49e = struct::get("cargo_drop_" + level.var_79fa326a.str_location);
-	var_1c1045d9 = self.var_4bd1ce6b getclosestpointonnavvolume(var_14b6e49e.origin, 30);
-	self.var_4bd1ce6b setvehgoalpos(var_1c1045d9, 1, 1);
-	if(self.var_4bd1ce6b vehicle_ai::waittill_pathresult())
+	var_1c1045d9 = self.dragon_whelp getclosestpointonnavvolume(var_14b6e49e.origin, 30);
+	self.dragon_whelp setvehgoalpos(var_1c1045d9, 1, 1);
+	if(self.dragon_whelp vehicle_ai::waittill_pathresult())
 	{
-		self.var_4bd1ce6b vehicle_ai::waittill_pathing_done();
+		self.dragon_whelp vehicle_ai::waittill_pathing_done();
 	}
-	self.var_4bd1ce6b notify("cargo_dropped");
+	self.dragon_whelp notify("cargo_dropped");
 	level.var_79fa326a unlink();
 	level thread function_e085d31();
 	return true;
@@ -4119,16 +4119,16 @@ function function_777295a0()
 function function_2a7e8fc9()
 {
 	self clientfield::increment_to_player("interact_rumble");
-	var_7694d290 = util::spawn_model("veh_t7_dlc3_mech_nikolai_weapon_core", self.var_4bd1ce6b gettagorigin("j_ankle_2_ri_anim") - vectorscale((0, 0, 1), 2));
+	var_7694d290 = util::spawn_model("veh_t7_dlc3_mech_nikolai_weapon_core", self.dragon_whelp gettagorigin("j_ankle_2_ri_anim") - vectorscale((0, 0, 1), 2));
 	var_7694d290 setscale(0.75);
-	var_7694d290 linkto(self.var_4bd1ce6b, "j_ankle_2_ri_anim");
-	self.var_4bd1ce6b thread function_69e4f202(var_7694d290);
+	var_7694d290 linkto(self.dragon_whelp, "j_ankle_2_ri_anim");
+	self.dragon_whelp thread function_69e4f202(var_7694d290);
 	var_1f3ae034 = struct::get("ee_core_end_struct", "targetname");
-	var_57ae0247 = self.var_4bd1ce6b getclosestpointonnavvolume(var_1f3ae034.origin, 100);
-	self.var_4bd1ce6b setvehgoalpos(var_57ae0247, 1, 1);
-	if(self.var_4bd1ce6b vehicle_ai::waittill_pathresult())
+	var_57ae0247 = self.dragon_whelp getclosestpointonnavvolume(var_1f3ae034.origin, 100);
+	self.dragon_whelp setvehgoalpos(var_57ae0247, 1, 1);
+	if(self.dragon_whelp vehicle_ai::waittill_pathresult())
 	{
-		self.var_4bd1ce6b vehicle_ai::waittill_pathing_done();
+		self.dragon_whelp vehicle_ai::waittill_pathing_done();
 	}
 	var_7694d290 delete();
 	return true;
