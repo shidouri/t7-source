@@ -791,7 +791,7 @@ function private bgb_limit_monitor()
 				level.bgb[self.bgb].var_32fa3cb7 = i;
 				if(level.bgb[self.bgb].var_336ffc4e)
 				{
-					function_497386b0();
+					fill_timer();
 				}
 				else
 				{
@@ -1219,7 +1219,7 @@ function private bgb_set_timer_clientfield(percent)
 }
 
 /*
-	Name: function_497386b0
+	Name: fill_timer
 	Namespace: bgb
 	Checksum: 0x84F0B914
 	Offset: 0x35C8
@@ -1227,7 +1227,7 @@ function private bgb_set_timer_clientfield(percent)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_497386b0()
+function private fill_timer()
 {
 	self bgb_set_timer_clientfield(1);
 }
