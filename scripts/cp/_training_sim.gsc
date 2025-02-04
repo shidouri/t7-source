@@ -603,7 +603,7 @@ function cleanup()
 	}
 	delete_corpses();
 	function_8c8a1672();
-	function_65b24866();
+	delete_weapons();
 }
 
 /*
@@ -1023,7 +1023,7 @@ function function_8c8a1672()
 }
 
 /*
-	Name: function_65b24866
+	Name: delete_weapons
 	Namespace: training_sim
 	Checksum: 0x70B675A5
 	Offset: 0x3DD8
@@ -1031,7 +1031,7 @@ function function_8c8a1672()
 	Parameters: 0
 	Flags: Linked
 */
-function function_65b24866()
+function delete_weapons()
 {
 	a_dropped_weapons = getdroppedweapons();
 	foreach(e_weapon in a_dropped_weapons)
