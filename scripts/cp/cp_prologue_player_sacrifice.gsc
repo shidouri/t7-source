@@ -1400,7 +1400,7 @@ function function_6947ce3()
 	wait(1);
 	var_f5882947 = getent("fxanim_vtol_pod", "animname");
 	var_f5882947 thread function_34d9d6a7();
-	level waittill(#"hash_27dfe41d");
+	level waittill("cease_fire");
 	level thread function_94856821();
 }
 
@@ -1465,7 +1465,7 @@ function function_34d9d6a7()
 			wait(0.5);
 		}
 	}
-	level notify(#"hash_27dfe41d");
+	level notify("cease_fire");
 }
 
 /*
