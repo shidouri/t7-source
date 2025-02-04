@@ -1159,7 +1159,7 @@ function function_d3a80896(file, var_dc7b1be6)
 {
 	/#
 		var_7b625b5a = var_dc7b1be6 + "";
-		var_74036302 = var_dc7b1be6 + "";
+		filename_header = var_dc7b1be6 + "";
 		var_11e4d40d = var_dc7b1be6 + "";
 		filename_zone = level.script + "";
 		var_a0b36f12 = level.script + "";
@@ -1170,13 +1170,13 @@ function function_d3a80896(file, var_dc7b1be6)
 		fprintln(file, "");
 		fprintln(file, "");
 		fprintln(file, ("" + var_7b625b5a) + "");
-		fprintln(file, ("" + var_74036302) + "");
+		fprintln(file, ("" + filename_header) + "");
 		fprintln(file, (("" + var_11e4d40d) + "") + var_43a6e14b);
 		fprintln(file, (("" + var_7b625b5a) + "") + var_586b7057);
-		fprintln(file, (("" + var_74036302) + "") + var_6da36d3e);
+		fprintln(file, (("" + filename_header) + "") + var_6da36d3e);
 		fprintln(file, "");
 		fprintln(file, (("" + filename_zone) + "") + var_dc7b1be6);
-		fprintln(file, ((("" + var_a0b36f12) + "") + var_74036302) + "");
+		fprintln(file, ((("" + var_a0b36f12) + "") + filename_header) + "");
 		fprintln(file, "");
 		fprintln(file, "");
 		fprintln(file, "");
@@ -1311,7 +1311,7 @@ function function_1a022b4b()
 		}
 		var_dc7b1be6 = level.script + "";
 		var_7b625b5a = var_dc7b1be6 + "";
-		var_74036302 = var_dc7b1be6 + "";
+		filename_header = var_dc7b1be6 + "";
 		var_11e4d40d = var_dc7b1be6 + "";
 		filename_zone = level.script + "";
 		var_a0b36f12 = level.script + "";
@@ -1361,11 +1361,11 @@ function function_1a022b4b()
 		fprintln(file, "");
 		fprintln(file, "");
 		closefile(file);
-		file = openfile(var_74036302, "");
+		file = openfile(filename_header, "");
 		if(file == -1)
 		{
-			iprintlnbold((("" + var_36b45864) + var_74036302) + "");
-			println((("" + var_36b45864) + var_74036302) + "");
+			iprintlnbold((("" + var_36b45864) + filename_header) + "");
+			println((("" + var_36b45864) + filename_header) + "");
 			return;
 		}
 		fprintln(file, "");
@@ -1410,7 +1410,7 @@ function function_1a022b4b()
 			return;
 		}
 		fprintln(file, "" + var_7b625b5a);
-		fprintln(file, "" + var_74036302);
+		fprintln(file, "" + filename_header);
 		closefile(file);
 		iprintlnbold("" + var_36b45864);
 		println("" + var_36b45864);
