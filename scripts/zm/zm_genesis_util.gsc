@@ -2173,7 +2173,7 @@ function function_ae4d938c(v_target_pos, var_e57941b7, var_ca841609, str_endon_n
 		if(isdefined(n_time_before_next_pulse) && var_55ae5d19 > n_time_before_next_pulse)
 		{
 			var_55ae5d19 = 0;
-			self thread function_8d431c98(var_887c2fcb);
+			self thread do_pulse(var_887c2fcb);
 		}
 		wait(0.05);
 		var_55ae5d19 = var_55ae5d19 + 0.05;
@@ -2181,7 +2181,7 @@ function function_ae4d938c(v_target_pos, var_e57941b7, var_ca841609, str_endon_n
 }
 
 /*
-	Name: function_8d431c98
+	Name: do_pulse
 	Namespace: zm_genesis_util
 	Checksum: 0xFB7BD4C8
 	Offset: 0x59A8
@@ -2189,7 +2189,7 @@ function function_ae4d938c(v_target_pos, var_e57941b7, var_ca841609, str_endon_n
 	Parameters: 1
 	Flags: Linked
 */
-function function_8d431c98(var_887c2fcb)
+function do_pulse(var_887c2fcb)
 {
 	self playsoundtoplayer("zmb_main_searchparty_ping", self);
 	self set_rumble_to_player(var_887c2fcb);
