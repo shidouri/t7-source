@@ -1602,7 +1602,7 @@ function function_961485f0()
 			util::wait_network_frame();
 		}
 		level.var_e48a6587 waittill("trigger", player);
-		level notify(#"hash_9d1c8527");
+		level notify("cage_end");
 		if(level.var_f353ae68.is_moving)
 		{
 			continue;
@@ -1640,7 +1640,7 @@ function function_961485f0()
 */
 function function_1d3366a8()
 {
-	level endon(#"hash_9d1c8527");
+	level endon("cage_end");
 	wait(60);
 	if(level.var_f353ae68.is_down && !level.var_f353ae68.is_moving)
 	{
