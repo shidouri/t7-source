@@ -531,7 +531,7 @@ function function_165c9bd0()
 			doa_player_utility::function_82e3b1cb();
 		}
 		level.doa.var_602737ab = undefined;
-		level thread function_1de9db1b("silverback");
+		level thread boss_event("silverback");
 		return true;
 	}
 	if(var_e6171788 == "cave" && level.doa.arena_round_number == 0 || (isdefined(level.doa.var_bae65231) && level.doa.var_bae65231))
@@ -544,14 +544,14 @@ function function_165c9bd0()
 			doa_player_utility::function_82e3b1cb();
 		}
 		level.doa.var_bae65231 = undefined;
-		level thread function_1de9db1b("margwa");
+		level thread boss_event("margwa");
 		return false;
 	}
 	return false;
 }
 
 /*
-	Name: function_1de9db1b
+	Name: boss_event
 	Namespace: cp_doa_bo3
 	Checksum: 0x2E0B43E3
 	Offset: 0x2510
@@ -559,7 +559,7 @@ function function_165c9bd0()
 	Parameters: 1
 	Flags: Linked
 */
-function function_1de9db1b(name)
+function boss_event(name)
 {
 	switch(name)
 	{
