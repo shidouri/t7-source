@@ -1268,9 +1268,9 @@ function function_e9a25955()
 			speed_scale = pow(math::clamp(distance(veh.origin, desired_origin) / 2400, 0, 1), 2);
 			desired_angles = vectortoangles(desired_origin - veh.origin);
 			var_3e02e245 = angleclamp180(desired_angles[1]);
-			var_e8e62a06 = angleclamp180(desired_angles[0]);
+			desired_pitch = angleclamp180(desired_angles[0]);
 			yaw_diff = angleclamp180(var_3e02e245 - veh.angles[1]);
-			var_cd190041 = angleclamp180(var_e8e62a06 - veh.angles[0]);
+			var_cd190041 = angleclamp180(desired_pitch - veh.angles[0]);
 			veh.angles = (angleclamp180(veh.angles[0]) + (math::clamp(var_cd190041, -2.25, 2.25)), angleclamp180(veh.angles[1]) + (math::clamp(yaw_diff, -2.25, 2.25)), veh.angles[2] * 0.9);
 			veh.origin = veh.origin + ((((anglestoforward(veh.angles) * 300) * 17.6) * speed_scale) * 0.05);
 			if(speed_scale < 0.5 && !var_c6f525f9)
@@ -2324,7 +2324,7 @@ function function_fc653485()
 	Parameters: 2
 	Flags: None
 */
-function function_5739554b(var_e8e62a06, time)
+function function_5739554b(desired_pitch, time)
 {
 	self endon("death");
 	self notify(#"hash_5739554b");
@@ -2334,13 +2334,13 @@ function function_5739554b(var_e8e62a06, time)
 	do
 	{
 		time = time - 0.05;
-		self.angles = (start_pitch + ((var_e8e62a06 - start_pitch) * (start_time - time) / start_time), self.angles[1], self.angles[2]);
+		self.angles = (start_pitch + ((desired_pitch - start_pitch) * (start_time - time) / start_time), self.angles[1], self.angles[2]);
 		wait(0.05);
 	}
 	while(isdefined(self) && time > 0);
 	if(isdefined(self))
 	{
-		self.angles = (var_e8e62a06, self.angles[1], self.angles[2]);
+		self.angles = (desired_pitch, self.angles[1], self.angles[2]);
 	}
 }
 
