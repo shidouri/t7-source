@@ -388,7 +388,7 @@ function function_3a615091()
 }
 
 /*
-	Name: function_4b0777ee
+	Name: garage_spawn
 	Namespace: apc
 	Checksum: 0x4AEE07A
 	Offset: 0x3D60
@@ -396,7 +396,7 @@ function function_3a615091()
 	Parameters: 0
 	Flags: None
 */
-function function_4b0777ee()
+function garage_spawn()
 {
 	// Unsupported VM revision (1B).
 }
