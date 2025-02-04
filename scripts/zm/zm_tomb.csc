@@ -682,11 +682,11 @@ function function_d56fa005()
 {
 	for(i = 0; i < 5; i++)
 	{
-		if(!isdefined(level.var_3e984f03[i]))
+		if(!isdefined(level.element_rotations[i]))
 		{
 			continue;
 		}
-		n_rotation = int(level.var_3e984f03[i]);
+		n_rotation = int(level.element_rotations[i]);
 		n_target = int(self.angles[1]);
 		diff = abs(angle_dif(n_target, n_rotation));
 		if(diff <= 45)
@@ -708,13 +708,13 @@ function function_d56fa005()
 */
 function function_657fb719(localclientnum, light_on)
 {
-	if(!isdefined(level.var_3e984f03))
+	if(!isdefined(level.element_rotations))
 	{
-		level.var_3e984f03 = [];
-		level.var_3e984f03[2] = 270;
-		level.var_3e984f03[1] = 180;
-		level.var_3e984f03[3] = 90;
-		level.var_3e984f03[4] = 0;
+		level.element_rotations = [];
+		level.element_rotations[2] = 270;
+		level.element_rotations[1] = 180;
+		level.element_rotations[3] = 90;
+		level.element_rotations[4] = 0;
 	}
 	if(!isdefined(level.var_1aa82a7e))
 	{
