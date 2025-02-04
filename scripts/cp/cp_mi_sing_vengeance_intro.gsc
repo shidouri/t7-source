@@ -1107,13 +1107,13 @@ function function_7acb5fc4()
 	var_f55990dd = getent("chair_a_clip", "targetname");
 	array::add(var_dad63b6d, var_f55990dd);
 	var_f55990dd linkto(var_a0eb961c);
-	var_a6f749a8 = getent("door_exit", "targetname");
-	array::add(var_dad63b6d, var_a6f749a8);
+	door_exit = getent("door_exit", "targetname");
+	array::add(var_dad63b6d, door_exit);
 	var_c7bdecc1 = getent("door_exit_clip", "targetname");
 	array::add(var_dad63b6d, var_c7bdecc1);
-	var_c7bdecc1 linkto(var_a6f749a8);
-	var_7f0731c6 = var_a6f749a8.origin;
-	var_c815eaa0 = var_a6f749a8.angles;
+	var_c7bdecc1 linkto(door_exit);
+	var_7f0731c6 = door_exit.origin;
+	var_c815eaa0 = door_exit.angles;
 	civilians = [];
 	civilians[civilians.size] = getent("synckill_dead_civilian_ai", "targetname");
 	civilians[civilians.size] = getent("synckill_husband_ai", "targetname");
@@ -1123,9 +1123,9 @@ function function_7acb5fc4()
 		civ.ignoreme = 1;
 	}
 	level flag::wait_till("start_takedown_igc");
-	var_a6f749a8 stopanimscripted();
-	var_a6f749a8.origin = var_7f0731c6;
-	var_a6f749a8.angles = var_c815eaa0;
+	door_exit stopanimscripted();
+	door_exit.origin = var_7f0731c6;
+	door_exit.angles = var_c815eaa0;
 	level flag::wait_till("start_dogleg_1_intro");
 	foreach(prop in var_dad63b6d)
 	{
