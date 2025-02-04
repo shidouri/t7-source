@@ -105,7 +105,7 @@ function function_7884e6b8()
 	array::add(var_4c7aad4a, array("vox_plr_1_interaction_niko_demp_3_0", "vox_plr_0_interaction_niko_demp_3_0"));
 	array::add(var_4c7aad4a, array("vox_plr_1_interaction_niko_demp_4_0", "vox_plr_0_interaction_niko_demp_4_0"));
 	array::add(var_4c7aad4a, array("vox_plr_1_interaction_niko_demp_5_0", "vox_plr_0_interaction_niko_demp_5_0"));
-	var_22f40782 = 0;
+	dragged_from = 0;
 	level waittill("all_players_spawned");
 	wait(1);
 	while(true)
@@ -172,10 +172,10 @@ function function_7884e6b8()
 									}
 									else if(var_e8669.characterindex == 0 && var_261100d2.characterindex == 1 || (var_261100d2.characterindex == 0 && var_e8669.characterindex == 1))
 									{
-										if(var_22f40782 < var_4c7aad4a.size)
+										if(dragged_from < var_4c7aad4a.size)
 										{
-											function_c23e3a71(var_4c7aad4a, var_22f40782, 1);
-											var_22f40782++;
+											function_c23e3a71(var_4c7aad4a, dragged_from, 1);
+											dragged_from++;
 										}
 									}
 								}
