@@ -48,7 +48,7 @@
 */
 function start_boss()
 {
-	thread function_510d0407();
+	thread fire_makers();
 	level flag::wait_till("start_battle");
 	thread init_ally_sniper_route("hendricks");
 	thread init_sniper_boss();
@@ -768,7 +768,7 @@ function function_2a39915e()
 }
 
 /*
-	Name: function_510d0407
+	Name: fire_makers
 	Namespace: cp_mi_cairo_aquifer_boss
 	Checksum: 0xDAE8E5B1
 	Offset: 0x2B20
@@ -776,7 +776,7 @@ function function_2a39915e()
 	Parameters: 0
 	Flags: Linked
 */
-function function_510d0407()
+function fire_makers()
 {
 	ents = getentarray("fire_maker", "script_noteworthy");
 	level.var_510d0407 = ents;
