@@ -625,18 +625,18 @@ function function_3209ead3(behaviortreeentity)
 		behaviortreeentity function_d30fe558(origin);
 		return true;
 	}
-	if(isdefined(behaviortreeentity.var_f4a5c4fe))
+	if(isdefined(behaviortreeentity.goto_location))
 	{
-		point = getclosestpointonnavmesh(behaviortreeentity.var_f4a5c4fe, 20, 16);
+		point = getclosestpointonnavmesh(behaviortreeentity.goto_location, 20, 16);
 		if(isdefined(point))
 		{
-			behaviortreeentity setgoal(behaviortreeentity.var_f4a5c4fe, 1);
+			behaviortreeentity setgoal(behaviortreeentity.goto_location, 1);
 		}
 		else
 		{
 			behaviortreeentity setgoal(behaviortreeentity.origin, 1);
 		}
-		behaviortreeentity.var_f4a5c4fe = undefined;
+		behaviortreeentity.goto_location = undefined;
 		return true;
 	}
 	return false;

@@ -209,14 +209,14 @@ function private function_a2756e92()
 	self thread doa_sound::function_90118d8c("zmb_simianaut_roar");
 	self.var_88168473 = 1;
 	self.zombie_move_speed = "walk";
-	self.var_f4a5c4fe = doa_pickups::function_ac410a13().origin;
-	if(isdefined(self.var_f4a5c4fe))
+	self.goto_location = doa_pickups::function_ac410a13().origin;
+	if(isdefined(self.goto_location))
 	{
-		self setgoal(self.var_f4a5c4fe, 1);
+		self setgoal(self.goto_location, 1);
 	}
 	if(getdvarint("scr_boss_debug", 0))
 	{
-		level thread doa_dev::function_5e6b8376(self.var_f4a5c4fe, 128, 0.5, (1, 0, 0));
+		level thread doa_dev::function_5e6b8376(self.goto_location, 128, 0.5, (1, 0, 0));
 	}
 	self util::waittill_any_timeout(14, "goal", "damage", "death");
 	self.var_88168473 = undefined;
@@ -439,14 +439,14 @@ function private function_2ca4656()
 			spot = getclosestpointonnavmesh(target.origin, 512, 36);
 			if(isdefined(spot) && self findpath(self.origin, spot, 1, 0))
 			{
-				self.var_f4a5c4fe = spot;
-				self setgoal(self.var_f4a5c4fe, 1);
+				self.goto_location = spot;
+				self setgoal(self.goto_location, 1);
 				if(getdvarint("scr_boss_debug", 0))
 				{
 					level thread doa_dev::function_5e6b8376(target.origin, 32, 500, (1, 1, 0));
 				}
 				self util::waittill_any_timeout(10, "goal", "death");
-				self.var_f4a5c4fe = undefined;
+				self.goto_location = undefined;
 				if(isdefined(target))
 				{
 					target.unreachable = 1;
@@ -468,16 +468,16 @@ function private function_2ca4656()
 	self.ignoreall = 1;
 	self.favoriteenemy = undefined;
 	self clearentitytarget();
-	self.var_f4a5c4fe = self.var_f1eeb152;
+	self.goto_location = self.var_f1eeb152;
 	tries = 0;
-	while(isdefined(self.var_f4a5c4fe) && self findpath(self.origin, self.var_f4a5c4fe, 1, 0))
+	while(isdefined(self.goto_location) && self findpath(self.origin, self.goto_location, 1, 0))
 	{
 		distsq = distancesquared(self.origin, self.var_f1eeb152);
 		if(distsq > 64 || tries > 9)
 		{
-			self setgoal(self.var_f4a5c4fe, 1);
+			self setgoal(self.goto_location, 1);
 			self waittill("goal");
-			self.var_f4a5c4fe = self.var_f1eeb152;
+			self.goto_location = self.var_f1eeb152;
 			tries++;
 		}
 		else
