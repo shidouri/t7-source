@@ -714,7 +714,7 @@ function magic_circle_trigger_activate(trig_stub, player)
 		if(player.sword_quest_2.kills[var_181b74a5] == n_kills_needed)
 		{
 			level notify(str_endon);
-			player.sword_quest_2.var_db999762[var_181b74a5] = n_kills_needed;
+			player.sword_quest_2.circles_completed[var_181b74a5] = n_kills_needed;
 			n_charges = player function_b7af29e0();
 			player clientfield::set_player_uimodel("zmInventory.player_sword_quest_egg_state", 1 + n_charges);
 			player thread zm_zod_util::function_55f114f9("zmInventory.widget_egg", 3.5);
@@ -1310,7 +1310,7 @@ function on_player_connect()
 	self.sword_quest_2 = spawnstruct();
 	self.sword_quest_2.kills = [];
 	self.sword_quest_2.all_kills_completed = 0;
-	self.sword_quest_2.var_db999762 = [];
+	self.sword_quest_2.circles_completed = [];
 	self.sword_quest.upgrade_stage = 0;
 	self flag::init("waiting_for_upgraded_sword");
 	self flag::init("magic_circle_wait_for_round_completed");
@@ -1549,7 +1549,7 @@ function private function_5fd6959f(var_a94aa7ef)
 */
 function private function_a7e71a86(var_a94aa7ef)
 {
-	return isdefined(self.sword_quest_2.var_db999762[var_a94aa7ef]);
+	return isdefined(self.sword_quest_2.circles_completed[var_a94aa7ef]);
 }
 
 /*
