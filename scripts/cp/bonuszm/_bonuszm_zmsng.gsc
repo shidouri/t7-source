@@ -167,32 +167,32 @@ function function_8765a33c(mdl_collectible)
 	trigger_use setteamfortrigger("none");
 	trigger_use setcursorhint("HINT_INTERACTIVE_PROMPT");
 	trigger_use sethintstring(&"COLLECTIBLE_PICK_UP");
-	var_837a6185 = gameobjects::create_use_object("any", trigger_use, array(mdl_collectible), (0, 0, 0), &"cp_magic_song");
-	var_837a6185 gameobjects::allow_use("any");
-	var_837a6185 gameobjects::set_use_time(0.35);
-	var_837a6185 gameobjects::set_owner_team("allies");
-	var_837a6185 gameobjects::set_visible_team("any");
-	var_837a6185.mdl_collectible = mdl_collectible;
-	var_837a6185.onuse = &onuse;
-	var_837a6185.onbeginuse = &onbeginuse;
-	var_837a6185.single_use = 1;
-	var_837a6185.origin = mdl_collectible.origin;
-	var_837a6185.angles = var_837a6185.angles;
+	collectible_object = gameobjects::create_use_object("any", trigger_use, array(mdl_collectible), (0, 0, 0), &"cp_magic_song");
+	collectible_object gameobjects::allow_use("any");
+	collectible_object gameobjects::set_use_time(0.35);
+	collectible_object gameobjects::set_owner_team("allies");
+	collectible_object gameobjects::set_visible_team("any");
+	collectible_object.mdl_collectible = mdl_collectible;
+	collectible_object.onuse = &onuse;
+	collectible_object.onbeginuse = &onbeginuse;
+	collectible_object.single_use = 1;
+	collectible_object.origin = mdl_collectible.origin;
+	collectible_object.angles = collectible_object.angles;
 	if(isdefined(mdl_collectible.script_int))
 	{
-		var_837a6185.index = mdl_collectible.script_int - 1;
+		collectible_object.index = mdl_collectible.script_int - 1;
 	}
 	else
 	{
-		var_837a6185.index = (int(getsubstr(mdl_collectible.model, mdl_collectible.model.size - 2))) - 1;
+		collectible_object.index = (int(getsubstr(mdl_collectible.model, mdl_collectible.model.size - 2))) - 1;
 	}
 	mdl_collectible setmodel("p7_zm_teddybear_sitting");
 	mdl_collectible clientfield::set("powerup_on_fx", 2);
 	mdl_collectible setscale(0.7);
 	/#
-		level thread debug_draw_line(var_837a6185.origin);
+		level thread debug_draw_line(collectible_object.origin);
 	#/
-	return var_837a6185;
+	return collectible_object;
 }
 
 /*
