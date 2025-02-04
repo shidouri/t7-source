@@ -636,7 +636,7 @@ function end_battle()
 {
 	exploder::exploder("lighting_turbine_boss_emergency");
 	level.hendricks dialog::say("hend_that_should_do_it_0");
-	thread function_c3af0181();
+	thread capture_nags();
 	level flag::set("boss_finale_ready");
 	trig = getent("boss_finale_trigger", "targetname");
 	trig triggerenable(1);
@@ -1386,7 +1386,7 @@ function function_86fc21bb()
 }
 
 /*
-	Name: function_c3af0181
+	Name: capture_nags
 	Namespace: cp_mi_cairo_aquifer_boss
 	Checksum: 0x62D99B0D
 	Offset: 0x4660
@@ -1394,7 +1394,7 @@ function function_86fc21bb()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c3af0181()
+function capture_nags()
 {
 	a_nags = [];
 	if(!isdefined(a_nags))
