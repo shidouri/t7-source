@@ -3108,7 +3108,7 @@ function function_109151c2(a_ents)
 	{
 		level.var_1564d2c8[post.script_string] = post;
 	}
-	level.var_ef9c43d7.var_1c9faafd = level.var_ef9c43d7 function_b1a4952d();
+	level.var_ef9c43d7.var_1c9faafd = level.var_ef9c43d7 current_post();
 	level thread scene::play("cin_sta_intro_3rd_crashed_mech_loop");
 }
 
@@ -3284,7 +3284,7 @@ function function_1a2d9dc9()
 	{
 		return false;
 	}
-	current_post = level.var_ef9c43d7 function_b1a4952d();
+	current_post = level.var_ef9c43d7 current_post();
 	var_7649b699 = undefined;
 	if(isdefined(current_post))
 	{
@@ -4502,7 +4502,7 @@ function function_30e5b419(s_pos, str_pos, var_6e2a6191, var_4827e728)
 }
 
 /*
-	Name: function_b1a4952d
+	Name: current_post
 	Namespace: dragon
 	Checksum: 0x9B4DC423
 	Offset: 0xE4F0
@@ -4510,7 +4510,7 @@ function function_30e5b419(s_pos, str_pos, var_6e2a6191, var_4827e728)
 	Parameters: 0
 	Flags: Linked
 */
-function function_b1a4952d()
+function current_post()
 {
 	if(isdefined(self.current_post) && distance2dsquared(self.origin, self.current_post.origin) < (100 * 100))
 	{
@@ -4693,7 +4693,7 @@ function function_32faa6e1(no_delay = 0)
 			continue;
 		}
 		self setneargoalnotifydist(self.radius);
-		current_post = self function_b1a4952d();
+		current_post = self current_post();
 		var_7649b699 = undefined;
 		if(isdefined(current_post))
 		{
