@@ -520,7 +520,7 @@ function function_c762197b()
 }
 
 /*
-	Name: function_bd8082d1
+	Name: cocoon_select
 	Namespace: zm_island_pap_quest
 	Checksum: 0xDA978203
 	Offset: 0x1E88
@@ -528,7 +528,7 @@ function function_c762197b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_bd8082d1()
+function cocoon_select()
 {
 	var_1daee2f1 = getentarray("cocoon_bunker", "targetname");
 	var_d43245b8 = [];
@@ -573,7 +573,7 @@ function cocoon_effects()
 	if(level.var_e1bb72d5 >= 3 && !level.var_69ca3c45)
 	{
 		level.var_69ca3c45 = 1;
-		function_bd8082d1();
+		cocoon_select();
 	}
 }
 
