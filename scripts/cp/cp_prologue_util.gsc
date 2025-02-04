@@ -43,7 +43,7 @@ function give_max_ammo()
 }
 
 /*
-	Name: function_b50f5d52
+	Name: cleanup_enemies
 	Namespace: cp_prologue_util
 	Checksum: 0xC2501119
 	Offset: 0x720
@@ -51,7 +51,7 @@ function give_max_ammo()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b50f5d52(var_76cb0c72 = 0)
+function cleanup_enemies(var_76cb0c72 = 0)
 {
 	a_ai_enemies = getaiteamarray("axis");
 	foreach(ai_enemy in a_ai_enemies)

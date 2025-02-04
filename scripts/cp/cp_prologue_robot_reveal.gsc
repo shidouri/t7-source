@@ -131,7 +131,7 @@ function robot_horde_main()
 		ai_ally ai::set_behavior_attribute("cqb", 1);
 	}
 	level flag::wait_till("player_in_alley");
-	cp_prologue_util::function_b50f5d52();
+	cp_prologue_util::cleanup_enemies();
 	a_ai_allies = cp_prologue_util::get_ai_allies();
 	a_ai_allies[a_ai_allies.size] = level.ai_theia;
 	a_ai_allies[a_ai_allies.size] = level.ai_hendricks;
