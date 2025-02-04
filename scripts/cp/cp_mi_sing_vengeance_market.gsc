@@ -1330,7 +1330,7 @@ function plaza_enemies(b_starting = 0)
 	spawner::waittill_ai_group_ai_count("plaza_enemies", 4);
 	level thread vengeance_util::function_a084a58f();
 	spawner::kill_spawnernum(700);
-	var_e5206be0 = getent("sh_steps_final_volume", "targetname");
+	final_volume = getent("sh_steps_final_volume", "targetname");
 	var_87cdd1a3 = getent("sh_allies_volume", "targetname");
 	guys = spawner::get_ai_group_ai("plaza_enemies");
 	foreach(guy in guys)
@@ -1340,7 +1340,7 @@ function plaza_enemies(b_starting = 0)
 			guy setgoal(var_87cdd1a3, 1);
 			continue;
 		}
-		guy setgoal(var_e5206be0, 1);
+		guy setgoal(final_volume, 1);
 	}
 	spawner::waittill_ai_group_ai_count("plaza_enemies", 1);
 	guys = spawner::get_ai_group_ai("plaza_enemies");
