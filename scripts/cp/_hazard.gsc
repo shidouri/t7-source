@@ -431,7 +431,7 @@ function function_476442fb(n_damage_frac, e_ent)
 }
 
 /*
-	Name: function_503a50a8
+	Name: drown_warning
 	Namespace: hazard
 	Checksum: 0xE9C8FD62
 	Offset: 0x10C0
@@ -439,7 +439,7 @@ function function_476442fb(n_damage_frac, e_ent)
 	Parameters: 0
 	Flags: Linked
 */
-function function_503a50a8()
+function drown_warning()
 {
 	self endon("death");
 	self clientfield::set_to_player("player_cam_bubbles", 1);
@@ -466,14 +466,14 @@ function function_8b413656(var_d2eebe84, e_ent)
 	{
 		if(self.var_18c7e911 > 0.2)
 		{
-			self thread function_503a50a8();
+			self thread drown_warning();
 		}
 	}
 	else if(var_d2eebe84 <= 0.1)
 	{
 		if(self.var_18c7e911 > 0.1)
 		{
-			self thread function_503a50a8();
+			self thread drown_warning();
 		}
 	}
 	var_b45ec125 = array(0.5, 0.3, 0.2, 0.15, 0.1, 0.5);
