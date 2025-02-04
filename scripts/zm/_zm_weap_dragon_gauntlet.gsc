@@ -576,9 +576,9 @@ function function_62d6a233()
 	while(true)
 	{
 		self util::waittill_any("weapon_melee", "weapon_melee_power");
-		var_ebcc1e01 = self gettagorigin("tag_weapon_right");
-		physicsexplosioncylinder(var_ebcc1e01, 96, 48, 1.5);
-		self thread function_345e492a(var_ebcc1e01, 128);
+		damage_point = self gettagorigin("tag_weapon_right");
+		physicsexplosioncylinder(damage_point, 96, 48, 1.5);
+		self thread function_345e492a(damage_point, 128);
 		wait(0.05);
 	}
 }
@@ -660,10 +660,10 @@ function function_e7fe168a(weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_345e492a(var_ebcc1e01, radius)
+function function_345e492a(damage_point, radius)
 {
 	player = self;
-	a_enemies_in_range = array::get_all_closest(var_ebcc1e01, getaiteamarray(level.zombie_team), undefined, undefined, radius);
+	a_enemies_in_range = array::get_all_closest(damage_point, getaiteamarray(level.zombie_team), undefined, undefined, radius);
 	if(!isdefined(a_enemies_in_range) || a_enemies_in_range.size <= 0)
 	{
 		return;
@@ -674,7 +674,7 @@ function function_345e492a(var_ebcc1e01, radius)
 		{
 			continue;
 		}
-		range_sq = distancesquared(enemy.origin, var_ebcc1e01);
+		range_sq = distancesquared(enemy.origin, damage_point);
 		radius_sq = radius * radius;
 		enemy.var_96906507 = 1;
 		if(range_sq > radius_sq)
@@ -684,7 +684,7 @@ function function_345e492a(var_ebcc1e01, radius)
 		[[ level.var_af9cd4ca ]]->waitinqueue(enemy);
 		if(isdefined(enemy) && isalive(enemy))
 		{
-			enemy dodamage(enemy.health + 6000, var_ebcc1e01, player, undefined, undefined, "MOD_MELEE", 0, level.var_ae0fff53);
+			enemy dodamage(enemy.health + 6000, damage_point, player, undefined, undefined, "MOD_MELEE", 0, level.var_ae0fff53);
 			if(isvehicle(enemy))
 			{
 				continue;
