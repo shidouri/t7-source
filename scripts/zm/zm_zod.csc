@@ -514,7 +514,7 @@ function devgui_lightning_test(localclientnum, oldval, newval, bnewent, binitial
 }
 
 /*
-	Name: function_f650f42a
+	Name: ghost_player
 	Namespace: zm_zod
 	Checksum: 0xDD510285
 	Offset: 0x3AD0
@@ -522,7 +522,7 @@ function devgui_lightning_test(localclientnum, oldval, newval, bnewent, binitial
 	Parameters: 7
 	Flags: None
 */
-function function_f650f42a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function ghost_player(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(self isplayer() && self islocalplayer() && !isdemoplaying())
 	{
