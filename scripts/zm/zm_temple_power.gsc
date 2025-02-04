@@ -231,9 +231,9 @@ function function_fb70e1ed(var_68f7eb77)
 	Parameters: 4
 	Flags: Linked
 */
-function _movez(z_value, time, acceleration_time, var_cff30a24)
+function _movez(z_value, time, acceleration_time, deceleration_time)
 {
-	self movez(z_value, time, acceleration_time, var_cff30a24);
+	self movez(z_value, time, acceleration_time, deceleration_time);
 }
 
 /*
