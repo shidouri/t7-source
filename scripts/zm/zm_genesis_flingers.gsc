@@ -108,14 +108,14 @@ function function_5ecbd7cb()
 				{
 					if(math::cointoss())
 					{
-						ai_zombie thread function_e9d3c391(vol_fling, v_fling, nd_start);
+						ai_zombie thread do_fling(vol_fling, v_fling, nd_start);
 					}
 				}
 			}
 			else
 			{
 				a_active_players = function_3dcd0982(level.activeplayers, vol_fling);
-				array::thread_all(a_active_players, &function_e9d3c391, vol_fling, v_fling, nd_start, var_845e036a);
+				array::thread_all(a_active_players, &do_fling, vol_fling, v_fling, nd_start, var_845e036a);
 			}
 			n_timer = n_timer + 0.1;
 			wait(0.1);
@@ -227,7 +227,7 @@ function function_149a5187()
 }
 
 /*
-	Name: function_e9d3c391
+	Name: do_fling
 	Namespace: zm_genesis_flingers
 	Checksum: 0x878E428
 	Offset: 0x1160
@@ -235,7 +235,7 @@ function function_149a5187()
 	Parameters: 4
 	Flags: Linked
 */
-function function_e9d3c391(var_a89f74ed, v_fling, nd_start, var_173065cc)
+function do_fling(var_a89f74ed, v_fling, nd_start, var_173065cc)
 {
 	self endon("death");
 	if(isdefined(self.is_flung) && self.is_flung || (isdefined(self.var_8dbb72b1) && self.var_8dbb72b1[var_a89f74ed.script_string] === 1))
@@ -684,7 +684,7 @@ function function_1a4837ab(nd_target, e_target, var_a89f74ed, v_fling)
 			n_randy = randomint(100);
 			if(n_randy < 25)
 			{
-				self thread function_e9d3c391(var_a89f74ed, v_fling, nd_target);
+				self thread do_fling(var_a89f74ed, v_fling, nd_target);
 			}
 		}
 	}

@@ -123,7 +123,7 @@ function function_5ecbd7cb()
 			a_ai_zombies = function_3dcd0982(a_ai_zombies, vol_fling);
 			if(a_ai_zombies.size)
 			{
-				array::thread_all(a_ai_zombies, &function_e9d3c391, vol_fling, v_fling, nd_start);
+				array::thread_all(a_ai_zombies, &do_fling, vol_fling, v_fling, nd_start);
 			}
 			else
 			{
@@ -134,7 +134,7 @@ function function_5ecbd7cb()
 				}
 				else
 				{
-					array::thread_all(a_active_players, &function_e9d3c391, vol_fling, v_fling, nd_start, var_845e036a, var_df826fd8);
+					array::thread_all(a_active_players, &do_fling, vol_fling, v_fling, nd_start, var_845e036a, var_df826fd8);
 				}
 			}
 			n_timer = n_timer + 0.1;
@@ -427,7 +427,7 @@ function function_f7842163(var_ca34f349, v_fling, nd_start, var_173065cc, var_df
 	{
 		if(self[i] istouching(var_ca34f349) && (isdefined(self[i].var_9a017681) && self[i].var_9a017681))
 		{
-			self[i] thread function_e9d3c391(var_ca34f349, v_fling, nd_start, var_173065cc, var_df826fd8);
+			self[i] thread do_fling(var_ca34f349, v_fling, nd_start, var_173065cc, var_df826fd8);
 			wait(0.25);
 		}
 		self[i].var_9a017681 = undefined;
@@ -451,7 +451,7 @@ function function_149a5187()
 }
 
 /*
-	Name: function_e9d3c391
+	Name: do_fling
 	Namespace: zm_castle_flingers
 	Checksum: 0x3DD19699
 	Offset: 0x1AE0
@@ -459,7 +459,7 @@ function function_149a5187()
 	Parameters: 5
 	Flags: Linked
 */
-function function_e9d3c391(var_ca34f349, v_fling, nd_start, var_173065cc, var_df826fd8)
+function do_fling(var_ca34f349, v_fling, nd_start, var_173065cc, var_df826fd8)
 {
 	self endon("death");
 	if(isplayer(self))
@@ -856,7 +856,7 @@ function function_1a4837ab(nd_target, e_target, var_ca34f349, v_fling)
 		n_total_time = (n_end_time - n_start_time) / 1000;
 		if(!(isdefined(self.is_flung) && self.is_flung) && n_total_time < 6)
 		{
-			self thread function_e9d3c391(var_ca34f349, v_fling, nd_target);
+			self thread do_fling(var_ca34f349, v_fling, nd_target);
 		}
 	}
 }
