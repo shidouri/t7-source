@@ -915,7 +915,7 @@ function moon_nml_transition(localclientnum, oldval, newval, bnewent, binitialsn
 	else
 	{
 		visionset_mgr::fog_vol_to_visionset_set_suffix("");
-		level notify(#"hash_d2b77ba2");
+		level notify("entered_moon");
 		setukkoscriptindex(localclientnum, 1, 1);
 	}
 }
@@ -931,7 +931,7 @@ function moon_nml_transition(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function function_fbf77a74(localclientnum)
 {
-	self endon(#"hash_d2b77ba2");
+	self endon("entered_moon");
 	while(true)
 	{
 		var_f4570d42 = randomint(5);
