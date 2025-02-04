@@ -1771,7 +1771,7 @@ function function_baa7411e(weapon)
 		{
 			if(weapon.name == "zombietron_launcher")
 			{
-				self.doa.var_d898dd8e = level.doa.var_ab5c3535;
+				self.doa.var_d898dd8e = level.doa.chicken_launcher;
 				self.doa.var_7a1de0da = -5;
 			}
 			else

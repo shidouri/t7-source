@@ -694,7 +694,7 @@ function function_555fb805()
 	level.disableclassselection = 1;
 	level.disable_damage_blur = 1;
 	level.disable_damage_overlay = 1;
-	level.doa.var_ab5c3535 = getweapon("zombietron_launcher_magic_bullet");
+	level.doa.chicken_launcher = getweapon("zombietron_launcher_magic_bullet");
 	level.doa.var_5706a235 = getweapon("zombietron_launcher_1_magic_bullet");
 	level.doa.var_7d091c9e = getweapon("zombietron_launcher_2_magic_bullet");
 	level.doa.var_e6a7c945 = getweapon("zombietron_rpg");
