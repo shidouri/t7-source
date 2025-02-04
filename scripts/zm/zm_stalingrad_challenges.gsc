@@ -366,23 +366,23 @@ function function_fbbc8608(n_challenge_index, var_d4adfa57)
 {
 	self endon("disconnect");
 	self flag::wait_till(var_d4adfa57);
-	var_d6b47fd3 = "";
+	challenge_descriptions = "";
 	if(n_challenge_index == 1)
 	{
-		var_d6b47fd3 = self._challenges.challenge_1.str_info;
+		challenge_descriptions = self._challenges.challenge_1.str_info;
 	}
 	else
 	{
 		if(n_challenge_index == 2)
 		{
-			var_d6b47fd3 = self._challenges.challenge_2.str_info;
+			challenge_descriptions = self._challenges.challenge_2.str_info;
 		}
 		else
 		{
-			var_d6b47fd3 = self._challenges.challenge_3.str_info;
+			challenge_descriptions = self._challenges.challenge_3.str_info;
 		}
 	}
-	self luinotifyevent(&"trial_complete", 3, &"ZM_STALINGRAD_CHALLENGE_COMPLETE", var_d6b47fd3, n_challenge_index - 1);
+	self luinotifyevent(&"trial_complete", 3, &"ZM_STALINGRAD_CHALLENGE_COMPLETE", challenge_descriptions, n_challenge_index - 1);
 	level scoreevents::processscoreevent("solo_challenge_stalingrad", self);
 }
 

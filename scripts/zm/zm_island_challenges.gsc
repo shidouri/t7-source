@@ -268,23 +268,23 @@ function function_fbbc8608(n_challenge_index, var_d4adfa57)
 {
 	self endon("disconnect");
 	self flag::wait_till(var_d4adfa57);
-	var_d6b47fd3 = "";
+	challenge_description = "";
 	if(n_challenge_index == 1)
 	{
-		var_d6b47fd3 = self._challenges.challenge_1.str_info;
+		challenge_description = self._challenges.challenge_1.str_info;
 	}
 	else
 	{
 		if(n_challenge_index == 2)
 		{
-			var_d6b47fd3 = self._challenges.challenge_2.str_info;
+			challenge_description = self._challenges.challenge_2.str_info;
 		}
 		else
 		{
-			var_d6b47fd3 = self._challenges.challenge_3.str_info;
+			challenge_description = self._challenges.challenge_3.str_info;
 		}
 	}
-	self luinotifyevent(&"trial_complete", 2, &"ZM_ISLAND_TRIAL_COMPLETE", var_d6b47fd3);
+	self luinotifyevent(&"trial_complete", 2, &"ZM_ISLAND_TRIAL_COMPLETE", challenge_description);
 }
 
 /*
