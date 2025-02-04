@@ -214,7 +214,7 @@ function function_fb6d201d()
 			self vehicle::pause_path();
 			if(!level flag::get("drone_scanning"))
 			{
-				self thread function_517ced56(60, 90, 15, 50);
+				self thread fake_scan(60, 90, 15, 50);
 			}
 		}
 		self setspeed(self.n_speed, 35, 35);
@@ -267,7 +267,7 @@ function function_3c36d48d()
 }
 
 /*
-	Name: function_517ced56
+	Name: fake_scan
 	Namespace: mapping_drone
 	Checksum: 0xFE7F8847
 	Offset: 0xB08
@@ -275,7 +275,7 @@ function function_3c36d48d()
 	Parameters: 4
 	Flags: Linked
 */
-function function_517ced56(n_yaw_left = 90, n_yaw_right = 90, n_pitch_down = 10, n_pitch_up = 30)
+function fake_scan(n_yaw_left = 90, n_yaw_right = 90, n_pitch_down = 10, n_pitch_up = 30)
 {
 	level flag::set("drone_scanning");
 	e_base = spawn("script_origin", self.origin);
