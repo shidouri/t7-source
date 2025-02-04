@@ -154,7 +154,7 @@ function blocker_think(minecart)
 	{
 		if(self function_742e2b0d(minecart))
 		{
-			self thread function_78442d5();
+			self thread blocker_break();
 			break;
 		}
 		wait(0.05);
@@ -199,7 +199,7 @@ function function_1306489b()
 }
 
 /*
-	Name: function_78442d5
+	Name: blocker_break
 	Namespace: zm_temple_minecart
 	Checksum: 0x153B5B05
 	Offset: 0xF28
@@ -207,7 +207,7 @@ function function_1306489b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_78442d5()
+function blocker_break()
 {
 	level thread scene::play("p7_fxanim_zm_sha_minecart_gate_bundle");
 	exploder::exploder("fxexp_400");
