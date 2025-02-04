@@ -79,7 +79,7 @@ function actor_damage_override(inflictor, attacker, damage, flags, meansofdeath,
 {
 	if(meansofdeath === "MOD_MELEE")
 	{
-		attacker function_e0e68a99(self);
+		attacker electric_strike(self);
 	}
 	return damage;
 }
@@ -97,13 +97,13 @@ function vehicle_damage_override(einflictor, eattacker, idamage, idflags, smeans
 {
 	if(smeansofdeath === "MOD_MELEE")
 	{
-		eattacker function_e0e68a99(self);
+		eattacker electric_strike(self);
 	}
 	return idamage;
 }
 
 /*
-	Name: function_e0e68a99
+	Name: electric_strike
 	Namespace: zm_bgb_pop_shocks
 	Checksum: 0xB40BFF8C
 	Offset: 0x468
@@ -111,7 +111,7 @@ function vehicle_damage_override(einflictor, eattacker, idamage, idflags, smeans
 	Parameters: 1
 	Flags: Linked
 */
-function function_e0e68a99(target)
+function electric_strike(target)
 {
 	if(isdefined(self.beastmode) && self.beastmode)
 	{
