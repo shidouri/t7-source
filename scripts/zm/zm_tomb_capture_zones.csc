@@ -831,8 +831,8 @@ function function_31e3b463(play, num)
 */
 function crystal_flicker(localclientnumber, var_98ce6736, var_4333264, var_e2ad4e8e, var_22a5887c, var_48d50352, var_d056f9f8)
 {
-	self notify(#"hash_c0d7e9d");
-	self endon(#"hash_c0d7e9d");
+	self notify("flicker_update");
+	self endon("flicker_update");
 	if(!isdefined(self.var_40a6544d))
 	{
 		self.var_40a6544d = var_98ce6736;
@@ -864,8 +864,8 @@ function crystal_flicker(localclientnumber, var_98ce6736, var_4333264, var_e2ad4
 */
 function function_217d24cd(localclientnumber, var_68feedab, n_transition_time)
 {
-	self notify(#"hash_c0d7e9d");
-	self endon(#"hash_c0d7e9d");
+	self notify("flicker_update");
+	self endon("flicker_update");
 	if(!isdefined(self.var_40a6544d))
 	{
 		self.var_40a6544d = 1;
