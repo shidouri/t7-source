@@ -74,7 +74,7 @@ function turret_debug_line(start, end, color)
 }
 
 /*
-	Name: function_ba2c6c94
+	Name: check_sector
 	Namespace: sentry_turret
 	Checksum: 0xAAA59E92
 	Offset: 0x710
@@ -82,7 +82,7 @@ function turret_debug_line(start, end, color)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ba2c6c94(origin, sector)
+function check_sector(origin, sector)
 {
 	forward = anglestoforward((0, sector, 0));
 	end = origin + (forward * 50);
@@ -115,7 +115,7 @@ function function_e606dad7()
 	origin = self.origin;
 	eye = self gettagorigin("tag_barrel");
 	/#
-		if(function_ba2c6c94(eye, angles[1]))
+		if(check_sector(eye, angles[1]))
 		{
 			iprintln("");
 		}
@@ -124,7 +124,7 @@ function function_e606dad7()
 	max_angle = yaw;
 	for(sector = 0; (sector * 10) <= 360; sector++)
 	{
-		if(function_ba2c6c94(eye, yaw + (sector * 10)))
+		if(check_sector(eye, yaw + (sector * 10)))
 		{
 			max_angle = yaw + (sector * 10);
 			continue;
@@ -134,7 +134,7 @@ function function_e606dad7()
 	min_angle = yaw;
 	for(sector = 0; (sector * 10) <= 360; sector++)
 	{
-		if(function_ba2c6c94(eye, yaw - (sector * 10)))
+		if(check_sector(eye, yaw - (sector * 10)))
 		{
 			min_angle = yaw - (sector * 10);
 			continue;
