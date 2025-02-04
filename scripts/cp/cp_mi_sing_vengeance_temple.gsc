@@ -551,8 +551,8 @@ function function_578145a3()
 	{
 		ally_volume = getent("temple_ally_gv_0" + i, "targetname");
 		axis_volume = getent("temple_axis_gv_0" + i, "targetname");
-		var_fcf2483c = getent("temple_axis_cleanup_volume_0" + i, "targetname");
-		level thread function_620fbb8a(var_17994622, var_fcf2483c);
+		cleanup_volume = getent("temple_axis_cleanup_volume_0" + i, "targetname");
+		level thread function_620fbb8a(var_17994622, cleanup_volume);
 	}
 	else
 	{
