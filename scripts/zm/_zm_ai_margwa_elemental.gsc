@@ -1925,8 +1925,8 @@ function private function_9a9f35ac(entity)
 	entity.var_3c58b79c = 0;
 	entity.var_187c138e = 1;
 	entity.var_1ab20b9b = undefined;
-	var_5ba5953 = anglestoforward(entity.angles);
-	var_bc39bd09 = (entity.origin + vectorscale((0, 0, 1), 72)) + (var_5ba5953 * 96);
+	facing_vector = anglestoforward(entity.angles);
+	var_bc39bd09 = (entity.origin + vectorscale((0, 0, 1), 72)) + (facing_vector * 96);
 	var_1be3af57 = entity.angles;
 	entity waittill(#"hash_64a0057e");
 	entity clientfield::set("shadow_margwa_attack_portal_fx", 1);
@@ -1934,7 +1934,7 @@ function private function_9a9f35ac(entity)
 	target = undefined;
 	if(isdefined(entity.favoriteenemy))
 	{
-		position = var_bc39bd09 + (var_5ba5953 * 96);
+		position = var_bc39bd09 + (facing_vector * 96);
 		target = spawn("script_model", position);
 		target setmodel("tag_origin");
 		target.var_8002cc8a = entity.favoriteenemy;
