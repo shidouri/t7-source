@@ -149,7 +149,7 @@ function function_87d2cd22()
 }
 
 /*
-	Name: function_be3b9c8
+	Name: handle_train
 	Namespace: cp_mi_zurich_coalescence
 	Checksum: 0x708563EF
 	Offset: 0x1AB0
@@ -157,7 +157,7 @@ function function_87d2cd22()
 	Parameters: 1
 	Flags: None
 */
-function function_be3b9c8()
+function handle_train()
 {
 	// Unsupported VM revision (1B).
 }
