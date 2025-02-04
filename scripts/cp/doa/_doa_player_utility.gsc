@@ -3051,7 +3051,7 @@ function private function_2f150493(source, dest)
 								/#
 									doa_utility::debugmsg("" + source.name);
 								#/
-								level thread doa_pickups::directeditemawardto(source, level.doa.var_d6256e83);
+								level thread doa_pickups::directeditemawardto(source, level.doa.monkey_bomb_model);
 							}
 							else
 							{

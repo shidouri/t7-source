@@ -356,7 +356,7 @@ function function_159bb1dd(player, origin)
 	mark = origin + vectorscale((0, 0, 1), 12);
 	monkey = spawn("script_model", origin);
 	monkey.targetname = "monkeyUpdate";
-	monkey setmodel(level.doa.var_d6256e83);
+	monkey setmodel(level.doa.monkey_bomb_model);
 	monkey thread doa_fx::function_285a2999(doa_player_utility::function_e7e0aa7f(player.entnum));
 	def = doa_pickups::function_bac08508(11);
 	monkey useanimtree($zombie_cymbal_monkey);
