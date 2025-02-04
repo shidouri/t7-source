@@ -1136,7 +1136,7 @@ function function_ffeaa7c4()
 }
 
 /*
-	Name: function_2049a4ce
+	Name: close_wardrobe
 	Namespace: safehouse
 	Checksum: 0xC2E98D4E
 	Offset: 0x91B8
@@ -1144,7 +1144,7 @@ function function_ffeaa7c4()
 	Parameters: 1
 	Flags: None
 */
-function function_2049a4ce()
+function close_wardrobe()
 {
 	// Unsupported VM revision (1B).
 }
