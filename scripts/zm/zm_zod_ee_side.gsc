@@ -1656,9 +1656,9 @@ function function_c6930415(a_enemies)
 {
 	foreach(e_enemy in a_enemies)
 	{
-		if(!(isdefined(e_enemy.var_c8b96c1f) && e_enemy.var_c8b96c1f))
+		if(!(isdefined(e_enemy.bowling_pin) && e_enemy.bowling_pin))
 		{
-			e_enemy.var_c8b96c1f = 1;
+			e_enemy.bowling_pin = 1;
 			self.var_c2faf069 = self.var_c2faf069 + 1;
 		}
 	}
