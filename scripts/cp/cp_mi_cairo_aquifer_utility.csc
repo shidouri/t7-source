@@ -868,11 +868,11 @@ function function_791c5d3e(localclientnum, oldval, newval, bnewent, binitialsnap
 	indices = [];
 	for(i = 3; i >= 0; i--)
 	{
-		var_8e34c2ec = pow(2, i);
-		if(newval >= var_8e34c2ec)
+		bit_value = pow(2, i);
+		if(newval >= bit_value)
 		{
 			indices[indices.size] = i + 1;
-			newval = newval - var_8e34c2ec;
+			newval = newval - bit_value;
 		}
 	}
 	var_dda84f1a = getentarray(localclientnum, "landing_zone", "targetname");
