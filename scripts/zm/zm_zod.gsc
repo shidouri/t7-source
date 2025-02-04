@@ -1862,11 +1862,11 @@ function zombie_is_target_reachable(player)
 */
 function function_17c00a4f(var_9165799c, var_25cf04a1, var_e8c4df7b, player_area)
 {
-	var_15a343e3 = function_6b75e74c(var_e8c4df7b);
-	var_2473d928 = var_15a343e3["01"];
-	var_7fd9f894 = var_15a343e3["12"];
-	var_a5dc72fd = var_15a343e3["13"];
-	var_da02e380 = var_15a343e3["23"];
+	district_flags = function_6b75e74c(var_e8c4df7b);
+	var_2473d928 = district_flags["01"];
+	var_7fd9f894 = district_flags["12"];
+	var_a5dc72fd = district_flags["13"];
+	var_da02e380 = district_flags["23"];
 	if(var_2473d928 && var_7fd9f894 && var_a5dc72fd && var_da02e380)
 	{
 		return 1;
