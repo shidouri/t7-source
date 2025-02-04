@@ -1617,13 +1617,13 @@ function function_961485f0()
 		}
 		if(!level.var_f353ae68.is_down)
 		{
-			function_3cd05ecf("down");
+			cage_mover("down");
 			level thread function_1d3366a8();
 			level thread zm_island_vo::function_3bf2d62a("lower_cage", 0, 0, 1);
 		}
 		else
 		{
-			function_3cd05ecf("up");
+			cage_mover("up");
 			level thread zm_island_vo::function_3bf2d62a("raise_cage", 0, 0, 1);
 		}
 	}
@@ -1644,7 +1644,7 @@ function function_1d3366a8()
 	wait(60);
 	if(level.var_f353ae68.is_down && !level.var_f353ae68.is_moving)
 	{
-		function_3cd05ecf("up");
+		cage_mover("up");
 	}
 }
 
@@ -1676,10 +1676,10 @@ function function_871dbb3a()
 			{
 				function_d452a2ca(player);
 				wait(1);
-				function_3cd05ecf("down");
+				cage_mover("down");
 				level thread zm_island_vo::function_3bf2d62a("lower_cage", 0, 0, 1);
 				wait(5);
-				function_3cd05ecf("up");
+				cage_mover("up");
 				level thread zm_island_vo::function_3bf2d62a("raise_cage", 0, 0, 1);
 				player unlink();
 			}
@@ -1772,7 +1772,7 @@ function function_953bec10(str_state)
 }
 
 /*
-	Name: function_3cd05ecf
+	Name: cage_mover
 	Namespace: zm_island_ww_quest
 	Checksum: 0xFC7F169D
 	Offset: 0x60B0
@@ -1780,7 +1780,7 @@ function function_953bec10(str_state)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3cd05ecf(str_direction)
+function cage_mover(str_direction)
 {
 	level thread function_46d3d1b0(1);
 	level.var_f353ae68.is_moving = 1;
