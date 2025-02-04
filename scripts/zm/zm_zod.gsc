@@ -1831,18 +1831,18 @@ function zombie_is_target_reachable(player)
 			var_bb534481 = var_147beb1e;
 			var_147beb1e = temp;
 		}
-		var_54f2276d = function_17c00a4f(var_9165799c, var_bb534481, var_e8c4df7b, var_147beb1e);
-		return var_54f2276d;
+		can_reach = function_17c00a4f(var_9165799c, var_bb534481, var_e8c4df7b, var_147beb1e);
+		return can_reach;
 	}
 	if(var_bb534481 == 0 && var_147beb1e != 0)
 	{
-		var_54f2276d = function_17c00a4f("junction", 0, var_e8c4df7b, var_147beb1e);
-		return var_54f2276d;
+		can_reach = function_17c00a4f("junction", 0, var_e8c4df7b, var_147beb1e);
+		return can_reach;
 	}
 	if(var_147beb1e == 0 && var_bb534481 != 0)
 	{
-		var_54f2276d = function_17c00a4f("junction", 0, var_9165799c, var_bb534481);
-		return var_54f2276d;
+		can_reach = function_17c00a4f("junction", 0, var_9165799c, var_bb534481);
+		return can_reach;
 	}
 	var_92280803 = 1;
 	var_58b7daa8 = 1;
