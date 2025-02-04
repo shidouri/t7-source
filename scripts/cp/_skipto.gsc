@@ -3275,7 +3275,7 @@ function level_completed(skipto, starting)
 			achievements::function_733a6065(e_player, getrootmapname(), level.gameskilllowest, sessionmodeiscampaignzombiesgame());
 			if(level.gameskilllowest >= 2)
 			{
-				e_player notify(#"hash_ee109657", level.savename);
+				e_player notify("complete_mission", level.savename);
 				e_player addplayerstat("mission_diff_" + getsubstr(getmissionname(), 0, 3), 1);
 			}
 			e_player function_95093ed5();
