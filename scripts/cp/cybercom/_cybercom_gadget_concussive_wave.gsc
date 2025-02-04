@@ -442,7 +442,7 @@ function create_concussion_wave(damage, slot, weapon)
 	/#
 		assert(isdefined(spikeweapon));
 	#/
-	self.cybercom.var_ebeecfd5 = 1;
+	self.cybercom.block_juice = 1;
 	self giveweapon(spikeweapon);
 	self setweaponammoclip(spikeweapon, 2);
 	if(self hascybercomability("cybercom_concussive") == 2)
@@ -467,7 +467,7 @@ function create_concussion_wave(damage, slot, weapon)
 	{
 		self takeweapon(spikeweapon);
 	}
-	self.cybercom.var_ebeecfd5 = undefined;
+	self.cybercom.block_juice = undefined;
 	level thread create_damage_wave(damage, self);
 	wait(getdvarint("scr_concussive_wave_no_sprint", 1));
 	self allowsprint(self.var_bdd60914);

@@ -74,7 +74,7 @@ function constantjuice()
 	while(true)
 	{
 		wait(1);
-		if(isdefined(self.cybercom.var_ebeecfd5) && self.cybercom.var_ebeecfd5)
+		if(isdefined(self.cybercom.block_juice) && self.cybercom.block_juice)
 		{
 			continue;
 		}
