@@ -378,7 +378,7 @@ function function_979d2797(localclientnum)
 {
 	self endon("dragon_eating");
 	self endon(#"hash_4846b79f");
-	self notify(#"hash_8c17cec");
+	self notify(dragon_idling");
 	if(isdefined(self.var_d90397ef) && self.var_d90397ef)
 	{
 		return;
@@ -591,7 +591,7 @@ function function_939ae9de(var_e88629ec, localclientnum, direction, var_3c6f5c75
 */
 function function_4ae89880(body, localclientnum, direction)
 {
-	self endon(#"hash_8c17cec");
+	self endon(dragon_idling");
 	self endon(#"hash_4846b79f");
 	self notify("dragon_eating");
 	self.var_d90397ef = 0;
