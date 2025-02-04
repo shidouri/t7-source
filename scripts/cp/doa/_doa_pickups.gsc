@@ -75,7 +75,7 @@ function init()
 	level.doa.booster_model = "zombietron_lightning_bolt";
 	level.doa.monkey_bomb_model = "zombietron_monkey_bomb";
 	level.doa.nuke_model = "zombietron_nuke";
-	level.doa.var_7f53bb28 = "zombietron_teddy_bear";
+	level.doa.teddy_bear_model = "zombietron_teddy_bear";
 	level.doa.var_27f4032b = "zombietron_wallclock";
 	level.doa.bull_model = "zombietron_water_buffalo";
 	level.doa.var_f21ae3af = "zombietron_umbrella";
@@ -146,7 +146,7 @@ function init()
 	function_db1442f2(level.doa.var_304b4b41, &function_92d90e55, 0, 9, 5.5, 100, 20);
 	function_db1442f2(level.doa.monkey_bomb_model, &function_92d90e55, 0, 9, 1, 100, 11);
 	function_db1442f2(level.doa.var_3481ab4d, &function_92d90e55, 0, 9, 3, 100, 21);
-	function_db1442f2(level.doa.var_7f53bb28, &function_92d90e55, 0, 9, 1.6, 25, 13);
+	function_db1442f2(level.doa.teddy_bear_model, &function_92d90e55, 0, 9, 1.6, 25, 13);
 	function_db1442f2(level.doa.tank_model, &function_92d90e55, 0, 10, 1, 100, 33);
 	function_db1442f2(level.doa.gloves, &function_92d90e55, 0, 10, 1, 100, 34);
 	function_db1442f2(level.doa.var_43922ff2, &function_92d90e55, 0, 13, 1, 25, 23);
