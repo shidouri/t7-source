@@ -200,11 +200,11 @@ function function_e8ef758e()
 	{
 		e_player = self;
 		e_player.grapple_tag = "j_spine4";
-		if(!(isdefined(e_player.var_1533bb11) && e_player.var_1533bb11))
+		if(!(isdefined(e_player.grapple_test) && e_player.grapple_test))
 		{
-			e_player.var_1533bb11 = 1;
+			e_player.grapple_test = 1;
 			zm_grappler::start_grapple(level.apothicon_grapple_source, e_player, 2, 3300);
-			e_player.var_1533bb11 = 0;
+			e_player.grapple_test = 0;
 		}
 	}
 }
