@@ -358,8 +358,8 @@ function function_92159541(spawner, loc, def)
 		}
 		ai thread doa_fx::function_285a2999("blue_eyes");
 		spots = doa_utility::function_8fc4387a(32);
-		ai.var_8f12ed02 = spots[randomint(spots.size)].origin;
-		ai setgoal(ai.var_8f12ed02);
+		ai.goto_position = spots[randomint(spots.size)].origin;
+		ai setgoal(ai.goto_position);
 		ai notify(#"hash_6e8326fc");
 		ai notify(#"hash_d96c599c");
 		ai thread function_8b898788();
@@ -1283,17 +1283,17 @@ function function_4c047459()
 	self.zombie_move_speed = "sprint";
 	goalpoints = doa_utility::function_308fa126(10);
 	goalpoint = goalpoints[randomint(goalpoints.size)] + (randomintrange(-80, 80), randomintrange(-80, 80), 0);
-	self.var_8f12ed02 = getclosestpointonnavmesh(goalpoint, 20, 16);
-	if(!isdefined(self.var_8f12ed02))
+	self.goto_position = getclosestpointonnavmesh(goalpoint, 20, 16);
+	if(!isdefined(self.goto_position))
 	{
 		return;
 	}
 	egg = function_ecbf1358(self.origin, self.angles, 1);
 	egg linkto(self, "tag_origin", vectorscale((0, 0, 1), 54));
 	egg thread function_45f23318(self);
-	self doa_enemy::function_d30fe558(self.var_8f12ed02, 1);
+	self doa_enemy::function_d30fe558(self.goto_position, 1);
 	self waittill("goal");
-	self.var_8f12ed02 = undefined;
+	self.goto_position = undefined;
 	if(isdefined(egg))
 	{
 		egg unlink();
@@ -1921,7 +1921,7 @@ function function_43f48136(var_bbd280b0)
 	{
 		return 0;
 	}
-	if(!isdefined(var_bbd280b0.var_8f12ed02))
+	if(!isdefined(var_bbd280b0.goto_position))
 	{
 		return 0;
 	}
@@ -1980,7 +1980,7 @@ function function_c9e4e727(var_bbd280b0, asmstatename)
 		return 5;
 	}
 	var_bbd280b0 thread function_57aea19e();
-	var_bbd280b0.var_8f12ed02 = undefined;
+	var_bbd280b0.goto_position = undefined;
 	var_bbd280b0.nextspecial = gettime() + (randomintrange(3, 8) * 1000);
 	animationstatenetworkutility::requeststate(var_bbd280b0, asmstatename);
 	return 5;
@@ -2059,24 +2059,24 @@ function function_2fd0d5c7(behaviortreeentity)
 	}
 	if(isdefined(behaviortreeentity.var_55361ee6) && behaviortreeentity.var_55361ee6 > 0)
 	{
-		if(!isdefined(behaviortreeentity.var_8f12ed02))
+		if(!isdefined(behaviortreeentity.goto_position))
 		{
 			goalpoints = doa_utility::function_308fa126(30);
 			goalpoint = goalpoints[randomint(goalpoints.size)];
 			points = util::positionquery_pointarray(goalpoint, 0, 512, 70, 80, 64);
 			if(points.size > 0)
 			{
-				behaviortreeentity.var_8f12ed02 = getclosestpointonnavmesh(points[randomint(points.size)], 20, 16);
-				if(!isdefined(behaviortreeentity.var_8f12ed02))
+				behaviortreeentity.goto_position = getclosestpointonnavmesh(points[randomint(points.size)], 20, 16);
+				if(!isdefined(behaviortreeentity.goto_position))
 				{
-					behaviortreeentity.var_8f12ed02 = goalpoint;
+					behaviortreeentity.goto_position = goalpoint;
 				}
-				behaviortreeentity doa_enemy::function_d30fe558(behaviortreeentity.var_8f12ed02);
+				behaviortreeentity doa_enemy::function_d30fe558(behaviortreeentity.goto_position);
 			}
 		}
 		else
 		{
-			behaviortreeentity doa_enemy::function_d30fe558(behaviortreeentity.var_8f12ed02);
+			behaviortreeentity doa_enemy::function_d30fe558(behaviortreeentity.goto_position);
 			return true;
 		}
 	}
@@ -2168,8 +2168,8 @@ function function_772a04fe()
 	self.zombie_move_speed = "sprint";
 	goalpoints = doa_utility::function_308fa126(10);
 	goalpoint = goalpoints[randomint(goalpoints.size)] + (randomintrange(-80, 80), randomintrange(-80, 80), 0);
-	self.var_8f12ed02 = getclosestpointonnavmesh(goalpoint, 20, 16);
-	if(!isdefined(self.var_8f12ed02))
+	self.goto_position = getclosestpointonnavmesh(goalpoint, 20, 16);
+	if(!isdefined(self.goto_position))
 	{
 		return;
 	}
@@ -2179,10 +2179,10 @@ function function_772a04fe()
 	trashcan setmodel("zombietron_trashcan");
 	trashcan linkto(self, "tag_origin", vectorscale((0, 0, 1), 54));
 	trashcan thread function_45f23318(self);
-	self doa_enemy::function_d30fe558(self.var_8f12ed02, 1);
+	self doa_enemy::function_d30fe558(self.goto_position, 1);
 	trashcan thread doa_hazard::function_d8d20160();
 	self waittill("goal");
-	self.var_8f12ed02 = undefined;
+	self.goto_position = undefined;
 	if(isdefined(trashcan))
 	{
 		trashcan notify("dropped");

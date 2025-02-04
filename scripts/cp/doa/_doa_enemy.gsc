@@ -470,9 +470,9 @@ function function_a1761846(behaviortreeentity)
 		}
 		return true;
 	}
-	if(isdefined(behaviortreeentity.var_8f12ed02))
+	if(isdefined(behaviortreeentity.goto_position))
 	{
-		behaviortreeentity function_d30fe558(behaviortreeentity.var_8f12ed02);
+		behaviortreeentity function_d30fe558(behaviortreeentity.goto_position);
 		return true;
 	}
 	if(!(isdefined(behaviortreeentity.var_2d8174e3) && behaviortreeentity.var_2d8174e3))
