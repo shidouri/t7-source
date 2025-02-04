@@ -900,8 +900,8 @@ function function_743b2f2f(var_6763afa8)
 	self.mdl_skull_s clientfield::set("do_fade_material", 1);
 	self.mdl_skulltar clientfield::set("do_emissive_material", 0);
 	level clientfield::set(self.var_ba133ee2, 6);
-	var_930b9449 = spawn("script_origin", self.origin);
-	var_930b9449 playsound("zmb_skull_ritual_fail");
+	fail_sound = spawn("script_origin", self.origin);
+	fail_sound playsound("zmb_skull_ritual_fail");
 	if(isdefined(self.var_226d2560))
 	{
 		self.var_226d2560 delete();
@@ -924,7 +924,7 @@ function function_743b2f2f(var_6763afa8)
 		}
 	}
 	wait(2);
-	var_930b9449 delete();
+	fail_sound delete();
 	level thread function_fae0aa01(self.script_special, "pre_retry");
 }
 
