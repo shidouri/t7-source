@@ -55,7 +55,7 @@ function function_3fdcaa92(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else if(newval == 2)
 	{
-		self thread function_ffa114bb(localclientnum);
+		self thread bounce_effect(localclientnum);
 	}
 }
 
@@ -95,7 +95,7 @@ function function_21017588(localclientnum)
 }
 
 /*
-	Name: function_ffa114bb
+	Name: bounce_effect
 	Namespace: clean
 	Checksum: 0x506FF72C
 	Offset: 0x488
@@ -103,7 +103,7 @@ function function_21017588(localclientnum)
 	Parameters: 1
 	Flags: None
 */
-function function_ffa114bb(localclientnum)
+function bounce_effect(localclientnum)
 {
 	self endon(#"hash_c329133d");
 	self endon("entityshutdown");
