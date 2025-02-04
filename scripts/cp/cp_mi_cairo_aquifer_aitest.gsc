@@ -314,7 +314,7 @@ function function_1a2672d9()
 }
 
 /*
-	Name: function_346a6ba8
+	Name: handle_waves
 	Namespace: cp_mi_cairo_aquifer_aitest
 	Checksum: 0x9A1F9857
 	Offset: 0x2CB8
@@ -322,7 +322,7 @@ function function_1a2672d9()
 	Parameters: 9
 	Flags: None
 */
-function function_346a6ba8()
+function handle_waves()
 {
 	// Unsupported VM revision (1B).
 }
