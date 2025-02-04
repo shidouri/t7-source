@@ -381,7 +381,7 @@ function function_613df5d9(var_9597a744)
 	level thread function_f37f019c();
 	level thread function_facc6349(4);
 	level thread function_1e3790ff(2);
-	level thread function_5d7e677d(4);
+	level thread final_victims(4);
 	level thread function_7126ab6f("allies_move_up");
 	wait(2.4);
 	n_shoot_time = 2.4;
@@ -609,7 +609,7 @@ function function_facc6349(n_max_delay)
 }
 
 /*
-	Name: function_5d7e677d
+	Name: final_victims
 	Namespace: lotus_detention_center
 	Checksum: 0x1EEF9155
 	Offset: 0x3BF8
@@ -617,7 +617,7 @@ function function_facc6349(n_max_delay)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5d7e677d(n_delay)
+function final_victims(n_delay)
 {
 	wait(n_delay);
 	spawn_manager::enable("sm_vtol_hallway_final_spawns");
