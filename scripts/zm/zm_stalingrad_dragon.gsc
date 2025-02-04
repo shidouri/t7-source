@@ -747,7 +747,7 @@ function function_29710212()
 }
 
 /*
-	Name: function_83dd194d
+	Name: dragon_ride
 	Namespace: dragon
 	Checksum: 0xB0183F50
 	Offset: 0x3FD0
@@ -755,7 +755,7 @@ function function_29710212()
 	Parameters: 0
 	Flags: Linked
 */
-function function_83dd194d()
+function dragon_ride()
 {
 	while(!level flag::get_any(array("dragon_rider_timeout", "dragon_full")))
 	{
@@ -1329,7 +1329,7 @@ function function_70d68a42()
 	while(true)
 	{
 		level flag::wait_till("dragon_console_triggered");
-		level function_83dd194d();
+		level dragon_ride();
 		util::wait_network_frame();
 	}
 }
