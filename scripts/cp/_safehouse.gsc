@@ -786,7 +786,7 @@ function console_think()
 }
 
 /*
-	Name: function_df2a7519
+	Name: chair_think
 	Namespace: safehouse
 	Checksum: 0xF9A78DBC
 	Offset: 0x71C0
@@ -794,7 +794,7 @@ function console_think()
 	Parameters: 0
 	Flags: None
 */
-function function_df2a7519()
+function chair_think()
 {
 	// Unsupported VM revision (1B).
 }
