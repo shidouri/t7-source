@@ -111,14 +111,14 @@ function function_37aecd21()
 	Parameters: 3
 	Flags: None
 */
-function function_93523442(var_977e0f67, radius = 60, offset = (0, 0, 0))
+function function_93523442(collectible_model, radius = 60, offset = (0, 0, 0))
 {
-	if(!isdefined(level.var_3efe1e22[var_977e0f67]))
+	if(!isdefined(level.var_3efe1e22[collectible_model]))
 	{
-		level.var_3efe1e22[var_977e0f67] = spawnstruct();
+		level.var_3efe1e22[collectible_model] = spawnstruct();
 	}
-	level.var_3efe1e22[var_977e0f67].radius = radius;
-	level.var_3efe1e22[var_977e0f67].offset = offset;
+	level.var_3efe1e22[collectible_model].radius = radius;
+	level.var_3efe1e22[collectible_model].offset = offset;
 }
 
 /*
