@@ -85,7 +85,7 @@ function skipto_start(str_objective, b_starting)
 	}
 	level clientfield::set("zurich_waterfall_bodies", 1);
 	level clientfield::set("clearing_vinewall_init", 5);
-	level thread function_a3f52108(str_objective);
+	level thread clearing_main(str_objective);
 	level thread namespace_67110270::function_82e83534();
 }
 
@@ -103,7 +103,7 @@ function skipto_start_done(str_objective, b_starting, b_direct, player)
 }
 
 /*
-	Name: function_a3f52108
+	Name: clearing_main
 	Namespace: zurich_clearing
 	Checksum: 0xB5E0EB06
 	Offset: 0xF70
@@ -111,7 +111,7 @@ function skipto_start_done(str_objective, b_starting, b_direct, player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a3f52108(str_objective)
+function clearing_main(str_objective)
 {
 	array::thread_all(level.players, &function_32cf3cd);
 	var_4ccf970 = thread zurich_util::function_a00fa665(str_objective);
