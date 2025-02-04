@@ -3108,7 +3108,7 @@ function function_109151c2(a_ents)
 	{
 		level.var_1564d2c8[post.script_string] = post;
 	}
-	level.var_ef9c43d7.var_1c9faafd = level.var_ef9c43d7 current_post();
+	level.var_ef9c43d7.goal_post = level.var_ef9c43d7 current_post();
 	level thread scene::play("cin_sta_intro_3rd_crashed_mech_loop");
 }
 
