@@ -255,7 +255,7 @@ function main()
 	level thread handle_fallback();
 	level thread handle_fallback_runners_cleanup();
 	level thread hendricks_movement();
-	level thread function_28b80c6f();
+	level thread ceiling_collapses();
 	level util::clientnotify("escp");
 	scene::add_scene_func("cin_sgen_20_02_twinrevenge_1st_elevator", &function_4234be51, "done");
 	level thread scene::play("cin_sgen_20_02_twinrevenge_1st_elevator");
@@ -1246,7 +1246,7 @@ function stop_water_teleport_fx(a_ents)
 }
 
 /*
-	Name: function_28b80c6f
+	Name: ceiling_collapses
 	Namespace: cp_mi_sing_sgen_flood
 	Checksum: 0x1E4130A3
 	Offset: 0x5530
@@ -1254,7 +1254,7 @@ function stop_water_teleport_fx(a_ents)
 	Parameters: 0
 	Flags: Linked
 */
-function function_28b80c6f()
+function ceiling_collapses()
 {
 	trigger::wait_till("trig_hallway_ceiling_collapse_01");
 	level clientfield::set("ceiling_collapse", 1);
