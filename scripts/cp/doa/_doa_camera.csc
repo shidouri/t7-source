@@ -253,9 +253,9 @@ function function_d207ecc1(localclientnum, delta_time)
 		mins = function_44a2ae85(origin, mins);
 		maxs = function_b72ba417(origin, maxs);
 	}
-	if(isarray(level.var_172ed9a1))
+	if(isarray(level.camera_focus))
 	{
-		foreach(target in level.var_172ed9a1)
+		foreach(target in level.camera_focus)
 		{
 			if(!isdefined(target))
 			{

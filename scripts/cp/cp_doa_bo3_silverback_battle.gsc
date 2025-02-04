@@ -215,7 +215,7 @@ function function_fc48f9f3()
 	}
 	level waittill(#"hash_d29de2a8");
 	level flag::set("doa_game_silverback_round");
-	level.var_172ed9a1 = [];
+	level.camera_focus = [];
 	level flag::clear("doa_round_paused");
 	level thread function_b4195d47();
 	level function_72e0a286();

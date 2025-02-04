@@ -713,21 +713,21 @@ function function_354ec425(localclientnum, oldval, newval, bnewent, binitialsnap
 		if(!(isdefined(self.var_354ec425) && self.var_354ec425))
 		{
 			self.var_354ec425 = 1;
-			if(!isdefined(level.var_172ed9a1))
+			if(!isdefined(level.camera_focus))
 			{
-				level.var_172ed9a1 = [];
+				level.camera_focus = [];
 			}
-			else if(!isarray(level.var_172ed9a1))
+			else if(!isarray(level.camera_focus))
 			{
-				level.var_172ed9a1 = array(level.var_172ed9a1);
+				level.camera_focus = array(level.camera_focus);
 			}
-			level.var_172ed9a1[level.var_172ed9a1.size] = self;
+			level.camera_focus[level.camera_focus.size] = self;
 		}
 	}
 	else if(isdefined(self.var_354ec425) && self.var_354ec425)
 	{
 		self.var_354ec425 = undefined;
-		arrayremovevalue(level.var_172ed9a1, self);
+		arrayremovevalue(level.camera_focus, self);
 	}
 }
 
