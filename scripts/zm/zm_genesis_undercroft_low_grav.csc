@@ -154,8 +154,8 @@ function function_df81c23d(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_9a8a19ab(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon("entityshutdown");
-	self notify(#"hash_67a9e087");
-	self endon(#"hash_67a9e087");
+	self notify("fade_interrupt");
+	self endon("fade_interrupt");
 	if(newval == 1)
 	{
 		n_start_time = gettime();
@@ -212,8 +212,8 @@ function function_9a8a19ab(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_a3279a5(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon("entityshutdown");
-	self notify(#"hash_67a9e087");
-	self endon(#"hash_67a9e087");
+	self notify("fade_interrupt");
+	self endon("fade_interrupt");
 	n_start_time = gettime();
 	n_end_time = n_start_time + (1 * 1000);
 	b_is_updating = 1;
@@ -246,8 +246,8 @@ function function_a3279a5(localclientnum, oldval, newval, bnewent, binitialsnap,
 function function_23861dfe(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon("entityshutdown");
-	self notify(#"hash_67a9e087");
-	self endon(#"hash_67a9e087");
+	self notify("fade_interrupt");
+	self endon("fade_interrupt");
 	if(newval == 1)
 	{
 		n_start_time = gettime();

@@ -257,8 +257,8 @@ function planter_model_watered(localclientnum, oldval, newval, bnewent, binitial
 function function_b8ba462e(localclientnum, b_on = 1)
 {
 	self endon("entityshutdown");
-	self notify(#"hash_67a9e087");
-	self endon(#"hash_67a9e087");
+	self notify("fade_interrupt");
+	self endon("fade_interrupt");
 	level endon("demo_jump");
 	n_start_time = gettime();
 	n_end_time = n_start_time + (2 * 1000);

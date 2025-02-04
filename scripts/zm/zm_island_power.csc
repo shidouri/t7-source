@@ -168,8 +168,8 @@ function power_switch_2_fx(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_5ae9f178(localclientnum, b_on = 1)
 {
 	self endon("entityshutdown");
-	self notify(#"hash_67a9e087");
-	self endon(#"hash_67a9e087");
+	self notify("fade_interrupt");
+	self endon("fade_interrupt");
 	n_start_time = gettime();
 	n_end_time = n_start_time + (2 * 1000);
 	b_is_updating = 1;
@@ -254,8 +254,8 @@ function power_plant_glow(localclientnum, oldval, newval, bnewent, binitialsnap,
 function function_a88bde9b(localclientnum, b_on = 1)
 {
 	self endon("entityshutdown");
-	self notify(#"hash_67a9e087");
-	self endon(#"hash_67a9e087");
+	self notify("fade_interrupt");
+	self endon("fade_interrupt");
 	n_start_time = gettime();
 	n_end_time = n_start_time + (2 * 1000);
 	b_is_updating = 1;
