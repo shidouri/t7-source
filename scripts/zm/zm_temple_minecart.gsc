@@ -81,11 +81,11 @@ function function_807ee0b0()
 	{
 		self.cage linkto(self);
 	}
-	self.var_cd74abf8 = getent(self.targetname + "_cage_door", "targetname");
-	if(isdefined(self.var_cd74abf8))
+	self.cage_door = getent(self.targetname + "_cage_door", "targetname");
+	if(isdefined(self.cage_door))
 	{
-		self.var_cd74abf8 linkto(self);
-		self.var_cd74abf8 notsolid();
+		self.cage_door linkto(self);
+		self.cage_door notsolid();
 	}
 	self.door = getent(self.targetname + "_door", "targetname");
 	if(isdefined(self.door))
@@ -247,9 +247,9 @@ function function_46d092ff()
 {
 	wait(0.5);
 	players = getplayers();
-	if(isdefined(self.var_cd74abf8))
+	if(isdefined(self.cage_door))
 	{
-		self.var_cd74abf8 solid();
+		self.cage_door solid();
 	}
 	for(i = 0; i < self.linkents.size; i++)
 	{
@@ -780,9 +780,9 @@ function function_f8358462()
 		{
 			self.minecart.cage solid();
 		}
-		if(isdefined(self.minecart.var_cd74abf8))
+		if(isdefined(self.minecart.cage_door))
 		{
-			self.minecart.var_cd74abf8 notsolid();
+			self.minecart.cage_door notsolid();
 		}
 		if(isdefined(self.minecart.front))
 		{
