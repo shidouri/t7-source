@@ -178,17 +178,17 @@ function function_e52f317f(is_left_door, n_time)
 	if(is_left_door)
 	{
 		n_move_x = -24.5;
-		var_80b1884b = -92.5;
+		n_move_y = -92.5;
 	}
 	else
 	{
 		n_move_x = 25.5;
-		var_80b1884b = 92.5;
+		n_move_y = 92.5;
 	}
 	while(true)
 	{
 		level waittill(#"hash_d6ba1e76");
-		self moveto(self.origin + (n_move_x, var_80b1884b, 0), n_time);
+		self moveto(self.origin + (n_move_x, n_move_y, 0), n_time);
 		level waittill("open_a10_doors");
 		self moveto(v_original_origin, n_time * 0.75);
 	}
