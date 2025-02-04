@@ -4476,7 +4476,7 @@ function function_11044369()
 }
 
 /*
-	Name: function_30e5b419
+	Name: filter_occupy
 	Namespace: dragon
 	Checksum: 0x1995BBA1
 	Offset: 0xE460
@@ -4484,7 +4484,7 @@ function function_11044369()
 	Parameters: 4
 	Flags: Linked
 */
-function function_30e5b419(s_pos, str_pos, var_6e2a6191, var_4827e728)
+function filter_occupy(s_pos, str_pos, var_6e2a6191, var_4827e728)
 {
 	if(s_pos.script_string == str_pos)
 	{
@@ -4699,7 +4699,7 @@ function function_32faa6e1(no_delay = 0)
 		{
 			var_7649b699 = current_post.script_string;
 		}
-		var_f315c28 = array::filter(level.var_4c8e35f4, 0, &function_30e5b419, level.var_181b1223, var_7649b699);
+		var_f315c28 = array::filter(level.var_4c8e35f4, 0, &filter_occupy, level.var_181b1223, var_7649b699);
 		var_2cd775bb = array::random(var_f315c28);
 		self setvehgoalpos(var_2cd775bb.origin, 1, 1);
 		foundpath = self vehicle_ai::waittill_pathresult();
