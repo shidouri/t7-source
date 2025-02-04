@@ -123,7 +123,7 @@ function toggle_player_altbody(localclientnum, oldval, newval, bnewent, binitial
 		self.altbody = newval;
 		if(bwastimejump)
 		{
-			self thread function_9927f5ae(localclientnum, newval);
+			self thread clear_transition(localclientnum, newval);
 		}
 		else
 		{
@@ -210,7 +210,7 @@ function cover_transition(localclientnum, onoff)
 }
 
 /*
-	Name: function_9927f5ae
+	Name: clear_transition
 	Namespace: zm_altbody
 	Checksum: 0xE36A93A2
 	Offset: 0x8B0
@@ -218,7 +218,7 @@ function cover_transition(localclientnum, onoff)
 	Parameters: 2
 	Flags: Linked
 */
-function function_9927f5ae(localclientnum, onoff)
+function clear_transition(localclientnum, onoff)
 {
 	lui::screen_fade_in(0);
 }
