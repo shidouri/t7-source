@@ -651,7 +651,7 @@ function propchange()
 		}
 		self.lastpropchangetime = gettime();
 	}
-	self notify(#"hash_a603bd25");
+	self notify("changed_prop");
 	registerpreviousprop(self);
 	self.prop.info = prop::getnextprop(self);
 	/#
