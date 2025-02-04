@@ -214,9 +214,9 @@ function function_d3b7cf16(localclientnum, oldval, newval, bnewent, binitialsnap
 		var_e754df7f = 0.45;
 		var_595c4eba = 0;
 		var_6c5c3132 = "scriptVector4";
-		var_93429fd9 = 0.6;
+		density_value = 0.6;
 		self mapshaderconstant(localclientnum, 0, var_aa5d763a, var_fc81e73c, var_754d7044, var_e754df7f, var_595c4eba);
-		self mapshaderconstant(localclientnum, 0, var_6c5c3132, var_93429fd9, 0, 0, 0);
+		self mapshaderconstant(localclientnum, 0, var_6c5c3132, density_value, 0, 0, 0);
 		self tmodesetflag(10);
 	}
 }

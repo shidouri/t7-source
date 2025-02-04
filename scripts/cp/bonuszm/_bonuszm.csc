@@ -902,24 +902,24 @@ function function_d8c8d819(localclientnum, var_d6ae4487)
 	colortintvaluey = 0.56;
 	colortintvaluez = 0.92;
 	colortintvaluew = 1;
-	var_93429fd9 = 0.2;
+	density_value = 0.2;
 	if(var_d6ae4487 == "sparky")
 	{
 		var_754d7044 = 0.15;
 		var_e754df7f = 0.5;
 		var_595c4eba = 0.4;
-		var_93429fd9 = 0.2;
+		density_value = 0.2;
 	}
 	if(var_d6ae4487 == "fire")
 	{
 		var_754d7044 = 0.6;
 		var_e754df7f = 0.45;
 		var_595c4eba = 0;
-		var_93429fd9 = 0.2;
+		density_value = 0.2;
 	}
 	var_6c5c3132 = "scriptVector4";
 	self mapshaderconstant(localclientnum, 0, var_aa5d763a, var_fc81e73c, var_754d7044, var_e754df7f, var_595c4eba);
-	self mapshaderconstant(localclientnum, 0, var_6c5c3132, var_93429fd9, 0, 0, 0);
+	self mapshaderconstant(localclientnum, 0, var_6c5c3132, density_value, 0, 0, 0);
 	self tmodesetflag(10);
 }
 
