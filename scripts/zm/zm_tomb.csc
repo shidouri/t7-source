@@ -540,26 +540,26 @@ function function_35da9753(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_cef99197(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	if(!isdefined(level.var_d1435401))
+	if(!isdefined(level.charger_origins))
 	{
-		level.var_d1435401 = [];
+		level.charger_origins = [];
 	}
 	if(newval != 0)
 	{
-		level.var_d1435401[newval] = self.origin;
+		level.charger_origins[newval] = self.origin;
 	}
 	else
 	{
-		keys = getarraykeys(level.var_d1435401);
+		keys = getarraykeys(level.charger_origins);
 		foreach(i in keys)
 		{
-			if(!isdefined(level.var_d1435401[i]))
+			if(!isdefined(level.charger_origins[i]))
 			{
 				continue;
 			}
-			if(distancesquared(level.var_d1435401[i], self.origin) < 100)
+			if(distancesquared(level.charger_origins[i], self.origin) < 100)
 			{
-				level.var_d1435401[i] = undefined;
+				level.charger_origins[i] = undefined;
 			}
 		}
 	}
@@ -578,13 +578,13 @@ function function_1ee903c(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	v_origin = self gettagorigin("J_SpineUpper");
 	v_dest = undefined;
-	if(!isdefined(level.var_d1435401))
+	if(!isdefined(level.charger_origins))
 	{
-		level.var_d1435401 = [];
+		level.charger_origins = [];
 	}
-	if(isdefined(level.var_d1435401[newval]))
+	if(isdefined(level.charger_origins[newval]))
 	{
-		v_dest = level.var_d1435401[newval];
+		v_dest = level.charger_origins[newval];
 	}
 	if(!isdefined(v_dest) || !isdefined(v_origin))
 	{
