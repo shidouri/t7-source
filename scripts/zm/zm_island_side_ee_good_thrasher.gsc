@@ -456,7 +456,7 @@ function function_4c6beece(var_f9f788a6, b_hero_weapon, e_attacker)
 	}
 	self clientfield::set("side_ee_gt_spore_cloud_fx", 0);
 	var_88c0f006 delete();
-	self notify(#"hash_91dd564f");
+	self notify("cloud_done");
 }
 
 /*
