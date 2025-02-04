@@ -1015,7 +1015,7 @@ function function_b0cce50c()
 */
 function function_a3ac9ae0()
 {
-	level endon(#"hash_2ef4a1f0");
+	level endon("goto_pod");
 	spawn_manager::wait_till_ai_remaining("sm_apc_reinforce", 2);
 	wait(10);
 	level flag::set("goto_pod");
@@ -1032,7 +1032,7 @@ function function_a3ac9ae0()
 */
 function function_a950a3ec()
 {
-	level endon(#"hash_2ef4a1f0");
+	level endon("goto_pod");
 	foreach(player in level.players)
 	{
 		self thread function_cd56c2cf(player);
@@ -1056,7 +1056,7 @@ function function_a950a3ec()
 */
 function function_cd56c2cf(player)
 {
-	level endon(#"hash_2ef4a1f0");
+	level endon("goto_pod");
 	while(true)
 	{
 		self waittill("trigger", e_entity);
