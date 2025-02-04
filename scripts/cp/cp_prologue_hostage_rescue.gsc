@@ -93,7 +93,7 @@ function hostage_1_main()
 	level.ai_hendricks thread function_672c874();
 	trigger::wait_till("hendricks_rollgrenade");
 	array::thread_all(level.players, &watch_player_fire);
-	level.ai_hendricks waittill(#"hash_ff2562ea");
+	level.ai_hendricks waittill("explosion_truck");
 	level thread function_88ddc4d5();
 	level flag::set("fuel_tunnel_alerted");
 	level thread function_5d78fd66();
@@ -144,7 +144,7 @@ function function_ca7de8e8()
 	level thread function_d9bab593("t_fuel_tunnel_right_door", "fueltunnel_spawnclosetdoor_3", "sp_fuel_tunnel_right_door", "info_fuel_tunnel_right_door", "info_fuel_tunnel_fallback_end");
 	level thread cp_prologue_util::function_8f7b1e06("t_fueling_bridge_attacker", "info_fueling_bridge_attacker", "info_grenade_truck_guys_fallback");
 	level thread function_12ac9114();
-	level.ai_hendricks waittill(#"hash_ff2562ea");
+	level.ai_hendricks waittill("explosion_truck");
 	level thread cp_prologue_util::function_e0fb6da9("s_enemy_moveup_point_0", 100, 15, 1, 1, 6, "info_fuel_tunnel_fallback_end", "info_grenade_truck_guys_fallback");
 	level thread cp_prologue_util::function_e0fb6da9("s_enemy_moveup_point_1", 100, 15, 1, 1, 6, "info_fuel_tunnel_fallback_end", "info_grenade_truck_guys_fallback");
 	level thread cp_prologue_util::function_e0fb6da9("s_enemy_moveup_point_2", 100, 15, 1, 1, 6, "info_fuel_tunnel_fallback_end", "info_grenade_truck_guys_fallback");
@@ -370,7 +370,7 @@ function function_672c874()
 	level flag::wait_till("start_grenade_roll");
 	level thread scene::play("cin_pro_06_01_hostage_vign_rollgrenade", level.ai_hendricks);
 	level util::delay(0.5, undefined, &trigger::use, "t_script_color_allies_r510");
-	level.ai_hendricks waittill(#"hash_ff2562ea");
+	level.ai_hendricks waittill("explosion_truck");
 	level thread cp_prologue_util::function_2a0bc326(level.ai_hendricks.origin, 0.65, 1.2, 800, 4);
 	level.ai_hendricks ai::set_pacifist(0);
 	level.ai_hendricks ai::set_ignoreme(0);
