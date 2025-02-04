@@ -198,7 +198,7 @@ function function_80eb303(points, nox = 0)
 		{
 			if(randomint(100) > 50)
 			{
-				self thread doa_pickups::directeditemawardto(self, level.doa.var_326cdb5e);
+				self thread doa_pickups::directeditemawardto(self, level.doa.skeleton_model);
 			}
 			else
 			{
