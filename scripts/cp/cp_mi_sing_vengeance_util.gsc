@@ -1239,7 +1239,7 @@ function function_f832e2fa()
 }
 
 /*
-	Name: function_5fbec645
+	Name: dialog_say
 	Namespace: vengeance_util
 	Checksum: 0x4CED5CD1
 	Offset: 0x59B8
@@ -1247,7 +1247,7 @@ function function_f832e2fa()
 	Parameters: 4
 	Flags: None
 */
-function function_5fbec645()
+function dialog_say()
 {
 	// Unsupported VM revision (1B).
 }

@@ -233,7 +233,7 @@ function function_798b0fec()
 	util::clientnotify("sndLRstop");
 	level notify("kas");
 	level.ai_hendricks waittill(#"hash_a89f76ac");
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_you_sold_us_out_you_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_you_sold_us_out_you_0");
 	level dialog::remote("tayr_i_told_the_truth_0", 0, "no_dni");
 	level dialog::remote("tayr_behind_a_slick_corpo_0", 0, "no_dni");
 	level dialog::remote("tayr_experiments_that_wou_0", 0, "no_dni");
@@ -503,15 +503,15 @@ function function_dbe2f523()
 	level.var_f7d1a350 endon(#"hash_da6a4775");
 	trigger = getent("cafeexecution_vign_vo_trigger", "targetname");
 	trigger waittill("trigger");
-	level.var_f7d1a350 vengeance_util::function_5fbec645("ffim1_all_your_money_won_t_1");
+	level.var_f7d1a350 vengeance_util::dialog_say("ffim1_all_your_money_won_t_1");
 	wait(0.5);
-	level.var_f7d1a350 vengeance_util::function_5fbec645("ffim2_laughter_2");
+	level.var_f7d1a350 vengeance_util::dialog_say("ffim2_laughter_2");
 	wait(0.5);
-	level.var_3848e5e1 vengeance_util::function_5fbec645("mciv_stoooop_noooooo_0");
+	level.var_3848e5e1 vengeance_util::dialog_say("mciv_stoooop_noooooo_0");
 	wait(1);
-	level.var_1836a85c vengeance_util::function_5fbec645("mciv_let_me_go_please_0");
+	level.var_1836a85c vengeance_util::dialog_say("mciv_let_me_go_please_0");
 	wait(0.5);
-	level.var_f7d1a350 vengeance_util::function_5fbec645("ffim3_laughter_3");
+	level.var_f7d1a350 vengeance_util::dialog_say("ffim3_laughter_3");
 }
 
 /*
@@ -588,17 +588,17 @@ function function_558e4ac8()
 	level.var_2e6fdc0e endon(#"hash_da6a4775");
 	trigger = getent("cafeburning_vign_vo_trigger", "targetname");
 	trigger waittill("trigger");
-	level.var_b6fadac7 vengeance_util::function_5fbec645("ffim1_now_we_re_the_ones_w_1");
+	level.var_b6fadac7 vengeance_util::dialog_say("ffim1_now_we_re_the_ones_w_1");
 	wait(1);
-	level.var_2e6fdc0e vengeance_util::function_5fbec645("ffim2_laughter_3");
+	level.var_2e6fdc0e vengeance_util::dialog_say("ffim2_laughter_3");
 	wait(1);
-	level.var_3a5715c2 vengeance_util::function_5fbec645("mciv_no_please_noooooo_0");
+	level.var_3a5715c2 vengeance_util::dialog_say("mciv_no_please_noooooo_0");
 	wait(1.5);
-	level.var_96a3037b vengeance_util::function_5fbec645("mciv_stop_i_have_childre_0");
+	level.var_96a3037b vengeance_util::dialog_say("mciv_stop_i_have_childre_0");
 	wait(0.5);
-	level.var_b6fadac7 vengeance_util::function_5fbec645("ffim1_your_children_will_j_0");
+	level.var_b6fadac7 vengeance_util::dialog_say("ffim1_your_children_will_j_0");
 	wait(0.5);
-	level.var_2e6fdc0e vengeance_util::function_5fbec645("ffim3_laughter_3");
+	level.var_2e6fdc0e vengeance_util::dialog_say("ffim3_laughter_3");
 }
 
 /*

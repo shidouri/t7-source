@@ -486,14 +486,14 @@ function function_858195d5()
 	level thread dialog::player_say("plyr_let_s_get_out_of_the_0");
 	level flag::set("hendricks_move_to_apartment_building");
 	wait(4.5);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_agreed_we_ll_cut_th_1");
+	level.ai_hendricks vengeance_util::dialog_say("hend_agreed_we_ll_cut_th_1");
 	level flag::wait_till("hendricks_apartment_vo");
 	level thread function_c55b72a5();
 	level endon(#"hash_1d07a130");
 	level.ai_hendricks util::waittill_either("noise_upstairs", "player_near_apartment_stairs");
 	thread cp_mi_sing_vengeance_sound::function_afc6fda4();
 	wait(1);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_contact_upstairs_ta_1");
+	level.ai_hendricks vengeance_util::dialog_say("hend_contact_upstairs_ta_1");
 	level dialog::player_say("plyr_i_hear_it_0");
 }
 
@@ -510,9 +510,9 @@ function function_d259704f()
 {
 	level endon(#"hash_996095e7");
 	wait(1);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_it_s_a_god_damn_warz_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_it_s_a_god_damn_warz_0");
 	wait(1);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_they_slaughtered_em_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_they_slaughtered_em_0");
 	wait(0.5);
 }
 
@@ -1006,7 +1006,7 @@ function function_cce1e811()
 		level flag::wait_till("player_is_upstairs");
 	}
 	wait(2);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_take_them_out_1");
+	level.ai_hendricks vengeance_util::dialog_say("hend_take_them_out_1");
 }
 
 /*
@@ -1042,23 +1042,23 @@ function function_a5bf9c17(var_ba1e1975)
 	level endon(#"hash_1d07a130");
 	level endon(#"hash_1047ee39");
 	var_ba1e1975 = getent("bedroom_audio_origin", "targetname");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim1_what_are_you_going_t_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("mciv_leave_us_alone_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim2_no_no_he_s_mine_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim2_death_will_be_quick_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("mciv_what_s_wrong_with_yo_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim1_you_did_plenty_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim1_all_of_you_have_liv_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim2_tell_her_goodbye_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("mciv_no_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim1_what_are_you_going_t_0");
+	var_ba1e1975 vengeance_util::dialog_say("mciv_leave_us_alone_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim2_no_no_he_s_mine_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim2_death_will_be_quick_0");
+	var_ba1e1975 vengeance_util::dialog_say("mciv_what_s_wrong_with_yo_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim1_you_did_plenty_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim1_all_of_you_have_liv_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim2_tell_her_goodbye_0");
+	var_ba1e1975 vengeance_util::dialog_say("mciv_no_0");
 	wait(2);
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim3_now_it_s_your_turn_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim1_no_one_s_left_to_sav_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim3_i_want_a_piece_of_he_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim3_you_ll_get_them_one_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim2_the_last_one_died_to_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim1_is_that_your_daughte_0");
-	var_ba1e1975 vengeance_util::function_5fbec645("ffim2_i_bet_she_s_soft_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim3_now_it_s_your_turn_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim1_no_one_s_left_to_sav_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim3_i_want_a_piece_of_he_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim3_you_ll_get_them_one_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim2_the_last_one_died_to_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim1_is_that_your_daughte_0");
+	var_ba1e1975 vengeance_util::dialog_say("ffim2_i_bet_she_s_soft_0");
 }
 
 /*
@@ -1083,7 +1083,7 @@ function function_4bd6211(var_ba1e1975)
 	while(true)
 	{
 		random_vo = array::random(var_2ab10bee);
-		var_ba1e1975 vengeance_util::function_5fbec645(random_vo);
+		var_ba1e1975 vengeance_util::dialog_say(random_vo);
 		wait(randomfloatrange(0.5, 2));
 	}
 }
@@ -1382,7 +1382,7 @@ function function_d07dfdc1()
 	level endon(#"hash_3d3af5a5");
 	level waittill(#"hash_9c3eb25d");
 	wait(2);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_more_enemies_inboun_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_more_enemies_inboun_0");
 	level waittill(#"hash_c1a33016");
 }
 
@@ -1399,16 +1399,16 @@ function function_caf96976()
 {
 	level endon(#"hash_ec8fe31d");
 	var_abd40945 = getent("takedown_enemy_leader_audio_origin", "targetname");
-	var_abd40945 vengeance_util::function_5fbec645("ffim1_today_we_rise_agains_0");
-	var_abd40945 vengeance_util::function_5fbec645("ffim1_these_things_do_not_0");
-	var_abd40945 vengeance_util::function_5fbec645("ffim1_do_not_make_it_quick_0");
-	var_abd40945 vengeance_util::function_5fbec645("ffim1_they_are_the_oppress_0");
-	var_abd40945 vengeance_util::function_5fbec645("ffim1_every_drop_of_their_0");
-	var_abd40945 vengeance_util::function_5fbec645("ffim1_today_the_immortals_0");
-	var_abd40945 thread vengeance_util::function_5fbec645("ffim2_yeaaaaahhh_an_0");
-	var_abd40945 thread vengeance_util::function_5fbec645("ffim3_death_to_the_oppress_0");
-	var_abd40945 thread vengeance_util::function_5fbec645("ffif0_aaaahhhhhh_0");
-	var_abd40945 thread vengeance_util::function_5fbec645("ffim2_immorrrtaalllls_0");
+	var_abd40945 vengeance_util::dialog_say("ffim1_today_we_rise_agains_0");
+	var_abd40945 vengeance_util::dialog_say("ffim1_these_things_do_not_0");
+	var_abd40945 vengeance_util::dialog_say("ffim1_do_not_make_it_quick_0");
+	var_abd40945 vengeance_util::dialog_say("ffim1_they_are_the_oppress_0");
+	var_abd40945 vengeance_util::dialog_say("ffim1_every_drop_of_their_0");
+	var_abd40945 vengeance_util::dialog_say("ffim1_today_the_immortals_0");
+	var_abd40945 thread vengeance_util::dialog_say("ffim2_yeaaaaahhh_an_0");
+	var_abd40945 thread vengeance_util::dialog_say("ffim3_death_to_the_oppress_0");
+	var_abd40945 thread vengeance_util::dialog_say("ffif0_aaaahhhhhh_0");
+	var_abd40945 thread vengeance_util::dialog_say("ffim2_immorrrtaalllls_0");
 }
 
 /*

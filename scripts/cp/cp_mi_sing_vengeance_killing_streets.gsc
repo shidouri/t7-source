@@ -1003,21 +1003,21 @@ function function_71a7056()
 {
 	level flag::wait_till("start_killing_streets_sniper_shoots_civilian");
 	wait(1.5);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_shit_weapons_ready_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_shit_weapons_ready_0");
 	if(!level flag::get("move_killing_streets_hendricks_node_15"))
 	{
 		level flag::wait_till("move_killing_streets_hendricks_node_15");
-		level.ai_hendricks vengeance_util::function_5fbec645("hend_contact_1");
+		level.ai_hendricks vengeance_util::dialog_say("hend_contact_1");
 	}
 	level flag::wait_till_any(array("stealth_alert", "stealth_combat", "killing_streets_intro_patroller_spawners_cleared", "cin_ven_03_15_killingstreets_vign_done", "hendricks_break_ally_stealth"));
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_weapons_free_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_weapons_free_0");
 	wait(0.5);
 	level.ai_hendricks battlechatter::function_d9f49fba(1);
 	level flag::wait_till("move_hendricks_to_meat_market");
 	wait(1.75);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_what_the_fuck_is_wro_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_what_the_fuck_is_wro_0");
 	wait(0.5);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_no_mission_is_worth_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_no_mission_is_worth_0");
 }
 
 /*
@@ -1032,7 +1032,7 @@ function function_71a7056()
 function function_999f0273()
 {
 	level flag::wait_till("hendricks_says_stay_down");
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_stay_down_1");
+	level.ai_hendricks vengeance_util::dialog_say("hend_stay_down_1");
 }
 
 /*

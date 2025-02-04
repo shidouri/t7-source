@@ -1073,7 +1073,7 @@ function function_f8f4e73e()
 	{
 		level flag::wait_till("temple_hendricks_done");
 	}
-	level.ai_hendricks thread vengeance_util::function_5fbec645("hend_open_it_up_i_ll_cov_0");
+	level.ai_hendricks thread vengeance_util::dialog_say("hend_open_it_up_i_ll_cov_0");
 	level thread function_cf782b84();
 	s_anim_node = struct::get("tag_align_dogleg_2", "targetname");
 	s_anim_node thread scene::play("cin_ven_05_65_deadcivilians_vign");

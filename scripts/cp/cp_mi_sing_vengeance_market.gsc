@@ -149,7 +149,7 @@ function function_bd50a158()
 function quad_battle_main()
 {
 	thread cp_mi_sing_vengeance_sound::function_10de79ba();
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_rally_on_me_and_let_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_rally_on_me_and_let_0");
 	level thread vengeance_sound::function_973b77f9();
 	objectives::set("cp_level_vengeance_go_to_safehouse");
 	trigger::use("hendricks_qt_color_start", "targetname");
@@ -633,7 +633,7 @@ function quad_battle_vo()
 	thread cp_mi_sing_vengeance_sound::function_af95bc45();
 	level thread function_6f79b65d();
 	wait(1);
-	level.ai_hendricks thread vengeance_util::function_5fbec645("hend_stop_do_you_hear_t_1");
+	level.ai_hendricks thread vengeance_util::dialog_say("hend_stop_do_you_hear_t_1");
 	wait(2);
 	level flag::set("quad_tank_start_anim");
 	level flag::wait_till("quad_tank_wall_broken");
@@ -642,7 +642,7 @@ function quad_battle_vo()
 	{
 		e_player thread function_f14d81a9();
 	}
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_quad_tank_take_cove_1", 0);
+	level.ai_hendricks vengeance_util::dialog_say("hend_quad_tank_take_cove_1", 0);
 	level flag::wait_till("quad_battle_starts");
 	level dialog::player_say("plyr_draw_it_s_fire_i_ll_2");
 	level.quadtank thread function_43458bf2();
@@ -673,11 +673,11 @@ function quad_battle_vo()
 	}
 	objectives::show("cp_level_vengeance_go_to_safehouse");
 	level flag::wait_till("hendricks_exiting_market");
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_taylor_fucked_up_h_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_taylor_fucked_up_h_0");
 	wait(0.75);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_now_we_don_t_know_wh_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_now_we_don_t_know_wh_0");
 	level waittill(#"hash_15c8f178");
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_even_if_they_ve_hack_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_even_if_they_ve_hack_0");
 }
 
 /*
@@ -694,7 +694,7 @@ function function_f14d81a9()
 	level.quadtank endon("death");
 	self endon(#"hash_b8804640");
 	wait(20);
-	level.ai_hendricks vengeance_util::function_5fbec645("hend_we_need_something_bi_0");
+	level.ai_hendricks vengeance_util::dialog_say("hend_we_need_something_bi_0");
 }
 
 /*
@@ -1798,7 +1798,7 @@ function function_29587c78()
 						{
 							if(issubstr(tgt.vehicletype, "wasp"))
 							{
-								level.ai_hendricks vengeance_util::function_5fbec645("hend_watch_the_skies_for_0", 0, 0, self);
+								level.ai_hendricks vengeance_util::dialog_say("hend_watch_the_skies_for_0", 0, 0, self);
 								wait(7);
 								continue;
 							}
@@ -1833,7 +1833,7 @@ function function_9af0090()
 	{
 		wait(randomintrange(10, 15));
 		random_vo = array::random(nag_vo);
-		level.ai_hendricks vengeance_util::function_5fbec645(random_vo, 0, 0, self);
+		level.ai_hendricks vengeance_util::dialog_say(random_vo, 0, 0, self);
 		nag_vo = array::exclude(nag_vo, random_vo);
 		if(nag_vo.size < 1)
 		{
