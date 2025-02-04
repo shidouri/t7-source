@@ -3451,9 +3451,9 @@ function function_7bdf5497()
 	Parameters: 1
 	Flags: Linked
 */
-function function_4cef9872(var_5df3645b)
+function function_4cef9872(current_map)
 {
-	if(!isdefined(var_5df3645b))
+	if(!isdefined(current_map))
 	{
 		return;
 	}
@@ -3477,14 +3477,14 @@ function function_4cef9872(var_5df3645b)
 	foreach(stat in var_b4728b19)
 	{
 		statvalue = self getdstat("PlayerStatsList", stat, "statValue");
-		self setdstat("PlayerStatsByMap", var_5df3645b, "currentStats", stat, statvalue);
+		self setdstat("PlayerStatsByMap", current_map, "currentStats", stat, statvalue);
 	}
 	for(i = 0; i < 6; i++)
 	{
-		var_b53e21eb = self getdstat("PlayerStatsByMap", var_5df3645b, "completedDifficulties", i);
-		self setdstat("PlayerStatsByMap", var_5df3645b, "previousCompletedDifficulties", i, var_b53e21eb);
-		var_16925818 = self getdstat("PlayerStatsBymap", var_5df3645b, "receivedXPForDifficulty", i);
-		self setdstat("PlayerStatsByMap", var_5df3645b, "previousReceivedXPForDifficulty", i, var_16925818);
+		var_b53e21eb = self getdstat("PlayerStatsByMap", current_map, "completedDifficulties", i);
+		self setdstat("PlayerStatsByMap", current_map, "previousCompletedDifficulties", i, var_b53e21eb);
+		var_16925818 = self getdstat("PlayerStatsBymap", current_map, "receivedXPForDifficulty", i);
+		self setdstat("PlayerStatsByMap", current_map, "previousReceivedXPForDifficulty", i, var_16925818);
 	}
 	for(i = 0; i < 20; i++)
 	{
