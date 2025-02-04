@@ -714,9 +714,9 @@ function private function_e587e1f2()
 	Parameters: 1
 	Flags: Linked
 */
-function checkweaponchallengecomplete(var_e9af7d73)
+function checkweaponchallengecomplete(challenge_tier)
 {
-	if(var_e9af7d73 == 3)
+	if(challenge_tier == 3)
 	{
 		self give_achievement("CP_ALL_WEAPON_CAMOS");
 	}
