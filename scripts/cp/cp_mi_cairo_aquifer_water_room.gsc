@@ -1034,7 +1034,7 @@ function function_3b4d25aa()
 */
 function function_3ed240f1()
 {
-	level.var_75756ef4 = 0;
+	level.blacked_out = 0;
 	thread function_8492aced();
 }
 
@@ -1081,9 +1081,9 @@ function fade_from_black()
 	while(true)
 	{
 		level waittill(#"hash_f26c95d0");
-		if(level.var_75756ef4 == 1)
+		if(level.blacked_out == 1)
 		{
-			level.var_75756ef4 = 0;
+			level.blacked_out = 0;
 			thread lui::screen_fade_in(0.5);
 		}
 	}
@@ -1104,9 +1104,9 @@ function fade_to_black()
 	while(true)
 	{
 		level waittill(#"hash_43565802");
-		if(level.var_75756ef4 == 0)
+		if(level.blacked_out == 0)
 		{
-			level.var_75756ef4 = 1;
+			level.blacked_out = 1;
 			thread lui::screen_fade_out(0.5);
 		}
 	}
