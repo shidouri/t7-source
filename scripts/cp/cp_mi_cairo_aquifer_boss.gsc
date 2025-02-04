@@ -227,7 +227,7 @@ function init_sniper_boss()
 	level.sniper_boss.retargeting = 0;
 	level.var_7d7334f = [];
 	level flag::set("sniper_boss_spawned");
-	thread function_6800ac1d();
+	thread boss_objectives();
 	thread function_80b6b7eb();
 	level.var_ed93c81c = [];
 	level.var_ed93c81c[0] = array("sniper_spot_1_1");
@@ -952,7 +952,7 @@ function function_6ea369f7()
 }
 
 /*
-	Name: function_6800ac1d
+	Name: boss_objectives
 	Namespace: cp_mi_cairo_aquifer_boss
 	Checksum: 0x7E3AEE9
 	Offset: 0x33E0
@@ -960,7 +960,7 @@ function function_6ea369f7()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6800ac1d()
+function boss_objectives()
 {
 	trig = getent("boss_hack1", "targetname");
 	trig2 = getent("boss_hack2", "targetname");
