@@ -412,7 +412,7 @@ function include_zombie_craftable(craftablestub)
 		println("" + craftablestub.name);
 	#/
 	level.zombie_include_craftables[craftablestub.name] = craftablestub;
-	craftablestub.var_2c8ee667 = hashstring(craftablestub.name);
+	craftablestub.hash_id = hashstring(craftablestub.name);
 	/#
 		level thread add_craftable_cheat(craftablestub);
 	#/
@@ -469,7 +469,7 @@ function generate_zombie_craftable_piece(craftablename, piecename, radius, heigh
 	piecestub.vox_id = vox_id;
 	piecestub.hint_string = hint_string;
 	piecestub.inventory_slot = slot;
-	piecestub.var_2c8ee667 = hashstring(piecename);
+	piecestub.hash_id = hashstring(piecename);
 	if(isdefined(b_one_time_vo) && b_one_time_vo)
 	{
 		piecestub.b_one_time_vo = b_one_time_vo;
@@ -4132,9 +4132,9 @@ function track_craftable_piece_pickedup(piece)
 		return;
 	}
 	self add_map_craftable_stat(piece.craftablename, "pieces_pickedup", 1);
-	if(isdefined(piece.piecestub) && isdefined(piece.piecestub.var_2c8ee667))
+	if(isdefined(piece.piecestub) && isdefined(piece.piecestub.hash_id))
 	{
-		self recordmapevent(13, gettime(), self.origin, level.round_number, piece.piecestub.var_2c8ee667);
+		self recordmapevent(13, gettime(), self.origin, level.round_number, piece.piecestub.hash_id);
 	}
 	if(isdefined(piece.piecestub.vox_id))
 	{
@@ -4219,9 +4219,9 @@ function track_craftables_crafted(craftable)
 	self add_map_craftable_stat(bname, "buildable_built", 1);
 	self zm_stats::increment_client_stat("buildables_built", 0);
 	self zm_stats::increment_player_stat("buildables_built");
-	if(isdefined(craftable.stub) && isdefined(craftable.stub.craftablestub) && isdefined(craftable.stub.craftablestub.var_2c8ee667))
+	if(isdefined(craftable.stub) && isdefined(craftable.stub.craftablestub) && isdefined(craftable.stub.craftablestub.hash_id))
 	{
-		self recordmapevent(14, gettime(), self.origin, level.round_number, craftable.stub.craftablestub.var_2c8ee667);
+		self recordmapevent(14, gettime(), self.origin, level.round_number, craftable.stub.craftablestub.hash_id);
 	}
 	if(!isdefined(craftable.stub.craftablestub.no_challenge_stat) || craftable.stub.craftablestub.no_challenge_stat == 0)
 	{
@@ -4256,9 +4256,9 @@ function track_craftables_pickedup(craftable)
 		return;
 	}
 	stat_name = get_craftable_stat_name(craftable.craftable_name);
-	if(isdefined(craftable.stub) && isdefined(craftable.stub.craftablestub) && isdefined(craftable.stub.craftablestub.var_2c8ee667))
+	if(isdefined(craftable.stub) && isdefined(craftable.stub.craftablestub) && isdefined(craftable.stub.craftablestub.hash_id))
 	{
-		self recordmapevent(16, gettime(), self.origin, level.round_number, craftable.stub.craftablestub.var_2c8ee667);
+		self recordmapevent(16, gettime(), self.origin, level.round_number, craftable.stub.craftablestub.hash_id);
 	}
 	if(!isdefined(stat_name))
 	{
@@ -4307,9 +4307,9 @@ function track_craftables_planted(equipment)
 	}
 	demo::bookmark("zm_player_buildable_placed", gettime(), self);
 	self add_map_craftable_stat(craftable_name, "buildable_placed", 1);
-	if(isdefined(equipment.stub) && isdefined(equipment.stub.craftablestub) && isdefined(equipment.stub.craftablestub.var_2c8ee667))
+	if(isdefined(equipment.stub) && isdefined(equipment.stub.craftablestub) && isdefined(equipment.stub.craftablestub.hash_id))
 	{
-		self recordmapevent(15, gettime(), self.origin, level.round_number, equipment.stub.craftablestub.var_2c8ee667);
+		self recordmapevent(15, gettime(), self.origin, level.round_number, equipment.stub.craftablestub.hash_id);
 	}
 }
 

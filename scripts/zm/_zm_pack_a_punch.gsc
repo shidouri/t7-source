@@ -448,7 +448,7 @@ function private vending_weapon_upgrade()
 			currentaat = player aat::getaatonweapon(current_weapon);
 			if(isdefined(currentaat))
 			{
-				currentaathashid = currentaat.var_2c8ee667;
+				currentaathashid = currentaat.hash_id;
 			}
 			player.restore_ammo = 1;
 			player.restore_clip = player getweaponammoclip(current_weapon);
@@ -658,7 +658,7 @@ function private wait_for_player_to_take(player, weapon, packa_timer, b_weapon_s
 					aatobj = player aat::getaatonweapon(upgrade_weapon);
 					if(isdefined(aatobj))
 					{
-						aatid = aatobj.var_2c8ee667;
+						aatid = aatobj.hash_id;
 					}
 				}
 				else
@@ -741,7 +741,7 @@ function private wait_for_timeout(weapon, packa_timer, player, isrepack)
 				aathash = -1;
 				if(isdefined(aatonweapon))
 				{
-					aathash = aatonweapon.var_2c8ee667;
+					aathash = aatonweapon.hash_id;
 				}
 				player recordmapevent(26, gettime(), player.origin, level.round_number, weaponidx, aathash);
 			}
