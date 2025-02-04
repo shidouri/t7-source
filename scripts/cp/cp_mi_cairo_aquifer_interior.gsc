@@ -152,7 +152,7 @@ function handle_hangar_extras()
 }
 
 /*
-	Name: function_3fd5eb17
+	Name: flash_white
 	Namespace: cp_mi_cairo_aquifer_interior
 	Checksum: 0xEA546A42
 	Offset: 0xF90
@@ -160,7 +160,7 @@ function handle_hangar_extras()
 	Parameters: 0
 	Flags: None
 */
-function function_3fd5eb17()
+function flash_white()
 {
 	util::screen_fade_out(0.25, "white");
 	wait(0.25);
