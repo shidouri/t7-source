@@ -3388,12 +3388,12 @@ function grenade_toss(var_32400ae0)
 	while(true)
 	{
 		self waittill("grenade_fire", e_grenade);
-		e_grenade thread function_337c8c84(var_32400ae0);
+		e_grenade thread grenade_tracker(var_32400ae0);
 	}
 }
 
 /*
-	Name: function_337c8c84
+	Name: grenade_tracker
 	Namespace: newworld_train
 	Checksum: 0x5E0A99E5
 	Offset: 0xC080
@@ -3401,7 +3401,7 @@ function grenade_toss(var_32400ae0)
 	Parameters: 1
 	Flags: Linked
 */
-function function_337c8c84(var_32400ae0)
+function grenade_tracker(var_32400ae0)
 {
 	self endon("death");
 	if(isdefined(10))
