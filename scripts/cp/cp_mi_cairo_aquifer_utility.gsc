@@ -1656,7 +1656,7 @@ function function_35142384()
 		foreach(key in keys)
 		{
 			self.var_740cbab7[key] = spawnstruct();
-			self.var_740cbab7[key].var_61e9af10 = 0;
+			self.var_740cbab7[key].cur_index = 0;
 			self.var_740cbab7[key].last_time = 0;
 			var_41f3bc5c = 15;
 			timeout_time = 3;
@@ -1761,7 +1761,7 @@ function function_a7d6fd77(var_27114ecf)
 	}
 	if(isdefined(var_4031190e))
 	{
-		vo = self.var_d60b48f3[var_4031190e][self.var_740cbab7[var_4031190e].var_61e9af10];
+		vo = self.var_d60b48f3[var_4031190e][self.var_740cbab7[var_4031190e].cur_index];
 		if(strstartswith(vo, "plyr"))
 		{
 			self dialog::player_say(vo, 0);
@@ -1771,11 +1771,11 @@ function function_a7d6fd77(var_27114ecf)
 			level dialog::remote(vo, 0, "dni", self);
 		}
 		self.var_740cbab7[var_4031190e].last_time = gettime();
-		self.var_740cbab7[var_4031190e].var_61e9af10++;
+		self.var_740cbab7[var_4031190e].cur_index++;
 		self.var_740cbab7[var_4031190e].var_41f3bc5c = self.var_740cbab7[var_4031190e].var_41f3bc5c * 1.1;
-		if(self.var_740cbab7[var_4031190e].var_61e9af10 >= self.var_d60b48f3[var_4031190e].size)
+		if(self.var_740cbab7[var_4031190e].cur_index >= self.var_d60b48f3[var_4031190e].size)
 		{
-			self.var_740cbab7[var_4031190e].var_61e9af10 = 0;
+			self.var_740cbab7[var_4031190e].cur_index = 0;
 			self.var_740cbab7[var_4031190e].var_41f3bc5c = self.var_740cbab7[var_4031190e].var_41f3bc5c * 2;
 		}
 	}
