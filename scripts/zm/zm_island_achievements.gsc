@@ -62,7 +62,7 @@ function on_player_connect()
 	self thread function_5efc5a29();
 	self thread function_47538b42();
 	self thread function_cdd905fd();
-	self thread function_4a12afed();
+	self thread destroy_webs();
 	self thread function_d6e0957d();
 	self thread function_ed8c7d0f();
 	self thread function_53f54d29();
@@ -168,7 +168,7 @@ function function_53f54d29()
 }
 
 /*
-	Name: function_4a12afed
+	Name: destroy_webs
 	Namespace: island_achievements
 	Checksum: 0xF5FCD452
 	Offset: 0x6A8
@@ -176,7 +176,7 @@ function function_53f54d29()
 	Parameters: 0
 	Flags: Linked
 */
-function function_4a12afed()
+function destroy_webs()
 {
 	level endon("end_game");
 	self endon("disconnect");
