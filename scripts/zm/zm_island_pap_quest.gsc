@@ -40,7 +40,7 @@
 function main()
 {
 	function_16f0344e();
-	function_d0901c34();
+	cocoon_setup();
 	function_f4a071bb();
 	function_4fdc8e70();
 }
@@ -462,7 +462,7 @@ function function_90913542(str_flag)
 }
 
 /*
-	Name: function_d0901c34
+	Name: cocoon_setup
 	Namespace: zm_island_pap_quest
 	Checksum: 0x539D5C33
 	Offset: 0x1B70
@@ -470,7 +470,7 @@ function function_90913542(str_flag)
 	Parameters: 0
 	Flags: Linked
 */
-function function_d0901c34()
+function cocoon_setup()
 {
 	level.var_e1bb72d5 = 0;
 	level.var_69ca3c45 = 0;
