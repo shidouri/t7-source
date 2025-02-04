@@ -89,7 +89,7 @@ function validation()
 function activation()
 {
 	level.var_dfd95560 = 1;
-	function_8824774d(level.round_number + 1);
+	goto_round(level.round_number + 1);
 	foreach(player in level.players)
 	{
 		if(zm_utility::is_player_valid(player))
@@ -123,7 +123,7 @@ function can_kill(zombie)
 }
 
 /*
-	Name: function_8824774d
+	Name: goto_round
 	Namespace: zm_bgb_round_robbin
 	Checksum: 0x4ADBD36B
 	Offset: 0x4D8
@@ -131,7 +131,7 @@ function can_kill(zombie)
 	Parameters: 1
 	Flags: Linked
 */
-function function_8824774d(target_round)
+function goto_round(target_round)
 {
 	if(target_round < 1)
 	{
