@@ -617,7 +617,7 @@ function function_eae5713()
 */
 function function_51277233()
 {
-	level waittill(#"hash_3f802798");
+	level waittill("burn_vines");
 	level clientfield::set("clearing_vinewall_open", 1);
 }
 
