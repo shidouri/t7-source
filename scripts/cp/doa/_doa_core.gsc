@@ -767,7 +767,7 @@ function function_53bcdb30()
 	level.doa.rules.var_da7e08a6 = 40;
 	level.doa.rules.monkey_fuse_time = 10;
 	level.doa.rules.var_ecfc4359 = 14;
-	level.doa.rules.var_942b8706 = 244;
+	level.doa.rules.clock_radius = 244;
 	level.doa.rules.var_187f2874 = 256;
 	level.doa.rules.var_92fcc00c = level.doa.rules.var_187f2874 * level.doa.rules.var_187f2874;
 	level.doa.var_b351e5fb = 0;

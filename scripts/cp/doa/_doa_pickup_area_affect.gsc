@@ -85,12 +85,12 @@ function function_ca06d008(player, origin)
 		coat setmodel(level.doa.coat_of_arms);
 		coat thread doa_sound::function_90118d8c("zmb_coat_of_arms");
 	}
-	trigger = spawn("trigger_radius", coat.origin, 9, level.doa.rules.var_942b8706, 60);
+	trigger = spawn("trigger_radius", coat.origin, 9, level.doa.rules.clock_radius, 60);
 	trigger.targetname = "teamShifterUpdate";
 	trigger enablelinkto();
 	trigger.opentime = 2300;
 	trigger.var_96ff2cda = gettime() + trigger.opentime;
-	trigger.radiussq = level.doa.rules.var_942b8706 * level.doa.rules.var_942b8706;
+	trigger.radiussq = level.doa.rules.clock_radius * level.doa.rules.clock_radius;
 	playfx("zombie/fx_exp_rpg_red_doa", coat.origin);
 	org thread doa_fx::function_285a2999("teamShift");
 	trigger thread function_963e13a0();
@@ -218,13 +218,13 @@ function timeshifterupdate(player, origin)
 	clock setmodel(level.doa.clock_model);
 	clock thread doa_sound::function_90118d8c("zmb_pwup_clock_start");
 	clock playloopsound("zmb_pwup_clock_loop", 2);
-	trigger = spawn("trigger_radius", clock.origin, 9, level.doa.rules.var_942b8706, 60);
+	trigger = spawn("trigger_radius", clock.origin, 9, level.doa.rules.clock_radius, 60);
 	trigger.targetname = "timeShifterUpdate";
 	trigger enablelinkto();
 	trigger linkto(clock);
 	trigger.opentime = 3000;
 	trigger.var_96ff2cda = gettime() + trigger.opentime;
-	trigger.radiussq = level.doa.rules.var_942b8706 * level.doa.rules.var_942b8706;
+	trigger.radiussq = level.doa.rules.clock_radius * level.doa.rules.clock_radius;
 	timetowait = player doa_utility::function_1ded48e6(level.doa.rules.var_ecfc4359);
 	/#
 	#/
