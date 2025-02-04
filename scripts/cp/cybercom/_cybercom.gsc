@@ -232,7 +232,7 @@ function function_25889576(einflictor, eattacker, idamage, idflags, smeansofdeat
 	}
 	if(idamage > 30)
 	{
-		self notify(#"hash_15b29ba5");
+		self notify("damage_pain");
 	}
 	return idamage;
 }
