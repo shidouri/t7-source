@@ -198,7 +198,7 @@ function function_9736d8c9()
 	playsoundatposition("mus_alley_stinger", (0, 0, 0));
 	util::clientnotify("sndLRstart");
 	var_bba8f947 thread scene::play("cin_ven_03_15_killingstreets_vign_snipershot");
-	thread cp_mi_sing_vengeance_sound::function_68da61d9();
+	thread cp_mi_sing_vengeance_sound::civilian_shot();
 	wait(0.1);
 	while(true)
 	{

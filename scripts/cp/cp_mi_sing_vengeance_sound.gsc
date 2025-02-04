@@ -478,7 +478,7 @@ function takedown_siegebot(siege)
 }
 
 /*
-	Name: function_68da61d9
+	Name: civilian_shot
 	Namespace: cp_mi_sing_vengeance_sound
 	Checksum: 0xC247D519
 	Offset: 0x1870
@@ -486,7 +486,7 @@ function takedown_siegebot(siege)
 	Parameters: 0
 	Flags: Linked
 */
-function function_68da61d9()
+function civilian_shot()
 {
 	playsoundatposition("evt_civ_running", (20892, -2913, 204));
 	wait(1.2);
