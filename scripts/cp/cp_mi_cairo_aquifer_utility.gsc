@@ -784,7 +784,7 @@ function function_78e66c54()
 	self.maxhealth = self.health;
 	self.var_d4f48128 = 0;
 	var_b1e0b5bc = self.var_d4f48128;
-	var_cdfde28c = 3;
+	damage_stages = 3;
 	var_3c794781 = 1;
 	var_c357667 = [];
 	var_c357667[0] = 10;
@@ -853,12 +853,12 @@ function function_78e66c54()
 			}
 			if(self.var_d4f48128 != var_b1e0b5bc)
 			{
-				self.var_d4f48128 = math::clamp(self.var_d4f48128, 0, var_cdfde28c);
+				self.var_d4f48128 = math::clamp(self.var_d4f48128, 0, damage_stages);
 				self setdamagestage(self.var_d4f48128);
 				self util::clientnotify("damage_stage_changed");
 				var_b1e0b5bc = self.var_d4f48128;
 			}
-			if(self.var_d4f48128 >= var_cdfde28c)
+			if(self.var_d4f48128 >= damage_stages)
 			{
 				if(!isdefined(self.dogfighter.var_3dca6783))
 				{
