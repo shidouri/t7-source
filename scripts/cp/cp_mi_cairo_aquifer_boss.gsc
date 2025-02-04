@@ -1006,7 +1006,7 @@ function function_e9c4785f(gameobj)
 }
 
 /*
-	Name: function_dae6fcbf
+	Name: flicker_panels
 	Namespace: cp_mi_cairo_aquifer_boss
 	Checksum: 0x5065867
 	Offset: 0x3700
@@ -1014,7 +1014,7 @@ function function_e9c4785f(gameobj)
 	Parameters: 1
 	Flags: Linked
 */
-function function_dae6fcbf(name)
+function flicker_panels(name)
 {
 	level endon("hacking_complete");
 	panels = getentarray(name, "targetname");
@@ -1139,7 +1139,7 @@ function function_339776e2(name)
 function function_41ca61ef(num)
 {
 	level endon(#"hash_90029dea");
-	thread function_dae6fcbf("reactor_lights_0" + (isdefined(num) ? "" + num : ""));
+	thread flicker_panels("reactor_lights_0" + (isdefined(num) ? "" + num : ""));
 	level thread cp_mi_cairo_aquifer_sound::function_ad15f6f5();
 	surge = "surge0" + (isdefined(num) ? "" + num : "");
 	exploder::exploder(surge + "_stage01");
