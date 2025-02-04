@@ -1055,7 +1055,7 @@ function function_6fdd2184()
 			wait(0.1);
 		}
 	}
-	vengeance_util::function_ee75acde("hend_that_s_the_last_of_0");
+	vengeance_util::dialog_remote("hend_that_s_the_last_of_0");
 	level flag::clear("stealth_combat");
 	level flag::clear("stealth_discovered");
 }

@@ -1253,7 +1253,7 @@ function function_5fbec645()
 }
 
 /*
-	Name: function_ee75acde
+	Name: dialog_remote
 	Namespace: vengeance_util
 	Checksum: 0xF28A6FBD
 	Offset: 0x5A00
@@ -1261,7 +1261,7 @@ function function_5fbec645()
 	Parameters: 4
 	Flags: None
 */
-function function_ee75acde()
+function dialog_remote()
 {
 	// Unsupported VM revision (1B).
 }

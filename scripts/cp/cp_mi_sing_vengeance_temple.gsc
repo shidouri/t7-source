@@ -764,11 +764,11 @@ function temple_vo()
 	level flag::set("show_temple_gather");
 	stealth::function_26f24c93(1);
 	flag::wait_till("tmeple_stealth_motivator_01");
-	vengeance_util::function_ee75acde("hend_stick_to_the_shadows_0");
+	vengeance_util::dialog_remote("hend_stick_to_the_shadows_0");
 	flag::wait_till("tmeple_stealth_motivator_02");
-	vengeance_util::function_ee75acde("hend_lots_of_movement_dow_1");
+	vengeance_util::dialog_remote("hend_lots_of_movement_dow_1");
 	flag::wait_till("tmeple_stealth_motivator_03");
-	vengeance_util::function_ee75acde("hend_keep_moving_they_ha_0");
+	vengeance_util::dialog_remote("hend_keep_moving_they_ha_0");
 }
 
 /*
@@ -931,8 +931,8 @@ function function_e4612dd6()
 	var_eb6e35ef[0] = "hend_shifting_positions_0";
 	var_eb6e35ef[1] = "hend_i_m_dropping_down_to_0";
 	line = array::random(var_eb6e35ef);
-	vengeance_util::function_ee75acde(line);
-	vengeance_util::function_ee75acde("hend_if_we_can_clear_the_0", 4);
+	vengeance_util::dialog_remote(line);
+	vengeance_util::dialog_remote("hend_if_we_can_clear_the_0", 4);
 	level thread vengeance_sound::function_14592f48();
 	level.ai_hendricks battlechatter::function_d9f49fba(1);
 }
@@ -1365,7 +1365,7 @@ function function_a1a65fdc(player)
 			var_2dd18bed[0] = "hend_get_off_the_rooftops_0";
 			var_2dd18bed[1] = "hend_stay_off_the_rooftop_0";
 			var_2dd18bed[2] = "hend_they_re_going_to_spo_0";
-			player thread vengeance_util::function_ee75acde(array::random(var_2dd18bed), 0, undefined, player);
+			player thread vengeance_util::dialog_remote(array::random(var_2dd18bed), 0, undefined, player);
 		}
 		player.var_b9e5210f = 1;
 		wait(4);
