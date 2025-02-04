@@ -1868,11 +1868,11 @@ function player_watch_grapple()
 */
 function function_668dcfac(target)
 {
-	if(isdefined(target.var_deccd0c8) && target.var_deccd0c8)
+	if(isdefined(target.grapple_lock) && target.grapple_lock)
 	{
 		return false;
 	}
-	target.var_deccd0c8 = 1;
+	target.grapple_lock = 1;
 	self thread function_b8488073(target, 5);
 	return true;
 }
@@ -1891,7 +1891,7 @@ function function_b8488073(target, time)
 	self util::waittill_any_timeout(time, "disconnect", "grapple_cancel", "player_exit_beastmode");
 	if(isdefined(target))
 	{
-		target.var_deccd0c8 = undefined;
+		target.grapple_lock = undefined;
 		if(isdefined(target.is_zombie) && target.is_zombie)
 		{
 			target dodamage(target.health + 1000, target.origin);
