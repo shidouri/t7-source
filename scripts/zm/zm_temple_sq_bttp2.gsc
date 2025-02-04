@@ -41,7 +41,7 @@ function init_stage()
 	level.var_64d74143 = 0;
 	dials = getentarray("sq_bttp2_dial", "targetname");
 	level.var_83becb0e = dials.size;
-	array::thread_all(dials, &function_5ac3fada);
+	array::thread_all(dials, &dial_handler);
 	zm_temple_sq_brock::delete_radio();
 	if(level flag::get("radio_7_played"))
 	{
@@ -197,7 +197,7 @@ function dial_trigger()
 }
 
 /*
-	Name: function_5ac3fada
+	Name: dial_handler
 	Namespace: zm_temple_sq_bttp2
 	Checksum: 0xDE0257D5
 	Offset: 0x918
@@ -205,7 +205,7 @@ function dial_trigger()
 	Parameters: 0
 	Flags: Linked
 */
-function function_5ac3fada()
+function dial_handler()
 {
 	if(!level flag::get("radio_7_played"))
 	{
