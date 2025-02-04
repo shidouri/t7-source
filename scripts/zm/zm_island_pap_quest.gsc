@@ -849,7 +849,7 @@ function function_2870b97d()
 }
 
 /*
-	Name: function_55dac330
+	Name: defend_fail
 	Namespace: zm_island_pap_quest
 	Checksum: 0xC19922
 	Offset: 0x2CE8
@@ -857,7 +857,7 @@ function function_2870b97d()
 	Parameters: 0
 	Flags: None
 */
-function function_55dac330()
+function defend_fail()
 {
 	foreach(ai_zombie in getaiteamarray(level.zombie_team))
 	{
