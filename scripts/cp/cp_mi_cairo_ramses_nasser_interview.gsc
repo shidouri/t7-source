@@ -97,7 +97,7 @@ function function_1bcd464b()
 }
 
 /*
-	Name: function_bf7cc686
+	Name: do_interview
 	Namespace: cp_mi_cairo_ramses_nasser_interview
 	Checksum: 0xF2E4DA8E
 	Offset: 0xB50
@@ -105,7 +105,7 @@ function function_1bcd464b()
 	Parameters: 1
 	Flags: None
 */
-function function_bf7cc686()
+function do_interview()
 {
 	// Unsupported VM revision (1B).
 }
