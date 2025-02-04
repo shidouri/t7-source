@@ -1110,14 +1110,14 @@ function function_a06630fc()
 function function_77f4b1ca()
 {
 	self endon("disconnect");
-	self endon(#"hash_87b9e813");
+	self endon("gears_seen");
 	var_66bf6df = getent("elevator_gears", "targetname");
 	self util::waittill_player_looking_at(var_66bf6df.origin);
 	foreach(player in level.players)
 	{
 		if(player != self)
 		{
-			player notify(#"hash_87b9e813");
+			player notify("gears_seen");
 		}
 	}
 	if(zm_utility::is_player_valid(self))
