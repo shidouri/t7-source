@@ -1217,7 +1217,7 @@ function function_13df0656()
 {
 	if(isdefined(level.var_163a43e4) && array::contains(level.var_163a43e4, self))
 	{
-		self waittill(#"hash_2e47bc4a");
+		self waittill("entering_hatchery");
 	}
 }
 

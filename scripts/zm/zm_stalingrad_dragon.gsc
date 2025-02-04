@@ -2522,7 +2522,7 @@ function function_fce6cca8(v_target_origin, var_2a65eda2)
 	self stoploopsound(0.5);
 	self solid();
 	var_848f1155 delete();
-	self notify(#"hash_2e47bc4a");
+	self notify("entering_hatchery");
 	self disableinvulnerability();
 	self zm_utility::decrement_ignoreme();
 	self.var_4222bc21 = 0;

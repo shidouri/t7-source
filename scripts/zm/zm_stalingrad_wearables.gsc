@@ -193,7 +193,7 @@ function function_1fc9779e()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"hash_2e47bc4a");
+		self waittill("entering_hatchery");
 		switch(level.var_9d19c7e)
 		{
 			case "judicial":
@@ -404,7 +404,7 @@ function function_cc32e7df()
 	self dontinterpolate();
 	self setorigin(s_pavlov_player[n_player_number].origin);
 	self setplayerangles(s_pavlov_player[n_player_number].angles + vectorscale((0, 1, 0), 180));
-	self notify(#"hash_2e47bc4a");
+	self notify("entering_hatchery");
 	level notify(#"hash_9a634383");
 	wait(3);
 	self zm_utility::decrement_ignoreme();

@@ -1149,7 +1149,7 @@ function function_f1c59ae()
 	self.var_c678bf7b = [];
 	while(self.var_c678bf7b.size < 3)
 	{
-		self waittill(#"hash_2e47bc4a");
+		self waittill("entering_hatchery");
 		if(!array::contains(self.var_c678bf7b, level.var_9d19c7e))
 		{
 			array::add(self.var_c678bf7b, level.var_9d19c7e);
@@ -1504,7 +1504,7 @@ function function_75fdfc25()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"hash_2e47bc4a");
+		self waittill("entering_hatchery");
 		self thread function_638f34fd();
 	}
 }

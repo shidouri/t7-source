@@ -116,7 +116,7 @@ function function_42b2ae41()
 function function_35e5c39b()
 {
 	self endon("death");
-	self waittill(#"hash_2e47bc4a");
+	self waittill("entering_hatchery");
 	self giveachievement("ZM_STALINGRAD_RIDE_DRAGON");
 }
 

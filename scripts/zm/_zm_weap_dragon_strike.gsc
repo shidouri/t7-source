@@ -181,7 +181,7 @@ function add_ammo()
 	{
 		if(array::contains(level.var_163a43e4, self))
 		{
-			self waittill(#"hash_2e47bc4a");
+			self waittill("entering_hatchery");
 		}
 		self setweaponammoclip(w_dragon_strike, n_max_ammo);
 	}
