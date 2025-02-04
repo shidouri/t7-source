@@ -67,8 +67,8 @@ function start_grapple(e_grappler, e_grapplee, n_type, n_speed = 1800)
 	/#
 		assert(n_type == 2);
 	#/
-	e_source = function_7027852f(e_grappler function_1e702195(), e_grappler.angles);
-	var_b7c15e33 = function_7027852f(e_grappler function_1e702195(), e_grappler.angles * -1);
+	e_source = create_mover(e_grappler function_1e702195(), e_grappler.angles);
+	var_b7c15e33 = create_mover(e_grappler function_1e702195(), e_grappler.angles * -1);
 	thread function_28ac2916(e_source, var_b7c15e33);
 	if(isdefined(var_b7c15e33))
 	{
@@ -222,7 +222,7 @@ function private function_1e702195()
 }
 
 /*
-	Name: function_7027852f
+	Name: create_mover
 	Namespace: zm_grappler
 	Checksum: 0x805558DF
 	Offset: 0x978
@@ -230,7 +230,7 @@ function private function_1e702195()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_7027852f(v_origin, v_angles)
+function private create_mover(v_origin, v_angles)
 {
 	model = "tag_origin";
 	e_ent = util::spawn_model(model, v_origin, v_angles);
