@@ -26,7 +26,7 @@ class cmobilearmory
 	var gameobject;
 	var target;
 	var var_ab455203;
-	var var_3df2554f;
+	var disabled_player;
 
 	/*
 		Name: constructor
@@ -198,7 +198,7 @@ class cmobilearmory
 	function function_afd39ac7(e_player)
 	{
 		var_ab455203.gameobject.caninteractwithplayer = &function_66708329;
-		var_ab455203.gameobject.var_3df2554f = e_player;
+		var_ab455203.gameobject.disabled_player = e_player;
 		wait(0.25);
 		var_ab455203.gameobject.caninteractwithplayer = undefined;
 	}
@@ -214,7 +214,7 @@ class cmobilearmory
 	*/
 	function function_66708329(e_player)
 	{
-		if(var_3df2554f === e_player)
+		if(disabled_player === e_player)
 		{
 			return false;
 		}
