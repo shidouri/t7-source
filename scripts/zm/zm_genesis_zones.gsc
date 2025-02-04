@@ -67,7 +67,7 @@ function __main__()
 	init_zones[0] = "start_zone";
 	level thread zm_zonemgr::manage_zones(init_zones);
 	level.player_out_of_playable_area_monitor_callback = &player_out_of_playable_area_override;
-	level thread function_6b91d71();
+	level thread blocker_traversals();
 }
 
 /*
@@ -213,7 +213,7 @@ function function_19a0be33()
 }
 
 /*
-	Name: function_6b91d71
+	Name: blocker_traversals
 	Namespace: zm_island_zones
 	Checksum: 0x4B0F402
 	Offset: 0x1CD0
@@ -221,7 +221,7 @@ function function_19a0be33()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6b91d71()
+function blocker_traversals()
 {
 	var_25778c2d = getnodearray("blocker_traversal", "script_noteworthy");
 	array::thread_all(var_25778c2d, &function_9ce5da3b);
