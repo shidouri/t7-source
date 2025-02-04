@@ -91,7 +91,7 @@ function init()
 	level.doa.tank_model = "veh_t7_mil_tank_tiger_zombietron";
 	level.doa.skeleton_model = "zombietron_bones_skeleton";
 	level.doa.var_afa6d081 = "zombietron_heart";
-	level.doa.var_ed2fb7a7 = "zombietron_vortex";
+	level.doa.vortex_model = "zombietron_vortex";
 	level.doa.gloves = "zombietron_boxing_gloves_rt";
 	level.doa.var_1eaa8907 = "zombietron_chicken_fido";
 	level.doa.var_24fe9829 = "c_54i_robot_3";
@@ -154,7 +154,7 @@ function init()
 	function_db1442f2(level.doa.var_b851a0fc, &function_92d90e55, 0, 17, 1, 100, 18);
 	function_db1442f2(level.doa.skeleton_model, &function_92d90e55, 0, 17, 1.4, 50, 30, undefined, vectorscale((1, 0, 0), 20), undefined, &function_d0397bc7);
 	function_db1442f2(level.doa.var_4aa90d77, &function_92d90e55, 0, 21, 1, 100, 22);
-	function_db1442f2(level.doa.var_ed2fb7a7, &function_92d90e55, 0, 22, 0.5, 100, 29);
+	function_db1442f2(level.doa.vortex_model, &function_92d90e55, 0, 22, 0.5, 100, 29);
 	function_db1442f2(level.doa.var_afa6d081, &function_92d90e55, 0, 23, 1, 100, 26);
 	function_db1442f2(level.doa.coat_of_arms, &function_92d90e55, 0, 24, 3, 25, 37, undefined, vectorscale((0, 0, 1), 75));
 	function_db1442f2(level.doa.var_e1df04b, &function_92d90e55, 0, 25, 0.7, 25, 24);
