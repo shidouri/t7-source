@@ -41,7 +41,7 @@ function main()
 {
 	function_16f0344e();
 	cocoon_setup();
-	function_f4a071bb();
+	defend_setup();
 	function_4fdc8e70();
 }
 
@@ -628,7 +628,7 @@ function private function_9bd3096f(player)
 }
 
 /*
-	Name: function_f4a071bb
+	Name: defend_setup
 	Namespace: zm_island_pap_quest
 	Checksum: 0x6353BA5
 	Offset: 0x2208
@@ -636,7 +636,7 @@ function private function_9bd3096f(player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_f4a071bb()
+function defend_setup()
 {
 	level flag::init("defend_over");
 	level.mdl_gate = getent("defend_gate", "targetname");
