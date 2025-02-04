@@ -475,7 +475,7 @@ function function_f2c7fc31()
 				}
 				else if(isdefined(e_last_target.targetname) && issubstr(e_last_target.targetname, "sophia_crystal") && level flag::get("phased_sophia_start"))
 				{
-					e_last_target notify(#"hash_f79a1db0", self, e_player);
+					e_last_target notify("beam_damage", self, e_player);
 					var_c18b4417 = 0;
 				}
 			}
@@ -774,7 +774,7 @@ function function_c4a9de44()
 	level flag::wait_till("phased_sophia_start");
 	while(true)
 	{
-		self waittill(#"hash_f79a1db0", w_weapon, e_player);
+		self waittill("beam_damage", w_weapon, e_player);
 		if(isdefined(w_weapon) && isdefined(e_player))
 		{
 			n_start_time = gettime();
