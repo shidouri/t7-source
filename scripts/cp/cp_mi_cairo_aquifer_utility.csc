@@ -1276,7 +1276,7 @@ function function_21e63f39(localclientnum)
 	var_beb0eb1e = 0.6;
 	var_e64062c8 = 0.3;
 	var_bcd414e9 = 540;
-	var_428be7c0 = 192;
+	image_size = 192;
 	aspect = viewaspect(localclientnum);
 	height = 360;
 	width = height * aspect;
@@ -1301,10 +1301,10 @@ function function_21e63f39(localclientnum)
 				scale = var_e64062c8 + (var_beb0eb1e - var_e64062c8) * (1 - self.var_14351725);
 				offset = (self.missile_target.screenproj[0] - width, self.missile_target.screenproj[1] - height, 0);
 				dist = length(offset);
-				if(dist > (max_radius - ((var_428be7c0 * 0.5) * scale)))
+				if(dist > (max_radius - ((image_size * 0.5) * scale)))
 				{
 					dir = vectornormalize(offset);
-					offset = dir * (max_radius - ((var_428be7c0 * 0.5) * scale));
+					offset = dir * (max_radius - ((image_size * 0.5) * scale));
 				}
 				setluimenudata(localclientnum, self.var_58eaeac1, "missileLockTargetLerpTime", 50);
 				setluimenudata(localclientnum, self.var_58eaeac1, "missileLockTargetX", width + offset[0]);
