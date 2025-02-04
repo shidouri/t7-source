@@ -482,7 +482,7 @@ function function_c95d9be1()
 }
 
 /*
-	Name: function_41ffa9ef
+	Name: garage_police
 	Namespace: vengeance_garage
 	Checksum: 0xF1378067
 	Offset: 0x2950
@@ -490,7 +490,7 @@ function function_c95d9be1()
 	Parameters: 0
 	Flags: None
 */
-function function_41ffa9ef()
+function garage_police()
 {
 	// Unsupported VM revision (1B).
 }
