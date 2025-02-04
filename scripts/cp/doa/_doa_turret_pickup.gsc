@@ -50,13 +50,13 @@ function init()
 		turret thread sentry_turret::function_ebdfd4e4("allies");
 		turret thread turretthink();
 	}
-	level.doa.var_4ede341 = getentarray("doa_grenade_turret", "targetname");
-	for(i = 0; i < level.doa.var_4ede341.size; i++)
+	level.doa.grenade_turrets = getentarray("doa_grenade_turret", "targetname");
+	for(i = 0; i < level.doa.grenade_turrets.size; i++)
 	{
-		turret = level.doa.var_4ede341[i];
+		turret = level.doa.grenade_turrets[i];
 		turret.var_d211e48d = 0;
 		turret.is_attacking = 0;
-		turret.original_location = level.doa.var_4ede341[i].origin;
+		turret.original_location = level.doa.grenade_turrets[i].origin;
 		turret.deployed = 0;
 		turret.grenade = 1;
 		turret.script_delay_min = 0.25;
@@ -364,7 +364,7 @@ function canspawnturret(var_a6f28f3b = 0)
 	turretarray = level.doa.mini_turrets;
 	if(var_a6f28f3b == 1)
 	{
-		turretarray = level.doa.var_4ede341;
+		turretarray = level.doa.grenade_turrets;
 	}
 	for(i = 0; i < turretarray.size; i++)
 	{
@@ -391,7 +391,7 @@ function function_eabe8c0(player, var_a6f28f3b = 0)
 	turretarray = level.doa.mini_turrets;
 	if(var_a6f28f3b == 1)
 	{
-		turretarray = level.doa.var_4ede341;
+		turretarray = level.doa.grenade_turrets;
 	}
 	for(i = 0; i < turretarray.size; i++)
 	{
