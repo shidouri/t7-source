@@ -265,7 +265,7 @@ function function_8fb45492(str_objective, b_starting)
 	}
 	savegame::checkpoint_save();
 	level thread scene::play("p7_fxanim_cp_zurich_hunter_start_01_bundle");
-	level thread function_51e389ee();
+	level thread handle_objectives();
 	level thread function_3eb0da5f();
 	level thread function_ddcc04ff();
 	level thread function_ab4451a1();
@@ -369,7 +369,7 @@ function function_84f0b3d2(nd_start)
 }
 
 /*
-	Name: function_51e389ee
+	Name: handle_objectives
 	Namespace: zurich_city
 	Checksum: 0x2130E493
 	Offset: 0x1EB0
@@ -377,7 +377,7 @@ function function_84f0b3d2(nd_start)
 	Parameters: 0
 	Flags: Linked
 */
-function function_51e389ee()
+function handle_objectives()
 {
 	objectives::breadcrumb("intro_breadcrumb_trig", "cp_waypoint_breadcrumb");
 }

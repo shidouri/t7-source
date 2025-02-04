@@ -68,7 +68,7 @@ function skipto_main(str_objective, b_starting)
 	{
 		level thread [[level.bzm_zurichdialogue1_2callback]]();
 	}
-	level thread function_51e389ee(b_starting);
+	level thread handle_objectives(b_starting);
 	level.var_438d2fd9 = [];
 	level.ai_boss = spawner::simple_spawn_single("plaza_battle_boss");
 	level notify(#"hash_4f700a7e");
@@ -102,7 +102,7 @@ function skipto_done(str_objective, b_starting, b_direct, player)
 }
 
 /*
-	Name: function_51e389ee
+	Name: handle_objectives
 	Namespace: zurich_rails
 	Checksum: 0xAE9D89DD
 	Offset: 0xD40
@@ -110,7 +110,7 @@ function skipto_done(str_objective, b_starting, b_direct, player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_51e389ee(b_starting)
+function handle_objectives(b_starting)
 {
 	if(b_starting)
 	{

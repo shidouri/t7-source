@@ -197,7 +197,7 @@ function function_f5b0e3d0()
 }
 
 /*
-	Name: function_51e389ee
+	Name: handle_objectives
 	Namespace: zurich_sacrifice
 	Checksum: 0x4A27494B
 	Offset: 0x1120
@@ -205,7 +205,7 @@ function function_f5b0e3d0()
 	Parameters: 1
 	Flags: None
 */
-function function_51e389ee()
+function handle_objectives()
 {
 	// Unsupported VM revision (1B).
 }

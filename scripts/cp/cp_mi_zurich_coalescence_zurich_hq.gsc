@@ -82,7 +82,7 @@ function skipto_main(str_objective, b_starting)
 	level thread function_c198b862();
 	savegame::checkpoint_save();
 	level thread function_19d7c072();
-	level thread function_51e389ee(b_starting);
+	level thread handle_objectives(b_starting);
 	level function_457da6c2();
 	skipto::objective_completed(str_objective);
 }
@@ -379,7 +379,7 @@ function function_a8bf6ebc()
 }
 
 /*
-	Name: function_51e389ee
+	Name: handle_objectives
 	Namespace: zurich_hq
 	Checksum: 0xDA3AF1BF
 	Offset: 0x1EE8
@@ -387,7 +387,7 @@ function function_a8bf6ebc()
 	Parameters: 1
 	Flags: Linked
 */
-function function_51e389ee(b_starting)
+function handle_objectives(b_starting)
 {
 	objectives::set("cp_level_zurich_apprehend_obj");
 	objectives::breadcrumb("hq_security_approach_breadcrumb_trigger");

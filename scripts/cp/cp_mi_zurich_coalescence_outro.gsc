@@ -174,7 +174,7 @@ function function_313f113(str_objective, b_starting)
 		level thread [[level.bzm_zurichdialogue23callback]]();
 	}
 	level scene::init("p7_fxanim_cp_zurich_coalescence_tower_door_exit_bundle");
-	level thread function_51e389ee();
+	level thread handle_objectives();
 	umbragate_set("hq_exit_umbra_gate", 1);
 	umbragate_set("hq_atrium_umbra_gate", 1);
 	level thread zurich_util::function_11b424e5(1);
@@ -209,7 +209,7 @@ function function_f2f0f1ec(str_objective, b_starting, b_direct, player)
 }
 
 /*
-	Name: function_51e389ee
+	Name: handle_objectives
 	Namespace: zurich_outro
 	Checksum: 0xB46CE9D7
 	Offset: 0x15D8
@@ -217,7 +217,7 @@ function function_f2f0f1ec(str_objective, b_starting, b_direct, player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_51e389ee()
+function handle_objectives()
 {
 	s_start = struct::get("outro_stairs_door_breadcrumb");
 	objectives::set("cp_waypoint_breadcrumb", s_start);

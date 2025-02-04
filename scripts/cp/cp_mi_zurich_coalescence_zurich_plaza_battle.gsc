@@ -287,7 +287,7 @@ function siegebot_callback_damage()
 }
 
 /*
-	Name: function_51e389ee
+	Name: handle_objectives
 	Namespace: zurich_plaza_battle
 	Checksum: 0x87842B29
 	Offset: 0x31A0
@@ -295,7 +295,7 @@ function siegebot_callback_damage()
 	Parameters: 1
 	Flags: None
 */
-function function_51e389ee()
+function handle_objectives()
 {
 	// Unsupported VM revision (1B).
 }
