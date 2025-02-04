@@ -1552,7 +1552,7 @@ function function_967df2b6(var_1db3e61a)
 			{
 				return 0;
 			}
-			if(isdefined(player.doa.var_bfb9be95))
+			if(isdefined(player.doa.boxing_gloves))
 			{
 				return 0;
 			}

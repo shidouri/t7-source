@@ -31,7 +31,7 @@ function boxingpickupupdate()
 	org.targetname = "boxingPickupUpdate";
 	org.angles = (0, randomint(180), 0);
 	org setmodel("tag_origin");
-	self.doa.var_bfb9be95 = org;
+	self.doa.boxing_gloves = org;
 	org thread doa_sound::function_90118d8c("zmb_pwup_boxing_start");
 	leftglove = spawn("script_model", self.origin + (0, 60, 32));
 	leftglove.targetname = "leftglove";
@@ -347,7 +347,7 @@ function private function_6143f535(org, note)
 			vel = org.var_40b7d0fa.origin - self.origin;
 			org.var_40b7d0fa physicslaunch(org.var_40b7d0fa.origin, vel);
 		}
-		self.doa.var_bfb9be95 = undefined;
+		self.doa.boxing_gloves = undefined;
 	}
 	if(isdefined(org) && isdefined(org.barrel1))
 	{
