@@ -1880,7 +1880,7 @@ function function_905d9544(e_attacker)
 		}
 		if(self.archetype === "zombie")
 		{
-			self thread function_4d042c7d(e_attacker);
+			self thread check_island(e_attacker);
 		}
 		if(isdefined(e_attacker.var_a3d40b8) && isdefined(self.var_a3d40b8))
 		{
@@ -1915,13 +1915,13 @@ function function_905d9544(e_attacker)
 		{
 			e_attacker.activated_by_player notify("autoturret_killed_zombie");
 			level notify("autoturret_killed_zombie");
-			self thread function_4d042c7d(e_attacker.activated_by_player);
+			self thread check_island(e_attacker.activated_by_player);
 		}
 	}
 }
 
 /*
-	Name: function_4d042c7d
+	Name: check_island
 	Namespace: zm_genesis_challenges
 	Checksum: 0xB67F8557
 	Offset: 0x5448
@@ -1929,7 +1929,7 @@ function function_905d9544(e_attacker)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4d042c7d(player)
+function check_island(player)
 {
 	if(isdefined(self.var_a3d40b8))
 	{
