@@ -1292,7 +1292,7 @@ function function_3b40bf32()
 		self.health = self.maxhealth;
 	}
 	self thread sentinel_death();
-	self thread function_6cb24476();
+	self thread compact_mode();
 	self flag::init("completed_spawning");
 	level thread zm_spawner::zombie_death_event(self);
 	self thread zm_spawner::enemy_death_detection();
@@ -1366,7 +1366,7 @@ function sentintel_explode_fx(origin)
 }
 
 /*
-	Name: function_6cb24476
+	Name: compact_mode
 	Namespace: zm_ai_sentinel_drone
 	Checksum: 0x88A4A165
 	Offset: 0x3A38
@@ -1374,7 +1374,7 @@ function sentintel_explode_fx(origin)
 	Parameters: 0
 	Flags: Linked
 */
-function function_6cb24476()
+function compact_mode()
 {
 	self endon("death");
 	v_compact_mode = getent("sentinel_compact", "targetname");
