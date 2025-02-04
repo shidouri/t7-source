@@ -1071,7 +1071,7 @@ function function_f6b1cbad(player)
 	Parameters: 2
 	Flags: None
 */
-function function_c8e1c6b3(player, var_b9fd331)
+function function_c8e1c6b3(player, deposit_hub)
 {
 	if(!isdefined(player))
 	{
@@ -1081,7 +1081,7 @@ function function_c8e1c6b3(player, var_b9fd331)
 	player.var_3d64ac00++;
 	if(player.var_3d64ac00 == 1)
 	{
-		player thread function_aaca5c8e(var_b9fd331);
+		player thread function_aaca5c8e(deposit_hub);
 	}
 	else
 	{
@@ -1106,7 +1106,7 @@ function function_c8e1c6b3(player, var_b9fd331)
 	Parameters: 1
 	Flags: None
 */
-function function_aaca5c8e(var_b9fd331)
+function function_aaca5c8e(deposit_hub)
 {
 	self endon("death");
 	self endon("disconnect");
@@ -1115,7 +1115,7 @@ function function_aaca5c8e(var_b9fd331)
 	wait(0.1);
 	while(true)
 	{
-		if(distance2dsquared(self.origin, var_b9fd331.origin) > (90 * 90))
+		if(distance2dsquared(self.origin, deposit_hub.origin) > (90 * 90))
 		{
 			break;
 		}
