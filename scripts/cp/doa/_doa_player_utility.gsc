@@ -3042,7 +3042,7 @@ function private function_2f150493(source, dest)
 							/#
 								doa_utility::debugmsg("" + source.name);
 							#/
-							level thread doa_pickups::directeditemawardto(source, level.doa.var_f21ae3af);
+							level thread doa_pickups::directeditemawardto(source, level.doa.umbrella_model);
 						}
 						else
 						{
