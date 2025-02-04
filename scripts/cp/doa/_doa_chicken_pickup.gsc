@@ -924,7 +924,7 @@ function function_2d0f96ef(player)
 		}
 		else
 		{
-			level doa_pickups::function_3238133b(level.doa.var_43922ff2, self.origin);
+			level doa_pickups::function_3238133b(level.doa.egg_model, self.origin);
 		}
 		var_19a5d5--;
 		scale = scale * 0.72;

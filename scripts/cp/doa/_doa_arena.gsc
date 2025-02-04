@@ -481,7 +481,7 @@ function private function_1c54aa82(room)
 			spot = doa_pickups::function_ac410a13();
 			if(isdefined(spot))
 			{
-				level doa_pickups::function_3238133b(level.doa.var_43922ff2, spot.origin + (randomfloatrange(-30, 30), randomfloatrange(-30, 30), 0), 7);
+				level doa_pickups::function_3238133b(level.doa.egg_model, spot.origin + (randomfloatrange(-30, 30), randomfloatrange(-30, 30), 0), 7);
 				room.cooloff = gettime() + (30 * 60000);
 			}
 			if(randomint(100) < 5)

@@ -207,7 +207,7 @@ function function_ee6962d9(player, chicken)
 		}
 		spot = chicken gettagorigin("tail") + (vectorscale((0, 0, -1), 32));
 		chicken thread doa_sound::function_90118d8c("zmb_golden_chicken_pop");
-		level doa_pickups::function_3238133b(level.doa.var_43922ff2, spot, 1);
+		level doa_pickups::function_3238133b(level.doa.egg_model, spot, 1);
 	}
 }
 
