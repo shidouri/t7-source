@@ -427,7 +427,7 @@ function function_b6c25c3c(spot)
 		startpoints = struct::get_array("tankmaze_player_spawnpoint");
 		spot = startpoints[self.entnum];
 	}
-	self.room = level.doa.var_52cccfb6;
+	self.room = level.doa.challenge_room;
 	tank = getent("doa_tankmaze_spawner", "targetname") spawner::spawn(1);
 	self setorigin(spot.origin);
 	tank setmodel("veh_t7_mil_tank_tiger_zombietron_" + doa_player_utility::function_ee495f41(self.entnum));
@@ -995,7 +995,7 @@ function function_14e75d7a(spot)
 	self.doa.var_4b3052ec = 0;
 	level clientfield::set("set_ui_gprDOA" + self.entnum, 0);
 	level clientfield::set("set_ui_gpr2DOA" + self.entnum, 0);
-	self.doa.bombs = level.doa.var_52cccfb6.var_2f400c3b;
+	self.doa.bombs = level.doa.challenge_room.var_2f400c3b;
 	self.doa.boosters = self.doa.var_37efabf7;
 	self freezecontrols(!level flag::get("doa_challenge_running"));
 	wait(0.05);

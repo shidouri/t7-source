@@ -210,7 +210,7 @@ function function_15a0c9b5(room)
 	{
 		settopdowncamerayaw(0);
 	}
-	level.doa.var_52cccfb6 = room;
+	level.doa.challenge_room = room;
 	if(isdefined(room.var_45da785b))
 	{
 		level [[room.var_45da785b]](room);

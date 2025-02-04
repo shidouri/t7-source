@@ -336,11 +336,11 @@ function function_57863b20()
 		level waittill("host_migration_begin");
 		level waittill("host_migration_end");
 		doa_dev::setupdevgui();
-		if(isdefined(level.doa.var_52cccfb6))
+		if(isdefined(level.doa.challenge_room))
 		{
-			if(isdefined(level.doa.var_52cccfb6.host_migration))
+			if(isdefined(level.doa.challenge_room.host_migration))
 			{
-				[[level.doa.var_52cccfb6.host_migration]](level.doa.var_52cccfb6);
+				[[level.doa.challenge_room.host_migration]](level.doa.challenge_room);
 			}
 		}
 	}

@@ -2573,7 +2573,7 @@ function function_771e3915()
 	{
 		wait(90 + extrawait);
 		extrawait = 0;
-		if(isdefined(level.doa.var_52cccfb6))
+		if(isdefined(level.doa.challenge_room))
 		{
 			continue;
 		}
