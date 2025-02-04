@@ -576,8 +576,8 @@ function function_d46dfa88(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(isdefined(self.var_bd0d6d82))
 		{
-			var_8f93a98e = self gettagorigin("tag_hatch_fx_ri");
-			if(distancesquared(self.var_bd0d6d82.origin, var_8f93a98e) < (300 * 300))
+			foot_origin = self gettagorigin("tag_hatch_fx_ri");
+			if(distancesquared(self.var_bd0d6d82.origin, foot_origin) < (300 * 300))
 			{
 				function_d91e5529(localclientnum, self.var_bd0d6d82);
 				wait(0.05);
@@ -597,8 +597,8 @@ function function_d46dfa88(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(isdefined(self.var_6e5e4d07))
 		{
-			var_8f93a98e = self gettagorigin("tag_hatch_fx_le");
-			if(distancesquared(self.var_6e5e4d07.origin, var_8f93a98e) < (300 * 300))
+			foot_origin = self gettagorigin("tag_hatch_fx_le");
+			if(distancesquared(self.var_6e5e4d07.origin, foot_origin) < (300 * 300))
 			{
 				function_d91e5529(localclientnum, self.var_6e5e4d07);
 				wait(0.05);
