@@ -67,16 +67,16 @@ function start_grapple(e_grappler, e_grapplee, n_type, n_speed = 1800)
 	/#
 		assert(n_type == 2);
 	#/
-	e_source = create_mover(e_grappler function_1e702195(), e_grappler.angles);
-	var_b7c15e33 = create_mover(e_grappler function_1e702195(), e_grappler.angles * -1);
+	e_source = create_mover(e_grappler grapple_point(), e_grappler.angles);
+	var_b7c15e33 = create_mover(e_grappler grapple_point(), e_grappler.angles * -1);
 	thread function_28ac2916(e_source, var_b7c15e33);
 	if(isdefined(var_b7c15e33))
 	{
 		e_grapplee function_63b4b8a5(1);
 		util::wait_network_frame();
 		n_time = function_3e1b1cea(e_grappler, e_grapplee, n_speed);
-		var_b7c15e33.origin = e_grappler function_1e702195();
-		var_c35f0f99 = e_grapplee function_1e702195();
+		var_b7c15e33.origin = e_grappler grapple_point();
+		var_c35f0f99 = e_grapplee grapple_point();
 		var_b7c15e33 playsound("zmb_grapple_start");
 		var_b7c15e33 moveto(var_c35f0f99, n_time);
 		var_b7c15e33 waittill("movedone");
@@ -91,7 +91,7 @@ function start_grapple(e_grappler, e_grapplee, n_type, n_speed = 1800)
 			e_grapplee linkto(var_b7c15e33);
 		}
 		e_grapplee playsound("zmb_grapple_grab");
-		var_de84fe14 = e_grappler function_1e702195() - var_8986f6e8;
+		var_de84fe14 = e_grappler grapple_point() - var_8986f6e8;
 		var_b7c15e33 moveto(var_de84fe14, n_time);
 		var_b7c15e33 playsound("zmb_grapple_pull");
 		var_b7c15e33 waittill("movedone");
@@ -159,7 +159,7 @@ function private function_28ac2916(e_source, e_target)
 */
 function private function_3e1b1cea(e_from, e_to, n_speed)
 {
-	n_distance = distance(e_from function_1e702195(), e_to function_1e702195());
+	n_distance = distance(e_from grapple_point(), e_to grapple_point());
 	return n_distance / n_speed;
 }
 
@@ -203,7 +203,7 @@ function private function_63b4b8a5(var_365c612)
 }
 
 /*
-	Name: function_1e702195
+	Name: grapple_point
 	Namespace: zm_grappler
 	Checksum: 0x48E5527D
 	Offset: 0x928
@@ -211,7 +211,7 @@ function private function_63b4b8a5(var_365c612)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_1e702195()
+function private grapple_point()
 {
 	if(isdefined(self.var_c932472f))
 	{
