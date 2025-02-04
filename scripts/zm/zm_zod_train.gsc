@@ -1718,7 +1718,7 @@ class czmtrain
 		}
 		m_vh_train waittill("docked_in_station");
 		var_1a8b64d3 = m_vh_train getcentroid();
-		var_10b9b744 = 0;
+		fell_off = 0;
 		foreach(e_player in var_e19f73fe)
 		{
 			/#
@@ -1745,7 +1745,7 @@ class czmtrain
 				do
 				{
 					spawnpos = var_1a8b64d3;
-					switch(var_10b9b744)
+					switch(fell_off)
 					{
 						case 0:
 						{
@@ -1774,7 +1774,7 @@ class czmtrain
 							jump loc_0000374E;
 						}
 					}
-					var_10b9b744++;
+					fell_off++;
 				}
 				while(!fatal && !function_eb9ee200(spawnpos));
 				e_player setorigin(spawnpos);
