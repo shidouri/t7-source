@@ -968,7 +968,7 @@ function function_6ca97001()
 }
 
 /*
-	Name: function_46e83736
+	Name: close_locker
 	Namespace: safehouse
 	Checksum: 0x1749DA68
 	Offset: 0x82C0
@@ -976,7 +976,7 @@ function function_6ca97001()
 	Parameters: 1
 	Flags: None
 */
-function function_46e83736()
+function close_locker()
 {
 	// Unsupported VM revision (1B).
 }
