@@ -670,9 +670,9 @@ function function_11a9191()
 		{
 			continue;
 		}
-		var_cff394b4 = 3;
-		branch = tolower(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, var_cff394b4));
-		var_ddc5eafb = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, var_cff394b4 + 1));
+		branch_index = 3;
+		branch = tolower(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index));
+		var_ddc5eafb = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index + 1));
 		while(isdefined(branch) && branch != "")
 		{
 			if(!isdefined(var_ddc5eafb))
@@ -683,9 +683,9 @@ function function_11a9191()
 			var_26e12fb.branch = branch;
 			var_26e12fb.var_ddc5eafb = var_ddc5eafb / getanimlength(branch);
 			function_8b84bb6c(section, var_26e12fb, rate);
-			var_cff394b4 = var_cff394b4 + 2;
-			branch = tolower(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, var_cff394b4));
-			var_ddc5eafb = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, var_cff394b4 + 1));
+			branch_index = branch_index + 2;
+			branch = tolower(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index));
+			var_ddc5eafb = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index + 1));
 		}
 	}
 }
