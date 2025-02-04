@@ -2086,7 +2086,7 @@ class czmtrain
 		while(true)
 		{
 			duration = 1;
-			var_6ffe9d93 = 240;
+			forward_length = 240;
 			arrow_width = 12;
 			origin = m_vh_train.origin;
 			origin = origin + (vectorscale((0, 0, -1), 90));
@@ -2096,7 +2096,7 @@ class czmtrain
 			{
 				forward = -1 * forward;
 			}
-			arrow_end = origin + (var_6ffe9d93 * forward);
+			arrow_end = origin + (forward_length * forward);
 			/#
 				line(origin, arrow_end, (1, 0, 0), 1, 1, duration);
 			#/
