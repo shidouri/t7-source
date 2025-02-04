@@ -63,7 +63,7 @@ function skipto_done()
 }
 
 /*
-	Name: function_5ea42950
+	Name: handle_hunter
 	Namespace: zurich_plaza_battle
 	Checksum: 0x51C02E67
 	Offset: 0x2718
@@ -71,7 +71,7 @@ function skipto_done()
 	Parameters: 0
 	Flags: None
 */
-function function_5ea42950()
+function handle_hunter()
 {
 	// Unsupported VM revision (1B).
 }

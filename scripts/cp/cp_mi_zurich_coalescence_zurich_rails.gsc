@@ -78,7 +78,7 @@ function skipto_main(str_objective, b_starting)
 	level.ai_kane ai::set_ignoreme(1);
 	level.ai_kane thread zurich_util::function_2a6e38e();
 	zurich_util::function_c049667c(0);
-	level thread function_5ea42950();
+	level thread handle_hunter();
 	trigger::wait_till("rails_exit_zone_trig");
 	spawn_manager::enable("plaza_battle_allies_left_spawn_manager");
 	spawn_manager::enable("plaza_battle_allies_right_spawn_manager");
@@ -156,7 +156,7 @@ function function_302750ab()
 }
 
 /*
-	Name: function_5ea42950
+	Name: handle_hunter
 	Namespace: zurich_rails
 	Checksum: 0x8F67466B
 	Offset: 0xFB0
@@ -164,7 +164,7 @@ function function_302750ab()
 	Parameters: 0
 	Flags: Linked
 */
-function function_5ea42950()
+function handle_hunter()
 {
 	level endon(#"hash_a835a95b");
 	nd_spline = getvehiclenode("rails_hunter_spline", "targetname");
