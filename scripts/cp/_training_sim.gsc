@@ -537,7 +537,7 @@ function _run(var_cc1de81f)
 	self thread teleport_player(var_cc1de81f);
 	wait(0.05);
 	self util::freeze_player_controls(1);
-	self.var_24c69c09 = 1;
+	self.in_training = 1;
 	self.var_d1b47d51 = 0;
 	self.var_80e5e834 = 0;
 	self.var_bcf55acc = [];
@@ -567,7 +567,7 @@ function _run(var_cc1de81f)
 	{
 		self notify(#"hash_1c919c84");
 	}
-	self.var_24c69c09 = undefined;
+	self.in_training = undefined;
 }
 
 /*
@@ -1395,7 +1395,7 @@ function on_ai_spawned()
 */
 function on_ai_damage(s_params)
 {
-	if(isplayer(s_params.eattacker) && (isdefined(s_params.eattacker.var_24c69c09) && s_params.eattacker.var_24c69c09))
+	if(isplayer(s_params.eattacker) && (isdefined(s_params.eattacker.in_training) && s_params.eattacker.in_training))
 	{
 		var_bc6c413b = s_params.eattacker.var_bcf55acc[s_params.eattacker.var_38da1d8e];
 		if(isdefined(var_bc6c413b) && isdefined(self.var_72f54197))
@@ -1447,7 +1447,7 @@ function on_ai_damage(s_params)
 */
 function on_ai_killed(s_params)
 {
-	if(isplayer(s_params.eattacker) && (isdefined(s_params.eattacker.var_24c69c09) && s_params.eattacker.var_24c69c09))
+	if(isplayer(s_params.eattacker) && (isdefined(s_params.eattacker.in_training) && s_params.eattacker.in_training))
 	{
 		player = s_params.eattacker;
 		var_a3d7c1d0 = self.var_72f54197["basescore"];
