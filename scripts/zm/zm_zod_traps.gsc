@@ -71,7 +71,7 @@ class ctrap
 	}
 
 	/*
-		Name: function_7e393675
+		Name: heart_update
 		Namespace: ctrap
 		Checksum: 0x98782565
 		Offset: 0x1D58
@@ -79,7 +79,7 @@ class ctrap
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_7e393675(n_time)
+	function heart_update(n_time)
 	{
 		switch(m_n_state)
 		{
@@ -447,7 +447,7 @@ class ctrap
 	*/
 	function switch_cooldown(t_use)
 	{
-		function_7e393675(undefined);
+		heart_update(undefined);
 		foreach(e_heart in m_a_e_heart)
 		{
 			e_heart moveto(e_heart.origin - (vectorscale((0, 0, -1), 32)), 0.25);
@@ -473,7 +473,7 @@ class ctrap
 			m_b_discovered = 1;
 		}
 		var_74a8cf96 = 30;
-		self thread function_7e393675(var_74a8cf96);
+		self thread heart_update(var_74a8cf96);
 		wait(0.25);
 		m_t_damage playsound("zmb_trap_activate");
 		self thread update_chain_animation();
@@ -490,7 +490,7 @@ class ctrap
 	*/
 	function switch_available(t_use)
 	{
-		function_7e393675(undefined);
+		heart_update(undefined);
 		self thread update_chain_animation();
 	}
 
