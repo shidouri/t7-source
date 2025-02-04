@@ -2686,7 +2686,7 @@ function skipto_glass_ceiling_igc_done(str_objective, b_starting, b_direct, play
 	level flag::set("chase_done");
 	level notify(#"hash_3d00ae0c");
 	callback::remove_on_disconnect(&function_25e57b80);
-	function_b83ef318();
+	chase_cleanup();
 	e_door = getent("chase_door_breach", "targetname");
 	if(isdefined(e_door))
 	{
@@ -2999,7 +2999,7 @@ function function_920e3893(a_ents)
 }
 
 /*
-	Name: function_b83ef318
+	Name: chase_cleanup
 	Namespace: newworld_rooftops
 	Checksum: 0x5D85DD41
 	Offset: 0xBA98
@@ -3007,7 +3007,7 @@ function function_920e3893(a_ents)
 	Parameters: 0
 	Flags: Linked
 */
-function function_b83ef318()
+function chase_cleanup()
 {
 	array::run_all(getaiarray(), &delete);
 	level thread function_699bfff1(0);
