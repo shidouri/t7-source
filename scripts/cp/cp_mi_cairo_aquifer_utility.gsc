@@ -672,20 +672,20 @@ function function_11a9191()
 		}
 		branch_index = 3;
 		branch = tolower(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index));
-		var_ddc5eafb = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index + 1));
+		branch_time = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index + 1));
 		while(isdefined(branch) && branch != "")
 		{
-			if(!isdefined(var_ddc5eafb))
+			if(!isdefined(branch_time))
 			{
-				var_ddc5eafb = 0;
+				branch_time = 0;
 			}
 			var_26e12fb = spawnstruct();
 			var_26e12fb.branch = branch;
-			var_26e12fb.var_ddc5eafb = var_ddc5eafb / getanimlength(branch);
+			var_26e12fb.branch_time = branch_time / getanimlength(branch);
 			function_8b84bb6c(section, var_26e12fb, rate);
 			branch_index = branch_index + 2;
 			branch = tolower(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index));
-			var_ddc5eafb = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index + 1));
+			branch_time = float(tablelookupcolumnforrow("gamedata/tables/cp/cp_dogfightPaths.csv", row, branch_index + 1));
 		}
 	}
 }
@@ -999,7 +999,7 @@ function function_14f37b59(section, start_time, dogfighter, var_eb969a93, spawne
 			{
 				if(branch.branch == section)
 				{
-					start_time = branch.var_ddc5eafb;
+					start_time = branch.branch_time;
 					break;
 				}
 			}
@@ -1008,7 +1008,7 @@ function function_14f37b59(section, start_time, dogfighter, var_eb969a93, spawne
 		{
 			var_26e12fb = array::random(level.var_ef297e7c[section].branches);
 			section = var_26e12fb.branch;
-			start_time = var_26e12fb.var_ddc5eafb;
+			start_time = var_26e12fb.branch_time;
 		}
 		var_4b0a3d4c = level.var_ef297e7c[section].var_4b0a3d4c * var_eb969a93;
 		lerp_time = 0.2 * var_eb969a93;
@@ -1119,7 +1119,7 @@ function function_c5a27940(var_84fe82cd)
 			timeleft = timeleft - var_7a591ed2;
 			var_26e12fb = array::random(level.var_ef297e7c[section].branches);
 			section = var_26e12fb.branch;
-			start_time = var_26e12fb.var_ddc5eafb;
+			start_time = var_26e12fb.branch_time;
 			animlength = getanimlength(section);
 			var_7a591ed2 = animlength;
 		}
