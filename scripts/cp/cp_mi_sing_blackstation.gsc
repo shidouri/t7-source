@@ -64,7 +64,7 @@ function main()
 }
 
 /*
-	Name: function_b3f6e2cd
+	Name: hide_monitors
 	Namespace: cp_mi_sing_blackstation
 	Checksum: 0xCC71456B
 	Offset: 0x15F0
@@ -72,7 +72,7 @@ function main()
 	Parameters: 0
 	Flags: None
 */
-function function_b3f6e2cd()
+function hide_monitors()
 {
 	// Unsupported VM revision (1B).
 }
