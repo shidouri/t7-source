@@ -255,7 +255,7 @@ function init_sniper_boss()
 	{
 		level.sniper_boss.lase_ent notify("target_lase_transition");
 		level.sniper_boss.lase_ent thread ai_sniper::target_lase_override(level.sniper_boss geteye(), shootme, 1, level.sniper_boss, 1, 0);
-		thread function_60e39f29(shootme);
+		thread fake_kill(shootme);
 		shootme waittill(#"broken");
 		level.sniper_boss.lase_ent notify("target_lase_override");
 		level.sniper_boss.lase_ent.lase_override = undefined;
@@ -311,7 +311,7 @@ function init_sniper_boss()
 }
 
 /*
-	Name: function_60e39f29
+	Name: fake_kill
 	Namespace: cp_mi_cairo_aquifer_boss
 	Checksum: 0xE0C6E4C0
 	Offset: 0x19D8
@@ -319,7 +319,7 @@ function init_sniper_boss()
 	Parameters: 1
 	Flags: Linked
 */
-function function_60e39f29(shootme)
+function fake_kill(shootme)
 {
 	level.sniper_boss waittill("fire");
 	shootme kill(level.sniper_boss.origin, level.sniper_boss);
