@@ -2999,13 +2999,13 @@ function private function_2f150493(source, dest)
 		if(roll < 30)
 		{
 			wait(0.4);
-			level thread doa_pickups::directeditemawardto(source, level.doa.var_97bbae9c);
+			level thread doa_pickups::directeditemawardto(source, level.doa.sawblade_model);
 			wait(0.4);
-			level thread doa_pickups::directeditemawardto(source, level.doa.var_97bbae9c);
+			level thread doa_pickups::directeditemawardto(source, level.doa.sawblade_model);
 			wait(0.4);
-			level thread doa_pickups::directeditemawardto(source, level.doa.var_97bbae9c);
+			level thread doa_pickups::directeditemawardto(source, level.doa.sawblade_model);
 			wait(0.4);
-			level thread doa_pickups::directeditemawardto(source, level.doa.var_97bbae9c);
+			level thread doa_pickups::directeditemawardto(source, level.doa.sawblade_model);
 			level thread doa_pickups::directeditemawardto(source, level.doa.gloves);
 		}
 		else

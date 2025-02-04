@@ -534,7 +534,7 @@ function function_45123d3c(player)
 	def = doa_pickups::function_bac08508(19);
 	blade = spawn("script_model", player.origin + (vectorscale((0, -1, 0), 70)));
 	blade.targetname = "blade";
-	blade setmodel(level.doa.var_97bbae9c);
+	blade setmodel(level.doa.sawblade_model);
 	blade setscale(def.scale);
 	blade setplayercollision(0);
 	blade linkto(self, "tag_origin", vectorscale((0, -1, 0), 70), (90 * self.blades.size, 0, 0));

@@ -509,7 +509,7 @@ function private function_1c54aa82(room)
 			}
 			level thread doa_pickups::spawnmoneyglob(0, 2, randomfloatrange(2, 4));
 			level doa_pickups::function_3238133b(level.doa.barrel_model, undefined, 2);
-			level doa_pickups::function_3238133b(level.doa.var_97bbae9c, undefined, 4);
+			level doa_pickups::function_3238133b(level.doa.sawblade_model, undefined, 4);
 			level doa_pickups::function_3238133b(level.doa.var_f6e22ab8, undefined, 3);
 			level thread doa_pickups::function_3238133b(level.doa.booster_model, undefined, 2);
 			level thread doa_pickups::function_3238133b(level.doa.nuke_model, undefined, 1);
