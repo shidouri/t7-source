@@ -385,7 +385,7 @@ function function_8ffbd7bf()
 }
 
 /*
-	Name: function_75790dfc
+	Name: hunter_patrol
 	Namespace: vengeance_util
 	Checksum: 0xD18C9A89
 	Offset: 0x24E8
@@ -393,7 +393,7 @@ function function_8ffbd7bf()
 	Parameters: 1
 	Flags: None
 */
-function function_75790dfc()
+function hunter_patrol()
 {
 	// Unsupported VM revision (1B).
 }
