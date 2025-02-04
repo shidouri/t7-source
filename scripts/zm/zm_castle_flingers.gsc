@@ -445,7 +445,7 @@ function function_f7842163(var_ca34f349, v_fling, nd_start, var_173065cc, var_df
 */
 function function_149a5187()
 {
-	self endon(#"hash_13bf4db7");
+	self endon("flinger_landed");
 	level waittill("end_game");
 	self.var_3048ac6d = 1;
 }
@@ -542,7 +542,7 @@ function do_fling(var_ca34f349, v_fling, nd_start, var_173065cc, var_df826fd8)
 		util::wait_network_frame();
 		var_6a7beeb2 delete();
 		self.is_flung = undefined;
-		self notify(#"hash_13bf4db7");
+		self notify("flinger_landed");
 		var_413ea50f delete();
 		self zm_utility::clear_streamer_hint();
 		self thread function_d1736cb5();

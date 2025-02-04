@@ -221,7 +221,7 @@ function function_86ef1da5()
 */
 function function_149a5187()
 {
-	self endon(#"hash_13bf4db7");
+	self endon("flinger_landed");
 	level waittill("end_game");
 	self.var_3048ac6d = 1;
 }
@@ -348,7 +348,7 @@ function do_fling(var_a89f74ed, v_fling, nd_start, var_173065cc)
 		util::wait_network_frame();
 		var_6a7beeb2 delete();
 		self enableoffhandweapons();
-		self notify(#"hash_13bf4db7");
+		self notify("flinger_landed");
 		self thread function_e905a9df(var_a89f74ed, var_173065cc);
 		self thread cleanup_vehicle(var_413ea50f);
 	}
