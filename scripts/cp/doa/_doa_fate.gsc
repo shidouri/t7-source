@@ -708,7 +708,7 @@ function awardfate(type, rock)
 		}
 		case 4:
 		{
-			level thread function_17fb777b(self, level.doa.var_f7277ad6, 4, &function_2a2ab6f9);
+			level thread function_17fb777b(self, level.doa.boots_model, 4, &function_2a2ab6f9);
 			break;
 		}
 		case 3:
