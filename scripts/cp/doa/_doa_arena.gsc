@@ -76,7 +76,7 @@ function init()
 		arenas[i] function_b7dafa0c(arenas[i].script_noteworthy, arenas[i].origin, arenas[i].script_parameters == "99999");
 	}
 	level.doa.current_arena = 0;
-	level.doa.var_ec2bff7b = [];
+	level.doa.bonus_rooms = [];
 	function_abd3b624("vault", 5, 2, &"DOA_VAULT", undefined, "vault");
 	function_abd3b624("coop", 9, 3, &"DOA_FARM", undefined, "coop");
 	function_abd3b624("armory", 13, 1, &"DOA_ARMORY", undefined, "armory");
@@ -124,7 +124,7 @@ function private function_abd3b624(name, var_5281efe5, type, text, var_cbad0e8f,
 			level thread [[level.doa.var_cefa8799]](room);
 		}
 	}
-	level.doa.var_ec2bff7b[level.doa.var_ec2bff7b.size] = room;
+	level.doa.bonus_rooms[level.doa.bonus_rooms.size] = room;
 	location = (isdefined(var_c9a1f25a) ? var_c9a1f25a : name);
 	room.player_spawn_points = struct::get_array(location + "_player_spawnpoint");
 	if(type != 13)
@@ -153,7 +153,7 @@ function private function_abd3b624(name, var_5281efe5, type, text, var_cbad0e8f,
 */
 function function_8b90b6a7()
 {
-	foreach(room in level.doa.var_ec2bff7b)
+	foreach(room in level.doa.bonus_rooms)
 	{
 		if(room.type == 10)
 		{
@@ -190,8 +190,8 @@ function function_8b90b6a7()
 */
 function function_63bc3226(type, var_436ba068)
 {
-	temp = doa_utility::function_4e9a23a9(level.doa.var_ec2bff7b);
-	foreach(room in level.doa.var_ec2bff7b)
+	temp = doa_utility::function_4e9a23a9(level.doa.bonus_rooms);
+	foreach(room in level.doa.bonus_rooms)
 	{
 		if(isdefined(var_436ba068))
 		{
@@ -218,7 +218,7 @@ function function_63bc3226(type, var_436ba068)
 */
 function function_46b3be09()
 {
-	foreach(room in level.doa.var_ec2bff7b)
+	foreach(room in level.doa.bonus_rooms)
 	{
 		if(room.type == 13)
 		{
@@ -253,7 +253,7 @@ function function_46b3be09()
 */
 function private function_6b351e04(type = 0, var_436ba068)
 {
-	temp = doa_utility::function_4e9a23a9(level.doa.var_ec2bff7b);
+	temp = doa_utility::function_4e9a23a9(level.doa.bonus_rooms);
 	if(type != 0)
 	{
 		var_c50a98cb = function_63bc3226(type, var_436ba068);

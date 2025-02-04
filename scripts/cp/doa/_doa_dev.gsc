@@ -740,7 +740,7 @@ function devguithink()
 				level.doa.var_b5c260bb = doa_arena::function_5835533a(getdvarstring("scr_spawn_room_name"));
 				level.doa.arena_round_number = level.doa.rules.var_88c0b67b - 1;
 				round_number = level.doa.var_b5c260bb * level.doa.rules.var_88c0b67b;
-				foreach(room in level.doa.var_ec2bff7b)
+				foreach(room in level.doa.bonus_rooms)
 				{
 					if(round_number > room.var_5281efe5)
 					{
@@ -751,11 +751,11 @@ function devguithink()
 				while(var_7dce6dce)
 				{
 					var_7dce6dce = 0;
-					foreach(room in level.doa.var_ec2bff7b)
+					foreach(room in level.doa.bonus_rooms)
 					{
 						if(isdefined(room.var_6f369ab4) && room.var_57ce7582.size >= room.var_6f369ab4)
 						{
-							arrayremovevalue(level.doa.var_ec2bff7b, room, 0);
+							arrayremovevalue(level.doa.bonus_rooms, room, 0);
 							var_7dce6dce = 1;
 							break;
 						}

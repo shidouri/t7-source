@@ -46,7 +46,7 @@ function init()
 function function_471d1403()
 {
 	possible = [];
-	foreach(room in level.doa.var_ec2bff7b)
+	foreach(room in level.doa.bonus_rooms)
 	{
 		if(room.type != 13)
 		{
@@ -193,7 +193,7 @@ function function_15a0c9b5(room)
 	level notify(#"hash_4d952f70");
 	if(isdefined(room.var_6f369ab4) && room.var_57ce7582.size >= room.var_6f369ab4)
 	{
-		arrayremovevalue(level.doa.var_ec2bff7b, room, 0);
+		arrayremovevalue(level.doa.bonus_rooms, room, 0);
 	}
 	level notify(#"hash_3b432f18");
 	foreach(player in getplayers())
