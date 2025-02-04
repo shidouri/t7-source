@@ -2899,7 +2899,7 @@ function close_launcher_hint()
 }
 
 /*
-	Name: function_76b75dc7
+	Name: current_flow
 	Namespace: blackstation_utility
 	Checksum: 0xDFEF7507
 	Offset: 0x7F98
@@ -2907,7 +2907,7 @@ function close_launcher_hint()
 	Parameters: 3
 	Flags: Linked
 */
-function function_76b75dc7(str_endon, var_cca258db = 12, var_ab7d99d = 200)
+function current_flow(str_endon, var_cca258db = 12, var_ab7d99d = 200)
 {
 	level endon(str_endon);
 	self endon("death");
