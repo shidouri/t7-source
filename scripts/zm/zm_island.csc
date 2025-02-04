@@ -394,7 +394,7 @@ function function_6fb5501(localclientnum)
 		deletefx(localclientnum, self.var_b5e2500e, 1);
 		self.var_b5e2500e = undefined;
 	}
-	self notify(#"hash_a48959b9");
+	self notify("bubbles_done");
 }
 
 /*
@@ -408,7 +408,7 @@ function function_6fb5501(localclientnum)
 */
 function function_738868d4(localclientnum)
 {
-	self endon(#"hash_a48959b9");
+	self endon("bubbles_done");
 	self waittill("death");
 	self function_6fb5501(localclientnum);
 }

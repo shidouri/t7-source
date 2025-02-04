@@ -442,7 +442,7 @@ function function_7be165af(localclientnum)
 		deletefx(localclientnum, self.var_ea3e4398, 1);
 		self.var_ea3e4398 = undefined;
 	}
-	self notify(#"hash_a48959b9");
+	self notify("bubbles_done");
 }
 
 /*
@@ -456,7 +456,7 @@ function function_7be165af(localclientnum)
 */
 function function_9067dab6(localclientnum)
 {
-	self endon(#"hash_a48959b9");
+	self endon("bubbles_done");
 	self waittill("death");
 	self function_7be165af(localclientnum);
 }
