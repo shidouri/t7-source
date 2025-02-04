@@ -571,7 +571,7 @@ function private function_1add9d4a(var_c36855a9)
 			wait(0.1);
 			checkpointcreate();
 			wait(6);
-			for(var_e2502f23 = 0; var_e2502f23 < 5; var_e2502f23++)
+			for(check_count = 0; check_count < 5; check_count++)
 			{
 				if(function_319d38eb())
 				{
@@ -579,7 +579,7 @@ function private function_1add9d4a(var_c36855a9)
 				}
 				wait(1);
 			}
-			if(var_e2502f23 == 5)
+			if(check_count == 5)
 			{
 				continue;
 			}
