@@ -219,7 +219,7 @@ function function_f3805c8a(var_8f0a8b6a, str_script_noteworthy, var_a21704fb, va
 	a_s_spawnpoints = struct::get_array(var_8f0a8b6a, "targetname");
 	if(level clientfield::get("ee_quest_state") === 1)
 	{
-		a_s_spawnpoints = array::filter(a_s_spawnpoints, 0, &function_726d4cc4, 0);
+		a_s_spawnpoints = array::filter(a_s_spawnpoints, 0, &condition_inability, 0);
 	}
 	if(isdefined(str_script_noteworthy))
 	{
@@ -488,7 +488,7 @@ function function_293235e9(var_8f0a8b6a, var_1e5c1571, n_script_int)
 	}
 	if(isdefined(n_script_int))
 	{
-		a_s_spawnpoints = array::filter(a_s_spawnpoints, 0, &function_726d4cc4, n_script_int);
+		a_s_spawnpoints = array::filter(a_s_spawnpoints, 0, &condition_inability, n_script_int);
 	}
 	/#
 		assert(a_s_spawnpoints.size > 0);
@@ -498,7 +498,7 @@ function function_293235e9(var_8f0a8b6a, var_1e5c1571, n_script_int)
 }
 
 /*
-	Name: function_726d4cc4
+	Name: condition_inability
 	Namespace: zm_zod_shadowman
 	Checksum: 0x8C0AD48C
 	Offset: 0x1E70
@@ -506,7 +506,7 @@ function function_293235e9(var_8f0a8b6a, var_1e5c1571, n_script_int)
 	Parameters: 2
 	Flags: Linked
 */
-function function_726d4cc4(s_loc, n_script_int)
+function condition_inability(s_loc, n_script_int)
 {
 	if(!isdefined(s_loc) || !isdefined(s_loc.script_int) || (!(isdefined(s_loc.script_int === n_script_int) && s_loc.script_int === n_script_int)))
 	{

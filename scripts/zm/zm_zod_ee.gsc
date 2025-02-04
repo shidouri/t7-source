@@ -2138,7 +2138,7 @@ function function_4bcb6826()
 		level notify(#"hash_b6c7fd80");
 		level.var_dbc3a0ef.n_script_int = 0;
 		a_s_spawnpoints = struct::get_array("ee_shadowman_8", "targetname");
-		a_s_spawnpoints = array::filter(a_s_spawnpoints, 0, &zm_zod_shadowman::function_726d4cc4, 0);
+		a_s_spawnpoints = array::filter(a_s_spawnpoints, 0, &zm_zod_shadowman::condition_inability, 0);
 		level.var_dbc3a0ef.s_spawnpoint = a_s_spawnpoints[0];
 		zm_zod_shadowman::function_284b1884(level.var_dbc3a0ef, level.var_dbc3a0ef.s_spawnpoint, 0.1);
 		level.var_dbc3a0ef zm_zod_shadowman::function_a3821eb5(0.1, 4);
