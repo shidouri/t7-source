@@ -505,7 +505,7 @@ function function_c762197b()
 		self.clip delete();
 	}
 	self.is_open = 1;
-	self thread function_7a0ede5();
+	self thread cocoon_effects();
 	var_aa12511 = self.var_aa12511;
 	ai_zombie = zombie_utility::spawn_zombie(level.zombie_spawners[0], "cocoon_zombie", var_aa12511);
 	if(isdefined(ai_zombie))
@@ -552,7 +552,7 @@ function function_bd8082d1()
 }
 
 /*
-	Name: function_7a0ede5
+	Name: cocoon_effects
 	Namespace: zm_island_pap_quest
 	Checksum: 0x5270CDAF
 	Offset: 0x1FE0
@@ -560,7 +560,7 @@ function function_bd8082d1()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7a0ede5()
+function cocoon_effects()
 {
 	self playloopsound("zmb_cocoon_lp", 1);
 	playsoundatposition("evt_cocoon_explode", self.origin + (vectorscale((0, 0, -1), 100)));
