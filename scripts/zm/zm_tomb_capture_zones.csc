@@ -793,14 +793,14 @@ function function_54aa6e5c(localclientnumber, oldval, newval, bnewent, binitials
 	str_exploder = "fxexp_" + level.var_6aec00d3[fieldname];
 	if(newval)
 	{
-		var_a0a565ad thread function_59c8afc0(localclientnumber, 0, 0.1, 2, 4, 0.5, 3);
+		var_a0a565ad thread crystal_flicker(localclientnumber, 0, 0.1, 2, 4, 0.5, 3);
 		var_a0a565ad stoploopsound(1);
 		exploder::stop_exploder(str_exploder, localclientnumber);
 		level thread function_31e3b463(0, level.var_6aec00d3[fieldname]);
 	}
 	else
 	{
-		var_a0a565ad thread function_59c8afc0(localclientnumber, 0.65, 1, 0.7, 1, 0.05, 0.35);
+		var_a0a565ad thread crystal_flicker(localclientnumber, 0.65, 1, 0.7, 1, 0.05, 0.35);
 		var_a0a565ad playloopsound("amb_monolith_glow");
 		exploder::exploder(str_exploder, localclientnumber);
 		level thread function_31e3b463(1, level.var_6aec00d3[fieldname]);
@@ -821,7 +821,7 @@ function function_31e3b463(play, num)
 }
 
 /*
-	Name: function_59c8afc0
+	Name: crystal_flicker
 	Namespace: zm_tomb_capture_zones
 	Checksum: 0xDD0CB07C
 	Offset: 0x2EE0
@@ -829,7 +829,7 @@ function function_31e3b463(play, num)
 	Parameters: 7
 	Flags: Linked
 */
-function function_59c8afc0(localclientnumber, var_98ce6736, var_4333264, var_e2ad4e8e, var_22a5887c, var_48d50352, var_d056f9f8)
+function crystal_flicker(localclientnumber, var_98ce6736, var_4333264, var_e2ad4e8e, var_22a5887c, var_48d50352, var_d056f9f8)
 {
 	self notify(#"hash_c0d7e9d");
 	self endon(#"hash_c0d7e9d");
@@ -947,7 +947,7 @@ function function_ac197e52(localclientnumber, oldval, newval, bnewent, binitials
 	{
 		if(newval)
 		{
-			var_82347477 thread function_59c8afc0(localclientnumber, 0.65, 1, 0.7, 1, 0.05, 0.35);
+			var_82347477 thread crystal_flicker(localclientnumber, 0.65, 1, 0.7, 1, 0.05, 0.35);
 		}
 		else
 		{
