@@ -537,7 +537,7 @@ function function_21a582ff(current_wave, endnote)
 			if(isdefined(ai))
 			{
 				current_wave.var_3f7b0d81--;
-				ai.var_d3c93fe9 = 1;
+				ai.challenge_enemy = 1;
 				var_48be25f5 = undefined;
 			}
 		}
