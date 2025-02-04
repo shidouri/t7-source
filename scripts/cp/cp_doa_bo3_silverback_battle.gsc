@@ -1453,7 +1453,7 @@ function function_1d9d0ed2(chicken)
 {
 	chicken endon("death");
 	chicken thread doa_chicken::function_cdfa9ce8(chicken);
-	chicken.var_a732885d = 1;
+	chicken.egg_laying = 1;
 	rotate180time = 1;
 	while(true)
 	{

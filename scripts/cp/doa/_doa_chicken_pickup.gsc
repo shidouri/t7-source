@@ -48,7 +48,7 @@ function function_cdfa9ce8(bird)
 		}
 		else
 		{
-			if(isdefined(self.var_a732885d) && self.var_a732885d)
+			if(isdefined(self.egg_laying) && self.egg_laying)
 			{
 				curanim = %critter::a_chicken_react_up_down;
 				bird thread doa_sound::function_90118d8c("zmb_dblshot_squawk");
@@ -365,7 +365,7 @@ function function_44ff9baa(player)
 			self.var_6fdb49e0 = 1;
 			continue;
 		}
-		if(isdefined(self.var_a732885d) && self.var_a732885d)
+		if(isdefined(self.egg_laying) && self.egg_laying)
 		{
 			self.var_6fdb49e0 = 1;
 			continue;
@@ -447,7 +447,7 @@ function function_8b81d592(player)
 		}
 		wait(0.05);
 	}
-	while(isdefined(self.var_a732885d) && self.var_a732885d || (isdefined(self.var_efa2b784) && self.var_efa2b784))
+	while(isdefined(self.egg_laying) && self.egg_laying || (isdefined(self.var_efa2b784) && self.var_efa2b784))
 	{
 		wait(1);
 	}
@@ -885,7 +885,7 @@ function function_2d0f96ef(player)
 	/#
 		doa_utility::debugmsg("" + self getentitynumber());
 	#/
-	self.var_a732885d = 1;
+	self.egg_laying = 1;
 	self.var_18845184 = 1;
 	var_ff37339 = 32;
 	pos = 0;
@@ -896,7 +896,7 @@ function function_2d0f96ef(player)
 	{
 		foreach(chicken in player.doa.chicken_stack)
 		{
-			if(isdefined(chicken.var_a732885d) && chicken.var_a732885d)
+			if(isdefined(chicken.egg_laying) && chicken.egg_laying)
 			{
 				continue;
 			}
@@ -938,7 +938,7 @@ function function_2d0f96ef(player)
 	}
 	foreach(chicken in player.doa.chicken_stack)
 	{
-		chicken.var_a732885d = undefined;
+		chicken.egg_laying = undefined;
 		chicken.var_efa2b784 = undefined;
 		chicken.var_18845184 = undefined;
 		chicken notify(#"hash_e6885d7c");
