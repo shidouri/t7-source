@@ -570,8 +570,8 @@ function function_514913aa(einflictor, attacker, idamage, weapon, vdir, shitloc)
 	var_9aadeff9 = getdvarfloat("cam_explosion_max_z_length", 50);
 	var_67ca400f = getdvarfloat("cam_explosion_position_z_speed", 10);
 	thread function_c003e53f(undefined, 3, 0, var_9aadeff9, 0, var_67ca400f, undefined, undefined, forwarddir);
-	var_253910ca = getdvarfloat("cam_bubbles_wait", 3);
-	wait(var_253910ca);
+	bubbles_wait = getdvarfloat("cam_bubbles_wait", 3);
+	wait(bubbles_wait);
 	self clientfield::set_to_player("player_cam_bubbles", 0);
 	self notify(#"hash_d3468831");
 }
