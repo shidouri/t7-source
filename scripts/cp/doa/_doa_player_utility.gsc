@@ -161,9 +161,9 @@ function function_bbb1254c(var_44eb97b0 = 0)
 		self.doa.guardians = [];
 		self notify(#"hash_44eb97b0");
 		wait(0.05);
-		if(isdefined(self.doa.var_3cdd8203))
+		if(isdefined(self.doa.chicken_stack))
 		{
-			foreach(chicken in self.doa.var_3cdd8203)
+			foreach(chicken in self.doa.chicken_stack)
 			{
 				if(isdefined(chicken.bird))
 				{
@@ -171,7 +171,7 @@ function function_bbb1254c(var_44eb97b0 = 0)
 				}
 				chicken delete();
 			}
-			self.doa.var_3cdd8203 = [];
+			self.doa.chicken_stack = [];
 		}
 		self thread function_e2a1a825();
 	}
