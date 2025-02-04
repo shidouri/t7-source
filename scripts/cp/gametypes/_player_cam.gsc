@@ -518,11 +518,11 @@ function function_7a3707a6(einflictor, attacker, idamage, weapon, vdir, shitloc)
 	var_638a5f4a = getdvarfloat("cam_explosion_first_fade_time", 0.4);
 	var_4c824c0e = getdvarfloat("cam_explosion_second_fade_time", 0.4);
 	first_wait = getdvarfloat("cam_explosion_first_wait", 0.8);
-	var_30ffabcb = getdvarfloat("cam_explosion_second_wait", 2);
+	second_wait = getdvarfloat("cam_explosion_second_wait", 2);
 	sign = self function_22196132();
 	thread function_c003e53f(vdir, 0, var_f40ed68d, var_9aadeff9, var_933bfc9b, var_67ca400f, undefined, 60 * sign, lookdir, undefined, 1);
 	self playrumbleonentity("damage_heavy");
-	wait(var_30ffabcb);
+	wait(second_wait);
 	self notify(#"hash_d3468831");
 }
 
