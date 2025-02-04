@@ -461,20 +461,20 @@ function sndzhd_knocker()
 	while(true)
 	{
 		wait(randomintrange(60, 180));
-		var_adc6a71a = level function_57f2b10e(var_8e7ce497);
-		if(!(isdefined(var_adc6a71a) && var_adc6a71a))
+		correct_pattern = level function_57f2b10e(var_8e7ce497);
+		if(!(isdefined(correct_pattern) && correct_pattern))
 		{
 			continue;
 		}
 		wait(1);
-		var_adc6a71a = level function_57f2b10e(var_8e7ce497);
-		if(!(isdefined(var_adc6a71a) && var_adc6a71a))
+		correct_pattern = level function_57f2b10e(var_8e7ce497);
+		if(!(isdefined(correct_pattern) && correct_pattern))
 		{
 			continue;
 		}
 		wait(1);
-		var_adc6a71a = level function_57f2b10e(var_8e7ce497);
-		if(!(isdefined(var_adc6a71a) && var_adc6a71a))
+		correct_pattern = level function_57f2b10e(var_8e7ce497);
+		if(!(isdefined(correct_pattern) && correct_pattern))
 		{
 			continue;
 		}
