@@ -523,7 +523,7 @@ function function_e507ced8(victim, smeansofdeath, weapon, killcount)
 		{
 			self stealth_vo::function_e3ae87b3(victim.var_99baf927);
 		}
-		else if(!(isdefined(level.stealth.var_30d9fcc6) && level.stealth.var_30d9fcc6))
+		else if(!(isdefined(level.stealth.combat_timing) && level.stealth.combat_timing))
 		{
 			if(killcount > 1)
 			{

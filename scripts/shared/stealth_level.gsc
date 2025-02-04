@@ -424,9 +424,9 @@ function function_a3cf57bf()
 			wait(0.05);
 			continue;
 		}
-		level.stealth.var_30d9fcc6 = 1;
+		level.stealth.combat_timing = 1;
 		wait(grace_period);
-		level.stealth.var_30d9fcc6 = 0;
+		level.stealth.combat_timing = 0;
 		if(flag::get("stealth_combat"))
 		{
 			level flag::set("stealth_discovered");
@@ -459,8 +459,8 @@ function function_f8b0594a()
 		level flag::wait_till("stealth_alert");
 		level flag::wait_till_clear("stealth_alert");
 		wait(randomfloatrange(1.5, 3));
-		var_c6d0ac06 = isdefined(level.stealth) && (isdefined(level.stealth.var_30d9fcc6) && level.stealth.var_30d9fcc6);
-		while(isdefined(level.stealth) && (isdefined(level.stealth.var_30d9fcc6) && level.stealth.var_30d9fcc6))
+		var_c6d0ac06 = isdefined(level.stealth) && (isdefined(level.stealth.combat_timing) && level.stealth.combat_timing);
+		while(isdefined(level.stealth) && (isdefined(level.stealth.combat_timing) && level.stealth.combat_timing))
 		{
 			wait(0.05);
 		}
