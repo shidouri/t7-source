@@ -512,8 +512,8 @@ function function_ce6ee03b()
 */
 function function_9a38ad2c(a_ents)
 {
-	var_115bc805 = a_ents["main_stage_curtains"];
-	var_115bc805 connectpaths();
+	e_curtain = a_ents["main_stage_curtains"];
+	e_curtain connectpaths();
 }
 
 /*
