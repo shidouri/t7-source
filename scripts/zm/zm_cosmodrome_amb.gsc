@@ -556,9 +556,9 @@ function function_5b4692c9()
 		return;
 	}
 	var_ead6e450 = array::sort_by_script_int(var_7533f11, 1);
-	foreach(var_6d450235 in var_ead6e450)
+	foreach(s_ballerina in var_ead6e450)
 	{
-		var_6d450235 function_2e4843da();
+		s_ballerina function_2e4843da();
 	}
 	level flag::set("snd_zhdegg_activate");
 	level._blackhole_bomb_valid_area_check = undefined;

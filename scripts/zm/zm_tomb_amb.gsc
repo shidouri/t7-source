@@ -675,9 +675,9 @@ function function_3630300b()
 	var_d1f154fd = array::sort_by_script_int(var_d1f154fd, 1);
 	level.var_aa39de8 = 0;
 	wait(1);
-	foreach(var_6d450235 in var_d1f154fd)
+	foreach(s_ballerina in var_d1f154fd)
 	{
-		var_6d450235 thread function_b8227f87();
+		s_ballerina thread function_b8227f87();
 		wait(1);
 	}
 	while(level.var_aa39de8 < var_d1f154fd.size)
