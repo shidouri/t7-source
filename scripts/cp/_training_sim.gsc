@@ -619,8 +619,8 @@ function function_76550e47()
 {
 	level.var_a6bed3c2 = [];
 	var_d10f0e22 = table::load("gamedata/tables/cp/cp_training_sim.csv", "round", 1);
-	var_f8cc3a0e = getarraykeys(var_d10f0e22);
-	foreach(n_round in var_f8cc3a0e)
+	a_rounds = getarraykeys(var_d10f0e22);
+	foreach(n_round in a_rounds)
 	{
 		a_types = getarraykeys(var_d10f0e22[n_round]);
 		foreach(str_type in a_types)
