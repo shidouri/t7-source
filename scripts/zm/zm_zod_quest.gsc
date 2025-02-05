@@ -2998,14 +2998,14 @@ function function_b62ad2c()
 	var_578145e1 = level.a_o_defend_areas["boxer"];
 	var_e6fe55fe = level.a_o_defend_areas["detective"];
 	var_bab3e119 = level.a_o_defend_areas["femme"];
-	var_18ffa2b3 = [];
-	array::add(var_18ffa2b3, var_b63ffd42);
-	array::add(var_18ffa2b3, var_578145e1);
-	array::add(var_18ffa2b3, var_e6fe55fe);
-	array::add(var_18ffa2b3, var_bab3e119);
-	for(i = 0; i < var_18ffa2b3.size; i++)
+	a_rituals = [];
+	array::add(a_rituals, var_b63ffd42);
+	array::add(a_rituals, var_578145e1);
+	array::add(a_rituals, var_e6fe55fe);
+	array::add(a_rituals, var_bab3e119);
+	for(i = 0; i < a_rituals.size; i++)
 	{
-		var_4126c532 = var_18ffa2b3[i];
+		var_4126c532 = a_rituals[i];
 		if(var_4126c532.m_b_started)
 		{
 			if(self istouching(var_4126c532.m_e_defend_volume))
