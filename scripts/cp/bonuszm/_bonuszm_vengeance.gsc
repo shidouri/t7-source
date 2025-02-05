@@ -31,7 +31,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_10893d25::init_voice();
+	voice_z_vengeance::init_voice();
 	level.bzm_vengeancedialogue1callback = &function_f3907da8;
 	level.bzm_vengeancedialogue2callback = &function_6597ece3;
 	level.bzm_vengeancedialogue2_1callback = &function_ed743e53;
