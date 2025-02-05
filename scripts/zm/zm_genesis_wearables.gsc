@@ -438,13 +438,13 @@ function function_b4575902()
 function function_9157236c()
 {
 	var_7bd91d87 = struct::get_array("s_ee_clock", "targetname");
-	var_687cab15 = getent("ee_grand_tour_undercroft", "targetname");
-	var_687cab15 setcandamage(1);
+	e_clock = getent("ee_grand_tour_undercroft", "targetname");
+	e_clock setcandamage(1);
 	n_stage = 9;
 	var_c52419ba = 1;
 	while(var_c52419ba)
 	{
-		var_687cab15 waittill("damage", damage, attacker, direction_vec, v_point, type, modelname, tagname, partname, weapon, idflags);
+		e_clock waittill("damage", damage, attacker, direction_vec, v_point, type, modelname, tagname, partname, weapon, idflags);
 		n_closest = 9999999;
 		s_closest = var_7bd91d87[0];
 		for(i = 0; i < var_7bd91d87.size; i++)
@@ -492,7 +492,7 @@ function function_9157236c()
 			}
 		}
 	}
-	var_687cab15 playsound("zmb_wearable_siegfried_bell");
+	e_clock playsound("zmb_wearable_siegfried_bell");
 }
 
 /*
