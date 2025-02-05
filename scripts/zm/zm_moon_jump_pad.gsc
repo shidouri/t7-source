@@ -75,8 +75,8 @@ function function_4b3d145d(einflictor, eattacker, idamage, idflags, smeansofdeat
 	{
 		if(isdefined(self._padded) && self._padded)
 		{
-			var_6f51be76 = arraygetclosest(self.origin, level.cushion_sound_triggers);
-			if(self istouching(var_6f51be76))
+			e_cushion = arraygetclosest(self.origin, level.cushion_sound_triggers);
+			if(self istouching(e_cushion))
 			{
 				return 0;
 			}
