@@ -168,9 +168,9 @@ function function_b2a01f79()
 function function_40296c9b(w_previous)
 {
 	self notify("player_used_controllable_spider");
-	var_cbe49ee = util::spawn_model("p7_zm_isl_cocoon_standing", self.origin, self.angles);
-	var_cbe49ee clientfield::set("player_cocooned_fx", 1);
-	self.var_cbe49ee = var_cbe49ee;
+	e_cocoon = util::spawn_model("p7_zm_isl_cocoon_standing", self.origin, self.angles);
+	e_cocoon clientfield::set("player_cocooned_fx", 1);
+	self.e_cocoon = e_cocoon;
 	e_spawner = getent("friendly_spider_spawner", "targetname");
 	ai = zombie_utility::spawn_zombie(e_spawner);
 	ai.origin = self.origin;
@@ -211,7 +211,7 @@ function function_5ce6002e(e_player, w_previous)
 {
 	e_player endon("disconnect");
 	self waittill("death");
-	var_cbe49ee = e_player.var_cbe49ee;
+	e_cocoon = e_player.e_cocoon;
 	e_player freezecontrols(1);
 	e_player.ignoreme = 1;
 	wait(1);
@@ -219,7 +219,7 @@ function function_5ce6002e(e_player, w_previous)
 	self notify(#"stop_last_valid_position");
 	self notify("exit_vehicle");
 	e_player clientfield::set("player_cocooned_fx", 1);
-	var_cbe49ee hide();
+	e_cocoon hide();
 	e_player lui::screen_fade_in(0.25);
 	e_player thread function_5a1c08d0();
 	var_f1c825f6 = getclosestpointonnavmesh(e_player.old_origin, 1000, 15);
@@ -259,9 +259,9 @@ function function_5ce6002e(e_player, w_previous)
 */
 function function_5a1c08d0()
 {
-	var_cbe49ee = self.var_cbe49ee;
+	e_cocoon = self.e_cocoon;
 	wait(1);
-	var_cbe49ee delete();
+	e_cocoon delete();
 }
 
 /*
