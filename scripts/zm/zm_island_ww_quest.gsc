@@ -1029,7 +1029,7 @@ function function_ebbb27ae()
 				level.var_1a139831.var_272ec8a1 = 1;
 				var_db6efb17 = getent("venom_extractor", "targetname");
 				var_db6efb17 thread scene::play("p7_fxanim_zm_island_venom_extractor_bundle", var_db6efb17);
-				level waittill(#"hash_e48828c5");
+				level waittill("spider_die");
 				ai_zombie.allowdeath = 1;
 				ai_zombie dodamage(ai_zombie.health, ai_zombie.origin);
 				var_ccefca71 = getent("spider_bait", "targetname");

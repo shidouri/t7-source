@@ -495,7 +495,7 @@ function function_2176e192()
 	level waittill(#"hash_35cee1df");
 	var_db6efb17 = getent("venom_extractor", "targetname");
 	var_db6efb17 thread scene::play("p7_fxanim_zm_island_venom_extractor_red_bundle", var_db6efb17);
-	level waittill(#"hash_e48828c5");
+	level waittill("spider_die");
 	var_1f71eb1 = struct::get("spider_ee_quest_reward", "targetname");
 	var_1f71eb1.origin = var_1f71eb1.origin;
 	var_1f71eb1.angles = var_1f71eb1.angles;
