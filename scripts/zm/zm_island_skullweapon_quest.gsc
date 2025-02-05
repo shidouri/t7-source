@@ -241,11 +241,11 @@ function main()
 	var_93999912[1] = getent("reveal_keeper_mural_01", "targetname");
 	var_93999912[2] = getent("reveal_keeper_mural_02", "targetname");
 	var_93999912[3] = getent("reveal_keeper_mural_03", "targetname");
-	foreach(var_d9516038 in var_93999912)
+	foreach(e_mural in var_93999912)
 	{
-		if(isdefined(var_d9516038))
+		if(isdefined(e_mural))
 		{
-			var_d9516038 clientfield::set("do_emissive_material", 0);
+			e_mural clientfield::set("do_emissive_material", 0);
 		}
 	}
 	var_c9260a5 = array("", "p7_fxanim_zm_island_altar_skull_battle_bundle", "p7_fxanim_zm_island_altar_skull_blood_bundle", "p7_fxanim_zm_island_altar_skull_chaos_bundle", "p7_fxanim_zm_island_altar_skull_doom_bundle");
@@ -1999,10 +1999,10 @@ function function_940267cd()
 {
 	self endon("disconnect");
 	level flag::wait_till("a_player_got_skullgun");
-	var_d9516038 = getent("reveal_keeper_mural_01", "targetname");
-	if(isdefined(var_d9516038) && !isdefined(var_d9516038.b_shown))
+	e_mural = getent("reveal_keeper_mural_01", "targetname");
+	if(isdefined(e_mural) && !isdefined(e_mural.b_shown))
 	{
-		self thread function_f293f820(var_d9516038, "mural1_revealed");
+		self thread function_f293f820(e_mural, "mural1_revealed");
 	}
 	else
 	{
@@ -2023,10 +2023,10 @@ function function_ba04e236()
 {
 	self endon("disconnect");
 	level flag::wait_till("a_player_got_skullgun");
-	var_d9516038 = getent("reveal_keeper_mural_02", "targetname");
-	if(isdefined(var_d9516038) && !isdefined(var_d9516038.b_shown))
+	e_mural = getent("reveal_keeper_mural_02", "targetname");
+	if(isdefined(e_mural) && !isdefined(e_mural.b_shown))
 	{
-		self thread function_f293f820(var_d9516038, "mural2_revealed");
+		self thread function_f293f820(e_mural, "mural2_revealed");
 	}
 	else
 	{
@@ -2047,10 +2047,10 @@ function function_e0075c9f()
 {
 	self endon("disconnect");
 	level flag::wait_till("a_player_got_skullgun");
-	var_d9516038 = getent("reveal_keeper_mural_03", "targetname");
-	if(isdefined(var_d9516038) && !isdefined(var_d9516038.b_shown))
+	e_mural = getent("reveal_keeper_mural_03", "targetname");
+	if(isdefined(e_mural) && !isdefined(e_mural.b_shown))
 	{
-		self thread function_f293f820(var_d9516038, "mural3_revealed");
+		self thread function_f293f820(e_mural, "mural3_revealed");
 	}
 	else
 	{
