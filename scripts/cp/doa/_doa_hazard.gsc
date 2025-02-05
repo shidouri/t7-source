@@ -295,7 +295,7 @@ function function_7a8a936b()
 	}
 	if(level.doa.round_number >= level.doa.var_d402a78b.round)
 	{
-		level thread function_1cb931df(level.doa.var_afdb45da);
+		level thread function_1cb931df(level.doa.spider_minions);
 	}
 }
 

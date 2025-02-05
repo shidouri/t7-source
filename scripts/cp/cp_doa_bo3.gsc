@@ -883,7 +883,7 @@ function function_957373c6(def)
 			def.spider_count = 24;
 			def.var_9cf005d1 = 0;
 			def.var_bb9ff15b = 2;
-			level.doa.var_afdb45da = def;
+			level.doa.spider_minions = def;
 			break;
 		}
 		default:
