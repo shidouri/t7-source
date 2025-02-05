@@ -1897,7 +1897,7 @@ function function_b09a54a3()
 	foreach(s_attack_point in var_c746b61a)
 	{
 		str_location = s_attack_point.script_string;
-		level.var_583e4a97.var_4dfc9f38[str_location].var_b454101b = s_attack_point;
+		level.var_583e4a97.var_4dfc9f38[str_location].s_attackable = s_attack_point;
 	}
 	foreach(var_3d8a9064 in level.var_583e4a97.var_4dfc9f38)
 	{

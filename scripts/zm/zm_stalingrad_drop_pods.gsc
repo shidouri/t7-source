@@ -81,7 +81,7 @@ function function_2bb254bb()
 	foreach(s_attack_point in var_c746b61a)
 	{
 		str_location = s_attack_point.script_string;
-		level.var_583e4a97.var_5d8406ed[str_location].var_b454101b = s_attack_point;
+		level.var_583e4a97.var_5d8406ed[str_location].s_attackable = s_attack_point;
 	}
 	level.var_583e4a97.var_365bcb3c = 0;
 	flag::wait_till("start_zombie_round_logic");
@@ -581,8 +581,8 @@ function function_d1a91c4f(var_e7a36389)
 	{
 		var_b0a4c740 = 65;
 	}
-	level.var_8cc024f2.var_b454101b.health = var_b0a4c740 * 45;
-	level.var_8cc024f2.n_health_max = level.var_8cc024f2.var_b454101b.health;
+	level.var_8cc024f2.s_attackable.health = var_b0a4c740 * 45;
+	level.var_8cc024f2.n_health_max = level.var_8cc024f2.s_attackable.health;
 	str_location = (var_e7a36389.script_string + "") + var_e7a36389.script_int;
 	if(isdefined(level.var_8cc024f2.var_c5718719) && level.var_8cc024f2.var_c5718719)
 	{
@@ -612,7 +612,7 @@ function function_d1a91c4f(var_e7a36389)
 	}
 	callback::on_connect(&function_7400750d);
 	level clientfield::set("drop_pod_streaming", 1);
-	level.var_8cc024f2.var_b454101b thread function_e677d12();
+	level.var_8cc024f2.s_attackable thread function_e677d12();
 	level scene::play("drop_pod_landing_" + str_location, "targetname", var_165d49f6);
 	var_165d49f6 setmodel("p7_fxanim_zm_stal_pack_a_punch_base_mod");
 	var_165d49f6 disconnectpaths();
@@ -631,8 +631,8 @@ function function_d1a91c4f(var_e7a36389)
 	objective_add(n_obj_id, "current", level.var_8cc024f2.var_165d49f6, istring("zm_dlc3_objective"));
 	objective_setvisibletoall(n_obj_id);
 	var_e7a36389 thread function_943a35e3();
-	level.var_8cc024f2.var_b454101b zm_attackables::activate();
-	attackable = level.var_8cc024f2.var_b454101b;
+	level.var_8cc024f2.s_attackable zm_attackables::activate();
+	attackable = level.var_8cc024f2.s_attackable;
 	if(!(isdefined(level.var_c3de02e0) && level.var_c3de02e0))
 	{
 		if(isdefined(attackable.script_string) && attackable.script_string == "yellow1")
@@ -1017,12 +1017,12 @@ function function_cdc52f02()
 {
 	level endon(#"hash_94bb84a1");
 	self waittill("start_flashing");
-	var_b454101b = level.var_8cc024f2.var_b454101b;
+	s_attackable = level.var_8cc024f2.s_attackable;
 	var_e975a0cb = 0;
 	self thread function_1ce76e16();
 	while(true)
 	{
-		n_health_percent = var_b454101b.health / level.var_8cc024f2.n_health_max;
+		n_health_percent = s_attackable.health / level.var_8cc024f2.n_health_max;
 		if(n_health_percent > 0.15)
 		{
 			wait(0.5);
@@ -1096,7 +1096,7 @@ function function_94bb84a1(var_e7a36389, var_51d4ce0d)
 	level flag::clear("drop_pod_active");
 	level flag::clear("advance_drop_pod_round");
 	zm_spawner::deregister_zombie_death_event_callback(&function_737e2ef4);
-	level.var_8cc024f2.var_b454101b zm_attackables::deactivate();
+	level.var_8cc024f2.s_attackable zm_attackables::deactivate();
 	if(!var_51d4ce0d)
 	{
 		/#

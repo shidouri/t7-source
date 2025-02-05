@@ -1842,30 +1842,30 @@ function function_5d62716(b_upgraded = 0, var_f40460f5)
 function function_ff90a1ba(b_upgraded)
 {
 	var_c746b61a = struct::get_array(self.target, "targetname");
-	foreach(var_b454101b in var_c746b61a)
+	foreach(s_attackable in var_c746b61a)
 	{
-		if(b_upgraded == 1 && var_b454101b.script_noteworthy === "attackable_upgraded")
+		if(b_upgraded == 1 && s_attackable.script_noteworthy === "attackable_upgraded")
 		{
 			break;
 			continue;
 		}
-		if(var_b454101b.script_noteworthy === "attackable")
+		if(s_attackable.script_noteworthy === "attackable")
 		{
 			break;
 		}
 	}
-	var_b454101b zm_attackables::activate();
-	self.s_plant.var_b454101b = var_b454101b;
-	var_b454101b.b_deferred_deactivation = 1;
+	s_attackable zm_attackables::activate();
+	self.s_plant.s_attackable = s_attackable;
+	s_attackable.b_deferred_deactivation = 1;
 	self thread function_813b723b();
 	self thread function_4bc7c145(b_upgraded);
-	var_b454101b waittill("attackable_deactivated");
+	s_attackable waittill("attackable_deactivated");
 	self notify(#"hash_4729ad2");
 	self.s_plant.model notify(#"hash_9ed7f404");
 	self.s_plant.model waittill(#"hash_cf8d499a");
-	self.s_plant.var_b454101b zm_attackables::deactivate();
-	self.s_plant.var_b454101b.b_deferred_deactivation = undefined;
-	self.s_plant.var_b454101b = undefined;
+	self.s_plant.s_attackable zm_attackables::deactivate();
+	self.s_plant.s_attackable.b_deferred_deactivation = undefined;
+	self.s_plant.s_attackable = undefined;
 }
 
 /*
@@ -1880,11 +1880,11 @@ function function_ff90a1ba(b_upgraded)
 function function_813b723b()
 {
 	self endon(#"hash_4729ad2");
-	n_damage_amount = self.s_plant.var_b454101b.health / 5;
+	n_damage_amount = self.s_plant.s_attackable.health / 5;
 	while(true)
 	{
 		level waittill("end_of_round");
-		self.s_plant.var_b454101b zm_attackables::do_damage(n_damage_amount);
+		self.s_plant.s_attackable zm_attackables::do_damage(n_damage_amount);
 	}
 }
 
@@ -1909,11 +1909,11 @@ function function_4bc7c145(b_upgraded)
 	}
 	if(level.round_number <= 30)
 	{
-		self.s_plant.var_b454101b.health = var_922fc340 * level.round_number;
+		self.s_plant.s_attackable.health = var_922fc340 * level.round_number;
 	}
 	else
 	{
-		self.s_plant.var_b454101b.health = var_922fc340 * 30;
+		self.s_plant.s_attackable.health = var_922fc340 * 30;
 	}
 }
 

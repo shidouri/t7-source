@@ -143,13 +143,13 @@ function setup_capture_zones()
 	level thread track_max_player_zombie_points();
 	foreach(s_generator in a_s_generator)
 	{
-		if(!isdefined(s_generator.var_b454101b))
+		if(!isdefined(s_generator.s_attackable))
 		{
-			foreach(var_b454101b in var_2dc6026c)
+			foreach(s_attackable in var_2dc6026c)
 			{
-				if(var_b454101b.script_noteworthy == s_generator.script_noteworthy)
+				if(s_attackable.script_noteworthy == s_generator.script_noteworthy)
 				{
-					s_generator.var_b454101b = var_b454101b;
+					s_generator.s_attackable = s_attackable;
 					break;
 				}
 			}
@@ -1442,7 +1442,7 @@ function activate_capture_zone(b_show_emergence_holes = 1)
 function function_38a0fa7f()
 {
 	level endon("recapture_zombies_cleared");
-	self.var_b454101b waittill("attackable_damaged");
+	self.s_attackable waittill("attackable_damaged");
 	level flag::set("generator_under_attack");
 	self flag::set("attacked_by_recapture_zombies");
 }
@@ -1459,7 +1459,7 @@ function function_38a0fa7f()
 function function_de6d807b()
 {
 	level endon("recapture_zombies_cleared");
-	self.var_b454101b waittill("attackable_deactivated");
+	self.s_attackable waittill("attackable_deactivated");
 	level flag::clear("generator_under_attack");
 	self flag::clear("attacked_by_recapture_zombies");
 }
@@ -3758,17 +3758,17 @@ function recapture_round_start()
 	capture_event_handle_ai_limit();
 	recapture_round_audio_starts();
 	var_c746b61a = struct::get_array("generator_attackable", "targetname");
-	foreach(var_b454101b in var_c746b61a)
+	foreach(s_attackable in var_c746b61a)
 	{
-		var_b454101b zm_attackables::deactivate();
-		var_b454101b.health = 1000000;
-		var_b454101b.max_health = var_b454101b.health;
-		var_b454101b.aggro_distance = 1024;
+		s_attackable zm_attackables::deactivate();
+		s_attackable.health = 1000000;
+		s_attackable.max_health = s_attackable.health;
+		s_attackable.aggro_distance = 1024;
 	}
 	while(!level flag::get("recapture_zombies_cleared") && get_captured_zone_count() > 0)
 	{
 		s_recapture_target_zone = get_recapture_zone(s_recapture_target_zone);
-		var_28e07566 = s_recapture_target_zone.var_b454101b;
+		var_28e07566 = s_recapture_target_zone.s_attackable;
 		level.zone_capture.recapture_target = s_recapture_target_zone.script_noteworthy;
 		level.zone_capture.var_186a84eb = var_28e07566;
 		s_recapture_target_zone zm_tomb_capture_zones_ffotd::recapture_event_start();
@@ -3801,9 +3801,9 @@ function recapture_round_start()
 	kill_all_recapture_zombies();
 	recapture_round_audio_ends();
 	var_c746b61a = struct::get_array("generator_attackable", "targetname");
-	foreach(var_b454101b in var_c746b61a)
+	foreach(s_attackable in var_c746b61a)
 	{
-		var_b454101b zm_attackables::deactivate();
+		s_attackable zm_attackables::deactivate();
 	}
 	level flag::clear("recapture_event_in_progress");
 	level flag::clear("generator_under_attack");

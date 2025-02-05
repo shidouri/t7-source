@@ -490,7 +490,7 @@ function function_e630b27f()
 	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
 	foreach(var_8c46024b in var_fc72ce0a)
 	{
-		if(isdefined(var_8c46024b.s_plant) && isdefined(var_8c46024b.s_plant.var_b454101b) && var_8c46024b.s_plant.var_b454101b.health > 0)
+		if(isdefined(var_8c46024b.s_plant) && isdefined(var_8c46024b.s_plant.s_attackable) && var_8c46024b.s_plant.s_attackable.health > 0)
 		{
 			return true;
 		}
@@ -568,17 +568,17 @@ function function_c1f64636(b_completed)
 	if(b_completed)
 	{
 		zm_unitrigger::unregister_unitrigger(self.s_plant_unitrigger);
-		if(isdefined(self.s_plant.var_b454101b))
+		if(isdefined(self.s_plant.s_attackable))
 		{
-			self.s_plant.var_b454101b zm_attackables::deactivate();
+			self.s_plant.s_attackable zm_attackables::deactivate();
 			self notify(#"hash_4729ad2");
 		}
 		wait(3);
 		while(true)
 		{
-			if(isdefined(self.s_plant) && isdefined(self.s_plant.var_b454101b))
+			if(isdefined(self.s_plant) && isdefined(self.s_plant.s_attackable))
 			{
-				self.s_plant.var_b454101b zm_attackables::do_damage(self.s_plant.var_b454101b.health);
+				self.s_plant.s_attackable zm_attackables::do_damage(self.s_plant.s_attackable.health);
 			}
 			if(self.b_seed_planted == 0)
 			{
@@ -590,9 +590,9 @@ function function_c1f64636(b_completed)
 		level notify(#"hash_46080242");
 		arrayremovevalue(level.a_s_planting_spots, self);
 	}
-	else if(isdefined(self.s_plant) && isdefined(self.s_plant.var_b454101b))
+	else if(isdefined(self.s_plant) && isdefined(self.s_plant.s_attackable))
 	{
-		self.s_plant.var_b454101b zm_attackables::do_damage(self.s_plant.var_b454101b.health);
+		self.s_plant.s_attackable zm_attackables::do_damage(self.s_plant.s_attackable.health);
 	}
 }
 
