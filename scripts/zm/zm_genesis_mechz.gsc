@@ -591,7 +591,7 @@ function function_d8d01032()
 */
 function spawn_effect()
 {
-	self function_1faf1646();
+	self mechz_freeze();
 	util::wait_network_frame();
 	self clientfield::increment("mechz_fx_spawn");
 	wait(1);
@@ -964,7 +964,7 @@ function mechz_damage_override(attacker, damage)
 }
 
 /*
-	Name: function_1faf1646
+	Name: mechz_freeze
 	Namespace: zm_genesis_mechz
 	Checksum: 0xEBF31B1C
 	Offset: 0x27B0
@@ -972,7 +972,7 @@ function mechz_damage_override(attacker, damage)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_1faf1646()
+function private mechz_freeze()
 {
 	self.candamage = 0;
 	self.isfrozen = 1;
