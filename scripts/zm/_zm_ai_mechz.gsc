@@ -74,7 +74,7 @@ function __init__()
 	level.mechz_round_count = 0;
 	level.mechz_spawners = getentarray("zombie_mechz_spawner", "script_noteworthy");
 	level.mechz_locations = struct::get_array("mechz_location", "script_noteworthy");
-	spawner::add_archetype_spawn_function("mechz", &function_3d5df242);
+	spawner::add_archetype_spawn_function("mechz", &mechz_setup);
 	zm::register_player_damage_callback(&function_ed70c868);
 	level.mechz_flamethrower_ai_callback = &function_1add8026;
 	level thread aat::register_immunity("zm_aat_blast_furnace", "mechz", 0, 1, 1);
@@ -212,7 +212,7 @@ function function_48cabef5()
 }
 
 /*
-	Name: function_3d5df242
+	Name: mechz_setup
 	Namespace: zm_ai_mechz
 	Checksum: 0xC8A7FC5D
 	Offset: 0xD70
@@ -220,7 +220,7 @@ function function_48cabef5()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_3d5df242()
+function private mechz_setup()
 {
 	self.b_ignore_cleanup = 1;
 	self.is_mechz = 1;
