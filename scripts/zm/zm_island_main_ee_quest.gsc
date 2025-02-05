@@ -1137,35 +1137,35 @@ function function_77f4b1ca()
 */
 function function_6cc2e374()
 {
-	var_f022cb65 = getent("trigger_elevator_gears", "targetname");
-	var_f022cb65 setcursorhint("HINT_NOICON");
-	var_f022cb65 sethintstring("");
+	t_repair = getent("trigger_elevator_gears", "targetname");
+	t_repair setcursorhint("HINT_NOICON");
+	t_repair sethintstring("");
 	var_66bf6df = getent("elevator_gears", "targetname");
 	var_66bf6df thread elevator_gears();
 	while(true)
 	{
-		var_f022cb65 waittill("trigger", e_who);
+		t_repair waittill("trigger", e_who);
 		if(level flag::get("elevator_part_gear1_found") && !level flag::get("elevator_part_gear1_placed"))
 		{
 			level flag::set("elevator_part_gear1_placed");
-			var_f022cb65 playsound("zmb_item_pickup");
+			t_repair playsound("zmb_item_pickup");
 			var_66bf6df.var_df281e84 = util::spawn_model("p7_zm_isl_elevator_gears_wheel", var_66bf6df gettagorigin("wheel_01_jnt") + (1, 2, 0), var_66bf6df gettagangles("wheel_01_jnt"));
 		}
 		if(level flag::get("elevator_part_gear2_found") && !level flag::get("elevator_part_gear2_placed"))
 		{
 			level flag::set("elevator_part_gear2_placed");
-			var_f022cb65 playsound("zmb_item_pickup");
+			t_repair playsound("zmb_item_pickup");
 			var_66bf6df.var_e882d83c = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", var_66bf6df gettagorigin("wheel_02_jnt") + (0.525, 2, -0.075), var_66bf6df gettagangles("wheel_02_jnt"));
 		}
 		if(level flag::get("elevator_part_gear3_found") && !level flag::get("elevator_part_gear3_placed"))
 		{
 			level flag::set("elevator_part_gear3_placed");
-			var_f022cb65 playsound("zmb_item_pickup");
+			t_repair playsound("zmb_item_pickup");
 			var_66bf6df.var_aab7a6d1 = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", var_66bf6df gettagorigin("wheel_03_jnt") + vectorscale((0, 1, 0), 2), var_66bf6df gettagangles("wheel_03_jnt"));
 		}
 		if(level flag::get("elevator_part_gear1_found") && level flag::get("elevator_part_gear2_found") && level flag::get("elevator_part_gear3_found"))
 		{
-			var_f022cb65 playsound("zmb_elevator_fix");
+			t_repair playsound("zmb_elevator_fix");
 			level thread zm_island_vo::function_3bf2d62a("elevator", 0, 1, 0);
 			if(zm_utility::is_player_valid(e_who))
 			{
