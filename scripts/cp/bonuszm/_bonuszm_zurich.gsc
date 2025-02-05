@@ -31,7 +31,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_738cec14::init_voice();
+	voice_z_zurich::init_voice();
 	level.bzm_zurichdialogue1callback = &function_8924576f;
 	level.bzm_zurichdialogue1_1callback = &function_465e0207;
 	level.bzm_zurichdialogue1_2callback = &function_d45692cc;
