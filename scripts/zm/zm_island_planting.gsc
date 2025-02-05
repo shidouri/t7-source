@@ -744,18 +744,18 @@ function function_26651461(var_75bf845a, var_49d71b32, var_9636d237, var_f40460f
 			a_plants[4] = 100;
 		}
 	}
-	var_f48f47cc = [];
+	a_possible = [];
 	var_29cc53bd = 0;
 	foreach(plant, n_score in a_plants)
 	{
 		if(n_score > 0)
 		{
-			var_f48f47cc[plant] = var_29cc53bd + n_score;
+			a_possible[plant] = var_29cc53bd + n_score;
 			var_29cc53bd = var_29cc53bd + n_score;
 		}
 	}
 	n_random = randomfloatrange(0, 100);
-	foreach(n_score in var_f48f47cc)
+	foreach(n_score in a_possible)
 	{
 		if(n_random <= n_score)
 		{
