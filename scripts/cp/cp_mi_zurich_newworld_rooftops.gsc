@@ -4891,17 +4891,17 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	a_train = [];
 	var_95af8b3e = [];
 	var_37048efd = struct::get(var_37713607, "targetname");
-	var_5ae02fb7 = spawn("script_model", var_37048efd.origin);
-	var_5ae02fb7.angles = var_37048efd.angles;
-	var_5ae02fb7 setmodel(var_37048efd.model);
-	var_5ae02fb7.script_objective = "chase_glass_ceiling_igc";
-	var_5ae02fb7.script_noteworthy = "chase_train";
-	var_5ae02fb7 playloopsound("amb_train_front_engine");
+	e_engine = spawn("script_model", var_37048efd.origin);
+	e_engine.angles = var_37048efd.angles;
+	e_engine setmodel(var_37048efd.model);
+	e_engine.script_objective = "chase_glass_ceiling_igc";
+	e_engine.script_noteworthy = "chase_train";
+	e_engine playloopsound("amb_train_front_engine");
 	if(var_76f5cbe9)
 	{
-		var_5ae02fb7 thread function_db738b68();
+		e_engine thread function_db738b68();
 	}
-	a_train[0] = var_5ae02fb7;
+	a_train[0] = e_engine;
 	var_934a157 = struct::get(var_4b204b1c, "targetname");
 	t_end = getent(var_37048efd.target, "targetname");
 	if(var_37713607 == "train_station_train_org")
