@@ -852,12 +852,12 @@ function function_e7a3a98f(a_str_lines)
 function function_a59032c3()
 {
 	level.var_89ad28cd = 0;
-	var_e3c08ace = getentarray("hs_radio", "targetname");
-	array::thread_all(var_e3c08ace, &function_68e137c8);
+	a_radio = getentarray("hs_radio", "targetname");
+	array::thread_all(a_radio, &function_68e137c8);
 	while(true)
 	{
 		level waittill(#"hash_da6d056e");
-		if(level.var_89ad28cd == var_e3c08ace.size)
+		if(level.var_89ad28cd == a_radio.size)
 		{
 			break;
 		}
