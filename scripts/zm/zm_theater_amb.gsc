@@ -494,9 +494,9 @@ function sndzhd_knocker()
 */
 function function_57f2b10e(var_8e7ce497)
 {
-	var_6140b6dd = level function_314be731();
-	level function_5c13c705(var_6140b6dd, var_8e7ce497);
-	success = level function_7f30e34a(var_6140b6dd, var_8e7ce497);
+	a_pattern = level function_314be731();
+	level function_5c13c705(a_pattern, var_8e7ce497);
+	success = level function_7f30e34a(a_pattern, var_8e7ce497);
 	return success;
 }
 
@@ -509,12 +509,12 @@ function function_57f2b10e(var_8e7ce497)
 	Parameters: 2
 	Flags: Linked
 */
-function function_5c13c705(var_6140b6dd, var_8e7ce497)
+function function_5c13c705(a_pattern, var_8e7ce497)
 {
 	for(var_918879b9 = 0; var_918879b9 < 3; var_918879b9++)
 	{
 		wait(1.5);
-		for(n_count = 0; n_count < var_6140b6dd[var_918879b9]; n_count++)
+		for(n_count = 0; n_count < a_pattern[var_918879b9]; n_count++)
 		{
 			var_8e7ce497 playsound("zmb_zhd_knocker_door");
 			wait(0.75);
@@ -531,9 +531,9 @@ function function_5c13c705(var_6140b6dd, var_8e7ce497)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7f30e34a(var_6140b6dd, var_8e7ce497)
+function function_7f30e34a(a_pattern, var_8e7ce497)
 {
-	level thread function_47cc6622(var_6140b6dd, var_8e7ce497);
+	level thread function_47cc6622(a_pattern, var_8e7ce497);
 	str_notify = util::waittill_any_return("zhd_knocker_success", "zhd_knocker_timeout");
 	if(str_notify == "zhd_knocker_timeout")
 	{
@@ -552,14 +552,14 @@ function function_7f30e34a(var_6140b6dd, var_8e7ce497)
 	Parameters: 2
 	Flags: Linked
 */
-function function_47cc6622(var_6140b6dd, var_8e7ce497)
+function function_47cc6622(a_pattern, var_8e7ce497)
 {
 	level endon("zhd_knocker_timeout");
 	for(var_918879b9 = 0; var_918879b9 < 3; var_918879b9++)
 	{
 		level thread function_e497b291(3000);
 		n_count = 0;
-		while(n_count < var_6140b6dd[var_918879b9])
+		while(n_count < a_pattern[var_918879b9])
 		{
 			var_8e7ce497 waittill("damage", damage, attacker, dir, loc, str_type, model, tag, part, weapon, flags);
 			if(!isdefined(attacker) || !isplayer(attacker))
@@ -641,9 +641,9 @@ function function_4f9527ef(n_min)
 */
 function function_314be731()
 {
-	var_6140b6dd = array((1, 1, 5), (9, 3, 5), vectorscale((1, 1, 1), 6), (2, 4, 1), (1, 2, 1), (5, 3, 4), (3, 2, 1), (5, 1, 2), (1, 4, 3), (6, 2, 4));
-	var_6140b6dd = array::randomize(var_6140b6dd);
-	return var_6140b6dd[0];
+	a_pattern = array((1, 1, 5), (9, 3, 5), vectorscale((1, 1, 1), 6), (2, 4, 1), (1, 2, 1), (5, 3, 4), (3, 2, 1), (5, 1, 2), (1, 4, 3), (6, 2, 4));
+	a_pattern = array::randomize(a_pattern);
+	return a_pattern[0];
 }
 
 /*
