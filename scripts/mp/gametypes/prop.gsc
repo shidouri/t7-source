@@ -3090,14 +3090,14 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, sweapon, v
 	if(killedbyenemy)
 	{
 		scoreevents::processscoreevent("prop_finalblow", attacker, victim);
-		foreach(var_ee0888a5 in victim.attackers)
+		foreach(assailant in victim.attackers)
 		{
-			if(var_ee0888a5 == attacker)
+			if(assailant == attacker)
 			{
-				var_ee0888a5 playhitmarker("mpl_hit_alert");
+				assailant playhitmarker("mpl_hit_alert");
 				continue;
 			}
-			var_ee0888a5 playhitmarker("mpl_hit_alert_escort");
+			assailant playhitmarker("mpl_hit_alert_escort");
 		}
 	}
 	foreach(player in level.players)
