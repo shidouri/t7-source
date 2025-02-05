@@ -9,11 +9,11 @@
 #using scripts\shared\flagsys_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_2f2192b4;
+#namespace _bonuszm_infection;
 
 /*
 	Name: init
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xDEDEBAA1
 	Offset: 0xB40
 	Size: 0x2C4
@@ -61,7 +61,7 @@ function autoexec init()
 
 /*
 	Name: function_c7784263
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xDFE85FA4
 	Offset: 0xE10
 	Size: 0xCC
@@ -84,7 +84,7 @@ function function_c7784263()
 
 /*
 	Name: function_5570d328
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xF70AE381
 	Offset: 0xEE8
 	Size: 0x4C
@@ -102,7 +102,7 @@ function function_5570d328()
 
 /*
 	Name: function_7b734d91
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x19672DA3
 	Offset: 0xF40
 	Size: 0x12C
@@ -132,7 +132,7 @@ function function_7b734d91()
 
 /*
 	Name: function_397fb19e
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xF2C93B82
 	Offset: 0x1078
 	Size: 0x184
@@ -167,7 +167,7 @@ function function_397fb19e()
 
 /*
 	Name: function_5f822c07
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x50BC5BA2
 	Offset: 0x1208
 	Size: 0xE
@@ -181,7 +181,7 @@ function function_5f822c07()
 
 /*
 	Name: function_ed7abccc
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x7B4F27C2
 	Offset: 0x1220
 	Size: 0xA4
@@ -204,7 +204,7 @@ function function_ed7abccc()
 
 /*
 	Name: function_137d3735
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x3C16FBDB
 	Offset: 0x12D0
 	Size: 0x64
@@ -223,7 +223,7 @@ function function_137d3735()
 
 /*
 	Name: function_7161f4b2
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xCF9DBF1
 	Offset: 0x1340
 	Size: 0x6C
@@ -243,7 +243,7 @@ function function_7161f4b2()
 
 /*
 	Name: function_b0c5d8fa
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xA395A652
 	Offset: 0x13B8
 	Size: 0x64
@@ -262,7 +262,7 @@ function function_b0c5d8fa()
 
 /*
 	Name: function_97646f1b
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x8640D503
 	Offset: 0x1428
 	Size: 0x2C
@@ -278,7 +278,7 @@ function function_97646f1b()
 
 /*
 	Name: function_44d98e29
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xA814BA5C
 	Offset: 0x1460
 	Size: 0xCC
@@ -304,7 +304,7 @@ function function_44d98e29()
 
 /*
 	Name: function_1ed713c0
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x24F51C09
 	Offset: 0x1538
 	Size: 0x4C
@@ -322,7 +322,7 @@ function function_1ed713c0()
 
 /*
 	Name: function_90de82fb
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x4C9B68D3
 	Offset: 0x1590
 	Size: 0x2C
@@ -338,7 +338,7 @@ function function_90de82fb()
 
 /*
 	Name: function_6adc0892
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x2DAAE2A4
 	Offset: 0x15C8
 	Size: 0x64
@@ -357,7 +357,7 @@ function function_6adc0892()
 
 /*
 	Name: function_dce377cd
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xFB9B6EC2
 	Offset: 0x1638
 	Size: 0x4C
@@ -375,7 +375,7 @@ function function_dce377cd()
 
 /*
 	Name: function_b6e0fd64
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x21B508B
 	Offset: 0x1690
 	Size: 0x84
@@ -396,7 +396,7 @@ function function_b6e0fd64()
 
 /*
 	Name: function_28e86c9f
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xDE276E09
 	Offset: 0x1720
 	Size: 0xD4
@@ -419,7 +419,7 @@ function function_28e86c9f()
 
 /*
 	Name: function_2e5f236
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xA2B70A58
 	Offset: 0x1800
 	Size: 0xE
@@ -433,7 +433,7 @@ function function_2e5f236()
 
 /*
 	Name: function_74ed6171
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xBF76CF58
 	Offset: 0x1818
 	Size: 0x64
@@ -452,7 +452,7 @@ function function_74ed6171()
 
 /*
 	Name: function_fa2ce383
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x35E44B83
 	Offset: 0x1888
 	Size: 0x44
@@ -469,7 +469,7 @@ function function_fa2ce383()
 
 /*
 	Name: function_4eeae708
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xBA482FC5
 	Offset: 0x18D8
 	Size: 0x2C
@@ -485,7 +485,7 @@ function function_4eeae708()
 
 /*
 	Name: function_88257448
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xC47F9571
 	Offset: 0x1910
 	Size: 0x74
@@ -504,7 +504,7 @@ function function_88257448()
 
 /*
 	Name: function_ae27eeb1
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0xAF82AC4F
 	Offset: 0x1990
 	Size: 0x44
@@ -521,7 +521,7 @@ function function_ae27eeb1()
 
 /*
 	Name: function_d42a691a
-	Namespace: namespace_2f2192b4
+	Namespace: _bonuszm_infection
 	Checksum: 0x9064B1E5
 	Offset: 0x19E0
 	Size: 0x12C
