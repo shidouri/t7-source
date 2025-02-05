@@ -202,9 +202,9 @@ class class_d90687be
 			}
 		}
 		var_eb96527b = getent("dark_arena_zone_active_trig", "targetname");
-		foreach(var_acaa35c2 in var_efcfca6d)
+		foreach(e_parasite in var_efcfca6d)
 		{
-			if(var_acaa35c2 istouching(var_eb96527b))
+			if(e_parasite istouching(var_eb96527b))
 			{
 				if(!isdefined(var_eeb77e19))
 				{
@@ -214,7 +214,7 @@ class class_d90687be
 				{
 					var_eeb77e19 = array(var_eeb77e19);
 				}
-				var_eeb77e19[var_eeb77e19.size] = var_acaa35c2;
+				var_eeb77e19[var_eeb77e19.size] = e_parasite;
 			}
 		}
 		if(!isdefined(var_eeb77e19))
