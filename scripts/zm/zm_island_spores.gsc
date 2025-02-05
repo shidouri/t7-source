@@ -138,23 +138,23 @@ function function_53848c29()
 				}
 			}
 		}
-		foreach(var_dc604ef4 in var_c9234aca)
+		foreach(a_spore in var_c9234aca)
 		{
-			switch(var_dc604ef4.script_noteworthy)
+			switch(a_spore.script_noteworthy)
 			{
 				case "spore_cloud_org_stage_01":
 				{
-					self.var_a5969fbf = var_dc604ef4;
+					self.var_a5969fbf = a_spore;
 					break;
 				}
 				case "spore_cloud_org_stage_02":
 				{
-					self.var_338f3084 = var_dc604ef4;
+					self.var_338f3084 = a_spore;
 					break;
 				}
 				case "spore_cloud_org_stage_03":
 				{
-					self.var_5991aaed = var_dc604ef4;
+					self.var_5991aaed = a_spore;
 					break;
 				}
 			}
