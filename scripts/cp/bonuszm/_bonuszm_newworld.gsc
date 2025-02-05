@@ -31,7 +31,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_70ee1527::init_voice();
+	voice_z_newworld::init_voice();
 	level.bzm_newworlddialogue1callback = &function_abbfb056;
 	level.bzm_newworlddialogue2callback = &function_85bd35ed;
 	level.bzm_newworlddialogue2_2callback = &function_3468d5a2;

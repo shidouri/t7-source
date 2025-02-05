@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\cp\_dialog;
 
-#namespace namespace_70ee1527;
+#namespace voice_z_newworld;
 
 /*
 	Name: init_voice
-	Namespace: namespace_70ee1527
+	Namespace: voice_z_newworld
 	Checksum: 0x6136470A
 	Offset: 0x1430
 	Size: 0xCA4
