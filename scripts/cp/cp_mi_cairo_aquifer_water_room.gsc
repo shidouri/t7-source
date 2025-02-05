@@ -878,11 +878,11 @@ function function_67c72b6()
 */
 function function_cb3decf1()
 {
-	var_e9dd177b = getent("trig_trap_door", "targetname");
+	t_outer = getent("trig_trap_door", "targetname");
 	t_inner = getent("inner_explosion_area", "targetname");
 	foreach(player in level.activeplayers)
 	{
-		if(player istouching(var_e9dd177b))
+		if(player istouching(t_outer))
 		{
 			if(player istouching(t_inner))
 			{

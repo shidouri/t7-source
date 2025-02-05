@@ -5499,8 +5499,8 @@ function elemental_storm_wallrun()
 	foreach(t_wallrun in var_5c7ef569)
 	{
 		var_93e50579 = getent(t_wallrun.target, "targetname");
-		var_e9dd177b = getent(var_93e50579.target, "targetname");
-		var_e9dd177b delete();
+		t_outer = getent(var_93e50579.target, "targetname");
+		t_outer delete();
 	}
 }
 
@@ -5524,16 +5524,16 @@ function function_cce911bb()
 	#/
 	level endon("elemental_storm_wallrun");
 	var_93e50579 = getent(self.target, "targetname");
-	var_e9dd177b = getent(var_93e50579.target, "targetname");
+	t_outer = getent(var_93e50579.target, "targetname");
 	var_93e50579 clientfield::set("wallrun_fx", 1);
 	while(true)
 	{
-		var_e9dd177b waittill("trigger");
+		t_outer waittill("trigger");
 		if(!array::contains(level.var_49593fd9, self))
 		{
 			var_93e50579 clientfield::set("wallrun_fx", 2);
 		}
-		while(array::is_touching(level.players, var_e9dd177b))
+		while(array::is_touching(level.players, t_outer))
 		{
 			wait(0.1);
 		}
