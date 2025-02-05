@@ -687,9 +687,9 @@ function function_df65aec6(a_ents)
 {
 	level thread scene::play("p7_fxanim_cp_biodomes_party_house_drinks_bundle");
 	level thread scene::play("cin_bio_01_01_party_1st_drinks_part2");
-	var_ecc203c7 = a_ents["server"];
-	var_ecc203c7 waittill("stab");
-	var_ecc203c7 clientfield::set("waiter_blood_shader", 1);
+	e_waiter = a_ents["server"];
+	e_waiter waittill("stab");
+	e_waiter clientfield::set("waiter_blood_shader", 1);
 }
 
 /*
