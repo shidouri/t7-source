@@ -568,7 +568,7 @@ function function_d8d01032()
 	self.var_c732138b = &function_1df1ec14;
 	self.traversalspeedboost = &function_40ef38f8;
 	self thread function_a2a11991();
-	self thread function_b2a1b297();
+	self thread mechz_corpse();
 	self thread function_2a26e636();
 	self thread zm::update_zone_name();
 	self waittill("death");
@@ -614,7 +614,7 @@ function function_b7e11612()
 }
 
 /*
-	Name: function_b2a1b297
+	Name: mechz_corpse
 	Namespace: zm_genesis_mechz
 	Checksum: 0xF4DCA2D
 	Offset: 0x1BC8
@@ -622,7 +622,7 @@ function function_b7e11612()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b2a1b297()
+function mechz_corpse()
 {
 	self waittill("actor_corpse", mechz);
 	wait(60);

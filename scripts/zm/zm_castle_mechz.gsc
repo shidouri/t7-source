@@ -536,7 +536,7 @@ function function_d8d01032()
 	level.n_mechz_alive++;
 	level.zombie_ai_limit--;
 	level thread achievement_watcher(self);
-	self thread function_b2a1b297();
+	self thread mechz_corpse();
 	self waittill("death");
 	self thread function_2a2bfc25();
 	if(isdefined(self.attacker) && isplayer(self.attacker) && self.attacker hasweapon(getweapon("knife_plunger")))
@@ -549,7 +549,7 @@ function function_d8d01032()
 }
 
 /*
-	Name: function_b2a1b297
+	Name: mechz_corpse
 	Namespace: zm_castle_mechz
 	Checksum: 0x11D6F9FE
 	Offset: 0x16F0
