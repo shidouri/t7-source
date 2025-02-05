@@ -31,7 +31,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_c8dba3e6::init_voice();
+	voice_z_lotus::init_voice();
 	level.bzm_lotusdialogue1callback = &function_b3638a15;
 	level.bzm_lotusdialogue2callback = &function_d966047e;
 	level.bzm_lotusdialogue2_1callback = &function_7aa93e6e;
