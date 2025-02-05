@@ -588,14 +588,14 @@ function function_846f1215(n_alpha)
 {
 	foreach(p in level.activeplayers)
 	{
-		p thread function_45676b91(n_alpha);
+		p thread a_blink(n_alpha);
 		p hazard::do_damage("o2", 20);
 		p thread function_498a7d66();
 	}
 }
 
 /*
-	Name: function_45676b91
+	Name: a_blink
 	Namespace: cp_mi_cairo_aquifer_water_room
 	Checksum: 0x76BC628F
 	Offset: 0x28C0
@@ -603,7 +603,7 @@ function function_846f1215(n_alpha)
 	Parameters: 1
 	Flags: Linked
 */
-function function_45676b91(n_alpha)
+function a_blink(n_alpha)
 {
 	self endon("disconnect");
 	self util::screen_fade_to_alpha(n_alpha, 1);
