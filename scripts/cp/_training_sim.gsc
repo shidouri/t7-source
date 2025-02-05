@@ -907,8 +907,8 @@ function function_7407182f(var_19f0c7ba)
 */
 function function_a92a30c4(var_6ec35b3f, var_fcbbec04)
 {
-	var_59fb42bf = acos(vectordot(var_6ec35b3f, var_fcbbec04) / (length(var_6ec35b3f) * length(var_fcbbec04)));
-	return var_59fb42bf;
+	f_degrees = acos(vectordot(var_6ec35b3f, var_fcbbec04) / (length(var_6ec35b3f) * length(var_fcbbec04)));
+	return f_degrees;
 }
 
 /*
