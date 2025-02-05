@@ -2817,12 +2817,12 @@ function function_1ad208()
 	trigger::wait_till("vat_room_spawn_closet");
 	level thread function_f2c01307();
 	level thread function_d9482ef9();
-	var_9b15e92e = getent("gv_vat_room_back", "targetname");
+	e_retreat = getent("gv_vat_room_back", "targetname");
 	foreach(ai in spawner::get_ai_group_ai("vat_room_enemy"))
 	{
 		if(isalive(ai))
 		{
-			ai setgoal(var_9b15e92e);
+			ai setgoal(e_retreat);
 			wait(randomfloatrange(0.5, 2));
 		}
 	}
