@@ -31,7 +31,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_babdccbe::init_voice();
+	voice_z_prologue::init_voice();
 	level.bzm_prologuedialogue1callback = &function_da4ce9e5;
 	level.bzm_prologuedialogue2callback = &function_4f644e;
 	level.bzm_prologuedialogue2_1callback = &function_9d3fff7e;
