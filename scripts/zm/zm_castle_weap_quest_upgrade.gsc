@@ -3841,11 +3841,11 @@ function function_15a6ff6a()
 	level.var_52978d72 endon("death");
 	level.var_52978d72 endon("quest_swap");
 	level.var_52978d72 thread function_d62aa556();
-	var_f7019ef = getent("aq_wh_skull_shrine_trig", "targetname");
+	t_shrine = getent("aq_wh_skull_shrine_trig", "targetname");
 	while(true)
 	{
 		level.var_52978d72 waittill("projectile_impact", weapon, point, radius, attacker, normal);
-		if(function_51a90202(weapon, 1, point, var_f7019ef))
+		if(function_51a90202(weapon, 1, point, t_shrine))
 		{
 			playsoundatposition("zmb_wolf_shrine_location", (5350, -1659, -1135));
 			var_affd5bec = getent("wolf_skull_roll_down", "targetname");
