@@ -315,9 +315,9 @@ function cin_zmhd_sizzle_moon_cam(a_ents)
 {
 	level.disable_print3d_ent = 1;
 	var_3aa9d35a = getentarray("airlock_bridge_zone", "script_parameters");
-	foreach(var_1cec30db in var_3aa9d35a)
+	foreach(t_airlock in var_3aa9d35a)
 	{
-		var_7be3ca60 = getentarray(var_1cec30db.target, "targetname");
+		var_7be3ca60 = getentarray(t_airlock.target, "targetname");
 		foreach(mdl_door in var_7be3ca60)
 		{
 			mdl_door hide();
@@ -2812,18 +2812,18 @@ function function_35a61719()
 	var_93997cd = getentarray("airlock_biodome_zone", "script_parameters");
 	var_66cca975 = getentarray("airlock_labs_2_biodome", "script_parameters");
 	var_93997cd = arraycombine(var_93997cd, var_66cca975, 0, 0);
-	foreach(var_1cec30db in var_93997cd)
+	foreach(t_airlock in var_93997cd)
 	{
-		switch(var_1cec30db.script_int)
+		switch(t_airlock.script_int)
 		{
 			case 1:
 			{
-				var_1cec30db thread function_cc87f235(self);
+				t_airlock thread function_cc87f235(self);
 				break;
 			}
 			case 0:
 			{
-				var_1cec30db thread function_ff7d5f3b(self);
+				t_airlock thread function_ff7d5f3b(self);
 				break;
 			}
 		}
