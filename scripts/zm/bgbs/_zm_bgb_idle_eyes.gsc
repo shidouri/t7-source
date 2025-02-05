@@ -126,10 +126,10 @@ function activation()
 	Parameters: 2
 	Flags: Linked
 */
-function function_1f57344e(var_e04844d6, a_active_players)
+function function_1f57344e(e_watch, a_active_players)
 {
-	var_e04844d6 endon(#"hash_16ab3604");
-	var_e04844d6 waittill("disconnect");
+	e_watch endon(#"hash_16ab3604");
+	e_watch waittill("disconnect");
 	deactivate(a_active_players);
 }
 
