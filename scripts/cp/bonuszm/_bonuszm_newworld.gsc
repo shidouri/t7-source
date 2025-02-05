@@ -9,11 +9,11 @@
 #using scripts\shared\flag_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_5242444b;
+#namespace _bonuszm_newworld;
 
 /*
 	Name: init
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0xDBCAA1BB
 	Offset: 0xC50
 	Size: 0x1DC
@@ -52,7 +52,7 @@ function autoexec init()
 
 /*
 	Name: function_f5c6d60c
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x93CD2126
 	Offset: 0xE38
 	Size: 0x24
@@ -66,7 +66,7 @@ function private function_f5c6d60c()
 
 /*
 	Name: function_95d2ec9f
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x36B5C7B3
 	Offset: 0xE68
 	Size: 0x1C
@@ -80,7 +80,7 @@ function function_95d2ec9f()
 
 /*
 	Name: function_abbfb056
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0xD7F7206E
 	Offset: 0xE90
 	Size: 0x1C4
@@ -116,7 +116,7 @@ function function_abbfb056()
 
 /*
 	Name: function_85bd35ed
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x816A29F7
 	Offset: 0x1060
 	Size: 0x11C
@@ -143,7 +143,7 @@ function function_85bd35ed()
 
 /*
 	Name: function_3468d5a2
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x626A1AA7
 	Offset: 0x1188
 	Size: 0x7C
@@ -162,7 +162,7 @@ function function_3468d5a2()
 
 /*
 	Name: function_5a6b500b
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0xC05B37C7
 	Offset: 0x1210
 	Size: 0x64
@@ -181,7 +181,7 @@ function function_5a6b500b()
 
 /*
 	Name: function_806dca74
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x8823676E
 	Offset: 0x1280
 	Size: 0x2C
@@ -197,7 +197,7 @@ function function_806dca74()
 
 /*
 	Name: function_5fbabb84
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0xE5EA8A44
 	Offset: 0x12B8
 	Size: 0x18C
@@ -229,7 +229,7 @@ function function_5fbabb84()
 
 /*
 	Name: function_39b8411b
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x99EC1590
 	Offset: 0x1450
 	Size: 0x4
@@ -242,7 +242,7 @@ function function_39b8411b()
 
 /*
 	Name: function_13b5c6b2
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x51B4BCA5
 	Offset: 0x1460
 	Size: 0x102
@@ -271,7 +271,7 @@ function function_13b5c6b2()
 
 /*
 	Name: function_edb34c49
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x485DBFBB
 	Offset: 0x1570
 	Size: 0x24
@@ -286,7 +286,7 @@ function function_edb34c49()
 
 /*
 	Name: function_c7b0d1e0
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x7DC88BBD
 	Offset: 0x15A0
 	Size: 0x1F4
@@ -323,7 +323,7 @@ function function_c7b0d1e0()
 
 /*
 	Name: function_1d5fe07
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x550567F9
 	Offset: 0x17A0
 	Size: 0xE4
@@ -348,7 +348,7 @@ function function_1d5fe07()
 
 /*
 	Name: function_dbd3839e
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x79029A7B
 	Offset: 0x1890
 	Size: 0x5C
@@ -366,7 +366,7 @@ function function_dbd3839e()
 
 /*
 	Name: function_14ea3df2
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x1D73EFB7
 	Offset: 0x18F8
 	Size: 0x94
@@ -387,7 +387,7 @@ function function_14ea3df2()
 
 /*
 	Name: function_3aecb85b
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0x1B3B5562
 	Offset: 0x1998
 	Size: 0xAC
@@ -409,7 +409,7 @@ function function_3aecb85b()
 
 /*
 	Name: function_c8e54920
-	Namespace: namespace_5242444b
+	Namespace: _bonuszm_newworld
 	Checksum: 0xC458CE0C
 	Offset: 0x1A50
 	Size: 0x84
