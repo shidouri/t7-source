@@ -3364,12 +3364,12 @@ function train_robot_fell_off()
 function function_f9012fc()
 {
 	level endon("detach_bomb_igc_terminate");
-	var_32400ae0 = getent("train_grenades_make_duds", "targetname");
+	t_grenade = getent("train_grenades_make_duds", "targetname");
 	foreach(player in level.players)
 	{
-		player thread grenade_toss(var_32400ae0);
+		player thread grenade_toss(t_grenade);
 	}
-	callback::on_spawned(&grenade_toss, var_32400ae0);
+	callback::on_spawned(&grenade_toss, t_grenade);
 }
 
 /*
@@ -3381,14 +3381,14 @@ function function_f9012fc()
 	Parameters: 1
 	Flags: Linked
 */
-function grenade_toss(var_32400ae0)
+function grenade_toss(t_grenade)
 {
 	level endon("detach_bomb_igc_terminate");
 	self endon("death");
 	while(true)
 	{
 		self waittill("grenade_fire", e_grenade);
-		e_grenade thread grenade_tracker(var_32400ae0);
+		e_grenade thread grenade_tracker(t_grenade);
 	}
 }
 
@@ -3401,7 +3401,7 @@ function grenade_toss(var_32400ae0)
 	Parameters: 1
 	Flags: Linked
 */
-function grenade_tracker(var_32400ae0)
+function grenade_tracker(t_grenade)
 {
 	self endon("death");
 	if(isdefined(10))
@@ -3412,7 +3412,7 @@ function grenade_tracker(var_32400ae0)
 	}
 	while(true)
 	{
-		if(self istouching(var_32400ae0))
+		if(self istouching(t_grenade))
 		{
 			if(isdefined(self))
 			{
