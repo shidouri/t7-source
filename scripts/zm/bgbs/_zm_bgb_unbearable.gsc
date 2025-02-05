@@ -59,9 +59,9 @@ function event()
 {
 	self endon("disconnect");
 	self endon("bgb_update");
-	self waittill("zm_bgb_unbearable", var_c3763c58);
+	self waittill("zm_bgb_unbearable", e_chest);
 	self bgb::do_one_shot_use(1);
-	var_c3763c58 thread function_7a5dc39b(self);
+	e_chest thread function_7a5dc39b(self);
 }
 
 /*

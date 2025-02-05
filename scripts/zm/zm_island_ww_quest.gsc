@@ -463,11 +463,11 @@ function function_97d5f905()
 	self endon("disconnect");
 	self endon(#"bled_out");
 	var_1f4c3936 = undefined;
-	foreach(var_c3763c58 in level.chests)
+	foreach(e_chest in level.chests)
 	{
-		if(var_c3763c58.chest_user === self)
+		if(e_chest.chest_user === self)
 		{
-			var_1f4c3936 = var_c3763c58;
+			var_1f4c3936 = e_chest;
 			break;
 		}
 	}
