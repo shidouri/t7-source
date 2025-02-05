@@ -372,25 +372,25 @@ function function_e1c1e667()
 {
 	self.var_fcfa044d = 0;
 	self._team = "axis";
-	if(!isdefined(self.var_94495615))
+	if(!isdefined(self.s_attractor))
 	{
-		self.var_94495615 = spawnstruct();
-		self.var_94495615.origin = self.s_skulltar_attractor_src.origin;
-		self.var_94495615.angles = self.s_skulltar_attractor_src.angles;
+		self.s_attractor = spawnstruct();
+		self.s_attractor.origin = self.s_skulltar_attractor_src.origin;
+		self.s_attractor.angles = self.s_skulltar_attractor_src.angles;
 	}
 	var_b045a027 = 768;
 	n_attractors = 48;
 	var_d78038f4 = 5;
-	self.var_94495615 zm_utility::create_zombie_point_of_interest(var_b045a027, n_attractors, 10000);
-	self.var_94495615.attract_to_origin = 1;
-	self.var_94495615 thread zm_utility::create_zombie_point_of_interest_attractor_positions(4, var_d78038f4);
-	self.var_94495615 thread zm_utility::wait_for_attractor_positions_complete();
+	self.s_attractor zm_utility::create_zombie_point_of_interest(var_b045a027, n_attractors, 10000);
+	self.s_attractor.attract_to_origin = 1;
+	self.s_attractor thread zm_utility::create_zombie_point_of_interest_attractor_positions(4, var_d78038f4);
+	self.s_attractor thread zm_utility::wait_for_attractor_positions_complete();
 	/#
-		self.var_94495615 thread zm_utility::debug_draw_attractor_positions();
+		self.s_attractor thread zm_utility::debug_draw_attractor_positions();
 	#/
 	self thread function_d15f7b3d();
 	level flag::wait_till_clear("skullquest_ritual_inprogress" + self.script_special);
-	self.var_94495615 notify("death");
+	self.s_attractor notify("death");
 	self notify("skulltar_attractors_off");
 }
 
