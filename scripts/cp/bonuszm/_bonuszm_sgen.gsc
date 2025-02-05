@@ -28,7 +28,7 @@ function autoexec init()
 	mapname = getdvarstring("mapname");
 	if(mapname == "cp_mi_sing_sgen")
 	{
-		namespace_e15266b8::init_voice();
+		voice_z_hypocenter::init_voice();
 		level.bzm_sgendialogue1callback = &function_1304b9f1;
 		level.bzm_sgendialogue1_1callback = &function_4a08b9b5;
 		level.bzm_sgendialogue1_2callback = &function_700b341e;
