@@ -68,9 +68,9 @@ function function_f69ab75e()
 		while(true)
 		{
 			level flagsys::wait_till("");
-			foreach(var_4d881e03 in function_c4a37ed9())
+			foreach(e_scene in function_c4a37ed9())
 			{
-				var_4d881e03 thread debug_display();
+				e_scene thread debug_display();
 			}
 			level flagsys::wait_till_clear("");
 		}
