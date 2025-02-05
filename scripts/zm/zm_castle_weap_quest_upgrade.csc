@@ -202,9 +202,9 @@ function function_fc150bb9(localclientnum, oldval, newval, bnewent, binitialsnap
 		b_show = 1;
 		var_ad3c7eb7 = 0;
 	}
-	if(self.model == "tag_origin" && isdefined(self.var_89028fd1))
+	if(self.model == "tag_origin" && isdefined(self.e_fossil))
 	{
-		self.var_89028fd1 function_1c4fc326(localclientnum, b_show, var_ad3c7eb7);
+		self.e_fossil function_1c4fc326(localclientnum, b_show, var_ad3c7eb7);
 	}
 	else
 	{
@@ -324,9 +324,9 @@ function function_b2c9069f(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			if(newval == 3)
 			{
-				if(isdefined(self.var_89028fd1))
+				if(isdefined(self.e_fossil))
 				{
-					self.var_89028fd1 setmodel("c_zom_chomper");
+					self.e_fossil setmodel("c_zom_chomper");
 				}
 			}
 			else
@@ -351,8 +351,8 @@ function function_60670dd4(localclientnum, str_scene)
 {
 	self endon("entityshutdown");
 	level.var_f91a2b6a[localclientnum][level.var_f91a2b6a[localclientnum].size] = self;
-	self.var_89028fd1 = util::spawn_model(localclientnum, "c_zom_chomper_demongate", self.origin, self.angles);
-	self thread scene::play(str_scene, self.var_89028fd1);
+	self.e_fossil = util::spawn_model(localclientnum, "c_zom_chomper_demongate", self.origin, self.angles);
+	self thread scene::play(str_scene, self.e_fossil);
 	if(isdemoplaying())
 	{
 		self thread function_24d9d4f5(localclientnum);
@@ -415,7 +415,7 @@ function function_543f9ebd(localclientnum, oldval, newval, bnewent, binitialsnap
 		var_f4c7c18 = [];
 		for(i = 0; i < level.var_f91a2b6a[localclientnum].size; i++)
 		{
-			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].var_89028fd1))
+			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].e_fossil))
 			{
 				if(!isdefined(var_f4c7c18))
 				{
@@ -425,7 +425,7 @@ function function_543f9ebd(localclientnum, oldval, newval, bnewent, binitialsnap
 				{
 					var_f4c7c18 = array(var_f4c7c18);
 				}
-				var_f4c7c18[var_f4c7c18.size] = level.var_f91a2b6a[localclientnum][i].var_89028fd1;
+				var_f4c7c18[var_f4c7c18.size] = level.var_f91a2b6a[localclientnum][i].e_fossil;
 			}
 		}
 		if(var_f4c7c18.size > 0)
@@ -437,9 +437,9 @@ function function_543f9ebd(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		for(i = 0; i < level.var_f91a2b6a[localclientnum].size; i++)
 		{
-			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].var_89028fd1))
+			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].e_fossil))
 			{
-				level.var_f91a2b6a[localclientnum][i] thread scene::play(level.var_f91a2b6a[localclientnum][i].str_scene, level.var_f91a2b6a[localclientnum][i].var_89028fd1);
+				level.var_f91a2b6a[localclientnum][i] thread scene::play(level.var_f91a2b6a[localclientnum][i].str_scene, level.var_f91a2b6a[localclientnum][i].e_fossil);
 				wait(randomfloatrange(1, 3));
 			}
 		}
@@ -468,7 +468,7 @@ function function_fec30c70(localclientnum, oldval, newval, bnewent, binitialsnap
 		var_f4c7c18 = [];
 		for(i = 0; i < level.var_f91a2b6a[localclientnum].size; i++)
 		{
-			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].var_89028fd1))
+			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].e_fossil))
 			{
 				if(!isdefined(var_f4c7c18))
 				{
@@ -478,7 +478,7 @@ function function_fec30c70(localclientnum, oldval, newval, bnewent, binitialsnap
 				{
 					var_f4c7c18 = array(var_f4c7c18);
 				}
-				var_f4c7c18[var_f4c7c18.size] = level.var_f91a2b6a[localclientnum][i].var_89028fd1;
+				var_f4c7c18[var_f4c7c18.size] = level.var_f91a2b6a[localclientnum][i].e_fossil;
 			}
 		}
 		if(var_f4c7c18.size > 0)
@@ -513,9 +513,9 @@ function function_8739dc84(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			if(isdefined(level.var_f91a2b6a[localclientnum][i]))
 			{
-				if(isdefined(level.var_f91a2b6a[localclientnum][i].var_89028fd1))
+				if(isdefined(level.var_f91a2b6a[localclientnum][i].e_fossil))
 				{
-					level.var_f91a2b6a[localclientnum][i].var_89028fd1 delete();
+					level.var_f91a2b6a[localclientnum][i].e_fossil delete();
 				}
 				level.var_f91a2b6a[localclientnum][i] delete();
 			}
