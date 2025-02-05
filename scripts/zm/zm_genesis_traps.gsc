@@ -117,7 +117,7 @@ function function_835fd6d8()
 				}
 				case "gears":
 				{
-					self.var_52f6a55f = a_e_parts[i];
+					self.e_gears = a_e_parts[i];
 					break;
 				}
 				case "switch":
@@ -376,7 +376,7 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 	{
 		n_rotations = 14040;
 	}
-	self.var_52f6a55f rotatepitch(n_rotations, 30, 6, 6);
+	self.e_gears rotatepitch(n_rotations, 30, 6, 6);
 	self.var_4b6ad173 rotatepitch(n_rotations, 30, 6, 6);
 	level thread function_ec80dc42(self.var_4b6ad173);
 	level thread function_e5b7e8b0(var_ffd9e7a0, var_94be4c8f);
