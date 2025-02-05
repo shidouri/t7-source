@@ -121,12 +121,12 @@ function function_c8b11b89(weapon, position, radius, attacker, normal)
 	Parameters: 6
 	Flags: Linked
 */
-function function_94ba3a15(e_player, v_hit_origin, str_weapon_name, var_3fee16b8, var_df033097, var_8b30ffd9)
+function function_94ba3a15(e_player, v_hit_origin, str_weapon_name, e_arrow, var_df033097, var_8b30ffd9)
 {
 	if(var_df033097)
 	{
 		e_player.var_d96b65c1 = &function_1ed3d96d;
-		v_spawn_pos = e_player zm_weap_elemental_bow::function_866906f(v_hit_origin, str_weapon_name, var_3fee16b8, 48, e_player.var_d96b65c1);
+		v_spawn_pos = e_player zm_weap_elemental_bow::function_866906f(v_hit_origin, str_weapon_name, e_arrow, 48, e_player.var_d96b65c1);
 		if(var_df033097)
 		{
 			var_289e02fc = (isdefined(v_spawn_pos) ? v_spawn_pos : v_hit_origin);
@@ -143,7 +143,7 @@ function function_94ba3a15(e_player, v_hit_origin, str_weapon_name, var_3fee16b8
 			}
 			foreach(n_index, ai_enemy in var_852420bf)
 			{
-				ai_enemy thread function_94ba3a15(e_player, v_hit_origin, str_weapon_name, var_3fee16b8, 0, n_index);
+				ai_enemy thread function_94ba3a15(e_player, v_hit_origin, str_weapon_name, e_arrow, 0, n_index);
 			}
 			if(var_852420bf.size)
 			{
@@ -348,9 +348,9 @@ function function_5c74632()
 	Parameters: 4
 	Flags: Linked
 */
-function function_48899f7(e_player, v_hit_origin, str_weapon_name, var_3fee16b8)
+function function_48899f7(e_player, v_hit_origin, str_weapon_name, e_arrow)
 {
-	v_spawn_pos = e_player zm_weap_elemental_bow::function_866906f(v_hit_origin, str_weapon_name, var_3fee16b8, 32);
+	v_spawn_pos = e_player zm_weap_elemental_bow::function_866906f(v_hit_origin, str_weapon_name, e_arrow, 32);
 	if(!isdefined(v_spawn_pos))
 	{
 		return;

@@ -771,9 +771,9 @@ function function_c9b501b8(var_34137522)
 	Parameters: 3
 	Flags: None
 */
-function function_88b53a11(var_80242169, v_hit_origin, var_3fee16b8)
+function function_88b53a11(var_80242169, v_hit_origin, e_arrow)
 {
-	var_bba6e664 = anglestoforward(var_3fee16b8.angles);
+	var_bba6e664 = anglestoforward(e_arrow.angles);
 	var_3e878400 = vectornormalize(var_bba6e664 * -1);
 	var_75181c09 = v_hit_origin + (var_3e878400 * var_80242169);
 	return var_75181c09;

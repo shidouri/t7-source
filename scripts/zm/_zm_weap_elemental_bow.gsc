@@ -638,9 +638,9 @@ function function_d1e69389(var_63f884ec)
 	Parameters: 5
 	Flags: Linked
 */
-function function_866906f(v_hit_origin, str_weapon_name, var_3fee16b8, var_a5018155, var_83c68ee2 = undefined)
+function function_866906f(v_hit_origin, str_weapon_name, e_arrow, var_a5018155, var_83c68ee2 = undefined)
 {
-	var_980aeb4e = anglestoforward(var_3fee16b8.angles);
+	var_980aeb4e = anglestoforward(e_arrow.angles);
 	if(var_980aeb4e[2] != -1)
 	{
 		var_3e878400 = vectornormalize(var_980aeb4e * -1);
@@ -655,7 +655,7 @@ function function_866906f(v_hit_origin, str_weapon_name, var_3fee16b8, var_a5018
 	var_2679aa6b = function_1796e73(str_weapon_name);
 	if(!ispointonnavmesh(var_c6f6381a["position"]))
 	{
-		var_3fee16b8 clientfield::set(var_2679aa6b + "_arrow_impact_fx", 1);
+		e_arrow clientfield::set(var_2679aa6b + "_arrow_impact_fx", 1);
 		return undefined;
 	}
 	if(var_58c16abb > 72)
@@ -670,7 +670,7 @@ function function_866906f(v_hit_origin, str_weapon_name, var_3fee16b8, var_a5018
 		}
 		return undefined;
 	}
-	var_3fee16b8 clientfield::set(var_2679aa6b + "_arrow_impact_fx", 1);
+	e_arrow clientfield::set(var_2679aa6b + "_arrow_impact_fx", 1);
 	return var_c6f6381a["position"];
 }
 
