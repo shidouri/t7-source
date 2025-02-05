@@ -308,11 +308,11 @@ function function_59071a25()
 */
 function function_f7a7c69a()
 {
-	var_ede59fe8 = getent("player_inside_garage", "targetname");
+	t_entrance = getent("player_inside_garage", "targetname");
 	a_ai_allies = cp_prologue_util::get_ai_allies();
 	foreach(ai_ally in a_ai_allies)
 	{
-		while(isalive(ai_ally) && !ai_ally istouching(var_ede59fe8))
+		while(isalive(ai_ally) && !ai_ally istouching(t_entrance))
 		{
 			wait(0.1);
 		}
