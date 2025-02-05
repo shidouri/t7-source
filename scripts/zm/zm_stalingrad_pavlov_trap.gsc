@@ -163,12 +163,12 @@ function function_d9a07413(e_player, var_a70a7d09)
 	}
 	self zm_stalingrad_util::function_903f6b36(1);
 	var_b4f536a1 = struct::get(var_a70a7d09.target);
-	var_ebbae7d4 = getent(var_b4f536a1.target, "targetname");
+	e_flinger = getent(var_b4f536a1.target, "targetname");
 	v_fling = anglestoforward(var_b4f536a1.angles);
-	n_rotate_angle = var_ebbae7d4.script_int;
-	if(isdefined(var_ebbae7d4.target))
+	n_rotate_angle = e_flinger.script_int;
+	if(isdefined(e_flinger.target))
 	{
-		var_d617e29b = getent(var_ebbae7d4.target, "targetname");
+		var_d617e29b = getent(e_flinger.target, "targetname");
 	}
 	n_start_time = gettime();
 	n_total_time = 0;
