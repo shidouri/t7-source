@@ -2165,10 +2165,10 @@ function function_dd842585(str_objective, var_ed1d0e16, str_trig)
 {
 	level endon(str_objective + "_done");
 	level endon(var_ed1d0e16 + "_done");
-	var_50f524fe = getent(str_trig, "targetname");
+	t_vortex = getent(str_trig, "targetname");
 	while(true)
 	{
-		var_50f524fe waittill("trigger", who);
+		t_vortex waittill("trigger", who);
 		if(isplayer(who) && (!(isdefined(who.teleporting) && who.teleporting)))
 		{
 			who thread function_c51939f4(str_objective, var_ed1d0e16);
