@@ -31,7 +31,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_f4f2fcc8::init_voice();
+	voice_z_aquifer::init_voice();
 	level.bzm_aquiferdialogue1callback = &function_cd2a65c3;
 	level.bzm_aquiferdialogue1_1callback = &function_5bdad1f3;
 	level.bzm_aquiferdialogue1_2callback = &function_e9d362b8;

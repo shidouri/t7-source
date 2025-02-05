@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\cp\_dialog;
 
-#namespace namespace_f4f2fcc8;
+#namespace voice_z_aquifer;
 
 /*
 	Name: init_voice
-	Namespace: namespace_f4f2fcc8
+	Namespace: voice_z_aquifer
 	Checksum: 0x2B2141DC
 	Offset: 0x1270
 	Size: 0xBA4
