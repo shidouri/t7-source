@@ -166,7 +166,7 @@ function function_fedc998b(var_e7abf7d0 = 0)
 	self.var_e7abf7d0 = var_e7abf7d0;
 	self.s_plant = spawnstruct();
 	self.s_plant.model = util::spawn_model("tag_origin", self.origin, self.angles);
-	self.s_plant.var_75bf845a = [];
+	self.s_plant.a_water = [];
 	self.s_plant.var_49d71b32 = 0;
 	self.s_plant.var_198c12a1 = 0;
 	self.s_plant.var_8d8becb0 = 0;
@@ -432,7 +432,7 @@ function function_447658c7(var_9636d237, var_f40460f5)
 	/#
 		println("");
 	#/
-	self function_26651461(self.s_plant.var_75bf845a, self.s_plant.var_49d71b32, var_9636d237, var_f40460f5);
+	self function_26651461(self.s_plant.a_water, self.s_plant.var_49d71b32, var_9636d237, var_f40460f5);
 	self.s_plant.model clientfield::set("cache_plant_interact_fx", 0);
 	if(!isdefined(var_9636d237))
 	{
@@ -443,7 +443,7 @@ function function_447658c7(var_9636d237, var_f40460f5)
 	self.s_plant.model connectpaths();
 	self notify(#"hash_98cf252f");
 	self.var_594609f9 = 0;
-	self.s_plant.var_75bf845a = [];
+	self.s_plant.a_water = [];
 }
 
 /*
@@ -534,7 +534,7 @@ function function_ffa65395(var_f40460f5)
 	{
 		return;
 	}
-	self.s_plant.var_75bf845a = [];
+	self.s_plant.a_water = [];
 	self.s_plant.var_2a1e031c = [];
 	wait(1);
 	for(n_round = 0; n_round < 3; n_round++)
@@ -563,7 +563,7 @@ function function_ffa65395(var_f40460f5)
 				user notify("player_watered_plant");
 			}
 		}
-		self.s_plant.var_75bf845a[self.s_plant.var_75bf845a.size] = user.var_c6cad973;
+		self.s_plant.a_water[self.s_plant.a_water.size] = user.var_c6cad973;
 		user thread zm_island_power::function_a84a1aec();
 		array::add(self.s_plant.var_2a1e031c, user, 1);
 		if(n_round == 2)
@@ -619,7 +619,7 @@ function function_5026698c(var_f40460f5)
 	Parameters: 4
 	Flags: Linked
 */
-function function_26651461(var_75bf845a, var_49d71b32, var_9636d237, var_f40460f5)
+function function_26651461(a_water, var_49d71b32, var_9636d237, var_f40460f5)
 {
 	a_plants = [];
 	a_plants[0] = 0;
@@ -645,19 +645,19 @@ function function_26651461(var_75bf845a, var_49d71b32, var_9636d237, var_f40460f
 	{
 		b_ee_planting_spot = 0;
 	}
-	for(i = 0; i < var_75bf845a.size; i++)
+	for(i = 0; i < a_water.size; i++)
 	{
-		if(var_75bf845a[i] == 4)
+		if(a_water[i] == 4)
 		{
 			if(b_ee_planting_spot && !level flag::get("ww_upgrade_spawned_from_plant"))
 			{
 				continue;
 				continue;
 			}
-			var_75bf845a[i] = randomintrange(1, 4);
+			a_water[i] = randomintrange(1, 4);
 		}
 	}
-	foreach(var_1153caa9 in var_75bf845a)
+	foreach(var_1153caa9 in a_water)
 	{
 		if(var_1153caa9 == 1)
 		{
@@ -713,7 +713,7 @@ function function_26651461(var_75bf845a, var_49d71b32, var_9636d237, var_f40460f
 		a_plants[4] = var_a476b929 * (var_eaa9733b / 3);
 		a_plants[6] = var_a476b929 * (var_34c1ce60 / 3);
 		n_total = n_total + ((a_plants[2] + a_plants[4]) + a_plants[6]);
-		if(var_75bf845a.size === 0 && var_49d71b32 === 0)
+		if(a_water.size === 0 && var_49d71b32 === 0)
 		{
 			a_plants[0] = 100 - n_total;
 			a_plants[1] = 0;

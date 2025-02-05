@@ -176,18 +176,18 @@ function function_241013f7()
 {
 	self endon("death");
 	self flag::wait_till("spider_from_mars_identified");
-	self.var_75bf845a = [];
+	self.a_water = [];
 	while(true)
 	{
 		foreach(t_water in level.var_4a0060c0)
 		{
-			if(!isinarray(self.var_75bf845a, t_water.script_int) && self istouching(t_water))
+			if(!isinarray(self.a_water, t_water.script_int) && self istouching(t_water))
 			{
-				self.var_75bf845a[self.var_75bf845a.size] = t_water.script_int;
+				self.a_water[self.a_water.size] = t_water.script_int;
 				self thread function_60b06e98(t_water.script_int);
 			}
 		}
-		if(self.var_75bf845a.size == 3)
+		if(self.a_water.size == 3)
 		{
 			self thread function_c8ca27d0();
 			break;
