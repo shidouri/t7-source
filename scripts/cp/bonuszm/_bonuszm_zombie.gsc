@@ -25,11 +25,11 @@
 #using scripts\shared\spawner_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_9c39c8b3;
+#namespace _bonuszm_zombie;
 
 /*
 	Name: init
-	Namespace: namespace_9c39c8b3
+	Namespace: _bonuszm_zombie
 	Checksum: 0x22A25000
 	Offset: 0x598
 	Size: 0x9C
@@ -45,7 +45,7 @@ function autoexec init()
 
 /*
 	Name: function_6de9fa37
-	Namespace: namespace_9c39c8b3
+	Namespace: _bonuszm_zombie
 	Checksum: 0x7944FE09
 	Offset: 0x640
 	Size: 0x316
@@ -106,7 +106,7 @@ function private function_6de9fa37(entity)
 
 /*
 	Name: function_88e9d5da
-	Namespace: namespace_9c39c8b3
+	Namespace: _bonuszm_zombie
 	Checksum: 0xF705E76
 	Offset: 0x960
 	Size: 0x80
@@ -124,7 +124,7 @@ function private function_88e9d5da(entity, asmstatename)
 
 /*
 	Name: function_dd1fc89b
-	Namespace: namespace_9c39c8b3
+	Namespace: _bonuszm_zombie
 	Checksum: 0x7F09F25D
 	Offset: 0x9E8
 	Size: 0x68
@@ -141,7 +141,7 @@ function private function_dd1fc89b(entity, asmstatename)
 
 /*
 	Name: function_26c42b09
-	Namespace: namespace_9c39c8b3
+	Namespace: _bonuszm_zombie
 	Checksum: 0xC47BC402
 	Offset: 0xA58
 	Size: 0x1D0
@@ -183,7 +183,7 @@ function private function_26c42b09(entity, mocompanim, mocompanimblendouttime, m
 
 /*
 	Name: function_47268b78
-	Namespace: namespace_9c39c8b3
+	Namespace: _bonuszm_zombie
 	Checksum: 0x22257F19
 	Offset: 0xC30
 	Size: 0xBC
