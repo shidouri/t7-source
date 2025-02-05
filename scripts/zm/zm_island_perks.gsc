@@ -270,7 +270,7 @@ function function_233e0157(var_b8cb4c1e)
 */
 function function_3c8f18a8(a_ents)
 {
-	var_100583a4 = a_ents["vending_links"];
+	e_links = a_ents["vending_links"];
 	var_c739e142 = [];
 	var_c739e142["vending_doubletap"] = "link_doubletap_jnt";
 	var_c739e142["vending_jugg"] = "link_jugg_jnt";
@@ -280,10 +280,10 @@ function function_3c8f18a8(a_ents)
 	if(isdefined(level.var_58f37cc3))
 	{
 		str_tag = var_c739e142[level.var_58f37cc3.targetname];
-		level.var_58f37cc3.origin = var_100583a4 gettagorigin(str_tag);
-		level.var_58f37cc3.angles = var_100583a4 gettagangles(str_tag);
+		level.var_58f37cc3.origin = e_links gettagorigin(str_tag);
+		level.var_58f37cc3.angles = e_links gettagangles(str_tag);
 		level.var_58f37cc3 show();
-		level.var_58f37cc3 linkto(var_100583a4, str_tag);
+		level.var_58f37cc3 linkto(e_links, str_tag);
 	}
 	var_c3f519a9 = a_ents["airdrop_plane"];
 	v_fx_pos = var_c3f519a9 gettagorigin("tag_engine_inner_left");
