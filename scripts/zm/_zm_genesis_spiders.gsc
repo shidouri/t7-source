@@ -1294,7 +1294,7 @@ function spider_spawn_fx(ai_spider, ent = self, var_a79b986e = 0)
 				ai_spider.var_75bf86b setspeed(20);
 			}
 			ai_spider.var_75bf86b vehicle::go_path();
-			ai_spider notify(#"hash_a81735f9");
+			ai_spider notify("spider_landed");
 			ai_spider unlink();
 			ai_spider.var_75bf86b delete();
 		}
