@@ -10,11 +10,11 @@
 #using scripts\shared\flagsys_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_52273882;
+#namespace _bonuszm_blackstation;
 
 /*
 	Name: init
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x9DE3A588
 	Offset: 0x960
 	Size: 0x1BC
@@ -51,7 +51,7 @@ function autoexec init()
 
 /*
 	Name: function_f5c30bc9
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x42E56F7D
 	Offset: 0xB28
 	Size: 0xF2
@@ -72,7 +72,7 @@ function function_f5c30bc9()
 
 /*
 	Name: function_96eb55bd
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x5E96A1B0
 	Offset: 0xC28
 	Size: 0x124
@@ -103,7 +103,7 @@ function function_96eb55bd()
 
 /*
 	Name: function_bcedd026
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x1D810F60
 	Offset: 0xD58
 	Size: 0xE
@@ -117,7 +117,7 @@ function function_bcedd026()
 
 /*
 	Name: function_e2f04a8f
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0xB43E4552
 	Offset: 0xD70
 	Size: 0xD4
@@ -142,7 +142,7 @@ function function_e2f04a8f()
 
 /*
 	Name: function_72835fe7
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x6BC0F971
 	Offset: 0xE50
 	Size: 0x2C
@@ -158,7 +158,7 @@ function function_72835fe7()
 
 /*
 	Name: function_7bf0ac
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0xED173589
 	Offset: 0xE88
 	Size: 0x64
@@ -177,7 +177,7 @@ function function_7bf0ac()
 
 /*
 	Name: function_267e6b15
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x2B263EB6
 	Offset: 0xEF8
 	Size: 0x64
@@ -195,7 +195,7 @@ function function_267e6b15()
 
 /*
 	Name: function_b476fbda
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x90C231C1
 	Offset: 0xF68
 	Size: 0x6C
@@ -215,7 +215,7 @@ function function_b476fbda()
 
 /*
 	Name: function_da797643
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0xB0A057FF
 	Offset: 0xFE0
 	Size: 0x44
@@ -232,7 +232,7 @@ function function_da797643()
 
 /*
 	Name: function_d8def1b0
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x43AE0C98
 	Offset: 0x1030
 	Size: 0x234
@@ -280,7 +280,7 @@ function function_d8def1b0()
 
 /*
 	Name: function_eaea4ccc
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x2CE90D2A
 	Offset: 0x1270
 	Size: 0xE
@@ -294,7 +294,7 @@ function function_eaea4ccc()
 
 /*
 	Name: function_5cf1bc07
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0xFB231739
 	Offset: 0x1288
 	Size: 0xC4
@@ -319,7 +319,7 @@ function function_5cf1bc07()
 
 /*
 	Name: function_36ef419e
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x2A016F2F
 	Offset: 0x1358
 	Size: 0xAC
@@ -343,7 +343,7 @@ function function_36ef419e()
 
 /*
 	Name: function_fee16c19
-	Namespace: namespace_52273882
+	Namespace: _bonuszm_blackstation
 	Checksum: 0x6CDF8ADD
 	Offset: 0x1410
 	Size: 0x1BC
