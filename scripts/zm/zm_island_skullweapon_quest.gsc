@@ -2094,15 +2094,15 @@ function function_d4ebb4b0()
 {
 	if(isdefined(self.var_d64275e8) && self.var_d64275e8 > 0)
 	{
-		var_fc880a6c = level.var_a576e0b9[self.var_d64275e8].mdl_skull_s;
+		e_skull = level.var_a576e0b9[self.var_d64275e8].mdl_skull_s;
 	}
 	else if(isdefined(self.var_4849e523) && self.var_4849e523 > 0)
 	{
-		var_fc880a6c = level.var_a576e0b9[self.var_4849e523].mdl_skull_p;
+		e_skull = level.var_a576e0b9[self.var_4849e523].mdl_skull_p;
 	}
-	if(isdefined(var_fc880a6c))
+	if(isdefined(e_skull))
 	{
-		var_96b8c7e2 = level.var_b34be0cd[var_fc880a6c.var_f7d3c273];
+		var_96b8c7e2 = level.var_b34be0cd[e_skull.var_f7d3c273];
 		return var_96b8c7e2;
 	}
 	return -1;
