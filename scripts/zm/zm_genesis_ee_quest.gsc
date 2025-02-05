@@ -236,10 +236,10 @@ function function_3c2e817d()
 		wait(0.1);
 	}
 	level flag::set("character_stones_done");
-	foreach(var_7387f97 in level.var_753f10ae)
+	foreach(t_character in level.var_753f10ae)
 	{
-		playfx(level._effect["portal_3p"], var_7387f97.origin);
-		var_7387f97 delete();
+		playfx(level._effect["portal_3p"], t_character.origin);
+		t_character delete();
 		wait(0.5);
 	}
 	level.var_753f10ae = undefined;
