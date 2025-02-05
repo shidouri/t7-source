@@ -2581,14 +2581,14 @@ function generator_damage_watch()
 	level flag::init("player_destroyed_foundry");
 	objectives::set("cp_level_newworld_foundry_subobj_destroy_generator", struct::get("foundry_generator_objective_struct", "targetname"));
 	n_damage = 0;
-	var_5c2b0988 = getent("foundry_generator", "targetname");
+	e_generator = getent("foundry_generator", "targetname");
 	var_1066b4e5 = getent("foundry_generator_dmg", "targetname");
-	var_5c2b0988 clientfield::set("weakpoint", 1);
-	var_5c2b0988 globallogic_ui::createweakpointwidget(&"tag_weakpoint", 2600, 5000);
-	var_5c2b0988 setcandamage(1);
+	e_generator clientfield::set("weakpoint", 1);
+	e_generator globallogic_ui::createweakpointwidget(&"tag_weakpoint", 2600, 5000);
+	e_generator setcandamage(1);
 	while(n_damage < 1000)
 	{
-		var_5c2b0988 waittill("damage", idamage, sattacker, vdirection, vpoint, stype, smodelname, sattachtag, stagname);
+		e_generator waittill("damage", idamage, sattacker, vdirection, vpoint, stype, smodelname, sattachtag, stagname);
 		if(isplayer(sattacker))
 		{
 			if(stype === "MOD_PROJECTILE_SPLASH")
@@ -2598,15 +2598,15 @@ function generator_damage_watch()
 			n_damage = n_damage + idamage;
 		}
 	}
-	var_5c2b0988 clientfield::set("weakpoint", 0);
-	var_5c2b0988 globallogic_ui::destroyweakpointwidget(&"tag_weakpoint");
-	var_5c2b0988 setcandamage(0);
-	radiusdamage(var_5c2b0988.origin, 500, 200, 60, undefined, "MOD_EXPLOSIVE");
-	playrumbleonposition("cp_newworld_rumble_factory_generator_destroyed", var_5c2b0988.origin);
-	var_5c2b0988 playsound("evt_generator_explo");
-	var_5c2b0988 clientfield::set("emp_generator_fx", 1);
+	e_generator clientfield::set("weakpoint", 0);
+	e_generator globallogic_ui::destroyweakpointwidget(&"tag_weakpoint");
+	e_generator setcandamage(0);
+	radiusdamage(e_generator.origin, 500, 200, 60, undefined, "MOD_EXPLOSIVE");
+	playrumbleonposition("cp_newworld_rumble_factory_generator_destroyed", e_generator.origin);
+	e_generator playsound("evt_generator_explo");
+	e_generator clientfield::set("emp_generator_fx", 1);
 	var_1066b4e5 show();
-	var_5c2b0988 ghost();
+	e_generator ghost();
 	scene::add_scene_func("p7_fxanim_cp_newworld_generator_debris_bundle", &function_11114c92, "play");
 	level thread scene::play("p7_fxanim_cp_newworld_generator_debris_bundle");
 	objectives::complete("cp_level_newworld_foundry_subobj_destroy_generator", struct::get("foundry_generator_objective_struct", "targetname"));
