@@ -2481,7 +2481,7 @@ function function_88adb698(var_454219da, levelstart)
 	level.var_bcd51977 = 0;
 	level.var_b1955bd6 = 0;
 	level.var_d0e37460 = 0;
-	namespace_2396e2d7::function_b6c845e8();
+	bonuszmspawner::function_b6c845e8();
 	function_aaa07980();
 	level notify(#"hash_2d2866aa");
 }

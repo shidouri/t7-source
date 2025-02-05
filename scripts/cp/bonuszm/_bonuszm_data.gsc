@@ -43,7 +43,7 @@ function function_da5f2c0d(mapname, checkpointname)
 		function_9a6a6726();
 		function_97b4bacb(1, 0);
 		function_4542e087();
-		namespace_2396e2d7::function_fc1970dd();
+		bonuszmspawner::function_fc1970dd();
 		return;
 	}
 	var_6967e3b9 = undefined;
@@ -72,7 +72,7 @@ function function_da5f2c0d(mapname, checkpointname)
 		function_9a6a6726();
 		function_97b4bacb(1, 0);
 		function_4542e087();
-		namespace_2396e2d7::function_fc1970dd();
+		bonuszmspawner::function_fc1970dd();
 		return;
 	}
 	/#
@@ -136,8 +136,8 @@ function function_da5f2c0d(mapname, checkpointname)
 	function_9a6a6726();
 	function_97b4bacb(0, 1);
 	function_4542e087();
-	namespace_2396e2d7::function_fc1970dd();
-	namespace_2396e2d7::function_b6c845e8();
+	bonuszmspawner::function_fc1970dd();
+	bonuszmspawner::function_b6c845e8();
 	bonuszm::function_aaa07980();
 	level._zombiezigzagdistancemin = level.var_a9e78bf7["zigzagdeviationmin"];
 	level._zombiezigzagdistancemax = level.var_a9e78bf7["zigzagdeviationmax"];

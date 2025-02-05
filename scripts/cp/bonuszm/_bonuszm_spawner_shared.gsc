@@ -13,11 +13,11 @@
 #using scripts\shared\turret_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_2396e2d7;
+#namespace bonuszmspawner;
 
 /*
 	Name: function_fc1970dd
-	Namespace: namespace_2396e2d7
+	Namespace: bonuszmspawner
 	Checksum: 0x3511D7ED
 	Offset: 0x578
 	Size: 0x314
@@ -67,7 +67,7 @@ function function_fc1970dd()
 
 /*
 	Name: function_9bb9e127
-	Namespace: namespace_2396e2d7
+	Namespace: bonuszmspawner
 	Checksum: 0xBBBA969C
 	Offset: 0x898
 	Size: 0xF8
@@ -102,7 +102,7 @@ function function_9bb9e127()
 
 /*
 	Name: function_b6c845e8
-	Namespace: namespace_2396e2d7
+	Namespace: bonuszmspawner
 	Checksum: 0x880C9B2F
 	Offset: 0x998
 	Size: 0x3A
@@ -123,7 +123,7 @@ function function_b6c845e8()
 
 /*
 	Name: function_cf0834db
-	Namespace: namespace_2396e2d7
+	Namespace: bonuszmspawner
 	Checksum: 0x9D176E31
 	Offset: 0x9E0
 	Size: 0x220
@@ -145,7 +145,7 @@ function private function_cf0834db(spawner)
 
 /*
 	Name: function_aa71a1e8
-	Namespace: namespace_2396e2d7
+	Namespace: bonuszmspawner
 	Checksum: 0xC01F17FF
 	Offset: 0xC08
 	Size: 0x64
@@ -167,7 +167,7 @@ function private function_aa71a1e8(spawner)
 
 /*
 	Name: function_559632b9
-	Namespace: namespace_2396e2d7
+	Namespace: bonuszmspawner
 	Checksum: 0xF8B5B829
 	Offset: 0xC78
 	Size: 0x2A6
@@ -222,7 +222,7 @@ function function_559632b9()
 
 /*
 	Name: bonuzm_spawn
-	Namespace: namespace_2396e2d7
+	Namespace: bonuszmspawner
 	Checksum: 0x458B2360
 	Offset: 0xF28
 	Size: 0x6DE
