@@ -638,11 +638,11 @@ function function_984725d6(str_name)
 function function_58fe842c()
 {
 	e_spawner = getent("ritual_zombie_spawner", "targetname");
-	var_eb09d2ff = getent("keeper_subway_welcome", "targetname");
+	t_keepers = getent("keeper_subway_welcome", "targetname");
 	b_triggered = 0;
 	while(!b_triggered)
 	{
-		var_eb09d2ff waittill("trigger", e_triggerer);
+		t_keepers waittill("trigger", e_triggerer);
 		if(zm_utility::is_player_valid(e_triggerer) && (!(isdefined(e_triggerer.beastmode) && e_triggerer.beastmode)))
 		{
 			level clientfield::set("keeper_subway_fx", 1);
