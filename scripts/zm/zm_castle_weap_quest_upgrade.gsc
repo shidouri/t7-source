@@ -5717,20 +5717,20 @@ function function_be03e13e()
 	{
 		var_8f88d1fd.b_activated = 0;
 		var_8f88d1fd.var_bb486f65 = 0;
-		var_d186cfae = struct::get(var_8f88d1fd.target, "targetname");
-		var_d186cfae.var_41f52afd = util::spawn_model("tag_origin", var_d186cfae.origin);
-		var_d186cfae.var_41f52afd clientfield::set("battery_fx", 1);
+		s_battery = struct::get(var_8f88d1fd.target, "targetname");
+		s_battery.var_41f52afd = util::spawn_model("tag_origin", s_battery.origin);
+		s_battery.var_41f52afd clientfield::set("battery_fx", 1);
 	}
 	level thread elemental_storm_batteries(var_9e89bcdc);
 	level thread elemental_storm_beacons_charged();
 	level flag::wait_till_all(array("elemental_storm_batteries", "elemental_storm_beacons_charged"));
 	foreach(var_8f88d1fd in var_9e89bcdc)
 	{
-		var_d186cfae = struct::get(var_8f88d1fd.target, "targetname");
-		if(isdefined(var_d186cfae.var_41f52afd))
+		s_battery = struct::get(var_8f88d1fd.target, "targetname");
+		if(isdefined(s_battery.var_41f52afd))
 		{
-			var_d186cfae.var_41f52afd clientfield::set("battery_fx", 0);
-			var_d186cfae.var_41f52afd delete();
+			s_battery.var_41f52afd clientfield::set("battery_fx", 0);
+			s_battery.var_41f52afd delete();
 		}
 	}
 }
@@ -5772,7 +5772,7 @@ function function_43cb1d81()
 		level endon(#"hash_b1cac6d2");
 		level endon(#"hash_ae42a737");
 	#/
-	var_d186cfae = struct::get(self.target, "targetname");
+	s_battery = struct::get(self.target, "targetname");
 	while(true)
 	{
 		self waittill("killed");
@@ -5780,7 +5780,7 @@ function function_43cb1d81()
 		if(self.var_bb486f65 >= 5)
 		{
 			self notify("activated");
-			var_d186cfae.var_41f52afd clientfield::set("battery_fx", 2);
+			s_battery.var_41f52afd clientfield::set("battery_fx", 2);
 			self.b_activated = 1;
 			var_a4f8e4d0 = getent(self.targetname + "_charged", "targetname");
 			var_a4f8e4d0.b_activated = 1;
@@ -5821,8 +5821,8 @@ function function_88efea4a()
 		var_f667032 = self array::get_touching(var_54697048);
 		if(isdefined(var_f667032) && var_f667032.size > 0 && (!(isdefined(var_f667032[0].b_activated) && var_f667032[0].b_activated)))
 		{
-			var_d186cfae = struct::get(var_f667032[0].target, "targetname");
-			level function_55c48922(self.origin, var_d186cfae.origin + vectorscale((0, 0, 1), 16), "storm", isdefined(self.missinglegs) && self.missinglegs);
+			s_battery = struct::get(var_f667032[0].target, "targetname");
+			level function_55c48922(self.origin, s_battery.origin + vectorscale((0, 0, 1), 16), "storm", isdefined(self.missinglegs) && self.missinglegs);
 			var_f667032[0] util::delay_notify(0.05, "killed");
 		}
 	}
@@ -5909,15 +5909,15 @@ function function_1c758ab0()
 				if(isdefined(projectile.var_8f88d1fd))
 				{
 					projectile.var_8f88d1fd.b_used = 1;
-					var_d186cfae = struct::get(projectile.var_8f88d1fd.target, "targetname");
-					if(isdefined(var_d186cfae.var_41f52afd))
+					s_battery = struct::get(projectile.var_8f88d1fd.target, "targetname");
+					if(isdefined(s_battery.var_41f52afd))
 					{
-						var_d186cfae.var_41f52afd clientfield::set("battery_fx", 0);
+						s_battery.var_41f52afd clientfield::set("battery_fx", 0);
 					}
 					wait(0.05);
-					if(isdefined(var_d186cfae.var_41f52afd))
+					if(isdefined(s_battery.var_41f52afd))
 					{
-						var_d186cfae.var_41f52afd delete();
+						s_battery.var_41f52afd delete();
 					}
 				}
 				self notify(#"beacon_charged");
@@ -5956,12 +5956,12 @@ function function_4688cd22()
 			{
 				self clientfield::set_to_player("arrow_charge_fx", 1);
 				self.var_55301590 = var_b6ccc8ce;
-				var_d186cfae = struct::get(var_b6ccc8ce.target, "targetname");
-				var_d186cfae.var_41f52afd clientfield::set("battery_fx", 1);
+				s_battery = struct::get(var_b6ccc8ce.target, "targetname");
+				s_battery.var_41f52afd clientfield::set("battery_fx", 1);
 				self function_29163209();
-				if(isdefined(var_d186cfae.var_41f52afd))
+				if(isdefined(s_battery.var_41f52afd))
 				{
-					var_d186cfae.var_41f52afd clientfield::set("battery_fx", 2);
+					s_battery.var_41f52afd clientfield::set("battery_fx", 2);
 				}
 				self clientfield::set_to_player("arrow_charge_fx", 0);
 				self.var_55301590 = undefined;
@@ -6095,8 +6095,8 @@ function function_ae42a737()
 			var_a4f8e4d0 = getent(var_8f88d1fd.targetname + "", "");
 			var_a4f8e4d0.b_activated = 1;
 			var_a4f8e4d0.b_used = 0;
-			var_d186cfae = struct::get(var_8f88d1fd.target, "");
-			var_d186cfae.var_41f52afd clientfield::set("", 2);
+			s_battery = struct::get(var_8f88d1fd.target, "");
+			s_battery.var_41f52afd clientfield::set("", 2);
 		}
 		level flag::set("");
 		level flag::set("");
@@ -6122,17 +6122,17 @@ function function_1ad44df5()
 		var_66b0cbbe = struct::get_array("", "");
 		if(level.var_f3ff8b16)
 		{
-			foreach(var_d186cfae in var_66b0cbbe)
+			foreach(s_battery in var_66b0cbbe)
 			{
-				var_d186cfae.var_41f52afd clientfield::set("", 1);
+				s_battery.var_41f52afd clientfield::set("", 1);
 			}
 			level.var_f3ff8b16 = 0;
 		}
 		else
 		{
-			foreach(var_d186cfae in var_66b0cbbe)
+			foreach(s_battery in var_66b0cbbe)
 			{
-				var_d186cfae.var_41f52afd clientfield::set("", 2);
+				s_battery.var_41f52afd clientfield::set("", 2);
 			}
 			level.var_f3ff8b16 = 1;
 		}
@@ -6167,12 +6167,12 @@ function function_b1cac6d2()
 			s_beacon.var_41f52afd clientfield::set("", 2);
 		}
 		var_66b0cbbe = struct::get_array("", "");
-		foreach(var_d186cfae in var_66b0cbbe)
+		foreach(s_battery in var_66b0cbbe)
 		{
-			if(isdefined(var_d186cfae.var_41f52afd))
+			if(isdefined(s_battery.var_41f52afd))
 			{
-				var_d186cfae.var_41f52afd clientfield::set("", 0);
-				var_d186cfae.var_41f52afd delete();
+				s_battery.var_41f52afd clientfield::set("", 0);
+				s_battery.var_41f52afd delete();
 			}
 		}
 		zm_spawner::deregister_zombie_death_event_callback(&function_71e6353);

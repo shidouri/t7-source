@@ -395,10 +395,10 @@ function function_b4575902()
 {
 	var_66b0cbbe = struct::get_array("ancient_battery", "targetname");
 	var_5a533244 = [];
-	foreach(var_d186cfae in var_66b0cbbe)
+	foreach(s_battery in var_66b0cbbe)
 	{
-		var_8d2dd868 = util::spawn_model("p7_zm_ctl_battery_ceramic", var_d186cfae.origin, var_d186cfae.angles);
-		var_8d2dd868.target = var_d186cfae.target;
+		var_8d2dd868 = util::spawn_model("p7_zm_ctl_battery_ceramic", s_battery.origin, s_battery.angles);
+		var_8d2dd868.target = s_battery.target;
 		if(!isdefined(var_5a533244))
 		{
 			var_5a533244 = [];
