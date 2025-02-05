@@ -1713,10 +1713,10 @@ function function_9190a90e(n_char_index)
 {
 	str_charname = function_d93f551b(n_char_index);
 	str_triggername = "keeper_resurrection_" + str_charname;
-	var_e6e52f57 = getent(str_triggername, "targetname");
+	t_resurrect = getent(str_triggername, "targetname");
 	while(true)
 	{
-		var_e6e52f57 waittill("trigger", player);
+		t_resurrect waittill("trigger", player);
 		if(player zm_utility::in_revive_trigger())
 		{
 			continue;
