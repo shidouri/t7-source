@@ -1345,15 +1345,15 @@ function function_4f8445d7(n_zone)
 {
 	level.var_b5231dfb = 0;
 	var_1171297b = function_f5a8624();
-	var_d8c501d = var_1171297b.var_d8c501d;
+	a_sizes = var_1171297b.a_sizes;
 	a_circles = var_1171297b.a_circles;
 	var_d8702dd1 = [];
-	for(i = 0; i < var_d8c501d.size; i++)
+	for(i = 0; i < a_sizes.size; i++)
 	{
-		var_d8702dd1[i] = var_d8c501d[i] * var_d8c501d[i];
+		var_d8702dd1[i] = a_sizes[i] * a_sizes[i];
 	}
 	var_560e7570 = var_d8702dd1[0];
-	var_6998342d = var_d8c501d[0];
+	var_6998342d = a_sizes[0];
 	var_d139aee0 = "" + var_6998342d;
 	var_1acc807d = struct::get_array("cscircle_" + n_zone);
 	var_87367d4f = array::random(var_1acc807d);
@@ -1389,7 +1389,7 @@ function function_4f8445d7(n_zone)
 		{
 			exploder::kill_exploder(var_fcfee273);
 			var_560e7570 = var_d8702dd1[var_470f6bc3];
-			var_6998342d = var_d8c501d[var_470f6bc3];
+			var_6998342d = a_sizes[var_470f6bc3];
 			var_d139aee0 = "" + var_6998342d;
 			var_fcfee273 = ("lgt_channel_stones_" + n_zone) + a_circles[var_d139aee0];
 			exploder::exploder(var_fcfee273);
@@ -1415,15 +1415,15 @@ function function_4f8445d7(n_zone)
 */
 function function_f5a8624()
 {
-	var_d8c501d = array(48, 80, 112, 192, 256);
+	a_sizes = array(48, 80, 112, 192, 256);
 	a_circles = [];
-	for(i = 0; i < var_d8c501d.size; i++)
+	for(i = 0; i < a_sizes.size; i++)
 	{
-		str_size = "" + var_d8c501d[i];
+		str_size = "" + a_sizes[i];
 		a_circles[str_size] = "_" + (i + 1);
 	}
 	var_1171297b = spawnstruct();
-	var_1171297b.var_d8c501d = var_d8c501d;
+	var_1171297b.a_sizes = a_sizes;
 	var_1171297b.a_circles = a_circles;
 	return var_1171297b;
 }
