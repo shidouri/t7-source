@@ -63,7 +63,7 @@ class cmobilearmory
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_71f6269a(var_bd13c94b)
+	function function_71f6269a(t_animate)
 	{
 		self waittill("death");
 		gameobject gameobjects::destroy_object(1);
@@ -76,9 +76,9 @@ class cmobilearmory
 				var_5ba2ceb4 delete();
 			}
 		}
-		if(isdefined(var_bd13c94b))
+		if(isdefined(t_animate))
 		{
-			var_bd13c94b delete();
+			t_animate delete();
 		}
 	}
 
@@ -451,11 +451,11 @@ class cmobilearmory
 		mdl_mobile_armory.gameobject = s_mobile_armory_object;
 		var_ab455203 = mdl_mobile_armory;
 		var_ab455203.var_ce22f999 = 0;
-		var_bd13c94b = spawn("trigger_radius", t_use.origin, 0, 94, 64);
-		var_bd13c94b setvisibletoall();
-		var_bd13c94b setteamfortrigger("allies");
-		var_bd13c94b thread function_e76edd0b(var_ab455203);
-		var_ab455203 thread function_71f6269a(var_bd13c94b);
+		t_animate = spawn("trigger_radius", t_use.origin, 0, 94, 64);
+		t_animate setvisibletoall();
+		t_animate setteamfortrigger("allies");
+		t_animate thread function_e76edd0b(var_ab455203);
+		var_ab455203 thread function_71f6269a(t_animate);
 	}
 
 }

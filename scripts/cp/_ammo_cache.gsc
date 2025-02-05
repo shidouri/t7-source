@@ -52,14 +52,14 @@ class cammocrate
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_71f6269a(var_bd13c94b)
+	function function_71f6269a(t_animate)
 	{
 		self waittill("death");
 		gameobject gameobjects::destroy_object(1);
 		gameobject delete();
-		if(isdefined(var_bd13c94b))
+		if(isdefined(t_animate))
 		{
-			var_bd13c94b delete();
+			t_animate delete();
 		}
 	}
 
@@ -285,15 +285,15 @@ class cammocrate
 			mdl_ammo_cache.gameobject = s_ammo_cache_object;
 			var_60a09143 = mdl_ammo_cache;
 			var_60a09143.var_ce22f999 = 0;
-			var_bd13c94b = spawn("trigger_radius", t_use.origin, 0, 94, 64);
-			var_bd13c94b setvisibletoall();
-			var_bd13c94b setteamfortrigger("allies");
-			var_bd13c94b enablelinkto();
-			var_bd13c94b linkto(mdl_ammo_cache);
-			var_bd13c94b thread function_e76edd0b(var_60a09143);
+			t_animate = spawn("trigger_radius", t_use.origin, 0, 94, 64);
+			t_animate setvisibletoall();
+			t_animate setteamfortrigger("allies");
+			t_animate enablelinkto();
+			t_animate linkto(mdl_ammo_cache);
+			t_animate thread function_e76edd0b(var_60a09143);
 		}
 		mdl_ammo_cache.gameobject = s_ammo_cache_object;
-		mdl_ammo_cache thread function_71f6269a(var_bd13c94b);
+		mdl_ammo_cache thread function_71f6269a(t_animate);
 	}
 
 }
