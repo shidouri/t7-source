@@ -75,17 +75,17 @@ function randomize_vending_machines()
 	Parameters: 1
 	Flags: Linked
 */
-function function_bede3562(var_22082ed0)
+function function_bede3562(e_machine)
 {
 	str_on = self.script_noteworthy + "_power_on";
 	level waittill(str_on);
-	var_22082ed0.b_keep_when_turned_off = 1;
+	e_machine.b_keep_when_turned_off = 1;
 	wait(10);
-	var_22082ed0 zm_perks::perk_fx(undefined, 1);
+	e_machine zm_perks::perk_fx(undefined, 1);
 	level waittill(self.script_noteworthy + "_unhide");
 	str_fx_name = level._custom_perks[self.script_noteworthy].machine_light_effect;
-	var_22082ed0 zm_perks::perk_fx(str_fx_name);
-	var_22082ed0.s_fxloc.angles = var_22082ed0.angles;
+	e_machine zm_perks::perk_fx(str_fx_name);
+	e_machine.s_fxloc.angles = e_machine.angles;
 }
 
 /*

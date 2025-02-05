@@ -798,11 +798,11 @@ function revive_watcher()
 */
 function function_a5d4f26d()
 {
-	var_22082ed0 = getent("specialty_additionalprimaryweapon", "script_noteworthy");
-	if(isdefined(var_22082ed0) && isdefined(var_22082ed0))
+	e_machine = getent("specialty_additionalprimaryweapon", "script_noteworthy");
+	if(isdefined(e_machine) && isdefined(e_machine))
 	{
-		var_22082ed0.clip ghost();
-		var_22082ed0.clip connectpaths();
+		e_machine.clip ghost();
+		e_machine.clip connectpaths();
 	}
 }
 
