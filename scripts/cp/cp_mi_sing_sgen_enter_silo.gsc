@@ -1058,8 +1058,8 @@ function skipto_post_gen_lab_init(str_objective, b_starting)
 	level.vh_mapper thread drone_lead_player_post_gen_lab();
 	var_58d37bcd = getent("trig_bridge_kill_trigger", "targetname");
 	var_58d37bcd triggerenable(0);
-	var_dee3d10a = getent("1", "scriptgroup_playerspawns_regroup");
-	var_dee3d10a.var_3367c99d = 500;
+	t_regroup = getent("1", "scriptgroup_playerspawns_regroup");
+	t_regroup.var_3367c99d = 500;
 	level flag::wait_till("follow_chem_lab");
 	skipto::objective_completed(str_objective);
 }

@@ -1562,9 +1562,9 @@ function start_sequential_train_door_lockdown()
 	level clientfield::set("train_robot_swing_glass_left", 0);
 	level clientfield::set("train_robot_swing_glass_right", 0);
 	clientfield::set("train_lockdown_shutters_2", 1);
-	var_dee3d10a = getent("train_rooftop_regroup_zone", "targetname");
-	var_dee3d10a.var_3367c99d = 1000;
-	var_dee3d10a waittill("trigger");
+	t_regroup = getent("train_rooftop_regroup_zone", "targetname");
+	t_regroup.var_3367c99d = 1000;
+	t_regroup waittill("trigger");
 	e_trigger = getent("train_car_lockdown_01", "targetname");
 	e_trigger wait_for_train_car_to_be_empty();
 	trigger::use("enable_car_0_respawns");

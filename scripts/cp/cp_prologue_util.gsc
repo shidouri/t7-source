@@ -1385,12 +1385,12 @@ function function_21f52196(str_door_name, t_enter, var_13aabd08)
 	t_exit thread function_e0f9fe98(str_door_name, 1);
 	if(isdefined(var_13aabd08))
 	{
-		var_dee3d10a = getent(var_13aabd08, "targetname");
+		t_regroup = getent(var_13aabd08, "targetname");
 		/#
-			assert(isdefined(var_dee3d10a), "");
+			assert(isdefined(t_regroup), "");
 		#/
-		var_dee3d10a endon("death");
-		var_dee3d10a waittill(#"hash_c0b9931e");
+		t_regroup endon("death");
+		t_regroup waittill(#"hash_c0b9931e");
 		foreach(player in level.players)
 		{
 			if(!isdefined(player.a_doors))
