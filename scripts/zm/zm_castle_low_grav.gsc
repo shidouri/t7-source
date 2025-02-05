@@ -611,8 +611,8 @@ function function_8b18e3ce()
 	}
 	function_7f2caa5(4, "ar_marksman");
 	function_7f2caa5(5, "pistol_burst");
-	var_d99e0864 = getent("zm_fam", "targetname");
-	if(!isdefined(var_d99e0864))
+	e_floater = getent("zm_fam", "targetname");
+	if(!isdefined(e_floater))
 	{
 		return;
 	}
@@ -629,7 +629,7 @@ function function_8b18e3ce()
 	level thread floater_timer();
 	level.players[0] util::waittill_player_looking_at(var_feb1d46b.origin + vectorscale((0, 0, 1), 50), 90);
 	level notify(#"hash_d64d78d6");
-	var_d99e0864.origin = var_feb1d46b.origin + vectorscale((0, 0, 1), 64);
+	e_floater.origin = var_feb1d46b.origin + vectorscale((0, 0, 1), 64);
 	e_floor.origin = var_feb1d46b.origin;
 	e_floor enablelinkto();
 	var_5ed20759 = spawn("script_model", var_feb1d46b.origin);
@@ -640,7 +640,7 @@ function function_8b18e3ce()
 		var_5ed20759 rotateto(var_5ed20759.angles + vectorscale((0, 1, 0), 180), 3);
 		var_5ed20759 waittill("rotatedone");
 	}
-	var_d99e0864 delete();
+	e_floater delete();
 	var_5ed20759 delete();
 	e_floor delete();
 }
