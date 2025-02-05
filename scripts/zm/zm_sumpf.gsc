@@ -1169,15 +1169,15 @@ function debug_display()
 	Parameters: 5
 	Flags: Linked
 */
-function function_620401c0(v_org, str_msg, var_5d64a595, str_ender, n_scale)
+function function_620401c0(v_org, str_msg, e_ender, str_ender, n_scale)
 {
 	/#
 		if(!isdefined(n_scale))
 		{
 			n_scale = 1;
 		}
-		var_5d64a595 endon(str_ender);
-		level thread function_9a889da5(str_msg, var_5d64a595, str_ender);
+		e_ender endon(str_ender);
+		level thread function_9a889da5(str_msg, e_ender, str_ender);
 		var_ded2b0d1 = v_org - vectorscale((0, 0, 1), 16);
 		while(true)
 		{
@@ -1196,10 +1196,10 @@ function function_620401c0(v_org, str_msg, var_5d64a595, str_ender, n_scale)
 	Parameters: 3
 	Flags: Linked
 */
-function function_9a889da5(str_msg, var_5d64a595, str_ender)
+function function_9a889da5(str_msg, e_ender, str_ender)
 {
 	/#
-		var_5d64a595 waittill(str_ender);
+		e_ender waittill(str_ender);
 		iprintlnbold(str_msg);
 	#/
 }
