@@ -141,7 +141,7 @@ function function_9a88139e()
 	level.var_e938db57.var_efa7240e = getent("mdl_propellertrap_a_propeller", "script_string");
 	level.var_e938db57 hide();
 	level.var_e938db57.var_efa7240e hide();
-	level.var_e938db57.var_d93f9cb8 = getent("t_propellertrap_a_death", "script_string");
+	level.var_e938db57.t_death = getent("t_propellertrap_a_death", "script_string");
 	level.var_e938db57.var_2a4af70 = getent("t_proptrap_a_spiders", "targetname");
 	level.var_e938db57.var_7117876c = level.var_e938db57.origin;
 	level.var_e938db57.v_off_pos = level.var_e938db57.origin + vectorscale((0, 0, 1), 30);
@@ -169,7 +169,7 @@ function function_74859935()
 	level.var_77316c1c.var_efa7240e = getent("mdl_propellertrap_b_propeller", "script_string");
 	level.var_77316c1c hide();
 	level.var_77316c1c.var_efa7240e hide();
-	level.var_77316c1c.var_d93f9cb8 = getent("t_propellertrap_b_death", "script_string");
+	level.var_77316c1c.t_death = getent("t_propellertrap_b_death", "script_string");
 	level.var_77316c1c.var_2a4af70 = getent("t_proptrap_b_spiders", "targetname");
 	level.var_77316c1c.var_7117876c = level.var_77316c1c.origin;
 	level.var_77316c1c.v_off_pos = level.var_77316c1c.origin + vectorscale((0, 0, 1), 100);
@@ -199,7 +199,7 @@ function function_97e8fd81()
 	self waittill("movedone");
 	self.var_efa7240e unlink();
 	self.b_on = 1;
-	self.var_d93f9cb8 triggerenable(1);
+	self.t_death triggerenable(1);
 	self thread function_74e1faeb();
 	self thread [[self.var_16e1fdfb]]();
 	exploder::exploder(self.var_e80e0d58);
@@ -219,7 +219,7 @@ function function_3a8453ed()
 {
 	self notify("trap_off");
 	self.b_on = 0;
-	self.var_d93f9cb8 triggerenable(0);
+	self.t_death triggerenable(0);
 	exploder::stop_exploder(self.var_e80e0d58);
 	self notify("stoploop");
 	self playsound("evt_propeller_trap_engine_stop");
@@ -386,7 +386,7 @@ function function_74e1faeb()
 	self thread function_b3390115();
 	while(self.b_on === 1)
 	{
-		self.var_d93f9cb8 waittill("trigger", ent);
+		self.t_death waittill("trigger", ent);
 		if(zombie_utility::is_player_valid(ent))
 		{
 			ent thread function_de0d7531(self);
@@ -757,7 +757,7 @@ function function_b2e2a102()
 			level.var_dd5501c7[t_hazard.targetname].var_7e5afbd = var_2b73bb92[t_hazard.targetname];
 			level.var_dd5501c7[t_hazard.targetname].var_d6d6c058 = anglestoforward(var_2b73bb92[t_hazard.targetname].angles) * -1;
 			level.var_dd5501c7[t_hazard.targetname].var_6b281b64 = anglestoright(var_2b73bb92[t_hazard.targetname].angles) + level.var_dd5501c7[t_hazard.targetname].var_d6d6c058;
-			level.var_dd5501c7[t_hazard.targetname].var_d93f9cb8 = var_947d0bae[t_hazard.targetname];
+			level.var_dd5501c7[t_hazard.targetname].t_death = var_947d0bae[t_hazard.targetname];
 			level.var_dd5501c7[t_hazard.targetname].var_8bf7f16f = &function_4ed6e5ec;
 			level.var_dd5501c7[t_hazard.targetname] walltrap_off();
 		}
@@ -794,7 +794,7 @@ function walltrap_off()
 {
 	self.b_on = 0;
 	self triggerenable(0);
-	self.var_d93f9cb8 triggerenable(0);
+	self.t_death triggerenable(0);
 	self function_4778351d(0);
 	playsoundatposition("evt_wall_trap_end", self.origin + (20, 100, 0));
 	self notify("walltrap_off");
@@ -923,7 +923,7 @@ function function_c801c84a()
 	self.activated_by_player = self.var_6afd6b;
 	self function_4778351d(1);
 	self triggerenable(1);
-	self.var_d93f9cb8 triggerenable(1);
+	self.t_death triggerenable(1);
 	while(self.b_on)
 	{
 		self waittill("trigger", ent);
@@ -953,7 +953,7 @@ function function_55a15733(var_a464d35b)
 		var_b14e6934 = var_a464d35b.var_d6d6c058 * 75;
 		while(isalive(self) && self istouching(var_a464d35b))
 		{
-			if(self istouching(var_a464d35b.var_d93f9cb8))
+			if(self istouching(var_a464d35b.t_death))
 			{
 				self function_de0d7531(var_a464d35b);
 				self notify(#"hash_5798c1b0");
@@ -981,8 +981,8 @@ function function_55a15733(var_a464d35b)
 		var_4ed4eec0 = util::spawn_model("tag_origin", self.origin, self.angles);
 		self linkto(var_4ed4eec0);
 		self playsound("evt_wall_trap_suck");
-		n_time = distance(var_4ed4eec0.origin, var_a464d35b.var_d93f9cb8.origin) / 400;
-		var_1ee590e5 = (var_a464d35b.var_d93f9cb8.origin[0], var_a464d35b.var_d93f9cb8.origin[1], self.origin[2]);
+		n_time = distance(var_4ed4eec0.origin, var_a464d35b.t_death.origin) / 400;
+		var_1ee590e5 = (var_a464d35b.t_death.origin[0], var_a464d35b.t_death.origin[1], self.origin[2]);
 		level thread function_a569a27d(var_a464d35b, var_4ed4eec0, self);
 		var_4ed4eec0 moveto(var_1ee590e5, n_time);
 		var_4ed4eec0 waittill("movedone");

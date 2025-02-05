@@ -579,10 +579,10 @@ function function_426caba9()
 */
 function function_6e38e085()
 {
-	var_d93f9cb8 = getent("boat_death", "targetname");
+	t_death = getent("boat_death", "targetname");
 	while(true)
 	{
-		var_d93f9cb8 waittill("trigger", e_who);
+		t_death waittill("trigger", e_who);
 		if(isplayer(e_who) && (!(isdefined(e_who.var_a98632dd) && e_who.var_a98632dd)))
 		{
 			e_who.var_a98632dd = 1;
