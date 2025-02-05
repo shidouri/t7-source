@@ -333,14 +333,14 @@ function trap_lights_green()
 	Parameters: 2
 	Flags: Linked
 */
-function function_157a698(var_c4f1ee44, e_player)
+function function_157a698(s_activate, e_player)
 {
 	self triggerenable(1);
 	self flag::set("trap_active");
 	playsoundatposition("zmb_flogger_motor_start_l", self.var_f1693315.origin);
 	playsoundatposition("zmb_flogger_motor_start_r", self.var_736c69e7.origin);
 	wait(0.5);
-	self thread function_bb59d4d9(var_c4f1ee44, e_player);
+	self thread function_bb59d4d9(s_activate, e_player);
 	self waittill("trap_done");
 	self flag::clear("trap_active");
 	self flag::set("trap_cooldown");
@@ -358,7 +358,7 @@ function function_157a698(var_c4f1ee44, e_player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bb59d4d9(var_c4f1ee44, e_player)
+function function_bb59d4d9(s_activate, e_player)
 {
 	var_ffd9e7a0 = util::spawn_model("tag_origin", self.var_f1693315.origin);
 	var_94be4c8f = util::spawn_model("tag_origin", self.var_736c69e7.origin);
@@ -367,8 +367,8 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 	var_ffd9e7a0 playloopsound("zmb_flogger_motor_lp_l");
 	var_94be4c8f playloopsound("zmb_flogger_motor_lp_r");
 	self.e_pendulum notsolid();
-	self thread function_1f2a0da5(var_c4f1ee44, e_player);
-	if(var_c4f1ee44.script_string === "reverse")
+	self thread function_1f2a0da5(s_activate, e_player);
+	if(s_activate.script_string === "reverse")
 	{
 		n_rotations = -14040;
 	}
@@ -466,7 +466,7 @@ function function_e5b7e8b0(var_ffd9e7a0, var_94be4c8f)
 	Parameters: 2
 	Flags: Linked
 */
-function function_1f2a0da5(var_c4f1ee44, e_player)
+function function_1f2a0da5(s_activate, e_player)
 {
 	self endon("trap_done");
 	while(true)
@@ -478,7 +478,7 @@ function function_1f2a0da5(var_c4f1ee44, e_player)
 		}
 		else
 		{
-			e_who thread function_af6b7901(var_c4f1ee44, e_player);
+			e_who thread function_af6b7901(s_activate, e_player);
 		}
 	}
 }
@@ -522,7 +522,7 @@ function do_player_damage()
 	Parameters: 2
 	Flags: Linked
 */
-function function_af6b7901(var_c4f1ee44, e_player)
+function function_af6b7901(s_activate, e_player)
 {
 	self endon("death");
 	if(self.archetype === "parasite")
@@ -534,7 +534,7 @@ function function_af6b7901(var_c4f1ee44, e_player)
 		level notify("flogger_killed_zombie", self, e_player);
 		if(!isdefined(self.var_b07a0f56))
 		{
-			self thread do_launch(var_c4f1ee44);
+			self thread do_launch(s_activate);
 		}
 	}
 	if(isdefined(self.var_fbaea41d))
@@ -552,11 +552,11 @@ function function_af6b7901(var_c4f1ee44, e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function do_launch(var_c4f1ee44)
+function do_launch(s_activate)
 {
 	self.var_b07a0f56 = 1;
 	self playsound("zmb_death_gibs");
-	if(var_c4f1ee44.script_string === "reverse")
+	if(s_activate.script_string === "reverse")
 	{
 		x = randomintrange(200, 250);
 		y = randomintrange(-35, 35);
