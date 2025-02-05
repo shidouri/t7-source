@@ -9,11 +9,11 @@
 #using scripts\shared\flag_shared;
 #using scripts\shared\util_shared;
 
-#namespace namespace_a6c5bfea;
+#namespace _bonuszm_prologue;
 
 /*
 	Name: init
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0xA71805C5
 	Offset: 0x890
 	Size: 0x1C4
@@ -51,7 +51,7 @@ function autoexec init()
 
 /*
 	Name: function_6872fad1
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x3415E4F2
 	Offset: 0xA60
 	Size: 0x24
@@ -65,7 +65,7 @@ function private function_6872fad1()
 
 /*
 	Name: function_6122f0b4
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x99EC1590
 	Offset: 0xA90
 	Size: 0x4
@@ -78,7 +78,7 @@ function function_6122f0b4()
 
 /*
 	Name: function_da4ce9e5
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x415228BB
 	Offset: 0xAA0
 	Size: 0x13C
@@ -110,7 +110,7 @@ function function_da4ce9e5()
 
 /*
 	Name: function_4f644e
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x34FC8F63
 	Offset: 0xBE8
 	Size: 0x54
@@ -128,7 +128,7 @@ function function_4f644e()
 
 /*
 	Name: function_9d3fff7e
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0xC7A087F4
 	Offset: 0xC48
 	Size: 0x4C
@@ -145,7 +145,7 @@ function function_9d3fff7e()
 
 /*
 	Name: function_2651deb7
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x32E37B1A
 	Offset: 0xCA0
 	Size: 0x13C
@@ -178,7 +178,7 @@ function function_2651deb7()
 
 /*
 	Name: function_1c4085d8
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x2D22B1AA
 	Offset: 0xDE8
 	Size: 0x154
@@ -211,7 +211,7 @@ function function_1c4085d8()
 
 /*
 	Name: function_42430041
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x73851092
 	Offset: 0xF48
 	Size: 0x124
@@ -238,7 +238,7 @@ function function_42430041()
 
 /*
 	Name: function_a82e9445
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0xDB7CBB32
 	Offset: 0x1078
 	Size: 0x4C
@@ -256,7 +256,7 @@ function function_a82e9445()
 
 /*
 	Name: function_ce310eae
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x2783715B
 	Offset: 0x10D0
 	Size: 0x24
@@ -271,7 +271,7 @@ function function_ce310eae()
 
 /*
 	Name: function_f4338917
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0xDA2DEF48
 	Offset: 0x1100
 	Size: 0x2C
@@ -287,7 +287,7 @@ function function_f4338917()
 
 /*
 	Name: function_68457aaa
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0xAE2A9E56
 	Offset: 0x1138
 	Size: 0xCC
@@ -313,7 +313,7 @@ function function_68457aaa()
 
 /*
 	Name: function_8f2579e2
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x6E1A4BBF
 	Offset: 0x1210
 	Size: 0x6C
@@ -332,7 +332,7 @@ function function_8f2579e2()
 
 /*
 	Name: function_6922ff79
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x8CC710F0
 	Offset: 0x1288
 	Size: 0x84
@@ -353,7 +353,7 @@ function function_6922ff79()
 
 /*
 	Name: function_8e47f513
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0x9F8ECB8F
 	Offset: 0x1318
 	Size: 0xE
@@ -367,7 +367,7 @@ function function_8e47f513()
 
 /*
 	Name: function_84369c34
-	Namespace: namespace_a6c5bfea
+	Namespace: _bonuszm_prologue
 	Checksum: 0xAF13B70D
 	Offset: 0x1330
 	Size: 0x84
