@@ -218,8 +218,8 @@ function function_96157f5d()
 */
 function function_21350de5(a_ents)
 {
-	var_94848710 = a_ents["minister"];
-	var_94848710 waittill("death");
+	e_minister = a_ents["minister"];
+	e_minister waittill("death");
 	level flag::set("minister_apc_done");
 }
 
