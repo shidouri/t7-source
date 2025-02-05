@@ -1493,8 +1493,8 @@ function function_c4842cb1(var_187d070c)
 function function_41ecaace()
 {
 	level flag::wait_till("ritual_pap_complete");
-	var_2ede2754 = getentarray("scream_pic", "targetname");
-	foreach(var_c671e1b1 in var_2ede2754)
+	a_pictures = getentarray("scream_pic", "targetname");
+	foreach(var_c671e1b1 in a_pictures)
 	{
 		var_c671e1b1 thread function_8cffc675();
 	}
