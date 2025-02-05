@@ -524,13 +524,13 @@ function function_2d897f84(str_objective)
 	while(true)
 	{
 		var_f6e695c0 = struct::get("breadcrumb_zurichroot_" + var_b1cdbf1d, "targetname");
-		var_b1fe230f = getent("t_zurichroot_" + var_b1cdbf1d, "script_noteworthy");
-		if(!isdefined(var_f6e695c0) || !isdefined(var_b1fe230f))
+		t_crumb = getent("t_zurichroot_" + var_b1cdbf1d, "script_noteworthy");
+		if(!isdefined(var_f6e695c0) || !isdefined(t_crumb))
 		{
 			return;
 		}
 		objectives::set("cp_waypoint_breadcrumb", var_f6e695c0);
-		var_b1fe230f waittill("trigger");
+		t_crumb waittill("trigger");
 		level notify(#"hash_431e9a83");
 		savegame::checkpoint_save();
 		objectives::complete("cp_waypoint_breadcrumb", var_f6e695c0);
