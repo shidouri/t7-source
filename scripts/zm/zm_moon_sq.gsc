@@ -778,8 +778,8 @@ function sd_init()
 	level flag::init("sd_active");
 	level flag::wait_till("start_zombie_round_logic");
 	level.var_c920d4c5 = struct::get("sd_bowl", "targetname");
-	var_5e8fec3f = struct::get_array("sd_start", "script_noteworthy");
-	foreach(s_start in var_5e8fec3f)
+	a_start = struct::get_array("sd_start", "script_noteworthy");
+	foreach(s_start in a_start)
 	{
 		var_12a1091 = util::spawn_model(s_start.model, s_start.origin, s_start.angles);
 		var_12a1091.targetname = s_start.targetname;
@@ -828,9 +828,9 @@ function function_7e76fe45(var_2ad32714)
 */
 function function_4ee03f50()
 {
-	var_5e8fec3f = struct::get_array("sd_start", "script_noteworthy");
+	a_start = struct::get_array("sd_start", "script_noteworthy");
 	a_flags = [];
-	foreach(s_start in var_5e8fec3f)
+	foreach(s_start in a_start)
 	{
 		if(!isdefined(a_flags))
 		{
