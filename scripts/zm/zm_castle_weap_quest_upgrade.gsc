@@ -296,8 +296,8 @@ function function_29c80ce1()
 			playrumbleonposition("zm_castle_quest_rune_prison_clock_wall_rumble", point);
 			level scene::play("p7_fxanim_zm_castle_quest_rune_clock_wall_bundle");
 			level.var_2b11065e = getent("quest_rune_clock_wall_arrow", "targetname");
-			var_a462d6ee = struct::get("quest_start_rune_prison");
-			var_a462d6ee function_f708e6b2();
+			s_arrow = struct::get("quest_start_rune_prison");
+			s_arrow function_f708e6b2();
 			return;
 		}
 	}
@@ -358,8 +358,8 @@ function function_c272bd2a()
 			level.var_714fae39 = 1;
 		}
 		level thread function_ab3e9362();
-		var_a462d6ee = struct::get("");
-		zm_unitrigger::unregister_unitrigger(var_a462d6ee.var_67b5dd94);
+		s_arrow = struct::get("");
+		zm_unitrigger::unregister_unitrigger(s_arrow.var_67b5dd94);
 		level flag::set("");
 	#/
 }
@@ -2003,8 +2003,8 @@ function function_d47f8f22()
 			#/
 			level thread scene::play("p7_fxanim_zm_castle_quest_demon_arrow_broken_bundle");
 			level.var_72a6d56b = getent("quest_demongate_arrow_broken", "targetname");
-			var_a462d6ee = struct::get("quest_start_demon_gate");
-			var_a462d6ee function_f708e6b2();
+			s_arrow = struct::get("quest_start_demon_gate");
+			s_arrow function_f708e6b2();
 			var_e88abb1 zm_castle_vo::function_f0b775a3("release");
 			var_e88abb1 delete();
 			return;
@@ -3584,8 +3584,8 @@ function wolf_howl_paintings()
 	{
 		zm_unitrigger::unregister_unitrigger(var_48c991cb.var_67b5dd94);
 	}
-	var_a462d6ee = struct::get("quest_start_wolf_howl");
-	var_a462d6ee function_5e09adfd();
+	s_arrow = struct::get("quest_start_wolf_howl");
+	s_arrow function_5e09adfd();
 	/#
 		level.var_e921c50c = 1;
 	#/
@@ -3597,7 +3597,7 @@ function wolf_howl_paintings()
 		e_player.var_b89ed4e5 = undefined;
 	}
 	level.var_eee1576 = getent("quest_wolf_arrow_broken_reveal", "targetname");
-	var_a462d6ee function_f708e6b2();
+	s_arrow function_f708e6b2();
 }
 
 /*
@@ -5164,8 +5164,8 @@ function function_cd986666()
 			level waittill(#"hash_4e123b5d");
 			level thread scene::play("p7_fxanim_zm_castle_quest_storm_arrow_broken_bundle");
 			level.var_18c771ad = getent("quest_storm_arrow_broken", "targetname");
-			var_a462d6ee = struct::get("quest_start_elemental_storm");
-			var_a462d6ee function_f708e6b2();
+			s_arrow = struct::get("quest_start_elemental_storm");
+			s_arrow function_f708e6b2();
 			level notify(#"hash_6d0730ef");
 			return;
 		}
@@ -5265,8 +5265,8 @@ function function_2db350be()
 			level thread scene::play("");
 		}
 		level thread function_9ad758f3();
-		var_a462d6ee = struct::get("");
-		zm_unitrigger::unregister_unitrigger(var_a462d6ee.var_67b5dd94);
+		s_arrow = struct::get("");
+		zm_unitrigger::unregister_unitrigger(s_arrow.var_67b5dd94);
 		level flag::set("");
 	#/
 }
