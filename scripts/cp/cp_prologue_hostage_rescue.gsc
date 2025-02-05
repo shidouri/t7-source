@@ -2215,12 +2215,12 @@ function function_5bd223b0()
 {
 	self endon("death");
 	self waittill("movedone");
-	var_18f37a5b = getent("t_lift_interior", "targetname");
+	t_bottom = getent("t_lift_interior", "targetname");
 	a_s_spots = struct::get_array("lift_left_behind", "targetname");
 	for(i = 0; i < level.activeplayers.size; i++)
 	{
 		player = level.activeplayers[i];
-		if(player istouching(var_18f37a5b))
+		if(player istouching(t_bottom))
 		{
 			player setorigin(a_s_spots[i].origin);
 			player setplayerangles(a_s_spots[i].angles);
