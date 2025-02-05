@@ -321,15 +321,15 @@ function function_aa95075d(str_objective)
 */
 function function_b8580c84(a_ents)
 {
-	var_29613ea0 = a_ents["zurich_mirror_start"];
+	e_mirror = a_ents["zurich_mirror_start"];
 	array::thread_all(level.players, &clientfield::set_to_player, "reflection_extracam", 1);
 	array::thread_all(level.players, &clientfield::set_to_player, "mirror_break", 1);
 	level notify(#"hash_3e3847fd");
 	level waittill(#"hash_80b2a624");
-	var_29613ea0 clientfield::set("mirror_warp", 1);
-	var_29613ea0 playsound("evt_mirror_warp_taylor");
+	e_mirror clientfield::set("mirror_warp", 1);
+	e_mirror playsound("evt_mirror_warp_taylor");
 	level waittill(#"hash_1f51b705");
-	var_29613ea0 clientfield::set("mirror_warp", 0);
+	e_mirror clientfield::set("mirror_warp", 0);
 }
 
 /*
