@@ -1805,9 +1805,9 @@ function function_edca6dc9()
 {
 	wait(2);
 	var_daf99a63 = array("vox_shad_ritual_complete_0");
-	var_ceb8ae25 = array::random(level.activeplayers);
-	var_49617378 = ("vox_plr_" + var_ceb8ae25.characterindex) + "_ritual_complete_response_0";
-	var_6f63ede1 = ("vox_plr_" + var_ceb8ae25.characterindex) + "_ritual_complete_response_1";
+	e_responder = array::random(level.activeplayers);
+	var_49617378 = ("vox_plr_" + e_responder.characterindex) + "_ritual_complete_response_0";
+	var_6f63ede1 = ("vox_plr_" + e_responder.characterindex) + "_ritual_complete_response_1";
 	array::add(var_daf99a63, var_49617378);
 	array::add(var_daf99a63, var_6f63ede1);
 	function_7aa5324a(var_daf99a63, undefined, 0);
