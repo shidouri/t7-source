@@ -295,20 +295,20 @@ function function_4aedb20b()
 */
 function function_925aa63a(var_fedda046, n_delay = 0.1, n_value, b_delete = 1)
 {
-	foreach(var_1c7231df in var_fedda046)
+	foreach(e_element in var_fedda046)
 	{
-		if(isdefined(var_1c7231df))
+		if(isdefined(e_element))
 		{
-			var_1c7231df clientfield::set("do_fade_material", n_value);
+			e_element clientfield::set("do_fade_material", n_value);
 			wait(n_delay);
 		}
 	}
 	wait(1);
 	if(isdefined(b_delete) && b_delete)
 	{
-		foreach(var_1c7231df in var_fedda046)
+		foreach(e_element in var_fedda046)
 		{
-			var_1c7231df delete();
+			e_element delete();
 		}
 	}
 }
