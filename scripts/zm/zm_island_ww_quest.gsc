@@ -801,7 +801,7 @@ function function_385c3ebb(a_ents)
 function function_9faff60c()
 {
 	self.trigger = zm_island_util::spawn_trigger_radius(self.origin, 16, 1, &function_a50aa078);
-	var_a78de5fc = getent("cage_entity", "targetname");
+	e_control = getent("cage_entity", "targetname");
 	var_c120c3f6 = getent("clip_jungle_door", "targetname");
 	while(true)
 	{
