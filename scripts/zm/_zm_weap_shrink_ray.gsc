@@ -608,10 +608,10 @@ function function_643fa9c8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_2c318bd(var_34c9bd99)
+function function_2c318bd(e_watched)
 {
 	self endon("death");
-	var_34c9bd99 waittill("death");
+	e_watched waittill("death");
 	self delete();
 }
 
