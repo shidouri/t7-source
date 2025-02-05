@@ -4888,7 +4888,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	}
 	level flag::set("chase_train_move");
 	level thread function_c9af9d76(var_10057083);
-	var_7af45315 = [];
+	a_train = [];
 	var_95af8b3e = [];
 	var_37048efd = struct::get(var_37713607, "targetname");
 	var_5ae02fb7 = spawn("script_model", var_37048efd.origin);
@@ -4901,7 +4901,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	{
 		var_5ae02fb7 thread function_db738b68();
 	}
-	var_7af45315[0] = var_5ae02fb7;
+	a_train[0] = var_5ae02fb7;
 	var_934a157 = struct::get(var_4b204b1c, "targetname");
 	t_end = getent(var_37048efd.target, "targetname");
 	if(var_37713607 == "train_station_train_org")
@@ -4912,7 +4912,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	{
 		level thread function_a8f0457b(str_flag_name);
 	}
-	while(var_7af45315.size > 0)
+	while(a_train.size > 0)
 	{
 		if(!level flag::get(str_flag_name))
 		{
@@ -4921,7 +4921,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 			var_3ebf068e.script_objective = "chase_glass_ceiling_igc";
 			var_3ebf068e.script_noteworthy = "chase_train";
 			var_3ebf068e playloopsound("amb_train_car");
-			var_7af45315[var_7af45315.size] = var_3ebf068e;
+			a_train[a_train.size] = var_3ebf068e;
 			if(var_76f5cbe9)
 			{
 				var_3ebf068e thread function_db738b68();
@@ -4938,7 +4938,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 			var_3ebf068e.script_objective = "chase_glass_ceiling_igc";
 			var_3ebf068e.script_noteworthy = "chase_train";
 			var_3ebf068e playloopsound("amb_train_engine");
-			var_7af45315[var_7af45315.size] = var_3ebf068e;
+			a_train[a_train.size] = var_3ebf068e;
 			playsoundatposition("amb_train_fades_away", (-12413, -25844, 9837));
 			if(var_76f5cbe9)
 			{
@@ -4947,19 +4947,19 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 		}
 		if(b_reverse)
 		{
-			array::run_all(var_7af45315, &movex, 640, 0.274);
+			array::run_all(a_train, &movex, 640, 0.274);
 		}
 		else
 		{
-			array::run_all(var_7af45315, &movex, -640, 0.274);
+			array::run_all(a_train, &movex, -640, 0.274);
 		}
 		wait(0.274);
 		if(var_37713607 == "train_station_train_org")
 		{
-			level function_4332c4dc(var_7af45315);
+			level function_4332c4dc(a_train);
 		}
 		var_8edb1dfd = [];
-		foreach(e_train in var_7af45315)
+		foreach(e_train in a_train)
 		{
 			if(e_train istouching(t_end))
 			{
@@ -4968,7 +4968,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 		}
 		foreach(e_train in var_8edb1dfd)
 		{
-			arrayremovevalue(var_7af45315, e_train);
+			arrayremovevalue(a_train, e_train);
 			e_train delete();
 		}
 	}
@@ -5037,14 +5037,14 @@ function function_69747207()
 	Parameters: 1
 	Flags: Linked
 */
-function function_4332c4dc(var_7af45315)
+function function_4332c4dc(a_train)
 {
 	if(!level flag::get("train_station_start_gate_closed"))
 	{
 		var_668efd10 = getent("train_station_gate_old_side", "targetname");
 		t_start = getent("train_station_spawn_closet", "targetname");
 		var_6d7bb3d1 = 1;
-		foreach(e_train in var_7af45315)
+		foreach(e_train in a_train)
 		{
 			if(e_train istouching(t_start))
 			{
@@ -5063,7 +5063,7 @@ function function_4332c4dc(var_7af45315)
 		var_d8966c4b = getent("train_station_gate_modern_side", "targetname");
 		t_end = getent("train_station_end_closet", "targetname");
 		var_fe4ad5ca = 1;
-		foreach(e_train in var_7af45315)
+		foreach(e_train in a_train)
 		{
 			if(e_train istouching(t_end))
 			{
