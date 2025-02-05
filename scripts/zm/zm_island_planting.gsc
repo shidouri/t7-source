@@ -845,17 +845,17 @@ function function_54af12e9()
 	level.var_f3798849 = getweapon("sniper_fastbolt");
 	level.var_c29d7558 = getweapon("launcher_standard");
 	level.var_b00f35c1 = getweapon("ar_marksman");
-	var_b0612bf3 = [];
-	var_b0612bf3["points"] = 10;
-	var_b0612bf3["pistol"] = 10;
-	var_b0612bf3["sniper"] = 10;
-	var_b0612bf3["launcher"] = 10;
-	var_b0612bf3["ar"] = 10;
-	var_b0612bf3["zombie"] = 25;
-	var_b0612bf3["grenade"] = 25;
+	a_rewards = [];
+	a_rewards["points"] = 10;
+	a_rewards["pistol"] = 10;
+	a_rewards["sniper"] = 10;
+	a_rewards["launcher"] = 10;
+	a_rewards["ar"] = 10;
+	a_rewards["zombie"] = 25;
+	a_rewards["grenade"] = 25;
 	var_29cc53bd = 0;
 	level.var_349b9c58 = [];
-	foreach(str_reward, n_chance in var_b0612bf3)
+	foreach(str_reward, n_chance in a_rewards)
 	{
 		level.var_349b9c58[str_reward] = n_chance + var_29cc53bd;
 		var_29cc53bd = var_29cc53bd + n_chance;
@@ -1138,14 +1138,14 @@ function function_72298dfd()
 	var_b4550164 = getweapon("cymbal_monkey");
 	level.var_8aee1d4 = array(var_56b02536, var_722e06cb, var_d6376f9e, var_4fa7d135, var_c71381ba, var_b4550164);
 	level.var_1a1ac6dd = array("full_ammo", "nuke", "insta_kill", "double_points", "fire_sale", "minigun");
-	var_b0612bf3 = [];
+	a_rewards = [];
 	var_c6f9cb70 = 100;
-	var_b0612bf3["points"] = var_c6f9cb70 / 3;
-	var_b0612bf3["weapon"] = var_c6f9cb70 / 3;
-	var_b0612bf3["powerup"] = var_c6f9cb70 / 3;
+	a_rewards["points"] = var_c6f9cb70 / 3;
+	a_rewards["weapon"] = var_c6f9cb70 / 3;
+	a_rewards["powerup"] = var_c6f9cb70 / 3;
 	var_29cc53bd = 0;
 	level.var_170b1e5c = [];
-	foreach(str_reward, n_chance in var_b0612bf3)
+	foreach(str_reward, n_chance in a_rewards)
 	{
 		level.var_170b1e5c[str_reward] = n_chance + var_29cc53bd;
 		var_29cc53bd = var_29cc53bd + n_chance;
