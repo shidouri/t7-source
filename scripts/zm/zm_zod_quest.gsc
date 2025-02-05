@@ -2710,9 +2710,9 @@ function function_83c8b6e8()
 	{
 		trigger sethintstring("");
 	}
-	var_eadb7e53 = getent("pap_tentacle", "targetname");
-	var_eadb7e53 useanimtree($generic);
-	var_eadb7e53 ghost();
+	e_tentacle = getent("pap_tentacle", "targetname");
+	e_tentacle useanimtree($generic);
+	e_tentacle ghost();
 }
 
 /*
@@ -2726,12 +2726,12 @@ function function_83c8b6e8()
 */
 function function_a6838c4f()
 {
-	var_eadb7e53 = getent("pap_tentacle", "targetname");
-	if(!isdefined(var_eadb7e53.org_angles))
+	e_tentacle = getent("pap_tentacle", "targetname");
+	if(!isdefined(e_tentacle.org_angles))
 	{
-		var_eadb7e53.org_angles = var_eadb7e53.angles;
+		e_tentacle.org_angles = e_tentacle.angles;
 	}
-	var_eadb7e53 useanimtree($generic);
+	e_tentacle useanimtree($generic);
 	level notify("pack_a_punch_on");
 }
 
@@ -2749,15 +2749,15 @@ function function_5630c228(player, trigger, origin_offset, angles_offset)
 	level endon("pack_a_punch_off");
 	trigger endon("pap_player_disconnected");
 	var_c7c7077b = struct::get("pap_portal_center", "targetname");
-	var_eadb7e53 = getent("pap_tentacle", "targetname");
-	if(!isdefined(var_eadb7e53.org_angles))
+	e_tentacle = getent("pap_tentacle", "targetname");
+	if(!isdefined(e_tentacle.org_angles))
 	{
-		var_eadb7e53.org_angles = var_eadb7e53.angles;
+		e_tentacle.org_angles = e_tentacle.angles;
 	}
-	var_eadb7e53.origin = var_c7c7077b.origin;
-	var_eadb7e53.angles = var_eadb7e53.org_angles;
-	temp_ent = spawn("script_model", var_eadb7e53.origin);
-	temp_ent.angles = var_eadb7e53.angles;
+	e_tentacle.origin = var_c7c7077b.origin;
+	e_tentacle.angles = e_tentacle.org_angles;
+	temp_ent = spawn("script_model", e_tentacle.origin);
+	temp_ent.angles = e_tentacle.angles;
 	temp_ent setmodel("tag_origin_animate");
 	temp_ent useanimtree($generic);
 	playsoundatposition("zmb_zod_pap_activate", var_c7c7077b.origin);
@@ -2778,9 +2778,9 @@ function function_5630c228(player, trigger, origin_offset, angles_offset)
 	}
 	wait(0.5);
 	temp_ent thread animation::play("o_zombie_zod_packapunch_tentacle_worldgun_taken");
-	var_eadb7e53 show();
-	var_eadb7e53 animation::play("o_zombie_zod_packapunch_tentacle_gun_take");
-	var_eadb7e53 ghost();
+	e_tentacle show();
+	e_tentacle animation::play("o_zombie_zod_packapunch_tentacle_gun_take");
+	e_tentacle ghost();
 	temp_ent delete();
 	trigger.worldgun delete();
 	if(isdefined(trigger.worldgun.worldgundw))
@@ -2803,10 +2803,10 @@ function function_ea272f07(player, t_trigger, origin_offset, interact_offset)
 	level endon("pack_a_punch_off");
 	t_trigger endon("pap_player_disconnected");
 	var_c7c7077b = struct::get("pap_portal_center", "targetname");
-	var_eadb7e53 = getent("pap_tentacle", "targetname");
-	var_eadb7e53.origin = var_c7c7077b.origin;
-	var_3acfce06 = spawn("script_model", var_eadb7e53.origin);
-	var_3acfce06.angles = var_eadb7e53.angles;
+	e_tentacle = getent("pap_tentacle", "targetname");
+	e_tentacle.origin = var_c7c7077b.origin;
+	var_3acfce06 = spawn("script_model", e_tentacle.origin);
+	var_3acfce06.angles = e_tentacle.angles;
 	var_3acfce06 setmodel("tag_origin_animate");
 	var_3acfce06 useanimtree($generic);
 	upoptions = 0;
@@ -2827,13 +2827,13 @@ function function_ea272f07(player, t_trigger, origin_offset, interact_offset)
 	{
 		t_trigger.worldgun.worldgundw linkto(var_3acfce06, "tag_origin", var_aa51a9ae, vectorscale((0, 1, 0), 90));
 	}
-	t_trigger thread function_4de2af97(var_eadb7e53, var_3acfce06);
+	t_trigger thread function_4de2af97(e_tentacle, var_3acfce06);
 	t_trigger util::waittill_any("pap_timeout", "pap_taken");
 	t_trigger thread function_f46eb6f9();
 	t_trigger thread function_b99f7d2b();
 	var_3acfce06 delete();
-	var_eadb7e53 animation::stop();
-	var_eadb7e53 thread function_2934e5d0(t_trigger);
+	e_tentacle animation::stop();
+	e_tentacle thread function_2934e5d0(t_trigger);
 	if(isdefined(t_trigger.worldgun))
 	{
 		if(isdefined(t_trigger.worldgun.worldgundw))
@@ -2885,14 +2885,14 @@ function function_b99f7d2b()
 	Parameters: 2
 	Flags: Linked
 */
-function function_4de2af97(var_eadb7e53, var_3acfce06)
+function function_4de2af97(e_tentacle, var_3acfce06)
 {
 	self endon("pap_timeout");
 	self endon("pap_taken");
 	var_3acfce06 thread animation::play("o_zombie_zod_packapunch_tentacle_worldgun_ejected");
-	self thread function_e94f1c9c(var_eadb7e53);
-	var_eadb7e53 animation::play("o_zombie_zod_packapunch_tentacle_extend");
-	var_eadb7e53 thread animation::play("o_zombie_zod_packapunch_tentacle_extended_loop");
+	self thread function_e94f1c9c(e_tentacle);
+	e_tentacle animation::play("o_zombie_zod_packapunch_tentacle_extend");
+	e_tentacle thread animation::play("o_zombie_zod_packapunch_tentacle_extended_loop");
 }
 
 /*
@@ -2904,12 +2904,12 @@ function function_4de2af97(var_eadb7e53, var_3acfce06)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e94f1c9c(var_eadb7e53)
+function function_e94f1c9c(e_tentacle)
 {
 	self endon("pap_timeout");
 	self endon("pap_taken");
 	wait(0.1);
-	var_eadb7e53 show();
+	e_tentacle show();
 }
 
 /*
