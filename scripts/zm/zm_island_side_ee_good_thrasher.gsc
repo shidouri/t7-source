@@ -961,7 +961,7 @@ function function_909c515f()
 		return;
 	}
 	self zm_utility::decrement_is_drinking();
-	var_d82ff565 = self getweaponslistprimaries();
+	a_primaries = self getweaponslistprimaries();
 	self takeweapon(weapon);
 	if(self.is_drinking > 0)
 	{
@@ -973,9 +973,9 @@ function function_909c515f()
 	}
 	else
 	{
-		if(isdefined(var_d82ff565) && var_d82ff565.size > 0)
+		if(isdefined(a_primaries) && a_primaries.size > 0)
 		{
-			self switchtoweapon(var_d82ff565[0]);
+			self switchtoweapon(a_primaries[0]);
 		}
 		else
 		{

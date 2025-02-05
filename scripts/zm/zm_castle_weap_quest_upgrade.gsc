@@ -7098,8 +7098,8 @@ function function_14dd5ea5()
 		{
 			continue;
 		}
-		var_d82ff565 = e_who getweaponslistprimaries();
-		if(var_d82ff565.size == 1 && issubstr(var_d82ff565[0].name, "elemental_bow"))
+		a_primaries = e_who getweaponslistprimaries();
+		if(a_primaries.size == 1 && issubstr(a_primaries[0].name, "elemental_bow"))
 		{
 			continue;
 		}
@@ -8138,8 +8138,8 @@ function function_6041c7d9(e_player)
 		self sethintstring(&"");
 		return false;
 	}
-	var_d82ff565 = e_player getweaponslistprimaries();
-	if(var_d82ff565.size == 1 && issubstr(var_d82ff565[0].name, "elemental_bow"))
+	a_primaries = e_player getweaponslistprimaries();
+	if(a_primaries.size == 1 && issubstr(a_primaries[0].name, "elemental_bow"))
 	{
 		self sethintstring(&"");
 		return false;
