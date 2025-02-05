@@ -1145,18 +1145,18 @@ function zm_zod_zone_init()
 function function_8462bb2e()
 {
 	level flag::wait_till("zones_initialized");
-	level.var_37e8a32e = [];
+	level.a_districts = [];
 	var_ddd4dbb4 = getentarray("district_area", "targetname");
 	foreach(var_17d18e45 in var_ddd4dbb4)
 	{
-		if(!isdefined(level.var_37e8a32e[var_17d18e45.script_noteworthy]))
+		if(!isdefined(level.a_districts[var_17d18e45.script_noteworthy]))
 		{
-			level.var_37e8a32e[var_17d18e45.script_noteworthy] = var_17d18e45;
+			level.a_districts[var_17d18e45.script_noteworthy] = var_17d18e45;
 		}
 	}
-	level.var_37e8a32e["slums"] thread function_4edf07a("connect_slums_to_junction", "connect_slums_waterfront_to_alley", "connect_slums_high_to_low", "connect_slums_high_to_train");
-	level.var_37e8a32e["canal"] thread function_4edf07a("connect_canal_to_junction", "connect_canal_to_train", "connect_canal_high_to_low", "connect_canal_high_to_train");
-	level.var_37e8a32e["theater"] thread function_4edf07a("connect_theater_to_junction", "connect_theater_alley_to_square", "connect_theater_high_to_low", "connect_theater_high_to_square");
+	level.a_districts["slums"] thread function_4edf07a("connect_slums_to_junction", "connect_slums_waterfront_to_alley", "connect_slums_high_to_low", "connect_slums_high_to_train");
+	level.a_districts["canal"] thread function_4edf07a("connect_canal_to_junction", "connect_canal_to_train", "connect_canal_high_to_low", "connect_canal_high_to_train");
+	level.a_districts["theater"] thread function_4edf07a("connect_theater_to_junction", "connect_theater_alley_to_square", "connect_theater_high_to_low", "connect_theater_high_to_square");
 }
 
 /*
