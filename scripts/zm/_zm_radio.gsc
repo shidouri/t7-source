@@ -55,8 +55,8 @@ function __main__()
 	{
 		key = level.kzmb_key;
 	}
-	var_903fae71 = getentarray(str_name, str_key);
-	if(!isdefined(var_903fae71) || !var_903fae71.size)
+	a_radios = getentarray(str_name, str_key);
+	if(!isdefined(a_radios) || !a_radios.size)
 	{
 		/#
 			println("");
@@ -64,9 +64,9 @@ function __main__()
 		return;
 	}
 	/#
-		println("" + var_903fae71.size);
+		println("" + a_radios.size);
 	#/
-	array::thread_all(var_903fae71, &function_8554d5da);
+	array::thread_all(a_radios, &function_8554d5da);
 }
 
 /*
