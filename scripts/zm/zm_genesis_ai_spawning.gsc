@@ -695,13 +695,13 @@ function function_1f0a0b52(v_spawn_pos)
 	var_2c69e810 = spawn("script_model", v_spawn_pos);
 	var_2c69e810 setmodel("tag_origin");
 	playfxontag(level._effect["fury_ground_tell_fx"], var_2c69e810, "tag_origin");
-	var_3dd66385 = spawn("script_model", v_start_pos);
-	var_3dd66385 setmodel("tag_origin");
+	e_meteor = spawn("script_model", v_start_pos);
+	e_meteor setmodel("tag_origin");
 	util::wait_network_frame();
-	var_3dd66385 clientfield::set("apothicon_fury_spawn_meteor", 1);
-	var_3dd66385 moveto(v_spawn_pos, 1.5);
-	var_3dd66385 waittill("movedone");
-	var_3dd66385 delete();
+	e_meteor clientfield::set("apothicon_fury_spawn_meteor", 1);
+	e_meteor moveto(v_spawn_pos, 1.5);
+	e_meteor waittill("movedone");
+	e_meteor delete();
 	var_2c69e810 delete();
 }
 
