@@ -713,14 +713,14 @@ function function_7fd518ea()
 	level.var_49483427 = 0;
 	foreach(s_crystal in var_9d322e2e)
 	{
-		var_618c7145 = util::spawn_model("p7_zm_ctl_crystal", s_crystal.origin, s_crystal.angles);
-		var_618c7145 setscale(2);
-		var_618c7145 thread function_13eaa39c();
+		e_crystal = util::spawn_model("p7_zm_ctl_crystal", s_crystal.origin, s_crystal.angles);
+		e_crystal setscale(2);
+		e_crystal thread function_13eaa39c();
 		/#
-			var_618c7145.script_string = s_crystal.script_string;
+			e_crystal.script_string = s_crystal.script_string;
 		#/
-		var_618c7145 thread function_c4a9de44();
-		var_618c7145.targetname = s_crystal.targetname;
+		e_crystal thread function_c4a9de44();
+		e_crystal.targetname = s_crystal.targetname;
 	}
 	foreach(s_decoy in var_8ddaf045)
 	{
@@ -881,7 +881,7 @@ function function_13705ce6(e_target)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1d6baeec(var_618c7145)
+function function_1d6baeec(e_crystal)
 {
 	e_turret = self.viewlockedentity;
 	if(!isdefined(e_turret))
@@ -891,7 +891,7 @@ function function_1d6baeec(var_618c7145)
 	v_position = e_turret gettagorigin("tag_aim");
 	v_forward = anglestoforward(e_turret gettagangles("tag_aim"));
 	a_trace = beamtrace(v_position, v_position + (v_forward * 20000), 1, e_turret);
-	if(var_618c7145 === a_trace["entity"])
+	if(e_crystal === a_trace["entity"])
 	{
 		return true;
 	}
