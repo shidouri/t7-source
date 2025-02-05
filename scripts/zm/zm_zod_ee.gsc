@@ -1057,9 +1057,9 @@ function function_729859d0()
 		{
 			level thread function_c898ab1();
 			var_7f207012 = [[ level.o_zod_train ]]->get_players_on_train();
-			foreach(var_813273c3 in var_7f207012)
+			foreach(e_passenger in var_7f207012)
 			{
-				var_813273c3 thread zm_zod_util::set_rumble_to_player(6, 1);
+				e_passenger thread zm_zod_util::set_rumble_to_player(6, 1);
 			}
 		}
 		level.o_zod_train flag::wait_till_clear("moving");
