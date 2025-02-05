@@ -817,11 +817,11 @@ function function_662fba30()
 	for(i = 1; i < 5; i++)
 	{
 		a_temp = [];
-		foreach(var_991ffe1 in var_c66f413a)
+		foreach(s_bucket in var_c66f413a)
 		{
-			if(var_991ffe1.script_int === i)
+			if(s_bucket.script_int === i)
 			{
-				a_temp[a_temp.size] = var_991ffe1;
+				a_temp[a_temp.size] = s_bucket;
 			}
 		}
 		var_623d6569 = array::random(a_temp);
@@ -1327,13 +1327,13 @@ function function_1b3134ae()
 {
 	/#
 		var_5646068 = struct::get_array("", "");
-		foreach(var_991ffe1 in var_5646068)
+		foreach(s_bucket in var_5646068)
 		{
-			if(isdefined(var_991ffe1.trigger))
+			if(isdefined(s_bucket.trigger))
 			{
 				continue;
 			}
-			var_991ffe1 thread function_75656c0a();
+			s_bucket thread function_75656c0a();
 		}
 	#/
 }
