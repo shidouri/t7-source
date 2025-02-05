@@ -90,8 +90,8 @@ function function_eb060258()
 */
 function function_27e6ca54()
 {
-	var_ec39b8a8 = getentarray("subway_corpse_floating", "targetname");
-	foreach(e_corpse in var_ec39b8a8)
+	e_corpses = getentarray("subway_corpse_floating", "targetname");
+	foreach(e_corpse in e_corpses)
 	{
 		e_corpse thread function_62437267();
 	}
