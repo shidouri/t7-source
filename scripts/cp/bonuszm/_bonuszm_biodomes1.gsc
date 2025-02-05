@@ -28,7 +28,7 @@ function autoexec init()
 	mapname = getdvarstring("mapname");
 	if(mapname == "cp_mi_sing_biodomes" || mapname == "cp_mi_sing_biodomes2")
 	{
-		namespace_27f0ae11::init_voice();
+		voice_z_provocation::init_voice();
 		level.bzm_biodialogue1callback = &function_30d5fd50;
 		level.bzm_biodialogue2callback = &function_a2dd6c8b;
 		level.bzm_biodialogue2_2callback = &function_8d77af70;
