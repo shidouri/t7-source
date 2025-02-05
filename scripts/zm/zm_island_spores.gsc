@@ -122,18 +122,18 @@ function function_53848c29()
 	{
 		var_40c45d15 = getentarray(self.target, "targetname");
 		var_c9234aca = struct::get_array(self.target, "targetname");
-		foreach(var_6d602035 in var_40c45d15)
+		foreach(t_spore in var_40c45d15)
 		{
-			switch(var_6d602035.script_noteworthy)
+			switch(t_spore.script_noteworthy)
 			{
 				case "t_spore_explode":
 				{
-					self.t_spore_explode = var_6d602035;
+					self.t_spore_explode = t_spore;
 					break;
 				}
 				case "t_spore_damage":
 				{
-					self.t_spore_damage = var_6d602035;
+					self.t_spore_damage = t_spore;
 					break;
 				}
 			}
@@ -355,19 +355,19 @@ function function_4c6beece(var_f9f788a6, b_hero_weapon, e_attacker)
 	}
 	self thread spore_cloud_fx(b_hero_weapon, var_f9f788a6);
 	playsoundatposition("zmb_spore_eject", self.origin);
-	var_6d602035 = self function_cc07e4ad(var_66bbb0c0, s_org);
+	t_spore = self function_cc07e4ad(var_66bbb0c0, s_org);
 	while(var_d7bb540a > 0)
 	{
 		var_d7bb540a = var_d7bb540a - 0.25;
-		a_e_enemies = var_6d602035 array::get_touching(getaiteamarray("axis"));
-		a_e_players = var_6d602035 array::get_touching(level.players);
+		a_e_enemies = t_spore array::get_touching(getaiteamarray("axis"));
+		a_e_players = t_spore array::get_touching(level.players);
 		array::thread_all(a_e_enemies, &function_ba7a3b74, 1, b_hero_weapon, e_attacker);
 		array::thread_all(a_e_players, &function_ba7a3b74, 0, b_hero_weapon, undefined);
 		wait(0.25);
 	}
 	self clientfield::set("spore_cloud_fx", 0);
-	var_6d602035 notify("cleanup");
-	var_6d602035 delete();
+	t_spore notify("cleanup");
+	t_spore delete();
 }
 
 /*
@@ -396,9 +396,9 @@ function spore_cloud_fx(b_hero_weapon, var_f9f788a6)
 */
 function function_cc07e4ad(var_66bbb0c0, s_org)
 {
-	var_6d602035 = spawn("trigger_radius", s_org.origin - vectorscale((0, 0, 1), 60), 0, var_66bbb0c0, 90);
-	var_6d602035.angles = s_org.angles;
-	return var_6d602035;
+	t_spore = spawn("trigger_radius", s_org.origin - vectorscale((0, 0, 1), 60), 0, var_66bbb0c0, 90);
+	t_spore.angles = s_org.angles;
+	return t_spore;
 }
 
 /*
