@@ -80,7 +80,7 @@ function main()
 	level thread zurich_util::function_91d852fa();
 	level thread zurich_util::function_a7b5b565();
 	load::main();
-	namespace_98d4ffda::function_7403e82b();
+	cp_mi_zurich_coalescence_patch::function_7403e82b();
 	level.oob_timelimit_ms = getdvarint("oob_timelimit_ms", 3000);
 }
 

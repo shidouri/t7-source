@@ -13,11 +13,11 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\vehicles\_quadtank;
 
-#namespace namespace_98d4ffda;
+#namespace cp_mi_zurich_coalescence_patch;
 
 /*
 	Name: function_7403e82b
-	Namespace: namespace_98d4ffda
+	Namespace: cp_mi_zurich_coalescence_patch
 	Checksum: 0x9B1666BE
 	Offset: 0x390
 	Size: 0xA0C
