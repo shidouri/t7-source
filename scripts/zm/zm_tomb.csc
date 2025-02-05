@@ -1224,21 +1224,21 @@ function function_d20e4b5a(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_24a5862d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	var_aa8e992 = array("phys_lantern01", "phys_lantern02", "phys_lantern03", "phys_lantern04", "phys_lantern05", "phys_lantern06", "phys_lantern07", "phys_lantern08", "phys_lantern09", "phys_lantern10", "phys_lantern11", "phys_lantern12", "phys_lantern13", "phys_lantern14", "phys_lantern15", "phys_lantern16", "phys_lantern17", "phys_lantern18", "phys_lantern19");
-	var_e531bd52 = [];
+	a_lanterns = [];
 	foreach(str_name in var_aa8e992)
 	{
-		var_e531bd52 = arraycombine(var_e531bd52, getdynentarray(str_name), 0, 0);
+		a_lanterns = arraycombine(a_lanterns, getdynentarray(str_name), 0, 0);
 	}
 	if(newval)
 	{
-		foreach(lantern in var_e531bd52)
+		foreach(lantern in a_lanterns)
 		{
 			lantern function_ea74b5ce(localclientnum);
 		}
 	}
 	else
 	{
-		foreach(lantern in var_e531bd52)
+		foreach(lantern in a_lanterns)
 		{
 			lantern function_b44167d(localclientnum);
 		}
