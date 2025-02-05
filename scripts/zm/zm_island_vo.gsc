@@ -1574,18 +1574,18 @@ function function_5ca4424()
 	{
 		if(!level flag::get("vo_lock_thrasher_appear_roar"))
 		{
-			level waittill(#"hash_9b1446c2", var_f363f596);
-			if(isalive(var_f363f596) && (!(isdefined(var_f363f596.var_dbb0b3dd) && var_f363f596.var_dbb0b3dd) && (!(isdefined(var_f363f596.var_9d252861) && var_f363f596.var_9d252861))))
+			level waittill(#"hash_9b1446c2", e_thrasher);
+			if(isalive(e_thrasher) && (!(isdefined(e_thrasher.var_dbb0b3dd) && e_thrasher.var_dbb0b3dd) && (!(isdefined(e_thrasher.var_9d252861) && e_thrasher.var_9d252861))))
 			{
 				e_speaker = undefined;
-				e_closest_player = arraygetclosest(var_f363f596.origin, level.activeplayers);
-				if(!e_closest_player zm_island_util::is_facing(var_f363f596) && distancesquared(var_f363f596.origin, e_closest_player.origin) <= var_1430cde)
+				e_closest_player = arraygetclosest(e_thrasher.origin, level.activeplayers);
+				if(!e_closest_player zm_island_util::is_facing(e_thrasher) && distancesquared(e_thrasher.origin, e_closest_player.origin) <= var_1430cde)
 				{
 					e_speaker = e_closest_player;
 				}
 				if(!level flag::get("vo_lock_thrasher_appear_roar") && zm_utility::is_player_valid(e_speaker))
 				{
-					var_f363f596.var_9d252861 = 1;
+					e_thrasher.var_9d252861 = 1;
 					wait(1);
 					level thread flag::set_for_time(5, "vo_lock_thrasher_appear_roar");
 					e_speaker function_1881817("thrasher", "roar", 10);
@@ -1611,8 +1611,8 @@ function function_a5b6f9c0()
 	level flag::wait_till("thrasher_spotted");
 	while(true)
 	{
-		level waittill(#"hash_49c2b21f", var_f363f596);
-		if(isalive(var_f363f596) && (!(isdefined(var_f363f596.var_36ba10fd) && var_f363f596.var_36ba10fd)))
+		level waittill(#"hash_49c2b21f", e_thrasher);
+		if(isalive(e_thrasher) && (!(isdefined(e_thrasher.var_36ba10fd) && e_thrasher.var_36ba10fd)))
 		{
 			e_speaker = undefined;
 			foreach(e_player in level.activeplayers)
@@ -1620,7 +1620,7 @@ function function_a5b6f9c0()
 				if(zm_utility::is_player_valid(e_player))
 				{
 					str_player_zone = e_player zm_zonemgr::get_player_zone();
-					if(isdefined(str_player_zone) && var_f363f596 zm_zonemgr::entity_in_zone(str_player_zone) && e_player islookingat(var_f363f596))
+					if(isdefined(str_player_zone) && e_thrasher zm_zonemgr::entity_in_zone(str_player_zone) && e_player islookingat(e_thrasher))
 					{
 						e_speaker = e_player;
 						break;
@@ -1629,7 +1629,7 @@ function function_a5b6f9c0()
 			}
 			if(zm_utility::is_player_valid(e_speaker) && !level flag::get("takeofight_wave_spawning"))
 			{
-				var_f363f596.var_36ba10fd = 1;
+				e_thrasher.var_36ba10fd = 1;
 				e_speaker function_1881817("thrasher", "create", 10);
 			}
 		}
