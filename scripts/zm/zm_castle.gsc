@@ -1410,18 +1410,18 @@ function function_69573a4c()
 */
 function function_f7046db2(a_ents)
 {
-	var_9be38c79 = a_ents["raven_idle"];
-	if(isdefined(var_9be38c79))
+	e_raven = a_ents["raven_idle"];
+	if(isdefined(e_raven))
 	{
-		var_9be38c79 setcandamage(1);
-		var_9be38c79.health = 100000;
-		var_9be38c79 thread function_a8aef7fe();
-		var_9be38c79 waittill("damage", n_amount, e_attacker, v_direction, v_point, str_type);
-		var_9be38c79 playsound("amb_castle_raven_death");
-		playfxontag(level._effect["raven_death_fx"], var_9be38c79, "j_pelvis");
-		playfxontag(level._effect["raven_feather_fx"], var_9be38c79, "j_pelvis");
+		e_raven setcandamage(1);
+		e_raven.health = 100000;
+		e_raven thread function_a8aef7fe();
+		e_raven waittill("damage", n_amount, e_attacker, v_direction, v_point, str_type);
+		e_raven playsound("amb_castle_raven_death");
+		playfxontag(level._effect["raven_death_fx"], e_raven, "j_pelvis");
+		playfxontag(level._effect["raven_feather_fx"], e_raven, "j_pelvis");
 		util::wait_network_frame();
-		var_9be38c79 delete();
+		e_raven delete();
 	}
 }
 
