@@ -124,13 +124,13 @@ function function_50d69c96(var_7f004376 = 12)
 */
 function function_5ffdcb9d(var_7f004376)
 {
-	var_707bc057 = struct::get_array("siege_anim");
-	var_62b3e03f = function_eb04522d(self.origin[2], var_707bc057, var_7f004376);
+	a_crowds = struct::get_array("siege_anim");
+	var_62b3e03f = function_eb04522d(self.origin[2], a_crowds, var_7f004376);
 	var_d47b3178 = arraycopy(var_62b3e03f);
-	if(isdefined(level.var_707bc057))
+	if(isdefined(level.a_crowds))
 	{
-		var_41cebe05 = arrayintersect(var_62b3e03f, level.var_707bc057);
-		var_3b2cf31a = arraycopy(level.var_707bc057);
+		var_41cebe05 = arrayintersect(var_62b3e03f, level.a_crowds);
+		var_3b2cf31a = arraycopy(level.a_crowds);
 		foreach(s_crowd in var_41cebe05)
 		{
 			arrayremovevalue(var_3b2cf31a, s_crowd);
@@ -151,7 +151,7 @@ function function_5ffdcb9d(var_7f004376)
 		s_crowd thread scene::play("cin_lot_03_01_hakim_crowd_new");
 		s_crowd.b_play = 1;
 	}
-	level.var_707bc057 = var_62b3e03f;
+	level.a_crowds = var_62b3e03f;
 }
 
 /*
@@ -245,17 +245,17 @@ function function_eb04522d(n_z, a_items, n_max = a_items.size)
 */
 function ignore_siege(n_local_client, n_val_new, str_name, str_key = "script_label")
 {
-	var_707bc057 = struct::get_array(str_name, str_key);
+	a_crowds = struct::get_array(str_name, str_key);
 	if(n_val_new)
 	{
-		foreach(s_crowd in var_707bc057)
+		foreach(s_crowd in a_crowds)
 		{
 			s_crowd.b_ignore = 1;
 		}
 	}
 	else
 	{
-		foreach(s_crowd in var_707bc057)
+		foreach(s_crowd in a_crowds)
 		{
 			s_crowd.b_ignore = undefined;
 		}
