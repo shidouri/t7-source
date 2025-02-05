@@ -1,10 +1,10 @@
 #using scripts\cp\_dialog;
 
-#namespace namespace_ec2cabcf;
+#namespace voice_blackstation;
 
 /*
 	Name: init_voice
-	Namespace: namespace_ec2cabcf
+	Namespace: voice_blackstation
 	Checksum: 0x540E2F6F
 	Offset: 0x3108
 	Size: 0x0
