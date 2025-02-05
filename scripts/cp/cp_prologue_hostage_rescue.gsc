@@ -2366,8 +2366,8 @@ function lift_escape_cleanup()
 function cleanup(spawn_mgr_name, ai_groups_name)
 {
 	spawn_manager::kill(spawn_mgr_name);
-	var_db932442 = spawner::get_ai_group_ai(ai_groups_name);
-	foreach(ai_dude in var_db932442)
+	a_group = spawner::get_ai_group_ai(ai_groups_name);
+	foreach(ai_dude in a_group)
 	{
 		if(isalive(ai_dude))
 		{
