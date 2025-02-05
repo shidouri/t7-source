@@ -58,3 +58,5 @@ voice_ramses1
 voice_newworld
 voice_infection1
 voice_blackstation
+cp_mi_zurich_coalescence_patch
+cp_mi_zurich_coalescence_patch_c
