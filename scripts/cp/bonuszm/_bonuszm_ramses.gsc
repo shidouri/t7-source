@@ -31,7 +31,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_c1b94c1e::init_voice();
+	voice_z_ramses::init_voice();
 	level.bzm_ramsesdialogue1callback = &function_dfa3a625;
 	level.bzm_ramsesdialogue2callback = &function_5a6208e;
 	level.bzm_ramsesdialogue3callback = &function_2ba89af7;
