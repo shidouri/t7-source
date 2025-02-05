@@ -3239,9 +3239,9 @@ function function_9eb901e()
 */
 function function_f0cad19e()
 {
-	foreach(var_bf3222f4 in level.var_9cd0665b)
+	foreach(e_terrain in level.var_9cd0665b)
 	{
-		var_bf3222f4 delete();
+		e_terrain delete();
 	}
 }
 
