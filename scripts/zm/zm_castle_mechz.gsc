@@ -557,7 +557,7 @@ function function_d8d01032()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b2a1b297()
+function mechz_corpse()
 {
 	self waittill("actor_corpse", mechz);
 	wait(60);
