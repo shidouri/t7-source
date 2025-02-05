@@ -33,7 +33,7 @@ function autoexec init()
 	{
 		return;
 	}
-	namespace_50be16fe::init_voice();
+	voice_z_blackstation::init_voice();
 	level.bzm_blackstationdialogue1callback = &function_96eb55bd;
 	level.bzm_blackstationdialogue2callback = &function_bcedd026;
 	level.bzm_blackstationdialogue3callback = &function_e2f04a8f;
