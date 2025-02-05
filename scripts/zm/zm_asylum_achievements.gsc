@@ -215,8 +215,8 @@ function function_1abfde35(e_attacker)
 		{
 			return;
 		}
-		var_52df56de = getent("area_courtyard", "targetname");
-		if(!(isdefined(self istouching(var_52df56de)) && self istouching(var_52df56de)))
+		e_courtyard = getent("area_courtyard", "targetname");
+		if(!(isdefined(self istouching(e_courtyard)) && self istouching(e_courtyard)))
 		{
 			return;
 		}
