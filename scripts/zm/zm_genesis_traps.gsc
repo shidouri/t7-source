@@ -110,9 +110,9 @@ function function_835fd6d8()
 			{
 				case "pendulum":
 				{
-					self.var_4b6ad173 = a_e_parts[i];
+					self.e_pendulum = a_e_parts[i];
 					self enablelinkto();
-					self linkto(self.var_4b6ad173);
+					self linkto(self.e_pendulum);
 					break;
 				}
 				case "gears":
@@ -366,7 +366,7 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 	level notify("trap_activate", self);
 	var_ffd9e7a0 playloopsound("zmb_flogger_motor_lp_l");
 	var_94be4c8f playloopsound("zmb_flogger_motor_lp_r");
-	self.var_4b6ad173 notsolid();
+	self.e_pendulum notsolid();
 	self thread function_1f2a0da5(var_c4f1ee44, e_player);
 	if(var_c4f1ee44.script_string === "reverse")
 	{
@@ -377,11 +377,11 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 		n_rotations = 14040;
 	}
 	self.e_gears rotatepitch(n_rotations, 30, 6, 6);
-	self.var_4b6ad173 rotatepitch(n_rotations, 30, 6, 6);
-	level thread function_ec80dc42(self.var_4b6ad173);
+	self.e_pendulum rotatepitch(n_rotations, 30, 6, 6);
+	level thread function_ec80dc42(self.e_pendulum);
 	level thread function_e5b7e8b0(var_ffd9e7a0, var_94be4c8f);
-	self.var_4b6ad173 waittill("rotatedone");
-	self.var_4b6ad173 solid();
+	self.e_pendulum waittill("rotatedone");
+	self.e_pendulum solid();
 	self notify("trap_done");
 }
 
@@ -394,28 +394,28 @@ function function_bb59d4d9(var_c4f1ee44, e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ec80dc42(var_4b6ad173)
+function function_ec80dc42(e_pendulum)
 {
-	var_4b6ad173 endon("rotatedone");
-	var_feed8b5b = var_4b6ad173.angles[0];
-	var_dea46db3 = var_4b6ad173.angles[0];
+	e_pendulum endon("rotatedone");
+	var_feed8b5b = e_pendulum.angles[0];
+	var_dea46db3 = e_pendulum.angles[0];
 	firsttime = 1;
 	while(true)
 	{
 		wait(0.05);
-		var_feed8b5b = var_4b6ad173.angles[0];
+		var_feed8b5b = e_pendulum.angles[0];
 		var_b6c309e9 = var_dea46db3 - var_feed8b5b;
 		if(firsttime)
 		{
 			if(var_b6c309e9 >= 80)
 			{
-				var_4b6ad173 playsound("zmb_flogger_blade_whoosh");
+				e_pendulum playsound("zmb_flogger_blade_whoosh");
 				firsttime = 0;
 				var_dea46db3 = var_dea46db3 - 80;
 			}
 			else if(var_b6c309e9 <= -80)
 			{
-				var_4b6ad173 playsound("zmb_flogger_blade_whoosh");
+				e_pendulum playsound("zmb_flogger_blade_whoosh");
 				firsttime = 0;
 				var_dea46db3 = var_dea46db3 + 80;
 			}
@@ -424,12 +424,12 @@ function function_ec80dc42(var_4b6ad173)
 		{
 			if(var_b6c309e9 >= 180)
 			{
-				var_4b6ad173 playsound("zmb_flogger_blade_whoosh");
+				e_pendulum playsound("zmb_flogger_blade_whoosh");
 				var_dea46db3 = var_dea46db3 - 180;
 			}
 			else if(var_b6c309e9 <= -180)
 			{
-				var_4b6ad173 playsound("zmb_flogger_blade_whoosh");
+				e_pendulum playsound("zmb_flogger_blade_whoosh");
 				var_dea46db3 = var_dea46db3 + 180;
 			}
 		}
