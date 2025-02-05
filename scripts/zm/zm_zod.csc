@@ -571,18 +571,18 @@ function hide_perf_static_models(localclientnum, oldval, newval, bnewent, biniti
 	{
 		hidestaticmodel(var_90dba62a[i]);
 	}
-	var_48d31804 = findstaticmodelindexarray("fxanim_pap_bridge_01_static");
-	hidestaticmodel(var_48d31804[0]);
-	var_48d31804 = findstaticmodelindexarray("fxanim_pap_bridge_02_static");
-	hidestaticmodel(var_48d31804[0]);
-	var_48d31804 = findstaticmodelindexarray("fxanim_crate_footlight_static");
-	hidestaticmodel(var_48d31804[0]);
-	var_48d31804 = findstaticmodelindexarray("fxanim_crate_footlight_break_static");
-	hidestaticmodel(var_48d31804[0]);
-	var_48d31804 = findstaticmodelindexarray("fxanim_crate_start_static");
-	hidestaticmodel(var_48d31804[0]);
-	var_48d31804 = findstaticmodelindexarray("fxanim_crate_start_break_static");
-	hidestaticmodel(var_48d31804[0]);
+	a_model = findstaticmodelindexarray("fxanim_pap_bridge_01_static");
+	hidestaticmodel(a_model[0]);
+	a_model = findstaticmodelindexarray("fxanim_pap_bridge_02_static");
+	hidestaticmodel(a_model[0]);
+	a_model = findstaticmodelindexarray("fxanim_crate_footlight_static");
+	hidestaticmodel(a_model[0]);
+	a_model = findstaticmodelindexarray("fxanim_crate_footlight_break_static");
+	hidestaticmodel(a_model[0]);
+	a_model = findstaticmodelindexarray("fxanim_crate_start_static");
+	hidestaticmodel(a_model[0]);
+	a_model = findstaticmodelindexarray("fxanim_crate_start_break_static");
+	hidestaticmodel(a_model[0]);
 }
 
 /*
@@ -600,14 +600,14 @@ function function_66fdd0a3(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		case 1:
 		{
-			var_48d31804 = findstaticmodelindexarray("fxanim_crate_start_static");
-			unhidestaticmodel(var_48d31804[0]);
+			a_model = findstaticmodelindexarray("fxanim_crate_start_static");
+			unhidestaticmodel(a_model[0]);
 			break;
 		}
 		case 2:
 		{
-			var_48d31804 = findstaticmodelindexarray("fxanim_crate_start_break_static");
-			unhidestaticmodel(var_48d31804[0]);
+			a_model = findstaticmodelindexarray("fxanim_crate_start_break_static");
+			unhidestaticmodel(a_model[0]);
 			break;
 		}
 	}
@@ -628,14 +628,14 @@ function function_5a6fb328(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		case 1:
 		{
-			var_48d31804 = findstaticmodelindexarray("fxanim_crate_start_static");
-			hidestaticmodel(var_48d31804[0]);
+			a_model = findstaticmodelindexarray("fxanim_crate_start_static");
+			hidestaticmodel(a_model[0]);
 			break;
 		}
 		case 2:
 		{
-			var_48d31804 = findstaticmodelindexarray("fxanim_crate_start_break_static");
-			hidestaticmodel(var_48d31804[0]);
+			a_model = findstaticmodelindexarray("fxanim_crate_start_break_static");
+			hidestaticmodel(a_model[0]);
 			break;
 		}
 	}
