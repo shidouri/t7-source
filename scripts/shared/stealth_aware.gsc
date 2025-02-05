@@ -592,7 +592,7 @@ function function_101ac5(eventpackage)
 function function_933965f6(eventpackage)
 {
 	e_originator = eventpackage.parms[0];
-	var_62bc230d = eventpackage.parms[1];
+	e_instigator = eventpackage.parms[1];
 	if(self.awarenesslevelcurrent != "unaware")
 	{
 		return;
@@ -601,7 +601,7 @@ function function_933965f6(eventpackage)
 	{
 		return;
 	}
-	if(!isentity(var_62bc230d))
+	if(!isentity(e_instigator))
 	{
 		return;
 	}
@@ -611,12 +611,12 @@ function function_933965f6(eventpackage)
 		{
 			return;
 		}
-		goalpos = var_62bc230d getfinalpathpos();
-		delta = goalpos - var_62bc230d.origin;
+		goalpos = e_instigator getfinalpathpos();
+		delta = goalpos - e_instigator.origin;
 		if(lengthsquared(delta) > 250000)
 		{
-			var_fbbdb5f6 = var_62bc230d.origin + (vectornormalize(delta) * 500);
-			deltaorigin = var_62bc230d.origin - self.origin;
+			var_fbbdb5f6 = e_instigator.origin + (vectornormalize(delta) * 500);
+			deltaorigin = e_instigator.origin - self.origin;
 			deltaangles = vectortoangles(deltaorigin);
 			self.react_yaw = absangleclamp360(self.angles[1] - deltaangles[1]);
 			self notify("investigate", var_fbbdb5f6, e_originator, "quick");
