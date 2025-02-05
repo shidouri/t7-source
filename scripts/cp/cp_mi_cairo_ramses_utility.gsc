@@ -1697,10 +1697,10 @@ function turret_pickup_think(s_obj)
 		{
 			if(e_player turret_pickup_button_pressed() && !e_player has_weapon(w_hero))
 			{
-				var_73a38d53 = self getseatoccupant(0);
-				if(isdefined(var_73a38d53))
+				e_driver = self getseatoccupant(0);
+				if(isdefined(e_driver))
 				{
-					if(var_73a38d53 == e_player)
+					if(e_driver == e_player)
 					{
 						self usevehicle(e_player, 0);
 					}
@@ -1744,8 +1744,8 @@ function turret_pickup_hint(t_pickup, w_hero)
 		{
 			return;
 		}
-		var_73a38d53 = self getseatoccupant(0);
-		if(isdefined(var_73a38d53) && var_73a38d53 != e_player)
+		e_driver = self getseatoccupant(0);
+		if(isdefined(e_driver) && e_driver != e_player)
 		{
 			continue;
 		}
