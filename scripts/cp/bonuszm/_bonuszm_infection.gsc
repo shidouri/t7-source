@@ -32,7 +32,7 @@ function autoexec init()
 		return;
 	}
 	level.riser_type = "snow";
-	namespace_6ff07a70::init_voice();
+	voice_z_infection::init_voice();
 	level.bzm_infectiondialogue1callback = &function_c7784263;
 	level.bzm_infectiondialogue2callback = &function_5570d328;
 	level.bzm_infectiondialogue3callback = &function_7b734d91;
