@@ -1097,22 +1097,22 @@ function function_f30f87e4(n_index)
 	level notify("ee_final_boss_keeper_electricity_watcher_" + n_index);
 	level endon("ee_final_boss_keeper_electricity_watcher_" + n_index);
 	level endon("ee_final_boss_defeated");
-	var_da3dbbdf = level.var_76c101df[n_index];
-	var_da3dbbdf endon("delete");
-	var_da3dbbdf solid();
-	var_da3dbbdf setcandamage(1);
-	var_da3dbbdf.health = 1000000;
+	mdl_keeper = level.var_76c101df[n_index];
+	mdl_keeper endon("delete");
+	mdl_keeper solid();
+	mdl_keeper setcandamage(1);
+	mdl_keeper.health = 1000000;
 	while(true)
 	{
-		var_da3dbbdf waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		var_da3dbbdf.health = 1000000;
+		mdl_keeper waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
+		mdl_keeper.health = 1000000;
 		if(zm_altbody_beast::is_lightning_weapon(weapon) && isdefined(attacker) && amount > 0)
 		{
 			if(isdefined(attacker))
 			{
 				attacker notify("shockable_shocked");
 			}
-			level thread function_6774c6fd(var_da3dbbdf);
+			level thread function_6774c6fd(mdl_keeper);
 			level flag::set("ee_final_boss_keeper_electricity_" + n_index);
 			wait(5);
 			level flag::clear("ee_final_boss_keeper_electricity_" + n_index);
@@ -1129,11 +1129,11 @@ function function_f30f87e4(n_index)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6774c6fd(var_da3dbbdf)
+function function_6774c6fd(mdl_keeper)
 {
-	fx_ent = spawn("script_model", var_da3dbbdf.origin);
+	fx_ent = spawn("script_model", mdl_keeper.origin);
 	fx_ent setmodel("tag_origin");
-	fx_ent.angles = var_da3dbbdf.angles;
+	fx_ent.angles = mdl_keeper.angles;
 	playfxontag(level._effect["ee_quest_keeper_shocked"], fx_ent, "tag_origin");
 	fx_ent playsound("zmb_zod_keeper_charge_up");
 	fx_ent playloopsound("zmb_zod_keeper_charge_lp", 1);

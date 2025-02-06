@@ -304,21 +304,21 @@ function function_83ff2eda()
 function function_91a378e3()
 {
 	s_keeper = struct::get("mpd_pos");
-	var_da3dbbdf = util::spawn_anim_model("c_zom_dlc1_keeper_archon_small_fb", s_keeper.origin, vectorscale((0, 1, 0), 90));
+	mdl_keeper = util::spawn_anim_model("c_zom_dlc1_keeper_archon_small_fb", s_keeper.origin, vectorscale((0, 1, 0), 90));
 	wait(0.05);
-	var_da3dbbdf ghost();
+	mdl_keeper ghost();
 	wait(0.05);
-	var_da3dbbdf clientfield::set("boss_mpd_fx", 1);
-	var_da3dbbdf show();
-	var_da3dbbdf function_a1658f19("ai_zm_dlc1_corrupted_keeper_float_emerge", "ai_zm_dlc1_corrupted_keeper_float_idle");
+	mdl_keeper clientfield::set("boss_mpd_fx", 1);
+	mdl_keeper show();
+	mdl_keeper function_a1658f19("ai_zm_dlc1_corrupted_keeper_float_emerge", "ai_zm_dlc1_corrupted_keeper_float_idle");
 	wait(0.05);
-	var_da3dbbdf function_a1658f19("ai_zm_dlc1_corrupted_keeper_roar", "ai_zm_dlc1_corrupted_keeper_float_idle");
-	var_da3dbbdf playloopsound("zmb_ee_resurrect_keeper_notghost_lp", 2);
+	mdl_keeper function_a1658f19("ai_zm_dlc1_corrupted_keeper_roar", "ai_zm_dlc1_corrupted_keeper_float_idle");
+	mdl_keeper playloopsound("zmb_ee_resurrect_keeper_notghost_lp", 2);
 	zm_castle_vo::function_cbf21c9d();
 	level flag::wait_till("boss_fight_begin");
 	callback::remove_on_connect(&zm_castle_util::function_fa7da172);
 	level.var_8ef26cd9 = undefined;
-	var_da3dbbdf delete();
+	mdl_keeper delete();
 	var_82a4f07b = struct::get("keeper_end_loc");
 	var_82a4f07b notify("delete_fx");
 	var_293d02aa = getent("undercroft_pyramid", "targetname");
