@@ -1968,9 +1968,9 @@ function function_89870276()
 	level flag::init("demon_gate_spawned");
 	wait(0.05);
 	var_14733f98 = getentarray("aq_dg_fossil", "script_noteworthy");
-	foreach(var_8ab1dc51 in var_14733f98)
+	foreach(mdl_fossil in var_14733f98)
 	{
-		var_8ab1dc51 clientfield::set("fossil_reveal", 2);
+		mdl_fossil clientfield::set("fossil_reveal", 2);
 	}
 }
 
@@ -2448,9 +2448,9 @@ function function_f836dce1()
 			{
 				var_f273b80a.var_cb2fc89f = 1;
 				self clientfield::set("fossil_reveal", 0);
-				var_8ab1dc51 = util::spawn_model("c_zom_chomper_demongate");
-				var_8ab1dc51 clientfield::set("fossil_reveal", 1);
-				var_f273b80a scene::play("ai_zm_dlc1_zombie_demongate_fossil_attack_crawler", array(var_f273b80a, var_8ab1dc51));
+				mdl_fossil = util::spawn_model("c_zom_chomper_demongate");
+				mdl_fossil clientfield::set("fossil_reveal", 1);
+				var_f273b80a scene::play("ai_zm_dlc1_zombie_demongate_fossil_attack_crawler", array(var_f273b80a, mdl_fossil));
 				level thread function_b4c4b5dd(var_f273b80a.origin);
 				var_f273b80a dodamage(var_f273b80a.health, var_f273b80a.origin);
 				return;
