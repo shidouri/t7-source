@@ -2075,15 +2075,15 @@ function function_3da5d43b(str_objective)
 			assert(isdefined(str_objective), "");
 		#/
 	}
-	var_779fea3 = getent(self.target, "targetname");
+	mdl_heart = getent(self.target, "targetname");
 	level thread function_8bd6820f(str_objective);
 	self thread function_61f7fc15();
 	self.var_afacae68 = 0;
-	self function_17b739e2(var_779fea3);
+	self function_17b739e2(mdl_heart);
 	level notify(str_objective + "_done");
 	wait(1);
 	self delete();
-	var_779fea3 delete();
+	mdl_heart delete();
 }
 
 /*
@@ -2130,9 +2130,9 @@ function function_8bd6820f(str_objective)
 	Parameters: 1
 	Flags: Linked
 */
-function function_17b739e2(var_779fea3)
+function function_17b739e2(mdl_heart)
 {
-	self function_30a6b901(1, var_779fea3);
+	self function_30a6b901(1, mdl_heart);
 	self.var_afacae68 = 1;
 	self notify("brn");
 }

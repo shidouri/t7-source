@@ -1111,8 +1111,8 @@ function function_523509c2()
 		var_fad038a6 = struct::get_array("margwa_heart");
 		foreach(var_a3b2752a in var_fad038a6)
 		{
-			var_779fea3 = util::spawn_model("p7_zm_zod_margwa_heart_alive", var_a3b2752a.origin, var_a3b2752a.angles);
-			var_779fea3 thread function_9a436d7f();
+			mdl_heart = util::spawn_model("p7_zm_zod_margwa_heart_alive", var_a3b2752a.origin, var_a3b2752a.angles);
+			mdl_heart thread function_9a436d7f();
 			if(!isdefined(level.a_hearts))
 			{
 				level.a_hearts = [];
@@ -1121,15 +1121,15 @@ function function_523509c2()
 			{
 				level.a_hearts = array(level.a_hearts);
 			}
-			level.a_hearts[level.a_hearts.size] = var_779fea3;
+			level.a_hearts[level.a_hearts.size] = mdl_heart;
 		}
 		level thread function_51b665f0();
 		while(true)
 		{
 			var_9094458d = 0;
-			foreach(var_779fea3 in level.a_hearts)
+			foreach(mdl_heart in level.a_hearts)
 			{
-				if(isdefined(var_779fea3.b_shown) && var_779fea3.b_shown)
+				if(isdefined(mdl_heart.b_shown) && mdl_heart.b_shown)
 				{
 					var_9094458d = 1;
 					break;
