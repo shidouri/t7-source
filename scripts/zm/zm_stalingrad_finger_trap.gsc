@@ -47,8 +47,8 @@ function function_7715178d()
 	level thread scene::init("p7_fxanim_zm_stal_finger_trap_bundle");
 	level.var_79dbe0dd = [];
 	scene::add_scene_func("p7_fxanim_zm_stal_finger_trap_bundle", &function_2d729696, "init");
-	var_bbadd4a4 = struct::get_array("finger_trap_activate", "targetname");
-	array::thread_all(var_bbadd4a4, &function_eeb24547);
+	a_s_activate = struct::get_array("finger_trap_activate", "targetname");
+	array::thread_all(a_s_activate, &function_eeb24547);
 }
 
 /*
