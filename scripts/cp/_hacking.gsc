@@ -176,11 +176,11 @@ function onuse(player)
 		player util::delay(1, undefined, &clientfield::increment_to_player, "hack_dni_fx");
 		if(isdefined(self.var_27d1693f))
 		{
-			var_c4ed51d5 = util::spawn_model("tag_origin", player.origin, player.angles);
-			var_c4ed51d5 linkto(self.var_27d1693f);
-			player playerlinkto(var_c4ed51d5, "tag_origin");
-			var_c4ed51d5 scene::play("cin_gen_player_hack_start", player);
-			var_c4ed51d5 delete();
+			mdl_link = util::spawn_model("tag_origin", player.origin, player.angles);
+			mdl_link linkto(self.var_27d1693f);
+			player playerlinkto(mdl_link, "tag_origin");
+			mdl_link scene::play("cin_gen_player_hack_start", player);
+			mdl_link delete();
 		}
 		else
 		{
