@@ -2121,8 +2121,8 @@ function function_a231bc42()
 {
 	self notify(#"hash_4c1b1a28");
 	n_ent_num = self getentitynumber();
-	var_32f0d800 = getent("pr_g_b_" + n_ent_num, "targetname");
-	var_32f0d800 show();
+	mdl_bouquet = getent("pr_g_b_" + n_ent_num, "targetname");
+	mdl_bouquet show();
 	var_79f3942a = getent("pr_g_c_" + n_ent_num, "targetname");
 	var_79f3942a show();
 	var_79f3942a clientfield::set("pr_g_c_fx", 1);
@@ -2130,7 +2130,7 @@ function function_a231bc42()
 	var_eaad475 show();
 	self waittill("disconnect");
 	var_79f3942a clientfield::set("pr_g_c_fx", 0);
-	var_32f0d800 hide();
+	mdl_bouquet hide();
 	var_79f3942a hide();
 	var_eaad475 hide();
 }
