@@ -2090,13 +2090,13 @@ function set_frieze_power(var_e7fbc48, b_on)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7107ea51(var_b12a7acb, var_4539ae4a)
+function function_7107ea51(mdl_animating, var_4539ae4a)
 {
 	level notify(#"hash_7107ea51");
 	level endon(#"hash_7107ea51");
 	while(true)
 	{
-		var_b12a7acb util::waittill_any("impact_rumble", "rumble_stop");
+		mdl_animating util::waittill_any("impact_rumble", "rumble_stop");
 		earthquake(0.5, 0.2, var_4539ae4a.origin, 512);
 		foreach(player in level.activeplayers)
 		{
