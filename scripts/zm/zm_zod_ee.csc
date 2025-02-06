@@ -863,13 +863,13 @@ function function_27e2b2cc(localclientnum)
 	{
 		level.var_a9f994a9 = spawnstruct();
 	}
-	if(!isdefined(level.var_a9f994a9.var_8cf34592))
+	if(!isdefined(level.var_a9f994a9.mdl_reveal))
 	{
 		s_loc = struct::get("ee_apothigod_gateworm_reveal", "targetname");
-		level.var_a9f994a9.var_8cf34592 = spawn(localclientnum, s_loc.origin, "script_model");
-		level.var_a9f994a9.var_8cf34592.angles = s_loc.angles;
-		level.var_a9f994a9.var_8cf34592 setmodel("p7_zm_zod_gateworm_large");
-		level.var_a9f994a9.var_8cf34592 useanimtree($generic);
+		level.var_a9f994a9.mdl_reveal = spawn(localclientnum, s_loc.origin, "script_model");
+		level.var_a9f994a9.mdl_reveal.angles = s_loc.angles;
+		level.var_a9f994a9.mdl_reveal setmodel("p7_zm_zod_gateworm_large");
+		level.var_a9f994a9.mdl_reveal useanimtree($generic);
 	}
 	if(!isdefined(level.var_a9f994a9.mdl_junction))
 	{
@@ -877,7 +877,7 @@ function function_27e2b2cc(localclientnum)
 		level.var_a9f994a9.mdl_junction = spawn(localclientnum, s_loc.origin, "script_model");
 		level.var_a9f994a9.mdl_junction.angles = s_loc.angles;
 		level.var_a9f994a9.mdl_junction setmodel("p7_zm_zod_gateworm_large");
-		level.var_a9f994a9.var_8cf34592 useanimtree($generic);
+		level.var_a9f994a9.mdl_reveal useanimtree($generic);
 	}
 }
 
@@ -897,10 +897,10 @@ function ee_superworm_state(localclientnum, oldval, newval, bnewent, binitialsna
 		return;
 	}
 	function_27e2b2cc(localclientnum);
-	level.var_a9f994a9.var_8cf34592 util::waittill_dobj(localclientnum);
-	if(!level.var_a9f994a9.var_8cf34592 hasanimtree())
+	level.var_a9f994a9.mdl_reveal util::waittill_dobj(localclientnum);
+	if(!level.var_a9f994a9.mdl_reveal hasanimtree())
 	{
-		level.var_a9f994a9.var_8cf34592 useanimtree($generic);
+		level.var_a9f994a9.mdl_reveal useanimtree($generic);
 	}
 	level.var_a9f994a9.mdl_junction util::waittill_dobj(localclientnum);
 	if(!level.var_a9f994a9.mdl_junction hasanimtree())
@@ -911,26 +911,26 @@ function ee_superworm_state(localclientnum, oldval, newval, bnewent, binitialsna
 	{
 		case 0:
 		{
-			level.var_a9f994a9.var_8cf34592 hide();
+			level.var_a9f994a9.mdl_reveal hide();
 			level.var_a9f994a9.mdl_junction hide();
 			break;
 		}
 		case 1:
 		{
-			level.var_a9f994a9.var_8cf34592 show();
+			level.var_a9f994a9.mdl_reveal show();
 			level.var_a9f994a9.mdl_junction hide();
-			level.var_a9f994a9.var_8cf34592 function_bdd91321(localclientnum, 0, 0);
-			level.var_a9f994a9.var_8cf34592 thread animation::play("ai_zombie_zod_gateworm_large_idle_loop_active", undefined, undefined, 1);
+			level.var_a9f994a9.mdl_reveal function_bdd91321(localclientnum, 0, 0);
+			level.var_a9f994a9.mdl_reveal thread animation::play("ai_zombie_zod_gateworm_large_idle_loop_active", undefined, undefined, 1);
 			wait(5);
-			level.var_a9f994a9.var_8cf34592 hide();
-			level.var_a9f994a9.var_8cf34592 function_bdd91321(localclientnum, 0, 0);
+			level.var_a9f994a9.mdl_reveal hide();
+			level.var_a9f994a9.mdl_reveal function_bdd91321(localclientnum, 0, 0);
 			level.var_a9f994a9.mdl_junction show();
 			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 1, 0);
 			break;
 		}
 		case 2:
 		{
-			level.var_a9f994a9.var_8cf34592 hide();
+			level.var_a9f994a9.mdl_reveal hide();
 			level.var_a9f994a9.mdl_junction show();
 			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 1, 1);
 			level.var_a9f994a9.mdl_junction hide();
@@ -938,7 +938,7 @@ function ee_superworm_state(localclientnum, oldval, newval, bnewent, binitialsna
 		}
 		case 3:
 		{
-			level.var_a9f994a9.var_8cf34592 hide();
+			level.var_a9f994a9.mdl_reveal hide();
 			level.var_a9f994a9.mdl_junction show();
 			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 0, 0);
 			level.var_a9f994a9.mdl_junction clearanim("ai_zombie_zod_gateworm_large_idle_loop_active", 0);
@@ -947,7 +947,7 @@ function ee_superworm_state(localclientnum, oldval, newval, bnewent, binitialsna
 		}
 		case 4:
 		{
-			level.var_a9f994a9.var_8cf34592 hide();
+			level.var_a9f994a9.mdl_reveal hide();
 			level.var_a9f994a9.mdl_junction show();
 			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 0, 0);
 			level.var_a9f994a9.mdl_junction clearanim("ai_zombie_zod_gateworm_large_idle_loop", 0);
