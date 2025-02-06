@@ -646,8 +646,8 @@ function function_1b5affd(player)
 function audio_recordings()
 {
 	level.var_4a9b0bd3 = 0;
-	var_e2dface3 = struct::get_array("audio_recording");
-	foreach(s_recording in var_e2dface3)
+	a_s_recordings = struct::get_array("audio_recording");
+	foreach(s_recording in a_s_recordings)
 	{
 		s_recording thread audio_recording();
 	}
