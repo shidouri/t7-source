@@ -378,8 +378,8 @@ function function_672c874()
 	s_struct = struct::get("s_truck_explosion_origin", "targetname");
 	physicsexplosionsphere(s_struct.origin, 255, 254, 0.3, 25, 400);
 	wait(0.1);
-	var_ff31c6f9 = getentarray("truck_red_barrel", "script_noteworthy");
-	foreach(piece in var_ff31c6f9)
+	a_e_barrel = getentarray("truck_red_barrel", "script_noteworthy");
+	foreach(piece in a_e_barrel)
 	{
 		if(isdefined(piece) && piece.targetname == "destructible")
 		{
