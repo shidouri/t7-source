@@ -93,8 +93,8 @@ function function_7021da92(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_a358ec33(localclientnum)
 {
-	var_307a62d0 = getentarray(localclientnum);
-	foreach(entity in var_307a62d0)
+	a_e_candy = getentarray(localclientnum);
+	foreach(entity in a_e_candy)
 	{
 		if(isdefined(entity.var_d8bd114f) && entity.var_d8bd114f && isdefined(self.var_73021e86))
 		{
@@ -114,8 +114,8 @@ function function_a358ec33(localclientnum)
 */
 function function_c1a20a24(localclientnum)
 {
-	var_307a62d0 = getentarray(localclientnum);
-	foreach(entity in var_307a62d0)
+	a_e_candy = getentarray(localclientnum);
+	foreach(entity in a_e_candy)
 	{
 		if(isdefined(entity.var_d8bd114f) && entity.var_d8bd114f)
 		{
