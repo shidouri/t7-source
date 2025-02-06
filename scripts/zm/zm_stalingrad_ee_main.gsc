@@ -3532,8 +3532,8 @@ function function_9aede4e6()
 {
 	a_s_positions = struct::get_array("ee_pursue_position", "targetname");
 	array::run_all(a_s_positions, &struct::delete);
-	var_952f535d = struct::get_array("ee_pursue_arrival", "script_label");
-	array::run_all(var_952f535d, &struct::delete);
+	a_s_arrivals = struct::get_array("ee_pursue_arrival", "script_label");
+	array::run_all(a_s_arrivals, &struct::delete);
 }
 
 /*
