@@ -322,19 +322,19 @@ function init_redphone_eggs()
 		wait(randomintrange(90, 240));
 		while(true)
 		{
-			var_9d999891 = array::random(var_85d06ae4);
-			arrayremovevalue(var_85d06ae4, var_9d999891);
+			s_phone = array::random(var_85d06ae4);
+			arrayremovevalue(var_85d06ae4, s_phone);
 			if(var_85d06ae4.size <= 0)
 			{
 				var_85d06ae4 = struct::get_array("egg_phone", "targetname");
 			}
-			if(isdefined(var_9d999891.broken) && var_9d999891.broken)
+			if(isdefined(s_phone.broken) && s_phone.broken)
 			{
 				continue;
 			}
 			break;
 		}
-		activation = var_9d999891 function_de8ef595();
+		activation = s_phone function_de8ef595();
 		if(isdefined(activation) && activation)
 		{
 			var_f1b4932d = array::random(var_a008170d);
@@ -343,7 +343,7 @@ function init_redphone_eggs()
 			{
 				var_a008170d = array(0, 1, 2, 3, 4, 5, 6, 7, 8);
 			}
-			playsoundatposition("vox_egg_redphone_" + var_f1b4932d, var_9d999891.origin);
+			playsoundatposition("vox_egg_redphone_" + var_f1b4932d, s_phone.origin);
 			var_693fabd9 = var_f1b4932d;
 			wait(30);
 		}
