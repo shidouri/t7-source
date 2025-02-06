@@ -1066,7 +1066,7 @@ function function_e0fb6da9(str_struct, close_dist, wait_time, min_ai, max_ai, va
 	var_7d22b48e = getent(var_98e9bc46, "targetname");
 	v_forward = anglestoforward(s_struct.angles);
 	s_struct.start_time = undefined;
-	var_cc06a93d = 0;
+	num_charges = 0;
 	while(true)
 	{
 		e_player = getplayers()[0];
@@ -1118,8 +1118,8 @@ function function_e0fb6da9(str_struct, close_dist, wait_time, min_ai, max_ai, va
 					a_touching[i].var_db552f4 = 1;
 				}
 				s_struct.start_time = undefined;
-				var_cc06a93d++;
-				if(var_cc06a93d >= var_a70db4af)
+				num_charges++;
+				if(num_charges >= var_a70db4af)
 				{
 					return;
 				}
