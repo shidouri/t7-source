@@ -3005,12 +3005,12 @@ function function_b62ad2c()
 	array::add(a_rituals, var_bab3e119);
 	for(i = 0; i < a_rituals.size; i++)
 	{
-		var_4126c532 = a_rituals[i];
-		if(var_4126c532.m_b_started)
+		s_ritual = a_rituals[i];
+		if(s_ritual.m_b_started)
 		{
-			if(self istouching(var_4126c532.m_e_defend_volume))
+			if(self istouching(s_ritual.m_e_defend_volume))
 			{
-				return var_4126c532;
+				return s_ritual;
 			}
 		}
 	}

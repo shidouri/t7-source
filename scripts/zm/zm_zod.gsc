@@ -3082,10 +3082,10 @@ function function_42cc727b()
 	{
 		self.train_board_time = undefined;
 	}
-	var_4126c532 = self zm_zod_quest::function_b62ad2c();
-	if(isdefined(var_4126c532))
+	s_ritual = self zm_zod_quest::function_b62ad2c();
+	if(isdefined(s_ritual))
 	{
-		array::add(var_4126c532.m_a_players_involved, self, 0);
+		array::add(s_ritual.m_a_players_involved, self, 0);
 		self.is_in_defend_area = 1;
 	}
 	else

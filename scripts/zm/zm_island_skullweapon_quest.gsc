@@ -1212,13 +1212,13 @@ function function_b948e12a(var_f2e38849)
 	Parameters: 1
 	Flags: Linked
 */
-function function_bd5d2a96(var_4126c532)
+function function_bd5d2a96(s_ritual)
 {
 	self endon("death");
 	if(isalive(self))
 	{
 		self disableaimassist();
-		array::add(var_4126c532.var_41335b73, self);
+		array::add(s_ritual.var_41335b73, self);
 		self.var_8853cc2a = 1;
 		self.nocrawler = 1;
 		self ghost();
@@ -1233,7 +1233,7 @@ function function_bd5d2a96(var_4126c532)
 		{
 			self show();
 			var_197f1988 waittill("scene_done");
-			self thread function_1cbe53ee(var_4126c532);
+			self thread function_1cbe53ee(s_ritual);
 			self enableaimassist();
 		}
 		if(isdefined(var_197f1988))
@@ -2223,7 +2223,7 @@ function function_b6c35b21(var_f2e38849)
 		level.var_a576e0b9[var_f2e38849].mdl_skull_p clientfield::set("skullquest_finish_start_fx", 1);
 		level.var_a576e0b9[var_f2e38849].mdl_skull_p playsound("zmb_skull_pillar_fly");
 		level.var_a576e0b9[var_f2e38849].mdl_skull_p clientfield::set("skullquest_finish_end_fx", 1);
-		var_4126c532 = level.var_a576e0b9[var_f2e38849];
+		s_ritual = level.var_a576e0b9[var_f2e38849];
 		mdl_skull_p = level.var_a576e0b9[var_f2e38849].mdl_skull_p;
 		var_f7d3c273 = mdl_skull_p.var_f7d3c273;
 		var_c274e933 = array("", "altar_skull_battle", "altar_skull_blood", "altar_skull_chaos", "altar_skull_doom");
