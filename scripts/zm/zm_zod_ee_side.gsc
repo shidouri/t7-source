@@ -1004,8 +1004,8 @@ function ciphers()
 {
 	mdl_brick = getent("brick_cipher", "targetname");
 	mdl_brick thread brick_cipher();
-	var_c671e1b1 = getent("picture_cipher", "targetname");
-	var_c671e1b1 thread picture_cipher();
+	mdl_picture = getent("picture_cipher", "targetname");
+	mdl_picture thread picture_cipher();
 	var_6a19ae41 = getent("hyena", "targetname");
 	var_6a19ae41 thread function_7e754365();
 }
@@ -1494,9 +1494,9 @@ function function_41ecaace()
 {
 	level flag::wait_till("ritual_pap_complete");
 	a_pictures = getentarray("scream_pic", "targetname");
-	foreach(var_c671e1b1 in a_pictures)
+	foreach(mdl_picture in a_pictures)
 	{
-		var_c671e1b1 thread function_8cffc675();
+		mdl_picture thread function_8cffc675();
 	}
 }
 
