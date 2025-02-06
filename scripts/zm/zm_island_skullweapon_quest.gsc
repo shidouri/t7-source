@@ -847,12 +847,12 @@ function function_a050863e(v_src, v_dest)
 {
 	if(isdefined(v_src) && isdefined(v_dest))
 	{
-		var_b6f3d7c3 = spawn("script_model", v_src);
-		var_b6f3d7c3 setmodel("p7_sky_vista_light_flare_blue");
-		var_b6f3d7c3 playsound("zmb_skull_soul_feed");
-		var_b6f3d7c3 moveto(v_dest, 0.5);
-		var_b6f3d7c3 waittill("movedone");
-		var_b6f3d7c3 delete();
+		mdl_flare = spawn("script_model", v_src);
+		mdl_flare setmodel("p7_sky_vista_light_flare_blue");
+		mdl_flare playsound("zmb_skull_soul_feed");
+		mdl_flare moveto(v_dest, 0.5);
+		mdl_flare waittill("movedone");
+		mdl_flare delete();
 	}
 }
 
