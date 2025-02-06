@@ -1044,10 +1044,10 @@ function private function_9bd3096f(player)
 */
 function function_5d0980ef()
 {
-	var_66bf6df = getent("elevator_gears", "targetname");
-	var_66bf6df hidepart("wheel_01_jnt");
-	var_66bf6df hidepart("wheel_02_jnt");
-	var_66bf6df hidepart("wheel_03_jnt");
+	mdl_gears = getent("elevator_gears", "targetname");
+	mdl_gears hidepart("wheel_01_jnt");
+	mdl_gears hidepart("wheel_02_jnt");
+	mdl_gears hidepart("wheel_03_jnt");
 	level thread function_a06630fc();
 }
 
@@ -1111,8 +1111,8 @@ function function_77f4b1ca()
 {
 	self endon("disconnect");
 	self endon("gears_seen");
-	var_66bf6df = getent("elevator_gears", "targetname");
-	self util::waittill_player_looking_at(var_66bf6df.origin);
+	mdl_gears = getent("elevator_gears", "targetname");
+	self util::waittill_player_looking_at(mdl_gears.origin);
 	foreach(player in level.players)
 	{
 		if(player != self)
@@ -1140,8 +1140,8 @@ function function_6cc2e374()
 	t_repair = getent("trigger_elevator_gears", "targetname");
 	t_repair setcursorhint("HINT_NOICON");
 	t_repair sethintstring("");
-	var_66bf6df = getent("elevator_gears", "targetname");
-	var_66bf6df thread elevator_gears();
+	mdl_gears = getent("elevator_gears", "targetname");
+	mdl_gears thread elevator_gears();
 	while(true)
 	{
 		t_repair waittill("trigger", e_who);
@@ -1149,19 +1149,19 @@ function function_6cc2e374()
 		{
 			level flag::set("elevator_part_gear1_placed");
 			t_repair playsound("zmb_item_pickup");
-			var_66bf6df.var_df281e84 = util::spawn_model("p7_zm_isl_elevator_gears_wheel", var_66bf6df gettagorigin("wheel_01_jnt") + (1, 2, 0), var_66bf6df gettagangles("wheel_01_jnt"));
+			mdl_gears.var_df281e84 = util::spawn_model("p7_zm_isl_elevator_gears_wheel", mdl_gears gettagorigin("wheel_01_jnt") + (1, 2, 0), mdl_gears gettagangles("wheel_01_jnt"));
 		}
 		if(level flag::get("elevator_part_gear2_found") && !level flag::get("elevator_part_gear2_placed"))
 		{
 			level flag::set("elevator_part_gear2_placed");
 			t_repair playsound("zmb_item_pickup");
-			var_66bf6df.mdl_dock = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", var_66bf6df gettagorigin("wheel_02_jnt") + (0.525, 2, -0.075), var_66bf6df gettagangles("wheel_02_jnt"));
+			mdl_gears.mdl_dock = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", mdl_gears gettagorigin("wheel_02_jnt") + (0.525, 2, -0.075), mdl_gears gettagangles("wheel_02_jnt"));
 		}
 		if(level flag::get("elevator_part_gear3_found") && !level flag::get("elevator_part_gear3_placed"))
 		{
 			level flag::set("elevator_part_gear3_placed");
 			t_repair playsound("zmb_item_pickup");
-			var_66bf6df.var_aab7a6d1 = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", var_66bf6df gettagorigin("wheel_03_jnt") + vectorscale((0, 1, 0), 2), var_66bf6df gettagangles("wheel_03_jnt"));
+			mdl_gears.var_aab7a6d1 = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", mdl_gears gettagorigin("wheel_03_jnt") + vectorscale((0, 1, 0), 2), mdl_gears gettagangles("wheel_03_jnt"));
 		}
 		if(level flag::get("elevator_part_gear1_found") && level flag::get("elevator_part_gear2_found") && level flag::get("elevator_part_gear3_found"))
 		{
