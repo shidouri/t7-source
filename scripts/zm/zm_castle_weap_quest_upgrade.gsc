@@ -1022,8 +1022,8 @@ function function_88082ccd()
 	/#
 		level flag::set("");
 	#/
-	var_2716c17 = struct::get_array("aq_rp_fireplace_struct", "targetname");
-	var_7f680434 = array::random(var_2716c17);
+	a_s_fireplaces = struct::get_array("aq_rp_fireplace_struct", "targetname");
+	var_7f680434 = array::random(a_s_fireplaces);
 	level function_16248b25(var_7f680434.script_int);
 	var_235830d3 = var_7f680434.script_noteworthy;
 	var_42d1b62e = getentarray("aq_rp_runic_circle", "script_noteworthy");
@@ -1474,10 +1474,10 @@ function function_e198b188(var_931bac44)
 function function_455e5c02()
 {
 	/#
-		var_2716c17 = struct::get_array("", "");
+		a_s_fireplaces = struct::get_array("", "");
 		if(isdefined(level.var_ca9bb3ac) && level.var_ca9bb3ac)
 		{
-			foreach(s_fireplace in var_2716c17)
+			foreach(s_fireplace in a_s_fireplaces)
 			{
 				s_fireplace.mdl_align scene::stop("");
 			}
@@ -1492,7 +1492,7 @@ function function_455e5c02()
 		}
 		else
 		{
-			foreach(s_fireplace in var_2716c17)
+			foreach(s_fireplace in a_s_fireplaces)
 			{
 				if(!isdefined(s_fireplace.mdl_align))
 				{
