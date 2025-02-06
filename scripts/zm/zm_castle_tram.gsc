@@ -548,7 +548,7 @@ function function_1d6e73d0(e_player, s_spawn_pos, var_f2c2f39)
 function function_bb44b161(str_powerup, var_a11baa62)
 {
 	self endon("powerup_grabbed");
-	var_ee91d5b = self.model;
+	mdl_final = self.model;
 	for(i = 0; i < 3; i++)
 	{
 		for(j = 0; j < var_a11baa62.size; j++)
@@ -558,7 +558,7 @@ function function_bb44b161(str_powerup, var_a11baa62)
 			wait(0.12);
 		}
 	}
-	self setmodel(var_ee91d5b);
+	self setmodel(mdl_final);
 }
 
 /*
