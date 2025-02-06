@@ -1167,8 +1167,8 @@ function spawn_skel()
 {
 	if(!isdefined(level._sq_skel))
 	{
-		var_cd998d3c = getentarray("sq_spiketrap", "targetname");
-		ent = var_cd998d3c[0];
+		a_e_spikes = getentarray("sq_spiketrap", "targetname");
+		ent = a_e_spikes[0];
 		if(isdefined(ent))
 		{
 			sb = util::spawn_model("p7_zm_sha_skeleton", ent.origin, ent.angles);
