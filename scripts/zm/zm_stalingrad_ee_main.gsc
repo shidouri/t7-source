@@ -488,38 +488,38 @@ function function_999a19a7()
 function function_af4b355b()
 {
 	level.var_57f8b6c5 = getentarray("ee_tube_terminal", "targetname");
-	foreach(var_beb54dbd in level.var_57f8b6c5)
+	foreach(mdl_terminal in level.var_57f8b6c5)
 	{
-		switch(var_beb54dbd.script_label)
+		switch(mdl_terminal.script_label)
 		{
 			case "armory":
 			{
-				var_beb54dbd.var_cd705a9 = array("library", "factory", "store");
+				mdl_terminal.var_cd705a9 = array("library", "factory", "store");
 				break;
 			}
 			case "barracks":
 			{
-				var_beb54dbd.var_cd705a9 = array("store", "factory", "command");
+				mdl_terminal.var_cd705a9 = array("store", "factory", "command");
 				break;
 			}
 			case "command":
 			{
-				var_beb54dbd.var_cd705a9 = array("library", "store", "barracks");
+				mdl_terminal.var_cd705a9 = array("library", "store", "barracks");
 				break;
 			}
 			case "factory":
 			{
-				var_beb54dbd.var_cd705a9 = array("barracks", "library", "armory");
+				mdl_terminal.var_cd705a9 = array("barracks", "library", "armory");
 				break;
 			}
 			case "library":
 			{
-				var_beb54dbd.var_cd705a9 = array("command", "armory", "factory");
+				mdl_terminal.var_cd705a9 = array("command", "armory", "factory");
 				break;
 			}
 			case "store":
 			{
-				var_beb54dbd.var_cd705a9 = array("armory", "barracks", "command");
+				mdl_terminal.var_cd705a9 = array("armory", "barracks", "command");
 				break;
 			}
 		}
@@ -529,12 +529,12 @@ function function_af4b355b()
 	level.var_57f8b6c5[5] hidepart("tag_vacume_door");
 	do
 	{
-		foreach(var_beb54dbd in level.var_57f8b6c5)
+		foreach(mdl_terminal in level.var_57f8b6c5)
 		{
-			var_beb54dbd.var_1f3c0ca7 = randomint(3);
-			var_beb54dbd.var_59c68a0b = 0;
-			var_beb54dbd hidepart("tag_buttons_on");
-			var_beb54dbd showpart("tag_buttons_off");
+			mdl_terminal.var_1f3c0ca7 = randomint(3);
+			mdl_terminal.var_59c68a0b = 0;
+			mdl_terminal hidepart("tag_buttons_on");
+			mdl_terminal showpart("tag_buttons_off");
 		}
 	}
 	while(function_797708de());
@@ -874,9 +874,9 @@ function function_6a9560b6()
 */
 function function_830b8c18()
 {
-	foreach(var_beb54dbd in level.var_57f8b6c5)
+	foreach(mdl_terminal in level.var_57f8b6c5)
 	{
-		var_beb54dbd stoploopsound(0.5);
+		mdl_terminal stoploopsound(0.5);
 	}
 }
 
@@ -906,11 +906,11 @@ function function_7247a337(e_player)
 */
 function function_d6953423(str_location)
 {
-	foreach(var_beb54dbd in level.var_57f8b6c5)
+	foreach(mdl_terminal in level.var_57f8b6c5)
 	{
-		if(var_beb54dbd.script_label == str_location)
+		if(mdl_terminal.script_label == str_location)
 		{
-			return var_beb54dbd;
+			return mdl_terminal;
 		}
 	}
 }
