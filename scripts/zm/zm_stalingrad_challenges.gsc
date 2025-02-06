@@ -2123,15 +2123,15 @@ function function_a231bc42()
 	n_ent_num = self getentitynumber();
 	mdl_bouquet = getent("pr_g_b_" + n_ent_num, "targetname");
 	mdl_bouquet show();
-	var_79f3942a = getent("pr_g_c_" + n_ent_num, "targetname");
-	var_79f3942a show();
-	var_79f3942a clientfield::set("pr_g_c_fx", 1);
+	mdl_candle = getent("pr_g_c_" + n_ent_num, "targetname");
+	mdl_candle show();
+	mdl_candle clientfield::set("pr_g_c_fx", 1);
 	var_eaad475 = getent("pr_g_cn_" + n_ent_num, "targetname");
 	var_eaad475 show();
 	self waittill("disconnect");
-	var_79f3942a clientfield::set("pr_g_c_fx", 0);
+	mdl_candle clientfield::set("pr_g_c_fx", 0);
 	mdl_bouquet hide();
-	var_79f3942a hide();
+	mdl_candle hide();
 	var_eaad475 hide();
 }
 
