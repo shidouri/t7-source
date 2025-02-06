@@ -2370,18 +2370,18 @@ function demon_gate_crawlers()
 		}
 	#/
 	level thread function_10033c3();
-	level.var_f4c7c18 = getentarray("aq_dg_fossil_align", "script_noteworthy");
+	level.a_e_fossils = getentarray("aq_dg_fossil_align", "script_noteworthy");
 	var_90cbeda9 = getent("aq_dg_demonic_circle", "targetname");
 	var_90cbeda9 clientfield::set("demonic_circle_reveal", 1);
 	var_83e3ae42 = getent("aq_dg_demonic_circle_volume", "targetname");
 	var_83e3ae42.var_e1f456ae = 0;
-	array::thread_all(level.var_f4c7c18, &function_f836dce1);
+	array::thread_all(level.a_e_fossils, &function_f836dce1);
 	/#
 		level.var_2114a01 = 1;
 	#/
 	zm_spawner::register_zombie_death_event_callback(&function_561017d8);
 	level flag::wait_till("demon_gate_crawlers");
-	level.var_f4c7c18 = [];
+	level.a_e_fossils = [];
 }
 
 /*

@@ -412,25 +412,25 @@ function function_543f9ebd(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval == 1)
 	{
-		var_f4c7c18 = [];
+		a_e_fossils = [];
 		for(i = 0; i < level.var_f91a2b6a[localclientnum].size; i++)
 		{
 			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].e_fossil))
 			{
-				if(!isdefined(var_f4c7c18))
+				if(!isdefined(a_e_fossils))
 				{
-					var_f4c7c18 = [];
+					a_e_fossils = [];
 				}
-				else if(!isarray(var_f4c7c18))
+				else if(!isarray(a_e_fossils))
 				{
-					var_f4c7c18 = array(var_f4c7c18);
+					a_e_fossils = array(a_e_fossils);
 				}
-				var_f4c7c18[var_f4c7c18.size] = level.var_f91a2b6a[localclientnum][i].e_fossil;
+				a_e_fossils[a_e_fossils.size] = level.var_f91a2b6a[localclientnum][i].e_fossil;
 			}
 		}
-		if(var_f4c7c18.size > 0)
+		if(a_e_fossils.size > 0)
 		{
-			self thread scene::play("o_zm_dlc1_chomper_demongate_swarm_trophy_room_active", var_f4c7c18);
+			self thread scene::play("o_zm_dlc1_chomper_demongate_swarm_trophy_room_active", a_e_fossils);
 		}
 	}
 	else
@@ -465,25 +465,25 @@ function function_fec30c70(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(newval == 1)
 	{
 		level notify(#"hash_24d9d4f5");
-		var_f4c7c18 = [];
+		a_e_fossils = [];
 		for(i = 0; i < level.var_f91a2b6a[localclientnum].size; i++)
 		{
 			if(isdefined(level.var_f91a2b6a[localclientnum][i]) && isdefined(level.var_f91a2b6a[localclientnum][i].e_fossil))
 			{
-				if(!isdefined(var_f4c7c18))
+				if(!isdefined(a_e_fossils))
 				{
-					var_f4c7c18 = [];
+					a_e_fossils = [];
 				}
-				else if(!isarray(var_f4c7c18))
+				else if(!isarray(a_e_fossils))
 				{
-					var_f4c7c18 = array(var_f4c7c18);
+					a_e_fossils = array(a_e_fossils);
 				}
-				var_f4c7c18[var_f4c7c18.size] = level.var_f91a2b6a[localclientnum][i].e_fossil;
+				a_e_fossils[a_e_fossils.size] = level.var_f91a2b6a[localclientnum][i].e_fossil;
 			}
 		}
-		if(var_f4c7c18.size > 0)
+		if(a_e_fossils.size > 0)
 		{
-			self thread scene::play("o_zm_dlc1_chomper_demongate_swarm_trophy_room_outtro", var_f4c7c18);
+			self thread scene::play("o_zm_dlc1_chomper_demongate_swarm_trophy_room_outtro", a_e_fossils);
 		}
 	}
 }
