@@ -496,9 +496,9 @@ function offhand_weapon_overrride()
 function function_ce6ee03b()
 {
 	scene::add_scene_func("p7_fxanim_zm_kino_curtains_stage_main_bundle", &function_9a38ad2c, "play");
-	var_5be55f14 = getent("theater_curtains", "targetname");
-	var_5be55f14 thread scene::play("p7_fxanim_zm_kino_curtains_stage_main_bundle", var_5be55f14);
-	playsoundatposition("evt_curtain_open", var_5be55f14.origin);
+	mdl_curtains = getent("theater_curtains", "targetname");
+	mdl_curtains thread scene::play("p7_fxanim_zm_kino_curtains_stage_main_bundle", mdl_curtains);
+	playsoundatposition("evt_curtain_open", mdl_curtains.origin);
 }
 
 /*
