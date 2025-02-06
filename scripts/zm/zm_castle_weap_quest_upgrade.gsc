@@ -791,14 +791,14 @@ function function_dc6aa565()
 	var_effd0eae = getentarray("aq_rp_runic_circle_volume", "script_noteworthy");
 	if(self function_ab623d34(level.var_c62829c7))
 	{
-		var_f667032 = level.var_c62829c7 array::get_touching(var_effd0eae);
-		if(isdefined(var_f667032) && var_f667032.size > 0)
+		a_e_touching = level.var_c62829c7 array::get_touching(var_effd0eae);
+		if(isdefined(a_e_touching) && a_e_touching.size > 0)
 		{
-			if(var_f667032[0] flag::get("runic_circle_activated") && !var_f667032[0] flag::get("runic_circle_charged"))
+			if(a_e_touching[0] flag::get("runic_circle_activated") && !a_e_touching[0] flag::get("runic_circle_charged"))
 			{
-				mdl_circle = getent(var_f667032[0].target, "targetname");
-				var_f667032[0] function_55c48922(self.origin, mdl_circle.origin, "rune", isdefined(self.missinglegs) && self.missinglegs);
-				var_f667032[0] util::delay_notify(0.05, "killed");
+				mdl_circle = getent(a_e_touching[0].target, "targetname");
+				a_e_touching[0] function_55c48922(self.origin, mdl_circle.origin, "rune", isdefined(self.missinglegs) && self.missinglegs);
+				a_e_touching[0] util::delay_notify(0.05, "killed");
 				mdl_circle clientfield::increment("runic_circle_death_fx");
 			}
 		}
@@ -840,13 +840,13 @@ function function_8e83c9ed()
 	var_8ed504dc = 0;
 	while(true)
 	{
-		var_f667032 = self array::get_touching(var_effd0eae);
-		if(!var_8ed504dc && isdefined(var_f667032[0]) && var_f667032[0] flag::get("runic_circle_activated") && !var_f667032[0] flag::get("runic_circle_charged"))
+		a_e_touching = self array::get_touching(var_effd0eae);
+		if(!var_8ed504dc && isdefined(a_e_touching[0]) && a_e_touching[0] flag::get("runic_circle_activated") && !a_e_touching[0] flag::get("runic_circle_charged"))
 		{
 			self clientfield::set_to_player("anchor_point_postfx", 1);
 			var_8ed504dc = 1;
 		}
-		else if(var_8ed504dc && !isdefined(var_f667032[0]))
+		else if(var_8ed504dc && !isdefined(a_e_touching[0]))
 		{
 			self clientfield::set_to_player("anchor_point_postfx", 0);
 			var_8ed504dc = 0;
@@ -5818,12 +5818,12 @@ function function_88efea4a()
 	a_e_battery = getentarray("aq_es_battery_volume", "script_noteworthy");
 	if(self function_ab623d34(level.var_f8d1dc16))
 	{
-		var_f667032 = self array::get_touching(a_e_battery);
-		if(isdefined(var_f667032) && var_f667032.size > 0 && (!(isdefined(var_f667032[0].b_activated) && var_f667032[0].b_activated)))
+		a_e_touching = self array::get_touching(a_e_battery);
+		if(isdefined(a_e_touching) && a_e_touching.size > 0 && (!(isdefined(a_e_touching[0].b_activated) && a_e_touching[0].b_activated)))
 		{
-			s_battery = struct::get(var_f667032[0].target, "targetname");
+			s_battery = struct::get(a_e_touching[0].target, "targetname");
 			level function_55c48922(self.origin, s_battery.origin + vectorscale((0, 0, 1), 16), "storm", isdefined(self.missinglegs) && self.missinglegs);
-			var_f667032[0] util::delay_notify(0.05, "killed");
+			a_e_touching[0] util::delay_notify(0.05, "killed");
 		}
 	}
 }
