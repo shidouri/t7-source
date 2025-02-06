@@ -415,8 +415,8 @@ function function_13fd863b(str_model)
 {
 	for(i = 0; i < self._trap_lights.size; i++)
 	{
-		var_b079127 = self._trap_lights[i];
-		var_b079127 setmodel(str_model);
+		mdl_light = self._trap_lights[i];
+		mdl_light setmodel(str_model);
 	}
 }
 
