@@ -1137,14 +1137,14 @@ function function_6ff05666()
 */
 function function_37fb253(var_33b10d19)
 {
-	var_4811f4e0 = util::spawn_model("tag_origin", self.origin, self.angles);
-	self linkto(var_4811f4e0);
-	var_4811f4e0 rotateto(var_33b10d19.angles, 1);
+	mdl_rotate = util::spawn_model("tag_origin", self.origin, self.angles);
+	self linkto(mdl_rotate);
+	mdl_rotate rotateto(var_33b10d19.angles, 1);
 	var_91e5f72f = (var_33b10d19.origin[0], var_33b10d19.origin[1], self.origin[2]);
-	var_4811f4e0 moveto(var_91e5f72f, 1);
+	mdl_rotate moveto(var_91e5f72f, 1);
 	self waittill("start_moving");
 	self unlink();
-	var_4811f4e0 delete();
+	mdl_rotate delete();
 }
 
 /*
