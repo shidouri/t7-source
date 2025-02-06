@@ -130,8 +130,8 @@ function function_c4641d12(is_powered)
 			e_clip = getent(("pap_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy) + "_clip", "targetname");
 			e_clip function_2209afdf();
 			e_clip solid();
-			var_4a6273cc = getent("pap_debris_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy, "targetname");
-			var_4a6273cc show();
+			mdl_debris = getent("pap_debris_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy, "targetname");
+			mdl_debris show();
 			var_92f094dc = var_6eb9e3e5[level.var_2eccab0d];
 			var_b57a445e = level.var_22ce1993[level.var_2eccab0d];
 			playrumbleonposition("zm_castle_pap_tp", self.origin);
@@ -150,8 +150,8 @@ function function_c4641d12(is_powered)
 			var_94e7d6ca setmodel("tag_origin");
 			var_94e7d6ca.angles = var_39796348;
 			self.zbarrier waittill("leave_anim_done");
-			var_4a6273cc = getent("pap_debris_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy, "targetname");
-			var_4a6273cc hide();
+			mdl_debris = getent("pap_debris_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy, "targetname");
+			mdl_debris hide();
 			e_clip = getent(("pap_" + level.var_94c82bf8[level.var_2eccab0d].script_noteworthy) + "_clip", "targetname");
 			e_clip notsolid();
 			var_3c7c9ebd clientfield::increment("pap_tp_fx");
@@ -260,8 +260,8 @@ function function_53bc4f86(pap_machine)
 {
 	e_clip = getent(self.script_string, "targetname");
 	e_clip.targetname = ("pap_" + self.script_noteworthy) + "_clip";
-	var_4a6273cc = function_23193d81(self.script_noteworthy);
-	var_4a6273cc hide();
+	mdl_debris = function_23193d81(self.script_noteworthy);
+	mdl_debris hide();
 	s_unitrigger_stub = spawnstruct();
 	s_unitrigger_stub.origin = self.origin + vectorscale((0, 0, 1), 30);
 	s_unitrigger_stub.radius = 70;
@@ -316,8 +316,8 @@ function function_53bc4f86(pap_machine)
 		}
 		level flag::set("pap_reform_available");
 	}
-	var_4a6273cc = getent("pap_debris_" + self.script_noteworthy, "targetname");
-	var_4a6273cc show();
+	mdl_debris = getent("pap_debris_" + self.script_noteworthy, "targetname");
+	mdl_debris show();
 	while(level.var_e1ee8457)
 	{
 		wait(0.05);
@@ -363,10 +363,10 @@ function function_23193d81(str_location)
 			break;
 		}
 	}
-	var_4a6273cc = util::spawn_model("p7_debris_metal_twisted_a_lrg", v_origin, v_angles);
-	var_4a6273cc setscale(0.85);
-	var_4a6273cc.targetname = "pap_debris_" + str_location;
-	return var_4a6273cc;
+	mdl_debris = util::spawn_model("p7_debris_metal_twisted_a_lrg", v_origin, v_angles);
+	mdl_debris setscale(0.85);
+	mdl_debris.targetname = "pap_debris_" + str_location;
+	return mdl_debris;
 }
 
 /*

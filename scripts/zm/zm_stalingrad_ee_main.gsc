@@ -1385,9 +1385,9 @@ function function_87bac664()
 		level waittill(#"hash_278aa663", str_exploder);
 		if(str_exploder == "fxexp_200")
 		{
-			var_4a6273cc = getent("ee_library_safe_debris", "targetname");
+			mdl_debris = getent("ee_library_safe_debris", "targetname");
 			exploder::exploder("fxexp_706");
-			var_4a6273cc delete();
+			mdl_debris delete();
 			s_key = struct::get("ee_keys_raz_struct", "targetname");
 			mdl_piece = util::spawn_model("p7_zm_sta_wall_map_figure_03_soldier", s_key.origin + (vectorscale((0, 0, -1), 32)), s_key.angles);
 			mdl_piece clientfield::set("ee_safe_smash_rumble", 1);

@@ -353,10 +353,10 @@ function falling_debris(localclientnum)
 			n_radius = var_520ab411.radius;
 			n_x = var_520ab411.origin[0] + (cos(randomintrange(0, 360)) * n_radius);
 			n_y = var_520ab411.origin[1] + (sin(randomintrange(0, 360)) * n_radius);
-			var_4a6273cc = util::spawn_model(localclientnum, array::random(a_models), (n_x, n_y, var_520ab411.origin[2]), (randomint(360), randomint(360), randomint(360)));
-			if(isdefined(var_4a6273cc))
+			mdl_debris = util::spawn_model(localclientnum, array::random(a_models), (n_x, n_y, var_520ab411.origin[2]), (randomint(360), randomint(360), randomint(360)));
+			if(isdefined(mdl_debris))
 			{
-				var_4a6273cc thread function_9259cfc(n_index + 1);
+				mdl_debris thread function_9259cfc(n_index + 1);
 			}
 			wait(0.05);
 		}
