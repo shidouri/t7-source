@@ -808,8 +808,8 @@ function function_9bc55b1b()
 	self.baseeffect = playfxontag("ui/fx_stockpile_deposit_point_end", self.var_6de41998, "tag_origin");
 	self.baseeffect.team = "none";
 	time_left = time_left + 0.25;
-	var_3112d2e7 = 3;
-	angles = (self.var_6de41998.angles[0], self.var_6de41998.angles[1] - (var_3112d2e7 * 360), self.var_6de41998.angles[2]);
+	num_rotations = 3;
+	angles = (self.var_6de41998.angles[0], self.var_6de41998.angles[1] - (num_rotations * 360), self.var_6de41998.angles[2]);
 	self.var_6de41998 rotateto(angles, time_left, time_left, 0, 0);
 }
 
