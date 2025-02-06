@@ -252,8 +252,8 @@ function function_691b8375(localclientnum)
 {
 	self endon("stop_eject_steam_fx");
 	self endon("player_intermission");
-	var_bd5df270 = struct::get_array("giant_robot_eject_tube", "script_noteworthy");
-	s_tube = arraygetclosest(self.origin, var_bd5df270);
+	a_s_tubes = struct::get_array("giant_robot_eject_tube", "script_noteworthy");
+	s_tube = arraygetclosest(self.origin, a_s_tubes);
 	self thread function_caeb1b02("stop_eject_steam_fx", s_tube.origin);
 	while(isdefined(self))
 	{
@@ -279,22 +279,22 @@ function all_tubes_play_eject_steam_fx(localclientnum, oldval, newval, bnewent, 
 		var_66a1e889 = struct::get_array("giant_robot_eject_tube", "script_noteworthy");
 		var_8356f695 = arraygetclosest(self.origin, var_66a1e889);
 		n_robot_id = var_8356f695.script_int;
-		level.var_bd5df270 = [];
-		level.var_bd5df270[localclientnum] = [];
+		level.a_s_tubes = [];
+		level.a_s_tubes[localclientnum] = [];
 		n_index = 0;
 		foreach(struct in var_66a1e889)
 		{
 			if(struct.script_int == n_robot_id)
 			{
 				struct thread function_3ae72e85(localclientnum);
-				level.var_bd5df270[localclientnum][n_index] = struct;
+				level.a_s_tubes[localclientnum][n_index] = struct;
 				n_index++;
 			}
 		}
 	}
-	else if(isdefined(level.var_bd5df270[localclientnum]))
+	else if(isdefined(level.a_s_tubes[localclientnum]))
 	{
-		foreach(struct in level.var_bd5df270[localclientnum])
+		foreach(struct in level.a_s_tubes[localclientnum])
 		{
 			struct notify("stop_all_tubes_eject_steam");
 		}
