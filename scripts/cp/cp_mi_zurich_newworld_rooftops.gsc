@@ -4890,10 +4890,10 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	level thread function_c9af9d76(var_10057083);
 	a_train = [];
 	var_95af8b3e = [];
-	var_37048efd = struct::get(var_37713607, "targetname");
-	e_engine = spawn("script_model", var_37048efd.origin);
-	e_engine.angles = var_37048efd.angles;
-	e_engine setmodel(var_37048efd.model);
+	s_engine = struct::get(var_37713607, "targetname");
+	e_engine = spawn("script_model", s_engine.origin);
+	e_engine.angles = s_engine.angles;
+	e_engine setmodel(s_engine.model);
 	e_engine.script_objective = "chase_glass_ceiling_igc";
 	e_engine.script_noteworthy = "chase_train";
 	e_engine playloopsound("amb_train_front_engine");
@@ -4903,7 +4903,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	}
 	a_train[0] = e_engine;
 	var_934a157 = struct::get(var_4b204b1c, "targetname");
-	t_end = getent(var_37048efd.target, "targetname");
+	t_end = getent(s_engine.target, "targetname");
 	if(var_37713607 == "train_station_train_org")
 	{
 		level thread function_69747207();
