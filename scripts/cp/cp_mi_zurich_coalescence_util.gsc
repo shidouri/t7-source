@@ -2696,8 +2696,8 @@ function function_2a6e38e()
 		}
 		var_8dc746d1 = undefined;
 		var_1f5a4954 = distance2dsquared(self.goalpos, self geteye());
-		var_564617aa = arraysortclosest(level.activeplayers, self.origin, 1);
-		foreach(e_player in var_564617aa)
+		a_e_closest = arraysortclosest(level.activeplayers, self.origin, 1);
+		foreach(e_player in a_e_closest)
 		{
 			var_8dc746d1 = distance2dsquared(self.origin, e_player.origin);
 		}
