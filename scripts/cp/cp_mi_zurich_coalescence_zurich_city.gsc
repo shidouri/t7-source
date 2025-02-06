@@ -600,8 +600,8 @@ function function_d8d72142()
 		s_weapon = array::random(var_3f44bbce);
 		a_s_targets = struct::get_array(s_weapon.target);
 		s_target = array::random(a_s_targets);
-		var_8d661004 = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
-		magicbullet(w_weapon, s_weapon.origin + var_8d661004, s_target.origin + var_8d661004);
+		v_offsets = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
+		magicbullet(w_weapon, s_weapon.origin + v_offsets, s_target.origin + v_offsets);
 		wait(randomfloatrange(0.25, 0.32));
 	}
 	wait(1.2);
@@ -610,8 +610,8 @@ function function_d8d72142()
 		s_weapon = array::random(var_3f44bbce);
 		a_s_targets = struct::get_array(s_weapon.target);
 		s_target = array::random(a_s_targets);
-		var_8d661004 = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
-		magicbullet(w_weapon, s_weapon.origin + var_8d661004, s_target.origin + var_8d661004);
+		v_offsets = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
+		magicbullet(w_weapon, s_weapon.origin + v_offsets, s_target.origin + v_offsets);
 		wait(randomfloatrange(0.25, 0.32));
 	}
 }
@@ -767,8 +767,8 @@ function function_a294dd02()
 		s_rpg = array::random(var_fccc406f);
 		a_s_targets = struct::get_array(s_rpg.target);
 		s_target = array::random(a_s_targets);
-		var_8d661004 = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
-		e_rocket = magicbullet(w_rpg, s_rpg.origin + var_8d661004, s_target.origin + var_8d661004);
+		v_offsets = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
+		e_rocket = magicbullet(w_rpg, s_rpg.origin + v_offsets, s_target.origin + v_offsets);
 		e_rocket.team = "allies";
 		wait(randomfloatrange(1.1, 3.1));
 	}
