@@ -145,10 +145,10 @@ function register_clientfield()
 function function_11571878()
 {
 	self.trigger = zm_island_util::spawn_trigger_radius(self.origin, 50, 1, &function_5f3935a);
-	var_85b2b1ab = getent("ww_station", "targetname");
-	v_pos = var_85b2b1ab gettagorigin("mirg_cent_gun_tag_jnt");
-	v_ang = var_85b2b1ab gettagangles("mirg_cent_gun_tag_jnt");
-	var_85b2b1ab scene::init("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", var_85b2b1ab);
+	mdl_station = getent("ww_station", "targetname");
+	v_pos = mdl_station gettagorigin("mirg_cent_gun_tag_jnt");
+	v_ang = mdl_station gettagangles("mirg_cent_gun_tag_jnt");
+	mdl_station scene::init("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", mdl_station);
 	mdl_funnel = getent("ww_station_funnel", "targetname");
 	mdl_funnel hidepart("j_glow_green");
 	mdl_funnel hidepart("j_glow_purple");
@@ -156,7 +156,7 @@ function function_11571878()
 	level.var_97c56c3c moveto(v_pos, 0.05);
 	level.var_97c56c3c waittill("movedone");
 	level.var_97c56c3c.angles = v_ang;
-	level.var_97c56c3c linkto(var_85b2b1ab, "mirg_cent_gun_tag_jnt");
+	level.var_97c56c3c linkto(mdl_station, "mirg_cent_gun_tag_jnt");
 	while(true)
 	{
 		self.trigger waittill("trigger", player);
@@ -185,10 +185,10 @@ function function_11571878()
 				zm_unitrigger::unregister_unitrigger(self.trigger);
 				self.trigger = undefined;
 				level thread zm_island_vo::function_3bf2d62a("kn4_ammo", 0, 1, 0);
-				var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", var_85b2b1ab);
-				var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_turn_on_bundle", var_85b2b1ab);
+				mdl_station scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", mdl_station);
+				mdl_station scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_turn_on_bundle", mdl_station);
 				level.var_97c56c3c showpart("tag_liquid");
-				var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_down_bundle", var_85b2b1ab);
+				mdl_station scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_down_bundle", mdl_station);
 				self thread function_255b7efb();
 				break;
 			}
@@ -1239,8 +1239,8 @@ function function_c5cd1083()
 */
 function function_cc882a46()
 {
-	var_85b2b1ab = getent("wwup_station", "targetname");
-	var_85b2b1ab scene::init("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", var_85b2b1ab);
+	mdl_station = getent("wwup_station", "targetname");
+	mdl_station scene::init("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", mdl_station);
 	mdl_funnel = getent("wwup_station_funnel", "targetname");
 	mdl_funnel hidepart("j_glow_green");
 	mdl_funnel hidepart("j_glow_purple");
@@ -1290,12 +1290,12 @@ function function_cc882a46()
 		{
 			level flag::set("wwup_wait");
 			player takeweapon(level.w_mirg2000);
-			var_85b2b1ab attach(level.var_97c56c3c.model, "mirg_cent_gun_tag_jnt");
-			var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", var_85b2b1ab);
-			var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_turn_on_bundle", var_85b2b1ab);
-			var_85b2b1ab detach(level.var_97c56c3c.model, "mirg_cent_gun_tag_jnt");
-			var_85b2b1ab attach(level.var_7cb81d3c.model, "mirg_cent_gun_tag_jnt");
-			var_85b2b1ab scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_down_bundle", var_85b2b1ab);
+			mdl_station attach(level.var_97c56c3c.model, "mirg_cent_gun_tag_jnt");
+			mdl_station scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", mdl_station);
+			mdl_station scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_turn_on_bundle", mdl_station);
+			mdl_station detach(level.var_97c56c3c.model, "mirg_cent_gun_tag_jnt");
+			mdl_station attach(level.var_7cb81d3c.model, "mirg_cent_gun_tag_jnt");
+			mdl_station scene::play("p7_fxanim_zm_island_mirg_centrifuge_table_gun_down_bundle", mdl_station);
 			level flag::set("wwup_ready");
 			self.trigger thread function_9f93c407(player);
 			level flag::wait_till_clear("wwup_wait");
@@ -1368,8 +1368,8 @@ function function_9f93c407(player)
 			player giveweapon(level.w_mirg2000_up);
 			player givemaxammo(level.w_mirg2000_up);
 			player switchtoweapon(level.w_mirg2000_up);
-			var_85b2b1ab = getent("wwup_station", "targetname");
-			var_85b2b1ab detach(level.var_7cb81d3c.model, "mirg_cent_gun_tag_jnt");
+			mdl_station = getent("wwup_station", "targetname");
+			mdl_station detach(level.var_7cb81d3c.model, "mirg_cent_gun_tag_jnt");
 			player notify("player_upgraded_ww");
 		}
 	}
