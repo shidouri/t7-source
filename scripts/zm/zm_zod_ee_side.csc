@@ -118,9 +118,9 @@ function private function_75ad5595(var_ff840495)
 	var_ff840495["arnie_tie_mdl"] setscale(0.13);
 	var_ff840495["arnie_hat_mdl"] setscale(0.18);
 	var_ff840495["arnie_cane_mdl"] setscale(0.08);
-	foreach(var_fba08aba in var_ff840495)
+	foreach(mdl_prop in var_ff840495)
 	{
-		playfx(0, level._effect["portal_3p"], var_fba08aba.origin);
+		playfx(0, level._effect["portal_3p"], mdl_prop.origin);
 	}
 }
 

@@ -2643,18 +2643,18 @@ function function_339377d6()
 		}
 		level.var_9a9741a5 = 1;
 	#/
-	var_fba08aba = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
-	var_fba08aba.targetname = "mr6_demp_left";
-	var_fba08aba = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
-	var_fba08aba.targetname = "mr6_demp_right";
-	var_fba08aba = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
-	var_fba08aba.targetname = "mr6_richtofen";
-	var_fba08aba = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
-	var_fba08aba.targetname = "mr6_takeo";
-	var_fba08aba = util::spawn_model("wpn_t7_shotgun_spartan_prop", (600, 600, -170));
-	var_fba08aba.targetname = "spartan";
-	var_fba08aba = util::spawn_model("p7_zm_ctl_summoning_key_small", (600, 600, -170));
-	var_fba08aba.targetname = "key";
+	mdl_prop = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
+	mdl_prop.targetname = "mr6_demp_left";
+	mdl_prop = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
+	mdl_prop.targetname = "mr6_demp_right";
+	mdl_prop = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
+	mdl_prop.targetname = "mr6_richtofen";
+	mdl_prop = util::spawn_model("wpn_t7_pistol_mr6_prop", (600, 600, -170));
+	mdl_prop.targetname = "mr6_takeo";
+	mdl_prop = util::spawn_model("wpn_t7_shotgun_spartan_prop", (600, 600, -170));
+	mdl_prop.targetname = "spartan";
+	mdl_prop = util::spawn_model("p7_zm_ctl_summoning_key_small", (600, 600, -170));
+	mdl_prop.targetname = "key";
 }
 
 /*
