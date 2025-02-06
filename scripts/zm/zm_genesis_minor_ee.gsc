@@ -386,8 +386,8 @@ function function_ff9395ca()
 	var_eb751e53 = struct::get_array("writing_trigger", "targetname");
 	foreach(var_2ac294d8 in var_eb751e53)
 	{
-		var_3cbdaba3 = getent(var_2ac294d8.target, "targetname");
-		array::add(level.var_61d84403, var_3cbdaba3);
+		mdl_writing = getent(var_2ac294d8.target, "targetname");
+		array::add(level.var_61d84403, mdl_writing);
 		var_2ac294d8 thread function_a8fc7a77();
 	}
 }
@@ -405,7 +405,7 @@ function function_a8fc7a77()
 {
 	level endon("writing_on_the_wall_complete");
 	self zm_unitrigger::create_unitrigger(undefined, 128);
-	var_3cbdaba3 = getent(self.target, "targetname");
+	mdl_writing = getent(self.target, "targetname");
 	while(true)
 	{
 		self waittill("trigger_activated", e_player);
@@ -420,8 +420,8 @@ function function_a8fc7a77()
 			{
 				e_player playsound("zmb_minor_writing_write");
 			}
-			level.var_6d7c54f9 = var_3cbdaba3.model;
-			var_3cbdaba3 setmodel(var_5d3ba118);
+			level.var_6d7c54f9 = mdl_writing.model;
+			mdl_writing setmodel(var_5d3ba118);
 			level thread function_d0f8a867();
 		}
 	}
@@ -439,13 +439,13 @@ function function_a8fc7a77()
 function function_d0f8a867()
 {
 	b_complete = 1;
-	foreach(var_3cbdaba3 in level.var_61d84403)
+	foreach(mdl_writing in level.var_61d84403)
 	{
-		switch(var_3cbdaba3.targetname)
+		switch(mdl_writing.targetname)
 		{
 			case "verruckt_writing":
 			{
-				if(var_3cbdaba3.model != "p7_zm_gen_writing_ver_wishing")
+				if(mdl_writing.model != "p7_zm_gen_writing_ver_wishing")
 				{
 					b_complete = 0;
 				}
@@ -453,7 +453,7 @@ function function_d0f8a867()
 			}
 			case "ndu_writing_1":
 			{
-				if(var_3cbdaba3.model != "p7_zm_gen_writing_nac_salvation")
+				if(mdl_writing.model != "p7_zm_gen_writing_nac_salvation")
 				{
 					b_complete = 0;
 				}
@@ -461,7 +461,7 @@ function function_d0f8a867()
 			}
 			case "ndu_writing_2":
 			{
-				if(var_3cbdaba3.model != "p7_zm_gen_writing_nac_ascend")
+				if(mdl_writing.model != "p7_zm_gen_writing_nac_ascend")
 				{
 					b_complete = 0;
 				}
@@ -469,7 +469,7 @@ function function_d0f8a867()
 			}
 			case "undercroft_writing":
 			{
-				if(var_3cbdaba3.model != "tag_origin")
+				if(mdl_writing.model != "tag_origin")
 				{
 					b_complete = 0;
 				}
@@ -477,7 +477,7 @@ function function_d0f8a867()
 			}
 			case "prison_writing":
 			{
-				if(var_3cbdaba3.model != "p7_zm_gen_writing_mob_soul_alone")
+				if(mdl_writing.model != "p7_zm_gen_writing_mob_soul_alone")
 				{
 					b_complete = 0;
 				}
@@ -485,7 +485,7 @@ function function_d0f8a867()
 			}
 			case "theatre_writing":
 			{
-				if(var_3cbdaba3.model != "p7_zm_gen_writing_kin_scrawl_know")
+				if(mdl_writing.model != "p7_zm_gen_writing_kin_scrawl_know")
 				{
 					b_complete = 0;
 				}
