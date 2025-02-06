@@ -265,10 +265,10 @@ function private function_2ffb7337(entity)
 */
 function private function_d8f5da34(var_2dba2212)
 {
-	var_3a067a8d = struct::get_array(var_2dba2212, "script_noteworthy");
+	a_s_traps = struct::get_array(var_2dba2212, "script_noteworthy");
 	self.s_trap = undefined;
 	n_closest_dist_sq = 57600;
-	foreach(s_trap in var_3a067a8d)
+	foreach(s_trap in a_s_traps)
 	{
 		n_dist_sq = distancesquared(s_trap.origin, self.origin);
 		if(n_dist_sq < n_closest_dist_sq)

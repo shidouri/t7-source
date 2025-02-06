@@ -61,8 +61,8 @@ function main()
 	array::thread_all(getentarray("location_egg", "targetname"), &location_egg_vox);
 	level thread function_8d1c7be1();
 	level thread amb_0_zombie();
-	var_3a067a8d = struct::get_array("trap_electric", "targetname");
-	foreach(s_trap in var_3a067a8d)
+	a_s_traps = struct::get_array("trap_electric", "targetname");
+	foreach(s_trap in a_s_traps)
 	{
 		e_trap = getent(s_trap.script_noteworthy, "target");
 		e_trap thread function_57a1070b();
