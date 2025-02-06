@@ -2687,8 +2687,8 @@ function function_74602567()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_bw_1", "targetname");
-	var_561743c9 function_1033e5c6("broken_world_1", 6);
+	mdl_log = getent("log_bw_1", "targetname");
+	mdl_log function_1033e5c6("broken_world_1", 6);
 }
 
 /*
@@ -2706,8 +2706,8 @@ function function_258b62c()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_bw_2", "targetname");
-	var_561743c9 function_1033e5c6("broken_world_2", 1);
+	mdl_log = getent("log_bw_2", "targetname");
+	mdl_log function_1033e5c6("broken_world_2", 1);
 }
 
 /*
@@ -2725,8 +2725,8 @@ function function_285b3095()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_bw_3", "targetname");
-	var_561743c9 function_1033e5c6("broken_world_3", 4);
+	mdl_log = getent("log_bw_3", "targetname");
+	mdl_log function_1033e5c6("broken_world_3", 4);
 }
 
 /*
@@ -2743,8 +2743,8 @@ function function_ea43145d()
 	/#
 		level endon(#"hash_2b2c1420");
 	#/
-	var_561743c9 = getent("log_m", "targetname");
-	var_561743c9 function_1033e5c6("maxis_maxis", 3);
+	mdl_log = getent("log_m", "targetname");
+	mdl_log function_1033e5c6("maxis_maxis", 3);
 }
 
 /*
@@ -2762,8 +2762,8 @@ function function_7e60bca8()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_s", "targetname");
-	var_561743c9 function_1033e5c6("samantha_samantha", 4);
+	mdl_log = getent("log_s", "targetname");
+	mdl_log function_1033e5c6("samantha_samantha", 4);
 }
 
 /*
@@ -2781,8 +2781,8 @@ function function_55eb82ac()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_u_1", "targetname");
-	var_561743c9 function_1033e5c6("multiple_versions_1", 3);
+	mdl_log = getent("log_u_1", "targetname");
+	mdl_log function_1033e5c6("multiple_versions_1", 3);
 }
 
 /*
@@ -2800,8 +2800,8 @@ function function_c7f2f1e7()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_u_2", "targetname");
-	var_561743c9 function_1033e5c6("multiple_versions_2", 8);
+	mdl_log = getent("log_u_2", "targetname");
+	mdl_log function_1033e5c6("multiple_versions_2", 8);
 }
 
 /*
@@ -2819,8 +2819,8 @@ function function_a1f0777e()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_u_3", "targetname");
-	var_561743c9 function_1033e5c6("multiple_versions_3", 3);
+	mdl_log = getent("log_u_3", "targetname");
+	mdl_log function_1033e5c6("multiple_versions_3", 3);
 }
 
 /*
@@ -2838,8 +2838,8 @@ function function_890ad0cd()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_be_1", "targetname");
-	var_561743c9 function_1033e5c6("before_ee_complete_1", 2);
+	mdl_log = getent("log_be_1", "targetname");
+	mdl_log function_1033e5c6("before_ee_complete_1", 2);
 }
 
 /*
@@ -2857,8 +2857,8 @@ function function_af0d4b36()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	var_561743c9 = getent("log_be_2", "targetname");
-	var_561743c9 function_1033e5c6("before_ee_complete_2", 2);
+	mdl_log = getent("log_be_2", "targetname");
+	mdl_log function_1033e5c6("before_ee_complete_2", 2);
 }
 
 /*
