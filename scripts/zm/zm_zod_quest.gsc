@@ -685,17 +685,17 @@ function function_58fe842c()
 	Parameters: 1
 	Flags: Linked
 */
-function function_7965975d(var_553a9d46)
+function function_7965975d(a_e_keepers)
 {
 	self endon(#"_zombie_game_over");
 	level endon(#"hash_2403fc5b");
-	while(var_553a9d46.size > 0)
+	while(a_e_keepers.size > 0)
 	{
-		for(i = 0; i < var_553a9d46.size; i++)
+		for(i = 0; i < a_e_keepers.size; i++)
 		{
-			if(!isalive(var_553a9d46[i]))
+			if(!isalive(a_e_keepers[i]))
 			{
-				arrayremovevalue(var_553a9d46, var_553a9d46[i]);
+				arrayremovevalue(a_e_keepers, a_e_keepers[i]);
 			}
 		}
 		wait(0.05);
