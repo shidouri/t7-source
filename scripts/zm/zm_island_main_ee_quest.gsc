@@ -1188,16 +1188,16 @@ function function_6cc2e374()
 */
 function elevator_gears()
 {
-	var_17b2dca3 = getentarray("easter_egg_elevator_cage", "targetname");
+	a_e_elevator = getentarray("easter_egg_elevator_cage", "targetname");
 	while(true)
 	{
 		level flag::wait_till("elevator_in_use");
 		wait(0.1);
-		while(!isdefined(var_17b2dca3[0].is_moving))
+		while(!isdefined(a_e_elevator[0].is_moving))
 		{
 			wait(0.05);
 		}
-		while(var_17b2dca3[0].is_moving)
+		while(a_e_elevator[0].is_moving)
 		{
 			if(level flag::get("elevator_at_bottom"))
 			{
@@ -1527,38 +1527,38 @@ function elevator_door(b_open = 1)
 */
 function elevator_move()
 {
-	var_17b2dca3 = getentarray("easter_egg_elevator_cage", "targetname");
+	a_e_elevator = getentarray("easter_egg_elevator_cage", "targetname");
 	var_1fac16fe = getent("easter_egg_elevator_door_inner_top_left", "targetname");
-	var_1fac16fe linkto(var_17b2dca3[0]);
+	var_1fac16fe linkto(a_e_elevator[0]);
 	var_adbea363 = getent("easter_egg_elevator_door_inner_top_right", "targetname");
-	var_adbea363 linkto(var_17b2dca3[0]);
+	var_adbea363 linkto(a_e_elevator[0]);
 	var_46ebdf14 = getent("easter_egg_elevator_door_inner_bottom_left", "targetname");
-	var_46ebdf14 linkto(var_17b2dca3[0]);
+	var_46ebdf14 linkto(a_e_elevator[0]);
 	var_ddc6ba27 = getent("easter_egg_elevator_door_inner_bottom_right", "targetname");
-	var_ddc6ba27 linkto(var_17b2dca3[0]);
+	var_ddc6ba27 linkto(a_e_elevator[0]);
 	if(level flag::get("elevator_at_bottom"))
 	{
-		foreach(e_elevator in var_17b2dca3)
+		foreach(e_elevator in a_e_elevator)
 		{
 			e_elevator movez(1280, 20);
 		}
 	}
 	else
 	{
-		foreach(e_elevator in var_17b2dca3)
+		foreach(e_elevator in a_e_elevator)
 		{
 			e_elevator movez(-1280, 20);
 		}
 	}
-	var_17b2dca3[0].is_moving = 1;
-	var_17b2dca3[0] playsound("zmb_elevator_start");
-	var_17b2dca3[0] playloopsound("zmb_elevator_loop");
-	var_17b2dca3[0] thread function_7b8e6e93();
-	var_17b2dca3[0] waittill("movedone");
-	var_17b2dca3[0] thread function_e35db912();
-	var_17b2dca3[0].is_moving = 0;
-	var_17b2dca3[0] playsound("zmb_elevator_stop");
-	var_17b2dca3[0] stoploopsound(0.5);
+	a_e_elevator[0].is_moving = 1;
+	a_e_elevator[0] playsound("zmb_elevator_start");
+	a_e_elevator[0] playloopsound("zmb_elevator_loop");
+	a_e_elevator[0] thread function_7b8e6e93();
+	a_e_elevator[0] waittill("movedone");
+	a_e_elevator[0] thread function_e35db912();
+	a_e_elevator[0].is_moving = 0;
+	a_e_elevator[0] playsound("zmb_elevator_stop");
+	a_e_elevator[0] stoploopsound(0.5);
 	var_1fac16fe = getent("easter_egg_elevator_door_inner_top_left", "targetname");
 	var_1fac16fe unlink();
 	var_adbea363 = getent("easter_egg_elevator_door_inner_top_right", "targetname");
