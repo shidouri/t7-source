@@ -1067,7 +1067,7 @@ function function_342295d8(str_zone, b_enable = 1)
 */
 function function_37a5b776()
 {
-	var_a8951c29 = [];
+	a_e_occupied = [];
 	var_9e84b959 = array("start_island", "apothicon_island", "temple_island", "prototype_island", "asylum_island", "prison_island", "arena_island");
 	for(i = 0; i < var_9e84b959.size; i++)
 	{
@@ -1080,15 +1080,15 @@ function function_37a5b776()
 			}
 			if(level.activeplayers[j] istouching(e_island))
 			{
-				array::add(var_a8951c29, e_island, 0);
+				array::add(a_e_occupied, e_island, 0);
 			}
 		}
 	}
-	if(!var_a8951c29.size)
+	if(!a_e_occupied.size)
 	{
 		return true;
 	}
-	for(k = 0; k < var_a8951c29.size; k++)
+	for(k = 0; k < a_e_occupied.size; k++)
 	{
 		if(self istouching(var_a8951c29[k]))
 		{
