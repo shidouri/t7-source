@@ -3276,8 +3276,8 @@ function function_c3557b99(n_dir)
 */
 function function_5e9f49d2(str_name, n_duration, v_offset, b_reverse_dir, var_b222a396)
 {
-	var_659d66d1 = struct::get_array(str_name, "targetname");
-	foreach(s_fence in var_659d66d1)
+	a_s_fences = struct::get_array(str_name, "targetname");
+	foreach(s_fence in a_s_fences)
 	{
 		level thread function_cc9c82c8(s_fence, n_duration, v_offset, b_reverse_dir, var_b222a396);
 	}
