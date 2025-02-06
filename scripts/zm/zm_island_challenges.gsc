@@ -583,34 +583,34 @@ function function_8675d6ed(n_challenge)
 	{
 		v_spawnpt = s_altar.origin + (0, 0, 30);
 	}
-	var_30ff0d6c = function_5e39bbbe(var_c9d33fc4, v_spawnpt, s_altar.angles);
-	self thread function_6168d051(var_30ff0d6c);
+	mdl_reward = function_5e39bbbe(var_c9d33fc4, v_spawnpt, s_altar.angles);
+	self thread function_6168d051(mdl_reward);
 	if(n_challenge == 1)
 	{
-		var_30ff0d6c clientfield::set("challenge_glow_fx", 1);
+		mdl_reward clientfield::set("challenge_glow_fx", 1);
 	}
 	else if(n_challenge == 3)
 	{
-		var_30ff0d6c clientfield::set("challenge_glow_fx", 2);
+		mdl_reward clientfield::set("challenge_glow_fx", 2);
 	}
-	var_30ff0d6c thread timer_til_despawn(self, n_challenge, v_spawnpt, 30 * -1);
-	self thread function_5c44a258(var_30ff0d6c);
-	var_30ff0d6c endon(#"hash_59e0fa55");
-	var_30ff0d6c.trigger = s_altar function_be89930d(var_a879fa43, n_challenge);
-	var_30ff0d6c.trigger waittill("trigger", e_who);
+	mdl_reward thread timer_til_despawn(self, n_challenge, v_spawnpt, 30 * -1);
+	self thread function_5c44a258(mdl_reward);
+	mdl_reward endon(#"hash_59e0fa55");
+	mdl_reward.trigger = s_altar function_be89930d(var_a879fa43, n_challenge);
+	mdl_reward.trigger waittill("trigger", e_who);
 	if(e_who == self)
 	{
 		self playsoundtoplayer("zmb_trial_unlock_reward", self);
-		var_30ff0d6c.trigger notify("reward_grabbed");
+		mdl_reward.trigger notify("reward_grabbed");
 		self player_give_reward(n_challenge, s_altar, var_c9d33fc4);
-		if(isdefined(var_30ff0d6c.trigger))
+		if(isdefined(mdl_reward.trigger))
 		{
-			zm_unitrigger::unregister_unitrigger(var_30ff0d6c.trigger);
-			var_30ff0d6c.trigger = undefined;
+			zm_unitrigger::unregister_unitrigger(mdl_reward.trigger);
+			mdl_reward.trigger = undefined;
 		}
-		if(isdefined(var_30ff0d6c))
+		if(isdefined(mdl_reward))
 		{
-			var_30ff0d6c delete();
+			mdl_reward delete();
 		}
 	}
 }
@@ -626,8 +626,8 @@ function function_8675d6ed(n_challenge)
 */
 function function_5e39bbbe(var_c9d33fc4, v_origin, v_angles)
 {
-	var_30ff0d6c = util::spawn_model(var_c9d33fc4, v_origin, v_angles + vectorscale((0, 1, 0), 90));
-	return var_30ff0d6c;
+	mdl_reward = util::spawn_model(var_c9d33fc4, v_origin, v_angles + vectorscale((0, 1, 0), 90));
+	return mdl_reward;
 }
 
 /*
@@ -667,12 +667,12 @@ function timer_til_despawn(player, n_challenge, v_float, n_dist)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5c44a258(var_30ff0d6c)
+function function_5c44a258(mdl_reward)
 {
 	self endon(#"hash_994b4784");
 	self waittill("disconnect");
 	level flag::clear("flag_player_initialized_reward");
-	var_30ff0d6c delete();
+	mdl_reward delete();
 }
 
 /*
@@ -862,10 +862,10 @@ function function_26abcbe0()
 	Parameters: 1
 	Flags: Linked
 */
-function function_6168d051(var_30ff0d6c)
+function function_6168d051(mdl_reward)
 {
 	self endon(#"hash_994b4784");
-	var_30ff0d6c waittill(#"hash_59e0fa55");
+	mdl_reward waittill(#"hash_59e0fa55");
 	self notify(#"hash_994b4784");
 }
 

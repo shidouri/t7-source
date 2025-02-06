@@ -484,7 +484,7 @@ function function_424b6fe8()
 		{
 			if(e_who flag::get("flag_player_initialized_reward"))
 			{
-				if(self.var_30ff0d6c.n_challenge == 2)
+				if(self.mdl_reward.n_challenge == 2)
 				{
 					w_current = e_who getcurrentweapon();
 					if(zm_utility::is_placeable_mine(w_current) || zm_equipment::is_equipment(w_current) || w_current == level.weaponnone || (isdefined(w_current.isheroweapon) && w_current.isheroweapon) || (isdefined(w_current.isgadget) && w_current.isgadget))
@@ -496,7 +496,7 @@ function function_424b6fe8()
 						continue;
 					}
 				}
-				else if(self.var_30ff0d6c.n_challenge == 3)
+				else if(self.mdl_reward.n_challenge == 3)
 				{
 					a_perks = e_who getperks();
 					if(a_perks.size == level._custom_perks.size)
@@ -506,10 +506,10 @@ function function_424b6fe8()
 				}
 				e_who playrumbleonentity("zm_stalingrad_interact_rumble");
 				self.s_unitrigger.playertrigger[e_who.entity_num] sethintstringforplayer(e_who, "");
-				e_who player_give_reward(self.var_30ff0d6c, n_entity);
-				if(isdefined(self.var_30ff0d6c))
+				e_who player_give_reward(self.mdl_reward, n_entity);
+				if(isdefined(self.mdl_reward))
 				{
-					self.var_30ff0d6c delete();
+					self.mdl_reward delete();
 				}
 			}
 			else
@@ -617,8 +617,8 @@ function function_1d22626(e_player, n_challenge)
 	mdl_board scene::play("p7_fxanim_zm_gen_challenge_prizestone_open_bundle", mdl_board);
 	mdl_board clientfield::set("challenge_board_reward", 1);
 	self function_b1f54cb4(e_player, s_reward, var_17b3dc96, 30);
-	self.var_30ff0d6c clientfield::set("powerup_fx", 1);
-	self.var_30ff0d6c.n_challenge = n_challenge;
+	self.mdl_reward clientfield::set("powerup_fx", 1);
+	self.mdl_reward.n_challenge = n_challenge;
 	e_player flag::set("flag_player_initialized_reward");
 	self thread function_1ad9d1a0(e_player, 30 * -1, n_entity);
 }
@@ -635,16 +635,16 @@ function function_1d22626(e_player, n_challenge)
 function function_1ad9d1a0(e_player, n_dist, n_entity)
 {
 	self endon(#"hash_422dba45");
-	self.var_30ff0d6c movez(n_dist, 12, 6);
-	self.var_30ff0d6c waittill("movedone");
+	self.mdl_reward movez(n_dist, 12, 6);
+	self.mdl_reward waittill("movedone");
 	if(isdefined(e_player))
 	{
 		e_player flag::clear("flag_player_initialized_reward");
 		e_player.var_c981566c = undefined;
 	}
-	if(isdefined(self.var_30ff0d6c))
+	if(isdefined(self.mdl_reward))
 	{
-		self.var_30ff0d6c delete();
+		self.mdl_reward delete();
 	}
 	function_d57066e8(n_entity);
 }
@@ -660,7 +660,7 @@ function function_1ad9d1a0(e_player, n_dist, n_entity)
 */
 function function_b1f54cb4(e_player, s_reward, var_17b3dc96, var_21d0cf95)
 {
-	if(isdefined(self.var_30ff0d6c))
+	if(isdefined(self.mdl_reward))
 	{
 		self notify(#"hash_422dba45");
 	}
@@ -672,19 +672,19 @@ function function_b1f54cb4(e_player, s_reward, var_17b3dc96, var_21d0cf95)
 		case "lmg_cqb_upgraded":
 		case "smg_versatile_upgraded":
 		{
-			self.var_30ff0d6c = zm_utility::spawn_buildkit_weapon_model(e_player, getweapon(var_17b3dc96), undefined, var_51a2f105, var_9ef5a0dc);
-			self.var_30ff0d6c.str_weapon_name = var_17b3dc96;
+			self.mdl_reward = zm_utility::spawn_buildkit_weapon_model(e_player, getweapon(var_17b3dc96), undefined, var_51a2f105, var_9ef5a0dc);
+			self.mdl_reward.str_weapon_name = var_17b3dc96;
 			break;
 		}
 		default:
 		{
-			self.var_30ff0d6c = util::spawn_model(var_17b3dc96, var_51a2f105, var_9ef5a0dc);
+			self.mdl_reward = util::spawn_model(var_17b3dc96, var_51a2f105, var_9ef5a0dc);
 			break;
 		}
 	}
-	self.var_30ff0d6c movez(var_21d0cf95, 1);
+	self.mdl_reward movez(var_21d0cf95, 1);
 	playsoundatposition("evt_prize_rise", self.origin);
-	self.var_30ff0d6c waittill("movedone");
+	self.mdl_reward waittill("movedone");
 }
 
 /*
@@ -804,7 +804,7 @@ function function_3ae0d6d5(e_player)
 		if(e_player flag::get("flag_player_initialized_reward"))
 		{
 			self sethintstringforplayer(e_player, &"ZM_GENESIS_CHALLENGE_REWARD_TAKE");
-			if(self.stub.related_parent.var_30ff0d6c.n_challenge == 3)
+			if(self.stub.related_parent.mdl_reward.n_challenge == 3)
 			{
 				a_perks = e_player getperks();
 				if(a_perks.size == level._custom_perks.size)
@@ -884,9 +884,9 @@ function function_3f67a723(origin, var_a0fa82de = 90, do_trace, e_ignore)
 	Parameters: 2
 	Flags: Linked
 */
-function player_give_reward(var_30ff0d6c, n_entity)
+function player_give_reward(mdl_reward, n_entity)
 {
-	switch(var_30ff0d6c.n_challenge)
+	switch(mdl_reward.n_challenge)
 	{
 		case 1:
 		{
@@ -896,9 +896,9 @@ function player_give_reward(var_30ff0d6c, n_entity)
 		}
 		case 2:
 		{
-			if(isdefined(var_30ff0d6c.str_weapon_name))
+			if(isdefined(mdl_reward.str_weapon_name))
 			{
-				var_e564b69e = getweapon(var_30ff0d6c.str_weapon_name);
+				var_e564b69e = getweapon(mdl_reward.str_weapon_name);
 			}
 			self thread swap_weapon(var_e564b69e);
 			playsoundatposition("evt_grab_weapon", self.origin);
@@ -911,9 +911,9 @@ function player_give_reward(var_30ff0d6c, n_entity)
 			break;
 		}
 	}
-	self flag::set("flag_player_collected_reward_" + var_30ff0d6c.n_challenge);
+	self flag::set("flag_player_collected_reward_" + mdl_reward.n_challenge);
 	self flag::clear("flag_player_initialized_reward");
-	self function_33e91747(var_30ff0d6c.n_challenge, 2);
+	self function_33e91747(mdl_reward.n_challenge, 2);
 	level thread function_d57066e8(n_entity);
 	self.var_c981566c = undefined;
 }

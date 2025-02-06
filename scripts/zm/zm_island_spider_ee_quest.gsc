@@ -489,8 +489,8 @@ function function_2176e192()
 	level flag::set("spider_ee_quest_complete");
 	level flag::clear("spiders_from_mars_round");
 	callback::remove_on_ai_spawned(&function_49fac1ac);
-	var_30ff0d6c = util::spawn_model("p7_zm_isl_cocoon_standing", level.var_1a139831.origin - vectorscale((0, 0, 1), 110), level.var_1a139831.angles);
-	var_30ff0d6c linkto(level.var_1a139831);
+	mdl_reward = util::spawn_model("p7_zm_isl_cocoon_standing", level.var_1a139831.origin - vectorscale((0, 0, 1), 110), level.var_1a139831.angles);
+	mdl_reward linkto(level.var_1a139831);
 	level.var_f5ad590f = undefined;
 	level waittill(#"hash_35cee1df");
 	mdl_extractor = getent("venom_extractor", "targetname");
@@ -499,7 +499,7 @@ function function_2176e192()
 	var_1f71eb1 = struct::get("spider_ee_quest_reward", "targetname");
 	var_1f71eb1.origin = var_1f71eb1.origin;
 	var_1f71eb1.angles = var_1f71eb1.angles;
-	var_1f71eb1.e_parent = var_30ff0d6c;
+	var_1f71eb1.e_parent = mdl_reward;
 	var_1f71eb1.script_unitrigger_type = "unitrigger_box_use";
 	var_1f71eb1.cursor_hint = "HINT_NOICON";
 	var_1f71eb1.require_look_at = 1;
