@@ -699,16 +699,16 @@ function function_3630300b()
 */
 function function_b8227f87()
 {
-	self.var_ac086ffb = util::spawn_model(self.model, self.origin, self.angles);
-	self.var_ac086ffb clientfield::set("snd_zhdegg", 1);
-	self.var_ac086ffb playloopsound("mus_musicbox_lp", 2);
+	self.mdl_ballerina = util::spawn_model(self.model, self.origin, self.angles);
+	self.mdl_ballerina clientfield::set("snd_zhdegg", 1);
+	self.mdl_ballerina playloopsound("mus_musicbox_lp", 2);
 	self thread zm_audio_zhd::function_9d55fd08();
 	self thread zm_audio_zhd::function_2fdaabf3();
 	self util::waittill_any("ballerina_destroyed");
 	level.var_aa39de8++;
-	self.var_ac086ffb clientfield::set("snd_zhdegg", 0);
+	self.mdl_ballerina clientfield::set("snd_zhdegg", 0);
 	util::wait_network_frame();
-	self.var_ac086ffb delete();
+	self.mdl_ballerina delete();
 }
 
 /*
@@ -743,18 +743,18 @@ function function_231d9741()
 function function_69f032ca()
 {
 	self endon(#"hash_34014bea");
-	self.var_ac086ffb = util::spawn_model(self.model, self.origin, self.angles);
-	self.var_ac086ffb clientfield::set("snd_zhdegg", 1);
+	self.mdl_ballerina = util::spawn_model(self.model, self.origin, self.angles);
+	self.mdl_ballerina clientfield::set("snd_zhdegg", 1);
 	self thread zm_audio_zhd::function_9d55fd08();
-	self.var_ac086ffb playloopsound("mus_musicbox_lp", 2);
+	self.mdl_ballerina playloopsound("mus_musicbox_lp", 2);
 	var_209d26c2 = struct::get(self.target, "targetname");
 	self thread function_bec55ee6();
-	self.var_ac086ffb moveto(var_209d26c2.origin, 25, 10);
-	self.var_ac086ffb waittill("movedone");
+	self.mdl_ballerina moveto(var_209d26c2.origin, 25, 10);
+	self.mdl_ballerina waittill("movedone");
 	self notify(#"hash_3a53ac43");
-	self.var_ac086ffb clientfield::set("snd_zhdegg", 0);
+	self.mdl_ballerina clientfield::set("snd_zhdegg", 0);
 	util::wait_network_frame();
-	self.var_ac086ffb delete();
+	self.mdl_ballerina delete();
 }
 
 /*
@@ -769,11 +769,11 @@ function function_69f032ca()
 function function_bec55ee6()
 {
 	self endon(#"hash_3a53ac43");
-	self.var_ac086ffb setcandamage(1);
-	self.var_ac086ffb.health = 1000000;
+	self.mdl_ballerina setcandamage(1);
+	self.mdl_ballerina.health = 1000000;
 	while(true)
 	{
-		self.var_ac086ffb waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
+		self.mdl_ballerina waittill("damage", damage, attacker, dir, loc, type, model, tag, part, weapon, flags);
 		if(!isdefined(attacker) || !isplayer(attacker))
 		{
 			continue;
@@ -783,9 +783,9 @@ function function_bec55ee6()
 			continue;
 		}
 		self notify(#"hash_34014bea");
-		self.var_ac086ffb clientfield::set("snd_zhdegg", 0);
+		self.mdl_ballerina clientfield::set("snd_zhdegg", 0);
 		util::wait_network_frame();
-		self.var_ac086ffb delete();
+		self.mdl_ballerina delete();
 		self thread function_69f032ca();
 		break;
 	}

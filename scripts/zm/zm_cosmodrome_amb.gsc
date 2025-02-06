@@ -575,12 +575,12 @@ function function_5b4692c9()
 */
 function function_2e4843da()
 {
-	self.var_ac086ffb = util::spawn_model(self.model, self.origin, self.angles);
+	self.mdl_ballerina = util::spawn_model(self.model, self.origin, self.angles);
 	e_trig = spawn("trigger_radius", self.origin + (vectorscale((0, 0, -1), 120)), 0, 175, 200);
 	e_trig.targetname = "sndzhdeggtrig";
 	e_trig.s_target = self;
 	e_trig waittill(#"hash_de264026");
-	self.var_ac086ffb delete();
+	self.mdl_ballerina delete();
 	e_trig delete();
 }
 
@@ -597,7 +597,7 @@ function function_61c7f9a3(grenade, model, var_7d5605b7)
 {
 	wait(1);
 	time = 3;
-	var_7d5605b7.s_target.var_ac086ffb moveto(grenade.origin + vectorscale((0, 0, 1), 50), time, time - 0.05);
+	var_7d5605b7.s_target.mdl_ballerina moveto(grenade.origin + vectorscale((0, 0, 1), 50), time, time - 0.05);
 	wait(time);
 	playsoundatposition("zmb_gersh_teleporter_out", grenade.origin + vectorscale((0, 0, 1), 50));
 	model delete();
