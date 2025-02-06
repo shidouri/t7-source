@@ -445,7 +445,7 @@ function function_a7e8b47b()
 		var_1a0a3da9 = getentarray("", "");
 		var_ff1b68c0 = getent("", "");
 		a_e_collision = getentarray("", "");
-		var_50e0150f = getentarray("", "");
+		a_e_gates = getentarray("", "");
 		var_b9e116c5 = getentarray("", "");
 		var_6f3f4356 = getnodearray("", "");
 		if(level.var_de98e3ce.gates_open)
@@ -456,7 +456,7 @@ function function_a7e8b47b()
 				e_collision movez(600, 0.1);
 				e_collision disconnectpaths();
 			}
-			foreach(e_gate in var_50e0150f)
+			foreach(e_gate in a_e_gates)
 			{
 				e_gate movez(600, 0.25);
 			}
@@ -484,7 +484,7 @@ function function_a7e8b47b()
 				e_collision connectpaths();
 				e_collision movez(-600, 0.1);
 			}
-			foreach(e_gate in var_50e0150f)
+			foreach(e_gate in a_e_gates)
 			{
 				e_gate movez(-600, 0.25);
 			}

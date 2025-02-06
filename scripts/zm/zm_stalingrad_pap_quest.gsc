@@ -802,7 +802,7 @@ function function_188bdb42()
 function function_d6ced80(b_locked)
 {
 	var_2bf0ed11 = getentarray("pavlov_gate_collision", "targetname");
-	var_50e0150f = getentarray("pavlov_gate_visual", "targetname");
+	a_e_gates = getentarray("pavlov_gate_visual", "targetname");
 	var_b9e116c5 = getentarray("pavlov_hatch", "targetname");
 	var_870c25a8 = getentarray("pavlov_hatch_collision", "targetname");
 	a_e_collision = arraycombine(var_870c25a8, var_2bf0ed11, 0, 0);
@@ -817,7 +817,7 @@ function function_d6ced80(b_locked)
 			e_collision disconnectpaths();
 			var_63b437d6 = function_77f195ef(var_63b437d6);
 		}
-		foreach(e_gate in var_50e0150f)
+		foreach(e_gate in a_e_gates)
 		{
 			e_gate movez(600, 0.25);
 			var_63b437d6 = function_77f195ef(var_63b437d6);
@@ -844,7 +844,7 @@ function function_d6ced80(b_locked)
 			e_collision notsolid();
 			var_63b437d6 = function_77f195ef(var_63b437d6);
 		}
-		foreach(e_gate in var_50e0150f)
+		foreach(e_gate in a_e_gates)
 		{
 			e_gate movez(-600, 0.25);
 			var_63b437d6 = function_77f195ef(var_63b437d6);

@@ -599,14 +599,14 @@ function function_59a929b0(s_stub)
 	level.var_de98e3ce.var_d54b9ade = s_stub;
 	level.var_de98e3ce.var_312cd3bc = 1;
 	var_2bf0ed11 = getentarray("pavlov_gate_collision", "targetname");
-	var_50e0150f = getentarray("pavlov_gate_visual", "targetname");
+	a_e_gates = getentarray("pavlov_gate_visual", "targetname");
 	var_6f3f4356 = getnodearray("pavlovs_lockdown_stair_traverse", "targetname");
 	foreach(e_collision in var_2bf0ed11)
 	{
 		e_collision solid();
 		e_collision disconnectpaths();
 	}
-	foreach(e_gate in var_50e0150f)
+	foreach(e_gate in a_e_gates)
 	{
 		e_gate movez(600, 0.25);
 	}
@@ -636,7 +636,7 @@ function function_59a929b0(s_stub)
 		e_collision notsolid();
 		e_collision connectpaths();
 	}
-	foreach(e_gate in var_50e0150f)
+	foreach(e_gate in a_e_gates)
 	{
 		e_gate movez(-600, 0.25);
 	}
