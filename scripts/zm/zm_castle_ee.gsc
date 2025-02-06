@@ -2056,18 +2056,18 @@ function function_71568f8()
 	var_abee83e8 = getent("ee_death_ray_switch_pointer", "targetname");
 	var_abee83e8 rotatepitch(45, 0.25);
 	level flag::set("switch_to_death_ray");
-	var_367b15e7 = getent("ee_death_ray_switch", "targetname");
-	var_367b15e7 rotatepitch(-180, 0.25);
+	mdl_lever = getent("ee_death_ray_switch", "targetname");
+	mdl_lever rotatepitch(-180, 0.25);
 	level flag::wait_till("ee_fuse_placed");
-	var_367b15e7 zm_castle_util::create_unitrigger(undefined, 32);
+	mdl_lever zm_castle_util::create_unitrigger(undefined, 32);
 	while(true)
 	{
 		while(!level flag::get("switch_to_death_ray"))
 		{
-			var_367b15e7 waittill("trigger_activated");
+			mdl_lever waittill("trigger_activated");
 			if(level flag::get("ee_fuse_placed"))
 			{
-				var_367b15e7 rotatepitch(-180, 0.25);
+				mdl_lever rotatepitch(-180, 0.25);
 				var_abee83e8 rotatepitch(90, 0.25);
 				var_abee83e8 playsound("zmb_deathray_switch");
 				level flag::set("switch_to_death_ray");
@@ -2075,10 +2075,10 @@ function function_71568f8()
 		}
 		while(level flag::get("switch_to_death_ray"))
 		{
-			var_367b15e7 waittill("trigger_activated");
+			mdl_lever waittill("trigger_activated");
 			if(level flag::get("ee_fuse_placed"))
 			{
-				var_367b15e7 rotatepitch(180, 0.25);
+				mdl_lever rotatepitch(180, 0.25);
 				var_abee83e8 rotatepitch(-90, 0.25);
 				var_abee83e8 playsound("zmb_deathray_switch");
 				level flag::clear("switch_to_death_ray");

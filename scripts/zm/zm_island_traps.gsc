@@ -247,8 +247,8 @@ function function_fd097b36(var_6afd6b)
 	var_609ec145 thread scene::play("p7_fxanim_zm_island_engine_trap_on_bundle");
 	level.var_e938db57 thread function_d93740e5(var_6afd6b);
 	level.var_77316c1c thread function_d93740e5(var_6afd6b);
-	var_367b15e7 = level.var_cefa7a2a[self.stub.script_noteworthy];
-	var_367b15e7 thread scene::play("p7_fxanim_zm_island_switch_trap_lever_bundle", var_367b15e7);
+	mdl_lever = level.var_cefa7a2a[self.stub.script_noteworthy];
+	mdl_lever thread scene::play("p7_fxanim_zm_island_switch_trap_lever_bundle", mdl_lever);
 	level clientfield::set("proptrap_downdraft_rumble", 1);
 	foreach(player in level.activeplayers)
 	{
@@ -478,18 +478,18 @@ function function_17303d81()
 	var_d730823e = getentarray("lever", "script_tag");
 	level.var_cefa7a2a = [];
 	level.var_9c725b07 = [];
-	foreach(var_367b15e7 in var_d730823e)
+	foreach(mdl_lever in var_d730823e)
 	{
-		if(var_367b15e7.script_noteworthy == "proptrap_a_onswitch" || var_367b15e7.script_noteworthy == "proptrap_b_onswitch")
+		if(mdl_lever.script_noteworthy == "proptrap_a_onswitch" || mdl_lever.script_noteworthy == "proptrap_b_onswitch")
 		{
-			level.var_cefa7a2a[var_367b15e7.script_noteworthy] = var_367b15e7;
+			level.var_cefa7a2a[mdl_lever.script_noteworthy] = mdl_lever;
 		}
 		else
 		{
-			level.var_9c725b07[var_367b15e7.script_noteworthy] = var_367b15e7;
+			level.var_9c725b07[mdl_lever.script_noteworthy] = mdl_lever;
 		}
-		var_367b15e7 thread scene::init("p7_fxanim_zm_island_switch_trap_lever_bundle", var_367b15e7);
-		var_367b15e7 setignorepauseworld(1);
+		mdl_lever thread scene::init("p7_fxanim_zm_island_switch_trap_lever_bundle", mdl_lever);
+		mdl_lever setignorepauseworld(1);
 	}
 	var_d3782b4c = struct::get_array("s_onswitch_unitrigger", "script_label");
 	if(var_d3782b4c.size > 0)
@@ -634,8 +634,8 @@ function function_d6b07530()
 						{
 							if(self.stub.script_linkto === var_2b23f444.script_noteworthy)
 							{
-								var_367b15e7 = level.var_9c725b07[self.stub.script_noteworthy];
-								var_367b15e7 thread scene::play("p7_fxanim_zm_island_switch_trap_lever_bundle", var_367b15e7);
+								mdl_lever = level.var_9c725b07[self.stub.script_noteworthy];
+								mdl_lever thread scene::play("p7_fxanim_zm_island_switch_trap_lever_bundle", mdl_lever);
 								level.var_dd5501c7[var_2b23f444.target] thread [[level.var_dd5501c7[var_2b23f444.target].var_8bf7f16f]](ent);
 								var_2b23f444.var_df549564 = 1;
 							}

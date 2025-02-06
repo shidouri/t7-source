@@ -552,18 +552,18 @@ function function_af4b355b()
 */
 function function_450d606e()
 {
-	var_367b15e7 = getent(self.target, "targetname");
+	mdl_lever = getent(self.target, "targetname");
 	v_origin = self gettagorigin("tag_lever");
 	v_angles = self gettagangles("tag_lever");
-	var_367b15e7.origin = v_origin;
-	var_367b15e7.angles = v_angles;
+	mdl_lever.origin = v_origin;
+	mdl_lever.angles = v_angles;
 	if(self.var_1f3c0ca7 == 0)
 	{
-		var_367b15e7 rotatepitch(240, 0.1);
+		mdl_lever rotatepitch(240, 0.1);
 	}
 	else if(self.var_1f3c0ca7 == 2)
 	{
-		var_367b15e7 rotatepitch(120, 0.1);
+		mdl_lever rotatepitch(120, 0.1);
 	}
 	var_6403853b = function_d6953423(self.var_cd705a9[self.var_1f3c0ca7]);
 	var_6403853b.var_59c68a0b++;
@@ -748,7 +748,7 @@ function function_60619737()
 	level endon("tube_puzzle_complete");
 	s_terminal = struct::get("ee_tube_use_" + self.script_label, "targetname");
 	s_terminal zm_unitrigger::create_unitrigger("");
-	var_367b15e7 = getent(self.target, "targetname");
+	mdl_lever = getent(self.target, "targetname");
 	while(true)
 	{
 		s_terminal waittill("trigger_activated", e_who);
@@ -767,9 +767,9 @@ function function_60619737()
 		{
 			self.var_1f3c0ca7++;
 		}
-		var_367b15e7 rotatepitch(120, 0.5);
-		var_367b15e7 playsound("zmb_tubesville_lever");
-		var_367b15e7 waittill("rotatedone");
+		mdl_lever rotatepitch(120, 0.5);
+		mdl_lever playsound("zmb_tubesville_lever");
+		mdl_lever waittill("rotatedone");
 		var_5d1d7014 = function_d6953423(self.var_cd705a9[self.var_1f3c0ca7]);
 		var_5d1d7014 function_5c0811bc(1);
 		if(function_797708de())
