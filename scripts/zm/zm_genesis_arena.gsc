@@ -2049,7 +2049,7 @@ function function_80340a8d(n_path_index, var_45868921)
 	level endon("shadow_challenge_ended");
 	var_60d3617 = 128;
 	var_e453ffc4 = struct::get("arena_shadow_tornado_0_" + n_path_index, "targetname");
-	var_f3364be4 = util::spawn_model("tag_origin", var_e453ffc4.origin, vectorscale((-1, 0, 0), 90));
+	mdl_tornado = util::spawn_model("tag_origin", var_e453ffc4.origin, vectorscale((-1, 0, 0), 90));
 	if(!isdefined(level.var_633c0362))
 	{
 		level.var_633c0362 = [];
@@ -2062,8 +2062,8 @@ function function_80340a8d(n_path_index, var_45868921)
 	{
 		level.var_633c0362 = array(level.var_633c0362);
 	}
-	level.var_633c0362[level.var_633c0362.size] = var_f3364be4;
-	level thread function_5a0567f1(var_f3364be4);
+	level.var_633c0362[level.var_633c0362.size] = mdl_tornado;
+	level thread function_5a0567f1(mdl_tornado);
 	while(true)
 	{
 		n_path_index = n_path_index + 1;
@@ -2072,9 +2072,9 @@ function function_80340a8d(n_path_index, var_45868921)
 			n_path_index = 0;
 		}
 		var_e453ffc4 = struct::get("arena_shadow_tornado_0_" + n_path_index, "targetname");
-		var_7487d535 = distance(var_e453ffc4.origin, var_f3364be4.origin);
+		var_7487d535 = distance(var_e453ffc4.origin, mdl_tornado.origin);
 		var_c4f71af2 = var_7487d535 / var_60d3617;
-		var_f3364be4 moveto(var_e453ffc4.origin, var_c4f71af2);
+		mdl_tornado moveto(var_e453ffc4.origin, var_c4f71af2);
 		wait(var_c4f71af2);
 	}
 }
@@ -2088,7 +2088,7 @@ function function_80340a8d(n_path_index, var_45868921)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5a0567f1(var_f3364be4)
+function function_5a0567f1(mdl_tornado)
 {
 	level endon("arena_challenge_ended");
 	level endon("shadow_challenge_ended");
@@ -2099,15 +2099,15 @@ function function_5a0567f1(var_f3364be4)
 		a_players = arraycopy(level.activeplayers);
 		foreach(player in a_players)
 		{
-			if(isdefined(player) && distancesquared(var_f3364be4.origin, player.origin) < 36864)
+			if(isdefined(player) && distancesquared(mdl_tornado.origin, player.origin) < 36864)
 			{
 				var_56169cc1 = 0;
 			}
 		}
 		util::wait_network_frame();
 	}
-	var_f3364be4 clientfield::set("arena_tornado", 1);
-	var_f3364be4 thread function_2b740dcf();
+	mdl_tornado clientfield::set("arena_tornado", 1);
+	mdl_tornado thread function_2b740dcf();
 }
 
 /*
@@ -2287,12 +2287,12 @@ function function_d2a9fa8c(var_e78a4f30 = 0, var_47a4362c = 0)
 	exploder::stop_exploder("lgt_darkarena_shadowquest");
 	function_c5938cab(0);
 	function_2f3b6dab();
-	foreach(var_f3364be4 in level.var_633c0362)
+	foreach(mdl_tornado in level.var_633c0362)
 	{
-		if(isdefined(var_f3364be4))
+		if(isdefined(mdl_tornado))
 		{
-			var_f3364be4 clientfield::set("arena_tornado", 0);
-			var_f3364be4 delete();
+			mdl_tornado clientfield::set("arena_tornado", 0);
+			mdl_tornado delete();
 		}
 	}
 }
