@@ -3214,8 +3214,8 @@ function function_695d82fd()
 	#/
 	var_7d849b98 = getent("aq_dg_outro_align", "targetname");
 	var_7d849b98 clientfield::set("demongate_fossil_outro", 1);
-	var_e1f8771e = getent("quest_demongate_urn", "targetname");
-	var_e1f8771e scene::play("p7_fxanim_zm_castle_quest_demongate_urn_destroy_bundle");
+	mdl_urn = getent("quest_demongate_urn", "targetname");
+	mdl_urn scene::play("p7_fxanim_zm_castle_quest_demongate_urn_destroy_bundle");
 	var_605e43a9 = struct::get("quest_reforge_demon_gate", "targetname");
 	var_884470ed = var_605e43a9.angles + vectorscale((0, 1, 0), 90);
 	var_884470ed = var_884470ed * (0, 1, 0);
@@ -3364,8 +3364,8 @@ function function_dc66bbef()
 		{
 			var_7d849b98 = getent("", "");
 			var_7d849b98 clientfield::set("", 1);
-			var_e1f8771e = getent("", "");
-			var_e1f8771e scene::skipto_end("");
+			mdl_urn = getent("", "");
+			mdl_urn scene::skipto_end("");
 		}
 		if(isdefined(level.var_a81ca85))
 		{
