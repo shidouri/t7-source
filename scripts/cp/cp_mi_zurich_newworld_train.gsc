@@ -548,8 +548,8 @@ function init_train_flags()
 function function_8b44d21a()
 {
 	var_31f0b803 = getentarray("train_neon_glass_destructible_1", "script_noteworthy");
-	var_6a5caae4 = struct::get("front_of_the_train", "targetname");
-	var_31f0b803 = arraysort(var_31f0b803, var_6a5caae4.origin, 1);
+	s_front = struct::get("front_of_the_train", "targetname");
+	var_31f0b803 = arraysort(var_31f0b803, s_front.origin, 1);
 	for(i = 0; i < var_31f0b803.size; i++)
 	{
 		var_31f0b803[i] thread function_f889869b(i + 1);
