@@ -227,8 +227,8 @@ function function_5f1fa8cd(n_duration = 50)
 		level endon(#"hash_9c3be857");
 	#/
 	var_e31d98a1 = getentarray("lowgrav_glow", "targetname");
-	var_8ff7104f = getentarray("pyramid", "targetname");
-	var_e31d98a1 = arraycombine(var_8ff7104f, var_e31d98a1, 0, 0);
+	a_e_pyramids = getentarray("pyramid", "targetname");
+	var_e31d98a1 = arraycombine(a_e_pyramids, var_e31d98a1, 0, 0);
 	level thread function_ba48ca38();
 	while(true)
 	{

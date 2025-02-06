@@ -454,8 +454,8 @@ function function_767bba0()
 	#/
 	var_470f053a = struct::get_array("wall_buy_trigger", "targetname");
 	var_6ad23999 = getentarray("lowgrav_glow", "targetname");
-	var_8ff7104f = getentarray("pyramid", "targetname");
-	var_6ad23999 = arraycombine(var_8ff7104f, var_6ad23999, 0, 0);
+	a_e_pyramids = getentarray("pyramid", "targetname");
+	var_6ad23999 = arraycombine(a_e_pyramids, var_6ad23999, 0, 0);
 	while(true)
 	{
 		level flag::wait_till("low_grav_on");
