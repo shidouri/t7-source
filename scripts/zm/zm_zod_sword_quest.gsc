@@ -1001,11 +1001,11 @@ function function_59d9e12a(n_index)
 function function_96ae1a10(var_181b74a5, n_character_index)
 {
 	var_79d1dcf6 = struct::get_array("sword_quest_magic_circle_player_" + n_character_index, "targetname");
-	foreach(var_87367d4f in var_79d1dcf6)
+	foreach(s_circle in var_79d1dcf6)
 	{
-		if(var_87367d4f.script_int === var_181b74a5)
+		if(s_circle.script_int === var_181b74a5)
 		{
-			return var_87367d4f;
+			return s_circle;
 		}
 	}
 }

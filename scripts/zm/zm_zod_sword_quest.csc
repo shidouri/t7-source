@@ -90,11 +90,11 @@ function magic_circle_state_internal(localclientnum, newval, n_current_ritual)
 	var_4126c532 = function_5dab7fb(localclientnum, n_current_ritual);
 	var_768e52e3 = undefined;
 	var_5306b772 = struct::get_array("sword_quest_magic_circle_place", "targetname");
-	foreach(var_87367d4f in var_5306b772)
+	foreach(s_circle in var_5306b772)
 	{
-		if(var_87367d4f.script_int === n_current_ritual)
+		if(s_circle.script_int === n_current_ritual)
 		{
-			var_768e52e3 = var_87367d4f;
+			var_768e52e3 = s_circle;
 		}
 	}
 	if(!isdefined(var_4126c532.var_e2a5419e))
@@ -633,11 +633,11 @@ function get_name_from_ritual_clientfield_value(n_current_ritual)
 function function_85b951d8(var_181b74a5)
 {
 	var_79d1dcf6 = struct::get_array("sword_quest_magic_circle_place", "targetname");
-	foreach(var_87367d4f in var_79d1dcf6)
+	foreach(s_circle in var_79d1dcf6)
 	{
-		if(var_87367d4f.script_int === var_181b74a5)
+		if(s_circle.script_int === var_181b74a5)
 		{
-			return var_87367d4f.origin;
+			return s_circle.origin;
 		}
 	}
 }
@@ -654,11 +654,11 @@ function function_85b951d8(var_181b74a5)
 function function_96ae1a10(var_181b74a5, n_character_index)
 {
 	var_79d1dcf6 = struct::get_array("sword_quest_magic_circle_player_" + n_character_index, "targetname");
-	foreach(var_87367d4f in var_79d1dcf6)
+	foreach(s_circle in var_79d1dcf6)
 	{
-		if(var_87367d4f.script_int === var_181b74a5)
+		if(s_circle.script_int === var_181b74a5)
 		{
-			return var_87367d4f;
+			return s_circle;
 		}
 	}
 }

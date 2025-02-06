@@ -1356,7 +1356,7 @@ function function_4f8445d7(n_zone)
 	var_6998342d = a_sizes[0];
 	var_d139aee0 = "" + var_6998342d;
 	var_1acc807d = struct::get_array("cscircle_" + n_zone);
-	var_87367d4f = array::random(var_1acc807d);
+	s_circle = array::random(var_1acc807d);
 	var_fcfee273 = ("lgt_channel_stones_" + n_zone) + a_circles[var_d139aee0];
 	exploder::exploder(var_fcfee273);
 	var_bffe8a31 = 0;
@@ -1365,7 +1365,7 @@ function function_4f8445d7(n_zone)
 		var_470f6bc3 = 0;
 		foreach(player in level.players)
 		{
-			if(zm_utility::is_player_valid(player) && distance2dsquared(player.origin, var_87367d4f.origin) < var_560e7570)
+			if(zm_utility::is_player_valid(player) && distance2dsquared(player.origin, s_circle.origin) < var_560e7570)
 			{
 				player.var_507ad4a9 = 1;
 				var_470f6bc3++;
