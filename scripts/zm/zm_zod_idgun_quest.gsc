@@ -585,7 +585,7 @@ function get_idgun_from_owner(player)
 function setup_idgun_upgrade_quest()
 {
 	level flag::wait_till("second_idgun_time");
-	var_ffcd34fb = struct::get_array("idgun_cocoon_point", "targetname");
+	a_s_cocoons = struct::get_array("idgun_cocoon_point", "targetname");
 	if(!isdefined(level.var_a26610f1))
 	{
 		level.var_a26610f1 = [];
@@ -613,7 +613,7 @@ function setup_idgun_upgrade_quest()
 				break;
 			}
 		}
-		var_c6a8002 = array::filter(var_ffcd34fb, 0, &filter_areaname, str_areaname);
+		var_c6a8002 = array::filter(a_s_cocoons, 0, &filter_areaname, str_areaname);
 		level.var_a26610f1[i] = array::random(var_c6a8002);
 		mdl_cocoon = spawn("script_model", level.var_a26610f1[i].origin);
 		mdl_cocoon setmodel("p7_zm_zod_cocoon");
