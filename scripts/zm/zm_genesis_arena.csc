@@ -722,10 +722,10 @@ function function_244d3483(localclientnum)
 */
 function function_a8a110ed(localclientnum, s_location, v_angle_offset = (0, 0, 0))
 {
-	var_244bacb5 = spawn(localclientnum, s_location.origin, "script_model");
-	var_244bacb5.angles = s_location.angles + v_angle_offset;
-	var_244bacb5 setmodel(s_location.model);
-	return var_244bacb5;
+	mdl_spawned = spawn(localclientnum, s_location.origin, "script_model");
+	mdl_spawned.angles = s_location.angles + v_angle_offset;
+	mdl_spawned setmodel(s_location.model);
+	return mdl_spawned;
 }
 
 /*
