@@ -1966,8 +1966,8 @@ function function_a22441fa()
 {
 	scene::add_scene_func("cin_new_06_01_chase_vign_ticket_civ_female", &function_bff4697e, "done");
 	scene::add_scene_func("cin_new_06_01_chase_vign_ticket_civ_male", &function_bff4697e, "done");
-	var_5bcb8a4d = struct::get_array("ticket_civ_male", "targetname");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("ticket_civ_male", "targetname");
+	foreach(s_scene in a_s_scene)
 	{
 		ai = spawner::simple_spawn_single("ticket_civ_male");
 		ai.var_a0f70d54 = level.ai_bomber;
@@ -1983,8 +1983,8 @@ function function_a22441fa()
 		}
 	}
 	util::wait_network_frame();
-	var_5bcb8a4d = struct::get_array("ticket_civ_female", "targetname");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("ticket_civ_female", "targetname");
+	foreach(s_scene in a_s_scene)
 	{
 		ai = spawner::simple_spawn_single("ticket_civ_female");
 		ai.var_a0f70d54 = level.ai_bomber;

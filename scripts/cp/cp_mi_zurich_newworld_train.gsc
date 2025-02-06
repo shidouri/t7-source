@@ -1518,8 +1518,8 @@ function start_sequential_train_door_lockdown()
 	clientfield::set("train_lockdown_shutters_5", 1);
 	e_trigger = getent("train_car_lockdown_04", "targetname");
 	e_trigger wait_for_train_car_to_be_empty();
-	var_5bcb8a4d = struct::get_array("train_civilians_car_1", "script_noteworthy");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("train_civilians_car_1", "script_noteworthy");
+	foreach(s_scene in a_s_scene)
 	{
 		if(s_scene scene::is_playing())
 		{
@@ -1530,8 +1530,8 @@ function start_sequential_train_door_lockdown()
 	clientfield::set("train_lockdown_shutters_4", 1);
 	e_trigger = getent("train_car_lockdown_03", "targetname");
 	e_trigger wait_for_train_car_to_be_empty();
-	var_5bcb8a4d = struct::get_array("train_civilians_car_2", "script_noteworthy");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("train_civilians_car_2", "script_noteworthy");
+	foreach(s_scene in a_s_scene)
 	{
 		if(s_scene scene::is_playing())
 		{
@@ -1543,16 +1543,16 @@ function start_sequential_train_door_lockdown()
 	clientfield::set("train_lockdown_shutters_3", 1);
 	e_trigger = getent("train_car_lockdown_02", "targetname");
 	e_trigger wait_for_train_car_to_be_empty();
-	var_5bcb8a4d = struct::get_array("train_civilians_car_3", "script_noteworthy");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("train_civilians_car_3", "script_noteworthy");
+	foreach(s_scene in a_s_scene)
 	{
 		if(s_scene scene::is_playing())
 		{
 			s_scene scene::stop(1);
 		}
 	}
-	var_5bcb8a4d = struct::get_array("train_car_3_charging_stations", "targetname");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("train_car_3_charging_stations", "targetname");
+	foreach(s_scene in a_s_scene)
 	{
 		if(s_scene scene::is_playing())
 		{
@@ -1568,24 +1568,24 @@ function start_sequential_train_door_lockdown()
 	e_trigger = getent("train_car_lockdown_01", "targetname");
 	e_trigger wait_for_train_car_to_be_empty();
 	trigger::use("enable_car_0_respawns");
-	var_5bcb8a4d = struct::get_array("train_civilians_car_4", "script_noteworthy");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("train_civilians_car_4", "script_noteworthy");
+	foreach(s_scene in a_s_scene)
 	{
 		if(s_scene scene::is_playing())
 		{
 			s_scene scene::stop(1);
 		}
 	}
-	var_5bcb8a4d = struct::get_array("train_car_4_charging_stations", "targetname");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("train_car_4_charging_stations", "targetname");
+	foreach(s_scene in a_s_scene)
 	{
 		if(s_scene scene::is_playing())
 		{
 			s_scene scene::stop(1);
 		}
 	}
-	var_5bcb8a4d = struct::get_array("train_car_4_rear_charging_stations", "targetname");
-	foreach(s_scene in var_5bcb8a4d)
+	a_s_scene = struct::get_array("train_car_4_rear_charging_stations", "targetname");
+	foreach(s_scene in a_s_scene)
 	{
 		if(s_scene scene::is_playing())
 		{

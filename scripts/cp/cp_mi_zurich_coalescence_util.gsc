@@ -3108,8 +3108,8 @@ function function_dea7f09f()
 	{
 		return;
 	}
-	var_5bcb8a4d = struct::get_array(target.target);
-	s_scene = array::random(var_5bcb8a4d);
+	a_s_scene = struct::get_array(target.target);
+	s_scene = array::random(a_s_scene);
 	wait(0.05);
 	while(isdefined(s_scene) && isdefined(s_scene.scriptbundlename))
 	{
