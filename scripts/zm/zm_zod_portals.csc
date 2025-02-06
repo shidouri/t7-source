@@ -357,12 +357,12 @@ function function_8fbd3c13(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_11ac3c33(localclientnum, str_areaname, b_is_top)
 {
 	s_loc = get_portal_fx_loc("teleport_effect_origin", str_areaname, b_is_top);
-	var_836f2873 = function_86743484(localclientnum, s_loc);
+	mdl_portal = function_86743484(localclientnum, s_loc);
 	for(i = 1; i < 25; i++)
 	{
 		if((i % 5) === 0)
 		{
-			playfxontag(localclientnum, level._effect["portal_shortcut_pulse"], var_836f2873, "tag_fx_ring_" + i);
+			playfxontag(localclientnum, level._effect["portal_shortcut_pulse"], mdl_portal, "tag_fx_ring_" + i);
 		}
 	}
 }
@@ -397,20 +397,20 @@ function function_c0c1771a(localclientnum, s_loc, b_open, var_9c9cfb54 = 0)
 	{
 		s_loc.var_1db71ac6[localclientnum] = playfx(localclientnum, level._effect["portal_shortcut_opening"], s_loc.origin, v_fwd);
 	}
-	var_836f2873 = function_86743484(localclientnum, s_loc);
-	var_836f2873 hidepart(localclientnum, "tag_portal_open");
+	mdl_portal = function_86743484(localclientnum, s_loc);
+	mdl_portal hidepart(localclientnum, "tag_portal_open");
 	if(b_open)
 	{
 		wait(1.3);
-		var_836f2873 showpart(localclientnum, "tag_portal_open");
+		mdl_portal showpart(localclientnum, "tag_portal_open");
 		for(i = 1; i < 25; i++)
 		{
-			playfxontag(localclientnum, level._effect["portal_shortcut_open_border"], var_836f2873, "tag_fx_ring_" + i);
+			playfxontag(localclientnum, level._effect["portal_shortcut_open_border"], mdl_portal, "tag_fx_ring_" + i);
 		}
 	}
 	else
 	{
-		var_836f2873 hidepart(localclientnum, "tag_portal_open");
+		mdl_portal hidepart(localclientnum, "tag_portal_open");
 	}
 	stop_fx_if_defined(localclientnum, s_loc.var_1db71ac6[localclientnum]);
 	if(isdefined(b_open) && b_open)
@@ -452,16 +452,16 @@ function function_86743484(localclientnum, s_loc)
 	str_name = s_loc.script_noteworthy;
 	if(isdefined(level.var_ef51ee6d[localclientnum][str_name]))
 	{
-		return level.var_ef51ee6d[localclientnum][str_name].var_836f2873;
+		return level.var_ef51ee6d[localclientnum][str_name].mdl_portal;
 	}
 	level.var_ef51ee6d[localclientnum][str_name] = spawnstruct();
-	level.var_ef51ee6d[localclientnum][str_name].var_836f2873 = spawn(localclientnum, s_loc.origin, "script_model");
-	level.var_ef51ee6d[localclientnum][str_name].var_836f2873.angles = s_loc.angles;
-	level.var_ef51ee6d[localclientnum][str_name].var_836f2873 setmodel("p7_zm_zod_keeper_portal_01");
+	level.var_ef51ee6d[localclientnum][str_name].mdl_portal = spawn(localclientnum, s_loc.origin, "script_model");
+	level.var_ef51ee6d[localclientnum][str_name].mdl_portal.angles = s_loc.angles;
+	level.var_ef51ee6d[localclientnum][str_name].mdl_portal setmodel("p7_zm_zod_keeper_portal_01");
 	level.var_ef51ee6d[localclientnum][str_name].mdl_base = spawn(localclientnum, s_loc.origin - vectorscale((0, 0, 1), 48), "script_model");
 	level.var_ef51ee6d[localclientnum][str_name].mdl_base.angles = s_loc.angles;
 	level.var_ef51ee6d[localclientnum][str_name].mdl_base setmodel("p7_zm_zod_keeper_portal_base");
-	return level.var_ef51ee6d[localclientnum][str_name].var_836f2873;
+	return level.var_ef51ee6d[localclientnum][str_name].mdl_portal;
 }
 
 /*
