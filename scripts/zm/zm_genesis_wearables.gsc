@@ -740,14 +740,14 @@ function function_796904fd()
 */
 function function_c489ad78(str_flag)
 {
-	var_3f709380 = struct::get("s_dire_wolf_coffin", "targetname");
-	t_damage = spawn("trigger_damage", var_3f709380.origin, 0, 15, 10);
+	s_coffin = struct::get("s_dire_wolf_coffin", "targetname");
+	t_damage = spawn("trigger_damage", s_coffin.origin, 0, 15, 10);
 	while(true)
 	{
 		t_damage waittill("damage", amount, attacker, dir, point, mod);
 		if(isdefined(mod) && mod == "MOD_GRENADE_SPLASH")
 		{
-			n_dist = distance(point, var_3f709380.origin);
+			n_dist = distance(point, s_coffin.origin);
 			if(n_dist <= 90)
 			{
 				break;
@@ -771,8 +771,8 @@ function function_c489ad78(str_flag)
 function function_f4caac35(str_flag)
 {
 	level waittill(#"hash_208ce56d");
-	var_3f709380 = struct::get("s_dire_wolf_coffin", "targetname");
-	var_affd5bec = util::spawn_model("tag_origin", var_3f709380.origin, (0, 0, 0));
+	s_coffin = struct::get("s_dire_wolf_coffin", "targetname");
+	var_affd5bec = util::spawn_model("tag_origin", s_coffin.origin, (0, 0, 0));
 	var_affd5bec setmodel("p7_ban_north_tribe_lion_skull");
 	s_path = struct::get("s_dire_wolf_path_start", "targetname");
 	while(true)
