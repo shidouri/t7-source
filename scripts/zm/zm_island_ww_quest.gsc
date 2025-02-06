@@ -746,8 +746,8 @@ function function_7def4961()
 	level thread scene::add_scene_func("p7_fxanim_zm_island_cage_trap_spid_hatch_open_bundle", &function_385c3ebb, "init");
 	level thread scene::init("p7_fxanim_zm_island_cage_trap_spid_hatch_open_bundle");
 	var_30c2448 = struct::get("vial_pos");
-	var_f78dfee = struct::get("spider_cage_control");
-	var_f78dfee thread function_9faff60c();
+	s_control = struct::get("spider_cage_control");
+	s_control thread function_9faff60c();
 	while(!level.var_1dbad94a)
 	{
 		wait(0.1);

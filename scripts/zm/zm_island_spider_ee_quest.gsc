@@ -508,8 +508,8 @@ function function_2176e192()
 	var_1f71eb1.script_height = 100;
 	var_1f71eb1.prompt_and_visibility_func = &function_bf0f2293;
 	zm_unitrigger::register_static_unitrigger(var_1f71eb1, &function_2818665b);
-	var_f78dfee = struct::get("spider_cage_control");
-	zm_unitrigger::unregister_unitrigger(var_f78dfee.trigger);
+	s_control = struct::get("spider_cage_control");
+	zm_unitrigger::unregister_unitrigger(s_control.trigger);
 	level notify(#"hash_d8d0f829");
 }
 
