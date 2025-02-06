@@ -2053,8 +2053,8 @@ function function_1ab64038()
 */
 function function_71568f8()
 {
-	var_abee83e8 = getent("ee_death_ray_switch_pointer", "targetname");
-	var_abee83e8 rotatepitch(45, 0.25);
+	mdl_pointer = getent("ee_death_ray_switch_pointer", "targetname");
+	mdl_pointer rotatepitch(45, 0.25);
 	level flag::set("switch_to_death_ray");
 	mdl_lever = getent("ee_death_ray_switch", "targetname");
 	mdl_lever rotatepitch(-180, 0.25);
@@ -2068,8 +2068,8 @@ function function_71568f8()
 			if(level flag::get("ee_fuse_placed"))
 			{
 				mdl_lever rotatepitch(-180, 0.25);
-				var_abee83e8 rotatepitch(90, 0.25);
-				var_abee83e8 playsound("zmb_deathray_switch");
+				mdl_pointer rotatepitch(90, 0.25);
+				mdl_pointer playsound("zmb_deathray_switch");
 				level flag::set("switch_to_death_ray");
 			}
 		}
@@ -2079,8 +2079,8 @@ function function_71568f8()
 			if(level flag::get("ee_fuse_placed"))
 			{
 				mdl_lever rotatepitch(180, 0.25);
-				var_abee83e8 rotatepitch(-90, 0.25);
-				var_abee83e8 playsound("zmb_deathray_switch");
+				mdl_pointer rotatepitch(-90, 0.25);
+				mdl_pointer playsound("zmb_deathray_switch");
 				level flag::clear("switch_to_death_ray");
 			}
 		}
