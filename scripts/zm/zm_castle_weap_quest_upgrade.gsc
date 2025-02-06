@@ -1841,9 +1841,9 @@ function function_293189ba()
 		if(var_74b0d14a.var_ce58f456 >= 20)
 		{
 			level flag::set("rune_prison_upgraded");
-			var_f3636838 = getent("pedestal_rune_bow_place", "targetname");
-			var_f3636838 playsound("evt_arrow_souls_ready");
-			var_f3636838 thread function_bf26d3fb("arrow_charge_wolf_fx");
+			mdl_arrow = getent("pedestal_rune_bow_place", "targetname");
+			mdl_arrow playsound("evt_arrow_souls_ready");
+			mdl_arrow thread function_bf26d3fb("arrow_charge_wolf_fx");
 		}
 	}
 }
@@ -3430,9 +3430,9 @@ function function_894eef8b()
 		if(var_30554f8f.var_ce58f456 >= 20)
 		{
 			level flag::set("demon_gate_upgraded");
-			var_f3636838 = getent("pedestal_demon_bow_place", "targetname");
-			var_f3636838 playsound("evt_arrow_souls_ready");
-			var_f3636838 thread function_bf26d3fb("arrow_charge_wolf_fx");
+			mdl_arrow = getent("pedestal_demon_bow_place", "targetname");
+			mdl_arrow playsound("evt_arrow_souls_ready");
+			mdl_arrow thread function_bf26d3fb("arrow_charge_wolf_fx");
 		}
 	}
 }
@@ -4998,9 +4998,9 @@ function function_803f9685()
 		if(var_dcb62646.var_ce58f456 >= 20)
 		{
 			level flag::set("wolf_howl_upgraded");
-			var_f3636838 = getent("pedestal_wolf_bow_place", "targetname");
-			var_f3636838 playsound("evt_arrow_souls_ready");
-			var_f3636838 thread function_bf26d3fb("arrow_charge_wolf_fx");
+			mdl_arrow = getent("pedestal_wolf_bow_place", "targetname");
+			mdl_arrow playsound("evt_arrow_souls_ready");
+			mdl_arrow thread function_bf26d3fb("arrow_charge_wolf_fx");
 		}
 	}
 }
@@ -6463,9 +6463,9 @@ function function_392a1ae1()
 		if(var_eb2f4ed5.var_ce58f456 >= 20)
 		{
 			level flag::set("elemental_storm_upgraded");
-			var_f3636838 = getent("pedestal_storm_bow_place", "targetname");
-			var_f3636838 playsound("evt_arrow_souls_ready");
-			var_f3636838 thread function_bf26d3fb("arrow_charge_wolf_fx");
+			mdl_arrow = getent("pedestal_storm_bow_place", "targetname");
+			mdl_arrow playsound("evt_arrow_souls_ready");
+			mdl_arrow thread function_bf26d3fb("arrow_charge_wolf_fx");
 		}
 	}
 }
@@ -6537,39 +6537,39 @@ function function_f708e6b2()
 		case "elemental_bow_rune_prison":
 		{
 			str_quest = "rune_prison";
-			var_f3636838 = level.var_2b11065e;
+			mdl_arrow = level.var_2b11065e;
 			break;
 		}
 		case "elemental_bow_demongate":
 		{
 			str_quest = "demon_gate";
-			var_f3636838 = level.var_72a6d56b;
+			mdl_arrow = level.var_72a6d56b;
 			break;
 		}
 		case "elemental_bow_wolf_howl":
 		{
 			str_quest = "wolf_howl";
-			var_f3636838 = level.var_eee1576;
+			mdl_arrow = level.var_eee1576;
 			break;
 		}
 		case "elemental_bow_storm":
 		{
 			str_quest = "elemental_storm";
-			var_f3636838 = level.var_18c771ad;
+			mdl_arrow = level.var_18c771ad;
 			break;
 		}
 	}
-	if(isdefined(var_f3636838))
+	if(isdefined(mdl_arrow))
 	{
-		var_f3636838 show();
+		mdl_arrow show();
 	}
-	var_f3636838 playloopsound("zmb_ee_arrow_lp", 1);
+	mdl_arrow playloopsound("zmb_ee_arrow_lp", 1);
 	e_player = self function_655cb8e();
 	e_player playrumbleonentity("zm_castle_quest_interact_rumble");
-	if(isdefined(var_f3636838))
+	if(isdefined(mdl_arrow))
 	{
-		var_f3636838 hide();
-		var_f3636838 stoploopsound(1);
+		mdl_arrow hide();
+		mdl_arrow stoploopsound(1);
 	}
 }
 
