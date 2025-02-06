@@ -668,7 +668,7 @@ function defend_start()
 	{
 		wait(1);
 	}
-	var_44f2dff7 = struct::get_array("defend_valve_spawnpt");
+	a_s_spawns = struct::get_array("defend_valve_spawnpt");
 	level.var_74049442 = 0;
 	switch(level.players.size)
 	{
@@ -707,8 +707,8 @@ function defend_start()
 	exploder::exploder("lgt_penstock_event");
 	while(level.var_74049442 < 13)
 	{
-		var_44f2dff7 = array::randomize(var_44f2dff7);
-		for(i = 0; i < var_44f2dff7.size; i++)
+		a_s_spawns = array::randomize(a_s_spawns);
+		for(i = 0; i < a_s_spawns.size; i++)
 		{
 			while(getfreeactorcount() < 1)
 			{
@@ -718,10 +718,10 @@ function defend_start()
 			{
 				wait(0.05);
 			}
-			ai_zombie = zombie_utility::spawn_zombie(level.zombie_spawners[0], "defend_zombie", var_44f2dff7[i]);
+			ai_zombie = zombie_utility::spawn_zombie(level.zombie_spawners[0], "defend_zombie", a_s_spawns[i]);
 			if(isdefined(ai_zombie))
 			{
-				if(isdefined(var_44f2dff7[i].script_int))
+				if(isdefined(a_s_spawns[i].script_int))
 				{
 					ai_zombie.var_57b55f08 = 1;
 				}
