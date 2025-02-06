@@ -705,8 +705,8 @@ function init_sidequest()
 	{
 		level._raised_crystals[i] = 0;
 	}
-	var_ed98f9ec = getentarray("sq_spiketrap", "targetname");
-	foreach(e_trap in var_ed98f9ec)
+	a_e_trap = getentarray("sq_spiketrap", "targetname");
+	foreach(e_trap in a_e_trap)
 	{
 		e_trap show();
 	}
