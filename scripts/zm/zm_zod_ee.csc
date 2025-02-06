@@ -871,12 +871,12 @@ function function_27e2b2cc(localclientnum)
 		level.var_a9f994a9.var_8cf34592 setmodel("p7_zm_zod_gateworm_large");
 		level.var_a9f994a9.var_8cf34592 useanimtree($generic);
 	}
-	if(!isdefined(level.var_a9f994a9.var_dbb35f4d))
+	if(!isdefined(level.var_a9f994a9.mdl_junction))
 	{
 		s_loc = struct::get("ee_apothigod_gateworm_junction", "targetname");
-		level.var_a9f994a9.var_dbb35f4d = spawn(localclientnum, s_loc.origin, "script_model");
-		level.var_a9f994a9.var_dbb35f4d.angles = s_loc.angles;
-		level.var_a9f994a9.var_dbb35f4d setmodel("p7_zm_zod_gateworm_large");
+		level.var_a9f994a9.mdl_junction = spawn(localclientnum, s_loc.origin, "script_model");
+		level.var_a9f994a9.mdl_junction.angles = s_loc.angles;
+		level.var_a9f994a9.mdl_junction setmodel("p7_zm_zod_gateworm_large");
 		level.var_a9f994a9.var_8cf34592 useanimtree($generic);
 	}
 }
@@ -902,56 +902,56 @@ function ee_superworm_state(localclientnum, oldval, newval, bnewent, binitialsna
 	{
 		level.var_a9f994a9.var_8cf34592 useanimtree($generic);
 	}
-	level.var_a9f994a9.var_dbb35f4d util::waittill_dobj(localclientnum);
-	if(!level.var_a9f994a9.var_dbb35f4d hasanimtree())
+	level.var_a9f994a9.mdl_junction util::waittill_dobj(localclientnum);
+	if(!level.var_a9f994a9.mdl_junction hasanimtree())
 	{
-		level.var_a9f994a9.var_dbb35f4d useanimtree($generic);
+		level.var_a9f994a9.mdl_junction useanimtree($generic);
 	}
 	switch(newval)
 	{
 		case 0:
 		{
 			level.var_a9f994a9.var_8cf34592 hide();
-			level.var_a9f994a9.var_dbb35f4d hide();
+			level.var_a9f994a9.mdl_junction hide();
 			break;
 		}
 		case 1:
 		{
 			level.var_a9f994a9.var_8cf34592 show();
-			level.var_a9f994a9.var_dbb35f4d hide();
+			level.var_a9f994a9.mdl_junction hide();
 			level.var_a9f994a9.var_8cf34592 function_bdd91321(localclientnum, 0, 0);
 			level.var_a9f994a9.var_8cf34592 thread animation::play("ai_zombie_zod_gateworm_large_idle_loop_active", undefined, undefined, 1);
 			wait(5);
 			level.var_a9f994a9.var_8cf34592 hide();
 			level.var_a9f994a9.var_8cf34592 function_bdd91321(localclientnum, 0, 0);
-			level.var_a9f994a9.var_dbb35f4d show();
-			level.var_a9f994a9.var_dbb35f4d function_bdd91321(localclientnum, 1, 0);
+			level.var_a9f994a9.mdl_junction show();
+			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 1, 0);
 			break;
 		}
 		case 2:
 		{
 			level.var_a9f994a9.var_8cf34592 hide();
-			level.var_a9f994a9.var_dbb35f4d show();
-			level.var_a9f994a9.var_dbb35f4d function_bdd91321(localclientnum, 1, 1);
-			level.var_a9f994a9.var_dbb35f4d hide();
+			level.var_a9f994a9.mdl_junction show();
+			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 1, 1);
+			level.var_a9f994a9.mdl_junction hide();
 			break;
 		}
 		case 3:
 		{
 			level.var_a9f994a9.var_8cf34592 hide();
-			level.var_a9f994a9.var_dbb35f4d show();
-			level.var_a9f994a9.var_dbb35f4d function_bdd91321(localclientnum, 0, 0);
-			level.var_a9f994a9.var_dbb35f4d clearanim("ai_zombie_zod_gateworm_large_idle_loop_active", 0);
-			level.var_a9f994a9.var_dbb35f4d thread animation::play("ai_zombie_zod_gateworm_large_idle_loop", undefined, undefined, 1);
+			level.var_a9f994a9.mdl_junction show();
+			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 0, 0);
+			level.var_a9f994a9.mdl_junction clearanim("ai_zombie_zod_gateworm_large_idle_loop_active", 0);
+			level.var_a9f994a9.mdl_junction thread animation::play("ai_zombie_zod_gateworm_large_idle_loop", undefined, undefined, 1);
 			break;
 		}
 		case 4:
 		{
 			level.var_a9f994a9.var_8cf34592 hide();
-			level.var_a9f994a9.var_dbb35f4d show();
-			level.var_a9f994a9.var_dbb35f4d function_bdd91321(localclientnum, 0, 0);
-			level.var_a9f994a9.var_dbb35f4d clearanim("ai_zombie_zod_gateworm_large_idle_loop", 0);
-			level.var_a9f994a9.var_dbb35f4d thread animation::play("ai_zombie_zod_gateworm_large_idle_loop_active", undefined, undefined, 1);
+			level.var_a9f994a9.mdl_junction show();
+			level.var_a9f994a9.mdl_junction function_bdd91321(localclientnum, 0, 0);
+			level.var_a9f994a9.mdl_junction clearanim("ai_zombie_zod_gateworm_large_idle_loop", 0);
+			level.var_a9f994a9.mdl_junction thread animation::play("ai_zombie_zod_gateworm_large_idle_loop_active", undefined, undefined, 1);
 			break;
 		}
 	}
