@@ -933,10 +933,10 @@ function function_e947749a()
 	a_items = struct::get_array("hs_item_stage", "targetname");
 	foreach(s_item in a_items)
 	{
-		var_49d8189c = util::spawn_model(s_item.model, s_item.origin, s_item.angles);
+		mdl_item = util::spawn_model(s_item.model, s_item.origin, s_item.angles);
 		if(s_item.model == "p7_zm_zod_hidden_songs_mic_stand")
 		{
-			var_49d8189c thread function_b6296b8b();
+			mdl_item thread function_b6296b8b();
 		}
 	}
 }
@@ -1461,9 +1461,9 @@ function function_c4842cb1(var_187d070c)
 {
 	var_187d070c delete();
 	var_4d0fab9c = getentarray("arnie_stage_item", "targetname");
-	foreach(var_49d8189c in var_4d0fab9c)
+	foreach(mdl_item in var_4d0fab9c)
 	{
-		var_49d8189c delete();
+		mdl_item delete();
 		util::wait_network_frame();
 	}
 	s_center = struct::get("lil_arnie_stage_center");
