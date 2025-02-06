@@ -297,9 +297,9 @@ function function_316be9a7()
 	zm_unitrigger::register_static_unitrigger(s_unitrigger, &function_68299355);
 	var_620858e1 = s_unitrigger.var_f30d1f8f gettagorigin("tag_animate");
 	var_14dae7af = s_unitrigger.var_f30d1f8f gettagangles("tag_animate");
-	s_unitrigger.var_f30d1f8f.var_6306226 = util::spawn_model("tag_origin", var_620858e1, var_14dae7af);
-	s_unitrigger.var_f30d1f8f.var_6306226 scene::init("p7_fxanim_zm_stal_dragon_strike_console_bundle", s_unitrigger.var_f30d1f8f.var_6306226);
-	s_unitrigger.var_f30d1f8f.var_6306226 thread function_f25c1083();
+	s_unitrigger.var_f30d1f8f.mdl_rings = util::spawn_model("tag_origin", var_620858e1, var_14dae7af);
+	s_unitrigger.var_f30d1f8f.mdl_rings scene::init("p7_fxanim_zm_stal_dragon_strike_console_bundle", s_unitrigger.var_f30d1f8f.mdl_rings);
+	s_unitrigger.var_f30d1f8f.mdl_rings thread function_f25c1083();
 }
 
 /*
