@@ -796,10 +796,10 @@ function function_dc6aa565()
 		{
 			if(var_f667032[0] flag::get("runic_circle_activated") && !var_f667032[0] flag::get("runic_circle_charged"))
 			{
-				var_fb62adc1 = getent(var_f667032[0].target, "targetname");
-				var_f667032[0] function_55c48922(self.origin, var_fb62adc1.origin, "rune", isdefined(self.missinglegs) && self.missinglegs);
+				mdl_circle = getent(var_f667032[0].target, "targetname");
+				var_f667032[0] function_55c48922(self.origin, mdl_circle.origin, "rune", isdefined(self.missinglegs) && self.missinglegs);
 				var_f667032[0] util::delay_notify(0.05, "killed");
-				var_fb62adc1 clientfield::increment("runic_circle_death_fx");
+				mdl_circle clientfield::increment("runic_circle_death_fx");
 			}
 		}
 	}

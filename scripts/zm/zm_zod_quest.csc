@@ -226,11 +226,11 @@ function function_9118f74a(localclientnum, n_current_ritual, var_85dc52da)
 		var_3c32cd48 = getentarray(localclientnum, "quest_ritual_magic_circle_off", "targetname");
 	}
 	str_name = get_name_from_ritual_clientfield_value(n_current_ritual);
-	foreach(var_fb62adc1 in var_3c32cd48)
+	foreach(mdl_circle in var_3c32cd48)
 	{
-		if(var_fb62adc1.script_string === ("ritual_" + str_name))
+		if(mdl_circle.script_string === ("ritual_" + str_name))
 		{
-			return var_fb62adc1;
+			return mdl_circle;
 		}
 	}
 }
