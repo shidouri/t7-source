@@ -4174,8 +4174,8 @@ function function_4e1572f1(var_fb110e7d)
 		level notify("skadi_reached_dig_spot");
 		level thread function_560d53c2();
 		self scene::play("ai_zm_dlc1_wolf_howl_paw_ground", array(level.var_e6d07014));
-		var_f7d860a2 = getent("aq_wh_bones_" + var_fb110e7d.script_label, "targetname");
-		var_f7d860a2 clientfield::set("wolf_howl_bone_fx", 1);
+		mdl_bones = getent("aq_wh_bones_" + var_fb110e7d.script_label, "targetname");
+		mdl_bones clientfield::set("wolf_howl_bone_fx", 1);
 		exploder::exploder("lgt_wolf_quest_" + var_fb110e7d.script_label);
 		level.var_e6d07014 clientfield::set("wolf_footprint_fx", 1);
 		wait(0.05);
@@ -4438,8 +4438,8 @@ function function_986cf5cf()
 	}
 	if(self function_ab623d34(level.var_52978d72, e_volume))
 	{
-		var_f7d860a2 = getent(e_volume.target, "targetname");
-		level function_55c48922(self.origin, var_f7d860a2.origin, "wolf", isdefined(self.missinglegs) && self.missinglegs);
+		mdl_bones = getent(e_volume.target, "targetname");
+		level function_55c48922(self.origin, mdl_bones.origin, "wolf", isdefined(self.missinglegs) && self.missinglegs);
 		e_volume.var_252d000d++;
 		if(e_volume.var_252d000d >= 10)
 		{
@@ -4467,19 +4467,19 @@ function function_af36e4b0()
 	wait(0.05);
 	var_5bd66bb5 = struct::get(self.targetname + "_aggro", "targetname");
 	level.var_e6d07014 setgoal(var_5bd66bb5.origin, 0, 4);
-	var_f7d860a2 = getent("aq_wh_bones_" + self.script_label, "targetname");
-	var_f7d860a2 function_3313abd5(undefined, undefined, var_f7d860a2.origin + vectorscale((0, 0, 1), 30));
+	mdl_bones = getent("aq_wh_bones_" + self.script_label, "targetname");
+	mdl_bones function_3313abd5(undefined, undefined, mdl_bones.origin + vectorscale((0, 0, 1), 30));
 	while(true)
 	{
-		var_f7d860a2.var_67b5dd94 waittill("trigger", e_who);
+		mdl_bones.var_67b5dd94 waittill("trigger", e_who);
 		if(e_who === level.var_52978d72)
 		{
-			zm_unitrigger::unregister_unitrigger(var_f7d860a2.var_67b5dd94);
-			playsoundatposition("zmb_bones_pickup", var_f7d860a2.origin);
+			zm_unitrigger::unregister_unitrigger(mdl_bones.var_67b5dd94);
+			playsoundatposition("zmb_bones_pickup", mdl_bones.origin);
 			e_who playrumbleonentity("zm_castle_quest_interact_rumble");
-			var_f7d860a2 clientfield::set("wolf_howl_bone_fx", 0);
+			mdl_bones clientfield::set("wolf_howl_bone_fx", 0);
 			wait(0.05);
-			var_f7d860a2 delete();
+			mdl_bones delete();
 			exploder::stop_exploder("lgt_wolf_quest_" + self.script_label);
 			if(!(isdefined(level.var_52978d72.var_372a0bf1) && level.var_52978d72.var_372a0bf1))
 			{
