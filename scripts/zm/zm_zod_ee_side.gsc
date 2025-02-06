@@ -1942,23 +1942,23 @@ function function_b134ab6c(e_attacker, str_means_of_death, w_weapon)
 	{
 		return;
 	}
-	foreach(var_5b58316f in level.var_4c7e4e43)
+	foreach(mdl_cart in level.var_4c7e4e43)
 	{
-		if(isdefined(var_5b58316f.var_2e4b6485) && var_5b58316f.var_2e4b6485)
+		if(isdefined(mdl_cart.var_2e4b6485) && mdl_cart.var_2e4b6485)
 		{
 			continue;
 		}
-		if(distancesquared(var_5b58316f.origin, self.origin) < 40000)
+		if(distancesquared(mdl_cart.origin, self.origin) < 40000)
 		{
 			if(level.var_a1445a76 < level.var_6432377d.size)
 			{
 				level notify(#"hash_41eedc1");
 				return;
 			}
-			var_5b58316f playsound("zmb_zod_ee_cakefight_devil");
-			var_5b58316f.var_2e4b6485 = 1;
+			mdl_cart playsound("zmb_zod_ee_cakefight_devil");
+			mdl_cart.var_2e4b6485 = 1;
 			level.var_ee921bdc--;
-			playfx(level._effect["lght_marker_flare"], var_5b58316f.origin);
+			playfx(level._effect["lght_marker_flare"], mdl_cart.origin);
 			if(level.var_ee921bdc == 0)
 			{
 				level notify(#"hash_25ff6e8", "bouncingbetty_devil");
@@ -1966,23 +1966,23 @@ function function_b134ab6c(e_attacker, str_means_of_death, w_weapon)
 			return;
 		}
 	}
-	foreach(var_5b58316f in level.var_6432377d)
+	foreach(mdl_cart in level.var_6432377d)
 	{
-		if(isdefined(var_5b58316f.var_2e4b6485) && var_5b58316f.var_2e4b6485)
+		if(isdefined(mdl_cart.var_2e4b6485) && mdl_cart.var_2e4b6485)
 		{
 			continue;
 		}
-		if(distancesquared(var_5b58316f.origin, self.origin) < 40000)
+		if(distancesquared(mdl_cart.origin, self.origin) < 40000)
 		{
 			if(level.var_ee921bdc < level.var_4c7e4e43.size)
 			{
 				level notify(#"hash_41eedc1");
 				return;
 			}
-			var_5b58316f playsound("zmb_zod_ee_cakefight_angel");
-			var_5b58316f.var_2e4b6485 = 1;
+			mdl_cart playsound("zmb_zod_ee_cakefight_angel");
+			mdl_cart.var_2e4b6485 = 1;
 			level.var_a1445a76--;
-			playfx(level._effect["lght_marker_flare"], var_5b58316f.origin);
+			playfx(level._effect["lght_marker_flare"], mdl_cart.origin);
 			if(level.var_a1445a76 == 0)
 			{
 				level notify(#"hash_25ff6e8", "bouncingbetty_holly");
