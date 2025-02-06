@@ -1111,8 +1111,8 @@ function function_2fb1022e(n_val)
 function function_4ac4bae7()
 {
 	/#
-		var_d1d0d3e2 = struct::get_array("", "");
-		s_stub = arraygetclosest(level.players[0].origin, var_d1d0d3e2);
+		a_s_stubs = struct::get_array("", "");
+		s_stub = arraygetclosest(level.players[0].origin, a_s_stubs);
 		queryresult = positionquery_source_navigation(level.players[0].origin, 128, 256, 128, 20);
 		s_spot = spawnstruct();
 		s_spot.origin = level.players[0].origin;
