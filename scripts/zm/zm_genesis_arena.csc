@@ -1224,8 +1224,8 @@ function light_challenge_floor(localclientnum, oldval, newval, bnewent, binitial
 {
 	if(newval == 1)
 	{
-		var_377bdd93 = struct::get("arena_light_challenge_floor", "targetname");
-		level.var_be73cf11 = util::spawn_model(localclientnum, var_377bdd93.model, var_377bdd93.origin, var_377bdd93.angles);
+		s_floor = struct::get("arena_light_challenge_floor", "targetname");
+		level.var_be73cf11 = util::spawn_model(localclientnum, s_floor.model, s_floor.origin, s_floor.angles);
 	}
 	else if(isdefined(level.var_be73cf11))
 	{
