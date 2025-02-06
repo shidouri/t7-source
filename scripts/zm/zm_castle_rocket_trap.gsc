@@ -616,7 +616,7 @@ function function_343a73a4()
 	Parameters: 2
 	Flags: Linked
 */
-function function_ff1f70cd(e_grenade, var_412615f9)
+function function_ff1f70cd(e_grenade, mdl_grenade)
 {
 	e_grenade endon("death");
 	e_grenade endon("explode");
