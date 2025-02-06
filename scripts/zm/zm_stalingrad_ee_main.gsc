@@ -4816,8 +4816,8 @@ function function_694a61ea(e_grabbed, var_c57c38fc = 1)
 	e_grabbed stoploopsound(0.5);
 	e_grabbed playsound("zmb_scenario_magneto_fx_stop");
 	exploder::stop_exploder("fxexp_900");
-	var_bf681731 = getent("raz_cage", "targetname");
-	e_grabbed linkto(var_bf681731, "link_jnt");
+	mdl_cage = getent("raz_cage", "targetname");
+	e_grabbed linkto(mdl_cage, "link_jnt");
 	level waittill(#"hash_2850c4f2");
 	if(var_c57c38fc)
 	{
