@@ -3881,7 +3881,7 @@ function function_d62aa556()
 	level endon(#"hash_80b27882");
 	var_c068b13 = getent("aq_wh_shrine_rumble_volume", "targetname");
 	var_55b8fc1d = getent("aq_wh_skull_shrine_trig", "targetname");
-	var_9fc43621 = var_55b8fc1d.origin;
+	v_shrine = var_55b8fc1d.origin;
 	n_pulse_delay_range = 0.7;
 	while(true)
 	{
@@ -3890,7 +3890,7 @@ function function_d62aa556()
 			n_time_before_next_pulse = 1;
 			v_eye_origin = self getplayercamerapos();
 			v_eye_direction = anglestoforward(self getplayerangles());
-			var_744d3805 = vectornormalize(var_9fc43621 - v_eye_origin);
+			var_744d3805 = vectornormalize(v_shrine - v_eye_origin);
 			n_dot = vectordot(var_744d3805, v_eye_direction);
 			if(n_dot > 0.9)
 			{
