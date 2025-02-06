@@ -313,10 +313,10 @@ function function_d88b52e6()
 			if(getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "" || getdvarstring("") == "")
 			{
 				level flag::set("");
-				var_5e72b36d = getent("", "");
-				if(isdefined(var_5e72b36d))
+				mdl_floor = getent("", "");
+				if(isdefined(mdl_floor))
 				{
-					var_5e72b36d delete();
+					mdl_floor delete();
 				}
 				t_hole = getent("", "");
 				if(isdefined(t_hole))
