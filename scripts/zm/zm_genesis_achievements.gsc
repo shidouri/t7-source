@@ -198,19 +198,19 @@ function function_7d947aff()
 {
 	level endon("end_game");
 	self endon("disconnect");
-	self.var_88f45a31 = [];
-	self.var_88f45a31[self.var_88f45a31.size] = "start_island";
-	self.var_88f45a31[self.var_88f45a31.size] = "prison_island";
-	self.var_88f45a31[self.var_88f45a31.size] = "asylum_island";
-	self.var_88f45a31[self.var_88f45a31.size] = "temple_island";
-	self.var_88f45a31[self.var_88f45a31.size] = "prototype_island";
+	self.a_e_islands = [];
+	self.a_e_islands[self.a_e_islands.size] = "start_island";
+	self.a_e_islands[self.a_e_islands.size] = "prison_island";
+	self.a_e_islands[self.a_e_islands.size] = "asylum_island";
+	self.a_e_islands[self.a_e_islands.size] = "temple_island";
+	self.a_e_islands[self.a_e_islands.size] = "prototype_island";
 	self thread function_935679b0();
-	while(self.var_88f45a31.size > 0)
+	while(self.a_e_islands.size > 0)
 	{
 		self waittill("changed_island");
 	}
 	self giveachievement("ZM_GENESIS_GRAND_TOUR");
-	self.var_88f45a31 = undefined;
+	self.a_e_islands = undefined;
 	self notify(#"hash_2bec714");
 }
 
@@ -261,9 +261,9 @@ function function_f17c9ba1()
 	self endon("disconnect");
 	self endon(#"hash_2bec714");
 	var_a43542cc = self.var_a3d40b8;
-	if(isdefined(var_a43542cc) && isinarray(self.var_88f45a31, var_a43542cc))
+	if(isdefined(var_a43542cc) && isinarray(self.a_e_islands, var_a43542cc))
 	{
-		arrayremovevalue(self.var_88f45a31, var_a43542cc);
+		arrayremovevalue(self.a_e_islands, var_a43542cc);
 	}
 	else
 	{
@@ -271,9 +271,9 @@ function function_f17c9ba1()
 	}
 	self waittill("changed_island");
 	wait(120);
-	if(isdefined(self.var_88f45a31))
+	if(isdefined(self.a_e_islands))
 	{
-		array::add(self.var_88f45a31, var_a43542cc, 0);
+		array::add(self.a_e_islands, var_a43542cc, 0);
 	}
 }
 
