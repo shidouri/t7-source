@@ -882,11 +882,11 @@ function function_40dbf71()
 */
 function function_3d1f7c2e(e_dragon, var_777ffc66, var_90929db6 = 0, var_c3052a58 = 0)
 {
-	var_90f8d95e = struct::get_array("rumble_" + var_777ffc66, "targetname");
+	a_s_location = struct::get_array("rumble_" + var_777ffc66, "targetname");
 	if(!var_90929db6)
 	{
 		level waittill("arrival");
-		level thread function_3b45d6c2(var_90f8d95e);
+		level thread function_3b45d6c2(a_s_location);
 	}
 	var_12bd8497 = getent(var_777ffc66 + "_1_damage", "targetname");
 	var_12bd8497.var_37ba64ca = 0;
@@ -905,14 +905,14 @@ function function_3d1f7c2e(e_dragon, var_777ffc66, var_90929db6 = 0, var_c3052a5
 function function_21146aa(e_dragon, var_777ffc66)
 {
 	level endon("dragon_interrupt");
-	var_90f8d95e = struct::get_array("rumble_" + var_777ffc66, "targetname");
+	a_s_location = struct::get_array("rumble_" + var_777ffc66, "targetname");
 	level waittill("fire_start");
 	e_dragon clientfield::set("dragon_body_glow", 1);
-	level thread function_acdda91d("zm_stalingrad_dragon_fire_charge", var_90f8d95e);
+	level thread function_acdda91d("zm_stalingrad_dragon_fire_charge", a_s_location);
 	level waittill("breathe_fire");
 	stopallrumbles();
 	util::wait_network_frame();
-	level thread function_acdda91d("zm_stalingrad_dragon_fire_breathe", var_90f8d95e);
+	level thread function_acdda91d("zm_stalingrad_dragon_fire_breathe", a_s_location);
 	level waittill("fire_end");
 	e_dragon clientfield::set("dragon_body_glow", 0);
 	level waittill(#"hash_ed468118");
@@ -928,9 +928,9 @@ function function_21146aa(e_dragon, var_777ffc66)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3b45d6c2(var_90f8d95e)
+function function_3b45d6c2(a_s_location)
 {
-	foreach(s_location in var_90f8d95e)
+	foreach(s_location in a_s_location)
 	{
 		playrumbleonposition("zm_stalingrad_dragon_arrival", s_location.origin);
 		util::wait_network_frame();
@@ -946,9 +946,9 @@ function function_3b45d6c2(var_90f8d95e)
 	Parameters: 2
 	Flags: Linked
 */
-function function_acdda91d(str_rumble, var_90f8d95e)
+function function_acdda91d(str_rumble, a_s_location)
 {
-	foreach(s_location in var_90f8d95e)
+	foreach(s_location in a_s_location)
 	{
 		playrumblelooponposition(str_rumble, s_location.origin);
 		util::wait_network_frame();
