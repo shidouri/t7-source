@@ -304,10 +304,10 @@ function function_4cebde70()
 */
 function function_152720d8(var_fc72ce0a)
 {
-	foreach(var_8c46024b in var_fc72ce0a)
+	foreach(s_planter in var_fc72ce0a)
 	{
-		var_8c46024b.origin = var_8c46024b.model.origin;
-		var_8c46024b zm_island_planting::function_fedc998b(1);
+		s_planter.origin = s_planter.model.origin;
+		s_planter zm_island_planting::function_fedc998b(1);
 	}
 	level.a_s_planting_spots = arraycombine(level.a_s_planting_spots, var_fc72ce0a, 0, 0);
 }
@@ -447,9 +447,9 @@ function function_f0d8de1d()
 function cleanup_plants()
 {
 	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(var_8c46024b in var_fc72ce0a)
+	foreach(s_planter in var_fc72ce0a)
 	{
-		var_8c46024b thread function_c1f64636(0);
+		s_planter thread function_c1f64636(0);
 		wait(0.05);
 	}
 }
@@ -488,9 +488,9 @@ function function_9a2f5188(e_volume)
 function function_e630b27f()
 {
 	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(var_8c46024b in var_fc72ce0a)
+	foreach(s_planter in var_fc72ce0a)
 	{
-		if(isdefined(var_8c46024b.s_plant) && isdefined(var_8c46024b.s_plant.s_attackable) && var_8c46024b.s_plant.s_attackable.health > 0)
+		if(isdefined(s_planter.s_plant) && isdefined(s_planter.s_plant.s_attackable) && s_planter.s_plant.s_attackable.health > 0)
 		{
 			return true;
 		}
@@ -514,9 +514,9 @@ function function_4d1841e4()
 	playsoundatposition("zmb_golden_bucket_success", (0, 0, 0));
 	level thread function_6742be8f();
 	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(var_8c46024b in var_fc72ce0a)
+	foreach(s_planter in var_fc72ce0a)
 	{
-		var_8c46024b thread function_c1f64636(1);
+		s_planter thread function_c1f64636(1);
 		wait(0.05);
 	}
 	level flag::wait_till("golden_bucket_planters_empty");
