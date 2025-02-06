@@ -226,22 +226,22 @@ function function_a9bc976()
 */
 function function_f354307b(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(!isdefined(self.var_2e7c1306))
+	if(!isdefined(self.mdl_wave))
 	{
 		str_tag = "zur_wave_jnt";
-		self.var_2e7c1306 = util::spawn_model(localclientnum, "tag_origin", self gettagorigin(str_tag), self gettagangles(str_tag));
-		self.var_2e7c1306 linkto(self, str_tag);
-		self.var_2e7c1306 setwaterdisturbanceparams(0.4, 1000, 2500, 1, 0);
+		self.mdl_wave = util::spawn_model(localclientnum, "tag_origin", self gettagorigin(str_tag), self gettagangles(str_tag));
+		self.mdl_wave linkto(self, str_tag);
+		self.mdl_wave setwaterdisturbanceparams(0.4, 1000, 2500, 1, 0);
 	}
 	if(newval)
 	{
-		self.var_2e7c1306.waterdisturbance = 1;
+		self.mdl_wave.waterdisturbance = 1;
 	}
 	else
 	{
-		self.var_2e7c1306.waterdisturbance = 0;
+		self.mdl_wave.waterdisturbance = 0;
 		wait(0.016);
-		self.var_2e7c1306 delete();
+		self.mdl_wave delete();
 	}
 }
 
