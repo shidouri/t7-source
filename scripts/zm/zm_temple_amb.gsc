@@ -220,7 +220,7 @@ function function_45b4acf2()
 	var_18d6690a = getentarray("zhdsnd_pans", "targetname");
 	array::thread_all(var_18d6690a, &function_19277046);
 	n_count = 0;
-	var_6932cc13 = array(1, 1, 5);
+	a_order = array(1, 1, 5);
 	if(var_18d6690a.size <= 0)
 	{
 		return;
@@ -228,7 +228,7 @@ function function_45b4acf2()
 	while(true)
 	{
 		level waittill(#"hash_ab740a84", num);
-		if(num == var_6932cc13[n_count])
+		if(num == a_order[n_count])
 		{
 			n_count++;
 			if(n_count >= 3)
