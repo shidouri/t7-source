@@ -1589,15 +1589,15 @@ function function_7d8964c9()
 */
 function function_1ca91be4(a_ents)
 {
-	var_3e414a21 = a_ents["rocket_tip"];
+	mdl_rocket = a_ents["rocket_tip"];
 	var_a723142d = a_ents["cryo_chamber"];
 	e_dempsey = a_ents["dempsey_02"];
 	e_dempsey ghost();
 	wait(5);
 	array::run_all(level.players, &playrumbleonentity, "zm_castle_rocket_tip");
-	var_3e414a21 waittill(#"hash_43ba2284");
+	mdl_rocket waittill(#"hash_43ba2284");
 	array::run_all(level.players, &playrumbleonentity, "zm_castle_rocket_tip_tower_crash");
-	var_3e414a21 waittill(#"hash_87acceea");
+	mdl_rocket waittill(#"hash_87acceea");
 	array::run_all(level.players, &playrumbleonentity, "zm_castle_rocket_tip_ground_crash");
 	var_a723142d clientfield::set("pod_monitor_enable", 1);
 	e_dempsey show();
