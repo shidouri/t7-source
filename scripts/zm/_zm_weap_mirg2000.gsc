@@ -668,15 +668,15 @@ function function_4a06c777(v_position, player)
 		return;
 	}
 	n_range_sq = player function_a1fce678();
-	foreach(var_f58ff028 in level.var_1abc7758)
+	foreach(mdl_spore in level.var_1abc7758)
 	{
-		if(!isdefined(var_f58ff028.t_spore_damage))
+		if(!isdefined(mdl_spore.t_spore_damage))
 		{
 			continue;
 		}
-		if(function_8734b840(var_f58ff028.origin, v_position, n_range_sq))
+		if(function_8734b840(mdl_spore.origin, v_position, n_range_sq))
 		{
-			var_f58ff028.t_spore_damage dodamage(1, v_position, player, player);
+			mdl_spore.t_spore_damage dodamage(1, v_position, player, player);
 		}
 	}
 }
