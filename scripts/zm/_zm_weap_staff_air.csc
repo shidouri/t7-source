@@ -114,14 +114,14 @@ function air_staff_launch(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	v_source = level.var_1e7d95e0;
 	var_8178243a = randomfloatrange(0.05, 0.35);
-	var_bf0620ca = level.var_654c7116[localclientnum];
-	if(isdefined(var_bf0620ca))
+	v_whirlwind = level.var_654c7116[localclientnum];
+	if(isdefined(v_whirlwind))
 	{
-		dist_sq = distancesquared(var_bf0620ca, self.origin);
+		dist_sq = distancesquared(v_whirlwind, self.origin);
 		if(dist_sq < 22500)
 		{
 			var_5321b51d = (randomfloatrange(-1000, 1000), randomfloatrange(-1000, 1000), 0);
-			v_source = var_bf0620ca + var_5321b51d;
+			v_source = v_whirlwind + var_5321b51d;
 		}
 	}
 	dir = self.origin - v_source;
