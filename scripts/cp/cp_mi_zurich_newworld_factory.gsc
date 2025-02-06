@@ -3346,9 +3346,9 @@ function function_1736807e(a_ents)
 	{
 		var_809fd273 scene::stop(1);
 	}
-	foreach(var_f13cf991 in var_7e421bd8)
+	foreach(s_robot in var_7e421bd8)
 	{
-		var_f13cf991 scene::stop(1);
+		s_robot scene::stop(1);
 	}
 	a_ai_robots = getentarray("inside_man_robot_ai", "targetname");
 	foreach(ai in a_ai_robots)
