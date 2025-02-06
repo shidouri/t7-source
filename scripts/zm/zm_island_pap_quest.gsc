@@ -958,8 +958,8 @@ function function_83af0b87(t_water)
 function function_4fdc8e70()
 {
 	level flag::wait_till("connect_bunker_exterior_to_bunker_interior");
-	var_f89319f8 = struct::get_array("valvetwo_part_lever");
-	mdl_part = util::spawn_model("p7_zm_isl_pap_elements_wheel", array::random(var_f89319f8).origin);
+	a_s_part = struct::get_array("valvetwo_part_lever");
+	mdl_part = util::spawn_model("p7_zm_isl_pap_elements_wheel", array::random(a_s_part).origin);
 	mdl_part clientfield::set("show_part", 1);
 	mdl_part setscale(1.5);
 	mdl_part.trigger = zm_island_util::spawn_trigger_radius(mdl_part.origin, 50, 1, &function_9bd3096f);
