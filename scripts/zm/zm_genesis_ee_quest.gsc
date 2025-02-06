@@ -340,32 +340,32 @@ function function_7914cbc8()
 	s_unitrigger.require_look_at = 1;
 	self waittill("trigger_activated", e_player);
 	level flag::set("placed_audio" + self.script_int);
-	var_be748f8 = [];
+	a_e_reels = [];
 	mdl_reel = util::spawn_model("p7_zm_ctl_radio_recorder_tape_01", self.origin, self.angles);
 	var_15529fd8 = struct::get(self.target, "targetname");
 	var_26a73a41 = util::spawn_model("p7_zm_ctl_radio_recorder_tape_02", var_15529fd8.origin, var_15529fd8.angles);
 	mdl_reel playsound("zmb_main_reel_place");
-	if(!isdefined(var_be748f8))
+	if(!isdefined(a_e_reels))
 	{
-		var_be748f8 = [];
+		a_e_reels = [];
 	}
-	else if(!isarray(var_be748f8))
+	else if(!isarray(a_e_reels))
 	{
-		var_be748f8 = array(var_be748f8);
+		a_e_reels = array(a_e_reels);
 	}
-	var_be748f8[var_be748f8.size] = mdl_reel;
-	if(!isdefined(var_be748f8))
+	a_e_reels[a_e_reels.size] = mdl_reel;
+	if(!isdefined(a_e_reels))
 	{
-		var_be748f8 = [];
+		a_e_reels = [];
 	}
-	else if(!isarray(var_be748f8))
+	else if(!isarray(a_e_reels))
 	{
-		var_be748f8 = array(var_be748f8);
+		a_e_reels = array(a_e_reels);
 	}
-	var_be748f8[var_be748f8.size] = var_26a73a41;
-	array::thread_all(var_be748f8, &function_e464aa51);
+	a_e_reels[a_e_reels.size] = var_26a73a41;
+	array::thread_all(a_e_reels, &function_e464aa51);
 	wait(0.5);
-	function_ccdb680e(var_be748f8, 1);
+	function_ccdb680e(a_e_reels, 1);
 	switch(self.script_int)
 	{
 		case 1:
@@ -388,7 +388,7 @@ function function_7914cbc8()
 	self struct::delete();
 	mdl_reel waittill("audio_log_complete");
 	level notify("audio_log_complete");
-	function_ccdb680e(var_be748f8, 0);
+	function_ccdb680e(a_e_reels, 0);
 }
 
 /*
@@ -400,9 +400,9 @@ function function_7914cbc8()
 	Parameters: 2
 	Flags: Linked
 */
-function function_ccdb680e(var_be748f8, b_on)
+function function_ccdb680e(a_e_reels, b_on)
 {
-	foreach(e_reel in var_be748f8)
+	foreach(e_reel in a_e_reels)
 	{
 		if(isdefined(e_reel))
 		{
