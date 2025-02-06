@@ -531,7 +531,7 @@ function function_89a607c3()
 	level endon(#"hash_c598ee9d");
 	var_169695f4 = array(1, 1, 5);
 	self thread zm_sidequests::fake_use("115_trig_activated", &function_f36e092d);
-	self waittill(#"115_trig_activated");
+	self waittill("115_trig_activated");
 	playsoundatposition("zmb_ee_mus_activate", self.origin);
 	level.var_69a8687++;
 	level notify(#"hash_34d7d690");
