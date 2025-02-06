@@ -60,7 +60,7 @@ function __init__()
 			s_unitrigger.hint_parm1 = 1500;
 			s_unitrigger flag::init("beam_cooldown");
 			s_unitrigger flag::init("beam_on");
-			s_unitrigger.var_cbf27250 = "fxexp_" + var_12b7bb35.script_int;
+			s_unitrigger.s_exploder = "fxexp_" + var_12b7bb35.script_int;
 			s_unitrigger.var_4ae7f8db = var_12b7bb35;
 		}
 	}
@@ -171,8 +171,8 @@ function function_8bc8cc13(var_f2bd831, var_9bafc533)
 	n_start_time = gettime();
 	n_total_time = 0;
 	e_kill_zone = self.var_4ae7f8db;
-	var_cbf27250 = self.var_cbf27250;
-	exploder::exploder(var_cbf27250);
+	s_exploder = self.s_exploder;
+	exploder::exploder(s_exploder);
 	var_f7261317 = getent("eye_beam_volume_" + e_kill_zone.script_string, "targetname");
 	var_f2bd831 thread zm_stalingrad_vo::function_176ac3fa();
 	level clientfield::set("eye_beam_rumble_" + e_kill_zone.script_string, 1);
@@ -220,9 +220,9 @@ function function_8bc8cc13(var_f2bd831, var_9bafc533)
 	{
 		var_f2bd831 notify(#"hash_c925c266", n_total_kills);
 	}
-	level notify(#"hash_278aa663", var_cbf27250);
+	level notify(#"hash_278aa663", s_exploder);
 	level thread function_78f79e79(0);
-	exploder::stop_exploder(var_cbf27250);
+	exploder::stop_exploder(s_exploder);
 	foreach(s_target in var_9bafc533)
 	{
 		s_target.s_unitrigger flag::clear("beam_on");
