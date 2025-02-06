@@ -232,10 +232,10 @@ function function_5794dab9(s_bundle, delay)
 */
 function function_e5def758(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_76968f56 = getentarray(localclientnum, "sand_storm", "targetname");
-	if(var_76968f56.size > 0)
+	s_storm = getentarray(localclientnum, "sand_storm", "targetname");
+	if(s_storm.size > 0)
 	{
-		array::run_all(var_76968f56, &visible, 0);
+		array::run_all(s_storm, &visible, 0);
 	}
 }
 
@@ -250,10 +250,10 @@ function function_e5def758(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_7ddc918d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_76968f56 = getentarray(localclientnum, "sand_storm", "targetname");
-	if(var_76968f56.size > 0)
+	s_storm = getentarray(localclientnum, "sand_storm", "targetname");
+	if(s_storm.size > 0)
 	{
-		array::run_all(var_76968f56, &visible, 1);
+		array::run_all(s_storm, &visible, 1);
 	}
 }
 
