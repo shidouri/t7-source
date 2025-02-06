@@ -831,12 +831,12 @@ function turret_think()
 	n_max = 1.3;
 	var_39178da3 = randomfloatrange(n_min, n_max);
 	n_move_time = 2;
-	self.var_61ba68c8 = util::spawn_model("tag_origin", self.origin, self.angles);
-	self.var_61ba68c8.script_objective = self.script_objective;
+	self.mdl_mover = util::spawn_model("tag_origin", self.origin, self.angles);
+	self.mdl_mover.script_objective = self.script_objective;
 	s_moveto = struct::get(self.target);
-	self linkto(self.var_61ba68c8, "tag_origin");
-	self.var_61ba68c8 moveto(s_moveto.origin, n_move_time);
-	self.var_61ba68c8 waittill("movedone");
+	self linkto(self.mdl_mover, "tag_origin");
+	self.mdl_mover moveto(s_moveto.origin, n_move_time);
+	self.mdl_mover waittill("movedone");
 	wait(var_39178da3);
 	self turret_activate();
 }
