@@ -437,7 +437,7 @@ function function_b4575902()
 */
 function function_9157236c()
 {
-	var_7bd91d87 = struct::get_array("s_ee_clock", "targetname");
+	a_s_numbers = struct::get_array("s_ee_clock", "targetname");
 	e_clock = getent("ee_grand_tour_undercroft", "targetname");
 	e_clock setcandamage(1);
 	n_stage = 9;
@@ -446,14 +446,14 @@ function function_9157236c()
 	{
 		e_clock waittill("damage", damage, attacker, direction_vec, v_point, type, modelname, tagname, partname, weapon, idflags);
 		n_closest = 9999999;
-		s_closest = var_7bd91d87[0];
-		for(i = 0; i < var_7bd91d87.size; i++)
+		s_closest = a_s_numbers[0];
+		for(i = 0; i < a_s_numbers.size; i++)
 		{
-			n_dist = distance(var_7bd91d87[i].origin, v_point);
+			n_dist = distance(a_s_numbers[i].origin, v_point);
 			if(n_dist < n_closest)
 			{
 				n_closest = n_dist;
-				s_closest = var_7bd91d87[i];
+				s_closest = a_s_numbers[i];
 			}
 		}
 		switch(n_stage)
