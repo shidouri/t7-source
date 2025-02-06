@@ -594,9 +594,9 @@ function function_6865d0d5(localclientnum, oldval, newval, bnewent, binitialsnap
 			level scene::add_scene_func("p7_fxanim_zm_stal_dragon_hazard_library_banner_01_bundle", &function_ae0e995e, "play");
 		}
 		var_f8efe776 = getentarray(localclientnum, "library_banner_01", "targetname");
-		foreach(var_f558224f in var_f8efe776)
+		foreach(mdl_banner in var_f8efe776)
 		{
-			var_f558224f thread scene::play("p7_fxanim_zm_stal_dragon_hazard_library_banner_01_bundle", var_f558224f);
+			mdl_banner thread scene::play("p7_fxanim_zm_stal_dragon_hazard_library_banner_01_bundle", mdl_banner);
 		}
 	}
 }
