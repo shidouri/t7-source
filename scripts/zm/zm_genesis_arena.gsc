@@ -3030,8 +3030,8 @@ function function_c0d6adb6()
 			b_reverse_dir = 1;
 		}
 		str_name = (("arena_fence_" + var_4054c946) + "_") + var_665743af;
-		var_44622ece = struct::get(str_name, "targetname");
-		level thread function_cc9c82c8(var_44622ece, 3, undefined, b_reverse_dir, 1);
+		s_fence = struct::get(str_name, "targetname");
+		level thread function_cc9c82c8(s_fence, 3, undefined, b_reverse_dir, 1);
 		wait(0.75);
 		switch(var_5c856d1f)
 		{
@@ -3277,9 +3277,9 @@ function function_c3557b99(n_dir)
 function function_5e9f49d2(str_name, n_duration, v_offset, b_reverse_dir, var_b222a396)
 {
 	var_659d66d1 = struct::get_array(str_name, "targetname");
-	foreach(var_44622ece in var_659d66d1)
+	foreach(s_fence in var_659d66d1)
 	{
-		level thread function_cc9c82c8(var_44622ece, n_duration, v_offset, b_reverse_dir, var_b222a396);
+		level thread function_cc9c82c8(s_fence, n_duration, v_offset, b_reverse_dir, var_b222a396);
 	}
 }
 
@@ -3292,20 +3292,20 @@ function function_5e9f49d2(str_name, n_duration, v_offset, b_reverse_dir, var_b2
 	Parameters: 5
 	Flags: Linked
 */
-function function_cc9c82c8(var_44622ece, n_duration, v_offset, b_reverse_dir, var_b222a396)
+function function_cc9c82c8(s_fence, n_duration, v_offset, b_reverse_dir, var_b222a396)
 {
-	if(isdefined(var_44622ece.var_1771513c) && var_44622ece.var_1771513c)
+	if(isdefined(s_fence.var_1771513c) && s_fence.var_1771513c)
 	{
 		return;
 	}
-	var_44622ece.var_1771513c = 1;
+	s_fence.var_1771513c = 1;
 	if(var_b222a396 == 3)
 	{
-		var_21d644c = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_02_mod", var_44622ece.origin, var_44622ece.angles);
+		var_21d644c = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_02_mod", s_fence.origin, s_fence.angles);
 	}
 	else
 	{
-		var_21d644c = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_mod", var_44622ece.origin, var_44622ece.angles);
+		var_21d644c = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_mod", s_fence.origin, s_fence.angles);
 	}
 	if(isdefined(b_reverse_dir) && b_reverse_dir)
 	{
@@ -3337,7 +3337,7 @@ function function_cc9c82c8(var_44622ece, n_duration, v_offset, b_reverse_dir, va
 	}
 	var_21d644c useanimtree($zm_genesis);
 	var_21d644c thread animation::play(var_7146001e, undefined, undefined, 1);
-	v_origin = var_44622ece.origin;
+	v_origin = s_fence.origin;
 	if(!isdefined(v_offset))
 	{
 		v_offset = vectorscale((0, 0, 1), 128);
@@ -3356,7 +3356,7 @@ function function_cc9c82c8(var_44622ece, n_duration, v_offset, b_reverse_dir, va
 	}
 	var_21d644c animation::play(var_117d442a, undefined, undefined, 1);
 	var_21d644c delete();
-	var_44622ece.var_1771513c = 0;
+	s_fence.var_1771513c = 0;
 }
 
 /*
