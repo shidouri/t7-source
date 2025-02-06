@@ -163,11 +163,11 @@ function spawn_punch_upgrade_tablet(v_origin, e_player)
 		}
 		wait(1);
 		e_player.b_punch_upgraded = 1;
-		foreach(var_acc90d1d in level.a_elemental_staffs_upgraded)
+		foreach(mdl_staff in level.a_elemental_staffs_upgraded)
 		{
-			if(e_player hasweapon(var_acc90d1d.w_weapon))
+			if(e_player hasweapon(mdl_staff.w_weapon))
 			{
-				e_player.str_punch_element = var_acc90d1d.w_weapon.element;
+				e_player.str_punch_element = mdl_staff.w_weapon.element;
 			}
 		}
 		if(!isdefined(e_player.str_punch_element))
