@@ -403,9 +403,9 @@ function function_32afe89a(ai_zombie)
 					{
 						ai_zombie.thrasherragecount = 0;
 					}
-					var_9d06d0ea = ai_zombie.thrasherspores[var_9ae6d5f2];
+					s_spore = ai_zombie.thrasherspores[var_9ae6d5f2];
 					self function_4aedb20b(3);
-					ai_zombie dodamage(var_9d06d0ea.health, ai_zombie gettagorigin(var_9d06d0ea.tag), self);
+					ai_zombie dodamage(s_spore.health, ai_zombie gettagorigin(s_spore.tag), self);
 					var_9ae6d5f2++;
 					ai_zombie.thrasherragecount = 0;
 				}
