@@ -649,9 +649,9 @@ function function_be8c2f38()
 	level.var_557b53fd[3] = 12;
 	level.var_557b53fd[4] = 2;
 	level.var_8091d507 = 0;
-	var_9bafc533 = struct::get_array("old_school_switch");
-	array::thread_all(var_9bafc533, &function_6e14903b);
-	while(level.var_8091d507 < var_9bafc533.size)
+	a_s_switches = struct::get_array("old_school_switch");
+	array::thread_all(a_s_switches, &function_6e14903b);
+	while(level.var_8091d507 < a_s_switches.size)
 	{
 		wait(0.05);
 	}
