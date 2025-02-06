@@ -386,18 +386,18 @@ function init_excavator_consoles()
 	{
 		if(!level clientfield::get("TCA"))
 		{
-			var_cc373138 = getent(index, "tunnel_console", "targetname");
-			function_9b3daafa(index, var_cc373138, 0);
+			mdl_console = getent(index, "tunnel_console", "targetname");
+			function_9b3daafa(index, mdl_console, 0);
 		}
 		if(!level clientfield::get("HCA"))
 		{
-			var_cc373138 = getent(index, "hangar_console", "targetname");
-			function_9b3daafa(index, var_cc373138, 0);
+			mdl_console = getent(index, "hangar_console", "targetname");
+			function_9b3daafa(index, mdl_console, 0);
 		}
 		if(!level clientfield::get("BCA"))
 		{
-			var_cc373138 = getent(index, "biodome_console", "targetname");
-			function_9b3daafa(index, var_cc373138, 0);
+			mdl_console = getent(index, "biodome_console", "targetname");
+			function_9b3daafa(index, mdl_console, 0);
 		}
 	}
 }
@@ -431,14 +431,14 @@ function function_774edb15(localclientnum, oldval, newval, bnewent, binitialsnap
 			break;
 		}
 	}
-	var_cc373138 = getent(localclientnum, var_ffc320da, "targetname");
+	mdl_console = getent(localclientnum, var_ffc320da, "targetname");
 	if(newval)
 	{
-		function_9b3daafa(localclientnum, var_cc373138, 1);
+		function_9b3daafa(localclientnum, mdl_console, 1);
 	}
 	else
 	{
-		function_9b3daafa(localclientnum, var_cc373138, 0);
+		function_9b3daafa(localclientnum, mdl_console, 0);
 	}
 }
 
@@ -451,19 +451,19 @@ function function_774edb15(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 3
 	Flags: Linked
 */
-function function_9b3daafa(localclientnum, var_cc373138, var_a61a4e58)
+function function_9b3daafa(localclientnum, mdl_console, var_a61a4e58)
 {
-	if(isdefined(var_cc373138.n_fx_id))
+	if(isdefined(mdl_console.n_fx_id))
 	{
-		stopfx(localclientnum, var_cc373138.n_fx_id);
+		stopfx(localclientnum, mdl_console.n_fx_id);
 	}
 	if(var_a61a4e58)
 	{
-		var_cc373138.n_fx_id = playfxontag(localclientnum, level._effect["panel_on"], var_cc373138, "tag_origin");
+		mdl_console.n_fx_id = playfxontag(localclientnum, level._effect["panel_on"], mdl_console, "tag_origin");
 	}
 	else
 	{
-		var_cc373138.n_fx_id = playfxontag(localclientnum, level._effect["panel_off"], var_cc373138, "tag_origin");
+		mdl_console.n_fx_id = playfxontag(localclientnum, level._effect["panel_off"], mdl_console, "tag_origin");
 	}
 }
 

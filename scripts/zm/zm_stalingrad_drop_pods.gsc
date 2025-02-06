@@ -209,8 +209,8 @@ function function_5f435187()
 function function_8aebb789()
 {
 	level.var_583e4a97.s_radio = self;
-	var_cc373138 = getent(self.target, "targetname");
-	var_cc373138 thread function_f5212f09();
+	mdl_console = getent(self.target, "targetname");
+	mdl_console thread function_f5212f09();
 	level thread zm_stalingrad_pap::function_809fbbff(self.script_string);
 	level flag::set("drop_pod_active");
 	level flag::clear("ambient_mortar_fire_on");
@@ -453,9 +453,9 @@ function function_86d9efb0(e_player)
 		}
 		player clientfield::set_player_uimodel("zmInventory.piece_cylinder", var_130c4ab2);
 		player thread zm_craftables::player_show_craftable_parts_ui("zmInventory.piece_cylinder", "zmInventory.widget_cylinder", 0);
-		var_cc373138 = getent(var_5f982950, "targetname");
-		var_cc373138 showpart("tag_screen_main_green");
-		var_cc373138 hidepart("tag_screen_main_red");
+		mdl_console = getent(var_5f982950, "targetname");
+		mdl_console showpart("tag_screen_main_green");
+		mdl_console hidepart("tag_screen_main_red");
 		player function_8df46779(1, self.powerup_name);
 	}
 }
