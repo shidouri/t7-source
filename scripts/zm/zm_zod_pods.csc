@@ -71,19 +71,19 @@ function update_fungus_pod_level(localclientnum, oldval, newval, bnewent, biniti
 		stopfx(localclientnum, self.ambient_fx);
 		self stopallloopsounds();
 	}
-	if(!isdefined(level.var_63c365e9))
+	if(!isdefined(level.mdl_pods))
 	{
-		level.var_63c365e9 = [];
+		level.mdl_pods = [];
 	}
-	if(!isdefined(level.var_63c365e9[localclientnum]))
+	if(!isdefined(level.mdl_pods[localclientnum]))
 	{
-		level.var_63c365e9[localclientnum] = [];
+		level.mdl_pods[localclientnum] = [];
 	}
-	if(!isdefined(level.var_63c365e9[localclientnum][self getentitynumber()]))
+	if(!isdefined(level.mdl_pods[localclientnum][self getentitynumber()]))
 	{
-		level.var_63c365e9[localclientnum][self getentitynumber()] = util::spawn_model(localclientnum, "p7_fxanim_zm_zod_fungus_pod_base_mod", self.origin, self.angles);
+		level.mdl_pods[localclientnum][self getentitynumber()] = util::spawn_model(localclientnum, "p7_fxanim_zm_zod_fungus_pod_base_mod", self.origin, self.angles);
 	}
-	mdl_pod = level.var_63c365e9[localclientnum][self getentitynumber()];
+	mdl_pod = level.mdl_pods[localclientnum][self getentitynumber()];
 	if(isdemoplaying() && getnumfreeentities(localclientnum) < 100)
 	{
 		var_2a6bebf9 = getnumfreeentities(localclientnum);
