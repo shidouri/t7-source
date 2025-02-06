@@ -299,8 +299,8 @@ function function_ffcfbd77()
 	var_8b8460d5 = array("fuse_01", "fuse_02", "fuse_03");
 	foreach(var_64f2aa7a in var_8b8460d5)
 	{
-		var_f2ae2c72 = level zm_craftables::get_craftable_piece_model("police_box", var_64f2aa7a);
-		var_f2ae2c72 clientfield::set("item_glow_fx", 4);
+		mdl_fuse = level zm_craftables::get_craftable_piece_model("police_box", var_64f2aa7a);
+		mdl_fuse clientfield::set("item_glow_fx", 4);
 	}
 }
 
