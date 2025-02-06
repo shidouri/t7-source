@@ -65,31 +65,31 @@ function init_flinger()
 			}
 		}
 	}
-	var_da104453 = struct::get_array(self.target, "targetname");
-	for(i = 0; i < var_da104453.size; i++)
+	a_s_parts = struct::get_array(self.target, "targetname");
+	for(i = 0; i < a_s_parts.size; i++)
 	{
-		if(isdefined(var_da104453[i].script_noteworthy))
+		if(isdefined(a_s_parts[i].script_noteworthy))
 		{
-			switch(var_da104453[i].script_noteworthy)
+			switch(a_s_parts[i].script_noteworthy)
 			{
 				case "buy_trigger":
 				{
-					self.a_s_triggers[self.a_s_triggers.size] = var_da104453[i];
+					self.a_s_triggers[self.a_s_triggers.size] = a_s_parts[i];
 					break;
 				}
 				case "fling_direction":
 				{
-					self.var_b4f536a1 = var_da104453[i];
+					self.var_b4f536a1 = a_s_parts[i];
 					break;
 				}
 				case "flinger_fxanim":
 				{
-					self.var_3d0a6850 = var_da104453[i];
+					self.var_3d0a6850 = a_s_parts[i];
 					break;
 				}
 				case "player_fling_pos":
 				{
-					self.var_3ad9e05d[self.var_3ad9e05d.size] = var_da104453[i];
+					self.var_3ad9e05d[self.var_3ad9e05d.size] = a_s_parts[i];
 					break;
 				}
 			}

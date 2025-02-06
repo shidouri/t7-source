@@ -128,26 +128,26 @@ function function_835fd6d8()
 			}
 		}
 	}
-	var_da104453 = struct::get_array(self.target, "targetname");
-	for(i = 0; i < var_da104453.size; i++)
+	a_s_parts = struct::get_array(self.target, "targetname");
+	for(i = 0; i < a_s_parts.size; i++)
 	{
-		if(isdefined(var_da104453[i].script_noteworthy))
+		if(isdefined(a_s_parts[i].script_noteworthy))
 		{
-			switch(var_da104453[i].script_noteworthy)
+			switch(a_s_parts[i].script_noteworthy)
 			{
 				case "buy_trigger":
 				{
-					self.a_s_triggers[self.a_s_triggers.size] = var_da104453[i];
+					self.a_s_triggers[self.a_s_triggers.size] = a_s_parts[i];
 					break;
 				}
 				case "motor_sound_left":
 				{
-					self.var_f1693315 = var_da104453[i];
+					self.var_f1693315 = a_s_parts[i];
 					break;
 				}
 				case "motor_sound_right":
 				{
-					self.var_736c69e7 = var_da104453[i];
+					self.var_736c69e7 = a_s_parts[i];
 					break;
 				}
 			}

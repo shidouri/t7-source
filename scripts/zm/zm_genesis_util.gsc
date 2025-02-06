@@ -2566,12 +2566,12 @@ function function_c0411192()
 	/#
 		level notify(#"hash_7fb84095");
 		var_3e38f0ae = struct::get_array("");
-		var_da104453 = struct::get_array("");
-		var_3e38f0ae = arraycombine(var_3e38f0ae, var_da104453, 0, 0);
-		var_da104453 = struct::get_array("");
-		var_3e38f0ae = arraycombine(var_3e38f0ae, var_da104453, 0, 0);
-		var_da104453 = struct::get_array("");
-		var_3e38f0ae = arraycombine(var_3e38f0ae, var_da104453, 0, 0);
+		a_s_parts = struct::get_array("");
+		var_3e38f0ae = arraycombine(var_3e38f0ae, a_s_parts, 0, 0);
+		a_s_parts = struct::get_array("");
+		var_3e38f0ae = arraycombine(var_3e38f0ae, a_s_parts, 0, 0);
+		a_s_parts = struct::get_array("");
+		var_3e38f0ae = arraycombine(var_3e38f0ae, a_s_parts, 0, 0);
 		array::thread_all(var_3e38f0ae, &function_b411d2a8);
 	#/
 }
@@ -2590,12 +2590,12 @@ function function_6c518807()
 	/#
 		level notify(#"hash_6fd18b70");
 		var_3e38f0ae = struct::get_array("");
-		var_da104453 = struct::get_array("");
-		var_3e38f0ae = arraycombine(var_3e38f0ae, var_da104453, 0, 0);
-		var_da104453 = struct::get_array("");
-		var_3e38f0ae = arraycombine(var_3e38f0ae, var_da104453, 0, 0);
-		var_da104453 = struct::get_array("");
-		var_3e38f0ae = arraycombine(var_3e38f0ae, var_da104453, 0, 0);
+		a_s_parts = struct::get_array("");
+		var_3e38f0ae = arraycombine(var_3e38f0ae, a_s_parts, 0, 0);
+		a_s_parts = struct::get_array("");
+		var_3e38f0ae = arraycombine(var_3e38f0ae, a_s_parts, 0, 0);
+		a_s_parts = struct::get_array("");
+		var_3e38f0ae = arraycombine(var_3e38f0ae, a_s_parts, 0, 0);
 		array::thread_all(var_3e38f0ae, &function_ba547024);
 	#/
 }
