@@ -800,9 +800,9 @@ function function_f227a0ab()
 */
 function function_c1ccaae0()
 {
-	var_11f2bc16 = getent("gateworm_asteroid", "targetname");
-	var_62ceb838 = util::spawn_model("gateworm", var_11f2bc16.origin);
-	var_11f2bc16 delete();
+	mdl_asteroid = getent("gateworm_asteroid", "targetname");
+	var_62ceb838 = util::spawn_model("gateworm", mdl_asteroid.origin);
+	mdl_asteroid delete();
 	var_2b641c49 = struct::get("egg_destination", "targetname");
 	var_62ceb838 moveto(var_2b641c49.origin, 3);
 	var_62ceb838 waittill("movedone");
