@@ -184,25 +184,25 @@ class class_d90687be
 	*/
 	function function_523eee15()
 	{
-		var_efcfca6d = [];
+		a_e_parasites = [];
 		a_e_axis = getaiteamarray("axis");
 		foreach(e_ent in a_e_axis)
 		{
 			if(e_ent.archetype == "parasite")
 			{
-				if(!isdefined(var_efcfca6d))
+				if(!isdefined(a_e_parasites))
 				{
-					var_efcfca6d = [];
+					a_e_parasites = [];
 				}
-				else if(!isarray(var_efcfca6d))
+				else if(!isarray(a_e_parasites))
 				{
-					var_efcfca6d = array(var_efcfca6d);
+					a_e_parasites = array(a_e_parasites);
 				}
-				var_efcfca6d[var_efcfca6d.size] = e_ent;
+				a_e_parasites[a_e_parasites.size] = e_ent;
 			}
 		}
 		var_eb96527b = getent("dark_arena_zone_active_trig", "targetname");
-		foreach(e_parasite in var_efcfca6d)
+		foreach(e_parasite in a_e_parasites)
 		{
 			if(e_parasite istouching(var_eb96527b))
 			{
