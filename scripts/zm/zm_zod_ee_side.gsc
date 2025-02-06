@@ -1149,8 +1149,8 @@ function function_523509c2()
 	for(i = 0; i < level.players.size; i++)
 	{
 		var_b81be463 = var_baa93c97[i];
-		var_1205599e = util::spawn_model("tag_origin", var_b81be463.origin, var_b81be463.angles);
-		var_1205599e thread function_68f6dbc2();
+		mdl_shiny = util::spawn_model("tag_origin", var_b81be463.origin, var_b81be463.angles);
+		mdl_shiny thread function_68f6dbc2();
 	}
 	level.margwa_smash_damage_callback = &function_e8628610;
 	level.margwa_damage_override_callback = &function_e6f86e4d;
