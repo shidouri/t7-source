@@ -1468,7 +1468,7 @@ function function_604c6e27(str_model, e_player)
 */
 function function_469f74c5()
 {
-	var_66919a0f = getent("ee_map_shelf", "targetname");
+	mdl_shelf = getent("ee_map_shelf", "targetname");
 	var_385ae3a2 = struct::get("ee_map_button_struct", "targetname");
 	var_385ae3a2 zm_unitrigger::create_unitrigger("");
 	while(true)
@@ -1483,8 +1483,8 @@ function function_469f74c5()
 			{
 				str_index = function_3c4d7664(var_66fe5441);
 				str_tag_name = "wall_map_shelf_figure_" + str_index;
-				var_66919a0f showpart(str_tag_name);
-				var_cb153270 = var_66919a0f gettagorigin(str_tag_name);
+				mdl_shelf showpart(str_tag_name);
+				var_cb153270 = mdl_shelf gettagorigin(str_tag_name);
 				level.var_4e47b032++;
 				if(level.var_4e47b032 == 6)
 				{
