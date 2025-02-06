@@ -593,8 +593,8 @@ function function_6efadb82(var_825b87b9, w_dragon_strike)
 {
 	self clientfield::set("dragon_strike_flare_fx", 1);
 	var_dc5fde65 = getclosestpointonnavmesh(self.origin, 128);
-	var_1e43571f = util::spawn_model("tag_origin", var_dc5fde65);
-	var_1e43571f zm_utility::create_zombie_point_of_interest(var_825b87b9, 64, 10000);
+	mdl_attacher = util::spawn_model("tag_origin", var_dc5fde65);
+	mdl_attacher zm_utility::create_zombie_point_of_interest(var_825b87b9, 64, 10000);
 	level waittill(#"hash_d67e330d");
 	if(isdefined(self))
 	{
@@ -608,7 +608,7 @@ function function_6efadb82(var_825b87b9, w_dragon_strike)
 			self clientfield::increment("dragon_strike_marker_fx_fadeout");
 		}
 	}
-	var_1e43571f delete();
+	mdl_attacher delete();
 	wait(3.5);
 	if(isdefined(self))
 	{
@@ -694,7 +694,7 @@ function function_7fcb14a8()
 		v_start = self geteye();
 		v_forward = self getweaponforwarddir();
 		v_end = v_start + (v_forward * 2500);
-		a_trace = bullettrace(v_start, v_end, 0, self.mdl_target, 1, 0, self.var_1e43571f);
+		a_trace = bullettrace(v_start, v_end, 0, self.mdl_target, 1, 0, self.mdl_attacher);
 		self.var_be00572f = a_trace["position"];
 		if(isdefined(self.var_5d020ece))
 		{
