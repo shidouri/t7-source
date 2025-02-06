@@ -543,11 +543,11 @@ function function_8842e57d()
 */
 function function_258afdfc()
 {
-	var_482d5204 = struct::get_array(self.target, "targetname");
+	a_s_cover = struct::get_array(self.target, "targetname");
 	/#
-		assert(isdefined(var_482d5204), "");
+		assert(isdefined(a_s_cover), "");
 	#/
-	foreach(s_cover in var_482d5204)
+	foreach(s_cover in a_s_cover)
 	{
 		/#
 			assert(isdefined(s_cover.model), "");
@@ -565,7 +565,7 @@ function function_258afdfc()
 		}
 	}
 	self waittill("trigger");
-	foreach(s_cover in var_482d5204)
+	foreach(s_cover in a_s_cover)
 	{
 		s_cover thread function_375f158a();
 	}
