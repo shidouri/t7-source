@@ -950,7 +950,7 @@ function function_55a15733(var_a464d35b)
 	self.var_96ff34d0 = 1;
 	if(isplayer(self))
 	{
-		var_b14e6934 = var_a464d35b.var_d6d6c058 * 75;
+		v_hazard = var_a464d35b.var_d6d6c058 * 75;
 		while(isalive(self) && self istouching(var_a464d35b))
 		{
 			if(self istouching(var_a464d35b.t_death))
@@ -964,11 +964,11 @@ function function_55a15733(var_a464d35b)
 				if(self issliding() || self issprinting())
 				{
 					v_player_velocity = self getvelocity();
-					var_64c3f8ef = v_player_velocity + var_b14e6934;
+					var_64c3f8ef = v_player_velocity + v_hazard;
 				}
 				else
 				{
-					var_64c3f8ef = var_b14e6934;
+					var_64c3f8ef = v_hazard;
 				}
 				self setvelocity(var_64c3f8ef);
 				wait(0.05);
@@ -1236,11 +1236,11 @@ function function_74ddcad3()
 function function_b90ebe4e(t_penstock_flow)
 {
 	self endon("death");
-	var_b14e6934 = vectorscale((0, -1, 0), 20);
+	v_hazard = vectorscale((0, -1, 0), 20);
 	while(zm_utility::is_player_valid(self) && self istouching(t_penstock_flow))
 	{
 		v_player_velocity = self getvelocity();
-		var_64c3f8ef = v_player_velocity + var_b14e6934;
+		var_64c3f8ef = v_player_velocity + v_hazard;
 		self setvelocity(var_64c3f8ef);
 		wait(0.1);
 	}
