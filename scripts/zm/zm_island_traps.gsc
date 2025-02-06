@@ -754,7 +754,7 @@ function function_b2e2a102()
 	{
 		if(isdefined(t_hazard.targetname) && t_hazard.targetname !== "")
 		{
-			level.var_dd5501c7[t_hazard.targetname].var_7e5afbd = var_2b73bb92[t_hazard.targetname];
+			level.var_dd5501c7[t_hazard.targetname].mdl_blade = var_2b73bb92[t_hazard.targetname];
 			level.var_dd5501c7[t_hazard.targetname].var_d6d6c058 = anglestoforward(var_2b73bb92[t_hazard.targetname].angles) * -1;
 			level.var_dd5501c7[t_hazard.targetname].var_6b281b64 = anglestoright(var_2b73bb92[t_hazard.targetname].angles) + level.var_dd5501c7[t_hazard.targetname].var_d6d6c058;
 			level.var_dd5501c7[t_hazard.targetname].t_death = var_947d0bae[t_hazard.targetname];
@@ -897,12 +897,12 @@ function function_4ed6e5ec(e_player, var_de0db1fd = 30, var_614a7182 = 30)
 */
 function function_fde9856()
 {
-	self.var_7e5afbd rotateroll(1000, 1.5, 1);
+	self.mdl_blade rotateroll(1000, 1.5, 1);
 	wait(1.5);
 	self thread function_c801c84a();
 	while(self.b_on === 1)
 	{
-		self.var_7e5afbd rotateroll(1000, 0.5);
+		self.mdl_blade rotateroll(1000, 0.5);
 		wait(0.5);
 	}
 }
