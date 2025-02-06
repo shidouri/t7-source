@@ -138,9 +138,9 @@ function function_9a88139e()
 	level.var_e938db57 = getent("mdl_propellertrap_a_body", "script_string");
 	level.var_e938db57.str_type = "PROPTRAP_a";
 	level.var_e938db57.var_e80e0d58 = "fxexp_110";
-	level.var_e938db57.var_efa7240e = getent("mdl_propellertrap_a_propeller", "script_string");
+	level.var_e938db57.mdl_propeller = getent("mdl_propellertrap_a_propeller", "script_string");
 	level.var_e938db57 hide();
-	level.var_e938db57.var_efa7240e hide();
+	level.var_e938db57.mdl_propeller hide();
 	level.var_e938db57.t_death = getent("t_propellertrap_a_death", "script_string");
 	level.var_e938db57.var_2a4af70 = getent("t_proptrap_a_spiders", "targetname");
 	level.var_e938db57.var_7117876c = level.var_e938db57.origin;
@@ -166,9 +166,9 @@ function function_74859935()
 	level.var_77316c1c = getent("mdl_propellertrap_b_body", "script_string");
 	level.var_77316c1c.str_type = "PROPTRAP_b";
 	level.var_77316c1c.var_e80e0d58 = "fxexp_112";
-	level.var_77316c1c.var_efa7240e = getent("mdl_propellertrap_b_propeller", "script_string");
+	level.var_77316c1c.mdl_propeller = getent("mdl_propellertrap_b_propeller", "script_string");
 	level.var_77316c1c hide();
-	level.var_77316c1c.var_efa7240e hide();
+	level.var_77316c1c.mdl_propeller hide();
 	level.var_77316c1c.t_death = getent("t_propellertrap_b_death", "script_string");
 	level.var_77316c1c.var_2a4af70 = getent("t_proptrap_b_spiders", "targetname");
 	level.var_77316c1c.var_7117876c = level.var_77316c1c.origin;
@@ -191,13 +191,13 @@ function function_74859935()
 */
 function function_97e8fd81()
 {
-	self.var_efa7240e linkto(self);
+	self.mdl_propeller linkto(self);
 	wait(0.1);
 	self moveto(self.var_7117876c, 1);
 	self rotateto(self.var_380861c6, 1);
 	self playsound("evt_propeller_trap_engine_start");
 	self waittill("movedone");
-	self.var_efa7240e unlink();
+	self.mdl_propeller unlink();
 	self.b_on = 1;
 	self.t_death triggerenable(1);
 	self thread function_74e1faeb();
@@ -224,12 +224,12 @@ function function_3a8453ed()
 	self notify("stoploop");
 	self playsound("evt_propeller_trap_engine_stop");
 	wait(0.5);
-	self.var_efa7240e linkto(self);
+	self.mdl_propeller linkto(self);
 	wait(0.1);
 	self moveto(self.v_off_pos, 1);
 	self rotateto(self.var_401e166a, 1);
 	wait(1.5);
-	self.var_efa7240e unlink();
+	self.mdl_propeller unlink();
 }
 
 /*
@@ -345,7 +345,7 @@ function function_b0658775()
 	self endon("trap_off");
 	while(self.b_on === 1)
 	{
-		self.var_efa7240e rotateroll(1000, 0.5);
+		self.mdl_propeller rotateroll(1000, 0.5);
 		wait(0.5);
 	}
 }
@@ -364,7 +364,7 @@ function function_bc1706ea()
 	self endon("trap_off");
 	while(self.b_on === 1)
 	{
-		self.var_efa7240e rotateroll(1000, 0.5);
+		self.mdl_propeller rotateroll(1000, 0.5);
 		wait(0.5);
 	}
 }
@@ -434,7 +434,7 @@ function function_b3390115()
 function function_2319463d(var_68fe148c)
 {
 	self endon("death");
-	var_1ee590e5 = var_68fe148c.var_efa7240e.origin;
+	var_1ee590e5 = var_68fe148c.mdl_propeller.origin;
 	var_4ed4eec0 = util::spawn_model("tag_origin", self.origin, self.angles);
 	self linkto(var_4ed4eec0);
 	self thread function_e4b540d1(var_4ed4eec0);
