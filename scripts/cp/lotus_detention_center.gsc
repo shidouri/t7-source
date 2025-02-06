@@ -873,10 +873,10 @@ function function_c92f487e()
 {
 	var_bd1043f3 = struct::get("mobile_shop_ride_lower").origin;
 	var_fd7210d4 = struct::get("mobile_shop_ride_upper").origin;
-	var_44f2aa45 = var_fd7210d4 - var_bd1043f3;
-	level.ai_hendricks forceteleport(level.ai_hendricks.origin + var_44f2aa45, level.ai_hendricks.angles);
+	v_displacement = var_fd7210d4 - var_bd1043f3;
+	level.ai_hendricks forceteleport(level.ai_hendricks.origin + v_displacement, level.ai_hendricks.angles);
 	level thread scene::play("cin_lot_07_05_detcenter_vign_mantle");
-	level thread function_36957bfb(var_44f2aa45);
+	level thread function_36957bfb(v_displacement);
 	if(isdefined(level.var_b55b2c5f))
 	{
 		level.var_b55b2c5f scene::stop();
@@ -897,11 +897,11 @@ function function_c92f487e()
 	Parameters: 1
 	Flags: Linked
 */
-function function_36957bfb(var_44f2aa45)
+function function_36957bfb(v_displacement)
 {
 	foreach(player in level.activeplayers)
 	{
-		player.var_d75e3361 = player.origin + var_44f2aa45;
+		player.var_d75e3361 = player.origin + v_displacement;
 		player setorigin(player.var_d75e3361);
 	}
 	wait(0.15);
