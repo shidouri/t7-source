@@ -5815,10 +5815,10 @@ function function_71e6353(e_attacker)
 */
 function function_88efea4a()
 {
-	var_54697048 = getentarray("aq_es_battery_volume", "script_noteworthy");
+	a_e_battery = getentarray("aq_es_battery_volume", "script_noteworthy");
 	if(self function_ab623d34(level.var_f8d1dc16))
 	{
-		var_f667032 = self array::get_touching(var_54697048);
+		var_f667032 = self array::get_touching(a_e_battery);
 		if(isdefined(var_f667032) && var_f667032.size > 0 && (!(isdefined(var_f667032[0].b_activated) && var_f667032[0].b_activated)))
 		{
 			s_battery = struct::get(var_f667032[0].target, "targetname");
@@ -5944,13 +5944,13 @@ function function_4688cd22()
 	#/
 	self endon("death");
 	self endon("quest_swap");
-	var_54697048 = getentarray("aq_es_battery_volume_charged", "script_noteworthy");
+	a_e_battery = getentarray("aq_es_battery_volume_charged", "script_noteworthy");
 	w_bow = getweapon("elemental_bow");
 	while(!level flag::get("elemental_storm_beacons_charged"))
 	{
 		if(self ischargeshotpending() && self.chargeshotlevel === 4)
 		{
-			var_b6ccc8ce = function_7e113f9d(var_54697048);
+			var_b6ccc8ce = function_7e113f9d(a_e_battery);
 			e_projectile = undefined;
 			if(isdefined(var_b6ccc8ce))
 			{
@@ -5980,9 +5980,9 @@ function function_4688cd22()
 	Parameters: 1
 	Flags: Linked
 */
-function function_7e113f9d(var_54697048)
+function function_7e113f9d(a_e_battery)
 {
-	a_result = self array::get_touching(var_54697048);
+	a_result = self array::get_touching(a_e_battery);
 	if(a_result.size > 0 && (isdefined(a_result[0].b_activated) && a_result[0].b_activated) && (!(isdefined(a_result[0].b_used) && a_result[0].b_used)))
 	{
 		return a_result[0];
