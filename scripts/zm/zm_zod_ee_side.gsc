@@ -1002,8 +1002,8 @@ function function_b6296b8b()
 */
 function ciphers()
 {
-	var_3d01fc2c = getent("brick_cipher", "targetname");
-	var_3d01fc2c thread brick_cipher();
+	mdl_brick = getent("brick_cipher", "targetname");
+	mdl_brick thread brick_cipher();
 	var_c671e1b1 = getent("picture_cipher", "targetname");
 	var_c671e1b1 thread picture_cipher();
 	var_6a19ae41 = getent("hyena", "targetname");

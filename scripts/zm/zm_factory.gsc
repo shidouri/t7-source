@@ -2567,8 +2567,8 @@ function fx_overrides()
 */
 function ciphers()
 {
-	var_3d01fc2c = getent("cipher_brick_main", "script_noteworthy");
-	var_3d01fc2c thread brick_cipher();
+	mdl_brick = getent("cipher_brick_main", "script_noteworthy");
+	mdl_brick thread brick_cipher();
 }
 
 /*
@@ -2585,15 +2585,15 @@ function brick_cipher()
 	self create_unitrigger();
 	self waittill("trigger_activated");
 	var_74772b0f = getentarray("cipher_bricks", "targetname");
-	foreach(var_3d01fc2c in var_74772b0f)
+	foreach(mdl_brick in var_74772b0f)
 	{
-		var_3d01fc2c movez(375, 2);
+		mdl_brick movez(375, 2);
 	}
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	wait(2);
-	foreach(var_3d01fc2c in var_74772b0f)
+	foreach(mdl_brick in var_74772b0f)
 	{
-		var_3d01fc2c delete();
+		mdl_brick delete();
 	}
 }
 
