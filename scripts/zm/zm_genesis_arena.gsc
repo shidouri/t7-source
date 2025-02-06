@@ -3892,10 +3892,10 @@ function function_b1b0d2b0()
 	var_78a22131 = struct::get("arena_shadowman_stage_center", "targetname");
 	var_78a22131 zm_genesis_shadowman::function_8888a532(0, 1, 1);
 	var_78a22131 notify(#"hash_42d111a0");
-	var_cbddabee = spawn("script_model", var_78a22131.var_94d7beef.origin);
-	var_cbddabee setmodel("p7_zm_gen_margwa_orb_red");
-	var_cbddabee linkto(var_78a22131.var_94d7beef);
-	var_cbddabee notsolid();
+	mdl_shield = spawn("script_model", var_78a22131.var_94d7beef.origin);
+	mdl_shield setmodel("p7_zm_gen_margwa_orb_red");
+	mdl_shield linkto(var_78a22131.var_94d7beef);
+	mdl_shield notsolid();
 }
 
 /*
