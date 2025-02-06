@@ -414,7 +414,7 @@ function portal_think(b_show_fx)
 	Parameters: 5
 	Flags: Linked
 */
-function portal_teleport_player(show_fx = 1, a_s_port_locs, str_zone, var_6d359b2e, var_759fb311)
+function portal_teleport_player(show_fx = 1, a_s_port_locs, str_zone, v_portal, var_759fb311)
 {
 	self endon("disconnect");
 	self notify("gravityspikes_attack_watchers_end");
@@ -434,7 +434,7 @@ function portal_teleport_player(show_fx = 1, a_s_port_locs, str_zone, var_6d359b
 	crouch_offset = vectorscale((0, 0, 1), 20);
 	stand_offset = (0, 0, 0);
 	a_ai_enemies = getaiteamarray("axis");
-	a_ai_enemies = arraysort(a_ai_enemies, var_6d359b2e, 1, 99, 768);
+	a_ai_enemies = arraysort(a_ai_enemies, v_portal, 1, 99, 768);
 	array::thread_all(a_ai_enemies, &ai_delay_cleanup);
 	level.n_cleanup_manager_restart_time = 4 + 15;
 	level.n_cleanup_manager_restart_time = level.n_cleanup_manager_restart_time + (gettime() / 1000);

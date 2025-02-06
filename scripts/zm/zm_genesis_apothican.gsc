@@ -232,7 +232,7 @@ function function_ea9e816a()
 	Parameters: 4
 	Flags: Linked
 */
-function function_657f1d1(s_stub, str_zone, var_6d359b2e, var_db6533 = 0)
+function function_657f1d1(s_stub, str_zone, v_portal, var_db6533 = 0)
 {
 	self endon("disconnect");
 	self endon("death");
