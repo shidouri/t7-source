@@ -283,7 +283,7 @@ function function_48a9eab7()
 			e_player clientfield::increment_to_player("interact_rumble");
 			level flag::set("egg_placed_in_hazard");
 			self.stub.related_parent.var_a1914ebb = 1;
-			level.var_de98e3ce.var_d54b9ade.var_62ceb838 = util::spawn_model("p7_fxanim_zm_stal_dragon_incubator_egg_mod", self.stub.related_parent.origin + (vectorscale((0, 0, -1), 40)));
+			level.var_de98e3ce.var_d54b9ade.mdl_egg = util::spawn_model("p7_fxanim_zm_stal_dragon_incubator_egg_mod", self.stub.related_parent.origin + (vectorscale((0, 0, -1), 40)));
 			level thread function_d0ba871e();
 			level clientfield::set("force_stream_dragon_egg", 0);
 		}
@@ -312,10 +312,10 @@ function function_d0ba871e()
 		player clientfield::set_player_uimodel("zmInventory.piece_egg", 0);
 	}
 	level flag::wait_till("egg_bathed_in_flame");
-	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 1);
+	level.var_de98e3ce.var_d54b9ade.mdl_egg clientfield::set("dragon_egg_heat_fx", 1);
 	level waittill("start_of_round");
 	level waittill("end_of_round");
-	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 0);
+	level.var_de98e3ce.var_d54b9ade.mdl_egg clientfield::set("dragon_egg_heat_fx", 0);
 	level flag::set("egg_cooled_hazard");
 }
 
@@ -330,7 +330,7 @@ function function_d0ba871e()
 */
 function function_2455dd71(s_stub)
 {
-	level.var_de98e3ce.var_d54b9ade.var_62ceb838 delete();
+	level.var_de98e3ce.var_d54b9ade.mdl_egg delete();
 	foreach(player in level.activeplayers)
 	{
 		player clientfield::set_player_uimodel("zmInventory.piece_egg", 1);
@@ -621,8 +621,8 @@ function function_59a929b0(s_stub)
 	level thread zm_stalingrad_util::function_e7c75cf0();
 	level flag::set("lockdown_active");
 	util::wait_network_frame();
-	level.var_de98e3ce.var_d54b9ade.var_62ceb838 = getent("dragon_incubator_egg", "targetname");
-	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::increment("dragon_egg_placed", 1);
+	level.var_de98e3ce.var_d54b9ade.mdl_egg = getent("dragon_incubator_egg", "targetname");
+	level.var_de98e3ce.var_d54b9ade.mdl_egg clientfield::increment("dragon_egg_placed", 1);
 	level.var_c2c83bb6.var_b372c418 = struct::get_array("pavlovs_B_spawn", "targetname");
 	var_d41655e8 = struct::get_array("pavlovs_A_spawn", "targetname");
 	level.var_c2c83bb6.var_b372c418 = arraycombine(level.var_c2c83bb6.var_b372c418, var_d41655e8, 0, 0);
@@ -743,10 +743,10 @@ function function_77c54581()
 	level.var_de98e3ce.var_987fcd7a = 1;
 	s_egg zm_unitrigger::create_unitrigger(&"ZM_STALINGRAD_EGG_RETRIEVE", 40, &function_86e242);
 	level notify(#"hash_8c192d5a");
-	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 1);
+	level.var_de98e3ce.var_d54b9ade.mdl_egg clientfield::set("dragon_egg_heat_fx", 1);
 	level waittill("start_of_round");
 	level waittill("end_of_round");
-	level.var_de98e3ce.var_d54b9ade.var_62ceb838 clientfield::set("dragon_egg_heat_fx", 0);
+	level.var_de98e3ce.var_d54b9ade.mdl_egg clientfield::set("dragon_egg_heat_fx", 0);
 	level flag::set("egg_cooled_incubator");
 	s_egg thread function_d29c33e();
 	level thread zm_stalingrad_vo::function_e4acaa37("vox_soph_whelp_quest_incubation_complete_0");
@@ -947,7 +947,7 @@ function function_86e242(e_player)
 function function_d29c33e()
 {
 	self waittill("trigger_activated");
-	self.var_62ceb838 delete();
+	self.mdl_egg delete();
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	level flag::set("gauntlet_quest_complete");
 	foreach(e_player in level.activeplayers)

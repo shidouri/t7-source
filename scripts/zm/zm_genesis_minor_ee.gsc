@@ -801,11 +801,11 @@ function function_f227a0ab()
 function function_c1ccaae0()
 {
 	mdl_asteroid = getent("gateworm_asteroid", "targetname");
-	var_62ceb838 = util::spawn_model("gateworm", mdl_asteroid.origin);
+	mdl_egg = util::spawn_model("gateworm", mdl_asteroid.origin);
 	mdl_asteroid delete();
 	var_2b641c49 = struct::get("egg_destination", "targetname");
-	var_62ceb838 moveto(var_2b641c49.origin, 3);
-	var_62ceb838 waittill("movedone");
+	mdl_egg moveto(var_2b641c49.origin, 3);
+	mdl_egg waittill("movedone");
 	var_6d268157 = var_2b641c49 zm_unitrigger::create_unitrigger(undefined, 64);
 	while(true)
 	{
@@ -817,7 +817,7 @@ function function_c1ccaae0()
 	}
 	e_who.var_7f70ccd5 = 1;
 	zm_unitrigger::unregister_unitrigger(var_6d268157);
-	var_62ceb838 delete();
+	mdl_egg delete();
 	level thread activate_pot();
 }
 
@@ -843,7 +843,7 @@ function activate_pot()
 		}
 	}
 	var_ed0817e0 = struct::get("egg_pot_location", "targetname");
-	var_62ceb838 = util::spawn_model("gateworm", var_ed0817e0.origin);
+	mdl_egg = util::spawn_model("gateworm", var_ed0817e0.origin);
 	level waittill("start_of_round");
 	level waittill("start_of_round");
 	level waittill("start_of_round");
