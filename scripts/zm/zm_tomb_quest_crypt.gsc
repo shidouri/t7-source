@@ -157,7 +157,7 @@ function function_746282b3(a_ents)
 		}
 	}
 	var_4316fdf6 linkto(level.var_6d86123b[n_index]);
-	level.var_6d86123b[n_index].var_b1c02d8a = var_4316fdf6;
+	level.var_6d86123b[n_index].mdl_animated = var_4316fdf6;
 	wait(0.05);
 	level.var_6d86123b[n_index] ghost();
 }
@@ -451,9 +451,9 @@ function bryce_cake_light_update(b_on = 1)
 	{
 		self.n_bryce_cake = 2;
 	}
-	if(isdefined(self.var_b1c02d8a))
+	if(isdefined(self.mdl_animated))
 	{
-		self.var_b1c02d8a clientfield::set("bryce_cake", self.n_bryce_cake);
+		self.mdl_animated clientfield::set("bryce_cake", self.n_bryce_cake);
 	}
 }
 
