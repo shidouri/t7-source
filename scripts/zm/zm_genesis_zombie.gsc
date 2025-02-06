@@ -637,7 +637,7 @@ function genesis_custom_spawn_location_selection(a_spots)
 			return s_spot;
 		}
 		var_e8c67fc0 = array::get_all_closest(e_player.origin, a_spots, undefined, 5);
-		var_b008ef9a = [];
+		a_s_forward = [];
 		v_player_dir = anglestoforward(e_player.angles);
 		for(i = 0; i < var_e8c67fc0.size; i++)
 		{
@@ -645,12 +645,12 @@ function genesis_custom_spawn_location_selection(a_spots)
 			n_dp = vectordot(v_player_dir, v_dir);
 			if(n_dp >= 0)
 			{
-				var_b008ef9a[var_b008ef9a.size] = var_e8c67fc0[i];
+				a_s_forward[a_s_forward.size] = var_e8c67fc0[i];
 			}
 		}
-		if(var_b008ef9a.size)
+		if(a_s_forward.size)
 		{
-			s_spot = array::random(var_b008ef9a);
+			s_spot = array::random(a_s_forward);
 		}
 		else
 		{
