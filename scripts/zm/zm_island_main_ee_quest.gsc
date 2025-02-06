@@ -923,8 +923,8 @@ function function_45e9f465()
 	wait(0.3);
 	self clientfield::set("plane_hit_by_aa_gun", 1);
 	self playsound("evt_b17_explode");
-	var_f7fded02 = struct::get_array("aa_gun_elevator_part_landing", "targetname");
-	s_end = array::random(var_f7fded02);
+	a_s_end = struct::get_array("aa_gun_elevator_part_landing", "targetname");
+	s_end = array::random(a_s_end);
 	s_explosion = spawnstruct();
 	s_explosion.origin = self.origin;
 	s_explosion.angles = self.angles;
