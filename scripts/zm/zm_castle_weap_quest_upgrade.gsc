@@ -1892,7 +1892,7 @@ function function_44605b46()
 			callback::on_connect(&function_7c48f9d8);
 		}
 		level flag::set("");
-		var_28eeb81a.var_d4a62e6b = getent("", "");
+		var_28eeb81a.mdl_bow = getent("", "");
 		var_28eeb81a thread function_fb704679();
 		level function_2c1c1d3e("");
 	#/
@@ -3481,7 +3481,7 @@ function function_8c23a1c7()
 			callback::on_connect(&function_7c48f9d8);
 		}
 		level flag::set("");
-		var_dfd1c443.var_d4a62e6b = getent("", "");
+		var_dfd1c443.mdl_bow = getent("", "");
 		var_dfd1c443 thread function_fb704679();
 		level clientfield::set("", 1);
 		level function_2c1c1d3e("");
@@ -5049,7 +5049,7 @@ function function_4bf5f2()
 			callback::on_connect(&function_7c48f9d8);
 		}
 		level flag::set("");
-		var_afd26121.var_d4a62e6b = getent("", "");
+		var_afd26121.mdl_bow = getent("", "");
 		var_afd26121 thread function_fb704679();
 		level function_2c1c1d3e("");
 	#/
@@ -6514,7 +6514,7 @@ function function_b88a3579()
 			callback::on_connect(&function_7c48f9d8);
 		}
 		level flag::set("");
-		var_fe3506f1.var_d4a62e6b = getent("", "");
+		var_fe3506f1.mdl_bow = getent("", "");
 		var_fe3506f1 thread function_fb704679();
 		level function_2c1c1d3e("");
 	#/
@@ -7139,7 +7139,7 @@ function function_14dd5ea5()
 		array::thread_all(level.players, &function_b584c1e);
 		callback::on_connect(&function_7c48f9d8);
 	}
-	self.var_d4a62e6b = getent(self.script_noteworthy, "targetname");
+	self.mdl_bow = getent(self.script_noteworthy, "targetname");
 	e_target_player = level function_7b6fdb3e(self.script_label);
 	if(!isdefined(e_target_player))
 	{
@@ -7401,7 +7401,7 @@ function function_fb704679(e_target_player = undefined)
 			}
 			e_who switchtoweapon(var_b4810425);
 			e_who playsound("zmb_bow_pickup");
-			self.var_d4a62e6b hide();
+			self.mdl_bow hide();
 			arrayremovevalue(level.var_e8a6b6f7, self.var_67b5dd94);
 			zm_unitrigger::unregister_unitrigger(self.var_67b5dd94);
 			if(e_who hasperk("specialty_additionalprimaryweapon"))
@@ -7458,7 +7458,7 @@ function function_971e3797()
 		str_notify = self.script_label + "_returned";
 		level notify(str_notify);
 		e_who notify("show_base_bow");
-		self.var_d4a62e6b show();
+		self.mdl_bow show();
 		self thread function_fb704679();
 		level function_8b295d47(self.script_label);
 		return;
@@ -7486,7 +7486,7 @@ function function_a4861409(e_player, s_bow)
 		if(str_notify == "death")
 		{
 			zm_unitrigger::unregister_unitrigger(s_bow.var_67b5dd94);
-			s_bow.var_d4a62e6b show();
+			s_bow.mdl_bow show();
 			s_bow thread function_fb704679();
 			return;
 		}
@@ -7516,7 +7516,7 @@ function function_a4861409(e_player, s_bow)
 			{
 				e_player.var_bec0aa15 = undefined;
 				zm_unitrigger::unregister_unitrigger(s_bow.var_67b5dd94);
-				s_bow.var_d4a62e6b show();
+				s_bow.mdl_bow show();
 				s_bow thread function_fb704679();
 				level notify(s_bow.script_label + "_stop_tracking");
 				level function_8b295d47(s_bow.script_label);
