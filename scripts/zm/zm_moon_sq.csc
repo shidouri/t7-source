@@ -515,7 +515,7 @@ function sam_end_rumble(localclientnum, oldval, newval, bnewent, binitialsnap, f
 function do_sr_rumble(localclientnum)
 {
 	level endon(#"hash_f9b2abc9");
-	var_845cd5d1 = struct::get("pyramid_walls_retract", "targetname");
+	s_pyramid = struct::get("pyramid_walls_retract", "targetname");
 	while(true)
 	{
 		a_players = getlocalplayers();
@@ -525,7 +525,7 @@ function do_sr_rumble(localclientnum)
 			{
 				continue;
 			}
-			if(distancesquared(var_845cd5d1.origin, a_players[i].origin) < 562500)
+			if(distancesquared(s_pyramid.origin, a_players[i].origin) < 562500)
 			{
 				a_players[i] playrumbleonentity(localclientnum, "slide_rumble");
 			}
