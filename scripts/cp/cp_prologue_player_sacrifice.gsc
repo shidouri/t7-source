@@ -454,7 +454,7 @@ function function_40fd81b()
 	self.goalradius = 16;
 	wait(randomfloatrange(2, 3.5));
 	var_90911853 = getweapon("launcher_standard_magic_bullet");
-	var_f8e04bb3 = self gettagorigin("tag_flash");
+	v_muzzle = self gettagorigin("tag_flash");
 	while(true)
 	{
 		var_5aebca26 = level.var_27b46342[randomint(level.var_27b46342.size)];
@@ -499,13 +499,13 @@ function function_54454538()
 	var_5aebca26 = getent("rpg_target", "targetname");
 	var_5aebca26.health = 1;
 	var_90911853 = getweapon("launcher_standard_magic_bullet");
-	var_f8e04bb3 = self gettagorigin("tag_flash");
+	v_muzzle = self gettagorigin("tag_flash");
 	wait(1);
-	if(!isdefined(var_f8e04bb3))
+	if(!isdefined(v_muzzle))
 	{
-		var_f8e04bb3 = self.origin;
+		v_muzzle = self.origin;
 	}
-	e_projectile = magicbullet(var_90911853, var_f8e04bb3, var_5aebca26.origin);
+	e_projectile = magicbullet(var_90911853, v_muzzle, var_5aebca26.origin);
 	e_projectile waittill("death");
 	e_projectile thread fx::play("rock_explosion", e_projectile.origin);
 	wait(1);
