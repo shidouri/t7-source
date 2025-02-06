@@ -873,8 +873,8 @@ function function_248f6385()
 {
 	level notify(#"hash_248f6385");
 	level flag::clear("aa_gun_ammo_loaded");
-	var_8cad0c4d = getent("aa_gun", "targetname");
-	var_8cad0c4d thread scene::play("p7_fxanim_zm_island_flak_88_bundle", var_8cad0c4d);
+	mdl_gun = getent("aa_gun", "targetname");
+	mdl_gun thread scene::play("p7_fxanim_zm_island_flak_88_bundle", mdl_gun);
 	exploder::exploder("fxexp_810");
 	var_16bdbe0a = struct::get("aa_gun_trigger", "targetname");
 	playrumbleonposition("zm_island_aa_gun_fired", var_16bdbe0a.origin);
