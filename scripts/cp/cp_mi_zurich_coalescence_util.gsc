@@ -3808,77 +3808,77 @@ function function_27904cd4(str_station, str_objective, n_count = 0, var_31561fde
 	level endon(str_objective + "_completed");
 	str_scenedef = "cin_zur_02_01_climb_aie_charging_station";
 	var_18dfedfa = array("sec_assault_ar", "sec_suppressor_ar", "sec_cqb_shotgun", "sec_rpg_rocket", "sec_suppressor_mg", "sec_sniper", "sec_rusher", "sec_exploder");
-	var_ce83537c = getent(str_station, "targetname");
-	var_ce83537c endon("death");
-	var_ce83537c endon("disable");
-	if(!isdefined(var_ce83537c.mdl_origin))
+	mdl_control = getent(str_station, "targetname");
+	mdl_control endon("death");
+	mdl_control endon("disable");
+	if(!isdefined(mdl_control.mdl_origin))
 	{
-		var_ce83537c.mdl_origin = util::spawn_model("tag_origin", var_ce83537c.s_scene.origin, var_ce83537c.s_scene.angles);
+		mdl_control.mdl_origin = util::spawn_model("tag_origin", mdl_control.s_scene.origin, mdl_control.s_scene.angles);
 	}
-	var_ce83537c.v_start_angles = var_ce83537c.angles;
-	var_ce83537c.mdl_origin.script_objective = str_objective;
-	var_ce83537c.a_ai = [];
-	var_ce83537c.n_spawned = 0;
-	var_ce83537c.b_active = 1;
+	mdl_control.v_start_angles = mdl_control.angles;
+	mdl_control.mdl_origin.script_objective = str_objective;
+	mdl_control.a_ai = [];
+	mdl_control.n_spawned = 0;
+	mdl_control.b_active = 1;
 	wait(0.05);
 	do
 	{
-		var_ce83537c.a_ai = array::remove_dead(var_ce83537c.a_ai);
-		if(var_ce83537c.a_ai.size >= var_31561fde)
+		mdl_control.a_ai = array::remove_dead(mdl_control.a_ai);
+		if(mdl_control.a_ai.size >= var_31561fde)
 		{
 			wait(2);
 		}
 		else
 		{
 			str_spawner = array::random(var_18dfedfa);
-			var_ce83537c.ai_spawned = spawner::simple_spawn_single(str_spawner);
-			var_ce83537c.mdl_origin linkto(var_ce83537c);
-			if(!isalive(var_ce83537c.ai_spawned))
+			mdl_control.ai_spawned = spawner::simple_spawn_single(str_spawner);
+			mdl_control.mdl_origin linkto(mdl_control);
+			if(!isalive(mdl_control.ai_spawned))
 			{
 				wait(0.05);
 			}
 			else
 			{
-				var_ce83537c.ai_spawned ai::set_ignoreme(1);
-				if(isdefined(var_ce83537c.s_scene.script_label))
+				mdl_control.ai_spawned ai::set_ignoreme(1);
+				if(isdefined(mdl_control.s_scene.script_label))
 				{
-					var_ce83537c.ai_spawned colors::set_force_color(var_ce83537c.s_scene.script_label);
+					mdl_control.ai_spawned colors::set_force_color(mdl_control.s_scene.script_label);
 				}
-				if(!isdefined(var_ce83537c.a_ai))
+				if(!isdefined(mdl_control.a_ai))
 				{
-					var_ce83537c.a_ai = [];
+					mdl_control.a_ai = [];
 				}
-				else if(!isarray(var_ce83537c.a_ai))
+				else if(!isarray(mdl_control.a_ai))
 				{
-					var_ce83537c.a_ai = array(var_ce83537c.a_ai);
+					mdl_control.a_ai = array(mdl_control.a_ai);
 				}
-				var_ce83537c.a_ai[var_ce83537c.a_ai.size] = var_ce83537c.ai_spawned;
-				var_ce83537c.n_spawned++;
-				var_ce83537c.ai_spawned forceteleport(var_ce83537c.mdl_origin.origin, var_ce83537c.mdl_origin.angles);
-				var_ce83537c.ai_spawned linkto(var_ce83537c.mdl_origin);
-				var_ce83537c.mdl_origin scene::init(str_scenedef, var_ce83537c.ai_spawned);
-				var_ce83537c rotateyaw(180, randomfloatrange(0.89, 1.4));
-				var_ce83537c waittill("rotatedone");
-				if(!isalive(var_ce83537c.ai_spawned))
+				mdl_control.a_ai[mdl_control.a_ai.size] = mdl_control.ai_spawned;
+				mdl_control.n_spawned++;
+				mdl_control.ai_spawned forceteleport(mdl_control.mdl_origin.origin, mdl_control.mdl_origin.angles);
+				mdl_control.ai_spawned linkto(mdl_control.mdl_origin);
+				mdl_control.mdl_origin scene::init(str_scenedef, mdl_control.ai_spawned);
+				mdl_control rotateyaw(180, randomfloatrange(0.89, 1.4));
+				mdl_control waittill("rotatedone");
+				if(!isalive(mdl_control.ai_spawned))
 				{
-					var_ce83537c.mdl_origin unlink();
-					var_ce83537c.mdl_origin.origin = var_ce83537c.s_scene.origin;
-					var_ce83537c.mdl_origin.angles = var_ce83537c.s_scene.angles;
+					mdl_control.mdl_origin unlink();
+					mdl_control.mdl_origin.origin = mdl_control.s_scene.origin;
+					mdl_control.mdl_origin.angles = mdl_control.s_scene.angles;
 				}
 				else
 				{
-					var_ce83537c.mdl_origin scene::play(str_scenedef, var_ce83537c.ai_spawned);
-					if(isalive(var_ce83537c.ai_spawned))
+					mdl_control.mdl_origin scene::play(str_scenedef, mdl_control.ai_spawned);
+					if(isalive(mdl_control.ai_spawned))
 					{
-						var_ce83537c.ai_spawned ai::set_ignoreme(0);
-						var_ce83537c.ai_spawned unlink();
+						mdl_control.ai_spawned ai::set_ignoreme(0);
+						mdl_control.ai_spawned unlink();
 					}
-					var_ce83537c.ai_spawned = undefined;
-					var_ce83537c.mdl_origin unlink();
-					var_ce83537c.mdl_origin.origin = var_ce83537c.s_scene.origin;
-					var_ce83537c.mdl_origin.angles = var_ce83537c.s_scene.angles;
+					mdl_control.ai_spawned = undefined;
+					mdl_control.mdl_origin unlink();
+					mdl_control.mdl_origin.origin = mdl_control.s_scene.origin;
+					mdl_control.mdl_origin.angles = mdl_control.s_scene.angles;
 					wait(randomfloatrange(n_min_time, n_max_time));
-					if(n_count != 0 && var_ce83537c.n_spawned >= n_count)
+					if(n_count != 0 && mdl_control.n_spawned >= n_count)
 					{
 						b_active = 0;
 					}
@@ -3886,7 +3886,7 @@ function function_27904cd4(str_station, str_objective, n_count = 0, var_31561fde
 			}
 		}
 	}
-	while(isdefined(var_ce83537c.b_active) && var_ce83537c.b_active);
+	while(isdefined(mdl_control.b_active) && mdl_control.b_active);
 }
 
 /*
@@ -3900,21 +3900,21 @@ function function_27904cd4(str_station, str_objective, n_count = 0, var_31561fde
 */
 function function_5b0d9c63(str_station)
 {
-	var_ce83537c = getent(str_station, "targetname");
-	if(!isdefined(var_ce83537c))
+	mdl_control = getent(str_station, "targetname");
+	if(!isdefined(mdl_control))
 	{
 		/#
 			iprintln(("" + str_station) + "");
 		#/
 		return;
 	}
-	var_ce83537c notify("disable");
-	var_ce83537c.b_active = 0;
-	if(isalive(var_ce83537c.ai_spawned))
+	mdl_control notify("disable");
+	mdl_control.b_active = 0;
+	if(isalive(mdl_control.ai_spawned))
 	{
-		var_ce83537c.ai_spawned kill();
+		mdl_control.ai_spawned kill();
 	}
-	var_ce83537c rotateto(var_ce83537c.v_start_angles, 1);
+	mdl_control rotateto(mdl_control.v_start_angles, 1);
 }
 
 /*
