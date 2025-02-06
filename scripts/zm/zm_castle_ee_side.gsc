@@ -1436,8 +1436,8 @@ function function_79e1bd74(n_level)
 	str_model = var_5824233[n_level];
 	if(!isdefined(level.var_31e6a027))
 	{
-		var_21231084 = struct::get("ee_newspaper");
-		level.var_31e6a027 = util::spawn_model(str_model, var_21231084.origin, var_21231084.angles);
+		s_newspaper = struct::get("ee_newspaper");
+		level.var_31e6a027 = util::spawn_model(str_model, s_newspaper.origin, s_newspaper.angles);
 	}
 	else
 	{
