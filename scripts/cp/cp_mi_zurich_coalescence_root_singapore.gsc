@@ -583,20 +583,20 @@ function function_258afdfc()
 function function_375f158a()
 {
 	wait(randomfloat(2));
-	var_4b1dfeae = util::spawn_model(self.model, self.origin, self.angles);
-	var_4b1dfeae.var_1069f2d4 = struct::get(self.target, "targetname");
-	var_4b1dfeae.targetname = "singapore_cover";
+	mdl_cover = util::spawn_model(self.model, self.origin, self.angles);
+	mdl_cover.var_1069f2d4 = struct::get(self.target, "targetname");
+	mdl_cover.targetname = "singapore_cover";
 	if(isdefined(self.script_fxid))
 	{
-		var_4b1dfeae.script_fxid = self.script_fxid;
+		mdl_cover.script_fxid = self.script_fxid;
 	}
 	if(isdefined(self.script_string))
 	{
-		var_4b1dfeae.script_string = self.script_string;
-		var_4b1dfeae thread function_e8047245();
+		mdl_cover.script_string = self.script_string;
+		mdl_cover thread function_e8047245();
 	}
-	var_4b1dfeae thread function_14bb726e();
-	var_4b1dfeae thread function_1bf4af4f();
+	mdl_cover thread function_14bb726e();
+	mdl_cover thread function_1bf4af4f();
 }
 
 /*
