@@ -1312,23 +1312,23 @@ function function_4d249743()
 */
 function laundry_ticket()
 {
-	var_43af12b1 = getent("laundry_ticket", "targetname");
-	var_43af12b1 setcandamage(1);
-	var_43af12b1.health = 999999;
+	mdl_ticket = getent("laundry_ticket", "targetname");
+	mdl_ticket setcandamage(1);
+	mdl_ticket.health = 999999;
 	while(true)
 	{
-		var_43af12b1 waittill("damage", n_damage, e_attacker, v_dir, v_loc, str_type, str_model, str_tag, str_part, w_weapon);
-		if(str_type == "MOD_GRENADE_SPLASH" && distancesquared(var_43af12b1.origin, v_loc) < 4096)
+		mdl_ticket waittill("damage", n_damage, e_attacker, v_dir, v_loc, str_type, str_model, str_tag, str_part, w_weapon);
+		if(str_type == "MOD_GRENADE_SPLASH" && distancesquared(mdl_ticket.origin, v_loc) < 4096)
 		{
 			break;
 		}
 	}
-	s_target = struct::get(var_43af12b1.target);
-	var_43af12b1.origin = s_target.origin;
-	var_43af12b1.angles = s_target.angles;
-	var_43af12b1 create_unitrigger();
-	var_43af12b1 waittill("trigger_activated", e_player);
-	var_43af12b1 delete();
+	s_target = struct::get(mdl_ticket.target);
+	mdl_ticket.origin = s_target.origin;
+	mdl_ticket.angles = s_target.angles;
+	mdl_ticket create_unitrigger();
+	mdl_ticket waittill("trigger_activated", e_player);
+	mdl_ticket delete();
 	e_player zm_score::add_to_player_score(500);
 }
 
