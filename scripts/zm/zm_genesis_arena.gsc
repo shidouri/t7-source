@@ -185,8 +185,8 @@ class class_d90687be
 	function function_523eee15()
 	{
 		var_efcfca6d = [];
-		var_166a783a = getaiteamarray("axis");
-		foreach(e_ent in var_166a783a)
+		a_e_axis = getaiteamarray("axis");
+		foreach(e_ent in a_e_axis)
 		{
 			if(e_ent.archetype == "parasite")
 			{
