@@ -105,9 +105,9 @@ function function_30d4f164()
 	level thread scene::add_scene_func("p7_fxanim_zm_island_cage_trap_hatch_open_bundle", &hatch_setup, "init");
 	level thread scene::init("p7_fxanim_zm_island_cage_trap_tp_door_open_bundle");
 	level thread scene::init("p7_fxanim_zm_island_cage_trap_hatch_open_bundle");
-	var_db6efb17 = getent("venom_extractor", "targetname");
-	var_db6efb17 thread scene::init("p7_fxanim_zm_island_venom_extractor_bundle", var_db6efb17);
-	var_db6efb17 setignorepauseworld(1);
+	mdl_extractor = getent("venom_extractor", "targetname");
+	mdl_extractor thread scene::init("p7_fxanim_zm_island_venom_extractor_bundle", mdl_extractor);
+	mdl_extractor setignorepauseworld(1);
 	level thread function_961485f0();
 	function_c5cd1083();
 	/#
@@ -309,9 +309,9 @@ function function_2578c564(str_flag)
 			level flag::set(str_flag);
 			if(str_flag == "ww3_found")
 			{
-				var_db6efb17 = getent("venom_extractor", "targetname");
+				mdl_extractor = getent("venom_extractor", "targetname");
 				wait(0.5);
-				var_db6efb17 thread function_3c6e89ad();
+				mdl_extractor thread function_3c6e89ad();
 			}
 			self.trigger = undefined;
 			level thread function_ce9a171c(str_flag);
@@ -1027,8 +1027,8 @@ function function_ebbb27ae()
 			{
 				level.zm_override_ai_aftermath_powerup_drop = &function_cc8fe309;
 				level.var_1a139831.var_272ec8a1 = 1;
-				var_db6efb17 = getent("venom_extractor", "targetname");
-				var_db6efb17 thread scene::play("p7_fxanim_zm_island_venom_extractor_bundle", var_db6efb17);
+				mdl_extractor = getent("venom_extractor", "targetname");
+				mdl_extractor thread scene::play("p7_fxanim_zm_island_venom_extractor_bundle", mdl_extractor);
 				level waittill("spider_die");
 				ai_zombie.allowdeath = 1;
 				ai_zombie dodamage(ai_zombie.health, ai_zombie.origin);

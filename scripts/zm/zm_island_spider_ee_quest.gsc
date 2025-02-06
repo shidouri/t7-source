@@ -493,8 +493,8 @@ function function_2176e192()
 	var_30ff0d6c linkto(level.var_1a139831);
 	level.var_f5ad590f = undefined;
 	level waittill(#"hash_35cee1df");
-	var_db6efb17 = getent("venom_extractor", "targetname");
-	var_db6efb17 thread scene::play("p7_fxanim_zm_island_venom_extractor_red_bundle", var_db6efb17);
+	mdl_extractor = getent("venom_extractor", "targetname");
+	mdl_extractor thread scene::play("p7_fxanim_zm_island_venom_extractor_red_bundle", mdl_extractor);
 	level waittill("spider_die");
 	var_1f71eb1 = struct::get("spider_ee_quest_reward", "targetname");
 	var_1f71eb1.origin = var_1f71eb1.origin;
