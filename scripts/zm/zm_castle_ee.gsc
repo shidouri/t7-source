@@ -1493,14 +1493,14 @@ function function_c460669e()
 */
 function function_6cd00f33()
 {
-	var_37c17be6 = undefined;
-	while(!isdefined(var_37c17be6))
+	mdl_bell = undefined;
+	while(!isdefined(mdl_bell))
 	{
 		wait(0.5);
-		var_37c17be6 = getent("rocket_bell", "targetname");
+		mdl_bell = getent("rocket_bell", "targetname");
 	}
-	var_37c17be6 thread function_c7c38164("stop_damage_loop");
-	var_37c17be6 waittill(#"hash_7969a7d6");
+	mdl_bell thread function_c7c38164("stop_damage_loop");
+	mdl_bell waittill(#"hash_7969a7d6");
 	t_bell = getent("fallen_bell_damage_trigger", "targetname");
 	t_bell function_c7c38164();
 }
