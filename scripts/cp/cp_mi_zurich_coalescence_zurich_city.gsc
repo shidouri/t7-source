@@ -593,11 +593,11 @@ function function_d8d72142()
 	self endon("death");
 	level endon(#"hash_1b75d876");
 	n_offset = 32;
-	var_3f44bbce = struct::get_array("intro_magic_bullet_scene_spot");
+	a_s_weapons = struct::get_array("intro_magic_bullet_scene_spot");
 	w_weapon = self.weapon;
 	for(i = 0; i < 36; i++)
 	{
-		s_weapon = array::random(var_3f44bbce);
+		s_weapon = array::random(a_s_weapons);
 		a_s_targets = struct::get_array(s_weapon.target);
 		s_target = array::random(a_s_targets);
 		v_offsets = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
@@ -607,7 +607,7 @@ function function_d8d72142()
 	wait(1.2);
 	for(i = 0; i < 19; i++)
 	{
-		s_weapon = array::random(var_3f44bbce);
+		s_weapon = array::random(a_s_weapons);
 		a_s_targets = struct::get_array(s_weapon.target);
 		s_target = array::random(a_s_targets);
 		v_offsets = (randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset), randomintrange(n_offset * -1, n_offset));
