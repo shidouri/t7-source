@@ -3322,9 +3322,9 @@ function function_17fdda66()
 	self clientfield::set("corvus_tree_shader", 1);
 	self waittill("delete_tree");
 	self clientfield::set("corvus_tree_shader", 0);
-	if(isdefined(self.var_73c84646))
+	if(isdefined(self.mdl_exploder))
 	{
-		self.var_73c84646 delete();
+		self.mdl_exploder delete();
 	}
 	util::wait_network_frame();
 	self delete();
