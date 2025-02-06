@@ -154,7 +154,7 @@ function function_c497263d()
 		{
 			if(mdl_target.model == "p7_zm_moo_crane_mining_arm")
 			{
-				var_beb7660e.var_26dbb029 = mdl_target;
+				var_beb7660e.mdl_arm = mdl_target;
 				var_a68e698 = mdl_target;
 				break;
 			}
