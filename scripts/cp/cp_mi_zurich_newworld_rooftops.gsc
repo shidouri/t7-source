@@ -4902,7 +4902,7 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 		e_engine thread function_db738b68();
 	}
 	a_train[0] = e_engine;
-	var_934a157 = struct::get(var_4b204b1c, "targetname");
+	s_train = struct::get(var_4b204b1c, "targetname");
 	t_end = getent(s_engine.target, "targetname");
 	if(var_37713607 == "train_station_train_org")
 	{
@@ -4916,8 +4916,8 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 	{
 		if(!level flag::get(str_flag_name))
 		{
-			var_3ebf068e = spawn("script_model", var_934a157.origin);
-			var_3ebf068e setmodel(var_934a157.model);
+			var_3ebf068e = spawn("script_model", s_train.origin);
+			var_3ebf068e setmodel(s_train.model);
 			var_3ebf068e.script_objective = "chase_glass_ceiling_igc";
 			var_3ebf068e.script_noteworthy = "chase_train";
 			var_3ebf068e playloopsound("amb_train_car");
@@ -4931,8 +4931,8 @@ function function_4cd03714(str_trigger_name, var_37713607, var_4b204b1c, str_fla
 		{
 			level flag::set(str_trigger_name);
 			s_end = struct::get("train_station_train_end", "targetname");
-			var_3ebf068e = spawn("script_model", var_934a157.origin);
-			var_3ebf068e.origin = (var_934a157.origin[0], var_934a157.origin[1], s_end.origin[2]);
+			var_3ebf068e = spawn("script_model", s_train.origin);
+			var_3ebf068e.origin = (s_train.origin[0], s_train.origin[1], s_end.origin[2]);
 			var_3ebf068e.angles = s_end.angles;
 			var_3ebf068e setmodel(s_end.model);
 			var_3ebf068e.script_objective = "chase_glass_ceiling_igc";
