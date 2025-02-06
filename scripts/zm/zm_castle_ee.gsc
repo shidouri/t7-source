@@ -1055,12 +1055,12 @@ function function_3faf6b59(var_747532f4)
 	}
 	callback::on_connect(&zm_castle_util::function_fa7da172);
 	var_57615f80 = getentarray("pyramid", "targetname");
-	foreach(var_27fd0c6f in var_57615f80)
+	foreach(mdl_pyramid in var_57615f80)
 	{
-		var_54a70b81 = (var_27fd0c6f.origin[0], var_27fd0c6f.origin[1], var_27fd0c6f.origin[2] - 96);
-		var_27fd0c6f notsolid();
-		var_27fd0c6f connectpaths();
-		var_27fd0c6f moveto(var_54a70b81, 3);
+		var_54a70b81 = (mdl_pyramid.origin[0], mdl_pyramid.origin[1], mdl_pyramid.origin[2] - 96);
+		mdl_pyramid notsolid();
+		mdl_pyramid connectpaths();
+		mdl_pyramid moveto(var_54a70b81, 3);
 	}
 	var_747532f4 clientfield::set("ghost_actor", 0);
 	var_747532f4 notify("ghost_torso");
@@ -2412,11 +2412,11 @@ function function_a4b7a410()
 		var_293d02aa delete();
 	}
 	var_57615f80 = getentarray("pyramid", "targetname");
-	foreach(var_27fd0c6f in var_57615f80)
+	foreach(mdl_pyramid in var_57615f80)
 	{
-		var_54a70b81 = (var_27fd0c6f.origin[0], var_27fd0c6f.origin[1], var_27fd0c6f.origin[2] + 96);
-		var_27fd0c6f moveto(var_54a70b81, 3);
-		var_27fd0c6f thread function_ea0d3a5d();
+		var_54a70b81 = (mdl_pyramid.origin[0], mdl_pyramid.origin[1], mdl_pyramid.origin[2] + 96);
+		mdl_pyramid moveto(var_54a70b81, 3);
+		mdl_pyramid thread function_ea0d3a5d();
 	}
 }
 
