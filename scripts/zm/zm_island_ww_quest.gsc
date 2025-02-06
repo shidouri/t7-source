@@ -149,10 +149,10 @@ function function_11571878()
 	v_pos = var_85b2b1ab gettagorigin("mirg_cent_gun_tag_jnt");
 	v_ang = var_85b2b1ab gettagangles("mirg_cent_gun_tag_jnt");
 	var_85b2b1ab scene::init("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", var_85b2b1ab);
-	var_218752f9 = getent("ww_station_funnel", "targetname");
-	var_218752f9 hidepart("j_glow_green");
-	var_218752f9 hidepart("j_glow_purple");
-	var_218752f9 hidepart("j_glow_red");
+	mdl_funnel = getent("ww_station_funnel", "targetname");
+	mdl_funnel hidepart("j_glow_green");
+	mdl_funnel hidepart("j_glow_purple");
+	mdl_funnel hidepart("j_glow_red");
 	level.var_97c56c3c moveto(v_pos, 0.05);
 	level.var_97c56c3c waittill("movedone");
 	level.var_97c56c3c.angles = v_ang;
@@ -165,19 +165,19 @@ function function_11571878()
 			if(level flag::get("ww1_found") && !level flag::get("wwup1_placed"))
 			{
 				level flag::set("wwup1_placed");
-				var_218752f9 showpart("j_glow_red");
+				mdl_funnel showpart("j_glow_red");
 				level.var_622692a9--;
 			}
 			if(level flag::get("ww2_found") && !level flag::get("wwup2_placed"))
 			{
 				level flag::set("wwup2_placed");
-				var_218752f9 showpart("j_glow_green");
+				mdl_funnel showpart("j_glow_green");
 				level.var_622692a9--;
 			}
 			if(level flag::get("ww3_found") && !level flag::get("wwup3_placed"))
 			{
 				level flag::set("wwup3_placed");
-				var_218752f9 showpart("j_glow_purple");
+				mdl_funnel showpart("j_glow_purple");
 				level.var_622692a9--;
 			}
 			if(level flag::get("ww1_found") && level flag::get("ww2_found") && level flag::get("ww3_found"))
@@ -1241,10 +1241,10 @@ function function_cc882a46()
 {
 	var_85b2b1ab = getent("wwup_station", "targetname");
 	var_85b2b1ab scene::init("p7_fxanim_zm_island_mirg_centrifuge_table_gun_up_bundle", var_85b2b1ab);
-	var_218752f9 = getent("wwup_station_funnel", "targetname");
-	var_218752f9 hidepart("j_glow_green");
-	var_218752f9 hidepart("j_glow_purple");
-	var_218752f9 hidepart("j_glow_red");
+	mdl_funnel = getent("wwup_station_funnel", "targetname");
+	mdl_funnel hidepart("j_glow_green");
+	mdl_funnel hidepart("j_glow_purple");
+	mdl_funnel hidepart("j_glow_red");
 	level flag::wait_till("ww_obtained");
 	self.trigger = zm_island_util::spawn_trigger_radius(self.origin, 50, 1, &function_5521d6b5);
 	while(true)
@@ -1252,15 +1252,15 @@ function function_cc882a46()
 		self.trigger waittill("trigger", player);
 		if(level flag::get("wwup1_found"))
 		{
-			var_218752f9 showpart("j_glow_red");
+			mdl_funnel showpart("j_glow_red");
 		}
 		if(level flag::get("wwup2_found"))
 		{
-			var_218752f9 showpart("j_glow_purple");
+			mdl_funnel showpart("j_glow_purple");
 		}
 		if(level flag::get("wwup3_found"))
 		{
-			var_218752f9 showpart("j_glow_green");
+			mdl_funnel showpart("j_glow_green");
 		}
 		if(player zm_utility::in_revive_trigger())
 		{
