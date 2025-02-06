@@ -1326,8 +1326,8 @@ function function_d8d81d72(cmd)
 function function_1b3134ae()
 {
 	/#
-		var_5646068 = struct::get_array("", "");
-		foreach(s_bucket in var_5646068)
+		a_s_buckets = struct::get_array("", "");
+		foreach(s_bucket in a_s_buckets)
 		{
 			if(isdefined(s_bucket.trigger))
 			{
