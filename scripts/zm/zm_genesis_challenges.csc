@@ -38,19 +38,19 @@ function __init__()
 	clientfield::register("toplayer", "challenge_board_eyes", 15000, 1, "int", &function_1664174d, 0, 0);
 	clientfield::register("scriptmover", "challenge_board_base", 15000, 1, "int", &function_aae53847, 0, 0);
 	clientfield::register("scriptmover", "challenge_board_reward", 15000, 1, "int", &function_2494cf3d, 0, 0);
-	level.var_3c3a1522 = [];
+	level.a_s_skull = [];
 	for(x = 0; x < 4; x++)
 	{
 		str_name = "challenge_board_" + x;
-		if(!isdefined(level.var_3c3a1522))
+		if(!isdefined(level.a_s_skull))
 		{
-			level.var_3c3a1522 = [];
+			level.a_s_skull = [];
 		}
-		else if(!isarray(level.var_3c3a1522))
+		else if(!isarray(level.a_s_skull))
 		{
-			level.var_3c3a1522 = array(level.var_3c3a1522);
+			level.a_s_skull = array(level.a_s_skull);
 		}
-		level.var_3c3a1522[level.var_3c3a1522.size] = struct::get(str_name);
+		level.a_s_skull[level.a_s_skull.size] = struct::get(str_name);
 	}
 }
 
@@ -90,7 +90,7 @@ function function_1664174d(localclientnum, oldval, newval, bnewent, binitialsnap
 	var_a879fa43 = self getentitynumber();
 	str_name = "challenge_board_" + var_a879fa43;
 	s_skull = struct::get(str_name, "targetname");
-	foreach(s_skull in level.var_3c3a1522)
+	foreach(s_skull in level.a_s_skull)
 	{
 		if(!isdefined(s_skull.var_90369c89))
 		{
