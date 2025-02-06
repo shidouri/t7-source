@@ -372,7 +372,7 @@ function init_challenge_boards()
 	for(x = 0; x < 4; x++)
 	{
 		str_name = "challenge_board_" + x;
-		var_df95c68b = getent(str_name, "targetname");
+		mdl_board = getent(str_name, "targetname");
 		if(!isdefined(level.a_e_challenge_boards))
 		{
 			level.a_e_challenge_boards = [];
@@ -381,12 +381,12 @@ function init_challenge_boards()
 		{
 			level.a_e_challenge_boards = array(level.a_e_challenge_boards);
 		}
-		level.a_e_challenge_boards[level.a_e_challenge_boards.size] = var_df95c68b;
-		v_origin = var_df95c68b gettagorigin("tag_fx_skull_top");
-		v_angles = var_df95c68b gettagangles("tag_fx_skull_top");
-		var_df95c68b thread scene::play("p7_fxanim_zm_gen_challenge_prizestone_close_bundle", var_df95c68b);
+		level.a_e_challenge_boards[level.a_e_challenge_boards.size] = mdl_board;
+		v_origin = mdl_board gettagorigin("tag_fx_skull_top");
+		v_angles = mdl_board gettagangles("tag_fx_skull_top");
+		mdl_board thread scene::play("p7_fxanim_zm_gen_challenge_prizestone_close_bundle", mdl_board);
 		wait(0.2);
-		var_df95c68b clientfield::set("challenge_board_base", 1);
+		mdl_board clientfield::set("challenge_board_base", 1);
 	}
 	level flag::set("challenge_boards_ready");
 	for(i = 1; i <= 3; i++)
@@ -613,9 +613,9 @@ function function_1d22626(e_player, n_challenge)
 		}
 	}
 	e_player.var_c981566c = 1;
-	var_df95c68b = level.a_e_challenge_boards[n_entity];
-	var_df95c68b scene::play("p7_fxanim_zm_gen_challenge_prizestone_open_bundle", var_df95c68b);
-	var_df95c68b clientfield::set("challenge_board_reward", 1);
+	mdl_board = level.a_e_challenge_boards[n_entity];
+	mdl_board scene::play("p7_fxanim_zm_gen_challenge_prizestone_open_bundle", mdl_board);
+	mdl_board clientfield::set("challenge_board_reward", 1);
 	self function_b1f54cb4(e_player, s_reward, var_17b3dc96, 30);
 	self.var_30ff0d6c clientfield::set("powerup_fx", 1);
 	self.var_30ff0d6c.n_challenge = n_challenge;
@@ -698,9 +698,9 @@ function function_b1f54cb4(e_player, s_reward, var_17b3dc96, var_21d0cf95)
 */
 function function_d57066e8(n_entity)
 {
-	var_df95c68b = level.a_e_challenge_boards[n_entity];
-	var_df95c68b scene::play("p7_fxanim_zm_gen_challenge_prizestone_close_bundle", var_df95c68b);
-	var_df95c68b clientfield::set("challenge_board_reward", 0);
+	mdl_board = level.a_e_challenge_boards[n_entity];
+	mdl_board scene::play("p7_fxanim_zm_gen_challenge_prizestone_close_bundle", mdl_board);
+	mdl_board clientfield::set("challenge_board_reward", 0);
 }
 
 /*
@@ -720,8 +720,8 @@ function function_a2d25f82(n_challenge, var_a879fa43)
 	#/
 	self flag::wait_till("flag_player_completed_challenge_" + n_challenge);
 	str_model = "p7_zm_gen_challenge_medal_0" + n_challenge;
-	var_df95c68b = level.a_e_challenge_boards[var_a879fa43];
-	var_df95c68b attach(str_model, function_94a89297(n_challenge));
+	mdl_board = level.a_e_challenge_boards[var_a879fa43];
+	mdl_board attach(str_model, function_94a89297(n_challenge));
 }
 
 /*
