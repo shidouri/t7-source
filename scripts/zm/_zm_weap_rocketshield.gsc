@@ -285,7 +285,7 @@ function player_watch_shield_juke()
 			self playsound("zmb_rocketshield_end");
 			self enableoffhandweapons();
 			self thread check_weapon_ammo(weapon);
-			self notify(#"shield_juke_done");
+			self notify("shield_juke_done");
 		}
 	}
 }
@@ -361,13 +361,13 @@ function riotshield_melee_juke(weapon)
 function function_92debe0a()
 {
 	/#
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		foreach(player in getplayers())
 		{
 		}
 		while(true)
 		{
-			level waittill(#"start_of_round");
+			level waittill("start_of_round");
 			foreach(player in getplayers())
 			{
 				if(isdefined(player.hasriotshield) && player.hasriotshield)
@@ -472,7 +472,7 @@ function spawn_recharge_tanks()
 		}
 		break;
 	}
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	level thread spawn_recharge_tanks();
 }
 
@@ -621,7 +621,7 @@ function shield_recharge_trigger_think()
 */
 function bottle_trigger_activate(trig_stub, player)
 {
-	trig_stub notify(#"bottle_collected");
+	trig_stub notify("bottle_collected");
 	if(isdefined(player.hasriotshield) && player.hasriotshield)
 	{
 		player zm_equipment::change_ammo(player.weaponriotshield, 1);

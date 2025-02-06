@@ -1581,8 +1581,8 @@ function codecallback_destructibleevent(event, param1, param2, param3)
 */
 function breakafter(time, damage, piece)
 {
-	self notify(#"breakafter");
-	self endon(#"breakafter");
+	self notify("breakafter");
+	self endon("breakafter");
 	wait(time);
 	self dodamage(damage, self.origin, undefined, undefined);
 }
@@ -3005,7 +3005,7 @@ function set_third_person(value)
 */
 function last_stand_revive()
 {
-	level endon(#"between_round_over");
+	level endon("between_round_over");
 	players = getplayers();
 	laststand_count = 0;
 	foreach(player in players)
@@ -3399,7 +3399,7 @@ function last_stand_restore_pistol_ammo()
 function last_stand_take_thrown_grenade()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("player_revived");
 	self waittill("grenade_fire", grenade, weapon);
 	if(isdefined(self.lsgsar_lethal) && weapon == self.lsgsar_lethal)
@@ -3428,7 +3428,7 @@ function last_stand_grenade_save_and_return()
 		return;
 	}
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self.lsgsar_lethal_nade_amt = 0;
 	self.lsgsar_has_lethal_nade = 0;
 	self.lsgsar_tactical_nade_amt = 0;
@@ -3489,7 +3489,7 @@ function last_stand_grenade_save_and_return()
 */
 function spectators_respawn()
 {
-	level endon(#"between_round_over");
+	level endon("between_round_over");
 	if(!isdefined(level.zombie_vars["spectators_respawn"]) || !level.zombie_vars["spectators_respawn"])
 	{
 		return;
@@ -4753,7 +4753,7 @@ function round_think(restart = 0)
 		}
 		level.round_number = get_round_number();
 		level round_over();
-		level notify(#"between_round_over");
+		level notify("between_round_over");
 		level.skip_alive_at_round_end_xp = 0;
 		restart = 0;
 	}
@@ -6895,7 +6895,7 @@ function player_intermission()
 	level endon("stop_intermission");
 	self endon("disconnect");
 	self endon("death");
-	self notify(#"_zombie_game_over");
+	self notify("_zombie_game_over");
 	self.score = self.score_total;
 	points = struct::get_array("intermission", "targetname");
 	if(!isdefined(points) || points.size == 0)

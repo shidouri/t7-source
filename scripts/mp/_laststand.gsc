@@ -148,7 +148,7 @@ function makesureswitchtoweapon()
 {
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"bleed_out");
+	self endon("bleed_out");
 	self endon("player_input_revive");
 	self endon("player_input_suicide");
 	level endon("game_ended");
@@ -277,7 +277,7 @@ function laststand_clean_up_reviving_any(playerbeingrevived)
 function bleed_out()
 {
 	demo::bookmark("player_bledout", gettime(), self, undefined, 1);
-	level notify(#"bleed_out", self.characterindex);
+	level notify("bleed_out", self.characterindex);
 	self undolaststand();
 	self.ignoreme = 0;
 	self.laststand = undefined;

@@ -567,7 +567,7 @@ function function_8b44d21a()
 */
 function function_f889869b(n_index)
 {
-	self waittill(#"broken");
+	self waittill("broken");
 	exploder::exploder("ex_purple_glass_light_0" + n_index);
 }
 

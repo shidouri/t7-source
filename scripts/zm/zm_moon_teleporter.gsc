@@ -799,7 +799,7 @@ function teleporter_to_nml_power_down()
 	teleporter_to_nml_gate_move(0);
 	if(level flag::get("teleporter_used") && (isdefined(level.first_teleporter_use) && level.first_teleporter_use))
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		util::wait_network_frame();
 	}
 	if(!isdefined(level.first_teleporter_use))
@@ -807,7 +807,7 @@ function teleporter_to_nml_power_down()
 		level thread zm_audio::sndmusicsystem_playstate("round_start_first");
 		level.first_teleporter_use = 1;
 	}
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	time = gettime();
 	open_door_time = time + (level.teleporter_to_nml_powerdown_time * 1000);
 	lights_mode = 0;

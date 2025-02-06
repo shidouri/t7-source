@@ -61,7 +61,7 @@ function clear()
 	self.current_state = undefined;
 	self.next_state = undefined;
 	self.owner = undefined;
-	self notify(#"_cancel_connections");
+	self notify("_cancel_connections");
 }
 
 /*
@@ -235,7 +235,7 @@ function set_state(name, state_params)
 */
 function threadnotifyconnections(state)
 {
-	self notify(#"_cancel_connections");
+	self notify("_cancel_connections");
 	foreach(connection in state.connections_notify)
 	{
 		/#
@@ -257,7 +257,7 @@ function threadnotifyconnections(state)
 function connection_on_notify(state_machine, notify_name, connection)
 {
 	self endon(state_machine.change_note);
-	state_machine endon(#"_cancel_connections");
+	state_machine endon("_cancel_connections");
 	while(true)
 	{
 		self waittill(notify_name, param0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15);

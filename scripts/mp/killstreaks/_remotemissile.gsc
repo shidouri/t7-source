@@ -661,7 +661,7 @@ function sndwatchexplo()
 	self endon("joined_team");
 	self endon("joined_spectators");
 	self endon("disconnect");
-	self endon(#"bomblets_deployed");
+	self endon("bomblets_deployed");
 	self waittill("snd1stpersonexplo");
 	self playlocalsound("wpn_remote_missile_explode_plr");
 }
@@ -1040,7 +1040,7 @@ function missile_deploy(rocket, hacked)
 	}
 	rocket missile_sound_deploy_bomblets();
 	self thread bomblet_camera_waiter(rocket);
-	self notify(#"bomblets_deployed");
+	self notify("bomblets_deployed");
 	if(hacked == 1)
 	{
 		rocket notify("death");
@@ -1063,7 +1063,7 @@ function bomblet_camera_waiter(rocket)
 	rocket endon("death");
 	level endon("game_ended");
 	delay = getdvarfloat("scr_rmbomblet_camera_delaytime", 1);
-	self waittill(#"bomblet_exploded");
+	self waittill("bomblet_exploded");
 	wait(delay);
 	rocket notify("death");
 	self notify("remotemissile_done");
@@ -1188,7 +1188,7 @@ function bomblet_explostion_waiter(player)
 	player endon("death");
 	level endon("game_ended");
 	self waittill("death");
-	player notify(#"bomblet_exploded");
+	player notify("bomblet_exploded");
 }
 
 /*

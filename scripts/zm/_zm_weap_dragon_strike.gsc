@@ -334,7 +334,7 @@ function function_3e8c94e3()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"specify_weapon_request", weapon);
+		self waittill("specify_weapon_request", weapon);
 		if(function_9e0c324b(weapon) && (self getammocount(weapon) == 0 || self.var_8660deae === 0))
 		{
 			self clientfield::increment_uimodel("dragon_strike_invalid_use");
@@ -652,7 +652,7 @@ function function_22664e38(e_attacker)
 */
 function function_604af93b()
 {
-	self waittill(#"scriptedanim");
+	self waittill("scriptedanim");
 	level notify(#"hash_d3a01285");
 	self delete();
 }

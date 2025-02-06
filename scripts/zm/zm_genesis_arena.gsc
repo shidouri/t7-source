@@ -1233,7 +1233,7 @@ function function_dd27cfe0()
 	level waittill("start_zombie_round_logic");
 	level.var_d90687be = new class_d90687be();
 	[[ level.var_d90687be ]]->init();
-	level waittill(#"book_placed");
+	level waittill("book_placed");
 	var_c0132a00 show();
 	var_c0132a00 hidepart("tag_electricity_on");
 	var_c0132a00 hidepart("tag_fire_on");
@@ -3834,7 +3834,7 @@ function function_ae8e44d6()
 */
 function function_ac440107()
 {
-	level endon(#"book_runes_success");
+	level endon("book_runes_success");
 	while(!level flag::get("book_runes_success"))
 	{
 		level flag::wait_till("arena_occupied_by_player");
@@ -5740,7 +5740,7 @@ function function_4b9028e6()
 {
 	level endon("grand_tour");
 	level.var_b1b99f8d = [];
-	level waittill(#"book_placed");
+	level waittill("book_placed");
 	var_c0132a00 = getent("rift_entrance_rune_portal", "targetname");
 	while(true)
 	{

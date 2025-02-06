@@ -227,7 +227,7 @@ function function_f85863e2()
 	level.var_de98a8ad = 0;
 	while(level.round_number <= 4)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 	level.var_de98a8ad = 0.35;
 }
@@ -909,7 +909,7 @@ function function_21146aa(e_dragon, var_777ffc66)
 	level waittill("fire_start");
 	e_dragon clientfield::set("dragon_body_glow", 1);
 	level thread function_acdda91d("zm_stalingrad_dragon_fire_charge", var_90f8d95e);
-	level waittill(#"breathe_fire");
+	level waittill("breathe_fire");
 	stopallrumbles();
 	util::wait_network_frame();
 	level thread function_acdda91d("zm_stalingrad_dragon_fire_breathe", var_90f8d95e);
@@ -1015,7 +1015,7 @@ function function_d4556285(e_dragon, var_777ffc66)
 {
 	level endon("dragon_interrupt");
 	level endon(#"hash_a35dee4e");
-	level waittill(#"breathe_fire");
+	level waittill("breathe_fire");
 	level thread function_ca29ccc4(e_dragon, var_777ffc66);
 	wait(1);
 	switch(var_777ffc66)
@@ -1069,7 +1069,7 @@ function function_c4860ff6()
 */
 function function_2d3f510e(var_c3052a58)
 {
-	level endon(#"breathe_fire");
+	level endon("breathe_fire");
 	while(true)
 	{
 		foreach(player in level.activeplayers)
@@ -1171,7 +1171,7 @@ function function_2cc55104()
 */
 function function_2114330(n_duration)
 {
-	level endon(#"breathe_fire");
+	level endon("breathe_fire");
 	self endon("death");
 	self endon("disconnect");
 	wait(n_duration);

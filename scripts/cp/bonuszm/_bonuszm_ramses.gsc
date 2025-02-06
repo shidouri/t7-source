@@ -84,7 +84,7 @@ function function_3e52c274()
 */
 function function_dfa3a625()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(6);
 	bonuszmsound::function_ef0ce9fb("plyz_the_pieces_were_comi_0");
 	wait(2);
@@ -137,7 +137,7 @@ function function_dfa3a625()
 */
 function function_5a6208e()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_you_certainly_weren_0");
 	bonuszmsound::function_cf21d35c("salm_you_say_it_like_i_ha_0");
@@ -175,7 +175,7 @@ function function_5a6208e()
 */
 function function_2ba89af7()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(13);
 	bonuszmsound::function_ef0ce9fb("plyz_the_assault_on_ramse_0");
 	wait(1);
@@ -193,7 +193,7 @@ function function_2ba89af7()
 */
 function function_9c47b97f()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(4);
 	bonuszmsound::function_ef0ce9fb("plyz_we_weren_t_ready_for_1");
 }
@@ -209,7 +209,7 @@ function function_9c47b97f()
 */
 function function_2a404a44()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(5);
 	bonuszmsound::function_ef0ce9fb("plyz_cairo_she_was_a_cit_0");
 	wait(4);
@@ -227,7 +227,7 @@ function function_2a404a44()
 */
 function function_4799bc81()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_it_was_a_simple_str_0");
 	wait(4);
@@ -251,7 +251,7 @@ function function_4799bc81()
 */
 function function_9a51f005()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_we_detonated_the_las_0");
 }
@@ -267,7 +267,7 @@ function function_9a51f005()
 */
 function function_6d9c36ea()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(4);
 	bonuszmsound::function_ef0ce9fb("plyz_our_triggerman_got_h_0");
 	level flag::wait_till("arena_defend_detonator_pickup");
@@ -292,7 +292,7 @@ function function_6d9c36ea()
 */
 function function_939eb153()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_i_gave_hendricks_a_h_0");
 	wait(1);
@@ -324,7 +324,7 @@ function function_939eb153()
 */
 function function_4d3f4c83()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	level flag::wait_till("quad_tank_2_spawned");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_it_didn_t_take_long_0");
@@ -344,7 +344,7 @@ function function_4d3f4c83()
 */
 function function_898d5874()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_we_d_cleared_the_pla_0");
 	wait(2);

@@ -959,7 +959,7 @@ function waittillplayerishitagain()
 */
 function destroy_warning_elem_when_mission_failed(player)
 {
-	self endon(#"being_destroyed");
+	self endon("being_destroyed");
 	self endon("death");
 	level flag::wait_till("missionfailed");
 	self thread destroy_warning_elem(1);
@@ -976,7 +976,7 @@ function destroy_warning_elem_when_mission_failed(player)
 */
 function destroy_warning_elem(fadeout)
 {
-	self notify(#"being_destroyed");
+	self notify("being_destroyed");
 	self.beingdestroyed = 1;
 	if(fadeout)
 	{

@@ -621,7 +621,7 @@ function function_71d4f620()
 	var_d95a0cf3 = -1;
 	while(var_d95a0cf3 != self.characterindex)
 	{
-		level waittill(#"bleed_out", var_d95a0cf3);
+		level waittill("bleed_out", var_d95a0cf3);
 	}
 	self.var_e8e28d9e = w_elemental_bow.maxammo;
 	self.var_8f97fa0b = w_elemental_bow.clipsize;

@@ -158,7 +158,7 @@ function box_footprint_think()
 			self scene::play("p7_fxanim_zm_ori_challenge_box_close_bundle", self);
 		}
 	}
-	self notify(#"box_finished");
+	self notify("box_finished");
 	level.n_soul_boxes_completed++;
 	self scene::stop("p7_fxanim_zm_ori_challenge_box_close_bundle", self);
 	e_volume = getent(self.target, "targetname");
@@ -214,7 +214,7 @@ function box_footprint_think()
 */
 function watch_for_foot_stomp()
 {
-	self endon(#"box_finished");
+	self endon("box_finished");
 	while(true)
 	{
 		self waittill("robot_foot_stomp");
@@ -429,7 +429,7 @@ function reward_double_tap(player, s_stat)
 	player playsound("zmb_powerup_grabbed");
 	m_reward thread zm_perks::vending_trigger_post_think(player, "specialty_doubletap2");
 	m_reward ghost();
-	player waittill(#"burp");
+	player waittill("burp");
 	wait(1.2);
 	m_reward delete();
 	return true;
@@ -495,7 +495,7 @@ function reward_one_inch_punch(player, s_stat)
 function one_inch_punch_watch_for_death(s_stat)
 {
 	self endon("disconnect");
-	self waittill(#"bled_out");
+	self waittill("bled_out");
 	if(s_stat.b_reward_claimed)
 	{
 		s_stat.b_reward_claimed = 0;

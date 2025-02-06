@@ -392,7 +392,7 @@ function function_26f9afa2()
 */
 function function_7884e6b8()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	level.var_4ea3bfd0 = [];
 	level.var_4ea3bfd0[0][0] = array("vox_plr_0_round1_start_0", "vox_plr_2_round1_start_response_0_0");
 	level.var_4ea3bfd0[0][1] = array("vox_plr_0_round1_end_0", "vox_plr_2_round1_end_response_0_0");
@@ -513,7 +513,7 @@ function function_7884e6b8()
 						function_58758962(level.var_fb47733c[0]);
 						arrayremoveindex(level.var_fb47733c, 0, 0);
 					}
-					level notify(#"boss_round_end_vo_done");
+					level notify("boss_round_end_vo_done");
 				}
 				else if(level.round_number != level.n_next_chaos_round && !level flag::get("mega_round_end_abcd_talking") && !level flag::get("mega_round_end_shad_talking") && level.round_number != level.var_ba0d6d40)
 				{

@@ -1521,10 +1521,10 @@ function function_75fdfc25()
 function function_638f34fd()
 {
 	self endon(#"hash_4cea57aa");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("disconnect");
 	var_3275089e = 0;
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	while(var_3275089e < 4)
 	{
 		level waittill("end_of_round");

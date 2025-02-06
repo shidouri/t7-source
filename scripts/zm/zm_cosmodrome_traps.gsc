@@ -322,12 +322,12 @@ function centrifuge_random()
 			malfunction_for_round = randomint(10);
 			if(malfunction_for_round > 6)
 			{
-				level waittill(#"between_round_over");
+				level waittill("between_round_over");
 			}
 			else if(malfunction_for_round == 1)
 			{
-				level waittill(#"between_round_over");
-				level waittill(#"between_round_over");
+				level waittill("between_round_over");
+				level waittill("between_round_over");
 			}
 			wait(randomintrange(24, 90));
 		}

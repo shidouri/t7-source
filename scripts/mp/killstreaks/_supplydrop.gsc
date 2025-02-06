@@ -1427,7 +1427,7 @@ function crateactivate(hacker)
 	}
 	if(isdefined(self.owner) && isplayer(self.owner) && self.owner util::is_bot())
 	{
-		self.owner notify(#"bot_crate_landed", self);
+		self.owner notify("bot_crate_landed", self);
 	}
 	if(isdefined(self.owner))
 	{

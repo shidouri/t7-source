@@ -282,7 +282,7 @@ function function_71c88f2b()
 {
 	/#
 		wait(0.05);
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(0.05);
 		str_cmd = "";
 		adddebugcommand(str_cmd);

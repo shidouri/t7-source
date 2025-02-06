@@ -327,8 +327,8 @@ function private function_c51ef296(fakeent)
 */
 function private _active_cammo_reactivate()
 {
-	self notify(#"_active_cammo_reactivate");
-	self endon(#"_active_cammo_reactivate");
+	self notify("_active_cammo_reactivate");
+	self endon("_active_cammo_reactivate");
 	self endon("active_camo_taken");
 	self endon("kill_active_cammo_reactivate");
 	while(true)

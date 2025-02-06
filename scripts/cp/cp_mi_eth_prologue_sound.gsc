@@ -116,7 +116,7 @@ function function_55f749fc()
 */
 function function_a4815b6c()
 {
-	level endon(#"breech");
+	level endon("breech");
 	level endon("game_ended");
 	level waittill("siren");
 	while(true)
@@ -137,7 +137,7 @@ function function_a4815b6c()
 */
 function function_44ee5cb7()
 {
-	level endon(#"breech");
+	level endon("breech");
 	level endon("game_ended");
 	level waittill(#"hash_5ea48ae9");
 	while(true)

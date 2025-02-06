@@ -301,10 +301,10 @@ function make_supersprinter()
 function game_module_custom_intermission(intermission_struct)
 {
 	self closeingamemenu();
-	level endon(#"stop_intermission");
+	level endon("stop_intermission");
 	self endon("disconnect");
 	self endon("death");
-	self notify(#"_zombie_game_over");
+	self notify("_zombie_game_over");
 	self.score = self.score_total;
 	self.sessionstate = "intermission";
 	self.spectatorclient = -1;
@@ -351,7 +351,7 @@ function game_module_custom_intermission(intermission_struct)
 */
 function create_fireworks(launch_spots, min_wait, max_wait, randomize)
 {
-	level endon(#"stop_fireworks");
+	level endon("stop_fireworks");
 	while(true)
 	{
 		if(isdefined(randomize) && randomize)

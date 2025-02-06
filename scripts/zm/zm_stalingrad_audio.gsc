@@ -772,8 +772,8 @@ function function_631d8c1()
 {
 	self.mdl_ballerina endon("death");
 	self endon(#"hash_636d801f");
-	self endon(#"ballerina_destroyed");
-	self endon(#"ballerina_timeout");
+	self endon("ballerina_destroyed");
+	self endon("ballerina_timeout");
 	while(true)
 	{
 		self.mdl_ballerina rotateyaw(360, 4);
@@ -792,7 +792,7 @@ function function_631d8c1()
 */
 function function_75442852()
 {
-	self endon(#"ballerina_timeout");
+	self endon("ballerina_timeout");
 	self.mdl_ballerina setcandamage(1);
 	self.mdl_ballerina.health = 1000000;
 	while(true)
@@ -803,7 +803,7 @@ function function_75442852()
 			continue;
 		}
 		self.success = 1;
-		self notify(#"ballerina_destroyed");
+		self notify("ballerina_destroyed");
 		break;
 	}
 }
@@ -819,7 +819,7 @@ function function_75442852()
 */
 function function_db914e()
 {
-	self endon(#"ballerina_destroyed");
+	self endon("ballerina_destroyed");
 	if(level.players.size > 1)
 	{
 		wait(90 - (15 * level.players.size));
@@ -828,7 +828,7 @@ function function_db914e()
 	{
 		wait(90);
 	}
-	self notify(#"ballerina_timeout");
+	self notify("ballerina_timeout");
 }
 
 /*

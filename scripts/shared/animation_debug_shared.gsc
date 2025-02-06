@@ -46,8 +46,8 @@ function anim_info_render_thread(animation, v_origin_or_ent, v_angles_or_tag, n_
 	/#
 		self endon("death");
 		self endon("scriptedanim");
-		self notify(#"_anim_info_render_thread_");
-		self endon(#"_anim_info_render_thread_");
+		self notify("_anim_info_render_thread_");
+		self endon("_anim_info_render_thread_");
 		if(!isvec(v_origin_or_ent))
 		{
 			v_origin_or_ent endon("death");

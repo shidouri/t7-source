@@ -111,14 +111,14 @@ function stage_logic_2()
 	}
 	zm_weap_quantum_bomb::quantum_bomb_register_result("be2", undefined, 100, &be2_validation);
 	level._be_pos = level._be.origin;
-	level waittill(#"be2_validation");
+	level waittill("be2_validation");
 	zm_weap_quantum_bomb::quantum_bomb_deregister_result("be2");
 	s = struct::get("be2_pos", "targetname");
 	level._be dontinterpolate();
 	level._be.origin = s.origin;
 	level.teleport_target_trigger = spawn("trigger_radius", s.origin + (vectorscale((0, 0, -1), 70)), 0, 125, 100);
 	level.black_hole_bomb_loc_check_func = &bhb_teleport_loc_check;
-	level waittill(#"be2_tp_done");
+	level waittill("be2_tp_done");
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest8", 2);
 	level.black_hole_bomb_loc_check_func = undefined;
@@ -138,7 +138,7 @@ function stage_logic_2()
 */
 function wait_for_close_player()
 {
-	level endon(#"be2_validation");
+	level endon("be2_validation");
 	self endon("death");
 	wait(25);
 	while(true)
@@ -205,7 +205,7 @@ function teleport_target(grenade, model)
 	}
 	model playsound("zmb_gersh_teleporter_go");
 	wait(2);
-	level notify(#"be2_tp_done");
+	level notify("be2_tp_done");
 }
 
 /*
@@ -221,7 +221,7 @@ function be2_validation(position)
 {
 	if(distancesquared(level._be_pos, position) < 26896)
 	{
-		level notify(#"be2_validation");
+		level notify("be2_validation");
 	}
 	return false;
 }
@@ -379,7 +379,7 @@ function moon_be_think()
 {
 	self endon("death");
 	self endon("finished_path");
-	self endon(#"be_stage_one_over");
+	self endon("be_stage_one_over");
 	vox_num = 2;
 	vox_dude = undefined;
 	while(isdefined(self))
@@ -707,7 +707,7 @@ function moon_be_stop_anim()
 function moon_be_resume_anim()
 {
 	self endon("death");
-	self endon(#"be_stage_one_over");
+	self endon("be_stage_one_over");
 	rand = randomint(1);
 	if(rand)
 	{

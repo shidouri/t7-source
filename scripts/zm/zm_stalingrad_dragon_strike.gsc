@@ -177,7 +177,7 @@ function function_748696f0(b_on, n_tag)
 */
 function function_41457bd1()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	level flag::wait_till("all_players_spawned");
 	self.var_f2c16bcc = 0;
 	while(self.var_f2c16bcc < 4)
@@ -225,7 +225,7 @@ function function_41457bd1()
 */
 function function_8f02cb7e()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	for(i = 1; i <= 4; i++)
 	{
 		self thread function_748696f0(0, i);

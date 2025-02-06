@@ -174,7 +174,7 @@ function bag_debug()
 function init_stage()
 {
 	zm_temple_sq_brock::delete_radio();
-	level notify(#"bag_start");
+	level notify("bag_start");
 	/#
 		if(getplayers().size == 1 || getdvarint("") == 2)
 		{
@@ -261,7 +261,7 @@ function fire_in_the_hole()
 	players = getplayers();
 	players[randomintrange(0, players.size)] thread zm_audio::create_and_play_dialog("eggs", "quest8", 5);
 	playsoundatposition("evt_sq_bag_dynamite_explosion", dest.origin);
-	level.catch_trig notify(#"boom");
+	level.catch_trig notify("boom");
 	level.catch_trig delete();
 	level.catch_trig = undefined;
 	zm_sidequests::stage_failed("sq", "BaG");
@@ -278,7 +278,7 @@ function fire_in_the_hole()
 */
 function butter_fingers()
 {
-	self endon(#"boom");
+	self endon("boom");
 	self endon("death");
 	while(true)
 	{
@@ -604,7 +604,7 @@ function gong_handler()
 function debug_gong()
 {
 	/#
-		level endon(#"bag_start");
+		level endon("bag_start");
 		level endon("sq_bag_over");
 		while(!(isdefined(level.disable_print3d_ent) && level.disable_print3d_ent))
 		{
@@ -653,7 +653,7 @@ function gong_wobble()
 */
 function dud_gong_handler()
 {
-	level endon(#"bag_start");
+	level endon("bag_start");
 	self thread gong_wobble();
 	if(!isdefined(self.ringing))
 	{

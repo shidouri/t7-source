@@ -386,7 +386,7 @@ function on_fire_timeout(n_duration)
 	self endon("death");
 	wait(n_duration);
 	self.is_on_fire = 0;
-	self notify(#"stop_flame_damage");
+	self notify("stop_flame_damage");
 }
 
 /*
@@ -484,7 +484,7 @@ function zombie_set_and_restore_flame_state()
 		self.ignoremelee = 1;
 		self _fire_stun_zombie_internal(1, "burned");
 	}
-	self waittill(#"stop_flame_damage");
+	self waittill("stop_flame_damage");
 	self.deathanim = undefined;
 	self.disablemelee = undefined;
 	if(self.ai_state == "find_flesh")
@@ -631,7 +631,7 @@ function flame_damage_over_time(e_attacker, damageweapon, pct_damage)
 {
 	e_attacker endon("disconnect");
 	self endon("death");
-	self endon(#"stop_flame_damage");
+	self endon("stop_flame_damage");
 	n_damage = get_damage_per_second(damageweapon);
 	n_duration = get_damage_duration(damageweapon);
 	n_damage = n_damage * pct_damage;

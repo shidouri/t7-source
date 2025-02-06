@@ -980,7 +980,7 @@ function function_2f183e13(n_index)
 	}
 	while(true)
 	{
-		self waittill(#"bgb_bubble_blow_complete");
+		self waittill("bgb_bubble_blow_complete");
 		if(self bgb::is_active("zm_bgb_in_plain_sight"))
 		{
 			level.var_37c0c840[n_index] setvisibletoplayer(self);
@@ -1209,7 +1209,7 @@ function function_c02b51fb(n_index)
 	}
 	while(true)
 	{
-		self waittill(#"bgb_bubble_blow_complete");
+		self waittill("bgb_bubble_blow_complete");
 		if(self bgb::is_active("zm_bgb_in_plain_sight"))
 		{
 			level.var_23825200[n_index] setvisibletoplayer(self);
@@ -2007,7 +2007,7 @@ function function_9ce92341()
 function function_1fcb04d7()
 {
 	self endon("disconnect");
-	self waittill(#"bled_out");
+	self waittill("bled_out");
 	self.widows_wine_knife_override = undefined;
 }
 

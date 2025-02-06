@@ -773,7 +773,7 @@ function private function_bed84b4(mechz)
 	mechz endon("kill_claw");
 	while(true)
 	{
-		self waittill(#"bgb_activation_request");
+		self waittill("bgb_activation_request");
 		if(isdefined(self) && self.bgb === "zm_bgb_anywhere_but_here")
 		{
 			mechz thread function_9bfd96c8();

@@ -1173,7 +1173,7 @@ class czmtrain
 	{
 		while(true)
 		{
-			level waittill(#"between_round_over");
+			level waittill("between_round_over");
 			level.var_33c4ee76 = 0;
 			wait(0.05);
 		}
@@ -1219,7 +1219,7 @@ class czmtrain
 		self flag::set("offline");
 		m_vh_train clientfield::set("train_switch_light", 2);
 		update_use_trigger();
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		self flag::clear("offline");
 		wait(0.05);
 	}

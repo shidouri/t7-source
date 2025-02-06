@@ -784,7 +784,7 @@ function wait_for_bda_dialog(killstreakid)
 	self endon("vtol_shutdown");
 	while(true)
 	{
-		self waittill(#"bda_dialog", dialogkey);
+		self waittill("bda_dialog", dialogkey);
 		for(i = 0; i < 2; i++)
 		{
 			if(isdefined(level.vtol.assistants[i].occupant))

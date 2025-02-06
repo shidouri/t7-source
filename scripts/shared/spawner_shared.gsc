@@ -2528,7 +2528,7 @@ function show_bad_path()
 		bad_path_count = 0;
 		for(;;)
 		{
-			self waittill(#"bad_path", badpathpos);
+			self waittill("bad_path", badpathpos);
 			if(!isdefined(level.debug_badpath) || !level.debug_badpath)
 			{
 				continue;
@@ -2877,7 +2877,7 @@ function kill_spawnernum(number)
 function disable_replace_on_death()
 {
 	self.replace_on_death = undefined;
-	self notify(#"_disable_reinforcement");
+	self notify("_disable_reinforcement");
 }
 
 /*

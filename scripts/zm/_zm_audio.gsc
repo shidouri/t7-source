@@ -259,7 +259,7 @@ function zombie_behind_vox()
 				z_diff = self.origin[2] - zombs[i].origin[2];
 				if(yaw < -95 || yaw > 95 && abs(z_diff) < 50)
 				{
-					zombs[i] notify(#"bhtn_action_notify", "behind");
+					zombs[i] notify("bhtn_action_notify", "behind");
 					played_sound = 1;
 					break;
 				}
@@ -1497,7 +1497,7 @@ function sndmusicsystem_locations(locationarray)
 		{
 			numcut++;
 		}
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 }
 
@@ -1855,7 +1855,7 @@ function zmbaivox_notifyconvert()
 	self thread zmbaivox_playelectrocution();
 	while(true)
 	{
-		self waittill(#"bhtn_action_notify", notify_string);
+		self waittill("bhtn_action_notify", notify_string);
 		switch(notify_string)
 		{
 			case "pain":
@@ -2059,7 +2059,7 @@ function zmbaivox_playelectrocution()
 		self waittill("damage", amount, attacker, direction_vec, point, type, tagname, modelname, partname, weapon);
 		if(weapon.name == "zombie_beast_lightning_dwl" || weapon.name == "zombie_beast_lightning_dwl2" || weapon.name == "zombie_beast_lightning_dwl3")
 		{
-			self notify(#"bhtn_action_notify", "electrocute");
+			self notify("bhtn_action_notify", "electrocute");
 		}
 	}
 }

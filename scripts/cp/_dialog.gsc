@@ -249,8 +249,8 @@ function private _say(str_vo_line, n_delay, b_fake_ent = 0, e_to_player)
 function _on_kill_pending_dialog(str_vo_line)
 {
 	self endon("death");
-	self notify(#"_on_kill_pending_dialog_end");
-	self endon(#"_on_kill_pending_dialog_end");
+	self notify("_on_kill_pending_dialog_end");
+	self endon("_on_kill_pending_dialog_end");
 	util::waittill_any_ents_two(level, "kill_pending_dialog", self, "kill_pending_dialog");
 	self.is_about_to_talk = undefined;
 }

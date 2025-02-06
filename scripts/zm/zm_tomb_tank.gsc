@@ -694,7 +694,7 @@ function players_on_tank_update()
 function tank_force_crouch_from_prone_after_on_tank()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	wait(1);
 	if("prone" == self getstance())
 	{

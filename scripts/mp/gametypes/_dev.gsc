@@ -1109,7 +1109,7 @@ function updatedevsettings()
 		}
 		if(!level.bot_overlay && !level.bot_threat && !level.bot_path)
 		{
-			level notify(#"bot_dpad_terminate");
+			level notify("bot_dpad_terminate");
 		}
 	#/
 }
@@ -3232,9 +3232,9 @@ function force_grenade_throw(weapon)
 function bot_dpad_think()
 {
 	/#
-		level notify(#"bot_dpad_stop");
-		level endon(#"bot_dpad_stop");
-		level endon(#"bot_dpad_terminate");
+		level notify("bot_dpad_stop");
+		level endon("bot_dpad_stop");
+		level endon("bot_dpad_terminate");
 		if(!isdefined(level.bot_index))
 		{
 			level.bot_index = 0;
@@ -3289,7 +3289,7 @@ function bot_dpad_think()
 			{
 				dpad_right = 0;
 			}
-			level notify(#"bot_index_changed");
+			level notify("bot_index_changed");
 		}
 	#/
 }
@@ -3306,7 +3306,7 @@ function bot_dpad_think()
 function bot_overlay_think()
 {
 	/#
-		level endon(#"bot_overlay_stop");
+		level endon("bot_overlay_stop");
 		level thread bot_dpad_think();
 		iprintln("");
 		iprintln("");
@@ -3316,7 +3316,7 @@ function bot_overlay_think()
 			{
 				setdvar("", level.bot_index);
 			}
-			level waittill(#"bot_index_changed");
+			level waittill("bot_index_changed");
 		}
 	#/
 }
@@ -3333,7 +3333,7 @@ function bot_overlay_think()
 function bot_threat_think()
 {
 	/#
-		level endon(#"bot_threat_stop");
+		level endon("bot_threat_stop");
 		level thread bot_dpad_think();
 		iprintln("");
 		iprintln("");
@@ -3343,7 +3343,7 @@ function bot_threat_think()
 			{
 				setdvar("", level.bot_index);
 			}
-			level waittill(#"bot_index_changed");
+			level waittill("bot_index_changed");
 		}
 	#/
 }
@@ -3360,7 +3360,7 @@ function bot_threat_think()
 function bot_path_think()
 {
 	/#
-		level endon(#"bot_path_stop");
+		level endon("bot_path_stop");
 		level thread bot_dpad_think();
 		iprintln("");
 		iprintln("");
@@ -3370,7 +3370,7 @@ function bot_path_think()
 			{
 				setdvar("", level.bot_index);
 			}
-			level waittill(#"bot_index_changed");
+			level waittill("bot_index_changed");
 		}
 	#/
 }
@@ -3387,7 +3387,7 @@ function bot_path_think()
 function bot_overlay_stop()
 {
 	/#
-		level notify(#"bot_overlay_stop");
+		level notify("bot_overlay_stop");
 		setdvar("", "");
 	#/
 }
@@ -3404,7 +3404,7 @@ function bot_overlay_stop()
 function bot_path_stop()
 {
 	/#
-		level notify(#"bot_path_stop");
+		level notify("bot_path_stop");
 		setdvar("", "");
 	#/
 }
@@ -3421,7 +3421,7 @@ function bot_path_stop()
 function bot_threat_stop()
 {
 	/#
-		level notify(#"bot_threat_stop");
+		level notify("bot_threat_stop");
 		setdvar("", "");
 	#/
 }

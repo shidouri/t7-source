@@ -498,7 +498,7 @@ function function_7eea24df()
 	wait(0.5);
 	level notify("weapon_fly_away_start");
 	wait(2);
-	chest notify(#"box_moving");
+	chest notify("box_moving");
 	level notify("weapon_fly_away_end");
 	level.chest_min_move_usage = undefined;
 }

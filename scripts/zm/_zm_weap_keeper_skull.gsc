@@ -127,7 +127,7 @@ function watch_player_death()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"bled_out");
+		self waittill("bled_out");
 		if(self flag::get("has_skull"))
 		{
 			self flag::clear("has_skull");
@@ -185,7 +185,7 @@ function function_2dda41f5()
 		{
 			if(!self laststand::player_is_in_laststand())
 			{
-				self notify(#"skull_weapon_fully_charged");
+				self notify("skull_weapon_fully_charged");
 				var_18e42304 = 1;
 				wait(30);
 			}
@@ -386,7 +386,7 @@ function function_32afe89a(ai_zombie)
 			if(ai_zombie.archetype === "zombie")
 			{
 				ai_zombie clientfield::set("death_ray_shock_eye_fx", 0);
-				self notify(#"skullweapon_killed_zombie");
+				self notify("skullweapon_killed_zombie");
 				ai_zombie zombie_utility::zombie_head_gib(self);
 				ai_zombie playsound("evt_zombie_skull_breathe");
 			}
@@ -513,7 +513,7 @@ function function_e703c25f()
 						if(ai_zombie.var_9b59d7f8 !== 1 && self function_5fa274c1(ai_zombie) && ai_zombie.completed_emerging_into_playable_area === 1 && (!(isdefined(ai_zombie.thrasherconsumed) && ai_zombie.thrasherconsumed)) && (!(isdefined(ai_zombie.var_3f6ea790) && ai_zombie.var_3f6ea790)))
 						{
 							self thread function_c2e953fb(ai_zombie);
-							self notify(#"skullweapon_mesmerized_zombie");
+							self notify("skullweapon_mesmerized_zombie");
 						}
 					}
 					wait(0.05);

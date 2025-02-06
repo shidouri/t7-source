@@ -516,7 +516,7 @@ function function_67147dcf()
 {
 	level endon("choose_time_travel_target");
 	level endon("reset_time_travel_target");
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	playsoundatposition("zmb_object_fail", (0, 0, 0));
 	level flag::set("reset_time_travel_target");
 }

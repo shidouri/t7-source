@@ -375,7 +375,7 @@ function private function_69246d49(attacker, loops, weapon)
 		self dodamage(5, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
 		self.allowpain = 0;
 		wait(0.05);
-		self waittillmatch(#"bhtn_action_terminate");
+		self waittillmatch("bhtn_action_terminate");
 		loops--;
 	}
 	self.allowpain = 1;
@@ -416,7 +416,7 @@ function private _exo_breakdown(attacker)
 		self kill(self.origin, (isdefined(attacker) ? attacker : undefined));
 		return;
 	}
-	self notify(#"bhtn_action_notify", "reactExosuit");
+	self notify("bhtn_action_notify", "reactExosuit");
 	if(self.archetype == "warlord")
 	{
 		self thread function_69246d49(attacker, 1, weapon);

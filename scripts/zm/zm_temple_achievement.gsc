@@ -108,7 +108,7 @@ function achievement_blinded_by_the_fright()
 {
 	level endon("end_game");
 	self endon("disconnect");
-	self waittill(#"blinded_by_the_fright_achieved");
+	self waittill("blinded_by_the_fright_achieved");
 }
 
 /*

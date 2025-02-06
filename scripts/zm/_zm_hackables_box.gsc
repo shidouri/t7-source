@@ -197,7 +197,7 @@ function respin_box_thread(hacker)
 		self.chest.zbarrier.weapon_model notify("kill_respin_think_thread");
 	}
 	self.chest.no_fly_away = 1;
-	self.chest.zbarrier notify(#"box_hacked_respin");
+	self.chest.zbarrier notify("box_hacked_respin");
 	level flag::set("override_magicbox_trigger_use");
 	zm_utility::play_sound_at_pos("open_chest", self.chest.zbarrier.origin);
 	zm_utility::play_sound_at_pos("music_chest", self.chest.zbarrier.origin);
@@ -307,7 +307,7 @@ function respin_respin_box(hacker)
 		self.chest.zbarrier.weapon_model_dw notify("kill_weapon_movement");
 		self.chest.zbarrier.weapon_model_dw moveto((org + vectorscale((0, 0, 1), 40)) - vectorscale((1, 1, 1), 3), 0.5);
 	}
-	self.chest.zbarrier notify(#"box_hacked_rerespin");
+	self.chest.zbarrier notify("box_hacked_rerespin");
 	self.chest.box_rerespun = 1;
 	self thread fake_weapon_powerup_thread(self.chest.zbarrier.weapon_model, self.chest.zbarrier.weapon_model_dw);
 }

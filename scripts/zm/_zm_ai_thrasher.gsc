@@ -219,7 +219,7 @@ function function_8aac3fe()
 	level.var_ebc4830 = level.round_number + randomintrange(4, 7);
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		level.var_e51f5b82 = 0;
 		if(isdefined(level.n_next_spider_round) && level.round_number == level.n_next_spider_round)
 		{

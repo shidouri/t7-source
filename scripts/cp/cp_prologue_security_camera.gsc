@@ -829,7 +829,7 @@ function hendricks_security_camera()
 		level thread [[level.bzm_prologuedialogue3callback]]();
 	}
 	level flag::set("everyone_in_camera_room");
-	level notify(#"breech");
+	level notify("breech");
 	level thread function_fef03d1c();
 	exploder::stop_exploder("light_exploder_cameraroom");
 	level waittill(#"hash_17ce64b4");

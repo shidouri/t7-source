@@ -286,7 +286,7 @@ function whirlwind_timeout(n_time)
 	level util::waittill_any_timeout(n_time, "whirlwind_stopped");
 	level notify("whirlwind_stopped");
 	self clientfield::set("whirlwind_play_fx", 0);
-	self notify(#"stop_debug_position");
+	self notify("stop_debug_position");
 	level flag::clear("whirlwind_active");
 	wait(1.5);
 	self delete();

@@ -435,7 +435,7 @@ function hit_enemy(guy, weapon)
 		if(guy.archetype == "human_riotshield")
 		{
 			guy dodamage(guy.health, self.origin, self, self, "none", "MOD_IMPACT", 0, weapon, -1, 1);
-			guy notify(#"bhtn_action_notify", "reactBodyBlow");
+			guy notify("bhtn_action_notify", "reactBodyBlow");
 		}
 		else
 		{

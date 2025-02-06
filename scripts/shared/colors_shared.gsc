@@ -871,8 +871,8 @@ function private is_target_visible(target)
 */
 function hero_catch_up_teleport(s_teleport, n_min_dist_from_player = 400, b_disable_colors = 0, func_callback)
 {
-	self notify(#"_hero_catch_up_teleport_");
-	self endon(#"_hero_catch_up_teleport_");
+	self notify("_hero_catch_up_teleport_");
+	self endon("_hero_catch_up_teleport_");
 	self endon("stop_hero_catch_up_teleport");
 	n_min_player_dist_sq = n_min_dist_from_player * n_min_dist_from_player;
 	self endon("death");
@@ -2169,7 +2169,7 @@ function colornode_replace_on_death()
 	/#
 		assert(isalive(self), "");
 	#/
-	self endon(#"_disable_reinforcement");
+	self endon("_disable_reinforcement");
 	if(self.team == "axis")
 	{
 		return;

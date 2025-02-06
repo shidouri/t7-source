@@ -905,7 +905,7 @@ function watchforbflagcap()
 	level thread endwatchforbflagcapaftertime(60);
 	for(;;)
 	{
-		level waittill(#"b_flag_captured", player);
+		level waittill("b_flag_captured", player);
 		player challenges::capturedbfirstminute();
 	}
 }
@@ -975,7 +975,7 @@ function give_capture_credit(touchlist, string, lastownerteam, isbflag, neutrali
 			player_from_touchlist recordgameevent("capture");
 			if(isbflag)
 			{
-				level notify(#"b_flag_captured", player_from_touchlist);
+				level notify("b_flag_captured", player_from_touchlist);
 			}
 			if(isdefined(player_from_touchlist.pers["captures"]))
 			{

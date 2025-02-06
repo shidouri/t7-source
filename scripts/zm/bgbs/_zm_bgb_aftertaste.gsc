@@ -79,8 +79,8 @@ function lost_perk_override(perk, var_2488e46a = undefined, var_24df4040 = undef
 function event()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("bled_out");
+	self endon("bgb_update");
 	while(true)
 	{
 		self waittill("player_downed");

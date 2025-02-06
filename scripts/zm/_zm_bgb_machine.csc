@@ -589,8 +589,8 @@ function private function_d5f882d0(localclientnum)
 */
 function private function_eb5b80c5(localclientnum)
 {
-	self notify(#"bgb_machine_bulb_fx_start");
-	self endon(#"bgb_machine_bulb_fx_start");
+	self notify("bgb_machine_bulb_fx_start");
+	self endon("bgb_machine_bulb_fx_start");
 	self bgb_machine_play_all_bulb_fx(localclientnum, self zbarriergetpiece(5), undefined);
 	self bgb_machine_play_fx(localclientnum, self zbarriergetpiece(5), "tag_origin", level._effect["zm_bgb_machine_available"]);
 }
@@ -606,8 +606,8 @@ function private function_eb5b80c5(localclientnum)
 */
 function private bgb_machine_bulb_flash(localclientnum, piece, fx, flash_time, alias)
 {
-	self notify(#"bgb_machine_bulb_fx_start");
-	self endon(#"bgb_machine_bulb_fx_start");
+	self notify("bgb_machine_bulb_fx_start");
+	self endon("bgb_machine_bulb_fx_start");
 	function_d5f882d0(localclientnum);
 	for(;;)
 	{
@@ -675,7 +675,7 @@ function private bgb_machine_bulb_flash_away(localclientnum)
 */
 function private bgb_machine_bulb_solid_away(localclientnum)
 {
-	self notify(#"bgb_machine_bulb_fx_start");
+	self notify("bgb_machine_bulb_fx_start");
 	function_d5f882d0(localclientnum);
 	bgb_machine_play_all_bulb_fx(localclientnum, self zbarriergetpiece(5), level._effect["zm_bgb_machine_bulb_away"]);
 }

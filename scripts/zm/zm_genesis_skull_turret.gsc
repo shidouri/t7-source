@@ -931,7 +931,7 @@ function function_67cc41d(vh_turret)
 	self zombie_utility::zombie_eye_glow_stop();
 	if(self.archetype === "zombie")
 	{
-		level notify(#"beam_killed_zombie", e_player);
+		level notify("beam_killed_zombie", e_player);
 	}
 	if(self.archetype === "keeper")
 	{

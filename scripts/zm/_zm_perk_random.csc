@@ -399,7 +399,7 @@ function start_vortex_fx(localclientnum)
 function stop_vortex_fx(localclientnum)
 {
 	self endon("entityshutdown");
-	self notify(#"bottle_cycling_finished");
+	self notify("bottle_cycling_finished");
 	wait(0.5);
 	if(!isdefined(self))
 	{
@@ -473,7 +473,7 @@ function fx_activation_electric_loop(localclientnum)
 */
 function fx_bottle_cycling(localclientnum)
 {
-	self endon(#"bottle_cycling_finished");
+	self endon("bottle_cycling_finished");
 	while(true)
 	{
 		wait(0.1);

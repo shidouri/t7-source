@@ -200,7 +200,7 @@ function function_3011ccf6(localclientnum)
 {
 	self endon("disconnect");
 	self endon("death");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon(#"hash_7c243ce8");
 	self notify(#"hash_8d98e9db");
 	self endon(#"hash_8d98e9db");

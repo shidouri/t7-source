@@ -687,7 +687,7 @@ function function_58fe842c()
 */
 function function_7965975d(a_e_keepers)
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	level endon(#"hash_2403fc5b");
 	while(a_e_keepers.size > 0)
 	{

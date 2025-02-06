@@ -663,7 +663,7 @@ function function_d6422d13()
 */
 function function_63fe1ddd()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	level flag::wait_till("companion_box_built");
 	while(true)
 	{

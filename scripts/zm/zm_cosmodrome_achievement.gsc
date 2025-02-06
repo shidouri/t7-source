@@ -104,7 +104,7 @@ function achievement_black_hole()
 {
 	level endon("end_game");
 	self endon("disconnect");
-	self waittill(#"black_hole_kills_achievement");
+	self waittill("black_hole_kills_achievement");
 }
 
 /*

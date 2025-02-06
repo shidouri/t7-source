@@ -645,7 +645,7 @@ function function_a5a0adb4()
 function function_bf490b3c()
 {
 	/#
-		level endon(#"_zombie_game_over");
+		level endon("_zombie_game_over");
 		level flag::wait_till("");
 		while(!isdefined(level.var_cf6e9729))
 		{

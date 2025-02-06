@@ -589,7 +589,7 @@ function raise_rockets(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 {
 	level thread do_rr_rumble();
 	wait(4.5);
-	level notify(#"_stop_rr");
+	level notify("_stop_rr");
 }
 
 /*
@@ -603,7 +603,7 @@ function raise_rockets(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function do_rr_rumble()
 {
-	level endon(#"_stop_rr");
+	level endon("_stop_rr");
 	while(true)
 	{
 		for(i = 0; i < level.localplayers.size; i++)
@@ -633,7 +633,7 @@ function rocket_launch(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 {
 	level thread do_rl_rumble();
 	wait(6);
-	level notify(#"_stop_rl");
+	level notify("_stop_rl");
 }
 
 /*
@@ -647,7 +647,7 @@ function rocket_launch(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function do_rl_rumble()
 {
-	level endon(#"_stop_rl");
+	level endon("_stop_rl");
 	while(true)
 	{
 		for(i = 0; i < level.localplayers.size; i++)
@@ -679,7 +679,7 @@ function rocket_explode(localclientnum, oldval, newval, bnewent, binitialsnap, f
 	wait(3.5);
 	level thread do_de_rumble();
 	wait(4);
-	level notify(#"_stop_de");
+	level notify("_stop_de");
 }
 
 /*
@@ -693,7 +693,7 @@ function rocket_explode(localclientnum, oldval, newval, bnewent, binitialsnap, f
 */
 function do_de_rumble()
 {
-	level endon(#"_stop_de");
+	level endon("_stop_de");
 	for(i = 0; i < level.localplayers.size; i++)
 	{
 		player = getlocalplayers()[i];

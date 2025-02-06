@@ -60,7 +60,7 @@ function __init__()
 function event()
 {
 	self endon("disconnect");
-	self endon(#"bgb_update");
+	self endon("bgb_update");
 	var_63a08f52 = 0;
 	self thread bgb::set_timer(2, 2);
 	for(;;)

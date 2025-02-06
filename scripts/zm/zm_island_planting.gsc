@@ -1447,9 +1447,9 @@ function function_12c8548e(b_upgraded = 0)
 	#/
 	if(isdefined(self.var_561a9c48))
 	{
-		self.var_561a9c48 notify(#"babysitter_plant_spawned");
+		self.var_561a9c48 notify("babysitter_plant_spawned");
 	}
-	level notify(#"babysitter_plant_spawned");
+	level notify("babysitter_plant_spawned");
 	if(b_upgraded == 1)
 	{
 		self.s_plant.model setmodel("p7_zm_isl_plant_babysitter_glow");

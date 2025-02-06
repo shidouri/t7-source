@@ -1260,8 +1260,8 @@ function quadrotor_level_out_for_landing()
 */
 function quadrotor_temp_bullet_shield(invulnerable_time)
 {
-	self notify(#"bullet_shield");
-	self endon(#"bullet_shield");
+	self notify("bullet_shield");
+	self endon("bullet_shield");
 	self.bullet_shield = 1;
 	wait(invulnerable_time);
 	if(isdefined(self))
@@ -1370,7 +1370,7 @@ function watch_for_fail_revive(quad_rotor)
 	quadrotor = quad_rotor;
 	owner = quad_rotor.player_owner;
 	revive_target = quad_rotor.revive_target;
-	revive_target endon(#"bled_out");
+	revive_target endon("bled_out");
 	revive_target endon("disconnect");
 	level thread kill_fx_if_target_revive(quadrotor, revive_target);
 	revive_target.revive_hud settext(&"GAME_PLAYER_IS_REVIVING_YOU", owner);

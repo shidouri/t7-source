@@ -1096,7 +1096,7 @@ function vehicle_wait_tread_damage()
 	vehicle_name = get_vehicle_name(self);
 	while(true)
 	{
-		self waittill(#"broken", brokennotify);
+		self waittill("broken", brokennotify);
 		if(brokennotify == "left_tread_destroyed")
 		{
 			if(isdefined(level.vehicles_damage_treadfx[vehicle_name]) && isdefined(level.vehicles_damage_treadfx[vehicle_name][0]))

@@ -95,7 +95,7 @@ function start_carpenter(origin)
 		{
 			carp_ent stoploopsound(1);
 			carp_ent playsoundwithnotify("evt_carpenter_end", "sound_done");
-			carp_ent waittill(#"sound_done");
+			carp_ent waittill("sound_done");
 			break;
 		}
 		else
@@ -248,7 +248,7 @@ function start_carpenter_new(origin)
 	}
 	carp_ent stoploopsound(1);
 	carp_ent playsoundwithnotify("evt_carpenter_end", "sound_done");
-	carp_ent waittill(#"sound_done");
+	carp_ent waittill("sound_done");
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{

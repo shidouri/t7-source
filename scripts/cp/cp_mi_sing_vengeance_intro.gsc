@@ -357,7 +357,7 @@ function function_b36ddcbc()
 		}
 		self thread turret::shoot_at_target(fake_target.ent, -1, undefined, 1, 0);
 		ai_gunner waittill("death");
-		self notify(#"_stop_turret1");
+		self notify("_stop_turret1");
 	}
 }
 

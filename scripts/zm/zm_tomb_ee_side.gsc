@@ -387,7 +387,7 @@ function sq_one_inch_punch_disconnect_watch()
 function sq_one_inch_punch_death_watch()
 {
 	self endon("disconnect");
-	self waittill(#"bled_out");
+	self waittill("bled_out");
 	if(self.sq_one_inch_punch_stage < 6)
 	{
 		self.sq_one_inch_punch_stage = 0;

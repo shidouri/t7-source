@@ -1250,7 +1250,7 @@ function function_7b3cac15()
 	self.var_3f80e7e8 = 0;
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		self.var_3f80e7e8 = 0;
 	}
 }

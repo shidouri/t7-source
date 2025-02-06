@@ -83,7 +83,7 @@ function function_755b4548()
 	level.var_ba0d6d40 = randomintrange(11, 13);
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		if(level.round_number > level.var_ba0d6d40)
 		{
 			level.var_ba0d6d40 = level.round_number + 1;

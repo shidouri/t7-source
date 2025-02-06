@@ -1090,8 +1090,8 @@ function remove_gates_for_spawning()
 function auto_delete()
 {
 	self endon("death");
-	self notify(#"__auto_delete__");
-	self endon(#"__auto_delete__");
+	self notify("__auto_delete__");
+	self endon("__auto_delete__");
 	level flag::wait_till("all_players_spawned");
 	n_test_count = 0;
 	wait(5);
@@ -1127,7 +1127,7 @@ function auto_delete()
 			{
 				continue;
 			}
-			self notify(#"_disable_reinforcement");
+			self notify("_disable_reinforcement");
 			self delete();
 		}
 		else
@@ -1209,7 +1209,7 @@ function function_94f75664()
 */
 function function_e1c21e07()
 {
-	level endon(#"bridge_battle_done");
+	level endon("bridge_battle_done");
 	level thread function_c928a4b5("bridge_end_enemies");
 	level thread function_c928a4b5("police_station_enemies");
 }
@@ -1225,7 +1225,7 @@ function function_e1c21e07()
 */
 function function_c928a4b5(str_ai_group)
 {
-	level endon(#"bridge_battle_done");
+	level endon("bridge_battle_done");
 	spawner::waittill_ai_group_cleared(str_ai_group);
 	savegame::checkpoint_save();
 }

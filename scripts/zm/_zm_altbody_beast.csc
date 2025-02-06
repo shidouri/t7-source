@@ -174,7 +174,7 @@ function player_enter_beastmode(localclientnum)
 */
 function watch_scr_beast_no_visionset(localclientnum)
 {
-	self endon(#"beast_mode_exit");
+	self endon("beast_mode_exit");
 	was_scr_beast_no_visionset = getdvarint("scr_beast_no_visionset") > 0;
 	while(isdefined(self))
 	{
@@ -228,7 +228,7 @@ function function_faf41e73(localclientnum)
 */
 function function_cb236f81(localclientnum)
 {
-	self endon(#"beast_mode_exit");
+	self endon("beast_mode_exit");
 	if(!isdemoplaying())
 	{
 		return;
@@ -287,7 +287,7 @@ function function_56c9cf9d(localclientnum)
 */
 function player_exit_beastmode(localclientnum)
 {
-	self notify(#"beast_mode_exit");
+	self notify("beast_mode_exit");
 	/#
 		if(isdefined(self.beast_3p_trail))
 		{
@@ -1004,7 +1004,7 @@ function sndbeastmode(activate)
 */
 function sndbeastmode_manastart()
 {
-	level endon(#"sndmanastop");
+	level endon("sndmanastop");
 	self endon("entityshutdown");
 	if(!isdefined(level.sndbeastmodeent))
 	{
@@ -1040,7 +1040,7 @@ function sndbeastmode_manastart()
 */
 function sndbeastmode_manastop()
 {
-	level notify(#"sndmanastop");
+	level notify("sndmanastop");
 	if(isdefined(level.sndbeastmodeent))
 	{
 		level.sndbeastmodeent delete();
@@ -1171,7 +1171,7 @@ function function_892cc334(localclientnum, time, pmin, pmax, charge)
 {
 	self notify(#"hash_892cc334");
 	self endon(#"hash_892cc334");
-	self endon(#"beast_mode_exit");
+	self endon("beast_mode_exit");
 	if(!isdefined(self.var_652e98))
 	{
 		self.var_652e98 = 0;

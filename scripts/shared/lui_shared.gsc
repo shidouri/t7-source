@@ -537,8 +537,8 @@ function screen_close_menu()
 */
 function private _screen_close_menu()
 {
-	self notify(#"_screen_fade");
-	self endon(#"_screen_fade");
+	self notify("_screen_fade");
+	self endon("_screen_fade");
 	self endon("disconnect");
 	if(isdefined(self.screen_fade_menus))
 	{

@@ -79,11 +79,11 @@ function onspawn(watcher, player)
 		retrievable_model thread dropknivestoground();
 		if(isfriendly)
 		{
-			player notify(#"ballistic_knife_stationary", retrievable_model, normal);
+			player notify("ballistic_knife_stationary", retrievable_model, normal);
 		}
 		else
 		{
-			player notify(#"ballistic_knife_stationary", retrievable_model, normal, prey);
+			player notify("ballistic_knife_stationary", retrievable_model, normal, prey);
 		}
 	}
 }
@@ -121,7 +121,7 @@ function onspawnretrievetrigger(watcher, player)
 	player endon("death");
 	player endon("disconnect");
 	level endon("game_ended");
-	player waittill(#"ballistic_knife_stationary", retrievable_model, normal, prey);
+	player waittill("ballistic_knife_stationary", retrievable_model, normal, prey);
 	if(!isdefined(retrievable_model))
 	{
 		return;

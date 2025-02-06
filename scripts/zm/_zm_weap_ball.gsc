@@ -316,7 +316,7 @@ function waitforballtocometorest()
 			return;
 		}
 		self.projectile endon("death");
-		self.projectile endon(#"stationary");
+		self.projectile endon("stationary");
 		self.projectile endon("grenade_bounce");
 		while(true)
 		{
@@ -337,7 +337,7 @@ function waitforballtocometorest()
 function freezeplayersforroundend()
 {
 	self endon("disconnect");
-	self waittill(#"spawned");
+	self waittill("spawned");
 }
 
 /*
@@ -1310,7 +1310,7 @@ function reset_ball(var_fd894ecd = 1, var_a987c5a2, var_6f3d4b2e)
 */
 function upload_ball(goal)
 {
-	self notify(#"score_event");
+	self notify("score_event");
 	self.in_goal = 1;
 	goal.ball_in_goal = 1;
 	if(isdefined(self.projectile))
@@ -1439,7 +1439,7 @@ function ball_pass_watch()
 	self endon("drop_object");
 	while(true)
 	{
-		self waittill(#"ball_pass", weapon);
+		self waittill("ball_pass", weapon);
 		if(!isdefined(self.pass_target))
 		{
 			playerangles = self getplayerangles();
@@ -2310,7 +2310,7 @@ function ball_physics_timeout()
 {
 	self endon("reset");
 	self endon("pickup_object");
-	self endon(#"score_event");
+	self endon("score_event");
 	if(isdefined(self.autoresettime) && self.autoresettime > 15)
 	{
 		physicstime = self.autoresettime;

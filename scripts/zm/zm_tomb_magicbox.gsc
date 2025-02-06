@@ -102,7 +102,7 @@ function custom_joker_movement()
 	m_lock moveto(m_lock.origin + -100 * v_angles, 0.5, 0.5);
 	m_lock waittill("movedone");
 	m_lock delete();
-	self notify(#"box_moving");
+	self notify("box_moving");
 	level notify("weapon_fly_away_end");
 }
 
@@ -409,7 +409,7 @@ function magic_box_closes()
 */
 function custom_magic_box_do_weapon_rise()
 {
-	self endon(#"box_hacked_respin");
+	self endon("box_hacked_respin");
 	wait(0.5);
 	self setzbarrierpiecestate(3, "closed");
 	self setzbarrierpiecestate(4, "closed");

@@ -144,7 +144,7 @@ function function_78b57752()
 function function_f163b5b5()
 {
 	level.var_8c36ad2d = 1;
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	level.var_8c36ad2d = undefined;
 }
 

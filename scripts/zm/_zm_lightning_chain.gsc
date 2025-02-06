@@ -100,7 +100,7 @@ function private on_player_connect()
 {
 	self endon("disconnect");
 	self endon("death");
-	self waittill(#"spawned_player");
+	self waittill("spawned_player");
 	self.tesla_network_death_choke = 0;
 	for(;;)
 	{

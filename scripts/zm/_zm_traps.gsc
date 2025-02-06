@@ -353,7 +353,7 @@ function trap_use_think(trap)
 			if(trap._trap_switches.size)
 			{
 				trap thread trap_move_switches();
-				trap waittill(#"switch_activated");
+				trap waittill("switch_activated");
 			}
 			trap triggerenable(1);
 			trap thread [[trap._trap_activate_func]]();
@@ -507,7 +507,7 @@ function trap_move_switches()
 		self._trap_switches[i] playsound("evt_switch_flip_trap");
 	}
 	self._trap_switches[0] waittill("rotatedone");
-	self notify(#"switch_activated");
+	self notify("switch_activated");
 	self waittill("available");
 	for(i = 0; i < self._trap_switches.size; i++)
 	{
@@ -805,7 +805,7 @@ function player_fire_damage()
 		{
 			self setburn(1.25);
 		}
-		self notify(#"burned");
+		self notify("burned");
 		if(!self hasperk("specialty_armorvest") || (self.health - 100) < 1)
 		{
 			radiusdamage(self.origin, 10, self.health + 100, self.health + 100);
@@ -1010,7 +1010,7 @@ function electrocute_timeout()
 	if(isdefined(self) && isalive(self))
 	{
 		self.is_electrocuted = 0;
-		self notify(#"stop_flame_damage");
+		self notify("stop_flame_damage");
 	}
 }
 
@@ -1026,7 +1026,7 @@ function electrocute_timeout()
 function trap_dialog()
 {
 	self endon("warning_dialog");
-	level endon(#"switch_flipped");
+	level endon("switch_flipped");
 	timer = 0;
 	while(true)
 	{

@@ -144,9 +144,9 @@ function player_give_nesting_dolls()
 */
 function player_handle_nesting_dolls()
 {
-	self notify(#"starting_nesting_dolls");
+	self notify("starting_nesting_dolls");
 	self endon("disconnect");
-	self endon(#"starting_nesting_dolls");
+	self endon("starting_nesting_dolls");
 	while(true)
 	{
 		grenade = get_thrown_nesting_dolls();
@@ -187,7 +187,7 @@ function doll_spawner(start_grenade)
 	}
 	while(num_dolls < max_dolls)
 	{
-		self waittill(#"spawn_doll", origin, angles);
+		self waittill("spawn_doll", origin, angles);
 		grenade_vel = self get_launch_velocity(origin, 2000);
 		if(grenade_vel == (0, 0, 0))
 		{
@@ -224,7 +224,7 @@ function doll_spawner_cluster(start_grenade)
 		start_grenade spawn_doll_model(self.doll_id, 0, self);
 		start_grenade thread doll_behavior_explode_when_stopped(self, self.doll_id, 0);
 	}
-	self waittill(#"spawn_doll", origin, angles);
+	self waittill("spawn_doll", origin, angles);
 	while(num_dolls < max_dolls)
 	{
 		grenade_vel = self get_cluster_launch_velocity(angles, num_dolls);
@@ -424,7 +424,7 @@ function doll_behavior_explode_when_stopped(parent, doll_id, index)
 		self.doll_model unlink();
 		self.doll_model.origin = self.origin;
 		self.doll_model.angles = self.angles;
-		parent notify(#"spawn_doll", self.origin, self.angles);
+		parent notify("spawn_doll", self.origin, self.angles);
 		self thread doll_do_damage(self.origin, parent, doll_id, index);
 		self resetmissiledetonationtime(level.nesting_dolls_det_time);
 		if(isdefined(index) && index == 3)
@@ -592,7 +592,7 @@ function do_nesting_dolls_sound(model, info)
 function get_thrown_nesting_dolls()
 {
 	self endon("disconnect");
-	self endon(#"starting_nesting_dolls");
+	self endon("starting_nesting_dolls");
 	while(true)
 	{
 		self waittill("grenade_fire", grenade, weapon);

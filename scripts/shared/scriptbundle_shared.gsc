@@ -411,8 +411,8 @@ function error_on_screen(str_msg)
 */
 function _destroy_error_on_screen()
 {
-	level notify(#"_destroy_error_on_screen");
-	level endon(#"_destroy_error_on_screen");
+	level notify("_destroy_error_on_screen");
+	level endon("_destroy_error_on_screen");
 	self util::waittill_notify_or_timeout("stopped", 5);
 	level.players[0] closeluimenu(level.scene_error_hud);
 	level.scene_error_hud = undefined;
@@ -458,8 +458,8 @@ function warning_on_screen(str_msg)
 */
 function _destroy_warning_on_screen()
 {
-	level notify(#"_destroy_warning_on_screen");
-	level endon(#"_destroy_warning_on_screen");
+	level notify("_destroy_warning_on_screen");
+	level endon("_destroy_warning_on_screen");
 	self util::waittill_notify_or_timeout("stopped", 10);
 	level.players[0] closeluimenu(level.scene_warning_hud);
 	level.scene_warning_hud = undefined;

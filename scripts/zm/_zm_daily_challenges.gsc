@@ -410,7 +410,7 @@ function spent_points_tracking()
 	level endon("end_game");
 	while(true)
 	{
-		level waittill(#"spent_points", player, n_points);
+		level waittill("spent_points", player, n_points);
 		player.a_daily_challenges[1] = player.a_daily_challenges[1] + n_points;
 		player zm_stats::increment_challenge_stat("ZM_DAILY_SPEND_25K", n_points);
 		player zm_stats::increment_challenge_stat("ZM_DAILY_SPEND_50K", n_points);
@@ -458,8 +458,8 @@ function earned_points_tracking()
 function challenge_ingame_time_tracking()
 {
 	self endon("disconnect");
-	self notify(#"stop_challenge_ingame_time_tracking");
-	self endon(#"stop_challenge_ingame_time_tracking");
+	self notify("stop_challenge_ingame_time_tracking");
+	self endon("stop_challenge_ingame_time_tracking");
 	level flag::wait_till("start_zombie_round_logic");
 	for(;;)
 	{

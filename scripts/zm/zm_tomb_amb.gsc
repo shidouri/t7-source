@@ -124,7 +124,7 @@ function locationstingerwait(zone_name, type)
 		{
 			numcut++;
 		}
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		while(isdefined(level.sndroundwait) && level.sndroundwait)
 		{
 			wait(0.1);
@@ -253,7 +253,7 @@ function sndstingerroundwait_start()
 function sndstingerroundwait_end()
 {
 	level endon("end_of_round");
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	wait(28);
 	level.sndroundwait = 0;
 }
@@ -334,7 +334,7 @@ function sndlocationbetweenroundswait()
 	while(true)
 	{
 		level thread sndlocationbetweenrounds();
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		while(isdefined(level.sndroundwait) && level.sndroundwait)
 		{
 			wait(0.1);

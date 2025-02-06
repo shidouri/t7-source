@@ -470,7 +470,7 @@ function _immolatehuman(attacker, upgraded, immediate = 0)
 	numgrenades = undefined;
 	if(self.archetype != "human_riotshield" && self cybercom::function_78525729() == "stand" && randomint(100) < getdvarint("scr_immolation_specialanimchance", 15))
 	{
-		self notify(#"bhtn_action_notify", "reactImmolationLong");
+		self notify("bhtn_action_notify", "reactImmolationLong");
 		self thread _immolategrenadedetonationwatch("tag_inhand", 1, attacker, weapon);
 		self animscripted("immo_anim", self.origin, self.angles, "ai_base_rifle_stn_exposed_immolate_explode_midthrow");
 		self thread cybercom::stopanimscriptedonnotify("damage_pain", "immo_anim", 1, attacker, weapon);
@@ -486,7 +486,7 @@ function _immolatehuman(attacker, upgraded, immediate = 0)
 	}
 	else
 	{
-		self notify(#"bhtn_action_notify", "reactImmolation");
+		self notify("bhtn_action_notify", "reactImmolation");
 		self dodamage(5, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
 		playfxontag("light/fx_ability_light_chest_immolation", self, "tag_weapon_chest");
 		self thread function_f8956516();
@@ -506,7 +506,7 @@ function _immolatehuman(attacker, upgraded, immediate = 0)
 function function_f8956516()
 {
 	self endon("death");
-	self waittillmatch(#"bhtn_action_terminate");
+	self waittillmatch("bhtn_action_terminate");
 	self stopsound("gdt_immolation_human_countdown");
 	self notify("explode", "specialpain");
 }

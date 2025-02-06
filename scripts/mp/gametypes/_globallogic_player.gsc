@@ -554,7 +554,7 @@ function callback_playerconnect()
 {
 	thread notifyconnecting();
 	self.statusicon = "hud_status_connecting";
-	self waittill(#"begin");
+	self waittill("begin");
 	if(isdefined(level.reset_clientdvars))
 	{
 		self [[level.reset_clientdvars]]();
@@ -4638,7 +4638,7 @@ function playkillbattlechatter(attacker, weapon, victim, einflictor)
 	}
 	if(isdefined(einflictor))
 	{
-		einflictor notify(#"bhtn_action_notify", "attack_kill");
+		einflictor notify("bhtn_action_notify", "attack_kill");
 	}
 }
 

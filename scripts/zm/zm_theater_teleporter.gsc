@@ -1071,7 +1071,7 @@ function zombietheaterteleporterseeklogic()
 function zombies_goto_position(position)
 {
 	self endon("death");
-	self endon(#"bad_path");
+	self endon("bad_path");
 	orig_radius = self.goalradius;
 	self.ignoreall = 1;
 	self.goalradius = 128;

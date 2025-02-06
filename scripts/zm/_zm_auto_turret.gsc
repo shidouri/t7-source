@@ -182,7 +182,7 @@ function activate_move_handle()
 		self.handle rotatepitch(160, 0.5);
 		self.handle playsound("amb_sparks_l_b");
 		self.handle waittill("rotatedone");
-		self notify(#"switch_activated");
+		self notify("switch_activated");
 		self waittill("turret_deactivated");
 		self.handle rotatepitch(-160, 0.5);
 	}
@@ -277,7 +277,7 @@ function auto_turret_deactivate()
 	self.turret_active = 0;
 	self.curr_time = -1;
 	self.turret vehicle_ai::turnoff();
-	self.turret notify(#"stop_burst_fire_unmanned");
+	self.turret notify("stop_burst_fire_unmanned");
 	self.turret_fx delete();
 	self notify("turret_deactivated");
 }

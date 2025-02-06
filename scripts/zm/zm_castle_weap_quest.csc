@@ -489,13 +489,13 @@ function function_8cce2397(a_ents)
 	self endon(#"hash_4846b79f");
 	while(true)
 	{
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::set("dragon_far_right");
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::clear("dragon_far_right");
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::set("dragon_far_left");
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::clear("dragon_far_left");
 	}
 }
@@ -517,13 +517,13 @@ function function_def5820e(a_ents)
 	self endon(#"hash_4846b79f");
 	while(true)
 	{
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::set("dragon_far_left");
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::clear("dragon_far_left");
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::set("dragon_far_right");
-		self waittillmatch(#"_anim_notify_");
+		self waittillmatch("_anim_notify_");
 		self flag::clear("dragon_far_right");
 	}
 }
@@ -631,7 +631,7 @@ function function_badc23de(localclientnum)
 {
 	while(true)
 	{
-		self waittill(#"bite", note);
+		self waittill("bite", note);
 		if(note == "blood")
 		{
 		}

@@ -751,7 +751,7 @@ function function_2f036bd6()
 function function_c9b501b8(var_34137522)
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self.var_a70814ea = 1;
 	self clientfield::set_to_player("elem_storm_whirlwind_rumble", 1);
 	while(distancesquared(self.origin, var_34137522.origin) < 16384 && (isdefined(var_34137522.b_in_use) && var_34137522.b_in_use))

@@ -835,13 +835,13 @@ function round_number()
 */
 function _kiosk_cooldown()
 {
-	self notify(#"_kiosk_cooldown");
-	self endon(#"_kiosk_cooldown");
+	self notify("_kiosk_cooldown");
+	self endon("_kiosk_cooldown");
 	self.is_cooling_down = 1;
 	n_start_round = round_number();
 	while((round_number() - n_start_round) < 1)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 	}
 	self.is_cooling_down = 0;
 }
@@ -1290,14 +1290,14 @@ function player_check_grenades()
 */
 function watch_round_start_mana()
 {
-	level waittill(#"start_of_round");
+	level waittill("start_of_round");
 	foreach(player in getplayers())
 	{
 		player player_check_grenades();
 	}
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		foreach(player in getplayers())
 		{
 			if(!(isdefined(player.beastmode) && player.beastmode))
@@ -1503,7 +1503,7 @@ function player_watch_melee()
 			forward = anglestoforward(self getplayerangles());
 			up = anglestoup(self getplayerangles());
 			meleepos = (self.origin + (15 * up)) + (30 * forward);
-			level notify(#"beast_melee", self, meleepos);
+			level notify("beast_melee", self, meleepos);
 			self radiusdamage(meleepos, 48, 5000, 5000, self, "MOD_MELEE");
 		}
 	}
@@ -1594,7 +1594,7 @@ function trigger_melee_only()
 	self setinvisibletoall();
 	while(isdefined(self))
 	{
-		level waittill(#"beast_melee", player, meleepos);
+		level waittill("beast_melee", player, meleepos);
 		if(isdefined(self) && self function_b484a03e(meleepos, 48))
 		{
 			self useby(player);
@@ -1723,7 +1723,7 @@ function lightning_aoe(weapon)
 	foreach(zombie in zombies)
 	{
 		zombie thread arc_damage_init(zombie.origin, center, self, shocklevel);
-		zombie notify(#"bhtn_action_notify", "electrocute");
+		zombie notify("bhtn_action_notify", "electrocute");
 	}
 	wait(0.05);
 	self.tesla_enemies_hit = 0;
@@ -2263,7 +2263,7 @@ function watch_lightning_damage(triggers)
 		{
 			if(isdefined(attacker))
 			{
-				attacker notify(#"shockable_shocked");
+				attacker notify("shockable_shocked");
 			}
 			if(isdefined(level._effect["beast_shock_box"]))
 			{

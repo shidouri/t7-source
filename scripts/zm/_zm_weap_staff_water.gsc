@@ -314,7 +314,7 @@ function staff_water_position_source(v_detonate, n_lifetime_sec, str_weapon)
 	self endon("disconnect");
 	if(isdefined(v_detonate))
 	{
-		level notify(#"blizzard_shot");
+		level notify("blizzard_shot");
 		e_fx = spawn("script_model", v_detonate + vectorscale((0, 0, 1), 33));
 		e_fx setmodel("tag_origin");
 		e_fx clientfield::set("staff_blizzard_fx", 1);
@@ -325,9 +325,9 @@ function staff_water_position_source(v_detonate, n_lifetime_sec, str_weapon)
 		e_fx thread zm_tomb_utility::whirlwind_rumble_nearby_players("blizzard_active");
 		e_fx thread ice_staff_blizzard_timeout(n_lifetime_sec);
 		e_fx thread ice_staff_blizzard_off();
-		e_fx waittill(#"blizzard_off");
+		e_fx waittill("blizzard_off");
 		level flag::clear("blizzard_active");
-		e_fx notify(#"stop_debug_position");
+		e_fx notify("stop_debug_position");
 		wait(0.1);
 		e_fx clientfield::set("staff_blizzard_fx", 0);
 		wait(0.1);
@@ -347,7 +347,7 @@ function staff_water_position_source(v_detonate, n_lifetime_sec, str_weapon)
 function ice_staff_blizzard_do_kills(player, str_weapon)
 {
 	player endon("disconnect");
-	self endon(#"blizzard_off");
+	self endon("blizzard_off");
 	while(true)
 	{
 		a_zombies = getaiarray();
@@ -385,9 +385,9 @@ function ice_staff_blizzard_do_kills(player, str_weapon)
 function ice_staff_blizzard_timeout(n_time)
 {
 	self endon("death");
-	self endon(#"blizzard_off");
+	self endon("blizzard_off");
 	wait(n_time);
-	self notify(#"blizzard_off");
+	self notify("blizzard_off");
 }
 
 /*
@@ -402,9 +402,9 @@ function ice_staff_blizzard_timeout(n_time)
 function ice_staff_blizzard_off()
 {
 	self endon("death");
-	self endon(#"blizzard_off");
-	level waittill(#"blizzard_shot");
-	self notify(#"blizzard_off");
+	self endon("blizzard_off");
+	level waittill("blizzard_shot");
+	self notify("blizzard_off");
 }
 
 /*

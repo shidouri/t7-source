@@ -828,7 +828,7 @@ function bgb_machine_think()
 	self.bgb_machine_open = 0;
 	self.bgb_machine_opened_by_fire_sale = 0;
 	self.bgb_machine_user = undefined;
-	self notify(#"bgb_machine_accessed");
+	self notify("bgb_machine_accessed");
 	self thread bgb_machine_think();
 }
 
@@ -1356,8 +1356,8 @@ function process_bgb_machine_state(state)
 function bgb_machine_host_migration()
 {
 	level endon("end_game");
-	level notify(#"bgb_machine_host_migration");
-	level endon(#"bgb_machine_host_migration");
+	level notify("bgb_machine_host_migration");
+	level endon("bgb_machine_host_migration");
 	while(true)
 	{
 		level waittill("host_migration_end");

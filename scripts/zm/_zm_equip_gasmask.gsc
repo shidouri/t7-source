@@ -266,7 +266,7 @@ function remove_gasmask_on_player_bleedout()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"bled_out");
+		self waittill("bled_out");
 		self clientfield::set_player_uimodel("hudItems.showDpadDown_PES", 0);
 		self clientfield::set_to_player("gasmaskoverlay", 0);
 		visionset_mgr::deactivate("overlay", "zm_gasmask_postfx", self);

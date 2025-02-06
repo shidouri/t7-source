@@ -1170,7 +1170,7 @@ function rune_prison_golf(var_7a76a496)
 				{
 					playsoundatposition("zmb_demon_runes_deny", level.var_c62829c7.origin);
 				}
-				level waittill(#"between_round_over");
+				level waittill("between_round_over");
 				level.var_2e55cb98 = var_7a76a496;
 				var_9c1f46d7 = getent(var_7a76a496.target, "targetname");
 				var_9c1f46d7 clientfield::set("runic_circle_fx", 1);
@@ -3875,7 +3875,7 @@ function function_d62aa556()
 			return;
 		}
 	#/
-	self endon(#"bleed_out");
+	self endon("bleed_out");
 	self endon("death");
 	self endon("quest_swap");
 	level endon(#"hash_80b27882");
@@ -5394,7 +5394,7 @@ function function_6e3cfa55()
 			s_beacon.var_41f52afd clientfield::set("beacon_fx", 1);
 			self playsound("zmb_beacon_ignite");
 			self.b_lit = 1;
-			self notify(#"beacon_activated");
+			self notify("beacon_activated");
 			return;
 		}
 	}
@@ -5920,7 +5920,7 @@ function function_1c758ab0()
 						s_battery.var_41f52afd delete();
 					}
 				}
-				self notify(#"beacon_charged");
+				self notify("beacon_charged");
 				return;
 			}
 		}

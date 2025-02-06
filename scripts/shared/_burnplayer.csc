@@ -177,7 +177,7 @@ function set_corpse_burning(localclientnum)
 */
 function burn_off(localclientnum)
 {
-	self notify(#"burn_off");
+	self notify("burn_off");
 	if(getlocalplayer(localclientnum) == self)
 	{
 		self postfx::exitpostfxbundle();
@@ -217,10 +217,10 @@ function burn_on(localclientnum)
 function burn_on_postfx()
 {
 	self endon("entityshutdown");
-	self endon(#"burn_off");
+	self endon("burn_off");
 	self endon("death");
-	self notify(#"burn_on_postfx");
-	self endon(#"burn_on_postfx");
+	self notify("burn_on_postfx");
+	self endon("burn_on_postfx");
 	self thread postfx::playpostfxbundle("pstfx_burn_loop");
 }
 
@@ -261,9 +261,9 @@ function private _burntagson(localclientnum, tags)
 		return;
 	}
 	self endon("entityshutdown");
-	self endon(#"burn_off");
-	self notify(#"burn_tags_on");
-	self endon(#"burn_tags_on");
+	self endon("burn_off");
+	self notify("burn_tags_on");
+	self endon("burn_tags_on");
 	activefx = [];
 	for(i = 0; i < tags.size; i++)
 	{
@@ -301,7 +301,7 @@ function private _burnbody(localclientnum)
 function private _burntagswatchend(localclientnum, fxarray, burnsound)
 {
 	self endon("entityshutdown");
-	self waittill(#"burn_off");
+	self waittill("burn_off");
 	if(isdefined(burnsound))
 	{
 		self stoploopsound(burnsound, 1);
@@ -326,7 +326,7 @@ function private _burntagswatchend(localclientnum, fxarray, burnsound)
 */
 function private _burntagswatchclear(localclientnum, fxarray, burnsound)
 {
-	self endon(#"burn_off");
+	self endon("burn_off");
 	self waittill("entityshutdown");
 	if(isdefined(burnsound))
 	{

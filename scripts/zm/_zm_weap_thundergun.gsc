@@ -139,7 +139,7 @@ function thundergun_on_player_connect()
 function wait_for_thundergun_fired()
 {
 	self endon("disconnect");
-	self waittill(#"spawned_player");
+	self waittill("spawned_player");
 	for(;;)
 	{
 		self waittill("weapon_fired");
@@ -562,7 +562,7 @@ function enemy_killed_by_thundergun()
 function thundergun_sound_thread()
 {
 	self endon("disconnect");
-	self waittill(#"spawned_player");
+	self waittill("spawned_player");
 	for(;;)
 	{
 		result = self util::waittill_any_return("grenade_fire", "death", "player_downed", "weapon_change", "grenade_pullback", "disconnect");

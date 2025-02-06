@@ -368,7 +368,7 @@ function watch_hero_weapon_take()
 		if(isdefined(w_weapon) && zm_utility::is_hero_weapon(w_weapon))
 		{
 			self [[level._hero_weapons[w_weapon].take_fn]](w_weapon);
-			self notify(#"stop_watch_hero_power");
+			self notify("stop_watch_hero_power");
 		}
 	}
 }
@@ -425,7 +425,7 @@ function watch_hero_power(w_weapon)
 {
 	self notify("watch_hero_power");
 	self endon("watch_hero_power");
-	self endon(#"stop_watch_hero_power");
+	self endon("stop_watch_hero_power");
 	self endon("disconnect");
 	if(!isdefined(self.hero_power_prev))
 	{
@@ -462,7 +462,7 @@ function watch_hero_power(w_weapon)
 */
 function continue_draining_hero_weapon(w_weapon)
 {
-	self endon(#"stop_draining_hero_weapon");
+	self endon("stop_draining_hero_weapon");
 	self set_hero_weapon_state(w_weapon, 3);
 	while(isdefined(self))
 	{

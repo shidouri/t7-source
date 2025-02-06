@@ -114,7 +114,7 @@ function register_clientfields()
 function private on_connect_func_for_gravityspikes()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	self endon("gravity_spike_expired");
 	w_gravityspike = getweapon("hero_gravityspikes_melee");
@@ -170,7 +170,7 @@ function reset_after_bleeding_out()
 		self zm_weapons::weapon_give(w_gravityspike, 0, 1);
 		self update_gravityspikes_state(2);
 	}
-	self waittill(#"bled_out");
+	self waittill("bled_out");
 	if(self hasweapon(w_gravityspike))
 	{
 		self.b_has_gravityspikes = 1;
@@ -186,7 +186,7 @@ function reset_after_bleeding_out()
 		zm_unitrigger::unregister_unitrigger(self.gravity_trap_unitrigger_stub);
 		self.gravity_trap_unitrigger_stub = undefined;
 	}
-	self waittill(#"spawned_player");
+	self waittill("spawned_player");
 	self thread on_connect_func_for_gravityspikes();
 }
 
@@ -350,7 +350,7 @@ function gravityspikes_attack_watcher(wpn_gravityspikes)
 {
 	self endon("gravityspikes_attack_watchers_end");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	self endon("gravity_spike_expired");
 	while(true)
@@ -378,7 +378,7 @@ function gravityspikes_stuck_above_zombie_watcher(wpn_gravityspikes)
 {
 	self endon("gravityspikes_attack_watchers_end");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	self endon("gravity_spike_expired");
 	first_half_traces = 1;
@@ -460,7 +460,7 @@ function gravityspikes_altfire_watcher(wpn_gravityspikes)
 {
 	self endon("gravityspikes_attack_watchers_end");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	self endon("gravity_spike_expired");
 	while(true)
@@ -605,7 +605,7 @@ function gravityspikes_swipe_watcher(wpn_gravityspikes)
 {
 	self endon("gravityspikes_attack_watchers_end");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	self endon("gravity_spike_expired");
 	while(true)
@@ -645,7 +645,7 @@ function gravityspikes_power_update(player)
 function gravityspikes_power_expired(weapon)
 {
 	self zm_hero_weapon::default_power_empty(weapon);
-	self notify(#"stop_draining_hero_weapon");
+	self notify("stop_draining_hero_weapon");
 	self notify("gravityspikes_timer_end");
 }
 
@@ -695,7 +695,7 @@ function no_damage_gravityspikes_slam()
 function player_near_gravity_vortex(v_vortex_origin)
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	while(isdefined(self.b_gravity_trap_spikes_in_ground) && self.b_gravity_trap_spikes_in_ground && self.gravityspikes_state === 3)
 	{
@@ -729,7 +729,7 @@ function player_near_gravity_vortex(v_vortex_origin)
 function player_vortex_rumble(e_player, v_vortex_origin)
 {
 	e_player endon("disconnect");
-	e_player endon(#"bled_out");
+	e_player endon("bled_out");
 	e_player endon("death");
 	e_player.vortex_rumble = 1;
 	e_player clientfield::set_to_player("gravity_trap_rumble", 1);
@@ -753,7 +753,7 @@ function player_vortex_rumble(e_player, v_vortex_origin)
 function plant_gravity_trap(wpn_gravityspikes)
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	v_forward = anglestoforward(self.angles);
 	v_right = anglestoright(self.angles);
@@ -805,7 +805,7 @@ function gravity_trap_loop(v_gravity_trap_pos, wpn_gravityspikes)
 {
 	self endon("gravity_trap_spikes_retrieved");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("death");
 	is_gravity_trap_fx_on = 1;
 	while(true)
@@ -846,7 +846,7 @@ function gravity_trap_check(player)
 {
 	player endon("gravity_trap_spikes_retrieved");
 	player endon("disconnect");
-	player endon(#"bled_out");
+	player endon("bled_out");
 	player endon("death");
 	/#
 		assert(isdefined(level.ai_gravity_throttle));
@@ -1564,7 +1564,7 @@ function function_81889ac5()
 {
 	/#
 		wait(0.05);
-		level waittill(#"start_zombie_round_logic");
+		level waittill("start_zombie_round_logic");
 		wait(0.05);
 		wpn_gravityspikes = getweapon("");
 		equipment_id = wpn_gravityspikes.name;

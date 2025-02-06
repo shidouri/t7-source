@@ -2141,7 +2141,7 @@ function private function_22510e73(str_crafted_clientuimodel, str_widget_clientu
 */
 function function_ae4d938c(v_target_pos, var_e57941b7, var_ca841609, str_endon_notify)
 {
-	self endon(#"bleed_out");
+	self endon("bleed_out");
 	self endon("death");
 	self endon("disconnect");
 	self endon(str_endon_notify);

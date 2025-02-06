@@ -723,7 +723,7 @@ function _player_screamattackdamage(time, blurscale, earthquakescale, rumble, at
 	self playrumbleonentity(rumble);
 	self _player_screamattack_wait(time);
 	visionset_mgr::deactivate("overlay", "zm_ai_screecher_blur", self);
-	self notify(#"blur_cleared");
+	self notify("blur_cleared");
 	self stoprumble(rumble);
 }
 
@@ -739,7 +739,7 @@ function _player_screamattackdamage(time, blurscale, earthquakescale, rumble, at
 function _player_blurfailsafe()
 {
 	self endon("disconnect");
-	self endon(#"blur_cleared");
+	self endon("blur_cleared");
 	level waittill("intermission");
 	visionset_mgr::deactivate("overlay", "zm_ai_screecher_blur", self);
 }
@@ -1185,7 +1185,7 @@ function sonic_zombie_count_watch()
 	attacker = self.attacker;
 	if(isdefined(attacker) && isplayer(attacker) && (isdefined(attacker.screamattackblur) && attacker.screamattackblur))
 	{
-		attacker notify(#"blinded_by_the_fright_achieved");
+		attacker notify("blinded_by_the_fright_achieved");
 	}
 }
 

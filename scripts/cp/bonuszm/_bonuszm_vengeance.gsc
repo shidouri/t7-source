@@ -87,7 +87,7 @@ function function_2aefb731()
 */
 function function_f3907da8()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(8);
 	wait(3);
 	bonuszmsound::function_ef0ce9fb("plyz_the_vultures_sadist_0");
@@ -108,7 +108,7 @@ function function_f3907da8()
 */
 function function_6597ece3()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	bonuszmsound::function_ef0ce9fb("plyz_i_had_a_bad_feeling_0");
 }
 
@@ -123,7 +123,7 @@ function function_6597ece3()
 */
 function function_ed743e53()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(5);
 	bonuszmsound::function_ef0ce9fb("plyz_the_vultures_of_sing_0");
 	wait(2);
@@ -141,7 +141,7 @@ function function_ed743e53()
 */
 function function_3f95727a()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(5);
 	bonuszmsound::function_ef0ce9fb("plyz_hendricks_took_point_0");
 }
@@ -157,7 +157,7 @@ function function_3f95727a()
 */
 function function_ae2421f2()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	level flag::wait_till("start_hendricks_open_alley_door_01");
 	wait(3);
 	bonuszmsound::function_ef0ce9fb("plyz_overwatch_confirmed_0");
@@ -174,7 +174,7 @@ function function_ae2421f2()
 */
 function function_b19ce1b5()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(14);
 	bonuszmsound::function_cf21d35c("salm_curious_the_vultu_0");
 	wait(4);
@@ -192,7 +192,7 @@ function function_b19ce1b5()
 */
 function function_8b9a674c()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_the_scavengers_began_0");
 	wait(1);
@@ -210,7 +210,7 @@ function function_8b9a674c()
 */
 function function_fda1d687()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(3);
 	bonuszmsound::function_ef0ce9fb("plyz_vultures_ahead_had_a_0");
 }
@@ -226,7 +226,7 @@ function function_fda1d687()
 */
 function function_3c7cab4f()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(12);
 	bonuszmsound::function_cf21d35c("salm_what_was_the_purpose_0");
 	wait(3);
@@ -244,7 +244,7 @@ function function_3c7cab4f()
 */
 function function_ca753c14()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(6);
 	bonuszmsound::function_ef0ce9fb("plyz_a_malfunctioning_a_s_0");
 }
@@ -260,7 +260,7 @@ function function_ca753c14()
 */
 function function_d79f5c1e()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(3);
 	bonuszmsound::function_ef0ce9fb("plyz_the_vultures_beat_us_0");
 }
@@ -276,7 +276,7 @@ function function_d79f5c1e()
 */
 function function_75eb7a4e()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_we_cleared_the_plaza_0");
 	wait(10);
@@ -299,7 +299,7 @@ function function_75eb7a4e()
 */
 function function_e97f24c9()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_cf21d35c("salm_who_did_you_find_in_0");
 	wait(2);
@@ -325,7 +325,7 @@ function function_e97f24c9()
 */
 function function_c37caa60()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_cf21d35c("salm_and_the_file_on_deim_0");
 	bonuszmsound::function_ef0ce9fb("plyz_most_likely_it_was_r_0");

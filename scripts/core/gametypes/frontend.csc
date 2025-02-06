@@ -371,7 +371,7 @@ class cmegachewfactory
 				str_model = get_random_model_name_to_attach_to_carousel();
 			}
 			[[ m_a_o_megachewcarousels[n_vat_index] ]]->update_model_on_carousel_tag(n_ball_index, str_model);
-			mdl_carousel waittillmatch(#"_anim_notify_");
+			mdl_carousel waittillmatch("_anim_notify_");
 		}
 	}
 
@@ -3361,10 +3361,10 @@ function close_zm_bgb_factory(localclientnum, menu_data)
 */
 function play_crate_anims(localclientnum, type)
 {
-	level endon(#"blackmarket_crate_reset");
+	level endon("blackmarket_crate_reset");
 	level endon("wait_for_black_market_notifies");
 	level endon("disconnect");
-	level endon(#"blackmarket_closed");
+	level endon("blackmarket_closed");
 	delay_before_crate_open = 0.5;
 	delay_before_lights_on = 0.01;
 	if(level.blackmarket_exploder != "")
@@ -3425,7 +3425,7 @@ function wait_for_black_market_notifies(localclientnum)
 	level notify("wait_for_black_market_notifies");
 	level endon("wait_for_black_market_notifies");
 	level endon("disconnect");
-	level endon(#"blackmarket_closed");
+	level endon("blackmarket_closed");
 	camera_ent = struct::get("mp_frontend_blackmarket");
 	crate = getent(localclientnum, "mp_frontend_blackmarket_crate", "targetname");
 	crate useanimtree($generic);
@@ -3438,7 +3438,7 @@ function wait_for_black_market_notifies(localclientnum)
 	}
 	while(true)
 	{
-		level waittill(#"blackmarket", param1, param2);
+		level waittill("blackmarket", param1, param2);
 		if(param1 == "crate_camera")
 		{
 			playmaincamxcam(localclientnum, "ui_cam_frontend_crate_in", 0, "cam_crate_in", "", camera_ent.origin, camera_ent.angles);
@@ -3448,7 +3448,7 @@ function wait_for_black_market_notifies(localclientnum)
 		{
 			if(param1 == "normal_camera")
 			{
-				level notify(#"blackmarket_crate_reset");
+				level notify("blackmarket_crate_reset");
 				crate clearanim("o_loot_crate_idle", 0);
 				crate mapshaderconstant(localclientnum, 0, "scriptVector2", 0, 0, 0, 0);
 				if(level.blackmarket_exploder != "")
@@ -3525,7 +3525,7 @@ function close_blackmarket(localclientnum, menu_data)
 		crate stoploopsound(level.cyclehandle);
 		level.cyclehandle = undefined;
 	}
-	level notify(#"blackmarket_closed");
+	level notify("blackmarket_closed");
 }
 
 /*
@@ -3890,7 +3890,7 @@ function move_mp_character_from_inspect_room(localclientnum, menu_data)
 function open_choose_head_menu(localclientnum, menu_data)
 {
 	character_customization::update_show_helmets(localclientnum, menu_data.custom_character, 0);
-	level notify(#"begin_personalizing_hero");
+	level notify("begin_personalizing_hero");
 }
 
 /*

@@ -238,7 +238,7 @@ function set_power_on(state)
 */
 function turn_perk_off(ishidden)
 {
-	self notify(#"stop_loopsound");
+	self notify("stop_loopsound");
 	if(!(isdefined(self.b_keep_when_turned_off) && self.b_keep_when_turned_off))
 	{
 		newmachine = spawn("script_model", self.origin);
@@ -276,7 +276,7 @@ function play_loop_on_machine()
 	sound_ent = spawn("script_origin", self.origin);
 	sound_ent playloopsound("zmb_perks_machine_loop");
 	sound_ent linkto(self);
-	self waittill(#"stop_loopsound");
+	self waittill("stop_loopsound");
 	sound_ent unlink();
 	sound_ent delete();
 }
@@ -344,7 +344,7 @@ function electric_perks_dialog()
 		return;
 	}
 	self endon("warning_dialog");
-	level endon(#"switch_flipped");
+	level endon("switch_flipped");
 	timer = 0;
 	while(true)
 	{
@@ -473,7 +473,7 @@ function vending_trigger_think()
 	{
 		level flag::wait_till("start_zombie_round_logic");
 		solo = use_solo_revive();
-		self endon(#"stop_quickrevive_logic");
+		self endon("stop_quickrevive_logic");
 		level.quick_revive_trigger = self;
 		if(solo)
 		{
@@ -628,7 +628,7 @@ function vending_trigger_post_think(player, perk)
 	{
 		return;
 	}
-	player notify(#"burp");
+	player notify("burp");
 	if(isdefined(level.pers_upgrade_cash_back) && level.pers_upgrade_cash_back)
 	{
 		player zm_pers_upgrades_functions::cash_back_player_drinks_perk();

@@ -955,7 +955,7 @@ function mechz_round_tracker()
 	}
 	while(level.round_number < mech_start_round_num)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 	level.next_mechz_round = level.round_number;
 	level thread debug_print_mechz_round();
@@ -1019,7 +1019,7 @@ function mechz_round_tracker()
 			level thread debug_print_mechz_round();
 			level.num_mechz_spawned = level.num_mechz_spawned + mechz_spawning;
 		}
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 }
 

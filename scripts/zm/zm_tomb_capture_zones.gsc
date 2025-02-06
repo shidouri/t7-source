@@ -455,7 +455,7 @@ function track_max_player_zombie_points()
 		{
 			player.n_capture_zombie_points = 0;
 		}
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 }
 

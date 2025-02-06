@@ -420,7 +420,7 @@ function waitremoveweapon(charactermodel)
 	charactermodel endon("weaponhidden");
 	while(true)
 	{
-		charactermodel waittill(#"_anim_notify_", param1);
+		charactermodel waittill("_anim_notify_", param1);
 		if(param1 == "remove_from_hand")
 		{
 			hideweapon(charactermodel);
@@ -443,7 +443,7 @@ function waitappearweapon(charactermodel)
 	charactermodel endon("weaponshown");
 	while(true)
 	{
-		charactermodel waittill(#"_anim_notify_", param1);
+		charactermodel waittill("_anim_notify_", param1);
 		if(param1 == "appear_in_hand")
 		{
 			showweapon(charactermodel);

@@ -691,7 +691,7 @@ function function_47867b41(var_3fbc06aa, str_part)
 */
 function idgun_proximity_sensor(var_3fbc06aa)
 {
-	self endon(#"bleed_out");
+	self endon("bleed_out");
 	self endon("death");
 	self endon("disconnect");
 	v_cocoon = level.var_a26610f1[var_3fbc06aa].origin;

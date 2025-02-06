@@ -1758,7 +1758,7 @@ function function_5e4284a5()
 	}
 	self.var_506b9d18 = 1;
 	var_548c1f68 = array("scene_zombie_alerted_v1", "scene_zombie_alerted_v2", "scene_zombie_alerted_v3", "scene_zombie_alerted_v4");
-	self notify(#"bhtn_action_notify", "taunt");
+	self notify("bhtn_action_notify", "taunt");
 	if(self ai::get_behavior_attribute("spark_behavior"))
 	{
 		if(isdefined(self.var_11f7b644) && (gettime() - self.var_11f7b644) > 1000)

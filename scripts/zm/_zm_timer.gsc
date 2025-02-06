@@ -46,8 +46,8 @@ function __main__()
 */
 function start_timer(time, stop_notify)
 {
-	self notify(#"stop_prev_timer");
-	self endon(#"stop_prev_timer");
+	self notify("stop_prev_timer");
+	self endon("stop_prev_timer");
 	self endon("disconnect");
 	if(!isdefined(self.stopwatch_elem))
 	{
@@ -99,7 +99,7 @@ function start_timer(time, stop_notify)
 */
 function wait_for_stop_notify(stop_notify)
 {
-	self endon(#"stop_prev_timer");
+	self endon("stop_prev_timer");
 	self endon("countdown_finished");
 	self waittill(stop_notify);
 	self.stopwatch_elem.alpha = 0;
@@ -118,7 +118,7 @@ function wait_for_stop_notify(stop_notify)
 function update_hud_position()
 {
 	self endon("disconnect");
-	self endon(#"stop_prev_timer");
+	self endon("stop_prev_timer");
 	self endon("countdown_finished");
 	while(true)
 	{

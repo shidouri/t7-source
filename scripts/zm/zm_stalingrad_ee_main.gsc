@@ -658,7 +658,7 @@ function function_c78227f6()
 		exploder::exploder("fxexp_701");
 		var_c1a6445a thread scene::play("p7_fxanim_zm_stal_generator_stop_tarp_bundle");
 		level function_ef39c304(0);
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		s_generator.var_efb73168 = 1;
 		exploder::exploder("fxexp_702");
 		exploder::stop_exploder("fxexp_701");
@@ -1080,7 +1080,7 @@ function function_c6d84fe1()
 			break;
 		}
 		level.var_a090a655 thread zm_stalingrad_vo::function_e4acaa37("vox_soph_amsel_incorrect_0", 0, 1, 0, 1);
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		level function_fa7fbd4c(1);
 	}
 	level.var_a090a655 scene::play("p7_fxanim_zm_stal_computer_sophia_code_door_close_bundle");
@@ -1606,7 +1606,7 @@ function function_72dd3113()
 			level thread function_60be32a4(var_4c390f6e);
 			level.var_f0d11538 playsound("zmb_scenarios_map_scenario_fail");
 			level.var_adcde28f++;
-			level waittill(#"between_round_over");
+			level waittill("between_round_over");
 		}
 	}
 	zm_unitrigger::unregister_unitrigger(var_385ae3a2.s_unitrigger);

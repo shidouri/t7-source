@@ -609,8 +609,8 @@ function function_dc86efaa(var_b6c35df6, str_state)
 function _start_transition(direction)
 {
 	self endon("death");
-	self notify(#"_start_transition");
-	self endon(#"_start_transition");
+	self notify("_start_transition");
+	self endon("_start_transition");
 	self clientfield::set_to_player("hijack_vehicle_transition", direction);
 	util::wait_network_frame();
 	self notify("transition_in_do_switch");

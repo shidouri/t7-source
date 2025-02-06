@@ -898,7 +898,7 @@ function watch_for_emp_close()
 	if(isdefined(self.zbarrier))
 	{
 		self.zbarrier.closed_by_emp = 1;
-		self.zbarrier notify(#"box_hacked_respin");
+		self.zbarrier notify("box_hacked_respin");
 		if(isdefined(self.zbarrier.weapon_model))
 		{
 			self.zbarrier.weapon_model notify("kill_weapon_movement");
@@ -1178,8 +1178,8 @@ function verify_chest_is_open()
 function treasure_chest_timeout()
 {
 	self endon("user_grabbed_weapon");
-	self.zbarrier endon(#"box_hacked_respin");
-	self.zbarrier endon(#"box_hacked_rerespin");
+	self.zbarrier endon("box_hacked_respin");
+	self.zbarrier endon("box_hacked_rerespin");
 	wait(12);
 	self notify("trigger", level);
 }
@@ -1444,8 +1444,8 @@ function get_left_hand_weapon_model_name(weapon)
 */
 function clean_up_hacked_box()
 {
-	self waittill(#"box_hacked_respin");
-	self endon(#"box_spin_done");
+	self waittill("box_hacked_respin");
+	self endon("box_spin_done");
 	if(isdefined(self.weapon_model))
 	{
 		self.weapon_model delete();
@@ -1620,7 +1620,7 @@ function treasure_chest_weapon_locking(player, weapon, onoff)
 */
 function treasure_chest_weapon_spawn(chest, player, respin)
 {
-	self endon(#"box_hacked_respin");
+	self endon("box_hacked_respin");
 	self thread clean_up_hacked_box();
 	/#
 		assert(isdefined(player));
@@ -1771,7 +1771,7 @@ function treasure_chest_weapon_spawn(chest, player, respin)
 				self.weapon_model_dw delete();
 				self.weapon_model_dw = undefined;
 			}
-			self notify(#"box_moving");
+			self notify("box_moving");
 			level notify("weapon_fly_away_end");
 		}
 	}
@@ -1822,7 +1822,7 @@ function treasure_chest_weapon_spawn(chest, player, respin)
 	}
 	chest treasure_chest_weapon_locking(player, preferred_weapon, 0);
 	self.weapon = level.weaponnone;
-	self notify(#"box_spin_done");
+	self notify("box_spin_done");
 }
 
 /*
@@ -2155,7 +2155,7 @@ function magic_box_closes()
 */
 function magic_box_do_weapon_rise()
 {
-	self endon(#"box_hacked_respin");
+	self endon("box_hacked_respin");
 	self setzbarrierpiecestate(3, "closed");
 	self setzbarrierpiecestate(4, "closed");
 	util::wait_network_frame();

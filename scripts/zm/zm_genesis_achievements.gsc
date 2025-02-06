@@ -172,7 +172,7 @@ function function_817b1327()
 	var_ef6b3d38 = 0;
 	while(true)
 	{
-		level waittill(#"beam_killed_zombie", e_attacker);
+		level waittill("beam_killed_zombie", e_attacker);
 		if(e_attacker === self)
 		{
 			var_ef6b3d38++;

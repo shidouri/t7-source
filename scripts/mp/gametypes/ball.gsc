@@ -1510,7 +1510,7 @@ function ball_pass_watch()
 	self endon("drop_object");
 	while(true)
 	{
-		self waittill(#"ball_pass", weapon);
+		self waittill("ball_pass", weapon);
 		if(!isdefined(self.pass_target))
 		{
 			playerangles = self getplayerangles();

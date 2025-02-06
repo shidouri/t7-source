@@ -174,7 +174,7 @@ function function_dc2735aa()
 */
 function function_b18f59bf()
 {
-	level endon(#"boss_fight_begin");
+	level endon("boss_fight_begin");
 	var_82a4f07b = struct::get("keeper_end_loc");
 	var_82a4f07b fx::play("mpd_fx", var_82a4f07b.origin, var_82a4f07b.angles, "delete_fx", 0, undefined, 1);
 	level.var_8ef26cd9 = 1;
@@ -604,7 +604,7 @@ function get_unused_spawn_point(var_4a032429 = 0, var_f759b439 = 0, var_610499ec
 */
 function boss_fight_ready()
 {
-	level endon(#"boss_fight_begin");
+	level endon("boss_fight_begin");
 	level.var_b366f2dc = 0;
 	var_23a96e18 = getentarray("boss_gravity_spike_start_area", "targetname");
 	foreach(var_ad2fc56d in var_23a96e18)
@@ -635,7 +635,7 @@ function boss_fight_ready()
 */
 function function_1c249965()
 {
-	level endon(#"boss_fight_begin");
+	level endon("boss_fight_begin");
 	while(true)
 	{
 		foreach(player in level.players)
@@ -667,7 +667,7 @@ function function_1c249965()
 function function_73c15b91(player)
 {
 	player endon("boss_fight_ready_gravity_trap_tracker_end" + self.script_int);
-	level endon(#"boss_fight_begin");
+	level endon("boss_fight_begin");
 	while(true)
 	{
 		player waittill("gravity_trap_planted");
@@ -1005,9 +1005,9 @@ function function_1466b3f1()
 */
 function function_4bea595()
 {
-	level endon(#"boss_fight_completed");
-	level endon(#"_zombie_game_over");
-	self endon(#"bleed_out");
+	level endon("boss_fight_completed");
+	level endon("_zombie_game_over");
+	self endon("bleed_out");
 	self endon("disconnect");
 	var_67f6c267 = getent("boss_dot_area", "targetname");
 	while(!level flag::get("boss_fight_completed"))
@@ -1031,7 +1031,7 @@ function function_4bea595()
 */
 function function_4f5e3970()
 {
-	level endon(#"boss_fight_completed");
+	level endon("boss_fight_completed");
 	level thread function_5db6ba34();
 	var_7533f11 = struct::get_array("boss_start_tele_point", "targetname");
 	var_7fcbf214 = array::sort_by_script_int(var_7533f11, 1);
@@ -1276,7 +1276,7 @@ function function_5db6ba34(var_dcc4bd3d)
 */
 function function_1261fd50()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	level endon(#"hash_e32fa83");
 	var_1e84d44a = struct::get("boss_start_point", "targetname");
 	self function_1b20ff86(var_1e84d44a.origin);
@@ -1421,7 +1421,7 @@ function function_e3ea9055(var_70f504b7 = 0)
 */
 function function_28bb5727(var_4a14cd40)
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	if(!isdefined(self.var_41c1a53f))
 	{
 		self.var_41c1a53f = [];
@@ -1656,8 +1656,8 @@ function function_96db213f()
 */
 function function_e2f41bf2()
 {
-	level endon(#"_zombie_game_over");
-	level endon(#"boss_fight_completed");
+	level endon("_zombie_game_over");
+	level endon("boss_fight_completed");
 	level endon(#"hash_cd6f3cf8");
 	switch(self.var_7e383b58)
 	{
@@ -1770,8 +1770,8 @@ function function_be0acb1a(n_index)
 */
 function function_1dddcbf0()
 {
-	level endon(#"_zombie_game_over");
-	level endon(#"boss_fight_completed");
+	level endon("_zombie_game_over");
+	level endon("boss_fight_completed");
 	/#
 		if(level flag::get(""))
 		{
@@ -1856,7 +1856,7 @@ function function_1dddcbf0()
 function function_10739686(var_466a9f43)
 {
 	level endon(#"hash_c1965039");
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	if(!isdefined(self.var_c660deed))
 	{
 		self.var_c660deed = [];
@@ -2062,7 +2062,7 @@ function function_eda57e8b()
 */
 function function_39a8c4bd()
 {
-	level endon(#"boss_fight_completed");
+	level endon("boss_fight_completed");
 	/#
 	#/
 	self.var_40b46e43 thread function_a1658f19("ai_zm_dlc1_archon_float_spell_elemental_charge_outro");
@@ -2470,7 +2470,7 @@ function function_9a0bf5f4()
 */
 function function_2cef3631()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_38c87755");
 	var_b5f846f3 = 0;
 	while(var_b5f846f3 < level.var_de21b83b)
@@ -2762,7 +2762,7 @@ function function_ad721cc0()
 */
 function function_3995b832(player)
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self clientfield::set("boss_rune_prison_explode_fx", 1);
 	player thread burnplayer::setplayerburning(0.5, 0.25, 12.5, player, undefined);
 	if(level.var_1a4b8a19)
@@ -2792,7 +2792,7 @@ function function_3995b832(player)
 */
 function function_49bf49de()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a2b2e823");
 	self.is_destroyed = 0;
 	var_b5f846f3 = 0;
@@ -2834,7 +2834,7 @@ function function_c20e4083()
 */
 function function_db1c6f68(var_70f504b7 = 0)
 {
-	level endon(#"boss_fight_completed");
+	level endon("boss_fight_completed");
 	/#
 	#/
 	if(!var_70f504b7)
@@ -3108,7 +3108,7 @@ function spawn_mech()
 function function_512742d3()
 {
 	self endon("death");
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	while(true)
 	{
 		wait(7.5);

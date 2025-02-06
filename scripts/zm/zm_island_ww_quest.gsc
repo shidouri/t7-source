@@ -461,7 +461,7 @@ function function_659c2324(a_keys)
 function function_97d5f905()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	var_1f4c3936 = undefined;
 	foreach(e_chest in level.chests)
 	{

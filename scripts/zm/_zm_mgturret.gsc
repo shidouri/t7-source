@@ -138,7 +138,7 @@ function turret_set_difficulty(turret, difficulty)
 function turret_suppression_fire(targets)
 {
 	self endon("death");
-	self endon(#"stop_suppression_fire");
+	self endon("stop_suppression_fire");
 	if(!isdefined(self.suppresionfire))
 	{
 		self.suppresionfire = 1;
@@ -199,8 +199,8 @@ function burst_fire_settings(setting)
 function burst_fire(turret, manual_target)
 {
 	turret endon("death");
-	turret endon(#"stopfiring");
-	self endon(#"stop_using_built_in_burst_fire");
+	turret endon("stopfiring");
+	self endon("stop_using_built_in_burst_fire");
 	if(isdefined(turret.script_delay_min))
 	{
 		turret_delay = turret.script_delay_min;
@@ -259,8 +259,8 @@ function burst_fire(turret, manual_target)
 */
 function burst_fire_unmanned()
 {
-	self notify(#"stop_burst_fire_unmanned");
-	self endon(#"stop_burst_fire_unmanned");
+	self notify("stop_burst_fire_unmanned");
+	self endon("stop_burst_fire_unmanned");
 	self endon("death");
 	self endon("remote_start");
 	level endon("game_ended");
@@ -419,7 +419,7 @@ function random_spread(ent)
 	self endon("death");
 	self notify(#"hash_d175a918");
 	self endon(#"hash_d175a918");
-	self endon(#"stopfiring");
+	self endon("stopfiring");
 	self settargetentity(ent);
 	self.manual_target = ent;
 	while(true)

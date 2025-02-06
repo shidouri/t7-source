@@ -92,7 +92,7 @@ function function_89d4327a()
 */
 function function_cd2a65c3()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(3);
 	bonuszmsound::function_ef0ce9fb("plyz_our_target_was_a_cot_0");
 }
@@ -108,7 +108,7 @@ function function_cd2a65c3()
 */
 function function_f3e4bb97()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_this_was_a_routine_s_0");
 }
@@ -124,7 +124,7 @@ function function_f3e4bb97()
 */
 function function_5bdad1f3()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_we_moved_on_the_arra_0");
 }
@@ -140,7 +140,7 @@ function function_5bdad1f3()
 */
 function function_e9d362b8()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_disabling_the_comms_0");
 }
@@ -156,7 +156,7 @@ function function_e9d362b8()
 */
 function function_fd5dd21()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_the_station_disabled_0");
 }
@@ -172,7 +172,7 @@ function function_fd5dd21()
 */
 function function_cde2412e()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_the_array_was_ahead_0");
 }
@@ -188,7 +188,7 @@ function function_cde2412e()
 */
 function function_f2c44c1e()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	bonuszmsound::function_ef0ce9fb("plyz_our_support_detail_n_0");
 }
 
@@ -203,7 +203,7 @@ function function_f2c44c1e()
 */
 function function_81dd4c5c()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_with_the_comms_disab_0");
 }
@@ -219,7 +219,7 @@ function function_81dd4c5c()
 */
 function function_a7dfc6c5()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	bonuszmsound::function_ef0ce9fb("plyz_with_their_comms_jam_0");
 }
 
@@ -234,7 +234,7 @@ function function_a7dfc6c5()
 */
 function function_5b22f688()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(5);
 	bonuszmsound::function_cf21d35c("salm_tell_me_what_happene_1");
 	bonuszmsound::function_ef0ce9fb("plyz_our_dni_there_was_0");
@@ -287,7 +287,7 @@ function function_5b22f688()
 */
 function function_3b59ac54()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(4);
 	bonuszmsound::function_ef0ce9fb("plyz_we_prepped_to_breach_0");
 	wait(1);
@@ -305,7 +305,7 @@ function function_3b59ac54()
 */
 function function_812570f1()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(4);
 	bonuszmsound::function_ef0ce9fb("plyz_we_regrouped_with_ou_0");
 	wait(1);
@@ -324,7 +324,7 @@ function function_812570f1()
 */
 function function_7aa9c8b5()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_b4a3e925("dolo_go_with_her_trust_h_0");
 }
@@ -340,7 +340,7 @@ function function_7aa9c8b5()
 */
 function function_3f31d4fe()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_when_khalil_took_the_0");
 	wait(1);
@@ -368,7 +368,7 @@ function function_3f31d4fe()
 */
 function function_fd9ec2ee()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	bonuszmsound::function_ef0ce9fb("plyz_maretti_was_just_bel_0");
 	bonuszmsound::function_cf21d35c("salm_shortcut_0");
 	bonuszmsound::function_cf21d35c("plyz_a_leap_of_faith_0");
@@ -385,7 +385,7 @@ function function_fd9ec2ee()
 */
 function function_65344f67()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_cf21d35c("salm_what_happened_with_h_0");
 	wait(1);
@@ -413,7 +413,7 @@ function function_65344f67()
 */
 function function_f32ce02c()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_cf21d35c("salm_what_happened_when_y_1");
 	wait(1);
@@ -437,7 +437,7 @@ function function_f32ce02c()
 */
 function function_192f5a95()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	bonuszmsound::function_ef0ce9fb("plyz_i_did_what_we_were_t_0");
 	bonuszmsound::function_cf21d35c("salm_can_you_blame_him_fo_0");
 	bonuszmsound::function_ef0ce9fb("plyz_hendricks_was_pissed_0");
@@ -471,7 +471,7 @@ function function_192f5a95()
 */
 function function_c8750131()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(15);
 	bonuszmsound::function_ef0ce9fb("plyz_we_lost_taylor_but_0");
 }

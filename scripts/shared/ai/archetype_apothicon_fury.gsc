@@ -1575,7 +1575,7 @@ function apothiconjukeinit(entity)
 	blackboard::setblackboardattribute(entity, "_juke_distance", jukeinfo.jukedistance);
 	blackboard::setblackboardattribute(entity, "_juke_direction", jukeinfo.jukedirection);
 	entity clearpath();
-	entity notify(#"bhtn_action_notify", "apothicon_fury_juke");
+	entity notify("bhtn_action_notify", "apothicon_fury_juke");
 	jukeinfo = spawnstruct();
 	jukeinfo.origin = entity.origin;
 	jukeinfo.entity = entity;

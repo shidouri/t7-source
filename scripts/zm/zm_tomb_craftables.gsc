@@ -1475,7 +1475,7 @@ function quadrotor_control_thread()
 {
 	self notify("quadrotor_control_thread");
 	self endon("quadrotor_control_thread");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("disconnect");
 	self endon("new_placeable_mine");
 	while(true)

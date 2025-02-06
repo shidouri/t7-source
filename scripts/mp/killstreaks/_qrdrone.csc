@@ -248,7 +248,7 @@ function start_blink(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 	{
 		return;
 	}
-	self notify(#"blink");
+	self notify("blink");
 }
 
 /*
@@ -364,7 +364,7 @@ function blink_light(localclientnum)
 	level endon("demo_jump");
 	level endon("player_switch");
 	level endon("killcam_begin");
-	self waittill(#"blink");
+	self waittill("blink");
 	if(!isdefined(self.blinkstarttime))
 	{
 		self.blinkstarttime = level.servertime;

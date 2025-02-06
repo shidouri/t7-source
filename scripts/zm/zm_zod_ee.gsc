@@ -653,7 +653,7 @@ function function_5334c072(player)
 {
 	player endon("death");
 	player endon("disconnect");
-	player endon(#"bled_out");
+	player endon("bled_out");
 	level endon("ee_final_boss_staggered");
 	player.var_884d1375 = 1;
 	player clientfield::set_to_player("ee_final_boss_attack_tell", 1);
@@ -1331,7 +1331,7 @@ function function_d26c80f1()
 {
 	self endon("death");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self zm_zod_util::set_rumble_to_player(5);
 	earthquake(0.333, 7, self.origin, 1000);
 	wait(7);

@@ -361,7 +361,7 @@ function reveal_switch()
 */
 function wait_for_sync_use(ss, button)
 {
-	level endon(#"between_round_over");
+	level endon("between_round_over");
 	level endon("switches_synced");
 	ss.pressed = 0;
 	while(true)
@@ -398,7 +398,7 @@ function wait_for_sync_use(ss, button)
 */
 function switch_watcher()
 {
-	level endon(#"between_round_over");
+	level endon("between_round_over");
 	pressed = 0;
 	switches = struct::get_array("sync_switch_start", "targetname");
 	while(true)

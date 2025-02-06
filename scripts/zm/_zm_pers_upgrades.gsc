@@ -565,7 +565,7 @@ function pers_upgrade_jugg_active()
 	self zm_perks::perk_set_max_health_if_jugg("jugg_upgrade", 1, 0);
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(is_pers_system_active())
 		{
 			if(level.round_number == level.pers_jugg_round_lose_target)
@@ -899,7 +899,7 @@ function pers_upgrade_box_weapon_active()
 	self.pers_box_weapon_awarded = 1;
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(is_pers_system_active())
 		{
 			if(level.round_number >= level.pers_box_weapon_lose_round)
@@ -933,7 +933,7 @@ function pers_upgrade_nube_active()
 	wait(0.5);
 	while(true)
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(is_pers_system_active())
 		{
 			if(level.round_number >= level.pers_nube_lose_round)

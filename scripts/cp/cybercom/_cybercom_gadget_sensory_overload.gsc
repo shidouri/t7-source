@@ -411,11 +411,11 @@ function sensory_overload(attacker, var_7d4fd98c)
 		self playloopsound("gdt_sensory_feedback_lp", 0.5);
 		self clientfield::set("sensory_overload", 1);
 	}
-	self notify(#"bhtn_action_notify", "reactSensory");
+	self notify("bhtn_action_notify", "reactSensory");
 	if(self.archetype == "warlord")
 	{
 		self dodamage(2, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
-		self waittillmatch(#"bhtn_action_terminate");
+		self waittillmatch("bhtn_action_terminate");
 		self clientfield::set("sensory_overload", 0);
 	}
 	else
@@ -425,7 +425,7 @@ function sensory_overload(attacker, var_7d4fd98c)
 			while(loops)
 			{
 				self dodamage(2, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
-				self waittillmatch(#"bhtn_action_terminate");
+				self waittillmatch("bhtn_action_terminate");
 				loops--;
 			}
 			self clientfield::set("sensory_overload", 0);

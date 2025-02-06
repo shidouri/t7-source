@@ -109,7 +109,7 @@ function on_player_connect()
 */
 function function_7884e6b8()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	level.var_4ea3bfd0 = [];
 	level.var_4ea3bfd0[0][0] = array("vox_plr_0_round1_start_0", "vox_plr_2_round1_start_0");
 	level.var_4ea3bfd0[0][1] = array("vox_plr_0_round1_end_0", "vox_plr_2_round1_end_0");
@@ -1837,7 +1837,7 @@ function function_e58d3756(e_attacker)
 function function_7254ce1d()
 {
 	self endon("death");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	if(!zm_utility::is_player_valid(self))
 	{
 		return;
@@ -2439,7 +2439,7 @@ function base_bow_picked_up()
 {
 	if(!(isdefined(self.var_3f43dcf1) && self.var_3f43dcf1))
 	{
-		level notify(#"base_bow_picked_up");
+		level notify("base_bow_picked_up");
 		b_success = self vo_say((("vox_plr_" + self.characterindex) + "_pickup_bow_") + randomint(5), 0);
 		if(isdefined(b_success) && b_success)
 		{

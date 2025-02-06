@@ -1069,8 +1069,8 @@ function weapon_lock_clearslot(slot, note, clearprogress)
 function private _weapon_lock_targetwatchfordeath(player)
 {
 	self endon("ccom_lost_lock");
-	self notify(#"_weapon_lock_targetwatchfordeath");
-	self endon(#"_weapon_lock_targetwatchfordeath");
+	self notify("_weapon_lock_targetwatchfordeath");
+	self endon("_weapon_lock_targetwatchfordeath");
 	slot = player weapon_lock_alreadylocked(self);
 	self util::waittill_any("death", "ccom_lock_fired", "ccom_lock_aborted_unique");
 	player weaponlocknoclearance(0, slot);

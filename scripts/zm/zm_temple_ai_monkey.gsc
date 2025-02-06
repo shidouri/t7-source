@@ -912,7 +912,7 @@ function _monkey_pathcheck()
 	self endon("end_pathcheck");
 	self endon("escape_goal");
 	self endon("death");
-	self waittill(#"bad_path");
+	self waittill("bad_path");
 	self notify("end_monkey_steal");
 	self.melee_count = 0;
 	players = getplayers();

@@ -972,7 +972,7 @@ function mechz_staff_piece_failsafe()
 function biplane_clue()
 {
 	self endon("death");
-	level endon(#"biplane_down");
+	level endon("biplane_down");
 	while(true)
 	{
 		cur_round = level.round_number;
@@ -1067,7 +1067,7 @@ function aircrystalbiplanecallback_vehicledamage(e_inflictor, e_attacker, n_dama
 	if(isplayer(e_attacker) && self.vehicletype == "biplane_zm" && !self flag::get("biplane_down"))
 	{
 		self flag::set("biplane_down");
-		level notify(#"biplane_down");
+		level notify("biplane_down");
 	}
 	return n_damage;
 }

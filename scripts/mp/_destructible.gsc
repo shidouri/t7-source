@@ -651,8 +651,8 @@ function codecallback_destructibleevent(event, param1, param2, param3, param4)
 */
 function breakafter(time, damage, piece)
 {
-	self notify(#"breakafter");
-	self endon(#"breakafter");
+	self notify("breakafter");
+	self endon("breakafter");
 	wait(time);
 	self dodamage(damage, self.origin, undefined, undefined);
 }

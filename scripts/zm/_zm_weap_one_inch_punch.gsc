@@ -79,7 +79,7 @@ function widows_wine_knife_override()
 function one_inch_punch_melee_attack()
 {
 	self endon("disconnect");
-	self endon(#"stop_one_inch_punch_attack");
+	self endon("stop_one_inch_punch_attack");
 	if(!(isdefined(self.one_inch_punch_flag_has_been_init) && self.one_inch_punch_flag_has_been_init))
 	{
 		self flag::init("melee_punch_cooldown");
@@ -162,9 +162,9 @@ function one_inch_punch_melee_attack()
 function monitor_melee_swipe()
 {
 	self endon("disconnect");
-	self notify(#"stop_monitor_melee_swipe");
-	self endon(#"stop_monitor_melee_swipe");
-	self endon(#"bled_out");
+	self notify("stop_monitor_melee_swipe");
+	self endon("stop_monitor_melee_swipe");
+	self endon("bled_out");
 	w_shield = getweapon("tomb_shield");
 	while(true)
 	{
@@ -427,7 +427,7 @@ function one_inch_punch_take_think()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"bled_out");
+		self waittill("bled_out");
 		self.one_inch_punch_flag_has_been_init = 0;
 		self.widows_wine_knife_override = undefined;
 		if(self flag::exists("melee_punch_cooldown"))
@@ -523,7 +523,7 @@ function knockdown_zombie_animate()
 	}
 	self zombie_shared::donotetracks("punch_getup_anim");
 	self.allowpain = 1;
-	self notify(#"back_up");
+	self notify("back_up");
 }
 
 /*

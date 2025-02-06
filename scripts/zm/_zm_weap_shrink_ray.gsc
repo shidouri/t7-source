@@ -183,7 +183,7 @@ function function_fe7a4182(upgraded)
 			zombies[i] thread shrink_zombie(upgraded, self);
 			continue;
 		}
-		zombies[i] notify(#"shrunk", upgraded);
+		zombies[i] notify("shrunk", upgraded);
 	}
 }
 
@@ -312,7 +312,7 @@ function shrink_zombie(upgraded, attacker)
 	{
 		self clientfield::set("fun_size", 1);
 	}
-	self notify(#"shrink");
+	self notify("shrink");
 	self.shrinked = 1;
 	self.var_2209ea1b = attacker;
 	self.kill_on_wine_coccon = 1;

@@ -3104,7 +3104,7 @@ function function_60123d1c()
 	self notify("killoedmonitor");
 	self notify("killmantlemonitor");
 	self notify("new_cover_on_death_thread");
-	self notify(#"bolttrackingstart");
+	self notify("bolttrackingstart");
 	self notify("smoketrackingstart");
 	self notify("emptrackingstart");
 	self notify("proximitytrackingstart");

@@ -3619,8 +3619,8 @@ function draw_line_ent_to_pos(ent, pos, end_on)
 			return;
 		}
 		ent endon("death");
-		ent notify(#"stop_draw_line_ent_to_pos");
-		ent endon(#"stop_draw_line_ent_to_pos");
+		ent notify("stop_draw_line_ent_to_pos");
+		ent endon("stop_draw_line_ent_to_pos");
 		if(isdefined(end_on))
 		{
 			ent endon(end_on);
@@ -3664,8 +3664,8 @@ function debug_print(msg)
 function debug_blocker(pos, rad, height)
 {
 	/#
-		self notify(#"stop_debug_blocker");
-		self endon(#"stop_debug_blocker");
+		self notify("stop_debug_blocker");
+		self endon("stop_debug_blocker");
 		for(;;)
 		{
 			if(getdvarint("") != 1)
@@ -3746,8 +3746,8 @@ function debug_breadcrumbs()
 {
 	/#
 		self endon("disconnect");
-		self notify(#"stop_debug_breadcrumbs");
-		self endon(#"stop_debug_breadcrumbs");
+		self notify("stop_debug_breadcrumbs");
+		self endon("stop_debug_breadcrumbs");
 		while(true)
 		{
 			if(getdvarint("") != 1)
@@ -3776,8 +3776,8 @@ function debug_breadcrumbs()
 function debug_attack_spots_taken()
 {
 	/#
-		self notify(#"stop_debug_breadcrumbs");
-		self endon(#"stop_debug_breadcrumbs");
+		self notify("stop_debug_breadcrumbs");
+		self endon("stop_debug_breadcrumbs");
 		while(true)
 		{
 			if(getdvarint("") != 2)
@@ -3852,7 +3852,7 @@ function do_player_vo(snd, variation_count)
 	{
 		level.player_is_speaking = 1;
 		self playsoundwithnotify(sound, "sound_done");
-		self waittill(#"sound_done");
+		self waittill("sound_done");
 		wait(2);
 		level.player_is_speaking = 0;
 	}
@@ -4118,7 +4118,7 @@ function clear_fog_threads()
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
 	{
-		players[i] notify(#"stop_fog");
+		players[i] notify("stop_fog");
 	}
 }
 
@@ -4185,8 +4185,8 @@ function shock_onpain()
 {
 	self endon("death");
 	self endon("disconnect");
-	self notify(#"stop_shock_onpain");
-	self endon(#"stop_shock_onpain");
+	self notify("stop_shock_onpain");
+	self endon("stop_shock_onpain");
 	if(getdvarstring("blurpain") == "")
 	{
 		setdvar("blurpain", "on");
@@ -5601,7 +5601,7 @@ function waittill_not_moving()
 	level endon("game_ended");
 	if(self.classname == "grenade")
 	{
-		self waittill(#"stationary");
+		self waittill("stationary");
 	}
 	else
 	{
@@ -7107,7 +7107,7 @@ function zombie_goto_round(n_target_round)
 		array::run_all(zombies, &kill);
 	}
 	level.sndgotoroundoccurred = 1;
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 }
 
 /*
@@ -7291,8 +7291,8 @@ function register_slowdown(str_type, n_rate, n_duration)
 */
 function slowdown_ai(str_type)
 {
-	self notify(#"starting_slowdown_ai");
-	self endon(#"starting_slowdown_ai");
+	self notify("starting_slowdown_ai");
+	self endon("starting_slowdown_ai");
 	self endon("death");
 	/#
 		assert(isdefined(level.a_s_slowdowns[str_type]), ("" + str_type) + "");

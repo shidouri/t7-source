@@ -137,7 +137,7 @@ function board_hack(hacker)
 		}
 	}
 	zm_equip_hacker::register_pooled_hackable_struct(self, &board_hack, &board_qualifier);
-	self.window notify(#"blocker_hacked");
+	self.window notify("blocker_hacked");
 	self.window notify(#"hash_46d36511");
 }
 

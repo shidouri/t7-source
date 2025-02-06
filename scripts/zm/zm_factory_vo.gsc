@@ -62,7 +62,7 @@ function __main__()
 */
 function function_7884e6b8()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	level.a_e_speakers = [];
 	var_f01f6eb2 = [];
 	array::add(var_f01f6eb2, array("vox_plr_3_interaction_takeo_rich_1_0", "vox_plr_2_interaction_takeo_rich_1_0"));

@@ -202,7 +202,7 @@ function digger_round_logic()
 	rnd = 0;
 	while(!first_digger_activated)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		if(level flag::exists("teleporter_used") && level flag::get("teleporter_used"))
 		{
 			continue;
@@ -217,7 +217,7 @@ function digger_round_logic()
 	}
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		if(level flag::exists("teleporter_used") && level flag::get("teleporter_used"))
 		{
 			continue;

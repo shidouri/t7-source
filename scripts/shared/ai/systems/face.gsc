@@ -246,7 +246,7 @@ function playfacethread(facialanim, str_script_alias, importance, notifystring, 
 	/#
 		assert(!self.istalking);
 	#/
-	self notify(#"bc_interrupt");
+	self notify("bc_interrupt");
 	self.istalking = 1;
 	self.a.facialsounddone = 0;
 	self.a.facialsoundnotify = notifystring;

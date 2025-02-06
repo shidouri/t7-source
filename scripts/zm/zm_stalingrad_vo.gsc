@@ -914,7 +914,7 @@ function function_84afa6c(str_vo_alias, n_wait, b_wait_if_busy, n_priority)
 */
 function function_772aa229()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	while(true)
 	{
 		level waittill("start_of_round");
@@ -1880,7 +1880,7 @@ function function_e068138()
 */
 function function_9bdbe3a4()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	while(true)
 	{
 		self waittill("weapon_give", w_weapon);
@@ -2622,7 +2622,7 @@ function function_13ea746c()
 	/#
 		level endon(#"hash_2b2c1420");
 	#/
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	while(true)
 	{
 		level waittill("end_of_round");
@@ -2656,7 +2656,7 @@ function function_d5f6780()
 		level endon(#"hash_2b2c1420");
 		iprintlnbold("");
 	#/
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	while(true)
 	{
 		level waittill("end_of_round");
@@ -2872,7 +2872,7 @@ function function_af0d4b36()
 */
 function function_e12b1498()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon("disconnect");
 	var_c041bd97 = [];
 	switch(self.characterindex)
@@ -3238,7 +3238,7 @@ function function_6d6eb04e()
 */
 function function_cd0b1f13()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon("death");
 	level endon(#"hash_6460283a");
 	for(i = 0; i < 4; i++)

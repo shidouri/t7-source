@@ -348,7 +348,7 @@ function killcam(attackernum, targetnum, killcamentity, killcamentityindex, kill
 		killcamlength = camtime + postdelay;
 	}
 	killcamoffset = camtime + predelay;
-	self notify(#"begin_killcam", gettime());
+	self notify("begin_killcam", gettime());
 	killcamstarttime = gettime() - (killcamoffset * 1000);
 	self.sessionstate = "spectator";
 	self.spectatorclient = attackernum;
@@ -629,7 +629,7 @@ function spectator_killcam_cleanup(attacker)
 	self endon("end_killcam");
 	self endon("disconnect");
 	attacker endon("disconnect");
-	attacker waittill(#"begin_killcam", attackerkcstarttime);
+	attacker waittill("begin_killcam", attackerkcstarttime);
 	waittime = max(0, (attackerkcstarttime - self.deathtime) - 50);
 	wait(waittime);
 	self end(0);
@@ -828,7 +828,7 @@ function final_killcam(winner)
 	killcamoffset = camtime + predelay;
 	killcamlength = (camtime + postdelay) - 0.05;
 	killcamstarttime = gettime() - (killcamoffset * 1000);
-	self notify(#"begin_killcam", gettime());
+	self notify("begin_killcam", gettime());
 	self.sessionstate = "spectator";
 	self.spectatorclient = killcamsettings.spectatorclient;
 	self.killcamentity = -1;

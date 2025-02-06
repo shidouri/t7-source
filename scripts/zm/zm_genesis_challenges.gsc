@@ -1135,7 +1135,7 @@ function function_8eeff46f()
 	self endon("disconnect");
 	while(true)
 	{
-		level waittill(#"beam_killed_zombie", e_attacker);
+		level waittill("beam_killed_zombie", e_attacker);
 		if(e_attacker === self)
 		{
 			self notify("update_challenge_1_2");

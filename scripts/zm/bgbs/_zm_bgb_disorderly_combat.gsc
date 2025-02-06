@@ -167,8 +167,8 @@ function function_32818605()
 function function_7039f685()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("bled_out");
+	self endon("bgb_update");
 	level.var_8fcdc919 = array::randomize(level.var_8fcdc919);
 	self setperk("specialty_ammodrainsfromstockfirst");
 	self thread disable_weapons();
@@ -240,8 +240,8 @@ function function_7039f685()
 function function_dedb7bff()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("bled_out");
+	self endon("bgb_update");
 	wait(5);
 	self playsoundtoplayer("zmb_bgb_disorderly_5seconds", self);
 }
@@ -258,8 +258,8 @@ function function_dedb7bff()
 function disable_weapons()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("bled_out");
+	self endon("bgb_update");
 	while(true)
 	{
 		waittillframeend();
@@ -356,7 +356,7 @@ function function_f0cecf3c()
 function function_bd7f98af()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("bgb_update_give_" + "zm_bgb_disorderly_combat");
 	self thread function_be4232bc();
 	self unsetperk("specialty_ammodrainsfromstockfirst");
@@ -394,7 +394,7 @@ function function_bd7f98af()
 function function_be4232bc()
 {
 	self endon(#"hash_46a5bae0");
-	self waittill(#"bled_out");
+	self waittill("bled_out");
 	self.var_8cee13f3 = undefined;
 	self.var_fe555a38 = undefined;
 }

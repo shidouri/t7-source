@@ -318,7 +318,7 @@ function private function_586fec95(attacker, disablefor, weapon)
 	self clientfield::set("forced_malfunction", 1);
 	self.is_disabled = 1;
 	self dodamage(5, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
-	self waittillmatch(#"bhtn_action_terminate");
+	self waittillmatch("bhtn_action_terminate");
 	self.is_disabled = 0;
 	self clientfield::set("forced_malfunction", 0);
 }
@@ -349,7 +349,7 @@ function private function_609fcb0a(attacker, disablefor, weapon)
 		{
 			miss = 0;
 			self dodamage(5, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
-			self waittillmatch(#"bhtn_action_terminate");
+			self waittillmatch("bhtn_action_terminate");
 		}
 		else
 		{

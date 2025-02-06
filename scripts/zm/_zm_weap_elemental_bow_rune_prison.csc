@@ -145,8 +145,8 @@ function runeprison_rock_fx(localclientnum, oldval, newval, bnewent, binitialsna
 */
 function scene_play(scene, var_7b98b639)
 {
-	self notify(#"scene_play");
-	self endon(#"scene_play");
+	self notify("scene_play");
+	self endon("scene_play");
 	self scene::stop();
 	self function_6221b6b9(scene, var_7b98b639);
 	if(isdefined(self))

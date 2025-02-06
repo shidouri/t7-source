@@ -2867,7 +2867,7 @@ function function_48fda59a()
 					if(a_zombies.size == 1)
 					{
 						a_zombies[0] zombie_utility::set_zombie_run_cycle("sprint");
-						level waittill(#"between_round_over");
+						level waittill("between_round_over");
 						level waittill("start_of_round");
 						wait(10);
 					}

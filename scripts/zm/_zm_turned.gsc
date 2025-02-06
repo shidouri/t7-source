@@ -363,7 +363,7 @@ function turned_player_buttons()
 		{
 			if(math::cointoss())
 			{
-				self notify(#"bhtn_action_notify", "attack");
+				self notify("bhtn_action_notify", "attack");
 			}
 			while(self attackbuttonpressed() || self adsbuttonpressed() || self meleebuttonpressed())
 			{
@@ -372,7 +372,7 @@ function turned_player_buttons()
 		}
 		if(self usebuttonpressed())
 		{
-			self notify(#"bhtn_action_notify", "taunt");
+			self notify("bhtn_action_notify", "taunt");
 			while(self usebuttonpressed())
 			{
 				wait(0.05);
@@ -382,7 +382,7 @@ function turned_player_buttons()
 		{
 			while(self issprinting())
 			{
-				self notify(#"bhtn_action_notify", "sprint");
+				self notify("bhtn_action_notify", "sprint");
 				wait(0.05);
 			}
 		}

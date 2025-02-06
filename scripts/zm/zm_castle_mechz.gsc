@@ -417,7 +417,7 @@ function mechz_round_tracker()
 	{
 		while(level.round_number < level.n_next_mechz_round)
 		{
-			level waittill(#"between_round_over");
+			level waittill("between_round_over");
 			/#
 				if(level.round_number > level.n_next_mechz_round)
 				{

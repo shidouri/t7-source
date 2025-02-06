@@ -324,7 +324,7 @@ function create_damage_wave(damage, attacker)
 			if(enemy.archetype == "human" || enemy.archetype == "warlord" || enemy.archetype == "human_riotshield")
 			{
 				enemy dodamage(var_f52a5901, attacker.origin, attacker, attacker, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
-				enemy notify(#"bhtn_action_notify", "reactBodyBlow");
+				enemy notify("bhtn_action_notify", "reactBodyBlow");
 				enemy thread function_78e146a3();
 				attacker thread challenges::function_96ed590f("cybercom_uses_martial");
 				attacker thread challenges::function_96ed590f("cybercom_uses_concussive");
@@ -408,7 +408,7 @@ function function_78e146a3()
 	self endon("death");
 	self endon(#"hash_c76d622a");
 	wait(1.75);
-	self notify(#"bhtn_action_notify", "concussiveReact");
+	self notify("bhtn_action_notify", "concussiveReact");
 }
 
 /*

@@ -992,7 +992,7 @@ function hackable_object_thread()
 							hacker zm_score::add_to_player_score(cost * -1, 1, "equip_hacker");
 						}
 					}
-					hacker notify(#"successful_hack");
+					hacker notify("successful_hack");
 					if(isdefined(self._hack_callback_func))
 					{
 						self thread [[self._hack_callback_func]](hacker);

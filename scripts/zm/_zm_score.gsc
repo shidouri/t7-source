@@ -662,7 +662,7 @@ function minus_to_player_score(points)
 	self.score = self.score - points;
 	self.pers["score"] = self.score;
 	self incrementplayerstat("scoreSpent", points);
-	level notify(#"spent_points", self, points);
+	level notify("spent_points", self, points);
 	if(isdefined(level.bgb_in_use) && level.bgb_in_use && level.onlinegame)
 	{
 		self bgb_token::award_check(points);

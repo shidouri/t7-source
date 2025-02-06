@@ -198,7 +198,7 @@ function electric_cherry_perk_machine_think()
 			machine[i] thread zm_perks::perk_fx("electriccherry");
 			machine[i] thread zm_perks::play_loop_on_machine();
 		}
-		level notify(#"specialty_grenadepulldeath_power_on");
+		level notify("specialty_grenadepulldeath_power_on");
 		array::thread_all(machine_triggers, &zm_perks::set_power_on, 1);
 		level waittill("electric_cherry_off");
 		array::thread_all(machine_triggers, &zm_perks::turn_perk_off);
@@ -331,7 +331,7 @@ function electric_cherry_shock_fx()
 		self clientfield::set("tesla_shock_eyes_fx", 1);
 	}
 	self playsound("zmb_elec_jib_zombie");
-	self waittill(#"stun_fx_end");
+	self waittill("stun_fx_end");
 	if(isvehicle(self))
 	{
 		self clientfield::set("tesla_shock_eyes_fx_veh", 0);
@@ -354,8 +354,8 @@ function electric_cherry_shock_fx()
 function electric_cherry_stun()
 {
 	self endon("death");
-	self notify(#"stun_zombie");
-	self endon(#"stun_zombie");
+	self notify("stun_zombie");
+	self endon("stun_zombie");
 	if(self.health <= 0)
 	{
 		/#
@@ -374,7 +374,7 @@ function electric_cherry_stun()
 	{
 		self.zombie_tesla_hit = 0;
 		self.ignoreall = 0;
-		self notify(#"stun_fx_end");
+		self notify("stun_fx_end");
 	}
 }
 

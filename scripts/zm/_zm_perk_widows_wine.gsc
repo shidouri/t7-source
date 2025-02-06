@@ -590,7 +590,7 @@ function vehicle_stuck_grenade_monitor()
 function grenade_bounce_monitor()
 {
 	self endon("disconnect");
-	self endon(#"stop_widows_wine");
+	self endon("stop_widows_wine");
 	while(true)
 	{
 		self waittill("grenade_fire", e_grenade);
@@ -661,7 +661,7 @@ function widows_wine_vehicle_behavior(attacker, weapon)
 */
 function widows_wine_perk_lost(b_pause, str_perk, str_result)
 {
-	self notify(#"stop_widows_wine");
+	self notify("stop_widows_wine");
 	self endon("death");
 	if(self laststand::player_is_in_laststand())
 	{

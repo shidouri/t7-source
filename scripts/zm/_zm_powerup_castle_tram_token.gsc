@@ -174,7 +174,7 @@ function function_56739ab1()
 function function_4c1f0ef2()
 {
 	level.var_6e2e91a0 = 1;
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	level.var_6e2e91a0 = undefined;
 }
 

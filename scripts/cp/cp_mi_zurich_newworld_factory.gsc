@@ -3373,7 +3373,7 @@ function function_453c36ed(a_ents)
 		ai_robot = ent;
 		break;
 	}
-	ai_robot waittill(#"breakglass");
+	ai_robot waittill("breakglass");
 	var_809fd273 = struct::get(self.target, "targetname");
 	var_809fd273 thread scene::play();
 }
@@ -4060,12 +4060,12 @@ function private function_48516b3d()
 function private function_8823cee2(weapon, duration)
 {
 	self endon("death");
-	self notify(#"bhtn_action_notify", "scream");
+	self notify("bhtn_action_notify", "scream");
 	endtime = gettime() + (duration * 1000);
 	while(gettime() < endtime)
 	{
 		self dodamage(5, self.origin, undefined, undefined, "none", "MOD_RIFLE_BULLET", 0, weapon, -1, 1);
-		self waittillmatch(#"bhtn_action_terminate");
+		self waittillmatch("bhtn_action_terminate");
 	}
 	self notify(#"hash_235a51d2", "specialpain");
 }

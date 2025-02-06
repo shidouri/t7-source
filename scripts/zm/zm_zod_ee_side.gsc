@@ -166,7 +166,7 @@ function function_f93dd0b9()
 */
 function function_f2485365()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a881e3fa");
 	if(self.script_string != "play_on_map_load")
 	{
@@ -236,7 +236,7 @@ function function_f2485365()
 */
 function function_f4bfd0b8()
 {
-	level waittill(#"_zombie_game_over");
+	level waittill("_zombie_game_over");
 	if(isdefined(self.var_93dad597))
 	{
 		if(isdefined(self.var_93dad597))
@@ -261,7 +261,7 @@ function function_f4bfd0b8()
 */
 function function_cbcaa042()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a881e3fa");
 	self waittill(#"hash_42d111a0");
 	level.var_94e23698[self.script_noteworthy] notify(#"hash_a881e3fa");
@@ -346,7 +346,7 @@ function function_82d8ec58()
 */
 function function_ff688e23()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self zm_zod_shadowman::function_12e7164a(1, 1, 0);
 	self zm_zod_shadowman::function_8888a532(0, 1, 1);
 	self notify(#"hash_42d111a0");
@@ -367,7 +367,7 @@ function function_ff688e23()
 */
 function function_188b8017()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a881e3fa");
 	self zm_zod_shadowman::function_12e7164a(0, 1);
 	self zm_zod_shadowman::function_8888a532(0, 1, 0);
@@ -401,7 +401,7 @@ function function_188b8017()
 */
 function function_cd7431a8()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a881e3fa");
 	self zm_zod_shadowman::function_12e7164a(0, 1);
 	self zm_zod_shadowman::function_8888a532(0, 1, 0);
@@ -424,7 +424,7 @@ function function_cd7431a8()
 */
 function function_82fac046()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	if(self.script_string == "play_on_map_load")
 	{
 		self zm_zod_shadowman::function_12e7164a(1, 1, 0);
@@ -454,7 +454,7 @@ function function_82fac046()
 */
 function function_fa56dab0()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self zm_zod_shadowman::function_12e7164a(0, 1);
 	self zm_zod_shadowman::function_8888a532(0, 1, 0);
 	self notify(#"hash_42d111a0");
@@ -472,7 +472,7 @@ function function_fa56dab0()
 */
 function function_b066a053()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a881e3fa");
 	foreach(var_707e0d1c in level.var_94e23698)
 	{
@@ -532,7 +532,7 @@ function function_98c5d1e5()
 */
 function function_724b1463()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a881e3fa");
 	while(true)
 	{
@@ -600,7 +600,7 @@ function function_e00f4f2a()
 */
 function function_1b5affd(player)
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	self endon(#"hash_a881e3fa");
 	player endon("disconnect");
 	self waittill(#"hash_42d111a0");
@@ -2164,8 +2164,8 @@ function function_78758203()
 */
 function function_63dde189()
 {
-	level waittill(#"between_round_over");
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
+	level waittill("between_round_over");
 	self.var_6cb12f5c = bgb::function_d51db887();
 	self setscale(2);
 }

@@ -121,9 +121,9 @@ function player_give_cymbal_monkey_upgraded()
 */
 function player_handle_cymbal_monkey()
 {
-	self notify(#"starting_monkey_watch");
+	self notify("starting_monkey_watch");
 	self endon("disconnect");
-	self endon(#"starting_monkey_watch");
+	self endon("starting_monkey_watch");
 	attract_dist_diff = level.monkey_attract_dist_diff;
 	if(!isdefined(attract_dist_diff))
 	{
@@ -267,7 +267,7 @@ function clone_player_angles(owner)
 */
 function show_briefly(showtime)
 {
-	self endon(#"show_owner");
+	self endon("show_owner");
 	if(isdefined(self.show_for_time))
 	{
 		self.show_for_time = showtime;
@@ -296,7 +296,7 @@ function show_briefly(showtime)
 function show_owner_on_attack(owner)
 {
 	owner endon("hide_owner");
-	owner endon(#"show_owner");
+	owner endon("show_owner");
 	self endon("explode");
 	self endon("death");
 	self endon("grenade_dud");
@@ -323,7 +323,7 @@ function hide_owner(owner)
 	owner endon("hide_owner");
 	owner setperk("specialty_immunemms");
 	owner.no_burning_sfx = 1;
-	owner notify(#"stop_flame_sounds");
+	owner notify("stop_flame_sounds");
 	owner setvisibletoallexceptteam(level.zombie_team);
 	owner.hide_owner = 1;
 	if(isdefined(level._effect["human_disappears"]))
@@ -335,7 +335,7 @@ function hide_owner(owner)
 	/#
 		println("" + evt);
 	#/
-	owner notify(#"show_owner");
+	owner notify("show_owner");
 	owner unsetperk("specialty_immunemms");
 	if(isdefined(level._effect["human_disappears"]))
 	{
@@ -434,7 +434,7 @@ function fakelinkto(linkee)
 function player_throw_cymbal_monkey(grenade, num_attractors, max_attract_dist, attract_dist_diff)
 {
 	self endon("disconnect");
-	self endon(#"starting_monkey_watch");
+	self endon("starting_monkey_watch");
 	if(isdefined(grenade))
 	{
 		grenade endon("death");
@@ -469,7 +469,7 @@ function player_throw_cymbal_monkey(grenade, num_attractors, max_attract_dist, a
 		grenade thread watch_for_emp(model, clone);
 		info = spawnstruct();
 		info.sound_attractors = [];
-		grenade waittill(#"stationary");
+		grenade waittill("stationary");
 		if(isdefined(level.grenade_planted))
 		{
 			self thread [[level.grenade_planted]](grenade, model);
@@ -818,7 +818,7 @@ function play_delayed_explode_vox()
 function get_thrown_monkey()
 {
 	self endon("disconnect");
-	self endon(#"starting_monkey_watch");
+	self endon("starting_monkey_watch");
 	while(true)
 	{
 		self waittill("grenade_fire", grenade, weapon);

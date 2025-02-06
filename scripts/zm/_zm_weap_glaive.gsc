@@ -346,7 +346,7 @@ function private excalibur_think(wpn_excalibur)
 {
 	self endon(#"hash_b29853d8");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	while(true)
 	{
 		self waittill("weapon_melee_power_left", weapon);
@@ -435,7 +435,7 @@ function electrocute_actor(ai, wpn_excalibur)
 	{
 		self.tesla_enemies_hit = 1;
 	}
-	ai notify(#"bhtn_action_notify", "electrocute");
+	ai notify("bhtn_action_notify", "electrocute");
 	function_72ca5a88();
 	ai.tesla_death = 0;
 	ai thread arc_damage_init(ai.origin, ai.origin, self);
@@ -702,7 +702,7 @@ function private arc_attack_think(weapon, var_10ee11e)
 {
 	self endon(#"hash_b29853d8");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	while(true)
 	{
 		self util::waittill_any("weapon_melee_power", "weapon_melee");
@@ -723,7 +723,7 @@ function private autokill_think(wpn_autokill)
 {
 	self endon(#"hash_b29853d8");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	while(true)
 	{
 		self waittill("weapon_melee_power_left", weapon);

@@ -436,7 +436,7 @@ function function_e4f42bf7(attacker, weapon, var_a360d6f5)
 	self endon("death");
 	self thread function_c1b2cc5a(var_a360d6f5);
 	self dodamage(2, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
-	self waittillmatch(#"bhtn_action_terminate");
+	self waittillmatch("bhtn_action_terminate");
 	self notify(#"hash_a738dd0", "specialpain");
 }
 

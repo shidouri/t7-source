@@ -128,7 +128,7 @@ function function_2d4f4459()
 			wait(0.05);
 		}
 		self playsoundwithnotify("zmb_musicradio_switch", "sounddone");
-		self waittill(#"sounddone");
+		self waittill("sounddone");
 		self thread function_c62f1c37();
 	}
 }
@@ -153,7 +153,7 @@ function function_c62f1c37()
 	{
 		self.tracknum = 0;
 	}
-	self waittill(#"songdone");
+	self waittill("songdone");
 	self notify(#"hash_34d24635");
 }
 

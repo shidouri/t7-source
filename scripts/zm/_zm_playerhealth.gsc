@@ -615,7 +615,7 @@ function playerhealthdebug()
 				}
 				wait(0.5);
 			}
-			level notify(#"stop_printing_grenade_timers");
+			level notify("stop_printing_grenade_timers");
 			destroyhealthdebug();
 		}
 	#/
@@ -633,8 +633,8 @@ function playerhealthdebug()
 function printhealthdebug()
 {
 	/#
-		level notify(#"stop_printing_health_bars");
-		level endon(#"stop_printing_health_bars");
+		level notify("stop_printing_health_bars");
+		level endon("stop_printing_health_bars");
 		x = 40;
 		y = 40;
 		level.healthbarhudelems = [];

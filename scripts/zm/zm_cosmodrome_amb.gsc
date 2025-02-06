@@ -173,7 +173,7 @@ function monkey_round_announcer()
 	{
 		level flag::wait_till("monkey_round");
 		level thread play_cosmo_announcer_vox("vox_ann_monkey_begin");
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		level thread play_cosmo_announcer_vox("vox_ann_monkey_end");
 		wait(10);
 	}

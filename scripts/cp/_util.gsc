@@ -1502,8 +1502,8 @@ function screen_fade_to_alpha_with_blur(n_alpha, n_fade_time, n_blur, str_shader
 	/#
 		assert(isplayer(self), "");
 	#/
-	level notify(#"_screen_fade");
-	level endon(#"_screen_fade");
+	level notify("_screen_fade");
+	level endon("_screen_fade");
 	hud_fade = get_fade_hud(str_shader);
 	hud_fade fadeovertime(n_fade_time);
 	hud_fade.alpha = n_alpha;

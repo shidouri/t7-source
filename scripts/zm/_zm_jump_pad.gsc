@@ -631,7 +631,7 @@ function jump_pad_ignore_poi_cleanup(ent_poi)
 			if(isdefined(zombies[i]._pad_follow) && zombies[i]._pad_follow)
 			{
 				zombies[i]._pad_follow = 0;
-				zombies[i] notify(#"stop_chasing_the_sky");
+				zombies[i] notify("stop_chasing_the_sky");
 				zombies[i].ignore_cleanup_mgr = 0;
 			}
 			if(isdefined(ent_poi))
@@ -654,7 +654,7 @@ function jump_pad_ignore_poi_cleanup(ent_poi)
 function stop_chasing_the_sky(ent_poi)
 {
 	self endon("death");
-	self endon(#"stop_chasing_the_sky");
+	self endon("stop_chasing_the_sky");
 	while(isdefined(self._pad_follow) && self._pad_follow)
 	{
 		if(isdefined(self.favoriteenemy))
@@ -676,7 +676,7 @@ function stop_chasing_the_sky(ent_poi)
 	}
 	self._pad_follow = 0;
 	self.ignore_cleanup_mgr = 0;
-	self notify(#"stop_chasing_the_sky");
+	self notify("stop_chasing_the_sky");
 }
 
 /*

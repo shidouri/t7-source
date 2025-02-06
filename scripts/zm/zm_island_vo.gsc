@@ -643,7 +643,7 @@ function custom_get_mod_type(impact, mod, weapon, zombie, instakill, dist, playe
 */
 function function_772aa229()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	while(true)
 	{
 		level waittill("start_of_round");

@@ -702,7 +702,7 @@ function function_11a9191()
 function function_c7676d36()
 {
 	self endon("death");
-	self endon(#"bug_out");
+	self endon("bug_out");
 	self ghost();
 	self notsolid();
 	self setcontents(0);
@@ -747,7 +747,7 @@ function function_c7676d36()
 function function_cb795cc3()
 {
 	self endon("death");
-	self endon(#"bug_out");
+	self endon("bug_out");
 	self endon("dying");
 	wait(12);
 	if(isdefined(self.dogfighter))
@@ -779,7 +779,7 @@ function function_cb795cc3()
 function function_78e66c54()
 {
 	self endon("death");
-	self endon(#"bug_out");
+	self endon("bug_out");
 	self.health = 100000;
 	self.maxhealth = self.health;
 	self.var_d4f48128 = 0;
@@ -1044,7 +1044,7 @@ function function_3ed8bf0e()
 	self.var_b55ae1ed = 0;
 	if(isdefined(self.var_1d195e2c))
 	{
-		self.var_1d195e2c notify(#"bug_out");
+		self.var_1d195e2c notify("bug_out");
 		self.var_1d195e2c.bugging_out = 1;
 		if(!(isdefined(self.var_1d195e2c.dying) && self.var_1d195e2c.dying) && isalive(self.var_1d195e2c))
 		{
@@ -1063,7 +1063,7 @@ function function_3ed8bf0e()
 	if(isdefined(self function_a9d982da()))
 	{
 		target = self function_a9d982da();
-		target notify(#"bug_out");
+		target notify("bug_out");
 		target.bugging_out = 1;
 		if(!(isdefined(target.dying) && target.dying) && isalive(target))
 		{

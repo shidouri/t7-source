@@ -624,7 +624,7 @@ function play_lockon_sounds(player)
 {
 	player endon("disconnect");
 	self endon("death");
-	self endon(#"blowup");
+	self endon("blowup");
 	self endon("crashing");
 	level endon("game_ended");
 	self endon("end_remote");
@@ -1702,7 +1702,7 @@ function qrdrone_fireguns(qrdrone)
 {
 	self endon("disconnect");
 	qrdrone endon("death");
-	qrdrone endon(#"blowup");
+	qrdrone endon("blowup");
 	qrdrone endon("crashing");
 	level endon("game_ended");
 	qrdrone endon("end_remote");
@@ -1736,7 +1736,7 @@ function qrdrone_blowup(attacker, weapon)
 {
 	self.owner endon("disconnect");
 	self endon("death");
-	self notify(#"blowup");
+	self notify("blowup");
 	explosionorigin = self.origin;
 	explosionangles = self.angles;
 	if(!isdefined(attacker))

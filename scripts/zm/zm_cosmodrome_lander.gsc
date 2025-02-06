@@ -1016,7 +1016,7 @@ function lock_players(destination)
 */
 function function_e323fa97()
 {
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self.on_lander_last_stand = 1;
 	self allowcrouch(0);
 	self allowstand(0);

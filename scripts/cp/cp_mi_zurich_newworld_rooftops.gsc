@@ -492,7 +492,7 @@ function bomber_mission_fail_death()
 {
 	level endon("rooftops_terminate");
 	self waittill("death");
-	level notify(#"bomber_killed");
+	level notify("bomber_killed");
 	util::missionfailedwrapper_nodeath(&"CP_MI_ZURICH_NEWWORLD_SUSPECT_KILLED", &"CP_MI_ZURICH_NEWWORLD_SUSPECT_KILLED_HINT");
 }
 
@@ -1331,7 +1331,7 @@ function skipto_bridge_collapse_igc_init(str_objective, b_starting)
 	}
 	level thread hall_bridge_dropdown(0);
 	level thread function_82467236();
-	level waittill(#"bridge_collapse_igc_done");
+	level waittill("bridge_collapse_igc_done");
 	skipto::objective_completed(str_objective);
 }
 
@@ -1368,7 +1368,7 @@ function function_2c789839()
 	scene::add_scene_func("p7_fxanim_cp_newworld_bridge_collapse_bundle", &function_28e6c236, "play");
 	level waittill(#"hash_511ddebd");
 	level scene::play("p7_fxanim_cp_newworld_bridge_collapse_bundle", array(level.var_79ddcc8b));
-	level notify(#"bridge_collapse_igc_done");
+	level notify("bridge_collapse_igc_done");
 }
 
 /*
@@ -3181,7 +3181,7 @@ function function_a00b4c50(b_starting = 0)
 	{
 		level.var_79ddcc8b dialog::say("zsfh_surrender_this_is_0", undefined, 1);
 	}
-	level waittill(#"bridge_collapse_igc_done");
+	level waittill("bridge_collapse_igc_done");
 	level thread function_c2c5155b();
 }
 

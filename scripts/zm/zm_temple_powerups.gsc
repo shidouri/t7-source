@@ -289,7 +289,7 @@ function monkey_protect_player(player)
 */
 function monkey_attack_zombie(zombie)
 {
-	self endon(#"bad_path");
+	self endon("bad_path");
 	self endon("timeout");
 	self.zombie = zombie;
 	zombie.monkey_claimed = 1;

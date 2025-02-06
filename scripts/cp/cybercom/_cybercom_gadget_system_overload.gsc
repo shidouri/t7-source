@@ -464,7 +464,7 @@ function system_overload(attacker, disabletimemsec, weapon = getweapon("gadget_s
 			blackboard::setblackboardattribute(self, "_stance", "crouch");
 		}
 		self dodamage(2, self.origin, (isdefined(attacker) ? attacker : undefined), undefined, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
-		self waittillmatch(#"bhtn_action_terminate");
+		self waittillmatch("bhtn_action_terminate");
 	}
 	if(isalive(self) && !self isragdoll())
 	{

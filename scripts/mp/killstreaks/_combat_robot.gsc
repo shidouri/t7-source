@@ -404,7 +404,7 @@ function _watchmodeswap(robot, player)
 					player iprintlnbold(&"KILLSTREAK_COMBAT_ROBOT_PATROL_FAIL");
 				}
 			}
-			robot notify(#"bhtn_action_notify", "modeSwap");
+			robot notify("bhtn_action_notify", "modeSwap");
 			nextswitchtime = gettime() + 1000;
 		}
 	}
@@ -991,7 +991,7 @@ function sndwatchcombatrobotvoxnotifies()
 	while(true)
 	{
 		soundalias = undefined;
-		combatrobot waittill(#"bhtn_action_notify", notify_string);
+		combatrobot waittill("bhtn_action_notify", notify_string);
 		switch(notify_string)
 		{
 			case "attack_kill":

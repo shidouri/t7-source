@@ -148,7 +148,7 @@ function _on(slot, weapon)
 {
 	cybercom::function_adc40f11(weapon, 1);
 	self thread spawn_firefly_swarm(self hascybercomability("cybercom_fireflyswarm") == 2);
-	self notify(#"bhtn_action_notify", "firefly_deploy");
+	self notify("bhtn_action_notify", "firefly_deploy");
 	if(isplayer(self))
 	{
 		itemindex = getitemindexfromref("cybercom_fireflyswarm");
@@ -767,7 +767,7 @@ function swarm_attackhumantarget(target)
 		self.firebugcount--;
 		reactionanims["intro"] = (((("ai_" + base) + "_") + type) + "_exposed_swarm_upg_react_intro") + variant;
 		target thread _firebombtarget(self, reactionanims, getweapon("gadget_firefly_swarm_upgraded"));
-		target notify(#"bhtn_action_notify", "fireflyAttack");
+		target notify("bhtn_action_notify", "fireflyAttack");
 		target clientfield::set("firefly_state", 9);
 	}
 	else
@@ -783,7 +783,7 @@ function swarm_attackhumantarget(target)
 		}
 		target clientfield::set("firefly_state", 4);
 		target thread _reacttoswarm(self, reactionanims, getweapon("gadget_firefly_swarm"));
-		target notify(#"bhtn_action_notify", "fireflyAttack");
+		target notify("bhtn_action_notify", "fireflyAttack");
 	}
 	self waittill("attack_stopped");
 }
@@ -857,14 +857,14 @@ function function_cb5f9a2(target)
 	{
 		self.firebugcount--;
 		target thread _firebombtarget(self, reactionanims, getweapon("gadget_firefly_swarm_upgraded"));
-		target notify(#"bhtn_action_notify", "fireflyAttack");
+		target notify("bhtn_action_notify", "fireflyAttack");
 		target clientfield::set("firefly_state", 9);
 	}
 	else
 	{
 		target clientfield::set("firefly_state", 4);
 		target thread _reacttoswarm(self, reactionanims, getweapon("gadget_firefly_swarm"));
-		target notify(#"bhtn_action_notify", "fireflyAttack");
+		target notify("bhtn_action_notify", "fireflyAttack");
 	}
 	self waittill("attack_stopped");
 }
@@ -991,7 +991,7 @@ function private _firebombtargetpain(swarm, reactionanims, weapon)
 	}
 	if(!self cybercom::function_421746e0())
 	{
-		self waittillmatch(#"bhtn_action_terminate");
+		self waittillmatch("bhtn_action_terminate");
 	}
 	self notify("firebug_time_to_die", "specialpain");
 }
@@ -1189,7 +1189,7 @@ function private _reacttoswarm(swarm, reactionanims, weapon)
 	{
 		self dodamage(5, self.origin, swarm.owner, swarm, "none", "MOD_UNKNOWN", 0, weapon, -1, 1);
 		wait(0.05);
-		self waittillmatch(#"bhtn_action_terminate");
+		self waittillmatch("bhtn_action_terminate");
 		attack = isdefined(swarm) && (!(isdefined(swarm.dying_out) && swarm.dying_out)) && (distancesquared(self.origin + vectorscale((0, 0, 1), 48), swarm.origin)) < (getdvarint("scr_firefly_swarm_attack_radius", 110) * getdvarint("scr_firefly_swarm_attack_radius", 110)) && isalive(self);
 	}
 	self notify("attack_stopped", "specialpain", "end");
@@ -1292,7 +1292,7 @@ function swarm_dead_think(params)
 	self vehicle::toggle_sounds(0);
 	if(isdefined(self.owner))
 	{
-		self.owner notify(#"bhtn_action_notify", "firefly_end");
+		self.owner notify("bhtn_action_notify", "firefly_end");
 	}
 	wait(3);
 	self swarm_delete();

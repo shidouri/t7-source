@@ -88,7 +88,7 @@ function function_657b61e3(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(isdefined(self.sndent))
 	{
-		self.sndent notify(#"snddeleting");
+		self.sndent notify("snddeleting");
 		self.sndent delete();
 		self.sndent = undefined;
 	}
@@ -144,7 +144,7 @@ function function_657b61e3(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function snddeleteent(zomb)
 {
-	self endon(#"snddeleting");
+	self endon("snddeleting");
 	zomb waittill("entityshutdown");
 	self delete();
 }

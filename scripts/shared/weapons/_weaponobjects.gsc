@@ -2872,14 +2872,14 @@ function proximityweaponobject_waittillframeendanddodetonation(watcher, ent, tra
 	{
 		if(dist < self.activated_entity_distance)
 		{
-			self notify(#"better_target");
+			self notify("better_target");
 		}
 		else
 		{
 			return;
 		}
 	}
-	self endon(#"better_target");
+	self endon("better_target");
 	self.activated_entity_distance = dist;
 	wait(0.05);
 	proximityweaponobject_dodetonation(watcher, ent, traceorigin);

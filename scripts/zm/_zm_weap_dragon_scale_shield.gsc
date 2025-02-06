@@ -191,7 +191,7 @@ function function_98962bde()
 	self endon("disconnect");
 	while(isdefined(self))
 	{
-		level waittill(#"start_of_round");
+		level waittill("start_of_round");
 		if(isdefined(self) && (isdefined(self.hasriotshield) && self.hasriotshield))
 		{
 			self zm_equipment::change_ammo(self.weaponriotshield, 1);

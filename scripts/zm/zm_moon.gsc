@@ -1429,7 +1429,7 @@ function moon_round_think_func(restart = 0)
 			[[level.check_quickrevive_hotjoin]]();
 		}
 		level zm::round_over();
-		level notify(#"between_round_over");
+		level notify("between_round_over");
 		level flag::clear("between_rounds");
 		level.skip_alive_at_round_end_xp = 0;
 		restart = 0;
@@ -2380,7 +2380,7 @@ function moon_digger_respawn(revivee)
 */
 function moon_reset_respawn_overide()
 {
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	level.check_valid_spawn_override = undefined;
 }
 

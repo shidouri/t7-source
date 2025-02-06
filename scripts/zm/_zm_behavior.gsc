@@ -2195,7 +2195,7 @@ function zombiebhbburst(entity)
 	}
 	if(isdefined(entity.interdimensional_gun_projectile))
 	{
-		entity.interdimensional_gun_projectile notify(#"black_hole_bomb_kill");
+		entity.interdimensional_gun_projectile notify("black_hole_bomb_kill");
 	}
 }
 

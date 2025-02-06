@@ -1027,7 +1027,7 @@ function sumpf_player_spawn_placement()
 */
 function water_burst_overwrite()
 {
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	level._effect["rise_burst_water"] = "maps/zombie/fx_zombie_body_wtr_burst_smpf";
 	level._effect["rise_billow_water"] = "maps/zombie/fx_zombie_body_wtr_billow_smpf";
 }

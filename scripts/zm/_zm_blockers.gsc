@@ -501,7 +501,7 @@ function door_activate(time, open = 1, quick, use_blocker_clip_for_pathing)
 		}
 	}
 	self.door_moving = 1;
-	level notify(#"snddooropening");
+	level notify("snddooropening");
 	if(open || (!(isdefined(quick) && quick)))
 	{
 		self notsolid();
@@ -1863,7 +1863,7 @@ function blocker_attack_spots()
 function blocker_choke()
 {
 	level._blocker_choke = 0;
-	level endon(#"stop_blocker_think");
+	level endon("stop_blocker_think");
 	while(true)
 	{
 		wait(0.05);
@@ -1882,7 +1882,7 @@ function blocker_choke()
 */
 function blocker_think()
 {
-	level endon(#"stop_blocker_think");
+	level endon("stop_blocker_think");
 	if(!isdefined(level._blocker_choke))
 	{
 		level thread blocker_choke();
@@ -2053,7 +2053,7 @@ function blocker_unitrigger_think()
 */
 function blocker_trigger_think()
 {
-	self endon(#"blocker_hacked");
+	self endon("blocker_hacked");
 	if(isdefined(level.no_board_repair) && level.no_board_repair)
 	{
 		return;
@@ -2061,7 +2061,7 @@ function blocker_trigger_think()
 	/#
 		println("");
 	#/
-	level endon(#"stop_blocker_think");
+	level endon("stop_blocker_think");
 	cost = 10;
 	if(isdefined(self.zombie_cost))
 	{
@@ -2144,7 +2144,7 @@ function blocker_trigger_think()
 			{
 				break;
 			}
-			player notify(#"boarding_window", self);
+			player notify("boarding_window", self);
 			if(isdefined(self.zbarrier))
 			{
 				chunk = zm_utility::get_random_destroyed_chunk(self, self.barrier_chunks);

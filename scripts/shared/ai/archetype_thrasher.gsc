@@ -1434,7 +1434,7 @@ function thrasherkillthrasheronautorevive(thrasher, player)
 {
 	player endon("death");
 	player endon("kill_thrasher_on_auto_revive");
-	player waittill(#"bgb_revive");
+	player waittill("bgb_revive");
 	if(isdefined(player.thrasher))
 	{
 		player.thrasher kill();
@@ -1556,7 +1556,7 @@ function thrasherplayerdeath(thrasher, player)
 	{
 		return;
 	}
-	level waittill(#"bleed_out", characterindex);
+	level waittill("bleed_out", characterindex);
 	if(isdefined(thrasher.thrasherreleaseconsumedcallback))
 	{
 		[[thrasher.thrasherreleaseconsumedcallback]](thrasher, player);

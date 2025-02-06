@@ -218,7 +218,7 @@ function bc_ainotifyconvert()
 	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"bhtn_action_notify", notify_string);
+		self waittill("bhtn_action_notify", notify_string);
 		switch(notify_string)
 		{
 			case "pain":
@@ -689,11 +689,11 @@ function function_897d1130()
 	{
 		if(meansofdeath == "MOD_MELEE")
 		{
-			attacker notify(#"bhtn_action_notify", "meleeKill");
+			attacker notify("bhtn_action_notify", "meleeKill");
 		}
 		else
 		{
-			attacker notify(#"bhtn_action_notify", "enemyKill");
+			attacker notify("bhtn_action_notify", "enemyKill");
 		}
 	}
 }
@@ -746,11 +746,11 @@ function bc_death()
 		{
 			if(meansofdeath == "MOD_MELEE")
 			{
-				attacker notify(#"bhtn_action_notify", "meleeKill");
+				attacker notify("bhtn_action_notify", "meleeKill");
 			}
 			else
 			{
-				attacker notify(#"bhtn_action_notify", "enemyKill");
+				attacker notify("bhtn_action_notify", "enemyKill");
 			}
 		}
 		sniper = isdefined(attacker) && isdefined(attacker.scoretype) && attacker.scoretype == "_sniper";
@@ -991,7 +991,7 @@ function do_sound(soundalias, alwaysplay, response, category)
 		}
 		if(isdefined(self.isspeaking) && self.isspeaking)
 		{
-			self notify(#"bc_interrupt");
+			self notify("bc_interrupt");
 		}
 		if(isalive(self))
 		{
@@ -1122,7 +1122,7 @@ function bc_plrnotifyconvert()
 	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"bhtn_action_notify", notify_string);
+		self waittill("bhtn_action_notify", notify_string);
 		switch(notify_string)
 		{
 			case "firefly_deploy":
@@ -1265,7 +1265,7 @@ function sndcybercoremeleeresponse()
 		ai = level get_closest_ai_to_object("axis", self, 700);
 		if(isdefined(ai))
 		{
-			ai notify(#"bhtn_action_notify", "rapidstrike");
+			ai notify("bhtn_action_notify", "rapidstrike");
 		}
 	}
 }

@@ -141,7 +141,7 @@ function _play(animation, v_origin_or_ent = self, v_angles_or_tag, n_rate = 1, n
 function private waittill_end()
 {
 	level endon("demo_jump");
-	self waittillmatch(#"_anim_notify_");
+	self waittillmatch("_anim_notify_");
 }
 
 /*
@@ -388,7 +388,7 @@ function handle_notetracks()
 	self endon("entityshutdown");
 	while(true)
 	{
-		self waittill(#"_anim_notify_", str_note);
+		self waittill("_anim_notify_", str_note);
 		if(str_note != "end" && str_note != "loop_end")
 		{
 			self thread call_notetrack_handler(str_note);

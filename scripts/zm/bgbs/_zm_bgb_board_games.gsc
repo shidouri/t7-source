@@ -81,11 +81,11 @@ function disable()
 function function_7b627622()
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("bled_out");
+	self endon("bgb_update");
 	while(true)
 	{
-		self waittill(#"boarding_window", s_window);
+		self waittill("boarding_window", s_window);
 		self bgb::do_one_shot_use();
 		self thread function_d5ed5165(s_window);
 	}

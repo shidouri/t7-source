@@ -443,7 +443,7 @@ function machine_think()
 			self playsound("zmb_rand_perk_start");
 			self playloopsound("zmb_rand_perk_loop", 1);
 			wait(1);
-			self notify(#"bottle_spawned");
+			self notify("bottle_spawned");
 			self thread start_perk_bottle_cycling();
 			self thread perk_bottle_motion();
 			model = get_perk_weapon_model(random_perk);
@@ -783,7 +783,7 @@ function perk_random_vending()
 	self thread perk_random_loop_anim(3, "closing", "closing");
 	self thread perk_random_vend_sfx();
 	self notify("vending");
-	self waittill(#"bottle_spawned");
+	self waittill("bottle_spawned");
 	self setzbarrierpiecestate(4, "opening");
 }
 
@@ -1138,7 +1138,7 @@ function wunderfizz_devgui_callback(cmd)
 			case "":
 			{
 				e_wunderfizz thread set_perk_random_machine_state("");
-				e_wunderfizz notify(#"bottle_spawned");
+				e_wunderfizz notify("bottle_spawned");
 				break;
 			}
 			case "":

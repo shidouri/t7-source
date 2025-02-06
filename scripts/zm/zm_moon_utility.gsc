@@ -654,7 +654,7 @@ function moon_intermission()
 	level endon("stop_intermission");
 	self endon("disconnect");
 	self endon("death");
-	self notify(#"_zombie_game_over");
+	self notify("_zombie_game_over");
 	self.score = self.score_total;
 	self.sessionstate = "intermission";
 	self.spectatorclient = -1;

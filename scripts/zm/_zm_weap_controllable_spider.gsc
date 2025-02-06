@@ -216,7 +216,7 @@ function function_5ce6002e(e_player, w_previous)
 	e_player.ignoreme = 1;
 	wait(1);
 	e_player lui::screen_fade_out(0.25);
-	self notify(#"stop_last_valid_position");
+	self notify("stop_last_valid_position");
 	self notify("exit_vehicle");
 	e_player clientfield::set("player_cocooned_fx", 1);
 	e_cocoon hide();
@@ -341,7 +341,7 @@ function function_a21f0b74()
 function function_e889b7()
 {
 	self endon("disconnect");
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	n_ammo = self getammocount(level.w_controllable_spider);
 	if(n_ammo <= 0)
 	{

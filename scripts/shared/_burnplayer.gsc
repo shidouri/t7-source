@@ -110,12 +110,12 @@ function watchburnfinished()
 */
 function watchburntimer(duration)
 {
-	self notify(#"burnplayer_watchburntimer");
-	self endon(#"burnplayer_watchburntimer");
+	self notify("burnplayer_watchburntimer");
+	self endon("burnplayer_watchburntimer");
 	self endon("disconnect");
 	self endon("death");
 	wait(duration);
-	self notify(#"burn_finished");
+	self notify("burn_finished");
 }
 
 /*
@@ -135,8 +135,8 @@ function watchburndamage(interval, damage, attacker, weapon)
 	}
 	self endon("disconnect");
 	self endon("death");
-	self endon(#"burnplayer_watchburntimer");
-	self endon(#"burn_finished");
+	self endon("burnplayer_watchburntimer");
+	self endon("burn_finished");
 	while(true)
 	{
 		wait(interval);
@@ -159,12 +159,12 @@ function watchforwater()
 {
 	self endon("disconnect");
 	self endon("death");
-	self endon(#"burn_finished");
+	self endon("burn_finished");
 	while(true)
 	{
 		if(self isplayerunderwater())
 		{
-			self notify(#"burn_finished");
+			self notify("burn_finished");
 		}
 		wait(0.05);
 	}

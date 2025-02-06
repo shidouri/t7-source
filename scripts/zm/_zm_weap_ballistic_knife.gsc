@@ -37,7 +37,7 @@ function on_spawn(watcher, player)
 	player endon("disconnect");
 	player endon("zmb_lost_knife");
 	level endon("game_ended");
-	self waittill(#"stationary", endpos, normal, angles, attacker, prey, bone);
+	self waittill("stationary", endpos, normal, angles, attacker, prey, bone);
 	isfriendly = 0;
 	if(isdefined(endpos))
 	{
@@ -71,16 +71,16 @@ function on_spawn(watcher, player)
 		watcher.objectarray[watcher.objectarray.size] = retrievable_model;
 		if(isfriendly)
 		{
-			retrievable_model waittill(#"stationary");
+			retrievable_model waittill("stationary");
 		}
 		retrievable_model thread drop_knives_to_ground(player);
 		if(isfriendly)
 		{
-			player notify(#"ballistic_knife_stationary", retrievable_model, normal);
+			player notify("ballistic_knife_stationary", retrievable_model, normal);
 		}
 		else
 		{
-			player notify(#"ballistic_knife_stationary", retrievable_model, normal, prey);
+			player notify("ballistic_knife_stationary", retrievable_model, normal, prey);
 		}
 		retrievable_model thread wait_to_show_glowing_model(prey);
 	}
@@ -118,7 +118,7 @@ function on_spawn_retrieve_trigger(watcher, player)
 	player endon("disconnect");
 	player endon("zmb_lost_knife");
 	level endon("game_ended");
-	player waittill(#"ballistic_knife_stationary", retrievable_model, normal, prey);
+	player waittill("ballistic_knife_stationary", retrievable_model, normal, prey);
 	if(!isdefined(retrievable_model))
 	{
 		return;
@@ -398,7 +398,7 @@ function update_retrieve_trigger(player)
 		self [[level.custom_update_retrieve_trigger]](player);
 		return;
 	}
-	self waittill(#"stationary");
+	self waittill("stationary");
 	trigger = self.retrievabletrigger;
 	trigger.origin = (self.origin[0], self.origin[1], self.origin[2] + 10);
 	trigger linkto(self);

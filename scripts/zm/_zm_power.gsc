@@ -1005,8 +1005,8 @@ function zombie_power_off(origin, radius)
 function stun_zombie()
 {
 	self endon("death");
-	self notify(#"stun_zombie");
-	self endon(#"stun_zombie");
+	self notify("stun_zombie");
+	self endon("stun_zombie");
 	if(self.health <= 0)
 	{
 		/#

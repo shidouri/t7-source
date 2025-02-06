@@ -192,7 +192,7 @@ function state_death_update(params)
 	self vehicle_death::set_death_model(self.deathmodel, self.modelswapdelay);
 	self vehicle::do_death_dynents();
 	self vehicle_death::death_radius_damage();
-	self waittill(#"bodyfall large");
+	self waittill("bodyfall large");
 	self radiusdamage(self.origin + vectorscale((0, 0, 1), 10), self.radius * 0.8, 150, 60, self, "MOD_CRUSH");
 	vehicle_ai::waittill_asm_complete("death@stationary", 3);
 	self thread vehicle_death::cleanup();

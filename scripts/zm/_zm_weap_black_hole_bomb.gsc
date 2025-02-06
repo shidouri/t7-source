@@ -103,9 +103,9 @@ function player_give_black_hole_bomb()
 */
 function player_handle_black_hole_bomb()
 {
-	self notify(#"starting_black_hole_bomb");
+	self notify("starting_black_hole_bomb");
 	self endon("disconnect");
-	self endon(#"starting_black_hole_bomb");
+	self endon("starting_black_hole_bomb");
 	attract_dist_diff = level.black_hole_attract_dist_diff;
 	if(!isdefined(attract_dist_diff))
 	{
@@ -354,7 +354,7 @@ function wait_for_attractor_positions_complete()
 */
 function black_hole_bomb_cleanup(parent, model)
 {
-	model endon(#"sam_stole_it");
+	model endon("sam_stole_it");
 	grenade_org = parent.origin;
 	while(true)
 	{
@@ -420,7 +420,7 @@ function black_hole_bomb_corpse_delete()
 function get_thrown_black_hole_bomb()
 {
 	self endon("disconnect");
-	self endon(#"starting_black_hole_bomb");
+	self endon("starting_black_hole_bomb");
 	while(true)
 	{
 		self waittill("grenade_fire", grenade, weapon);
@@ -494,7 +494,7 @@ function monitor_zombie_groans(info)
 function play_zombie_groans()
 {
 	self endon("death");
-	self endon(#"black_hole_bomb_blown_up");
+	self endon("black_hole_bomb_blown_up");
 	while(true)
 	{
 		if(isdefined(self))
@@ -675,7 +675,7 @@ function black_hole_bomb_teleport_init(ent_grenade)
 	teleport_trigger = spawn("trigger_radius", ent_grenade.origin, 0, 64, 70);
 	ent_grenade thread black_hole_bomb_trigger_monitor(teleport_trigger);
 	ent_grenade waittill("explode");
-	teleport_trigger notify(#"black_hole_complete");
+	teleport_trigger notify("black_hole_complete");
 	wait(0.1);
 	teleport_trigger delete();
 }
@@ -691,7 +691,7 @@ function black_hole_bomb_teleport_init(ent_grenade)
 */
 function black_hole_bomb_trigger_monitor(ent_trigger)
 {
-	ent_trigger endon(#"black_hole_complete");
+	ent_trigger endon("black_hole_complete");
 	while(true)
 	{
 		ent_trigger waittill("trigger", ent_player);
@@ -845,7 +845,7 @@ function slightly_delayed_player_response()
 function black_hole_teleport_trigger_thread(ent, on_enter_payload, on_exit_payload)
 {
 	ent endon("death");
-	self endon(#"black_hole_complete");
+	self endon("black_hole_complete");
 	if(ent black_hole_teleport_ent_already_in_trigger(self))
 	{
 		return;
@@ -953,7 +953,7 @@ function black_hole_bomb_kill_counter(grenade)
 	kill_count = 0;
 	for(;;)
 	{
-		grenade waittill(#"black_hole_bomb_kill");
+		grenade waittill("black_hole_bomb_kill");
 		kill_count++;
 		if(kill_count == 4)
 		{
@@ -961,7 +961,7 @@ function black_hole_bomb_kill_counter(grenade)
 		}
 		if(5 <= kill_count)
 		{
-			self notify(#"black_hole_kills_achievement");
+			self notify("black_hole_kills_achievement");
 		}
 	}
 }

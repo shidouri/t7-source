@@ -1209,7 +1209,7 @@ function handle_pallas_pillar_weakspot()
 			}
 		}
 		t_coolant delete();
-		level waittill(#"boom");
+		level waittill("boom");
 		level thread detonate_robots();
 		fx_model = util::spawn_model("tag_origin", fx_struct.origin, fx_struct.angles);
 		level sgen_util::quake(0.5, 1, fx_model.origin, 5000, 4, 7);

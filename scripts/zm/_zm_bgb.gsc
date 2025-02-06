@@ -266,7 +266,7 @@ function private bgb_player_monitor()
 		}
 		if(str_return === "restart_round")
 		{
-			level waittill(#"between_round_over");
+			level waittill("between_round_over");
 		}
 		else
 		{
@@ -418,8 +418,8 @@ function private bgb_set_debug_text(name, activations_remaining)
 		{
 			self clientfield::set_player_uimodel("", 0);
 		}
-		self notify(#"bgb_set_debug_text_thread");
-		self endon(#"bgb_set_debug_text_thread");
+		self notify("bgb_set_debug_text_thread");
+		self endon("bgb_set_debug_text_thread");
 		self endon("disconnect");
 		self.bgb_debug_text fadeovertime(0.05);
 		self.bgb_debug_text.alpha = 1;
@@ -607,7 +607,7 @@ function bgb_gumball_anim(bgb, activating)
 			{
 				return 0;
 			}
-			self notify(#"bgb_gumball_anim_give", bgb);
+			self notify("bgb_gumball_anim_give", bgb);
 			self thread give(bgb);
 			self zm_stats::increment_client_stat("bgbs_chewed");
 			self zm_stats::increment_player_stat("bgbs_chewed");
@@ -644,7 +644,7 @@ function private run_activation_func(bgb)
 	self endon("disconnect");
 	self set_active(1);
 	self do_one_shot_use();
-	self notify(#"bgb_bubble_blow_complete");
+	self notify("bgb_bubble_blow_complete");
 	self [[level.bgb[bgb].activation_func]]();
 	self set_active(0);
 	self activation_complete();
@@ -757,8 +757,8 @@ function private bgb_play_gumball_anim_end(w_original, bgb, activating)
 */
 function private bgb_clear_monitors_and_clientfields()
 {
-	self notify(#"bgb_limit_monitor");
-	self notify(#"bgb_activation_monitor");
+	self notify("bgb_limit_monitor");
+	self notify("bgb_activation_monitor");
 	self clientfield::set_player_uimodel("bgb_display", 0);
 	self clientfield::set_player_uimodel("bgb_activations_remaining", 0);
 	self clear_timer();
@@ -776,9 +776,9 @@ function private bgb_clear_monitors_and_clientfields()
 function private bgb_limit_monitor()
 {
 	self endon("disconnect");
-	self endon(#"bgb_update");
-	self notify(#"bgb_limit_monitor");
-	self endon(#"bgb_limit_monitor");
+	self endon("bgb_update");
+	self notify("bgb_limit_monitor");
+	self endon("bgb_limit_monitor");
 	self clientfield::set_player_uimodel("bgb_display", 1);
 	self thread function_5fc6d844(self.bgb);
 	switch(level.bgb[self.bgb].limit_type)
@@ -799,7 +799,7 @@ function private bgb_limit_monitor()
 				}
 				self clientfield::set_player_uimodel("bgb_activations_remaining", i);
 				self thread bgb_set_debug_text(self.bgb, i);
-				self waittill(#"bgb_activation");
+				self waittill("bgb_activation");
 				while(isdefined(self get_active()) && self get_active())
 				{
 					wait(0.05);
@@ -866,11 +866,11 @@ function private bgb_limit_monitor()
 function private bgb_bled_out_monitor()
 {
 	self endon("disconnect");
-	self endon(#"bgb_update");
-	self notify(#"bgb_bled_out_monitor");
-	self endon(#"bgb_bled_out_monitor");
-	self waittill(#"bled_out");
-	self notify(#"bgb_about_to_take_on_bled_out");
+	self endon("bgb_update");
+	self notify("bgb_bled_out_monitor");
+	self endon("bgb_bled_out_monitor");
+	self waittill("bled_out");
+	self notify("bgb_about_to_take_on_bled_out");
 	wait(0.1);
 	self thread take();
 }
@@ -887,22 +887,22 @@ function private bgb_bled_out_monitor()
 function private bgb_activation_monitor()
 {
 	self endon("disconnect");
-	self notify(#"bgb_activation_monitor");
-	self endon(#"bgb_activation_monitor");
+	self notify("bgb_activation_monitor");
+	self endon("bgb_activation_monitor");
 	if("activated" != level.bgb[self.bgb].limit_type)
 	{
 		return;
 	}
 	for(;;)
 	{
-		self waittill(#"bgb_activation_request");
+		self waittill("bgb_activation_request");
 		if(!self function_b616fe7a(0))
 		{
 			continue;
 		}
 		if(self bgb_gumball_anim(self.bgb, 1))
 		{
-			self notify(#"bgb_activation", self.bgb);
+			self notify("bgb_activation", self.bgb);
 		}
 	}
 }
@@ -941,8 +941,8 @@ function private function_b616fe7a(var_5827b083 = 0)
 function private function_5fc6d844(bgb)
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("bled_out");
+	self endon("bgb_update");
 	if(isdefined(level.bgb[bgb].var_50fe45f6) && level.bgb[bgb].var_50fe45f6)
 	{
 		function_650ca64(6);
@@ -951,7 +951,7 @@ function private function_5fc6d844(bgb)
 	{
 		return;
 	}
-	self waittill(#"bgb_activation_request");
+	self waittill("bgb_activation_request");
 	self thread take();
 }
 
@@ -1258,8 +1258,8 @@ function set_timer(current, max)
 function run_timer(max)
 {
 	self endon("disconnect");
-	self notify(#"bgb_run_timer");
-	self endon(#"bgb_run_timer");
+	self notify("bgb_run_timer");
+	self endon("bgb_run_timer");
 	current = max;
 	while(current > 0)
 	{
@@ -1282,7 +1282,7 @@ function run_timer(max)
 function clear_timer()
 {
 	self bgb_set_timer_clientfield(0);
-	self notify(#"bgb_run_timer");
+	self notify("bgb_run_timer");
 }
 
 /*
@@ -1560,7 +1560,7 @@ function give(name)
 	/#
 		assert(isdefined(level.bgb[name]), ("" + name) + "");
 	#/
-	self notify(#"bgb_update", name, self.bgb);
+	self notify("bgb_update", name, self.bgb);
 	self notify("bgb_update_give_" + name);
 	self.bgb = name;
 	self clientfield::set_player_uimodel("bgb_current", level.bgb[name].item_index);
@@ -1599,7 +1599,7 @@ function take()
 		self thread [[level.bgb[self.bgb].disable_func]]();
 	}
 	self bgb_clear_monitors_and_clientfields();
-	self notify(#"bgb_update", "none", self.bgb);
+	self notify("bgb_update", "none", self.bgb);
 	self notify("bgb_update_take_" + self.bgb);
 	self.bgb = "none";
 }
@@ -1970,8 +1970,8 @@ function function_d51db887()
 function function_4ed517b9(n_max_distance, var_98a3e738, var_287a7adb)
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
-	self endon(#"bgb_update");
+	self endon("bled_out");
+	self endon("bgb_update");
 	self.var_6638f10b = [];
 	while(true)
 	{
@@ -2115,7 +2115,7 @@ function revive_and_return_perk_on_bgb_activation(perk)
 	self notify("revive_and_return_perk_on_bgb_activation" + perk);
 	self endon("revive_and_return_perk_on_bgb_activation" + perk);
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	if(perk == "specialty_widowswine")
 	{
 		var_376ad33c = self getweaponammoclip(self.current_lethal_grenade);
@@ -2154,7 +2154,7 @@ function bgb_revive_watcher()
 	wait(0.05);
 	if(isdefined(self.var_df0decf1) && self.var_df0decf1)
 	{
-		self notify(#"bgb_revive");
+		self notify("bgb_revive");
 		self.var_df0decf1 = undefined;
 	}
 }

@@ -228,7 +228,7 @@ function callback_playerconnect()
 	init_player_flags();
 	thread notifyconnecting();
 	self.statusicon = "hud_status_connecting";
-	self waittill(#"begin");
+	self waittill("begin");
 	if(isdefined(level.reset_clientdvars))
 	{
 		self [[level.reset_clientdvars]]();

@@ -478,7 +478,7 @@ function on_player_connect()
 	self endon("disconnect");
 	while(true)
 	{
-		self waittill(#"bled_out");
+		self waittill("bled_out");
 		if(isdefined(level.bled_out_callbacks))
 		{
 			foreach(fn in level.bled_out_callbacks)

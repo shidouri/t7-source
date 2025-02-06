@@ -180,7 +180,7 @@ function function_419bf2ad()
 	level endon("end_game");
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		level.var_ab7eb3d4 = 0;
 	}
 }

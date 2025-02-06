@@ -382,8 +382,8 @@ function error_on_screen(str_msg)
 */
 function _destroy_error_on_screen()
 {
-	level notify(#"_destroy_error_on_screen");
-	level endon(#"_destroy_error_on_screen");
+	level notify("_destroy_error_on_screen");
+	level endon("_destroy_error_on_screen");
 	self util::waittill_notify_or_timeout("stopped", 5);
 	closeluimenu(0, level.scene_error_hud);
 	level.scene_error_hud = undefined;

@@ -1564,7 +1564,7 @@ function play_bda_dialog()
 		}
 	}
 	self killstreaks::play_pilot_dialog_on_owner(bdadialog, self.killstreaktype, self.killstreak_id);
-	self notify(#"bda_dialog", bdadialog);
+	self notify("bda_dialog", bdadialog);
 	self.bda = 0;
 }
 

@@ -256,7 +256,7 @@ function init_sniper_boss()
 		level.sniper_boss.lase_ent notify("target_lase_transition");
 		level.sniper_boss.lase_ent thread ai_sniper::target_lase_override(level.sniper_boss geteye(), shootme, 1, level.sniper_boss, 1, 0);
 		thread fake_kill(shootme);
-		shootme waittill(#"broken");
+		shootme waittill("broken");
 		level.sniper_boss.lase_ent notify("target_lase_override");
 		level.sniper_boss.lase_ent.lase_override = undefined;
 		exploder::exploder("bossceiling_smk_level1");
@@ -812,7 +812,7 @@ function function_d1b143ce()
 	{
 		fx = self.script_parameters;
 	}
-	self waittill(#"broken");
+	self waittill("broken");
 	arrayremovevalue(level.var_510d0407, self);
 	if(isdefined(hurter))
 	{

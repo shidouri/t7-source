@@ -811,7 +811,7 @@ function time_for_quad_wave(zone_name)
 		return;
 	}
 	zone = level.zones[zone_name];
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 	if(level.next_dog_round === level.round_number)
 	{
 		level thread time_for_quad_wave(zone_name);

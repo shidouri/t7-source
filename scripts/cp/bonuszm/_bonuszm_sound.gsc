@@ -84,7 +84,7 @@ function autoexec init()
 */
 function bzm_sceneseqended(scenename)
 {
-	level notify(#"bzm_sceneseqended");
+	level notify("bzm_sceneseqended");
 	if(isdefined(level.var_5de673a6.var_478c7e3e))
 	{
 		level.var_5de673a6 stopsound(level.var_5de673a6.var_478c7e3e);
@@ -275,7 +275,7 @@ function function_b7efd00a()
 	self endon("death");
 	while(true)
 	{
-		self waittill(#"bhtn_action_notify", notify_string);
+		self waittill("bhtn_action_notify", notify_string);
 		if(isdefined(level.bzm_worldpaused) && level.bzm_worldpaused)
 		{
 			continue;
@@ -406,7 +406,7 @@ function function_f93398c4()
 		{
 			type = "crawler";
 		}
-		self notify(#"bhtn_action_notify", type);
+		self notify("bhtn_action_notify", type);
 		wait(randomfloatrange(1, 4));
 	}
 }
@@ -521,7 +521,7 @@ function function_b80a73a4()
 				z_diff = self.origin[2] - zombs[i].origin[2];
 				if(yaw < -95 || yaw > 95 && abs(z_diff) < 50)
 				{
-					zombs[i] notify(#"bhtn_action_notify", "behind");
+					zombs[i] notify("bhtn_action_notify", "behind");
 					played_sound = 1;
 					break;
 				}

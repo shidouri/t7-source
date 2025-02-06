@@ -2419,7 +2419,7 @@ function magic_bullet_shield(ent = self)
 	ent.allowdeath = 0;
 	ent.magic_bullet_shield = 1;
 	/#
-		ent notify(#"_stop_magic_bullet_shield_debug");
+		ent notify("_stop_magic_bullet_shield_debug");
 		level thread debug_magic_bullet_shield_death(ent);
 	#/
 	/#
@@ -2452,7 +2452,7 @@ function debug_magic_bullet_shield_death(guy)
 		targetname = guy.targetname;
 	}
 	guy endon("stop_magic_bullet_shield");
-	guy endon(#"_stop_magic_bullet_shield_debug");
+	guy endon("_stop_magic_bullet_shield_debug");
 	guy waittill("death");
 	/#
 		assert(!isdefined(guy), "" + targetname);
@@ -3880,8 +3880,8 @@ function set_sun_shadow_split_distance(f_distance)
 function auto_delete(n_mode = 1, n_min_time_alive = 0, n_dist_horizontal = 0, n_dist_vertical = 0)
 {
 	self endon("death");
-	self notify(#"__auto_delete__");
-	self endon(#"__auto_delete__");
+	self notify("__auto_delete__");
+	self endon("__auto_delete__");
 	level flag::wait_till("all_players_spawned");
 	if(isdefined(level.heroes) && isinarray(level.heroes, self))
 	{
@@ -3955,7 +3955,7 @@ function auto_delete(n_mode = 1, n_min_time_alive = 0, n_dist_horizontal = 0, n_
 			{
 				continue;
 			}
-			self notify(#"_disable_reinforcement");
+			self notify("_disable_reinforcement");
 			self delete();
 		}
 		else

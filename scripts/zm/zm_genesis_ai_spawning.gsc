@@ -96,7 +96,7 @@ function function_a70ab4c3()
 	level.n_next_chaos_round = randomintrange(5, 7);
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		if(level.round_number > level.n_next_chaos_round)
 		{
 			level.n_next_chaos_round = level.round_number + randomintrange(2, 4);

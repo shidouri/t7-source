@@ -53,7 +53,7 @@ function __init__()
 function event()
 {
 	self endon("disconnect");
-	self endon(#"bgb_update");
+	self endon("bgb_update");
 	self waittill("zm_bgb_crate_power_used");
 	self playsoundtoplayer("zmb_bgb_crate_power", self);
 	self bgb::do_one_shot_use();

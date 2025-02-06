@@ -339,7 +339,7 @@ function wait_for_weapon_pullout()
 */
 function laststand_watch_weapon_switch()
 {
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("disconnect");
 	self endon("player_revived");
 	while(true)
@@ -606,7 +606,7 @@ function laststand_bleedout_damage()
 	self endon("player_revived");
 	self endon("player_suicide");
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	if(level.players.size == 1)
 	{
 		return;
@@ -654,7 +654,7 @@ function laststand_bleedout(delay)
 		level clientfield::increment("laststand_update" + self getentitynumber(), self.bleedout_time + 1);
 	}
 	while(self.bleedout_time > 0);
-	self notify(#"bled_out");
+	self notify("bled_out");
 	bb::logplayermapnotification("player_bled_out", self);
 	util::wait_network_frame();
 	self bleed_out();
@@ -704,7 +704,7 @@ function bleed_out()
 	self clientfield::set_to_player("sndHealth", 0);
 	level clientfield::increment("laststand_update" + self getentitynumber(), 1);
 	demo::bookmark("player_bledout", gettime(), self, undefined, 1);
-	level notify(#"bleed_out", self.characterindex);
+	level notify("bleed_out", self.characterindex);
 	self notify(#"hash_a31e5729");
 	self coop::onplayerbleedout();
 	self undolaststand();
@@ -787,7 +787,7 @@ function suicide_trigger_think()
 	self endon("disconnect");
 	self endon("stop_revive_trigger");
 	self endon("player_revived");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self endon("fake_death");
 	level endon("game_ended");
 	level endon("stop_suicide_trigger");
@@ -1625,7 +1625,7 @@ function check_for_failed_revive(playerbeingrevived)
 	self notify("checking_for_failed_revive");
 	self endon("checking_for_failed_revive");
 	playerbeingrevived endon("player_revived");
-	playerbeingrevived waittill(#"bled_out");
+	playerbeingrevived waittill("bled_out");
 }
 
 /*

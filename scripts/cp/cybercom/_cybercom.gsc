@@ -547,8 +547,8 @@ function _cybercom_notify_toggle()
 */
 function _cybercom_notify_toggle_on()
 {
-	level notify(#"_cybercom_notify_toggle_on");
-	level endon(#"_cybercom_notify_toggle_on");
+	level notify("_cybercom_notify_toggle_on");
+	level endon("_cybercom_notify_toggle_on");
 	while(true)
 	{
 		level waittill("enable_cybercom", player);
@@ -579,8 +579,8 @@ function _cybercom_notify_toggle_on()
 */
 function _cybercom_notify_toggle_off()
 {
-	level notify(#"_cybercom_notify_toggle_off");
-	level endon(#"_cybercom_notify_toggle_off");
+	level notify("_cybercom_notify_toggle_off");
+	level endon("_cybercom_notify_toggle_off");
 	while(true)
 	{
 		level waittill("disable_cybercom", player, var_1e41d598);

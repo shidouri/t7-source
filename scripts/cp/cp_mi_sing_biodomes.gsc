@@ -355,7 +355,7 @@ function on_player_spawned()
 function monitor_player_bleed_out()
 {
 	self endon("disconnect");
-	self waittill(#"bled_out");
+	self waittill("bled_out");
 	self.b_bled_out = 1;
 }
 

@@ -409,7 +409,7 @@ function function_ccdb680e(var_be748f8, b_on)
 			e_reel.var_a02b0d5a = b_on;
 			if(!b_on)
 			{
-				e_reel notify(#"end_rotation");
+				e_reel notify("end_rotation");
 			}
 		}
 	}
@@ -426,7 +426,7 @@ function function_ccdb680e(var_be748f8, b_on)
 */
 function function_e464aa51()
 {
-	self endon(#"end_rotation");
+	self endon("end_rotation");
 	while(true)
 	{
 		if(isdefined(self.var_a02b0d5a) && self.var_a02b0d5a)
@@ -1790,8 +1790,8 @@ function function_26801553()
 */
 function function_71fa98ee()
 {
-	level endon(#"book_runes_failed");
-	level endon(#"book_runes_success");
+	level endon("book_runes_failed");
+	level endon("book_runes_success");
 	while(true)
 	{
 		self waittill("trigger_activated", e_player);
@@ -1829,8 +1829,8 @@ function function_fedceb8()
 */
 function ee_book_runes_in_summoning_circle(var_7b98b639)
 {
-	level endon(#"book_runes_failed");
-	level endon(#"book_runes_success");
+	level endon("book_runes_failed");
+	level endon("book_runes_success");
 	level.var_be50c24f = 0;
 	level.var_5da45153 = array(0, 1, 2, 3, 4, 5);
 	var_cad0573e = array::randomize(level.var_5da45153);
@@ -1889,8 +1889,8 @@ function function_fde3e99f(n_time)
 */
 function function_3d57dcdd()
 {
-	level endon(#"book_runes_failed");
-	level endon(#"book_runes_success");
+	level endon("book_runes_failed");
+	level endon("book_runes_success");
 	var_bc16de8b = [];
 	for(i = 0; i < level.var_6000c357.size; i++)
 	{

@@ -375,7 +375,7 @@ function do_supplydrop(maxrange = 1400)
 function watch_crate(crate)
 {
 	self endon("death");
-	self endon(#"bot_goal_reached");
+	self endon("bot_goal_reached");
 	level endon("game_ended");
 	while(isdefined(crate) && !self bot_combat::has_threat())
 	{

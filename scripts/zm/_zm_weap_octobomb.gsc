@@ -129,9 +129,9 @@ function player_give_octobomb(str_weapon = "octobomb")
 */
 function player_handle_octobomb()
 {
-	self notify(#"starting_octobomb_watch");
+	self notify("starting_octobomb_watch");
 	self endon("death");
-	self endon(#"starting_octobomb_watch");
+	self endon("starting_octobomb_watch");
 	attract_dist_custom = level.octobomb_attract_dist_custom;
 	if(!isdefined(attract_dist_custom))
 	{
@@ -168,7 +168,7 @@ function player_handle_octobomb()
 */
 function show_briefly(showtime)
 {
-	self endon(#"show_owner");
+	self endon("show_owner");
 	if(isdefined(self.show_for_time))
 	{
 		self.show_for_time = showtime;
@@ -197,7 +197,7 @@ function show_briefly(showtime)
 function show_owner_on_attack(owner)
 {
 	owner endon("hide_owner");
-	owner endon(#"show_owner");
+	owner endon("show_owner");
 	self endon("explode");
 	self endon("death");
 	self endon("grenade_dud");
@@ -224,7 +224,7 @@ function hide_owner(owner)
 	owner endon("hide_owner");
 	owner setperk("specialty_immunemms");
 	owner.no_burning_sfx = 1;
-	owner notify(#"stop_flame_sounds");
+	owner notify("stop_flame_sounds");
 	owner setvisibletoallexceptteam(level.zombie_team);
 	owner.hide_owner = 1;
 	if(isdefined(level._effect["human_disappears"]))
@@ -236,7 +236,7 @@ function hide_owner(owner)
 	/#
 		println("" + evt);
 	#/
-	owner notify(#"show_owner");
+	owner notify("show_owner");
 	owner unsetperk("specialty_immunemms");
 	if(isdefined(level._effect["human_disappears"]))
 	{
@@ -343,7 +343,7 @@ function check_octobomb_on_train()
 */
 function player_throw_octobomb(e_grenade, num_attractors, max_attract_dist, attract_dist_custom)
 {
-	self endon(#"starting_octobomb_watch");
+	self endon("starting_octobomb_watch");
 	e_grenade endon("death");
 	if(self laststand::player_is_in_laststand())
 	{
@@ -370,7 +370,7 @@ function player_throw_octobomb(e_grenade, num_attractors, max_attract_dist, attr
 	e_grenade.clone_model = util::spawn_model(e_grenade.model, e_grenade.origin, e_grenade.angles);
 	e_grenade.clone_model linkto(e_grenade);
 	e_grenade thread octobomb_cleanup();
-	e_grenade waittill(#"stationary", v_position, v_normal);
+	e_grenade waittill("stationary", v_position, v_normal);
 	e_grenade thread check_octobomb_on_train();
 	self thread grenade_planted(e_grenade, e_grenade.clone_model);
 	e_grenade resetmissiledetonationtime();
@@ -679,7 +679,7 @@ function do_tentacle_burst(e_player, is_upgraded)
 				ai_target thread clientfield::set("octobomb_tentacle_hit_fx", 1);
 				if(ai_target.b_octobomb_infected !== 1)
 				{
-					self notify(#"sndkillvox");
+					self notify("sndkillvox");
 					ai_target playsound("wpn_octobomb_zombie_imp");
 					ai_target thread zombie_explodes();
 					ai_target thread zombie_spore_infect(e_player, self, is_upgraded);
@@ -804,7 +804,7 @@ function do_tentacle_grab(e_player, is_upgraded)
 			{
 				ai_target clientfield::set("octobomb_spores_fx", n_spore_val);
 				self.octobomb_infected = 1;
-				self notify(#"sndkillvox");
+				self notify("sndkillvox");
 				ai_target playsound("wpn_octobomb_zombie_imp");
 				ai_target octo_gib();
 				ai_target dodamage(ai_target.health, ai_target.origin, e_player, self);
@@ -1143,7 +1143,7 @@ function sndattackvox()
 	self endon("explode");
 	while(true)
 	{
-		self waittill(#"sndkillvox");
+		self waittill("sndkillvox");
 		wait(0.25);
 		self playsound("wpn_octobomb_attack_vox");
 		wait(2.5);
@@ -1162,7 +1162,7 @@ function sndattackvox()
 function get_thrown_octobomb()
 {
 	self endon("death");
-	self endon(#"starting_octobomb_watch");
+	self endon("starting_octobomb_watch");
 	while(true)
 	{
 		self waittill("grenade_fire", e_grenade, w_weapon);

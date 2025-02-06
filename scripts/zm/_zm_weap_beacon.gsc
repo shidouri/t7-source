@@ -68,9 +68,9 @@ function player_give_beacon()
 */
 function player_handle_beacon()
 {
-	self notify(#"starting_beacon_watch");
+	self notify("starting_beacon_watch");
 	self endon("disconnect");
-	self endon(#"starting_beacon_watch");
+	self endon("starting_beacon_watch");
 	attract_dist_diff = level.beacon_attract_dist_diff;
 	if(!isdefined(attract_dist_diff))
 	{
@@ -193,7 +193,7 @@ function watch_for_emp(model, actor)
 function clone_player_angles(owner)
 {
 	self endon("death");
-	owner endon(#"bled_out");
+	owner endon("bled_out");
 	while(isdefined(self))
 	{
 		self.angles = owner.angles;
@@ -212,7 +212,7 @@ function clone_player_angles(owner)
 */
 function show_briefly(showtime)
 {
-	self endon(#"show_owner");
+	self endon("show_owner");
 	if(isdefined(self.show_for_time))
 	{
 		self.show_for_time = showtime;
@@ -241,7 +241,7 @@ function show_briefly(showtime)
 function show_owner_on_attack(owner)
 {
 	owner endon("hide_owner");
-	owner endon(#"show_owner");
+	owner endon("show_owner");
 	self endon("explode");
 	self endon("death");
 	self endon("grenade_dud");
@@ -269,7 +269,7 @@ function hide_owner(owner)
 	owner endon("hide_owner");
 	owner setperk("specialty_immunemms");
 	owner.no_burning_sfx = 1;
-	owner notify(#"stop_flame_sounds");
+	owner notify("stop_flame_sounds");
 	owner setvisibletoallexceptteam(level.zombie_team);
 	owner.hide_owner = 1;
 	if(isdefined(level._effect["human_disappears"]))
@@ -281,7 +281,7 @@ function hide_owner(owner)
 	/#
 		println("" + evt);
 	#/
-	owner notify(#"show_owner");
+	owner notify("show_owner");
 	owner unsetperk("specialty_immunemms");
 	if(isdefined(level._effect["human_disappears"]))
 	{
@@ -358,7 +358,7 @@ function proximity_detonate(owner)
 function player_throw_beacon(grenade, num_attractors, max_attract_dist, attract_dist_diff)
 {
 	self endon("disconnect");
-	self endon(#"starting_beacon_watch");
+	self endon("starting_beacon_watch");
 	if(isdefined(grenade))
 	{
 		grenade endon("death");
@@ -395,7 +395,7 @@ function player_throw_beacon(grenade, num_attractors, max_attract_dist, attract_
 		grenade thread watch_for_dud(model, clone);
 		info = spawnstruct();
 		info.sound_attractors = [];
-		grenade waittill(#"stationary");
+		grenade waittill("stationary");
 		if(isdefined(level.grenade_planted))
 		{
 			self thread [[level.grenade_planted]](grenade, model);
@@ -639,7 +639,7 @@ function do_beacon_sound(model, info)
 	{
 		if(isdefined(info.sound_attractors[i]))
 		{
-			info.sound_attractors[i] notify(#"beacon_blown_up");
+			info.sound_attractors[i] notify("beacon_blown_up");
 		}
 	}
 	self delete();
@@ -671,7 +671,7 @@ function play_delayed_explode_vox()
 function get_thrown_beacon()
 {
 	self endon("disconnect");
-	self endon(#"starting_beacon_watch");
+	self endon("starting_beacon_watch");
 	while(true)
 	{
 		self waittill("grenade_fire", grenade, weapon);
@@ -696,7 +696,7 @@ function get_thrown_beacon()
 */
 function wait_and_explode(grenade)
 {
-	self endon(#"beacon_missile_launch");
+	self endon("beacon_missile_launch");
 	grenade waittill("explode", position);
 	self notify("weapon_beacon_timeout");
 	if(isdefined(grenade))
@@ -728,7 +728,7 @@ function start_artillery_launch_normal(grenade)
 				{
 					sp_giant_robot = level.a_giant_robots[i];
 					self thread artillery_fx_logic(sp_giant_robot, grenade);
-					self notify(#"beacon_missile_launch");
+					self notify("beacon_missile_launch");
 					level.weapon_beacon_busy = 1;
 					grenade.fuse_reset = 1;
 					grenade.fuse_time = 100;
@@ -768,7 +768,7 @@ function start_artillery_launch_ee(grenade)
 			{
 				sp_giant_robot = level.a_giant_robots[n_robot_num];
 				self thread artillery_fx_logic_ee(sp_giant_robot, grenade);
-				self notify(#"beacon_missile_launch");
+				self notify("beacon_missile_launch");
 				level.weapon_beacon_busy = 1;
 				grenade.fuse_reset = 1;
 				grenade.fuse_time = 100;

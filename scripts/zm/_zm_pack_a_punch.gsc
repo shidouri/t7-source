@@ -587,7 +587,7 @@ function private vending_weapon_upgrade_cost()
 		level waittill(#"hash_ab83a4db");
 		self.cost = 1000;
 		self.aat_cost = 500;
-		level waittill(#"bonfire_sale_off");
+		level waittill("bonfire_sale_off");
 	}
 }
 

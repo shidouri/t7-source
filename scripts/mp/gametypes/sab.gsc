@@ -511,7 +511,7 @@ function onenduse(team, player, result)
 */
 function onpickup(player)
 {
-	level notify(#"bomb_picked_up");
+	level notify("bomb_picked_up");
 	player recordgameevent("pickup");
 	self.autoresettime = 60;
 	level.usestartspawns = 0;
@@ -614,7 +614,7 @@ function ondrop(player)
 */
 function abandonmentthink(delay)
 {
-	level endon(#"bomb_picked_up");
+	level endon("bomb_picked_up");
 	wait(delay);
 	if(isdefined(self.carrier))
 	{
@@ -654,7 +654,7 @@ function onuse(player)
 	otherteam = util::getotherteam(team);
 	if(!self gameobjects::is_friendly_team(player.pers["team"]))
 	{
-		player notify(#"bomb_planted");
+		player notify("bomb_planted");
 		/#
 			print("");
 		#/
@@ -683,7 +683,7 @@ function onuse(player)
 	}
 	else
 	{
-		player notify(#"bomb_defused");
+		player notify("bomb_defused");
 		/#
 			print("");
 		#/
@@ -796,7 +796,7 @@ function bombplanted(destroyedobj, team)
 */
 function bombtimerwait()
 {
-	level endon(#"bomb_defused");
+	level endon("bomb_defused");
 	hostmigration::waitlongdurationwithgameendtimeupdate(level.bombtimer);
 }
 
@@ -867,7 +867,7 @@ function bombdefused(object)
 	{
 		level.timelimitoverride = 0;
 	}
-	level notify(#"bomb_defused");
+	level notify("bomb_defused");
 }
 
 /*

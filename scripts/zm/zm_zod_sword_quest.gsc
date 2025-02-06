@@ -834,7 +834,7 @@ function function_413de655(trig_stub, player, str_endon)
 {
 	player endon("disconnect");
 	level endon(str_endon);
-	player waittill(#"bled_out");
+	player waittill("bled_out");
 	n_charges = player function_b7af29e0();
 	player clientfield::set_player_uimodel("zmInventory.player_sword_quest_egg_state", 1 + n_charges);
 	player thread zm_zod_util::function_55f114f9("zmInventory.widget_egg", 3.5);

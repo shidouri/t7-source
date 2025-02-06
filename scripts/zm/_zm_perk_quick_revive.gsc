@@ -172,7 +172,7 @@ function revive_cost_override()
 */
 function turn_revive_on()
 {
-	level endon(#"stop_quickrevive_logic");
+	level endon("stop_quickrevive_logic");
 	level flag::wait_till("start_zombie_round_logic");
 	solo_mode = 0;
 	if(zm_perks::use_solo_revive())
@@ -230,7 +230,7 @@ function turn_revive_on()
 				machine_model = machine[i];
 				machine[i] thread zm_perks::perk_fx("revive_light");
 				exploder::exploder("quick_revive_lgts");
-				machine[i] notify(#"stop_loopsound");
+				machine[i] notify("stop_loopsound");
 				machine[i] thread zm_perks::play_loop_on_machine();
 				if(isdefined(machine_triggers[i]))
 				{
@@ -252,7 +252,7 @@ function turn_revive_on()
 		{
 			array::thread_all(machine, level.machine_assets["specialty_quickrevive"].power_on_callback);
 		}
-		level notify(#"specialty_quickrevive_power_on");
+		level notify("specialty_quickrevive_power_on");
 		if(isdefined(machine_model))
 		{
 			machine_model.ishidden = 0;
@@ -329,7 +329,7 @@ function reenable_quickrevive(machine_clip, solo_mode)
 		restart_quickrevive();
 		level notify("revive_off");
 		wait(0.1);
-		level notify(#"stop_quickrevive_logic");
+		level notify("stop_quickrevive_logic");
 	}
 	else
 	{
@@ -340,7 +340,7 @@ function reenable_quickrevive(machine_clip, solo_mode)
 			wait(0.1);
 		}
 		level notify("revive_hide");
-		level notify(#"stop_quickrevive_logic");
+		level notify("stop_quickrevive_logic");
 		restart_quickrevive();
 		triggers = getentarray("zombie_vending", "targetname");
 		foreach(trigger in triggers)
@@ -373,7 +373,7 @@ function reenable_quickrevive(machine_clip, solo_mode)
 		zm_perks::perk_unpause("specialty_quickrevive");
 		level notify("revive_on");
 		wait(0.1);
-		level notify(#"specialty_quickrevive_power_on");
+		level notify("specialty_quickrevive_power_on");
 	}
 	else
 	{
@@ -736,7 +736,7 @@ function restart_quickrevive()
 		}
 		if(trigger.script_noteworthy == "specialty_quickrevive")
 		{
-			trigger notify(#"stop_quickrevive_logic");
+			trigger notify("stop_quickrevive_logic");
 			trigger thread zm_perks::vending_trigger_think();
 			trigger triggerenable(1);
 		}

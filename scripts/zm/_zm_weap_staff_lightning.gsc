@@ -153,8 +153,8 @@ function staff_lightning_position_source(v_detonate, v_angles, str_weapon)
 	#/
 	e_ball_fx moveto(v_end, n_movetime_s);
 	finished_playing = e_ball_fx lightning_ball_wait(n_leftover_time);
-	e_ball_fx notify(#"stop_killing");
-	e_ball_fx notify(#"stop_debug_position");
+	e_ball_fx notify("stop_killing");
+	e_ball_fx notify("stop_debug_position");
 	if(isdefined(finished_playing) && finished_playing)
 	{
 		wait(3);
@@ -177,7 +177,7 @@ function staff_lightning_position_source(v_detonate, v_angles, str_weapon)
 function staff_lightning_ball_kill_zombies(e_attacker)
 {
 	self endon("death");
-	self endon(#"stop_killing");
+	self endon("stop_killing");
 	while(true)
 	{
 		a_zombies = staff_lightning_get_valid_targets(e_attacker, self.origin);

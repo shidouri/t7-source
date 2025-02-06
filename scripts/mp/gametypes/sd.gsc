@@ -883,7 +883,7 @@ function onuseplantobject(player)
 			level.bombzones[index] gameobjects::disable_object();
 		}
 		thread sound::play_on_players(("mus_sd_planted" + "_") + level.teampostfix[player.pers["team"]]);
-		player notify(#"bomb_planted");
+		player notify("bomb_planted");
 		level thread popups::displayteammessagetoall(&"MP_EXPLOSIVES_PLANTED_BY", player);
 		if(isdefined(player.pers["plants"]))
 		{
@@ -910,7 +910,7 @@ function onuseplantobject(player)
 function onusedefuseobject(player)
 {
 	self gameobjects::set_flags(0);
-	player notify(#"bomb_defused");
+	player notify("bomb_defused");
 	/#
 		print("" + self.label);
 	#/
@@ -1039,7 +1039,7 @@ function onreset()
 */
 function bombplantedmusicdelay()
 {
-	level endon(#"bomb_defused");
+	level endon("bomb_defused");
 	time = level.bombtimer - 30;
 	/#
 		if(getdvarint("") > 0)
@@ -1198,7 +1198,7 @@ function bombplanted(destroyedobj, player)
 function bombtimerwait()
 {
 	level endon("game_ended");
-	level endon(#"bomb_defused");
+	level endon("bomb_defused");
 	hostmigration::waitlongdurationwithgameendtimeupdate(level.bombtimer);
 }
 
@@ -1221,7 +1221,7 @@ function bombdefused(defusedobject, player)
 	setmatchflag("bomb_timer_a", 0);
 	setmatchflag("bomb_timer_b", 0);
 	player playbombdefuse();
-	level notify(#"bomb_defused");
+	level notify("bomb_defused");
 	thread globallogic_audio::set_music_on_team("silent");
 	wait(1.5);
 	setgameendtime(0);

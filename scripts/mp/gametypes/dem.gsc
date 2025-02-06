@@ -1053,7 +1053,7 @@ function onuseobject(player)
 			print("" + self.label);
 		#/
 		bbprint("mpobjective", "gametime %d objtype %s label %s team %s playerx %d playery %d playerz %d", gettime(), "dem_bombplant", self.label, team, player.origin);
-		player notify(#"bomb_planted");
+		player notify("bomb_planted");
 		thread globallogic_audio::set_music_on_team("DEM_WE_PLANT", team, 5);
 		thread globallogic_audio::set_music_on_team("DEM_THEY_PLANT", enemyteam, 5);
 		if(isdefined(player.pers["plants"]))
@@ -1080,7 +1080,7 @@ function onuseobject(player)
 	else
 	{
 		self gameobjects::set_flags(0);
-		player notify(#"bomb_defused");
+		player notify("bomb_defused");
 		/#
 			print("" + self.label);
 		#/
@@ -1249,7 +1249,7 @@ function dropbombmodel(player, site)
 function bombplanted(destroyedobj, player)
 {
 	level endon("game_ended");
-	destroyedobj endon(#"bomb_defused");
+	destroyedobj endon("bomb_defused");
 	team = player.team;
 	game["challenge"][team]["plantedBomb"] = 1;
 	globallogic_utils::pausetimer();
@@ -1510,7 +1510,7 @@ function bombdefused(player)
 	self gameobjects::allow_use("none");
 	self gameobjects::set_visible_team("none");
 	self.bombdefused = 1;
-	self notify(#"bomb_defused");
+	self notify("bomb_defused");
 	self.bombplanted = 0;
 	self bombreset(self.label, "bomb_defused");
 	player setweaponoverheating(1, 100, self.useweapon);

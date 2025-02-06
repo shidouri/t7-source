@@ -131,7 +131,7 @@ function margwa_round_tracker()
 	{
 		while(level.round_number < level.var_bf361dc0)
 		{
-			level waittill(#"between_round_over");
+			level waittill("between_round_over");
 			/#
 				if(level.round_number > level.var_bf361dc0)
 				{
@@ -144,7 +144,7 @@ function margwa_round_tracker()
 		{
 			function_aea74ccd();
 		}
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 }
 

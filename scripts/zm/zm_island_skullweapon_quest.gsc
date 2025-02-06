@@ -2284,7 +2284,7 @@ function on_player_spawned()
 	self.var_335e6491[1] = undefined;
 	while(true)
 	{
-		self waittill(#"bled_out");
+		self waittill("bled_out");
 		self thread function_c7cd5585();
 		self function_29d2aa0e(0, 0, 0);
 	}

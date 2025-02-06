@@ -859,7 +859,7 @@ function spider_round_spawning()
 	level.n_next_spider_round = level.round_number + 2;
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		var_8a82d706 = 0;
 		if(level.n_next_spider_round <= level.round_number)
 		{

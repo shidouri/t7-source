@@ -730,7 +730,7 @@ function custom_get_mod_type(impact, mod, weapon, zombie, instakill, dist, playe
 */
 function function_6bccb368()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	self endon("disconnect");
 	if(!level flag::exists("someone_saw_zombie"))
 	{
@@ -796,7 +796,7 @@ function function_2d942575(var_47db2fcf, var_72259a3d)
 */
 function function_7884e6b8()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	var_2aceef24 = [];
 	var_2aceef24[0] = array("vox_plr_3_interaction_nero_rose_1_0", "vox_plr_2_interaction_nero_rose_1_0");
 	var_2aceef24[1] = array("vox_plr_3_interaction_nero_rose_2_0", "vox_plr_2_interaction_nero_rose_2_0");
@@ -1220,7 +1220,7 @@ function function_5a3465d8()
 */
 function vo_beastmode_hint()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	level endon(#"hash_571c8e3c");
 	level waittill("end_of_round");
 	level flag::set("vo_beastmode_hint");
@@ -1237,7 +1237,7 @@ function vo_beastmode_hint()
 */
 function function_50460ed1()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	level waittill(#"hash_571c8e3c");
 	if(level.activeplayers.size > 1)
 	{
@@ -1424,7 +1424,7 @@ function function_53b96c8f()
 */
 function vo_placeworm_hint()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	flag::wait_till("vo_placeworm_hint");
 	function_897246e4("vox_shad_place_worms_0", 0, 1);
 }
@@ -1510,7 +1510,7 @@ function function_93f0e7bd()
 */
 function function_f9003879(var_d3be01d9)
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	self endon(var_d3be01d9 + "_done");
 	e_trig = getent(var_d3be01d9, "targetname");
 	var_6afd6b = undefined;
@@ -1873,7 +1873,7 @@ function function_d33751d(n_delay = 0, b_wait_if_busy = 0)
 */
 function function_2cc571f6()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	while(true)
 	{
 		level waittill(#"hash_c484afcb");
@@ -1924,7 +1924,7 @@ function function_2cc571f6()
 */
 function function_f8939df5()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	f_wait = randomfloatrange(15, 20);
 	while(true)
 	{
@@ -1957,7 +1957,7 @@ function function_f8939df5()
 */
 function function_43b03c7f(var_f30428a8)
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	var_d8dc8b3c = 0;
 	var_e1b29e02 = undefined;
 	while(!var_d8dc8b3c)
@@ -2011,7 +2011,7 @@ function function_43b03c7f(var_f30428a8)
 */
 function function_7e398d3()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	self endon("disconnect");
 	self zm_audio::create_and_play_dialog("margwa", "headshot");
 }
@@ -2027,7 +2027,7 @@ function function_7e398d3()
 */
 function function_c11b8117(var_e02e9917)
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	e_closest_player = arraygetclosest(var_e02e9917, level.activeplayers);
 	if(zm_utility::is_player_valid(e_closest_player))
 	{
@@ -2049,7 +2049,7 @@ function function_c11b8117(var_e02e9917)
 */
 function function_9bd30516()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	self endon("death");
 	self endon("disconnect");
 	if(!isdefined(self.var_74a00938))
@@ -2076,7 +2076,7 @@ function function_9bd30516()
 */
 function function_c10cc6c5()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	self endon("death");
 	self endon("disconnect");
 	if(!isdefined(self.var_d094704f))
@@ -2106,7 +2106,7 @@ function function_c10cc6c5()
 */
 function function_da45447a()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	self endon("disconnect");
 	var_86757168 = function_5803cf05(3, self.var_8faf79c9);
 	self.var_8faf79c9 = var_86757168;
@@ -2125,7 +2125,7 @@ function function_da45447a()
 */
 function function_a543408d()
 {
-	self endon(#"_zombie_game_over");
+	self endon("_zombie_game_over");
 	self endon("disconnect");
 	var_6c37d9ef = function_5803cf05(3, self.var_106675e6);
 	self.var_106675e6 = var_6c37d9ef;

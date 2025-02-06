@@ -494,7 +494,7 @@ function function_cef7f9fd()
 	while(gettime() < var_989e36b3)
 	{
 		self dodamage(5, self.origin, undefined, undefined, "none", "MOD_RIFLE_BULLET", 0, getweapon("gadget_immolation"), -1, 1);
-		self waittillmatch(#"bhtn_action_terminate");
+		self waittillmatch("bhtn_action_terminate");
 	}
 	self doa_sound::function_90118d8c("wpn_incendiary_explode");
 	playfxontag("explosions/fx_ability_exp_immolation", self, "j_spinelower");

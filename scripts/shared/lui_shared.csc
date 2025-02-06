@@ -577,8 +577,8 @@ function screen_close_menu()
 */
 function private _screen_close_menu()
 {
-	self notify(#"_screen_fade");
-	self endon(#"_screen_fade");
+	self notify("_screen_fade");
+	self endon("_screen_fade");
 	self endon("disconnect");
 	if(isdefined(self.screen_fade_menus))
 	{
@@ -608,8 +608,8 @@ function private _screen_close_menu()
 */
 function private _screen_fade(n_time, n_target_alpha, n_start_alpha, v_color, b_force_close_menu)
 {
-	self notify(#"_screen_fade");
-	self endon(#"_screen_fade");
+	self notify("_screen_fade");
+	self endon("_screen_fade");
 	self endon("disconnect");
 	self endon("entityshutdown");
 	if(!isdefined(self.screen_fade_menus))

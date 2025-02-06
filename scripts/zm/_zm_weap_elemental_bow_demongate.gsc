@@ -255,7 +255,7 @@ function function_292e5297()
 function function_3f55c7ab(var_e1784c2b)
 {
 	self endon("disconnect");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	self.var_fbdab725 = 1;
 	self clientfield::set_to_player("demongate_portal_rumble", 1);
 	while(distancesquared(self.origin, var_e1784c2b.origin) < 9216 && (isdefined(var_e1784c2b.var_a5e3922a) && var_e1784c2b.var_a5e3922a))

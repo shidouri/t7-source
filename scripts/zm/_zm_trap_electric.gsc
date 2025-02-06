@@ -195,7 +195,7 @@ function damage(trap)
 			{
 				self thread zm_traps::electroctute_death_fx();
 			}
-			self notify(#"bhtn_action_notify", "electrocute");
+			self notify("bhtn_action_notify", "electrocute");
 			wait(randomfloat(1.25));
 			self playsound("wpn_zmb_electrap_zap");
 		}

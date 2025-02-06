@@ -63,8 +63,8 @@ function begin_other_grenade_tracking()
 {
 	self endon("death");
 	self endon("disconnect");
-	self notify(#"bolttrackingstart");
-	self endon(#"bolttrackingstart");
+	self notify("bolttrackingstart");
+	self endon("bolttrackingstart");
 	weapon_bolt = getweapon("explosive_bolt");
 	for(;;)
 	{

@@ -87,7 +87,7 @@ function onplayerspawned()
 	self endon("disconnect");
 	for(;;)
 	{
-		self waittill(#"spawned_player");
+		self waittill("spawned_player");
 		self thread watchforgrenadeduds();
 		self thread watchforgrenadelauncherduds();
 		self.staticweaponsstarttime = gettime();
@@ -105,7 +105,7 @@ function onplayerspawned()
 */
 function watchforgrenadeduds()
 {
-	self endon(#"spawned_player");
+	self endon("spawned_player");
 	self endon("disconnect");
 	while(true)
 	{
@@ -129,7 +129,7 @@ function watchforgrenadeduds()
 */
 function watchforgrenadelauncherduds()
 {
-	self endon(#"spawned_player");
+	self endon("spawned_player");
 	self endon("disconnect");
 	while(true)
 	{

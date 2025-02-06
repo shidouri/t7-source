@@ -428,7 +428,7 @@ function fungus_pod_clip_init()
 */
 function fungus_pod_clip_think()
 {
-	level endon(#"_zombie_game_over");
+	level endon("_zombie_game_over");
 	while(true)
 	{
 		self.origin = self.origin - vectorscale((0, 0, 1), 5000);
@@ -821,7 +821,7 @@ function function_c9466e61(v_pos, radius)
 */
 function function_92f587b4()
 {
-	self endon(#"bottle_collected");
+	self endon("bottle_collected");
 	wait(15);
 	for(i = 0; i < 40; i++)
 	{

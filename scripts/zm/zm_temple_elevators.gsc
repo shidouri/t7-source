@@ -127,7 +127,7 @@ function alternate_geysers()
 			currentgeyser = array::random(geysers);
 			currentgeyser thread geyser_start();
 		}
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 	}
 }
 

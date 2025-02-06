@@ -934,7 +934,7 @@ function wait_bot_path_failed_loop()
 	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"bot_path_failed", reason);
+		self waittill("bot_path_failed", reason);
 		/#
 			if(getdvarint("", 0))
 			{
@@ -964,7 +964,7 @@ function wait_bot_goal_reached_loop()
 	level endon("game_ended");
 	while(true)
 	{
-		self waittill(#"bot_goal_reached", reason);
+		self waittill("bot_goal_reached", reason);
 		self clear_stuck();
 	}
 }
@@ -1454,7 +1454,7 @@ function revive_player(player)
 function watch_bot_corner(startcornerdist, cornerdist)
 {
 	self endon("death");
-	self endon(#"bot_combat_target");
+	self endon("bot_combat_target");
 	level endon("game_ended");
 	if(!isdefined(startcornerdist))
 	{
@@ -1468,7 +1468,7 @@ function watch_bot_corner(startcornerdist, cornerdist)
 	cornerdistsq = cornerdist * cornerdist;
 	while(true)
 	{
-		self waittill(#"bot_corner", centerpoint, enterpoint, leavepoint, angle, nextenterpoint);
+		self waittill("bot_corner", centerpoint, enterpoint, leavepoint, angle, nextenterpoint);
 		if(self bot_combat::has_threat())
 		{
 			continue;
@@ -1493,9 +1493,9 @@ function watch_bot_corner(startcornerdist, cornerdist)
 function wait_corner_radius(startcornerdistsq, centerpoint, enterpoint, leavepoint, angle, nextenterpoint)
 {
 	self endon("death");
-	self endon(#"bot_corner");
-	self endon(#"bot_goal_reached");
-	self endon(#"bot_combat_target");
+	self endon("bot_corner");
+	self endon("bot_goal_reached");
+	self endon("bot_combat_target");
 	level endon("game_ended");
 	while(distance2dsquared(self.origin, enterpoint) > startcornerdistsq)
 	{
@@ -1781,7 +1781,7 @@ function debug_patrol(points)
 		{
 			self botsetgoal(points[i], 24);
 			self sprint_to_goal();
-			self waittill(#"bot_goal_reached");
+			self waittill("bot_goal_reached");
 			i = (i + 1) % points.size;
 		}
 	#/

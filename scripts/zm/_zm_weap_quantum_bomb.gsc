@@ -345,9 +345,9 @@ function player_give_quantum_bomb()
 */
 function player_handle_quantum_bomb()
 {
-	self notify(#"starting_quantum_bomb");
+	self notify("starting_quantum_bomb");
 	self endon("disconnect");
-	self endon(#"starting_quantum_bomb");
+	self endon("starting_quantum_bomb");
 	level endon("end_game");
 	while(true)
 	{
@@ -395,7 +395,7 @@ function quantum_bomb_exists()
 function get_thrown_quantum_bomb()
 {
 	self endon("disconnect");
-	self endon(#"starting_quantum_bomb");
+	self endon("starting_quantum_bomb");
 	while(true)
 	{
 		self waittill("grenade_fire", grenade, weapname);

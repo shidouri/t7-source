@@ -216,7 +216,7 @@ function private _burnstage(localclientnum, tagarray, shouldwait)
 	}
 	if(isdefined(self))
 	{
-		self notify(#"burn_stage_finished");
+		self notify("burn_stage_finished");
 	}
 }
 
@@ -264,16 +264,16 @@ function private _burnbody(localclientnum)
 	self.activefx = [];
 	self.activefx[self.activefx.size] = self thread _burnstage(localclientnum, stage1burntags, 1);
 	self mapshaderconstant(localclientnum, 0, "scriptVector0", maturemask * 0.2);
-	self waittill(#"burn_stage_finished");
+	self waittill("burn_stage_finished");
 	self.activefx[self.activefx.size] = self thread _burnstage(localclientnum, stage2burntags, 1);
 	self mapshaderconstant(localclientnum, 0, "scriptVector0", maturemask * 0.4);
-	self waittill(#"burn_stage_finished");
+	self waittill("burn_stage_finished");
 	self.activefx[self.activefx.size] = self thread _burnstage(localclientnum, stage3burntags, 1);
 	self mapshaderconstant(localclientnum, 0, "scriptVector0", maturemask * 0.6);
-	self waittill(#"burn_stage_finished");
+	self waittill("burn_stage_finished");
 	self.activefx[self.activefx.size] = self thread _burnstage(localclientnum, stage4burntags, 1);
 	self mapshaderconstant(localclientnum, 0, "scriptVector0", maturemask * 0.8);
-	self waittill(#"burn_stage_finished");
+	self waittill("burn_stage_finished");
 	self.activefx[self.activefx.size] = self thread _burnstage(localclientnum, stage5burntags, 1);
 	self mapshaderconstant(localclientnum, 0, "scriptVector0", maturemask * 1);
 }

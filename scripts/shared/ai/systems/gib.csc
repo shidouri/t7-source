@@ -553,7 +553,7 @@ function private _handlegibannihilate(localclientnum)
 {
 	entity = self;
 	entity endon("entityshutdown");
-	entity waittillmatch(#"_anim_notify_");
+	entity waittillmatch("_anim_notify_");
 	cliententgibannihilate(localclientnum, entity);
 }
 
@@ -570,7 +570,7 @@ function private _handlegibhead(localclientnum)
 {
 	entity = self;
 	entity endon("entityshutdown");
-	entity waittillmatch(#"_anim_notify_");
+	entity waittillmatch("_anim_notify_");
 	cliententgibhead(localclientnum, entity);
 }
 
@@ -587,7 +587,7 @@ function private _handlegibrightarm(localclientnum)
 {
 	entity = self;
 	entity endon("entityshutdown");
-	entity waittillmatch(#"_anim_notify_");
+	entity waittillmatch("_anim_notify_");
 	cliententgibrightarm(localclientnum, entity);
 }
 
@@ -604,7 +604,7 @@ function private _handlegibleftarm(localclientnum)
 {
 	entity = self;
 	entity endon("entityshutdown");
-	entity waittillmatch(#"_anim_notify_");
+	entity waittillmatch("_anim_notify_");
 	cliententgibleftarm(localclientnum, entity);
 }
 
@@ -621,7 +621,7 @@ function private _handlegibrightleg(localclientnum)
 {
 	entity = self;
 	entity endon("entityshutdown");
-	entity waittillmatch(#"_anim_notify_");
+	entity waittillmatch("_anim_notify_");
 	cliententgibrightleg(localclientnum, entity);
 }
 
@@ -638,7 +638,7 @@ function private _handlegibleftleg(localclientnum)
 {
 	entity = self;
 	entity endon("entityshutdown");
-	entity waittillmatch(#"_anim_notify_");
+	entity waittillmatch("_anim_notify_");
 	cliententgibleftleg(localclientnum, entity);
 }
 

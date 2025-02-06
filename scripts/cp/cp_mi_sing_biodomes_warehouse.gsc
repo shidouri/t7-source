@@ -303,7 +303,7 @@ function function_1050699d()
 */
 function function_2a08e741()
 {
-	level endon(#"back_door_closed");
+	level endon("back_door_closed");
 	level flag::wait_till("xiulan_loudspeaker_go");
 	spawn_manager::enable("warehouse_right_rear_runners");
 }
@@ -1001,7 +1001,7 @@ function function_c001cefd()
 */
 function function_994b4243()
 {
-	self endon(#"back_door_opened");
+	self endon("back_door_opened");
 	self endon(#"hash_b35c4231");
 	self endon("death");
 	self waittill("ccom_lock_being_targeted", hijackingplayer);
@@ -1035,7 +1035,7 @@ function function_c60cca3f(e_inflictor, e_attacker, n_damage, n_dflags, str_mean
 */
 function function_4a9bba52()
 {
-	level endon(#"back_door_opened");
+	level endon("back_door_opened");
 	self setcandamage(0);
 	level flag::wait_till("siegebot_damage_enabled");
 	self setcandamage(1);

@@ -70,7 +70,7 @@ function autoexec init()
 */
 function function_c7784263()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_deimos_was_going_to_0");
 	bonuszmsound::function_cf21d35c("salm_it_wasn_t_odd_that_h_0");
@@ -93,7 +93,7 @@ function function_c7784263()
 */
 function function_5570d328()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(6);
 	bonuszmsound::function_ef0ce9fb("plyz_i_d_interfaced_with_0");
 	wait(2);
@@ -111,7 +111,7 @@ function function_5570d328()
 */
 function function_7b734d91()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_interfacing_with_som_0");
 	bonuszmsound::function_cf21d35c("salm_because_the_deep_sub_0");
@@ -141,7 +141,7 @@ function function_7b734d91()
 */
 function function_397fb19e()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_cf21d35c("salm_lead_me_to_the_depth_0");
 	wait(2);
@@ -176,7 +176,7 @@ function function_397fb19e()
 */
 function function_5f822c07()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 }
 
 /*
@@ -190,7 +190,7 @@ function function_5f822c07()
 */
 function function_ed7abccc()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(3);
 	bonuszmsound::function_ef0ce9fb("plyz_we_we_were_built_0");
 	wait(3);
@@ -213,7 +213,7 @@ function function_ed7abccc()
 */
 function function_137d3735()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(3);
 	bonuszmsound::function_cf21d35c("salm_tell_me_what_did_0");
 	bonuszmsound::function_ef0ce9fb("plyz_failure_when_she_wa_0");
@@ -232,7 +232,7 @@ function function_137d3735()
 */
 function function_7161f4b2()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_the_world_began_to_f_0");
 	wait(2);
@@ -252,7 +252,7 @@ function function_7161f4b2()
 */
 function function_b0c5d8fa()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_her_mind_was_fractur_0");
 	wait(1);
@@ -271,7 +271,7 @@ function function_b0c5d8fa()
 */
 function function_97646f1b()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_from_the_moment_she_0");
 }
@@ -287,7 +287,7 @@ function function_97646f1b()
 */
 function function_44d98e29()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(8);
 	bonuszmsound::function_ef0ce9fb("plyz_he_slaughtered_the_s_0");
 	wait(1);
@@ -313,7 +313,7 @@ function function_44d98e29()
 */
 function function_1ed713c0()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(7);
 	bonuszmsound::function_ef0ce9fb("plyz_we_were_in_foy_i_sa_0");
 	wait(1);
@@ -331,7 +331,7 @@ function function_1ed713c0()
 */
 function function_90de82fb()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(12);
 	bonuszmsound::function_ef0ce9fb("plyz_there_was_a_chapel_a_0");
 }
@@ -347,7 +347,7 @@ function function_90de82fb()
 */
 function function_6adc0892()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_you_re_insane_0");
 	bonuszmsound::function_cf21d35c("salm_no_i_told_you_befor_0");
@@ -366,7 +366,7 @@ function function_6adc0892()
 */
 function function_dce377cd()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(3);
 	bonuszmsound::function_ef0ce9fb("plyz_the_aquifers_their_0");
 	wait(4);
@@ -384,7 +384,7 @@ function function_dce377cd()
 */
 function function_b6e0fd64()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_there_s_something_i_0");
 	wait(4);
@@ -405,7 +405,7 @@ function function_b6e0fd64()
 */
 function function_28e86c9f()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_cf21d35c("salm_i_must_say_i_m_impr_0");
 	bonuszmsound::function_ef0ce9fb("plyz_they_found_you_they_0");
@@ -428,7 +428,7 @@ function function_28e86c9f()
 */
 function function_2e5f236()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 }
 
 /*
@@ -442,7 +442,7 @@ function function_2e5f236()
 */
 function function_74ed6171()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(10);
 	bonuszmsound::function_ef0ce9fb("plyz_the_tree_i_ve_seen_0");
 	bonuszmsound::function_45809471("deim_tell_me_what_do_you_0");
@@ -461,7 +461,7 @@ function function_74ed6171()
 */
 function function_fa2ce383()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_45809471("deim_you_you_wouldn_t_0");
 	bonuszmsound::function_ef0ce9fb("plyz_if_she_offered_herse_0");
@@ -478,7 +478,7 @@ function function_fa2ce383()
 */
 function function_4eeae708()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_45809471("deim_you_denied_me_my_pri_0");
 }
@@ -494,7 +494,7 @@ function function_4eeae708()
 */
 function function_88257448()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_45809471("deim_but_now_i_had_you_i_0");
 	bonuszmsound::function_45809471("deim_sarah_may_have_told_0");
@@ -513,7 +513,7 @@ function function_88257448()
 */
 function function_ae27eeb1()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(1);
 	bonuszmsound::function_ef0ce9fb("plyz_i_had_to_find_taylor_0");
 	bonuszmsound::function_ef0ce9fb("plyz_she_said_if_i_wanted_0");
@@ -530,7 +530,7 @@ function function_ae27eeb1()
 */
 function function_d42a691a()
 {
-	level endon(#"bzm_sceneseqended");
+	level endon("bzm_sceneseqended");
 	wait(2);
 	bonuszmsound::function_ef0ce9fb("plyz_i_tried_to_approach_0");
 	wait(2);

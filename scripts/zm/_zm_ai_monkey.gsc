@@ -1434,7 +1434,7 @@ function monkey_round_tracker()
 	level.prev_monkey_round = level.next_monkey_round;
 	while(true)
 	{
-		level waittill(#"between_round_over");
+		level waittill("between_round_over");
 		if(level.round_number == level.next_monkey_round)
 		{
 			if(!monkey_player_has_perk())
@@ -2846,7 +2846,7 @@ function monkey_zombie_bhb_teleport()
 function monkey_zombie_bhb_failsafe()
 {
 	self endon("death");
-	self endon(#"bhb_old_failsafe");
+	self endon("bhb_old_failsafe");
 	prev_origin = self.origin;
 	min_movement = 256;
 	while(true)
@@ -2906,7 +2906,7 @@ function monkey_zombie_bhb_run()
 	self.safetochangescript = 1;
 	self setgoalpos(self.origin);
 	self util::waittill_notify_or_timeout("goal", 0.5);
-	self notify(#"bhb_old_failsafe");
+	self notify("bhb_old_failsafe");
 	util::wait_network_frame();
 	self thread monkey_zombie_bhb_failsafe();
 }

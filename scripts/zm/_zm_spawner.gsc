@@ -673,12 +673,12 @@ function zombie_goto_entrance(node, endon_bad_path)
 		assert(!self.isdog);
 	#/
 	self endon("death");
-	self endon(#"stop_zombie_goto_entrance");
+	self endon("stop_zombie_goto_entrance");
 	level endon("intermission");
 	self.ai_state = "zombie_goto_entrance";
 	if(isdefined(endon_bad_path) && endon_bad_path)
 	{
-		self endon(#"bad_path");
+		self endon("bad_path");
 	}
 	self zombie_history(("zombie_goto_entrance -> start goto entrance ") + node.origin);
 	self.got_to_entrance = 0;
@@ -790,7 +790,7 @@ function zombie_bad_path()
 	{
 		wait(0.05);
 	}
-	self notify(#"stop_zombie_bad_path");
+	self notify("stop_zombie_bad_path");
 	return self.zombie_bad_path;
 }
 
@@ -806,8 +806,8 @@ function zombie_bad_path()
 function zombie_bad_path_notify()
 {
 	self endon("death");
-	self endon(#"stop_zombie_bad_path");
-	self waittill(#"bad_path");
+	self endon("stop_zombie_bad_path");
+	self waittill("bad_path");
 	self.zombie_bad_path = 1;
 }
 
@@ -823,7 +823,7 @@ function zombie_bad_path_notify()
 function zombie_bad_path_timeout()
 {
 	self endon("death");
-	self endon(#"stop_zombie_bad_path");
+	self endon("stop_zombie_bad_path");
 	wait(2);
 	self.zombie_bad_path = 0;
 }
@@ -929,7 +929,7 @@ function tear_into_building()
 			self.first_node.zbarrier setzbarrierpiecestate(self.chunk, "targetted_by_zombie");
 			self.first_node thread check_zbarrier_piece_for_zombie_inert(self.chunk, self.first_node.zbarrier, self);
 			self.first_node thread check_zbarrier_piece_for_zombie_death(self.chunk, self.first_node.zbarrier, self);
-			self notify(#"bhtn_action_notify", "teardown");
+			self notify("bhtn_action_notify", "teardown");
 			self animscripted("tear_anim", self.first_node.zbarrier.origin, self.first_node.zbarrier.angles, "ai_zombie_boardtear_aligned_m_1_grab");
 			self zombie_tear_notetracks("tear_anim", self.chunk, self.first_node);
 			while(0 < self.first_node.zbarrier.chunk_health[self.chunk])
@@ -988,7 +988,7 @@ function do_a_taunt()
 	freq = getdvarint("zombie_taunt_freq");
 	if(freq >= randomint(100))
 	{
-		self notify(#"bhtn_action_notify", "taunt");
+		self notify("bhtn_action_notify", "taunt");
 		tauntstate = "zm_taunt";
 		if(isdefined(self.first_node.zbarrier) && self.first_node.zbarrier getzbarriertauntanimstate() != "")
 		{
@@ -1070,7 +1070,7 @@ function should_attack_player_thru_boards()
 	{
 		attackanimstate = self.first_node.zbarrier getzbarrierreachthroughattackanimstate();
 	}
-	self notify(#"bhtn_action_notify", "attack");
+	self notify("bhtn_action_notify", "attack");
 	self animscripted("window_melee_anim", self.origin, self.angles, "ai_zombie_window_attack_arm_l_out");
 	self window_notetracks("window_melee_anim");
 	return true;
@@ -1553,7 +1553,7 @@ function zombie_bartear_offset_fx_horizontle(chunk)
 function check_zbarrier_piece_for_zombie_inert(chunk_index, zbarrier, zombie)
 {
 	zombie endon("completed_emerging_into_playable_area");
-	zombie waittill(#"stop_zombie_goto_entrance");
+	zombie waittill("stop_zombie_goto_entrance");
 	if(zbarrier getzbarrierpiecestate(chunk_index) == "targetted_by_zombie")
 	{
 		zbarrier setzbarrierpiecestate(chunk_index, "closed");
@@ -1904,7 +1904,7 @@ function zombie_death_animscript(einflictor, attacker, idamage, smeansofdeath, w
 	if("tazer_knuckles" == self.damageweapon.name && "MOD_MELEE" == self.damagemod)
 	{
 		self.is_on_fire = 0;
-		self notify(#"stop_flame_damage");
+		self notify("stop_flame_damage");
 	}
 	if(self.damagemod == "MOD_BURNED")
 	{
@@ -1972,7 +1972,7 @@ function register_zombie_death_animscript_callback(func)
 function damage_on_fire(player)
 {
 	self endon("death");
-	self endon(#"stop_flame_damage");
+	self endon("stop_flame_damage");
 	wait(2);
 	while(isdefined(self.is_on_fire) && self.is_on_fire)
 	{
@@ -2516,7 +2516,7 @@ function zombie_death_event(zombie)
 	{
 		name = zombie.sndname;
 	}
-	self notify(#"bhtn_action_notify", "death");
+	self notify("bhtn_action_notify", "death");
 	zombie thread zombie_utility::zombie_eye_glow_stop();
 	if(isactor(zombie))
 	{
@@ -2667,7 +2667,7 @@ function attractors_generated_listener()
 {
 	self endon("death");
 	level endon("intermission");
-	self endon(#"stop_find_flesh");
+	self endon("stop_find_flesh");
 	self endon("path_timer_done");
 	level waittill("attractor_positions_generated");
 	self.zombie_path_timer = 0;
@@ -2692,7 +2692,7 @@ function zombie_pathing()
 	#/
 	self._skip_pathing_first_delay = 1;
 	self thread zombie_follow_enemy();
-	self waittill(#"bad_path");
+	self waittill("bad_path");
 	level.zombie_pathing_failed++;
 	if(isdefined(self.enemyoverride))
 	{
@@ -2766,7 +2766,7 @@ function zombie_pathing()
 		zm_utility::debug_print("Setting current breadcrumb to " + goal);
 		self.zombie_path_timer = self.zombie_path_timer + 100;
 		self setgoal(goal);
-		self waittill(#"bad_path");
+		self waittill("bad_path");
 		zm_utility::debug_print(("Zombie couldn't path to breadcrumb at " + goal) + " Finding next breadcrumb");
 		for(i = 0; i < crumb_list.size; i++)
 		{
@@ -2924,7 +2924,7 @@ function zombie_follow_enemy()
 {
 	self endon("death");
 	self endon("zombie_acquire_enemy");
-	self endon(#"bad_path");
+	self endon("bad_path");
 	level endon("intermission");
 	if(!isdefined(level.repathnotifierstarted))
 	{
@@ -3260,7 +3260,7 @@ function do_zombie_rise(spot)
 	}
 	self zombie_shared::donotetracks("rise_anim", &zombie_utility::handle_rise_notetracks, spot);
 	self notify("rise_anim_finished");
-	spot notify(#"stop_zombie_rise_fx");
+	spot notify("stop_zombie_rise_fx");
 	self.in_the_ground = 0;
 	self notify("risen", spot.script_string);
 }
@@ -3286,7 +3286,7 @@ function zombie_rise_fx(zombie)
 		self thread zombie_rise_burst_fx(zombie);
 	}
 	zombie endon("death");
-	self endon(#"stop_zombie_rise_fx");
+	self endon("stop_zombie_rise_fx");
 	wait(1);
 	if(zombie.zombie_move_speed != "sprint")
 	{
@@ -3305,7 +3305,7 @@ function zombie_rise_fx(zombie)
 */
 function zombie_rise_burst_fx(zombie)
 {
-	self endon(#"stop_zombie_rise_fx");
+	self endon("stop_zombie_rise_fx");
 	self endon("rise_anim_finished");
 	if(isdefined(self.script_parameters) && self.script_parameters == "in_water" && (!(isdefined(level._no_water_risers) && level._no_water_risers)))
 	{
@@ -3358,7 +3358,7 @@ function zombie_rise_burst_fx(zombie)
 function zombie_rise_dust_fx(zombie)
 {
 	dust_tag = "J_SpineUpper";
-	self endon(#"stop_zombie_rise_dust_fx");
+	self endon("stop_zombie_rise_dust_fx");
 	self thread stop_zombie_rise_dust_fx(zombie);
 	wait(2);
 	dust_time = 5.5;
@@ -3423,7 +3423,7 @@ function zombie_rise_dust_fx(zombie)
 function stop_zombie_rise_dust_fx(zombie)
 {
 	zombie waittill("death");
-	self notify(#"stop_zombie_rise_dust_fx");
+	self notify("stop_zombie_rise_dust_fx");
 }
 
 /*
@@ -3513,7 +3513,7 @@ function play_ambient_zombie_vocals()
 		{
 			name = self.sndname;
 		}
-		self notify(#"bhtn_action_notify", type);
+		self notify("bhtn_action_notify", type);
 		wait(randomfloatrange(1, float));
 	}
 }

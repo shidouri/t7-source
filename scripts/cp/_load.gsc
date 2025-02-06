@@ -699,7 +699,7 @@ function player_intermission()
 	level endon("stop_intermission");
 	self endon("disconnect");
 	self endon("death");
-	self notify(#"_zombie_game_over");
+	self notify("_zombie_game_over");
 	self.sessionstate = "intermission";
 	self.spectatorclient = -1;
 	self.archivetime = 0;

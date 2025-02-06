@@ -483,7 +483,7 @@ function private function_a38f70a1(player, target)
 			fx = level._effect["es_effect_human"];
 			tag = "j_spine4";
 			target dodamage(damage, player.origin, player, player, "none", "MOD_UNKNOWN", 0, player.cybercom.var_a9774972, -1, 1);
-			target notify(#"bhtn_action_notify", "electrocute");
+			target notify("bhtn_action_notify", "electrocute");
 			break;
 		}
 		case "robot":

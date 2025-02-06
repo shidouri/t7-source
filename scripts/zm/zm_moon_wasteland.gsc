@@ -281,7 +281,7 @@ function init_moon_nml_round(target_round)
 	level.round_number = zm::get_round_number();
 	level.chalk_override = " ";
 	level thread clear_nml_rounds();
-	level waittill(#"between_round_over");
+	level waittill("between_round_over");
 }
 
 /*

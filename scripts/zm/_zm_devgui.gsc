@@ -2454,7 +2454,7 @@ function devgui_bot_spawn_think(origin, yaw)
 		self endon("disconnect");
 		for(;;)
 		{
-			self waittill(#"spawned_player");
+			self waittill("spawned_player");
 			self setorigin(origin);
 			angles = (0, yaw, 0);
 			self setplayerangles(angles);
@@ -3512,7 +3512,7 @@ function zombie_devgui_revive()
 			assert(isalive(self));
 		#/
 		self reviveplayer();
-		self notify(#"stop_revive_trigger");
+		self notify("stop_revive_trigger");
 		if(isdefined(self.revivetrigger))
 		{
 			self.revivetrigger delete();

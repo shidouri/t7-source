@@ -125,7 +125,7 @@ function clean_up_suicide_hud_on_end_game()
 	self endon("disconnect");
 	self endon("stop_revive_trigger");
 	self endon("player_revived");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	level util::waittill_any("game_ended", "stop_suicide_trigger");
 	self cleanup_suicide_hud();
 	if(isdefined(self.suicidetexthud))
@@ -420,7 +420,7 @@ function cleanup_laststand_on_disconnect()
 {
 	self endon("player_revived");
 	self endon("player_suicide");
-	self endon(#"bled_out");
+	self endon("bled_out");
 	trig = self.revivetrigger;
 	self waittill("disconnect");
 	if(isdefined(trig))
