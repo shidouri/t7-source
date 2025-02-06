@@ -543,17 +543,17 @@ function channeling_stone_replacement()
 	mdl_key = util::spawn_model("p7_zm_ctl_keycard_ee", s_key.origin, s_key.angles);
 	mdl_key.targetname = "golden_key_past";
 	s_stone = struct::get("cs_replacement");
-	var_f12ee4c0 = util::spawn_model("p7_zm_ctl_channeling_stone", s_stone.origin, s_stone.angles);
-	var_f12ee4c0.targetname = "stone_past";
+	mdl_stone = util::spawn_model("p7_zm_ctl_channeling_stone", s_stone.origin, s_stone.angles);
+	mdl_stone.targetname = "stone_past";
 	mdl_lid = getent("lid_crate_stone", "targetname");
 	mdl_lid rotatepitch(-90, 1);
 	mdl_lid.b_rotated = 1;
 	mdl_lid playsound("zmb_ee_lid_open");
 	playsoundatposition("zmb_ee_lid_keyinsert", s_key.origin);
-	var_f12ee4c0 zm_castle_util::create_unitrigger();
-	var_f12ee4c0 waittill("trigger_activated");
-	zm_unitrigger::unregister_unitrigger(var_f12ee4c0.s_unitrigger);
-	var_f12ee4c0 delete();
+	mdl_stone zm_castle_util::create_unitrigger();
+	mdl_stone waittill("trigger_activated");
+	zm_unitrigger::unregister_unitrigger(mdl_stone.s_unitrigger);
+	mdl_stone delete();
 	mdl_lid.b_rotated = undefined;
 	level flag::set("channeling_stone_replacement");
 }
@@ -580,15 +580,15 @@ function function_f5156f29()
 	{
 		mdl_key delete();
 	}
-	var_f12ee4c0 = getent("stone_past", "targetname");
-	if(isdefined(var_f12ee4c0) && isdefined(var_f12ee4c0.s_unitrigger))
+	mdl_stone = getent("stone_past", "targetname");
+	if(isdefined(mdl_stone) && isdefined(mdl_stone.s_unitrigger))
 	{
-		zm_unitrigger::unregister_unitrigger(var_f12ee4c0.s_unitrigger);
+		zm_unitrigger::unregister_unitrigger(mdl_stone.s_unitrigger);
 	}
-	var_f12ee4c0 = getent("stone_past", "targetname");
-	if(isdefined(var_f12ee4c0))
+	mdl_stone = getent("stone_past", "targetname");
+	if(isdefined(mdl_stone))
 	{
-		var_f12ee4c0 delete();
+		mdl_stone delete();
 	}
 	mdl_lid = getent("lid_crate_stone", "targetname");
 	if(isdefined(mdl_lid.b_rotated) && mdl_lid.b_rotated)
@@ -638,16 +638,16 @@ function function_af12b9a4()
 		mdl_glow = getent("cs_glow_" + i, "targetname");
 		mdl_glow hide();
 	}
-	var_f12ee4c0 = getent("cs_stone_2", "targetname");
-	var_f12ee4c0 hide();
-	var_f12ee4c0 flagsys::set("channeling_stone_cracked");
-	a_str_tokens = strtok(var_f12ee4c0.model, "p7_zm_ctl_channeling_stone");
+	mdl_stone = getent("cs_stone_2", "targetname");
+	mdl_stone hide();
+	mdl_stone flagsys::set("channeling_stone_cracked");
+	a_str_tokens = strtok(mdl_stone.model, "p7_zm_ctl_channeling_stone");
 	var_f63ec558 = undefined;
 	if(a_str_tokens.size > 0)
 	{
 		var_f63ec558 = 1;
 	}
-	var_f12ee4c0 thread function_eb855685(var_f63ec558);
+	mdl_stone thread function_eb855685(var_f63ec558);
 	level flag::wait_till("start_channeling_stone_step");
 	level waittill(#"hash_4619f71b");
 	zm_spawner::register_zombie_death_event_callback(&function_e8de9974);
@@ -794,8 +794,8 @@ function function_e8de9974(e_attacker)
 		{
 			if(issubstr(self.damageweapon.name, "elemental_bow_" + level.var_1f18338d))
 			{
-				var_f12ee4c0 = getent("cs_stone_" + level.var_f1b0baba, "targetname");
-				if(!isdefined(var_f12ee4c0) || !var_f12ee4c0 flagsys::get("channeling_stone_cracked"))
+				mdl_stone = getent("cs_stone_" + level.var_f1b0baba, "targetname");
+				if(!isdefined(mdl_stone) || !mdl_stone flagsys::get("channeling_stone_cracked"))
 				{
 					e_volume = getent("cs_zone_" + level.var_f1b0baba, "targetname");
 					if(self istouching(e_volume))
@@ -1159,10 +1159,10 @@ function function_37fb253(var_33b10d19)
 function function_99ac27a()
 {
 	level endon("next_channeling_stone");
-	var_f12ee4c0 = getent("cs_stone_" + level.var_f1b0baba, "targetname");
-	if(isdefined(var_f12ee4c0))
+	mdl_stone = getent("cs_stone_" + level.var_f1b0baba, "targetname");
+	if(isdefined(mdl_stone))
 	{
-		var_f12ee4c0 flagsys::wait_till_clear("channeling_stone_cracked");
+		mdl_stone flagsys::wait_till_clear("channeling_stone_cracked");
 	}
 	mdl_glow = getent("cs_glow_" + level.var_f1b0baba, "targetname");
 	mdl_glow show();
