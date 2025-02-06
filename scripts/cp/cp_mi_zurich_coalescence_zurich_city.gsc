@@ -393,7 +393,7 @@ function handle_objectives()
 */
 function init_cameras()
 {
-	var_295a1e1f = zurich_util::function_f9afa212("zurich_intro_camera");
+	a_e_cameras = zurich_util::function_f9afa212("zurich_intro_camera");
 }
 
 /*
@@ -407,8 +407,8 @@ function init_cameras()
 */
 function function_9b46fb9()
 {
-	var_295a1e1f = getentarray("zurich_intro_camera_ai", "targetname");
-	array::delete_all(var_295a1e1f);
+	a_e_cameras = getentarray("zurich_intro_camera_ai", "targetname");
+	array::delete_all(a_e_cameras);
 }
 
 /*
