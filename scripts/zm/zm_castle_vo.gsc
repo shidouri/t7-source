@@ -670,9 +670,9 @@ function function_44c11f63()
 */
 function function_70721c81()
 {
-	var_337b3942 = struct::get("mpd_pos", "targetname");
-	e_speaker = spawn("script_model", var_337b3942.origin);
-	function_8ac5430(1, var_337b3942.origin);
+	s_speaker = struct::get("mpd_pos", "targetname");
+	e_speaker = spawn("script_model", s_speaker.origin);
+	function_8ac5430(1, s_speaker.origin);
 	e_speaker playsound("vox_groph_keeper_intro_sfx");
 	e_speaker playsoundwithnotify("vox_grop_keeper_intro_0", "sounddone");
 	e_speaker waittill("sounddone");
