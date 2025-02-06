@@ -3674,8 +3674,8 @@ function function_aef915b2()
 			e_vat.var_3d0b54ab = getent("foundry_catwalk_clip", "targetname");
 			e_vat.var_cb14c98c = getent("foundry_catwalk_ai_clip", "targetname");
 			e_vat.t_hazard = getent("fire_hazard_bridge", "targetname");
-			var_77f0f8f6 = getentarray("cauldron_bridge_fxanim_clip", "targetname");
-			foreach(e_clip in var_77f0f8f6)
+			a_e_clips = getentarray("cauldron_bridge_fxanim_clip", "targetname");
+			foreach(e_clip in a_e_clips)
 			{
 				e_clip notsolid();
 			}
@@ -4005,8 +4005,8 @@ function function_5ccfae48(str_location)
 function function_2aec5af4(a_ents)
 {
 	a_ents["newworld_cauldron_bridge"] waittill(#"hash_bc75666f");
-	var_77f0f8f6 = getentarray("cauldron_bridge_fxanim_clip", "targetname");
-	foreach(e_clip in var_77f0f8f6)
+	a_e_clips = getentarray("cauldron_bridge_fxanim_clip", "targetname");
+	foreach(e_clip in a_e_clips)
 	{
 		e_clip solid();
 	}
