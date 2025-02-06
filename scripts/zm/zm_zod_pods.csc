@@ -83,7 +83,7 @@ function update_fungus_pod_level(localclientnum, oldval, newval, bnewent, biniti
 	{
 		level.var_63c365e9[localclientnum][self getentitynumber()] = util::spawn_model(localclientnum, "p7_fxanim_zm_zod_fungus_pod_base_mod", self.origin, self.angles);
 	}
-	var_165d49f6 = level.var_63c365e9[localclientnum][self getentitynumber()];
+	mdl_pod = level.var_63c365e9[localclientnum][self getentitynumber()];
 	if(isdemoplaying() && getnumfreeentities(localclientnum) < 100)
 	{
 		var_2a6bebf9 = getnumfreeentities(localclientnum);
@@ -102,27 +102,27 @@ function update_fungus_pod_level(localclientnum, oldval, newval, bnewent, biniti
 		case 0:
 		case 4:
 		{
-			self thread scene_play(("p7_fxanim_zm_zod_fungus_pod_stage" + self.n_pod_level) + "_death_bundle", var_165d49f6);
+			self thread scene_play(("p7_fxanim_zm_zod_fungus_pod_stage" + self.n_pod_level) + "_death_bundle", mdl_pod);
 			self.n_pod_level = 0;
 			break;
 		}
 		case 1:
 		{
-			self thread scene_play("p7_fxanim_zm_zod_fungus_pod_stage1_bundle", var_165d49f6);
+			self thread scene_play("p7_fxanim_zm_zod_fungus_pod_stage1_bundle", mdl_pod);
 			self.ambient_fx = playfx(localclientnum, "zombie/fx_fungus_pod_ambient_sm_zod_zmb", self.origin);
 			self.n_pod_level = newval;
 			break;
 		}
 		case 2:
 		{
-			self thread scene_play("p7_fxanim_zm_zod_fungus_pod_stage2_bundle", var_165d49f6);
+			self thread scene_play("p7_fxanim_zm_zod_fungus_pod_stage2_bundle", mdl_pod);
 			self.ambient_fx = playfx(localclientnum, "zombie/fx_fungus_pod_ambient_md_zod_zmb", self.origin);
 			self.n_pod_level = newval;
 			break;
 		}
 		case 3:
 		{
-			self thread scene_play("p7_fxanim_zm_zod_fungus_pod_stage3_bundle", var_165d49f6);
+			self thread scene_play("p7_fxanim_zm_zod_fungus_pod_stage3_bundle", mdl_pod);
 			self.ambient_fx = playfx(localclientnum, "zombie/fx_fungus_pod_ambient_lg_zod_zmb", self.origin);
 			self.n_pod_level = newval;
 			break;
@@ -139,12 +139,12 @@ function update_fungus_pod_level(localclientnum, oldval, newval, bnewent, biniti
 	Parameters: 2
 	Flags: Linked
 */
-function scene_play(scene, var_165d49f6)
+function scene_play(scene, mdl_pod)
 {
 	self notify("scene_play");
 	self endon("scene_play");
 	self scene::stop();
-	self function_6221b6b9(scene, var_165d49f6);
+	self function_6221b6b9(scene, mdl_pod);
 	self scene::stop();
 }
 
@@ -157,10 +157,10 @@ function scene_play(scene, var_165d49f6)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6221b6b9(scene, var_165d49f6)
+function function_6221b6b9(scene, mdl_pod)
 {
 	level endon("demo_jump");
-	self scene::play(scene, var_165d49f6);
+	self scene::play(scene, mdl_pod);
 }
 
 /*

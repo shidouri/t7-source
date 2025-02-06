@@ -358,7 +358,7 @@ function scene_play(scene)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6221b6b9(scene, var_165d49f6)
+function function_6221b6b9(scene, mdl_pod)
 {
 	level endon("demo_jump");
 	self scene::play(scene);

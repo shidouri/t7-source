@@ -93,12 +93,12 @@ function function_b77a78c9(localclientnum, str_fx, v_origin, n_duration, v_angle
 	Parameters: 2
 	Flags: None
 */
-function scene_play(scene, var_165d49f6)
+function scene_play(scene, mdl_pod)
 {
 	self notify("scene_play");
 	self endon("scene_play");
 	self scene::stop();
-	self function_6221b6b9(scene, var_165d49f6);
+	self function_6221b6b9(scene, mdl_pod);
 	self scene::stop();
 }
 
@@ -111,10 +111,10 @@ function scene_play(scene, var_165d49f6)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6221b6b9(scene, var_165d49f6)
+function function_6221b6b9(scene, mdl_pod)
 {
 	level endon("demo_jump");
-	self scene::play(scene, var_165d49f6);
+	self scene::play(scene, mdl_pod);
 }
 
 /*

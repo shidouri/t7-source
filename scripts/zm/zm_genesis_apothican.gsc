@@ -1405,19 +1405,19 @@ function function_ff65120e()
 	self waittill("trigger_activated", e_player);
 	level thread function_88893a6c(var_b2f4a489);
 	v_pos = self.mdl_ovary gettagorigin("tag_origin");
-	var_165d49f6 = util::spawn_model("p7_fxanim_zm_gen_gateworm_egg_mod", v_pos, mdl_ovary.angles);
-	self.var_165d49f6 = var_165d49f6;
+	mdl_pod = util::spawn_model("p7_fxanim_zm_gen_gateworm_egg_mod", v_pos, mdl_ovary.angles);
+	self.mdl_pod = mdl_pod;
 	self.var_22ee51d7 = e_player;
 	e_player function_eb908d5e();
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
 	mdl_ovary thread scene::play("p7_fxanim_zm_gen_gateworm_ovary_egg_deposit_bundle", mdl_ovary);
-	var_165d49f6 scene::play("p7_fxanim_zm_gen_gateworm_egg_deposit_bundle", var_165d49f6);
+	mdl_pod scene::play("p7_fxanim_zm_gen_gateworm_egg_deposit_bundle", mdl_pod);
 	exploder::exploder(var_5e99fdc8);
-	var_165d49f6.var_b99b1b98 = 10;
-	var_165d49f6 waittill(#"hash_71f0e810");
-	var_165d49f6 playsound("zmb_main_omelettes_ovary_worm_hatch");
-	var_165d49f6 scene::stop("p7_fxanim_zm_gen_gateworm_egg_deposit_bundle");
-	var_165d49f6 delete();
+	mdl_pod.var_b99b1b98 = 10;
+	mdl_pod waittill(#"hash_71f0e810");
+	mdl_pod playsound("zmb_main_omelettes_ovary_worm_hatch");
+	mdl_pod scene::stop("p7_fxanim_zm_gen_gateworm_egg_deposit_bundle");
+	mdl_pod delete();
 	v_pos = mdl_ovary gettagorigin("ovary_gateworm_tag");
 	mdl_gateworm = util::spawn_model("p7_zm_dlc4_gateworm", v_pos, mdl_ovary.angles);
 	level thread function_88893a6c(var_b2f4a489);
@@ -1661,16 +1661,16 @@ function function_31a6b711(e_attacker)
 	for(i = 0; i < level.var_2a7689da.size; i++)
 	{
 		var_a799f50 = level.var_2a7689da[i];
-		var_165d49f6 = var_a799f50.var_165d49f6;
-		if(isdefined(var_165d49f6) && isdefined(var_165d49f6.var_b99b1b98))
+		mdl_pod = var_a799f50.mdl_pod;
+		if(isdefined(mdl_pod) && isdefined(mdl_pod.var_b99b1b98))
 		{
 			if(!isdefined(var_a799f50.var_22ee51d7) || var_a799f50.var_22ee51d7 == e_attacker)
 			{
-				n_dist_sq = distancesquared(self.origin, var_165d49f6.origin);
+				n_dist_sq = distancesquared(self.origin, mdl_pod.origin);
 				if(n_dist_sq < n_closest_dist)
 				{
 					n_closest_dist = n_dist_sq;
-					var_e6ca3c26 = var_165d49f6;
+					var_e6ca3c26 = mdl_pod;
 				}
 			}
 		}

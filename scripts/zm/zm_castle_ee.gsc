@@ -1617,8 +1617,8 @@ function function_1ca91be4(a_ents)
 	level thread scene::play("cin_cas_01_outro_3rd_static_poses");
 	wait(3);
 	var_a723142d delete();
-	var_165d49f6 = getent("pod", "targetname");
-	var_165d49f6 clientfield::set("pod_monitor_enable", 1);
+	mdl_pod = getent("pod", "targetname");
+	mdl_pod clientfield::set("pod_monitor_enable", 1);
 	zm_castle_vo::function_44c11f63();
 }
 
@@ -2685,8 +2685,8 @@ function function_a029a5f1(a_ents)
 */
 function pod_monitor_enable(a_ents)
 {
-	var_165d49f6 = a_ents["pod"];
-	var_165d49f6 clientfield::set("pod_monitor_enable", 1);
+	mdl_pod = a_ents["pod"];
+	mdl_pod clientfield::set("pod_monitor_enable", 1);
 }
 
 /*
@@ -2700,8 +2700,8 @@ function pod_monitor_enable(a_ents)
 */
 function function_3c1114e8(a_ents)
 {
-	var_165d49f6 = a_ents["pod"];
-	var_165d49f6 clientfield::set("pod_monitor_enable", 0);
+	mdl_pod = a_ents["pod"];
+	mdl_pod clientfield::set("pod_monitor_enable", 0);
 }
 
 /*
