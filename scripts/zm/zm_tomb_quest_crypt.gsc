@@ -132,7 +132,7 @@ function chamber_disc_run()
 */
 function function_746282b3(a_ents)
 {
-	var_4316fdf6 = a_ents["chamber_mid_ring"];
+	mdl_disc = a_ents["chamber_mid_ring"];
 	switch(self.targetname)
 	{
 		case "fxanim_disc1":
@@ -156,8 +156,8 @@ function function_746282b3(a_ents)
 			break;
 		}
 	}
-	var_4316fdf6 linkto(level.var_6d86123b[n_index]);
-	level.var_6d86123b[n_index].mdl_animated = var_4316fdf6;
+	mdl_disc linkto(level.var_6d86123b[n_index]);
+	level.var_6d86123b[n_index].mdl_animated = mdl_disc;
 	wait(0.05);
 	level.var_6d86123b[n_index] ghost();
 }
