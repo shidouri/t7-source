@@ -1276,10 +1276,10 @@ function function_411feb6a()
 function function_2af9e8f2()
 {
 	level flag::wait_till("book_placed");
-	var_9c840b49 = struct::get_array("gateworm_egg", "targetname");
-	var_9c840b49 = array::randomize(var_9c840b49);
+	a_s_eggs = struct::get_array("gateworm_egg", "targetname");
+	a_s_eggs = array::randomize(a_s_eggs);
 	level.var_393eea44 = [];
-	foreach(s_egg in var_9c840b49)
+	foreach(s_egg in a_s_eggs)
 	{
 		if(!isdefined(level.var_393eea44[s_egg.script_int]))
 		{

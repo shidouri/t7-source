@@ -118,8 +118,8 @@ function function_fa149742()
 	level scene::init("p7_fxanim_zm_stal_pavlov_boards_bundle");
 	var_200dbf9d thread function_a3a149a9();
 	level waittill(#"hash_698d88e1");
-	var_9c840b49 = struct::get_array("dragon_egg_pickup", "targetname");
-	foreach(s_egg in var_9c840b49)
+	a_s_eggs = struct::get_array("dragon_egg_pickup", "targetname");
+	foreach(s_egg in a_s_eggs)
 	{
 		s_egg zm_unitrigger::create_unitrigger(&"ZM_STALINGRAD_EGG_PICKUP", 64, &function_61ab1070, &function_cee6cb2a);
 	}
