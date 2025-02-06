@@ -282,15 +282,15 @@ function function_4cebde70()
 	level thread function_c2dab6c5();
 	exploder::exploder("fxexp_800");
 	wait(2);
-	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(s_planting_spot in var_fc72ce0a)
+	a_s_planters = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
+	foreach(s_planting_spot in a_s_planters)
 	{
 		s_planting_spot.model = util::spawn_model("p7_zm_isl_plant_planter", s_planting_spot.origin, s_planting_spot.angles);
 		s_planting_spot.model movez(16, 2);
 		playsoundatposition("zmb_planters_appear", s_planting_spot.origin);
 	}
 	s_planting_spot.model waittill("movedone");
-	level thread function_152720d8(var_fc72ce0a);
+	level thread function_152720d8(a_s_planters);
 }
 
 /*
@@ -302,14 +302,14 @@ function function_4cebde70()
 	Parameters: 1
 	Flags: Linked
 */
-function function_152720d8(var_fc72ce0a)
+function function_152720d8(a_s_planters)
 {
-	foreach(s_planter in var_fc72ce0a)
+	foreach(s_planter in a_s_planters)
 	{
 		s_planter.origin = s_planter.model.origin;
 		s_planter zm_island_planting::function_fedc998b(1);
 	}
-	level.a_s_planting_spots = arraycombine(level.a_s_planting_spots, var_fc72ce0a, 0, 0);
+	level.a_s_planting_spots = arraycombine(level.a_s_planting_spots, a_s_planters, 0, 0);
 }
 
 /*
@@ -446,8 +446,8 @@ function function_f0d8de1d()
 */
 function cleanup_plants()
 {
-	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(s_planter in var_fc72ce0a)
+	a_s_planters = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
+	foreach(s_planter in a_s_planters)
 	{
 		s_planter thread function_c1f64636(0);
 		wait(0.05);
@@ -487,8 +487,8 @@ function function_9a2f5188(e_volume)
 */
 function function_e630b27f()
 {
-	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(s_planter in var_fc72ce0a)
+	a_s_planters = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
+	foreach(s_planter in a_s_planters)
 	{
 		if(isdefined(s_planter.s_plant) && isdefined(s_planter.s_plant.s_attackable) && s_planter.s_plant.s_attackable.health > 0)
 		{
@@ -513,8 +513,8 @@ function function_4d1841e4()
 	level flag::init("golden_bucket_planters_empty");
 	playsoundatposition("zmb_golden_bucket_success", (0, 0, 0));
 	level thread function_6742be8f();
-	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(s_planter in var_fc72ce0a)
+	a_s_planters = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
+	foreach(s_planter in a_s_planters)
 	{
 		s_planter thread function_c1f64636(1);
 		wait(0.05);
@@ -626,15 +626,15 @@ function function_6742be8f()
 function function_41280a71()
 {
 	exploder::exploder("fxexp_801");
-	var_fc72ce0a = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
-	foreach(s_planting_spot in var_fc72ce0a)
+	a_s_planters = struct::get_array("planting_spot_golden_bucket_challenge", "targetname");
+	foreach(s_planting_spot in a_s_planters)
 	{
 		s_planting_spot.s_plant.model linkto(s_planting_spot.model);
 		s_planting_spot.model movez(-16, 2);
 		playsoundatposition("zmb_planters_disappear", s_planting_spot.origin);
 	}
 	s_planting_spot.model waittill("movedone");
-	foreach(s_planting_spot in var_fc72ce0a)
+	foreach(s_planting_spot in a_s_planters)
 	{
 		s_planting_spot.s_plant.model delete();
 		s_planting_spot.model delete();
