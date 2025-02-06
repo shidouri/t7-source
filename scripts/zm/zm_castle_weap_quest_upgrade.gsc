@@ -6119,10 +6119,10 @@ function function_1ad44df5()
 		{
 			level.var_f3ff8b16 = 0;
 		}
-		var_66b0cbbe = struct::get_array("", "");
+		a_s_batteries = struct::get_array("", "");
 		if(level.var_f3ff8b16)
 		{
-			foreach(s_battery in var_66b0cbbe)
+			foreach(s_battery in a_s_batteries)
 			{
 				s_battery.var_41f52afd clientfield::set("", 1);
 			}
@@ -6130,7 +6130,7 @@ function function_1ad44df5()
 		}
 		else
 		{
-			foreach(s_battery in var_66b0cbbe)
+			foreach(s_battery in a_s_batteries)
 			{
 				s_battery.var_41f52afd clientfield::set("", 2);
 			}
@@ -6166,8 +6166,8 @@ function function_b1cac6d2()
 		{
 			s_beacon.var_41f52afd clientfield::set("", 2);
 		}
-		var_66b0cbbe = struct::get_array("", "");
-		foreach(s_battery in var_66b0cbbe)
+		a_s_batteries = struct::get_array("", "");
+		foreach(s_battery in a_s_batteries)
 		{
 			if(isdefined(s_battery.var_41f52afd))
 			{

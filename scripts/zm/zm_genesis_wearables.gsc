@@ -393,9 +393,9 @@ function function_aa6437f1()
 */
 function function_b4575902()
 {
-	var_66b0cbbe = struct::get_array("ancient_battery", "targetname");
+	a_s_batteries = struct::get_array("ancient_battery", "targetname");
 	var_5a533244 = [];
-	foreach(s_battery in var_66b0cbbe)
+	foreach(s_battery in a_s_batteries)
 	{
 		mdl_battery = util::spawn_model("p7_zm_ctl_battery_ceramic", s_battery.origin, s_battery.angles);
 		mdl_battery.target = s_battery.target;
