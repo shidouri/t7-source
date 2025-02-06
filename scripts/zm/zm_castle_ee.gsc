@@ -2274,7 +2274,7 @@ function function_c21dcd15()
 	var_726d0daa = struct::get_array("tesla_connector");
 	foreach(s_connector in var_726d0daa)
 	{
-		var_bb46ee5a = util::spawn_model("p7_zm_ctl_deathray_base_part", s_connector.origin, s_connector.angles);
+		mdl_connector = util::spawn_model("p7_zm_ctl_deathray_base_part", s_connector.origin, s_connector.angles);
 		if(!isdefined(var_f3f0fbd))
 		{
 			var_f3f0fbd = [];
@@ -2283,7 +2283,7 @@ function function_c21dcd15()
 		{
 			var_f3f0fbd = array(var_f3f0fbd);
 		}
-		var_f3f0fbd[var_f3f0fbd.size] = var_bb46ee5a;
+		var_f3f0fbd[var_f3f0fbd.size] = mdl_connector;
 	}
 	var_176b8aac = struct::get("ee_gold_key");
 	mdl_key = util::spawn_model("p7_zm_ctl_keycard_ee", var_176b8aac.origin, var_176b8aac.angles);
