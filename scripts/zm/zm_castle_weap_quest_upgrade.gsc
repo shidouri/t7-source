@@ -2672,8 +2672,8 @@ function function_8700782f()
 		var_49f8925e[i] thread function_f20a422b(var_25b51f6b, var_5a2492d5);
 		if(isdefined(var_49f8925e[i].n_index))
 		{
-			var_e046f594 = struct::get("aq_dg_rune_sequence_0" + var_49f8925e[i].n_index, "targetname");
-			var_e046f594.var_a991b2d8 = var_25b51f6b;
+			s_sequence = struct::get("aq_dg_rune_sequence_0" + var_49f8925e[i].n_index, "targetname");
+			s_sequence.var_a991b2d8 = var_25b51f6b;
 		}
 		var_579f5f7[i].var_483af51d = "fxexp_" + var_579f5f7[i].script_int;
 		var_ca33ca2e = var_579f5f7[i].script_int + 1;
