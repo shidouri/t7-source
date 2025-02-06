@@ -451,10 +451,10 @@ function function_be26578d(n_reel)
 	var_3a557c26 = struct::get_array("audio1_start", "targetname");
 	var_4d544c7f = array::random(var_3a557c26);
 	v_offset = vectorscale((0, 0, 1), 20);
-	var_b44af04e = util::spawn_model("p7_zm_gen_horror_shards_kit_03_h", var_4d544c7f.origin - v_offset, var_4d544c7f.angles);
+	mdl_rock = util::spawn_model("p7_zm_gen_horror_shards_kit_03_h", var_4d544c7f.origin - v_offset, var_4d544c7f.angles);
 	util::wait_network_frame();
-	var_b44af04e moveto(var_4d544c7f.origin, 15);
-	var_b44af04e waittill("movedone");
+	mdl_rock moveto(var_4d544c7f.origin, 15);
+	mdl_rock waittill("movedone");
 	while(true)
 	{
 		if(isdefined(level.ai_companion) && isalive(level.companion_leader))
@@ -464,9 +464,9 @@ function function_be26578d(n_reel)
 				wait(0.1);
 				continue;
 			}
-			if(distancesquared(level.companion_leader.origin, var_b44af04e.origin) < 2500 && distancesquared(level.ai_companion.origin, var_b44af04e.origin) < 40000)
+			if(distancesquared(level.companion_leader.origin, mdl_rock.origin) < 2500 && distancesquared(level.ai_companion.origin, mdl_rock.origin) < 40000)
 			{
-				b_success = level.ai_companion function_3877f225(var_b44af04e);
+				b_success = level.ai_companion function_3877f225(mdl_rock);
 				if(b_success)
 				{
 					break;
@@ -477,7 +477,7 @@ function function_be26578d(n_reel)
 	}
 	var_bbd61432 = struct::get(var_4d544c7f.target, "targetname");
 	var_bbd61432 thread function_bde2ec4(n_reel);
-	var_b44af04e delete();
+	mdl_rock delete();
 	level flag::wait_till("placed_audio" + n_reel);
 	foreach(var_4d544c7f in var_3a557c26)
 	{
@@ -494,12 +494,12 @@ function function_be26578d(n_reel)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3877f225(var_b44af04e)
+function function_3877f225(mdl_rock)
 {
 	self.var_57376ff1 = 1;
 	self.var_2fd11bbd = 1;
 	self.ignoreme = 0;
-	v_dir = var_b44af04e.origin - self.origin;
+	v_dir = mdl_rock.origin - self.origin;
 	v_dir = (v_dir[0], v_dir[1], 0);
 	v_angles = vectortoangles(v_dir);
 	self orientmode("face angle", v_angles[1]);
