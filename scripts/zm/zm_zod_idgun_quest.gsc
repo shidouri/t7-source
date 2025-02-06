@@ -694,7 +694,7 @@ function idgun_proximity_sensor(var_3fbc06aa)
 	self endon(#"bleed_out");
 	self endon("death");
 	self endon("disconnect");
-	var_e610614b = level.var_a26610f1[var_3fbc06aa].origin;
+	v_cocoon = level.var_a26610f1[var_3fbc06aa].origin;
 	n_proximity_max_2 = 262144;
 	n_proximity_min_2 = 4096;
 	n_proximity_diff_2 = n_proximity_max_2 - n_proximity_min_2;
@@ -712,14 +712,14 @@ function idgun_proximity_sensor(var_3fbc06aa)
 			wait(0.1);
 			break;
 		}
-		var_888da1cf = (var_e610614b[0], var_e610614b[1], self.origin[2]);
+		var_888da1cf = (v_cocoon[0], v_cocoon[1], self.origin[2]);
 		n_dist_2 = distancesquared(self.origin, var_888da1cf);
 		if(n_dist_2 <= n_proximity_max_2)
 		{
 			n_time_before_next_pulse = 1;
 			v_eye_origin = self getplayercamerapos();
 			v_eye_direction = anglestoforward(self getplayerangles());
-			var_744d3805 = vectornormalize(var_e610614b - v_eye_origin);
+			var_744d3805 = vectornormalize(v_cocoon - v_eye_origin);
 			n_dot = vectordot(var_744d3805, v_eye_direction);
 			if(n_dot > 0.9)
 			{
