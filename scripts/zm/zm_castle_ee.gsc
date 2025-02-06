@@ -635,8 +635,8 @@ function function_af12b9a4()
 {
 	for(i = 1; i <= 4; i++)
 	{
-		var_4a9aea8a = getent("cs_glow_" + i, "targetname");
-		var_4a9aea8a hide();
+		mdl_glow = getent("cs_glow_" + i, "targetname");
+		mdl_glow hide();
 	}
 	var_f12ee4c0 = getent("cs_stone_2", "targetname");
 	var_f12ee4c0 hide();
@@ -800,14 +800,14 @@ function function_e8de9974(e_attacker)
 					e_volume = getent("cs_zone_" + level.var_f1b0baba, "targetname");
 					if(self istouching(e_volume))
 					{
-						var_4a9aea8a = getent("cs_glow_" + level.var_f1b0baba, "targetname");
+						mdl_glow = getent("cs_glow_" + level.var_f1b0baba, "targetname");
 						var_25c1c42e = function_6fc08711();
-						self thread zm_castle_weap_quest_upgrade::function_55c48922(self.origin, var_4a9aea8a.origin, var_25c1c42e, isdefined(self.missinglegs) && self.missinglegs);
+						self thread zm_castle_weap_quest_upgrade::function_55c48922(self.origin, mdl_glow.origin, var_25c1c42e, isdefined(self.missinglegs) && self.missinglegs);
 						level.var_8bdb0713++;
 						if(level.var_8bdb0713 == 1)
 						{
 							level waittill(#"hash_d8b279ab");
-							var_4a9aea8a clientfield::set("channeling_stone_glow", 1);
+							mdl_glow clientfield::set("channeling_stone_glow", 1);
 							var_747532f4 = getent("keeper_archon_ai", "targetname");
 							var_747532f4 notify("start_moving");
 							var_747532f4 scene::play("cin_zm_dlc1_corrupted_keeper_charge_stone_intro", var_747532f4);
@@ -1164,8 +1164,8 @@ function function_99ac27a()
 	{
 		var_f12ee4c0 flagsys::wait_till_clear("channeling_stone_cracked");
 	}
-	var_4a9aea8a = getent("cs_glow_" + level.var_f1b0baba, "targetname");
-	var_4a9aea8a show();
+	mdl_glow = getent("cs_glow_" + level.var_f1b0baba, "targetname");
+	mdl_glow show();
 	level thread function_6bfbde41();
 	var_dd155127 = function_f507c094();
 	while(true)
@@ -1176,7 +1176,7 @@ function function_99ac27a()
 			var_747532f4 notify("keeper_charge");
 			str_exploder = function_ac7d9299();
 			exploder::kill_exploder(str_exploder);
-			var_4a9aea8a clientfield::set("channeling_stone_glow", 2);
+			mdl_glow clientfield::set("channeling_stone_glow", 2);
 			level flag::set("next_channeling_stone");
 		}
 		wait(0.15);
