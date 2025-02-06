@@ -592,8 +592,8 @@ function function_16907a63()
 */
 function function_59a929b0(s_stub)
 {
-	var_734c1c5a = getent("dragon_incubator", "targetname");
-	var_734c1c5a thread scene::play("p7_fxanim_zm_stal_dragon_incubator_bundle");
+	mdl_incubator = getent("dragon_incubator", "targetname");
+	mdl_incubator thread scene::play("p7_fxanim_zm_stal_dragon_incubator_bundle");
 	level.var_de98e3ce.var_a6563820 = 7 + (6 * zm_utility::get_number_of_valid_players());
 	level.var_c2c83bb6 = spawnstruct();
 	level.var_de98e3ce.var_d54b9ade = s_stub;
@@ -630,7 +630,7 @@ function function_59a929b0(s_stub)
 	zm_stalingrad_util::function_adf4d1d0();
 	level function_fd19472b();
 	level thread zm_stalingrad_vo::function_e4acaa37("vox_soph_whelp_quest_lockdown_end_0");
-	var_734c1c5a scene::play("p7_fxanim_zm_stal_dragon_incubator_finish_bundle");
+	mdl_incubator scene::play("p7_fxanim_zm_stal_dragon_incubator_finish_bundle");
 	foreach(e_collision in var_2bf0ed11)
 	{
 		e_collision notsolid();
