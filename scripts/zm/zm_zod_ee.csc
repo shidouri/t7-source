@@ -370,11 +370,11 @@ function function_f2a0dbdc(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		for(i = 1; i <= 4; i++)
 		{
-			var_4fafa709 = function_e1e53e16(localclientnum, i);
-			var_4fafa709.model util::waittill_dobj(localclientnum);
-			v_fwd = anglestoforward(var_4fafa709.model.angles);
-			level thread function_705b696b(localclientnum, level._effect["keeper_spawn"], var_4fafa709.model.origin, v_fwd, 2);
-			var_4fafa709.model hide();
+			s_keeper = function_e1e53e16(localclientnum, i);
+			s_keeper.model util::waittill_dobj(localclientnum);
+			v_fwd = anglestoforward(s_keeper.model.angles);
+			level thread function_705b696b(localclientnum, level._effect["keeper_spawn"], s_keeper.model.origin, v_fwd, 2);
+			s_keeper.model hide();
 		}
 	}
 	mdl_ritual animation::play("p7_fxanim_zm_zod_redemption_key_ritual_end_anim");
@@ -510,95 +510,95 @@ function ee_keeper_magician_state(localclientnum, oldval, newval, bnewent, binit
 */
 function function_a39c9866(localclientnum, var_fe2fb4b9, var_f471914b, n_character_index)
 {
-	var_4fafa709 = function_e1e53e16(localclientnum, n_character_index);
+	s_keeper = function_e1e53e16(localclientnum, n_character_index);
 	mdl_target = function_2c557738(localclientnum, n_character_index);
-	function_4d0c8ca8(var_4fafa709, var_fe2fb4b9, n_character_index);
-	var_4fafa709.model util::waittill_dobj(localclientnum);
-	if(!var_4fafa709.model hasanimtree())
+	function_4d0c8ca8(s_keeper, var_fe2fb4b9, n_character_index);
+	s_keeper.model util::waittill_dobj(localclientnum);
+	if(!s_keeper.model hasanimtree())
 	{
-		var_4fafa709.model useanimtree($generic);
+		s_keeper.model useanimtree($generic);
 	}
-	if(isdefined(var_4fafa709.model.sndloop))
+	if(isdefined(s_keeper.model.sndloop))
 	{
-		var_4fafa709.model stoploopsound(var_4fafa709.model.sndloop, 2);
-		var_4fafa709.model.sndloop = undefined;
+		s_keeper.model stoploopsound(s_keeper.model.sndloop, 2);
+		s_keeper.model.sndloop = undefined;
 	}
 	switch(var_fe2fb4b9)
 	{
 		case 0:
 		{
-			var_4fafa709.model hide();
+			s_keeper.model hide();
 			break;
 		}
 		case 1:
 		{
-			var_4fafa709.model show();
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_give_egg_intro", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_give_egg_loop", 0);
-			var_4fafa709.var_c8ca4ded = playfx(localclientnum, level._effect["ee_quest_keeper_spirit_mist"], var_4fafa709.model.origin, var_4fafa709.model.angles);
-			var_4fafa709.model.sndloop = var_4fafa709.model playloopsound("zmb_ee_keeper_ghost_appear_lp", 2);
-			var_4fafa709.model playsound(0, "zmb_ee_keeper_ghost_appear");
-			var_4fafa709.model animation::play("ai_zombie_zod_keeper_idle", undefined, undefined, 1);
+			s_keeper.model show();
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_give_egg_intro", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_give_egg_loop", 0);
+			s_keeper.var_c8ca4ded = playfx(localclientnum, level._effect["ee_quest_keeper_spirit_mist"], s_keeper.model.origin, s_keeper.model.angles);
+			s_keeper.model.sndloop = s_keeper.model playloopsound("zmb_ee_keeper_ghost_appear_lp", 2);
+			s_keeper.model playsound(0, "zmb_ee_keeper_ghost_appear");
+			s_keeper.model animation::play("ai_zombie_zod_keeper_idle", undefined, undefined, 1);
 			break;
 		}
 		case 2:
 		{
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_idle", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_give_egg_intro", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_give_egg_loop", 0);
-			var_4fafa709.model.sndloop = var_4fafa709.model playloopsound("zmb_zod_totem_resurrecting_lp", 2);
-			var_4fafa709.mdl_totem show();
-			var_4fafa709.var_b0ff8d18 = playfxontag(localclientnum, level._effect["ee_totem_to_ghost"], var_4fafa709.mdl_totem, "j_head");
-			var_4fafa709.var_a0b06f1c = playfxontag(localclientnum, level._effect["ee_ghost_charging"], var_4fafa709.model, "tag_origin");
-			var_4fafa709.model animation::play("ai_zombie_zod_keeper_give_egg_outro", undefined, undefined, 1);
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_idle", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_give_egg_intro", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_give_egg_loop", 0);
+			s_keeper.model.sndloop = s_keeper.model playloopsound("zmb_zod_totem_resurrecting_lp", 2);
+			s_keeper.mdl_totem show();
+			s_keeper.var_b0ff8d18 = playfxontag(localclientnum, level._effect["ee_totem_to_ghost"], s_keeper.mdl_totem, "j_head");
+			s_keeper.var_a0b06f1c = playfxontag(localclientnum, level._effect["ee_ghost_charging"], s_keeper.model, "tag_origin");
+			s_keeper.model animation::play("ai_zombie_zod_keeper_give_egg_outro", undefined, undefined, 1);
 			break;
 		}
 		case 3:
 		{
-			if(isdefined(var_4fafa709.var_b0ff8d18))
+			if(isdefined(s_keeper.var_b0ff8d18))
 			{
-				stopfx(localclientnum, var_4fafa709.var_b0ff8d18);
+				stopfx(localclientnum, s_keeper.var_b0ff8d18);
 			}
-			if(isdefined(var_4fafa709.var_a0b06f1c))
+			if(isdefined(s_keeper.var_a0b06f1c))
 			{
-				stopfx(localclientnum, var_4fafa709.var_a0b06f1c);
+				stopfx(localclientnum, s_keeper.var_a0b06f1c);
 			}
-			playfxontag(localclientnum, level._effect["ee_ghost_charged"], var_4fafa709.model, "tag_origin");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_give_egg_outro", 0);
-			var_4fafa709.model zm_zod::ghost_actor(localclientnum, 1, 0);
-			var_4fafa709.model zm_zod_quest::keeper_fx(localclientnum, 0, 1);
-			if(isdefined(var_4fafa709.var_c8ca4ded))
+			playfxontag(localclientnum, level._effect["ee_ghost_charged"], s_keeper.model, "tag_origin");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_give_egg_outro", 0);
+			s_keeper.model zm_zod::ghost_actor(localclientnum, 1, 0);
+			s_keeper.model zm_zod_quest::keeper_fx(localclientnum, 0, 1);
+			if(isdefined(s_keeper.var_c8ca4ded))
 			{
-				stopfx(localclientnum, var_4fafa709.var_c8ca4ded);
+				stopfx(localclientnum, s_keeper.var_c8ca4ded);
 			}
-			var_4fafa709.model playsound(0, "zmb_ee_keeper_resurrect");
+			s_keeper.model playsound(0, "zmb_ee_keeper_resurrect");
 			wait(3);
-			var_4fafa709.var_f87c0436 = playfxontag(localclientnum, level._effect["keeper_spawn"], var_4fafa709.model, "tag_origin");
-			var_4fafa709.var_6b0fc6a1 = playfxontag(localclientnum, level._effect["keeper_spawn"], var_4fafa709.mdl_totem, "tag_origin");
-			var_4fafa709.model playsound(0, "evt_keeper_portal_end");
-			var_4fafa709.mdl_totem playsound(0, "evt_keeper_portal_end");
+			s_keeper.var_f87c0436 = playfxontag(localclientnum, level._effect["keeper_spawn"], s_keeper.model, "tag_origin");
+			s_keeper.var_6b0fc6a1 = playfxontag(localclientnum, level._effect["keeper_spawn"], s_keeper.mdl_totem, "tag_origin");
+			s_keeper.model playsound(0, "evt_keeper_portal_end");
+			s_keeper.mdl_totem playsound(0, "evt_keeper_portal_end");
 			wait(1);
-			var_4fafa709.model hide();
-			var_4fafa709.mdl_totem hide();
-			stopfx(localclientnum, var_4fafa709.var_f87c0436);
-			stopfx(localclientnum, var_4fafa709.var_6b0fc6a1);
+			s_keeper.model hide();
+			s_keeper.mdl_totem hide();
+			stopfx(localclientnum, s_keeper.var_f87c0436);
+			stopfx(localclientnum, s_keeper.var_6b0fc6a1);
 			str_targetname = "ee_keeper_8_" + (n_character_index - 1);
 			s_loc = struct::get(str_targetname, "targetname");
-			var_4fafa709.model.origin = s_loc.origin;
-			var_4fafa709.model.angles = s_loc.angles + vectorscale((0, 1, 0), 180);
-			var_4fafa709.model show();
-			var_4fafa709.model animation::play("ai_zombie_zod_keeper_sword_quest_intro_idle", undefined, undefined, 1, 0, 0);
+			s_keeper.model.origin = s_loc.origin;
+			s_keeper.model.angles = s_loc.angles + vectorscale((0, 1, 0), 180);
+			s_keeper.model show();
+			s_keeper.model animation::play("ai_zombie_zod_keeper_sword_quest_intro_idle", undefined, undefined, 1, 0, 0);
 			break;
 		}
 		case 4:
 		{
-			function_6f29ee45(var_4fafa709);
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_intro_idle", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_injured_idle", 0);
-			var_4fafa709.model.sndloop = var_4fafa709.model playloopsound("zmb_zod_shadfight_keeper_up_lp", 2);
+			function_6f29ee45(s_keeper);
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_intro_idle", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_injured_idle", 0);
+			s_keeper.model.sndloop = s_keeper.model playloopsound("zmb_zod_shadfight_keeper_up_lp", 2);
 			s_loc = struct::get("defend_area_pap", "targetname");
 			if(!isdefined(s_loc.var_dda4503d))
 			{
@@ -609,80 +609,80 @@ function function_a39c9866(localclientnum, var_fe2fb4b9, var_f471914b, n_charact
 			s_loc = struct::get(str_targetname, "targetname");
 			if(var_f471914b === 6)
 			{
-				var_4fafa709.model playsound(0, "zmb_zod_shadfight_keeper_up");
-				var_4fafa709.model.angles = s_loc.angles;
-				var_4fafa709.model zm_zod_quest::keeper_fx(localclientnum, 0, 1);
-				var_4fafa709.model function_267f859f(localclientnum, level._effect["curse_tell"], 0, 1, "tag_origin");
-				var_4fafa709.model animation::play("ai_zombie_zod_keeper_sword_quest_revived", undefined, undefined, 1, 0, 0);
-				var_4fafa709.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
+				s_keeper.model playsound(0, "zmb_zod_shadfight_keeper_up");
+				s_keeper.model.angles = s_loc.angles;
+				s_keeper.model zm_zod_quest::keeper_fx(localclientnum, 0, 1);
+				s_keeper.model function_267f859f(localclientnum, level._effect["curse_tell"], 0, 1, "tag_origin");
+				s_keeper.model animation::play("ai_zombie_zod_keeper_sword_quest_revived", undefined, undefined, 1, 0, 0);
+				s_keeper.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
 			}
 			else
 			{
-				var_4fafa709.model.angles = s_loc.angles + vectorscale((0, 1, 0), 180);
-				var_4fafa709.model animation::play("ai_zombie_zod_keeper_sword_quest_take_sword", undefined, undefined, 1, 0, 0);
-				var_4fafa709.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
+				s_keeper.model.angles = s_loc.angles + vectorscale((0, 1, 0), 180);
+				s_keeper.model animation::play("ai_zombie_zod_keeper_sword_quest_take_sword", undefined, undefined, 1, 0, 0);
+				s_keeper.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
 			}
 			break;
 		}
 		case 5:
 		{
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_revived", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_take_sword", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_ready_idle", 0);
-			var_4fafa709.model playsound(0, "zmb_zod_shadfight_keeper_attack");
-			var_4fafa709.model function_267f859f(localclientnum, level._effect["curse_tell"], 0, 1, "tag_origin");
-			var_4fafa709.model animation::play("ai_zombie_zod_keeper_sword_quest_attack_intro", undefined, undefined, 1, 0, 0);
-			var_4fafa709.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_attack_idle", 1);
-			var_4fafa709 function_a48022e(localclientnum, 1, n_character_index);
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_revived", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_take_sword", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_ready_idle", 0);
+			s_keeper.model playsound(0, "zmb_zod_shadfight_keeper_attack");
+			s_keeper.model function_267f859f(localclientnum, level._effect["curse_tell"], 0, 1, "tag_origin");
+			s_keeper.model animation::play("ai_zombie_zod_keeper_sword_quest_attack_intro", undefined, undefined, 1, 0, 0);
+			s_keeper.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_attack_idle", 1);
+			s_keeper function_a48022e(localclientnum, 1, n_character_index);
 			wait(3);
-			var_4fafa709 function_a48022e(localclientnum, 0, n_character_index);
+			s_keeper function_a48022e(localclientnum, 0, n_character_index);
 			break;
 		}
 		case 6:
 		{
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_intro", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_idle", 0);
-			var_4fafa709.model.sndloop = var_4fafa709.model playloopsound("zmb_zod_shadfight_keeper_down_lp", 2);
-			var_4fafa709.model playsound(0, "zmb_zod_shadfight_keeper_down");
-			var_4fafa709.model zm_zod_quest::keeper_fx(localclientnum, 1, 0);
-			var_4fafa709.model function_267f859f(localclientnum, level._effect["curse_tell"], 1, 1, "tag_origin");
-			var_4fafa709.model animation::play("ai_zombie_zod_keeper_sword_quest_injured_intro", undefined, undefined, 1, 0, 0);
-			var_4fafa709.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_injured_idle", 1);
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_intro", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_idle", 0);
+			s_keeper.model.sndloop = s_keeper.model playloopsound("zmb_zod_shadfight_keeper_down_lp", 2);
+			s_keeper.model playsound(0, "zmb_zod_shadfight_keeper_down");
+			s_keeper.model zm_zod_quest::keeper_fx(localclientnum, 1, 0);
+			s_keeper.model function_267f859f(localclientnum, level._effect["curse_tell"], 1, 1, "tag_origin");
+			s_keeper.model animation::play("ai_zombie_zod_keeper_sword_quest_injured_intro", undefined, undefined, 1, 0, 0);
+			s_keeper.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_injured_idle", 1);
 			break;
 		}
 		case 7:
 		{
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_intro", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_idle", 0);
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_intro", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_idle", 0);
 			str_targetname = "ee_apothigod_keeper_" + (n_character_index - 1);
 			s_loc = struct::get(str_targetname, "targetname");
-			var_4fafa709.model.origin = s_loc.origin;
-			var_4fafa709.model.angles = s_loc.angles;
-			var_4fafa709.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
+			s_keeper.model.origin = s_loc.origin;
+			s_keeper.model.angles = s_loc.angles;
+			s_keeper.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
 			break;
 		}
 		case 8:
 		{
-			function_6f29ee45(var_4fafa709);
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_intro", 0);
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_idle", 0);
+			function_6f29ee45(s_keeper);
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_intro", 0);
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_attack_idle", 0);
 			str_targetname = "ee_apothigod_keeper_" + (n_character_index - 1);
 			s_loc = struct::get(str_targetname, "targetname");
-			var_4fafa709.model.origin = s_loc.origin;
-			var_4fafa709.model.angles = s_loc.angles;
-			var_4fafa709.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
+			s_keeper.model.origin = s_loc.origin;
+			s_keeper.model.angles = s_loc.angles;
+			s_keeper.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_ready_idle", 1);
 			break;
 		}
 		case 9:
 		{
-			var_4fafa709.model notify(#"hash_274ba0e6");
-			var_4fafa709.model clearanim("ai_zombie_zod_keeper_sword_quest_ready_idle", 0);
-			var_4fafa709.model animation::play("ai_zombie_zod_keeper_sword_quest_attack_intro", undefined, undefined, 1, 0, 0);
-			var_4fafa709.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_attack_idle", 1);
+			s_keeper.model notify(#"hash_274ba0e6");
+			s_keeper.model clearanim("ai_zombie_zod_keeper_sword_quest_ready_idle", 0);
+			s_keeper.model animation::play("ai_zombie_zod_keeper_sword_quest_attack_intro", undefined, undefined, 1, 0, 0);
+			s_keeper.model thread function_274ba0e6("ai_zombie_zod_keeper_sword_quest_attack_idle", 1);
 			break;
 		}
 	}
@@ -729,13 +729,13 @@ function function_a48022e(localclientnum, b_on = 1, n_character_index)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6f29ee45(var_4fafa709)
+function function_6f29ee45(s_keeper)
 {
-	if(var_4fafa709.model isattached("wpn_t7_zmb_zod_sword2_world", "tag_weapon_right"))
+	if(s_keeper.model isattached("wpn_t7_zmb_zod_sword2_world", "tag_weapon_right"))
 	{
 		return;
 	}
-	var_4fafa709.model attach("wpn_t7_zmb_zod_sword2_world", "tag_weapon_right");
+	s_keeper.model attach("wpn_t7_zmb_zod_sword2_world", "tag_weapon_right");
 }
 
 /*
@@ -747,7 +747,7 @@ function function_6f29ee45(var_4fafa709)
 	Parameters: 3
 	Flags: Linked
 */
-function function_4d0c8ca8(var_4fafa709, var_fe2fb4b9, n_character_index)
+function function_4d0c8ca8(s_keeper, var_fe2fb4b9, n_character_index)
 {
 	if(var_fe2fb4b9 < 4)
 	{
@@ -764,7 +764,7 @@ function function_4d0c8ca8(var_4fafa709, var_fe2fb4b9, n_character_index)
 			var_64c74a6d = 2;
 		}
 	}
-	if(var_4fafa709.var_64c74a6d === var_64c74a6d)
+	if(s_keeper.var_64c74a6d === var_64c74a6d)
 	{
 		return;
 	}
@@ -787,9 +787,9 @@ function function_4d0c8ca8(var_4fafa709, var_fe2fb4b9, n_character_index)
 		}
 	}
 	s_loc = struct::get(str_targetname, "targetname");
-	var_4fafa709.model.origin = s_loc.origin;
-	var_4fafa709.model.angles = s_loc.angles;
-	var_4fafa709.var_64c74a6d = var_64c74a6d;
+	s_keeper.model.origin = s_loc.origin;
+	s_keeper.model.angles = s_loc.angles;
+	s_keeper.var_64c74a6d = var_64c74a6d;
 }
 
 /*
@@ -805,24 +805,24 @@ function function_e1e53e16(localclientnum, n_character_index)
 {
 	function_1461c206(localclientnum, n_character_index);
 	s_loc = struct::get("keeper_spirit_" + (n_character_index - 1), "targetname");
-	var_4fafa709 = level.var_673f721c[localclientnum][n_character_index];
-	if(!isdefined(var_4fafa709.model))
+	s_keeper = level.var_673f721c[localclientnum][n_character_index];
+	if(!isdefined(s_keeper.model))
 	{
-		var_4fafa709.model = spawn(localclientnum, s_loc.origin, "script_model");
-		var_4fafa709.model.angles = s_loc.angles;
-		var_4fafa709.var_64c74a6d = 0;
-		var_4fafa709.model setmodel("c_zom_zod_keeper_fb");
-		var_4fafa709.model zm_zod::ghost_actor(localclientnum, 0, 1);
+		s_keeper.model = spawn(localclientnum, s_loc.origin, "script_model");
+		s_keeper.model.angles = s_loc.angles;
+		s_keeper.var_64c74a6d = 0;
+		s_keeper.model setmodel("c_zom_zod_keeper_fb");
+		s_keeper.model zm_zod::ghost_actor(localclientnum, 0, 1);
 	}
-	if(!isdefined(var_4fafa709.mdl_totem))
+	if(!isdefined(s_keeper.mdl_totem))
 	{
 		var_f4fc4f28 = struct::get("keeper_resurrection_totem_" + (n_character_index - 1), "targetname");
-		var_4fafa709.mdl_totem = spawn(localclientnum, var_f4fc4f28.origin, "script_model");
-		var_4fafa709.mdl_totem.angles = var_f4fc4f28.angles;
-		var_4fafa709.mdl_totem setmodel("t7_zm_zod_keepers_totem");
-		var_4fafa709.mdl_totem hide();
+		s_keeper.mdl_totem = spawn(localclientnum, var_f4fc4f28.origin, "script_model");
+		s_keeper.mdl_totem.angles = var_f4fc4f28.angles;
+		s_keeper.mdl_totem setmodel("t7_zm_zod_keepers_totem");
+		s_keeper.mdl_totem hide();
 	}
-	return var_4fafa709;
+	return s_keeper;
 }
 
 /*
@@ -837,15 +837,15 @@ function function_e1e53e16(localclientnum, n_character_index)
 function function_2c557738(localclientnum, n_character_index)
 {
 	function_1461c206(localclientnum, n_character_index);
-	var_4fafa709 = level.var_673f721c[localclientnum][n_character_index];
-	if(isdefined(var_4fafa709.var_f929ecf4))
+	s_keeper = level.var_673f721c[localclientnum][n_character_index];
+	if(isdefined(s_keeper.var_f929ecf4))
 	{
-		return var_4fafa709.var_f929ecf4;
+		return s_keeper.var_f929ecf4;
 	}
 	s_target = struct::get("ee_shadowman_beam_" + n_character_index, "targetname");
-	var_4fafa709.var_f929ecf4 = spawn(localclientnum, s_target.origin, "script_model");
-	var_4fafa709.var_f929ecf4 setmodel("tag_origin");
-	return var_4fafa709.var_f929ecf4;
+	s_keeper.var_f929ecf4 = spawn(localclientnum, s_target.origin, "script_model");
+	s_keeper.var_f929ecf4 setmodel("tag_origin");
+	return s_keeper.var_f929ecf4;
 }
 
 /*

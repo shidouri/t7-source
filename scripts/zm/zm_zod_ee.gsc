@@ -261,11 +261,11 @@ function function_c3466d96(b_on)
 		for(i = 0; i < 3; i++)
 		{
 			str_targetname = "ee_apothigod_keeper_clip_" + i;
-			var_4fafa709 = struct::get(str_targetname, "targetname");
-			mdl_clip = spawn("script_model", var_4fafa709.origin);
+			s_keeper = struct::get(str_targetname, "targetname");
+			mdl_clip = spawn("script_model", s_keeper.origin);
 			mdl_clip setmodel("collision_clip_zod_keeper_32x32x128");
-			mdl_clip.origin = var_4fafa709.origin + vectorscale((0, 0, 1), 48);
-			mdl_clip.angles = var_4fafa709.angles;
+			mdl_clip.origin = s_keeper.origin + vectorscale((0, 0, 1), 48);
+			mdl_clip.angles = s_keeper.angles;
 			if(!isdefined(level.var_76c101df))
 			{
 				level.var_76c101df = [];

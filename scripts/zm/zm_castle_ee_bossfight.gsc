@@ -303,8 +303,8 @@ function function_83ff2eda()
 */
 function function_91a378e3()
 {
-	var_4fafa709 = struct::get("mpd_pos");
-	var_da3dbbdf = util::spawn_anim_model("c_zom_dlc1_keeper_archon_small_fb", var_4fafa709.origin, vectorscale((0, 1, 0), 90));
+	s_keeper = struct::get("mpd_pos");
+	var_da3dbbdf = util::spawn_anim_model("c_zom_dlc1_keeper_archon_small_fb", s_keeper.origin, vectorscale((0, 1, 0), 90));
 	wait(0.05);
 	var_da3dbbdf ghost();
 	wait(0.05);
