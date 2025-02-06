@@ -275,7 +275,7 @@ function function_a0d7d949(spawner, loc, def)
 		ai.maxhealth = ai.health;
 		ai.ignorevortices = 1;
 		ai.var_2d8174e3 = 1;
-		ai.var_55361ee6 = randomint(3);
+		ai.num_mines = randomint(3);
 		ai.nextspecial = 0;
 		ai.doa.var_da2f5272 = 1;
 		if(isdefined(level.doa.isfps) && level.doa.isfps)
@@ -1913,11 +1913,11 @@ function function_43f48136(var_bbd280b0)
 	{
 		return 1;
 	}
-	if(!isdefined(var_bbd280b0.var_55361ee6))
+	if(!isdefined(var_bbd280b0.num_mines))
 	{
 		return 0;
 	}
-	if(var_bbd280b0.var_55361ee6 <= 0)
+	if(var_bbd280b0.num_mines <= 0)
 	{
 		return 0;
 	}
@@ -1947,7 +1947,7 @@ function function_57aea19e()
 		self animscripted("plant_anim", self.origin, self.angles, "ai_wrlrd_stn_combat_doa_plant_mine");
 		self waittillmatch(#"hash_eecd4c04");
 	}
-	self.var_55361ee6 = self.var_55361ee6 - 1;
+	self.num_mines = self.num_mines - 1;
 	bomb = spawn("script_model", self.origin);
 	bomb.targetname = "doWarlordPlantAnimation";
 	bomb setmodel("zombietron_Warlord_mine");
@@ -2057,7 +2057,7 @@ function function_2fd0d5c7(behaviortreeentity)
 		}
 		return true;
 	}
-	if(isdefined(behaviortreeentity.var_55361ee6) && behaviortreeentity.var_55361ee6 > 0)
+	if(isdefined(behaviortreeentity.num_mines) && behaviortreeentity.num_mines > 0)
 	{
 		if(!isdefined(behaviortreeentity.goto_position))
 		{
