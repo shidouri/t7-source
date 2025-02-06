@@ -2768,9 +2768,9 @@ function function_2e1bc559(n_val)
 {
 	/#
 		var_2efcd138 = getentarray("", "");
-		foreach(var_c5653cf3 in var_2efcd138)
+		foreach(mdl_bone in var_2efcd138)
 		{
-			var_c5653cf3 thread function_156b5313();
+			mdl_bone thread function_156b5313();
 		}
 	#/
 }
