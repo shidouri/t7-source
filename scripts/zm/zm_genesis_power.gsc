@@ -141,8 +141,8 @@ function function_f29a5d3a()
 function function_bcac2659()
 {
 	level waittill("start_zombie_round_logic");
-	var_5d7a99d0 = getentarray("power_grid_display", "targetname");
-	array::thread_all(var_5d7a99d0, &function_11da2524);
+	a_e_displays = getentarray("power_grid_display", "targetname");
+	array::thread_all(a_e_displays, &function_11da2524);
 	level thread function_28753fd1();
 }
 
