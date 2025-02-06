@@ -98,8 +98,8 @@ function function_622ad391()
 	{
 		player clientfield::set_player_uimodel("zmInventory.progress_egg", 1);
 	}
-	var_e870a8ec = struct::get("gauntlet_incubation_start", "script_noteworthy");
-	var_e870a8ec zm_unitrigger::create_unitrigger(undefined, 40, &function_cf2a342, &function_16907a63);
+	s_incubator = struct::get("gauntlet_incubation_start", "script_noteworthy");
+	s_incubator zm_unitrigger::create_unitrigger(undefined, 40, &function_cf2a342, &function_16907a63);
 }
 
 /*
