@@ -93,8 +93,8 @@ function private function_24ed806f()
 function private function_76e7495b()
 {
 	wait(0.5);
-	var_85129cef = getentarray("zombie_trap", "targetname");
-	foreach(e_trap in var_85129cef)
+	a_e_traps = getentarray("zombie_trap", "targetname");
+	foreach(e_trap in a_e_traps)
 	{
 		if(e_trap.script_noteworthy == "electric")
 		{
