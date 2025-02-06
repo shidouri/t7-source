@@ -53,7 +53,7 @@ function function_2bb254bb()
 	level flag::init("advance_drop_pod_round");
 	level.var_583e4a97 = spawnstruct();
 	level.var_583e4a97.var_5d8406ed = [];
-	level.var_583e4a97.var_f2d794f3 = [];
+	level.var_583e4a97.a_e_consoles = [];
 	level.var_583e4a97.var_a622ee25 = 0;
 	level.var_583e4a97.var_a43689b5 = 0;
 	level thread function_6b964717();
