@@ -547,17 +547,17 @@ function function_258afdfc()
 	/#
 		assert(isdefined(var_482d5204), "");
 	#/
-	foreach(var_19966f24 in var_482d5204)
+	foreach(s_cover in var_482d5204)
 	{
 		/#
-			assert(isdefined(var_19966f24.model), "");
+			assert(isdefined(s_cover.model), "");
 		#/
 		/#
-			assert(isdefined(var_19966f24.target), "");
+			assert(isdefined(s_cover.target), "");
 		#/
-		if(isdefined(var_19966f24.script_string))
+		if(isdefined(s_cover.script_string))
 		{
-			a_nd_cover = getnodearray(var_19966f24.script_string, "targetname");
+			a_nd_cover = getnodearray(s_cover.script_string, "targetname");
 			foreach(nd_cover in a_nd_cover)
 			{
 				setenablenode(nd_cover, 0);
@@ -565,9 +565,9 @@ function function_258afdfc()
 		}
 	}
 	self waittill("trigger");
-	foreach(var_19966f24 in var_482d5204)
+	foreach(s_cover in var_482d5204)
 	{
-		var_19966f24 thread function_375f158a();
+		s_cover thread function_375f158a();
 	}
 }
 
