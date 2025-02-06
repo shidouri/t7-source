@@ -2272,9 +2272,9 @@ function function_c21dcd15()
 	level flag::wait_till("ee_safe_open");
 	var_f3f0fbd = [];
 	var_726d0daa = struct::get_array("tesla_connector");
-	foreach(var_47bafa4c in var_726d0daa)
+	foreach(s_connector in var_726d0daa)
 	{
-		var_bb46ee5a = util::spawn_model("p7_zm_ctl_deathray_base_part", var_47bafa4c.origin, var_47bafa4c.angles);
+		var_bb46ee5a = util::spawn_model("p7_zm_ctl_deathray_base_part", s_connector.origin, s_connector.angles);
 		if(!isdefined(var_f3f0fbd))
 		{
 			var_f3f0fbd = [];
