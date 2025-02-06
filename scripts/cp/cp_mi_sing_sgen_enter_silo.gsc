@@ -406,8 +406,8 @@ function function_8e9806c5(a_ents)
 	level.ai_hendricks.animname = "hendricks";
 	util::clear_streamer_hint();
 	level flag::wait_till("highlight_railing_glass");
-	var_eb043fdb = getent("railing_kick", "animname");
-	var_eb043fdb thread oed::enable_keyline(0, "glass_railing_kicked");
+	mdl_glass = getent("railing_kick", "animname");
+	mdl_glass thread oed::enable_keyline(0, "glass_railing_kicked");
 	level flag::wait_till("glass_railing_kicked");
 	level thread scene::play("p7_fxanim_cp_sgen_hendricks_railing_kick_bundle");
 	level waittill(#"hash_359ae459");
