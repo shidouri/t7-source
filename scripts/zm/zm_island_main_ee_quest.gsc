@@ -1155,7 +1155,7 @@ function function_6cc2e374()
 		{
 			level flag::set("elevator_part_gear2_placed");
 			t_repair playsound("zmb_item_pickup");
-			var_66bf6df.var_e882d83c = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", var_66bf6df gettagorigin("wheel_02_jnt") + (0.525, 2, -0.075), var_66bf6df gettagangles("wheel_02_jnt"));
+			var_66bf6df.mdl_dock = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", var_66bf6df gettagorigin("wheel_02_jnt") + (0.525, 2, -0.075), var_66bf6df gettagangles("wheel_02_jnt"));
 		}
 		if(level flag::get("elevator_part_gear3_found") && !level flag::get("elevator_part_gear3_placed"))
 		{
@@ -1208,12 +1208,12 @@ function elevator_gears()
 				n_rot = 90;
 			}
 			self.var_df281e84 rotateroll(n_rot, 1);
-			self.var_e882d83c rotateroll(n_rot, 1);
+			self.mdl_dock rotateroll(n_rot, 1);
 			self.var_aab7a6d1 rotateroll(n_rot * -1, 1);
 			wait(0.9);
 		}
 		self.var_df281e84 rotateroll(n_rot * 0.01, 0.1);
-		self.var_e882d83c rotateroll(n_rot * 0.01, 0.1);
+		self.mdl_dock rotateroll(n_rot * 0.01, 0.1);
 		self.var_aab7a6d1 rotateroll((n_rot * -1) * 0.01, 0.1);
 	}
 }
