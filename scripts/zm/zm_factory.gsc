@@ -3000,8 +3000,8 @@ function function_8fbb6760(str_perk)
 function flytrap_prize()
 {
 	s_prize = struct::get("flytrap_prize", "targetname");
-	var_6e1b8eeb = util::spawn_model("wpn_t7_hero_annihilator_world", s_prize.origin, s_prize.angles);
-	var_6e1b8eeb thread function_45814329(s_prize);
+	mdl_prize = util::spawn_model("wpn_t7_hero_annihilator_world", s_prize.origin, s_prize.angles);
+	mdl_prize thread function_45814329(s_prize);
 	level thread function_86e1c543();
 	level flag::clear("flytrap");
 }
