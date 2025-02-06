@@ -3301,19 +3301,19 @@ function function_cc9c82c8(s_fence, n_duration, v_offset, b_reverse_dir, var_b22
 	s_fence.var_1771513c = 1;
 	if(var_b222a396 == 3)
 	{
-		var_21d644c = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_02_mod", s_fence.origin, s_fence.angles);
+		mdl_fence = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_02_mod", s_fence.origin, s_fence.angles);
 	}
 	else
 	{
-		var_21d644c = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_mod", s_fence.origin, s_fence.angles);
+		mdl_fence = util::spawn_model("p7_fxanim_zm_gen_dark_arena_moving_wall_mod", s_fence.origin, s_fence.angles);
 	}
 	if(isdefined(b_reverse_dir) && b_reverse_dir)
 	{
-		var_21d644c.angles = var_21d644c.angles + vectorscale((0, 1, 0), 180);
+		mdl_fence.angles = mdl_fence.angles + vectorscale((0, 1, 0), 180);
 	}
-	var_21d644c notsolid();
+	mdl_fence notsolid();
 	util::wait_network_frame();
-	var_21d644c clientfield::increment("elec_wall_tell");
+	mdl_fence clientfield::increment("elec_wall_tell");
 	wait(1);
 	switch(var_b222a396)
 	{
@@ -3335,16 +3335,16 @@ function function_cc9c82c8(s_fence, n_duration, v_offset, b_reverse_dir, var_b22
 			var_117d442a = "p7_fxanim_zm_gen_dark_arena_moving_wall_02_fall_anim";
 		}
 	}
-	var_21d644c useanimtree($zm_genesis);
-	var_21d644c thread animation::play(var_7146001e, undefined, undefined, 1);
+	mdl_fence useanimtree($zm_genesis);
+	mdl_fence thread animation::play(var_7146001e, undefined, undefined, 1);
 	v_origin = s_fence.origin;
 	if(!isdefined(v_offset))
 	{
 		v_offset = vectorscale((0, 0, 1), 128);
 	}
 	wait(0.5);
-	var_21d644c solid();
-	var_21d644c thread function_48791cb7();
+	mdl_fence solid();
+	mdl_fence thread function_48791cb7();
 	wait(0.5);
 	if(isdefined(n_duration))
 	{
@@ -3354,8 +3354,8 @@ function function_cc9c82c8(s_fence, n_duration, v_offset, b_reverse_dir, var_b22
 	{
 		level util::waittill_any("arena_challenge_ended", "electricity_challenge_ended");
 	}
-	var_21d644c animation::play(var_117d442a, undefined, undefined, 1);
-	var_21d644c delete();
+	mdl_fence animation::play(var_117d442a, undefined, undefined, 1);
+	mdl_fence delete();
 	s_fence.var_1771513c = 0;
 }
 
