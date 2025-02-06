@@ -955,9 +955,9 @@ function function_3ed74336()
 function function_f28fd307()
 {
 	var_180864bb = [];
-	var_4ae0fc9f = struct::get("lower_tower", "script_noteworthy");
-	var_ff1ab13b = spawn("script_model", var_4ae0fc9f.origin);
-	function_8ac5430(1, var_4ae0fc9f.origin);
+	s_terminal = struct::get("lower_tower", "script_noteworthy");
+	var_ff1ab13b = spawn("script_model", s_terminal.origin);
+	function_8ac5430(1, s_terminal.origin);
 	var_ff1ab13b playsoundwithnotify("vox_grop_moon_intro_0", "sounddone");
 	var_ff1ab13b waittill("sounddone");
 	wait(0.5);

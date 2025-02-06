@@ -1469,9 +1469,9 @@ function function_c460669e()
 		else
 		{
 			var_e7113aa6 = 0;
-			foreach(var_4ae0fc9f in a_terminals)
+			foreach(s_terminal in a_terminals)
 			{
-				var_4ae0fc9f.b_done = undefined;
+				s_terminal.b_done = undefined;
 			}
 			exploder::stop_exploder("fxexp_730");
 			exploder::stop_exploder("fxexp_731");

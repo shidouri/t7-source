@@ -746,12 +746,12 @@ function function_ef39c304(b_on)
 function function_60619737()
 {
 	level endon("tube_puzzle_complete");
-	var_4ae0fc9f = struct::get("ee_tube_use_" + self.script_label, "targetname");
-	var_4ae0fc9f zm_unitrigger::create_unitrigger("");
+	s_terminal = struct::get("ee_tube_use_" + self.script_label, "targetname");
+	s_terminal zm_unitrigger::create_unitrigger("");
 	var_367b15e7 = getent(self.target, "targetname");
 	while(true)
 	{
-		var_4ae0fc9f waittill("trigger_activated", e_who);
+		s_terminal waittill("trigger_activated", e_who);
 		if(!level flag::get("generator_on"))
 		{
 			continue;
@@ -853,12 +853,12 @@ function function_6a9560b6()
 {
 	var_a477d63b = level.var_57f8b6c5[5];
 	var_a477d63b scene::play("p7_fxanim_zm_stal_pneumatic_tube_drop_bundle");
-	var_4ae0fc9f = struct::get("ee_tube_use_" + var_a477d63b.script_label, "targetname");
-	var_4ae0fc9f.s_unitrigger.prompt_and_visibility_func = &function_7247a337;
-	var_4ae0fc9f waittill("trigger_activated", e_who);
+	s_terminal = struct::get("ee_tube_use_" + var_a477d63b.script_label, "targetname");
+	s_terminal.s_unitrigger.prompt_and_visibility_func = &function_7247a337;
+	s_terminal waittill("trigger_activated", e_who);
 	e_who clientfield::increment_to_player("interact_rumble");
 	e_who playsound("zmb_tubesville_pickup_cylinder");
-	zm_unitrigger::unregister_unitrigger(var_4ae0fc9f.s_unitrigger);
+	zm_unitrigger::unregister_unitrigger(s_terminal.s_unitrigger);
 	var_7e5dba8f = getent("pneumatic_tube", "targetname");
 	var_7e5dba8f delete();
 }
