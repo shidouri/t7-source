@@ -1395,22 +1395,22 @@ function function_9071b894()
 */
 function function_ff65120e()
 {
-	var_3e51eb2c = getent(self.script_string, "targetname");
-	self.var_3e51eb2c = var_3e51eb2c;
-	var_3e51eb2c thread scene::init("p7_fxanim_zm_gen_gateworm_ovary_egg_deposit_bundle", var_3e51eb2c);
+	mdl_ovary = getent(self.script_string, "targetname");
+	self.mdl_ovary = mdl_ovary;
+	mdl_ovary thread scene::init("p7_fxanim_zm_gen_gateworm_ovary_egg_deposit_bundle", mdl_ovary);
 	var_5e99fdc8 = "lgt_apoth_int_" + self.script_string;
 	var_87302b25 = strtok(self.script_string, "_");
 	var_b2f4a489 = "lgt_apoth_int_eggworm_" + var_87302b25[1];
 	s_unitrigger = self zm_unitrigger::create_unitrigger(&"ZM_GENESIS_PICKUP_EGG", 64, &function_5bd5869a);
 	self waittill("trigger_activated", e_player);
 	level thread function_88893a6c(var_b2f4a489);
-	v_pos = self.var_3e51eb2c gettagorigin("tag_origin");
-	var_165d49f6 = util::spawn_model("p7_fxanim_zm_gen_gateworm_egg_mod", v_pos, var_3e51eb2c.angles);
+	v_pos = self.mdl_ovary gettagorigin("tag_origin");
+	var_165d49f6 = util::spawn_model("p7_fxanim_zm_gen_gateworm_egg_mod", v_pos, mdl_ovary.angles);
 	self.var_165d49f6 = var_165d49f6;
 	self.var_22ee51d7 = e_player;
 	e_player function_eb908d5e();
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
-	var_3e51eb2c thread scene::play("p7_fxanim_zm_gen_gateworm_ovary_egg_deposit_bundle", var_3e51eb2c);
+	mdl_ovary thread scene::play("p7_fxanim_zm_gen_gateworm_ovary_egg_deposit_bundle", mdl_ovary);
 	var_165d49f6 scene::play("p7_fxanim_zm_gen_gateworm_egg_deposit_bundle", var_165d49f6);
 	exploder::exploder(var_5e99fdc8);
 	var_165d49f6.var_b99b1b98 = 10;
@@ -1418,16 +1418,16 @@ function function_ff65120e()
 	var_165d49f6 playsound("zmb_main_omelettes_ovary_worm_hatch");
 	var_165d49f6 scene::stop("p7_fxanim_zm_gen_gateworm_egg_deposit_bundle");
 	var_165d49f6 delete();
-	v_pos = var_3e51eb2c gettagorigin("ovary_gateworm_tag");
-	mdl_gateworm = util::spawn_model("p7_zm_dlc4_gateworm", v_pos, var_3e51eb2c.angles);
+	v_pos = mdl_ovary gettagorigin("ovary_gateworm_tag");
+	mdl_gateworm = util::spawn_model("p7_zm_dlc4_gateworm", v_pos, mdl_ovary.angles);
 	level thread function_88893a6c(var_b2f4a489);
 	level thread function_5c65688b(mdl_gateworm);
 	mdl_gateworm clientfield::set("gateworm_mtl", 1);
 	mdl_gateworm thread scene::play("zm_dlc4_gateworm_idle_basin", mdl_gateworm);
-	mdl_gateworm linkto(var_3e51eb2c, "ovary_gateworm_tag");
+	mdl_gateworm linkto(mdl_ovary, "ovary_gateworm_tag");
 	self thread util::delay(6, undefined, &function_7fd5874f, mdl_gateworm);
-	var_3e51eb2c scene::play("p7_fxanim_zm_gen_gateworm_ovary_worm_birth_bundle", var_3e51eb2c);
-	var_3e51eb2c thread scene::play("p7_fxanim_zm_gen_gateworm_ovary_worm_birth_idle_bundle", var_3e51eb2c);
+	mdl_ovary scene::play("p7_fxanim_zm_gen_gateworm_ovary_worm_birth_bundle", mdl_ovary);
+	mdl_ovary thread scene::play("p7_fxanim_zm_gen_gateworm_ovary_worm_birth_idle_bundle", mdl_ovary);
 }
 
 /*
