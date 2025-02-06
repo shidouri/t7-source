@@ -293,9 +293,9 @@ function function_4aedb20b()
 	Parameters: 4
 	Flags: Linked
 */
-function function_925aa63a(var_fedda046, n_delay = 0.1, n_value, b_delete = 1)
+function function_925aa63a(a_e_elements, n_delay = 0.1, n_value, b_delete = 1)
 {
-	foreach(e_element in var_fedda046)
+	foreach(e_element in a_e_elements)
 	{
 		if(isdefined(e_element))
 		{
@@ -306,7 +306,7 @@ function function_925aa63a(var_fedda046, n_delay = 0.1, n_value, b_delete = 1)
 	wait(1);
 	if(isdefined(b_delete) && b_delete)
 	{
-		foreach(e_element in var_fedda046)
+		foreach(e_element in a_e_elements)
 		{
 			e_element delete();
 		}
