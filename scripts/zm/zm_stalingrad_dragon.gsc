@@ -3368,8 +3368,8 @@ function function_3a34c204()
 	level endon(#"hash_a35dee4e");
 	w_fire = getweapon("launcher_dragon_fireball");
 	self waittill(#"hash_5556f7b");
-	var_201fdf35 = level.var_357a65b gettagorigin("tag_aim");
-	a_e_players = arraysortclosest(level.activeplayers, var_201fdf35);
+	v_mouth = level.var_357a65b gettagorigin("tag_aim");
+	a_e_players = arraysortclosest(level.activeplayers, v_mouth);
 	e_player = array::random(a_e_players);
 	v_facing = anglestoforward(e_player getplayerangles());
 	v_velocity = e_player getvelocity() + v_facing;
@@ -3404,8 +3404,8 @@ function function_98ee9e20(n_number, w_fire, v_target_origin, e_player)
 	{
 		wait(n_number * 0.1);
 	}
-	var_201fdf35 = level.var_357a65b gettagorigin("tag_aim");
-	var_aa911866 = magicbullet(w_fire, var_201fdf35, v_target_origin, level.var_357a65b);
+	v_mouth = level.var_357a65b gettagorigin("tag_aim");
+	var_aa911866 = magicbullet(w_fire, v_mouth, v_target_origin, level.var_357a65b);
 	var_aa911866 waittill("death");
 	e_fx delete();
 }

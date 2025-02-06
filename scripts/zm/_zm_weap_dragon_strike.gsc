@@ -510,15 +510,15 @@ function function_9af893e8(e_player, var_5d020ece, b_upgraded, var_35ab0c48, w_f
 	for(i = 0; i < 4; i++)
 	{
 		mdl_dragon waittill("fireball");
-		mdl_dragon.var_201fdf35 = mdl_dragon gettagorigin("tag_throat_fx");
+		mdl_dragon.v_mouth = mdl_dragon gettagorigin("tag_throat_fx");
 		var_c606eb7 = 6;
 		do
 		{
 			var_2410d5ad = var_5d020ece.v_loc + function_adac83c4();
 			var_c606eb7--;
 		}
-		while(bullettracepassed(mdl_dragon.var_201fdf35, var_2410d5ad, 0, mdl_dragon) && var_c606eb7 > 0);
-		var_aa911866 = magicbullet(w_fire, mdl_dragon.var_201fdf35, var_2410d5ad, mdl_dragon);
+		while(bullettracepassed(mdl_dragon.v_mouth, var_2410d5ad, 0, mdl_dragon) && var_c606eb7 > 0);
+		var_aa911866 = magicbullet(w_fire, mdl_dragon.v_mouth, var_2410d5ad, mdl_dragon);
 		level thread function_a6d19957(b_upgraded, var_aa911866, var_5d020ece.v_loc, var_35ab0c48);
 	}
 	mdl_dragon thread function_604af93b();
