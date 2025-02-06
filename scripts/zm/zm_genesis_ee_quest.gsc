@@ -301,26 +301,26 @@ function function_bde2ec4(n_reel)
 {
 	playfx(level._effect["portal_3p"], self.origin);
 	util::wait_network_frame();
-	var_d955a5b1 = util::spawn_model("p7_zm_ctl_radio_recorder_tape_01", self.origin, self.angles);
+	mdl_reel = util::spawn_model("p7_zm_ctl_radio_recorder_tape_01", self.origin, self.angles);
 	if(isdefined(self.target))
 	{
 		var_939c099 = struct::get(self.target, "targetname");
-		n_time = var_d955a5b1 zm_utility::fake_physicslaunch(var_939c099.origin, 150);
-		var_d955a5b1 rotatepitch(3600, n_time);
+		n_time = mdl_reel zm_utility::fake_physicslaunch(var_939c099.origin, 150);
+		mdl_reel rotatepitch(3600, n_time);
 		wait(n_time - 0.2);
-		var_d955a5b1 rotateto(var_939c099.angles, 0.2);
-		var_d955a5b1 moveto(var_939c099.origin, 0.2);
-		var_d955a5b1 waittill("movedone");
-		var_d955a5b1 playsound("zmb_main_reel_land");
+		mdl_reel rotateto(var_939c099.angles, 0.2);
+		mdl_reel moveto(var_939c099.origin, 0.2);
+		mdl_reel waittill("movedone");
+		mdl_reel playsound("zmb_main_reel_land");
 	}
-	s_unitrigger = var_d955a5b1 zm_unitrigger::create_unitrigger("", 100);
+	s_unitrigger = mdl_reel zm_unitrigger::create_unitrigger("", 100);
 	s_unitrigger.require_look_at = 1;
-	var_d955a5b1 waittill("trigger_activated", e_player);
+	mdl_reel waittill("trigger_activated", e_player);
 	e_player playsound("zmb_main_reel_pickup");
 	level thread zm_genesis_vo::function_21783178(e_player);
 	level flag::set("got_audio" + n_reel);
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
-	var_d955a5b1 delete();
+	mdl_reel delete();
 	self struct::delete();
 }
 
@@ -341,10 +341,10 @@ function function_7914cbc8()
 	self waittill("trigger_activated", e_player);
 	level flag::set("placed_audio" + self.script_int);
 	var_be748f8 = [];
-	var_d955a5b1 = util::spawn_model("p7_zm_ctl_radio_recorder_tape_01", self.origin, self.angles);
+	mdl_reel = util::spawn_model("p7_zm_ctl_radio_recorder_tape_01", self.origin, self.angles);
 	var_15529fd8 = struct::get(self.target, "targetname");
 	var_26a73a41 = util::spawn_model("p7_zm_ctl_radio_recorder_tape_02", var_15529fd8.origin, var_15529fd8.angles);
-	var_d955a5b1 playsound("zmb_main_reel_place");
+	mdl_reel playsound("zmb_main_reel_place");
 	if(!isdefined(var_be748f8))
 	{
 		var_be748f8 = [];
@@ -353,7 +353,7 @@ function function_7914cbc8()
 	{
 		var_be748f8 = array(var_be748f8);
 	}
-	var_be748f8[var_be748f8.size] = var_d955a5b1;
+	var_be748f8[var_be748f8.size] = mdl_reel;
 	if(!isdefined(var_be748f8))
 	{
 		var_be748f8 = [];
@@ -370,23 +370,23 @@ function function_7914cbc8()
 	{
 		case 1:
 		{
-			var_d955a5b1 playsoundwithnotify("vox_soph_kino_log_1_0", "audio_log_complete");
+			mdl_reel playsoundwithnotify("vox_soph_kino_log_1_0", "audio_log_complete");
 			break;
 		}
 		case 2:
 		{
-			var_d955a5b1 playsoundwithnotify("vox_sfx_radio_stem_kino_log_2_0", "audio_log_complete");
+			mdl_reel playsoundwithnotify("vox_sfx_radio_stem_kino_log_2_0", "audio_log_complete");
 			break;
 		}
 		case 3:
 		{
-			var_d955a5b1 playsoundwithnotify("vox_sfx_radio_stem_kino_log_3_0", "audio_log_complete");
+			mdl_reel playsoundwithnotify("vox_sfx_radio_stem_kino_log_3_0", "audio_log_complete");
 			break;
 		}
 	}
 	zm_unitrigger::unregister_unitrigger(s_unitrigger);
 	self struct::delete();
-	var_d955a5b1 waittill("audio_log_complete");
+	mdl_reel waittill("audio_log_complete");
 	level notify("audio_log_complete");
 	function_ccdb680e(var_be748f8, 0);
 }
