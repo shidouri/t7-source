@@ -780,8 +780,8 @@ function function_71130ea()
 	}
 	self.var_828cb4c9 = struct::get_array("boss_zombie_spawn_point", "targetname");
 	self.var_f7afb996 = struct::get_array("boss_zombie_spawn_point_central", "targetname");
-	var_911ceae0 = struct::get_array("boss_zombie_spawn_point_crawl", "targetname");
-	foreach(s_struct in var_911ceae0)
+	a_s_crawlers = struct::get_array("boss_zombie_spawn_point_crawl", "targetname");
+	foreach(s_struct in a_s_crawlers)
 	{
 		if(!isdefined(self.var_828cb4c9))
 		{
