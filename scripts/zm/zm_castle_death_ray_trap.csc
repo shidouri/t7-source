@@ -217,11 +217,11 @@ function function_200eea36(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_ec4ecaed(localclientnum, s_source, var_53106e7c)
 {
-	var_e43465f2 = util::spawn_model(localclientnum, "tag_origin", s_source.origin, s_source.angles);
-	level beam::launch(var_e43465f2, "tag_origin", self, "j_spinelower", var_53106e7c);
+	mdl_source = util::spawn_model(localclientnum, "tag_origin", s_source.origin, s_source.angles);
+	level beam::launch(mdl_source, "tag_origin", self, "j_spinelower", var_53106e7c);
 	level util::waittill_any_timeout(1.5, "demo_jump");
-	level beam::kill(var_e43465f2, "tag_origin", self, "j_spinelower", var_53106e7c);
-	var_e43465f2 delete();
+	level beam::kill(mdl_source, "tag_origin", self, "j_spinelower", var_53106e7c);
+	mdl_source delete();
 }
 
 /*
@@ -249,8 +249,8 @@ function tesla_beam_mechz(localclientnum, oldval, newval, bnewent, binitialsnap,
 		{
 			self.var_53106e7c = "electric_arc_beam_tesla_trap_2_primary";
 		}
-		self.var_e43465f2 = util::spawn_model(localclientnum, "tag_origin", s_source.origin, s_source.angles);
-		level beam::launch(self.var_e43465f2, "tag_origin", self, "j_spinelower", self.var_53106e7c);
+		self.mdl_source = util::spawn_model(localclientnum, "tag_origin", s_source.origin, s_source.angles);
+		level beam::launch(self.mdl_source, "tag_origin", self, "j_spinelower", self.var_53106e7c);
 		if(isdemoplaying())
 		{
 			self thread function_3c5fc735(localclientnum);
@@ -290,10 +290,10 @@ function function_3c5fc735(localclientnum)
 */
 function function_1139a457(localclientnum)
 {
-	if(isdefined(self.var_e43465f2) && isdefined(self.var_53106e7c))
+	if(isdefined(self.mdl_source) && isdefined(self.var_53106e7c))
 	{
-		level beam::kill(self.var_e43465f2, "tag_origin", self, "j_spinelower", self.var_53106e7c);
-		self.var_e43465f2 delete();
+		level beam::kill(self.mdl_source, "tag_origin", self, "j_spinelower", self.var_53106e7c);
+		self.mdl_source delete();
 		self.var_53106e7c = undefined;
 		self notify(#"hash_1139a457");
 	}

@@ -491,8 +491,8 @@ function function_bfdc67e3(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	e_egg = level.var_48c1095e[localclientnum];
 	mdl_target = util::spawn_model(localclientnum, "tag_origin", e_egg.origin + vectorscale((0, 0, 1), 50));
-	var_e43465f2 = util::spawn_model(localclientnum, "tag_origin", self gettagorigin("j_spine4"), self gettagangles("j_spine4"));
-	var_e43465f2 thread function_10e7e603(mdl_target);
+	mdl_source = util::spawn_model(localclientnum, "tag_origin", self gettagorigin("j_spine4"), self gettagangles("j_spine4"));
+	mdl_source thread function_10e7e603(mdl_target);
 }
 
 /*

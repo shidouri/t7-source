@@ -199,8 +199,8 @@ function function_c86c0cdd(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	e_pod = level.var_f6abb894[localclientnum];
 	mdl_target = util::spawn_model(localclientnum, "tag_origin", e_pod gettagorigin("tag_fx"));
-	var_e43465f2 = util::spawn_model(localclientnum, "tag_origin", self gettagorigin("j_spine4"), self gettagangles("j_spine4"));
-	var_e43465f2 thread function_1d3ab9dd(mdl_target);
+	mdl_source = util::spawn_model(localclientnum, "tag_origin", self gettagorigin("j_spine4"), self gettagangles("j_spine4"));
+	mdl_source thread function_1d3ab9dd(mdl_target);
 }
 
 /*
