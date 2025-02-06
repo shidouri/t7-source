@@ -1526,8 +1526,8 @@ function function_5bafaddd(var_5f982950, var_b1c60ae7)
 		var_cc373138 hidepart("tag_screen_green_animate");
 		var_cc373138 playsound("zmb_stalingrad_buttons");
 		var_cc373138.var_a3338832 = 0;
-		var_5503da8a = getent("dragon_console_antenna_" + var_5f982950, "targetname");
-		var_5503da8a thread scene::play("p7_fxanim_zm_stal_dragon_console_antenna_bundle", var_5503da8a);
+		mdl_antenna = getent("dragon_console_antenna_" + var_5f982950, "targetname");
+		mdl_antenna thread scene::play("p7_fxanim_zm_stal_dragon_console_antenna_bundle", mdl_antenna);
 		level thread zm_stalingrad_vo::function_4311e03d();
 		level flag::set("dragon_console_triggered");
 		level flag::wait_till("dragon_platform_arrive");
