@@ -309,12 +309,12 @@ function function_5af98f35()
 function function_e1963311()
 {
 	/#
-		var_5dfe3e = getent("", "");
-		if(!isdefined(var_5dfe3e))
+		mdl_chalk = getent("", "");
+		if(!isdefined(mdl_chalk))
 		{
 			return;
 		}
-		var_5dfe3e delete();
+		mdl_chalk delete();
 		iprintln("");
 		e_who = getplayers()[0];
 		e_who.var_fb4f9b70 = 1;
@@ -339,8 +339,8 @@ function chalk_pickup()
 	var_6fdae6db zm_unitrigger::create_unitrigger(undefined, 128);
 	var_6fdae6db waittill("trigger_activated", e_who);
 	e_who playsound("zmb_minor_writing_chalk_pickup");
-	var_5dfe3e = getent("chalk_model", "targetname");
-	var_5dfe3e ghost();
+	mdl_chalk = getent("chalk_model", "targetname");
+	mdl_chalk ghost();
 	/#
 		iprintln("");
 	#/
@@ -366,8 +366,8 @@ function function_7367d2c6()
 {
 	level endon("writing_on_the_wall_complete");
 	self waittill("disconnect");
-	var_5dfe3e = getent("chalk_model", "targetname");
-	var_5dfe3e show();
+	mdl_chalk = getent("chalk_model", "targetname");
+	mdl_chalk show();
 	level thread chalk_pickup();
 }
 
