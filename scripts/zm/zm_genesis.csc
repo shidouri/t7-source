@@ -159,14 +159,14 @@ function sun_flame(n_local_client)
 	self endon("disconnect");
 	self endon("death");
 	self endon("entityshutdown");
-	var_c2a0c80a = getent(n_local_client, "sun_flame", "targetname");
-	var_c2a0c80a setscale(6);
+	mdl_flame = getent(n_local_client, "sun_flame", "targetname");
+	mdl_flame setscale(6);
 	player = getlocalplayer(n_local_client);
 	while(isdefined(player))
 	{
-		if(!var_c2a0c80a hasdobj(n_local_client))
+		if(!mdl_flame hasdobj(n_local_client))
 		{
-			var_c2a0c80a util::waittill_dobj(n_local_client);
+			mdl_flame util::waittill_dobj(n_local_client);
 			wait(0.016);
 		}
 		if(!isdefined(player))
@@ -174,9 +174,9 @@ function sun_flame(n_local_client)
 			player = getlocalplayer(n_local_client);
 			wait(0.016);
 		}
-		v_to_player = player.origin - var_c2a0c80a.origin;
+		v_to_player = player.origin - mdl_flame.origin;
 		var_b514ffc0 = vectortoangles(v_to_player) + vectorscale((1, 0, 0), 89);
-		var_c2a0c80a.angles = var_b514ffc0;
+		mdl_flame.angles = var_b514ffc0;
 		wait(0.01);
 	}
 }
