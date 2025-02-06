@@ -219,11 +219,11 @@ function function_302fe6aa()
 	self hide();
 	self setcandamage(0);
 	self notsolid();
-	foreach(var_4165e349 in level.var_564761a3.var_978adea0)
+	foreach(mdl_vine in level.var_564761a3.var_978adea0)
 	{
-		if(isdefined(var_4165e349))
+		if(isdefined(mdl_vine))
 		{
-			var_4165e349 delete();
+			mdl_vine delete();
 		}
 	}
 	wait(1);

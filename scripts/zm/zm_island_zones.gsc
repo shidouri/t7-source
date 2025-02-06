@@ -212,7 +212,7 @@ function function_8b7501aa()
 */
 function function_6ed87461(a_ents)
 {
-	self.var_4165e349 = a_ents["fxanim_vine_gate"];
+	self.mdl_vine = a_ents["fxanim_vine_gate"];
 }
 
 /*
@@ -233,9 +233,9 @@ function function_feb4ddde()
 	var_9649126c = struct::get_array(var_4c616d31, "targetname");
 	foreach(s_scene in var_9649126c)
 	{
-		if(isdefined(s_scene) && isdefined(s_scene.var_4165e349))
+		if(isdefined(s_scene) && isdefined(s_scene.mdl_vine))
 		{
-			s_scene.var_4165e349 clientfield::set("vine_door_play_fx", 1);
+			s_scene.mdl_vine clientfield::set("vine_door_play_fx", 1);
 			wait(0.25);
 			s_scene thread scene::play();
 		}
