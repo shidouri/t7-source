@@ -2218,16 +2218,16 @@ function function_b0c6ab(e_grenade)
 	n_dist_sq = distancesquared(level.var_4cde8c2c[0].origin, var_ac44693b);
 	if(n_dist_sq <= 160000)
 	{
-		foreach(n_index, var_df70f8d0 in level.var_4cde8c2c)
+		foreach(n_index, s_mouth in level.var_4cde8c2c)
 		{
-			n_dist_sq = distancesquared(var_df70f8d0.origin, var_ac44693b);
+			n_dist_sq = distancesquared(s_mouth.origin, var_ac44693b);
 			if(n_dist_sq <= 36)
 			{
-				var_be3ff756 = var_df70f8d0;
+				var_be3ff756 = s_mouth;
 				var_d29e4cff = n_index;
 				if(!isdefined(self.var_fc66e122[n_index]))
 				{
-					self.var_fc66e122[n_index] = var_df70f8d0;
+					self.var_fc66e122[n_index] = s_mouth;
 					var_dae4e184 = 1;
 					if(self.var_fc66e122.size == level.var_4cde8c2c.size)
 					{
