@@ -248,8 +248,8 @@ class cbeastcode
 	*/
 	function function_71154a2(t_lookat, n_code_index, var_d7d7b586)
 	{
-		var_c929283d = struct::get(t_lookat.target, "targetname");
-		var_43544e59 = var_c929283d.origin;
+		s_focus = struct::get(t_lookat.target, "targetname");
+		var_43544e59 = s_focus.origin;
 		while(true)
 		{
 			t_lookat waittill("trigger", player);
