@@ -549,9 +549,9 @@ function function_1d22626(e_player, n_challenge)
 {
 	e_player endon("disconnect");
 	var_7bb343ef = (0, 90, 0);
-	var_93571595 = struct::get_array("s_challenge_reward", "targetname");
+	a_s_rewards = struct::get_array("s_challenge_reward", "targetname");
 	n_entity = e_player getentitynumber();
-	foreach(s_reward in var_93571595)
+	foreach(s_reward in a_s_rewards)
 	{
 		if(s_reward.script_int == n_entity)
 		{

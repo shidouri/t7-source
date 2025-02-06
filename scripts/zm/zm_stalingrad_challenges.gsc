@@ -696,8 +696,8 @@ function function_1d22626(e_player, n_challenge)
 {
 	e_player endon("disconnect");
 	var_7bb343ef = (0, 90, 0);
-	var_93571595 = struct::get_array("s_challenge_reward", "targetname");
-	foreach(s_reward in var_93571595)
+	a_s_rewards = struct::get_array("s_challenge_reward", "targetname");
+	foreach(s_reward in a_s_rewards)
 	{
 		if(s_reward.script_int == e_player getentitynumber())
 		{
@@ -2034,8 +2034,8 @@ function function_1fa81bf0()
 {
 	self endon("death");
 	self endon(#"hash_8b3a62f7");
-	var_93571595 = struct::get_array("s_challenge_reward", "targetname");
-	foreach(s_reward in var_93571595)
+	a_s_rewards = struct::get_array("s_challenge_reward", "targetname");
+	foreach(s_reward in a_s_rewards)
 	{
 		if(s_reward.script_int == self getentitynumber())
 		{
