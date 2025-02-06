@@ -1056,8 +1056,8 @@ function function_729859d0()
 		if(level flag::get("ee_final_boss_beam_active") === 0)
 		{
 			level thread function_c898ab1();
-			var_7f207012 = [[ level.o_zod_train ]]->get_players_on_train();
-			foreach(e_passenger in var_7f207012)
+			a_e_passengers = [[ level.o_zod_train ]]->get_players_on_train();
+			foreach(e_passenger in a_e_passengers)
 			{
 				e_passenger thread zm_zod_util::set_rumble_to_player(6, 1);
 			}
