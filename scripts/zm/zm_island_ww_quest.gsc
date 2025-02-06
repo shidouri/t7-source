@@ -2043,8 +2043,8 @@ function function_b7685b2e()
 */
 function function_e2b90d40()
 {
-	var_2c2cf2e6 = struct::get("wweapon_up_part_wwup1");
-	var_babd6f9c = util::spawn_model("p7_zm_bgb_vial", var_2c2cf2e6.origin, var_2c2cf2e6.angles);
+	s_underground = struct::get("wweapon_up_part_wwup1");
+	var_babd6f9c = util::spawn_model("p7_zm_bgb_vial", s_underground.origin, s_underground.angles);
 	var_babd6f9c.trigger = zm_island_util::spawn_trigger_radius(var_babd6f9c.origin, 100, 1, &function_9bd3096f);
 	var_babd6f9c thread function_2578c564("wwup1_found");
 }
