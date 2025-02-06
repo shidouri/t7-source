@@ -632,8 +632,8 @@ function get_name_from_ritual_clientfield_value(n_current_ritual)
 */
 function function_85b951d8(var_181b74a5)
 {
-	var_79d1dcf6 = struct::get_array("sword_quest_magic_circle_place", "targetname");
-	foreach(s_circle in var_79d1dcf6)
+	a_s_circles = struct::get_array("sword_quest_magic_circle_place", "targetname");
+	foreach(s_circle in a_s_circles)
 	{
 		if(s_circle.script_int === var_181b74a5)
 		{
@@ -653,8 +653,8 @@ function function_85b951d8(var_181b74a5)
 */
 function function_96ae1a10(var_181b74a5, n_character_index)
 {
-	var_79d1dcf6 = struct::get_array("sword_quest_magic_circle_player_" + n_character_index, "targetname");
-	foreach(s_circle in var_79d1dcf6)
+	a_s_circles = struct::get_array("sword_quest_magic_circle_player_" + n_character_index, "targetname");
+	foreach(s_circle in a_s_circles)
 	{
 		if(s_circle.script_int === var_181b74a5)
 		{
