@@ -1625,7 +1625,7 @@ function function_f75d6374()
 */
 function function_6bd33d28(player)
 {
-	var_14123bd0 = self.stub.origin;
+	v_trigger = self.stub.origin;
 	var_a18af120 = 0;
 	var_39ec9ec2 = level clientfield::get("ee_quest_state");
 	if(var_39ec9ec2 == 0)
