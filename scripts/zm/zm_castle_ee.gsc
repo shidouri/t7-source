@@ -160,13 +160,13 @@ function dempsey_rocket_twinkle()
 	level waittill(#"hash_59e5a3dd");
 	wait(60);
 	var_effa4ac5 = struct::get("dempsey_rocket_twinkle");
-	var_bfa03783 = fx::play("dempsey_rocket_twinkle", var_effa4ac5.origin, var_effa4ac5.angles, "delete_fx", 0, undefined, 1);
+	mdl_twinkle = fx::play("dempsey_rocket_twinkle", var_effa4ac5.origin, var_effa4ac5.angles, "delete_fx", 0, undefined, 1);
 	while(!level flag::get("dimension_set"))
 	{
 		var_bcfda8b9 = struct::get(var_effa4ac5.target, "targetname");
 		var_effa4ac5 = var_bcfda8b9;
-		var_bfa03783 moveto(var_effa4ac5.origin, 60);
-		var_bfa03783 waittill("movedone");
+		mdl_twinkle moveto(var_effa4ac5.origin, 60);
+		mdl_twinkle waittill("movedone");
 	}
 	level notify("delete_fx");
 }
