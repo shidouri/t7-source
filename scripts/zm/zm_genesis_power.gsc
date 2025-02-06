@@ -298,9 +298,9 @@ function function_28753fd1()
 				var_329d83b2 showpart("j_green_03");
 				var_329d83b2 hidepart("j_red_04");
 				var_329d83b2 showpart("j_green_04");
-				foreach(var_37176f28 in var_33accfa3)
+				foreach(mdl_cable in var_33accfa3)
 				{
-					var_37176f28 clientfield::set("power_cables_shader", 1);
+					mdl_cable clientfield::set("power_cables_shader", 1);
 				}
 				break;
 			}
