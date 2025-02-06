@@ -191,10 +191,10 @@ function death_ray_status_light(localclientnum, oldval, newval, bnewent, binitia
 */
 function function_200eea36(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_fda0d24 = [];
-	array::add(var_fda0d24, struct::get("bolt_source_1"), 0);
-	array::add(var_fda0d24, struct::get("bolt_source_2"), 0);
-	s_source = arraygetclosest(self.origin, var_fda0d24);
+	a_s_source = [];
+	array::add(a_s_source, struct::get("bolt_source_1"), 0);
+	array::add(a_s_source, struct::get("bolt_source_2"), 0);
+	s_source = arraygetclosest(self.origin, a_s_source);
 	if(s_source.targetname === "bolt_source_1")
 	{
 		var_53106e7c = "electric_arc_beam_tesla_trap_1_primary";
@@ -237,10 +237,10 @@ function tesla_beam_mechz(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(newval == 1)
 	{
-		var_fda0d24 = [];
-		array::add(var_fda0d24, struct::get("bolt_source_1"), 0);
-		array::add(var_fda0d24, struct::get("bolt_source_2"), 0);
-		s_source = arraygetclosest(self.origin, var_fda0d24);
+		a_s_source = [];
+		array::add(a_s_source, struct::get("bolt_source_1"), 0);
+		array::add(a_s_source, struct::get("bolt_source_2"), 0);
+		s_source = arraygetclosest(self.origin, a_s_source);
 		if(s_source.targetname === "bolt_source_1")
 		{
 			self.var_53106e7c = "electric_arc_beam_tesla_trap_1_primary";
