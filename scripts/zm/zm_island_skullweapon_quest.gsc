@@ -351,12 +351,12 @@ function function_279e8476(str_state)
 function function_b00b433f(a_ents, var_f2e38849)
 {
 	var_affd5bec = level.var_a576e0b9[var_f2e38849].mdl_skull_s;
-	var_86045b9a = a_ents["pedestal_skull"];
-	var_affd5bec.origin = var_86045b9a gettagorigin("skull_link_jnt");
-	var_affd5bec.angles = var_86045b9a gettagangles("skull_link_jnt");
+	mdl_attach = a_ents["pedestal_skull"];
+	var_affd5bec.origin = mdl_attach gettagorigin("skull_link_jnt");
+	var_affd5bec.angles = mdl_attach gettagangles("skull_link_jnt");
 	var_affd5bec show();
-	var_affd5bec linkto(var_86045b9a, "skull_link_jnt");
-	level.var_a576e0b9[var_f2e38849].var_226d2560 = var_86045b9a;
+	var_affd5bec linkto(mdl_attach, "skull_link_jnt");
+	level.var_a576e0b9[var_f2e38849].var_226d2560 = mdl_attach;
 }
 
 /*
