@@ -771,8 +771,8 @@ function function_2020490f(a_ents)
 	level.var_1a139831.mdl_clip = getent("clip_cage_jungle", "targetname");
 	level.var_1a139831.mdl_clip linkto(level.var_1a139831);
 	level.var_1a139831 setignorepauseworld(1);
-	var_ccefca71 = getent("spider_bait", "targetname");
-	var_ccefca71 linkto(level.var_1a139831);
+	mdl_bait = getent("spider_bait", "targetname");
+	mdl_bait linkto(level.var_1a139831);
 }
 
 /*
@@ -1032,8 +1032,8 @@ function function_ebbb27ae()
 				level waittill("spider_die");
 				ai_zombie.allowdeath = 1;
 				ai_zombie dodamage(ai_zombie.health, ai_zombie.origin);
-				var_ccefca71 = getent("spider_bait", "targetname");
-				var_ccefca71 delete();
+				mdl_bait = getent("spider_bait", "targetname");
+				mdl_bait delete();
 				level.var_1a139831 clientfield::set("spider_bait", 0);
 				level.var_1a139831.var_272ec8a1 = 0;
 				level flag::set("ww3_venom_extractor_used");
