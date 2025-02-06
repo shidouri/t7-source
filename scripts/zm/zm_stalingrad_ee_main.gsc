@@ -4932,12 +4932,12 @@ function function_d9d36a17(str_model, str_hint, v_angles = (0, 0, 0), var_c991b7
 	var_af8a18df = struct::get("ee_sophia_struct", "targetname");
 	var_af8a18df function_6e3a6092(100, str_hint, 0);
 	var_51a2f105 = level.var_a090a655 gettagorigin("drawer_link_jnt");
-	var_b71f6be1 = util::spawn_model(str_model, var_51a2f105 + var_c991b769, v_angles);
-	var_b71f6be1 linkto(level.var_a090a655, "drawer_link_jnt");
-	var_b71f6be1 playsound("zmb_scenarios_sophia_drawer_return");
+	mdl_delivery = util::spawn_model(str_model, var_51a2f105 + var_c991b769, v_angles);
+	mdl_delivery linkto(level.var_a090a655, "drawer_link_jnt");
+	mdl_delivery playsound("zmb_scenarios_sophia_drawer_return");
 	wait(1);
 	level.var_a090a655 scene::play("p7_fxanim_zm_stal_computer_sophia_drawer_close_bundle");
-	var_b71f6be1 delete();
+	mdl_delivery delete();
 }
 
 /*
