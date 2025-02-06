@@ -311,13 +311,13 @@ function function_279e8476(str_state)
 		case "rise":
 		{
 			str_anim = "p7_fxanim_zm_island_pedestal_skull_rise_bundle";
-			var_affd5bec = self.mdl_skull_s;
+			mdl_skull = self.mdl_skull_s;
 			break;
 		}
 		case "fall":
 		{
 			str_anim = "p7_fxanim_zm_island_pedestal_skull_fall_bundle";
-			var_affd5bec = self.mdl_skull_s;
+			mdl_skull = self.mdl_skull_s;
 			break;
 		}
 	}
@@ -330,7 +330,7 @@ function function_279e8476(str_state)
 	else if(str_state == "fall")
 	{
 		self.mdl_skulltar waittill("scene_done");
-		var_affd5bec unlink();
+		mdl_skull unlink();
 		if(isdefined(self.var_226d2560))
 		{
 			self.var_226d2560 delete();
@@ -350,12 +350,12 @@ function function_279e8476(str_state)
 */
 function function_b00b433f(a_ents, var_f2e38849)
 {
-	var_affd5bec = level.var_a576e0b9[var_f2e38849].mdl_skull_s;
+	mdl_skull = level.var_a576e0b9[var_f2e38849].mdl_skull_s;
 	mdl_attach = a_ents["pedestal_skull"];
-	var_affd5bec.origin = mdl_attach gettagorigin("skull_link_jnt");
-	var_affd5bec.angles = mdl_attach gettagangles("skull_link_jnt");
-	var_affd5bec show();
-	var_affd5bec linkto(mdl_attach, "skull_link_jnt");
+	mdl_skull.origin = mdl_attach gettagorigin("skull_link_jnt");
+	mdl_skull.angles = mdl_attach gettagangles("skull_link_jnt");
+	mdl_skull show();
+	mdl_skull linkto(mdl_attach, "skull_link_jnt");
 	level.var_a576e0b9[var_f2e38849].var_226d2560 = mdl_attach;
 }
 

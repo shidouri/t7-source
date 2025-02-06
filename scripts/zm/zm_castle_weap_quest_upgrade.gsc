@@ -3848,8 +3848,8 @@ function function_15a6ff6a()
 		if(function_51a90202(weapon, 1, point, t_shrine))
 		{
 			playsoundatposition("zmb_wolf_shrine_location", (5350, -1659, -1135));
-			var_affd5bec = getent("wolf_skull_roll_down", "targetname");
-			var_affd5bec thread function_262d06db();
+			mdl_skull = getent("wolf_skull_roll_down", "targetname");
+			mdl_skull thread function_262d06db();
 			level function_f5e9876("wolf", 2);
 			return;
 		}
@@ -4028,8 +4028,8 @@ function wolf_howl_escort()
 	level.var_de642fb0 = array("aq_wh_dig_struct_courtyard", "aq_wh_dig_struct_road", "aq_wh_dig_struct_undercroft");
 	level function_b9485994();
 	level function_f5e9876("wolf", 3);
-	var_affd5bec = getent("aq_wh_skadi_skull", "targetname");
-	var_affd5bec show();
+	mdl_skull = getent("aq_wh_skadi_skull", "targetname");
+	mdl_skull show();
 	level function_4e530cb();
 	wait(2);
 	level.var_52978d72 zm_audio::create_and_play_dialog("quest", "skadi_encounter");
@@ -4049,16 +4049,16 @@ function wolf_howl_escort()
 */
 function function_b9485994()
 {
-	var_affd5bec = getent("aq_wh_skadi_skull", "targetname");
-	var_affd5bec function_3313abd5();
+	mdl_skull = getent("aq_wh_skadi_skull", "targetname");
+	mdl_skull function_3313abd5();
 	while(true)
 	{
-		var_affd5bec.var_67b5dd94 waittill("trigger", e_who);
+		mdl_skull.var_67b5dd94 waittill("trigger", e_who);
 		if(e_who === level.var_52978d72)
 		{
-			var_affd5bec playsound("zmb_skull_restore");
+			mdl_skull playsound("zmb_skull_restore");
 			e_who playrumbleonentity("zm_castle_quest_interact_rumble");
-			zm_unitrigger::unregister_unitrigger(var_affd5bec.var_67b5dd94);
+			zm_unitrigger::unregister_unitrigger(mdl_skull.var_67b5dd94);
 			return;
 		}
 	}
@@ -4537,8 +4537,8 @@ function function_3429d04c()
 			level function_5643d04b();
 		}
 		level flag::set("");
-		var_affd5bec = getent("", "");
-		var_affd5bec show();
+		mdl_skull = getent("", "");
+		mdl_skull show();
 		zm_spawner::deregister_zombie_death_event_callback(&function_d0d62870);
 		level thread function_328260ea();
 	#/

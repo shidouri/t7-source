@@ -772,17 +772,17 @@ function function_f4caac35(str_flag)
 {
 	level waittill(#"hash_208ce56d");
 	s_coffin = struct::get("s_dire_wolf_coffin", "targetname");
-	var_affd5bec = util::spawn_model("tag_origin", s_coffin.origin, (0, 0, 0));
-	var_affd5bec setmodel("p7_ban_north_tribe_lion_skull");
+	mdl_skull = util::spawn_model("tag_origin", s_coffin.origin, (0, 0, 0));
+	mdl_skull setmodel("p7_ban_north_tribe_lion_skull");
 	s_path = struct::get("s_dire_wolf_path_start", "targetname");
 	while(true)
 	{
 		n_time = 0.4;
-		var_affd5bec moveto(s_path.origin, n_time);
+		mdl_skull moveto(s_path.origin, n_time);
 		if(!isdefined(s_path.target))
 		{
-			var_affd5bec waittill("movedone");
-			var_affd5bec playsound("zmb_wearable_wolf_skull_land");
+			mdl_skull waittill("movedone");
+			mdl_skull playsound("zmb_wearable_wolf_skull_land");
 			break;
 		}
 		else
@@ -791,16 +791,16 @@ function function_f4caac35(str_flag)
 		}
 		s_path = struct::get(s_path.target, "targetname");
 	}
-	var_affd5bec thread function_579caadc();
+	mdl_skull thread function_579caadc();
 	level.var_a92f045 = 1;
-	level.var_ab7d79d8 = var_affd5bec;
+	level.var_ab7d79d8 = mdl_skull;
 	for(var_fce7f186 = 0; var_fce7f186 < 15; var_fce7f186++)
 	{
 		level waittill(#"hash_3171c43f");
 	}
 	level.var_a92f045 = 0;
 	wait(0.2);
-	var_affd5bec delete();
+	mdl_skull delete();
 	level flag::set(str_flag);
 }
 
