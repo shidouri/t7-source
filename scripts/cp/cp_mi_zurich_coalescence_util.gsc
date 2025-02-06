@@ -3757,8 +3757,8 @@ function function_2e1830eb(str_station, str_objective)
 	s_scene = undefined;
 	var_3bc473a5 = [];
 	mdl_origin = undefined;
-	var_3ecdb245 = struct::get_array(str_station);
-	foreach(i, s_part in var_3ecdb245)
+	a_s_station = struct::get_array(str_station);
+	foreach(i, s_part in a_s_station)
 	{
 		if(isdefined(s_part.scriptbundlename))
 		{
