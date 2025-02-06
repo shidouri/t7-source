@@ -2736,20 +2736,20 @@ function function_c0e035d6(str_spawn, b_raz = 0, var_8f4dddff = 1)
 	{
 		zombie_utility::ai_calculate_health(20);
 	}
-	var_ad0ee644 = struct::get_array(str_spawn, "targetname");
-	var_ad0ee644 = array::filter(var_ad0ee644, 0, &zm_stalingrad_util::function_c66f2957);
+	a_s_spawn = struct::get_array(str_spawn, "targetname");
+	a_s_spawn = array::filter(a_s_spawn, 0, &zm_stalingrad_util::function_c66f2957);
 	if(!b_raz)
 	{
 		level notify("stop_dragon_boss_zombie");
 		wait(1);
-		level thread zm_stalingrad_util::function_f70dde0b(level.zombie_spawners[0], var_ad0ee644, str_spawn, level.var_e66ebd0c[level.activeplayers.size - 1], 1.25, undefined, "stop_dragon_boss_zombie", 0);
+		level thread zm_stalingrad_util::function_f70dde0b(level.zombie_spawners[0], a_s_spawn, str_spawn, level.var_e66ebd0c[level.activeplayers.size - 1], 1.25, undefined, "stop_dragon_boss_zombie", 0);
 	}
 	else
 	{
 		level notify("stop_dragon_boss_zombie");
 		wait(1);
 		n_zombie_count = (level.var_e66ebd0c[level.activeplayers.size - 1]) - ((level.var_8447be11[level.activeplayers.size - 1]) * var_8f4dddff);
-		level thread zm_stalingrad_util::function_f70dde0b(level.zombie_spawners[0], var_ad0ee644, str_spawn, n_zombie_count, 1.25, undefined, "stop_dragon_boss_zombie", 0);
+		level thread zm_stalingrad_util::function_f70dde0b(level.zombie_spawners[0], a_s_spawn, str_spawn, n_zombie_count, 1.25, undefined, "stop_dragon_boss_zombie", 0);
 		level thread zm_stalingrad_util::function_b55ebb81(undefined, undefined, (level.var_8447be11[level.activeplayers.size - 1]) * var_8f4dddff, 1, 0, "stop_dragon_boss_zombie");
 	}
 }
