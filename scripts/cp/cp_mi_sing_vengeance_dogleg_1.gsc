@@ -1110,8 +1110,8 @@ function skipto_dogleg_1_done(str_objective, b_starting, b_direct, player)
 		}
 		level.var_831ab6b2 thread scene::play("cin_ven_04_30_quadalleydoor_1st", level.var_4c62d05f);
 		level waittill(#"hash_57cf6a02");
-		var_7d044b82 = struct::get("quad_alley_door_physics", "targetname");
-		physicsexplosionsphere(var_7d044b82.origin, 64, 48, 1);
+		s_physics = struct::get("quad_alley_door_physics", "targetname");
+		physicsexplosionsphere(s_physics.origin, 64, 48, 1);
 	}
 	level struct::delete_script_bundle("scene", "cin_ven_04_10_cafedoor_1st_sh010");
 	level struct::delete_script_bundle("scene", "cin_ven_04_10_cafedoor_3rd_sh020");
