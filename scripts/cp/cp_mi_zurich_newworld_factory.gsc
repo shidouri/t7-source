@@ -1457,8 +1457,8 @@ function function_14da3d31()
 	level endon("foundry_start");
 	while(true)
 	{
-		var_da5600e3 = getentarray("warehouse_ammo", "targetname");
-		foreach(e_ammo in var_da5600e3)
+		a_e_ammo = getentarray("warehouse_ammo", "targetname");
+		foreach(e_ammo in a_e_ammo)
 		{
 			foreach(e_player in level.activeplayers)
 			{
