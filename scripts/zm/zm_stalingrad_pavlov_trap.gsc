@@ -32,15 +32,15 @@
 function main()
 {
 	var_565a8d95 = struct::get_array("flinger_trigger", "targetname");
-	foreach(var_a3ed6ea in var_565a8d95)
+	foreach(s_flinger in var_565a8d95)
 	{
-		var_66e182a0 = getentarray(var_a3ed6ea.target, "targetname");
-		var_a3ed6ea.var_66e182a0 = var_66e182a0;
+		var_66e182a0 = getentarray(s_flinger.target, "targetname");
+		s_flinger.var_66e182a0 = var_66e182a0;
 		foreach(var_a70a7d09 in var_66e182a0)
 		{
-			var_a3ed6ea.var_a70a7d09 = var_a70a7d09;
+			s_flinger.var_a70a7d09 = var_a70a7d09;
 		}
-		var_a3ed6ea function_41b278b3();
+		s_flinger function_41b278b3();
 	}
 }
 
