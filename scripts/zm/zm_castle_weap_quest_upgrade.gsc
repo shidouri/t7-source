@@ -3577,7 +3577,7 @@ function wolf_howl_paintings()
 	{
 		var_18f50dca[i] function_3313abd5(&function_47b1e30a);
 		var_18f50dca[i] thread function_2601ae75(i, var_18f50dca);
-		var_18f50dca[i].var_b5b31795 = util::spawn_model(var_da042480[i], var_18f50dca[i].origin, var_18f50dca[i].angles);
+		var_18f50dca[i].mdl_painting = util::spawn_model(var_da042480[i], var_18f50dca[i].origin, var_18f50dca[i].angles);
 	}
 	level flag::wait_till("wolf_howl_paintings");
 	foreach(var_48c991cb in var_18f50dca)
@@ -3624,7 +3624,7 @@ function function_2601ae75(var_c37a8358, var_18f50dca)
 			if(level.var_f1193c94 == var_c37a8358)
 			{
 				e_who playrumbleonentity("zm_castle_quest_interact_rumble");
-				self.var_b5b31795 clientfield::set("painting_symbol_reveal", 1);
+				self.mdl_painting clientfield::set("painting_symbol_reveal", 1);
 				playsoundatposition("zmb_painting_correct", self.origin);
 				e_who thread zm_castle_vo::function_5fa306b6(var_c37a8358 + 1);
 				if(var_c37a8358 == 3)
@@ -3638,9 +3638,9 @@ function function_2601ae75(var_c37a8358, var_18f50dca)
 				e_who playrumbleonentity("zm_castle_quest_interact_rumble");
 				for(i = 0; i < level.var_f1193c94; i++)
 				{
-					var_18f50dca[i].var_b5b31795 clientfield::set("painting_symbol_reveal", 0);
+					var_18f50dca[i].mdl_painting clientfield::set("painting_symbol_reveal", 0);
 				}
-				self.var_b5b31795 clientfield::increment("painting_symbol_blink");
+				self.mdl_painting clientfield::increment("painting_symbol_blink");
 				playsoundatposition("zmb_painting_wrong", self.origin);
 				level.var_f1193c94 = 0;
 			}
@@ -3707,7 +3707,7 @@ function function_2bac97b4()
 		var_18f50dca = struct::get_array("", "");
 		foreach(var_48c991cb in var_18f50dca)
 		{
-			var_48c991cb.var_b5b31795 clientfield::set("", 1);
+			var_48c991cb.mdl_painting clientfield::set("", 1);
 		}
 		level flag::set("");
 	#/
