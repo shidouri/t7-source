@@ -3271,8 +3271,8 @@ function function_1f576299(a_ents)
 function function_d9753c8f(a_ents)
 {
 	level waittill(#"hash_7c7cfa5");
-	var_7e421bd8 = struct::get_array("inside_man_robot", "script_noteworthy");
-	foreach(s_scene in var_7e421bd8)
+	a_s_robots = struct::get_array("inside_man_robot", "script_noteworthy");
+	foreach(s_scene in a_s_robots)
 	{
 		if(s_scene.script_int === 1)
 		{
@@ -3293,8 +3293,8 @@ function function_d9753c8f(a_ents)
 function function_676dcd54()
 {
 	level waittill("aims_assembly");
-	var_7e421bd8 = struct::get_array("inside_man_robot", "script_noteworthy");
-	foreach(s_scene in var_7e421bd8)
+	a_s_robots = struct::get_array("inside_man_robot", "script_noteworthy");
+	foreach(s_scene in a_s_robots)
 	{
 		if(s_scene.script_int === 2)
 		{
@@ -3315,8 +3315,8 @@ function function_676dcd54()
 function function_8d7047bd()
 {
 	level waittill(#"hash_cb7aa93");
-	var_7e421bd8 = struct::get_array("inside_man_robot", "script_noteworthy");
-	foreach(s_scene in var_7e421bd8)
+	a_s_robots = struct::get_array("inside_man_robot", "script_noteworthy");
+	foreach(s_scene in a_s_robots)
 	{
 		if(s_scene.script_int === 3)
 		{
@@ -3340,13 +3340,13 @@ function function_1736807e(a_ents)
 	level waittill(#"hash_761cb65f");
 	showmiscmodels("charging_station_glass_doors");
 	showmiscmodels("charging_station_robot");
-	var_7e421bd8 = struct::get_array("inside_man_robot", "script_noteworthy");
+	a_s_robots = struct::get_array("inside_man_robot", "script_noteworthy");
 	var_7da8df42 = struct::get_array("inside_man_charging_station", "script_noteworthy");
 	foreach(var_809fd273 in var_7da8df42)
 	{
 		var_809fd273 scene::stop(1);
 	}
-	foreach(s_robot in var_7e421bd8)
+	foreach(s_robot in a_s_robots)
 	{
 		s_robot scene::stop(1);
 	}
@@ -3475,8 +3475,8 @@ function function_d9482ef9()
 		s_scene scene::init();
 		util::wait_network_frame();
 	}
-	var_7e421bd8 = struct::get_array("inside_man_robot", "script_noteworthy");
-	foreach(s_scene in var_7e421bd8)
+	a_s_robots = struct::get_array("inside_man_robot", "script_noteworthy");
+	foreach(s_scene in a_s_robots)
 	{
 		ai_robot = spawner::simple_spawn_single("inside_man_robot");
 		ai_robot ai::set_ignoreme(1);
