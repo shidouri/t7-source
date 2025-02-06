@@ -772,12 +772,12 @@ function function_1d22626(e_player, n_challenge)
 function function_1ad9d1a0(e_player, n_dist)
 {
 	self endon(#"hash_422dba45");
-	self.var_3609adde movez(n_dist, 12, 6);
+	self.mdl_hand movez(n_dist, 12, 6);
 	self.var_2a9b65c7 movez(n_dist, 12, 6);
 	self.var_79dc7980 movez(n_dist, 12, 6);
 	self.var_30ff0d6c movez(n_dist, 12, 6);
-	self.var_3609adde playloopsound("zmb_challenge_skel_arm_lp", 1);
-	self.var_3609adde waittill("movedone");
+	self.mdl_hand playloopsound("zmb_challenge_skel_arm_lp", 1);
+	self.mdl_hand waittill("movedone");
 	if(isdefined(e_player))
 	{
 		e_player flag::clear("flag_player_initialized_reward");
@@ -787,7 +787,7 @@ function function_1ad9d1a0(e_player, n_dist)
 	{
 		self.var_30ff0d6c delete();
 	}
-	self.var_3609adde delete();
+	self.mdl_hand delete();
 	self.var_2a9b65c7 delete();
 	self.var_79dc7980 delete();
 }
@@ -807,25 +807,25 @@ function function_b1f54cb4(e_player, s_reward, var_17b3dc96, var_21d0cf95)
 	var_e97ebb83 = (3.5, 0, -18.5);
 	var_f39a667b = (1, 0, -1);
 	var_48cc013c = vectorscale((1, 0, 0), 90);
-	if(!isdefined(self.var_3609adde))
+	if(!isdefined(self.mdl_hand))
 	{
-		self.var_3609adde = util::spawn_model("c_zom_dlc1_skeleton_zombie_body_s_rarm", s_reward.origin, s_reward.angles);
+		self.mdl_hand = util::spawn_model("c_zom_dlc1_skeleton_zombie_body_s_rarm", s_reward.origin, s_reward.angles);
 		self.var_2a9b65c7 = util::spawn_model("p7_skulls_bones_arm_lower", s_reward.origin + var_f6c28cea, vectorscale((1, 0, 0), 180));
 		self.var_79dc7980 = util::spawn_model("p7_skulls_bones_arm_lower", s_reward.origin + var_e97ebb83, vectorscale((1, 0, 0), 180));
 	}
 	else
 	{
 		self notify(#"hash_422dba45");
-		self.var_3609adde stoploopsound(0.25);
-		self.var_3609adde moveto(s_reward.origin, 1);
+		self.mdl_hand stoploopsound(0.25);
+		self.mdl_hand moveto(s_reward.origin, 1);
 		self.var_2a9b65c7 moveto(s_reward.origin + var_f6c28cea, 1);
 		self.var_79dc7980 moveto(s_reward.origin + var_e97ebb83, 1);
-		self.var_3609adde waittill("movedone");
-		if(isdefined(self.var_3609adde.var_9cab68e0) && self.var_3609adde.var_9cab68e0)
+		self.mdl_hand waittill("movedone");
+		if(isdefined(self.mdl_hand.var_9cab68e0) && self.mdl_hand.var_9cab68e0)
 		{
-			self.var_3609adde.origin = self.var_3609adde.origin - var_f39a667b;
-			self.var_3609adde.angles = self.var_3609adde.angles - var_48cc013c;
-			self.var_3609adde.var_9cab68e0 = undefined;
+			self.mdl_hand.origin = self.mdl_hand.origin - var_f39a667b;
+			self.mdl_hand.angles = self.mdl_hand.angles - var_48cc013c;
+			self.mdl_hand.var_9cab68e0 = undefined;
 		}
 	}
 	var_51a2f105 = s_reward.origin + s_reward.var_e1513629;
@@ -845,9 +845,9 @@ function function_b1f54cb4(e_player, s_reward, var_17b3dc96, var_21d0cf95)
 		case "wpn_t7_zmb_dlc3_gauntlet_dragon_world":
 		{
 			self.var_30ff0d6c = util::spawn_model(var_17b3dc96, var_51a2f105, var_9ef5a0dc);
-			self.var_3609adde.origin = self.var_3609adde.origin + var_f39a667b;
-			self.var_3609adde.angles = self.var_3609adde.angles + var_48cc013c;
-			self.var_3609adde.var_9cab68e0 = 1;
+			self.mdl_hand.origin = self.mdl_hand.origin + var_f39a667b;
+			self.mdl_hand.angles = self.mdl_hand.angles + var_48cc013c;
+			self.mdl_hand.var_9cab68e0 = 1;
 			break;
 		}
 		default:
@@ -856,15 +856,15 @@ function function_b1f54cb4(e_player, s_reward, var_17b3dc96, var_21d0cf95)
 			break;
 		}
 	}
-	self.var_3609adde movez(var_21d0cf95, 1);
+	self.mdl_hand movez(var_21d0cf95, 1);
 	self.var_2a9b65c7 movez(var_21d0cf95, 1);
 	self.var_79dc7980 movez(var_21d0cf95, 1);
 	self.var_30ff0d6c movez(var_21d0cf95, 1);
-	self.var_3609adde playsound("zmb_challenge_skel_arm_up");
+	self.mdl_hand playsound("zmb_challenge_skel_arm_up");
 	wait(0.05);
-	self.var_3609adde clientfield::increment("challenge_arm_reveal");
-	self.var_3609adde waittill("movedone");
-	self.var_3609adde clientfield::increment("challenge_arm_reveal");
+	self.mdl_hand clientfield::increment("challenge_arm_reveal");
+	self.mdl_hand waittill("movedone");
+	self.mdl_hand clientfield::increment("challenge_arm_reveal");
 }
 
 /*
