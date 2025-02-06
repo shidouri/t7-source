@@ -545,16 +545,16 @@ function channeling_stone_replacement()
 	s_stone = struct::get("cs_replacement");
 	var_f12ee4c0 = util::spawn_model("p7_zm_ctl_channeling_stone", s_stone.origin, s_stone.angles);
 	var_f12ee4c0.targetname = "stone_past";
-	var_79488a88 = getent("lid_crate_stone", "targetname");
-	var_79488a88 rotatepitch(-90, 1);
-	var_79488a88.b_rotated = 1;
-	var_79488a88 playsound("zmb_ee_lid_open");
+	mdl_lid = getent("lid_crate_stone", "targetname");
+	mdl_lid rotatepitch(-90, 1);
+	mdl_lid.b_rotated = 1;
+	mdl_lid playsound("zmb_ee_lid_open");
 	playsoundatposition("zmb_ee_lid_keyinsert", s_key.origin);
 	var_f12ee4c0 zm_castle_util::create_unitrigger();
 	var_f12ee4c0 waittill("trigger_activated");
 	zm_unitrigger::unregister_unitrigger(var_f12ee4c0.s_unitrigger);
 	var_f12ee4c0 delete();
-	var_79488a88.b_rotated = undefined;
+	mdl_lid.b_rotated = undefined;
 	level flag::set("channeling_stone_replacement");
 }
 
@@ -590,12 +590,12 @@ function function_f5156f29()
 	{
 		var_f12ee4c0 delete();
 	}
-	var_79488a88 = getent("lid_crate_stone", "targetname");
-	if(isdefined(var_79488a88.b_rotated) && var_79488a88.b_rotated)
+	mdl_lid = getent("lid_crate_stone", "targetname");
+	if(isdefined(mdl_lid.b_rotated) && mdl_lid.b_rotated)
 	{
-		var_79488a88 rotatepitch(90, 1);
-		var_79488a88.b_rotated = undefined;
-		var_79488a88 playsound("zmb_ee_lid_slide");
+		mdl_lid rotatepitch(90, 1);
+		mdl_lid.b_rotated = undefined;
+		mdl_lid playsound("zmb_ee_lid_slide");
 	}
 	if(!level flag::get("channeling_stone_replacement"))
 	{
