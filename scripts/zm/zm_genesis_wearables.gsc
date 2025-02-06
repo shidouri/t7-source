@@ -89,7 +89,7 @@ function function_2436f867()
 	self notify(#"hash_2436f867");
 	self endon(#"hash_2436f867");
 	self util::waittill_any("disconnect", "bled_out", "death");
-	self.var_bc5f242a = undefined;
+	self.s_wearable = undefined;
 	function_b712ee6f(0);
 	function_30fb8e63(0);
 }
@@ -157,7 +157,7 @@ function function_f6b20985(var_8fca9f8c, var_f48b681c, str_tag, var_f3776824)
 */
 function function_24061b58(e_player)
 {
-	if(isdefined(e_player.var_bc5f242a) && e_player.var_bc5f242a.str_model === self.stub.var_f4b4f2f2)
+	if(isdefined(e_player.s_wearable) && e_player.s_wearable.str_model === self.stub.var_f4b4f2f2)
 	{
 		self sethintstring(&"ZM_GENESIS_WEARABLE_EQUIPPED");
 		return false;
@@ -182,9 +182,9 @@ function function_7f0ec71c()
 	{
 		self trigger::wait_till();
 		e_player = self.who;
-		if(!isdefined(e_player.var_bc5f242a))
+		if(!isdefined(e_player.s_wearable))
 		{
-			e_player.var_bc5f242a = spawnstruct();
+			e_player.s_wearable = spawnstruct();
 		}
 		e_player function_e5974b49();
 		str_tag = self.stub.str_tag;
@@ -205,9 +205,9 @@ function function_7f0ec71c()
 function give_wearable(str_model, var_475b0a4e, str_tag)
 {
 	self function_e5515520();
-	self.var_bc5f242a.str_model = str_model;
-	self.var_bc5f242a.str_tag = str_tag;
-	self attach(self.var_bc5f242a.str_model, str_tag);
+	self.s_wearable.str_model = str_model;
+	self.s_wearable.str_tag = str_tag;
+	self attach(self.s_wearable.str_model, str_tag);
 	self playsound("zmb_craftable_pickup");
 	self notify("changed_wearable", var_475b0a4e);
 	self thread function_2436f867();
@@ -361,9 +361,9 @@ function function_e5974b49()
 	{
 		self unsetperk("specialty_tombstone");
 	}
-	if(isdefined(self.var_bc5f242a.str_model))
+	if(isdefined(self.s_wearable.str_model))
 	{
-		self detach(self.var_bc5f242a.str_model, self.var_bc5f242a.str_tag);
+		self detach(self.s_wearable.str_model, self.s_wearable.str_tag);
 	}
 }
 

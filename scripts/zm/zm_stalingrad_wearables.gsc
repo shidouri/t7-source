@@ -134,7 +134,7 @@ function function_2436f867()
 	self notify(#"hash_2436f867");
 	self endon(#"hash_2436f867");
 	self util::waittill_any("disconnect", "bled_out", "death");
-	self.var_bc5f242a = undefined;
+	self.s_wearable = undefined;
 	self.str_wearable = undefined;
 	level clientfield::set(("player" + self.entity_num) + "wearableItem", 0);
 }
@@ -290,16 +290,16 @@ function function_18dda0a0()
 		self trigger::wait_till();
 		player = self.who;
 		player clientfield::increment_to_player("interact_rumble");
-		if(isdefined(player.var_bc5f242a))
+		if(isdefined(player.s_wearable))
 		{
 			player function_caffcf07();
 		}
 		else
 		{
-			player.var_bc5f242a = spawnstruct();
+			player.s_wearable = spawnstruct();
 		}
-		player.var_bc5f242a.model = "c_zom_dlc3_player_wings";
-		player.var_bc5f242a.tag = "j_spine4";
+		player.s_wearable.model = "c_zom_dlc3_player_wings";
+		player.s_wearable.tag = "j_spine4";
 		player function_20f2df00();
 		player.str_wearable = "dragon_wings";
 		player playsound("zmb_wearable_wing_wear");
@@ -546,17 +546,17 @@ function function_ad641a9f()
 		self trigger::wait_till();
 		player = self.who;
 		player clientfield::increment_to_player("interact_rumble");
-		if(isdefined(player.var_bc5f242a))
+		if(isdefined(player.s_wearable))
 		{
 			player function_caffcf07();
 			player function_588ad36a();
 		}
 		else
 		{
-			player.var_bc5f242a = spawnstruct();
+			player.s_wearable = spawnstruct();
 		}
-		player.var_bc5f242a.model = "c_zom_dlc3_player_raz_facemask";
-		player.var_bc5f242a.tag = "j_head";
+		player.s_wearable.model = "c_zom_dlc3_player_raz_facemask";
+		player.s_wearable.tag = "j_head";
 		player function_20f2df00();
 		player.str_wearable = "raz_hat";
 		player playsound("zmb_wearable_raz_wear");
@@ -684,17 +684,17 @@ function function_f3b06f8e()
 		self trigger::wait_till();
 		player = self.who;
 		player clientfield::increment_to_player("interact_rumble");
-		if(isdefined(player.var_bc5f242a))
+		if(isdefined(player.s_wearable))
 		{
 			player function_caffcf07();
 			player function_588ad36a();
 		}
 		else
 		{
-			player.var_bc5f242a = spawnstruct();
+			player.s_wearable = spawnstruct();
 		}
-		player.var_bc5f242a.model = "c_zom_dlc3_player_sentinel_drone_hat";
-		player.var_bc5f242a.tag = "j_head";
+		player.s_wearable.model = "c_zom_dlc3_player_sentinel_drone_hat";
+		player.s_wearable.tag = "j_head";
 		player function_20f2df00();
 		player playsound("zmb_wearable_sent_wear");
 		player.str_wearable = "sentinel_hat";
@@ -715,7 +715,7 @@ function function_f3b06f8e()
 */
 function function_caffcf07()
 {
-	self detach(self.var_bc5f242a.model, self.var_bc5f242a.tag);
+	self detach(self.s_wearable.model, self.s_wearable.tag);
 }
 
 /*
@@ -729,7 +729,7 @@ function function_caffcf07()
 */
 function function_20f2df00()
 {
-	self attach(self.var_bc5f242a.model, self.var_bc5f242a.tag);
+	self attach(self.s_wearable.model, self.s_wearable.tag);
 }
 
 /*
