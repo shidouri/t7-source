@@ -397,8 +397,8 @@ function function_b4575902()
 	var_5a533244 = [];
 	foreach(s_battery in var_66b0cbbe)
 	{
-		var_8d2dd868 = util::spawn_model("p7_zm_ctl_battery_ceramic", s_battery.origin, s_battery.angles);
-		var_8d2dd868.target = s_battery.target;
+		mdl_battery = util::spawn_model("p7_zm_ctl_battery_ceramic", s_battery.origin, s_battery.angles);
+		mdl_battery.target = s_battery.target;
 		if(!isdefined(var_5a533244))
 		{
 			var_5a533244 = [];
@@ -407,17 +407,17 @@ function function_b4575902()
 		{
 			var_5a533244 = array(var_5a533244);
 		}
-		var_5a533244[var_5a533244.size] = var_8d2dd868;
+		var_5a533244[var_5a533244.size] = mdl_battery;
 	}
 	function_9157236c();
-	foreach(var_8d2dd868 in var_5a533244)
+	foreach(mdl_battery in var_5a533244)
 	{
-		var_8d2dd868 clientfield::set("battery_fx", 1);
+		mdl_battery clientfield::set("battery_fx", 1);
 	}
 	function_b8449f8c(var_5a533244);
-	foreach(var_8d2dd868 in var_5a533244)
+	foreach(mdl_battery in var_5a533244)
 	{
-		var_8d2dd868 clientfield::set("battery_fx", 0);
+		mdl_battery clientfield::set("battery_fx", 0);
 	}
 	playsoundatposition("zmb_wearable_siegfried_horn_1", (0, 0, 0));
 	/#
@@ -520,13 +520,13 @@ function function_b8449f8c(var_5a533244)
 		n_closest_dist = 9999999;
 		for(i = 0; i < var_5a533244.size; i++)
 		{
-			var_8d2dd868 = var_5a533244[i];
-			s_center = struct::get(var_8d2dd868.target, "targetname");
+			mdl_battery = var_5a533244[i];
+			s_center = struct::get(mdl_battery.target, "targetname");
 			n_dist = distance(s_center.origin, v_kill_pos);
 			if(n_dist < n_closest_dist)
 			{
 				n_closest_dist = n_dist;
-				var_688f490b = var_8d2dd868;
+				var_688f490b = mdl_battery;
 				if(isdefined(s_center.script_num))
 				{
 					var_e84c42f6 = 1;
