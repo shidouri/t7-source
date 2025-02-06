@@ -964,13 +964,13 @@ function function_55a15733(var_a464d35b)
 				if(self issliding() || self issprinting())
 				{
 					v_player_velocity = self getvelocity();
-					var_64c3f8ef = v_player_velocity + v_hazard;
+					v_result = v_player_velocity + v_hazard;
 				}
 				else
 				{
-					var_64c3f8ef = v_hazard;
+					v_result = v_hazard;
 				}
-				self setvelocity(var_64c3f8ef);
+				self setvelocity(v_result);
 				wait(0.05);
 			}
 		}
@@ -1240,8 +1240,8 @@ function function_b90ebe4e(t_penstock_flow)
 	while(zm_utility::is_player_valid(self) && self istouching(t_penstock_flow))
 	{
 		v_player_velocity = self getvelocity();
-		var_64c3f8ef = v_player_velocity + v_hazard;
-		self setvelocity(var_64c3f8ef);
+		v_result = v_player_velocity + v_hazard;
+		self setvelocity(v_result);
 		wait(0.1);
 	}
 	self.var_c73f00e0 = 0;
