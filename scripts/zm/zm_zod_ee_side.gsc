@@ -2296,12 +2296,12 @@ function function_5045e366()
 		wait(1);
 	}
 	s_start = struct::get("alcatraz_plane_start");
-	var_aab7a6d1 = util::spawn_model("p7_zm_der_alcatraz_plane", s_start.origin, s_start.angles);
+	mdl_plane = util::spawn_model("p7_zm_der_alcatraz_plane", s_start.origin, s_start.angles);
 	s_end = struct::get(s_start.target);
-	var_aab7a6d1 moveto(s_end.origin, 30);
-	var_aab7a6d1 playloopsound("zmb_zod_ee_motd_plane", 5);
-	var_aab7a6d1 waittill("movedone");
-	var_aab7a6d1 delete();
+	mdl_plane moveto(s_end.origin, 30);
+	mdl_plane playloopsound("zmb_zod_ee_motd_plane", 5);
+	mdl_plane waittill("movedone");
+	mdl_plane delete();
 }
 
 /*

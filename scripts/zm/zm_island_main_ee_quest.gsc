@@ -1161,7 +1161,7 @@ function function_6cc2e374()
 		{
 			level flag::set("elevator_part_gear3_placed");
 			t_repair playsound("zmb_item_pickup");
-			mdl_gears.var_aab7a6d1 = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", mdl_gears gettagorigin("wheel_03_jnt") + vectorscale((0, 1, 0), 2), mdl_gears gettagangles("wheel_03_jnt"));
+			mdl_gears.mdl_plane = util::spawn_model("p7_zm_isl_elevator_gears_wheel_small", mdl_gears gettagorigin("wheel_03_jnt") + vectorscale((0, 1, 0), 2), mdl_gears gettagangles("wheel_03_jnt"));
 		}
 		if(level flag::get("elevator_part_gear1_found") && level flag::get("elevator_part_gear2_found") && level flag::get("elevator_part_gear3_found"))
 		{
@@ -1209,12 +1209,12 @@ function elevator_gears()
 			}
 			self.var_df281e84 rotateroll(n_rot, 1);
 			self.mdl_dock rotateroll(n_rot, 1);
-			self.var_aab7a6d1 rotateroll(n_rot * -1, 1);
+			self.mdl_plane rotateroll(n_rot * -1, 1);
 			wait(0.9);
 		}
 		self.var_df281e84 rotateroll(n_rot * 0.01, 0.1);
 		self.mdl_dock rotateroll(n_rot * 0.01, 0.1);
-		self.var_aab7a6d1 rotateroll((n_rot * -1) * 0.01, 0.1);
+		self.mdl_plane rotateroll((n_rot * -1) * 0.01, 0.1);
 	}
 }
 
