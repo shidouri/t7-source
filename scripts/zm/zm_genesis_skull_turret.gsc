@@ -708,10 +708,10 @@ function function_d54746f0()
 */
 function function_7fd518ea()
 {
-	var_9d322e2e = struct::get_array("115_crystals", "script_noteworthy");
+	a_s_crystals = struct::get_array("115_crystals", "script_noteworthy");
 	var_8ddaf045 = struct::get_array("115_crystal_decoy", "script_noteworthy");
 	level.var_49483427 = 0;
-	foreach(s_crystal in var_9d322e2e)
+	foreach(s_crystal in a_s_crystals)
 	{
 		e_crystal = util::spawn_model("p7_zm_ctl_crystal", s_crystal.origin, s_crystal.angles);
 		e_crystal setscale(2);

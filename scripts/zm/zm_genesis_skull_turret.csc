@@ -385,8 +385,8 @@ function function_a70748cf(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_9f90a4b0(localclientnum)
 {
-	var_9d322e2e = struct::get_array("115_crystals", "script_noteworthy");
-	s_target = arraygetclosest(self.origin, var_9d322e2e);
+	a_s_crystals = struct::get_array("115_crystals", "script_noteworthy");
+	s_target = arraygetclosest(self.origin, a_s_crystals);
 	var_f929ecf4 = util::spawn_model(localclientnum, "tag_origin", s_target.origin);
 	var_1d74a070 = struct::get("ee_beam_sophia", "targetname");
 	var_b4e42dd3 = util::spawn_model(localclientnum, "tag_origin", var_1d74a070.origin, var_1d74a070.angles);
