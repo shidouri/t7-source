@@ -482,23 +482,23 @@ function function_e905a9df(var_a89f74ed, var_173065cc)
 */
 function function_cbac68fe(e_player)
 {
-	var_629f4b8 = spawn("script_model", e_player.origin);
-	var_629f4b8.angles = e_player.angles;
+	mdl_clone = spawn("script_model", e_player.origin);
+	mdl_clone.angles = e_player.angles;
 	mdl_body = e_player getcharacterbodymodel();
-	var_629f4b8 setmodel(mdl_body);
+	mdl_clone setmodel(mdl_body);
 	if(isdefined(e_player.s_wearable) && isdefined(e_player.s_wearable.str_model))
 	{
 		str_model = e_player.s_wearable.str_model;
 		str_tag = e_player.s_wearable.str_tag;
-		var_629f4b8 attach(str_model, str_tag);
+		mdl_clone attach(str_model, str_tag);
 	}
 	bodyrenderoptions = e_player getcharacterbodyrenderoptions();
-	var_629f4b8 setbodyrenderoptions(bodyrenderoptions, bodyrenderoptions, bodyrenderoptions);
-	var_629f4b8.health = 100;
-	var_629f4b8 setowner(e_player);
-	var_629f4b8.team = e_player.team;
-	var_629f4b8 solid();
-	return var_629f4b8;
+	mdl_clone setbodyrenderoptions(bodyrenderoptions, bodyrenderoptions, bodyrenderoptions);
+	mdl_clone.health = 100;
+	mdl_clone setowner(e_player);
+	mdl_clone.team = e_player.team;
+	mdl_clone solid();
+	return mdl_clone;
 }
 
 /*
