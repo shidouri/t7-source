@@ -2685,12 +2685,12 @@ function function_e06bfc41()
 function function_a0aeb892(n_location_index)
 {
 	var_6da45390 = struct::get("arena_pillar_lava_" + n_location_index, "targetname");
-	var_8f719caf = util::spawn_model("p7_fxanim_zm_gen_dark_arena_lava_01_mod", var_6da45390.origin, (0, randomintrange(0, 360), 0));
-	var_8f719caf thread function_4706cfff(30000, 1);
+	mdl_lava = util::spawn_model("p7_fxanim_zm_gen_dark_arena_lava_01_mod", var_6da45390.origin, (0, randomintrange(0, 360), 0));
+	mdl_lava thread function_4706cfff(30000, 1);
 	util::waittill_any_timeout(31, "arena_challenge_ended", "fire_challenge_ended");
-	var_8f719caf clientfield::set("fire_column", 0);
+	mdl_lava clientfield::set("fire_column", 0);
 	util::wait_network_frame();
-	var_8f719caf delete();
+	mdl_lava delete();
 	util::wait_network_frame();
 }
 
@@ -2843,9 +2843,9 @@ function function_36c2a88b(v_spawn_pos, n_wait)
 		var_2f0b203b clientfield::set("runeprison_rock_fx", 1);
 		wait(3);
 		var_2f0b203b clientfield::set("runeprison_explode_fx", 1);
-		var_8f719caf = util::spawn_model("p7_fxanim_zm_gen_dark_arena_lava_01_small_mod", v_spawn_pos + (vectorscale((0, 0, -1), 13)), (0, randomintrange(0, 360), 0));
-		var_8f719caf function_4706cfff(8500);
-		var_8f719caf delete();
+		mdl_lava = util::spawn_model("p7_fxanim_zm_gen_dark_arena_lava_01_small_mod", v_spawn_pos + (vectorscale((0, 0, -1), 13)), (0, randomintrange(0, 360), 0));
+		mdl_lava function_4706cfff(8500);
+		mdl_lava delete();
 		var_2f0b203b clientfield::set("runeprison_rock_fx", 0);
 		wait(6);
 		var_2f0b203b delete();
