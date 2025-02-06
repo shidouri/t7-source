@@ -325,8 +325,8 @@ function function_484ecd5()
 	level.var_37e960a1 = [];
 	foreach(var_c4917757 in var_e48fcb77)
 	{
-		var_cb03b137 = util::spawn_model(var_c4917757.model, var_c4917757.origin, var_c4917757.angles);
-		var_cb03b137 setscale(0.3);
+		mdl_wings = util::spawn_model(var_c4917757.model, var_c4917757.origin, var_c4917757.angles);
+		mdl_wings setscale(0.3);
 		if(!isdefined(level.var_37e960a1))
 		{
 			level.var_37e960a1 = [];
@@ -335,8 +335,8 @@ function function_484ecd5()
 		{
 			level.var_37e960a1 = array(level.var_37e960a1);
 		}
-		level.var_37e960a1[level.var_37e960a1.size] = var_cb03b137;
-		var_cb03b137 hide();
+		level.var_37e960a1[level.var_37e960a1.size] = mdl_wings;
+		mdl_wings hide();
 		var_c4917757 thread function_7e873fe6();
 		util::wait_network_frame();
 	}
