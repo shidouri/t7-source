@@ -1241,13 +1241,13 @@ function spider_spawn_fx(ai_spider, ent = self, var_a79b986e = 0)
 			a_ground_trace = groundtrace(ai_spider.origin + vectorscale((0, 0, 1), 100), ai_spider.origin - vectorscale((0, 0, 1), 1000), 0, ai_spider, 1);
 			if(isdefined(a_ground_trace["position"]))
 			{
-				var_197f1988 = util::spawn_model("tag_origin", a_ground_trace["position"], ai_spider.angles);
+				mdl_align = util::spawn_model("tag_origin", a_ground_trace["position"], ai_spider.angles);
 			}
 			else
 			{
-				var_197f1988 = util::spawn_model("tag_origin", ai_spider.origin, ai_spider.angles);
+				mdl_align = util::spawn_model("tag_origin", ai_spider.origin, ai_spider.angles);
 			}
-			var_197f1988 scene::play("scene_zm_dlc2_spider_burrow_out_of_ground", ai_spider);
+			mdl_align scene::play("scene_zm_dlc2_spider_burrow_out_of_ground", ai_spider);
 			state = "combat";
 			if(randomfloat(1) > 0.6)
 			{

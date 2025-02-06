@@ -1225,20 +1225,20 @@ function function_bd5d2a96(s_ritual)
 		self clientfield::set("ritual_attacker_fx", 1);
 		self.var_75729ddd = 1;
 		self setgoal(self.origin);
-		var_197f1988 = util::spawn_model("tag_origin", self.origin, self.angles);
-		var_197f1988 thread scene::play("scene_zm_dlc2_zombie_quick_rise_v2", self);
+		mdl_align = util::spawn_model("tag_origin", self.origin, self.angles);
+		mdl_align thread scene::play("scene_zm_dlc2_zombie_quick_rise_v2", self);
 		self playsound("zmb_skull_ritual_portal_zombie");
 		wait(0.05);
 		if(isalive(self))
 		{
 			self show();
-			var_197f1988 waittill("scene_done");
+			mdl_align waittill("scene_done");
 			self thread function_1cbe53ee(s_ritual);
 			self enableaimassist();
 		}
-		if(isdefined(var_197f1988))
+		if(isdefined(mdl_align))
 		{
-			var_197f1988 delete();
+			mdl_align delete();
 		}
 	}
 }

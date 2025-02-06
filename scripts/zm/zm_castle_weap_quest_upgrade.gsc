@@ -1409,11 +1409,11 @@ function function_e198b188(var_931bac44)
 {
 	if(!var_931bac44)
 	{
-		var_197f1988 = util::spawn_model("tag_origin", self.origin + (36, 88, 12));
-		var_197f1988 thread scene::play("p7_fxanim_zm_castle_quest_rune_fireplace_arrow_bundle");
+		mdl_align = util::spawn_model("tag_origin", self.origin + (36, 88, 12));
+		mdl_align thread scene::play("p7_fxanim_zm_castle_quest_rune_fireplace_arrow_bundle");
 		wait(3);
-		var_197f1988 scene::stop("p7_fxanim_zm_castle_quest_rune_fireplace_arrow_bundle");
-		var_197f1988 delete();
+		mdl_align scene::stop("p7_fxanim_zm_castle_quest_rune_fireplace_arrow_bundle");
+		mdl_align delete();
 	}
 	switch(self.script_noteworthy)
 	{
@@ -1479,7 +1479,7 @@ function function_455e5c02()
 		{
 			foreach(s_fireplace in var_2716c17)
 			{
-				s_fireplace.var_197f1988 scene::stop("");
+				s_fireplace.mdl_align scene::stop("");
 			}
 			exploder::stop_exploder("");
 			exploder::stop_exploder("");
@@ -1494,11 +1494,11 @@ function function_455e5c02()
 		{
 			foreach(s_fireplace in var_2716c17)
 			{
-				if(!isdefined(s_fireplace.var_197f1988))
+				if(!isdefined(s_fireplace.mdl_align))
 				{
-					s_fireplace.var_197f1988 = util::spawn_model("", s_fireplace.origin + (36, 88, 12));
+					s_fireplace.mdl_align = util::spawn_model("", s_fireplace.origin + (36, 88, 12));
 				}
-				s_fireplace.var_197f1988 thread scene::play("");
+				s_fireplace.mdl_align thread scene::play("");
 			}
 			exploder::exploder("");
 			exploder::exploder("");
