@@ -1441,11 +1441,11 @@ function function_c460669e()
 {
 	function_2925fac8();
 	a_models = getentarray("script_model", "classname");
-	foreach(var_568ffe7c in a_models)
+	foreach(mdl_script in a_models)
 	{
-		if(var_568ffe7c.model === "veh_t7_dlc1_mil_halftrack_dead_snow")
+		if(mdl_script.model === "veh_t7_dlc1_mil_halftrack_dead_snow")
 		{
-			var_568ffe7c setcontents(8192);
+			mdl_script setcontents(8192);
 		}
 	}
 	var_ee79aaa6 = getent("uc_capsule_crash_after", "targetname");
