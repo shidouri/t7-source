@@ -958,11 +958,11 @@ function function_49796025()
 */
 function function_e8f80ed0()
 {
-	var_bc6c413b = self.var_bcf55acc[self.var_38da1d8e];
-	if(isdefined(var_bc6c413b))
+	s_score = self.var_bcf55acc[self.var_38da1d8e];
+	if(isdefined(s_score))
 	{
 		var_3313da6b = level.var_a6bed3c2[self.var_38da1d8e]["goaltime"];
-		var_4cd10db3 = gettime() - var_bc6c413b.var_dbc3b44a;
+		var_4cd10db3 = gettime() - s_score.var_dbc3b44a;
 		n_round_time = var_4cd10db3 / 1000;
 		var_8f752567 = n_round_time - var_3313da6b;
 		var_35989c93 = 0;
@@ -970,9 +970,9 @@ function function_e8f80ed0()
 		{
 			var_35989c93 = floor(abs(var_8f752567 * 10));
 		}
-		var_bc6c413b.var_a3d7c1d0 = self.var_80e5e834;
-		var_bc6c413b.n_time_ms = var_4cd10db3;
-		var_bc6c413b.var_35989c93 = var_35989c93;
+		s_score.var_a3d7c1d0 = self.var_80e5e834;
+		s_score.n_time_ms = var_4cd10db3;
+		s_score.var_35989c93 = var_35989c93;
 		self.var_80e5e834 = 0;
 		if(var_35989c93 > 0)
 		{
@@ -1397,8 +1397,8 @@ function on_ai_damage(s_params)
 {
 	if(isplayer(s_params.eattacker) && (isdefined(s_params.eattacker.in_training) && s_params.eattacker.in_training))
 	{
-		var_bc6c413b = s_params.eattacker.var_bcf55acc[s_params.eattacker.var_38da1d8e];
-		if(isdefined(var_bc6c413b) && isdefined(self.var_72f54197))
+		s_score = s_params.eattacker.var_bcf55acc[s_params.eattacker.var_38da1d8e];
+		if(isdefined(s_score) && isdefined(self.var_72f54197))
 		{
 			n_multiplier = 1;
 			if(isinarray(array("helmet", "head", "neck"), s_params.shitloc))
@@ -1406,7 +1406,7 @@ function on_ai_damage(s_params)
 				if(isdefined(self.var_72f54197["headshot_multiplier"]))
 				{
 					n_multiplier = self.var_72f54197["headshot_multiplier"];
-					var_bc6c413b.headshots++;
+					s_score.headshots++;
 					s_params.eattacker.var_d46900f9++;
 				}
 			}
@@ -1417,14 +1417,14 @@ function on_ai_damage(s_params)
 					if(isdefined(self.var_72f54197["torso_multiplier"]))
 					{
 						n_multiplier = self.var_72f54197["torso_multiplier"];
-						var_bc6c413b.var_5004e3e9++;
+						s_score.var_5004e3e9++;
 						s_params.eattacker.var_2ded5a80++;
 					}
 				}
 				else if(isdefined(self.var_72f54197["legs_multiplier"]))
 				{
 					n_multiplier = self.var_72f54197["legs_multiplier"];
-					var_bc6c413b.var_827fa2cc++;
+					s_score.var_827fa2cc++;
 					s_params.eattacker.var_a46c7f73++;
 				}
 			}
