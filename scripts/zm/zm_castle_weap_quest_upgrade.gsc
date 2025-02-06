@@ -5416,10 +5416,10 @@ function function_c57b4999()
 		{
 			level.var_a6503511 = level flag::get("");
 		}
-		var_79b6dcfe = struct::get_array("", "");
+		a_s_beacons = struct::get_array("", "");
 		if(level.var_a6503511)
 		{
-			foreach(s_beacon in var_79b6dcfe)
+			foreach(s_beacon in a_s_beacons)
 			{
 				if(isdefined(s_beacon.var_41f52afd))
 				{
@@ -5430,7 +5430,7 @@ function function_c57b4999()
 		}
 		else
 		{
-			foreach(s_beacon in var_79b6dcfe)
+			foreach(s_beacon in a_s_beacons)
 			{
 				if(!isdefined(s_beacon.var_41f52afd))
 				{
@@ -5464,8 +5464,8 @@ function function_cdf5ca22()
 			level function_2db350be();
 		}
 		level.var_c5c6a918 = undefined;
-		var_79b6dcfe = struct::get_array("", "");
-		foreach(s_beacon in var_79b6dcfe)
+		a_s_beacons = struct::get_array("", "");
+		foreach(s_beacon in a_s_beacons)
 		{
 			if(!isdefined(s_beacon.var_41f52afd))
 			{
@@ -6046,10 +6046,10 @@ function function_6a8283d3()
 		{
 			level.var_174d6fda = 0;
 		}
-		var_79b6dcfe = struct::get_array("", "");
+		a_s_beacons = struct::get_array("", "");
 		if(level.var_174d6fda)
 		{
-			foreach(s_beacon in var_79b6dcfe)
+			foreach(s_beacon in a_s_beacons)
 			{
 				if(isdefined(s_beacon.var_41f52afd))
 				{
@@ -6060,7 +6060,7 @@ function function_6a8283d3()
 		}
 		else
 		{
-			foreach(s_beacon in var_79b6dcfe)
+			foreach(s_beacon in a_s_beacons)
 			{
 				if(!isdefined(s_beacon.var_41f52afd))
 				{
@@ -6161,8 +6161,8 @@ function function_b1cac6d2()
 		}
 		level flag::set("");
 		level.var_c5c6a918 = undefined;
-		var_79b6dcfe = struct::get_array("", "");
-		foreach(s_beacon in var_79b6dcfe)
+		a_s_beacons = struct::get_array("", "");
+		foreach(s_beacon in a_s_beacons)
 		{
 			s_beacon.var_41f52afd clientfield::set("", 2);
 		}
@@ -6355,8 +6355,8 @@ function function_71419e41()
 {
 	var_22e3a725 = getentarray("aq_es_beacon_trig", "script_noteworthy");
 	array::run_all(var_22e3a725, &delete);
-	var_79b6dcfe = struct::get_array("aq_es_beacon_struct", "script_noteworthy");
-	foreach(s_beacon in var_79b6dcfe)
+	a_s_beacons = struct::get_array("aq_es_beacon_struct", "script_noteworthy");
+	foreach(s_beacon in a_s_beacons)
 	{
 		s_beacon.var_41f52afd thread function_44dae424();
 	}
