@@ -233,10 +233,10 @@ function function_a72c2dda(a_ents, str_targetname)
 function function_a0a9f927()
 {
 	var_3ecc15f7 = getentarray("recovery_fan", "targetname");
-	foreach(var_76185ee4 in var_3ecc15f7)
+	foreach(mdl_fan in var_3ecc15f7)
 	{
-		var_76185ee4 thread rotate_fan(2);
-		var_76185ee4 thread function_f81a38c8();
+		mdl_fan thread rotate_fan(2);
+		mdl_fan thread function_f81a38c8();
 		wait(randomfloatrange(0.5, 1.5));
 	}
 }
