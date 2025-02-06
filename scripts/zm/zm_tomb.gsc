@@ -2431,12 +2431,12 @@ function function_89182d9b()
 	level.machine_assets["specialty_staminup"].power_off_callback = &zm_tomb_capture_zones::custom_vending_power_off;
 	level flag::wait_till("start_zombie_round_logic");
 	wait(0.5);
-	foreach(var_3b5635b9 in level.powered_items)
+	foreach(s_powered in level.powered_items)
 	{
-		if(var_3b5635b9.target.script_noteworthy != "pack_a_punch")
+		if(s_powered.target.script_noteworthy != "pack_a_punch")
 		{
-			var_3b5635b9.power_on_func = &zm_tomb_capture_zones::custom_vending_power_on;
-			var_3b5635b9.power_off_func = &zm_tomb_capture_zones::custom_vending_power_off;
+			s_powered.power_on_func = &zm_tomb_capture_zones::custom_vending_power_on;
+			s_powered.power_off_func = &zm_tomb_capture_zones::custom_vending_power_off;
 		}
 	}
 }
