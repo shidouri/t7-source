@@ -803,7 +803,7 @@ function function_d6ced80(b_locked)
 {
 	var_2bf0ed11 = getentarray("pavlov_gate_collision", "targetname");
 	a_e_gates = getentarray("pavlov_gate_visual", "targetname");
-	var_b9e116c5 = getentarray("pavlov_hatch", "targetname");
+	a_e_hatches = getentarray("pavlov_hatch", "targetname");
 	var_870c25a8 = getentarray("pavlov_hatch_collision", "targetname");
 	a_e_collision = arraycombine(var_870c25a8, var_2bf0ed11, 0, 0);
 	var_595e6429 = getnodearray("pavlovs_lockdown_floor_traverse", "targetname");
@@ -822,7 +822,7 @@ function function_d6ced80(b_locked)
 			e_gate movez(600, 0.25);
 			var_63b437d6 = function_77f195ef(var_63b437d6);
 		}
-		foreach(e_hatch in var_b9e116c5)
+		foreach(e_hatch in a_e_hatches)
 		{
 			e_hatch rotateroll(-90, 1);
 			var_63b437d6 = function_77f195ef(var_63b437d6);
@@ -849,7 +849,7 @@ function function_d6ced80(b_locked)
 			e_gate movez(-600, 0.25);
 			var_63b437d6 = function_77f195ef(var_63b437d6);
 		}
-		foreach(e_hatch in var_b9e116c5)
+		foreach(e_hatch in a_e_hatches)
 		{
 			e_hatch rotateroll(90, 1);
 			var_63b437d6 = function_77f195ef(var_63b437d6);

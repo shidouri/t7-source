@@ -446,7 +446,7 @@ function function_a7e8b47b()
 		var_ff1b68c0 = getent("", "");
 		a_e_collision = getentarray("", "");
 		a_e_gates = getentarray("", "");
-		var_b9e116c5 = getentarray("", "");
+		a_e_hatches = getentarray("", "");
 		var_6f3f4356 = getnodearray("", "");
 		if(level.var_de98e3ce.gates_open)
 		{
@@ -465,7 +465,7 @@ function function_a7e8b47b()
 				e_door movex(114, 1);
 				e_door disconnectpaths();
 			}
-			foreach(e_hatch in var_b9e116c5)
+			foreach(e_hatch in a_e_hatches)
 			{
 				e_hatch rotateroll(-90, 1);
 			}
@@ -493,7 +493,7 @@ function function_a7e8b47b()
 				e_door movex(-114, 1);
 				e_door connectpaths();
 			}
-			foreach(e_hatch in var_b9e116c5)
+			foreach(e_hatch in a_e_hatches)
 			{
 				e_hatch rotateroll(90, 1);
 			}
