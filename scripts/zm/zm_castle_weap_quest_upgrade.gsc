@@ -5498,8 +5498,8 @@ function elemental_storm_wallrun()
 	level flag::wait_till("elemental_storm_wallrun");
 	foreach(t_wallrun in var_5c7ef569)
 	{
-		var_93e50579 = getent(t_wallrun.target, "targetname");
-		t_outer = getent(var_93e50579.target, "targetname");
+		mdl_symbol = getent(t_wallrun.target, "targetname");
+		t_outer = getent(mdl_symbol.target, "targetname");
 		t_outer delete();
 	}
 }
@@ -5523,15 +5523,15 @@ function function_cce911bb()
 		}
 	#/
 	level endon("elemental_storm_wallrun");
-	var_93e50579 = getent(self.target, "targetname");
-	t_outer = getent(var_93e50579.target, "targetname");
-	var_93e50579 clientfield::set("wallrun_fx", 1);
+	mdl_symbol = getent(self.target, "targetname");
+	t_outer = getent(mdl_symbol.target, "targetname");
+	mdl_symbol clientfield::set("wallrun_fx", 1);
 	while(true)
 	{
 		t_outer waittill("trigger");
 		if(!array::contains(level.var_49593fd9, self))
 		{
-			var_93e50579 clientfield::set("wallrun_fx", 2);
+			mdl_symbol clientfield::set("wallrun_fx", 2);
 		}
 		while(array::is_touching(level.players, t_outer))
 		{
@@ -5539,7 +5539,7 @@ function function_cce911bb()
 		}
 		if(!array::contains(level.var_49593fd9, self))
 		{
-			var_93e50579 clientfield::set("wallrun_fx", 1);
+			mdl_symbol clientfield::set("wallrun_fx", 1);
 		}
 	}
 }
@@ -5574,8 +5574,8 @@ function function_56130b0d()
 			}
 			if(!array::contains(level.var_49593fd9, self))
 			{
-				var_93e50579 = getent(self.target, "targetname");
-				var_93e50579 clientfield::set("wallrun_fx", 2);
+				mdl_symbol = getent(self.target, "targetname");
+				mdl_symbol clientfield::set("wallrun_fx", 2);
 				exploder::exploder("lgt_rune_wind_" + self.script_int);
 				self playsound("zmb_wall_run_rune_cross");
 				e_who playrumbleonentity("zm_castle_quest_elemental_storm_wallrun_rumble");
@@ -5650,8 +5650,8 @@ function function_ba8e8ad8(e_who)
 	e_who playsound("zmb_wall_run_rune_cross_fail");
 	foreach(t_wallrun in level.var_49593fd9)
 	{
-		var_93e50579 = getent(t_wallrun.target, "targetname");
-		var_93e50579 clientfield::set("wallrun_fx", 1);
+		mdl_symbol = getent(t_wallrun.target, "targetname");
+		mdl_symbol clientfield::set("wallrun_fx", 1);
 		exploder::stop_exploder("lgt_rune_wind_" + t_wallrun.script_int);
 	}
 	level.var_49593fd9 = [];
@@ -5681,8 +5681,8 @@ function function_5508467e()
 		var_5c7ef569 = getentarray("", "");
 		foreach(t_wallrun in var_5c7ef569)
 		{
-			var_93e50579 = getent(t_wallrun.target, "");
-			var_93e50579 clientfield::set("", 2);
+			mdl_symbol = getent(t_wallrun.target, "");
+			mdl_symbol clientfield::set("", 2);
 			exploder::exploder("" + t_wallrun.script_int);
 		}
 		level flag::set("");
@@ -6363,8 +6363,8 @@ function function_71419e41()
 	var_5c7ef569 = getentarray("aq_es_wallrun_trigger", "targetname");
 	foreach(t_wallrun in var_5c7ef569)
 	{
-		var_93e50579 = getent(t_wallrun.target, "targetname");
-		var_93e50579 thread function_91d15bdf();
+		mdl_symbol = getent(t_wallrun.target, "targetname");
+		mdl_symbol thread function_91d15bdf();
 		exploder::stop_exploder("lgt_rune_wind_" + t_wallrun.script_int);
 	}
 	array::run_all(var_5c7ef569, &delete);
