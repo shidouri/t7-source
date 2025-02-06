@@ -262,8 +262,8 @@ function function_f3cc536()
 	self notify(#"hash_4cea57aa");
 	self thread zm_stalingrad_util::function_ab2df0ca();
 	zm_stalingrad_util::function_5eeabbe0(var_47ee7db6, nd_path_start, var_f08b56c6, "player_exited_sewer");
-	var_b8fe8638 = struct::get_array("drop_pod_radio", "targetname");
-	foreach(s_radio in var_b8fe8638)
+	a_s_radio = struct::get_array("drop_pod_radio", "targetname");
+	foreach(s_radio in a_s_radio)
 	{
 		s_radio.b_used = 0;
 	}

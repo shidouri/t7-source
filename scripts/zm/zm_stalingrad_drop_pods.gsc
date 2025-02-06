@@ -89,8 +89,8 @@ function function_2bb254bb()
 	{
 		var_3d8a9064 thread function_d4c6ea10();
 	}
-	var_b8fe8638 = struct::get_array("drop_pod_radio", "targetname");
-	foreach(s_radio in var_b8fe8638)
+	a_s_radio = struct::get_array("drop_pod_radio", "targetname");
+	foreach(s_radio in a_s_radio)
 	{
 		s_radio.b_used = 0;
 		s_radio zm_unitrigger::create_unitrigger(&"ZM_STALINGRAD_DROP_POD_ACTIVATE", undefined, &function_f7b738bf);
