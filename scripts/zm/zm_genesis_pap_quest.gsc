@@ -239,8 +239,8 @@ function function_4ab898f4(nd_start)
 		wait(1);
 	}
 	var_413ea50f = vehicle::spawn(undefined, "player_vehicle", "flinger_vehicle", nd_start.origin, nd_start.angles);
-	var_116e109f = struct::get(nd_start.target);
-	var_f28a4a19 = var_116e109f function_fc804fdd();
+	s_connect = struct::get(nd_start.target);
+	var_f28a4a19 = s_connect function_fc804fdd();
 	self playerlinktodelta(var_413ea50f);
 	self playrumbleonentity("zm_castle_flinger_launch");
 	self clientfield::set_to_player("apothicon_entry_postfx", 1);
