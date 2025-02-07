@@ -6353,8 +6353,8 @@ function function_1b2a8d00()
 */
 function function_71419e41()
 {
-	var_22e3a725 = getentarray("aq_es_beacon_trig", "script_noteworthy");
-	array::run_all(var_22e3a725, &delete);
+	a_t_beacons = getentarray("aq_es_beacon_trig", "script_noteworthy");
+	array::run_all(a_t_beacons, &delete);
 	a_s_beacons = struct::get_array("aq_es_beacon_struct", "script_noteworthy");
 	foreach(s_beacon in a_s_beacons)
 	{
