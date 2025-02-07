@@ -181,8 +181,8 @@ function function_26bc55e3()
 */
 function function_c185c51f()
 {
-	var_753f10ae = getentarray("tombstone", "targetname");
-	array::run_all(var_753f10ae, &delete);
+	a_t_characters = getentarray("tombstone", "targetname");
+	array::run_all(a_t_characters, &delete);
 	var_4d97ef95 = struct::get_array("audio_reel_place", "targetname");
 	array::run_all(var_4d97ef95, &struct::delete);
 	var_4bf2a542 = getentarray("apothicon_spawn", "targetname");
@@ -212,8 +212,8 @@ function function_c185c51f()
 */
 function function_3c2e817d()
 {
-	level.var_753f10ae = getentarray("tombstone", "targetname");
-	array::thread_all(level.var_753f10ae, &wait_for_damage);
+	level.a_t_characters = getentarray("tombstone", "targetname");
+	array::thread_all(level.a_t_characters, &wait_for_damage);
 	var_765a3ab1 = 1;
 	while(var_765a3ab1 <= 4)
 	{
@@ -236,13 +236,13 @@ function function_3c2e817d()
 		wait(0.1);
 	}
 	level flag::set("character_stones_done");
-	foreach(t_character in level.var_753f10ae)
+	foreach(t_character in level.a_t_characters)
 	{
 		playfx(level._effect["portal_3p"], t_character.origin);
 		t_character delete();
 		wait(0.5);
 	}
-	level.var_753f10ae = undefined;
+	level.a_t_characters = undefined;
 }
 
 /*
