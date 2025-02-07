@@ -1500,7 +1500,7 @@ function function_5bafaddd(var_5f982950, var_b1c60ae7)
 	mdl_console = getent("mdl_dragon_console_" + var_5f982950, "targetname");
 	while(true)
 	{
-		level.var_67881099[var_5f982950] waittill(#"hash_9c0a67f3");
+		level.a_t_console[var_5f982950] waittill(#"hash_9c0a67f3");
 		foreach(var_fbb61447 in var_b1c60ae7)
 		{
 			if(!level flag::get(var_fbb61447 + "_console_cooldown"))
@@ -1907,13 +1907,13 @@ function function_90d81e44()
 	level flag::init("dragon_full");
 	level flag::init("dragon_console_global_disable");
 	level.var_9d19c7e = undefined;
-	level.var_67881099 = [];
-	level.var_67881099["library"] = struct::get("t_dragon_console_library", "targetname");
-	level.var_67881099["library"] function_eb1965f1("library");
-	level.var_67881099["factory"] = struct::get("t_dragon_console_factory", "targetname");
-	level.var_67881099["factory"] function_eb1965f1("factory");
-	level.var_67881099["judicial"] = struct::get("t_dragon_console_judicial", "targetname");
-	level.var_67881099["judicial"] function_eb1965f1("judicial");
+	level.a_t_console = [];
+	level.a_t_console["library"] = struct::get("t_dragon_console_library", "targetname");
+	level.a_t_console["library"] function_eb1965f1("library");
+	level.a_t_console["factory"] = struct::get("t_dragon_console_factory", "targetname");
+	level.a_t_console["factory"] function_eb1965f1("factory");
+	level.a_t_console["judicial"] = struct::get("t_dragon_console_judicial", "targetname");
+	level.a_t_console["judicial"] function_eb1965f1("judicial");
 	level.var_1db728f2 = [];
 	level.var_1db728f2["library"] = struct::get_array("s_dragon_platform_library");
 	level.var_1db728f2["library"] function_cad59534("library");
