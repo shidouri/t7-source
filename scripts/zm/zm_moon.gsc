@@ -314,8 +314,8 @@ function function_ff7d3b7()
 function cin_zmhd_sizzle_moon_cam(a_ents)
 {
 	level.disable_print3d_ent = 1;
-	var_3aa9d35a = getentarray("airlock_bridge_zone", "script_parameters");
-	foreach(t_airlock in var_3aa9d35a)
+	a_t_airlocks = getentarray("airlock_bridge_zone", "script_parameters");
+	foreach(t_airlock in a_t_airlocks)
 	{
 		var_7be3ca60 = getentarray(t_airlock.target, "targetname");
 		foreach(mdl_door in var_7be3ca60)
