@@ -3036,8 +3036,8 @@ function function_90c620d8()
 {
 	/#
 		level notify(#"hash_6aa36145");
-		var_9f26317f = getentarray("", "");
-		array::thread_all(var_9f26317f, &function_7b7eeb90);
+		a_t_blockers = getentarray("", "");
+		array::thread_all(a_t_blockers, &function_7b7eeb90);
 	#/
 }
 
@@ -3249,9 +3249,9 @@ function function_dbc092aa(cmd)
 		{
 			case "":
 			{
-				var_9f26317f = getentarray("", "");
-				var_9f26317f thread function_5e8cafb9();
-				foreach(t_door in var_9f26317f)
+				a_t_blockers = getentarray("", "");
+				a_t_blockers thread function_5e8cafb9();
+				foreach(t_door in a_t_blockers)
 				{
 					var_3ccf13b = t_door function_78e15936();
 					array::thread_all(var_3ccf13b, &function_bc81bb3b);
