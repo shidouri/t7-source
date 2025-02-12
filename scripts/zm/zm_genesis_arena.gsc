@@ -418,7 +418,7 @@ class class_d90687be
 	}
 
 	/*
-		Name: function_e4dbca5a
+		Name: arena_margwa_spawning
 		Namespace: namespace_d90687be
 		Checksum: 0x5FF847F4
 		Offset: 0x47B0
@@ -426,7 +426,7 @@ class class_d90687be
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_e4dbca5a(var_87c8152d)
+	function arena_margwa_spawning(var_87c8152d)
 	{
 		level notify(#"hash_e4dbca5a");
 		level endon(#"hash_e4dbca5a");
@@ -1741,7 +1741,7 @@ function function_48ffe1e9(var_87c8152d, var_eadfbdd4 = 0, var_e78a4f30 = 0, var
 	{
 		wait(3);
 		thread [[ level.var_d90687be ]]->function_a1c7821d(0);
-		thread [[ level.var_d90687be ]]->function_e4dbca5a(var_87c8152d);
+		thread [[ level.var_d90687be ]]->arena_margwa_spawning(var_87c8152d);
 	}
 }
 
@@ -2030,7 +2030,7 @@ function function_2bacd397(var_87c8152d, var_eadfbdd4 = 0, var_e78a4f30 = 0, var
 	if(var_e78a4f30 == 0)
 	{
 		thread [[ level.var_d90687be ]]->function_a1c7821d(0);
-		thread [[ level.var_d90687be ]]->function_e4dbca5a(var_87c8152d);
+		thread [[ level.var_d90687be ]]->arena_margwa_spawning(var_87c8152d);
 	}
 }
 
@@ -2629,7 +2629,7 @@ function function_f1e6c2a7(var_87c8152d, var_eadfbdd4 = 0, var_e78a4f30 = 0, var
 	if(var_e78a4f30 == 0)
 	{
 		thread [[ level.var_d90687be ]]->function_a1c7821d(1);
-		thread [[ level.var_d90687be ]]->function_e4dbca5a(var_87c8152d);
+		thread [[ level.var_d90687be ]]->arena_margwa_spawning(var_87c8152d);
 	}
 }
 
@@ -2955,7 +2955,7 @@ function function_f1aed0c6(var_87c8152d, var_eadfbdd4 = 0, var_e78a4f30 = 0, var
 	if(var_e78a4f30 == 0)
 	{
 		thread [[ level.var_d90687be ]]->function_a1c7821d(0);
-		thread [[ level.var_d90687be ]]->function_e4dbca5a(var_87c8152d);
+		thread [[ level.var_d90687be ]]->arena_margwa_spawning(var_87c8152d);
 	}
 }
 
@@ -4598,7 +4598,7 @@ function final_boss_shadowman_attack_thread()
 function function_9faf5035()
 {
 	thread [[ level.var_d90687be ]]->function_a1c7821d(0);
-	thread [[ level.var_d90687be ]]->function_e4dbca5a(0);
+	thread [[ level.var_d90687be ]]->arena_margwa_spawning(0);
 	if(level.var_435967f3 < level.var_e10b491b)
 	{
 		function_2ed620e8(0);
@@ -4998,7 +4998,7 @@ function function_60c23a57(n_element_index)
 	var_cecde52d = level.var_43e34f20[n_element_index];
 	level thread [[var_cecde52d]](n_element_index, 0, 1, 0);
 	level.var_cbc0c05a = n_element_index;
-	thread [[ level.var_d90687be ]]->function_e4dbca5a(n_element_index);
+	thread [[ level.var_d90687be ]]->arena_margwa_spawning(n_element_index);
 }
 
 /*
