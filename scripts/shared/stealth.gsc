@@ -590,7 +590,7 @@ function stealth_music_stop(fade_time)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8bb61d8e(str_awareness, var_414c0762)
+function function_8bb61d8e(str_awareness, str_music)
 {
 	if(!isdefined(level.stealth))
 	{
@@ -600,7 +600,7 @@ function function_8bb61d8e(str_awareness, var_414c0762)
 	{
 		level.stealth.music = [];
 	}
-	level.stealth.music[str_awareness] = var_414c0762;
+	level.stealth.music[str_awareness] = str_music;
 }
 
 /*
