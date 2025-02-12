@@ -35,9 +35,9 @@ function main()
 	cp_doa_bo3_fx::main();
 	cp_doa_bo3_sound::main();
 	setdvar("bg_friendlyFireMode", 0);
-	clientfield::register("world", "redinsExploder", 1, 2, "int", &function_1dd0a889, 0, 0);
+	clientfield::register("world", "redinsExploder", 1, 2, "int", &redinsexploder, 0, 0);
 	clientfield::register("world", "activateBanner", 1, 3, "int", &function_99e9c8d, 0, 0);
-	clientfield::register("world", "pumpBannerBar", 1, 8, "float", &function_98982de8, 0, 0);
+	clientfield::register("world", "pumpBannerBar", 1, 8, "float", &pumpbannerbar, 0, 0);
 	clientfield::register("world", "redinstutorial", 1, 1, "int", &function_c7163a08, 0, 0);
 	clientfield::register("world", "redinsinstruct", 1, 12, "int", &function_9cbb849c, 0, 0);
 	clientfield::register("scriptmover", "runcowanim", 1, 1, "int", &function_caf96f2d, 0, 0);
@@ -249,7 +249,7 @@ function function_62423327(arena)
 }
 
 /*
-	Name: function_98982de8
+	Name: pumpbannerbar
 	Namespace: cp_doa_bo3
 	Checksum: 0xF010A2CC
 	Offset: 0x1148
@@ -257,7 +257,7 @@ function function_62423327(arena)
 	Parameters: 7
 	Flags: Linked
 */
-function function_98982de8(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function pumpbannerbar(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	setuimodelvalue(getuimodel(level.var_7e2a814c, "gpr0"), newval);
 }
@@ -439,7 +439,7 @@ function function_ec984567()
 }
 
 /*
-	Name: function_1dd0a889
+	Name: redinsexploder
 	Namespace: cp_doa_bo3
 	Checksum: 0x338D40BD
 	Offset: 0x1E58
@@ -447,7 +447,7 @@ function function_ec984567()
 	Parameters: 7
 	Flags: Linked
 */
-function function_1dd0a889(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function redinsexploder(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	switch(newval)
 	{
