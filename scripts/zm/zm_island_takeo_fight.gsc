@@ -232,14 +232,14 @@ function function_bf38b3c9(var_6c555b6c = 1, b_force = 0)
 		n_vine = self.script_int;
 		if(var_6c555b6c == 1)
 		{
-			var_7814e8cc = function_b64005e8(n_vine, "open");
+			str_transition = function_b64005e8(n_vine, "open");
 			level.mdl_alttakeo playsoundontag("zmb_takeo_vox_eye_open", "tag_eye");
 		}
 		else
 		{
-			var_7814e8cc = function_b64005e8(n_vine, "close");
+			str_transition = function_b64005e8(n_vine, "close");
 		}
-		self thread scene::play(var_7814e8cc);
+		self thread scene::play(str_transition);
 		self.var_6c555b6c = var_6c555b6c;
 		foreach(var_fb97f73d in self.var_7168c71c)
 		{
