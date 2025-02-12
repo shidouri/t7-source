@@ -1365,16 +1365,16 @@ function function_cdc8a72a(str_base)
 	if(!(isdefined(level.var_aa673a57[str_base]) && level.var_aa673a57[str_base]))
 	{
 		level.var_aa673a57[str_base] = 1;
-		var_217a1cbf = "vo_plr_2_" + str_base;
+		str_rich = "vo_plr_2_" + str_base;
 		if(self.characterindex !== 2)
 		{
 			str_commenter = ("vox_plr_" + self.characterindex) + str_base;
-			var_cbd11028 = array(str_commenter, var_217a1cbf);
+			var_cbd11028 = array(str_commenter, str_rich);
 			level thread function_7aa5324a(var_cbd11028);
 		}
 		else
 		{
-			level thread function_897246e4(var_217a1cbf);
+			level thread function_897246e4(str_rich);
 		}
 	}
 }
