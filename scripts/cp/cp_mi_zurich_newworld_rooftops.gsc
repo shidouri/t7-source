@@ -4601,7 +4601,7 @@ function function_9895ffca(a_ents)
 		{
 			ent vehicle_ai::turnon();
 			ent ai::set_ignoreme(0);
-			ent thread function_26d72169();
+			ent thread wasp_hack_fx();
 		}
 	}
 	switch(self.scriptbundlename)
@@ -4644,7 +4644,7 @@ function function_9895ffca(a_ents)
 }
 
 /*
-	Name: function_26d72169
+	Name: wasp_hack_fx
 	Namespace: newworld_rooftops
 	Checksum: 0xAC834997
 	Offset: 0xFFE0
@@ -4652,7 +4652,7 @@ function function_9895ffca(a_ents)
 	Parameters: 0
 	Flags: Linked
 */
-function function_26d72169()
+function wasp_hack_fx()
 {
 	self endon("death");
 	self waittill(#"hash_cc44fba5");
