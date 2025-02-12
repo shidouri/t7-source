@@ -1513,7 +1513,7 @@ function function_6a03c1d4(var_87c8152d, var_eadfbdd4)
 			iprintlnbold(((("" + level flag::get("")) + "") + level flag::get("") + "") + level flag::get(""));
 			iprintlnbold((((("" + level flag::get("")) + "") + level flag::get("") + "") + level flag::get("") + "") + level flag::get(""));
 		#/
-		function_3cc5d8a6(var_eadfbdd4);
+		arena_challenge_custom(var_eadfbdd4);
 	}
 	else
 	{
@@ -1609,7 +1609,7 @@ function function_b6ddba23(n_element_index)
 }
 
 /*
-	Name: function_3cc5d8a6
+	Name: arena_challenge_custom
 	Namespace: zm_genesis_arena
 	Checksum: 0x36AFCE79
 	Offset: 0x67E0
@@ -1617,7 +1617,7 @@ function function_b6ddba23(n_element_index)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3cc5d8a6(var_eadfbdd4 = 0)
+function arena_challenge_custom(var_eadfbdd4 = 0)
 {
 	if(level flag::get("custom_challenge_wallrun"))
 	{
