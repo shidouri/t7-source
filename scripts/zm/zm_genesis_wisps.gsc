@@ -149,18 +149,18 @@ function function_f61f49b0()
 			{
 				if(str_notify == "boss_round_end_vo_done" && var_6cf8e556.size > 0)
 				{
-					var_effd4dcc = var_6cf8e556[0];
-					zm_genesis_vo::function_4821b1a3(var_effd4dcc);
-					function_719d3043(1, var_effd4dcc);
+					str_wisp = var_6cf8e556[0];
+					zm_genesis_vo::function_4821b1a3(str_wisp);
+					function_719d3043(1, str_wisp);
 					arrayremoveindex(var_6cf8e556, 0, 0);
 				}
 				else
 				{
 					if(str_notify == "chaos_round_end_vo_done" && var_96cdbf35.size > 0)
 					{
-						var_effd4dcc = var_96cdbf35[0];
-						zm_genesis_vo::function_4821b1a3(var_effd4dcc);
-						function_719d3043(1, var_effd4dcc);
+						str_wisp = var_96cdbf35[0];
+						zm_genesis_vo::function_4821b1a3(str_wisp);
+						function_719d3043(1, str_wisp);
 						arrayremoveindex(var_96cdbf35, 0, 0);
 					}
 					else if(str_notify == "wisps_off")
