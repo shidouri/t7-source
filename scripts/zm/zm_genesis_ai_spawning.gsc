@@ -424,18 +424,18 @@ function function_aa92a46b()
 */
 function function_3cf05b99()
 {
-	var_f09dee4f = [];
+	a_str_ai = [];
 	foreach(str_index, var_2bbee316 in level.var_c4336559)
 	{
 		if(var_2bbee316 > 0)
 		{
-			var_f09dee4f[var_f09dee4f.size] = str_index;
+			a_str_ai[a_str_ai.size] = str_index;
 		}
 	}
-	if(var_f09dee4f.size)
+	if(a_str_ai.size)
 	{
-		var_f09dee4f = array::randomize(var_f09dee4f);
-		str_ai = var_f09dee4f[0];
+		a_str_ai = array::randomize(a_str_ai);
+		str_ai = a_str_ai[0];
 	}
 	else
 	{
