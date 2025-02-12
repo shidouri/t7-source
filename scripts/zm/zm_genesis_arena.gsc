@@ -3717,7 +3717,7 @@ function function_730e8210(var_87c8152d)
 			}
 			else
 			{
-				level thread function_c2578b2a();
+				level thread arena_challenge_end();
 			}
 		}
 	}
@@ -3742,12 +3742,12 @@ function function_77127ffa(var_87c8152d)
 	}
 	if(level.var_278e37cd == level.var_90280eb8)
 	{
-		function_c2578b2a();
+		arena_challenge_end();
 	}
 }
 
 /*
-	Name: function_c2578b2a
+	Name: arena_challenge_end
 	Namespace: zm_genesis_arena
 	Checksum: 0x115EC09E
 	Offset: 0xC050
@@ -3755,7 +3755,7 @@ function function_77127ffa(var_87c8152d)
 	Parameters: 0
 	Flags: Linked
 */
-function function_c2578b2a()
+function arena_challenge_end()
 {
 	if(level flag::get("boss_fight"))
 	{
@@ -6459,7 +6459,7 @@ function function_10d73de7(n_val)
 {
 	/#
 		level flag::set("");
-		level thread function_c2578b2a();
+		level thread arena_challenge_end();
 	#/
 }
 
