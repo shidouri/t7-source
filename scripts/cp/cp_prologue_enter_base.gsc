@@ -824,12 +824,12 @@ function function_28d9b6cd(a_ents)
 	Parameters: 2
 	Flags: Linked
 */
-function function_c4ada726(var_417ec882, var_a972c5dd)
+function function_c4ada726(str_say, var_a972c5dd)
 {
 	self endon("death");
 	level endon("objective_blend_in_done");
 	self function_92e75cce(var_a972c5dd);
-	self notify("scriptedbc", var_417ec882);
+	self notify("scriptedbc", str_say);
 }
 
 /*
