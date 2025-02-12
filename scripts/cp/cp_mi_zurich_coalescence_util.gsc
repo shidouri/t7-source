@@ -2353,11 +2353,11 @@ function function_91d852fa()
 	Parameters: 1
 	Flags: Linked
 */
-function function_ff5e6201(var_8d6d1339)
+function function_ff5e6201(str_notice)
 {
 	if(isdefined(self.script_string))
 	{
-		var_8d6d1339 = self.script_string;
+		str_notice = self.script_string;
 	}
 	a_e_parts = getentarray(self.target, "targetname");
 	for(i = 0; i < a_e_parts.size; i++)
@@ -2376,10 +2376,10 @@ function function_ff5e6201(var_8d6d1339)
 	{
 		level flag::wait_till(self.script_flag_true);
 	}
-	else if(isdefined(var_8d6d1339))
+	else if(isdefined(str_notice))
 	{
 		self setinvisibletoall();
-		level waittill(var_8d6d1339);
+		level waittill(str_notice);
 		self setvisibletoall();
 	}
 	self function_30a6b901(0, var_ecf05dd0);
