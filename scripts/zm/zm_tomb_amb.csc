@@ -427,14 +427,14 @@ function function_3599b48b(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		foreach(s_struct in a_s_array)
 		{
-			var_61bcec7 = s_struct.script_string;
+			str_element = s_struct.script_string;
 			if(s_struct.script_string == "lightning")
 			{
-				var_61bcec7 = "elec";
+				str_element = "elec";
 			}
 			if(s_struct.script_string == "water")
 			{
-				var_61bcec7 = "ice";
+				str_element = "ice";
 			}
 			if(isdefined(level.var_c27b47a[s_struct.script_string]) && level.var_c27b47a[s_struct.script_string])
 			{
@@ -442,7 +442,7 @@ function function_3599b48b(localclientnum, oldval, newval, bnewent, binitialsnap
 				{
 					stopfx(localclientnum, level.var_8f027e99[s_struct.script_string]);
 				}
-				level.var_8f027e99[s_struct.script_string] = playfx(localclientnum, level._effect[var_61bcec7 + "_glow"], s_struct.origin);
+				level.var_8f027e99[s_struct.script_string] = playfx(localclientnum, level._effect[str_element + "_glow"], s_struct.origin);
 			}
 		}
 	}
