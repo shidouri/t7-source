@@ -254,9 +254,9 @@ function __init__()
 	Parameters: 4
 	Flags: Linked
 */
-function function_1399b96f(str_key, var_8d8f9222, n_number, b_randomize)
+function function_1399b96f(str_key, str_base, n_number, b_randomize)
 {
-	var_d44b84c3 = function_ac5a16bb(var_8d8f9222, n_number);
+	var_d44b84c3 = function_ac5a16bb(str_base, n_number);
 	function_1f9abb06(str_key, var_d44b84c3, b_randomize);
 }
 
@@ -301,12 +301,12 @@ function function_1f9abb06(str_key, var_d44b84c3, b_randomize)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ac5a16bb(var_8d8f9222, n_number)
+function function_ac5a16bb(str_base, n_number)
 {
 	a_str = [];
 	for(i = 0; i <= n_number; i++)
 	{
-		a_str[i] = var_8d8f9222 + i;
+		a_str[i] = str_base + i;
 	}
 	return a_str;
 }
@@ -1413,8 +1413,8 @@ function function_6b96bf38()
 		}
 		else
 		{
-			var_8d8f9222 = "_round1_start_solo_0";
-			var_b48c1dda = ("vox_plr_" + level.activeplayers[0].characterindex) + var_8d8f9222;
+			str_base = "_round1_start_solo_0";
+			var_b48c1dda = ("vox_plr_" + level.activeplayers[0].characterindex) + str_base;
 			level.activeplayers[0] vo_say(var_b48c1dda, 0, 1);
 		}
 	}
