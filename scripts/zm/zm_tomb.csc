@@ -1448,12 +1448,12 @@ function function_2feb8fa1(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 2
 	Flags: Linked
 */
-function function_b5ac96ec(var_d8a51337, localclientnum)
+function function_b5ac96ec(str_weather, localclientnum)
 {
 	exploder::stop_exploder("fxexp_111", localclientnum);
 	exploder::stop_exploder("fxexp_112", localclientnum);
 	exploder::stop_exploder("fxexp_113", localclientnum);
-	switch(var_d8a51337)
+	switch(str_weather)
 	{
 		case "clear":
 		{
