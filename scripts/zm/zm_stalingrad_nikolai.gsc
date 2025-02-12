@@ -1072,13 +1072,13 @@ function function_1679e5f0()
 	Parameters: 1
 	Flags: Linked
 */
-function function_6e418eff(var_56d259ba)
+function function_6e418eff(str_ai_type)
 {
-	if(var_56d259ba == "sentinel")
+	if(str_ai_type == "sentinel")
 	{
 		return level.var_b9c4d468 >= 2;
 	}
-	if(var_56d259ba == "raz" || var_56d259ba == "zombie")
+	if(str_ai_type == "raz" || str_ai_type == "zombie")
 	{
 		if(isdefined(level.var_5fe02c5a))
 		{

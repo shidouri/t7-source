@@ -511,19 +511,19 @@ function function_f70dde0b(a_e_spawners, a_s_spawnpoints, var_9c84987b, var_2494
 	Parameters: 1
 	Flags: Linked
 */
-function function_9b76f612(var_56d259ba)
+function function_9b76f612(str_ai_type)
 {
 	var_eec0f058 = 0;
 	if(isdefined(level.var_9ddab511))
 	{
-		var_eec0f058 = level [[level.var_9ddab511]](var_56d259ba);
+		var_eec0f058 = level [[level.var_9ddab511]](str_ai_type);
 	}
 	while(isdefined(level.var_4209c599) && level.var_4209c599 || var_eec0f058)
 	{
 		wait(randomfloatrange(0.1, 0.2));
 		if(var_eec0f058)
 		{
-			var_eec0f058 = level [[level.var_9ddab511]](var_56d259ba);
+			var_eec0f058 = level [[level.var_9ddab511]](str_ai_type);
 		}
 	}
 	level.var_4209c599 = 1;
