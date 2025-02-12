@@ -681,12 +681,12 @@ function function_7fcb14a8()
 	w_dragon_strike = self zm_utility::get_player_placeable_mine();
 	if(w_dragon_strike == getweapon("launcher_dragon_strike_upgraded"))
 	{
-		var_78f8828b = "dragon_strike_marker_upgraded_fx";
+		str_marker = "dragon_strike_marker_upgraded_fx";
 		var_854898eb = "dragon_strike_marker_upgraded_invalid_fx";
 	}
 	else
 	{
-		var_78f8828b = "dragon_strike_marker_fx";
+		str_marker = "dragon_strike_marker_fx";
 		var_854898eb = "dragon_strike_marker_invalid_fx";
 	}
 	while(self flag::get("show_dragon_strike_reticule"))
@@ -707,7 +707,7 @@ function function_7fcb14a8()
 			wait(0.1);
 			continue;
 		}
-		self.mdl_target clientfield::increment(var_78f8828b);
+		self.mdl_target clientfield::increment(str_marker);
 		self.mdl_target moveto(self.var_be00572f + var_b912cdaf, 0.05);
 		wait(0.1);
 	}
