@@ -2628,12 +2628,12 @@ function function_e658d896()
 			if(level.round_number > 10 && (!(isdefined(self.var_1cd72357) && self.var_1cd72357)))
 			{
 				var_b907c047 = array("shadowman_taunt_downed_demp", "shadowman_taunt_downed_niko", "shadowman_taunt_downed_rich", "shadowman_taunt_downed_take");
-				var_79d0b667 = var_b907c047[self.characterindex];
+				str_cat = var_b907c047[self.characterindex];
 				self function_502f946b();
-				while(isdefined(level.var_8c92b387[var_79d0b667][0]))
+				while(isdefined(level.var_8c92b387[str_cat][0]))
 				{
-					str_vo = level.var_8c92b387[var_79d0b667][0];
-					arrayremovevalue(level.var_8c92b387[var_79d0b667], str_vo);
+					str_vo = level.var_8c92b387[str_cat][0];
+					arrayremovevalue(level.var_8c92b387[str_cat], str_vo);
 					self vo_say(str_vo, 0.75, 1, 1000, 1, 1);
 				}
 				self.var_1cd72357 = 1;
