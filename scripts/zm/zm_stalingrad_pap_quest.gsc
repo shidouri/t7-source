@@ -539,22 +539,22 @@ function function_6236d848(var_e57afa84, var_7741a4b8, var_ed686791, var_2a448c9
 				{
 					case 0:
 					{
-						var_a48df19e = "east";
+						str_front = "east";
 						break;
 					}
 					case 1:
 					{
-						var_a48df19e = "north";
+						str_front = "north";
 						break;
 					}
 					case 2:
 					{
-						var_a48df19e = "west";
+						str_front = "west";
 						break;
 					}
 				}
-				var_98782f9e = struct::get("lockdown_shutter_explosion_" + var_a48df19e, "targetname");
-				level thread function_1a7c9b89(var_a48df19e);
+				var_98782f9e = struct::get("lockdown_shutter_explosion_" + str_front, "targetname");
+				level thread function_1a7c9b89(str_front);
 				playrumbleonposition("zm_stalingrad_lockdown_shutter_destroyed", var_98782f9e.origin);
 				util::wait_network_frame();
 			}
@@ -689,25 +689,25 @@ function function_a71517e1(var_256a0099)
 		{
 			e_shutter = getent("lockdown_shutter_1", "targetname");
 			var_143e45c3 = "p7_fxanim_zm_stal_pavlov_lockdown_wall_01_reset_bundle";
-			var_a48df19e = "east";
+			str_front = "east";
 			break;
 		}
 		case 1:
 		{
 			e_shutter = getent("lockdown_shutter_2", "targetname");
 			var_143e45c3 = "p7_fxanim_zm_stal_pavlov_lockdown_wall_02_reset_bundle";
-			var_a48df19e = "north";
+			str_front = "north";
 			break;
 		}
 		case 2:
 		{
 			e_shutter = getent("lockdown_shutter_3", "targetname");
 			var_143e45c3 = "p7_fxanim_zm_stal_pavlov_lockdown_wall_03_reset_bundle";
-			var_a48df19e = "west";
+			str_front = "west";
 			break;
 		}
 	}
-	var_3d086912 = getent("lockdown_transitionblocker_" + var_a48df19e, "targetname");
+	var_3d086912 = getent("lockdown_transitionblocker_" + str_front, "targetname");
 	var_3d086912 connectpaths();
 	var_3d086912 movez(-1000, 0.1);
 	e_shutter thread scene::play(var_143e45c3, e_shutter);
@@ -748,25 +748,25 @@ function function_187a933f(var_256a0099)
 		{
 			e_shutter = getent("lockdown_shutter_1", "targetname");
 			var_f08953ca = "p7_fxanim_zm_stal_pavlov_lockdown_wall_01_lock_bundle";
-			var_a48df19e = "east";
+			str_front = "east";
 			break;
 		}
 		case 1:
 		{
 			e_shutter = getent("lockdown_shutter_2", "targetname");
 			var_f08953ca = "p7_fxanim_zm_stal_pavlov_lockdown_wall_02_lock_bundle";
-			var_a48df19e = "north";
+			str_front = "north";
 			break;
 		}
 		case 2:
 		{
 			e_shutter = getent("lockdown_shutter_3", "targetname");
 			var_f08953ca = "p7_fxanim_zm_stal_pavlov_lockdown_wall_03_lock_bundle";
-			var_a48df19e = "west";
+			str_front = "west";
 			break;
 		}
 	}
-	var_3d086912 = getent("lockdown_transitionblocker_" + var_a48df19e, "targetname");
+	var_3d086912 = getent("lockdown_transitionblocker_" + str_front, "targetname");
 	var_3d086912 movez(1000, 0.1);
 	var_3d086912 disconnectpaths();
 	e_shutter thread scene::play(var_f08953ca, e_shutter);
@@ -948,22 +948,22 @@ function function_3d5f2c8e(var_256a0099)
 	{
 		case 0:
 		{
-			var_a48df19e = "east";
+			str_front = "east";
 			break;
 		}
 		case 1:
 		{
-			var_a48df19e = "north";
+			str_front = "north";
 			break;
 		}
 		case 2:
 		{
-			var_a48df19e = "west";
+			str_front = "west";
 			break;
 		}
 	}
-	var_98782f9e = struct::get("lockdown_shutter_explosion_" + var_a48df19e, "targetname");
-	level thread function_1a7c9b89(var_a48df19e);
+	var_98782f9e = struct::get("lockdown_shutter_explosion_" + str_front, "targetname");
+	level thread function_1a7c9b89(str_front);
 	wait(3);
 	playrumbleonposition("zm_stalingrad_lockdown_shutter_destroyed", var_98782f9e.origin);
 	function_a71517e1(var_256a0099);
@@ -985,12 +985,12 @@ function function_3d5f2c8e(var_256a0099)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1a7c9b89(var_a48df19e)
+function function_1a7c9b89(str_front)
 {
-	var_604d90e0 = getentarray("lockdown_lights_" + var_a48df19e, "targetname");
-	level clientfield::set("lockdown_lights_" + var_a48df19e, 1);
+	var_604d90e0 = getentarray("lockdown_lights_" + str_front, "targetname");
+	level clientfield::set("lockdown_lights_" + str_front, 1);
 	level waittill(#"hash_d2eac5fe");
-	level clientfield::set("lockdown_lights_" + var_a48df19e, 0);
+	level clientfield::set("lockdown_lights_" + str_front, 0);
 }
 
 /*
@@ -1142,22 +1142,22 @@ function function_2c6fd7(var_2b71b5b4, var_15eb9a52, var_f92c3865, var_13d1e831)
 			{
 				case 0:
 				{
-					var_a48df19e = "east";
+					str_front = "east";
 					break;
 				}
 				case 1:
 				{
-					var_a48df19e = "north";
+					str_front = "north";
 					break;
 				}
 				case 2:
 				{
-					var_a48df19e = "west";
+					str_front = "west";
 					break;
 				}
 			}
-			var_98782f9e = struct::get("lockdown_shutter_explosion_" + var_a48df19e, "targetname");
-			level thread function_1a7c9b89(var_a48df19e);
+			var_98782f9e = struct::get("lockdown_shutter_explosion_" + str_front, "targetname");
+			level thread function_1a7c9b89(str_front);
 			playrumbleonposition("zm_stalingrad_lockdown_shutter_destroyed", var_98782f9e.origin);
 			util::wait_network_frame();
 		}

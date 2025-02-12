@@ -871,9 +871,9 @@ function function_f621bb41()
 	Parameters: 1
 	Flags: Linked
 */
-function function_1a7c9b89(var_a48df19e)
+function function_1a7c9b89(str_front)
 {
-	var_604d90e0 = getentarray("lockdown_lights_" + var_a48df19e, "targetname");
+	var_604d90e0 = getentarray("lockdown_lights_" + str_front, "targetname");
 	foreach(e_light in var_604d90e0)
 	{
 		e_light fx::play("pavlov_lockdown_light", e_light.origin, e_light.angles, "lockdown_complete", 1);
