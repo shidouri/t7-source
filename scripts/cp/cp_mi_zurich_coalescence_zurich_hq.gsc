@@ -992,10 +992,10 @@ function function_f8e4b283()
 	Parameters: 3
 	Flags: Linked
 */
-function function_762c95f0(var_af782668, var_4d9cdec3, var_9895c1a4)
+function function_762c95f0(str_ravens, var_4d9cdec3, var_9895c1a4)
 {
-	zurich_util::function_1b3dfa61(var_af782668 + "_struct_trig", undefined, var_4d9cdec3, var_9895c1a4);
-	a_scenes = struct::get_array(var_af782668);
+	zurich_util::function_1b3dfa61(str_ravens + "_struct_trig", undefined, var_4d9cdec3, var_9895c1a4);
+	a_scenes = struct::get_array(str_ravens);
 	foreach(s_scene in a_scenes)
 	{
 		s_scene util::delay(randomfloat(0.15), undefined, &scene::play);
