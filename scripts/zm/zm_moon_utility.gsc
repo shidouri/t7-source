@@ -615,8 +615,8 @@ function zapper_light_green(light_name, key_name)
 	var_e9947991 = getentarray(light_name, key_name);
 	foreach(light in var_e9947991)
 	{
-		var_8d53d8ef = "zap_teleport_light_0" + light.script_int;
-		exploder::exploder(var_8d53d8ef);
+		str_light = "zap_teleport_light_0" + light.script_int;
+		exploder::exploder(str_light);
 	}
 }
 
@@ -634,8 +634,8 @@ function zapper_light_red(light_name, key_name)
 	var_e9947991 = getentarray(light_name, key_name);
 	foreach(light in var_e9947991)
 	{
-		var_8d53d8ef = "zap_teleport_light_0" + light.script_int;
-		exploder::stop_exploder(var_8d53d8ef);
+		str_light = "zap_teleport_light_0" + light.script_int;
+		exploder::stop_exploder(str_light);
 	}
 }
 

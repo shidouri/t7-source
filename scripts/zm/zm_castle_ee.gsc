@@ -1868,12 +1868,12 @@ function function_2925fac8()
 	Parameters: 3
 	Flags: Linked
 */
-function function_b76d0c45(var_9ed14cca, var_2fe972c1, var_8d53d8ef)
+function function_b76d0c45(var_9ed14cca, var_2fe972c1, str_light)
 {
 	level endon(#"hash_b0b992fb");
-	exploder::exploder(var_8d53d8ef);
+	exploder::exploder(str_light);
 	wait(6);
-	exploder::kill_exploder(var_8d53d8ef);
+	exploder::kill_exploder(str_light);
 	var_4d74106b = getent("symbols_" + level.var_cf5a713.script_noteworthy, "targetname");
 	var_4d74106b hidepart(var_2fe972c1);
 	level notify(#"hash_706f7f9a");
@@ -1885,9 +1885,9 @@ function function_b76d0c45(var_9ed14cca, var_2fe972c1, var_8d53d8ef)
 			level flag::set("simon_press_check");
 			var_4d74106b showpart(var_2fe972c1);
 			playsoundatposition("zmb_ee_simonsays_button", var_9ed14cca.origin);
-			exploder::exploder(var_8d53d8ef);
+			exploder::exploder(str_light);
 			wait(3);
-			exploder::kill_exploder(var_8d53d8ef);
+			exploder::kill_exploder(str_light);
 			var_4d74106b hidepart(var_2fe972c1);
 			if(isdefined(var_9ed14cca.var_73527aa3) && var_9ed14cca.var_73527aa3)
 			{
