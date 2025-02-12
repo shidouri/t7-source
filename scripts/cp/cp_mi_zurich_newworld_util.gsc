@@ -1289,11 +1289,11 @@ function function_2e7b4007()
 	var_6d5d984c = function_71840183("cybercom_immolation");
 	var_bb989cf4 = var_6d5d984c.name + "_fired";
 	var_239727aa = function_71840183("cybercom_fireflyswarm", 1);
-	var_aa2f1c54 = var_239727aa.name + "_fired";
+	str_firefly = var_239727aa.name + "_fired";
 	self thread function_6851db33(var_6d5d984c, var_239727aa);
 	while(true)
 	{
-		self util::waittill_any(var_bb989cf4, var_aa2f1c54);
+		self util::waittill_any(var_bb989cf4, str_firefly);
 		self notify(#"hash_33cbd3b4");
 		self.var_8a320fc6++;
 	}
