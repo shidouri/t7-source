@@ -507,13 +507,13 @@ function redinstutorial(localclientnum, oldval, newval, bnewent, binitialsnap, f
 {
 	if(newval == 1 && (!(isdefined(level.var_f64ff200) && level.var_f64ff200)))
 	{
-		if(!isdefined(level.var_8c2ba713))
+		if(!isdefined(level.redinsmenu))
 		{
-			level.var_8c2ba713 = createluimenu(localclientnum, "DOA_ControlsMenu");
+			level.redinsmenu = createluimenu(localclientnum, "DOA_ControlsMenu");
 		}
-		if(isdefined(level.var_8c2ba713))
+		if(isdefined(level.redinsmenu))
 		{
-			openluimenu(localclientnum, level.var_8c2ba713);
+			openluimenu(localclientnum, level.redinsmenu);
 			level.var_f64ff200 = 1;
 			string = "CP_DOA_BO3_REDINS_HINT" + randomint(8);
 			setuimodelvalue(createuimodel(level.var_7e2a814c, "hint"), istring(string));
@@ -525,8 +525,8 @@ function redinstutorial(localclientnum, oldval, newval, bnewent, binitialsnap, f
 					break;
 				}
 			}
-			closeluimenu(localclientnum, level.var_8c2ba713);
-			level.var_8c2ba713 = undefined;
+			closeluimenu(localclientnum, level.redinsmenu);
+			level.redinsmenu = undefined;
 			level.var_f64ff200 = undefined;
 		}
 	}
