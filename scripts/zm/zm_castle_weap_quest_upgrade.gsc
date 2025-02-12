@@ -2927,8 +2927,8 @@ function function_b08d39a1()
 			exploder::stop_exploder(self.var_483af51d);
 			wait(0.05);
 			exploder::exploder(self.var_6a1fa689);
-			var_1430507e = "aq_dg_rune_sequence_0" + level.var_ca3b8551;
-			var_8ab343c9 = struct::get(var_1430507e, "targetname");
+			str_sequence = "aq_dg_rune_sequence_0" + level.var_ca3b8551;
+			var_8ab343c9 = struct::get(str_sequence, "targetname");
 			self thread function_ee73a771();
 			var_8ab343c9 function_c85b7e17(self.script_noteworthy, self.script_label);
 		}
