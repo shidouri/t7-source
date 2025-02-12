@@ -221,12 +221,12 @@ function function_2ce58010(n_local_client)
 	level endon(#"hash_a35dee4e");
 	while(true)
 	{
-		self waittill("damage", e_attacker, v_impact_pos, var_778fe70f, var_77cbbb1b);
+		self waittill("damage", e_attacker, v_impact_pos, var_778fe70f, str_bone);
 		if(level.var_ef6a691 > 0)
 		{
 			foreach(var_61c194b7 in level.var_61699bd7[level.var_ef6a691])
 			{
-				if(var_61c194b7 == var_77cbbb1b)
+				if(var_61c194b7 == str_bone)
 				{
 					switch(level.var_ef6a691)
 					{
