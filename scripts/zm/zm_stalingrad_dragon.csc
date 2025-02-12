@@ -308,27 +308,27 @@ function function_bd038ea4(n_local_client, var_2c17cb9d, b_glow)
 	self notify(#"hash_bd038ea4");
 	self endon(#"hash_bd038ea4");
 	self endon("entityshutdown");
-	var_4361a688 = undefined;
+	str_vector = undefined;
 	switch(var_2c17cb9d)
 	{
 		case 1:
 		{
-			var_4361a688 = "scriptVector5";
+			str_vector = "scriptVector5";
 			break;
 		}
 		case 2:
 		{
-			var_4361a688 = "scriptVector4";
+			str_vector = "scriptVector4";
 			break;
 		}
 		case 3:
 		{
-			var_4361a688 = "scriptVector3";
+			str_vector = "scriptVector3";
 			break;
 		}
 		default:
 		{
-			var_4361a688 = undefined;
+			str_vector = undefined;
 			break;
 		}
 	}
@@ -343,7 +343,7 @@ function function_bd038ea4(n_local_client, var_2c17cb9d, b_glow)
 				{
 					return;
 				}
-				self mapshaderconstant(n_local_client, 0, var_4361a688, 0, i, 0, 0);
+				self mapshaderconstant(n_local_client, 0, str_vector, 0, i, 0, 0);
 				self.var_6f4c2683[var_2c17cb9d] = i;
 				wait(0.01);
 				i = i + 0.05;
@@ -355,7 +355,7 @@ function function_bd038ea4(n_local_client, var_2c17cb9d, b_glow)
 				{
 					return;
 				}
-				self mapshaderconstant(n_local_client, 0, var_4361a688, 0, i, 0, 0);
+				self mapshaderconstant(n_local_client, 0, str_vector, 0, i, 0, 0);
 				self.var_6f4c2683[var_2c17cb9d] = i;
 				wait(0.01);
 				i = i - 0.05;
@@ -371,7 +371,7 @@ function function_bd038ea4(n_local_client, var_2c17cb9d, b_glow)
 			{
 				return;
 			}
-			self mapshaderconstant(n_local_client, 0, var_4361a688, 0, i, 0, 0);
+			self mapshaderconstant(n_local_client, 0, str_vector, 0, i, 0, 0);
 			self.var_6f4c2683[var_2c17cb9d] = i;
 			wait(0.01);
 			i = i - 0.01;
@@ -383,12 +383,12 @@ function function_bd038ea4(n_local_client, var_2c17cb9d, b_glow)
 			{
 				return;
 			}
-			self mapshaderconstant(n_local_client, 0, var_4361a688, 0, i, 1, 0);
+			self mapshaderconstant(n_local_client, 0, str_vector, 0, i, 1, 0);
 			self.var_6f4c2683[var_2c17cb9d] = i;
 			wait(0.01);
 			i = i - 0.01;
 		}
-		self mapshaderconstant(n_local_client, 0, var_4361a688, 0, 0.1, 1, 0);
+		self mapshaderconstant(n_local_client, 0, str_vector, 0, 0.1, 1, 0);
 	}
 }
 
