@@ -1438,9 +1438,9 @@ function vo_placeworm_hint()
 	Parameters: 1
 	Flags: None
 */
-function function_4de46cf5(var_559a3756)
+function function_4de46cf5(str_context)
 {
-	switch(var_559a3756)
+	switch(str_context)
 	{
 		case "pickup":
 		{
