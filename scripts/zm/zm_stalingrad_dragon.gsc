@@ -4904,13 +4904,13 @@ function function_f3810a1d(var_2443f661)
 	Parameters: 3
 	Flags: Linked
 */
-function function_a08562dc(scriptbundlename, var_4ee9a8c8, var_8d89a2d7)
+function function_a08562dc(scriptbundlename, nikolai_state, var_8d89a2d7)
 {
 	self notify("stop_dragon_nikolai_think");
 	self thread function_719d5095(var_8d89a2d7);
 	level thread scene::play(scriptbundlename);
-	self asmrequestsubstate(var_4ee9a8c8);
-	self vehicle_ai::waittill_asm_complete(var_4ee9a8c8, 10);
+	self asmrequestsubstate(nikolai_state);
+	self vehicle_ai::waittill_asm_complete(nikolai_state, 10);
 	self asmrequestsubstate("locomotion@movement");
 	wait(0.4);
 	self.var_a079fbeb = 1;

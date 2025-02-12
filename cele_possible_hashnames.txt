@@ -36,3 +36,4 @@ arena_abhorrently_glitter
 arena_abhorring_overseeing
 get_blunderer_state
 get_doors_state
+nikolai_state
