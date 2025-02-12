@@ -39,7 +39,7 @@ function main()
 	clientfield::register("world", "activateBanner", 1, 3, "int", &function_99e9c8d, 0, 0);
 	clientfield::register("world", "pumpBannerBar", 1, 8, "float", &pumpbannerbar, 0, 0);
 	clientfield::register("world", "redinstutorial", 1, 1, "int", &redinstutorial, 0, 0);
-	clientfield::register("world", "redinsinstruct", 1, 12, "int", &function_9cbb849c, 0, 0);
+	clientfield::register("world", "redinsinstruct", 1, 12, "int", &redinsinstruct, 0, 0);
 	clientfield::register("scriptmover", "runcowanim", 1, 1, "int", &function_caf96f2d, 0, 0);
 	clientfield::register("scriptmover", "runsiegechickenanim", 8000, 2, "int", &function_f9064aec, 0, 0);
 	doa_core::main();
@@ -471,7 +471,7 @@ function redinsexploder(localclientnum, oldval, newval, bnewent, binitialsnap, f
 }
 
 /*
-	Name: function_9cbb849c
+	Name: redinsinstruct
 	Namespace: cp_doa_bo3
 	Checksum: 0x75B9F59E
 	Offset: 0x1F38
@@ -479,7 +479,7 @@ function redinsexploder(localclientnum, oldval, newval, bnewent, binitialsnap, f
 	Parameters: 7
 	Flags: Linked
 */
-function function_9cbb849c(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function redinsinstruct(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
