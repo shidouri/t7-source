@@ -1368,8 +1368,8 @@ function function_cdc8a72a(str_base)
 		var_217a1cbf = "vo_plr_2_" + str_base;
 		if(self.characterindex !== 2)
 		{
-			var_6a57fbd1 = ("vox_plr_" + self.characterindex) + str_base;
-			var_cbd11028 = array(var_6a57fbd1, var_217a1cbf);
+			str_commenter = ("vox_plr_" + self.characterindex) + str_base;
+			var_cbd11028 = array(str_commenter, var_217a1cbf);
 			level thread function_7aa5324a(var_cbd11028);
 		}
 		else
