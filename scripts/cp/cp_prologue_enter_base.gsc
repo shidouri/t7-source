@@ -733,11 +733,11 @@ function function_ae8c8b7b()
 	Parameters: 2
 	Flags: Linked
 */
-function setgoal_then_delete(node, var_143df2c2 = "none")
+function setgoal_then_delete(node, str_timeout = "none")
 {
 	target_node = getnode(node, "targetname");
 	self setgoal(target_node, 1);
-	self util::waittill_either("goal", var_143df2c2);
+	self util::waittill_either("goal", str_timeout);
 	self delete();
 }
 
