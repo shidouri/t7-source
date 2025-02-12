@@ -486,11 +486,11 @@ class class_d90687be
 		{
 			var_eeb77e19 = array::remove_dead(var_eeb77e19, 0);
 			var_16d0ce4b = 16;
-			if(level.var_f98b3213 < 4)
+			if(level.arena_challenge_level < 4)
 			{
 				var_16d0ce4b = 8;
 			}
-			else if(level.var_f98b3213 < 6)
+			else if(level.arena_challenge_level < 6)
 			{
 				var_16d0ce4b = 12;
 			}
@@ -1135,7 +1135,7 @@ function __init__()
 	clientfield::register("scriptmover", "runeprison_explode_fx", 5000, 1, "int");
 	level.var_42e19a0b = 1;
 	clientfield::register("scriptmover", "summoning_circle_fx", 15000, 1, "int");
-	level.var_f98b3213 = 0;
+	level.arena_challenge_level = 0;
 	level.var_c4133b63 = 1;
 	level.var_42ec150d = 4;
 	level.var_beccbadb = 0;
@@ -1475,7 +1475,7 @@ function function_2cca8355()
 			continue;
 		}
 		level.var_a7414746 = player;
-		function_6a03c1d4(self.stub.var_87c8152d, level.var_f98b3213);
+		function_6a03c1d4(self.stub.var_87c8152d, level.arena_challenge_level);
 	}
 }
 
@@ -6647,7 +6647,7 @@ function function_9efa2460(n_val)
 {
 	/#
 		level notify(#"hash_6760e3ae");
-		function_6a03c1d4(n_val, level.var_f98b3213);
+		function_6a03c1d4(n_val, level.arena_challenge_level);
 	#/
 }
 
@@ -6740,7 +6740,7 @@ function function_ef5cc959(n_val)
 {
 	/#
 		level flag::set("");
-		function_6a03c1d4(0, level.var_f98b3213);
+		function_6a03c1d4(0, level.arena_challenge_level);
 	#/
 }
 
@@ -6830,7 +6830,7 @@ function function_7104ee61(n_val)
 			level flag::clear("" + str_flag);
 		}
 		level flag::set("");
-		function_6a03c1d4(0, level.var_f98b3213);
+		function_6a03c1d4(0, level.arena_challenge_level);
 	#/
 }
 
@@ -6988,7 +6988,7 @@ function function_23d9750e(n_val)
 function function_4e3a221e(n_val)
 {
 	/#
-		level.var_f98b3213 = n_val;
+		level.arena_challenge_level = n_val;
 	#/
 }
 
