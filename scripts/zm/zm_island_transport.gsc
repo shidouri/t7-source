@@ -127,9 +127,9 @@ function function_daa052ec(str_location, str_flag, str_exploder)
 	Parameters: 1
 	Flags: Linked
 */
-function function_14c7a7e(var_7d3faaf0)
+function function_14c7a7e(str_transport)
 {
-	var_fae0d733 = struct::get_array("transport_" + var_7d3faaf0, "targetname");
+	var_fae0d733 = struct::get_array("transport_" + str_transport, "targetname");
 	foreach(s_loc in var_fae0d733)
 	{
 		s_loc.var_1cdf0f7a = util::spawn_model("p7_zm_isl_control_panel_cage_off", s_loc.origin, s_loc.angles);
@@ -145,9 +145,9 @@ function function_14c7a7e(var_7d3faaf0)
 	Parameters: 2
 	Flags: Linked
 */
-function function_b708e2f9(var_7d3faaf0, var_7afe5e99 = 1)
+function function_b708e2f9(str_transport, var_7afe5e99 = 1)
 {
-	var_fae0d733 = struct::get_array("transport_" + var_7d3faaf0, "targetname");
+	var_fae0d733 = struct::get_array("transport_" + str_transport, "targetname");
 	foreach(s_loc in var_fae0d733)
 	{
 		if(var_7afe5e99)
