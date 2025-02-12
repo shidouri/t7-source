@@ -579,7 +579,7 @@ class class_d90687be
 	}
 
 	/*
-		Name: function_7ebc257e
+		Name: arena_spider_spawning
 		Namespace: namespace_d90687be
 		Checksum: 0x3CDA432
 		Offset: 0x3EE0
@@ -587,7 +587,7 @@ class class_d90687be
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_7ebc257e()
+	function arena_spider_spawning()
 	{
 		var_8c5f9971 = [];
 		var_d12aa484 = struct::get_array("arena_spider_spawner", "targetname");
