@@ -3180,10 +3180,10 @@ function function_e8d7d9()
 	Parameters: 2
 	Flags: None
 */
-function function_3ee4a3b3(var_5f69ad96, str_objective)
+function function_3ee4a3b3(str_triggers, str_objective)
 {
 	a_trigs = [];
-	a_s_triggers = struct::get_array(var_5f69ad96);
+	a_s_triggers = struct::get_array(str_triggers);
 	foreach(i, s_trig in a_s_triggers)
 	{
 		a_trigs[i] = function_3789d4db(s_trig.targetname, undefined, undefined, undefined, 768, str_objective);
