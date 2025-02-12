@@ -727,8 +727,8 @@ function function_5cf8b853(str_location)
 	}
 	else
 	{
-		var_a2a7678a = level.var_583e4a97.s_radio.script_string;
-		switch(var_a2a7678a)
+		str_radio = level.var_583e4a97.s_radio.script_string;
+		switch(str_radio)
 		{
 			case "judicial":
 			{
