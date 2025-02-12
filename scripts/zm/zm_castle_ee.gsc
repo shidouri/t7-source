@@ -1780,10 +1780,10 @@ function function_15752140(var_b5aa6f14)
 	level.var_521b0bd1 = 0;
 	while(!level flag::get("end_simon"))
 	{
-		var_2fe972c1 = array::random(var_c5ea7ad8);
-		a_symbols[var_2fe972c1].var_73527aa3 = 1;
-		var_1a972685.var_94287343 = "tag_scn0_sym" + var_2fe972c1;
-		var_4d74106b showpart("tag_scn0_sym" + var_2fe972c1);
+		str_symbol = array::random(var_c5ea7ad8);
+		a_symbols[str_symbol].var_73527aa3 = 1;
+		var_1a972685.var_94287343 = "tag_scn0_sym" + str_symbol;
+		var_4d74106b showpart("tag_scn0_sym" + str_symbol);
 		var_4d74106b playsound("zmb_ee_simonsays_show");
 		exploder::exploder(("lgt_EE_consol" + var_d733da61) + "_monitor_main");
 		level thread simon_timed_out(var_4d74106b, var_d733da61);
@@ -1803,7 +1803,7 @@ function function_15752140(var_b5aa6f14)
 		}
 		exploder::kill_exploder(("lgt_EE_consol" + var_d733da61) + "_monitor_main");
 		var_4d74106b hidepart(var_1a972685.var_94287343);
-		a_symbols[var_2fe972c1].var_73527aa3 = undefined;
+		a_symbols[str_symbol].var_73527aa3 = undefined;
 		if(level.var_521b0bd1 >= var_b5aa6f14)
 		{
 			level flag::set("end_simon");
@@ -1868,14 +1868,14 @@ function function_2925fac8()
 	Parameters: 3
 	Flags: Linked
 */
-function function_b76d0c45(var_9ed14cca, var_2fe972c1, str_light)
+function function_b76d0c45(var_9ed14cca, str_symbol, str_light)
 {
 	level endon(#"hash_b0b992fb");
 	exploder::exploder(str_light);
 	wait(6);
 	exploder::kill_exploder(str_light);
 	var_4d74106b = getent("symbols_" + level.var_cf5a713.script_noteworthy, "targetname");
-	var_4d74106b hidepart(var_2fe972c1);
+	var_4d74106b hidepart(str_symbol);
 	level notify(#"hash_706f7f9a");
 	while(true)
 	{
@@ -1883,12 +1883,12 @@ function function_b76d0c45(var_9ed14cca, var_2fe972c1, str_light)
 		if(!level flag::get("simon_press_check"))
 		{
 			level flag::set("simon_press_check");
-			var_4d74106b showpart(var_2fe972c1);
+			var_4d74106b showpart(str_symbol);
 			playsoundatposition("zmb_ee_simonsays_button", var_9ed14cca.origin);
 			exploder::exploder(str_light);
 			wait(3);
 			exploder::kill_exploder(str_light);
-			var_4d74106b hidepart(var_2fe972c1);
+			var_4d74106b hidepart(str_symbol);
 			if(isdefined(var_9ed14cca.var_73527aa3) && var_9ed14cca.var_73527aa3)
 			{
 				level.var_521b0bd1++;
