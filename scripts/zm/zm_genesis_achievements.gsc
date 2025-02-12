@@ -260,10 +260,10 @@ function function_f17c9ba1()
 	level endon("end_game");
 	self endon("disconnect");
 	self endon(#"hash_2bec714");
-	var_a43542cc = self.var_a3d40b8;
-	if(isdefined(var_a43542cc) && isinarray(self.a_e_islands, var_a43542cc))
+	str_island_name = self.var_a3d40b8;
+	if(isdefined(str_island_name) && isinarray(self.a_e_islands, str_island_name))
 	{
-		arrayremovevalue(self.a_e_islands, var_a43542cc);
+		arrayremovevalue(self.a_e_islands, str_island_name);
 	}
 	else
 	{
@@ -273,7 +273,7 @@ function function_f17c9ba1()
 	wait(120);
 	if(isdefined(self.a_e_islands))
 	{
-		array::add(self.a_e_islands, var_a43542cc, 0);
+		array::add(self.a_e_islands, str_island_name, 0);
 	}
 }
 
