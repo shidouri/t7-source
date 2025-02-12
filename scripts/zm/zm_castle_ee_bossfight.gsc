@@ -1167,7 +1167,7 @@ function function_1690ddb0()
 	Parameters: 2
 	Flags: Linked
 */
-function function_a1658f19(str_anim, var_be98b74b = "ai_zm_dlc1_archon_float_idle")
+function function_a1658f19(str_anim, str_loop = "ai_zm_dlc1_archon_float_idle")
 {
 	self notify(#"hash_26fd8ff7");
 	if(isdefined(str_anim))
@@ -1176,7 +1176,7 @@ function function_a1658f19(str_anim, var_be98b74b = "ai_zm_dlc1_archon_float_idl
 	}
 	if(isdefined(self))
 	{
-		self thread animation::play(var_be98b74b);
+		self thread animation::play(str_loop);
 	}
 }
 
