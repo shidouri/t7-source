@@ -57,12 +57,12 @@ function autoexec init()
 */
 function function_f0d84c78()
 {
-	var_80b8c18d = [];
-	array::add(var_80b8c18d, "warehouse");
-	array::add(var_80b8c18d, "cloudmountain");
-	array::add(var_80b8c18d, "markets1");
-	array::add(var_80b8c18d, "markets2");
-	foreach(str_area in var_80b8c18d)
+	str_areas = [];
+	array::add(str_areas, "warehouse");
+	array::add(str_areas, "cloudmountain");
+	array::add(str_areas, "markets1");
+	array::add(str_areas, "markets2");
+	foreach(str_area in str_areas)
 	{
 		var_9108873 = getent("trig_out_of_bound_" + str_area, "targetname");
 		e_clip = getent("player_clip_" + str_area, "targetname");
