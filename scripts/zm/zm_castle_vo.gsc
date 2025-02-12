@@ -2930,9 +2930,9 @@ function function_7c63dd65(str_crest, b_wait = 1)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ebc3d584(var_cf6c6acd, var_b5991f0e = 0)
+function function_ebc3d584(str_syllable, var_b5991f0e = 0)
 {
-	switch(var_cf6c6acd)
+	switch(str_syllable)
 	{
 		case "lor":
 		{

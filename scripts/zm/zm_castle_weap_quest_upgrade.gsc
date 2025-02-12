@@ -2993,7 +2993,7 @@ function function_c85b7e17(var_25b51f6b, var_5a2492d5)
 		{
 			if(isdefined(level.var_4e2e87e9) && level.var_4e2e87e9.size > 0)
 			{
-				foreach(var_cf6c6acd in level.var_4e2e87e9)
+				foreach(str_syllable in level.var_4e2e87e9)
 				{
 					var_cd45655b zm_castle_vo::function_ebc3d584(var_5a2492d5, 1);
 				}
@@ -3039,9 +3039,9 @@ function function_9fc90424()
 	}
 	if(isdefined(level.var_4e2e87e9) && level.var_4e2e87e9.size > 0)
 	{
-		foreach(var_cf6c6acd in level.var_4e2e87e9)
+		foreach(str_syllable in level.var_4e2e87e9)
 		{
-			var_cd45655b zm_castle_vo::function_ebc3d584(var_cf6c6acd, 1);
+			var_cd45655b zm_castle_vo::function_ebc3d584(str_syllable, 1);
 		}
 		level.var_4e2e87e9 = undefined;
 		level.var_f00f53e6 = undefined;
