@@ -1474,14 +1474,14 @@ function function_517c3b8c()
 	Parameters: 1
 	Flags: None
 */
-function function_71776fa5(var_19b50ade)
+function function_71776fa5(str_landing)
 {
 	level.var_3be78871 = undefined;
-	if(isdefined(var_19b50ade))
+	if(isdefined(str_landing))
 	{
-		if(isdefined(level.var_9ae0d334[var_19b50ade + "_exit"]))
+		if(isdefined(level.var_9ae0d334[str_landing + "_exit"]))
 		{
-			level.var_3be78871 = level.var_9ae0d334[var_19b50ade + "_exit"];
+			level.var_3be78871 = level.var_9ae0d334[str_landing + "_exit"];
 		}
 	}
 }
