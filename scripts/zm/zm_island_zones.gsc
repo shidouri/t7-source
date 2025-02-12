@@ -228,9 +228,9 @@ function function_feb4ddde()
 {
 	self endon("death");
 	level flag::wait_till(self.script_flag);
-	var_4c616d31 = self.target + "_vine";
-	var_593fa92c = struct::get_array(var_4c616d31 + "_fx", "targetname");
-	var_9649126c = struct::get_array(var_4c616d31, "targetname");
+	str_vine = self.target + "_vine";
+	var_593fa92c = struct::get_array(str_vine + "_fx", "targetname");
+	var_9649126c = struct::get_array(str_vine, "targetname");
 	foreach(s_scene in var_9649126c)
 	{
 		if(isdefined(s_scene) && isdefined(s_scene.mdl_vine))
