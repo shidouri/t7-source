@@ -1146,7 +1146,7 @@ function __init__()
 	level.var_43e34f20[0] = &function_48ffe1e9;
 	level.var_43e34f20[1] = &function_2bacd397;
 	level.var_43e34f20[2] = &function_f1e6c2a7;
-	level.var_43e34f20[3] = &function_f1aed0c6;
+	level.var_43e34f20[3] = &arena_challenge_electricity;
 	level.var_5afa678d = [];
 	level.var_5afa678d[0] = &function_876e8a3c;
 	level.var_5afa678d[1] = &function_d2a9fa8c;
@@ -2923,7 +2923,7 @@ function function_33b2cd3e(player)
 }
 
 /*
-	Name: function_f1aed0c6
+	Name: arena_challenge_electricity
 	Namespace: zm_genesis_arena
 	Checksum: 0xA1CD77D3
 	Offset: 0xA248
@@ -2931,7 +2931,7 @@ function function_33b2cd3e(player)
 	Parameters: 4
 	Flags: Linked
 */
-function function_f1aed0c6(var_87c8152d, var_eadfbdd4 = 0, var_e78a4f30 = 0, var_47a4362c = 0)
+function arena_challenge_electricity(var_87c8152d, var_eadfbdd4 = 0, var_e78a4f30 = 0, var_47a4362c = 0)
 {
 	level thread function_b6ddba23(var_87c8152d);
 	if(var_e78a4f30 == 0)
