@@ -190,18 +190,18 @@ function function_dbc32a6d()
 	var_7db6b6e1 = struct::get_array("companion_totem_part", "targetname");
 	var_e5e70941 = array::random(var_7db6b6e1);
 	var_e5e70941.n_scale = 0.75;
-	var_e5e70941.var_fdb628a4 = "keeper_callbox_totem";
+	var_e5e70941.str_client = "keeper_callbox_totem";
 	var_e5e70941.v_offset = vectorscale((0, 0, 1), 20);
 	var_e5e70941 thread function_85555c9();
 	var_133619e4 = struct::get_array("companion_head_part", "targetname");
 	var_6a2693c4 = array::random(var_133619e4);
 	var_6a2693c4.n_scale = 1.5;
-	var_6a2693c4.var_fdb628a4 = "keeper_callbox_head";
+	var_6a2693c4.str_client = "keeper_callbox_head";
 	var_6a2693c4 thread function_85555c9();
 	var_79d5129b = struct::get_array("companion_gem_part", "targetname");
 	var_fb9b76fb = array::random(var_79d5129b);
 	var_fb9b76fb.n_scale = 2;
-	var_fb9b76fb.var_fdb628a4 = "keeper_callbox_gem";
+	var_fb9b76fb.str_client = "keeper_callbox_gem";
 	var_fb9b76fb thread function_85555c9();
 }
 
@@ -216,7 +216,7 @@ function function_dbc32a6d()
 */
 function function_85555c9()
 {
-	level flag::init(self.var_fdb628a4 + "_found");
+	level flag::init(self.str_client + "_found");
 	mdl_part = util::spawn_model(self.model, self.origin, self.angles);
 	mdl_part setscale(self.n_scale);
 	s_unitrigger = self zm_unitrigger::create_unitrigger(&"ZM_GENESIS_CALLBOX_PICKUP_PART", 64, &function_fe778474);
@@ -387,8 +387,8 @@ function anchor_delete_watcher(mdl_anchor)
 */
 function function_49da2964(e_player)
 {
-	level flag::set(self.var_fdb628a4 + "_found");
-	level clientfield::set(self.var_fdb628a4, 1);
+	level flag::set(self.str_client + "_found");
+	level clientfield::set(self.str_client, 1);
 	e_player playsound("zmb_keeper_callbox_pickup");
 	level notify("widget_ui_override");
 	foreach(e_player in level.players)
