@@ -391,7 +391,7 @@ class class_d90687be
 	}
 
 	/*
-		Name: function_34c1d454
+		Name: arena_mechz_spawning
 		Namespace: namespace_d90687be
 		Checksum: 0x12C670B3
 		Offset: 0x48C0
@@ -399,7 +399,7 @@ class class_d90687be
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_34c1d454(var_87c8152d)
+	function arena_mechz_spawning(var_87c8152d)
 	{
 		var_dacf61a8 = [];
 		while(level clientfield::get("circle_state") == 3)
