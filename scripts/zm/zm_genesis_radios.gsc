@@ -221,10 +221,10 @@ function function_66d50897(str_method)
 		self.clip setcandamage(0);
 		self.s_unitrigger.b_on = 0;
 		zm_unitrigger::unregister_unitrigger(self);
-		var_3c13e11b = self.script_noteworthy;
-		if(level.var_22e09be4[var_3c13e11b].size)
+		str_set = self.script_noteworthy;
+		if(level.var_22e09be4[str_set].size)
 		{
-			str_vo = level.var_22e09be4[var_3c13e11b][0];
+			str_vo = level.var_22e09be4[str_set][0];
 			if(isdefined(str_vo))
 			{
 				if(str_method == "damage")
@@ -236,7 +236,7 @@ function function_66d50897(str_method)
 					var_c46d7830 = self.origin;
 				}
 				array::add(level.var_66b7ed7e, self, 0);
-				arrayremoveindex(level.var_22e09be4[var_3c13e11b], 0);
+				arrayremoveindex(level.var_22e09be4[str_set], 0);
 				var_5cd02106 = soundgetplaybacktime(str_vo);
 				if(var_5cd02106 > 0)
 				{
