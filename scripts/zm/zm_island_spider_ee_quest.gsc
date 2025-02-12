@@ -326,7 +326,7 @@ function function_89826011()
 	Parameters: 1
 	Flags: Linked
 */
-function function_69f5a9c5(var_1cdfa0f4)
+function function_69f5a9c5(str_control)
 {
 	level notify(#"hash_59a385d1");
 	if(isdefined(level.var_18ddef1f) && level.var_18ddef1f)

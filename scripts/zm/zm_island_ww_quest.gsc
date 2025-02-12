@@ -833,7 +833,7 @@ function function_9faff60c()
 				n_height = -246;
 			}
 			b_state = 1;
-			var_1cdfa0f4 = &"ZM_ISLAND_CAGE_RAISE";
+			str_control = &"ZM_ISLAND_CAGE_RAISE";
 			level thread zm_island_vo::function_3bf2d62a("lower_cage", 1, 0, 0);
 			level thread function_baa845f4();
 		}
@@ -852,7 +852,7 @@ function function_9faff60c()
 				n_height = 246;
 			}
 			b_state = 0;
-			var_1cdfa0f4 = &"ZM_ISLAND_CAGE_LOWER";
+			str_control = &"ZM_ISLAND_CAGE_LOWER";
 			level thread zm_island_vo::function_3bf2d62a("raise_cage", 1, 0, 0);
 		}
 		level.var_48762d0c = 1;
@@ -889,7 +889,7 @@ function function_9faff60c()
 		}
 		if(isdefined(level.var_90e478e7) && level.var_90e478e7 && (isdefined(level.var_1deeff56) && level.var_1deeff56))
 		{
-			spider_ee_quest::function_69f5a9c5(var_1cdfa0f4);
+			spider_ee_quest::function_69f5a9c5(str_control);
 		}
 		if(!(isdefined(level.var_90e478e7) && level.var_90e478e7) && (isdefined(level.var_1deeff56) && level.var_1deeff56))
 		{
