@@ -701,18 +701,18 @@ function function_a48022e(localclientnum, b_on = 1, n_character_index)
 {
 	if(n_character_index == 1 || n_character_index == 4)
 	{
-		var_53106e7c = level._effect["zombie/fx_ee_keeper_beam_shield1_fail_zod_zmb"];
+		str_beam = level._effect["zombie/fx_ee_keeper_beam_shield1_fail_zod_zmb"];
 	}
 	else
 	{
-		var_53106e7c = level._effect["zombie/fx_ee_keeper_beam_shield2_fail_zod_zmb"];
+		str_beam = level._effect["zombie/fx_ee_keeper_beam_shield2_fail_zod_zmb"];
 	}
 	if(b_on)
 	{
 		s_loc = struct::get("keeper_vs_shadowman_beam_" + n_character_index);
 		v_fwd = anglestoforward(s_loc.angles);
 		v_origin = s_loc.origin;
-		self.var_f5366edb = playfx(localclientnum, var_53106e7c, v_origin, v_fwd);
+		self.var_f5366edb = playfx(localclientnum, str_beam, v_origin, v_fwd);
 	}
 	else
 	{

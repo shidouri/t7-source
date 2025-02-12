@@ -197,13 +197,13 @@ function function_200eea36(localclientnum, oldval, newval, bnewent, binitialsnap
 	s_source = arraygetclosest(self.origin, a_s_source);
 	if(s_source.targetname === "bolt_source_1")
 	{
-		var_53106e7c = "electric_arc_beam_tesla_trap_1_primary";
+		str_beam = "electric_arc_beam_tesla_trap_1_primary";
 	}
 	else
 	{
-		var_53106e7c = "electric_arc_beam_tesla_trap_2_primary";
+		str_beam = "electric_arc_beam_tesla_trap_2_primary";
 	}
-	self thread function_ec4ecaed(localclientnum, s_source, var_53106e7c);
+	self thread function_ec4ecaed(localclientnum, s_source, str_beam);
 }
 
 /*
@@ -215,12 +215,12 @@ function function_200eea36(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 3
 	Flags: Linked
 */
-function function_ec4ecaed(localclientnum, s_source, var_53106e7c)
+function function_ec4ecaed(localclientnum, s_source, str_beam)
 {
 	mdl_source = util::spawn_model(localclientnum, "tag_origin", s_source.origin, s_source.angles);
-	level beam::launch(mdl_source, "tag_origin", self, "j_spinelower", var_53106e7c);
+	level beam::launch(mdl_source, "tag_origin", self, "j_spinelower", str_beam);
 	level util::waittill_any_timeout(1.5, "demo_jump");
-	level beam::kill(mdl_source, "tag_origin", self, "j_spinelower", var_53106e7c);
+	level beam::kill(mdl_source, "tag_origin", self, "j_spinelower", str_beam);
 	mdl_source delete();
 }
 
@@ -243,14 +243,14 @@ function tesla_beam_mechz(localclientnum, oldval, newval, bnewent, binitialsnap,
 		s_source = arraygetclosest(self.origin, a_s_source);
 		if(s_source.targetname === "bolt_source_1")
 		{
-			self.var_53106e7c = "electric_arc_beam_tesla_trap_1_primary";
+			self.str_beam = "electric_arc_beam_tesla_trap_1_primary";
 		}
 		else
 		{
-			self.var_53106e7c = "electric_arc_beam_tesla_trap_2_primary";
+			self.str_beam = "electric_arc_beam_tesla_trap_2_primary";
 		}
 		self.mdl_source = util::spawn_model(localclientnum, "tag_origin", s_source.origin, s_source.angles);
-		level beam::launch(self.mdl_source, "tag_origin", self, "j_spinelower", self.var_53106e7c);
+		level beam::launch(self.mdl_source, "tag_origin", self, "j_spinelower", self.str_beam);
 		if(isdemoplaying())
 		{
 			self thread function_3c5fc735(localclientnum);
@@ -290,11 +290,11 @@ function function_3c5fc735(localclientnum)
 */
 function function_1139a457(localclientnum)
 {
-	if(isdefined(self.mdl_source) && isdefined(self.var_53106e7c))
+	if(isdefined(self.mdl_source) && isdefined(self.str_beam))
 	{
-		level beam::kill(self.mdl_source, "tag_origin", self, "j_spinelower", self.var_53106e7c);
+		level beam::kill(self.mdl_source, "tag_origin", self, "j_spinelower", self.str_beam);
 		self.mdl_source delete();
-		self.var_53106e7c = undefined;
+		self.str_beam = undefined;
 		self notify(#"hash_1139a457");
 	}
 }
