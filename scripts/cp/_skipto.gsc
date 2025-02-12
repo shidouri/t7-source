@@ -2315,13 +2315,13 @@ function private function_87fe8621()
 	Parameters: 1
 	Flags: Linked
 */
-function function_659bb22b(var_3a36166b)
+function function_659bb22b(str_num)
 {
 	a_ret = [];
 	var_717810f = spawnlogic::get_all_spawn_points(1);
 	foreach(loc in var_717810f)
 	{
-		if(loc.var_22c28736 === var_3a36166b)
+		if(loc.var_22c28736 === str_num)
 		{
 			if(!isdefined(a_ret))
 			{
