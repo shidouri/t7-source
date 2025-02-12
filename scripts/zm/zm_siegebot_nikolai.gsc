@@ -1110,28 +1110,28 @@ function function_efdfbbf7(var_9d838914, var_e7f2a029)
 {
 	if(var_e7f2a029 == 2)
 	{
-		var_e6a3fdd7 = "tag_heat_vent_02_d0_col";
+		str_collision = "tag_heat_vent_02_d0_col";
 		str_partname = "ai_zm_dlc3_russian_mech_heat_vent_l";
 		str_anim_group = 1;
 		str_clientfield = "nikolai_weakpoint_l_fx";
 	}
 	else
 	{
-		var_e6a3fdd7 = "tag_heat_vent_01_d0_col";
+		str_collision = "tag_heat_vent_01_d0_col";
 		str_partname = "ai_zm_dlc3_russian_mech_heat_vent_r";
 		str_anim_group = 2;
 		str_clientfield = "nikolai_weakpoint_r_fx";
 	}
 	if(var_9d838914)
 	{
-		self showpart(var_e6a3fdd7);
+		self showpart(str_collision);
 		self setanim(str_partname);
 		self vehicle::toggle_ambient_anim_group(str_anim_group, 1);
 		self clientfield::set(str_clientfield, 1);
 	}
 	else
 	{
-		self hidepart(var_e6a3fdd7);
+		self hidepart(str_collision);
 		self clearanim(str_partname, 0.1);
 		self vehicle::toggle_ambient_anim_group(str_anim_group, 0);
 		self clientfield::set(str_clientfield, 0);
