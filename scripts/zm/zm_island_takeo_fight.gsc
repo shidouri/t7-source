@@ -337,8 +337,8 @@ function function_54d91dfb()
 		var_fb97f73d function_269cf850(0);
 		var_fb97f73d notify(#"hash_c8e5500f");
 	}
-	var_9f49d930 = "takeo_arm" + self.script_int;
-	var_90f16638 = getent(var_9f49d930, "targetname");
+	str_takeo_arm = "takeo_arm" + self.script_int;
+	var_90f16638 = getent(str_takeo_arm, "targetname");
 	var_90f16638 clientfield::set("takeo_arm_hit_fx", self.script_int);
 	level thread function_6addaa9e("pain_big");
 	if(level flag::get("takeo_freed"))
