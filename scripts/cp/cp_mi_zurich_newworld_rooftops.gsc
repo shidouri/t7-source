@@ -3261,13 +3261,13 @@ function function_be23c07c()
 	Parameters: 2
 	Flags: Linked
 */
-function function_a69280be(var_81a32895, var_2380d5c)
+function function_a69280be(str_ability, var_2380d5c)
 {
 	self endon("death");
 	level.ai_hall dialog::say("hall_alright_activating_0", undefined, 0, self);
-	weapon = newworld_util::function_71840183(var_81a32895, var_2380d5c);
+	weapon = newworld_util::function_71840183(str_ability, var_2380d5c);
 	var_12b288c7 = weapon.name + "_fired";
-	var_a2cc98e = var_81a32895 + "_use_ability_tutorial";
+	var_a2cc98e = str_ability + "_use_ability_tutorial";
 	self thread function_47c78606(var_a2cc98e);
 	self thread function_57ffa633(var_12b288c7);
 }

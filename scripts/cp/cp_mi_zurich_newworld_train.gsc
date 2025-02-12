@@ -3534,12 +3534,12 @@ function function_8c0c3c47()
 	Parameters: 2
 	Flags: Linked
 */
-function function_11711684(var_81a32895, var_2380d5c)
+function function_11711684(str_ability, var_2380d5c)
 {
 	level flag::wait_till("train_intro_vo_complete");
-	weapon = newworld_util::function_71840183(var_81a32895, var_2380d5c);
+	weapon = newworld_util::function_71840183(str_ability, var_2380d5c);
 	var_12b288c7 = weapon.name + "_fired";
-	var_a2cc98e = var_81a32895 + "_use_ability_tutorial";
+	var_a2cc98e = str_ability + "_use_ability_tutorial";
 	foreach(player in level.activeplayers)
 	{
 		if(player newworld_util::function_c633d8fe())
@@ -3801,15 +3801,15 @@ function function_123070a9()
 	Parameters: 2
 	Flags: Linked
 */
-function function_9f8dbaa2(var_81a32895, var_2380d5c)
+function function_9f8dbaa2(str_ability, var_2380d5c)
 {
 	self endon(#"hash_848a4771");
 	level.var_fc1953ce dialog::say("tayr_use_concussive_wave_0", undefined, 1, self);
 	self flag::set("concussive_wave_tutorial_vo_complete");
-	weapon = newworld_util::function_71840183(var_81a32895, var_2380d5c);
+	weapon = newworld_util::function_71840183(str_ability, var_2380d5c);
 	var_12b288c7 = weapon.name + "_fired";
-	var_a2cc98e = var_81a32895 + "_use_ability_tutorial";
-	var_b41e8e5c = var_81a32895 + "_WW_tutorial";
+	var_a2cc98e = str_ability + "_use_ability_tutorial";
+	var_b41e8e5c = str_ability + "_WW_tutorial";
 	self thread function_32b93f59(var_b41e8e5c, var_a2cc98e);
 	self thread function_3fbeb972(var_12b288c7);
 }

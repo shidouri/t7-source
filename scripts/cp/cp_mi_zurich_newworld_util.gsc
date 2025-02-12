@@ -749,7 +749,7 @@ function wait_till_flag_or_ai_group_ai_count(str_flag, str_aigroup, n_count)
 	Parameters: 7
 	Flags: Linked
 */
-function function_948d4091(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 1, var_6e6341cf, var_8cb8bcef, var_9e68f294)
+function function_948d4091(str_ability, var_2380d5c = 0, str_endon, b_looping = 1, var_6e6341cf, var_8cb8bcef, var_9e68f294)
 {
 	self endon("death");
 	level endon(str_endon);
@@ -759,42 +759,42 @@ function function_948d4091(var_81a32895, var_2380d5c = 0, str_endon, b_looping =
 		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
-	self flag::init(var_81a32895 + "_WW_opened");
-	self flag::init(var_81a32895 + "_WW_closed");
-	self flag::init(var_81a32895 + "_WW_tutorial");
-	if(var_81a32895 == "cybercom_fireflyswarm")
+	self flag::init(str_ability + "_WW_opened");
+	self flag::init(str_ability + "_WW_closed");
+	self flag::init(str_ability + "_WW_tutorial");
+	if(str_ability == "cybercom_fireflyswarm")
 	{
 		var_bcb7a46f = &"CP_MI_ZURICH_NEWWORLD_SELECT_FIREFLY_LINE_1";
 	}
-	else if(var_81a32895 == "cybercom_concussive")
+	else if(str_ability == "cybercom_concussive")
 	{
 		var_bcb7a46f = &"CP_MI_ZURICH_NEWWORLD_SELECT_CONCUSSIVE_WAVE_LINE_1";
 	}
-	self thread function_8531ac12(var_81a32895, str_endon);
-	self thread function_b95b168e(var_81a32895, str_endon);
+	self thread function_8531ac12(str_ability, str_endon);
+	self thread function_b95b168e(str_ability, str_endon);
 	if(isdefined(var_9e68f294))
 	{
-		a_start_flags = array(var_9e68f294, var_81a32895 + "_WW_tutorial");
+		a_start_flags = array(var_9e68f294, str_ability + "_WW_tutorial");
 		self flag::wait_till_any(a_start_flags);
 	}
-	a_flags = array(var_81a32895 + "_WW_tutorial", var_81a32895 + "_WW_closed");
-	while(!self flag::get(var_81a32895 + "_WW_tutorial"))
+	a_flags = array(str_ability + "_WW_tutorial", str_ability + "_WW_closed");
+	while(!self flag::get(str_ability + "_WW_tutorial"))
 	{
-		self function_c585d78f(var_81a32895, str_endon);
+		self function_c585d78f(str_ability, str_endon);
 		self thread util::hide_hint_text(1);
 		wait(0.5);
-		while(!self flag::get(var_81a32895 + "_WW_tutorial") && self flag::get(var_81a32895 + "_WW_opened"))
+		while(!self flag::get(str_ability + "_WW_tutorial") && self flag::get(str_ability + "_WW_opened"))
 		{
 			self thread function_e5122074(var_bcb7a46f, str_endon);
 			self flag::wait_till_any_timeout(4, a_flags);
-			if(!self flag::get(var_81a32895 + "_WW_tutorial") && self flag::get(var_81a32895 + "_WW_opened"))
+			if(!self flag::get(str_ability + "_WW_tutorial") && self flag::get(str_ability + "_WW_opened"))
 			{
 				self flag::wait_till_any_timeout(3, a_flags);
 			}
 		}
 		self thread function_d81a8f6f();
 	}
-	self thread function_6062e90(var_81a32895, var_2380d5c, str_endon, b_looping, var_6e6341cf, undefined, var_8cb8bcef);
+	self thread function_6062e90(str_ability, var_2380d5c, str_endon, b_looping, var_6e6341cf, undefined, var_8cb8bcef);
 }
 
 /*
@@ -806,11 +806,11 @@ function function_948d4091(var_81a32895, var_2380d5c = 0, str_endon, b_looping =
 	Parameters: 2
 	Flags: Linked
 */
-function function_c585d78f(var_81a32895, str_endon)
+function function_c585d78f(str_ability, str_endon)
 {
 	self endon("death");
 	level endon(str_endon);
-	self endon(var_81a32895 + "_WW_opened");
+	self endon(str_ability + "_WW_opened");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
@@ -818,7 +818,7 @@ function function_c585d78f(var_81a32895, str_endon)
 		__s util::delay_notify(30, "timeout");
 	}
 	self util::hide_hint_text(1);
-	while(!self flag::get(var_81a32895 + "_WW_opened"))
+	while(!self flag::get(str_ability + "_WW_opened"))
 	{
 		if(!level.console && !self gamepadusedlast())
 		{
@@ -828,10 +828,10 @@ function function_c585d78f(var_81a32895, str_endon)
 		{
 			self thread util::show_hint_text(&"CP_MI_ZURICH_NEWWORLD_OPEN_CYBERCORE_ABILITY_WHEEL", 0, undefined, 4);
 		}
-		self flag::wait_till_timeout(4, var_81a32895 + "_WW_opened");
-		if(!self flag::get(var_81a32895 + "_WW_opened"))
+		self flag::wait_till_timeout(4, str_ability + "_WW_opened");
+		if(!self flag::get(str_ability + "_WW_opened"))
 		{
-			self flag::wait_till_timeout(3, var_81a32895 + "_WW_opened");
+			self flag::wait_till_timeout(3, str_ability + "_WW_opened");
 		}
 	}
 }
@@ -888,7 +888,7 @@ function function_d81a8f6f()
 	Parameters: 2
 	Flags: Linked
 */
-function function_8531ac12(var_81a32895, str_endon)
+function function_8531ac12(str_ability, str_endon)
 {
 	self endon("death");
 	level endon(str_endon);
@@ -898,14 +898,14 @@ function function_8531ac12(var_81a32895, str_endon)
 		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
-	while(!self flag::get(var_81a32895 + "_WW_tutorial"))
+	while(!self flag::get(str_ability + "_WW_tutorial"))
 	{
 		self waittill("menuresponse", menu, response);
 		var_66700f08 = strtok(response, ",");
 		if(var_66700f08[0] == "opened")
 		{
-			self flag::set(var_81a32895 + "_WW_opened");
-			self flag::clear(var_81a32895 + "_WW_closed");
+			self flag::set(str_ability + "_WW_opened");
+			self flag::clear(str_ability + "_WW_closed");
 		}
 	}
 }
@@ -919,7 +919,7 @@ function function_8531ac12(var_81a32895, str_endon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_b95b168e(var_81a32895, str_endon)
+function function_b95b168e(str_ability, str_endon)
 {
 	self endon("death");
 	level endon(str_endon);
@@ -937,15 +937,15 @@ function function_b95b168e(var_81a32895, str_endon)
 		{
 			continue;
 		}
-		if(var_66700f08[0] == var_81a32895)
+		if(var_66700f08[0] == str_ability)
 		{
-			self flag::set(var_81a32895 + "_WW_tutorial");
+			self flag::set(str_ability + "_WW_tutorial");
 			break;
 		}
 		else
 		{
-			self flag::clear(var_81a32895 + "_WW_opened");
-			self flag::set(var_81a32895 + "_WW_closed");
+			self flag::clear(str_ability + "_WW_opened");
+			self flag::set(str_ability + "_WW_closed");
 		}
 	}
 }
@@ -959,7 +959,7 @@ function function_b95b168e(var_81a32895, str_endon)
 	Parameters: 8
 	Flags: Linked
 */
-function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 1, var_6e6341cf, var_e8551372, var_9e68f294, var_3945b2c8)
+function function_6062e90(str_ability, var_2380d5c = 0, str_endon, b_looping = 1, var_6e6341cf, var_e8551372, var_9e68f294, var_3945b2c8)
 {
 	self endon("death");
 	if(isarray(str_endon))
@@ -984,7 +984,7 @@ function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 
 	self gadgetpowerset(0, 100);
 	self gadgetpowerset(1, 100);
 	var_279df5c8 = 0;
-	if(var_81a32895 == "cybercom_fireflyswarm" || var_81a32895 == "cybercom_rapidstrike" || var_81a32895 == "cybercom_concussive")
+	if(str_ability == "cybercom_fireflyswarm" || str_ability == "cybercom_rapidstrike" || str_ability == "cybercom_concussive")
 	{
 		var_279df5c8 = 1;
 	}
@@ -994,15 +994,15 @@ function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 
 		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
-	if(!self flag::exists(var_81a32895 + "_use_ability_tutorial"))
+	if(!self flag::exists(str_ability + "_use_ability_tutorial"))
 	{
-		self flag::init(var_81a32895 + "_use_ability_tutorial");
+		self flag::init(str_ability + "_use_ability_tutorial");
 	}
 	else
 	{
-		self flag::clear(var_81a32895 + "_use_ability_tutorial");
+		self flag::clear(str_ability + "_use_ability_tutorial");
 	}
-	self thread function_a7a2da7e(var_81a32895, var_2380d5c, str_endon);
+	self thread function_a7a2da7e(str_ability, var_2380d5c, str_endon);
 	if(isdefined(var_9e68f294))
 	{
 		if(isfloat(var_9e68f294) || isint(var_9e68f294))
@@ -1022,12 +1022,12 @@ function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 
 			}
 		}
 	}
-	while(!self flag::get(var_81a32895 + "_use_ability_tutorial"))
+	while(!self flag::get(str_ability + "_use_ability_tutorial"))
 	{
-		self function_c60fae50(var_81a32895, str_endon, b_looping, var_6e6341cf);
+		self function_c60fae50(str_ability, str_endon, b_looping, var_6e6341cf);
 		if(!var_279df5c8)
 		{
-			self function_5dca74fc(var_81a32895, str_endon, var_e8551372);
+			self function_5dca74fc(str_ability, str_endon, var_e8551372);
 		}
 	}
 }
@@ -1041,7 +1041,7 @@ function function_6062e90(var_81a32895, var_2380d5c = 0, str_endon, b_looping = 
 	Parameters: 4
 	Flags: Linked
 */
-function function_c60fae50(var_81a32895, str_endon, b_looping, var_f069395f)
+function function_c60fae50(str_ability, str_endon, b_looping, var_f069395f)
 {
 	self endon("death");
 	if(isarray(str_endon))
@@ -1055,14 +1055,14 @@ function function_c60fae50(var_81a32895, str_endon, b_looping, var_f069395f)
 	{
 		level endon(str_endon);
 	}
-	self endon(var_81a32895 + "_primed");
+	self endon(str_ability + "_primed");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
 		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
-	while(!self flag::get(var_81a32895 + "_use_ability_tutorial"))
+	while(!self flag::get(str_ability + "_use_ability_tutorial"))
 	{
 		if(isdefined(var_f069395f))
 		{
@@ -1074,9 +1074,9 @@ function function_c60fae50(var_81a32895, str_endon, b_looping, var_f069395f)
 		}
 		if(b_looping === 1)
 		{
-			if(!self flag::get(var_81a32895 + "_use_ability_tutorial"))
+			if(!self flag::get(str_ability + "_use_ability_tutorial"))
 			{
-				self flag::wait_till_timeout(3, var_81a32895 + "_use_ability_tutorial");
+				self flag::wait_till_timeout(3, str_ability + "_use_ability_tutorial");
 			}
 		}
 		else
@@ -1095,7 +1095,7 @@ function function_c60fae50(var_81a32895, str_endon, b_looping, var_f069395f)
 	Parameters: 3
 	Flags: Linked
 */
-function function_5dca74fc(var_81a32895, str_endon, var_e8551372)
+function function_5dca74fc(str_ability, str_endon, var_e8551372)
 {
 	self endon("death");
 	if(isarray(str_endon))
@@ -1109,7 +1109,7 @@ function function_5dca74fc(var_81a32895, str_endon, var_e8551372)
 	{
 		level endon(str_endon);
 	}
-	self endon(var_81a32895 + "_off");
+	self endon(str_ability + "_off");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
@@ -1117,12 +1117,12 @@ function function_5dca74fc(var_81a32895, str_endon, var_e8551372)
 		__s util::delay_notify(30, "timeout");
 	}
 	self util::hide_hint_text(1);
-	while(!self flag::get(var_81a32895 + "_use_ability_tutorial"))
+	while(!self flag::get(str_ability + "_use_ability_tutorial"))
 	{
 		level waittill("ccom_locked_on", ent, e_player);
 		if(e_player == self)
 		{
-			self function_e52b73c0(var_81a32895, str_endon, var_e8551372);
+			self function_e52b73c0(str_ability, str_endon, var_e8551372);
 		}
 	}
 }
@@ -1136,7 +1136,7 @@ function function_5dca74fc(var_81a32895, str_endon, var_e8551372)
 	Parameters: 3
 	Flags: Linked
 */
-function function_e52b73c0(var_81a32895, str_endon, var_f069395f)
+function function_e52b73c0(str_ability, str_endon, var_f069395f)
 {
 	self endon("death");
 	if(isarray(str_endon))
@@ -1150,7 +1150,7 @@ function function_e52b73c0(var_81a32895, str_endon, var_f069395f)
 	{
 		level endon(str_endon);
 	}
-	self endon(var_81a32895 + "_off");
+	self endon(str_ability + "_off");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
@@ -1158,12 +1158,12 @@ function function_e52b73c0(var_81a32895, str_endon, var_f069395f)
 		__s util::delay_notify(30, "timeout");
 	}
 	self endon(#"hash_5e2557e1");
-	self thread function_e84823a9(var_81a32895, str_endon);
+	self thread function_e84823a9(str_ability, str_endon);
 	wait(0.8);
 	self util::show_hint_text(var_f069395f, 0, undefined, 4);
-	if(!self flag::get(var_81a32895 + "_use_ability_tutorial"))
+	if(!self flag::get(str_ability + "_use_ability_tutorial"))
 	{
-		self flag::wait_till_timeout(3, var_81a32895 + "_use_ability_tutorial");
+		self flag::wait_till_timeout(3, str_ability + "_use_ability_tutorial");
 	}
 }
 
@@ -1176,7 +1176,7 @@ function function_e52b73c0(var_81a32895, str_endon, var_f069395f)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e84823a9(var_81a32895, str_endon)
+function function_e84823a9(str_ability, str_endon)
 {
 	self endon("death");
 	if(isarray(str_endon))
@@ -1190,7 +1190,7 @@ function function_e84823a9(var_81a32895, str_endon)
 	{
 		level endon(str_endon);
 	}
-	self endon(var_81a32895 + "_off");
+	self endon(str_ability + "_off");
 	if(isdefined(30))
 	{
 		__s = spawnstruct();
@@ -1221,7 +1221,7 @@ function function_e84823a9(var_81a32895, str_endon)
 	Parameters: 3
 	Flags: Linked
 */
-function function_a7a2da7e(var_81a32895, var_2380d5c = 0, str_endon)
+function function_a7a2da7e(str_ability, var_2380d5c = 0, str_endon)
 {
 	self endon("death");
 	if(isarray(str_endon))
@@ -1241,10 +1241,10 @@ function function_a7a2da7e(var_81a32895, var_2380d5c = 0, str_endon)
 		__s endon("timeout");
 		__s util::delay_notify(30, "timeout");
 	}
-	weapon = function_71840183(var_81a32895, var_2380d5c);
+	weapon = function_71840183(str_ability, var_2380d5c);
 	self waittill(weapon.name + "_fired");
-	self flag::set(var_81a32895 + "_use_ability_tutorial");
-	level notify(var_81a32895 + "_use_ability_tutorial");
+	self flag::set(str_ability + "_use_ability_tutorial");
+	level notify(str_ability + "_use_ability_tutorial");
 	self util::hide_hint_text(1);
 }
 
@@ -1257,10 +1257,10 @@ function function_a7a2da7e(var_81a32895, var_2380d5c = 0, str_endon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_71840183(var_81a32895, var_2380d5c = 0)
+function function_71840183(str_ability, var_2380d5c = 0)
 {
 	weapon = undefined;
-	ability = cybercom_gadget::getabilitybyname(var_81a32895);
+	ability = cybercom_gadget::getabilitybyname(str_ability);
 	if(var_2380d5c == 1)
 	{
 		weapon = ability.weaponupgraded;
