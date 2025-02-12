@@ -196,22 +196,22 @@ function function_6c8292ba(localclientnum)
 	Parameters: 3
 	Flags: Linked
 */
-function function_1b1753c0(localclientnum, origin, var_263c10ef)
+function function_1b1753c0(localclientnum, origin, str_bounced)
 {
 	if(!isdefined(self.var_805863e3))
 	{
 		self.var_805863e3 = util::spawn_model(localclientnum, "tag_origin", origin);
-		level beam::launch(self.var_f929ecf4, "tag_origin", self.var_805863e3, "tag_origin", var_263c10ef);
-		self.var_4a0d7655 = var_263c10ef;
+		level beam::launch(self.var_f929ecf4, "tag_origin", self.var_805863e3, "tag_origin", str_bounced);
+		self.var_4a0d7655 = str_bounced;
 	}
 	else
 	{
-		if(self.var_4a0d7655 !== var_263c10ef)
+		if(self.var_4a0d7655 !== str_bounced)
 		{
 			level beam::kill(self.var_f929ecf4, "tag_origin", self.var_805863e3, "tag_origin", self.var_4a0d7655);
 			self.var_805863e3.origin = origin;
-			level beam::launch(self.var_f929ecf4, "tag_origin", self.var_805863e3, "tag_origin", var_263c10ef);
-			self.var_4a0d7655 = var_263c10ef;
+			level beam::launch(self.var_f929ecf4, "tag_origin", self.var_805863e3, "tag_origin", str_bounced);
+			self.var_4a0d7655 = str_bounced;
 		}
 		else
 		{
@@ -284,12 +284,12 @@ function function_b578a840(localclientnum, oldval, newval, bnewent, binitialsnap
 		self.var_f929ecf4.angles = vectortoangles(v_forward);
 		v_position = self.var_f929ecf4.origin;
 		a_trace = beamtrace(v_position, v_position + (v_forward * 20000), 1, self);
-		var_263c10ef = "dlc4_skull_turret_beam_reflect";
+		str_bounced = "dlc4_skull_turret_beam_reflect";
 		if(isdefined(e_last_target) && (e_last_target.archetype === "zombie" || e_last_target.archetype === "parasite"))
 		{
-			var_263c10ef = "dlc4_skull_turret_beam";
+			str_bounced = "dlc4_skull_turret_beam";
 		}
-		function_1b1753c0(localclientnum, a_trace["position"], var_263c10ef);
+		function_1b1753c0(localclientnum, a_trace["position"], str_bounced);
 		function_cd048702(v_position, self.var_805863e3.origin, (1, 1, 0));
 		render_debug_sphere(self.var_805863e3.origin, (1, 0, 0));
 	}
