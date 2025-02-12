@@ -435,25 +435,25 @@ function function_86d9efb0(e_player)
 			case "code_cylinder_red":
 			{
 				var_130c4ab2 = 1;
-				var_5f982950 = "drop_pod_terminal_factory";
+				str_console = "drop_pod_terminal_factory";
 				break;
 			}
 			case "code_cylinder_blue":
 			{
 				var_130c4ab2 = 2;
-				var_5f982950 = "drop_pod_terminal_judicial";
+				str_console = "drop_pod_terminal_judicial";
 				break;
 			}
 			case "code_cylinder_yellow":
 			{
 				var_130c4ab2 = 3;
-				var_5f982950 = "drop_pod_terminal_library";
+				str_console = "drop_pod_terminal_library";
 				break;
 			}
 		}
 		player clientfield::set_player_uimodel("zmInventory.piece_cylinder", var_130c4ab2);
 		player thread zm_craftables::player_show_craftable_parts_ui("zmInventory.piece_cylinder", "zmInventory.widget_cylinder", 0);
-		mdl_console = getent(var_5f982950, "targetname");
+		mdl_console = getent(str_console, "targetname");
 		mdl_console showpart("tag_screen_main_green");
 		mdl_console hidepart("tag_screen_main_red");
 		player function_8df46779(1, self.powerup_name);
