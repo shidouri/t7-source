@@ -525,7 +525,7 @@ function function_17303d81()
 			if(var_2e0c3d2c.targetname == "walltrap_onswitch")
 			{
 				var_2e0c3d2c.var_71dddffe = level.var_84662f56["walltrap_onswitch"];
-				var_2e0c3d2c.var_d7141317 = level.var_2e0a18df["walltrap_onswitch"];
+				var_2e0c3d2c.str_rest = level.var_2e0a18df["walltrap_onswitch"];
 				var_2e0c3d2c.var_de0db1fd = 30;
 				var_2e0c3d2c.var_614a7182 = 30;
 				var_2e0c3d2c.n_cost = 1000;
@@ -537,7 +537,7 @@ function function_17303d81()
 			if(var_2e0c3d2c.targetname == "proptraps_onswitch")
 			{
 				var_2e0c3d2c.var_71dddffe = level.var_84662f56["proptraps_onswitch"];
-				var_2e0c3d2c.var_d7141317 = level.var_2e0a18df["proptraps_onswitch"];
+				var_2e0c3d2c.str_rest = level.var_2e0a18df["proptraps_onswitch"];
 				var_2e0c3d2c.var_de0db1fd = 30;
 				var_2e0c3d2c.var_614a7182 = 30;
 				var_2e0c3d2c.n_cost = 1000;
