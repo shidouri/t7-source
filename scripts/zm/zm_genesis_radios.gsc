@@ -213,7 +213,7 @@ function function_35f4f25f()
 	Parameters: 1
 	Flags: Linked
 */
-function function_66d50897(var_ffc8395e)
+function function_66d50897(str_method)
 {
 	if(self.s_unitrigger.b_on)
 	{
@@ -227,7 +227,7 @@ function function_66d50897(var_ffc8395e)
 			str_vo = level.var_22e09be4[var_3c13e11b][0];
 			if(isdefined(str_vo))
 			{
-				if(var_ffc8395e == "damage")
+				if(str_method == "damage")
 				{
 					var_c46d7830 = self.clip.origin;
 				}
