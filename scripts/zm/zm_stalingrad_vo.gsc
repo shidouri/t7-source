@@ -1921,9 +1921,9 @@ function function_8141c730()
 */
 function function_1f1e411c()
 {
-	var_fed9d833 = ("vox_plr_" + self.characterindex) + "_sophia_first_interact_0_0";
+	str_interact = ("vox_plr_" + self.characterindex) + "_sophia_first_interact_0_0";
 	var_ba3dd1ed = "vox_soph_sophia_first_interact_1_0";
-	var_1f76714 = array(var_fed9d833, var_ba3dd1ed);
+	var_1f76714 = array(str_interact, var_ba3dd1ed);
 	var_7995e0ad = function_fcea1c5c();
 	if(isdefined(var_7995e0ad))
 	{
