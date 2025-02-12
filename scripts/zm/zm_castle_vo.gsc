@@ -2914,10 +2914,10 @@ function function_f0b775a3(str_label, var_ed01584 = 1, b_wait = 1)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7c63dd65(var_300b5632, b_wait = 1)
+function function_7c63dd65(str_crest, b_wait = 1)
 {
-	str_vo_alias = ("vox_arro_demongate_" + var_300b5632) + "_0";
-	self thread function_c123b81c(var_300b5632, str_vo_alias);
+	str_vo_alias = ("vox_arro_demongate_" + str_crest) + "_0";
+	self thread function_c123b81c(str_crest, str_vo_alias);
 	return self vo_say(str_vo_alias, 0, b_wait, 0, 1);
 }
 

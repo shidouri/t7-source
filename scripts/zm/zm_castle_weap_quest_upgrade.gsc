@@ -2697,9 +2697,9 @@ function function_3520622d(b_wait = 1)
 		self endon(#"hash_3c5d2ca5");
 	#/
 	var_cd45655b = getent("aq_dg_urn_position", "targetname");
-	foreach(var_300b5632 in level.var_289ae31d)
+	foreach(str_crest in level.var_289ae31d)
 	{
-		b_played = var_cd45655b zm_castle_vo::function_7c63dd65(var_300b5632, b_wait);
+		b_played = var_cd45655b zm_castle_vo::function_7c63dd65(str_crest, b_wait);
 		if(!b_wait && !b_played)
 		{
 			return;
