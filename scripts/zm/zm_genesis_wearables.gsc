@@ -313,8 +313,8 @@ function give_wearable(str_model, var_475b0a4e, str_tag)
 */
 function function_e5515520()
 {
-	var_77268fe9 = self getcharacterbodymodel();
-	switch(var_77268fe9)
+	str_body = self getcharacterbodymodel();
+	switch(str_body)
 	{
 		case "c_zom_dlc3_nikolai_mpc_fb":
 		{
