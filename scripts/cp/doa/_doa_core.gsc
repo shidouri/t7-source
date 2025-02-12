@@ -1076,7 +1076,7 @@ function function_9ac615ee(gameover, round = level.doa.round_number)
 			kills = self getdstat("deadOpsArcade", "enemyKills");
 			self setdstat("deadOpsArcade", "enemyKills", self.doa.kills + kills);
 			wins = self getdstat("deadOpsArcade", "redinsWins");
-			self setdstat("deadOpsArcade", "redinsWins", self.doa.var_74c73153 + wins);
+			self setdstat("deadOpsArcade", "redinsWins", self.doa.redinswins + wins);
 			chickens = self getdstat("deadOpsArcade", "chickensTamed");
 			self setdstat("deadOpsArcade", "chickensTamed", self.doa.var_d92a8d3e + chickens);
 			cows = self getdstat("deadOpsArcade", "cowsExploded");

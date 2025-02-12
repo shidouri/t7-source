@@ -1357,7 +1357,7 @@ function function_3ed913b4(room)
 	level thread doa_utility::function_c5f3ece8(&"CP_DOA_BO3_REDINS_WINNER");
 	wait(4);
 	level thread doa_utility::function_37fb5c23(winner.name);
-	winner.doa.var_74c73153++;
+	winner.doa.redinswins++;
 	spots = struct::get_array("redins_pickup_location");
 	level notify(#"hash_e1dc3538");
 	winner thread doa_player_utility::function_139199e1();
