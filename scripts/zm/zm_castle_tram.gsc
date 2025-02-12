@@ -170,10 +170,10 @@ function function_9d4a523c(var_24ee4867)
 	Parameters: 2
 	Flags: Linked
 */
-function function_4173be8d(var_d484b386, var_15872fa7)
+function function_4173be8d(var_d484b386, str_docked)
 {
 	exploder::stop_exploder(("lgt_" + var_d484b386) + "_down");
-	while(level flag::get("tram_moving") || level flag::get(var_15872fa7))
+	while(level flag::get("tram_moving") || level flag::get(str_docked))
 	{
 		exploder::exploder(("lgt_" + var_d484b386) + "_up");
 		wait(0.6);
