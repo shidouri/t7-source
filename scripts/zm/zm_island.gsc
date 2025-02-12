@@ -1515,41 +1515,41 @@ function function_37f2c48b()
 			case "zone_start_2":
 			case "zone_start_water":
 			{
-				var_c490d0cd = "ex_lightning_start";
+				str_lightning = "ex_lightning_start";
 				break;
 			}
 			case "zone_ruins":
 			{
-				var_c490d0cd = "ex_lightning_ruins";
+				str_lightning = "ex_lightning_ruins";
 				break;
 			}
 			case "zone_swamp":
 			case "zone_swamp_lab":
 			case "zone_swamp_lab_underneath":
 			{
-				var_c490d0cd = "ex_lightning_swamp";
+				str_lightning = "ex_lightning_swamp";
 				break;
 			}
 			case "zone_jungle":
 			case "zone_jungle_lab":
 			{
-				var_c490d0cd = "ex_lightning_jungle";
+				str_lightning = "ex_lightning_jungle";
 				break;
 			}
 			case "zone_bunker_exterior":
 			{
-				var_c490d0cd = "ex_lightning_bunkerTop";
+				str_lightning = "ex_lightning_bunkerTop";
 				break;
 			}
 			case "zone_crash_site":
 			{
-				var_c490d0cd = "ex_lightning_crash";
+				str_lightning = "ex_lightning_crash";
 				break;
 			}
 		}
-		if(isdefined(var_c490d0cd))
+		if(isdefined(str_lightning))
 		{
-			level thread function_bf1537b3(var_c490d0cd, self);
+			level thread function_bf1537b3(str_lightning, self);
 		}
 	}
 }
@@ -1563,7 +1563,7 @@ function function_37f2c48b()
 	Parameters: 2
 	Flags: Linked
 */
-function function_bf1537b3(var_c490d0cd, e_player)
+function function_bf1537b3(str_lightning, e_player)
 {
 	for(i = 0; i < randomintrange(3, 7); i++)
 	{
@@ -1575,7 +1575,7 @@ function function_bf1537b3(var_c490d0cd, e_player)
 				e_player playsound("zmb_island_lightning");
 			}
 		}
-		level thread exploder::exploder(var_c490d0cd);
+		level thread exploder::exploder(str_lightning);
 	}
 }
 

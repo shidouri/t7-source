@@ -1139,9 +1139,9 @@ function function_397b26ee()
 	wait(1.5);
 	while(var_45a970ad.size > 0)
 	{
-		var_c490d0cd = array::random(var_45a970ad);
-		exploder::exploder(var_c490d0cd);
-		arrayremovevalue(var_45a970ad, var_c490d0cd);
+		str_lightning = array::random(var_45a970ad);
+		exploder::exploder(str_lightning);
+		arrayremovevalue(var_45a970ad, str_lightning);
 		wait(randomfloatrange(0.5, 1.5));
 	}
 	wait(5);
