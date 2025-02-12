@@ -277,7 +277,7 @@ class czmtrain
 	}
 
 	/*
-		Name: function_3e62f527
+		Name: get_doors_state
 		Namespace: czmtrain
 		Checksum: 0x55BB8013
 		Offset: 0x7958
@@ -285,7 +285,7 @@ class czmtrain
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_3e62f527()
+	function get_doors_state()
 	{
 		return var_9e0dc993;
 	}

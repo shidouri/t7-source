@@ -158,7 +158,7 @@ function private function_5d11b2dc(entity)
 	{
 		if(isdefined(entity.favoriteenemy.on_train) && entity.favoriteenemy.on_train)
 		{
-			var_d3443466 = [[ level.o_zod_train ]]->function_3e62f527();
+			var_d3443466 = [[ level.o_zod_train ]]->get_doors_state();
 			if(isdefined(entity.locked_in_train) && entity.locked_in_train && (!(isdefined(var_d3443466) && var_d3443466)))
 			{
 				return false;

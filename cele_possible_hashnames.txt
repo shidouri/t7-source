@@ -34,3 +34,5 @@ arena_abeyance_denial
 arena_abhorred_punishment
 arena_abhorrently_glitter
 arena_abhorring_overseeing
+get_blunderer_state
+get_doors_state

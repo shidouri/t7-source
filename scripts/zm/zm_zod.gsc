@@ -1666,7 +1666,7 @@ function enemy_location_override(zombie, enemy)
 		var_d3443466 = 0;
 		if(isdefined(level.o_zod_train))
 		{
-			var_d3443466 = [[ level.o_zod_train ]]->function_3e62f527();
+			var_d3443466 = [[ level.o_zod_train ]]->get_doors_state();
 		}
 		if(!(isdefined(self.locked_in_train) && self.locked_in_train) && (!(isdefined(var_d3443466) && var_d3443466)))
 		{
