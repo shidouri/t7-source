@@ -120,7 +120,7 @@ function robot_horde_main()
 	level thread function_79c2bdec();
 	level thread function_341ece1b();
 	level thread function_38c8ec92();
-	level thread function_9fb290a5();
+	level thread sndrobotreveal();
 	level thread function_94976a83();
 	level thread function_4a895a11();
 	level thread objectives::breadcrumb("breadcrumb_robot_horde");
@@ -351,7 +351,7 @@ function function_90882a34()
 }
 
 /*
-	Name: function_9fb290a5
+	Name: sndrobotreveal
 	Namespace: robot_horde
 	Checksum: 0x423552ED
 	Offset: 0x1EB0
@@ -359,7 +359,7 @@ function function_90882a34()
 	Parameters: 0
 	Flags: Linked
 */
-function function_9fb290a5()
+function sndrobotreveal()
 {
 	struct = struct::get("sndRobotRattle", "targetname");
 	struct2 = struct::get(struct.target, "targetname");
