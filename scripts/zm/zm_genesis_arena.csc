@@ -938,7 +938,7 @@ function sndarena(state, e_model)
 }
 
 /*
-	Name: function_2bcc6bd2
+	Name: sndcircle
 	Namespace: zm_genesis_arena
 	Checksum: 0x276AA2EA
 	Offset: 0x3810
@@ -946,10 +946,10 @@ function sndarena(state, e_model)
 	Parameters: 2
 	Flags: None
 */
-function function_2bcc6bd2(state, e_model)
+function sndcircle(state, e_model)
 {
-	level notify(#"hash_2bcc6bd2");
-	level endon(#"hash_2bcc6bd2");
+	level notify("sndcircle");
+	level endon("sndcircle");
 	switch(state)
 	{
 		case 0:
