@@ -476,8 +476,8 @@ function function_8b413656(var_d2eebe84, e_ent)
 			self thread drown_warning();
 		}
 	}
-	var_b45ec125 = array(0.5, 0.3, 0.2, 0.15, 0.1, 0.5);
-	foreach(num in var_b45ec125)
+	sndarray = array(0.5, 0.3, 0.2, 0.15, 0.1, 0.5);
+	foreach(num in sndarray)
 	{
 		if(var_d2eebe84 != 0 && var_d2eebe84 <= num)
 		{
