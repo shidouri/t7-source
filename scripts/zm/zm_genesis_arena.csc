@@ -870,7 +870,7 @@ function function_7277f824(n_index, b_on)
 }
 
 /*
-	Name: function_3de943fb
+	Name: sndarena
 	Namespace: zm_genesis_arena
 	Checksum: 0xD8E85EDC
 	Offset: 0x34D8
@@ -878,7 +878,7 @@ function function_7277f824(n_index, b_on)
 	Parameters: 2
 	Flags: None
 */
-function function_3de943fb(state, e_model)
+function sndarena(state, e_model)
 {
 	level notify(#"hash_3de943fb");
 	level endon(#"hash_3de943fb");
