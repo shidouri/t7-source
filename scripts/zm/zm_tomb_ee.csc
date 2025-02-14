@@ -142,12 +142,12 @@ function function_64b44f6b(localclientnum, oldval, newval, bnewent, binitialsnap
 			self.var_8020f50b = playfxontag(localclientnum, level._effect["fist_glow"], self, "J_Wrist_RI");
 			self.var_9c121695 = playfxontag(localclientnum, level._effect["fist_glow"], self, "J_Wrist_LE");
 		}
-		if(!isdefined(self.var_3a8912f4))
+		if(!isdefined(self.sndfist))
 		{
-			self.var_3a8912f4 = spawn(0, self.origin, "script_origin");
-			self.var_3a8912f4 linkto(self);
-			self.var_3a8912f4 playloopsound("zmb_squest_punchtime_fist_loop", 1);
-			self thread snddeletesndent(self.var_3a8912f4);
+			self.sndfist = spawn(0, self.origin, "script_origin");
+			self.sndfist linkto(self);
+			self.sndfist playloopsound("zmb_squest_punchtime_fist_loop", 1);
+			self thread snddeletesndent(self.sndfist);
 		}
 	}
 	else
