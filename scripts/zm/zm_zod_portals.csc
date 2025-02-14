@@ -192,7 +192,7 @@ function portal_state_internal(localclientnum, str_areaname, newval)
 		{
 			level thread function_c0c1771a(localclientnum, s_loc_upper, 0, 0);
 			level thread function_c0c1771a(localclientnum, s_loc_lower, 0, 1);
-			level thread function_a2d0d0e4(s_loc_upper.origin, s_loc_lower.origin, "amb_teleporter_off_lp", "amb_teleporter_on_lp");
+			level thread sndportal(s_loc_upper.origin, s_loc_lower.origin, "amb_teleporter_off_lp", "amb_teleporter_on_lp");
 			exploder::stop_exploder("lgt_portal_" + str_areaname);
 			break;
 		}
@@ -200,7 +200,7 @@ function portal_state_internal(localclientnum, str_areaname, newval)
 		{
 			level thread function_c0c1771a(localclientnum, s_loc_upper, 1, 0);
 			level thread function_c0c1771a(localclientnum, s_loc_lower, 1, 1);
-			level thread function_a2d0d0e4(s_loc_upper.origin, s_loc_lower.origin, "amb_teleporter_on_lp", "amb_teleporter_off_lp", "amb_teleporter_activate");
+			level thread sndportal(s_loc_upper.origin, s_loc_lower.origin, "amb_teleporter_on_lp", "amb_teleporter_off_lp", "amb_teleporter_activate");
 			exploder::exploder("lgt_portal_" + str_areaname);
 			break;
 		}
@@ -208,7 +208,7 @@ function portal_state_internal(localclientnum, str_areaname, newval)
 		{
 			level thread function_c0c1771a(localclientnum, s_loc_upper, 1, 0);
 			level thread function_c0c1771a(localclientnum, s_loc_lower, 1, 1);
-			level thread function_a2d0d0e4(s_loc_upper.origin, s_loc_lower.origin, "amb_teleporter_on_lp", "amb_teleporter_off_lp", "amb_teleporter_activate");
+			level thread sndportal(s_loc_upper.origin, s_loc_lower.origin, "amb_teleporter_on_lp", "amb_teleporter_off_lp", "amb_teleporter_activate");
 			exploder::exploder("lgt_portal_" + str_areaname);
 			break;
 		}
@@ -514,7 +514,7 @@ function stop_fx_if_defined(localclientnum, fx_reference)
 }
 
 /*
-	Name: function_a2d0d0e4
+	Name: sndportal
 	Namespace: zm_zod_portals
 	Checksum: 0x703BCBC
 	Offset: 0x1F78
@@ -522,7 +522,7 @@ function stop_fx_if_defined(localclientnum, fx_reference)
 	Parameters: 5
 	Flags: Linked
 */
-function function_a2d0d0e4(origin1, origin2, onloop, var_2978dbc6, activation)
+function sndportal(origin1, origin2, onloop, var_2978dbc6, activation)
 {
 	audio::playloopat(onloop, origin1);
 	audio::stoploopat(var_2978dbc6, origin1);
