@@ -19,7 +19,7 @@ function main()
 	clientfield::register("toplayer", "slowmo_duck_active", 1, 2, "int", &function_41d671f5, 0, 0);
 	level thread function_dcd7454a();
 	level thread function_38ba2136();
-	level thread function_4035bef1();
+	level thread sndsiren();
 	level thread sndmusicrampers();
 }
 
@@ -105,7 +105,7 @@ function function_38ba2136()
 }
 
 /*
-	Name: function_4035bef1
+	Name: sndsiren
 	Namespace: cp_mi_sing_vengeance_sound
 	Checksum: 0xEF3D189C
 	Offset: 0x648
@@ -113,7 +113,7 @@ function function_38ba2136()
 	Parameters: 0
 	Flags: Linked
 */
-function function_4035bef1()
+function sndsiren()
 {
 	trigger = getent(0, "siren", "targetname");
 	if(!isdefined(trigger))
