@@ -785,7 +785,7 @@ function function_a716de1f()
 	self.missinglegs = 0;
 	self.b_ignore_cleanup = 1;
 	self thread function_871a3bd5();
-	self thread function_632dead();
+	self thread sndthrasher();
 	if(!isdefined(level.var_35a5aa88))
 	{
 		level.var_35a5aa88 = [];
@@ -1222,7 +1222,7 @@ function function_871a3bd5()
 }
 
 /*
-	Name: function_632dead
+	Name: sndthrasher
 	Namespace: zm_ai_thrasher
 	Checksum: 0xF6ED57DB
 	Offset: 0x3690
@@ -1230,7 +1230,7 @@ function function_871a3bd5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_632dead()
+function sndthrasher()
 {
 	self endon("death");
 	self playloopsound("zmb_thrasher_lp_close", 2);
