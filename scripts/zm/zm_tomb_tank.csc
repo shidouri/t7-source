@@ -110,9 +110,9 @@ function function_a7df9920(ent)
 function function_de8b2ce1(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	self notify(#"hash_53f5220a");
-	if(!isdefined(self.var_1be9b23))
+	if(!isdefined(self.sndflame))
 	{
-		self.var_1be9b23 = spawn(0, (0, 0, 0), "script_origin");
+		self.sndflame = spawn(0, (0, 0, 0), "script_origin");
 	}
 	if(newval == 0)
 	{
