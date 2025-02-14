@@ -55,7 +55,7 @@ function function_41d671f5(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_dcd7454a()
 {
-	level waittill(#"hash_52a22e61");
+	level waittill("sndcafe");
 	level endon(#"hash_c2155d7e");
 	level thread function_cc438941();
 	audio::snd_set_snapshot("cp_vengeance_cafe");
