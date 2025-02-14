@@ -74,22 +74,22 @@ function function_46df8306(localclientnum, str_name, b_on = 1)
 	foreach(s_spawn_point in a_s_spawn_points)
 	{
 		s_spawn_point function_267f859f(localclientnum, level._effect["keeper_spawn"], b_on);
-		if(!isdefined(s_spawn_point.var_d52fc488))
+		if(!isdefined(s_spawn_point.sndactive))
 		{
-			s_spawn_point.var_d52fc488 = 0;
+			s_spawn_point.sndactive = 0;
 		}
 		if(isdefined(b_on) && b_on)
 		{
-			if(!(isdefined(s_spawn_point.var_d52fc488) && s_spawn_point.var_d52fc488))
+			if(!(isdefined(s_spawn_point.sndactive) && s_spawn_point.sndactive))
 			{
-				s_spawn_point.var_d52fc488 = 1;
+				s_spawn_point.sndactive = 1;
 				playsound(0, "evt_keeper_portal_start", s_spawn_point.origin);
 				audio::playloopat("evt_keeper_portal_loop", s_spawn_point.origin);
 			}
 		}
-		else if(isdefined(s_spawn_point.var_d52fc488) && s_spawn_point.var_d52fc488)
+		else if(isdefined(s_spawn_point.sndactive) && s_spawn_point.sndactive)
 		{
-			s_spawn_point.var_d52fc488 = 0;
+			s_spawn_point.sndactive = 0;
 			playsound(0, "evt_keeper_portal_end", s_spawn_point.origin);
 			audio::stoploopat("evt_keeper_portal_loop", s_spawn_point.origin);
 		}
@@ -113,15 +113,15 @@ function function_f58977cd(localclientnum, str_name, b_on = 1)
 	{
 		s_spawn_point function_267f859f(localclientnum, level._effect["ritual_portal_start"], b_on);
 		s_spawn_point function_267f859f(localclientnum, level._effect["ritual_portal_loop"], b_on);
-		if(!isdefined(s_spawn_point.var_d52fc488))
+		if(!isdefined(s_spawn_point.sndactive))
 		{
-			s_spawn_point.var_d52fc488 = 0;
+			s_spawn_point.sndactive = 0;
 		}
 		if(isdefined(b_on) && b_on)
 		{
-			if(!(isdefined(s_spawn_point.var_d52fc488) && s_spawn_point.var_d52fc488))
+			if(!(isdefined(s_spawn_point.sndactive) && s_spawn_point.sndactive))
 			{
-				s_spawn_point.var_d52fc488 = 1;
+				s_spawn_point.sndactive = 1;
 				playsound(0, "zmb_skull_ritual_portal_start", s_spawn_point.origin);
 				audio::playloopat("zmb_skull_ritual_portal_lp", s_spawn_point.origin);
 			}
@@ -129,9 +129,9 @@ function function_f58977cd(localclientnum, str_name, b_on = 1)
 		else
 		{
 			s_spawn_point function_267f859f(localclientnum, level._effect["ritual_portal_end"], b_on);
-			if(isdefined(s_spawn_point.var_d52fc488) && s_spawn_point.var_d52fc488)
+			if(isdefined(s_spawn_point.sndactive) && s_spawn_point.sndactive)
 			{
-				s_spawn_point.var_d52fc488 = 0;
+				s_spawn_point.sndactive = 0;
 				playsound(0, "zmb_skull_ritual_portal_end", s_spawn_point.origin);
 				audio::stoploopat("zmb_skull_ritual_portal_lp", s_spawn_point.origin);
 			}
@@ -240,14 +240,14 @@ function function_4dcbb3a6(localclientnum, var_f2e38849, n_fx_type = 1)
 			{
 				level thread function_f58977cd(localclientnum, var_4a347901, 1);
 			}
-			if(!(isdefined(var_b9533b1f.var_d52fc488) && var_b9533b1f.var_d52fc488))
+			if(!(isdefined(var_b9533b1f.sndactive) && var_b9533b1f.sndactive))
 			{
-				var_b9533b1f.var_d52fc488 = 1;
+				var_b9533b1f.sndactive = 1;
 			}
 		}
-		else if(isdefined(var_b9533b1f.var_d52fc488) && var_b9533b1f.var_d52fc488)
+		else if(isdefined(var_b9533b1f.sndactive) && var_b9533b1f.sndactive)
 		{
-			var_b9533b1f.var_d52fc488 = 0;
+			var_b9533b1f.sndactive = 0;
 		}
 	}
 	else

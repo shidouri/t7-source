@@ -787,22 +787,22 @@ function function_46df8306(localclientnum, str_name, b_on = 1)
 	foreach(s_spawn_point in a_s_spawn_points)
 	{
 		s_spawn_point function_267f859f(localclientnum, level._effect["keeper_spawn"], b_on);
-		if(!isdefined(s_spawn_point.var_d52fc488))
+		if(!isdefined(s_spawn_point.sndactive))
 		{
-			s_spawn_point.var_d52fc488 = 0;
+			s_spawn_point.sndactive = 0;
 		}
 		if(isdefined(b_on) && b_on)
 		{
-			if(!(isdefined(s_spawn_point.var_d52fc488) && s_spawn_point.var_d52fc488))
+			if(!(isdefined(s_spawn_point.sndactive) && s_spawn_point.sndactive))
 			{
-				s_spawn_point.var_d52fc488 = 1;
+				s_spawn_point.sndactive = 1;
 				playsound(0, "evt_keeper_portal_start", s_spawn_point.origin);
 				audio::playloopat("evt_keeper_portal_loop", s_spawn_point.origin);
 			}
 		}
-		else if(isdefined(s_spawn_point.var_d52fc488) && s_spawn_point.var_d52fc488)
+		else if(isdefined(s_spawn_point.sndactive) && s_spawn_point.sndactive)
 		{
-			s_spawn_point.var_d52fc488 = 0;
+			s_spawn_point.sndactive = 0;
 			playsound(0, "evt_keeper_portal_end", s_spawn_point.origin);
 			audio::stoploopat("evt_keeper_portal_loop", s_spawn_point.origin);
 		}
