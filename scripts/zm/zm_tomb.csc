@@ -1320,19 +1320,19 @@ function function_fbc162aa(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_5f9e6e69(localclientnum)
 {
-	if(!isdefined(level.var_1c69bb12))
+	if(!isdefined(level.sndweather))
 	{
 		level thread zm_tomb_amb::function_33be1969();
 	}
 	if(level.weather_snow == 0)
 	{
 		level notify("_snow_thread" + localclientnum);
-		level.var_1c69bb12.issnow = 0;
+		level.sndweather.issnow = 0;
 	}
 	else
 	{
 		self thread _snow_thread(level.weather_snow, localclientnum);
-		level.var_1c69bb12.issnow = 1;
+		level.sndweather.issnow = 1;
 	}
 	level thread function_f099c69d(self);
 }
@@ -1348,7 +1348,7 @@ function function_5f9e6e69(localclientnum)
 */
 function function_4a9e7e2(localclientnum)
 {
-	if(!isdefined(level.var_1c69bb12))
+	if(!isdefined(level.sndweather))
 	{
 		level thread zm_tomb_amb::function_33be1969();
 	}
@@ -1360,7 +1360,7 @@ function function_4a9e7e2(localclientnum)
 	{
 		level notify("_rain_thread" + localclientnum);
 		self.b_lightning = 0;
-		level.var_1c69bb12.israin = 0;
+		level.sndweather.israin = 0;
 	}
 	else
 	{
@@ -1369,7 +1369,7 @@ function function_4a9e7e2(localclientnum)
 			self thread _lightning_thread(localclientnum);
 		}
 		self thread _rain_thread(level.weather_rain, localclientnum);
-		level.var_1c69bb12.israin = 1;
+		level.sndweather.israin = 1;
 	}
 	level thread function_f099c69d(self);
 }

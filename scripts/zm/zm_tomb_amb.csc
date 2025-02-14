@@ -190,13 +190,13 @@ function function_c052f9b8()
 	while(true)
 	{
 		level waittill(#"hash_f099c69d");
-		if(isdefined(level.var_1c69bb12.israin) && level.var_1c69bb12.israin)
+		if(isdefined(level.sndweather.israin) && level.sndweather.israin)
 		{
 			setsoundcontext("train", "country");
 		}
 		else
 		{
-			if(isdefined(level.var_1c69bb12.issnow) && level.var_1c69bb12.issnow)
+			if(isdefined(level.sndweather.issnow) && level.sndweather.issnow)
 			{
 				setsoundcontext("train", "city");
 			}
@@ -219,9 +219,9 @@ function function_c052f9b8()
 */
 function function_33be1969()
 {
-	level.var_1c69bb12 = spawnstruct();
-	level.var_1c69bb12.israin = 0;
-	level.var_1c69bb12.issnow = 0;
+	level.sndweather = spawnstruct();
+	level.sndweather.israin = 0;
+	level.sndweather.issnow = 0;
 }
 
 /*
