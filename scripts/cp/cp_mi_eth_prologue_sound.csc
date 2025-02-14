@@ -17,7 +17,7 @@ function main()
 {
 	level thread function_aca4761();
 	level thread function_669e0ca5();
-	level thread function_6ce0e63();
+	level thread sndhallways();
 	level thread function_35acdae6();
 	level thread function_9806d032();
 	level thread function_c943c5e5();
@@ -81,7 +81,7 @@ function function_669e0ca5()
 }
 
 /*
-	Name: function_6ce0e63
+	Name: sndhallways
 	Namespace: cp_mi_eth_prologue_sound
 	Checksum: 0x2173CA22
 	Offset: 0x548
@@ -89,7 +89,7 @@ function function_669e0ca5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6ce0e63()
+function sndhallways()
 {
 	level audio::playloopat("evt_halway_equipment", (3437, 597, -341));
 }
