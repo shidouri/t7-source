@@ -1309,7 +1309,7 @@ function private function_51f0dd2c()
 {
 	level endon(#"hash_d1f5acf7");
 	level endon(#"hash_cb54277d");
-	var_3fb52dd3 = 20;
+	numshields = 20;
 	var_7383e7dd = [];
 	var_7383e7dd[var_7383e7dd.size] = 0;
 	if(level.doa.round_number > 64)
@@ -1324,7 +1324,7 @@ function private function_51f0dd2c()
 	{
 		var_7383e7dd[var_7383e7dd.size] = 4;
 	}
-	for(i = 0; i < var_3fb52dd3; i++)
+	for(i = 0; i < numshields; i++)
 	{
 		org = spawn("script_model", self.origin);
 		org.targetname = "_bossShield";
