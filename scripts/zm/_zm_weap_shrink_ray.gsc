@@ -219,8 +219,8 @@ function function_9af5d92d(upgraded, attacker)
 		return;
 	}
 	self.shrinked = 1;
-	var_36333499 = self getattachsize();
-	for(i = var_36333499 - 1; i >= 0; i--)
+	nummodels = self getattachsize();
+	for(i = nummodels - 1; i >= 0; i--)
 	{
 		model = self getattachmodelname(i);
 		self detach(model);
@@ -366,8 +366,8 @@ function shrink_zombie(upgraded, attacker)
 			attachedmodels = [];
 			attachedtags = [];
 			hatmodel = self.hatmodel;
-			var_36333499 = self getattachsize();
-			for(i = var_36333499 - 1; i >= 0; i--)
+			nummodels = self getattachsize();
+			for(i = nummodels - 1; i >= 0; i--)
 			{
 				model = self getattachmodelname(i);
 				tag = self getattachtagname(i);
@@ -423,8 +423,8 @@ function shrink_zombie(upgraded, attacker)
 			{
 				self [[self._zombie_unshrink_callback]]();
 			}
-			var_36333499 = self getattachsize();
-			for(i = var_36333499 - 1; i >= 0; i--)
+			nummodels = self getattachsize();
+			for(i = nummodels - 1; i >= 0; i--)
 			{
 				model = self getattachmodelname(i);
 				tag = self getattachtagname(i);
