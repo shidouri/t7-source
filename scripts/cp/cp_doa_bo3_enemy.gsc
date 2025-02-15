@@ -55,24 +55,24 @@ function init()
 	Parameters: 2
 	Flags: Linked
 */
-function function_65762352(classname, var_3a9f2119)
+function function_65762352(classname, aispawner)
 {
 	if(!isdefined(level.doa.enemyspawners))
 	{
 		level.doa.enemyspawners = getspawnerarray();
 	}
-	if(!isdefined(var_3a9f2119))
+	if(!isdefined(aispawner))
 	{
 		foreach(spawner in level.doa.enemyspawners)
 		{
 			if(spawner.classname == "script_vehicle" && (isdefined(spawner.archetype) && spawner.archetype == classname || issubstr(spawner.vehicletype, classname)))
 			{
-				var_3a9f2119 = spawner;
+				aispawner = spawner;
 				break;
 			}
 			if(spawner.classname == classname)
 			{
-				var_3a9f2119 = spawner;
+				aispawner = spawner;
 				break;
 			}
 			if(isdefined(spawner.script_parameters))
@@ -80,13 +80,13 @@ function function_65762352(classname, var_3a9f2119)
 				type = strtok(spawner.script_parameters, ":");
 				if(classname == type[1])
 				{
-					var_3a9f2119 = spawner;
+					aispawner = spawner;
 					break;
 				}
 			}
 		}
 	}
-	if(isdefined(var_3a9f2119))
+	if(isdefined(aispawner))
 	{
 		def = spawnstruct();
 		def.var_83bae1f8 = 4000;
@@ -105,43 +105,43 @@ function function_65762352(classname, var_3a9f2119)
 		loc.angles = (0, 0, 0);
 		if(issubstr(classname, "spider"))
 		{
-			function_ee2c4b95(var_3a9f2119, loc, def);
+			function_ee2c4b95(aispawner, loc, def);
 		}
 		else
 		{
 			if(issubstr(classname, "smokeman"))
 			{
-				function_b9980eda(var_3a9f2119, loc, def);
+				function_b9980eda(aispawner, loc, def);
 			}
 			else
 			{
 				if(issubstr(classname, "parasite_purple"))
 				{
-					function_33525e11(var_3a9f2119, loc, def);
+					function_33525e11(aispawner, loc, def);
 				}
 				else
 				{
 					if(issubstr(classname, "parasite"))
 					{
-						function_1631202b(var_3a9f2119, loc, def);
+						function_1631202b(aispawner, loc, def);
 					}
 					else
 					{
 						if(issubstr(classname, "meatball"))
 						{
-							function_fb051310(var_3a9f2119, loc, def);
+							function_fb051310(aispawner, loc, def);
 						}
 						else
 						{
 							if(issubstr(classname, "cellbreaker"))
 							{
-								function_5e86b6fa(var_3a9f2119, loc, def);
+								function_5e86b6fa(aispawner, loc, def);
 							}
 							else
 							{
 								if(issubstr(classname, "riser"))
 								{
-									function_45849d81(var_3a9f2119, loc, def);
+									function_45849d81(aispawner, loc, def);
 								}
 								else
 								{
@@ -171,19 +171,19 @@ function function_65762352(classname, var_3a9f2119)
 												{
 													if(issubstr(classname, "warlord"))
 													{
-														function_a0d7d949(var_3a9f2119, loc, def);
+														function_a0d7d949(aispawner, loc, def);
 													}
 													else
 													{
 														if(issubstr(classname, "_dog"))
 														{
-															function_bb3b0416(var_3a9f2119, loc, def);
+															function_bb3b0416(aispawner, loc, def);
 														}
 														else
 														{
 															if(issubstr(classname, "_robot"))
 															{
-																function_4d2a4a76(var_3a9f2119, loc, def);
+																function_4d2a4a76(aispawner, loc, def);
 															}
 															else
 															{
