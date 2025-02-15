@@ -86,7 +86,7 @@ function update_fungus_pod_level(localclientnum, oldval, newval, bnewent, biniti
 	mdl_pod = level.mdl_pods[localclientnum][self getentitynumber()];
 	if(isdemoplaying() && getnumfreeentities(localclientnum) < 100)
 	{
-		var_2a6bebf9 = getnumfreeentities(localclientnum);
+		numfree = getnumfreeentities(localclientnum);
 		if(!isdefined(self.n_pod_level))
 		{
 			self.n_pod_level = 1;

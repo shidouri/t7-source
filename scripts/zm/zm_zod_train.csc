@@ -78,7 +78,7 @@ function train_rain_fx_occluder(localclientnum, oldval, newval, bnewent, binitia
 {
 	if(isdemoplaying() && getnumfreeentities(localclientnum) < 100)
 	{
-		var_2a6bebf9 = getnumfreeentities(localclientnum);
+		numfree = getnumfreeentities(localclientnum);
 		return;
 	}
 	if(newval)
