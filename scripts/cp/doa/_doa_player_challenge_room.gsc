@@ -75,9 +75,9 @@ function function_471d1403()
 		{
 			if(room.var_57ce7582.size > 0)
 			{
-				var_cb365fdc = room.var_57ce7582[room.var_57ce7582.size - 1];
+				lastseen = room.var_57ce7582[room.var_57ce7582.size - 1];
 			}
-			if(isdefined(var_cb365fdc) && (level.doa.round_number - var_cb365fdc) < room.var_a90de2a1)
+			if(isdefined(lastseen) && (level.doa.round_number - lastseen) < room.var_a90de2a1)
 			{
 				continue;
 			}

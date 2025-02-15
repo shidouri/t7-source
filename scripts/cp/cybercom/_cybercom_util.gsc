@@ -786,8 +786,8 @@ function private _lock_sighttest(target, var_b3464abe = 1)
 				return 1;
 			}
 		}
-		var_cb365fdc = target.cybercom.var_8d2f4636[self getentitynumber()];
-		if(isdefined(var_cb365fdc) && (var_cb365fdc + getdvarint("scr_los_latency", 3000)) > gettime())
+		lastseen = target.cybercom.var_8d2f4636[self getentitynumber()];
+		if(isdefined(lastseen) && (lastseen + getdvarint("scr_los_latency", 3000)) > gettime())
 		{
 			trace = bullettrace(eyepos, pos, 0, target);
 			distsq = distancesquared(pos, trace["position"]);
