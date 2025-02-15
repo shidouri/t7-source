@@ -1278,7 +1278,7 @@ function function_3ed913b4(room)
 	}
 	level thread function_67b5ba67();
 	winner = undefined;
-	var_64c1db98 = 0;
+	lastlap = 0;
 	while(!isdefined(winner))
 	{
 		players = getplayers();
@@ -1328,9 +1328,9 @@ function function_3ed913b4(room)
 			}
 			player.doa.bombs = room.var_2f400c3b - player.doa.var_de24aff7;
 			player.doa.boosters = player.doa.var_37efabf7;
-			if(player.doa.var_de24aff7 == (room.var_2f400c3b - 1) && (!(isdefined(var_64c1db98) && var_64c1db98)))
+			if(player.doa.var_de24aff7 == (room.var_2f400c3b - 1) && (!(isdefined(lastlap) && lastlap)))
 			{
-				var_64c1db98 = 1;
+				lastlap = 1;
 				playsoundatposition("evt_final_lap", (0, 0, 0));
 				level clientfield::set("redinsExploder", 1);
 				level thread doa_utility::function_c5f3ece8(&"CP_DOA_BO3_LAST_LAP");
