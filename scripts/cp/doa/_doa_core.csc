@@ -1849,7 +1849,7 @@ function changecamera(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	{
 		self.var_44509e49 = 0;
 	}
-	var_f855b918 = self.var_44509e49;
+	lastmode = self.var_44509e49;
 	self.var_44509e49 = function_ddbc17b4(localclientnum, self.var_44509e49 + 1, self.var_44509e49);
 	if(isdefined(self.var_4f118af8))
 	{
@@ -1869,7 +1869,7 @@ function changecamera(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	{
 		self cameraforcedisablescriptcam(1);
 	}
-	if(var_f855b918 == 4 && self.var_44509e49 != var_f855b918)
+	if(lastmode == 4 && self.var_44509e49 != lastmode)
 	{
 		if(isdefined(level.doa.var_708cc739) && level.doa.var_708cc739 == 1)
 		{
