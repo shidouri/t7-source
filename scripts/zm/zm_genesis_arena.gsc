@@ -5556,8 +5556,8 @@ function function_78325935()
 	if(!isdefined(level.var_f0cbb403))
 	{
 		var_fba3cf4 = tablelookuprowcount("gamedata/tables/zm/zm_paragonRankTable.csv");
-		var_4f928127 = tablelookuprow("gamedata/tables/zm/zm_paragonRankTable.csv", var_fba3cf4 - 1);
-		level.var_f0cbb403 = int(var_4f928127[7]);
+		lastrow = tablelookuprow("gamedata/tables/zm/zm_paragonRankTable.csv", var_fba3cf4 - 1);
+		level.var_f0cbb403 = int(lastrow[7]);
 	}
 	return level.var_f0cbb403;
 }
