@@ -614,18 +614,18 @@ function function_fb3b78fe()
 {
 	self endon("death");
 	level endon(#"hash_ae3ed999");
-	self.var_15a6bfe6 = 0;
+	self.nexttaunt = 0;
 	self useanimtree($generic);
 	while(true)
 	{
 		if(isdefined(self.damagedplayer) && self.damagedplayer && self.damagedplayer < (gettime() + 1500))
 		{
-			if(self.var_15a6bfe6 > gettime())
+			if(self.nexttaunt > gettime())
 			{
 				wait(0.05);
 				continue;
 			}
-			self.var_15a6bfe6 = gettime() + randomintrange(5000, 15000);
+			self.nexttaunt = gettime() + randomintrange(5000, 15000);
 			self animscripted("mech_taunt", self.origin, self.angles, "ai_zombie_doa_simianaut_mech_idle_taunt");
 			self waittillmatch(#"hash_3b8ce577");
 		}
