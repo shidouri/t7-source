@@ -289,18 +289,18 @@ function actor_lase_points_behavior(entity_or_point_array)
 		#/
 		return;
 	}
-	var_978eac89 = undefined;
+	firstpoint = undefined;
 	if(isarray(entity_or_point_array))
 	{
-		var_978eac89 = entity_or_point_array[0];
+		firstpoint = entity_or_point_array[0];
 	}
 	else
 	{
-		var_978eac89 = entity_or_point_array;
+		firstpoint = entity_or_point_array;
 	}
 	if(!isdefined(self.lase_ent))
 	{
-		self.lase_ent = spawn("script_model", lase_point(var_978eac89));
+		self.lase_ent = spawn("script_model", lase_point(firstpoint));
 		self.lase_ent setmodel("tag_origin");
 		self.lase_ent.velocity = vectorscale((1, 0, 0), 100);
 		self thread util::delete_on_death(self.lase_ent);
