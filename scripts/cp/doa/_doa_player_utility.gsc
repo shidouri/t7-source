@@ -2141,7 +2141,7 @@ function function_3682cfe4(einflictor, attacker, idamage, smeansofdeath, sweapon
 	self.doa.var_91c268dc = 0;
 	self.doa.weaponlevel = 0;
 	self.doa.var_c2b9d7d0 = 0;
-	self.var_5f951816 = gettime();
+	self.last_death = gettime();
 	self thread doa_score::function_850bb47e();
 	self.deaths = math::clamp(self.deaths + 1, 0, 1023);
 	self.dead = 1;
