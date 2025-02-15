@@ -493,7 +493,7 @@ function private function_b1d71bd3(player, weapon)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_307b3ac3(eplayer, evictim, var_433291aa)
+function private function_307b3ac3(eplayer, evictim, eweapon)
 {
 	if(!evictim util::isentstunned() || evictim.team !== "axis")
 	{
@@ -565,7 +565,7 @@ function private function_c4f2de38(player, victim, inflictor)
 	Parameters: 3
 	Flags: Linked
 */
-function function_17ec453c(eattacker, evictim, var_433291aa)
+function function_17ec453c(eattacker, evictim, eweapon)
 {
 	if(isdefined(eattacker.iffowner) && isplayer(eattacker.iffowner))
 	{
