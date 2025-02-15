@@ -143,18 +143,18 @@ function private _threatmonitor(weapon)
 		self.missile_repulsor = missile_createrepulsorent(self, 4000, getdvarint("scr_repulsorarmor_dist", 200), isupgraded);
 	}
 	cooldown = 0.5;
-	var_6d621232 = gettime();
+	lastused = gettime();
 	while(true)
 	{
 		self waittill("projectile_applyattractor", missile);
-		if(gettime() > (var_6d621232 + (cooldown * 1000)))
+		if(gettime() > (lastused + (cooldown * 1000)))
 		{
 			if(!isdefined(self.usingvehicle) || (isdefined(self.usingvehicle) && self.usingvehicle != 1))
 			{
 				playfxontag(fx, self, "tag_origin");
 				self playsound("gdt_cybercore_rig_repulse_jawawawa");
 				self thread _repulsethreat(missile, self.origin + vectorscale((0, 0, 1), 72));
-				var_6d621232 = gettime();
+				lastused = gettime();
 			}
 		}
 	}
