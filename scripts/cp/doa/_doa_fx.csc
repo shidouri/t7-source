@@ -810,15 +810,15 @@ function function_f6008bb4(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		return;
 	}
-	if(!isdefined(self.var_c5998995))
+	if(!isdefined(self.lastburned))
 	{
-		self.var_c5998995 = 0;
+		self.lastburned = 0;
 	}
-	if(gettime() < self.var_c5998995)
+	if(gettime() < self.lastburned)
 	{
 		return;
 	}
-	self.var_c5998995 = gettime() + getdvarint("scr_doa_burn_interval", 1500);
+	self.lastburned = gettime() + getdvarint("scr_doa_burn_interval", 1500);
 	self function_7829d7af(localclientnum, (newval == 666 ? (1 << level.var_de2ea8e7.size) - 1 : undefined));
 }
 
