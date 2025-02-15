@@ -386,15 +386,15 @@ function actor_lase_force_laser_on()
 {
 	self endon("death");
 	self endon("lase_points");
-	var_bef987c0 = gettime();
+	lasttransition = gettime();
 	while(true)
 	{
 		if(self asmistransdecrunning())
 		{
-			var_bef987c0 = gettime();
+			lasttransition = gettime();
 			self laseroff();
 		}
-		else if((gettime() - var_bef987c0) > 350)
+		else if((gettime() - lasttransition) > 350)
 		{
 			self laseron();
 		}
