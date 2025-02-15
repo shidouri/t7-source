@@ -1759,8 +1759,8 @@ function populateproplist()
 {
 	mapname = getmapname();
 	var_8c6b47e7 = (("gamedata/tables/mp/") + mapname) + "_ph.csv";
-	var_f89cb9d0 = tablelookuprowcount(var_8c6b47e7);
-	for(rowindex = 0; rowindex < var_f89cb9d0; rowindex++)
+	numrows = tablelookuprowcount(var_8c6b47e7);
+	for(rowindex = 0; rowindex < numrows; rowindex++)
 	{
 		modelname = tablelookupbyrow(var_8c6b47e7, rowindex, 0);
 		propsizetext = tablelookupbyrow(var_8c6b47e7, rowindex, 1);
@@ -1806,7 +1806,7 @@ function populateproplist()
 		}
 		addproptolist(modelname, propsize, offset, rotation, propsizetext, var_bbac36c8, propheight, proprange);
 	}
-	if(var_f89cb9d0 == 0)
+	if(numrows == 0)
 	{
 		addproptolist("tag_origin", 250, (0, 0, 0), (0, 0, 0), "medium", 1, getthirdpersonheightoffsetforsize(250), getthirdpersonrangeforsize(250));
 	}
