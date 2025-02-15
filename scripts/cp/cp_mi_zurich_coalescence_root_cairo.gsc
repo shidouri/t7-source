@@ -551,11 +551,11 @@ function function_42dddb91(str_objective)
 	level endon(#"hash_83eebac0");
 	objectives::breadcrumb("t_breadcrumb_cairoroot_1");
 	trigger::wait_till("t_breadcrumb_cairoroot_1");
-	level notify(#"hash_431e9a83");
+	level notify("next_checkpoint");
 	savegame::checkpoint_save();
 	objectives::breadcrumb("t_breadcrumb_cairoroot_2");
 	trigger::wait_till("t_breadcrumb_cairoroot_2");
-	level notify(#"hash_431e9a83");
+	level notify("next_checkpoint");
 	savegame::checkpoint_save();
 	objectives::breadcrumb("t_breadcrumb_cairoroot_3");
 }

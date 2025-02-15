@@ -531,7 +531,7 @@ function function_2d897f84(str_objective)
 		}
 		objectives::set("cp_waypoint_breadcrumb", s_crumb);
 		t_crumb waittill("trigger");
-		level notify(#"hash_431e9a83");
+		level notify("next_checkpoint");
 		savegame::checkpoint_save();
 		objectives::complete("cp_waypoint_breadcrumb", s_crumb);
 		var_b1cdbf1d++;
