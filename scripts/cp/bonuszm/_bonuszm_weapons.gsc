@@ -79,8 +79,8 @@ function autoexec function_58d5283a()
 function function_549c28ac(var_6a173bd1)
 {
 	noneweapon = getweapon("none");
-	var_adeb478a = tablelookuprowcount(var_6a173bd1);
-	for(i = 0; i < var_adeb478a; i++)
+	numweapons = tablelookuprowcount(var_6a173bd1);
+	for(i = 0; i < numweapons; i++)
 	{
 		var_279890e8 = new class_a17e6f03();
 		var_279890e8.weaponname = tablelookupcolumnforrow(var_6a173bd1, i, 0);

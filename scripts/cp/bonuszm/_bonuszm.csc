@@ -1295,9 +1295,9 @@ function closed_glow_obj_cleanup(localclientnum)
 function function_aea4686a()
 {
 	var_6a173bd1 = ("gamedata/tables/cpzm/") + "cpzm_weapons_sgen.csv";
-	var_adeb478a = tablelookuprowcount(var_6a173bd1);
+	numweapons = tablelookuprowcount(var_6a173bd1);
 	var_709de245 = [];
-	for(i = 0; i < var_adeb478a; i++)
+	for(i = 0; i < numweapons; i++)
 	{
 		weaponname = tablelookupcolumnforrow(var_6a173bd1, i, 0);
 		array::add(var_709de245, weaponname);
