@@ -144,11 +144,11 @@ function add_a_chicken(model, scale, fated, var_5c667593)
 	if(isdefined(orb.special) && orb.special && self.doa.chicken_stack.size > 0)
 	{
 		arrayinsert(self.doa.chicken_stack, orb, 0);
-		var_bd097d49 = self;
+		nextleader = self;
 		foreach(chicken in self.doa.chicken_stack)
 		{
-			chicken.var_947e1f34 = var_bd097d49;
-			var_bd097d49 = chicken;
+			chicken.var_947e1f34 = nextleader;
+			nextleader = chicken;
 		}
 	}
 	else

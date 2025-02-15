@@ -2171,12 +2171,12 @@ function function_6b4a5f81(player)
 	self endon("death");
 	if(isdefined(self.var_52cf38a3) && self.var_52cf38a3)
 	{
-		var_28a41a34 = 0;
+		entmask = 0;
 		if(isdefined(player))
 		{
-			var_28a41a34 = (1 + player.entnum) << 1;
+			entmask = (1 + player.entnum) << 1;
 		}
-		val = var_28a41a34 + 1;
+		val = entmask + 1;
 		self clientfield::set("pickupmoveto", val);
 	}
 	else
