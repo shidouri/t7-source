@@ -1190,11 +1190,11 @@ function bridge_battle_main(str_objective, b_starting)
 function function_94f75664()
 {
 	level flag::wait_till("player_crossed_bridge");
-	var_9008f0c7 = getent("bridge_battle_across_gv", "targetname");
+	next_volume = getent("bridge_battle_across_gv", "targetname");
 	a_enemies = spawner::get_ai_group_ai("bridge_end_enemies");
 	foreach(enemy in a_enemies)
 	{
-		enemy setgoal(var_9008f0c7);
+		enemy setgoal(next_volume);
 	}
 }
 
