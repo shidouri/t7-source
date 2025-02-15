@@ -916,11 +916,11 @@ function private bgb_activation_monitor()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_b616fe7a(var_5827b083 = 0)
+function private function_b616fe7a(b_chewing = 0)
 {
 	var_bb1d9487 = isdefined(level.bgb[self.bgb].validation_func) && !self [[level.bgb[self.bgb].validation_func]]();
 	var_847ec8da = isdefined(level.var_9cef605e) && !self [[level.var_9cef605e]]();
-	if(!var_5827b083 && (isdefined(self.is_drinking) && self.is_drinking) || (isdefined(self.bgb_activation_in_progress) && self.bgb_activation_in_progress) || self laststand::player_is_in_laststand() || var_bb1d9487 || var_847ec8da)
+	if(!b_chewing && (isdefined(self.is_drinking) && self.is_drinking) || (isdefined(self.bgb_activation_in_progress) && self.bgb_activation_in_progress) || self laststand::player_is_in_laststand() || var_bb1d9487 || var_847ec8da)
 	{
 		self clientfield::increment_uimodel("bgb_invalid_use");
 		self playlocalsound("zmb_bgb_deny_plr");
