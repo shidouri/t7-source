@@ -914,9 +914,9 @@ function function_2d0f96ef(player)
 	self thread doa_sound::function_90118d8c("zmb_golden_chicken_pop");
 	chance = 100;
 	scale = 1;
-	var_19a5d5 = 2 + randomint(5);
+	numeggs = 2 + randomint(5);
 	roll = randomint(100);
-	while(var_19a5d5)
+	while(numeggs)
 	{
 		if(roll <= chance)
 		{
@@ -926,7 +926,7 @@ function function_2d0f96ef(player)
 		{
 			level doa_pickups::function_3238133b(level.doa.egg_model, self.origin);
 		}
-		var_19a5d5--;
+		numeggs--;
 		scale = scale * 0.72;
 		chance = int((chance * scale) + 0.9);
 	}
