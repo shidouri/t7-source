@@ -758,7 +758,7 @@ function function_509ca7a6(enemy)
 			enemy.stealth.status.icons[index] setwaypoint(0, str_shader, 0, 0);
 			enemy.stealth.status.icons[index].color = color;
 			enemy.stealth.status.icons[index].alpha = basealpha;
-			enemy.stealth.status.icons[index].var_c3d91e16 = gettime();
+			enemy.stealth.status.icons[index].last_visible = gettime();
 		}
 		var_8c974758 = 1 * 1000;
 		var_61fba14c = min(1000, var_8c974758);
