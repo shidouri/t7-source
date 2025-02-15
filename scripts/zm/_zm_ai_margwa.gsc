@@ -404,7 +404,7 @@ function private function_cbdc3798(entity)
 	{
 		return 0;
 	}
-	if(!isdefined(entity.var_cef86da1) || entity.var_cef86da1 != 1)
+	if(!isdefined(entity.next_attack) || entity.next_attack != 1)
 	{
 		return 0;
 	}
@@ -426,7 +426,7 @@ function private function_ec97fb1e(entity)
 	{
 		return 0;
 	}
-	if(!isdefined(entity.var_cef86da1) || entity.var_cef86da1 != 2)
+	if(!isdefined(entity.next_attack) || entity.next_attack != 2)
 	{
 		return 0;
 	}
@@ -1097,11 +1097,11 @@ function private function_941cbfc5()
 	r = randomintrange(0, 100);
 	if(r < 40)
 	{
-		self.var_cef86da1 = 2;
+		self.next_attack = 2;
 	}
 	else
 	{
-		self.var_cef86da1 = 1;
+		self.next_attack = 1;
 	}
 }
 
