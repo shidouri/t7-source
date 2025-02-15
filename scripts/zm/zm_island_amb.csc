@@ -155,7 +155,7 @@ function function_bab3ea62()
 	level.var_65d981dd = "spider_lair_active";
 	level.var_2d9f200e = "takeo_battle_inactive";
 	level thread function_ab8dfbdf();
-	level thread function_17e798e9();
+	level thread takeowatcher();
 	level thread function_7a83b09a();
 	level thread function_610a705b();
 	level thread function_53b9afad();
@@ -270,7 +270,7 @@ function function_ab8dfbdf()
 }
 
 /*
-	Name: function_17e798e9
+	Name: takeowatcher
 	Namespace: zm_island_amb
 	Checksum: 0x59FC5B2
 	Offset: 0xA48
@@ -278,7 +278,7 @@ function function_ab8dfbdf()
 	Parameters: 0
 	Flags: Linked
 */
-function function_17e798e9()
+function takeowatcher()
 {
 	level endon("sndtakeoend");
 	level waittill("sndtakeo");
