@@ -257,11 +257,11 @@ function function_3118ca4d(player)
 	if(!(isdefined(immediate) && immediate))
 	{
 		self.var_3424aae1 = 1;
-		var_46d4563e = player;
+		lastleader = player;
 		foreach(chicken in player.doa.chicken_stack)
 		{
-			chicken.var_947e1f34 = var_46d4563e;
-			var_46d4563e = chicken;
+			chicken.var_947e1f34 = lastleader;
+			lastleader = chicken;
 		}
 		weapon = function_4d01b327(player);
 		self.spinouttime = randomfloatrange(5, 8);
