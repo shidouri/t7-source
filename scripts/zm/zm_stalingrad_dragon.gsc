@@ -4646,25 +4646,25 @@ function function_32faa6e1(no_delay = 0)
 			var_2edd3c78 = self.radius * 0.6;
 			self setneargoalnotifydist(var_2edd3c78);
 			var_2443f661 = undefined;
-			var_90863f97 = undefined;
+			nikolaigoal = undefined;
 			switch(level.var_7a29ed06)
 			{
 				case 1:
 				{
 					var_2443f661 = "east";
-					var_90863f97 = "north";
+					nikolaigoal = "north";
 					break;
 				}
 				case 2:
 				{
 					var_2443f661 = "west";
-					var_90863f97 = "north";
+					nikolaigoal = "north";
 					break;
 				}
 				case 3:
 				{
 					var_2443f661 = "south";
-					var_90863f97 = "west";
+					nikolaigoal = "west";
 					break;
 				}
 				default:
@@ -4673,7 +4673,7 @@ function function_32faa6e1(no_delay = 0)
 				}
 			}
 			self.var_1163fa40 = 1;
-			goalpos = level.var_4c8e35f4[var_90863f97].origin;
+			goalpos = level.var_4c8e35f4[nikolaigoal].origin;
 			if(!function_1a2d9dc9() && distance2dsquared(goalpos, self.origin) > (var_2edd3c78 * var_2edd3c78))
 			{
 				self setvehgoalpos(goalpos, 1, 1);
