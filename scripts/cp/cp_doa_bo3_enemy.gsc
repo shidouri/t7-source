@@ -1756,12 +1756,12 @@ function function_45849d81(spawner, loc, def)
 function private function_28cdab69(def)
 {
 	def.initialized = 1;
-	def.var_40c7a009 = 0;
+	def.numenemy = 0;
 	targetsize = level.doa.var_e0d67a74.size;
 	while(level flag::get("doa_round_spawning") && !level flag::get("doa_game_is_over"))
 	{
 		maxwait = 10000 + gettime();
-		while(gettime() < maxwait && def.var_40c7a009 < targetsize && !level flag::get("doa_game_is_over") && flag::get("doa_round_spawning"))
+		while(gettime() < maxwait && def.numenemy < targetsize && !level flag::get("doa_game_is_over") && flag::get("doa_round_spawning"))
 		{
 			wait(0.1);
 		}
@@ -1785,7 +1785,7 @@ function private function_1ee8b18c(def, ai)
 {
 	ai endon(#"hash_9757351b");
 	ai waittill("death");
-	def.var_40c7a009--;
+	def.numenemy--;
 }
 
 /*
@@ -1801,14 +1801,14 @@ function private function_be745286(def, ai)
 {
 	ai endon("death");
 	ai thread function_1ee8b18c(def, ai);
-	def.var_40c7a009++;
+	def.numenemy++;
 	ai.ignoreall = 1;
 	level waittill(#"hash_36d5bf57");
 	if(isdefined(ai))
 	{
 		ai notify(#"hash_9757351b");
 		ai.ignoreall = 0;
-		def.var_40c7a009--;
+		def.numenemy--;
 	}
 }
 
