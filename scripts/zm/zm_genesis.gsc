@@ -231,7 +231,7 @@ function main()
 	level.do_randomized_zigzag_path = 1;
 	level.zm_custom_spawn_location_selection = &genesis_custom_spawn_location_selection;
 	level.enemy_location_override_func = &genesis_enemy_location_override;
-	level.player_intersection_tracker_override = &function_1b647c97;
+	level.player_intersection_tracker_override = &genesis_player_intersection_tracker_override;
 	level.var_9aaae7ae = &function_869d6f66;
 	level.var_9cef605e = &function_cc2772da;
 	level.var_2d4e3645 = &function_d9e1ec4d;
@@ -1366,7 +1366,7 @@ function function_fc65af2e()
 }
 
 /*
-	Name: function_1b647c97
+	Name: genesis_player_intersection_tracker_override
 	Namespace: zm_genesis
 	Checksum: 0xB99AE348
 	Offset: 0x6330
@@ -1374,7 +1374,7 @@ function function_fc65af2e()
 	Parameters: 1
 	Flags: Linked
 */
-function function_1b647c97(var_3c6a24bf)
+function genesis_player_intersection_tracker_override(var_3c6a24bf)
 {
 	if(isdefined(self.is_flung) && self.is_flung || (isdefined(var_3c6a24bf.is_flung) && var_3c6a24bf.is_flung) || (isdefined(self.var_4870991a) && self.var_4870991a))
 	{
