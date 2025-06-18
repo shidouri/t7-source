@@ -230,7 +230,7 @@ function main()
 	zombie_utility::set_zombie_var("zombie_powerup_drop_max_per_round", 4);
 	level.do_randomized_zigzag_path = 1;
 	level.zm_custom_spawn_location_selection = &genesis_custom_spawn_location_selection;
-	level.enemy_location_override_func = &function_b51f6175;
+	level.enemy_location_override_func = &genesis_enemy_location_override;
 	level.player_intersection_tracker_override = &function_1b647c97;
 	level.var_9aaae7ae = &function_869d6f66;
 	level.var_9cef605e = &function_cc2772da;
@@ -1266,7 +1266,7 @@ function function_dcf0070e()
 }
 
 /*
-	Name: function_b51f6175
+	Name: genesis_enemy_location_override
 	Namespace: zm_genesis
 	Checksum: 0xA6EB37EE
 	Offset: 0x5EF8
@@ -1274,7 +1274,7 @@ function function_dcf0070e()
 	Parameters: 2
 	Flags: Linked
 */
-function function_b51f6175(zombie, enemy)
+function genesis_enemy_location_override(zombie, enemy)
 {
 	if(isdefined(enemy.b_teleporting) && enemy.b_teleporting)
 	{
