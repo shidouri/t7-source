@@ -579,7 +579,7 @@ function on_player_connected()
 {
 	self thread zm_genesis_undercroft_low_grav::function_c3f6aa22();
 	self zm_genesis_challenges::on_player_connect();
-	self.overrideplayerdamage = &function_7427eacc;
+	self.overrideplayerdamage = &genesis_player_damage_override;
 	if(level.players.size > 1 && !level flag::get("is_coop_door_price"))
 	{
 		function_898d7758();
@@ -1552,7 +1552,7 @@ function genesis_custom_spawn_location_selection(a_spots)
 }
 
 /*
-	Name: function_7427eacc
+	Name: genesis_player_damage_override
 	Namespace: zm_genesis
 	Checksum: 0x1042AAED
 	Offset: 0x67D8
@@ -1560,7 +1560,7 @@ function genesis_custom_spawn_location_selection(a_spots)
 	Parameters: 10
 	Flags: Linked
 */
-function function_7427eacc(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime)
+function genesis_player_damage_override(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime)
 {
 	if(isdefined(self.var_e1384d1e))
 	{
