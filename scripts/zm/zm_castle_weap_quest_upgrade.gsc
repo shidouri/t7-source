@@ -290,7 +290,7 @@ function function_29c80ce1()
 	while(true)
 	{
 		var_3c91152b waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		if(function_51a90202(weapon, 1, point, var_3c91152b))
+		if(genesis_enemy_discard_override(weapon, 1, point, var_3c91152b))
 		{
 			level.var_714fae39 = 1;
 			playrumbleonposition("zm_castle_quest_rune_prison_clock_wall_rumble", point);
@@ -405,7 +405,7 @@ function rune_prison_obelisk()
 	while(!level flag::get("rune_prison_obelisk"))
 	{
 		var_b4df6e91 waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		if(level flag::get("rune_prison_obelisk_magma_enabled") && function_51a90202(weapon, 1, point, var_b4df6e91) && attacker === level.var_c62829c7)
+		if(level flag::get("rune_prison_obelisk_magma_enabled") && genesis_enemy_discard_override(weapon, 1, point, var_b4df6e91) && attacker === level.var_c62829c7)
 		{
 			playrumbleonposition("zm_castle_quest_rune_prison_obelisk_rumble", point);
 			level flag::set("rune_prison_obelisk");
@@ -754,7 +754,7 @@ function function_f9027a91()
 	while(!self flag::get("runic_circle_activated"))
 	{
 		var_c749603c waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		if(function_51a90202(weapon, 1, point, var_c749603c) && attacker === level.var_c62829c7 && (isdefined(level.var_c62829c7.is_flung) && level.var_c62829c7.is_flung))
+		if(genesis_enemy_discard_override(weapon, 1, point, var_c749603c) && attacker === level.var_c62829c7 && (isdefined(level.var_c62829c7.is_flung) && level.var_c62829c7.is_flung))
 		{
 			self flag::set("runic_circle_activated");
 			self playsound("evt_cirlce_rune_hit");
@@ -1137,7 +1137,7 @@ function rune_prison_golf(var_7a76a496)
 	while(!level flag::get("rune_prison_golf"))
 	{
 		level.var_c62829c7 waittill("missile_fire", projectile, weapon);
-		if(level.var_c62829c7 istouching(level.var_2e55cb98) && function_51a90202(weapon))
+		if(level.var_c62829c7 istouching(level.var_2e55cb98) && genesis_enemy_discard_override(weapon))
 		{
 			var_d59b9592 = projectile function_1ae3933d(var_eae04066, var_7a76a496.var_336f1366);
 			if(!isdefined(var_d59b9592))
@@ -1327,7 +1327,7 @@ function function_1ae3933d(var_eae04066, s_fireplace)
 		level.var_c62829c7 waittill("projectile_impact", weapon, v_position, radius, e_projectile, normal);
 		if(self != e_projectile)
 		{
-			if(!level.var_c62829c7 istouching(level.var_2e55cb98) || !function_51a90202(weapon))
+			if(!level.var_c62829c7 istouching(level.var_2e55cb98) || !genesis_enemy_discard_override(weapon))
 			{
 				return undefined;
 			}
@@ -1992,7 +1992,7 @@ function function_d47f8f22()
 	while(true)
 	{
 		var_e88abb1 waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		if(function_51a90202(weapon, 1, point, var_e88abb1))
+		if(genesis_enemy_discard_override(weapon, 1, point, var_e88abb1))
 		{
 			playrumbleonposition("zm_castle_quest_demon_gate_gatehouse_rumble", point);
 			level thread scene::play("p7_fxanim_zm_castle_quest_demongate_ceiling_bundle");
@@ -2737,7 +2737,7 @@ function function_cf05b763()
 	while(true)
 	{
 		var_42ba5d5d waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		if(function_51a90202(weapon, 1, point, var_42ba5d5d) && attacker === level.var_6e68c0d8 && !level flag::get("rune_sequence_failed") && (!(isdefined(level.var_f00f53e6) && level.var_f00f53e6)))
+		if(genesis_enemy_discard_override(weapon, 1, point, var_42ba5d5d) && attacker === level.var_6e68c0d8 && !level flag::get("rune_sequence_failed") && (!(isdefined(level.var_f00f53e6) && level.var_f00f53e6)))
 		{
 			wait(1);
 			level.var_6e68c0d8 function_3520622d(0);
@@ -2922,7 +2922,7 @@ function function_b08d39a1()
 	while(true)
 	{
 		self waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		if(function_51a90202(weapon, 1, point, self) && attacker === level.var_6e68c0d8 && !level flag::get("rune_sequence_failed") && level.var_ca3b8551 < 4)
+		if(genesis_enemy_discard_override(weapon, 1, point, self) && attacker === level.var_6e68c0d8 && !level flag::get("rune_sequence_failed") && level.var_ca3b8551 < 4)
 		{
 			exploder::stop_exploder(self.var_483af51d);
 			wait(0.05);
@@ -3845,7 +3845,7 @@ function function_15a6ff6a()
 	while(true)
 	{
 		level.var_52978d72 waittill("projectile_impact", weapon, point, radius, attacker, normal);
-		if(function_51a90202(weapon, 1, point, t_shrine))
+		if(genesis_enemy_discard_override(weapon, 1, point, t_shrine))
 		{
 			playsoundatposition("zmb_wolf_shrine_location", (5350, -1659, -1135));
 			mdl_skull = getent("wolf_skull_roll_down", "targetname");
@@ -4644,7 +4644,7 @@ function function_987776f3()
 				continue;
 			}
 		#/
-		if(function_51a90202(weapon, 1, point, self) && attacker === level.var_52978d72 && (isdefined(level.var_52978d72.var_374fd3ef) && level.var_52978d72.var_374fd3ef))
+		if(genesis_enemy_discard_override(weapon, 1, point, self) && attacker === level.var_52978d72 && (isdefined(level.var_52978d72.var_374fd3ef) && level.var_52978d72.var_374fd3ef))
 		{
 			var_dddbfe51 function_6ab969b7();
 			wait(10);
@@ -5150,7 +5150,7 @@ function function_cd986666()
 	while(true)
 	{
 		var_6809935d waittill("damage", amount, attacker, direction, point, mod, tagname, modelname, partname, weapon);
-		if(function_51a90202(weapon, 1, point, var_6809935d))
+		if(genesis_enemy_discard_override(weapon, 1, point, var_6809935d))
 		{
 			/#
 				level.var_188b2459 = 1;
@@ -5385,7 +5385,7 @@ function function_6e3cfa55()
 	while(true)
 	{
 		level.var_f8d1dc16 waittill("projectile_impact", weapon, point, radius, attacker, normal);
-		if(function_51a90202(weapon, 1, point, self))
+		if(genesis_enemy_discard_override(weapon, 1, point, self))
 		{
 			if(!isdefined(s_beacon.var_41f52afd))
 			{
@@ -5899,7 +5899,7 @@ function function_1c758ab0()
 		level.var_f8d1dc16 waittill("projectile_impact", weapon, point, radius, projectile, normal);
 		if(isdefined(projectile.var_e4594d27) && projectile.var_e4594d27)
 		{
-			if(function_51a90202(weapon, 1, point, self))
+			if(genesis_enemy_discard_override(weapon, 1, point, self))
 			{
 				s_beacon.var_41f52afd clientfield::set("beacon_fx", 2);
 				self.b_charged = 1;
@@ -7679,7 +7679,7 @@ function function_7b6fdb3e(str_quest)
 }
 
 /*
-	Name: function_51a90202
+	Name: genesis_enemy_discard_override
 	Namespace: zm_castle_weap_quest_upgrade
 	Checksum: 0xF030E344
 	Offset: 0x19310
@@ -7687,7 +7687,7 @@ function function_7b6fdb3e(str_quest)
 	Parameters: 4
 	Flags: Linked
 */
-function function_51a90202(w_weapon, var_859c4788 = 0, v_impact = undefined, t_damage = undefined)
+function genesis_enemy_discard_override(w_weapon, var_859c4788 = 0, v_impact = undefined, t_damage = undefined)
 {
 	if(!isdefined(w_weapon) || !isdefined(w_weapon.name))
 	{
