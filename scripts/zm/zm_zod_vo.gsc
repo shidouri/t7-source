@@ -1568,14 +1568,14 @@ function function_f9003879(var_d3be01d9)
 */
 function function_c41d3e2e(var_1e0c5b50)
 {
-	var_93173b64 = [];
-	var_93173b64["memento_boxer"] = "gym";
-	var_93173b64["memento_detective"] = "ruby";
-	var_93173b64["memento_femme"] = "burlesque";
-	var_93173b64["memento_magician"] = "workshop";
+	a_str_locations = [];
+	a_str_locations["memento_boxer"] = "gym";
+	a_str_locations["memento_detective"] = "ruby";
+	a_str_locations["memento_femme"] = "burlesque";
+	a_str_locations["memento_magician"] = "workshop";
 	if(randomint(100) < 60)
 	{
-		var_5eb0b65c = ((("vox_plr_" + self.characterindex) + "_place_item_") + var_93173b64[var_1e0c5b50]) + "_0";
+		var_5eb0b65c = ((("vox_plr_" + self.characterindex) + "_place_item_") + a_str_locations[var_1e0c5b50]) + "_0";
 		self vo_say(var_5eb0b65c, 0, 0);
 	}
 }
