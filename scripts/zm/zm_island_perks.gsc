@@ -232,15 +232,15 @@ function function_233e0157(var_b8cb4c1e)
 	if(level.var_5697feca == "left")
 	{
 		level.var_e9331fab = "fxanim_perk_drop1_b17";
-		var_9419d2c4 = var_3661504c;
+		a_str_airdrop = var_3661504c;
 	}
 	else
 	{
 		level.var_e9331fab = "fxanim_perk_drop2_b17";
-		var_9419d2c4 = var_e2093f63;
+		a_str_airdrop = var_e2093f63;
 	}
 	var_c9340b8 = level.var_fd5c770c[var_b8cb4c1e];
-	var_3df944fc = var_9419d2c4[var_c9340b8.target];
+	var_3df944fc = a_str_airdrop[var_c9340b8.target];
 	level.var_58f37cc3 = var_c9340b8.machine;
 	scene::add_scene_func(var_3df944fc, &function_3c8f18a8, "play");
 	scene::add_scene_func(var_3df944fc, &function_89159ff6, "done");
