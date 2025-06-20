@@ -1621,9 +1621,9 @@ function function_5bafaddd(str_console, var_b1c60ae7)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4a78ee23(var_c7b41a30)
+function function_4a78ee23(a_str_console)
 {
-	foreach(str_console in var_c7b41a30)
+	foreach(str_console in a_str_console)
 	{
 		mdl_console = getent("mdl_dragon_console_" + str_console, "targetname");
 		if(!(isdefined(mdl_console.var_a3338832) && mdl_console.var_a3338832))
