@@ -569,35 +569,35 @@ function function_1d22626(e_player, n_challenge)
 		}
 		case 2:
 		{
-			var_3728fce1 = [];
-			if(!isdefined(var_3728fce1))
+			a_str_weapon = [];
+			if(!isdefined(a_str_weapon))
 			{
-				var_3728fce1 = [];
+				a_str_weapon = [];
 			}
-			else if(!isarray(var_3728fce1))
+			else if(!isarray(a_str_weapon))
 			{
-				var_3728fce1 = array(var_3728fce1);
+				a_str_weapon = array(a_str_weapon);
 			}
-			var_3728fce1[var_3728fce1.size] = "lmg_cqb_upgraded";
-			if(!isdefined(var_3728fce1))
+			a_str_weapon[a_str_weapon.size] = "lmg_cqb_upgraded";
+			if(!isdefined(a_str_weapon))
 			{
-				var_3728fce1 = [];
+				a_str_weapon = [];
 			}
-			else if(!isarray(var_3728fce1))
+			else if(!isarray(a_str_weapon))
 			{
-				var_3728fce1 = array(var_3728fce1);
+				a_str_weapon = array(a_str_weapon);
 			}
-			var_3728fce1[var_3728fce1.size] = "ar_damage_upgraded";
-			if(!isdefined(var_3728fce1))
+			a_str_weapon[a_str_weapon.size] = "ar_damage_upgraded";
+			if(!isdefined(a_str_weapon))
 			{
-				var_3728fce1 = [];
+				a_str_weapon = [];
 			}
-			else if(!isarray(var_3728fce1))
+			else if(!isarray(a_str_weapon))
 			{
-				var_3728fce1 = array(var_3728fce1);
+				a_str_weapon = array(a_str_weapon);
 			}
-			var_3728fce1[var_3728fce1.size] = "smg_versatile_upgraded";
-			var_17b3dc96 = array::random(var_3728fce1);
+			a_str_weapon[a_str_weapon.size] = "smg_versatile_upgraded";
+			var_17b3dc96 = array::random(a_str_weapon);
 			var_6b215f76 = (anglestoright(s_reward.angles) * 5) + (anglestoforward(s_reward.angles) * -2);
 			s_reward.var_e1513629 = var_6b215f76 + (0, 0, 1);
 			s_reward.var_b90d551 = var_7bb343ef;
