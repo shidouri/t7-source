@@ -135,10 +135,10 @@ function private cleanup_main()
 function private function_37a5b776()
 {
 	a_e_occupied = [];
-	var_9e84b959 = array("start_island", "apothicon_island", "temple_island", "prototype_island", "asylum_island", "prison_island", "arena_island");
-	for(i = 0; i < var_9e84b959.size; i++)
+	a_str_islands = array("start_island", "apothicon_island", "temple_island", "prototype_island", "asylum_island", "prison_island", "arena_island");
+	for(i = 0; i < a_str_islands.size; i++)
 	{
-		e_island = getent(var_9e84b959[i], "targetname");
+		e_island = getent(a_str_islands[i], "targetname");
 		for(j = 0; j < level.activeplayers.size; j++)
 		{
 			if(!isalive(level.activeplayers[j]))
