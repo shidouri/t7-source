@@ -89,11 +89,11 @@ function start()
 	{
 		return;
 	}
-	var_d028d3a8 = array("ZOD", "FACTORY", "CASTLE", "ISLAND", "STALINGRAD");
+	a_str_quests = array("ZOD", "FACTORY", "CASTLE", "ISLAND", "STALINGRAD");
 	var_61d59a5a = [];
 	foreach(player in level.players)
 	{
-		foreach(str_quest in var_d028d3a8)
+		foreach(str_quest in a_str_quests)
 		{
 			b_quest_completed = (player zm_stats::get_global_stat(("DARKOPS_" + str_quest) + "_SUPER_EE")) > 0;
 			var_9d5e869 = isinarray(var_61d59a5a, str_quest);
@@ -114,7 +114,7 @@ function start()
 	/#
 		iprintlnbold(("" + var_61d59a5a.size) + "");
 	#/
-	if(var_61d59a5a.size == var_d028d3a8.size)
+	if(var_61d59a5a.size == a_str_quests.size)
 	{
 		level clientfield::set("hope_state", 1);
 		level thread function_bb1fbc7f();

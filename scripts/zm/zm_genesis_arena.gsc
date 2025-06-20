@@ -5507,11 +5507,11 @@ function function_7fd60b47()
 		player addplayerstat("DARKOPS_GENESIS_EE", 1);
 	}
 	wait(2);
-	var_d028d3a8 = array("ZOD", "FACTORY", "CASTLE", "ISLAND", "STALINGRAD");
+	a_str_quests = array("ZOD", "FACTORY", "CASTLE", "ISLAND", "STALINGRAD");
 	var_ce48d9bb = [];
 	foreach(player in level.players)
 	{
-		foreach(str_quest in var_d028d3a8)
+		foreach(str_quest in a_str_quests)
 		{
 			b_quest_completed = (player zm_stats::get_global_stat(("DARKOPS_" + str_quest) + "_SUPER_EE")) > 0;
 			if(b_quest_completed)
@@ -5520,7 +5520,7 @@ function function_7fd60b47()
 			}
 		}
 	}
-	if(var_d028d3a8.size == var_ce48d9bb.size)
+	if(a_str_quests.size == var_ce48d9bb.size)
 	{
 		foreach(player in level.players)
 		{
@@ -5608,11 +5608,11 @@ function function_c35c1036()
 */
 function function_43049e1e()
 {
-	var_d028d3a8 = array("ZOD", "FACTORY", "CASTLE", "ISLAND", "STALINGRAD");
+	a_str_quests = array("ZOD", "FACTORY", "CASTLE", "ISLAND", "STALINGRAD");
 	var_61d59a5a = [];
 	foreach(player in level.players)
 	{
-		foreach(str_quest in var_d028d3a8)
+		foreach(str_quest in a_str_quests)
 		{
 			b_quest_completed = (player zm_stats::get_global_stat(("DARKOPS_" + str_quest) + "_SUPER_EE")) > 0;
 			var_9d5e869 = isinarray(var_61d59a5a, str_quest);
@@ -5633,7 +5633,7 @@ function function_43049e1e()
 	/#
 		iprintlnbold(("" + var_61d59a5a.size) + "");
 	#/
-	if(var_61d59a5a.size == var_d028d3a8.size)
+	if(var_61d59a5a.size == a_str_quests.size)
 	{
 		return true;
 	}
