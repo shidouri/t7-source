@@ -1692,12 +1692,12 @@ function function_3d77d2aa()
 function function_478d8886()
 {
 	level endon("scenarios_complete");
-	var_7f5d5c6 = array("special_round", "lockdown_active");
+	a_str_flags = array("special_round", "lockdown_active");
 	while(true)
 	{
-		level flag::wait_till_any(var_7f5d5c6);
+		level flag::wait_till_any(a_str_flags);
 		level function_67cef48(0);
-		level flag::wait_till_clear_all(var_7f5d5c6);
+		level flag::wait_till_clear_all(a_str_flags);
 		level function_67cef48(1);
 	}
 }

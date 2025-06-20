@@ -164,11 +164,11 @@ function function_793f10ed(var_908867a0)
 */
 function function_8cde51de()
 {
-	var_7f5d5c6 = [];
-	array::add(var_7f5d5c6, "dragon_shield_used");
-	array::add(var_7f5d5c6, "dragon_gauntlet_acquired");
-	array::add(var_7f5d5c6, "dragon_strike_acquired");
-	flag::wait_till_all(var_7f5d5c6);
+	a_str_flags = [];
+	array::add(a_str_flags, "dragon_shield_used");
+	array::add(a_str_flags, "dragon_gauntlet_acquired");
+	array::add(a_str_flags, "dragon_strike_acquired");
+	flag::wait_till_all(a_str_flags);
 	level flag::set("dragon_wings_items_aquired");
 	if(!level flag::get("dragon_platforms_all_used"))
 	{

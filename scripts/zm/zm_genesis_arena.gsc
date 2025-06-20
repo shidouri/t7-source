@@ -6756,71 +6756,71 @@ function function_ef5cc959(n_val)
 function function_7104ee61(n_val)
 {
 	/#
-		var_7f5d5c6 = [];
-		if(!isdefined(var_7f5d5c6))
+		a_str_flags = [];
+		if(!isdefined(a_str_flags))
 		{
-			var_7f5d5c6 = [];
+			a_str_flags = [];
 		}
-		else if(!isarray(var_7f5d5c6))
+		else if(!isarray(a_str_flags))
 		{
-			var_7f5d5c6 = array(var_7f5d5c6);
+			a_str_flags = array(a_str_flags);
 		}
-		var_7f5d5c6[var_7f5d5c6.size] = "";
-		if(!isdefined(var_7f5d5c6))
+		a_str_flags[a_str_flags.size] = "";
+		if(!isdefined(a_str_flags))
 		{
-			var_7f5d5c6 = [];
+			a_str_flags = [];
 		}
-		else if(!isarray(var_7f5d5c6))
+		else if(!isarray(a_str_flags))
 		{
-			var_7f5d5c6 = array(var_7f5d5c6);
+			a_str_flags = array(a_str_flags);
 		}
-		var_7f5d5c6[var_7f5d5c6.size] = "";
-		if(!isdefined(var_7f5d5c6))
+		a_str_flags[a_str_flags.size] = "";
+		if(!isdefined(a_str_flags))
 		{
-			var_7f5d5c6 = [];
+			a_str_flags = [];
 		}
-		else if(!isarray(var_7f5d5c6))
+		else if(!isarray(a_str_flags))
 		{
-			var_7f5d5c6 = array(var_7f5d5c6);
+			a_str_flags = array(a_str_flags);
 		}
-		var_7f5d5c6[var_7f5d5c6.size] = "";
-		if(!isdefined(var_7f5d5c6))
+		a_str_flags[a_str_flags.size] = "";
+		if(!isdefined(a_str_flags))
 		{
-			var_7f5d5c6 = [];
+			a_str_flags = [];
 		}
-		else if(!isarray(var_7f5d5c6))
+		else if(!isarray(a_str_flags))
 		{
-			var_7f5d5c6 = array(var_7f5d5c6);
+			a_str_flags = array(a_str_flags);
 		}
-		var_7f5d5c6[var_7f5d5c6.size] = "";
-		if(!isdefined(var_7f5d5c6))
+		a_str_flags[a_str_flags.size] = "";
+		if(!isdefined(a_str_flags))
 		{
-			var_7f5d5c6 = [];
+			a_str_flags = [];
 		}
-		else if(!isarray(var_7f5d5c6))
+		else if(!isarray(a_str_flags))
 		{
-			var_7f5d5c6 = array(var_7f5d5c6);
+			a_str_flags = array(a_str_flags);
 		}
-		var_7f5d5c6[var_7f5d5c6.size] = "";
-		if(!isdefined(var_7f5d5c6))
+		a_str_flags[a_str_flags.size] = "";
+		if(!isdefined(a_str_flags))
 		{
-			var_7f5d5c6 = [];
+			a_str_flags = [];
 		}
-		else if(!isarray(var_7f5d5c6))
+		else if(!isarray(a_str_flags))
 		{
-			var_7f5d5c6 = array(var_7f5d5c6);
+			a_str_flags = array(a_str_flags);
 		}
-		var_7f5d5c6[var_7f5d5c6.size] = "";
-		if(!isdefined(var_7f5d5c6))
+		a_str_flags[a_str_flags.size] = "";
+		if(!isdefined(a_str_flags))
 		{
-			var_7f5d5c6 = [];
+			a_str_flags = [];
 		}
-		else if(!isarray(var_7f5d5c6))
+		else if(!isarray(a_str_flags))
 		{
-			var_7f5d5c6 = array(var_7f5d5c6);
+			a_str_flags = array(a_str_flags);
 		}
-		var_7f5d5c6[var_7f5d5c6.size] = "";
-		foreach(str_flag in var_7f5d5c6)
+		a_str_flags[a_str_flags.size] = "";
+		foreach(str_flag in a_str_flags)
 		{
 			if(math::cointoss())
 			{
