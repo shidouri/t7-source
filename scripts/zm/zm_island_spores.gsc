@@ -120,9 +120,9 @@ function function_53848c29()
 	}
 	else
 	{
-		var_40c45d15 = getentarray(self.target, "targetname");
+		a_t_spore = getentarray(self.target, "targetname");
 		a_s_spore = struct::get_array(self.target, "targetname");
-		foreach(t_spore in var_40c45d15)
+		foreach(t_spore in a_t_spore)
 		{
 			switch(t_spore.script_noteworthy)
 			{
