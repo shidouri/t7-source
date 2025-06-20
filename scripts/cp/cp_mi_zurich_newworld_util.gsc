@@ -901,8 +901,8 @@ function function_8531ac12(str_ability, str_endon)
 	while(!self flag::get(str_ability + "_WW_tutorial"))
 	{
 		self waittill("menuresponse", menu, response);
-		var_66700f08 = strtok(response, ",");
-		if(var_66700f08[0] == "opened")
+		a_str_response = strtok(response, ",");
+		if(a_str_response[0] == "opened")
 		{
 			self flag::set(str_ability + "_WW_opened");
 			self flag::clear(str_ability + "_WW_closed");
@@ -932,12 +932,12 @@ function function_b95b168e(str_ability, str_endon)
 	while(true)
 	{
 		self waittill("menuresponse", menu, response);
-		var_66700f08 = strtok(response, ",");
-		if(var_66700f08[0] == "opened")
+		a_str_response = strtok(response, ",");
+		if(a_str_response[0] == "opened")
 		{
 			continue;
 		}
-		if(var_66700f08[0] == str_ability)
+		if(a_str_response[0] == str_ability)
 		{
 			self flag::set(str_ability + "_WW_tutorial");
 			break;
