@@ -1768,13 +1768,13 @@ function function_7a64d508()
 	}
 	if(isdefined(var_3352e74) && var_3352e74)
 	{
-		var_90461c29 = [];
-		var_90461c29[0] = "floyd";
-		var_90461c29[1] = "jack";
-		var_90461c29[2] = "rose";
-		var_90461c29[3] = "nero";
+		a_str_confessor = [];
+		a_str_confessor[0] = "floyd";
+		a_str_confessor[1] = "jack";
+		a_str_confessor[2] = "rose";
+		a_str_confessor[3] = "nero";
 		var_f42a2187 = randomint(3) + 1;
-		var_5a4782f7 = ((((("vox_plr_" + var_76541c53) + "_confession_") + var_90461c29[var_76541c53]) + "_") + var_f42a2187) + "_0";
+		var_5a4782f7 = ((((("vox_plr_" + var_76541c53) + "_confession_") + a_str_confessor[var_76541c53]) + "_") + var_f42a2187) + "_0";
 		var_90788992 = array(var_5a4782f7);
 		var_678774f0 = array(0);
 		if(var_f3aa6934.size > 1)
@@ -1784,7 +1784,7 @@ function function_7a64d508()
 				var_2789c6f = array::random(var_f3aa6934);
 			}
 			while(var_2789c6f == var_76541c53);
-			var_e84013bc = ((((("vox_plr_" + var_2789c6f) + "_confession_") + var_90461c29[var_76541c53]) + "_response_") + var_f42a2187) + "_0";
+			var_e84013bc = ((((("vox_plr_" + var_2789c6f) + "_confession_") + a_str_confessor[var_76541c53]) + "_response_") + var_f42a2187) + "_0";
 			array::add(var_90788992, var_e84013bc);
 			array::add(var_678774f0, 0.5);
 		}
