@@ -141,9 +141,9 @@ function function_a5062ebd()
 			}
 		}
 	}
-	var_8fcfe322 = getentarray("zombie_trap", "targetname");
-	array::thread_all(var_8fcfe322, &function_5054a970);
-	foreach(t_trap in var_8fcfe322)
+	a_t_traps = getentarray("zombie_trap", "targetname");
+	array::thread_all(a_t_traps, &function_5054a970);
+	foreach(t_trap in a_t_traps)
 	{
 		if(t_trap.target === "trap_b")
 		{

@@ -1401,8 +1401,8 @@ function function_b9d3803a()
 */
 function function_cd541d08()
 {
-	var_8fcfe322 = getentarray("zombie_trap", "targetname");
-	foreach(t_trap in var_8fcfe322)
+	a_t_traps = getentarray("zombie_trap", "targetname");
+	foreach(t_trap in a_t_traps)
 	{
 		if(t_trap.script_noteworthy === "electric")
 		{

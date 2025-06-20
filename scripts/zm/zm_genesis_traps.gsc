@@ -63,8 +63,8 @@ function __main__()
 {
 	level flag::wait_till("start_zombie_round_logic");
 	precache_scripted_fx();
-	var_8fcfe322 = getentarray("t_flogger_trap", "targetname");
-	array::thread_all(var_8fcfe322, &function_835fd6d8);
+	a_t_traps = getentarray("t_flogger_trap", "targetname");
+	array::thread_all(a_t_traps, &function_835fd6d8);
 }
 
 /*
