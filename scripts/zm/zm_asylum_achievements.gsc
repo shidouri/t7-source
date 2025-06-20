@@ -221,8 +221,8 @@ function function_1abfde35(e_attacker)
 			return;
 		}
 		str_zone = e_attacker zm_zonemgr::get_player_zone();
-		var_1486ce13 = strtok(str_zone, "_");
-		if(var_1486ce13[1] != "upstairs")
+		a_str_zone = strtok(str_zone, "_");
+		if(a_str_zone[1] != "upstairs")
 		{
 			return;
 		}
