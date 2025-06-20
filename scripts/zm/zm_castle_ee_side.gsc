@@ -1432,8 +1432,8 @@ function function_b8645c20()
 */
 function function_79e1bd74(n_level)
 {
-	var_5824233 = array("p7_zm_ctl_newspaper_01_parade", "p7_zm_ctl_newspaper_01_attacks", "p7_zm_ctl_newspaper_01_outbreak");
-	str_model = var_5824233[n_level];
+	a_str_models = array("p7_zm_ctl_newspaper_01_parade", "p7_zm_ctl_newspaper_01_attacks", "p7_zm_ctl_newspaper_01_outbreak");
+	str_model = a_str_models[n_level];
 	if(!isdefined(level.var_31e6a027))
 	{
 		s_newspaper = struct::get("ee_newspaper");
