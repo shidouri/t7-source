@@ -81,8 +81,8 @@ function __init__()
 */
 function __main__()
 {
-	var_a0cf8f2b = getentarray("trigger_teleport_pad", "targetname");
-	foreach(n_index, e_trig in var_a0cf8f2b)
+	a_e_trig = getentarray("trigger_teleport_pad", "targetname");
+	foreach(n_index, e_trig in a_e_trig)
 	{
 		level.var_27b3c884[n_index] = e_trig;
 		e_trig thread teleport_pad_think();
@@ -365,13 +365,13 @@ function function_ad16f13c(e_who)
 */
 function function_6b3344b4()
 {
-	var_a0cf8f2b = getentarray("trigger_teleport_pad", "targetname");
+	a_e_trig = getentarray("trigger_teleport_pad", "targetname");
 	var_d30fe07b = 1;
 	players = level.activeplayers;
 	foreach(player in players)
 	{
 		var_1a19680c = 0;
-		foreach(e_trig in var_a0cf8f2b)
+		foreach(e_trig in a_e_trig)
 		{
 			if(player istouching(e_trig))
 			{
