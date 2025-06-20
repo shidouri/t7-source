@@ -1131,17 +1131,17 @@ function function_b1cd865a()
 */
 function function_397b26ee()
 {
-	var_45a970ad = [];
-	array::add(var_45a970ad, "fxexp_820");
-	array::add(var_45a970ad, "fxexp_821");
-	array::add(var_45a970ad, "fxexp_822");
-	array::add(var_45a970ad, "fxexp_823");
+	a_str_lightning = [];
+	array::add(a_str_lightning, "fxexp_820");
+	array::add(a_str_lightning, "fxexp_821");
+	array::add(a_str_lightning, "fxexp_822");
+	array::add(a_str_lightning, "fxexp_823");
 	wait(1.5);
-	while(var_45a970ad.size > 0)
+	while(a_str_lightning.size > 0)
 	{
-		str_lightning = array::random(var_45a970ad);
+		str_lightning = array::random(a_str_lightning);
 		exploder::exploder(str_lightning);
-		arrayremovevalue(var_45a970ad, str_lightning);
+		arrayremovevalue(a_str_lightning, str_lightning);
 		wait(randomfloatrange(0.5, 1.5));
 	}
 	wait(5);
@@ -1149,7 +1149,7 @@ function function_397b26ee()
 	exploder::stop_exploder("fxexp_821");
 	exploder::stop_exploder("fxexp_822");
 	exploder::stop_exploder("fxexp_823");
-	var_45a970ad = undefined;
+	a_str_lightning = undefined;
 }
 
 /*
