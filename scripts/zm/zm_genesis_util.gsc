@@ -1090,7 +1090,7 @@ function function_37a5b776()
 	}
 	for(k = 0; k < a_e_occupied.size; k++)
 	{
-		if(self istouching(var_a8951c29[k]))
+		if(self istouching(a_e_occupied[k]))
 		{
 			return true;
 		}
