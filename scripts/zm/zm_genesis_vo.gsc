@@ -2627,8 +2627,8 @@ function function_e658d896()
 		{
 			if(level.round_number > 10 && (!(isdefined(self.var_1cd72357) && self.var_1cd72357)))
 			{
-				var_b907c047 = array("shadowman_taunt_downed_demp", "shadowman_taunt_downed_niko", "shadowman_taunt_downed_rich", "shadowman_taunt_downed_take");
-				str_cat = var_b907c047[self.characterindex];
+				a_str_cat = array("shadowman_taunt_downed_demp", "shadowman_taunt_downed_niko", "shadowman_taunt_downed_rich", "shadowman_taunt_downed_take");
+				str_cat = a_str_cat[self.characterindex];
 				self function_502f946b();
 				while(isdefined(level.var_8c92b387[str_cat][0]))
 				{
