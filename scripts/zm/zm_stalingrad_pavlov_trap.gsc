@@ -31,8 +31,8 @@
 */
 function main()
 {
-	var_565a8d95 = struct::get_array("flinger_trigger", "targetname");
-	foreach(s_flinger in var_565a8d95)
+	a_t_flinger = struct::get_array("flinger_trigger", "targetname");
+	foreach(s_flinger in a_t_flinger)
 	{
 		var_66e182a0 = getentarray(s_flinger.target, "targetname");
 		s_flinger.var_66e182a0 = var_66e182a0;

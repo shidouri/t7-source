@@ -28,8 +28,8 @@
 */
 function main()
 {
-	var_565a8d95 = getentarray("flinger_trap_trigger", "targetname");
-	array::thread_all(var_565a8d95, &init_flinger);
+	a_t_flinger = getentarray("flinger_trap_trigger", "targetname");
+	array::thread_all(a_t_flinger, &init_flinger);
 }
 
 /*
