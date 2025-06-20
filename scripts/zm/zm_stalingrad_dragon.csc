@@ -593,8 +593,8 @@ function function_6865d0d5(localclientnum, oldval, newval, bnewent, binitialsnap
 			level.var_a4d6e1f1 = undefined;
 			level scene::add_scene_func("p7_fxanim_zm_stal_dragon_hazard_library_banner_01_bundle", &function_ae0e995e, "play");
 		}
-		var_f8efe776 = getentarray(localclientnum, "library_banner_01", "targetname");
-		foreach(mdl_banner in var_f8efe776)
+		a_mdl_banners = getentarray(localclientnum, "library_banner_01", "targetname");
+		foreach(mdl_banner in a_mdl_banners)
 		{
 			mdl_banner thread scene::play("p7_fxanim_zm_stal_dragon_hazard_library_banner_01_bundle", mdl_banner);
 		}
