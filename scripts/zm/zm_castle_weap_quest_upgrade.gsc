@@ -2578,7 +2578,7 @@ function demon_gate_runes()
 	}
 	level.var_234807d9 = array("demonic_rune_lor", "demonic_rune_ulla", "demonic_rune_oth", "demonic_rune_zor", "demonic_rune_mar", "demonic_rune_uja");
 	level.var_234807d9 = array::randomize(level.var_234807d9);
-	level.var_289ae31d = [];
+	level.a_str_crests = [];
 	level function_8700782f();
 	level thread function_dc9521bc();
 	level thread function_686645ab();
@@ -2655,15 +2655,15 @@ function function_8700782f()
 	for(i = 1; i < 4; i++)
 	{
 		var_49f8925e[i].n_index = i;
-		if(!isdefined(level.var_289ae31d))
+		if(!isdefined(level.a_str_crests))
 		{
-			level.var_289ae31d = [];
+			level.a_str_crests = [];
 		}
-		else if(!isarray(level.var_289ae31d))
+		else if(!isarray(level.a_str_crests))
 		{
-			level.var_289ae31d = array(level.var_289ae31d);
+			level.a_str_crests = array(level.a_str_crests);
 		}
-		level.var_289ae31d[level.var_289ae31d.size] = var_49f8925e[i].script_noteworthy;
+		level.a_str_crests[level.a_str_crests.size] = var_49f8925e[i].script_noteworthy;
 	}
 	for(i = 0; i < 6; i++)
 	{
@@ -2697,7 +2697,7 @@ function function_3520622d(b_wait = 1)
 		self endon(#"hash_3c5d2ca5");
 	#/
 	var_cd45655b = getent("aq_dg_urn_position", "targetname");
-	foreach(str_crest in level.var_289ae31d)
+	foreach(str_crest in level.a_str_crests)
 	{
 		b_played = var_cd45655b zm_castle_vo::function_7c63dd65(str_crest, b_wait);
 		if(!b_wait && !b_played)
