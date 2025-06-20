@@ -2289,27 +2289,27 @@ function function_f7879c72(e_attacker)
 */
 function function_5ebe7974()
 {
-	var_9fce6d52["zm_asylum_downstairs_zone"] = "visit_asylum";
-	var_9fce6d52["zm_asylum_upstairs_zone"] = "visit_asylum";
-	var_9fce6d52["zm_castle_undercroft_airlock_zone"] = "visit_castle";
-	var_9fce6d52["zm_castle_undercroft_hallway_zone"] = "visit_castle";
-	var_9fce6d52["zm_castle_undercroft_hallway2_zone"] = "visit_castle";
-	var_9fce6d52["zm_castle_undercroft_zone"] = "visit_castle";
-	var_9fce6d52["zm_prison_inner_zone"] = "visit_prison";
-	var_9fce6d52["zm_prototype_apothicon_zone"] = "visit_prototype";
-	var_9fce6d52["zm_prototype_balcony_zone"] = "visit_prototype";
-	var_9fce6d52["zm_prototype_box_zone"] = "visit_prototype";
-	var_9fce6d52["zm_prototype_outside_zone"] = "visit_prototype";
-	var_9fce6d52["zm_prototype_start_zone"] = "visit_prototype";
-	var_9fce6d52["zm_prototype_upstairs_zone"] = "visit_prototype";
-	var_9fce6d52["zm_temple_stairs_zone"] = "visit_temple";
-	var_9fce6d52["zm_temple_zone"] = "visit_temple";
-	var_9fce6d52["zm_temple2_zone"] = "visit_temple";
-	var_9fce6d52["zm_theater_foyer_zone"] = "visit_theater";
-	var_9fce6d52["zm_theater_zone"] = "visit_theater";
-	var_9fce6d52["zm_tomb_trench_center_zone"] = "visit_tomb";
-	var_9fce6d52["zm_tomb_generator_zone"] = "visit_tomb";
-	var_9fce6d52["zm_tomb_ruins2_zone"] = "visit_tomb";
+	a_str_visit["zm_asylum_downstairs_zone"] = "visit_asylum";
+	a_str_visit["zm_asylum_upstairs_zone"] = "visit_asylum";
+	a_str_visit["zm_castle_undercroft_airlock_zone"] = "visit_castle";
+	a_str_visit["zm_castle_undercroft_hallway_zone"] = "visit_castle";
+	a_str_visit["zm_castle_undercroft_hallway2_zone"] = "visit_castle";
+	a_str_visit["zm_castle_undercroft_zone"] = "visit_castle";
+	a_str_visit["zm_prison_inner_zone"] = "visit_prison";
+	a_str_visit["zm_prototype_apothicon_zone"] = "visit_prototype";
+	a_str_visit["zm_prototype_balcony_zone"] = "visit_prototype";
+	a_str_visit["zm_prototype_box_zone"] = "visit_prototype";
+	a_str_visit["zm_prototype_outside_zone"] = "visit_prototype";
+	a_str_visit["zm_prototype_start_zone"] = "visit_prototype";
+	a_str_visit["zm_prototype_upstairs_zone"] = "visit_prototype";
+	a_str_visit["zm_temple_stairs_zone"] = "visit_temple";
+	a_str_visit["zm_temple_zone"] = "visit_temple";
+	a_str_visit["zm_temple2_zone"] = "visit_temple";
+	a_str_visit["zm_theater_foyer_zone"] = "visit_theater";
+	a_str_visit["zm_theater_zone"] = "visit_theater";
+	a_str_visit["zm_tomb_trench_center_zone"] = "visit_tomb";
+	a_str_visit["zm_tomb_generator_zone"] = "visit_tomb";
+	a_str_visit["zm_tomb_ruins2_zone"] = "visit_tomb";
 	level thread function_a800aae9();
 	level waittill("start_zombie_round_logic");
 	while(true)
@@ -2323,7 +2323,7 @@ function function_5ebe7974()
 					str_player_zone = player zm_zonemgr::get_player_zone();
 					if(isdefined(str_player_zone))
 					{
-						str_visit = var_9fce6d52[str_player_zone];
+						str_visit = a_str_visit[str_player_zone];
 						if(!isdefined(str_visit))
 						{
 							continue;
