@@ -394,28 +394,28 @@ function function_aa6437f1()
 function function_b4575902()
 {
 	a_s_batteries = struct::get_array("ancient_battery", "targetname");
-	var_5a533244 = [];
+	a_mdl_batteries = [];
 	foreach(s_battery in a_s_batteries)
 	{
 		mdl_battery = util::spawn_model("p7_zm_ctl_battery_ceramic", s_battery.origin, s_battery.angles);
 		mdl_battery.target = s_battery.target;
-		if(!isdefined(var_5a533244))
+		if(!isdefined(a_mdl_batteries))
 		{
-			var_5a533244 = [];
+			a_mdl_batteries = [];
 		}
-		else if(!isarray(var_5a533244))
+		else if(!isarray(a_mdl_batteries))
 		{
-			var_5a533244 = array(var_5a533244);
+			a_mdl_batteries = array(a_mdl_batteries);
 		}
-		var_5a533244[var_5a533244.size] = mdl_battery;
+		a_mdl_batteries[a_mdl_batteries.size] = mdl_battery;
 	}
 	function_9157236c();
-	foreach(mdl_battery in var_5a533244)
+	foreach(mdl_battery in a_mdl_batteries)
 	{
 		mdl_battery clientfield::set("battery_fx", 1);
 	}
-	function_b8449f8c(var_5a533244);
-	foreach(mdl_battery in var_5a533244)
+	function_b8449f8c(a_mdl_batteries);
+	foreach(mdl_battery in a_mdl_batteries)
 	{
 		mdl_battery clientfield::set("battery_fx", 0);
 	}
@@ -504,23 +504,23 @@ function function_9157236c()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b8449f8c(var_5a533244)
+function function_b8449f8c(a_mdl_batteries)
 {
 	level.var_5317b760 = 1;
-	for(i = 0; i < var_5a533244.size; i++)
+	for(i = 0; i < a_mdl_batteries.size; i++)
 	{
-		var_5a533244[i].var_b4a21360 = 5;
+		a_mdl_batteries[i].var_b4a21360 = 5;
 	}
-	while(var_5a533244.size > 0)
+	while(a_mdl_batteries.size > 0)
 	{
 		level waittill("a_kill");
 		v_kill_pos = level.var_98fdd784;
 		var_e84c42f6 = 0;
 		var_688f490b = undefined;
 		n_closest_dist = 9999999;
-		for(i = 0; i < var_5a533244.size; i++)
+		for(i = 0; i < a_mdl_batteries.size; i++)
 		{
-			mdl_battery = var_5a533244[i];
+			mdl_battery = a_mdl_batteries[i];
 			s_center = struct::get(mdl_battery.target, "targetname");
 			n_dist = distance(s_center.origin, v_kill_pos);
 			if(n_dist < n_closest_dist)
@@ -550,7 +550,7 @@ function function_b8449f8c(var_5a533244)
 			if(var_688f490b.var_b4a21360 <= 0)
 			{
 				var_688f490b clientfield::set("battery_fx", 2);
-				arrayremovevalue(var_5a533244, var_688f490b);
+				arrayremovevalue(a_mdl_batteries, var_688f490b);
 				var_688f490b playsound("zmb_wearable_siegfried_battery_charged");
 				/#
 					iprintlnbold("");
