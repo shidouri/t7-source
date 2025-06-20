@@ -290,12 +290,12 @@ function achievement_wardrobe_change()
 {
 	level endon("end_game");
 	self endon("disconnect");
-	var_fc2fd82c = [];
+	a_str_wearable = [];
 	while(true)
 	{
 		self waittill("changed_wearable", var_475b0a4e);
-		array::add(var_fc2fd82c, var_475b0a4e, 0);
-		if(var_fc2fd82c.size >= 3)
+		array::add(a_str_wearable, var_475b0a4e, 0);
+		if(a_str_wearable.size >= 3)
 		{
 			self giveachievement("ZM_GENESIS_WARDROBE_CHANGE");
 			return;
