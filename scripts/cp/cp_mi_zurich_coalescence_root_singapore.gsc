@@ -528,8 +528,8 @@ function function_26f61e7c()
 */
 function function_8842e57d()
 {
-	var_d5aeed2b = getentarray("root_sing_cover", "targetname");
-	var_d5aeed2b = array::thread_all(var_d5aeed2b, &function_258afdfc);
+	a_t_cover = getentarray("root_sing_cover", "targetname");
+	a_t_cover = array::thread_all(a_t_cover, &function_258afdfc);
 }
 
 /*
