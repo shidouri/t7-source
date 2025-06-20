@@ -296,8 +296,8 @@ function prevent_theater_mode_spoilers()
 */
 function function_ffcfbd77()
 {
-	var_8b8460d5 = array("fuse_01", "fuse_02", "fuse_03");
-	foreach(str_fuse in var_8b8460d5)
+	a_str_fuses = array("fuse_01", "fuse_02", "fuse_03");
+	foreach(str_fuse in a_str_fuses)
 	{
 		mdl_fuse = level zm_craftables::get_craftable_piece_model("police_box", str_fuse);
 		mdl_fuse clientfield::set("item_glow_fx", 4);
