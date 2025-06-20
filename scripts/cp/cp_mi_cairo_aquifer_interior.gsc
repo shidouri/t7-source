@@ -494,80 +494,80 @@ function chase_vo()
 */
 function escape_vo()
 {
-	var_296988d3 = [];
-	if(!isdefined(var_296988d3))
+	a_str_line = [];
+	if(!isdefined(a_str_line))
 	{
-		var_296988d3 = [];
+		a_str_line = [];
 	}
-	else if(!isarray(var_296988d3))
+	else if(!isarray(a_str_line))
 	{
-		var_296988d3 = array(var_296988d3);
+		a_str_line = array(a_str_line);
 	}
-	var_296988d3[var_296988d3.size] = "plyr_we_need_to_get_back_0";
-	if(!isdefined(var_296988d3))
+	a_str_line[a_str_line.size] = "plyr_we_need_to_get_back_0";
+	if(!isdefined(a_str_line))
 	{
-		var_296988d3 = [];
+		a_str_line = [];
 	}
-	else if(!isarray(var_296988d3))
+	else if(!isarray(a_str_line))
 	{
-		var_296988d3 = array(var_296988d3);
+		a_str_line = array(a_str_line);
 	}
-	var_296988d3[var_296988d3.size] = "kane_you_need_to_get_out_0";
-	if(!isdefined(var_296988d3))
+	a_str_line[a_str_line.size] = "kane_you_need_to_get_out_0";
+	if(!isdefined(a_str_line))
 	{
-		var_296988d3 = [];
+		a_str_line = [];
 	}
-	else if(!isarray(var_296988d3))
+	else if(!isarray(a_str_line))
 	{
-		var_296988d3 = array(var_296988d3);
+		a_str_line = array(a_str_line);
 	}
-	var_296988d3[var_296988d3.size] = "hend_keep_moving_this_pl_0";
-	if(!isdefined(var_296988d3))
+	a_str_line[a_str_line.size] = "hend_keep_moving_this_pl_0";
+	if(!isdefined(a_str_line))
 	{
-		var_296988d3 = [];
+		a_str_line = [];
 	}
-	else if(!isarray(var_296988d3))
+	else if(!isarray(a_str_line))
 	{
-		var_296988d3 = array(var_296988d3);
+		a_str_line = array(a_str_line);
 	}
-	var_296988d3[var_296988d3.size] = "skip";
-	if(!isdefined(var_296988d3))
+	a_str_line[a_str_line.size] = "skip";
+	if(!isdefined(a_str_line))
 	{
-		var_296988d3 = [];
+		a_str_line = [];
 	}
-	else if(!isarray(var_296988d3))
+	else if(!isarray(a_str_line))
 	{
-		var_296988d3 = array(var_296988d3);
+		a_str_line = array(a_str_line);
 	}
-	var_296988d3[var_296988d3.size] = "hend_watch_out_1";
-	if(!isdefined(var_296988d3))
+	a_str_line[a_str_line.size] = "hend_watch_out_1";
+	if(!isdefined(a_str_line))
 	{
-		var_296988d3 = [];
+		a_str_line = [];
 	}
-	else if(!isarray(var_296988d3))
+	else if(!isarray(a_str_line))
 	{
-		var_296988d3 = array(var_296988d3);
+		a_str_line = array(a_str_line);
 	}
-	var_296988d3[var_296988d3.size] = "hend_keep_up_0";
-	for(i = 0; i < var_296988d3.size; i++)
+	a_str_line[a_str_line.size] = "hend_keep_up_0";
+	for(i = 0; i < a_str_line.size; i++)
 	{
 		level waittill("shake");
 		wait(2);
-		if(var_296988d3[i] != "skip")
+		if(a_str_line[i] != "skip")
 		{
 			if(i == 0)
 			{
-				dialog::player_say(var_296988d3[i]);
+				dialog::player_say(a_str_line[i]);
 				continue;
 			}
 			if(i == 1)
 			{
-				level dialog::remote(var_296988d3[i]);
+				level dialog::remote(a_str_line[i]);
 				i++;
-				level.hendricks dialog::say(var_296988d3[i]);
+				level.hendricks dialog::say(a_str_line[i]);
 				continue;
 			}
-			level.hendricks dialog::say(var_296988d3[i]);
+			level.hendricks dialog::say(a_str_line[i]);
 		}
 	}
 }
